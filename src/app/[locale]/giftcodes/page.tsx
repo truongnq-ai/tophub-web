@@ -87,7 +87,7 @@ export default async function GiftcodesPage({ params: { locale } }: GiftcodesPag
       "@type": "ListItem",
       position: index + 1,
       name: item.code,
-      description: `Mã code Top Heroes ${item.status === "ACTIVE" ? "còn hạn" : "hết hạn"}`,
+      description: `Mã code Top Heroes ${item.status === "ACTIVE" || item.status === "VALID" ? "còn hạn" : "hết hạn"}`,
     })),
   };
 

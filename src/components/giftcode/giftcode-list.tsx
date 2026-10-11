@@ -30,13 +30,16 @@ export function GiftcodeList({ initialItems, translations }: GiftcodeListProps) 
   const [search, setSearch] = useState("");
   const [batchCopied, setBatchCopied] = useState(false);
 
+  const isItemActive = (status: string) => status === "ACTIVE" || status === "VALID";
+  const isItemExpired = (status: string) => status === "EXPIRED" || status === "INVALID";
+
   const activeItems = useMemo(
-    () => initialItems.filter((i) => i.status === "ACTIVE"),
+    () => initialItems.filter((i) => isItemActive(i.status)),
     [initialItems]
   );
   const activeCount = activeItems.length;
   const expiredCount = useMemo(
-    () => initialItems.filter((i) => i.status === "EXPIRED").length,
+    () => initialItems.filter((i) => isItemExpired(i.status)).length,
     [initialItems]
   );
 
@@ -56,8 +59,8 @@ export function GiftcodeList({ initialItems, translations }: GiftcodeListProps) 
     return initialItems.filter((item) => {
       const matchesTab =
         activeTab === "ALL" ||
-        (activeTab === "ACTIVE" && item.status === "ACTIVE") ||
-        (activeTab === "EXPIRED" && item.status === "EXPIRED");
+        (activeTab === "ACTIVE" && isItemActive(item.status)) ||
+        (activeTab === "EXPIRED" && isItemExpired(item.status));
 
       const matchesSearch = item.code.toLowerCase().includes(search.trim().toLowerCase());
 
@@ -71,6 +74,7 @@ export function GiftcodeList({ initialItems, translations }: GiftcodeListProps) 
     copy: translations.copy,
     copied: translations.copied,
     discoveredAt: translations.discoveredAt,
+    expiresAt: translations.expiresAt,
   };
 
   return (

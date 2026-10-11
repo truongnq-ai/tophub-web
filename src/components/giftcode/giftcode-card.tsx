@@ -16,6 +16,7 @@ interface GiftcodeCardProps {
     copy?: string;
     copied?: string;
     discoveredAt?: string;
+    expiresAt?: string;
   };
 }
 
@@ -32,12 +33,20 @@ export function GiftcodeCard({ item, labels }: GiftcodeCardProps) {
     }
   };
 
-  const isActive = item.status === "ACTIVE";
+  const isActive = item.status === "ACTIVE" || item.status === "VALID";
   const formattedDate = new Date(item.discovered_at).toLocaleDateString("vi-VN", {
     year: "numeric",
     month: "2-digit",
     day: "2-digit",
   });
+  const expiryDate =
+    item.valid_to || item.expires_at
+      ? new Date(item.valid_to || item.expires_at!).toLocaleDateString("vi-VN", {
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+        })
+      : null;
 
   return (
     <Card className="overflow-hidden border border-border/80 bg-card/80 backdrop-blur-md transition-all duration-300 hover:border-primary/60 hover:shadow-[0_0_25px_rgba(124,58,237,0.18)] hover:-translate-y-0.5">
@@ -61,9 +70,18 @@ export function GiftcodeCard({ item, labels }: GiftcodeCardProps) {
             </Badge>
           )}
 
-          <div className="flex items-center text-xs text-muted-foreground gap-1.5">
-            <span>{labels?.discoveredAt || "Phát hiện"}:</span>
-            <span className="font-mono font-medium text-foreground/90">{formattedDate}</span>
+          <div className="flex flex-col items-end text-xs text-muted-foreground gap-0.5">
+            <div className="flex items-center gap-1.5">
+              <span>{labels?.discoveredAt || "Phát hiện"}:</span>
+              <span className="font-mono font-medium text-foreground/90">{formattedDate}</span>
+            </div>
+            {expiryDate && (
+              <div className="flex items-center gap-1 text-amber-500 dark:text-amber-400 font-medium">
+                <Clock className="h-3 w-3" />
+                <span>{labels?.expiresAt || "Hạn"}:</span>
+                <span className="font-mono">{expiryDate}</span>
+              </div>
+            )}
           </div>
         </div>
 

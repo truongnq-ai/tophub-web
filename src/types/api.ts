@@ -7,9 +7,11 @@ export interface ApiResponse<T> {
 
 export interface GiftCodeItem {
   code: string;
-  status: "ACTIVE" | "EXPIRED";
+  status: "ACTIVE" | "EXPIRED" | "VALID" | "PENDING_VALIDATION" | "INVALID";
   discovered_at: string;
   expires_at: string | null;
+  valid_from?: string | null;
+  valid_to?: string | null;
 }
 
 export interface PublicGiftcodesResponse {
