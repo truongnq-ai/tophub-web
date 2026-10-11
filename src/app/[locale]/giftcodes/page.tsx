@@ -103,6 +103,8 @@ export default async function GiftcodesPage({ params: { locale } }: GiftcodesPag
     empty: t("empty"),
     copy: tCommon("copy"),
     copied: tCommon("copied"),
+    copyAll: t("copyAll"),
+    copiedAll: t("copiedAll"),
   };
 
   const steps = [

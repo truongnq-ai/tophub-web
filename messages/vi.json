@@ -29,6 +29,8 @@
     "discoveredAt": "Phát hiện lúc",
     "expiresAt": "Hạn sử dụng",
     "empty": "Không tìm thấy giftcode nào phù hợp.",
+    "copyAll": "Sao Chép Tất Cả Code Còn Hạn",
+    "copiedAll": "Đã sao chép toàn bộ code còn hạn!",
     "tutorialTitle": "Hướng Dẫn Nhập Code Trong Game Top Heroes",
     "step1": "Mở game Top Heroes trên điện thoại hoặc giả lập.",
     "step2": "Bấm vào ảnh đại diện (Avatar) nhân vật ở góc trên cùng bên trái.",

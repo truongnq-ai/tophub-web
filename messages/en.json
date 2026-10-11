@@ -29,6 +29,8 @@
     "discoveredAt": "Discovered at",
     "expiresAt": "Expires at",
     "empty": "No giftcodes found.",
+    "copyAll": "Copy All Active Codes",
+    "copiedAll": "All active codes copied!",
     "tutorialTitle": "How To Redeem Giftcodes In Top Heroes",
     "step1": "Open Top Heroes on your device or emulator.",
     "step2": "Tap your Avatar icon in the top left corner.",
