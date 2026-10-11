@@ -48,7 +48,7 @@ export default async function DashboardPage({ params: { locale } }: DashboardPag
   // 2. Check Discord Session fallback for existing users
   const session = await getServerSession(authOptions);
   if (!session?.user?.discord_id) {
-    redirect(`/${locale}/login`);
+    redirect(`/${locale}`);
   }
 
   const t = await getTranslations({ locale, namespace: "Dashboard" });

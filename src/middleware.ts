@@ -10,6 +10,9 @@ const publicPages = [
   "/login",
   "/terms",
   "/privacy",
+  "/check",
+  "/admin/login",
+  "/admin/dashboard",
 ];
 
 const intlMiddleware = createMiddleware(routing);
@@ -27,13 +30,15 @@ const authMiddleware = withAuth(
 );
 
 export default function middleware(req: NextRequest) {
-  const publicPathnameRegex = RegExp(
-    `^(/(${routing.locales.join("|")}))?(${publicPages
-      .flatMap((p) => (p === "/" ? ["", "/"] : p))
-      .join("|")})/?$`,
-    "i"
+  const pathname = req.nextUrl.pathname;
+
+  // Extract path without locale prefix (e.g., /en/admin/login -> /admin/login)
+  const pathnameWithoutLocale =
+    pathname.replace(new RegExp(`^/(${routing.locales.join("|")})`), "") || "/";
+
+  const isPublicPage = publicPages.some((page) =>
+    page === "/" ? pathnameWithoutLocale === "/" : pathnameWithoutLocale.startsWith(page)
   );
-  const isPublicPage = publicPathnameRegex.test(req.nextUrl.pathname);
 
   if (isPublicPage) {
     return intlMiddleware(req);
