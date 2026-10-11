@@ -1,7 +1,6 @@
 "use client";
-
 import React, { useState, useMemo } from "react";
-import { Search, Gift, Filter } from "lucide-react";
+import { Search, Gift, Filter, Check, Copy } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { GiftcodeCard } from "@/components/giftcode/giftcode-card";
