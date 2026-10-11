@@ -8,7 +8,26 @@ import { authOptions } from "@/auth";
 import { Providers } from "@/components/providers";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { Outfit, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import "../../styles/global.css";
+
+const outfit = Outfit({
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-outfit",
+  display: "swap",
+});
+
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ["latin", "vietnamese"],
+  variable: "--font-jakarta",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+});
 
 type Props = {
   children: ReactNode;
@@ -32,7 +51,7 @@ export default async function LocaleLayout({
         <title>TopHub — Top Heroes Companion & Automation</title>
         <meta name="description" content="Tự động săn Giftcode, điểm danh hàng ngày và theo dõi sự kiện game Top Heroes." />
       </head>
-      <body className="min-h-screen bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary">
+      <body className={`${outfit.variable} ${jakarta.variable} ${jetbrainsMono.variable} font-sans min-h-screen bg-background text-foreground antialiased selection:bg-primary/25 selection:text-primary`}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Providers session={session}>
             <div className="flex min-h-screen flex-col">
