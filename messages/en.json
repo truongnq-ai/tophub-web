@@ -1,0 +1,230 @@
+{
+  "Navigation": {
+    "home": "Home",
+    "giftcodes": "Giftcodes",
+    "pricing": "Pricing",
+    "dashboard": "Dashboard",
+    "login": "Login with Discord",
+    "logout": "Logout"
+  },
+  "Common": {
+    "copy": "Copy",
+    "copied": "Copied!",
+    "loading": "Processing...",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "save": "Save Changes",
+    "error": "An error occurred",
+    "success": "Success"
+  },
+  "Giftcodes": {
+    "title": "Latest Top Heroes Giftcodes 2026",
+    "metaDescription": "Full collection of active Top Heroes redeem gift codes, updated automatically 24/7.",
+    "badgeActive": "Active",
+    "badgeExpired": "Expired",
+    "filterAll": "All",
+    "filterActive": "Active",
+    "filterExpired": "Expired",
+    "searchPlaceholder": "Search giftcodes...",
+    "discoveredAt": "Discovered at",
+    "expiresAt": "Expires at",
+    "empty": "No giftcodes found.",
+    "tutorialTitle": "How To Redeem Giftcodes In Top Heroes",
+    "step1": "Open Top Heroes on your device or emulator.",
+    "step2": "Tap your Avatar icon in the top left corner.",
+    "step3": "Navigate to Settings -> Giftcode.",
+    "step4": "Paste the copied code and tap Redeem to claim rewards from your mailbox."
+  },
+  "Pricing": {
+    "title": "TopHub Pro Pricing Plans",
+    "metaDescription": "Unlock automatic 60s giftcode redemption and daily auto-checkin with TopHub Pro.",
+    "freeTitle": "Free Tier",
+    "freePrice": "$0",
+    "freeDesc": "For casual players testing the waters",
+    "freeFeature1": "Public giftcode database access",
+    "freeFeature2": "Manage up to 1 game account",
+    "freeFeature3": "Manual checkin and code redemption",
+    "proTitle": "TopHub PRO",
+    "proDesc": "Full automation, never miss any rare rewards",
+    "proFeature1": "24/7 Auto Giftcode Hunt (redeemed within 60s)",
+    "proFeature2": "Daily auto-checkin at 00:05 UTC",
+    "proFeature3": "Manage up to 5 game accounts",
+    "proFeature4": "Instant Discord bot notifications",
+    "cycle1": "1 Month",
+    "cycle3": "3 Months (-10%)",
+    "cycle6": "6 Months (-20%)",
+    "cycle12": "12 Months (-30%)",
+    "popularBadge": "Most Popular",
+    "bestValueBadge": "Best Value",
+    "upgradeBtn": "Upgrade To PRO Now",
+    "loginToBuy": "Login with Discord to Purchase",
+    "vietqrModalTitle": "Pay via VietQR / Bank Transfer",
+    "vietqrModalDesc": "Scan the QR code with any banking app to activate instantly",
+    "orderCodeLabel": "Order Code",
+    "amountLabel": "Amount",
+    "bankLabel": "Beneficiary Bank",
+    "accountNumberLabel": "Account Number",
+    "accountNameLabel": "Account Name",
+    "transferContentLabel": "Transfer Description (Mandatory)",
+    "countdownLabel": "QR Code expires in",
+    "waitingPayment": "Waiting for payment confirmation...",
+    "paymentSuccess": "Payment successful! Your PRO plan is now active."
+  },
+  "Dashboard": {
+    "title": "User Dashboard",
+    "welcome": "Welcome back",
+    "planStatus": "Current Plan",
+    "daysLeft": "{days} days left",
+    "trialBadge": "PRO Trial",
+    "trialBanner": "Congratulations! You have received a 7-day free trial of TopHub PRO.",
+    "manageAccountsTitle": "Linked Game Accounts",
+    "manageAccountsDesc": "Configure automation features for your game characters",
+    "addAccountBtn": "Link New Game UID",
+    "autoRedeem": "Auto Giftcode Hunt",
+    "autoCheckin": "Daily Auto Check-in",
+    "unlink": "Unlink Account",
+    "unlinkConfirmTitle": "Confirm Unlinking",
+    "unlinkConfirmDesc": "Are you sure you want to unlink this account? Automation will stop immediately.",
+    "addModalTitle": "Link Top Heroes Game Account",
+    "addModalDesc": "Enter your in-game UID (found in Game Settings). Nickname and server will be verified automatically.",
+    "uidLabel": "Game UID (10-20 digits)",
+    "uidPlaceholder": "e.g. 2446869146316",
+    "verifying": "Verifying with Top Heroes game servers...",
+    "addSuccess": "Successfully linked character {nickname} on server {server}!",
+    "emptyAccounts": "No game accounts linked yet. Add your first UID to get started!"
+  },
+  "Index": {
+    "hero": {
+      "title-1": "Top Heroes",
+      "title-2": "Companion",
+      "description": "Companion platform for Top Heroes players: 60s auto giftcode claim, daily check-in, and multi-account UID management.",
+      "new": "New",
+      "punchline": "Smart automation for Top Heroes"
+    },
+    "features": {
+      "authentication": {
+        "title": "Discord Login",
+        "description": "Fast and secure 1-click authentication through your Discord account."
+      },
+      "internationalization": {
+        "title": "Multilingual",
+        "description": "Native Vietnamese and English support for global players."
+      },
+      "analytics": {
+        "title": "24/7 Automation",
+        "description": "Bot server monitors new giftcodes every 60 seconds and redeems instantly."
+      },
+      "themes": {
+        "title": "Dark & Light Mode",
+        "description": "Seamlessly switch between dark and light modes to protect your eyes."
+      },
+      "components": {
+        "title": "VietQR Payment",
+        "description": "Upgrade to Pro tier instantly with QR banking transfer integration."
+      },
+      "free": {
+        "title": "7-Day Free Trial",
+        "description": "Get 7 days of Pro automation features completely free when linking your first UID."
+      }
+    },
+    "title": "Home",
+    "welcome": "Welcome to Top Heroes Companion"
+  },
+  "LocaleLayout": {
+    "title": "Top Heroes Companion"
+  },
+  "LocaleSwitcher": {
+    "switchLocale": "Switch language"
+  },
+  "Footer": {
+    "title": "TopHub Companion",
+    "description": "Independent companion platform for Top Heroes players",
+    "followUs": "Community",
+    "aboutUs": "About us",
+    "quickLinks": "Quick links",
+    "contact": "Support",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "rights": "All rights reserved"
+  },
+  "Privacy": {
+    "title": "Privacy Policy",
+    "description": "Last updated: 2026",
+    "Sections": {
+      "Introduction": {
+        "title": "Introduction",
+        "content": "Welcome to our Privacy Policy. Your privacy is critically important to us."
+      },
+      "DataCollected": {
+        "title": "Data Collected",
+        "content": "We collect information such as your Discord user ID and game UID provided by you."
+      },
+      "PurposeOfCollection": {
+        "title": "Purpose of Collection",
+        "content": "We use your data exclusively to automate daily check-in, redeem giftcodes, and send notifications."
+      },
+      "DataStorageDuration": {
+        "title": "Data Storage Duration",
+        "content": "We store your data as long as your account remains linked on our service."
+      },
+      "ThirdCountries": {
+        "title": "Third Parties",
+        "content": "We never sell or share your data with external third-party advertisers."
+      },
+      "YourRights": {
+        "title": "Your Rights",
+        "content": "You have the right to unlink your accounts and delete your data at any time."
+      },
+      "Cookies": {
+        "title": "Cookies and Sessions",
+        "content": "We use encrypted session cookies to manage NextAuth authentication."
+      },
+      "Conclusion": {
+        "title": "Contact",
+        "content": "If you have any questions, reach out through our official Discord server."
+      }
+    }
+  },
+  "TermsOfUse": {
+    "title": "Terms of Use",
+    "description": "Last updated: 2026",
+    "Sections": {
+      "Introduction": {
+        "title": "Introduction",
+        "content": "By accessing or using our services, you agree to comply with these Terms of Use."
+      },
+      "UseOfServices": {
+        "title": "Use of Services",
+        "content": "Our platform assists Top Heroes players with automated reward collection."
+      },
+      "UserObligations": {
+        "title": "User Obligations",
+        "content": "Users are responsible for providing valid in-game account UIDs."
+      },
+      "IntellectualProperty": {
+        "title": "Intellectual Property",
+        "content": "Top Heroes is a trademark of its respective game publisher. TopHub is an independent companion platform."
+      },
+      "LimitationOfLiability": {
+        "title": "Limitation of Liability",
+        "content": "We provide automation services on a best-effort basis and are not liable during game maintenance periods."
+      },
+      "Termination": {
+        "title": "Termination of Use",
+        "content": "We reserve the right to suspend access if abusive behavior is detected."
+      },
+      "GoverningLaw": {
+        "title": "Governing Law",
+        "content": "These terms are governed by applicable laws and regulations."
+      },
+      "ChangesToTerms": {
+        "title": "Changes to Terms",
+        "content": "We may update these terms periodically to reflect service improvements."
+      },
+      "Conclusion": {
+        "title": "Support",
+        "content": "Thank you for using TopHub Companion."
+      }
+    }
+  }
+}

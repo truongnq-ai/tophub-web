@@ -1,0 +1,230 @@
+{
+  "Navigation": {
+    "home": "Trang Chủ",
+    "giftcodes": "Săn Giftcode",
+    "pricing": "Bảng Giá",
+    "dashboard": "Dashboard",
+    "login": "Đăng Nhập Discord",
+    "logout": "Đăng Xuất"
+  },
+  "Common": {
+    "copy": "Sao chép",
+    "copied": "Đã chép!",
+    "loading": "Đang xử lý...",
+    "confirm": "Xác nhận",
+    "cancel": "Hủy bỏ",
+    "save": "Lưu thay đổi",
+    "error": "Đã có lỗi xảy ra",
+    "success": "Thành công"
+  },
+  "Giftcodes": {
+    "title": "Giftcode Top Heroes Mới Nhất 2026",
+    "metaDescription": "Tổng hợp mã quà tặng game Top Heroes mới nhất còn hạn sử dụng, tự động cập nhật liên tục 24/7.",
+    "badgeActive": "Còn Hạn",
+    "badgeExpired": "Hết Hạn",
+    "filterAll": "Tất Cả",
+    "filterActive": "Đang Hoạt Động",
+    "filterExpired": "Đã Hết Hạn",
+    "searchPlaceholder": "Tìm mã giftcode...",
+    "discoveredAt": "Phát hiện lúc",
+    "expiresAt": "Hạn sử dụng",
+    "empty": "Không tìm thấy giftcode nào phù hợp.",
+    "tutorialTitle": "Hướng Dẫn Nhập Code Trong Game Top Heroes",
+    "step1": "Mở game Top Heroes trên điện thoại hoặc giả lập.",
+    "step2": "Bấm vào ảnh đại diện (Avatar) nhân vật ở góc trên cùng bên trái.",
+    "step3": "Chọn mục Cài Đặt (Settings) -> bấm chọn Giftcode.",
+    "step4": "Dán mã quà tặng vừa sao chép và bấm Đổi để nhận quà vào hòm thư."
+  },
+  "Pricing": {
+    "title": "Bảng Giá Gói Cước TopHub Pro",
+    "metaDescription": "Mở khóa tính năng tự động săn giftcode trong 60 giây và tự động điểm danh hàng ngày với gói TopHub Pro.",
+    "freeTitle": "Gói Miễn Phí",
+    "freePrice": "0đ",
+    "freeDesc": "Phù hợp cho người chơi trải nghiệm cơ bản",
+    "freeFeature1": "Xem danh sách giftcode công khai",
+    "freeFeature2": "Quản lý tối đa 1 tài khoản game",
+    "freeFeature3": "Điểm danh và nhập code thủ công",
+    "proTitle": "Gói TopHub PRO",
+    "proDesc": "Tự động hóa toàn diện, không bỏ lỡ bất kỳ mã quà tặng nào",
+    "proFeature1": "Tự động săn giftcode 24/7 (nhận trong 60s)",
+    "proFeature2": "Tự động điểm danh hàng ngày lúc 00:05",
+    "proFeature3": "Quản lý tối đa 5 tài khoản game",
+    "proFeature4": "Thông báo trạng thái qua tin nhắn Discord",
+    "cycle1": "1 Tháng",
+    "cycle3": "3 Tháng (-10%)",
+    "cycle6": "6 Tháng (-20%)",
+    "cycle12": "12 Tháng (-30%)",
+    "popularBadge": "Phổ Biến Nhất",
+    "bestValueBadge": "Tiết Kiệm Nhất",
+    "upgradeBtn": "Nâng Cấp PRO Ngay",
+    "loginToBuy": "Đăng Nhập Discord Để Mua Gói",
+    "vietqrModalTitle": "Thanh Toán VietQR Qua Ngân Hàng",
+    "vietqrModalDesc": "Quét mã QR bằng ứng dụng ngân hàng bất kỳ để kích hoạt tự động",
+    "orderCodeLabel": "Mã đơn hàng",
+    "amountLabel": "Số tiền thanh toán",
+    "bankLabel": "Ngân hàng thụ hưởng",
+    "accountNumberLabel": "Số tài khoản",
+    "accountNameLabel": "Chủ tài khoản",
+    "transferContentLabel": "Nội dung chuyển khoản (bắt buộc)",
+    "countdownLabel": "Mã QR hết hạn sau",
+    "waitingPayment": "Đang chờ hệ thống xác nhận thanh toán...",
+    "paymentSuccess": "Thanh toán thành công! Gói PRO đã được kích hoạt."
+  },
+  "Dashboard": {
+    "title": "Bảng Điều Khiển Người Dùng",
+    "welcome": "Xin chào",
+    "planStatus": "Gói cước hiện tại",
+    "daysLeft": "Còn {days} ngày",
+    "trialBadge": "Dùng Thử PRO",
+    "trialBanner": "Chúc mừng! Bạn đã nhận 7 ngày trải nghiệm gói PRO miễn phí.",
+    "manageAccountsTitle": "Danh Sách UID Game Đã Liên Kết",
+    "manageAccountsDesc": "Quản lý cấu hình tự động hóa cho từng nhân vật trong game",
+    "addAccountBtn": "Thêm UID Game Mới",
+    "autoRedeem": "Tự động săn Giftcode",
+    "autoCheckin": "Tự động điểm danh hàng ngày",
+    "unlink": "Hủy liên kết",
+    "unlinkConfirmTitle": "Xác nhận hủy liên kết",
+    "unlinkConfirmDesc": "Bạn có chắc chắn muốn hủy liên kết tài khoản này? Hệ thống sẽ ngừng tự động săn code và điểm danh.",
+    "addModalTitle": "Liên Kết Tài Khoản Game Top Heroes",
+    "addModalDesc": "Nhập UID nhân vật (tìm thấy trong phần Cài đặt của game). Hệ thống sẽ tự động xác minh tên và máy chủ.",
+    "uidLabel": "UID Game (10-20 chữ số)",
+    "uidPlaceholder": "Ví dụ: 2446869146316",
+    "verifying": "Đang xác thực với máy chủ game...",
+    "addSuccess": "Đã liên kết thành công nhân vật {nickname} tại máy chủ {server}!",
+    "emptyAccounts": "Chưa có tài khoản game nào được liên kết. Hãy thêm UID đầu tiên để bắt đầu!"
+  },
+  "Index": {
+    "hero": {
+      "title-1": "Top Heroes",
+      "title-2": "Companion",
+      "description": "Nền tảng hỗ trợ game thủ Top Heroes: Săn giftcode tự động trong 60 giây, điểm danh hàng ngày và quản lý đa tài khoản UID.",
+      "new": "Mới",
+      "punchline": "Tự động hóa thông minh cho Top Heroes"
+    },
+    "features": {
+      "authentication": {
+        "title": "Đăng Nhập Discord",
+        "description": "Xác thực an toàn và nhanh chóng chỉ với 1 click qua tài khoản Discord của bạn."
+      },
+      "internationalization": {
+        "title": "Đa Ngôn Ngữ",
+        "description": "Hỗ trợ chuẩn mực Tiếng Việt và Tiếng Anh giúp mọi game thủ dễ dàng thao tác."
+      },
+      "analytics": {
+        "title": "Tự Động 24/7",
+        "description": "Bot server tự động quét giftcode mới mỗi 60 giây và nhập quà tức thì cho tài khoản."
+      },
+      "themes": {
+        "title": "Giao Diện Sáng / Tối",
+        "description": "Chuyển đổi linh hoạt giữa nền sáng và nền tối bảo vệ mắt khi chơi game đêm."
+      },
+      "components": {
+        "title": "Thanh Toán VietQR",
+        "description": "Nâng cấp gói Pro thanh toán quét mã QR tự động kích hoạt gói trong vài giây."
+      },
+      "free": {
+        "title": "Dùng Thử 7 Ngày",
+        "description": "Tặng ngay 7 ngày trải nghiệm trọn vẹn tính năng Pro cho tài khoản liên kết đầu tiên."
+      }
+    },
+    "title": "Trang Chủ",
+    "welcome": "Chào mừng đến với Top Heroes Companion"
+  },
+  "LocaleLayout": {
+    "title": "Top Heroes Companion"
+  },
+  "LocaleSwitcher": {
+    "switchLocale": "Đổi ngôn ngữ"
+  },
+  "Footer": {
+    "title": "TopHub Companion",
+    "description": "Nền tảng hỗ trợ game thủ Top Heroes độc lập",
+    "followUs": "Cộng đồng",
+    "aboutUs": "Giới thiệu",
+    "quickLinks": "Liên kết nhanh",
+    "contact": "Hỗ trợ",
+    "privacy": "Bảo mật",
+    "terms": "Điều khoản",
+    "rights": "Toàn bộ bản quyền được bảo lưu"
+  },
+  "Privacy": {
+    "title": "Chính Sách Bảo Mật",
+    "description": "Cập nhật lần cuối: 2026",
+    "Sections": {
+      "Introduction": {
+        "title": "Giới thiệu",
+        "content": "Chào mừng bạn đến với Chính sách Bảo mật của TopHub Companion. Chúng tôi cam kết bảo vệ quyền riêng tư và dữ liệu cá nhân của bạn."
+      },
+      "DataCollected": {
+        "title": "Dữ liệu được thu thập",
+        "content": "Chúng tôi chỉ thu thập Discord ID công khai và UID game do bạn chủ động cung cấp để phục vụ tự động hóa."
+      },
+      "PurposeOfCollection": {
+        "title": "Mục đích sử dụng",
+        "content": "Dữ liệu chỉ dùng để tự động điểm danh, tự động nhập mã quà tặng và gửi thông báo Discord."
+      },
+      "DataStorageDuration": {
+        "title": "Thời gian lưu trữ",
+        "content": "Dữ liệu được lưu trữ an toàn trong suốt thời gian bạn duy trì tài khoản trên hệ thống."
+      },
+      "ThirdCountries": {
+        "title": "Bên thứ ba",
+        "content": "Chúng tôi không chia sẻ hoặc bán dữ liệu người dùng cho bất kỳ bên thứ ba nào."
+      },
+      "YourRights": {
+        "title": "Quyền của người dùng",
+        "content": "Bạn có toàn quyền hủy liên kết UID và xóa thông tin tài khoản bất kỳ lúc nào."
+      },
+      "Cookies": {
+        "title": "Cookies và Phiên làm việc",
+        "content": "Chúng tôi sử dụng cookie phiên an toàn để duy trì đăng nhập qua NextAuth."
+      },
+      "Conclusion": {
+        "title": "Liên hệ",
+        "content": "Mọi thắc mắc vui lòng liên hệ qua Discord chính thức của TopHub Companion."
+      }
+    }
+  },
+  "TermsOfUse": {
+    "title": "Điều Khoản Dịch Vụ",
+    "description": "Cập nhật lần cuối: 2026",
+    "Sections": {
+      "Introduction": {
+        "title": "Giới thiệu",
+        "content": "Bằng việc sử dụng TopHub Companion, bạn đồng ý tuân thủ các điều khoản dịch vụ này."
+      },
+      "UseOfServices": {
+        "title": "Sử dụng dịch vụ",
+        "content": "Dịch vụ được cung cấp nhằm hỗ trợ người chơi Top Heroes tối ưu trải nghiệm nhận quà tự động."
+      },
+      "UserObligations": {
+        "title": "Nghĩa vụ người dùng",
+        "content": "Người dùng tự chịu trách nhiệm về tính chính xác của UID game đã liên kết."
+      },
+      "IntellectualProperty": {
+        "title": "Quyền sở hữu trí tuệ",
+        "content": "Top Heroes là thương hiệu thuộc về nhà phát hành game. TopHub là công cụ hỗ trợ độc lập."
+      },
+      "LimitationOfLiability": {
+        "title": "Giới hạn trách nhiệm",
+        "content": "Chúng tôi nỗ lực duy trì bot hoạt động ổn định nhưng không chịu trách nhiệm trong các đợt máy chủ game bảo trì."
+      },
+      "Termination": {
+        "title": "Chấm dứt dịch vụ",
+        "content": "Chúng tôi có quyền tạm ngừng tài khoản nếu phát hiện hành vi cố tình spam hoặc tấn công hệ thống."
+      },
+      "GoverningLaw": {
+        "title": "Luật áp dụng",
+        "content": "Các điều khoản này tuân thủ theo quy định pháp luật hiện hành."
+      },
+      "ChangesToTerms": {
+        "title": "Thay đổi điều khoản",
+        "content": "Điều khoản có thể được cập nhật định kỳ để phù hợp với sự phát triển của hệ thống."
+      },
+      "Conclusion": {
+        "title": "Hỗ trợ",
+        "content": "Cảm ơn bạn đã tin tưởng và đồng hành cùng TopHub Companion."
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+export const GITHUB_REPO_LINK = "https://github.com/emenems/nextjs-template"
+export const LINKEDIN_LINK = "https://www.linkedin.com/"
+export const TWITTER_LINK = "https://twitter.com/"
+export const INSTAGRAM_LINK = "https://www.instagram.com/"
+export const FACEBOOK_LINK = "https://www.facebook.com/"
