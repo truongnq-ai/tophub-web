@@ -82,33 +82,33 @@ export function AddAccountDialog({ labels }: AddAccountDialogProps) {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button className="gap-2 font-bold shadow-sm">
+        <Button className="gap-2 font-bold min-h-[44px] px-4 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white shadow-[0_0_20px_rgba(124,58,237,0.3)] active:scale-95 transition-all">
           <Plus className="h-4 w-4" />
           <span>{labels.addAccountBtn}</span>
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-md bg-card border-border/80">
-        <DialogHeader className="space-y-1">
-          <DialogTitle className="text-lg sm:text-xl font-bold flex items-center gap-2">
-            <Gamepad2 className="h-5 w-5 text-primary" />
+      <DialogContent className="max-w-md bg-slate-950/95 border border-purple-500/30 backdrop-blur-xl shadow-[0_0_50px_rgba(124,58,237,0.2)] rounded-2xl">
+        <DialogHeader className="space-y-1.5">
+          <DialogTitle className="text-lg sm:text-xl font-black flex items-center gap-2 text-foreground">
+            <Gamepad2 className="h-5 w-5 text-purple-400" />
             {labels.addModalTitle}
           </DialogTitle>
-          <DialogDescription className="text-xs sm:text-sm">
+          <DialogDescription className="text-xs sm:text-sm text-slate-400">
             {labels.addModalDesc}
           </DialogDescription>
         </DialogHeader>
 
         {successMsg ? (
           <div className="flex flex-col items-center justify-center py-6 space-y-3 text-center">
-            <div className="h-12 w-12 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500">
+            <div className="h-14 w-14 rounded-2xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 flex items-center justify-center">
               <CheckCircle2 className="h-8 w-8" />
             </div>
-            <p className="text-sm font-semibold text-foreground">{successMsg}</p>
+            <p className="text-sm font-bold text-foreground">{successMsg}</p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4 pt-2">
             <div className="space-y-2">
-              <Label htmlFor="game-uid" className="text-xs font-semibold">
+              <Label htmlFor="game-uid" className="text-xs font-bold text-slate-300">
                 {labels.uidLabel}
               </Label>
               <Input
@@ -119,7 +119,7 @@ export function AddAccountDialog({ labels }: AddAccountDialogProps) {
                 placeholder={labels.uidPlaceholder}
                 value={uid}
                 onChange={handleInputChange}
-                className="font-mono text-sm tracking-wider"
+                className="font-mono text-sm tracking-wider min-h-[44px] rounded-xl bg-slate-900/60 border-white/10 focus:border-purple-500 focus:ring-purple-500/30"
                 disabled={loading}
                 autoFocus
               />
@@ -129,25 +129,26 @@ export function AddAccountDialog({ labels }: AddAccountDialogProps) {
             </div>
 
             {error && (
-              <div className="flex items-start gap-2 rounded-lg bg-destructive/10 border border-destructive/30 p-3 text-xs text-destructive">
-                <AlertCircle className="h-4 w-4 shrink-0 mt-0.5" />
+              <div className="flex items-start gap-2 rounded-xl bg-rose-500/10 border border-rose-500/30 p-3 text-xs text-rose-300">
+                <AlertCircle className="h-4 w-4 shrink-0 mt-0.5 text-rose-400" />
                 <span>{error}</span>
               </div>
             )}
 
-            <DialogFooter className="pt-2">
+            <DialogFooter className="pt-2 gap-2 sm:gap-0">
               <Button
                 type="button"
                 variant="outline"
                 onClick={() => setOpen(false)}
                 disabled={loading}
+                className="min-h-[44px] rounded-xl border-white/10 hover:bg-white/5"
               >
                 {labels.cancel}
               </Button>
               <Button
                 type="submit"
                 disabled={uid.length < 10 || loading}
-                className="gap-2 font-semibold"
+                className="gap-2 font-bold min-h-[44px] rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white shadow-md shadow-purple-600/30"
               >
                 {loading ? (
                   <>

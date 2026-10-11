@@ -118,11 +118,11 @@ export function AccountsManager({ initialAccounts, labels }: AccountsManagerProp
           ))}
         </div>
       ) : (
-        <div className="flex flex-col items-center justify-center rounded-xl border border-dashed border-border/80 p-12 text-center bg-card/30">
-          <div className="h-12 w-12 rounded-full bg-muted/60 flex items-center justify-center text-muted-foreground mb-3">
-            <Gamepad2 className="h-6 w-6" />
+        <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-white/10 p-12 text-center bg-slate-900/40 backdrop-blur-md">
+          <div className="h-14 w-14 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 mb-4 shadow-inner">
+            <Gamepad2 className="h-7 w-7" />
           </div>
-          <p className="text-sm font-medium text-foreground max-w-sm mb-4">
+          <p className="text-sm font-medium text-slate-300 max-w-sm mb-5">
             {labels.emptyAccounts}
           </p>
           <AddAccountDialog labels={dialogLabels} />
