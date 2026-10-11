@@ -42,7 +42,7 @@ export function BillingSelector({ selectedCycle, onChange, labels }: BillingSele
   ];
 
   return (
-    <div className="flex flex-wrap items-center justify-center gap-2 p-1.5 rounded-2xl bg-muted/60 border border-border/60 max-w-2xl mx-auto">
+    <div className="flex flex-wrap items-center justify-center gap-2 p-2 rounded-2xl bg-slate-900/60 backdrop-blur-md border border-white/10 max-w-2xl mx-auto shadow-inner">
       {options.map((opt) => {
         const isSelected = selectedCycle === opt.months;
         return (
@@ -50,20 +50,24 @@ export function BillingSelector({ selectedCycle, onChange, labels }: BillingSele
             key={opt.months}
             type="button"
             onClick={() => onChange(opt.months)}
-            className={`relative flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 ${
+            className={`relative flex items-center justify-center gap-2 px-4 py-2.5 min-h-[44px] rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 active:scale-95 ${
               isSelected
-                ? "bg-background text-foreground shadow-sm border border-border/80"
-                : "text-muted-foreground hover:text-foreground hover:bg-background/40"
+                ? "bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg shadow-purple-600/30 border border-purple-400/30"
+                : "text-muted-foreground hover:text-foreground hover:bg-white/5 border border-transparent"
             }`}
           >
             <span>{opt.label}</span>
             {opt.badge && (
               <Badge
                 variant={opt.badgeVariant || "secondary"}
-                className={`text-[10px] px-1.5 py-0 font-bold ${
+                className={`text-[10px] px-2 py-0.5 font-extrabold uppercase tracking-wider ${
                   opt.months === 6
-                    ? "bg-primary text-primary-foreground"
-                    : "bg-amber-500/15 text-amber-600 dark:text-amber-400 border border-amber-500/30"
+                    ? isSelected
+                      ? "bg-white/20 text-white border border-white/30"
+                      : "bg-purple-500/20 text-purple-300 border border-purple-500/40"
+                    : isSelected
+                    ? "bg-amber-400 text-slate-950 font-black border-none"
+                    : "bg-amber-500/15 text-amber-400 border border-amber-500/40"
                 }`}
               >
                 {opt.badge}

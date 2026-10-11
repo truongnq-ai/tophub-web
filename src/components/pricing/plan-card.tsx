@@ -125,44 +125,50 @@ export function PlanCard({
     <>
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 max-w-5xl mx-auto items-stretch">
         {/* FREE PLAN */}
-        <Card className="flex flex-col border border-border/60 bg-card/60 backdrop-blur-sm relative overflow-hidden">
+        <Card className="flex flex-col border border-white/10 bg-slate-900/40 backdrop-blur-md relative overflow-hidden rounded-2xl hover:border-white/20 transition-all">
           <CardHeader className="space-y-2 pb-6">
-            <CardTitle className="text-2xl font-bold">{labels.freeTitle}</CardTitle>
-            <CardDescription className="text-xs sm:text-sm">
+            <CardTitle className="text-2xl font-bold tracking-tight text-foreground">{labels.freeTitle}</CardTitle>
+            <CardDescription className="text-xs sm:text-sm text-muted-foreground">
               {labels.freeDesc}
             </CardDescription>
             <div className="pt-2">
-              <span className="text-4xl font-extrabold text-foreground">
+              <span className="text-4xl font-black text-foreground font-mono">
                 {labels.freePrice}
               </span>
-              <span className="text-xs text-muted-foreground ml-1">/ vĩnh viễn</span>
+              <span className="text-xs text-muted-foreground ml-1.5 font-medium">/ vĩnh viễn</span>
             </div>
           </CardHeader>
 
           <CardContent className="flex-1 space-y-4">
-            <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+            <div className="text-xs font-bold text-muted-foreground uppercase tracking-wider">
               Tính năng bao gồm:
             </div>
-            <ul className="space-y-3 text-xs sm:text-sm">
+            <ul className="space-y-3.5 text-xs sm:text-sm">
               <li className="flex items-start gap-2.5">
-                <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                <span>{labels.freeFeature1}</span>
+                <div className="h-5 w-5 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                  <Check className="h-3.5 w-3.5" />
+                </div>
+                <span className="text-slate-300">{labels.freeFeature1}</span>
               </li>
               <li className="flex items-start gap-2.5">
-                <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                <span>{labels.freeFeature2}</span>
+                <div className="h-5 w-5 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                  <Check className="h-3.5 w-3.5" />
+                </div>
+                <span className="text-slate-300">{labels.freeFeature2}</span>
               </li>
               <li className="flex items-start gap-2.5">
-                <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                <span>{labels.freeFeature3}</span>
+                <div className="h-5 w-5 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                  <Check className="h-3.5 w-3.5" />
+                </div>
+                <span className="text-slate-300">{labels.freeFeature3}</span>
               </li>
             </ul>
           </CardContent>
 
-          <CardFooter className="pt-6 border-t border-border/40">
+          <CardFooter className="pt-6 border-t border-white/5">
             <Button
               variant="outline"
-              className="w-full font-semibold"
+              className="w-full font-bold min-h-[44px] rounded-xl border-white/10 hover:bg-white/5 active:scale-[0.98] transition-all"
               onClick={() => {
                 window.location.href = isLoggedIn ? `/${locale}/dashboard` : `/${locale}/login`;
               }}
@@ -173,71 +179,71 @@ export function PlanCard({
         </Card>
 
         {/* PRO PLAN */}
-        <Card className="flex flex-col border-2 border-primary/80 bg-card/90 backdrop-blur-sm relative overflow-hidden shadow-xl shadow-primary/10">
-          <div className="absolute top-0 right-0 bg-primary text-primary-foreground text-[11px] font-bold px-3 py-1 rounded-bl-lg flex items-center gap-1">
-            <Sparkles className="h-3 w-3" />
+        <Card className="flex flex-col border-2 border-purple-500/80 bg-gradient-to-b from-purple-950/20 via-slate-900/90 to-slate-950/90 backdrop-blur-xl relative overflow-hidden rounded-2xl shadow-[0_0_40px_rgba(124,58,237,0.22)] ring-1 ring-purple-400/30">
+          <div className="absolute top-0 right-0 bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 text-[11px] font-black px-3.5 py-1 rounded-bl-xl flex items-center gap-1.5 uppercase tracking-wider shadow-md">
+            <Sparkles className="h-3.5 w-3.5 fill-current" />
             <span>KHUYÊN DÙNG</span>
           </div>
 
           <CardHeader className="space-y-2 pb-6">
             <div className="flex items-center gap-2">
-              <CardTitle className="text-2xl font-bold text-foreground">
+              <CardTitle className="text-2xl font-black tracking-tight text-foreground">
                 {labels.proTitle}
               </CardTitle>
-              <Badge variant="outline" className="border-primary/40 text-primary text-[10px] font-bold">
+              <Badge variant="outline" className="border-purple-400/40 text-purple-300 bg-purple-500/10 text-[10px] font-extrabold px-2 py-0.5 uppercase tracking-wider">
                 {selectedCycle} Tháng
               </Badge>
             </div>
-            <CardDescription className="text-xs sm:text-sm">
+            <CardDescription className="text-xs sm:text-sm text-slate-400">
               {labels.proDesc}
             </CardDescription>
 
             <div className="pt-2 flex items-baseline gap-2">
-              <span className="text-4xl font-extrabold text-primary">
+              <span className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-violet-300 to-indigo-300 font-mono">
                 {formattedProPrice}
               </span>
-              <span className="text-xs text-muted-foreground">
+              <span className="text-xs text-muted-foreground font-medium">
                 ({formattedMonthlyEq}/tháng)
               </span>
             </div>
           </CardHeader>
 
           <CardContent className="flex-1 space-y-4">
-            <div className="text-xs font-semibold text-primary uppercase tracking-wider flex items-center gap-1.5">
-              <Zap className="h-3.5 w-3.5" />
+            <div className="text-xs font-bold text-purple-400 uppercase tracking-wider flex items-center gap-1.5">
+              <Zap className="h-3.5 w-3.5 fill-current text-purple-400" />
               <span>Đặc quyền Pro:</span>
             </div>
-            <ul className="space-y-3 text-xs sm:text-sm">
+            <ul className="space-y-3.5 text-xs sm:text-sm">
               <li className="flex items-start gap-2.5">
-                <div className="h-5 w-5 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                <div className="h-5 w-5 rounded-full bg-purple-500/20 text-purple-300 ring-1 ring-purple-400/40 flex items-center justify-center shrink-0 mt-0.5">
                   <Check className="h-3.5 w-3.5" />
                 </div>
-                <span className="font-medium text-foreground">{labels.proFeature1}</span>
+                <span className="font-semibold text-slate-200">{labels.proFeature1}</span>
               </li>
               <li className="flex items-start gap-2.5">
-                <div className="h-5 w-5 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                <div className="h-5 w-5 rounded-full bg-purple-500/20 text-purple-300 ring-1 ring-purple-400/40 flex items-center justify-center shrink-0 mt-0.5">
                   <Check className="h-3.5 w-3.5" />
                 </div>
-                <span className="font-medium text-foreground">{labels.proFeature2}</span>
+                <span className="font-semibold text-slate-200">{labels.proFeature2}</span>
               </li>
               <li className="flex items-start gap-2.5">
-                <div className="h-5 w-5 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                <div className="h-5 w-5 rounded-full bg-purple-500/20 text-purple-300 ring-1 ring-purple-400/40 flex items-center justify-center shrink-0 mt-0.5">
                   <Check className="h-3.5 w-3.5" />
                 </div>
-                <span className="font-medium text-foreground">{labels.proFeature3}</span>
+                <span className="font-semibold text-slate-200">{labels.proFeature3}</span>
               </li>
               <li className="flex items-start gap-2.5">
-                <div className="h-5 w-5 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                <div className="h-5 w-5 rounded-full bg-purple-500/20 text-purple-300 ring-1 ring-purple-400/40 flex items-center justify-center shrink-0 mt-0.5">
                   <Check className="h-3.5 w-3.5" />
                 </div>
-                <span className="font-medium text-foreground">{labels.proFeature4}</span>
+                <span className="font-semibold text-slate-200">{labels.proFeature4}</span>
               </li>
             </ul>
           </CardContent>
 
-          <CardFooter className="pt-6 border-t border-border/40">
+          <CardFooter className="pt-6 border-t border-purple-500/20">
             <Button
-              className="w-full font-bold gap-2 text-sm sm:text-base py-6 shadow-md transition-all hover:scale-[1.01]"
+              className="w-full font-black gap-2 text-sm sm:text-base py-6 rounded-xl bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-600 hover:from-purple-500 hover:to-indigo-500 text-white shadow-[0_0_25px_rgba(124,58,237,0.35)] transition-all hover:scale-[1.01] active:scale-[0.98]"
               onClick={handleBuy}
               disabled={loading}
             >
