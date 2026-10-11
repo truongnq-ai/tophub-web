@@ -4,17 +4,16 @@
 import React, { useState } from "react";
 import { Link, usePathname } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
-import { useSession, signOut } from "next-auth/react";
 import {
   Sparkles,
   Menu,
   User,
   LogOut,
-  LayoutDashboard,
   Gift,
-  CreditCard,
   Home,
   ChevronDown,
+  ShieldCheck,
+  Bot,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -34,21 +33,19 @@ import {
 } from "@/components/ui/sheet";
 import { LocaleSwitcher } from "@/components/locale-switcher";
 import { ThemeSwitcher } from "@/components/theme-switcher";
+import { useUidSession } from "@/hooks/use-uid-session";
 import { cn } from "@/lib/utils";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
-  const { data: session } = useSession();
   const tNav = useTranslations("Navigation");
+  const { activeAccount, savedAccounts, selectAccount, logout, isLoaded } = useUidSession();
 
   const navigationItems = [
     { name: tNav("home"), href: "/", icon: Home },
     { name: tNav("giftcodes"), href: "/giftcodes", icon: Gift },
-    { name: tNav("pricing"), href: "/pricing", icon: CreditCard },
-    ...(session?.user
-      ? [{ name: tNav("dashboard"), href: "/dashboard", icon: LayoutDashboard }]
-      : []),
+    { name: tNav("check"), href: "/check", icon: ShieldCheck },
   ];
 
   return (
@@ -151,70 +148,86 @@ export function Header() {
           <LocaleSwitcher />
           <ThemeSwitcher />
 
-          {/* Auth Button or User Dropdown */}
-          {session?.user ? (
+          {/* Active Account Dropdown (If selected on this device) */}
+          {isLoaded && activeAccount && (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button
                   variant="ghost"
-                  className="flex items-center gap-2.5 px-2.5 sm:px-3 h-10 min-h-[44px] rounded-full border border-border/80 bg-card/60 hover:border-primary/60 hover:bg-card hover:shadow-[0_0_15px_rgba(124,58,237,0.2)] transition-all"
+                  className="flex items-center gap-2 px-3 py-1.5 h-10 min-h-[44px] rounded-full border border-primary/40 bg-primary/10 hover:border-primary/60 hover:bg-primary/15 transition-all shadow-sm shadow-primary/10"
                 >
-                  {session.user.image ? (
-                    <img
-                      src={session.user.image}
-                      alt={session.user.name || "User Avatar"}
-                      className="h-6 w-6 rounded-full object-cover ring-2 ring-primary/40"
-                    />
-                  ) : (
-                    <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/20 text-primary">
-                      <User className="h-3.5 w-3.5" />
-                    </div>
-                  )}
-                  <span className="hidden sm:inline-block max-w-[100px] truncate text-xs font-bold text-foreground">
-                    {session.user.name}
-                  </span>
-                  <ChevronDown className="h-3.5 w-3.5 text-muted-foreground" />
+                  <div className="flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-tr from-primary to-purple-600 text-white text-xs font-bold font-mono">
+                    {activeAccount.nickname ? activeAccount.nickname.charAt(0).toUpperCase() : "U"}
+                  </div>
+                  <div className="flex flex-col text-left">
+                    <span className="hidden sm:inline-block max-w-[110px] truncate text-xs font-bold text-foreground leading-tight">
+                      {activeAccount.nickname}
+                    </span>
+                    <span className="text-[10px] text-primary font-mono leading-none">
+                      S{activeAccount.server_id}
+                    </span>
+                  </div>
+                  <ChevronDown className="h-3.5 w-3.5 text-muted-foreground ml-0.5" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-56 bg-card/95 backdrop-blur-xl border-border/80">
-                <DropdownMenuLabel className="font-normal">
+              <DropdownMenuContent align="end" className="w-64 bg-card/95 backdrop-blur-xl border-border/80 shadow-2xl">
+                <DropdownMenuLabel className="font-normal pb-2">
                   <div className="flex flex-col space-y-1">
-                    <p className="text-sm font-bold leading-none text-foreground font-heading">
-                      {session.user.name}
+                    <p className="text-sm font-bold text-foreground font-heading">
+                      {activeAccount.nickname}
                     </p>
-                    <p className="text-xs text-muted-foreground truncate font-mono">
-                      ID: {session.user.discord_id || "Discord Member"}
+                    <p className="text-xs text-muted-foreground font-mono">
+                      UID: {activeAccount.uid} (Server {activeAccount.server_id})
                     </p>
+                    <div className="pt-1.5">
+                      <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/25">
+                        <span className="relative flex h-2 w-2">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                        </span>
+                        Bot Đang Chạy Tự Động
+                      </span>
+                    </div>
                   </div>
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem asChild>
-                  <Link href="/dashboard" className="cursor-pointer flex items-center gap-2 min-h-[40px]">
-                    <LayoutDashboard className="h-4 w-4 text-primary" />
-                    <span className="font-medium">{tNav("dashboard")}</span>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
+
+                {/* Quick Switch to other saved accounts on this device */}
+                {savedAccounts.filter((a) => a.uid !== activeAccount.uid).length > 0 && (
+                  <>
+                    <div className="px-2 py-1.5 text-[10px] font-bold text-muted-foreground uppercase tracking-wider">
+                      Đổi Tài Khoản Đã Lưu
+                    </div>
+                    {savedAccounts
+                      .filter((a) => a.uid !== activeAccount.uid)
+                      .map((acc) => (
+                        <DropdownMenuItem
+                          key={acc.uid}
+                          onClick={() => selectAccount(acc)}
+                          className="cursor-pointer flex items-center justify-between py-2 text-xs"
+                        >
+                          <div className="flex items-center gap-2 overflow-hidden">
+                            <User className="h-3.5 w-3.5 text-primary shrink-0" />
+                            <span className="font-medium truncate">{acc.nickname}</span>
+                          </div>
+                          <span className="text-[10px] text-muted-foreground font-mono ml-2 shrink-0">
+                            S{acc.server_id}
+                          </span>
+                        </DropdownMenuItem>
+                      ))}
+                    <DropdownMenuSeparator />
+                  </>
+                )}
+
                 <DropdownMenuItem
-                  onClick={() => signOut({ callbackUrl: "/" })}
+                  onClick={() => logout()}
                   className="cursor-pointer text-destructive focus:text-destructive flex items-center gap-2 min-h-[40px]"
                 >
                   <LogOut className="h-4 w-4" />
-                  <span className="font-medium">{tNav("logout")}</span>
+                  <span className="font-medium text-xs">Thoát Tài Khoản</span>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-          ) : (
-            <Button
-              asChild
-              className="font-bold gap-2 min-h-[44px] px-4 py-2 bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-500 text-white shadow-md shadow-primary/25 active:scale-95 transition-transform"
-            >
-              <Link href="/login">
-                <User className="h-4 w-4" />
-                <span className="hidden xs:inline-block">{tNav("login")}</span>
-                <span className="xs:hidden">Đăng Nhập</span>
-              </Link>
-            </Button>
           )}
         </div>
       </div>

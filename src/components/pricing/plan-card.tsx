@@ -1,14 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
-import { Check, Sparkles, Zap, ArrowRight, Loader2 } from "lucide-react";
+import { Check, Sparkles, Zap, ArrowRight } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { PayOsModal } from "@/components/pricing/payos-modal";
-import { createCheckoutAction } from "@/actions/billing";
 import type { BillingCycle } from "@/components/pricing/billing-selector";
-import type { CheckoutResponse, PlanItem } from "@/types/api";
+import type { PlanItem } from "@/types/api";
 
 interface PlanCardProps {
   plans: PlanItem[];
@@ -53,9 +52,7 @@ export function PlanCard({
   locale,
   labels,
 }: PlanCardProps) {
-  const [loading, setLoading] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
-  const [checkoutData, setCheckoutData] = useState<CheckoutResponse | null>(null);
 
   // Fallback price logic if API prices not yet populated
   const cycleDiscount =
@@ -83,42 +80,8 @@ export function PlanCard({
     currency: "VND",
   }).format(monthlyEquivalent);
 
-  const handleBuy = async () => {
-    if (!isLoggedIn) {
-      window.location.href = `/${locale}/login`;
-      return;
-    }
-
-    try {
-      setLoading(true);
-      const planPriceId = proPriceItem?.id || `fallback-pro-${selectedCycle}m`;
-      const res = await createCheckoutAction(planPriceId);
-
-      if (res.success && res.data) {
-        setCheckoutData(res.data);
-        setModalOpen(true);
-      } else {
-        // Fallback demo order for preview / test environment
-        setCheckoutData({
-          orderCode: Math.floor(100000 + Math.random() * 900000),
-          amount: finalAmount,
-          planName: `TopHub PRO (${selectedCycle} Tháng)`,
-          months: selectedCycle,
-        });
-        setModalOpen(true);
-      }
-    } catch {
-      // Fallback checkout preview
-      setCheckoutData({
-        orderCode: Math.floor(100000 + Math.random() * 900000),
-        amount: finalAmount,
-        planName: `TopHub PRO (${selectedCycle} Tháng)`,
-        months: selectedCycle,
-      });
-      setModalOpen(true);
-    } finally {
-      setLoading(false);
-    }
+  const handleBuy = () => {
+    setModalOpen(true);
   };
 
   return (
@@ -245,29 +208,22 @@ export function PlanCard({
             <Button
               className="w-full font-black gap-2 text-sm sm:text-base py-6 rounded-xl bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-600 hover:from-purple-500 hover:to-indigo-500 text-white shadow-[0_0_25px_rgba(124,58,237,0.35)] transition-all hover:scale-[1.01] active:scale-[0.98]"
               onClick={handleBuy}
-              disabled={loading}
             >
-              {loading ? (
-                <>
-                  <Loader2 className="h-4 w-4 animate-spin" />
-                  <span>Đang tạo đơn hàng...</span>
-                </>
-              ) : (
-                <>
-                  <span>{isLoggedIn ? labels.upgradeBtn : labels.loginToBuy}</span>
-                  <ArrowRight className="h-4 w-4" />
-                </>
-              )}
+              <span>{labels.upgradeBtn}</span>
+              <ArrowRight className="h-4 w-4" />
             </Button>
           </CardFooter>
         </Card>
       </div>
 
-      {/* PayOS VietQR Modal */}
+      {/* PayOS VietQR Modal with UID Preview */}
       <PayOsModal
         open={modalOpen}
         onOpenChange={setModalOpen}
-        checkoutData={checkoutData}
+        planPriceId={proPriceItem?.id || `fallback-pro-${selectedCycle}m`}
+        amount={finalAmount}
+        planName="TopHub PRO"
+        months={selectedCycle}
         labels={labels}
         locale={locale}
       />

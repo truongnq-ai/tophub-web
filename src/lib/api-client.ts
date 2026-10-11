@@ -5,6 +5,13 @@ import type {
   GameAccountItem,
   PlanItem,
   CheckoutResponse,
+  PlayerPreviewResponse,
+  PlayerStatusResponse,
+  PlayerEnrollResponse,
+  PlayerRunNowResponse,
+  PlayerSettingsResponse,
+  AdminLoginResponse,
+  AdminAccountItem,
 } from "@/types/api";
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://tophub.eagent.vn";
@@ -44,6 +51,63 @@ export const apiClient = {
   getPlans: () =>
     apiFetch<PlanItem[]>("/api/v1/plans", {
       next: { revalidate: 300 },
+    }),
+
+  previewPlayer: (uid: string) =>
+    apiFetch<PlayerPreviewResponse>(`/api/v1/players/preview?uid=${encodeURIComponent(uid)}`),
+
+  getPlayerStatus: (uid: string) =>
+    apiFetch<PlayerStatusResponse>(`/api/v1/players/status?uid=${encodeURIComponent(uid)}`),
+
+  enrollPlayer: (uid: string) =>
+    apiFetch<PlayerEnrollResponse>("/api/v1/players/enroll", {
+      method: "POST",
+      body: JSON.stringify({ uid }),
+    }),
+
+  triggerRunNow: (uid: string) =>
+    apiFetch<PlayerRunNowResponse>("/api/v1/players/run-now", {
+      method: "POST",
+      body: JSON.stringify({ uid }),
+    }),
+
+  updatePlayerSettings: (
+    uid: string,
+    settings: { auto_redeem?: boolean; auto_checkin?: boolean }
+  ) =>
+    apiFetch<PlayerSettingsResponse>("/api/v1/players/settings", {
+      method: "PATCH",
+      body: JSON.stringify({ uid, ...settings }),
+    }),
+
+  createPublicCheckout: (uid: string, planPriceId: string) =>
+    apiFetch<CheckoutResponse>("/api/v1/billing/checkout", {
+      method: "POST",
+      body: JSON.stringify({ uid, plan_price_id: planPriceId }),
+    }),
+
+  // Admin Endpoints
+  adminLogin: (username: string, password: string) =>
+    apiFetch<AdminLoginResponse>("/api/v1/admin/login", {
+      method: "POST",
+      body: JSON.stringify({ username, password }),
+    }),
+
+  getAdminAccounts: (token: string) =>
+    apiFetch<AdminAccountItem[]>("/api/v1/admin/accounts", {
+      headers: { Authorization: `Bearer ${token}` },
+      cache: "no-store",
+    }),
+
+  updateAdminAccount: (
+    token: string,
+    accountId: string,
+    data: { auto_redeem?: boolean; auto_checkin?: boolean }
+  ) =>
+    apiFetch<AdminAccountItem>(`/api/v1/admin/accounts/${accountId}`, {
+      method: "PATCH",
+      headers: { Authorization: `Bearer ${token}` },
+      body: JSON.stringify(data),
     }),
 
   // Authenticated Endpoints (Requires Bearer token)

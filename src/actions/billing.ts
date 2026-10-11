@@ -4,11 +4,80 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/auth";
 import { createBackendToken } from "@/lib/auth-token";
 import { apiClient } from "@/lib/api-client";
-import type { ApiResponse, CheckoutResponse } from "@/types/api";
+import type { ApiResponse, CheckoutResponse, PlayerPreviewResponse, PlayerStatusResponse } from "@/types/api";
 
-export async function createCheckoutAction(
+export async function previewPlayerAction(
+  uid: string
+): Promise<ApiResponse<PlayerPreviewResponse>> {
+  if (!uid || !/^\d{10,20}$/.test(uid)) {
+    return {
+      success: false,
+      error: {
+        code: "INVALID_UID",
+        message: "UID game phải chứa từ 10 đến 20 chữ số",
+      },
+    };
+  }
+
+  return apiClient.previewPlayer(uid);
+}
+
+export async function createPublicCheckoutAction(
+  uid: string,
   planPriceId: string
 ): Promise<ApiResponse<CheckoutResponse>> {
+  if (!uid || !/^\d{10,20}$/.test(uid)) {
+    return {
+      success: false,
+      error: {
+        code: "INVALID_UID",
+        message: "UID game không hợp lệ",
+      },
+    };
+  }
+
+  return apiClient.createPublicCheckout(uid, planPriceId);
+}
+
+export async function checkPublicPaymentStatusAction(
+  uid: string
+): Promise<{ success: boolean; isPaid: boolean }> {
+  if (!uid) return { success: false, isPaid: false };
+  try {
+    const res = await apiClient.getPlayerStatus(uid);
+    if (res.success && res.data) {
+      return { success: true, isPaid: res.data.active_plan === "PRO" };
+    }
+  } catch {
+    // ignore
+  }
+  return { success: false, isPaid: false };
+}
+
+export async function getPlayerStatusAction(
+  uid: string
+): Promise<ApiResponse<PlayerStatusResponse>> {
+  if (!uid || !/^\d{10,20}$/.test(uid)) {
+    return {
+      success: false,
+      error: {
+        code: "INVALID_UID",
+        message: "UID game phải chứa từ 10 đến 20 chữ số",
+      },
+    };
+  }
+
+  return apiClient.getPlayerStatus(uid);
+}
+
+export async function createCheckoutAction(
+  planPriceId: string,
+  uid?: string
+): Promise<ApiResponse<CheckoutResponse>> {
+  if (uid) {
+    return createPublicCheckoutAction(uid, planPriceId);
+  }
+
   const session = await getServerSession(authOptions);
   if (!session?.user?.discord_id) {
     return {
@@ -16,7 +85,7 @@ export async function createCheckoutAction(
       data: undefined,
       error: {
         code: "UNAUTHORIZED",
-        message: "Vui lòng đăng nhập Discord trước khi mua gói cước",
+        message: "Vui lòng nhập UID game hoặc đăng nhập Discord",
       },
     };
   }

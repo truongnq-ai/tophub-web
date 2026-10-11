@@ -39,13 +39,13 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/pricing" className="text-muted-foreground hover:text-primary transition-colors">
-                  {tNav("pricing")} TopHub Pro
+                <Link href="/check" className="text-muted-foreground hover:text-primary transition-colors">
+                  Tra Cứu Trạng Thái UID
                 </Link>
               </li>
               <li>
-                <Link href="/dashboard" className="text-muted-foreground hover:text-primary transition-colors">
-                  {tNav("dashboard")} Quản lý UID
+                <Link href="/" className="text-muted-foreground hover:text-primary transition-colors">
+                  Tự Động Điểm Danh 24/7
                 </Link>
               </li>
             </ul>
