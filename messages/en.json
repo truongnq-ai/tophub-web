@@ -100,7 +100,7 @@
     "addModalTitle": "Link Top Heroes Game Account",
     "addModalDesc": "Enter your in-game UID (found in Game Settings). Nickname and server will be verified automatically.",
     "uidLabel": "Game UID (10-20 digits)",
-    "uidPlaceholder": "e.g. 2446869146316",
+    "uidPlaceholder": "e.g. 1000000000001",
     "verifying": "Verifying with Top Heroes game servers...",
     "addSuccess": "Successfully linked character {nickname} on server {server}!",
     "emptyAccounts": "No game accounts linked yet. Add your first UID to get started!"

@@ -100,7 +100,7 @@
     "addModalTitle": "Liên Kết Tài Khoản Game Top Heroes",
     "addModalDesc": "Nhập UID nhân vật (tìm thấy trong phần Cài đặt của game). Hệ thống sẽ tự động xác minh tên và máy chủ.",
     "uidLabel": "UID Game (10-20 chữ số)",
-    "uidPlaceholder": "Ví dụ: 2446869146316",
+    "uidPlaceholder": "Ví dụ: 1000000000001",
     "verifying": "Đang xác thực với máy chủ game...",
     "addSuccess": "Đã liên kết thành công nhân vật {nickname} tại máy chủ {server}!",
     "emptyAccounts": "Chưa có tài khoản game nào được liên kết. Hãy thêm UID đầu tiên để bắt đầu!"

@@ -47,7 +47,7 @@ const mockGetAdminGiftcodeReceiversAction = vi.fn().mockResolvedValue({
   data: [
     {
       account_id: "acc-1",
-      uid: "2446869146316",
+      uid: "1000000000001",
       nickname: "DragonSlayer",
       server_id: "1024",
       status: "SUCCESS",
@@ -100,7 +100,7 @@ describe("AdminManager Component", () => {
   const mockAccounts: AdminAccountItem[] = [
     {
       id: "acc-1",
-      uid: "2446869146316",
+      uid: "1000000000001",
       nickname: "DragonSlayer",
       server_id: "1024",
       active_plan: "PRO",

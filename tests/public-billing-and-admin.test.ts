@@ -26,7 +26,7 @@ describe("Public Billing & Player Actions", () => {
       json: async () => ({
         success: true,
         data: {
-          uid: "2446869146316",
+          uid: "1000000000001",
           nickname: "SuperHero",
           server_id: "1024",
         },
@@ -34,11 +34,11 @@ describe("Public Billing & Player Actions", () => {
     });
     vi.stubGlobal("fetch", mockFetch);
 
-    const res = await apiClient.previewPlayer("2446869146316");
+    const res = await apiClient.previewPlayer("1000000000001");
     expect(res.success).toBe(true);
     expect(res.data?.nickname).toBe("SuperHero");
     expect(mockFetch).toHaveBeenCalledWith(
-      expect.stringContaining("/api/v1/players/preview?uid=2446869146316"),
+      expect.stringContaining("/api/v1/players/preview?uid=1000000000001"),
       expect.any(Object)
     );
   });
@@ -57,14 +57,14 @@ describe("Public Billing & Player Actions", () => {
     });
     vi.stubGlobal("fetch", mockFetch);
 
-    const res = await apiClient.createPublicCheckout("2446869146316", "price-1m");
+    const res = await apiClient.createPublicCheckout("1000000000001", "price-1m");
     expect(res.success).toBe(true);
     expect(res.data?.orderCode).toBe(123456);
     expect(mockFetch).toHaveBeenCalledWith(
       expect.stringContaining("/api/v1/billing/checkout"),
       expect.objectContaining({
         method: "POST",
-        body: JSON.stringify({ uid: "2446869146316", plan_price_id: "price-1m" }),
+        body: JSON.stringify({ uid: "1000000000001", plan_price_id: "price-1m" }),
       })
     );
   });
@@ -100,7 +100,7 @@ describe("Public Billing & Player Actions", () => {
         data: [
           {
             id: "acc-1",
-            uid: "2446869146316",
+            uid: "1000000000001",
             nickname: "SuperHero",
             server_id: "1024",
             active_plan: "PRO",
@@ -199,7 +199,7 @@ describe("Public Billing & Player Actions", () => {
         data: [
           {
             account_id: "acc-1",
-            uid: "2446869146316",
+            uid: "1000000000001",
             nickname: "DragonSlayer",
             server_id: "1024",
             status: "SUCCESS",
@@ -235,7 +235,7 @@ describe("Public Billing & Player Actions", () => {
               code: "HERO2026",
               status: "FAILED",
               redeemed_at: "2026-10-12T10:00:00.000Z",
-              uid: "2446869146316",
+              uid: "1000000000001",
               nickname: "DragonSlayer",
               server_id: "1024",
             },
@@ -281,7 +281,7 @@ describe("Public Billing & Player Actions", () => {
               game_day: "2026-10-12",
               status: "FAILED",
               checked_at: "2026-10-12T10:00:00.000Z",
-              uid: "2446869146316",
+              uid: "1000000000001",
               nickname: "DragonSlayer",
               server_id: "1024",
             },

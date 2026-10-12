@@ -90,7 +90,7 @@ export const MOCK_RECEIVERS_MAP: Record<string, GiftCodeReceiver[]> = {
   HERO2026: [
     {
       id: "rec-1",
-      uid: "2446869146316",
+      uid: "1000000000001",
       nickname: "DragonSlayer",
       server_id: "1024",
       status: "SUCCESS",
@@ -132,7 +132,7 @@ export const MOCK_RECEIVERS_MAP: Record<string, GiftCodeReceiver[]> = {
   AUTOBOT888: [
     {
       id: "rec-6",
-      uid: "2446869146316",
+      uid: "1000000000001",
       nickname: "DragonSlayer",
       server_id: "1024",
       status: "SUCCESS",
@@ -158,7 +158,7 @@ export const MOCK_RECEIVERS_MAP: Record<string, GiftCodeReceiver[]> = {
   TOPHERO10M: [
     {
       id: "rec-9",
-      uid: "2446869146316",
+      uid: "1000000000001",
       nickname: "DragonSlayer",
       server_id: "1024",
       status: "SUCCESS",
@@ -176,7 +176,7 @@ export const MOCK_RECEIVERS_MAP: Record<string, GiftCodeReceiver[]> = {
   NEWSEASON9: [
     {
       id: "rec-11",
-      uid: "2446869146316",
+      uid: "1000000000001",
       nickname: "DragonSlayer",
       server_id: "1024",
       status: "PENDING",
@@ -204,7 +204,7 @@ export const MOCK_RECEIVERS_MAP: Record<string, GiftCodeReceiver[]> = {
   WELCOMEHERO: [
     {
       id: "rec-14",
-      uid: "2446869146316",
+      uid: "1000000000001",
       nickname: "DragonSlayer",
       server_id: "1024",
       status: "SUCCESS",
@@ -233,7 +233,7 @@ export const MOCK_REDEMPTIONS: AdminRedemption[] = [
   {
     id: "red-1",
     game_account_id: "acc-1",
-    uid: "2446869146316",
+    uid: "1000000000001",
     nickname: "DragonSlayer",
     server_id: "1024",
     gift_code: "HERO2026",
@@ -288,7 +288,7 @@ export const MOCK_REDEMPTIONS: AdminRedemption[] = [
   {
     id: "red-6",
     game_account_id: "acc-1",
-    uid: "2446869146316",
+    uid: "1000000000001",
     nickname: "DragonSlayer",
     server_id: "1024",
     gift_code: "WELCOMEHERO",
@@ -313,7 +313,7 @@ export const MOCK_CHECKINS: AdminCheckin[] = [
   {
     id: "chk-1",
     game_account_id: "acc-1",
-    uid: "2446869146316",
+    uid: "1000000000001",
     nickname: "DragonSlayer",
     server_id: "1024",
     game_day: "2026-10-12",
@@ -363,7 +363,7 @@ export const MOCK_CHECKINS: AdminCheckin[] = [
   {
     id: "chk-6",
     game_account_id: "acc-1",
-    uid: "2446869146316",
+    uid: "1000000000001",
     nickname: "DragonSlayer",
     server_id: "1024",
     game_day: "2026-10-11",

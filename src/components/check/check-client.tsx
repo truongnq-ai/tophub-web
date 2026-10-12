@@ -76,7 +76,7 @@ export function CheckClient({ locale }: CheckClientProps) {
             <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-amber-500" />
             <Input
               type="text"
-              placeholder="Nhập Game UID cần tra cứu (ví dụ: 2446869146316)..."
+              placeholder="Nhập Game UID cần tra cứu (ví dụ: 1000000000001)..."
               value={uid}
               onChange={(e) => setUid(e.target.value.replace(/\D/g, ""))}
               className="bg-transparent border-0 pl-10 pr-4 font-mono text-sm focus-visible:ring-0 focus-visible:ring-offset-0 text-foreground placeholder:text-muted-foreground"

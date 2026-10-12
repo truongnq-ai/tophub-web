@@ -141,7 +141,7 @@ export function UidEnrollForm({ initialActiveCodes }: UidEnrollFormProps) {
               <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-amber-500" />
               <Input
                 type="text"
-                placeholder="Ví dụ: 2446869146316..."
+                placeholder="Ví dụ: 1000000000001..."
                 value={uidInput}
                 onChange={(e) => {
                   setUidInput(e.target.value.replace(/\D/g, ""));

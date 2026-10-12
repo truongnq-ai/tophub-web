@@ -6,7 +6,7 @@ import { AccountCard } from "../src/components/dashboard/account-card";
 describe("AccountCard Component", () => {
   const mockAccount = {
     id: "acc-1",
-    uid: "2446869146316",
+    uid: "1000000000001",
     server_id: "Server 1024",
     nickname: "DragonSlayer",
     auto_redeem: true,

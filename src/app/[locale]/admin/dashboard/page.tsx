@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 const MOCK_FALLBACK_ACCOUNTS = [
   {
     id: "acc-1",
-    uid: "2446869146316",
+    uid: "1000000000001",
     nickname: "DragonSlayer",
     server_id: "1024",
     active_plan: "PRO",

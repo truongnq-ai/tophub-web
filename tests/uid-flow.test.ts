@@ -11,7 +11,7 @@ import { apiClient } from "../src/lib/api-client";
 vi.mock("next/headers", () => ({
   cookies: () => ({
     set: vi.fn(),
-    get: vi.fn().mockReturnValue({ value: "2446869146316" }),
+    get: vi.fn().mockReturnValue({ value: "1000000000001" }),
     delete: vi.fn(),
   }),
 }));
@@ -31,25 +31,25 @@ describe("Player UID Actions", () => {
     const spy = vi.spyOn(apiClient, "previewPlayer").mockResolvedValue({
       success: true,
       data: {
-        uid: "2446869146316",
+        uid: "1000000000001",
         nickname: "HeroDragon",
         server_id: "1045",
         is_enrolled: true,
       },
     });
 
-    const res = await previewPlayerAction("2446869146316");
+    const res = await previewPlayerAction("1000000000001");
     expect(res.success).toBe(true);
     expect(res.data?.nickname).toBe("HeroDragon");
     expect(res.data?.is_enrolled).toBe(true);
-    expect(spy).toHaveBeenCalledWith("2446869146316");
+    expect(spy).toHaveBeenCalledWith("1000000000001");
   });
 
   it("enrollPlayerAction should call apiClient.enrollPlayer", async () => {
     const spy = vi.spyOn(apiClient, "enrollPlayer").mockResolvedValue({
       success: true,
       data: {
-        uid: "2446869146316",
+        uid: "1000000000001",
         nickname: "HeroDragon",
         server_id: "1045",
         is_enrolled: true,
@@ -58,42 +58,42 @@ describe("Player UID Actions", () => {
       },
     });
 
-    const res = await enrollPlayerAction("2446869146316");
+    const res = await enrollPlayerAction("1000000000001");
     expect(res.success).toBe(true);
     expect(res.data?.is_enrolled).toBe(true);
-    expect(spy).toHaveBeenCalledWith("2446869146316");
+    expect(spy).toHaveBeenCalledWith("1000000000001");
   });
 
   it("triggerRunNowAction should call apiClient.triggerRunNow", async () => {
     const spy = vi.spyOn(apiClient, "triggerRunNow").mockResolvedValue({
       success: true,
       data: {
-        uid: "2446869146316",
+        uid: "1000000000001",
         checkin_status: "SUCCESS",
         newly_redeemed: 2,
         message: "Đã nhận thành công 2 mã giftcode mới!",
       },
     });
 
-    const res = await triggerRunNowAction("2446869146316");
+    const res = await triggerRunNowAction("1000000000001");
     expect(res.success).toBe(true);
     expect(res.data?.newly_redeemed).toBe(2);
-    expect(spy).toHaveBeenCalledWith("2446869146316");
+    expect(spy).toHaveBeenCalledWith("1000000000001");
   });
 
   it("updatePlayerSettingsAction should call apiClient.updatePlayerSettings", async () => {
     const spy = vi.spyOn(apiClient, "updatePlayerSettings").mockResolvedValue({
       success: true,
       data: {
-        uid: "2446869146316",
+        uid: "1000000000001",
         auto_redeem: false,
         auto_checkin: true,
       },
     });
 
-    const res = await updatePlayerSettingsAction("2446869146316", { auto_redeem: false });
+    const res = await updatePlayerSettingsAction("1000000000001", { auto_redeem: false });
     expect(res.success).toBe(true);
     expect(res.data?.auto_redeem).toBe(false);
-    expect(spy).toHaveBeenCalledWith("2446869146316", { auto_redeem: false });
+    expect(spy).toHaveBeenCalledWith("1000000000001", { auto_redeem: false });
   });
 });

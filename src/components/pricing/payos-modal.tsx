@@ -287,7 +287,7 @@ export function PayOsModal({
                 <Input
                   id="uid-input"
                   type="text"
-                  placeholder={labels.uidPlaceholder || "Ví dụ: 2446869146316"}
+                  placeholder={labels.uidPlaceholder || "Ví dụ: 1000000000001"}
                   value={uid}
                   onChange={(e) => setUid(e.target.value.replace(/\D/g, ""))}
                   className="bg-slate-900/80 border-white/10 font-mono text-sm pl-3 pr-10 focus:border-purple-500/50"
