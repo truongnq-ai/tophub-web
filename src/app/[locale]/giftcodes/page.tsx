@@ -140,11 +140,11 @@ export default async function GiftcodesPage({ params: { locale } }: GiftcodesPag
 
       {/* Hero Header */}
       <div className="text-center space-y-4 max-w-3xl mx-auto">
-        <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
-          <Sparkles className="h-3.5 w-3.5" />
-          <span>Top Heroes Redeem Codes</span>
+        <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/40 bg-amber-500/10 px-4 py-1.5 text-xs font-bold text-amber-600 dark:text-amber-400 shadow-sm shadow-amber-500/10">
+          <Gift className="h-4 w-4 text-amber-500" />
+          <span>Kho Tàng Mã Quà Tặng Top Heroes</span>
         </div>
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-foreground">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-black tracking-wide text-foreground">
           {t("title")}
         </h1>
         <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
@@ -155,29 +155,29 @@ export default async function GiftcodesPage({ params: { locale } }: GiftcodesPag
       {/* Giftcode List Component */}
       <GiftcodeList initialItems={giftcodes} translations={translations} />
 
-      {/* Tutorial Guide Section */}
-      <Card className="border border-border/60 bg-card/40 backdrop-blur-sm overflow-hidden">
-        <CardHeader className="border-b border-border/40 pb-4">
-          <div className="flex items-center gap-2">
-            <BookOpen className="h-5 w-5 text-primary" />
-            <CardTitle className="text-lg sm:text-xl font-bold">
+      {/* Tutorial Guide Section: 4-Step Adventurer Roadmap */}
+      <Card className="card-rpg rounded-3xl overflow-hidden">
+        <CardHeader className="border-b border-border/60 pb-4">
+          <div className="flex items-center gap-2.5">
+            <BookOpen className="h-5 w-5 text-amber-500" />
+            <CardTitle className="text-lg sm:text-xl font-bold font-heading">
               {t("tutorialTitle")}
             </CardTitle>
           </div>
         </CardHeader>
         <CardContent className="pt-6">
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {steps.map((s, idx) => {
               const Icon = s.icon;
               return (
                 <div
                   key={idx}
-                  className="flex flex-col items-center text-center p-4 rounded-lg bg-muted/30 border border-border/30 hover:border-primary/40 transition-colors"
+                  className="flex flex-col items-center text-center p-5 rounded-2xl bg-card/60 border border-border/80 dark:border-amber-500/15 hover:border-amber-500/40 hover:bg-card/90 transition-all shadow-sm"
                 >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary mb-3">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-tr from-amber-500 via-amber-400 to-yellow-300 text-slate-950 font-black mb-3 shadow-md shadow-amber-500/20 border border-amber-300/30">
                     <Icon className="h-6 w-6" />
                   </div>
-                  <span className="text-xs font-bold text-primary uppercase tracking-wider mb-1">
+                  <span className="text-xs font-bold text-amber-600 dark:text-amber-400 uppercase tracking-widest mb-1.5 font-heading">
                     {s.title}
                   </span>
                   <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">

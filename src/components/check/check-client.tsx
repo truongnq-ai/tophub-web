@@ -70,10 +70,10 @@ export function CheckClient({ locale }: CheckClientProps) {
       <div className="max-w-2xl mx-auto">
         <form
           onSubmit={handleSubmit}
-          className="p-2 sm:p-2.5 rounded-2xl bg-slate-900/80 border border-white/10 backdrop-blur-xl shadow-2xl flex flex-col sm:flex-row items-center gap-2"
+          className="card-rpg p-2 sm:p-2.5 rounded-2xl flex flex-col sm:flex-row items-center gap-2"
         >
           <div className="relative flex-1 w-full">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-amber-500" />
             <Input
               type="text"
               placeholder="Nhập Game UID cần tra cứu (ví dụ: 2446869146316)..."
@@ -86,7 +86,7 @@ export function CheckClient({ locale }: CheckClientProps) {
           <Button
             type="submit"
             disabled={loading || !uid.trim()}
-            className="w-full sm:w-auto font-bold gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white shadow-md shadow-purple-500/25 shrink-0"
+            className="w-full sm:w-auto font-bold gap-2 px-6 py-2.5 rounded-xl btn-tactile-gold shrink-0 min-h-[44px]"
           >
             {loading ? (
               <>
@@ -104,8 +104,8 @@ export function CheckClient({ locale }: CheckClientProps) {
 
         {/* Error notification */}
         {error && (
-          <div className="mt-4 flex items-center gap-2.5 p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs sm:text-sm animate-in fade-in-50">
-            <AlertCircle className="h-4 w-4 shrink-0 text-rose-400" />
+          <div className="mt-4 flex items-center gap-2.5 p-4 rounded-xl bg-destructive/10 border border-destructive/30 text-destructive text-xs sm:text-sm animate-in fade-in-50">
+            <AlertCircle className="h-4 w-4 shrink-0" />
             <span>{error}</span>
           </div>
         )}
@@ -116,11 +116,11 @@ export function CheckClient({ locale }: CheckClientProps) {
 
       {/* Empty State / How to find UID guide */}
       {!statusData && !loading && !error && (
-        <div className="max-w-xl mx-auto p-6 rounded-2xl border border-white/5 bg-slate-900/40 backdrop-blur-md text-center space-y-3">
-          <div className="h-10 w-10 mx-auto rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center">
+        <div className="max-w-xl mx-auto p-6 rounded-2xl card-rpg text-center space-y-3">
+          <div className="h-10 w-10 mx-auto rounded-xl bg-amber-500/15 text-amber-500 flex items-center justify-center">
             <Sparkles className="h-5 w-5" />
           </div>
-          <h3 className="text-sm font-bold text-foreground">Cách tìm Game UID trong Top Heroes</h3>
+          <h3 className="text-sm font-bold text-foreground font-heading">Cách tìm Game UID trong Top Heroes</h3>
           <p className="text-xs text-muted-foreground leading-relaxed">
             1. Mở game Top Heroes trên điện thoại hoặc giả lập.<br />
             2. Bấm vào ảnh đại diện (Avatar) ở góc trên bên trái màn hình.<br />

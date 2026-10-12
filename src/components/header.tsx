@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { Link, usePathname } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import {
-  Sparkles,
+  Shield,
   Menu,
   User,
   LogOut,
@@ -49,7 +49,7 @@ export function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/70 bg-background/85 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 w-full border-b border-border/80 dark:border-amber-500/15 bg-background/90 backdrop-blur-xl">
       <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
         {/* Left: Mobile Menu & Logo */}
         <div className="flex items-center gap-3 sm:gap-4">
@@ -60,7 +60,7 @@ export function Header() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="h-11 w-11 min-h-[44px] min-w-[44px] rounded-xl hover:bg-primary/10 hover:text-primary transition-colors"
+                  className="h-11 w-11 min-h-[44px] min-w-[44px] rounded-xl hover:bg-amber-500/10 hover:text-amber-500 transition-colors"
                 >
                   <Menu className="h-5 w-5" />
                   <span className="sr-only">Toggle navigation menu</span>
@@ -69,12 +69,12 @@ export function Header() {
               <SheetContent side="left" className="w-[300px] bg-card/95 backdrop-blur-2xl border-border/80 p-6">
                 <SheetHeader>
                   <SheetTitle className="flex items-center gap-2.5 text-left">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-tr from-primary via-purple-600 to-amber-500 text-white shadow-md shadow-primary/25">
-                      <Sparkles className="h-5 w-5" />
+                    <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-tr from-amber-500 via-amber-400 to-yellow-300 text-slate-950 shadow-md shadow-amber-500/25 border border-amber-300/30">
+                      <Shield className="h-5 w-5 fill-current" />
                     </div>
                     <div className="flex flex-col">
-                      <span className="font-heading font-black text-xl tracking-tight text-foreground">TopHub</span>
-                      <span className="text-[10px] text-primary font-mono font-bold uppercase tracking-wider">Top Heroes Companion</span>
+                      <span className="font-heading font-black text-xl tracking-wide text-foreground">TopHub</span>
+                      <span className="text-[10px] text-amber-500 dark:text-amber-400 font-mono font-bold uppercase tracking-wider">Top Heroes Companion</span>
                     </div>
                   </SheetTitle>
                 </SheetHeader>
@@ -90,7 +90,7 @@ export function Header() {
                         className={cn(
                           "flex items-center gap-3 px-3.5 py-3 rounded-xl text-sm font-semibold transition-all min-h-[44px]",
                           isActive
-                            ? "bg-primary/15 text-primary font-bold shadow-sm shadow-primary/10 border border-primary/25"
+                            ? "bg-amber-500/15 text-amber-600 dark:text-amber-400 font-bold shadow-sm shadow-amber-500/10 border border-amber-500/30"
                             : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
                         )}
                       >
@@ -106,14 +106,14 @@ export function Header() {
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-tr from-primary via-purple-600 to-amber-500 text-white shadow-md shadow-primary/25 group-hover:scale-105 transition-transform duration-200">
-              <Sparkles className="h-5 w-5 animate-pulse" />
+            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-tr from-amber-500 via-amber-400 to-yellow-300 text-slate-950 shadow-md shadow-amber-500/25 border border-amber-300/30 group-hover:scale-105 transition-transform duration-200">
+              <Shield className="h-5 w-5 fill-current" />
             </div>
             <div className="flex flex-col">
-              <span className="font-heading font-black text-xl sm:text-2xl leading-none tracking-tight text-foreground group-hover:text-primary transition-colors">
+              <span className="font-heading font-black text-xl sm:text-2xl leading-none tracking-wide text-foreground group-hover:text-amber-500 dark:group-hover:text-amber-400 transition-colors">
                 TopHub
               </span>
-              <span className="text-[10px] text-primary/80 font-mono font-bold uppercase tracking-widest mt-1">
+              <span className="text-[10px] text-amber-600/90 dark:text-amber-400/90 font-mono font-bold uppercase tracking-widest mt-1">
                 Top Heroes Companion
               </span>
             </div>
@@ -130,9 +130,9 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-semibold transition-all",
+                  "flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-sm font-semibold transition-all",
                   isActive
-                    ? "bg-primary/15 text-primary font-bold shadow-sm shadow-primary/10 border border-primary/20"
+                    ? "bg-amber-500/15 text-amber-600 dark:text-amber-400 font-bold shadow-sm shadow-amber-500/10 border border-amber-500/25"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                 )}
               >
@@ -154,16 +154,16 @@ export function Header() {
               <DropdownMenuTrigger asChild>
                 <Button
                   variant="ghost"
-                  className="flex items-center gap-2 px-3 py-1.5 h-10 min-h-[44px] rounded-full border border-primary/40 bg-primary/10 hover:border-primary/60 hover:bg-primary/15 transition-all shadow-sm shadow-primary/10"
+                  className="flex items-center gap-2 px-3 py-1.5 h-10 min-h-[44px] rounded-full border border-amber-500/30 bg-amber-500/10 hover:border-amber-500/50 hover:bg-amber-500/15 transition-all shadow-sm shadow-amber-500/10"
                 >
-                  <div className="flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-tr from-primary to-purple-600 text-white text-xs font-bold font-mono">
+                  <div className="flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-tr from-amber-500 to-amber-600 text-slate-950 text-xs font-bold font-mono shadow-sm">
                     {activeAccount.nickname ? activeAccount.nickname.charAt(0).toUpperCase() : "U"}
                   </div>
                   <div className="flex flex-col text-left">
                     <span className="hidden sm:inline-block max-w-[110px] truncate text-xs font-bold text-foreground leading-tight">
                       {activeAccount.nickname}
                     </span>
-                    <span className="text-[10px] text-primary font-mono leading-none">
+                    <span className="text-[10px] text-amber-600 dark:text-amber-400 font-mono leading-none">
                       S{activeAccount.server_id}
                     </span>
                   </div>
@@ -180,7 +180,7 @@ export function Header() {
                       UID: {activeAccount.uid} (Server {activeAccount.server_id})
                     </p>
                     <div className="pt-1.5">
-                      <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/25">
+                      <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-emerald-500 dark:text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/25">
                         <span className="relative flex h-2 w-2">
                           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                           <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
@@ -207,7 +207,7 @@ export function Header() {
                           className="cursor-pointer flex items-center justify-between py-2 text-xs"
                         >
                           <div className="flex items-center gap-2 overflow-hidden">
-                            <User className="h-3.5 w-3.5 text-primary shrink-0" />
+                            <User className="h-3.5 w-3.5 text-amber-500 shrink-0" />
                             <span className="font-medium truncate">{acc.nickname}</span>
                           </div>
                           <span className="text-[10px] text-muted-foreground font-mono ml-2 shrink-0">

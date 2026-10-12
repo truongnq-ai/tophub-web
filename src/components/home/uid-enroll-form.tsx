@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import {
+  Shield,
   Search,
   Loader2,
   Sparkles,
@@ -115,12 +116,12 @@ export function UidEnrollForm({ initialActiveCodes }: UidEnrollFormProps) {
     <div className="space-y-12 max-w-3xl mx-auto py-6">
       {/* Hero Title */}
       <div className="text-center space-y-4">
-        <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-xs font-bold text-primary shadow-sm shadow-primary/20">
-          <Sparkles className="h-4 w-4 animate-pulse text-amber-400" />
-          <span>Tự Động Hóa Game Top Heroes • 100% Miễn Phí</span>
+        <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/40 bg-amber-500/10 px-4 py-1.5 text-xs font-bold text-amber-600 dark:text-amber-400 shadow-sm shadow-amber-500/10">
+          <Shield className="h-4 w-4 fill-current text-amber-500" />
+          <span>Sảnh Hiệp Sĩ • Tự Động Hóa 24/7 Miễn Phí</span>
         </div>
 
-        <h1 className="text-4xl sm:text-5xl font-heading font-black tracking-tight text-foreground leading-[1.12]">
+        <h1 className="text-3xl sm:text-5xl font-heading font-black tracking-wide text-foreground leading-[1.15]">
           Tự Động Nhận Giftcode &amp; Điểm Danh Hàng Ngày
         </h1>
 
@@ -130,14 +131,14 @@ export function UidEnrollForm({ initialActiveCodes }: UidEnrollFormProps) {
       </div>
 
       {/* Main Console Input Form */}
-      <div className="p-4 sm:p-6 rounded-3xl border border-border/80 bg-card/80 backdrop-blur-xl shadow-2xl shadow-black/20 space-y-5">
+      <div className="card-rpg p-5 sm:p-7 rounded-3xl space-y-5">
         <form onSubmit={handleCheck} className="space-y-3">
-          <label className="block text-xs font-bold uppercase tracking-wider text-muted-foreground">
+          <label className="block text-xs font-bold uppercase tracking-wider text-muted-foreground font-heading">
             Mã Số Người Chơi (Game UID)
           </label>
-          <div className="flex flex-col sm:flex-row gap-2.5">
+          <div className="flex flex-col sm:flex-row gap-3">
             <div className="relative flex-1">
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-amber-500" />
               <Input
                 type="text"
                 placeholder="Ví dụ: 2446869146316..."
@@ -147,24 +148,24 @@ export function UidEnrollForm({ initialActiveCodes }: UidEnrollFormProps) {
                   setPreviewData(null);
                   setErrorMsg(null);
                 }}
-                className="pl-10 h-12 rounded-xl bg-background/60 font-mono text-base tracking-wide border-input"
+                className="pl-10 h-12 rounded-xl bg-background/80 font-mono text-base tracking-wider border-input focus-visible:ring-amber-500/30 focus-visible:border-amber-500"
                 maxLength={20}
               />
             </div>
             <Button
               type="submit"
               disabled={checking || uidInput.trim().length < 10}
-              className="h-12 px-6 rounded-xl font-bold bg-primary hover:bg-primary/90 text-white shrink-0 min-h-[44px] shadow-md shadow-primary/25"
+              className="btn-tactile-gold h-12 px-7 rounded-xl font-bold shrink-0 min-h-[44px] flex items-center justify-center gap-2"
             >
               {checking ? (
                 <>
-                  <Loader2 className="h-4 w-4 animate-spin mr-2" />
+                  <Loader2 className="h-4 w-4 animate-spin" />
                   <span>Đang kiểm tra...</span>
                 </>
               ) : (
                 <>
-                  <Search className="h-4 w-4 mr-2" />
-                  <span>Kiểm Tra</span>
+                  <Search className="h-4 w-4" />
+                  <span>Kiểm Tra UID</span>
                 </>
               )}
             </Button>
@@ -181,10 +182,10 @@ export function UidEnrollForm({ initialActiveCodes }: UidEnrollFormProps) {
 
         {/* Preview Card (Appears after successful verification) */}
         {previewData && (
-          <div className="p-4 rounded-2xl border border-primary/30 bg-primary/5 space-y-4 animate-in fade-in-50 duration-300">
+          <div className="p-4 sm:p-5 rounded-2xl border border-amber-500/40 bg-amber-500/5 dark:bg-card/90 space-y-4 animate-in fade-in-50 duration-300">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-              <div className="flex items-center gap-3">
-                <div className="h-12 w-12 rounded-xl bg-gradient-to-tr from-primary to-purple-600 text-white flex items-center justify-center font-bold text-lg font-heading shadow-md shadow-primary/25">
+              <div className="flex items-center gap-3.5">
+                <div className="h-12 w-12 rounded-2xl bg-gradient-to-tr from-amber-500 via-amber-400 to-yellow-300 text-slate-950 flex items-center justify-center font-bold text-xl font-heading shadow-md shadow-amber-500/20 border border-amber-300/30">
                   {previewData.nickname ? previewData.nickname.charAt(0).toUpperCase() : "U"}
                 </div>
                 <div>
@@ -193,11 +194,11 @@ export function UidEnrollForm({ initialActiveCodes }: UidEnrollFormProps) {
                       {previewData.nickname}
                     </span>
                     {previewData.is_enrolled ? (
-                      <Badge className="bg-emerald-500/15 text-emerald-400 border-emerald-500/30 text-[11px] font-bold">
+                      <Badge className="bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30 text-[11px] font-bold">
                         Đã Kích Hoạt Bot
                       </Badge>
                     ) : (
-                      <Badge variant="outline" className="text-amber-400 border-amber-500/30 bg-amber-500/10 text-[11px] font-bold">
+                      <Badge variant="outline" className="text-amber-600 dark:text-amber-400 border-amber-500/30 bg-amber-500/10 text-[11px] font-bold">
                         Chưa Kích Hoạt
                       </Badge>
                     )}
@@ -214,10 +215,10 @@ export function UidEnrollForm({ initialActiveCodes }: UidEnrollFormProps) {
               <Button
                 onClick={handleProceed}
                 disabled={enrolling}
-                className={`h-11 px-6 rounded-xl font-bold min-h-[44px] shrink-0 text-white shadow-lg transition-transform active:scale-95 ${
+                className={`h-11 px-6 rounded-xl font-bold min-h-[44px] shrink-0 text-white ${
                   previewData.is_enrolled
-                    ? "bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 shadow-emerald-500/25"
-                    : "bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-500 shadow-primary/25"
+                    ? "btn-tactile-emerald"
+                    : "btn-tactile-gold"
                 }`}
               >
                 {enrolling ? (
@@ -245,7 +246,7 @@ export function UidEnrollForm({ initialActiveCodes }: UidEnrollFormProps) {
       {/* Quick Switcher: Accounts saved on this device */}
       {savedAccounts.length > 0 && (
         <div className="space-y-3">
-          <div className="flex items-center justify-between text-xs text-muted-foreground font-bold uppercase tracking-wider px-1">
+          <div className="flex items-center justify-between text-xs text-muted-foreground font-bold uppercase tracking-wider px-1 font-heading">
             <span>Tài Khoản Đã Lưu Trên Máy Này ({savedAccounts.length})</span>
             <span className="text-[11px] font-normal normal-case text-muted-foreground/80">Bấm để vào nhanh</span>
           </div>
@@ -254,13 +255,13 @@ export function UidEnrollForm({ initialActiveCodes }: UidEnrollFormProps) {
             {savedAccounts.map((account) => (
               <Card
                 key={account.uid}
-                className="border border-border/80 bg-card/60 hover:bg-card/90 hover:border-primary/40 transition-all rounded-2xl p-3.5 flex items-center justify-between gap-3 shadow-sm"
+                className="border border-border/80 bg-card/70 hover:bg-card hover:border-amber-500/40 transition-all rounded-2xl p-3.5 flex items-center justify-between gap-3 shadow-sm"
               >
                 <div
                   onClick={() => selectAccount(account)}
                   className="flex items-center gap-3 cursor-pointer overflow-hidden flex-1"
                 >
-                  <div className="h-9 w-9 rounded-xl bg-primary/15 border border-primary/30 text-primary flex items-center justify-center font-bold text-sm shrink-0">
+                  <div className="h-9 w-9 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-500 flex items-center justify-center font-bold text-sm shrink-0">
                     {account.nickname ? account.nickname.charAt(0).toUpperCase() : "U"}
                   </div>
                   <div className="overflow-hidden">
@@ -275,7 +276,7 @@ export function UidEnrollForm({ initialActiveCodes }: UidEnrollFormProps) {
                   <Button
                     size="sm"
                     onClick={() => selectAccount(account)}
-                    className="h-8 px-3 rounded-lg text-xs font-bold bg-primary/20 hover:bg-primary text-primary hover:text-white"
+                    className="h-8 px-3 rounded-lg text-xs font-bold bg-amber-500/20 hover:bg-amber-500 text-amber-600 dark:text-amber-400 hover:text-slate-950 transition-colors"
                   >
                     Vào Quản Lý
                   </Button>
@@ -298,32 +299,38 @@ export function UidEnrollForm({ initialActiveCodes }: UidEnrollFormProps) {
       {/* Active Giftcodes Badges */}
       <section className="pt-4 border-t border-border/70 space-y-3">
         <div className="flex items-center justify-between">
-          <h2 className="text-xs font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
-            <Gift className="h-4 w-4 text-amber-400" />
+          <h2 className="text-xs font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5 font-heading">
+            <Gift className="h-4 w-4 text-amber-500" />
             Mã Giftcode Đang Hoạt Động · {activeCodesList.length}
           </h2>
-          <span className="text-[11px] text-emerald-400 font-mono font-bold">● Đang quét tự động</span>
+          <span className="text-[11px] text-emerald-500 dark:text-emerald-400 font-mono font-bold flex items-center gap-1.5">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            Đang quét tự động 24/7
+          </span>
         </div>
 
         {activeCodesList.length > 0 ? (
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2.5">
             {activeCodesList.map((item) => (
               <button
                 key={item.code}
                 onClick={() => handleCopyCode(item.code)}
-                className="group inline-flex items-center gap-2 rounded-full border border-border/80 bg-muted/60 px-3.5 py-1.5 font-mono text-xs text-foreground hover:border-primary/50 hover:bg-primary/10 transition-colors"
+                className="group inline-flex items-center gap-2 rounded-xl border border-border/80 dark:border-amber-500/20 bg-muted/40 hover:bg-amber-500/10 hover:border-amber-500/50 px-3.5 py-1.5 font-mono text-xs text-foreground transition-all duration-150"
               >
-                <span className="font-bold">{item.code}</span>
+                <span className="font-bold tracking-wide">{item.code}</span>
                 {copiedCode === item.code ? (
-                  <Check className="h-3 w-3 text-emerald-400" />
+                  <Check className="h-3.5 w-3.5 text-emerald-500" />
                 ) : (
-                  <Copy className="h-3 w-3 text-muted-foreground group-hover:text-primary" />
+                  <Copy className="h-3.5 w-3.5 text-muted-foreground group-hover:text-amber-500 transition-colors" />
                 )}
               </button>
             ))}
           </div>
         ) : (
-          <div className="rounded-2xl border border-dashed border-border/70 p-4 text-center text-xs text-muted-foreground bg-muted/20">
+          <div className="rounded-2xl border border-dashed border-border/80 p-4 text-center text-xs text-muted-foreground bg-muted/20">
             Hệ thống đang quét tìm giftcode mới 24/7. Chưa có mã hoạt động.
           </div>
         )}
@@ -331,18 +338,18 @@ export function UidEnrollForm({ initialActiveCodes }: UidEnrollFormProps) {
 
       {/* Community Activity Counters */}
       <section className="pt-6 border-t border-border/70">
-        <h2 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
-          Hoạt Động Tự Động Hóa Hôm Nay
+        <h2 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4 font-heading">
+          Hoạt Động Tự Động Hóa Toàn Máy Chủ
         </h2>
         <div className="grid grid-cols-2 gap-4">
-          <div className="p-4 rounded-2xl border border-border/70 bg-card/50 space-y-1">
+          <div className="card-rpg p-5 rounded-2xl space-y-1">
             <p className="text-xs text-muted-foreground">Mã Giftcode Đã Nhận Thành Công</p>
-            <p className="font-mono text-2xl sm:text-3xl font-black text-foreground">11,480+</p>
+            <p className="font-heading text-2xl sm:text-4xl font-black text-amber-500 dark:text-amber-400 tracking-wide">11,480+</p>
             <p className="text-[11px] text-muted-foreground">kể từ khi khởi chạy</p>
           </div>
-          <div className="p-4 rounded-2xl border border-border/70 bg-card/50 space-y-1">
+          <div className="card-rpg p-5 rounded-2xl space-y-1">
             <p className="text-xs text-muted-foreground">Tài Khoản Đang Kích Hoạt Bot</p>
-            <p className="font-mono text-2xl sm:text-3xl font-black text-foreground">850+</p>
+            <p className="font-heading text-2xl sm:text-4xl font-black text-amber-500 dark:text-amber-400 tracking-wide">850+</p>
             <p className="text-[11px] text-muted-foreground">tự động điểm danh 24/7</p>
           </div>
         </div>
@@ -350,11 +357,11 @@ export function UidEnrollForm({ initialActiveCodes }: UidEnrollFormProps) {
 
       {/* FAQ Accordion Section */}
       <section className="pt-6 border-t border-border/70 space-y-3">
-        <h2 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">
-          Câu Hỏi Thường Gặp
+        <h2 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2 font-heading">
+          Cẩm Nang Thắc Mắc Hiệp Sĩ (FAQ)
         </h2>
-        <div className="space-y-2">
-          <details className="group rounded-2xl border border-border/70 bg-card/40 p-4 transition-all [&_summary::-webkit-details-marker]:hidden">
+        <div className="space-y-2.5">
+          <details className="group rounded-2xl border border-border/80 dark:border-amber-500/15 bg-card/50 hover:border-amber-500/30 p-4 transition-all [&_summary::-webkit-details-marker]:hidden">
             <summary className="flex cursor-pointer items-center justify-between text-sm font-bold text-foreground">
               <span>Tôi có cần mở trang web thường xuyên để bot hoạt động không?</span>
               <ChevronDown className="h-4 w-4 text-muted-foreground transition-transform group-open:rotate-180" />
@@ -364,7 +371,7 @@ export function UidEnrollForm({ initialActiveCodes }: UidEnrollFormProps) {
             </p>
           </details>
 
-          <details className="group rounded-2xl border border-border/70 bg-card/40 p-4 transition-all [&_summary::-webkit-details-marker]:hidden">
+          <details className="group rounded-2xl border border-border/80 dark:border-amber-500/15 bg-card/50 hover:border-amber-500/30 p-4 transition-all [&_summary::-webkit-details-marker]:hidden">
             <summary className="flex cursor-pointer items-center justify-between text-sm font-bold text-foreground">
               <span>Hệ thống có hỗ trợ nhiều tài khoản (acc chính và acc clone) không?</span>
               <ChevronDown className="h-4 w-4 text-muted-foreground transition-transform group-open:rotate-180" />
@@ -374,7 +381,7 @@ export function UidEnrollForm({ initialActiveCodes }: UidEnrollFormProps) {
             </p>
           </details>
 
-          <details className="group rounded-2xl border border-border/70 bg-card/40 p-4 transition-all [&_summary::-webkit-details-marker]:hidden">
+          <details className="group rounded-2xl border border-border/80 dark:border-amber-500/15 bg-card/50 hover:border-amber-500/30 p-4 transition-all [&_summary::-webkit-details-marker]:hidden">
             <summary className="flex cursor-pointer items-center justify-between text-sm font-bold text-foreground">
               <span>Dùng UID công khai có an toàn cho tài khoản game của tôi không?</span>
               <ChevronDown className="h-4 w-4 text-muted-foreground transition-transform group-open:rotate-180" />

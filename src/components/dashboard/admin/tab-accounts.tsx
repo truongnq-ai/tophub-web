@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import {
   Search,
   CheckCircle2,
@@ -10,6 +10,9 @@ import {
   Check,
   RefreshCw,
   Users,
+  Filter,
+  ArrowUpDown,
+  Download,
 } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -21,6 +24,8 @@ import type { AdminAccountItem } from "@/types/api";
 import { AccountAvatar } from "./account-avatar";
 import { ServerTag } from "./server-tag";
 import { AdminTooltip } from "./admin-tooltip";
+import { AdminPagination } from "./pagination";
+import { AdminEmptyState } from "./empty-state";
 
 interface TabAccountsProps {
   accounts: AdminAccountItem[];
@@ -42,8 +47,20 @@ export function TabAccounts({
   const { toast } = useToast();
   const [search, setSearch] = useState("");
   const [filterPlan, setFilterPlan] = useState<"ALL" | "PRO" | "FREE">("ALL");
+  const [filterServer, setFilterServer] = useState<string>("ALL");
+  const [filterToken, setFilterToken] = useState<string>("ALL");
+  const [sortBy, setSortBy] = useState<"DEFAULT" | "NEWEST" | "PRO_FIRST" | "NAME" | "SERVER">("DEFAULT");
   const [copiedUid, setCopiedUid] = useState<string | null>(null);
   const [isRefreshing, setIsRefreshing] = useState(false);
+
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
+
+  // Extract unique server IDs for dropdown
+  const uniqueServers = useMemo(() => {
+    return Array.from(new Set(accounts.map((a) => a.server_id).filter(Boolean))).sort();
+  }, [accounts]);
 
   const handleCopyUid = (uid: string) => {
     navigator.clipboard.writeText(uid);
@@ -53,6 +70,15 @@ export function TabAccounts({
       description: `UID ${uid} đã được lưu vào clipboard`,
     });
     setTimeout(() => setCopiedUid(null), 2000);
+  };
+
+  const handleCopyAllUids = () => {
+    const uids = accounts.map((a) => a.uid).join("\n");
+    navigator.clipboard.writeText(uids);
+    toast({
+      title: "Đã sao chép toàn bộ UID",
+      description: `Đã sao chép ${accounts.length} UID vào clipboard`,
+    });
   };
 
   const handleRefresh = async () => {
@@ -69,19 +95,58 @@ export function TabAccounts({
     }, 600);
   };
 
-  const filteredAccounts = accounts.filter((acc) => {
-    const matchesSearch =
-      acc.uid.toLowerCase().includes(search.toLowerCase()) ||
-      acc.nickname.toLowerCase().includes(search.toLowerCase()) ||
-      acc.server_id.toLowerCase().includes(search.toLowerCase());
+  const filteredAccounts = useMemo(() => {
+    const list = accounts.filter((acc) => {
+      const matchesSearch =
+        acc.uid.toLowerCase().includes(search.toLowerCase()) ||
+        acc.nickname.toLowerCase().includes(search.toLowerCase()) ||
+        acc.server_id.toLowerCase().includes(search.toLowerCase());
 
-    const matchesPlan =
-      filterPlan === "ALL" ||
-      (filterPlan === "PRO" && acc.active_plan === "PRO") ||
-      (filterPlan === "FREE" && acc.active_plan !== "PRO");
+      const matchesPlan =
+        filterPlan === "ALL" ||
+        (filterPlan === "PRO" && acc.active_plan === "PRO") ||
+        (filterPlan === "FREE" && acc.active_plan !== "PRO");
 
-    return matchesSearch && matchesPlan;
-  });
+      const matchesServer = filterServer === "ALL" || acc.server_id === filterServer;
+
+      const matchesToken =
+        filterToken === "ALL" ||
+        (filterToken === "VALID" && acc.token_status === "VALID") ||
+        (filterToken === "EXPIRED" && acc.token_status !== "VALID");
+
+      return matchesSearch && matchesPlan && matchesServer && matchesToken;
+    });
+
+    if (sortBy === "DEFAULT") return list;
+
+    // Sorting
+    return [...list].sort((a, b) => {
+      if (sortBy === "PRO_FIRST") {
+        if (a.active_plan === "PRO" && b.active_plan !== "PRO") return -1;
+        if (a.active_plan !== "PRO" && b.active_plan === "PRO") return 1;
+      } else if (sortBy === "NAME") {
+        return (a.nickname || "").localeCompare(b.nickname || "");
+      } else if (sortBy === "SERVER") {
+        return (a.server_id || "").localeCompare(b.server_id || "");
+      }
+      return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+    });
+  }, [accounts, search, filterPlan, filterServer, filterToken, sortBy]);
+
+  // Paginated items
+  const totalPages = Math.ceil(filteredAccounts.length / pageSize);
+  const paginatedAccounts = useMemo(() => {
+    const start = (currentPage - 1) * pageSize;
+    return filteredAccounts.slice(start, start + pageSize);
+  }, [filteredAccounts, currentPage, pageSize]);
+
+  // Calculate PRO expiration countdown
+  const getDaysRemaining = (endsAt: string | null) => {
+    if (!endsAt) return null;
+    const diff = new Date(endsAt).getTime() - Date.now();
+    const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+    return days;
+  };
 
   return (
     <Card className="border border-border/60 bg-card/80 backdrop-blur-md rounded-2xl overflow-hidden shadow-lg">
@@ -101,7 +166,7 @@ export function TabAccounts({
             </CardDescription>
           </div>
 
-          {/* Search, Filter Plan & Refresh */}
+          {/* Search, Filter Plan & Actions */}
           <div className="flex flex-wrap items-center gap-2">
             <div className="relative">
               <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
@@ -109,15 +174,22 @@ export function TabAccounts({
                 type="text"
                 placeholder="Tìm UID, tên, máy chủ..."
                 value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                className="h-9 w-44 sm:w-56 text-xs pl-8 bg-background border-border/60 focus-visible:ring-primary/20"
+                onChange={(e) => {
+                  setSearch(e.target.value);
+                  setCurrentPage(1);
+                }}
+                className="h-9 w-44 sm:w-52 text-xs pl-8 bg-background border-border/60 focus-visible:ring-primary/20"
               />
             </div>
 
+            {/* Plan filter tabs */}
             <div className="inline-flex rounded-lg border border-border/60 p-0.5 bg-muted/50 text-xs">
               <button
                 type="button"
-                onClick={() => setFilterPlan("ALL")}
+                onClick={() => {
+                  setFilterPlan("ALL");
+                  setCurrentPage(1);
+                }}
                 className={`px-3 py-1 rounded-md font-bold transition-all ${
                   filterPlan === "ALL"
                     ? "bg-primary text-primary-foreground shadow-sm"
@@ -128,7 +200,10 @@ export function TabAccounts({
               </button>
               <button
                 type="button"
-                onClick={() => setFilterPlan("PRO")}
+                onClick={() => {
+                  setFilterPlan("PRO");
+                  setCurrentPage(1);
+                }}
                 className={`px-3 py-1 rounded-md font-bold transition-all ${
                   filterPlan === "PRO"
                     ? "bg-amber-500 text-slate-950 shadow-sm"
@@ -139,7 +214,10 @@ export function TabAccounts({
               </button>
               <button
                 type="button"
-                onClick={() => setFilterPlan("FREE")}
+                onClick={() => {
+                  setFilterPlan("FREE");
+                  setCurrentPage(1);
+                }}
                 className={`px-3 py-1 rounded-md font-bold transition-all ${
                   filterPlan === "FREE"
                     ? "bg-background text-foreground shadow-sm"
@@ -149,6 +227,66 @@ export function TabAccounts({
                 FREE
               </button>
             </div>
+
+            {/* Server filter dropdown */}
+            {uniqueServers.length > 0 && (
+              <select
+                value={filterServer}
+                onChange={(e) => {
+                  setFilterServer(e.target.value);
+                  setCurrentPage(1);
+                }}
+                aria-label="Lọc theo máy chủ"
+                className="h-9 px-2 rounded-lg bg-background border border-border/60 text-foreground font-mono text-xs focus:outline-none focus:ring-1 focus:ring-primary/30 cursor-pointer"
+              >
+                <option value="ALL">Mọi máy chủ</option>
+                {uniqueServers.map((s) => (
+                  <option key={s} value={s}>
+                    S{s}
+                  </option>
+                ))}
+              </select>
+            )}
+
+            {/* Token status filter dropdown */}
+            <select
+              value={filterToken}
+              onChange={(e) => {
+                setFilterToken(e.target.value);
+                setCurrentPage(1);
+              }}
+              aria-label="Lọc theo trạng thái token"
+              className="h-9 px-2 rounded-lg bg-background border border-border/60 text-foreground text-xs focus:outline-none focus:ring-1 focus:ring-primary/30 cursor-pointer"
+            >
+              <option value="ALL">Mọi Token</option>
+              <option value="VALID">Token Hợp Lệ</option>
+              <option value="EXPIRED">Token Hết Hạn</option>
+            </select>
+
+            {/* Sort Dropdown */}
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value as any)}
+              aria-label="Sắp xếp danh sách"
+              className="h-9 px-2 rounded-lg bg-background border border-border/60 text-foreground text-xs focus:outline-none focus:ring-1 focus:ring-primary/30 cursor-pointer"
+            >
+              <option value="NEWEST">Mới nhất</option>
+              <option value="PRO_FIRST">PRO trước</option>
+              <option value="NAME">Tên A-Z</option>
+              <option value="SERVER">Máy chủ</option>
+            </select>
+
+            {/* Bulk Copy UID Button */}
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={handleCopyAllUids}
+              title="Sao chép toàn bộ UID danh sách"
+              className="h-9 px-2.5 border-border/60 text-muted-foreground hover:text-foreground gap-1.5 text-xs font-semibold"
+            >
+              <Copy className="h-3.5 w-3.5" />
+              <span className="hidden xl:inline">Copy UIDs</span>
+            </Button>
 
             <Button
               variant="outline"
@@ -179,9 +317,11 @@ export function TabAccounts({
               </tr>
             </thead>
             <tbody className="divide-y divide-border/30 text-card-foreground">
-              {filteredAccounts.length > 0 ? (
-                filteredAccounts.map((acc) => {
+              {paginatedAccounts.length > 0 ? (
+                paginatedAccounts.map((acc) => {
                   const isPro = acc.active_plan === "PRO";
+                  const daysRemaining = getDaysRemaining(acc.ends_at);
+
                   return (
                     <tr
                       key={acc.id}
@@ -202,7 +342,7 @@ export function TabAccounts({
                                 type="button"
                                 onClick={() => handleCopyUid(acc.uid)}
                                 title="Sao chép UID"
-                                className="text-muted-foreground/60 hover:text-primary transition-colors p-0.5 rounded"
+                                className="text-muted-foreground/60 hover:text-primary transition-colors p-0.5 rounded cursor-pointer"
                               >
                                 {copiedUid === acc.uid ? (
                                   <Check className="h-3 w-3 text-emerald-500" />
@@ -234,22 +374,40 @@ export function TabAccounts({
                             </Badge>
                           )}
                           {acc.ends_at && (
-                            <div className="text-[10px] text-muted-foreground font-mono">
-                              HSD: {new Date(acc.ends_at).toLocaleDateString("vi-VN")}
+                            <div className="flex items-center gap-1">
+                              {daysRemaining !== null && daysRemaining <= 0 ? (
+                                <Badge variant="destructive" className="text-[9px] px-1 py-0">
+                                  Hết hạn
+                                </Badge>
+                              ) : daysRemaining !== null && daysRemaining <= 7 ? (
+                                <Badge className="bg-amber-500/20 text-amber-500 border border-amber-500/30 text-[9px] px-1 py-0 font-mono">
+                                  Còn {daysRemaining}d
+                                </Badge>
+                              ) : null}
+                              <div className="text-[10px] text-muted-foreground font-mono">
+                                HSD: {new Date(acc.ends_at).toLocaleDateString("vi-VN")}
+                              </div>
                             </div>
                           )}
                         </div>
                       </td>
 
                       <td className="px-4 py-3.5 text-center">
-                        <div className="flex items-center justify-center gap-1.5">
+                        <div className="flex items-center justify-center gap-1.5 relative">
                           <Switch
                             checked={acc.auto_redeem}
                             onCheckedChange={() =>
                               onToggle(acc.id, "auto_redeem", acc.auto_redeem)
                             }
                             disabled={updatingId === `${acc.id}-auto_redeem`}
+                            className={acc.auto_redeem ? "data-[state=checked]:bg-emerald-500" : ""}
                           />
+                          {acc.auto_redeem && (
+                            <span className="absolute -top-1 -right-1 flex h-2 w-2">
+                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                            </span>
+                          )}
                           {updatingId === `${acc.id}-auto_redeem` && (
                             <Loader2 className="h-3.5 w-3.5 animate-spin text-primary" />
                           )}
@@ -257,14 +415,21 @@ export function TabAccounts({
                       </td>
 
                       <td className="px-4 py-3.5 text-center">
-                        <div className="flex items-center justify-center gap-1.5">
+                        <div className="flex items-center justify-center gap-1.5 relative">
                           <Switch
                             checked={acc.auto_checkin}
                             onCheckedChange={() =>
                               onToggle(acc.id, "auto_checkin", acc.auto_checkin)
                             }
                             disabled={updatingId === `${acc.id}-auto_checkin`}
+                            className={acc.auto_checkin ? "data-[state=checked]:bg-emerald-500" : ""}
                           />
+                          {acc.auto_checkin && (
+                            <span className="absolute -top-1 -right-1 flex h-2 w-2">
+                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                            </span>
+                          )}
                           {updatingId === `${acc.id}-auto_checkin` && (
                             <Loader2 className="h-3.5 w-3.5 animate-spin text-primary" />
                           )}
@@ -304,35 +469,38 @@ export function TabAccounts({
                 })
               ) : (
                 <tr>
-                  <td
-                    colSpan={7}
-                    className="px-4 py-12 text-center text-muted-foreground text-xs"
-                  >
-                    <div className="flex flex-col items-center justify-center gap-2">
-                      <div className="h-10 w-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground">
-                        <Users className="h-5 w-5" />
-                      </div>
-                      <p className="font-medium text-sm">
-                        Không tìm thấy tài khoản game nào phù hợp với bộ lọc
-                      </p>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        onClick={() => {
-                          setSearch("");
-                          setFilterPlan("ALL");
-                        }}
-                        className="text-xs text-primary underline"
-                      >
-                        Xóa bộ lọc tìm kiếm
-                      </Button>
-                    </div>
+                  <td colSpan={7} className="p-0">
+                    <AdminEmptyState
+                      title="Không tìm thấy tài khoản game nào"
+                      description="Không có tài khoản nào phù hợp với các tiêu chí tìm kiếm hoặc bộ lọc hiện tại."
+                      onClearFilters={() => {
+                        setSearch("");
+                        setFilterPlan("ALL");
+                        setFilterServer("ALL");
+                        setFilterToken("ALL");
+                        setCurrentPage(1);
+                      }}
+                      clearLabel="Đặt lại bộ lọc"
+                    />
                   </td>
                 </tr>
               )}
             </tbody>
           </table>
         </div>
+
+        {/* Reusable Pagination Controls */}
+        <AdminPagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          totalItems={filteredAccounts.length}
+          pageSize={pageSize}
+          onPageChange={setCurrentPage}
+          onPageSizeChange={(size) => {
+            setPageSize(size);
+            setCurrentPage(1);
+          }}
+        />
       </CardContent>
     </Card>
   );

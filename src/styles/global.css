@@ -4,66 +4,66 @@
 
 @layer base {
   :root {
-    --background: 230 25% 97%;
-    --foreground: 235 30% 12%;
-    --muted: 230 20% 92%;
-    --muted-foreground: 235 15% 45%;
+    --background: 40 25% 97%;
+    --foreground: 222 47% 11%;
+    --muted: 36 24% 93%;
+    --muted-foreground: 215 16% 47%;
     --popover: 0 0% 100%;
-    --popover-foreground: 235 30% 12%;
-    --border: 230 20% 88%;
-    --input: 230 20% 88%;
+    --popover-foreground: 222 47% 11%;
+    --border: 35 25% 86%;
+    --input: 35 25% 86%;
     --card: 0 0% 100%;
-    --card-foreground: 235 30% 12%;
-    --primary: 262 83% 58%;
+    --card-foreground: 222 47% 11%;
+    --primary: 38 92% 44%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 255 92% 76%;
-    --secondary-foreground: 235 30% 12%;
-    --accent: 38 92% 50%;
+    --secondary: 38 40% 92%;
+    --secondary-foreground: 222 47% 18%;
+    --accent: 160 84% 39%;
     --accent-foreground: 0 0% 100%;
     --success: 160 84% 39%;
     --success-foreground: 0 0% 100%;
-    --warning: 38 92% 50%;
+    --warning: 24 95% 53%;
     --warning-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --ring: 262 83% 58%;
-    --radius: 0.75rem;
-    --chart-1: 262 83% 58%;
+    --ring: 38 92% 44%;
+    --radius: 0.875rem;
+    --chart-1: 38 92% 50%;
     --chart-2: 160 84% 39%;
-    --chart-3: 38 92% 50%;
-    --chart-4: 197 37% 24%;
-    --chart-5: 340 75% 55%;
+    --chart-3: 24 95% 53%;
+    --chart-4: 222 47% 35%;
+    --chart-5: 0 84% 60%;
   }
 
   .dark {
-    --background: 237 45% 7%;
-    --foreground: 220 25% 95%;
-    --muted: 235 25% 18%;
-    --muted-foreground: 230 15% 65%;
-    --accent: 38 92% 50%;
-    --accent-foreground: 237 45% 7%;
-    --popover: 235 32% 12%;
-    --popover-foreground: 220 25% 95%;
-    --border: 235 30% 22%;
-    --input: 235 30% 22%;
-    --card: 235 32% 12%;
-    --card-foreground: 220 25% 95%;
-    --primary: 262 83% 58%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 255 92% 76%;
-    --secondary-foreground: 237 45% 7%;
+    --background: 222 38% 7%;
+    --foreground: 210 40% 96%;
+    --muted: 222 35% 18%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 160 84% 39%;
+    --accent-foreground: 222 47% 11%;
+    --popover: 222 40% 13%;
+    --popover-foreground: 210 40% 96%;
+    --border: 220 30% 22%;
+    --input: 220 30% 22%;
+    --card: 222 40% 13%;
+    --card-foreground: 210 40% 96%;
+    --primary: 38 92% 50%;
+    --primary-foreground: 222 47% 11%;
+    --secondary: 222 47% 18%;
+    --secondary-foreground: 210 40% 96%;
     --success: 160 84% 39%;
     --success-foreground: 0 0% 100%;
     --warning: 38 92% 50%;
-    --warning-foreground: 237 45% 7%;
+    --warning-foreground: 222 47% 11%;
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 98%;
-    --ring: 262 83% 58%;
-    --chart-1: 262 83% 58%;
+    --ring: 38 92% 50%;
+    --chart-1: 38 92% 50%;
     --chart-2: 160 84% 39%;
-    --chart-3: 38 92% 50%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+    --chart-3: 24 95% 53%;
+    --chart-4: 217 91% 60%;
+    --chart-5: 0 72% 51%;
   }
 }
 
@@ -73,5 +73,33 @@
   }
   body {
     @apply bg-background font-sans text-foreground antialiased selection:bg-primary/25 selection:text-primary;
+  }
+}
+
+@layer components {
+  /* Tactile Gold RPG Action Button */
+  .btn-tactile-gold {
+    @apply relative font-bold text-slate-950 bg-gradient-to-b from-amber-400 via-amber-500 to-amber-600 
+           hover:from-amber-300 hover:via-amber-400 hover:to-amber-500
+           border-t border-amber-200/50
+           shadow-[0_3px_0_#b45309,0_8px_18px_-2px_rgba(245,158,11,0.4)]
+           active:translate-y-0.5 active:shadow-[0_1px_0_#b45309] 
+           transition-all duration-150 select-none;
+  }
+
+  /* Tactile Emerald Quest Button */
+  .btn-tactile-emerald {
+    @apply relative font-bold text-white bg-gradient-to-b from-emerald-400 via-emerald-500 to-emerald-600 
+           hover:from-emerald-300 hover:via-emerald-400 hover:to-emerald-500
+           border-t border-emerald-200/40
+           shadow-[0_3px_0_#047857,0_8px_18px_-2px_rgba(16,185,129,0.35)]
+           active:translate-y-0.5 active:shadow-[0_1px_0_#047857] 
+           transition-all duration-150 select-none;
+  }
+
+  /* RPG Card Frame with Gold Rim Highlight */
+  .card-rpg {
+    @apply border border-border/80 dark:border-amber-500/20 bg-card/85 backdrop-blur-xl
+           shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.5)];
   }
 }

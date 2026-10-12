@@ -33,11 +33,11 @@ export default function CheckPage({ params: { locale } }: CheckPageProps) {
     <div className="container mx-auto px-4 py-8 sm:py-14 max-w-6xl space-y-10">
       {/* Header */}
       <div className="text-center space-y-4 max-w-2xl mx-auto">
-        <div className="inline-flex items-center gap-2 rounded-full border border-purple-500/30 bg-purple-500/10 px-3.5 py-1 text-xs font-semibold text-purple-300">
-          <ShieldCheck className="h-3.5 w-3.5" />
-          <span>Tra Cứu Công Khai Không Cần Đăng Nhập</span>
+        <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/40 bg-amber-500/10 px-4 py-1.5 text-xs font-bold text-amber-600 dark:text-amber-400 shadow-sm shadow-amber-500/10">
+          <ShieldCheck className="h-4 w-4 text-amber-500" />
+          <span>Bảng Tra Cứu Trạng Thái Thần Binh</span>
         </div>
-        <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground font-heading">
+        <h1 className="text-3xl sm:text-4xl font-heading font-black tracking-wide text-foreground">
           Tra Cứu Trạng Thái Bot
         </h1>
         <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">
@@ -49,7 +49,7 @@ export default function CheckPage({ params: { locale } }: CheckPageProps) {
       <Suspense
         fallback={
           <div className="flex items-center justify-center py-20 text-muted-foreground">
-            <Loader2 className="h-6 w-6 animate-spin text-purple-400" />
+            <Loader2 className="h-7 w-7 animate-spin text-amber-500" />
           </div>
         }
       >

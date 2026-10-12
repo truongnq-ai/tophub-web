@@ -129,11 +129,11 @@ export function UidControlDashboard({ account }: UidControlDashboardProps) {
   return (
     <div className="space-y-6 max-w-4xl mx-auto py-6 animate-in fade-in-50 duration-500">
       {/* Account Info Header Card */}
-      <Card className="relative overflow-hidden border border-border/80 bg-card/80 backdrop-blur-xl rounded-3xl shadow-xl">
+      <Card className="relative overflow-hidden card-rpg rounded-3xl">
         <CardHeader className="pb-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="flex items-center gap-4">
-              <div className="h-14 w-14 rounded-2xl bg-gradient-to-tr from-primary to-purple-600 text-white flex items-center justify-center font-bold text-2xl font-heading shadow-lg shadow-primary/25 shrink-0">
+              <div className="h-14 w-14 rounded-2xl bg-gradient-to-tr from-amber-500 via-amber-400 to-yellow-300 text-slate-950 flex items-center justify-center font-bold text-2xl font-heading shadow-lg shadow-amber-500/20 border border-amber-300/30 shrink-0">
                 {account.nickname ? account.nickname.charAt(0).toUpperCase() : "U"}
               </div>
               <div>
@@ -141,7 +141,7 @@ export function UidControlDashboard({ account }: UidControlDashboardProps) {
                   <CardTitle className="text-2xl font-black text-foreground font-heading">
                     {account.nickname}
                   </CardTitle>
-                  <Badge className="bg-emerald-500/15 text-emerald-400 border-emerald-500/30 text-xs font-bold flex items-center gap-1.5 py-0.5 px-2.5">
+                  <Badge className="bg-emerald-500/15 text-emerald-500 dark:text-emerald-400 border-emerald-500/30 text-xs font-bold flex items-center gap-1.5 py-0.5 px-2.5">
                     <span className="relative flex h-2 w-2">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                       <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
@@ -151,12 +151,12 @@ export function UidControlDashboard({ account }: UidControlDashboardProps) {
                 </div>
                 <div className="flex flex-wrap items-center gap-3 mt-1.5 text-xs text-muted-foreground font-mono">
                   <span className="flex items-center gap-1">
-                    <User className="h-3.5 w-3.5 text-primary" />
+                    <User className="h-3.5 w-3.5 text-amber-500" />
                     UID: {account.uid}
                   </span>
                   <span>•</span>
                   <span className="flex items-center gap-1">
-                    <Server className="h-3.5 w-3.5 text-purple-400" />
+                    <Server className="h-3.5 w-3.5 text-amber-500" />
                     Server {account.server_id}
                   </span>
                 </div>
@@ -177,10 +177,10 @@ export function UidControlDashboard({ account }: UidControlDashboardProps) {
 
         <CardContent className="space-y-4 pt-2">
           {/* Quick Action: RUN NOW BANNER */}
-          <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-primary/15 via-purple-600/10 to-primary/15 border border-primary/30 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
+          <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-amber-500/15 via-amber-600/10 to-amber-500/15 border border-amber-500/30 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
             <div className="space-y-1 text-center sm:text-left">
               <h3 className="text-sm sm:text-base font-bold text-foreground flex items-center justify-center sm:justify-start gap-2 font-heading">
-                <Zap className="h-4 w-4 text-amber-400 fill-amber-400" />
+                <Zap className="h-4 w-4 text-amber-500 fill-amber-500" />
                 Kích Hoạt Nhận Quà &amp; Điểm Danh Ngay Lập Tức
               </h3>
               <p className="text-xs text-muted-foreground">
@@ -191,7 +191,7 @@ export function UidControlDashboard({ account }: UidControlDashboardProps) {
             <Button
               onClick={handleRunNow}
               disabled={runningNow || cooldownSeconds > 0}
-              className="w-full sm:w-auto h-11 px-6 rounded-xl font-bold min-h-[44px] bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/25 shrink-0 transition-transform active:scale-95"
+              className="w-full sm:w-auto btn-tactile-gold h-11 px-6 rounded-xl font-bold min-h-[44px] shrink-0"
             >
               {runningNow ? (
                 <>
@@ -205,7 +205,7 @@ export function UidControlDashboard({ account }: UidControlDashboardProps) {
                 </>
               ) : (
                 <>
-                  <Sparkles className="h-4 w-4 mr-2 text-amber-400" />
+                  <Sparkles className="h-4 w-4 mr-2 text-slate-950" />
                   <span>⚡ Chạy Ngay (Run Now)</span>
                 </>
               )}
@@ -217,7 +217,7 @@ export function UidControlDashboard({ account }: UidControlDashboardProps) {
             <div
               className={`p-3.5 rounded-xl border text-xs sm:text-sm flex items-center gap-2.5 animate-in fade-in-50 ${
                 feedbackMsg.type === "success"
-                  ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-400"
+                  ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-500 dark:text-emerald-400"
                   : "border-destructive/30 bg-destructive/10 text-destructive"
               }`}
             >
@@ -235,8 +235,8 @@ export function UidControlDashboard({ account }: UidControlDashboardProps) {
             {/* Auto Redeem Switch */}
             <div className="p-4 rounded-2xl border border-border/80 bg-background/50 flex items-center justify-between gap-3">
               <div className="space-y-0.5">
-                <span className="text-sm font-bold text-foreground flex items-center gap-2">
-                  <Gift className="h-4 w-4 text-primary" />
+                <span className="text-sm font-bold text-foreground flex items-center gap-2 font-heading">
+                  <Gift className="h-4 w-4 text-amber-500" />
                   Tự động săn Giftcode
                 </span>
                 <p className="text-xs text-muted-foreground">
@@ -252,8 +252,8 @@ export function UidControlDashboard({ account }: UidControlDashboardProps) {
             {/* Auto Checkin Switch */}
             <div className="p-4 rounded-2xl border border-border/80 bg-background/50 flex items-center justify-between gap-3">
               <div className="space-y-0.5">
-                <span className="text-sm font-bold text-foreground flex items-center gap-2">
-                  <Calendar className="h-4 w-4 text-purple-400" />
+                <span className="text-sm font-bold text-foreground flex items-center gap-2 font-heading">
+                  <Calendar className="h-4 w-4 text-amber-500" />
                   Điểm danh hàng ngày
                 </span>
                 <p className="text-xs text-muted-foreground">
@@ -270,7 +270,7 @@ export function UidControlDashboard({ account }: UidControlDashboardProps) {
       </Card>
 
       {/* Recent Redemptions History */}
-      <Card className="border border-border/80 bg-card/80 backdrop-blur-xl rounded-3xl shadow-xl">
+      <Card className="card-rpg rounded-3xl">
         <CardHeader className="pb-3 flex flex-row items-center justify-between">
           <CardTitle className="text-base sm:text-lg font-bold text-foreground flex items-center gap-2 font-heading">
             <Gift className="h-5 w-5 text-amber-400" />
@@ -298,10 +298,10 @@ export function UidControlDashboard({ account }: UidControlDashboardProps) {
               {statusData.recent_redemptions.map((redemption, idx) => (
                 <div key={idx} className="flex items-center justify-between py-3">
                   <div className="flex items-center gap-3">
-                    <span className="font-mono font-bold text-foreground bg-primary/10 border border-primary/25 px-2.5 py-0.5 rounded-lg">
+                    <span className="font-mono font-bold text-amber-600 dark:text-amber-400 bg-amber-500/10 border border-amber-500/25 px-2.5 py-0.5 rounded-lg">
                       {redemption.code}
                     </span>
-                    <span className="text-xs text-muted-foreground">
+                    <span className="text-xs text-muted-foreground font-mono">
                       {new Date(redemption.redeemed_at).toLocaleDateString("vi-VN", {
                         day: "2-digit",
                         month: "2-digit",
@@ -312,7 +312,7 @@ export function UidControlDashboard({ account }: UidControlDashboardProps) {
                   </div>
                   <div>
                     {redemption.status === "SUCCESS" ? (
-                      <span className="inline-flex items-center gap-1 text-emerald-400 font-bold text-xs bg-emerald-500/10 px-2 py-0.5 rounded-md border border-emerald-500/20">
+                      <span className="inline-flex items-center gap-1 text-emerald-500 dark:text-emerald-400 font-bold text-xs bg-emerald-500/10 px-2 py-0.5 rounded-md border border-emerald-500/20">
                         <CheckCircle2 className="h-3 w-3" />
                         Thành công
                       </span>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import {
   CalendarCheck,
   Search,
@@ -10,6 +10,7 @@ import {
   Clock,
   Loader2,
   Calendar,
+  Sparkles,
 } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -25,6 +26,8 @@ import type { AdminCheckin } from "./types";
 import { MOCK_CHECKINS } from "./mock-data";
 import { AccountAvatar } from "./account-avatar";
 import { ServerTag } from "./server-tag";
+import { AdminPagination } from "./pagination";
+import { AdminEmptyState } from "./empty-state";
 
 export function TabCheckins() {
   const { toast } = useToast();
@@ -35,6 +38,10 @@ export function TabCheckins() {
   const [filterDay, setFilterDay] = useState<string>("ALL");
   const [retryingId, setRetryingId] = useState<string | null>(null);
   const [isRetryingAll, setIsRetryingAll] = useState(false);
+
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
 
   // Fetch checkins on mount
   React.useEffect(() => {
@@ -60,9 +67,11 @@ export function TabCheckins() {
     };
   }, []);
 
-  const uniqueDays = Array.from(new Set(checkins.map((c) => c.game_day))).sort(
-    (a, b) => b.localeCompare(a)
-  );
+  const uniqueDays = useMemo(() => {
+    return Array.from(new Set(checkins.map((c) => c.game_day).filter(Boolean))).sort(
+      (a, b) => b.localeCompare(a)
+    );
+  }, [checkins]);
 
   const handleRetrySingle = async (item: AdminCheckin) => {
     setRetryingId(item.id);
@@ -163,22 +172,32 @@ export function TabCheckins() {
     }
   };
 
+  const filteredCheckins = useMemo(() => {
+    return checkins.filter((c) => {
+      const matchesSearch =
+        c.uid.toLowerCase().includes(search.toLowerCase()) ||
+        c.nickname.toLowerCase().includes(search.toLowerCase()) ||
+        c.server_id.toLowerCase().includes(search.toLowerCase());
 
-  const filteredCheckins = checkins.filter((c) => {
-    const matchesSearch =
-      c.uid.toLowerCase().includes(search.toLowerCase()) ||
-      c.nickname.toLowerCase().includes(search.toLowerCase()) ||
-      c.server_id.toLowerCase().includes(search.toLowerCase());
+      const matchesStatus =
+        filterStatus === "ALL" || c.status === filterStatus;
 
-    const matchesStatus =
-      filterStatus === "ALL" || c.status === filterStatus;
+      const matchesDay = filterDay === "ALL" || c.game_day === filterDay;
 
-    const matchesDay = filterDay === "ALL" || c.game_day === filterDay;
+      return matchesSearch && matchesStatus && matchesDay;
+    });
+  }, [checkins, search, filterStatus, filterDay]);
 
-    return matchesSearch && matchesStatus && matchesDay;
-  });
+  // Paginated items
+  const totalPages = Math.ceil(filteredCheckins.length / pageSize);
+  const paginatedCheckins = useMemo(() => {
+    const start = (currentPage - 1) * pageSize;
+    return filteredCheckins.slice(start, start + pageSize);
+  }, [filteredCheckins, currentPage, pageSize]);
 
   const pendingCount = checkins.filter((c) => c.status !== "SUCCESS").length;
+  const successCount = checkins.filter((c) => c.status === "SUCCESS").length;
+  const checkinRate = checkins.length > 0 ? Math.round((successCount / checkins.length) * 100) : 0;
 
   return (
     <Card className="border border-border/60 bg-card/80 backdrop-blur-md rounded-2xl overflow-hidden shadow-lg">
@@ -211,7 +230,10 @@ export function TabCheckins() {
                 type="text"
                 placeholder="Tìm UID, tên, máy chủ..."
                 value={search}
-                onChange={(e) => setSearch(e.target.value)}
+                onChange={(e) => {
+                  setSearch(e.target.value);
+                  setCurrentPage(1);
+                }}
                 className="h-9 w-40 sm:w-52 text-xs pl-8 bg-background border-border/60"
               />
             </div>
@@ -219,8 +241,12 @@ export function TabCheckins() {
             {/* Filter Day Dropdown */}
             <select
               value={filterDay}
-              onChange={(e) => setFilterDay(e.target.value)}
-              className="h-9 rounded-md border border-border/60 bg-background px-2.5 py-1 text-xs text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring font-mono"
+              onChange={(e) => {
+                setFilterDay(e.target.value);
+                setCurrentPage(1);
+              }}
+              aria-label="Lọc theo ngày điểm danh"
+              className="h-9 rounded-md border border-border/60 bg-background px-2.5 py-1 text-xs text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring font-mono cursor-pointer"
             >
               <option value="ALL">Tất cả ngày</option>
               {uniqueDays.map((day, idx) => {
@@ -237,7 +263,10 @@ export function TabCheckins() {
             <div className="inline-flex rounded-lg border border-border/60 p-0.5 bg-muted/50 text-xs">
               <button
                 type="button"
-                onClick={() => setFilterStatus("ALL")}
+                onClick={() => {
+                  setFilterStatus("ALL");
+                  setCurrentPage(1);
+                }}
                 className={`px-2.5 py-1 rounded-md font-bold transition-all ${
                   filterStatus === "ALL"
                     ? "bg-primary text-primary-foreground shadow-sm"
@@ -248,7 +277,10 @@ export function TabCheckins() {
               </button>
               <button
                 type="button"
-                onClick={() => setFilterStatus("SUCCESS")}
+                onClick={() => {
+                  setFilterStatus("SUCCESS");
+                  setCurrentPage(1);
+                }}
                 className={`px-2.5 py-1 rounded-md font-bold transition-all ${
                   filterStatus === "SUCCESS"
                     ? "bg-emerald-600 text-white shadow-sm"
@@ -259,7 +291,10 @@ export function TabCheckins() {
               </button>
               <button
                 type="button"
-                onClick={() => setFilterStatus("FAILED")}
+                onClick={() => {
+                  setFilterStatus("FAILED");
+                  setCurrentPage(1);
+                }}
                 className={`px-2.5 py-1 rounded-md font-bold transition-all ${
                   filterStatus === "FAILED"
                     ? "bg-rose-600 text-white shadow-sm"
@@ -275,7 +310,7 @@ export function TabCheckins() {
               size="sm"
               onClick={handleRetryAll}
               disabled={isRetryingAll || pendingCount === 0 || retryingId !== null}
-              className="h-9 px-3 gap-1.5 text-xs font-bold border-primary/30 text-primary hover:bg-primary/10 shadow-xs"
+              className="h-9 px-3 gap-1.5 text-xs font-bold border-primary/30 text-primary hover:bg-primary/10 shadow-xs min-h-[38px]"
             >
               {isRetryingAll ? (
                 <Loader2 className="h-3.5 w-3.5 animate-spin" />
@@ -284,6 +319,51 @@ export function TabCheckins() {
               )}
               <span>Điểm Danh Lại Tất Cả ({pendingCount})</span>
             </Button>
+          </div>
+        </div>
+
+        {/* Daily Summary Banner HUD */}
+        <div className="mt-3 p-3 rounded-xl bg-muted/40 border border-border/40 flex flex-wrap items-center justify-between gap-3 text-xs">
+          <div className="flex items-center gap-2">
+            <span className="font-semibold text-foreground flex items-center gap-1.5">
+              <Sparkles className="h-3.5 w-3.5 text-emerald-500" />
+              <span>Tiến độ điểm danh:</span>
+            </span>
+            <span className="font-mono text-emerald-600 dark:text-emerald-400 font-bold">
+              {checkinRate}% hoàn thành ({successCount}/{checkins.length})
+            </span>
+          </div>
+
+          {/* Quick Date Chips */}
+          <div className="flex items-center gap-1.5 flex-wrap">
+            <span className="text-[11px] text-muted-foreground">Chọn nhanh:</span>
+            <button
+              type="button"
+              onClick={() => {
+                setFilterDay("ALL");
+                setCurrentPage(1);
+              }}
+              className={`px-2 py-0.5 rounded text-[10px] font-mono transition-colors ${
+                filterDay === "ALL" ? "bg-primary text-white font-bold" : "bg-muted hover:bg-muted/80 text-muted-foreground"
+              }`}
+            >
+              Tất cả
+            </button>
+            {uniqueDays.slice(0, 2).map((day, idx) => (
+              <button
+                key={day}
+                type="button"
+                onClick={() => {
+                  setFilterDay(day);
+                  setCurrentPage(1);
+                }}
+                className={`px-2 py-0.5 rounded text-[10px] font-mono transition-colors ${
+                  filterDay === day ? "bg-primary text-white font-bold" : "bg-muted hover:bg-muted/80 text-muted-foreground"
+                }`}
+              >
+                {idx === 0 ? "Hôm nay" : "Hôm qua"}
+              </button>
+            ))}
           </div>
         </div>
       </CardHeader>
@@ -302,8 +382,8 @@ export function TabCheckins() {
               </tr>
             </thead>
             <tbody className="divide-y divide-border/30 text-card-foreground">
-              {filteredCheckins.length > 0 ? (
-                filteredCheckins.map((item) => {
+              {paginatedCheckins.length > 0 ? (
+                paginatedCheckins.map((item) => {
                   const isSuccess = item.status === "SUCCESS";
                   return (
                     <tr
@@ -370,7 +450,7 @@ export function TabCheckins() {
                             size="sm"
                             onClick={() => handleRetrySingle(item)}
                             disabled={retryingId === item.id || isRetryingAll}
-                            className="h-8 px-2.5 text-xs font-bold text-primary border-primary/30 hover:bg-primary/10 gap-1.5"
+                            className="h-8 px-2.5 text-xs font-bold text-primary border-primary/30 hover:bg-primary/10 gap-1.5 min-h-[36px]"
                           >
                             {retryingId === item.id ? (
                               <Loader2 className="h-3 w-3 animate-spin" />
@@ -380,8 +460,8 @@ export function TabCheckins() {
                             <span>Điểm danh lại</span>
                           </Button>
                         ) : (
-                          <span className="text-[11px] text-muted-foreground/60 italic">
-                            Hoàn tất
+                          <span className="text-[11px] text-muted-foreground font-mono italic">
+                            Hoàn thành
                           </span>
                         )}
                       </td>
@@ -390,40 +470,45 @@ export function TabCheckins() {
                 })
               ) : isLoading ? (
                 <tr>
-                  <td
-                    colSpan={6}
-                    className="px-4 py-12 text-center text-muted-foreground text-xs"
-                  >
+                  <td colSpan={6} className="px-4 py-12 text-center text-muted-foreground text-xs">
                     <div className="flex flex-col items-center justify-center gap-2">
                       <Loader2 className="h-6 w-6 animate-spin text-primary" />
-                      <p className="font-medium text-sm">
-                        Đang tải lịch sử điểm danh...
-                      </p>
+                      <p className="font-medium text-sm">Đang tải lịch sử điểm danh...</p>
                     </div>
                   </td>
                 </tr>
               ) : (
                 <tr>
-                  <td
-                    colSpan={6}
-                    className="px-4 py-12 text-center text-muted-foreground text-xs"
-                  >
-                    <div className="flex flex-col items-center justify-center gap-2">
-                      <div className="h-10 w-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground">
-                        <CalendarCheck className="h-5 w-5" />
-                      </div>
-                      <p className="font-medium text-sm">
-                        {checkins.length === 0
-                          ? "Chưa có dữ liệu điểm danh nào được ghi nhận trong cơ sở dữ liệu."
-                          : "Không tìm thấy lịch sử điểm danh nào phù hợp với bộ lọc"}
-                      </p>
-                    </div>
+                  <td colSpan={6} className="p-0">
+                    <AdminEmptyState
+                      title="Không tìm thấy lịch sử điểm danh"
+                      description="Không có bản ghi điểm danh nào khớp với tiêu chí tìm kiếm hoặc ngày được chọn."
+                      onClearFilters={() => {
+                        setSearch("");
+                        setFilterStatus("ALL");
+                        setFilterDay("ALL");
+                        setCurrentPage(1);
+                      }}
+                    />
                   </td>
                 </tr>
               )}
             </tbody>
           </table>
         </div>
+
+        {/* Reusable Pagination */}
+        <AdminPagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          totalItems={filteredCheckins.length}
+          pageSize={pageSize}
+          onPageChange={setCurrentPage}
+          onPageSizeChange={(size) => {
+            setPageSize(size);
+            setCurrentPage(1);
+          }}
+        />
       </CardContent>
     </Card>
   );

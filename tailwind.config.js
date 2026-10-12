@@ -7,8 +7,8 @@ module.exports = {
   theme: {
   	extend: {
   		fontFamily: {
-  			heading: ['var(--font-outfit)', 'sans-serif'],
-  			sans: ['var(--font-jakarta)', 'sans-serif'],
+  			heading: ['var(--font-heading)', 'var(--font-sans)', 'sans-serif'],
+  			sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
   			mono: ['var(--font-mono)', 'monospace'],
   		},
   		colors: {
@@ -85,8 +85,8 @@ module.exports = {
   				'100%': { transform: 'scale(0.95)', opacity: '0' }
   			},
   			'pulse-glow': {
-  				'0%, 100%': { opacity: '0.6', filter: 'drop-shadow(0 0 15px rgba(124,58,237,0.35))' },
-  				'50%': { opacity: '1', filter: 'drop-shadow(0 0 25px rgba(124,58,237,0.75))' }
+  				'0%, 100%': { opacity: '0.6', filter: 'drop-shadow(0 0 15px rgba(245,158,11,0.35))' },
+  				'50%': { opacity: '1', filter: 'drop-shadow(0 0 25px rgba(245,158,11,0.75))' }
   			}
   		},
   		animation: {

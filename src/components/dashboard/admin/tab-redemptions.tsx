@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import {
   Zap,
   Search,
@@ -8,7 +8,8 @@ import {
   CheckCircle2,
   XCircle,
   Loader2,
-  Filter,
+  AlertCircle,
+  Info,
 } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -24,6 +25,8 @@ import type { AdminRedemption } from "./types";
 import { MOCK_REDEMPTIONS } from "./mock-data";
 import { AccountAvatar } from "./account-avatar";
 import { ServerTag } from "./server-tag";
+import { AdminPagination } from "./pagination";
+import { AdminEmptyState } from "./empty-state";
 
 export function TabRedemptions() {
   const { toast } = useToast();
@@ -34,6 +37,10 @@ export function TabRedemptions() {
   const [filterCode, setFilterCode] = useState<string>("ALL");
   const [retryingId, setRetryingId] = useState<string | null>(null);
   const [isRetryingAll, setIsRetryingAll] = useState(false);
+
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
 
   // Fetch redemptions on mount
   React.useEffect(() => {
@@ -60,7 +67,9 @@ export function TabRedemptions() {
   }, []);
 
   // Unique codes for the code filter
-  const uniqueCodes = Array.from(new Set(redemptions.map((r) => r.gift_code)));
+  const uniqueCodes = useMemo(() => {
+    return Array.from(new Set(redemptions.map((r) => r.gift_code).filter(Boolean)));
+  }, [redemptions]);
 
   const handleRetrySingle = async (item: AdminRedemption) => {
     setRetryingId(item.id);
@@ -166,22 +175,30 @@ export function TabRedemptions() {
     }
   };
 
+  const filteredRedemptions = useMemo(() => {
+    return redemptions.filter((r) => {
+      const matchesSearch =
+        r.uid.toLowerCase().includes(search.toLowerCase()) ||
+        r.nickname.toLowerCase().includes(search.toLowerCase()) ||
+        r.gift_code.toLowerCase().includes(search.toLowerCase()) ||
+        r.server_id.toLowerCase().includes(search.toLowerCase());
 
-  const filteredRedemptions = redemptions.filter((r) => {
-    const matchesSearch =
-      r.uid.toLowerCase().includes(search.toLowerCase()) ||
-      r.nickname.toLowerCase().includes(search.toLowerCase()) ||
-      r.gift_code.toLowerCase().includes(search.toLowerCase()) ||
-      r.server_id.toLowerCase().includes(search.toLowerCase());
+      const matchesStatus =
+        filterStatus === "ALL" || r.status === filterStatus;
 
-    const matchesStatus =
-      filterStatus === "ALL" || r.status === filterStatus;
+      const matchesCode =
+        filterCode === "ALL" || r.gift_code === filterCode;
 
-    const matchesCode =
-      filterCode === "ALL" || r.gift_code === filterCode;
+      return matchesSearch && matchesStatus && matchesCode;
+    });
+  }, [redemptions, search, filterStatus, filterCode]);
 
-    return matchesSearch && matchesStatus && matchesCode;
-  });
+  // Paginated items
+  const totalPages = Math.ceil(filteredRedemptions.length / pageSize);
+  const paginatedRedemptions = useMemo(() => {
+    const start = (currentPage - 1) * pageSize;
+    return filteredRedemptions.slice(start, start + pageSize);
+  }, [filteredRedemptions, currentPage, pageSize]);
 
   const failedCount = redemptions.filter((r) => r.status === "FAILED").length;
 
@@ -216,7 +233,10 @@ export function TabRedemptions() {
                 type="text"
                 placeholder="Tìm UID, tên, mã quà..."
                 value={search}
-                onChange={(e) => setSearch(e.target.value)}
+                onChange={(e) => {
+                  setSearch(e.target.value);
+                  setCurrentPage(1);
+                }}
                 className="h-9 w-40 sm:w-52 text-xs pl-8 bg-background border-border/60"
               />
             </div>
@@ -224,8 +244,12 @@ export function TabRedemptions() {
             {/* Filter Code Dropdown */}
             <select
               value={filterCode}
-              onChange={(e) => setFilterCode(e.target.value)}
-              className="h-9 rounded-md border border-border/60 bg-background px-2.5 py-1 text-xs text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              onChange={(e) => {
+                setFilterCode(e.target.value);
+                setCurrentPage(1);
+              }}
+              aria-label="Lọc theo mã quà tặng"
+              className="h-9 rounded-md border border-border/60 bg-background px-2.5 py-1 text-xs text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring cursor-pointer"
             >
               <option value="ALL">Tất cả mã ({uniqueCodes.length})</option>
               {uniqueCodes.map((code) => (
@@ -239,7 +263,10 @@ export function TabRedemptions() {
             <div className="inline-flex rounded-lg border border-border/60 p-0.5 bg-muted/50 text-xs">
               <button
                 type="button"
-                onClick={() => setFilterStatus("ALL")}
+                onClick={() => {
+                  setFilterStatus("ALL");
+                  setCurrentPage(1);
+                }}
                 className={`px-2.5 py-1 rounded-md font-bold transition-all ${
                   filterStatus === "ALL"
                     ? "bg-primary text-primary-foreground shadow-sm"
@@ -250,7 +277,10 @@ export function TabRedemptions() {
               </button>
               <button
                 type="button"
-                onClick={() => setFilterStatus("SUCCESS")}
+                onClick={() => {
+                  setFilterStatus("SUCCESS");
+                  setCurrentPage(1);
+                }}
                 className={`px-2.5 py-1 rounded-md font-bold transition-all ${
                   filterStatus === "SUCCESS"
                     ? "bg-emerald-600 text-white shadow-sm"
@@ -261,7 +291,10 @@ export function TabRedemptions() {
               </button>
               <button
                 type="button"
-                onClick={() => setFilterStatus("FAILED")}
+                onClick={() => {
+                  setFilterStatus("FAILED");
+                  setCurrentPage(1);
+                }}
                 className={`px-2.5 py-1 rounded-md font-bold transition-all ${
                   filterStatus === "FAILED"
                     ? "bg-rose-600 text-white shadow-sm"
@@ -277,7 +310,7 @@ export function TabRedemptions() {
               size="sm"
               onClick={handleRetryAllFailed}
               disabled={isRetryingAll || failedCount === 0 || retryingId !== null}
-              className="h-9 px-3 gap-1.5 text-xs font-bold border-rose-500/30 text-rose-600 dark:text-rose-400 hover:bg-rose-500/10 shadow-xs"
+              className="h-9 px-3 gap-1.5 text-xs font-bold border-rose-500/30 text-rose-600 dark:text-rose-400 hover:bg-rose-500/10 shadow-xs min-h-[38px]"
             >
               {isRetryingAll ? (
                 <Loader2 className="h-3.5 w-3.5 animate-spin" />
@@ -288,6 +321,16 @@ export function TabRedemptions() {
             </Button>
           </div>
         </div>
+
+        {/* Realtime progress bar when retrying all */}
+        {isRetryingAll && (
+          <div className="px-4 py-2 bg-rose-500/10 border-t border-rose-500/20 text-xs flex items-center justify-between text-rose-600 dark:text-rose-400 animate-pulse">
+            <span className="flex items-center gap-2">
+              <Loader2 className="h-3.5 w-3.5 animate-spin" />
+              <span>Đang kích hoạt bot thử lại tất cả lượt ăn mã bị lỗi (concurrency: 3, delay jitter)...</span>
+            </span>
+          </div>
+        )}
       </CardHeader>
 
       <CardContent className="p-0">
@@ -305,8 +348,8 @@ export function TabRedemptions() {
               </tr>
             </thead>
             <tbody className="divide-y divide-border/30 text-card-foreground">
-              {filteredRedemptions.length > 0 ? (
-                filteredRedemptions.map((item) => {
+              {paginatedRedemptions.length > 0 ? (
+                paginatedRedemptions.map((item) => {
                   const isSuccess = item.status === "SUCCESS";
                   return (
                     <tr
@@ -352,7 +395,12 @@ export function TabRedemptions() {
                       </td>
 
                       <td className="px-4 py-3.5 max-w-xs text-xs text-muted-foreground">
-                        {item.api_message}
+                        <div className="flex items-center gap-1.5">
+                          {!isSuccess && <AlertCircle className="h-3.5 w-3.5 text-rose-500 shrink-0" />}
+                          <span className="truncate" title={item.api_message}>
+                            {item.api_message}
+                          </span>
+                        </div>
                       </td>
 
                       <td className="px-4 py-3.5 font-mono text-xs text-muted-foreground">
@@ -371,7 +419,7 @@ export function TabRedemptions() {
                             size="sm"
                             onClick={() => handleRetrySingle(item)}
                             disabled={retryingId === item.id || isRetryingAll}
-                            className="h-8 px-2.5 text-xs font-bold text-rose-600 dark:text-rose-400 border-rose-500/30 hover:bg-rose-500/10 gap-1.5"
+                            className="h-8 px-2.5 text-xs font-bold text-rose-600 dark:text-rose-400 border-rose-500/30 hover:bg-rose-500/10 gap-1.5 min-h-[36px]"
                           >
                             {retryingId === item.id ? (
                               <Loader2 className="h-3 w-3 animate-spin" />
@@ -381,8 +429,8 @@ export function TabRedemptions() {
                             <span>Ăn lại</span>
                           </Button>
                         ) : (
-                          <span className="text-[11px] text-muted-foreground/60 italic">
-                            Đã nhận quà
+                          <span className="text-[11px] text-muted-foreground font-mono italic">
+                            Đã nhận
                           </span>
                         )}
                       </td>
@@ -391,40 +439,45 @@ export function TabRedemptions() {
                 })
               ) : isLoading ? (
                 <tr>
-                  <td
-                    colSpan={7}
-                    className="px-4 py-12 text-center text-muted-foreground text-xs"
-                  >
+                  <td colSpan={7} className="px-4 py-12 text-center text-muted-foreground text-xs">
                     <div className="flex flex-col items-center justify-center gap-2">
                       <Loader2 className="h-6 w-6 animate-spin text-primary" />
-                      <p className="font-medium text-sm">
-                        Đang tải lịch sử đổi giftcode...
-                      </p>
+                      <p className="font-medium text-sm">Đang tải lịch sử đổi mã...</p>
                     </div>
                   </td>
                 </tr>
               ) : (
                 <tr>
-                  <td
-                    colSpan={7}
-                    className="px-4 py-12 text-center text-muted-foreground text-xs"
-                  >
-                    <div className="flex flex-col items-center justify-center gap-2">
-                      <div className="h-10 w-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground">
-                        <Zap className="h-5 w-5" />
-                      </div>
-                      <p className="font-medium text-sm">
-                        {redemptions.length === 0
-                          ? "Chưa có lịch sử đổi giftcode nào được ghi nhận trong cơ sở dữ liệu."
-                          : "Không tìm thấy lịch sử đổi giftcode nào phù hợp với bộ lọc"}
-                      </p>
-                    </div>
+                  <td colSpan={7} className="p-0">
+                    <AdminEmptyState
+                      title="Không tìm thấy lịch sử đổi mã"
+                      description="Chưa có dữ liệu nào khớp với các điều kiện lọc hoặc từ khóa tìm kiếm."
+                      onClearFilters={() => {
+                        setSearch("");
+                        setFilterStatus("ALL");
+                        setFilterCode("ALL");
+                        setCurrentPage(1);
+                      }}
+                    />
                   </td>
                 </tr>
               )}
             </tbody>
           </table>
         </div>
+
+        {/* Reusable Pagination */}
+        <AdminPagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          totalItems={filteredRedemptions.length}
+          pageSize={pageSize}
+          onPageChange={setCurrentPage}
+          onPageSizeChange={(size) => {
+            setPageSize(size);
+            setCurrentPage(1);
+          }}
+        />
       </CardContent>
     </Card>
   );

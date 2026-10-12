@@ -128,8 +128,16 @@ describe("AdminManager Component", () => {
     vi.clearAllMocks();
   });
 
-  it("should render Top Banner and 4 Metrics cards", () => {
-    render(<AdminManager initialAccounts={mockAccounts} locale="vi" />);
+  const renderAdminManager = async (props = { initialAccounts: mockAccounts, locale: "vi" }) => {
+    let view: any;
+    await act(async () => {
+      view = render(<AdminManager {...props} />);
+    });
+    return view;
+  };
+
+  it("should render Top Banner and 4 Metrics cards", async () => {
+    await renderAdminManager();
 
     expect(screen.getByText("TopHub Control Center")).toBeDefined();
     expect(screen.getByText("ADMIN HUD")).toBeDefined();
@@ -140,7 +148,7 @@ describe("AdminManager Component", () => {
   });
 
   it("should render 4 tabs and switch between them", async () => {
-    render(<AdminManager initialAccounts={mockAccounts} locale="vi" />);
+    await renderAdminManager();
 
     // Tab buttons exist
     const accountsTab = screen.getByRole("tab", { name: /Tài Khoản Game/i });
@@ -180,7 +188,7 @@ describe("AdminManager Component", () => {
   });
 
   it("should toggle auto_redeem switch and call updateAdminAccountAction", async () => {
-    render(<AdminManager initialAccounts={mockAccounts} locale="vi" />);
+    await renderAdminManager();
 
     const switches = screen.getAllByRole("switch");
     // Switch 0 is DragonSlayer auto_redeem (currently true)
@@ -194,7 +202,7 @@ describe("AdminManager Component", () => {
   });
 
   it("should filter accounts by search input", async () => {
-    render(<AdminManager initialAccounts={mockAccounts} locale="vi" />);
+    await renderAdminManager();
 
     const searchInput = screen.getByPlaceholderText("Tìm UID, tên, máy chủ...");
     await act(async () => {
@@ -205,8 +213,8 @@ describe("AdminManager Component", () => {
     expect(screen.queryByText("ShadowNinja")).toBeNull();
   });
 
-  it("should render AccountAvatar, ServerTag, and Token Status Tooltip in Tab Accounts", () => {
-    render(<AdminManager initialAccounts={mockAccounts} locale="vi" />);
+  it("should render AccountAvatar, ServerTag, and Token Status Tooltip in Tab Accounts", async () => {
+    await renderAdminManager();
 
     // AccountAvatar initials for DragonSlayer ("DS") and ShadowNinja ("SN")
     expect(screen.getByText("DS")).toBeDefined();
@@ -226,7 +234,7 @@ describe("AdminManager Component", () => {
   });
 
   it("should open receivers dialog from redeemed count in Tab Giftcodes", async () => {
-    render(<AdminManager initialAccounts={mockAccounts} locale="vi" />);
+    await renderAdminManager();
 
     const giftcodesTab = screen.getByRole("tab", { name: /Quản Lý Giftcode/i });
     await act(async () => {
@@ -249,7 +257,7 @@ describe("AdminManager Component", () => {
   });
 
   it("should support retrying failed redemptions in Tab Redemptions", async () => {
-    render(<AdminManager initialAccounts={mockAccounts} locale="vi" />);
+    await renderAdminManager();
 
     const redemptionsTab = screen.getByRole("tab", { name: /Lịch Sử Đổi Mã/i });
     await act(async () => {
@@ -281,7 +289,7 @@ describe("AdminManager Component", () => {
   });
 
   it("should support retrying checkins and render Avatar/ServerTag in Tab Checkins", async () => {
-    render(<AdminManager initialAccounts={mockAccounts} locale="vi" />);
+    await renderAdminManager();
 
     const checkinsTab = screen.getByRole("tab", { name: /Lịch Sử Điểm Danh/i });
     await act(async () => {
@@ -315,7 +323,7 @@ describe("AdminManager Component", () => {
   });
 
   it("should open Add Giftcode dialog and submit createAdminGiftcodeAction", async () => {
-    render(<AdminManager initialAccounts={mockAccounts} locale="vi" />);
+    await renderAdminManager();
 
     const giftcodesTab = screen.getByRole("tab", { name: /Quản Lý Giftcode/i });
     await act(async () => {

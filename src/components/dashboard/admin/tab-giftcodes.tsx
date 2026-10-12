@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import {
   Gift,
   Plus,
@@ -15,6 +15,7 @@ import {
   Loader2,
   Users,
   Sparkles,
+  Zap,
 } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -38,6 +39,8 @@ import type { AdminGiftCode, GiftCodeReceiver } from "./types";
 import { MOCK_GIFT_CODES, MOCK_RECEIVERS_MAP } from "./mock-data";
 import { AccountAvatar } from "./account-avatar";
 import { ServerTag } from "./server-tag";
+import { AdminPagination } from "./pagination";
+import { AdminEmptyState } from "./empty-state";
 
 export function TabGiftcodes() {
   const { toast } = useToast();
@@ -49,18 +52,24 @@ export function TabGiftcodes() {
   >("ALL");
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
 
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
+
   // Add Dialog State
   const [isAddOpen, setIsAddOpen] = useState(false);
   const [newCode, setNewCode] = useState("");
   const [newSource, setNewSource] = useState("Discord Bot");
   const [newValidTo, setNewValidTo] = useState("");
   const [newRewards, setNewRewards] = useState("");
+  const [autoTrigger, setAutoTrigger] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Receivers Modal State
   const [selectedCodeForReceivers, setSelectedCodeForReceivers] =
     useState<AdminGiftCode | null>(null);
   const [receiverSearch, setReceiverSearch] = useState("");
+  const [receiverStatusFilter, setReceiverStatusFilter] = useState<"ALL" | "SUCCESS" | "FAILED">("ALL");
   const [receiversData, setReceiversData] = useState<Record<string, GiftCodeReceiver[]>>({});
   const [receiversLoading, setReceiversLoading] = useState(false);
 
@@ -99,6 +108,21 @@ export function TabGiftcodes() {
       description: `Mã ${code} đã sẵn sàng để dán`,
     });
     setTimeout(() => setCopiedCode(null), 2000);
+  };
+
+  // Expiration presets
+  const handleSetPresetExpiry = (days: number | "endOfMonth" | "forever") => {
+    if (days === "forever") {
+      setNewValidTo("");
+      return;
+    }
+    const d = new Date();
+    if (days === "endOfMonth") {
+      d.setMonth(d.getMonth() + 1, 0);
+    } else {
+      d.setDate(d.getDate() + days);
+    }
+    setNewValidTo(d.toISOString().split("T")[0]);
   };
 
   const handleAddSubmit = async (e: React.FormEvent) => {
@@ -218,21 +242,31 @@ export function TabGiftcodes() {
     }, 1000);
   };
 
+  const filteredCodes = useMemo(() => {
+    return giftCodes.filter((item) => {
+      const matchesSearch =
+        item.code.toLowerCase().includes(search.toLowerCase()) ||
+        item.source.toLowerCase().includes(search.toLowerCase()) ||
+        (item.rewards && item.rewards.toLowerCase().includes(search.toLowerCase()));
 
-  const filteredCodes = giftCodes.filter((item) => {
-    const matchesSearch =
-      item.code.toLowerCase().includes(search.toLowerCase()) ||
-      item.source.toLowerCase().includes(search.toLowerCase()) ||
-      (item.rewards && item.rewards.toLowerCase().includes(search.toLowerCase()));
+      const matchesStatus =
+        filterStatus === "ALL" || item.status === filterStatus;
 
-    const matchesStatus =
-      filterStatus === "ALL" || item.status === filterStatus;
+      return matchesSearch && matchesStatus;
+    });
+  }, [giftCodes, search, filterStatus]);
 
-    return matchesSearch && matchesStatus;
-  });
+  // Paginated codes
+  const totalPages = Math.ceil(filteredCodes.length / pageSize);
+  const paginatedCodes = useMemo(() => {
+    const start = (currentPage - 1) * pageSize;
+    return filteredCodes.slice(start, start + pageSize);
+  }, [filteredCodes, currentPage, pageSize]);
 
-  const currentReceivers: GiftCodeReceiver[] = selectedCodeForReceivers
-    ? receiversData[selectedCodeForReceivers.code] ||
+  const currentReceivers: GiftCodeReceiver[] = useMemo(() => {
+    if (!selectedCodeForReceivers) return [];
+    return (
+      receiversData[selectedCodeForReceivers.code] ||
       MOCK_RECEIVERS_MAP[selectedCodeForReceivers.code] || [
         {
           id: "fallback-rec-1",
@@ -251,15 +285,22 @@ export function TabGiftcodes() {
           redeemed_at: new Date().toISOString(),
         },
       ]
-    : [];
+    );
+  }, [selectedCodeForReceivers, receiversData]);
 
+  const filteredReceivers = useMemo(() => {
+    return currentReceivers.filter((r) => {
+      const matchesSearch =
+        r.uid.includes(receiverSearch) ||
+        r.nickname.toLowerCase().includes(receiverSearch.toLowerCase()) ||
+        r.server_id.includes(receiverSearch);
 
-  const filteredReceivers = currentReceivers.filter(
-    (r) =>
-      r.uid.includes(receiverSearch) ||
-      r.nickname.toLowerCase().includes(receiverSearch.toLowerCase()) ||
-      r.server_id.includes(receiverSearch)
-  );
+      const matchesStatus =
+        receiverStatusFilter === "ALL" || r.status === receiverStatusFilter;
+
+      return matchesSearch && matchesStatus;
+    });
+  }, [currentReceivers, receiverSearch, receiverStatusFilter]);
 
   return (
     <>
@@ -288,7 +329,10 @@ export function TabGiftcodes() {
                   type="text"
                   placeholder="Tìm mã quà tặng, nguồn..."
                   value={search}
-                  onChange={(e) => setSearch(e.target.value)}
+                  onChange={(e) => {
+                    setSearch(e.target.value);
+                    setCurrentPage(1);
+                  }}
                   className="h-9 w-44 sm:w-56 text-xs pl-8 bg-background border-border/60"
                 />
               </div>
@@ -296,7 +340,10 @@ export function TabGiftcodes() {
               <div className="inline-flex rounded-lg border border-border/60 p-0.5 bg-muted/50 text-xs">
                 <button
                   type="button"
-                  onClick={() => setFilterStatus("ALL")}
+                  onClick={() => {
+                    setFilterStatus("ALL");
+                    setCurrentPage(1);
+                  }}
                   className={`px-2.5 py-1 rounded-md font-bold transition-all ${
                     filterStatus === "ALL"
                       ? "bg-primary text-primary-foreground shadow-sm"
@@ -307,7 +354,10 @@ export function TabGiftcodes() {
                 </button>
                 <button
                   type="button"
-                  onClick={() => setFilterStatus("VALID")}
+                  onClick={() => {
+                    setFilterStatus("VALID");
+                    setCurrentPage(1);
+                  }}
                   className={`px-2.5 py-1 rounded-md font-bold transition-all ${
                     filterStatus === "VALID"
                       ? "bg-emerald-600 text-white shadow-sm"
@@ -318,7 +368,10 @@ export function TabGiftcodes() {
                 </button>
                 <button
                   type="button"
-                  onClick={() => setFilterStatus("PENDING_VALIDATION")}
+                  onClick={() => {
+                    setFilterStatus("PENDING_VALIDATION");
+                    setCurrentPage(1);
+                  }}
                   className={`px-2.5 py-1 rounded-md font-bold transition-all ${
                     filterStatus === "PENDING_VALIDATION"
                       ? "bg-amber-600 text-white shadow-sm"
@@ -329,7 +382,10 @@ export function TabGiftcodes() {
                 </button>
                 <button
                   type="button"
-                  onClick={() => setFilterStatus("EXPIRED")}
+                  onClick={() => {
+                    setFilterStatus("EXPIRED");
+                    setCurrentPage(1);
+                  }}
                   className={`px-2.5 py-1 rounded-md font-bold transition-all ${
                     filterStatus === "EXPIRED"
                       ? "bg-background text-foreground shadow-sm"
@@ -343,7 +399,7 @@ export function TabGiftcodes() {
               <Button
                 size="sm"
                 onClick={() => setIsAddOpen(true)}
-                className="h-9 px-3 gap-1.5 text-xs font-bold shadow-md bg-primary hover:bg-primary/90 text-primary-foreground"
+                className="h-9 px-3 gap-1.5 text-xs font-bold shadow-md bg-primary hover:bg-primary/90 text-primary-foreground min-h-[38px]"
               >
                 <Plus className="h-4 w-4" />
                 <span>Thêm Mã Mới</span>
@@ -367,11 +423,13 @@ export function TabGiftcodes() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-border/30 text-card-foreground">
-                {filteredCodes.length > 0 ? (
-                  filteredCodes.map((item) => {
+                {paginatedCodes.length > 0 ? (
+                  paginatedCodes.map((item) => {
                     const pct = Math.round(
-                      (item.redeemed_count / item.total_accounts) * 100
+                      (item.redeemed_count / (item.total_accounts || 1)) * 100
                     );
+                    const isValid = item.status === "VALID";
+
                     return (
                       <tr
                         key={item.id}
@@ -379,14 +437,20 @@ export function TabGiftcodes() {
                       >
                         <td className="px-4 py-3.5">
                           <div className="flex items-center gap-2">
-                            <span className="font-mono font-bold text-sm text-foreground bg-muted/60 px-2 py-0.5 rounded border border-border/60">
+                            <span
+                              className={`font-mono font-bold text-sm px-2.5 py-1 rounded-md border transition-all ${
+                                isValid
+                                  ? "text-purple-600 dark:text-purple-300 bg-purple-500/10 border-purple-500/30 group-hover:border-purple-500/60 shadow-xs"
+                                  : "text-foreground bg-muted/60 border-border/60"
+                              }`}
+                            >
                               {item.code}
                             </span>
                             <button
                               type="button"
                               onClick={() => handleCopyCode(item.code)}
                               title="Sao chép mã"
-                              className="text-muted-foreground/60 hover:text-primary transition-colors p-1"
+                              className="text-muted-foreground/60 hover:text-primary transition-colors p-1 rounded cursor-pointer"
                             >
                               {copiedCode === item.code ? (
                                 <Check className="h-3.5 w-3.5 text-emerald-500" />
@@ -481,7 +545,6 @@ export function TabGiftcodes() {
                               <span className="hidden sm:inline">Người nhận</span>
                             </Button>
 
-
                             <Button
                               variant="ghost"
                               size="sm"
@@ -517,26 +580,35 @@ export function TabGiftcodes() {
                   </tr>
                 ) : (
                   <tr>
-                    <td
-                      colSpan={7}
-                      className="px-4 py-12 text-center text-muted-foreground text-xs"
-                    >
-                      <div className="flex flex-col items-center justify-center gap-2">
-                        <div className="h-10 w-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground">
-                          <Gift className="h-5 w-5" />
-                        </div>
-                        <p className="font-medium text-sm">
-                          {giftCodes.length === 0
-                            ? "Chưa có Giftcode nào trong cơ sở dữ liệu. Bấm 'Thêm Mã Mới' để bắt đầu."
-                            : "Không tìm thấy mã giftcode nào phù hợp với bộ lọc"}
-                        </p>
-                      </div>
+                    <td colSpan={7} className="p-0">
+                      <AdminEmptyState
+                        title="Không tìm thấy mã Giftcode nào"
+                        description="Không có mã nào phù hợp với từ khóa hoặc bộ lọc trạng thái."
+                        onClearFilters={() => {
+                          setSearch("");
+                          setFilterStatus("ALL");
+                          setCurrentPage(1);
+                        }}
+                      />
                     </td>
                   </tr>
                 )}
               </tbody>
             </table>
           </div>
+
+          {/* Reusable Pagination */}
+          <AdminPagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            totalItems={filteredCodes.length}
+            pageSize={pageSize}
+            onPageChange={setCurrentPage}
+            onPageSizeChange={(size) => {
+              setPageSize(size);
+              setCurrentPage(1);
+            }}
+          />
         </CardContent>
       </Card>
 
@@ -577,7 +649,7 @@ export function TabGiftcodes() {
                   <select
                     value={newSource}
                     onChange={(e) => setNewSource(e.target.value)}
-                    className="w-full h-9 rounded-md border border-border/60 bg-background px-3 py-1 text-xs text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    className="w-full h-9 rounded-md border border-border/60 bg-background px-3 py-1 text-xs text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring cursor-pointer"
                   >
                     <option value="Discord Bot">Discord Bot</option>
                     <option value="Facebook Fanpage">Facebook Fanpage</option>
@@ -600,6 +672,46 @@ export function TabGiftcodes() {
                 </div>
               </div>
 
+              {/* Expiry Presets */}
+              <div className="flex items-center gap-1.5 flex-wrap">
+                <span className="text-[11px] text-muted-foreground">Chọn nhanh:</span>
+                <button
+                  type="button"
+                  onClick={() => handleSetPresetExpiry(1)}
+                  className="px-2 py-0.5 rounded bg-muted/60 hover:bg-muted text-[10px] text-muted-foreground hover:text-foreground font-mono transition-colors"
+                >
+                  24 Giờ
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleSetPresetExpiry(3)}
+                  className="px-2 py-0.5 rounded bg-muted/60 hover:bg-muted text-[10px] text-muted-foreground hover:text-foreground font-mono transition-colors"
+                >
+                  3 Ngày
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleSetPresetExpiry(7)}
+                  className="px-2 py-0.5 rounded bg-muted/60 hover:bg-muted text-[10px] text-muted-foreground hover:text-foreground font-mono transition-colors"
+                >
+                  7 Ngày
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleSetPresetExpiry("endOfMonth")}
+                  className="px-2 py-0.5 rounded bg-muted/60 hover:bg-muted text-[10px] text-muted-foreground hover:text-foreground font-mono transition-colors"
+                >
+                  Cuối Tháng
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleSetPresetExpiry("forever")}
+                  className="px-2 py-0.5 rounded bg-muted/60 hover:bg-muted text-[10px] text-muted-foreground hover:text-foreground font-mono transition-colors"
+                >
+                  Vĩnh Viễn
+                </button>
+              </div>
+
               <div className="space-y-1">
                 <label className="font-semibold text-foreground">
                   Phần Thưởng Dự Kiến
@@ -612,6 +724,40 @@ export function TabGiftcodes() {
                   className="bg-background border-border/60"
                 />
               </div>
+
+              {/* Reward suggestions */}
+              <div className="flex items-center gap-1.5 flex-wrap">
+                <span className="text-[11px] text-muted-foreground">Gợi ý:</span>
+                {["500 Kim Cương", "10 Vé Chiêu Mộ", "1000 Đá Tăng Bậc", "Rương Vàng"].map((tag) => (
+                  <button
+                    key={tag}
+                    type="button"
+                    onClick={() => setNewRewards(tag)}
+                    className="px-2 py-0.5 rounded bg-muted/60 hover:bg-muted text-[10px] text-muted-foreground hover:text-foreground font-mono transition-colors"
+                  >
+                    {tag}
+                  </button>
+                ))}
+              </div>
+
+              {/* Trigger Auto Redeem switch */}
+              <div className="flex items-center justify-between p-2.5 rounded-lg border border-border/40 bg-muted/30">
+                <div className="space-y-0.5">
+                  <div className="font-semibold text-foreground flex items-center gap-1.5">
+                    <Zap className="h-3.5 w-3.5 text-amber-500" />
+                    <span>Kích hoạt bot quét ăn mã ngay</span>
+                  </div>
+                  <div className="text-[10px] text-muted-foreground">
+                    Tự động đưa mã vào hàng đợi cho toàn bộ tài khoản đang bật săn code
+                  </div>
+                </div>
+                <input
+                  type="checkbox"
+                  checked={autoTrigger}
+                  onChange={(e) => setAutoTrigger(e.target.checked)}
+                  className="h-4 w-4 rounded accent-primary cursor-pointer"
+                />
+              </div>
             </div>
 
             <DialogFooter className="gap-2 sm:gap-0">
@@ -619,14 +765,14 @@ export function TabGiftcodes() {
                 type="button"
                 variant="outline"
                 onClick={() => setIsAddOpen(false)}
-                className="border-border/60 text-xs"
+                className="border-border/60 text-xs min-h-[38px]"
               >
                 Hủy
               </Button>
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="bg-primary text-primary-foreground gap-1.5 text-xs font-bold"
+                className="bg-primary text-primary-foreground gap-1.5 text-xs font-bold min-h-[38px]"
               >
                 {isSubmitting && <Loader2 className="h-3.5 w-3.5 animate-spin" />}
                 Lưu & Kích Hoạt
@@ -643,12 +789,13 @@ export function TabGiftcodes() {
           if (!open) {
             setSelectedCodeForReceivers(null);
             setReceiverSearch("");
+            setReceiverStatusFilter("ALL");
           }
         }}
       >
         <DialogContent className="sm:max-w-xl bg-card text-card-foreground border-border/60 max-h-[85vh] flex flex-col">
           <DialogHeader>
-            <DialogTitle className="flex items-center gap-2 text-base font-bold">
+            <DialogTitle className="flex items-center gap-2 text-base font-bold flex-wrap">
               <Users className="h-4 w-4 text-primary" />
               <span>Danh Sách Người Nhận Mã:</span>
               <Badge variant="outline" className="font-mono text-primary font-bold">
@@ -663,16 +810,48 @@ export function TabGiftcodes() {
             </DialogDescription>
           </DialogHeader>
 
-          {/* Search inside receivers */}
-          <div className="relative my-2">
-            <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
-            <Input
-              type="text"
-              placeholder="Lọc theo UID, nickname, máy chủ..."
-              value={receiverSearch}
-              onChange={(e) => setReceiverSearch(e.target.value)}
-              className="h-8 text-xs pl-8 bg-background border-border/60"
-            />
+          {/* Search & Filter inside receivers */}
+          <div className="flex items-center gap-2 my-2">
+            <div className="relative flex-1">
+              <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
+              <Input
+                type="text"
+                placeholder="Lọc theo UID, nickname, máy chủ..."
+                value={receiverSearch}
+                onChange={(e) => setReceiverSearch(e.target.value)}
+                className="h-8 text-xs pl-8 bg-background border-border/60"
+              />
+            </div>
+
+            <div className="inline-flex rounded-lg border border-border/60 p-0.5 bg-muted/50 text-[11px]">
+              <button
+                type="button"
+                onClick={() => setReceiverStatusFilter("ALL")}
+                className={`px-2 py-0.5 rounded font-semibold transition-all ${
+                  receiverStatusFilter === "ALL" ? "bg-primary text-white shadow-xs" : "text-muted-foreground"
+                }`}
+              >
+                Tất cả
+              </button>
+              <button
+                type="button"
+                onClick={() => setReceiverStatusFilter("SUCCESS")}
+                className={`px-2 py-0.5 rounded font-semibold transition-all ${
+                  receiverStatusFilter === "SUCCESS" ? "bg-emerald-600 text-white shadow-xs" : "text-muted-foreground"
+                }`}
+              >
+                Thành công
+              </button>
+              <button
+                type="button"
+                onClick={() => setReceiverStatusFilter("FAILED")}
+                className={`px-2 py-0.5 rounded font-semibold transition-all ${
+                  receiverStatusFilter === "FAILED" ? "bg-rose-600 text-white shadow-xs" : "text-muted-foreground"
+                }`}
+              >
+                Lỗi
+              </button>
+            </div>
           </div>
 
           <div className="overflow-y-auto flex-1 border border-border/40 rounded-lg">
@@ -743,7 +922,6 @@ export function TabGiftcodes() {
                     </td>
                   </tr>
                 )}
-
               </tbody>
             </table>
           </div>
@@ -753,7 +931,7 @@ export function TabGiftcodes() {
               variant="outline"
               size="sm"
               onClick={() => setSelectedCodeForReceivers(null)}
-              className="text-xs border-border/60"
+              className="text-xs border-border/60 min-h-[36px]"
             >
               Đóng
             </Button>

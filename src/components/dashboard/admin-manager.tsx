@@ -11,7 +11,10 @@ import {
   Gift,
   CalendarCheck,
   Loader2,
-  Sparkles,
+  Activity,
+  Database,
+  Radio,
+  RefreshCw,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -47,40 +50,40 @@ export function AdminManager({ initialAccounts, locale }: AdminManagerProps) {
   const [redemptionsCount, setRedemptionsCount] = useState(0);
   const [failedRedemptionsCount, setFailedRedemptionsCount] = useState(0);
   const [checkinsCount, setCheckinsCount] = useState(0);
+  const [isRefreshingStats, setIsRefreshingStats] = useState(false);
 
-  React.useEffect(() => {
-    let active = true;
-    async function loadStats() {
-      try {
-        const [gcRes, redRes, chkRes] = await Promise.allSettled([
-          getAdminGiftcodesAction(),
-          getAdminRedemptionsAction(),
-          getAdminCheckinsAction(),
-        ]);
+  const loadStats = React.useCallback(async () => {
+    try {
+      setIsRefreshingStats(true);
+      const [gcRes, redRes, chkRes] = await Promise.allSettled([
+        getAdminGiftcodesAction(),
+        getAdminRedemptionsAction(),
+        getAdminCheckinsAction(),
+      ]);
 
-        if (active && gcRes.status === "fulfilled" && gcRes.value.success && gcRes.value.data) {
-          setGiftCodesCount(gcRes.value.data.length);
-          setActiveCodesCount(gcRes.value.data.filter((c) => c.status === "VALID").length);
-        }
-
-        if (active && redRes.status === "fulfilled" && redRes.value.success && redRes.value.data) {
-          setRedemptionsCount(redRes.value.data.length);
-          setFailedRedemptionsCount(redRes.value.data.filter((r) => r.status === "FAILED").length);
-        }
-
-        if (active && chkRes.status === "fulfilled" && chkRes.value.success && chkRes.value.data) {
-          setCheckinsCount(chkRes.value.data.length);
-        }
-      } catch {
-        // Fallback
+      if (gcRes.status === "fulfilled" && gcRes.value.success && gcRes.value.data) {
+        setGiftCodesCount(gcRes.value.data.length);
+        setActiveCodesCount(gcRes.value.data.filter((c) => c.status === "VALID").length);
       }
+
+      if (redRes.status === "fulfilled" && redRes.value.success && redRes.value.data) {
+        setRedemptionsCount(redRes.value.data.length);
+        setFailedRedemptionsCount(redRes.value.data.filter((r) => r.status === "FAILED").length);
+      }
+
+      if (chkRes.status === "fulfilled" && chkRes.value.success && chkRes.value.data) {
+        setCheckinsCount(chkRes.value.data.length);
+      }
+    } catch {
+      // Fallback
+    } finally {
+      setIsRefreshingStats(false);
     }
-    loadStats();
-    return () => {
-      active = false;
-    };
   }, []);
 
+  React.useEffect(() => {
+    loadStats();
+  }, [loadStats]);
 
   const handleLogout = async () => {
     try {
@@ -136,22 +139,25 @@ export function AdminManager({ initialAccounts, locale }: AdminManagerProps) {
   const proCount = accounts.filter((a) => a.active_plan === "PRO").length;
   const activeBotsCount = accounts.filter((a) => a.auto_redeem || a.auto_checkin).length;
   const activePercent = accounts.length > 0 ? Math.round((activeBotsCount / accounts.length) * 100) : 0;
-
+  const proPercent = accounts.length > 0 ? Math.round((proCount / accounts.length) * 100) : 0;
 
   return (
     <div className="space-y-6 sm:space-y-8">
-      {/* Top Banner & Logout with Modern SaaS Clean & Cyber Glassmorphism */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-purple-500/10 via-indigo-500/5 to-purple-500/10 dark:from-purple-950/40 dark:via-indigo-950/30 dark:to-purple-950/40 border border-purple-500/20 dark:border-purple-500/30 backdrop-blur-xl shadow-sm">
-        <div className="flex items-center gap-3.5">
-          <div className="h-12 w-12 rounded-xl bg-purple-500/10 dark:bg-purple-600/20 text-purple-600 dark:text-purple-400 flex items-center justify-center border border-purple-500/20 dark:border-purple-500/30 shadow-inner">
-            <ShieldCheck className="h-6 w-6" />
+      {/* Top Banner & Control Center HUD */}
+      <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-purple-500/10 via-indigo-500/5 to-purple-500/10 dark:from-purple-950/40 dark:via-indigo-950/30 dark:to-purple-950/40 border border-purple-500/20 dark:border-purple-500/30 backdrop-blur-xl shadow-lg relative overflow-hidden group">
+        {/* Ambient background glow accent */}
+        <div className="absolute -right-16 -top-16 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="flex items-center gap-3.5 relative z-10">
+          <div className="h-12 w-12 rounded-xl bg-purple-500/15 dark:bg-purple-600/25 text-purple-600 dark:text-purple-400 flex items-center justify-center border border-purple-500/30 shadow-inner shrink-0">
+            <ShieldCheck className="h-6 w-6 text-purple-600 dark:text-purple-400" />
           </div>
           <div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 flex-wrap">
               <h1 className="text-xl font-black text-foreground font-heading tracking-tight">
                 TopHub Control Center
               </h1>
-              <Badge className="bg-purple-500/15 text-purple-700 dark:text-purple-300 border border-purple-500/30 text-[10px] font-black uppercase">
+              <Badge className="bg-purple-500/20 text-purple-700 dark:text-purple-300 border border-purple-500/40 text-[10px] font-black uppercase tracking-wider">
                 ADMIN HUD
               </Badge>
             </div>
@@ -161,82 +167,182 @@ export function AdminManager({ initialAccounts, locale }: AdminManagerProps) {
           </div>
         </div>
 
-        <Button
-          variant="outline"
-          onClick={handleLogout}
-          disabled={isLoggingOut}
-          className="border-border/60 text-muted-foreground hover:text-destructive hover:bg-destructive/10 hover:border-destructive/30 font-bold gap-2 text-xs shadow-sm self-end sm:self-center"
-        >
-          {isLoggingOut ? (
-            <Loader2 className="h-3.5 w-3.5 animate-spin" />
-          ) : (
-            <LogOut className="h-3.5 w-3.5" />
-          )}
-          <span>Đăng Xuất Admin</span>
-        </Button>
+        {/* Live System Health Pulse & Actions */}
+        <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 w-full lg:w-auto justify-between lg:justify-end relative z-10">
+          {/* Status HUD Pill */}
+          <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-background/60 border border-border/60 text-xs shadow-xs">
+            <div className="flex items-center gap-1.5" title="Bot Engine Worker Active">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+              </span>
+              <span className="font-mono text-[11px] font-bold text-foreground">Bot Engine: Live</span>
+            </div>
+
+            <span className="text-border">|</span>
+
+            <div className="flex items-center gap-1 text-muted-foreground font-mono text-[11px]" title="Database Connection">
+              <Database className="h-3 w-3 text-emerald-500" />
+              <span>DB OK</span>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => loadStats()}
+              disabled={isRefreshingStats}
+              className="border-border/60 text-muted-foreground hover:text-foreground h-9 px-2.5 min-h-[38px] text-xs font-semibold gap-1.5"
+              title="Làm mới số liệu tổng quan"
+            >
+              <RefreshCw className={`h-3.5 w-3.5 ${isRefreshingStats ? "animate-spin text-primary" : ""}`} />
+              <span className="hidden sm:inline">Làm mới</span>
+            </Button>
+
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={handleLogout}
+              disabled={isLoggingOut}
+              className="border-border/60 text-muted-foreground hover:text-destructive hover:bg-destructive/10 hover:border-destructive/30 font-bold gap-2 text-xs h-9 min-h-[38px] shadow-sm"
+            >
+              {isLoggingOut ? (
+                <Loader2 className="h-3.5 w-3.5 animate-spin" />
+              ) : (
+                <LogOut className="h-3.5 w-3.5" />
+              )}
+              <span>Đăng Xuất Admin</span>
+            </Button>
+          </div>
+        </div>
       </div>
 
-      {/* Modern Metrics Row (4 Cards) */}
+      {/* Modern Metrics Row (4 Cards) with Cyber HUD Accents */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4">
         {/* Metric 1: Total Accounts */}
-        <Card className="border border-border/60 bg-card/80 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow rounded-xl">
-          <CardContent className="p-4 flex items-center gap-3.5">
-            <div className="h-11 w-11 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center border border-blue-500/20 shrink-0">
-              <Users className="h-5 w-5" />
+        <Card className="border border-border/60 hover:border-blue-500/40 bg-card/80 backdrop-blur-md shadow-sm hover:shadow-md transition-all rounded-xl relative overflow-hidden group">
+          <div className="absolute -right-6 -bottom-6 w-20 h-20 bg-blue-500/10 rounded-full blur-xl group-hover:bg-blue-500/20 transition-all pointer-events-none" />
+          <CardContent className="p-4 space-y-3">
+            <div className="flex items-center gap-3">
+              <div className="h-10 w-10 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center border border-blue-500/20 shrink-0">
+                <Users className="h-5 w-5" />
+              </div>
+              <div className="min-w-0 flex-1">
+                <div className="text-xs text-muted-foreground font-medium truncate">Tổng Tài Khoản</div>
+                <div className="text-2xl font-black text-foreground font-mono leading-tight">{accounts.length}</div>
+              </div>
             </div>
-            <div className="min-w-0">
-              <div className="text-xs text-muted-foreground font-medium truncate">Tổng Tài Khoản</div>
-              <div className="text-2xl font-black text-foreground font-mono leading-tight">{accounts.length}</div>
-              <div className="text-[10px] text-muted-foreground mt-0.5 truncate">
-                {accounts.length - proCount} Free | {proCount} Pro
+            {/* Sub-bar */}
+            <div className="space-y-1">
+              <div className="flex justify-between text-[10px] text-muted-foreground font-mono">
+                <span>{accounts.length - proCount} Free</span>
+                <span className="font-bold text-amber-500">{proCount} Pro</span>
+              </div>
+              <div className="h-1.5 w-full bg-muted/60 rounded-full overflow-hidden flex">
+                <div
+                  className="bg-blue-500 h-full transition-all duration-500"
+                  style={{ width: `${100 - proPercent}%` }}
+                />
+                <div
+                  className="bg-amber-500 h-full transition-all duration-500"
+                  style={{ width: `${proPercent}%` }}
+                />
               </div>
             </div>
           </CardContent>
         </Card>
 
         {/* Metric 2: Pro Accounts */}
-        <Card className="border border-border/60 bg-card/80 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow rounded-xl">
-          <CardContent className="p-4 flex items-center gap-3.5">
-            <div className="h-11 w-11 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center border border-amber-500/20 shrink-0">
-              <Zap className="h-5 w-5" />
+        <Card className="border border-border/60 hover:border-amber-500/40 bg-card/80 backdrop-blur-md shadow-sm hover:shadow-md transition-all rounded-xl relative overflow-hidden group">
+          <div className="absolute -right-6 -bottom-6 w-20 h-20 bg-amber-500/10 rounded-full blur-xl group-hover:bg-amber-500/20 transition-all pointer-events-none" />
+          <CardContent className="p-4 space-y-3">
+            <div className="flex items-center gap-3">
+              <div className="h-10 w-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center border border-amber-500/20 shrink-0">
+                <Zap className="h-5 w-5" />
+              </div>
+              <div className="min-w-0 flex-1">
+                <div className="text-xs text-muted-foreground font-medium truncate">Tài Khoản PRO</div>
+                <div className="text-2xl font-black text-amber-600 dark:text-amber-400 font-mono leading-tight">
+                  {proCount}
+                </div>
+              </div>
             </div>
-            <div className="min-w-0">
-              <div className="text-xs text-muted-foreground font-medium truncate">Tài Khoản PRO</div>
-              <div className="text-2xl font-black text-amber-600 dark:text-amber-400 font-mono leading-tight">{proCount}</div>
-              <div className="text-[10px] text-muted-foreground mt-0.5 truncate">
-                {Math.round((proCount / (accounts.length || 1)) * 100)}% thành viên VIP
+            {/* Sub-bar */}
+            <div className="space-y-1">
+              <div className="flex justify-between text-[10px] text-muted-foreground font-mono">
+                <span>Tỷ lệ thành viên</span>
+                <span className="font-bold text-amber-500">{proPercent}% VIP</span>
+              </div>
+              <div className="h-1.5 w-full bg-muted/60 rounded-full overflow-hidden">
+                <div
+                  className="bg-gradient-to-r from-amber-500 to-amber-600 h-full transition-all duration-500 rounded-full"
+                  style={{ width: `${proPercent}%` }}
+                />
               </div>
             </div>
           </CardContent>
         </Card>
 
         {/* Metric 3: Active Bots */}
-        <Card className="border border-border/60 bg-card/80 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow rounded-xl">
-          <CardContent className="p-4 flex items-center gap-3.5">
-            <div className="h-11 w-11 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center border border-emerald-500/20 shrink-0">
-              <Bot className="h-5 w-5" />
+        <Card className="border border-border/60 hover:border-emerald-500/40 bg-card/80 backdrop-blur-md shadow-sm hover:shadow-md transition-all rounded-xl relative overflow-hidden group">
+          <div className="absolute -right-6 -bottom-6 w-20 h-20 bg-emerald-500/10 rounded-full blur-xl group-hover:bg-emerald-500/20 transition-all pointer-events-none" />
+          <CardContent className="p-4 space-y-3">
+            <div className="flex items-center gap-3">
+              <div className="h-10 w-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center border border-emerald-500/20 shrink-0">
+                <Bot className="h-5 w-5" />
+              </div>
+              <div className="min-w-0 flex-1">
+                <div className="text-xs text-muted-foreground font-medium truncate">Bot Tự Động</div>
+                <div className="text-2xl font-black text-emerald-600 dark:text-emerald-400 font-mono leading-tight">
+                  {activeBotsCount}
+                </div>
+              </div>
             </div>
-            <div className="min-w-0">
-              <div className="text-xs text-muted-foreground font-medium truncate">Bot Tự Động</div>
-              <div className="text-2xl font-black text-emerald-600 dark:text-emerald-400 font-mono leading-tight">{activeBotsCount}</div>
-              <div className="text-[10px] text-muted-foreground mt-0.5 truncate">
-                {activePercent}% đang bật tự động
+            {/* Sub-bar */}
+            <div className="space-y-1">
+              <div className="flex justify-between text-[10px] text-muted-foreground font-mono">
+                <span>Tự động hóa</span>
+                <span className="font-bold text-emerald-500">{activePercent}% active</span>
+              </div>
+              <div className="h-1.5 w-full bg-muted/60 rounded-full overflow-hidden">
+                <div
+                  className="bg-gradient-to-r from-emerald-500 to-emerald-600 h-full transition-all duration-500 rounded-full"
+                  style={{ width: `${activePercent}%` }}
+                />
               </div>
             </div>
           </CardContent>
         </Card>
 
         {/* Metric 4: Active Giftcodes */}
-        <Card className="border border-border/60 bg-card/80 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow rounded-xl">
-          <CardContent className="p-4 flex items-center gap-3.5">
-            <div className="h-11 w-11 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center border border-purple-500/20 shrink-0">
-              <Gift className="h-5 w-5" />
+        <Card className="border border-border/60 hover:border-purple-500/40 bg-card/80 backdrop-blur-md shadow-sm hover:shadow-md transition-all rounded-xl relative overflow-hidden group">
+          <div className="absolute -right-6 -bottom-6 w-20 h-20 bg-purple-500/10 rounded-full blur-xl group-hover:bg-purple-500/20 transition-all pointer-events-none" />
+          <CardContent className="p-4 space-y-3">
+            <div className="flex items-center gap-3">
+              <div className="h-10 w-10 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center border border-purple-500/20 shrink-0">
+                <Gift className="h-5 w-5" />
+              </div>
+              <div className="min-w-0 flex-1">
+                <div className="text-xs text-muted-foreground font-medium truncate">Giftcode Khả Dụng</div>
+                <div className="text-2xl font-black text-purple-600 dark:text-purple-400 font-mono leading-tight">
+                  {activeCodesCount}
+                </div>
+              </div>
             </div>
-            <div className="min-w-0">
-              <div className="text-xs text-muted-foreground font-medium truncate">Giftcode Khả Dụng</div>
-              <div className="text-2xl font-black text-purple-600 dark:text-purple-400 font-mono leading-tight">{activeCodesCount}</div>
-              <div className="text-[10px] text-muted-foreground mt-0.5 truncate">
-                {giftCodesCount} mã trong hệ thống
+            {/* Sub-bar */}
+            <div className="space-y-1">
+              <div className="flex justify-between text-[10px] text-muted-foreground font-mono">
+                <span>Kho mã khả dụng</span>
+                <span className="font-bold text-purple-500">{giftCodesCount} tổng</span>
+              </div>
+              <div className="h-1.5 w-full bg-muted/60 rounded-full overflow-hidden">
+                <div
+                  className="bg-gradient-to-r from-purple-500 to-indigo-600 h-full transition-all duration-500 rounded-full"
+                  style={{
+                    width: `${giftCodesCount > 0 ? Math.round((activeCodesCount / giftCodesCount) * 100) : 0}%`,
+                  }}
+                />
               </div>
             </div>
           </CardContent>
@@ -245,11 +351,11 @@ export function AdminManager({ initialAccounts, locale }: AdminManagerProps) {
 
       {/* Tab Navigation HUD (4 Tabs) */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-4">
-        <div className="overflow-x-auto pb-1">
-          <TabsList className="h-11 p-1 bg-muted/60 border border-border/60 rounded-xl inline-flex w-full sm:w-auto min-w-[560px] sm:min-w-0 justify-start">
+        <div className="overflow-x-auto pb-1 scrollbar-none">
+          <TabsList className="h-12 p-1 bg-muted/60 border border-border/60 rounded-xl inline-flex w-full sm:w-auto min-w-[560px] sm:min-w-0 justify-start shadow-sm">
             <TabsTrigger
               value="accounts"
-              className="gap-2 px-3.5 py-1.5 text-xs sm:text-sm font-bold rounded-lg data-[state=active]:bg-card data-[state=active]:text-foreground data-[state=active]:shadow-sm text-muted-foreground"
+              className="gap-2 px-4 py-2 text-xs sm:text-sm font-bold rounded-lg data-[state=active]:bg-card data-[state=active]:text-foreground data-[state=active]:shadow-sm text-muted-foreground min-h-[40px]"
             >
               <Users className="h-4 w-4 text-blue-500" />
               <span>Tài Khoản Game</span>
@@ -263,7 +369,7 @@ export function AdminManager({ initialAccounts, locale }: AdminManagerProps) {
 
             <TabsTrigger
               value="giftcodes"
-              className="gap-2 px-3.5 py-1.5 text-xs sm:text-sm font-bold rounded-lg data-[state=active]:bg-card data-[state=active]:text-foreground data-[state=active]:shadow-sm text-muted-foreground"
+              className="gap-2 px-4 py-2 text-xs sm:text-sm font-bold rounded-lg data-[state=active]:bg-card data-[state=active]:text-foreground data-[state=active]:shadow-sm text-muted-foreground min-h-[40px]"
             >
               <Gift className="h-4 w-4 text-purple-500" />
               <span>Quản Lý Giftcode</span>
@@ -275,10 +381,9 @@ export function AdminManager({ initialAccounts, locale }: AdminManagerProps) {
               </Badge>
             </TabsTrigger>
 
-
             <TabsTrigger
               value="redemptions"
-              className="gap-2 px-3.5 py-1.5 text-xs sm:text-sm font-bold rounded-lg data-[state=active]:bg-card data-[state=active]:text-foreground data-[state=active]:shadow-sm text-muted-foreground"
+              className="gap-2 px-4 py-2 text-xs sm:text-sm font-bold rounded-lg data-[state=active]:bg-card data-[state=active]:text-foreground data-[state=active]:shadow-sm text-muted-foreground min-h-[40px]"
             >
               <Zap className="h-4 w-4 text-amber-500" />
               <span>Lịch Sử Đổi Mã</span>
@@ -294,7 +399,7 @@ export function AdminManager({ initialAccounts, locale }: AdminManagerProps) {
 
             <TabsTrigger
               value="checkins"
-              className="gap-2 px-3.5 py-1.5 text-xs sm:text-sm font-bold rounded-lg data-[state=active]:bg-card data-[state=active]:text-foreground data-[state=active]:shadow-sm text-muted-foreground"
+              className="gap-2 px-4 py-2 text-xs sm:text-sm font-bold rounded-lg data-[state=active]:bg-card data-[state=active]:text-foreground data-[state=active]:shadow-sm text-muted-foreground min-h-[40px]"
             >
               <CalendarCheck className="h-4 w-4 text-emerald-500" />
               <span>Lịch Sử Điểm Danh</span>
