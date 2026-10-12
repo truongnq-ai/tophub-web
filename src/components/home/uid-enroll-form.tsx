@@ -109,12 +109,7 @@ export function UidEnrollForm({ initialActiveCodes }: UidEnrollFormProps) {
     }
   };
 
-  const activeCodesList = initialActiveCodes && initialActiveCodes.length > 0 ? initialActiveCodes : [
-    { code: "TOPHERO2026", status: "ACTIVE" },
-    { code: "HEROES2026", status: "ACTIVE" },
-    { code: "THVIP888", status: "ACTIVE" },
-    { code: "TOPHEROESGO", status: "ACTIVE" },
-  ];
+  const activeCodesList = initialActiveCodes ?? [];
 
   return (
     <div className="space-y-12 max-w-3xl mx-auto py-6">
@@ -310,22 +305,28 @@ export function UidEnrollForm({ initialActiveCodes }: UidEnrollFormProps) {
           <span className="text-[11px] text-emerald-400 font-mono font-bold">● Đang quét tự động</span>
         </div>
 
-        <div className="flex flex-wrap gap-2">
-          {activeCodesList.map((item) => (
-            <button
-              key={item.code}
-              onClick={() => handleCopyCode(item.code)}
-              className="group inline-flex items-center gap-2 rounded-full border border-border/80 bg-muted/60 px-3.5 py-1.5 font-mono text-xs text-foreground hover:border-primary/50 hover:bg-primary/10 transition-colors"
-            >
-              <span className="font-bold">{item.code}</span>
-              {copiedCode === item.code ? (
-                <Check className="h-3 w-3 text-emerald-400" />
-              ) : (
-                <Copy className="h-3 w-3 text-muted-foreground group-hover:text-primary" />
-              )}
-            </button>
-          ))}
-        </div>
+        {activeCodesList.length > 0 ? (
+          <div className="flex flex-wrap gap-2">
+            {activeCodesList.map((item) => (
+              <button
+                key={item.code}
+                onClick={() => handleCopyCode(item.code)}
+                className="group inline-flex items-center gap-2 rounded-full border border-border/80 bg-muted/60 px-3.5 py-1.5 font-mono text-xs text-foreground hover:border-primary/50 hover:bg-primary/10 transition-colors"
+              >
+                <span className="font-bold">{item.code}</span>
+                {copiedCode === item.code ? (
+                  <Check className="h-3 w-3 text-emerald-400" />
+                ) : (
+                  <Copy className="h-3 w-3 text-muted-foreground group-hover:text-primary" />
+                )}
+              </button>
+            ))}
+          </div>
+        ) : (
+          <div className="rounded-2xl border border-dashed border-border/70 p-4 text-center text-xs text-muted-foreground bg-muted/20">
+            Hệ thống đang quét tìm giftcode mới 24/7. Chưa có mã hoạt động.
+          </div>
+        )}
       </section>
 
       {/* Community Activity Counters */}

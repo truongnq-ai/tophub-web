@@ -130,3 +130,56 @@ export interface AdminAccountItem {
   token_status: string;
   created_at: string;
 }
+
+export interface AdminGiftCodeItem {
+  id: string;
+  code: string;
+  status: "VALID" | "EXPIRED" | "PENDING_VALIDATION";
+  source: string;
+  valid_from?: string | null;
+  valid_to: string | null;
+  discovered_at: string;
+  redeemed_count: number;
+  total_accounts: number;
+  rewards?: string;
+  is_public: boolean;
+}
+
+export interface AdminGiftcodeReceiverItem {
+  id: string;
+  account_id?: string;
+  uid: string;
+  nickname: string;
+  server_id: string;
+  status: "SUCCESS" | "PENDING" | "FAILED";
+  redeemed_at: string;
+}
+
+export interface AdminRedemptionItem {
+  id: string;
+  game_account_id: string;
+  uid: string;
+  nickname: string;
+  server_id: string;
+  gift_code: string;
+  status: "SUCCESS" | "FAILED";
+  api_message: string;
+  created_at: string;
+}
+
+export interface AdminCheckinItem {
+  id: string;
+  game_account_id: string;
+  uid: string;
+  nickname: string;
+  server_id: string;
+  game_day: string;
+  status: "SUCCESS" | "FAILED" | "PENDING";
+  created_at: string;
+}
+
+export interface AdminRetryResponse {
+  retried_count: number;
+  message: string;
+}
+

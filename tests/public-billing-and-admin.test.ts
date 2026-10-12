@@ -127,4 +127,191 @@ describe("Public Billing & Player Actions", () => {
       })
     );
   });
+
+  it("should call apiClient.getAdminGiftcodes with query params", async () => {
+    const mockFetch = vi.fn().mockResolvedValue({
+      json: async () => ({
+        success: true,
+        data: [
+          {
+            id: "code-1",
+            code: "HERO2026",
+            status: "VALID",
+            valid_from: "2026-10-01T00:00:00.000Z",
+            valid_to: "2026-12-31T23:59:59.000Z",
+            redeemed_count: 5,
+            total_accounts: 10,
+            created_at: "2026-10-01T00:00:00.000Z",
+          },
+        ],
+      }),
+    });
+    vi.stubGlobal("fetch", mockFetch);
+
+    const res = await apiClient.getAdminGiftcodes("test-token", { search: "HERO", status: "VALID" });
+    expect(res.success).toBe(true);
+    expect(res.data?.[0].code).toBe("HERO2026");
+    expect(mockFetch).toHaveBeenCalledWith(
+      expect.stringContaining("/api/v1/admin/giftcodes?status=VALID&search=HERO"),
+      expect.objectContaining({
+        headers: expect.objectContaining({
+          Authorization: "Bearer test-token",
+        }),
+      })
+    );
+  });
+
+  it("should call apiClient.createAdminGiftcode with POST body", async () => {
+    const mockFetch = vi.fn().mockResolvedValue({
+      json: async () => ({
+        success: true,
+        data: {
+          id: "new-code",
+          code: "SUMMER2026",
+          status: "VALID",
+        },
+      }),
+    });
+    vi.stubGlobal("fetch", mockFetch);
+
+    const res = await apiClient.createAdminGiftcode("test-token", {
+      code: "SUMMER2026",
+      source: "Discord",
+    });
+    expect(res.success).toBe(true);
+    expect(res.data?.code).toBe("SUMMER2026");
+    expect(mockFetch).toHaveBeenCalledWith(
+      expect.stringContaining("/api/v1/admin/giftcodes"),
+      expect.objectContaining({
+        method: "POST",
+        body: JSON.stringify({ code: "SUMMER2026", source: "Discord" }),
+        headers: expect.objectContaining({
+          Authorization: "Bearer test-token",
+        }),
+      })
+    );
+  });
+
+  it("should call apiClient.getAdminGiftcodeReceivers with code param", async () => {
+    const mockFetch = vi.fn().mockResolvedValue({
+      json: async () => ({
+        success: true,
+        data: [
+          {
+            account_id: "acc-1",
+            uid: "2446869146316",
+            nickname: "DragonSlayer",
+            server_id: "1024",
+            status: "SUCCESS",
+            redeemed_at: "2026-10-12T10:00:00.000Z",
+          },
+        ],
+      }),
+    });
+    vi.stubGlobal("fetch", mockFetch);
+
+    const res = await apiClient.getAdminGiftcodeReceivers("test-token", "HERO2026");
+    expect(res.success).toBe(true);
+    expect(res.data?.[0].nickname).toBe("DragonSlayer");
+    expect(mockFetch).toHaveBeenCalledWith(
+      expect.stringContaining("/api/v1/admin/giftcodes/HERO2026/receivers"),
+      expect.objectContaining({
+        headers: expect.objectContaining({
+          Authorization: "Bearer test-token",
+        }),
+      })
+    );
+  });
+
+  it("should call apiClient.getAdminRedemptions and retryAdminRedemption", async () => {
+    const mockFetch = vi.fn()
+      .mockResolvedValueOnce({
+        json: async () => ({
+          success: true,
+          data: [
+            {
+              id: "red-1",
+              account_id: "acc-1",
+              code: "HERO2026",
+              status: "FAILED",
+              redeemed_at: "2026-10-12T10:00:00.000Z",
+              uid: "2446869146316",
+              nickname: "DragonSlayer",
+              server_id: "1024",
+            },
+          ],
+        }),
+      })
+      .mockResolvedValueOnce({
+        json: async () => ({
+          success: true,
+          data: { id: "red-1", status: "SUCCESS", api_message: "Queued retry" },
+        }),
+      })
+      .mockResolvedValueOnce({
+        json: async () => ({
+          success: true,
+          data: { retried_count: 5, message: "Queued 5 retries" },
+        }),
+      });
+    vi.stubGlobal("fetch", mockFetch);
+
+    const listRes = await apiClient.getAdminRedemptions("test-token", { status: "FAILED" });
+    expect(listRes.success).toBe(true);
+    expect(listRes.data?.[0].id).toBe("red-1");
+
+    const retryRes = await apiClient.retryAdminRedemption("test-token", "red-1");
+    expect(retryRes.success).toBe(true);
+    expect(retryRes.data?.status).toBe("SUCCESS");
+
+    const retryAllRes = await apiClient.retryAllAdminRedemptions("test-token");
+    expect(retryAllRes.success).toBe(true);
+    expect(retryAllRes.data?.retried_count).toBe(5);
+  });
+
+  it("should call apiClient.getAdminCheckins and retryAdminCheckin", async () => {
+    const mockFetch = vi.fn()
+      .mockResolvedValueOnce({
+        json: async () => ({
+          success: true,
+          data: [
+            {
+              id: "chk-1",
+              account_id: "acc-1",
+              game_day: "2026-10-12",
+              status: "FAILED",
+              checked_at: "2026-10-12T10:00:00.000Z",
+              uid: "2446869146316",
+              nickname: "DragonSlayer",
+              server_id: "1024",
+            },
+          ],
+        }),
+      })
+      .mockResolvedValueOnce({
+        json: async () => ({
+          success: true,
+          data: { id: "chk-1", status: "SUCCESS" },
+        }),
+      })
+      .mockResolvedValueOnce({
+        json: async () => ({
+          success: true,
+          data: { retried_count: 3, message: "Queued 3 checkin retries" },
+        }),
+      });
+    vi.stubGlobal("fetch", mockFetch);
+
+    const listRes = await apiClient.getAdminCheckins("test-token", { game_day: "2026-10-12" });
+    expect(listRes.success).toBe(true);
+    expect(listRes.data?.[0].id).toBe("chk-1");
+
+    const retryRes = await apiClient.retryAdminCheckin("test-token", "chk-1");
+    expect(retryRes.success).toBe(true);
+    expect(retryRes.data?.status).toBe("SUCCESS");
+
+    const retryAllRes = await apiClient.retryAllAdminCheckins("test-token");
+    expect(retryAllRes.success).toBe(true);
+    expect(retryAllRes.data?.retried_count).toBe(3);
+  });
 });

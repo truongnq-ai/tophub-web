@@ -6,22 +6,30 @@ import {
   Users,
   ShieldCheck,
   Zap,
-  Search,
   LogOut,
   Bot,
-  Calendar,
-  AlertTriangle,
-  CheckCircle2,
+  Gift,
+  CalendarCheck,
   Loader2,
-  RefreshCw,
+  Sparkles,
 } from "lucide-react";
-import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Switch } from "@/components/ui/switch";
-import { adminLogoutAction, updateAdminAccountAction } from "@/actions/admin";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import {
+  adminLogoutAction,
+  updateAdminAccountAction,
+  getAdminAccountsAction,
+  getAdminGiftcodesAction,
+  getAdminRedemptionsAction,
+  getAdminCheckinsAction,
+} from "@/actions/admin";
 import type { AdminAccountItem } from "@/types/api";
+import { TabAccounts } from "./admin/tab-accounts";
+import { TabGiftcodes } from "./admin/tab-giftcodes";
+import { TabRedemptions } from "./admin/tab-redemptions";
+import { TabCheckins } from "./admin/tab-checkins";
 
 interface AdminManagerProps {
   initialAccounts: AdminAccountItem[];
@@ -31,10 +39,48 @@ interface AdminManagerProps {
 export function AdminManager({ initialAccounts, locale }: AdminManagerProps) {
   const router = useRouter();
   const [accounts, setAccounts] = useState<AdminAccountItem[]>(initialAccounts);
-  const [search, setSearch] = useState("");
-  const [filterPlan, setFilterPlan] = useState<"ALL" | "PRO" | "FREE">("ALL");
   const [updatingId, setUpdatingId] = useState<string | null>(null);
   const [isLoggingOut, setIsLoggingOut] = useState(false);
+  const [activeTab, setActiveTab] = useState("accounts");
+  const [giftCodesCount, setGiftCodesCount] = useState(0);
+  const [activeCodesCount, setActiveCodesCount] = useState(0);
+  const [redemptionsCount, setRedemptionsCount] = useState(0);
+  const [failedRedemptionsCount, setFailedRedemptionsCount] = useState(0);
+  const [checkinsCount, setCheckinsCount] = useState(0);
+
+  React.useEffect(() => {
+    let active = true;
+    async function loadStats() {
+      try {
+        const [gcRes, redRes, chkRes] = await Promise.allSettled([
+          getAdminGiftcodesAction(),
+          getAdminRedemptionsAction(),
+          getAdminCheckinsAction(),
+        ]);
+
+        if (active && gcRes.status === "fulfilled" && gcRes.value.success && gcRes.value.data) {
+          setGiftCodesCount(gcRes.value.data.length);
+          setActiveCodesCount(gcRes.value.data.filter((c) => c.status === "VALID").length);
+        }
+
+        if (active && redRes.status === "fulfilled" && redRes.value.success && redRes.value.data) {
+          setRedemptionsCount(redRes.value.data.length);
+          setFailedRedemptionsCount(redRes.value.data.filter((r) => r.status === "FAILED").length);
+        }
+
+        if (active && chkRes.status === "fulfilled" && chkRes.value.success && chkRes.value.data) {
+          setCheckinsCount(chkRes.value.data.length);
+        }
+      } catch {
+        // Fallback
+      }
+    }
+    loadStats();
+    return () => {
+      active = false;
+    };
+  }, []);
+
 
   const handleLogout = async () => {
     try {
@@ -44,6 +90,17 @@ export function AdminManager({ initialAccounts, locale }: AdminManagerProps) {
       router.refresh();
     } catch {
       setIsLoggingOut(false);
+    }
+  };
+
+  const handleRefreshAccounts = async () => {
+    try {
+      const res = await getAdminAccountsAction();
+      if (res.success && res.data) {
+        setAccounts(res.data);
+      }
+    } catch {
+      // Fallback
     }
   };
 
@@ -76,42 +133,30 @@ export function AdminManager({ initialAccounts, locale }: AdminManagerProps) {
     }
   };
 
-  const filteredAccounts = accounts.filter((acc) => {
-    const matchesSearch =
-      acc.uid.toLowerCase().includes(search.toLowerCase()) ||
-      acc.nickname.toLowerCase().includes(search.toLowerCase()) ||
-      acc.server_id.toLowerCase().includes(search.toLowerCase());
-
-    const matchesPlan =
-      filterPlan === "ALL" ||
-      (filterPlan === "PRO" && acc.active_plan === "PRO") ||
-      (filterPlan === "FREE" && acc.active_plan !== "PRO");
-
-    return matchesSearch && matchesPlan;
-  });
-
   const proCount = accounts.filter((a) => a.active_plan === "PRO").length;
   const activeBotsCount = accounts.filter((a) => a.auto_redeem || a.auto_checkin).length;
+  const activePercent = accounts.length > 0 ? Math.round((activeBotsCount / accounts.length) * 100) : 0;
+
 
   return (
-    <div className="space-y-8">
-      {/* Top Banner & Logout */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-5 rounded-2xl bg-gradient-to-r from-purple-950/40 via-indigo-950/30 to-purple-950/40 border border-purple-500/30 backdrop-blur-xl">
-        <div className="flex items-center gap-3">
-          <div className="h-12 w-12 rounded-xl bg-purple-600/20 text-purple-400 flex items-center justify-center border border-purple-500/30">
+    <div className="space-y-6 sm:space-y-8">
+      {/* Top Banner & Logout with Modern SaaS Clean & Cyber Glassmorphism */}
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-purple-500/10 via-indigo-500/5 to-purple-500/10 dark:from-purple-950/40 dark:via-indigo-950/30 dark:to-purple-950/40 border border-purple-500/20 dark:border-purple-500/30 backdrop-blur-xl shadow-sm">
+        <div className="flex items-center gap-3.5">
+          <div className="h-12 w-12 rounded-xl bg-purple-500/10 dark:bg-purple-600/20 text-purple-600 dark:text-purple-400 flex items-center justify-center border border-purple-500/20 dark:border-purple-500/30 shadow-inner">
             <ShieldCheck className="h-6 w-6" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <h2 className="text-lg font-black text-white font-heading">
+              <h1 className="text-xl font-black text-foreground font-heading tracking-tight">
                 TopHub Control Center
-              </h2>
-              <Badge className="bg-purple-500/20 text-purple-300 border border-purple-500/40 text-[10px] font-black uppercase">
-                ADMIN
+              </h1>
+              <Badge className="bg-purple-500/15 text-purple-700 dark:text-purple-300 border border-purple-500/30 text-[10px] font-black uppercase">
+                ADMIN HUD
               </Badge>
             </div>
-            <p className="text-xs text-slate-300">
-              Quản trị toàn bộ danh sách tài khoản game và cấu hình tự động bot.
+            <p className="text-xs text-muted-foreground mt-0.5">
+              Hệ thống quản trị tài khoản game, kho giftcode và lịch sử tự động hóa bot.
             </p>
           </div>
         </div>
@@ -120,7 +165,7 @@ export function AdminManager({ initialAccounts, locale }: AdminManagerProps) {
           variant="outline"
           onClick={handleLogout}
           disabled={isLoggingOut}
-          className="border-white/10 text-slate-300 hover:text-white hover:bg-rose-500/20 hover:border-rose-500/30 font-bold gap-2 text-xs"
+          className="border-border/60 text-muted-foreground hover:text-destructive hover:bg-destructive/10 hover:border-destructive/30 font-bold gap-2 text-xs shadow-sm self-end sm:self-center"
         >
           {isLoggingOut ? (
             <Loader2 className="h-3.5 w-3.5 animate-spin" />
@@ -131,214 +176,163 @@ export function AdminManager({ initialAccounts, locale }: AdminManagerProps) {
         </Button>
       </div>
 
-      {/* Metrics Row */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <Card className="border border-white/10 bg-slate-900/60 backdrop-blur-md">
+      {/* Modern Metrics Row (4 Cards) */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4">
+        {/* Metric 1: Total Accounts */}
+        <Card className="border border-border/60 bg-card/80 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow rounded-xl">
           <CardContent className="p-4 flex items-center gap-3.5">
-            <div className="h-10 w-10 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center">
+            <div className="h-11 w-11 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center border border-blue-500/20 shrink-0">
               <Users className="h-5 w-5" />
             </div>
-            <div>
-              <div className="text-xs text-muted-foreground font-medium">Tổng Tài Khoản</div>
-              <div className="text-2xl font-black text-white font-mono">{accounts.length}</div>
+            <div className="min-w-0">
+              <div className="text-xs text-muted-foreground font-medium truncate">Tổng Tài Khoản</div>
+              <div className="text-2xl font-black text-foreground font-mono leading-tight">{accounts.length}</div>
+              <div className="text-[10px] text-muted-foreground mt-0.5 truncate">
+                {accounts.length - proCount} Free | {proCount} Pro
+              </div>
             </div>
           </CardContent>
         </Card>
 
-        <Card className="border border-white/10 bg-slate-900/60 backdrop-blur-md">
+        {/* Metric 2: Pro Accounts */}
+        <Card className="border border-border/60 bg-card/80 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow rounded-xl">
           <CardContent className="p-4 flex items-center gap-3.5">
-            <div className="h-10 w-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center">
+            <div className="h-11 w-11 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center border border-amber-500/20 shrink-0">
               <Zap className="h-5 w-5" />
             </div>
-            <div>
-              <div className="text-xs text-muted-foreground font-medium">Tài Khoản PRO</div>
-              <div className="text-2xl font-black text-amber-400 font-mono">{proCount}</div>
+            <div className="min-w-0">
+              <div className="text-xs text-muted-foreground font-medium truncate">Tài Khoản PRO</div>
+              <div className="text-2xl font-black text-amber-600 dark:text-amber-400 font-mono leading-tight">{proCount}</div>
+              <div className="text-[10px] text-muted-foreground mt-0.5 truncate">
+                {Math.round((proCount / (accounts.length || 1)) * 100)}% thành viên VIP
+              </div>
             </div>
           </CardContent>
         </Card>
 
-        <Card className="border border-white/10 bg-slate-900/60 backdrop-blur-md">
+        {/* Metric 3: Active Bots */}
+        <Card className="border border-border/60 bg-card/80 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow rounded-xl">
           <CardContent className="p-4 flex items-center gap-3.5">
-            <div className="h-10 w-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
+            <div className="h-11 w-11 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center border border-emerald-500/20 shrink-0">
               <Bot className="h-5 w-5" />
             </div>
-            <div>
-              <div className="text-xs text-muted-foreground font-medium">Bot Đang Chạy</div>
-              <div className="text-2xl font-black text-emerald-400 font-mono">{activeBotsCount}</div>
+            <div className="min-w-0">
+              <div className="text-xs text-muted-foreground font-medium truncate">Bot Tự Động</div>
+              <div className="text-2xl font-black text-emerald-600 dark:text-emerald-400 font-mono leading-tight">{activeBotsCount}</div>
+              <div className="text-[10px] text-muted-foreground mt-0.5 truncate">
+                {activePercent}% đang bật tự động
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Metric 4: Active Giftcodes */}
+        <Card className="border border-border/60 bg-card/80 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow rounded-xl">
+          <CardContent className="p-4 flex items-center gap-3.5">
+            <div className="h-11 w-11 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center border border-purple-500/20 shrink-0">
+              <Gift className="h-5 w-5" />
+            </div>
+            <div className="min-w-0">
+              <div className="text-xs text-muted-foreground font-medium truncate">Giftcode Khả Dụng</div>
+              <div className="text-2xl font-black text-purple-600 dark:text-purple-400 font-mono leading-tight">{activeCodesCount}</div>
+              <div className="text-[10px] text-muted-foreground mt-0.5 truncate">
+                {giftCodesCount} mã trong hệ thống
+              </div>
             </div>
           </CardContent>
         </Card>
       </div>
 
-      {/* Filter and Table Card */}
-      <Card className="border border-white/10 bg-slate-900/60 backdrop-blur-md rounded-2xl overflow-hidden shadow-xl">
-        <CardHeader className="pb-4">
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-            <div>
-              <CardTitle className="text-lg font-bold text-white">
-                Danh Sách Tài Khoản Game ({filteredAccounts.length})
-              </CardTitle>
-              <CardDescription className="text-xs text-muted-foreground">
-                Bật/tắt tự động săn code và điểm danh cho từng tài khoản
-              </CardDescription>
-            </div>
+      {/* Tab Navigation HUD (4 Tabs) */}
+      <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-4">
+        <div className="overflow-x-auto pb-1">
+          <TabsList className="h-11 p-1 bg-muted/60 border border-border/60 rounded-xl inline-flex w-full sm:w-auto min-w-[560px] sm:min-w-0 justify-start">
+            <TabsTrigger
+              value="accounts"
+              className="gap-2 px-3.5 py-1.5 text-xs sm:text-sm font-bold rounded-lg data-[state=active]:bg-card data-[state=active]:text-foreground data-[state=active]:shadow-sm text-muted-foreground"
+            >
+              <Users className="h-4 w-4 text-blue-500" />
+              <span>Tài Khoản Game</span>
+              <Badge
+                variant="outline"
+                className="ml-1 text-[10px] px-1.5 py-0 font-mono border-border/80"
+              >
+                {accounts.length}
+              </Badge>
+            </TabsTrigger>
 
-            {/* Search & Plan Tabs */}
-            <div className="flex flex-wrap items-center gap-2">
-              <div className="relative">
-                <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
-                <Input
-                  type="text"
-                  placeholder="Tìm UID, tên, server..."
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                  className="h-9 w-44 sm:w-56 text-xs pl-8 bg-slate-950/50 border-white/10"
-                />
-              </div>
+            <TabsTrigger
+              value="giftcodes"
+              className="gap-2 px-3.5 py-1.5 text-xs sm:text-sm font-bold rounded-lg data-[state=active]:bg-card data-[state=active]:text-foreground data-[state=active]:shadow-sm text-muted-foreground"
+            >
+              <Gift className="h-4 w-4 text-purple-500" />
+              <span>Quản Lý Giftcode</span>
+              <Badge
+                variant="outline"
+                className="ml-1 text-[10px] px-1.5 py-0 font-mono border-border/80"
+              >
+                {giftCodesCount}
+              </Badge>
+            </TabsTrigger>
 
-              <div className="inline-flex rounded-lg border border-white/10 p-0.5 bg-slate-950/60 text-xs">
-                <button
-                  type="button"
-                  onClick={() => setFilterPlan("ALL")}
-                  className={`px-2.5 py-1 rounded-md font-bold transition-all ${
-                    filterPlan === "ALL" ? "bg-purple-600 text-white" : "text-slate-400 hover:text-white"
-                  }`}
-                >
-                  Tất cả
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setFilterPlan("PRO")}
-                  className={`px-2.5 py-1 rounded-md font-bold transition-all ${
-                    filterPlan === "PRO" ? "bg-amber-600 text-white" : "text-slate-400 hover:text-white"
-                  }`}
-                >
-                  PRO
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setFilterPlan("FREE")}
-                  className={`px-2.5 py-1 rounded-md font-bold transition-all ${
-                    filterPlan === "FREE" ? "bg-slate-700 text-white" : "text-slate-400 hover:text-white"
-                  }`}
-                >
-                  FREE
-                </button>
-              </div>
-            </div>
-          </div>
-        </CardHeader>
 
-        <CardContent className="p-0">
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs sm:text-sm">
-              <thead className="bg-slate-950/60 text-muted-foreground uppercase text-[10px] tracking-wider border-y border-white/5">
-                <tr>
-                  <th className="px-4 py-3">Nhân Vật / UID</th>
-                  <th className="px-4 py-3">Máy Chủ</th>
-                  <th className="px-4 py-3">Gói Cước</th>
-                  <th className="px-4 py-3 text-center">Tự Săn Code</th>
-                  <th className="px-4 py-3 text-center">Điểm Danh</th>
-                  <th className="px-4 py-3">Bot Token</th>
-                  <th className="px-4 py-3">Ngày Tạo</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-white/5 text-foreground">
-                {filteredAccounts.length > 0 ? (
-                  filteredAccounts.map((acc) => {
-                    const isPro = acc.active_plan === "PRO";
-                    return (
-                      <tr key={acc.id} className="hover:bg-white/[0.02] transition-colors">
-                        <td className="px-4 py-3.5">
-                          <div className="font-bold text-white text-sm">{acc.nickname}</div>
-                          <div className="font-mono text-[11px] text-muted-foreground">{acc.uid}</div>
-                        </td>
+            <TabsTrigger
+              value="redemptions"
+              className="gap-2 px-3.5 py-1.5 text-xs sm:text-sm font-bold rounded-lg data-[state=active]:bg-card data-[state=active]:text-foreground data-[state=active]:shadow-sm text-muted-foreground"
+            >
+              <Zap className="h-4 w-4 text-amber-500" />
+              <span>Lịch Sử Đổi Mã</span>
+              <Badge
+                variant="outline"
+                className={`ml-1 text-[10px] px-1.5 py-0 font-mono border-border/80 ${
+                  failedRedemptionsCount > 0 ? "text-amber-500 border-amber-500/40 font-bold" : ""
+                }`}
+              >
+                {failedRedemptionsCount > 0 ? `${failedRedemptionsCount} lỗi` : redemptionsCount}
+              </Badge>
+            </TabsTrigger>
 
-                        <td className="px-4 py-3.5 font-mono text-slate-300">
-                          Server {acc.server_id}
-                        </td>
+            <TabsTrigger
+              value="checkins"
+              className="gap-2 px-3.5 py-1.5 text-xs sm:text-sm font-bold rounded-lg data-[state=active]:bg-card data-[state=active]:text-foreground data-[state=active]:shadow-sm text-muted-foreground"
+            >
+              <CalendarCheck className="h-4 w-4 text-emerald-500" />
+              <span>Lịch Sử Điểm Danh</span>
+              <Badge
+                variant="outline"
+                className="ml-1 text-[10px] px-1.5 py-0 font-mono border-border/80"
+              >
+                {checkinsCount}
+              </Badge>
+            </TabsTrigger>
+          </TabsList>
+        </div>
 
-                        <td className="px-4 py-3.5">
-                          <div className="space-y-1">
-                            {isPro ? (
-                              <Badge className="bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-black text-[10px] uppercase">
-                                PRO
-                              </Badge>
-                            ) : (
-                              <Badge variant="outline" className="border-white/10 text-slate-400 text-[10px]">
-                                FREE
-                              </Badge>
-                            )}
-                            {acc.ends_at && (
-                              <div className="text-[10px] text-muted-foreground font-mono">
-                                HSD: {new Date(acc.ends_at).toLocaleDateString("vi-VN")}
-                              </div>
-                            )}
-                          </div>
-                        </td>
+        {/* Tab 1 Content: Accounts Manager */}
+        <TabsContent value="accounts" className="mt-0 focus-visible:outline-none">
+          <TabAccounts
+            accounts={accounts}
+            onToggle={handleToggle}
+            updatingId={updatingId}
+            onRefresh={handleRefreshAccounts}
+          />
+        </TabsContent>
 
-                        <td className="px-4 py-3.5 text-center">
-                          <div className="flex items-center justify-center gap-1.5">
-                            <Switch
-                              checked={acc.auto_redeem}
-                              onCheckedChange={() =>
-                                handleToggle(acc.id, "auto_redeem", acc.auto_redeem)
-                              }
-                              disabled={updatingId === `${acc.id}-auto_redeem`}
-                            />
-                            {updatingId === `${acc.id}-auto_redeem` && (
-                              <Loader2 className="h-3 w-3 animate-spin text-purple-400" />
-                            )}
-                          </div>
-                        </td>
+        {/* Tab 2 Content: Giftcode Manager */}
+        <TabsContent value="giftcodes" className="mt-0 focus-visible:outline-none">
+          <TabGiftcodes />
+        </TabsContent>
 
-                        <td className="px-4 py-3.5 text-center">
-                          <div className="flex items-center justify-center gap-1.5">
-                            <Switch
-                              checked={acc.auto_checkin}
-                              onCheckedChange={() =>
-                                handleToggle(acc.id, "auto_checkin", acc.auto_checkin)
-                              }
-                              disabled={updatingId === `${acc.id}-auto_checkin`}
-                            />
-                            {updatingId === `${acc.id}-auto_checkin` && (
-                              <Loader2 className="h-3 w-3 animate-spin text-purple-400" />
-                            )}
-                          </div>
-                        </td>
+        {/* Tab 3 Content: Redemptions History */}
+        <TabsContent value="redemptions" className="mt-0 focus-visible:outline-none">
+          <TabRedemptions />
+        </TabsContent>
 
-                        <td className="px-4 py-3.5">
-                          {acc.token_status === "VALID" ? (
-                            <span className="inline-flex items-center gap-1 text-[11px] text-emerald-400 font-semibold">
-                              <CheckCircle2 className="h-3 w-3" />
-                              VALID
-                            </span>
-                          ) : (
-                            <span className="inline-flex items-center gap-1 text-[11px] text-amber-400 font-semibold">
-                              <AlertTriangle className="h-3 w-3" />
-                              {acc.token_status}
-                            </span>
-                          )}
-                        </td>
-
-                        <td className="px-4 py-3.5 text-[11px] text-muted-foreground font-mono">
-                          {new Date(acc.created_at).toLocaleDateString("vi-VN")}
-                        </td>
-                      </tr>
-                    );
-                  })
-                ) : (
-                  <tr>
-                    <td colSpan={7} className="px-4 py-10 text-center text-muted-foreground text-xs">
-                      Không tìm thấy tài khoản game nào phù hợp với bộ lọc.
-                    </td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
-          </div>
-        </CardContent>
-      </Card>
+        {/* Tab 4 Content: Checkins History */}
+        <TabsContent value="checkins" className="mt-0 focus-visible:outline-none">
+          <TabCheckins />
+        </TabsContent>
+      </Tabs>
     </div>
   );
 }

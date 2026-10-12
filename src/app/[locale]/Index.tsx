@@ -6,7 +6,11 @@ import { UidEnrollForm } from "@/components/home/uid-enroll-form";
 import { UidControlDashboard } from "@/components/home/uid-control-dashboard";
 import { Loader2 } from "lucide-react";
 
-export default function LandingPage() {
+interface LandingPageProps {
+  initialActiveCodes?: Array<{ code: string; status: string }>;
+}
+
+export default function LandingPage({ initialActiveCodes }: LandingPageProps) {
   const { activeAccount, isLoaded } = useUidSession();
 
   return (
@@ -23,7 +27,7 @@ export default function LandingPage() {
         ) : activeAccount ? (
           <UidControlDashboard account={activeAccount} />
         ) : (
-          <UidEnrollForm />
+          <UidEnrollForm initialActiveCodes={initialActiveCodes} />
         )}
       </div>
     </div>
