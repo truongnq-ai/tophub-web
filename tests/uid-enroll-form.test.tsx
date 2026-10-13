@@ -12,6 +12,18 @@ vi.mock("@/hooks/use-uid-session", () => ({
   }),
 }));
 
+vi.mock("next-intl", () => ({
+  useTranslations: () => (key: string) => {
+    const translations: Record<string, string> = {
+      "activeCodes.title": "Mã Giftcode Đang Hoạt Động",
+      "activeCodes.scanning": "Đang quét",
+      "activeCodes.empty": "Hệ thống đang quét tìm giftcode mới 24/7. Chưa có mã hoạt động.",
+      "form.validationError": "UID không hợp lệ",
+    };
+    return translations[key] || key;
+  },
+}));
+
 describe("UidEnrollForm Component - Active Giftcodes", () => {
   beforeEach(() => {
     vi.restoreAllMocks();

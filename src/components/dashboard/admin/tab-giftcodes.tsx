@@ -16,11 +16,13 @@ import {
   Users,
   Sparkles,
   Zap,
+  Pencil,
 } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { EditGiftcodeDialog } from "./edit-giftcode-dialog";
 import {
   Dialog,
   DialogContent,
@@ -64,6 +66,21 @@ export function TabGiftcodes() {
   const [newRewards, setNewRewards] = useState("");
   const [autoTrigger, setAutoTrigger] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Edit Dialog State
+  const [selectedCodeForEdit, setSelectedCodeForEdit] = useState<AdminGiftCode | null>(null);
+  const [isEditOpen, setIsEditOpen] = useState(false);
+
+  const handleOpenEdit = (item: AdminGiftCode) => {
+    setSelectedCodeForEdit(item);
+    setIsEditOpen(true);
+  };
+
+  const handleSuccessEdit = (updated: AdminGiftCode) => {
+    setGiftCodes((prev) =>
+      prev.map((c) => (c.id === updated.id ? updated : c))
+    );
+  };
 
   // Receivers Modal State
   const [selectedCodeForReceivers, setSelectedCodeForReceivers] =
@@ -537,6 +554,17 @@ export function TabGiftcodes() {
                             <Button
                               variant="ghost"
                               size="sm"
+                              onClick={() => handleOpenEdit(item)}
+                              className="h-8 px-2 text-xs font-semibold text-amber-500 hover:text-amber-400 hover:bg-amber-500/10 gap-1 cursor-pointer"
+                              title="Chỉnh sửa mã Giftcode"
+                            >
+                              <Pencil className="h-3.5 w-3.5" />
+                              <span className="hidden sm:inline">Sửa</span>
+                            </Button>
+
+                            <Button
+                              variant="ghost"
+                              size="sm"
                               onClick={() => handleOpenReceivers(item)}
                               className="h-8 px-2 text-xs font-semibold text-primary hover:text-primary hover:bg-primary/10 gap-1"
                               title="Xem danh sách tài khoản đã nhận"
@@ -938,6 +966,17 @@ export function TabGiftcodes() {
           </DialogFooter>
         </DialogContent>
       </Dialog>
+
+      {/* Dialog Edit Giftcode */}
+      <EditGiftcodeDialog
+        isOpen={isEditOpen}
+        onOpenChange={(open) => {
+          setIsEditOpen(open);
+          if (!open) setSelectedCodeForEdit(null);
+        }}
+        giftCode={selectedCodeForEdit}
+        onSuccess={handleSuccessEdit}
+      />
     </>
   );
 }

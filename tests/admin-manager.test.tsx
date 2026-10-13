@@ -73,6 +73,20 @@ const mockRetryAllAdminCheckinsAction = vi.fn().mockResolvedValue({
   success: true,
   data: { queued: 3, message: "Queued 3 checkin retries" },
 });
+const mockUpdateAdminGiftcodeAction = vi.fn().mockResolvedValue({
+  success: true,
+  data: {
+    id: "mock-1",
+    code: "HERO2026",
+    status: "VALID",
+    source: "Facebook Fanpage",
+    valid_to: "2026-12-31T23:59:59Z",
+    rewards: "1000 Kim Cương",
+    redeemed_count: 48,
+    total_accounts: 48,
+    is_public: true,
+  },
+});
 
 vi.mock("@/actions/admin", () => ({
   updateAdminAccountAction: (...args: any[]) => mockUpdateAdminAccountAction(...args),
@@ -80,6 +94,7 @@ vi.mock("@/actions/admin", () => ({
   getAdminAccountsAction: (...args: any[]) => mockGetAdminAccountsAction(...args),
   getAdminGiftcodesAction: (...args: any[]) => mockGetAdminGiftcodesAction(...args),
   createAdminGiftcodeAction: (...args: any[]) => mockCreateAdminGiftcodeAction(...args),
+  updateAdminGiftcodeAction: (...args: any[]) => mockUpdateAdminGiftcodeAction(...args),
   getAdminGiftcodeReceiversAction: (...args: any[]) => mockGetAdminGiftcodeReceiversAction(...args),
   getAdminRedemptionsAction: (...args: any[]) => mockGetAdminRedemptionsAction(...args),
   retryAdminRedemptionAction: (...args: any[]) => mockRetryAdminRedemptionAction(...args),
@@ -177,14 +192,14 @@ describe("AdminManager Component", () => {
       fireEvent.mouseDown(redemptionsTab, { button: 0 });
     });
     expect(screen.getByText("Lịch Sử Đổi Giftcode")).toBeDefined();
-    expect(screen.getByText(/Ăn Lại Tất Cả Lỗi/i)).toBeDefined();
+    expect(screen.getByText(/Thử Lại Tất Cả Lỗi/i)).toBeDefined();
 
     // Switch to Checkins Tab
     await act(async () => {
       fireEvent.mouseDown(checkinsTab, { button: 0 });
     });
     expect(screen.getByText("Lịch Sử Điểm Danh Hàng Ngày")).toBeDefined();
-    expect(screen.getByText(/Điểm Danh Lại Tất Cả/i)).toBeDefined();
+    expect(screen.getByText(/Điểm Danh Lại Lỗi/i)).toBeDefined();
   });
 
   it("should toggle auto_redeem switch and call updateAdminAccountAction", async () => {
@@ -265,16 +280,16 @@ describe("AdminManager Component", () => {
     });
 
     // Check that FAILED status exists
-    expect(screen.getAllByText("FAILED").length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/THẤT BÀI/i).length).toBeGreaterThan(0);
 
-    // Find "Ăn Lại Tất Cả Lỗi" button
+    // Find "Thử Lại Tất Cả Lỗi" button
     const retryAllBtn = screen.getByRole("button", {
-      name: /Ăn Lại Tất Cả Lỗi/i,
+      name: /Thử Lại Tất Cả Lỗi/i,
     });
     expect(retryAllBtn).toBeDefined();
 
     // Click retry single on first failed row with exact regex
-    const retrySingleBtns = screen.getAllByRole("button", { name: /^Ăn lại$/i });
+    const retrySingleBtns = screen.getAllByRole("button", { name: /^Thử lại$/i });
     expect(retrySingleBtns.length).toBeGreaterThan(0);
 
     await act(async () => {
@@ -299,9 +314,9 @@ describe("AdminManager Component", () => {
     // Check header
     expect(screen.getByText("Lịch Sử Điểm Danh Hàng Ngày")).toBeDefined();
 
-    // Find "Điểm Danh Lại Tất Cả" button
+    // Find retry button
     const retryAllBtn = screen.getByRole("button", {
-      name: /Điểm Danh Lại Tất Cả/i,
+      name: /Điểm Danh Lại Lỗi/i,
     });
     expect(retryAllBtn).toBeDefined();
 
@@ -352,6 +367,41 @@ describe("AdminManager Component", () => {
         code: "VALENTINE2026",
       })
     );
+  });
+
+  it("should open Edit Giftcode dialog, show locked code if redeemed > 0, and submit edit", async () => {
+    await renderAdminManager();
+
+    const giftcodesTab = screen.getByRole("tab", { name: /Quản Lý Giftcode/i });
+    await act(async () => {
+      fireEvent.mouseDown(giftcodesTab, { button: 0 });
+    });
+
+    const editBtns = screen.getAllByRole("button", { name: /Sửa/i });
+    expect(editBtns.length).toBeGreaterThan(0);
+
+    await act(async () => {
+      fireEvent.click(editBtns[0]);
+    });
+
+    expect(screen.getByText("Chỉnh Sửa Giftcode:")).toBeDefined();
+
+    // Check that code input is disabled for HERO2026 because redeemed_count = 48
+    const codeInput = screen.getByPlaceholderText("VD: HERO2026...");
+    expect(codeInput.getAttribute("disabled")).not.toBeNull();
+
+    // Change status
+    const statusSelect = screen.getByDisplayValue(/VALID \(Khả dụng\)/i);
+    await act(async () => {
+      fireEvent.change(statusSelect, { target: { value: "EXPIRED" } });
+    });
+
+    const submitBtn = screen.getByRole("button", { name: /Lưu Thay Đổi/i });
+    await act(async () => {
+      fireEvent.click(submitBtn);
+    });
+
+    expect(mockUpdateAdminGiftcodeAction).toHaveBeenCalled();
   });
 });
 
