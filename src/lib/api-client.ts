@@ -148,6 +148,25 @@ export const apiClient = {
       body: JSON.stringify(data),
     }),
 
+  updateAdminGiftcode: (
+    token: string,
+    id: string,
+    data: {
+      code?: string;
+      source?: string;
+      status?: "VALID" | "EXPIRED" | "PENDING_VALIDATION";
+      valid_to?: string | null;
+      rewards?: string;
+      is_public?: boolean;
+      trigger_auto_redeem?: boolean;
+    }
+  ) =>
+    apiFetch<AdminGiftCodeItem>(`/api/v1/admin/giftcodes/${encodeURIComponent(id)}`, {
+      method: "PATCH",
+      headers: { Authorization: `Bearer ${token}` },
+      body: JSON.stringify(data),
+    }),
+
   getAdminGiftcodeReceivers: (token: string, code: string) =>
     apiFetch<AdminGiftcodeReceiverItem[]>(
       `/api/v1/admin/giftcodes/${encodeURIComponent(code)}/receivers`,

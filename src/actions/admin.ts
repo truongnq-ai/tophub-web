@@ -107,6 +107,23 @@ export async function createAdminGiftcodeAction(data: {
   return apiClient.createAdminGiftcode(auth.token, data);
 }
 
+export async function updateAdminGiftcodeAction(
+  id: string,
+  data: {
+    code?: string;
+    source?: string;
+    status?: "VALID" | "EXPIRED" | "PENDING_VALIDATION";
+    valid_to?: string | null;
+    rewards?: string;
+    is_public?: boolean;
+    trigger_auto_redeem?: boolean;
+  }
+): Promise<ApiResponse<AdminGiftCodeItem>> {
+  const auth = getAdminTokenOrUnauthorized<AdminGiftCodeItem>();
+  if ("errorResponse" in auth) return auth.errorResponse;
+  return apiClient.updateAdminGiftcode(auth.token, id, data);
+}
+
 export async function getAdminGiftcodeReceiversAction(
   code: string
 ): Promise<ApiResponse<AdminGiftcodeReceiverItem[]>> {
