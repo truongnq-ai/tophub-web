@@ -88,6 +88,31 @@ const mockUpdateAdminGiftcodeAction = vi.fn().mockResolvedValue({
   },
 });
 
+const mockGetAdminWeeklyTimelineAction = vi.fn().mockResolvedValue({
+  success: true,
+  data: [
+    { day_index: 1, day_name: "Thứ 2", game_day: "2026-10-12", count: 42, is_today: false },
+    { day_index: 2, day_name: "Thứ 3", game_day: "2026-10-13", count: 38, is_today: true },
+    { day_index: 3, day_name: "Thứ 4", game_day: "2026-10-14", count: 0, is_today: false },
+    { day_index: 4, day_name: "Thứ 5", game_day: "2026-10-15", count: 0, is_today: false },
+    { day_index: 5, day_name: "Thứ 6", game_day: "2026-10-16", count: 0, is_today: false },
+    { day_index: 6, day_name: "Thứ 7", game_day: "2026-10-17", count: 0, is_today: false },
+    { day_index: 7, day_name: "Chủ Nhật", game_day: "2026-10-18", count: 0, is_today: false },
+  ],
+});
+const mockGetAdminAccountRedemptionsAction = vi.fn().mockResolvedValue({ success: true, data: [] });
+const mockGetAdminAccountCheckinsAction = vi.fn().mockResolvedValue({
+  success: true,
+  data: {
+    account_id: "acc-1",
+    total_days: 14,
+    success_days: 12,
+    streak: 5,
+    this_week: [],
+    last_week: [],
+  },
+});
+
 vi.mock("@/actions/admin", () => ({
   updateAdminAccountAction: (...args: any[]) => mockUpdateAdminAccountAction(...args),
   adminLogoutAction: () => mockAdminLogoutAction(),
@@ -102,6 +127,9 @@ vi.mock("@/actions/admin", () => ({
   getAdminCheckinsAction: (...args: any[]) => mockGetAdminCheckinsAction(...args),
   retryAdminCheckinAction: (...args: any[]) => mockRetryAdminCheckinAction(...args),
   retryAllAdminCheckinsAction: (...args: any[]) => mockRetryAllAdminCheckinsAction(...args),
+  getAdminWeeklyTimelineAction: (...args: any[]) => mockGetAdminWeeklyTimelineAction(...args),
+  getAdminAccountRedemptionsAction: (...args: any[]) => mockGetAdminAccountRedemptionsAction(...args),
+  getAdminAccountCheckinsAction: (...args: any[]) => mockGetAdminAccountCheckinsAction(...args),
 }));
 
 vi.mock("@/hooks/use-toast", () => ({

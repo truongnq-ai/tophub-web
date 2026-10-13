@@ -13,6 +13,8 @@ import {
   Filter,
   ArrowUpDown,
   Download,
+  Gift,
+  CalendarCheck,
 } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -26,6 +28,8 @@ import { ServerTag } from "./server-tag";
 import { AdminTooltip } from "./admin-tooltip";
 import { AdminPagination } from "./pagination";
 import { AdminEmptyState } from "./empty-state";
+import { AccountRedemptionsDialog } from "./account-redemptions-dialog";
+import { AccountCheckinsDialog } from "./account-checkins-dialog";
 
 interface TabAccountsProps {
   accounts: AdminAccountItem[];
@@ -56,6 +60,12 @@ export function TabAccounts({
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
+
+  // Dialog states for Actions
+  const [selectedAccountForRedemptions, setSelectedAccountForRedemptions] = useState<AdminAccountItem | null>(null);
+  const [isRedemptionsOpen, setIsRedemptionsOpen] = useState(false);
+  const [selectedAccountForCheckins, setSelectedAccountForCheckins] = useState<AdminAccountItem | null>(null);
+  const [isCheckinsOpen, setIsCheckinsOpen] = useState(false);
 
   // Extract unique server IDs for dropdown
   const uniqueServers = useMemo(() => {
@@ -314,6 +324,7 @@ export function TabAccounts({
                 <th className="px-4 py-3 text-center">Điểm Danh</th>
                 <th className="px-4 py-3">Bot Token</th>
                 <th className="px-4 py-3">Ngày Tạo</th>
+                <th className="px-4 py-3 text-right">Thao Tác</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-border/30 text-card-foreground">
@@ -464,12 +475,46 @@ export function TabAccounts({
                       <td className="px-4 py-3.5 text-[11px] text-muted-foreground font-mono">
                         {new Date(acc.created_at).toLocaleDateString("vi-VN")}
                       </td>
+
+                      <td className="px-4 py-3.5 text-right">
+                        <div className="flex items-center justify-end gap-1">
+                          <AdminTooltip content="Lịch sử nhận giftcode">
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              className="h-8 w-8 p-0 text-muted-foreground hover:text-emerald-500 hover:bg-emerald-500/10 cursor-pointer"
+                              onClick={() => {
+                                setSelectedAccountForRedemptions(acc);
+                                setIsRedemptionsOpen(true);
+                              }}
+                            >
+                              <Gift className="h-4 w-4" />
+                              <span className="sr-only">Lịch sử nhận giftcode</span>
+                            </Button>
+                          </AdminTooltip>
+
+                          <AdminTooltip content="Lịch sử điểm danh (2 tuần)">
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              className="h-8 w-8 p-0 text-muted-foreground hover:text-blue-500 hover:bg-blue-500/10 cursor-pointer"
+                              onClick={() => {
+                                setSelectedAccountForCheckins(acc);
+                                setIsCheckinsOpen(true);
+                              }}
+                            >
+                              <CalendarCheck className="h-4 w-4" />
+                              <span className="sr-only">Lịch sử điểm danh</span>
+                            </Button>
+                          </AdminTooltip>
+                        </div>
+                      </td>
                     </tr>
                   );
                 })
               ) : (
                 <tr>
-                  <td colSpan={7} className="p-0">
+                  <td colSpan={8} className="p-0">
                     <AdminEmptyState
                       title="Không tìm thấy tài khoản game nào"
                       description="Không có tài khoản nào phù hợp với các tiêu chí tìm kiếm hoặc bộ lọc hiện tại."
@@ -502,6 +547,25 @@ export function TabAccounts({
           }}
         />
       </CardContent>
+
+      {/* Account Action Dialogs */}
+      <AccountRedemptionsDialog
+        account={selectedAccountForRedemptions}
+        open={isRedemptionsOpen}
+        onOpenChange={(open) => {
+          setIsRedemptionsOpen(open);
+          if (!open) setSelectedAccountForRedemptions(null);
+        }}
+      />
+
+      <AccountCheckinsDialog
+        account={selectedAccountForCheckins}
+        open={isCheckinsOpen}
+        onOpenChange={(open) => {
+          setIsCheckinsOpen(open);
+          if (!open) setSelectedAccountForCheckins(null);
+        }}
+      />
     </Card>
   );
 }

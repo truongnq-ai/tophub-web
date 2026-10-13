@@ -28,6 +28,7 @@ import { AccountAvatar } from "./account-avatar";
 import { ServerTag } from "./server-tag";
 import { AdminPagination } from "./pagination";
 import { AdminEmptyState } from "./empty-state";
+import { WeeklyCheckinTimeline } from "./weekly-checkin-timeline";
 
 export function TabCheckins() {
   const { toast } = useToast();
@@ -214,8 +215,18 @@ export function TabCheckins() {
   const checkinRate = checkins.length > 0 ? Math.round((successCount / checkins.length) * 100) : 0;
 
   return (
-    <Card className="border border-border/60 bg-card/80 backdrop-blur-md rounded-2xl overflow-hidden shadow-lg">
-      <CardHeader className="pb-4 border-b border-border/40">
+    <div className="space-y-4">
+      {/* 7-Day Weekly Timeline Widget */}
+      <WeeklyCheckinTimeline
+        selectedDay={filterDay === "ALL" ? null : filterDay}
+        onSelectDay={(day) => {
+          setFilterDay(day || "ALL");
+          setCurrentPage(1);
+        }}
+      />
+
+      <Card className="border border-border/60 bg-card/80 backdrop-blur-md rounded-2xl overflow-hidden shadow-lg">
+        <CardHeader className="pb-4 border-b border-border/40">
         <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2">
@@ -570,5 +581,6 @@ export function TabCheckins() {
         />
       </CardContent>
     </Card>
+    </div>
   );
 }
