@@ -317,7 +317,7 @@ export function TabGiftcodes() {
                 </Badge>
               </div>
               <CardDescription className="text-xs text-muted-foreground mt-0.5">
-                Theo dõi các mã quà tặng phát hiện được, nguồn phát hiện và tiến độ bot ăn mã.
+                Theo dõi các mã quà tặng phát hiện được, nguồn phát hiện và tiến độ bot nạp mã.
               </CardDescription>
             </div>
 
@@ -418,7 +418,7 @@ export function TabGiftcodes() {
                   <th className="px-4 py-3">Trạng Thái</th>
                   <th className="px-4 py-3">Phần Thưởng</th>
                   <th className="px-4 py-3">Hạn Dùng</th>
-                  <th className="px-4 py-3">Tiến Độ Bot Ăn</th>
+                  <th className="px-4 py-3">Tiến Độ Đổi Mã</th>
                   <th className="px-4 py-3 text-right">Thao Tác</th>
                 </tr>
               </thead>
@@ -745,7 +745,7 @@ export function TabGiftcodes() {
                 <div className="space-y-0.5">
                   <div className="font-semibold text-foreground flex items-center gap-1.5">
                     <Zap className="h-3.5 w-3.5 text-amber-500" />
-                    <span>Kích hoạt bot quét ăn mã ngay</span>
+                    <span>Kích hoạt bot nạp mã ngay</span>
                   </div>
                   <div className="text-[10px] text-muted-foreground">
                     Tự động đưa mã vào hàng đợi cho toàn bộ tài khoản đang bật săn code

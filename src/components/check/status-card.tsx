@@ -186,13 +186,24 @@ export function StatusCard({ data, locale }: StatusCardProps) {
                   </div>
                   <div>
                     {redemption.status === "SUCCESS" ? (
-                      <span className="inline-flex items-center gap-1 text-emerald-500 dark:text-emerald-400 font-bold text-xs bg-emerald-500/10 px-2 py-0.5 rounded-md border border-emerald-500/20">
+                      <span className="inline-flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-bold text-xs bg-emerald-500/10 px-2 py-0.5 rounded-md border border-emerald-500/20">
                         <CheckCircle2 className="h-3.5 w-3.5" />
                         Thành công
                       </span>
+                    ) : redemption.status === "ALREADY_REDEEMED" ? (
+                      <span className="inline-flex items-center gap-1 text-amber-600 dark:text-amber-400 font-bold text-xs bg-amber-500/10 px-2 py-0.5 rounded-md border border-amber-500/20">
+                        <CheckCircle2 className="h-3.5 w-3.5" />
+                        Đã có quà
+                      </span>
+                    ) : redemption.status === "EXPIRED" ? (
+                      <span className="inline-flex items-center gap-1 text-muted-foreground font-medium text-xs bg-muted/60 px-2 py-0.5 rounded-md border border-border/40">
+                        <Clock className="h-3.5 w-3.5" />
+                        Hết hạn
+                      </span>
                     ) : (
-                      <span className="inline-flex items-center gap-1 text-muted-foreground font-semibold text-xs bg-muted px-2 py-0.5 rounded-md">
-                        {redemption.status}
+                      <span className="inline-flex items-center gap-1 text-rose-600 dark:text-rose-400 font-bold text-xs bg-rose-500/10 px-2 py-0.5 rounded-md border border-rose-500/20">
+                        <XCircle className="h-3.5 w-3.5" />
+                        Thất bại
                       </span>
                     )}
                   </div>

@@ -108,7 +108,7 @@ export interface PlayerStatusResponse {
   token_status: string;
   recent_redemptions: Array<{
     code: string;
-    status: string;
+    status: "SUCCESS" | "ALREADY_REDEEMED" | "EXPIRED" | "FAILED" | string;
     redeemed_at: string;
   }>;
 }
@@ -162,7 +162,7 @@ export interface AdminRedemptionItem {
   nickname: string;
   server_id: string;
   gift_code: string;
-  status: "SUCCESS" | "FAILED";
+  status: "SUCCESS" | "ALREADY_REDEEMED" | "EXPIRED" | "FAILED";
   api_message: string;
   created_at: string;
 }
@@ -174,7 +174,7 @@ export interface AdminCheckinItem {
   nickname: string;
   server_id: string;
   game_day: string;
-  status: "SUCCESS" | "FAILED" | "PENDING";
+  status: "SUCCESS" | "ALREADY_CHECKED" | "FAILED" | "PENDING";
   created_at: string;
 }
 

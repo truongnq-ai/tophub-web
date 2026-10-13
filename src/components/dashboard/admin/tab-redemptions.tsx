@@ -9,6 +9,7 @@ import {
   XCircle,
   Loader2,
   AlertCircle,
+  Clock,
   Info,
 } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
@@ -33,7 +34,7 @@ export function TabRedemptions() {
   const [redemptions, setRedemptions] = useState<AdminRedemption[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState("");
-  const [filterStatus, setFilterStatus] = useState<"ALL" | "SUCCESS" | "FAILED">("ALL");
+  const [filterStatus, setFilterStatus] = useState<"ALL" | "SUCCESS" | "ALREADY_REDEEMED" | "EXPIRED" | "FAILED">("ALL");
   const [filterCode, setFilterCode] = useState<string>("ALL");
   const [retryingId, setRetryingId] = useState<string | null>(null);
   const [isRetryingAll, setIsRetryingAll] = useState(false);
@@ -76,8 +77,18 @@ export function TabRedemptions() {
     try {
       const res = await retryAdminRedemptionAction(item.id);
       const isSuccess = res.success && res.data?.status === "SUCCESS";
-      const newStatus = isSuccess ? "SUCCESS" : "FAILED";
-      const apiMessage = res.data?.api_message || (isSuccess ? "Thành công: Đã kích hoạt lại qua bot worker" : "Đổi mã thất bại");
+      const isAlready = res.success && res.data?.status === "ALREADY_REDEEMED";
+      const isExpired = res.success && res.data?.status === "EXPIRED";
+      const newStatus = isSuccess ? "SUCCESS" : isAlready ? "ALREADY_REDEEMED" : isExpired ? "EXPIRED" : "FAILED";
+      const apiMessage =
+        res.data?.api_message ||
+        (isSuccess
+          ? "Thành công: Đã kích hoạt qua bot worker"
+          : isAlready
+            ? "Đã nhận quà từ trước"
+            : isExpired
+              ? "Mã quà tặng đã hết hạn"
+              : "Đổi mã thất bại");
 
       setRedemptions((prev) =>
         prev.map((r) =>
@@ -93,9 +104,9 @@ export function TabRedemptions() {
       );
 
       toast({
-        title: isSuccess ? "Kích hoạt lại thành công" : "Kích hoạt thất bại",
+        title: isSuccess ? "Kích hoạt thành công" : isAlready ? "Đã có quà từ trước" : isExpired ? "Mã hết hạn" : "Thử lại thất bại",
         description: `Mã ${item.gift_code} cho tài khoản ${item.nickname} (${item.uid}): ${apiMessage}`,
-        variant: isSuccess ? "default" : "destructive",
+        variant: isSuccess ? "default" : isAlready ? "default" : "destructive",
       });
     } catch {
       // Optimistic fallback for resilient offline mode
@@ -292,6 +303,34 @@ export function TabRedemptions() {
               <button
                 type="button"
                 onClick={() => {
+                  setFilterStatus("ALREADY_REDEEMED");
+                  setCurrentPage(1);
+                }}
+                className={`px-2.5 py-1 rounded-md font-bold transition-all ${
+                  filterStatus === "ALREADY_REDEEMED"
+                    ? "bg-amber-600 text-white shadow-sm"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                Đã có quà
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setFilterStatus("EXPIRED");
+                  setCurrentPage(1);
+                }}
+                className={`px-2.5 py-1 rounded-md font-bold transition-all ${
+                  filterStatus === "EXPIRED"
+                    ? "bg-slate-600 text-white shadow-sm"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                Hết hạn
+              </button>
+              <button
+                type="button"
+                onClick={() => {
                   setFilterStatus("FAILED");
                   setCurrentPage(1);
                 }}
@@ -317,7 +356,7 @@ export function TabRedemptions() {
               ) : (
                 <RotateCcw className="h-3.5 w-3.5" />
               )}
-              <span>Ăn Lại Tất Cả Lỗi ({failedCount})</span>
+              <span>Thử Lại Tất Cả Lỗi ({failedCount})</span>
             </Button>
           </div>
         </div>
@@ -327,7 +366,7 @@ export function TabRedemptions() {
           <div className="px-4 py-2 bg-rose-500/10 border-t border-rose-500/20 text-xs flex items-center justify-between text-rose-600 dark:text-rose-400 animate-pulse">
             <span className="flex items-center gap-2">
               <Loader2 className="h-3.5 w-3.5 animate-spin" />
-              <span>Đang kích hoạt bot thử lại tất cả lượt ăn mã bị lỗi (concurrency: 3, delay jitter)...</span>
+              <span>Đang kích hoạt bot thử lại tất cả lượt đổi mã bị lỗi (concurrency: 3, delay jitter)...</span>
             </span>
           </div>
         )}
@@ -381,22 +420,38 @@ export function TabRedemptions() {
                       </td>
 
                       <td className="px-4 py-3.5">
-                        {isSuccess ? (
+                        {item.status === "SUCCESS" ? (
                           <span className="inline-flex items-center gap-1 text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
                             <CheckCircle2 className="h-3 w-3" />
-                            SUCCESS
+                            THÀNH CÔNG
+                          </span>
+                        ) : item.status === "ALREADY_REDEEMED" ? (
+                          <span className="inline-flex items-center gap-1 text-[11px] text-amber-600 dark:text-amber-400 font-semibold bg-amber-500/10 px-2 py-0.5 rounded-full border border-amber-500/20">
+                            <AlertCircle className="h-3 w-3" />
+                            ĐÃ NHẬN TRƯỚC ĐÓ
+                          </span>
+                        ) : item.status === "EXPIRED" ? (
+                          <span className="inline-flex items-center gap-1 text-[11px] text-slate-500 dark:text-slate-400 font-semibold bg-slate-500/10 px-2 py-0.5 rounded-full border border-slate-500/20">
+                            <Clock className="h-3 w-3" />
+                            HẾT HẠN
                           </span>
                         ) : (
                           <span className="inline-flex items-center gap-1 text-[11px] text-rose-600 dark:text-rose-400 font-semibold bg-rose-500/10 px-2 py-0.5 rounded-full border border-rose-500/20">
                             <XCircle className="h-3 w-3" />
-                            FAILED
+                            THẤT BÀI
                           </span>
                         )}
                       </td>
 
                       <td className="px-4 py-3.5 max-w-xs text-xs text-muted-foreground">
                         <div className="flex items-center gap-1.5">
-                          {!isSuccess && <AlertCircle className="h-3.5 w-3.5 text-rose-500 shrink-0" />}
+                          {item.status === "FAILED" ? (
+                            <AlertCircle className="h-3.5 w-3.5 text-rose-500 shrink-0" />
+                          ) : item.status === "ALREADY_REDEEMED" ? (
+                            <AlertCircle className="h-3.5 w-3.5 text-amber-500 shrink-0" />
+                          ) : item.status === "EXPIRED" ? (
+                            <Clock className="h-3.5 w-3.5 text-slate-400 shrink-0" />
+                          ) : null}
                           <span className="truncate" title={item.api_message}>
                             {item.api_message}
                           </span>
@@ -413,7 +468,7 @@ export function TabRedemptions() {
                       </td>
 
                       <td className="px-4 py-3.5 text-right">
-                        {!isSuccess ? (
+                        {item.status === "FAILED" ? (
                           <Button
                             variant="outline"
                             size="sm"
@@ -426,10 +481,18 @@ export function TabRedemptions() {
                             ) : (
                               <RotateCcw className="h-3 w-3" />
                             )}
-                            <span>Ăn lại</span>
+                            <span>Thử lại</span>
                           </Button>
+                        ) : item.status === "ALREADY_REDEEMED" ? (
+                          <span className="text-[11px] text-amber-600/80 dark:text-amber-400/80 font-mono">
+                            Đã có quà
+                          </span>
+                        ) : item.status === "EXPIRED" ? (
+                          <span className="text-[11px] text-muted-foreground font-mono">
+                            Hết hạn
+                          </span>
                         ) : (
-                          <span className="text-[11px] text-muted-foreground font-mono italic">
+                          <span className="text-[11px] text-emerald-600/80 dark:text-emerald-400/80 font-mono">
                             Đã nhận
                           </span>
                         )}

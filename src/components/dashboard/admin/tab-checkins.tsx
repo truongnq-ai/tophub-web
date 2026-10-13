@@ -34,7 +34,9 @@ export function TabCheckins() {
   const [checkins, setCheckins] = useState<AdminCheckin[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState("");
-  const [filterStatus, setFilterStatus] = useState<"ALL" | "SUCCESS" | "FAILED">("ALL");
+  const [filterStatus, setFilterStatus] = useState<
+    "ALL" | "SUCCESS" | "ALREADY_CHECKED" | "PENDING" | "FAILED"
+  >("ALL");
   const [filterDay, setFilterDay] = useState<string>("ALL");
   const [retryingId, setRetryingId] = useState<string | null>(null);
   const [isRetryingAll, setIsRetryingAll] = useState(false);
@@ -77,8 +79,11 @@ export function TabCheckins() {
     setRetryingId(item.id);
     try {
       const res = await retryAdminCheckinAction(item.id);
-      const isSuccess = res.success && res.data?.status === "SUCCESS";
-      const newStatus = isSuccess ? "SUCCESS" : "FAILED";
+      const returnedStatus = res.data?.status;
+      const isSuccess = res.success && (returnedStatus === "SUCCESS" || returnedStatus === "ALREADY_CHECKED");
+      const newStatus: AdminCheckin["status"] = isSuccess
+        ? (returnedStatus as "SUCCESS" | "ALREADY_CHECKED") || "SUCCESS"
+        : "FAILED";
 
       setCheckins((prev) =>
         prev.map((c) =>
@@ -92,9 +97,16 @@ export function TabCheckins() {
         )
       );
 
+      const isAlready = newStatus === "ALREADY_CHECKED";
       toast({
-        title: isSuccess ? "Điểm danh lại thành công" : "Điểm danh thất bại",
-        description: `Tài khoản ${item.nickname} (${item.uid}) ngày ${item.game_day}`,
+        title: isAlready
+          ? "Đã điểm danh trước đó"
+          : isSuccess
+          ? "Điểm danh lại thành công"
+          : "Điểm danh thất bại",
+        description: isAlready
+          ? `Tài khoản ${item.nickname} (${item.uid}) đã tự điểm danh trong game trước đó.`
+          : `Tài khoản ${item.nickname} (${item.uid}) ngày ${item.game_day}`,
         variant: isSuccess ? "default" : "destructive",
       });
     } catch {
@@ -120,11 +132,11 @@ export function TabCheckins() {
   };
 
   const handleRetryAll = async () => {
-    const pendingOrFailed = checkins.filter((c) => c.status !== "SUCCESS");
-    if (pendingOrFailed.length === 0) {
+    const failedCheckins = checkins.filter((c) => c.status === "FAILED");
+    if (failedCheckins.length === 0) {
       toast({
-        title: "Tất cả đã điểm danh",
-        description: "Toàn bộ tài khoản đã hoàn thành điểm danh trong ngày.",
+        title: "Không có lượt lỗi",
+        description: "Toàn bộ tài khoản đã hoàn thành điểm danh hoặc tự điểm danh trong ngày.",
       });
       return;
     }
@@ -132,11 +144,11 @@ export function TabCheckins() {
     setIsRetryingAll(true);
     try {
       const res = await retryAllAdminCheckinsAction(filterDay !== "ALL" ? filterDay : undefined);
-      const count = res.success && res.data ? res.data.retried_count : pendingOrFailed.length;
+      const count = res.success && res.data ? res.data.retried_count : failedCheckins.length;
 
       setCheckins((prev) =>
         prev.map((c) =>
-          c.status !== "SUCCESS" && (filterDay === "ALL" || c.game_day === filterDay)
+          c.status === "FAILED" && (filterDay === "ALL" || c.game_day === filterDay)
             ? {
                 ...c,
                 status: "SUCCESS",
@@ -148,13 +160,13 @@ export function TabCheckins() {
 
       toast({
         title: "Đã điểm danh lại hàng loạt",
-        description: `Đã hoàn tất điểm danh bù cho ${count} tài khoản chưa nhận quà ngày.`,
+        description: `Đã hoàn tất điểm danh bù cho ${count} tài khoản bị lỗi.`,
       });
     } catch {
       // Fallback
       setCheckins((prev) =>
         prev.map((c) =>
-          c.status !== "SUCCESS"
+          c.status === "FAILED"
             ? {
                 ...c,
                 status: "SUCCESS",
@@ -165,7 +177,7 @@ export function TabCheckins() {
       );
       toast({
         title: "Đã điểm danh lại hàng loạt",
-        description: `Đã hoàn tất điểm danh bù cho ${pendingOrFailed.length} tài khoản chưa nhận quà ngày.`,
+        description: `Đã hoàn tất điểm danh bù cho ${failedCheckins.length} tài khoản bị lỗi.`,
       });
     } finally {
       setIsRetryingAll(false);
@@ -195,8 +207,10 @@ export function TabCheckins() {
     return filteredCheckins.slice(start, start + pageSize);
   }, [filteredCheckins, currentPage, pageSize]);
 
-  const pendingCount = checkins.filter((c) => c.status !== "SUCCESS").length;
-  const successCount = checkins.filter((c) => c.status === "SUCCESS").length;
+  const failedCount = checkins.filter((c) => c.status === "FAILED").length;
+  const pendingCount = checkins.filter((c) => c.status === "PENDING").length;
+  const alreadyCheckedCount = checkins.filter((c) => c.status === "ALREADY_CHECKED").length;
+  const successCount = checkins.filter((c) => c.status === "SUCCESS" || c.status === "ALREADY_CHECKED").length;
   const checkinRate = checkins.length > 0 ? Math.round((successCount / checkins.length) * 100) : 0;
 
   return (
@@ -211,9 +225,14 @@ export function TabCheckins() {
               <Badge variant="secondary" className="font-mono text-xs font-bold">
                 {filteredCheckins.length}/{checkins.length}
               </Badge>
+              {failedCount > 0 && (
+                <Badge className="bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20 text-[10px] font-semibold">
+                  {failedCount} lỗi
+                </Badge>
+              )}
               {pendingCount > 0 && (
                 <Badge className="bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20 text-[10px] font-semibold">
-                  {pendingCount} chưa xong
+                  {pendingCount} chờ điểm danh
                 </Badge>
               )}
             </div>
@@ -287,7 +306,35 @@ export function TabCheckins() {
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
-                Thành công
+                Đã điểm danh
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setFilterStatus("ALREADY_CHECKED");
+                  setCurrentPage(1);
+                }}
+                className={`px-2.5 py-1 rounded-md font-bold transition-all ${
+                  filterStatus === "ALREADY_CHECKED"
+                    ? "bg-sky-600 text-white shadow-sm"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                Tự điểm danh
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setFilterStatus("PENDING");
+                  setCurrentPage(1);
+                }}
+                className={`px-2.5 py-1 rounded-md font-bold transition-all ${
+                  filterStatus === "PENDING"
+                    ? "bg-amber-600 text-white shadow-sm"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                Chờ điểm danh
               </button>
               <button
                 type="button"
@@ -301,7 +348,7 @@ export function TabCheckins() {
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
-                Chưa xong
+                Lỗi {failedCount > 0 ? `(${failedCount})` : ""}
               </button>
             </div>
 
@@ -309,15 +356,15 @@ export function TabCheckins() {
               variant="outline"
               size="sm"
               onClick={handleRetryAll}
-              disabled={isRetryingAll || pendingCount === 0 || retryingId !== null}
-              className="h-9 px-3 gap-1.5 text-xs font-bold border-primary/30 text-primary hover:bg-primary/10 shadow-xs min-h-[38px]"
+              disabled={isRetryingAll || failedCount === 0 || retryingId !== null}
+              className="h-9 px-3 gap-1.5 text-xs font-bold border-rose-500/30 text-rose-600 hover:bg-rose-500/10 shadow-xs min-h-[38px]"
             >
               {isRetryingAll ? (
                 <Loader2 className="h-3.5 w-3.5 animate-spin" />
               ) : (
                 <CalendarCheck className="h-3.5 w-3.5" />
               )}
-              <span>Điểm Danh Lại Tất Cả ({pendingCount})</span>
+              <span>Điểm Danh Lại Lỗi ({failedCount})</span>
             </Button>
           </div>
         </div>
@@ -384,7 +431,6 @@ export function TabCheckins() {
             <tbody className="divide-y divide-border/30 text-card-foreground">
               {paginatedCheckins.length > 0 ? (
                 paginatedCheckins.map((item) => {
-                  const isSuccess = item.status === "SUCCESS";
                   return (
                     <tr
                       key={item.id}
@@ -416,10 +462,15 @@ export function TabCheckins() {
                       </td>
 
                       <td className="px-4 py-3.5">
-                        {isSuccess ? (
+                        {item.status === "SUCCESS" ? (
                           <span className="inline-flex items-center gap-1 text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
                             <CheckCircle2 className="h-3 w-3" />
                             ĐÃ ĐIỂM DANH
+                          </span>
+                        ) : item.status === "ALREADY_CHECKED" ? (
+                          <span className="inline-flex items-center gap-1 text-[11px] text-sky-600 dark:text-sky-400 font-semibold bg-sky-500/10 px-2 py-0.5 rounded-full border border-sky-500/20">
+                            <CheckCircle2 className="h-3 w-3" />
+                            ĐÃ ĐIỂM DANH TRƯỚC
                           </span>
                         ) : item.status === "PENDING" ? (
                           <span className="inline-flex items-center gap-1 text-[11px] text-amber-600 dark:text-amber-400 font-semibold bg-amber-500/10 px-2 py-0.5 rounded-full border border-amber-500/20">
@@ -444,7 +495,7 @@ export function TabCheckins() {
                       </td>
 
                       <td className="px-4 py-3.5 text-right">
-                        {!isSuccess ? (
+                        {item.status === "FAILED" ? (
                           <Button
                             variant="outline"
                             size="sm"
@@ -459,6 +510,14 @@ export function TabCheckins() {
                             )}
                             <span>Điểm danh lại</span>
                           </Button>
+                        ) : item.status === "ALREADY_CHECKED" ? (
+                          <span className="text-[11px] text-sky-600 dark:text-sky-400 font-mono italic">
+                            Tự điểm danh
+                          </span>
+                        ) : item.status === "PENDING" ? (
+                          <span className="text-[11px] text-amber-600/80 dark:text-amber-400/80 font-mono italic">
+                            Chờ tới giờ
+                          </span>
                         ) : (
                           <span className="text-[11px] text-muted-foreground font-mono italic">
                             Hoàn thành
