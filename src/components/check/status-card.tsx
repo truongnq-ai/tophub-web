@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Link } from "@/i18n/routing";
+import { useTranslations, useFormatter } from "next-intl";
 import {
   User,
   Server,
@@ -26,9 +27,11 @@ interface StatusCardProps {
 }
 
 export function StatusCard({ data, locale }: StatusCardProps) {
+  const t = useTranslations("Check.card");
+  const format = useFormatter();
   const isPro = data.active_plan === "PRO";
   const formattedEndsAt = data.ends_at
-    ? new Date(data.ends_at).toLocaleDateString("vi-VN", {
+    ? format.dateTime(new Date(data.ends_at), {
         day: "2-digit",
         month: "2-digit",
         year: "numeric",
@@ -45,11 +48,11 @@ export function StatusCard({ data, locale }: StatusCardProps) {
           {isPro ? (
             <Badge className="bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-300 text-slate-950 font-black px-3.5 py-1 text-xs uppercase tracking-wider flex items-center gap-1.5 shadow-md shadow-amber-500/25 border border-amber-300/40">
               <Zap className="h-3.5 w-3.5 fill-current" />
-              HIỆP SĨ PRO
+              {t("proBadge")}
             </Badge>
           ) : (
             <Badge variant="outline" className="border-border/80 text-muted-foreground bg-muted/40 font-bold px-3 py-1 text-xs uppercase tracking-wider">
-              MIỄN PHÍ
+              {t("freeBadge")}
             </Badge>
           )}
         </div>
@@ -71,7 +74,7 @@ export function StatusCard({ data, locale }: StatusCardProps) {
                 <span>•</span>
                 <span className="flex items-center gap-1">
                   <Server className="h-3.5 w-3.5 text-amber-500" />
-                  Server {data.server_id}
+                  {t("server")} {data.server_id}
                 </span>
               </div>
             </div>
@@ -84,7 +87,7 @@ export function StatusCard({ data, locale }: StatusCardProps) {
             <div className="flex items-center justify-between p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/25 text-xs sm:text-sm">
               <div className="flex items-center gap-2 text-amber-600 dark:text-amber-400 font-medium">
                 <Clock className="h-4 w-4" />
-                <span>Thời hạn sử dụng gói PRO:</span>
+                <span>{t("expiresAt")}</span>
               </div>
               <span className="font-mono font-bold text-foreground">{formattedEndsAt}</span>
             </div>
@@ -95,7 +98,7 @@ export function StatusCard({ data, locale }: StatusCardProps) {
             {/* Auto Redeem */}
             <div className="p-4 rounded-2xl border border-border/80 dark:border-amber-500/15 bg-background/60 space-y-1.5">
               <div className="flex items-center justify-between">
-                <span className="text-xs text-muted-foreground font-medium font-heading">Tự động săn Code</span>
+                <span className="text-xs text-muted-foreground font-medium font-heading">{t("autoRedeem")}</span>
                 {data.auto_redeem ? (
                   <CheckCircle2 className="h-4 w-4 text-emerald-500 dark:text-emerald-400" />
                 ) : (
@@ -109,10 +112,10 @@ export function StatusCard({ data, locale }: StatusCardProps) {
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                       <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                     </span>
-                    Đang Bật 24/7
+                    {t("enabled247")}
                   </span>
                 ) : (
-                  <span className="text-muted-foreground">Đang Tắt</span>
+                  <span className="text-muted-foreground">{t("disabled")}</span>
                 )}
               </div>
             </div>
@@ -120,7 +123,7 @@ export function StatusCard({ data, locale }: StatusCardProps) {
             {/* Auto Checkin */}
             <div className="p-4 rounded-2xl border border-border/80 dark:border-amber-500/15 bg-background/60 space-y-1.5">
               <div className="flex items-center justify-between">
-                <span className="text-xs text-muted-foreground font-medium font-heading">Điểm danh hàng ngày</span>
+                <span className="text-xs text-muted-foreground font-medium font-heading">{t("autoCheckin")}</span>
                 {data.auto_checkin ? (
                   <CheckCircle2 className="h-4 w-4 text-emerald-500 dark:text-emerald-400" />
                 ) : (
@@ -129,9 +132,9 @@ export function StatusCard({ data, locale }: StatusCardProps) {
               </div>
               <div className="text-sm font-bold text-foreground">
                 {data.auto_checkin ? (
-                  <span className="text-emerald-500 dark:text-emerald-400">00:05 UTC Mỗi Ngày</span>
+                  <span className="text-emerald-500 dark:text-emerald-400">{t("checkinSchedule")}</span>
                 ) : (
-                  <span className="text-muted-foreground">Đang Tắt</span>
+                  <span className="text-muted-foreground">{t("disabled")}</span>
                 )}
               </div>
             </div>
@@ -139,7 +142,7 @@ export function StatusCard({ data, locale }: StatusCardProps) {
             {/* Token Status */}
             <div className="p-4 rounded-2xl border border-border/80 dark:border-amber-500/15 bg-background/60 space-y-1.5">
               <div className="flex items-center justify-between">
-                <span className="text-xs text-muted-foreground font-medium font-heading">Kết nối Game Bot</span>
+                <span className="text-xs text-muted-foreground font-medium font-heading">{t("botConnection")}</span>
                 {data.token_status === "VALID" ? (
                   <Bot className="h-4 w-4 text-emerald-500 dark:text-emerald-400" />
                 ) : (
@@ -148,7 +151,7 @@ export function StatusCard({ data, locale }: StatusCardProps) {
               </div>
               <div className="text-sm font-bold text-foreground">
                 {data.token_status === "VALID" ? (
-                  <span className="text-emerald-500 dark:text-emerald-400">Sẵn Sàng Hoạt Động</span>
+                  <span className="text-emerald-500 dark:text-emerald-400">{t("botReady")}</span>
                 ) : (
                   <span className="text-amber-500">{data.token_status}</span>
                 )}
@@ -163,7 +166,7 @@ export function StatusCard({ data, locale }: StatusCardProps) {
         <CardHeader className="pb-3">
           <CardTitle className="text-lg font-bold text-foreground flex items-center gap-2 font-heading">
             <Gift className="h-5 w-5 text-amber-500" />
-            Lịch Sử Nhận Giftcode Gần Đây
+            {t("recentRedemptions")}
           </CardTitle>
         </CardHeader>
         <CardContent>
@@ -176,7 +179,7 @@ export function StatusCard({ data, locale }: StatusCardProps) {
                       {redemption.code}
                     </span>
                     <span className="text-xs text-muted-foreground font-mono">
-                      {new Date(redemption.redeemed_at).toLocaleDateString("vi-VN", {
+                      {format.dateTime(new Date(redemption.redeemed_at), {
                         day: "2-digit",
                         month: "2-digit",
                         hour: "2-digit",
@@ -188,22 +191,22 @@ export function StatusCard({ data, locale }: StatusCardProps) {
                     {redemption.status === "SUCCESS" ? (
                       <span className="inline-flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-bold text-xs bg-emerald-500/10 px-2 py-0.5 rounded-md border border-emerald-500/20">
                         <CheckCircle2 className="h-3.5 w-3.5" />
-                        Thành công
+                        {t("statusSuccess")}
                       </span>
                     ) : redemption.status === "ALREADY_REDEEMED" ? (
                       <span className="inline-flex items-center gap-1 text-amber-600 dark:text-amber-400 font-bold text-xs bg-amber-500/10 px-2 py-0.5 rounded-md border border-amber-500/20">
                         <CheckCircle2 className="h-3.5 w-3.5" />
-                        Đã có quà
+                        {t("statusAlreadyRedeemed")}
                       </span>
                     ) : redemption.status === "EXPIRED" ? (
                       <span className="inline-flex items-center gap-1 text-muted-foreground font-medium text-xs bg-muted/60 px-2 py-0.5 rounded-md border border-border/40">
                         <Clock className="h-3.5 w-3.5" />
-                        Hết hạn
+                        {t("statusExpired")}
                       </span>
                     ) : (
                       <span className="inline-flex items-center gap-1 text-rose-600 dark:text-rose-400 font-bold text-xs bg-rose-500/10 px-2 py-0.5 rounded-md border border-rose-500/20">
                         <XCircle className="h-3.5 w-3.5" />
-                        Thất bại
+                        {t("statusFailed")}
                       </span>
                     )}
                   </div>
@@ -212,7 +215,7 @@ export function StatusCard({ data, locale }: StatusCardProps) {
             </div>
           ) : (
             <div className="py-8 text-center text-muted-foreground text-xs sm:text-sm">
-              Chưa có lịch sử đổi giftcode nào được ghi nhận cho tài khoản này.
+              {t("noRedemptions")}
             </div>
           )}
         </CardContent>
@@ -224,10 +227,10 @@ export function StatusCard({ data, locale }: StatusCardProps) {
           <div className="space-y-1 text-center sm:text-left">
             <h4 className="text-base font-bold text-foreground flex items-center justify-center sm:justify-start gap-2 font-heading">
               <Shield className="h-4 w-4 text-amber-500 fill-current" />
-              Gia nhập Hội Hiệp Sĩ PRO để bật tự động săn code 24/7
+              {t("ctaTitle")}
             </h4>
             <p className="text-xs text-muted-foreground">
-              Bot sẽ tự động nhập mọi giftcode mới xuất hiện trong vòng 60 giây và tự điểm danh mỗi ngày.
+              {t("ctaDesc")}
             </p>
           </div>
           <Button
@@ -235,7 +238,7 @@ export function StatusCard({ data, locale }: StatusCardProps) {
             className="w-full sm:w-auto font-bold gap-2 btn-tactile-gold px-6 py-2.5 rounded-xl shrink-0 min-h-[44px]"
           >
             <Link href="/pricing">
-              <span>Nâng Cấp PRO Ngay</span>
+              <span>{t("ctaBtn")}</span>
               <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>

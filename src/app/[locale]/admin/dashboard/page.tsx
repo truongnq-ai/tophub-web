@@ -2,6 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
+import { setRequestLocale } from "next-intl/server";
 import { apiClient } from "@/lib/api-client";
 import { AdminManager } from "@/components/dashboard/admin-manager";
 
@@ -83,6 +84,7 @@ const MOCK_FALLBACK_ACCOUNTS = [
 ];
 
 export default async function AdminDashboardPage({ params: { locale } }: AdminDashboardPageProps) {
+  setRequestLocale(locale);
   const cookieStore = cookies();
   const adminToken = cookieStore.get("tophub_admin_token")?.value;
 

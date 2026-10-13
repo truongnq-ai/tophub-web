@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { ReactNode } from "react";
+import type { Metadata } from "next";
 import { routing } from "@/i18n/routing";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/auth";
@@ -36,6 +37,24 @@ type Props = {
   params: { locale: string };
 };
 
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: "LocaleLayout" });
+  return {
+    title: t("title"),
+    description: t("metaDescription"),
+    openGraph: {
+      title: t("title"),
+      description: t("metaDescription"),
+      locale: locale === "vi" ? "vi_VN" : "en_US",
+      type: "website",
+    },
+  };
+}
+
 export default async function LocaleLayout({
   children,
   params: { locale },
@@ -44,14 +63,17 @@ export default async function LocaleLayout({
     notFound();
   }
 
+  setRequestLocale(locale);
+
   const messages = await getMessages();
+  const t = await getTranslations({ locale, namespace: "LocaleLayout" });
   const session = await getServerSession(authOptions);
 
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
-        <title>TopHub — Top Heroes Companion & Automation</title>
-        <meta name="description" content="Tự động săn Giftcode, điểm danh hàng ngày và theo dõi sự kiện game Top Heroes." />
+        <title>{t("title")}</title>
+        <meta name="description" content={t("metaDescription")} />
       </head>
       <body className={`${chakraPetch.variable} ${beVietnamPro.variable} ${jetbrainsMono.variable} font-sans min-h-screen bg-background text-foreground antialiased selection:bg-primary/25 selection:text-primary`}>
         <NextIntlClientProvider locale={locale} messages={messages}>

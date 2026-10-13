@@ -21,6 +21,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
+import { useTranslations, useFormatter } from "next-intl";
 import { useUidSession, type SavedAccount } from "@/hooks/use-uid-session";
 import {
   getPlayerStatusAction,
@@ -34,6 +35,8 @@ interface UidControlDashboardProps {
 }
 
 export function UidControlDashboard({ account }: UidControlDashboardProps) {
+  const t = useTranslations("Home.dashboard");
+  const format = useFormatter();
   const { logout } = useUidSession();
 
   const [statusData, setStatusData] = useState<PlayerStatusResponse | null>(null);
@@ -81,7 +84,7 @@ export function UidControlDashboard({ account }: UidControlDashboardProps) {
       if (res.success && res.data) {
         setFeedbackMsg({
           type: "success",
-          text: res.data.message || `Đã chạy xong! Nhận thêm ${res.data.newly_redeemed} mã quà.`,
+          text: res.data.message || t("runSuccess", { count: res.data.newly_redeemed ?? 0 }),
         });
         setCooldownSeconds(60);
         // Refresh status after run
@@ -89,13 +92,13 @@ export function UidControlDashboard({ account }: UidControlDashboardProps) {
       } else {
         setFeedbackMsg({
           type: "error",
-          text: res.error?.message || "Không thể chạy bot ngay lúc này",
+          text: res.error?.message || t("runFailed"),
         });
       }
     } catch {
       setFeedbackMsg({
         type: "error",
-        text: "Lỗi kết nối khi kích hoạt chạy bot.",
+        text: t("runNetworkError"),
       });
     } finally {
       setRunningNow(false);
@@ -146,7 +149,7 @@ export function UidControlDashboard({ account }: UidControlDashboardProps) {
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                       <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                     </span>
-                    Tự Động 24/7 (Miễn Phí)
+                    {t("botFreeBadge")}
                   </Badge>
                 </div>
                 <div className="flex flex-wrap items-center gap-3 mt-1.5 text-xs text-muted-foreground font-mono">
@@ -170,7 +173,7 @@ export function UidControlDashboard({ account }: UidControlDashboardProps) {
               className="h-10 px-4 rounded-xl text-xs font-bold border-border/80 hover:bg-destructive/10 hover:text-destructive hover:border-destructive/30 shrink-0 self-start sm:self-center transition-colors min-h-[40px]"
             >
               <LogOut className="h-3.5 w-3.5 mr-1.5" />
-              <span>Thoát / Đổi Tài Khoản</span>
+              <span>{t("logoutBtn")}</span>
             </Button>
           </div>
         </CardHeader>
@@ -181,10 +184,10 @@ export function UidControlDashboard({ account }: UidControlDashboardProps) {
             <div className="space-y-1 text-center sm:text-left">
               <h3 className="text-sm sm:text-base font-bold text-foreground flex items-center justify-center sm:justify-start gap-2 font-heading">
                 <Zap className="h-4 w-4 text-amber-500 fill-amber-500" />
-                Kích Hoạt Nhận Quà &amp; Điểm Danh Ngay Lập Tức
+                {t("runNowBannerTitle")}
               </h3>
               <p className="text-xs text-muted-foreground">
-                Bấm để bot quét toàn bộ mã giftcode mới nhất và điểm danh cho bạn ngay mà không cần đợi lượt xếp hàng.
+                {t("runNowBannerDesc")}
               </p>
             </div>
 
@@ -196,17 +199,17 @@ export function UidControlDashboard({ account }: UidControlDashboardProps) {
               {runningNow ? (
                 <>
                   <Loader2 className="h-4 w-4 animate-spin mr-2" />
-                  <span>Đang chạy nạp...</span>
+                  <span>{t("runningNow")}</span>
                 </>
               ) : cooldownSeconds > 0 ? (
                 <>
                   <Clock className="h-4 w-4 mr-2" />
-                  <span>Chờ {cooldownSeconds}s</span>
+                  <span>{t("cooldown", { seconds: cooldownSeconds })}</span>
                 </>
               ) : (
                 <>
                   <Sparkles className="h-4 w-4 mr-2 text-slate-950" />
-                  <span>⚡ Chạy Ngay (Run Now)</span>
+                  <span>{t("runNowBtn")}</span>
                 </>
               )}
             </Button>
@@ -237,10 +240,10 @@ export function UidControlDashboard({ account }: UidControlDashboardProps) {
               <div className="space-y-0.5">
                 <span className="text-sm font-bold text-foreground flex items-center gap-2 font-heading">
                   <Gift className="h-4 w-4 text-amber-500" />
-                  Tự động săn Giftcode
+                  {t("toggleRedeem")}
                 </span>
                 <p className="text-xs text-muted-foreground">
-                  Quét mạng xã hội &amp; tự nạp mã mới trong 60 giây
+                  {t("toggleRedeemDesc")}
                 </p>
               </div>
               <Switch
@@ -254,10 +257,10 @@ export function UidControlDashboard({ account }: UidControlDashboardProps) {
               <div className="space-y-0.5">
                 <span className="text-sm font-bold text-foreground flex items-center gap-2 font-heading">
                   <Calendar className="h-4 w-4 text-amber-500" />
-                  Điểm danh hàng ngày
+                  {t("toggleCheckin")}
                 </span>
                 <p className="text-xs text-muted-foreground">
-                  Tự nhận quà đăng nhập mỗi ngày lúc 00:05 UTC
+                  {t("toggleCheckinDesc")}
                 </p>
               </div>
               <Switch
@@ -274,7 +277,7 @@ export function UidControlDashboard({ account }: UidControlDashboardProps) {
         <CardHeader className="pb-3 flex flex-row items-center justify-between">
           <CardTitle className="text-base sm:text-lg font-bold text-foreground flex items-center gap-2 font-heading">
             <Gift className="h-5 w-5 text-amber-400" />
-            Lịch Sử Nhận Quà Giftcode Gần Đây
+            {t("historyTitle")}
           </CardTitle>
           <Button
             variant="ghost"
@@ -284,14 +287,14 @@ export function UidControlDashboard({ account }: UidControlDashboardProps) {
             className="h-8 px-2 text-xs text-muted-foreground hover:text-foreground"
           >
             <RefreshCw className={`h-3.5 w-3.5 mr-1 ${loading ? "animate-spin" : ""}`} />
-            <span>Làm mới</span>
+            <span>{t("refreshBtn")}</span>
           </Button>
         </CardHeader>
         <CardContent>
           {loading && !statusData ? (
             <div className="py-8 flex items-center justify-center text-muted-foreground">
               <Loader2 className="h-5 w-5 animate-spin mr-2" />
-              <span className="text-xs">Đang tải lịch sử...</span>
+              <span className="text-xs">{t("loadingHistory")}</span>
             </div>
           ) : statusData?.recent_redemptions && statusData.recent_redemptions.length > 0 ? (
             <div className="divide-y divide-border/60 text-xs sm:text-sm">
@@ -302,7 +305,7 @@ export function UidControlDashboard({ account }: UidControlDashboardProps) {
                       {redemption.code}
                     </span>
                     <span className="text-xs text-muted-foreground font-mono">
-                      {new Date(redemption.redeemed_at).toLocaleDateString("vi-VN", {
+                      {format.dateTime(new Date(redemption.redeemed_at), {
                         day: "2-digit",
                         month: "2-digit",
                         hour: "2-digit",
@@ -314,22 +317,22 @@ export function UidControlDashboard({ account }: UidControlDashboardProps) {
                     {redemption.status === "SUCCESS" ? (
                       <span className="inline-flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-bold text-xs bg-emerald-500/10 px-2 py-0.5 rounded-md border border-emerald-500/20">
                         <CheckCircle2 className="h-3 w-3" />
-                        Thành công
+                        {t("statusSuccess")}
                       </span>
                     ) : redemption.status === "ALREADY_REDEEMED" ? (
                       <span className="inline-flex items-center gap-1 text-amber-600 dark:text-amber-400 font-bold text-xs bg-amber-500/10 px-2 py-0.5 rounded-md border border-amber-500/20">
                         <CheckCircle2 className="h-3 w-3" />
-                        Đã có quà
+                        {t("statusAlready")}
                       </span>
                     ) : redemption.status === "EXPIRED" ? (
                       <span className="inline-flex items-center gap-1 text-muted-foreground font-medium text-xs bg-muted/60 px-2 py-0.5 rounded-md border border-border/40">
                         <Clock className="h-3 w-3" />
-                        Hết hạn
+                        {t("statusExpired")}
                       </span>
                     ) : (
                       <span className="inline-flex items-center gap-1 text-rose-600 dark:text-rose-400 font-bold text-xs bg-rose-500/10 px-2 py-0.5 rounded-md border border-rose-500/20">
                         <XCircle className="h-3 w-3" />
-                        Thất bại
+                        {t("statusFailed")}
                       </span>
                     )}
                   </div>
@@ -338,7 +341,7 @@ export function UidControlDashboard({ account }: UidControlDashboardProps) {
             </div>
           ) : (
             <div className="py-8 text-center text-muted-foreground text-xs sm:text-sm">
-              Chưa có lịch sử nhận mã nào. Bấm nút <strong>⚡ Chạy Ngay</strong> ở trên để bot quét và nạp mã quà đầu tiên cho bạn!
+              {t("emptyHistory")}
             </div>
           )}
         </CardContent>

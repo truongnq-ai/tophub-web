@@ -36,7 +36,9 @@
     "step1": "Mở game Top Heroes trên điện thoại hoặc giả lập.",
     "step2": "Bấm vào ảnh đại diện (Avatar) nhân vật ở góc trên cùng bên trái.",
     "step3": "Chọn mục Cài Đặt (Settings) -> bấm chọn Giftcode.",
-    "step4": "Dán mã quà tặng vừa sao chép và bấm Đổi để nhận quà vào hòm thư."
+    "step4": "Dán mã quà tặng vừa sao chép và bấm Đổi để nhận quà vào hòm thư.",
+    "stepPrefix": "Bước",
+    "badgeHero": "Kho Tàng Mã Quà Tặng Top Heroes"
   },
   "Pricing": {
     "title": "Bảng Giá Gói Cước TopHub Pro",
@@ -84,6 +86,7 @@
   },
   "Dashboard": {
     "title": "Bảng Điều Khiển Người Dùng",
+    "description": "Theo dõi trạng thái dịch vụ và cấu hình tự động hóa cho nhân vật Top Heroes.",
     "welcome": "Xin chào",
     "planStatus": "Gói cước hiện tại",
     "daysLeft": "Còn {days} ngày",
@@ -143,21 +146,25 @@
     "welcome": "Chào mừng đến với Top Heroes Companion"
   },
   "LocaleLayout": {
-    "title": "Top Heroes Companion"
+    "title": "TopHub — Top Heroes Companion & Automation",
+    "metaDescription": "Tự động săn Giftcode, điểm danh hàng ngày và theo dõi sự kiện game Top Heroes."
   },
   "LocaleSwitcher": {
     "switchLocale": "Đổi ngôn ngữ"
   },
   "Footer": {
     "title": "TopHub Companion",
-    "description": "Nền tảng hỗ trợ game thủ Top Heroes độc lập",
-    "followUs": "Cộng đồng",
-    "aboutUs": "Giới thiệu",
-    "quickLinks": "Liên kết nhanh",
-    "contact": "Hỗ trợ",
-    "privacy": "Bảo mật",
-    "terms": "Điều khoản",
-    "rights": "Toàn bộ bản quyền được bảo lưu"
+    "brandDesc": "Nền tảng hỗ trợ game thủ Top Heroes tự động hóa săn giftcode, điểm danh hàng ngày và theo dõi sự kiện nhanh chóng.",
+    "disclaimer": "Lưu ý: TopHub là công cụ hỗ trợ cộng đồng độc lập, không thuộc sở hữu hay liên kết chính thức với nhà phát hành game Top Heroes.",
+    "featuredFeatures": "Tính năng nổi bật",
+    "botStatusLookup": "Tra Cứu Trạng Thái UID",
+    "autoCheckin247": "Tự Động Điểm Danh 24/7",
+    "legalAndSupport": "Chính sách & Hỗ trợ",
+    "terms": "Điều Khoản Dịch Vụ",
+    "privacy": "Chính Sách Bảo Mật",
+    "discordCommunity": "Cộng Đồng Discord Top Heroes",
+    "copyright": "© {year} TopHub Companion. Bản quyền thuộc về cộng đồng người chơi.",
+    "builtWithLove": "Phát triển với dành cho Top Heroes gamers"
   },
   "Privacy": {
     "title": "Chính Sách Bảo Mật",
@@ -238,5 +245,132 @@
         "content": "Cảm ơn bạn đã tin tưởng và đồng hành cùng TopHub Companion."
       }
     }
+  },
+  "Home": {
+    "loadingAccount": "Đang tải tài khoản...",
+    "hero": {
+      "badge": "Sảnh Hiệp Sĩ • Tự Động Hóa 24/7 Miễn Phí",
+      "title": "Tự Động Nhận Giftcode & Điểm Danh Hàng Ngày",
+      "description": "Đăng ký mã số người chơi (Game UID) một lần duy nhất. Bot sẽ tự động săn mọi giftcode mới xuất hiện và điểm danh nhận quà mỗi ngày mà bạn không cần phải làm gì."
+    },
+    "form": {
+      "uidLabel": "Mã Số Người Chơi (Game UID)",
+      "uidPlaceholder": "Ví dụ: 1000000000001...",
+      "checkBtn": "Kiểm Tra UID",
+      "checking": "Đang kiểm tra...",
+      "enrolledBadge": "Đã Kích Hoạt Bot",
+      "notEnrolledBadge": "Chưa Kích Hoạt",
+      "manageBtn": "🚀 Vào xem & Quản lý",
+      "enrollBtn": "➕ Thêm & Kích hoạt Bot",
+      "enrolling": "Đang kích hoạt...",
+      "validationError": "Vui lòng nhập UID game từ 10 đến 20 chữ số",
+      "notFoundError": "Không tìm thấy người chơi với UID tương ứng trên máy chủ game",
+      "networkError": "Lỗi kết nối khi tra cứu người chơi. Vui lòng thử lại.",
+      "enrollFailed": "Kích hoạt bot thất bại. Vui lòng kiểm tra lại UID",
+      "enrollNetworkError": "Lỗi kết nối khi kích hoạt bot. Vui lòng thử lại."
+    },
+    "savedAccounts": {
+      "title": "Tài Khoản Đã Lưu Trên Máy Này",
+      "subtext": "Bấm để vào nhanh",
+      "manageBtn": "Vào Quản Lý",
+      "removeTitle": "Gỡ khỏi máy này"
+    },
+    "activeCodes": {
+      "title": "Mã Giftcode Đang Hoạt Động",
+      "scanning": "Đang quét tự động 24/7",
+      "empty": "Hệ thống đang quét tìm giftcode mới 24/7. Chưa có mã hoạt động."
+    },
+    "stats": {
+      "title": "Hoạt Động Tự Động Hóa Toàn Máy Chủ",
+      "codesClaimed": "Mã Giftcode Đã Nhận Thành Công",
+      "codesClaimedSub": "kể từ khi khởi chạy",
+      "activeAccounts": "Tài Khoản Đang Kích Hoạt Bot",
+      "activeAccountsSub": "tự động điểm danh 24/7"
+    },
+    "faq": {
+      "title": "Cẩm Nang Thắc Mắc Hiệp Sĩ (FAQ)",
+      "q1": "Tôi có cần mở trang web thường xuyên để bot hoạt động không?",
+      "a1": "Không. Hệ thống máy chủ TopHub tự động thực hiện điểm danh vào lúc 00:05 UTC và tự quét nhận giftcode 24/7 trên nền tảng đám mây. Bạn chỉ cần quay lại trang web nếu muốn kiểm tra lịch sử hoặc bấm nút Chạy ngay.",
+      "q2": "Hệ thống có hỗ trợ nhiều tài khoản (acc chính và acc clone) không?",
+      "a2": "Có. Sau khi thêm tài khoản đầu tiên, bạn có thể nhập thêm bất kỳ tài khoản nào khác. Tất cả tài khoản sẽ được lưu vào danh bạ trên máy để bạn chuyển đổi qua lại nhanh chóng chỉ bằng 1 cú click.",
+      "q3": "Dùng UID công khai có an toàn cho tài khoản game của tôi không?",
+      "a3": "Tuyệt đối an toàn 100%. TopHub chỉ giao tiếp với cổng web chính thức của game Top Heroes để nhận quà và điểm danh qua mã UID. Hệ thống hoàn toàn không bao giờ yêu cầu mật khẩu hay quyền truy cập thiết bị của bạn."
+    },
+    "dashboard": {
+      "botFreeBadge": "Tự Động 24/7 (Miễn Phí)",
+      "logoutBtn": "Thoát / Đổi Tài Khoản",
+      "runNowBannerTitle": "Kích Hoạt Nhận Quà & Điểm Danh Ngay Lập Tức",
+      "runNowBannerDesc": "Bấm để bot quét toàn bộ mã giftcode mới nhất và điểm danh cho bạn ngay mà không cần đợi lượt xếp hàng.",
+      "runNowBtn": "⚡ Chạy Ngay (Run Now)",
+      "runningNow": "Đang chạy nạp...",
+      "cooldown": "Chờ {seconds}s",
+      "runSuccess": "Đã chạy xong! Nhận thêm {count} mã quà.",
+      "runFailed": "Không thể chạy bot ngay lúc này",
+      "runNetworkError": "Lỗi kết nối khi kích hoạt chạy bot.",
+      "toggleRedeem": "Tự động săn Giftcode",
+      "toggleRedeemDesc": "Quét mạng xã hội & tự nạp mã mới trong 60 giây",
+      "toggleCheckin": "Điểm danh hàng ngày",
+      "toggleCheckinDesc": "Tự nhận quà đăng nhập mỗi ngày lúc 00:05 UTC",
+      "historyTitle": "Lịch Sử Nhận Quà Giftcode Gần Đây",
+      "refreshBtn": "Làm mới",
+      "loadingHistory": "Đang tải lịch sử...",
+      "statusSuccess": "Thành công",
+      "statusAlready": "Đã có quà",
+      "statusExpired": "Hết hạn",
+      "statusFailed": "Thất bại",
+      "emptyHistory": "Chưa có lịch sử nhận mã nào. Bấm nút ⚡ Chạy Ngay ở trên để bot quét và nạp mã quà đầu tiên cho bạn!"
+    }
+  },
+  "Check": {
+    "badge": "Bảng Tra Cứu Trạng Thái Thần Binh",
+    "title": "Tra Cứu Trạng Thái Bot",
+    "description": "Nhập Game UID của bạn để kiểm tra gói cước hiện tại, trạng thái kết nối bot tự động và lịch sử đổi thưởng mới nhất.",
+    "placeholder": "Nhập Game UID cần tra cứu (ví dụ: 1000000000001)...",
+    "searchBtn": "Tra Cứu Ngay",
+    "searching": "Đang tra cứu...",
+    "validationError": "Vui lòng nhập UID game hợp lệ (10 đến 20 chữ số)",
+    "notFoundError": "Không tìm thấy dữ liệu bot cho UID này",
+    "networkError": "Lỗi kết nối khi tra cứu dữ liệu máy chủ",
+    "guideTitle": "Cách tìm Game UID trong Top Heroes",
+    "guideStep1": "1. Mở game Top Heroes trên điện thoại hoặc giả lập.",
+    "guideStep2": "2. Bấm vào ảnh đại diện (Avatar) ở góc trên bên trái màn hình.",
+    "guideStep3": "3. Dãy số dưới tên nhân vật chính là Game UID của bạn.",
+    "card": {
+      "proBadge": "HIỆP SĨ PRO",
+      "freeBadge": "MIỄN PHÍ",
+      "expiresAt": "Thời hạn sử dụng gói PRO:",
+      "autoRedeem": "Tự động săn Code",
+      "autoCheckin": "Điểm danh hàng ngày",
+      "responseTime": "Thời gian phản hồi",
+      "responseTimeValue": "Dưới 60 giây",
+      "statusActive": "Đang Hoạt Động",
+      "statusInactive": "Tạm Ngừng",
+      "recentRedemptions": "Lịch Sử Nhận Quà Gần Đây",
+      "noRedemptions": "Chưa có lịch sử nhận mã nào",
+      "server": "Server",
+      "enabled247": "Đang Bật 24/7",
+      "disabled": "Đang Tắt",
+      "checkinSchedule": "00:05 UTC Mỗi Ngày",
+      "botConnection": "Kết nối Game Bot",
+      "botReady": "Sẵn Sàng Hoạt Động",
+      "statusSuccess": "Thành công",
+      "statusAlreadyRedeemed": "Đã có quà",
+      "statusExpired": "Hết hạn",
+      "statusFailed": "Thất bại",
+      "ctaTitle": "Gia nhập Hội Hiệp Sĩ PRO để bật tự động săn code 24/7",
+      "ctaDesc": "Bot sẽ tự động nhập mọi giftcode mới xuất hiện trong vòng 60 giây và tự điểm danh mỗi ngày.",
+      "ctaBtn": "Nâng Cấp PRO Ngay"
+    }
+  },
+  "Header": {
+    "botRunning": "Bot Đang Chạy Tự Động",
+    "switchAccount": "Đổi Tài Khoản Đã Lưu",
+    "logoutAccount": "Thoát Tài Khoản"
+  },
+  "Errors": {
+    "PLAYER_NOT_FOUND": "Không tìm thấy người chơi với UID tương ứng trên máy chủ game",
+    "INVALID_UID": "Mã số UID game không hợp lệ (yêu cầu từ 10 đến 20 chữ số)",
+    "BOT_ENROLL_FAILED": "Kích hoạt bot thất bại. Vui lòng kiểm tra lại UID",
+    "NETWORK_ERROR": "Lỗi kết nối máy chủ. Vui lòng thử lại sau"
   }
 }

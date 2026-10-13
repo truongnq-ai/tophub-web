@@ -36,7 +36,9 @@
     "step1": "Open Top Heroes on your device or emulator.",
     "step2": "Tap your Avatar icon in the top left corner.",
     "step3": "Navigate to Settings -> Giftcode.",
-    "step4": "Paste the copied code and tap Redeem to claim rewards from your mailbox."
+    "step4": "Paste the copied code and tap Redeem to claim rewards from your mailbox.",
+    "stepPrefix": "Step",
+    "badgeHero": "Top Heroes Giftcode Treasure Vault"
   },
   "Pricing": {
     "title": "TopHub Pro Pricing Plans",
@@ -84,6 +86,7 @@
   },
   "Dashboard": {
     "title": "User Dashboard",
+    "description": "Monitor service status and configure automation for your Top Heroes accounts.",
     "welcome": "Welcome back",
     "planStatus": "Current Plan",
     "daysLeft": "{days} days left",
@@ -143,21 +146,25 @@
     "welcome": "Welcome to Top Heroes Companion"
   },
   "LocaleLayout": {
-    "title": "Top Heroes Companion"
+    "title": "TopHub — Top Heroes Companion & Automation",
+    "metaDescription": "Automated Top Heroes giftcode redemption, daily check-in, and server tracking companion."
   },
   "LocaleSwitcher": {
     "switchLocale": "Switch language"
   },
   "Footer": {
     "title": "TopHub Companion",
-    "description": "Independent companion platform for Top Heroes players",
-    "followUs": "Community",
-    "aboutUs": "About us",
-    "quickLinks": "Quick links",
-    "contact": "Support",
-    "privacy": "Privacy",
-    "terms": "Terms",
-    "rights": "All rights reserved"
+    "brandDesc": "Companion platform for Top Heroes players: automated giftcode claims, daily check-in, and fast event updates.",
+    "disclaimer": "Disclaimer: TopHub is an independent community project and is not affiliated with or endorsed by the publisher of Top Heroes.",
+    "featuredFeatures": "Features",
+    "botStatusLookup": "UID Status Lookup",
+    "autoCheckin247": "24/7 Auto Check-in",
+    "legalAndSupport": "Legal & Support",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "discordCommunity": "Discord Community",
+    "copyright": "© {year} TopHub Companion. Created for the gaming community.",
+    "builtWithLove": "Crafted for Top Heroes gamers"
   },
   "Privacy": {
     "title": "Privacy Policy",
@@ -238,5 +245,132 @@
         "content": "Thank you for using TopHub Companion."
       }
     }
+  },
+  "Home": {
+    "loadingAccount": "Loading account...",
+    "hero": {
+      "badge": "Knights Hall • Free 24/7 Automation",
+      "title": "Auto-Claim Giftcodes & Daily Check-in",
+      "description": "Register your Player UID once. The cloud bot automatically hunts new giftcodes and completes daily check-in with zero manual effort required."
+    },
+    "form": {
+      "uidLabel": "Player ID (Game UID)",
+      "uidPlaceholder": "e.g. 1000000000001...",
+      "checkBtn": "Verify UID",
+      "checking": "Checking...",
+      "enrolledBadge": "Bot Active",
+      "notEnrolledBadge": "Not Enrolled",
+      "manageBtn": "🚀 Enter & Manage",
+      "enrollBtn": "➕ Add & Activate Bot",
+      "enrolling": "Activating...",
+      "validationError": "Please enter a valid Game UID (10 to 20 digits)",
+      "notFoundError": "Player not found with this UID on game servers",
+      "networkError": "Network error while looking up player. Please try again.",
+      "enrollFailed": "Bot activation failed. Please check your UID again.",
+      "enrollNetworkError": "Network error during bot activation. Please try again."
+    },
+    "savedAccounts": {
+      "title": "Accounts Saved On This Device",
+      "subtext": "Click for quick access",
+      "manageBtn": "Manage",
+      "removeTitle": "Remove from this device"
+    },
+    "activeCodes": {
+      "title": "Active Giftcodes",
+      "scanning": "Auto-scanning 24/7",
+      "empty": "The cloud system is scanning 24/7. No active codes available right now."
+    },
+    "stats": {
+      "title": "Server-wide Automation Activity",
+      "codesClaimed": "Giftcodes Successfully Claimed",
+      "codesClaimedSub": "since launch",
+      "activeAccounts": "Accounts With Active Bot",
+      "activeAccountsSub": "24/7 auto check-in"
+    },
+    "faq": {
+      "title": "Knight's FAQ Guide",
+      "q1": "Do I need to keep the website open for the bot to work?",
+      "a1": "No. TopHub cloud servers automatically complete check-in at 00:05 UTC and scan/redeem giftcodes 24/7 on the cloud. You only need to visit to inspect history or click Run Now.",
+      "q2": "Does the platform support multiple accounts (main and alts)?",
+      "a2": "Yes. After adding your first account, you can add any number of alts. All accounts are saved locally on your device for instant 1-click switching.",
+      "q3": "Is using a public Game UID safe for my game account?",
+      "a3": "100% safe. TopHub only communicates with the official Top Heroes web portal to redeem codes and check in via Game UID. It never asks for passwords or device access."
+    },
+    "dashboard": {
+      "botFreeBadge": "24/7 Automation (Free)",
+      "logoutBtn": "Switch / Logout",
+      "runNowBannerTitle": "Trigger Instant Reward Claim & Check-in",
+      "runNowBannerDesc": "Click to let the bot scan all active giftcodes and check in immediately without waiting in queue.",
+      "runNowBtn": "⚡ Run Now",
+      "runningNow": "Running...",
+      "cooldown": "Wait {seconds}s",
+      "runSuccess": "Finished! Claimed {count} additional giftcodes.",
+      "runFailed": "Unable to run bot at this moment",
+      "runNetworkError": "Connection error while triggering bot.",
+      "toggleRedeem": "Auto Giftcode Hunt",
+      "toggleRedeemDesc": "Scans social media & auto-claims new codes in 60s",
+      "toggleCheckin": "Daily Auto Check-in",
+      "toggleCheckinDesc": "Auto-claims daily login gifts at 00:05 UTC",
+      "historyTitle": "Recent Giftcode Redemptions",
+      "refreshBtn": "Refresh",
+      "loadingHistory": "Loading history...",
+      "statusSuccess": "Success",
+      "statusAlready": "Already Claimed",
+      "statusExpired": "Expired",
+      "statusFailed": "Failed",
+      "emptyHistory": "No redemption history yet. Click ⚡ Run Now above to scan and claim your first rewards!"
+    }
+  },
+  "Check": {
+    "badge": "Hero Status Board",
+    "title": "Bot Status Lookup",
+    "description": "Enter your Game UID to verify your current plan, automated bot status, and recent reward redemption history.",
+    "placeholder": "Enter Game UID to lookup (e.g. 1000000000001)...",
+    "searchBtn": "Lookup Now",
+    "searching": "Searching...",
+    "validationError": "Please enter a valid Game UID (10 to 20 digits)",
+    "notFoundError": "No bot records found for this UID",
+    "networkError": "Network error while looking up server data",
+    "guideTitle": "How to find your Game UID in Top Heroes",
+    "guideStep1": "1. Open Top Heroes on your device or emulator.",
+    "guideStep2": "2. Tap your Avatar icon in the top left corner.",
+    "guideStep3": "3. The digits below your nickname is your Game UID.",
+    "card": {
+      "proBadge": "HERO PRO",
+      "freeBadge": "FREE",
+      "expiresAt": "PRO Plan Expiration:",
+      "autoRedeem": "Auto Code Hunt",
+      "autoCheckin": "Daily Check-in",
+      "responseTime": "Response Time",
+      "responseTimeValue": "Under 60 seconds",
+      "statusActive": "Active",
+      "statusInactive": "Inactive",
+      "recentRedemptions": "Recent Redemptions",
+      "noRedemptions": "No redemption history yet",
+      "server": "Server",
+      "enabled247": "Active 24/7",
+      "disabled": "Disabled",
+      "checkinSchedule": "00:05 UTC Daily",
+      "botConnection": "Game Bot Link",
+      "botReady": "Operational & Ready",
+      "statusSuccess": "Success",
+      "statusAlreadyRedeemed": "Already Claimed",
+      "statusExpired": "Expired",
+      "statusFailed": "Failed",
+      "ctaTitle": "Join PRO Knights Guild to unlock 24/7 Auto-Hunting",
+      "ctaDesc": "The bot automatically redeems new giftcodes within 60 seconds and completes daily check-in.",
+      "ctaBtn": "Upgrade to PRO Now"
+    }
+  },
+  "Header": {
+    "botRunning": "Bot Running Automatically",
+    "switchAccount": "Switch Saved Account",
+    "logoutAccount": "Logout Account"
+  },
+  "Errors": {
+    "PLAYER_NOT_FOUND": "Player not found with this UID on game servers",
+    "INVALID_UID": "Invalid Game UID format (10 to 20 digits required)",
+    "BOT_ENROLL_FAILED": "Bot activation failed. Please check your UID",
+    "NETWORK_ERROR": "Server connection error. Please try again later"
   }
 }

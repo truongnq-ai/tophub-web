@@ -1,6 +1,14 @@
 import { useTranslations } from "next-intl"
+import { setRequestLocale } from "next-intl/server"
 
-export default function PrivacyPolicy() {
+interface PageProps {
+  params: {
+    locale: string
+  }
+}
+
+export default function PrivacyPolicy({ params: { locale } }: PageProps) {
+  setRequestLocale(locale)
   const t = useTranslations("Privacy")
   const sections = [
     "Introduction",

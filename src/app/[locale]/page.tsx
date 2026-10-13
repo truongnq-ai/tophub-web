@@ -3,7 +3,16 @@ import Index from "./Index";
 
 import { apiClient } from "@/lib/api-client";
 
-export default async function IndexPage() {
+import { setRequestLocale } from "next-intl/server";
+
+interface IndexPageProps {
+  params: {
+    locale: string;
+  };
+}
+
+export default async function IndexPage({ params: { locale } }: IndexPageProps) {
+  setRequestLocale(locale);
   let initialActiveCodes: Array<{ code: string; status: string }> = [];
 
   try {

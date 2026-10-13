@@ -5,6 +5,7 @@ import { Shield, Heart } from "lucide-react";
 
 export function Footer() {
   const tNav = useTranslations("Navigation");
+  const tFooter = useTranslations("Footer");
   const currentYear = new Date().getFullYear();
 
   return (
@@ -18,21 +19,21 @@ export function Footer() {
                 <Shield className="h-4 w-4 fill-current" />
               </div>
               <span className="font-heading font-black text-lg text-foreground tracking-wide group-hover:text-amber-500 transition-colors">
-                TopHub Companion
+                {tFooter("title")}
               </span>
             </Link>
             <p className="text-xs text-muted-foreground leading-relaxed">
-              Nền tảng hỗ trợ game thủ Top Heroes tự động hóa săn giftcode, điểm danh hàng ngày và theo dõi sự kiện nhanh chóng.
+              {tFooter("brandDesc")}
             </p>
             <p className="text-[11px] text-muted-foreground leading-relaxed border-l-2 border-amber-500/50 pl-2.5 py-1 bg-amber-500/5 rounded-r">
-              Lưu ý: TopHub là công cụ hỗ trợ cộng đồng độc lập, không thuộc sở hữu hay liên kết chính thức với nhà phát hành game Top Heroes.
+              {tFooter("disclaimer")}
             </p>
           </div>
 
           {/* Quick links */}
           <div className="space-y-3 md:pl-8">
             <h4 className="text-xs font-bold uppercase tracking-wider text-foreground font-heading">
-              Tính năng nổi bật
+              {tFooter("featuredFeatures")}
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
@@ -42,12 +43,12 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/check" className="text-muted-foreground hover:text-amber-500 dark:hover:text-amber-400 transition-colors">
-                  Tra Cứu Trạng Thái UID
+                  {tFooter("botStatusLookup")}
                 </Link>
               </li>
               <li>
                 <Link href="/" className="text-muted-foreground hover:text-amber-500 dark:hover:text-amber-400 transition-colors">
-                  Tự Động Điểm Danh 24/7
+                  {tFooter("autoCheckin247")}
                 </Link>
               </li>
             </ul>
@@ -56,17 +57,17 @@ export function Footer() {
           {/* Legal and Support */}
           <div className="space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-foreground font-heading">
-              Chính sách &amp; Hỗ trợ
+              {tFooter("legalAndSupport")}
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
                 <Link href="/terms" className="text-muted-foreground hover:text-amber-500 dark:hover:text-amber-400 transition-colors">
-                  Điều Khoản Dịch Vụ
+                  {tFooter("terms")}
                 </Link>
               </li>
               <li>
                 <Link href="/privacy" className="text-muted-foreground hover:text-amber-500 dark:hover:text-amber-400 transition-colors">
-                  Chính Sách Bảo Mật
+                  {tFooter("privacy")}
                 </Link>
               </li>
               <li>
@@ -76,7 +77,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-amber-500 dark:hover:text-amber-400 transition-colors"
                 >
-                  Cộng Đồng Discord Top Heroes
+                  {tFooter("discordCommunity")}
                 </a>
               </li>
             </ul>
@@ -84,9 +85,10 @@ export function Footer() {
         </div>
 
         <div className="mt-8 pt-6 border-t border-border/40 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
-          <p>© {currentYear} TopHub Companion. Bản quyền thuộc về cộng đồng người chơi.</p>
+          <p>{tFooter("copyright", { year: currentYear })}</p>
           <p className="flex items-center gap-1">
-            Phát triển với <Heart className="h-3.5 w-3.5 text-rose-500 fill-rose-500" /> dành cho Top Heroes gamers
+            <span>{tFooter("builtWithLove")}</span>
+            <Heart className="h-3.5 w-3.5 text-rose-500 fill-rose-500" />
           </p>
         </div>
       </div>

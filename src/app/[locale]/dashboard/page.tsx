@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import { getServerSession } from "next-auth";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { authOptions } from "@/auth";
 import { createBackendToken } from "@/lib/auth-token";
 import { apiClient } from "@/lib/api-client";
@@ -30,6 +30,7 @@ export async function generateMetadata({ params: { locale } }: DashboardPageProp
 }
 
 export default async function DashboardPage({ params: { locale } }: DashboardPageProps) {
+  setRequestLocale(locale);
   const cookieStore = cookies();
   const adminToken = cookieStore.get("tophub_admin_token")?.value;
 
@@ -122,7 +123,7 @@ export default async function DashboardPage({ params: { locale } }: DashboardPag
           {t("title")}
         </h1>
         <p className="text-xs sm:text-sm text-muted-foreground mt-1">
-          Theo dõi trạng thái dịch vụ và cấu hình tự động hóa cho nhân vật Top Heroes.
+          {t("description")}
         </p>
       </div>
 

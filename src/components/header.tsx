@@ -40,6 +40,7 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const tNav = useTranslations("Navigation");
+  const tHeader = useTranslations("Header");
   const { activeAccount, savedAccounts, selectAccount, logout, isLoaded } = useUidSession();
 
   const navigationItems = [
@@ -185,7 +186,7 @@ export function Header() {
                           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                           <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                         </span>
-                        Bot Đang Chạy Tự Động
+                        {tHeader("botRunning")}
                       </span>
                     </div>
                   </div>
@@ -196,7 +197,7 @@ export function Header() {
                 {savedAccounts.filter((a) => a.uid !== activeAccount.uid).length > 0 && (
                   <>
                     <div className="px-2 py-1.5 text-[10px] font-bold text-muted-foreground uppercase tracking-wider">
-                      Đổi Tài Khoản Đã Lưu
+                      {tHeader("switchAccount")}
                     </div>
                     {savedAccounts
                       .filter((a) => a.uid !== activeAccount.uid)
@@ -224,7 +225,7 @@ export function Header() {
                   className="cursor-pointer text-destructive focus:text-destructive flex items-center gap-2 min-h-[40px]"
                 >
                   <LogOut className="h-4 w-4" />
-                  <span className="font-medium text-xs">Thoát Tài Khoản</span>
+                  <span className="font-medium text-xs">{tHeader("logoutAccount")}</span>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>

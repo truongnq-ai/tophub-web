@@ -6,11 +6,14 @@ import { UidEnrollForm } from "@/components/home/uid-enroll-form";
 import { UidControlDashboard } from "@/components/home/uid-control-dashboard";
 import { Loader2 } from "lucide-react";
 
+import { useTranslations } from "next-intl";
+
 interface LandingPageProps {
   initialActiveCodes?: Array<{ code: string; status: string }>;
 }
 
 export default function LandingPage({ initialActiveCodes }: LandingPageProps) {
+  const t = useTranslations("Home");
   const { activeAccount, isLoaded } = useUidSession();
 
   return (
@@ -22,7 +25,7 @@ export default function LandingPage({ initialActiveCodes }: LandingPageProps) {
         {!isLoaded ? (
           <div className="flex flex-col items-center justify-center py-24 text-muted-foreground gap-3">
             <Loader2 className="h-7 w-7 animate-spin text-amber-500" />
-            <span className="text-xs font-mono">Đang tải tài khoản...</span>
+            <span className="text-xs font-mono">{t("loadingAccount")}</span>
           </div>
         ) : activeAccount ? (
           <UidControlDashboard account={activeAccount} />

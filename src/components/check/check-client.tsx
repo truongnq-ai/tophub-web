@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Search, Loader2, Bot, AlertCircle, Sparkles } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { StatusCard } from "@/components/check/status-card";
@@ -14,6 +15,7 @@ interface CheckClientProps {
 }
 
 export function CheckClient({ locale }: CheckClientProps) {
+  const t = useTranslations("Check");
   const router = useRouter();
   const searchParams = useSearchParams();
   const initialUid = searchParams.get("uid") || "";
@@ -23,10 +25,10 @@ export function CheckClient({ locale }: CheckClientProps) {
   const [statusData, setStatusData] = useState<PlayerStatusResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchStatus = async (targetUid: string) => {
+  const fetchStatus = useCallback(async (targetUid: string) => {
     const clean = targetUid.trim();
     if (!clean || !/^\d{10,20}$/.test(clean)) {
-      setError("Vui lòng nhập UID game hợp lệ (10 đến 20 chữ số)");
+      setError(t("validationError"));
       setStatusData(null);
       return;
     }
@@ -39,21 +41,21 @@ export function CheckClient({ locale }: CheckClientProps) {
         setStatusData(res.data);
       } else {
         setStatusData(null);
-        setError(res.error?.message || "Không tìm thấy dữ liệu bot cho UID này");
+        setError(res.error?.message || t("notFoundError"));
       }
     } catch {
       setStatusData(null);
-      setError("Lỗi kết nối khi tra cứu dữ liệu máy chủ");
+      setError(t("networkError"));
     } finally {
       setLoading(false);
     }
-  };
+  }, [t]);
 
   useEffect(() => {
     if (initialUid && /^\d{10,20}$/.test(initialUid)) {
       fetchStatus(initialUid);
     }
-  }, [initialUid]);
+  }, [initialUid, fetchStatus]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -76,7 +78,7 @@ export function CheckClient({ locale }: CheckClientProps) {
             <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-amber-500" />
             <Input
               type="text"
-              placeholder="Nhập Game UID cần tra cứu (ví dụ: 1000000000001)..."
+              placeholder={t("placeholder")}
               value={uid}
               onChange={(e) => setUid(e.target.value.replace(/\D/g, ""))}
               className="bg-transparent border-0 pl-10 pr-4 font-mono text-sm focus-visible:ring-0 focus-visible:ring-offset-0 text-foreground placeholder:text-muted-foreground"
@@ -91,12 +93,12 @@ export function CheckClient({ locale }: CheckClientProps) {
             {loading ? (
               <>
                 <Loader2 className="h-4 w-4 animate-spin" />
-                <span>Đang tra cứu...</span>
+                <span>{t("searching")}</span>
               </>
             ) : (
               <>
                 <Bot className="h-4 w-4" />
-                <span>Tra Cứu Ngay</span>
+                <span>{t("searchBtn")}</span>
               </>
             )}
           </Button>
@@ -120,11 +122,11 @@ export function CheckClient({ locale }: CheckClientProps) {
           <div className="h-10 w-10 mx-auto rounded-xl bg-amber-500/15 text-amber-500 flex items-center justify-center">
             <Sparkles className="h-5 w-5" />
           </div>
-          <h3 className="text-sm font-bold text-foreground font-heading">Cách tìm Game UID trong Top Heroes</h3>
+          <h3 className="text-sm font-bold text-foreground font-heading">{t("guideTitle")}</h3>
           <p className="text-xs text-muted-foreground leading-relaxed">
-            1. Mở game Top Heroes trên điện thoại hoặc giả lập.<br />
-            2. Bấm vào ảnh đại diện (Avatar) ở góc trên bên trái màn hình.<br />
-            3. Dãy số dưới tên nhân vật chính là Game UID của bạn.
+            {t("guideStep1")}<br />
+            {t("guideStep2")}<br />
+            {t("guideStep3")}
           </p>
         </div>
       )}

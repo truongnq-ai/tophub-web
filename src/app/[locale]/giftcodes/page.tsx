@@ -1,6 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Gift, Sparkles, BookOpen, Smartphone, UserCircle, Settings, Award } from "lucide-react";
 import { apiClient } from "@/lib/api-client";
 import { GiftcodeList } from "@/components/giftcode/giftcode-list";
@@ -37,6 +37,7 @@ export async function generateMetadata({ params: { locale } }: GiftcodesPageProp
 }
 
 export default async function GiftcodesPage({ params: { locale } }: GiftcodesPageProps) {
+  setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "Giftcodes" });
   const tCommon = await getTranslations({ locale, namespace: "Common" });
 
@@ -110,22 +111,22 @@ export default async function GiftcodesPage({ params: { locale } }: GiftcodesPag
   const steps = [
     {
       icon: Smartphone,
-      title: "Bước 1",
+      title: `${t("stepPrefix")} 1`,
       desc: t("step1"),
     },
     {
       icon: UserCircle,
-      title: "Bước 2",
+      title: `${t("stepPrefix")} 2`,
       desc: t("step2"),
     },
     {
       icon: Settings,
-      title: "Bước 3",
+      title: `${t("stepPrefix")} 3`,
       desc: t("step3"),
     },
     {
       icon: Award,
-      title: "Bước 4",
+      title: `${t("stepPrefix")} 4`,
       desc: t("step4"),
     },
   ];
@@ -142,7 +143,7 @@ export default async function GiftcodesPage({ params: { locale } }: GiftcodesPag
       <div className="text-center space-y-4 max-w-3xl mx-auto">
         <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/40 bg-amber-500/10 px-4 py-1.5 text-xs font-bold text-amber-600 dark:text-amber-400 shadow-sm shadow-amber-500/10">
           <Gift className="h-4 w-4 text-amber-500" />
-          <span>Kho Tàng Mã Quà Tặng Top Heroes</span>
+          <span>{t("badgeHero")}</span>
         </div>
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-black tracking-wide text-foreground">
           {t("title")}

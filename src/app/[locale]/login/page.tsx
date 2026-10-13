@@ -1,4 +1,5 @@
 import { redirect } from "next/navigation";
+import { setRequestLocale } from "next-intl/server";
 
 interface LoginPageProps {
   params: {
@@ -7,5 +8,6 @@ interface LoginPageProps {
 }
 
 export default function LoginPage({ params: { locale } }: LoginPageProps) {
+  setRequestLocale(locale);
   redirect(`/${locale}/admin/login`);
 }
