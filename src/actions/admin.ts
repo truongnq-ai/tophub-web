@@ -11,6 +11,8 @@ import type {
   AdminRedemptionItem,
   AdminCheckinItem,
   AdminRetryResponse,
+  AdminWeeklyTimelineItem,
+  AdminAccountCheckinHistory,
 } from "@/types/api";
 
 const ADMIN_COOKIE_NAME = "tophub_admin_token";
@@ -186,5 +188,29 @@ export async function retryAllAdminCheckinsAction(
   const auth = getAdminTokenOrUnauthorized<AdminRetryResponse>();
   if ("errorResponse" in auth) return auth.errorResponse;
   return apiClient.retryAllAdminCheckins(auth.token, gameDay);
+}
+
+export async function getAdminAccountRedemptionsAction(
+  accountId: string,
+  query?: { status?: string; code?: string; page?: number; limit?: number }
+): Promise<ApiResponse<AdminRedemptionItem[]>> {
+  const auth = getAdminTokenOrUnauthorized<AdminRedemptionItem[]>();
+  if ("errorResponse" in auth) return auth.errorResponse;
+  return apiClient.getAdminAccountRedemptions(auth.token, accountId, query);
+}
+
+export async function getAdminAccountCheckinsAction(
+  accountId: string,
+  weeks = 2
+): Promise<ApiResponse<AdminAccountCheckinHistory>> {
+  const auth = getAdminTokenOrUnauthorized<AdminAccountCheckinHistory>();
+  if ("errorResponse" in auth) return auth.errorResponse;
+  return apiClient.getAdminAccountCheckins(auth.token, accountId, weeks);
+}
+
+export async function getAdminWeeklyTimelineAction(): Promise<ApiResponse<AdminWeeklyTimelineItem[]>> {
+  const auth = getAdminTokenOrUnauthorized<AdminWeeklyTimelineItem[]>();
+  if ("errorResponse" in auth) return auth.errorResponse;
+  return apiClient.getAdminWeeklyTimeline(auth.token);
 }
 

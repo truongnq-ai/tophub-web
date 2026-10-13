@@ -17,6 +17,8 @@ import type {
   AdminRedemptionItem,
   AdminCheckinItem,
   AdminRetryResponse,
+  AdminWeeklyTimelineItem,
+  AdminAccountCheckinHistory,
 } from "@/types/api";
 
 
@@ -237,6 +239,39 @@ export const apiClient = {
       method: "POST",
       headers: { Authorization: `Bearer ${token}` },
       body: JSON.stringify({ game_day: gameDay }),
+    }),
+
+  getAdminAccountRedemptions: (
+    token: string,
+    accountId: string,
+    query?: { status?: string; code?: string; page?: number; limit?: number }
+  ) => {
+    const params = new URLSearchParams();
+    params.set("account_id", accountId);
+    if (query?.status) params.set("status", query.status);
+    if (query?.code) params.set("code", query.code);
+    if (query?.page) params.set("page", String(query.page));
+    if (query?.limit) params.set("limit", String(query.limit));
+    return apiFetch<AdminRedemptionItem[]>(`/api/v1/admin/redemptions?${params.toString()}`, {
+      headers: { Authorization: `Bearer ${token}` },
+      cache: "no-store",
+    });
+  },
+
+  getAdminAccountCheckins: (
+    token: string,
+    accountId: string,
+    weeks = 2
+  ) =>
+    apiFetch<AdminAccountCheckinHistory>(`/api/v1/admin/accounts/${accountId}/checkins?weeks=${weeks}`, {
+      headers: { Authorization: `Bearer ${token}` },
+      cache: "no-store",
+    }),
+
+  getAdminWeeklyTimeline: (token: string) =>
+    apiFetch<AdminWeeklyTimelineItem[]>("/api/v1/admin/checkins/weekly-timeline", {
+      headers: { Authorization: `Bearer ${token}` },
+      cache: "no-store",
     }),
 
 

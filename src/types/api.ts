@@ -183,3 +183,41 @@ export interface AdminRetryResponse {
   message: string;
 }
 
+export interface AdminWeeklyTimelineItem {
+  day_of_week: number;
+  game_day: string;
+  label: string;
+  success_count: number;
+  total_eligible: number;
+  is_today: boolean;
+  is_future: boolean;
+}
+
+export interface AdminAccountCheckinDay {
+  game_day: string;
+  day_of_week: number;
+  label: string;
+  status: "SUCCESS" | "ALREADY_CHECKED" | "FAILED" | "UNCHECKED" | "UPCOMING" | string;
+  is_today: boolean;
+  is_future: boolean;
+  checked_at: string | null;
+}
+
+export interface AdminAccountCheckinHistory {
+  account: {
+    id: string;
+    uid: string;
+    nickname: string;
+    server_id: string;
+  };
+  stats: {
+    total_days: number;
+    checked_days: number;
+    streak: number;
+  };
+  weeks: {
+    current_week: AdminAccountCheckinDay[];
+    previous_week: AdminAccountCheckinDay[];
+  };
+}
+
