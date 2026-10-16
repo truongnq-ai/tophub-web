@@ -434,6 +434,9 @@
     "toolMasterTablesDesc": "Điểm gãy Mảnh, Sách, Quặng, Cổ Ngữ & Pet",
     "startWithArticleBtn": "Bắt đầu: Bài {code}",
     "showMoreArticlesBtn": "Xem đầy đủ {count} bài trong nhóm",
-    "hideMoreArticlesBtn": "Thu gọn danh sách bài"
+    "hideMoreArticlesBtn": "Thu gọn danh sách bài",
+    "neonShuttleAria": "Tiến độ đọc và Mục lục Neon",
+    "neonSectionEntered": "Đang đọc mục",
+    "neonTocHint": "Bấm để mở mục lục • Tự động sáng theo vị trí đọc"
   }
 }

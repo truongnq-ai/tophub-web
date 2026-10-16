@@ -74,16 +74,14 @@ export default function GuideArticlePage({
   const { prev, next } = getAdjacentArticles(category, slug);
 
   return (
-    <div className="flex flex-col xl:flex-row xl:items-start gap-4 xl:gap-8">
+    <div className="relative min-w-0 w-full">
       <GuidesToc article={article} />
-      <div className="flex-1 min-w-0 xl:order-1">
-        <GuideArticleRenderer
-          category={categoryObj}
-          article={article}
-          prevArticle={prev}
-          nextArticle={next}
-        />
-      </div>
+      <GuideArticleRenderer
+        category={categoryObj}
+        article={article}
+        prevArticle={prev}
+        nextArticle={next}
+      />
     </div>
   );
 }

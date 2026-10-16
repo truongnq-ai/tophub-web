@@ -39,12 +39,21 @@ vi.mock("@/i18n/routing", () => ({
   Link: ({
     href,
     children,
+    onClick,
     ...rest
   }: {
     href: string;
     children: React.ReactNode;
+    onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
   }) => (
-    <a href={href} {...rest}>
+    <a
+      href={href}
+      onClick={(e) => {
+        e.preventDefault();
+        onClick?.(e);
+      }}
+      {...rest}
+    >
       {children}
     </a>
   ),
@@ -99,5 +108,41 @@ describe("GuidesSidebar (Phase 1 Hardened Redesign)", () => {
     expect(
       screen.getByRole("button", { name: /Mở rộng danh mục/i })
     ).toBeDefined();
+  });
+
+  it("automatically collapses the desktop sidebar to w-14 icon rail when an article link is clicked", () => {
+    render(<GuidesSidebar />);
+
+    // Click an article inside the open Group 4 accordion
+    const articleLink = screen.getByRole("link", {
+      name: /4\.1/i,
+    });
+    fireEvent.click(articleLink);
+
+    // Desktop sidebar immediately collapses to w-14 and persists "1"
+    expect(
+      window.localStorage.getItem("tophub_guides_sidebar_collapsed")
+    ).toBe("1");
+    expect(
+      screen.getByRole("button", { name: /Mở rộng danh mục/i })
+    ).toBeDefined();
+  });
+
+  it("expands the sidebar to the clicked category when a category icon button is clicked in the collapsed w-14 rail", () => {
+    window.localStorage.setItem("tophub_guides_sidebar_collapsed", "1");
+    render(<GuidesSidebar />);
+
+    const group1RailBtn = screen.getByRole("button", {
+      name: /1\. Nhập Môn & Luật Sống Còn/i,
+    });
+    fireEvent.click(group1RailBtn);
+
+    expect(
+      window.localStorage.getItem("tophub_guides_sidebar_collapsed")
+    ).toBe("0");
+    const group1AccordionBtn = screen.getByRole("button", {
+      name: /1\. Nhập Môn & Luật Sống Còn/i,
+    });
+    expect(group1AccordionBtn.getAttribute("data-state")).toBe("open");
   });
 });

@@ -434,6 +434,9 @@
     "toolMasterTablesDesc": "Shards, Books, Ore, Runes & Pet breakpoints",
     "startWithArticleBtn": "Start: Guide {code}",
     "showMoreArticlesBtn": "View all {count} guides in group",
-    "hideMoreArticlesBtn": "Hide group guide list"
+    "hideMoreArticlesBtn": "Hide group guide list",
+    "neonShuttleAria": "Reading progress and Neon Table of Contents",
+    "neonSectionEntered": "Now reading",
+    "neonTocHint": "Click to open TOC • Auto-glows with scroll position"
   }
 }

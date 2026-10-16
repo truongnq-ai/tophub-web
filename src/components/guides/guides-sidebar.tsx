@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useMemo, useEffect, useRef } from "react";
 import {
   Sprout,
   ShieldAlert,
@@ -88,12 +88,16 @@ function renderArticleIndicator(badge: GuideBadgeType) {
 
 interface SidebarContentProps {
   onNavigate?: () => void;
+  onSelectArticle?: () => void;
   onCollapseDesktop?: () => void;
+  preferredCategorySlug?: string | null;
 }
 
 function SidebarNavigationTree({
   onNavigate,
+  onSelectArticle,
   onCollapseDesktop,
+  preferredCategorySlug,
 }: SidebarContentProps) {
   const t = useTranslations("Guides");
   const rawLocale = useLocale();
@@ -110,16 +114,27 @@ function SidebarNavigationTree({
     return "getting-started";
   }, [pathname]);
 
-  const [openCategory, setOpenCategory] = useState<string>(activeCategorySlug);
+  const [openCategory, setOpenCategory] = useState<string>(
+    preferredCategorySlug || activeCategorySlug
+  );
 
   useEffect(() => {
-    setOpenCategory(activeCategorySlug);
-  }, [activeCategorySlug]);
+    if (preferredCategorySlug) {
+      setOpenCategory(preferredCategorySlug);
+    } else {
+      setOpenCategory(activeCategorySlug);
+    }
+  }, [activeCategorySlug, preferredCategorySlug]);
 
   const searchResults = useMemo(() => {
     if (searchQuery.trim().length < 2) return null;
     return searchGuides(searchQuery, locale);
   }, [searchQuery, locale]);
+
+  const handleArticleClick = () => {
+    onSelectArticle?.();
+    onNavigate?.();
+  };
 
   return (
     <div className="space-y-3.5">
@@ -204,7 +219,7 @@ function SidebarNavigationTree({
                   <Link
                     key={`${article.categorySlug}/${article.slug}`}
                     href={href}
-                    onClick={onNavigate}
+                    onClick={handleArticleClick}
                     className={cn(
                       "flex items-center justify-between gap-2 rounded-xl px-2.5 py-2 text-xs transition-all min-h-[40px] border",
                       isActive
@@ -299,7 +314,7 @@ function SidebarNavigationTree({
                               <Link
                                 key={article.slug}
                                 href={href}
-                                onClick={onNavigate}
+                                onClick={handleArticleClick}
                                 title={article.title[locale]}
                                 className={cn(
                                   "flex items-center justify-between gap-1.5 rounded-lg px-2 py-1.5 text-xs transition-all min-h-[38px]",
@@ -341,6 +356,10 @@ export function GuidesSidebar() {
 
   const [mobileOpen, setMobileOpen] = useState(false);
   const [desktopCollapsed, setDesktopCollapsed] = useState(false);
+  const [preferredCategorySlug, setPreferredCategorySlug] = useState<
+    string | null
+  >(null);
+  const prevPathnameRef = useRef<string>(pathname);
   const categories = getAllCategories();
 
   useEffect(() => {
@@ -366,9 +385,32 @@ export function GuidesSidebar() {
     }
   };
 
+  // GAP-v31-05: Auto-collapse when navigating to a new article route after mount
+  useEffect(() => {
+    if (prevPathnameRef.current !== pathname) {
+      prevPathnameRef.current = pathname;
+      const segments = pathname.split("/").filter(Boolean);
+      const isArticleRoute = segments[0] === "guides" && segments.length >= 3;
+      if (isArticleRoute) {
+        setPreferredCategorySlug(null);
+        toggleDesktopCollapsed(true);
+      }
+    }
+  }, [pathname]);
+
+  const handleDesktopSelectArticle = () => {
+    setPreferredCategorySlug(null);
+    toggleDesktopCollapsed(true);
+  };
+
+  const handleExpandCategoryFromRail = (categorySlug: string) => {
+    setPreferredCategorySlug(categorySlug);
+    toggleDesktopCollapsed(false);
+  };
+
   return (
     <>
-      {/* Mobile Drawer Trigger Bar (< 1024px) with inline UID indicator (GAP-08 fix) */}
+      {/* Mobile Drawer Trigger Bar (< 1024px) with inline UID indicator */}
       <div className="lg:hidden mb-3">
         <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
           <SheetTrigger asChild>
@@ -449,31 +491,32 @@ export function GuidesSidebar() {
 
               {categories.map((category) => {
                 const Icon = categoryIcons[category.iconName] || BookOpen;
-                const firstArticle = category.articles[0];
-                const href = firstArticle
-                  ? `/guides/${category.slug}/${firstArticle.slug}`
-                  : "/guides";
                 const isActive = pathname.startsWith(`/guides/${category.slug}`);
+                const label = `${category.order}. ${category.title[locale]}`;
 
                 return (
-                  <Link
+                  <button
                     key={category.slug}
-                    href={href}
-                    title={`${category.order}. ${category.title[locale]}`}
+                    type="button"
+                    onClick={() => handleExpandCategoryFromRail(category.slug)}
+                    aria-label={label}
+                    title={label}
                     className={cn(
-                      "flex h-10 w-10 items-center justify-center rounded-xl border transition-colors",
+                      "flex h-10 w-10 items-center justify-center rounded-xl border transition-colors cursor-pointer",
                       isActive
                         ? "border-amber-500/40 bg-amber-500 text-slate-950 shadow-sm"
                         : "border-transparent text-muted-foreground hover:bg-amber-500/10 hover:text-amber-500"
                     )}
                   >
                     <Icon className="h-4 w-4" />
-                  </Link>
+                  </button>
                 );
               })}
             </div>
           ) : (
             <SidebarNavigationTree
+              preferredCategorySlug={preferredCategorySlug}
+              onSelectArticle={handleDesktopSelectArticle}
               onCollapseDesktop={() => toggleDesktopCollapsed(true)}
             />
           )}

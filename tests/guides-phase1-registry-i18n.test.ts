@@ -97,6 +97,9 @@ describe("Phase 1 Guides Registry, Hot Tags & i18n Integrity", () => {
       "startWithArticleBtn",
       "showMoreArticlesBtn",
       "hideMoreArticlesBtn",
+      "neonShuttleAria",
+      "neonSectionEntered",
+      "neonTocHint",
     ] as const;
 
     const viGuides = viMessages.Guides as Record<string, string>;
