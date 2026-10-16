@@ -232,6 +232,10 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
           ],
         },
         {
+          type: "widget",
+          widgetType: "biweekly_event_calendar",
+        },
+        {
           type: "media_spotlight",
           mediaCode: "MED-3.4-02",
           tier: "tier2_annotated_ui",

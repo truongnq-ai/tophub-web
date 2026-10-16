@@ -71,6 +71,10 @@ export const ARTICLE_2_2_META_LINEUPS: GuideArticle = {
       },
       blocks: [
         {
+          type: "widget",
+          widgetType: "tactical_formation_board",
+        },
+        {
           type: "paragraph",
           text: {
             vi: "Phe **Liên Minh (League)** sở hữu tỷ lệ rơi mảnh trong Quán Rượu (Tavern) cao nhất ở đầu game cùng khả năng dồn sát thương phép diện rộng (Burst AoE) và tạo khiên chắn kiên cố. Đây là đội hình khởi đầu bắt buộc cho 100% người chơi trong 3 tuần đầu tiên, đồng thời cũng là một thế lực mạnh mẽ về cuối game nếu được đầu tư đúng chuẩn.",

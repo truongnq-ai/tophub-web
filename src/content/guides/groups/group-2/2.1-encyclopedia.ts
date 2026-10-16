@@ -277,6 +277,10 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
           },
         },
         {
+          type: "widget",
+          widgetType: "hero_encyclopedia",
+        },
+        {
           type: "media_spotlight",
           mediaCode: "MED-2.1-01",
           tier: "tier2_annotated_ui",

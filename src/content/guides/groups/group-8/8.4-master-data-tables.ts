@@ -80,6 +80,10 @@ export const ARTICLE_8_4_MASTER_DATA_TABLES: GuideArticle = {
           },
         },
         {
+          type: "widget",
+          widgetType: "master_data_tables",
+        },
+        {
           type: "media_spotlight",
           mediaCode: "MED-8.4-02",
           tier: "tier2_annotated_ui",

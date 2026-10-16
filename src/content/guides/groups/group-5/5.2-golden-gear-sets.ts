@@ -81,6 +81,10 @@ export const ARTICLE_5_2_GOLDEN_GEAR_SETS: GuideArticle = {
       },
       blocks: [
         {
+          type: "widget",
+          widgetType: "blacksmith_anvil_matrix",
+        },
+        {
           type: "paragraph",
           text: {
             vi: "Khi mở Lò Rèn (Blacksmith) ở bậc phẩm chất Huyền Thoại (Legendary — Vàng/Cam), người chơi sẽ thấy một ma trận gồm 3 Bộ Trang Bị (3 Gear Sets) và 4 Cột Phe Phái. Do bản dịch tiếng Việt trong game và các tài liệu cộng đồng quốc tế đôi khi sử dụng tên gọi khác nhau tùy phiên bản cập nhật, phần dưới đây đồng bộ hóa chính xác tên quốc tế, tên hiển thị trong game và bản chất cơ chế của cả 3 bộ.",

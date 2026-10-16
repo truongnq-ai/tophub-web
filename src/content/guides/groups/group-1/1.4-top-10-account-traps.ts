@@ -221,6 +221,10 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
       },
       blocks: [
         {
+          type: "widget",
+          widgetType: "account_traps_triage",
+        },
+        {
           type: "paragraph",
           text: {
             vi: "Dưới đây là hồ sơ phân tích chuyên sâu cho từng cạm bẫy trong 10 Điểm Kiểm Toán Đỏ — bao gồm biểu hiện sai lầm phổ biến, cơ chế toán học khiến tài khoản tụt hậu và quy tắc chuẩn Meta để phòng tránh:",

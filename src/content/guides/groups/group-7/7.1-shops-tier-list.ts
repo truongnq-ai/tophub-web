@@ -83,6 +83,10 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
       },
       blocks: [
         {
+          type: "widget",
+          widgetType: "shop_safety_floor_explorer",
+        },
+        {
           type: "paragraph",
           text: {
             vi: "Trong Top Heroes, hệ thống kinh tế được phân mảnh thành 13 nhóm cửa hàng độc lập (Arena Shop, Guild Points, Guild Honor / Guild Coin Shop, Combat Valor / Battlefield, 4 Nations / Citadel Clash, Medal Shop, VIP Shop, Exchange Shop, Wheel, Dice of Fate, Kingdom Emblem, Black Dragon / Yeti Invasion và Decor Token Shop). Sai lầm lớn nhất khiến người chơi F2P và Low-Spender bị tụt lại phía sau không phải là thiếu lực chiến, mà là đốt tiền tệ quý hiếm vào các mặt hàng có tỷ giá quy đổi Kim Cương (Diamond Equivalent ROI) thấp thay vì tập trung vào nhóm vật phẩm đạt ROI 300% đến 600%.",

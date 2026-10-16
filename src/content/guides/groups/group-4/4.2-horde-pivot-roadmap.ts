@@ -76,6 +76,10 @@ export const ARTICLE_4_2_HORDE_PIVOT_ROADMAP: GuideArticle = {
       },
       blocks: [
         {
+          type: "widget",
+          widgetType: "horde_pivot_stepper",
+        },
+        {
           type: "paragraph",
           text: {
             vi: "Trong Top Heroes, mỗi Phe phái (Liên Minh / League, Bộ Lạc / Horde, Thiên Nhiên / Nature) có một đường cong sức mạnh hoàn toàn khác nhau theo tuổi máy chủ. Chiến lược \"Mượn Liên Minh đầu game, Chốt Bộ Lạc giữa và cuối game (League Start to Horde Pivot)\" được cộng đồng quốc tế công nhận là lộ trình tối ưu số 1 cho F2P và Low-Spender vì khai thác trọn vẹn điểm rơi mảnh miễn phí đầu game lẫn lợi thế khắc chế và kinh tế Hồn Đá Đỏ về dài hạn.",

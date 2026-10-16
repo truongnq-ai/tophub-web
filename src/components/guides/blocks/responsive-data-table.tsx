@@ -10,6 +10,7 @@ interface ResponsiveDataTableProps {
   headers: string[];
   rows: string[][];
   locale?: GuideLocale;
+  defaultExpanded?: boolean;
 }
 
 const INITIAL_VISIBLE_ROWS = 6;
@@ -42,10 +43,11 @@ export function ResponsiveDataTable({
   headers,
   rows,
   locale = "vi",
+  defaultExpanded = false,
 }: ResponsiveDataTableProps) {
   const copy = LABELS[locale];
   const [filterQuery, setFilterQuery] = useState("");
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(defaultExpanded);
 
   const normalizedQuery = filterQuery.trim().toLowerCase();
   const showFilterInput = rows.length > FILTER_THRESHOLD;
@@ -67,7 +69,7 @@ export function ResponsiveDataTable({
   }, [filteredRows, normalizedQuery, canCollapse, isExpanded]);
 
   return (
-    <div className="space-y-2">
+    <div data-testid="block-table" className="space-y-2">
       {(caption || showFilterInput) && (
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 px-1">
           {caption ? (

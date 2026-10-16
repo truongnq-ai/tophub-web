@@ -77,6 +77,10 @@ export const ARTICLE_2_3_FORMATION_COUNTERS: GuideArticle = {
       },
       blocks: [
         {
+          type: "widget",
+          widgetType: "tactical_formation_board",
+        },
+        {
           type: "paragraph",
           text: {
             vi: "Trong Top Heroes, mỗi đội hình xuất chiến gồm 6 vị trí được bố trí theo ma trận 3 Hàng × 2 Cột (2×3 Grid: Cột Trái và Cột Phải). Thuật toán tìm mục tiêu (Targeting AI) của trò chơi quy định rõ thứ tự chịu đòn theo từng trục dọc và cơ chế lao tuyến sau của sát thủ như sơ đồ dưới đây:",

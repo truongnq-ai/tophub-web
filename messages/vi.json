@@ -444,7 +444,23 @@
     "viewModeTabAll": "Xem toàn bộ",
     "viewModeNextTabPrefix": "Tiếp theo:",
     "keyTakeawaysCollapsedLabel": "Xem {count} định mức số liệu cốt lõi",
-    "keyTakeawaysHideLabel": "Thu gọn định mức số liệu"
+    "keyTakeawaysHideLabel": "Thu gọn định mức số liệu",
+    "widgetHeroTitle": "Bách Khoa Toàn Thư 51 Anh Hùng (Tương Tác)",
+    "widgetHeroSubtitle": "Lọc tức thì theo Phe phái, Phẩm cấp, Vai trò & Điểm ngọt MVS",
+    "widgetCalendarTitle": "Lịch Chu Kỳ Sự Kiện & Tra Cứu Double-Dip 300%",
+    "widgetCalendarSubtitle": "Chuyển đổi Pha 1 ⇄ Pha 2 (Tuần A / Tuần B) & Khung giờ vàng 4 tiếng",
+    "widgetMasterTablesTitle": "Trình Khám Phá 12 Bảng Số Liệu Gốc (Master Data Explorer)",
+    "widgetMasterTablesSubtitle": "Tra cứu xuyên 12 bảng định lượng chuẩn S0 ➔ S4 không cần cuộn trang",
+    "widgetTrapsTitle": "Trạm Chẩn Đoán & Cấp Cứu 10 Cạm Bẫy Phế Acc (1-Click Triage)",
+    "widgetTrapsSubtitle": "Lọc theo 4 Nhóm Hệ thống hoặc bấm vào lỗi bạn đang mắc phải để mở phác đồ cắt lỗ tức thì",
+    "widgetFormationTitle": "Bàn Cờ Chiến Thuật 6 Ô (2×3 Grid) & Mô Phỏng Khắc Chế Arena",
+    "widgetFormationSubtitle": "Trực quan hóa vị trí Hàng Trước (Ô 1–2), Vùng An Toàn (Ô 3–4), Hàng Sau (Ô 5–6) & 4 Kỹ thuật Đảo vị trí",
+    "widgetPivotTitle": "Trình Mô Phỏng 4 Giai Đoạn Xoay Trục Bộ Lạc (Zero-Loss Horde Pivot)",
+    "widgetPivotSubtitle": "Theo dõi sự dịch chuyển Anh hùng, Đồ Vàng & Đá Hồn giữa Đội 1 và Đội 2 từ Ngày 1 đến Season 3",
+    "widgetAnvilTitle": "Ma Trận Đe Rèn 3×4 (+30% Dấu Hệ) & Tra Cứu Đồ Vàng BiS 24 Tướng",
+    "widgetAnvilSubtitle": "Kiểm tra trực quan 4 cột Đe Rèn (Cấm đúc Cột 4 Không Dấu Hệ) & Bộ trang bị tối ưu cho từng Anh hùng",
+    "widgetShopSafetyTitle": "Bộ Chọn 13 Cửa Hàng Nhanh & Ngưỡng Đáy Ví An Toàn (Safety Floor)",
+    "widgetShopSafetySubtitle": "Tra cứu tức thì Số dư Đóng băng bắt buộc hàng tuần & Phân loại 3 cột: Nên Vét (S+/S) • Mua Khi Dư (A/B) • Cấm Mua (F)"
   }
 }
 

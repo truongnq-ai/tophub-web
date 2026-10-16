@@ -30,6 +30,14 @@ import { VisualDiagramBlock } from "./blocks/visual-diagram-block";
 import { InteractiveChecklistBlock } from "./blocks/interactive-checklist-block";
 import { CaseStudyBlock } from "./blocks/case-study-block";
 import { MediaSpotlightBlock } from "./blocks/media-spotlight-block";
+import { HeroEncyclopediaWidget } from "./widgets/hero-encyclopedia-widget";
+import { BiweeklyCalendarWidget } from "./widgets/biweekly-calendar-widget";
+import { MasterDataExplorerWidget } from "./widgets/master-data-explorer-widget";
+import { AccountTrapsTriageWidget } from "./widgets/account-traps-triage-widget";
+import { TacticalFormationBoardWidget } from "./widgets/tactical-formation-board-widget";
+import { HordePivotStepperWidget } from "./widgets/horde-pivot-stepper-widget";
+import { BlacksmithAnvilMatrixWidget } from "./widgets/blacksmith-anvil-matrix-widget";
+import { ShopSafetyFloorWidget } from "./widgets/shop-safety-floor-widget";
 import { ProContentGate } from "./pro-content-gate";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
@@ -37,10 +45,77 @@ import { cn } from "@/lib/utils";
 export type ArticleViewTab = "core" | "data" | "action" | "all";
 
 interface GuideArticleRendererProps {
-  category: GuideCategory;
+  category?: GuideCategory;
   article: GuideArticle;
-  prevArticle: GuideArticle | null;
-  nextArticle: GuideArticle | null;
+  prevArticle?: GuideArticle | null;
+  nextArticle?: GuideArticle | null;
+  locale?: GuideLocale;
+}
+
+const CONSOLIDATED_SUBSECTIONS_BY_SLUG: Record<string, ReadonlySet<string>> = {
+  encyclopedia: new Set([
+    "sub-2-1-league-heroes",
+    "sub-2-2-horde-heroes",
+    "sub-2-3-nature-heroes",
+    "sub-2-4-economy-heroes-summary",
+  ]),
+  "master-data-tables": new Set([
+    "sub-1-1-hero-star-and-skill-books-table",
+    "sub-1-2-hero-awakening-cost-table",
+    "sub-1-3-gear-enhancement-master-table",
+    "sub-1-4-troop-tiers-unlock-table",
+    "sub-4-1-faction-level-table",
+    "sub-4-2-mythic-gear-and-uw-table",
+    "sub-4-3-lord-gear-master-table",
+    "sub-4-4-runes-master-table",
+    "sub-4-5-pets-master-table",
+    "sub-4-6-troop-skins-master-table",
+    "sub-4-7-vip-master-table",
+  ]),
+  "top-10-account-traps": new Set([
+    "sub-trap-1",
+    "sub-trap-2",
+    "sub-trap-3",
+    "sub-trap-4",
+    "sub-trap-5",
+    "sub-trap-6",
+    "sub-trap-7",
+    "sub-trap-8",
+    "sub-trap-9",
+    "sub-trap-10",
+  ]),
+  "meta-lineups": new Set([
+    "sub-1-1-league-starter-transition",
+    "sub-1-2-league-endgame-pure",
+    "sub-2-1-horde-hybrid-and-early",
+    "sub-2-2-horde-endgame-5mythic",
+    "sub-3-1-nature-transition",
+    "sub-3-2-nature-endgame-pure",
+  ]),
+  "formation-and-counters": new Set([
+    "sub-4-1-four-arena-swaps",
+  ]),
+  "horde-pivot-roadmap": new Set([
+    "sub-4-2-zero-loss-pivot-matrix",
+  ]),
+  "golden-gear-sets": new Set([
+    "sub-1-1-three-golden-sets-decoded-table",
+    "sub-4-1-tank-bruiser-bis-table",
+    "sub-4-2-carry-dps-bis-table",
+    "sub-4-3-support-healer-control-bis-table",
+  ]),
+  "shops-tier-list": new Set([
+    "sub-1-2-thirteen-shops-master-map",
+    "sub-4-1-diamond-equivalent-roi-matrix",
+  ]),
+};
+
+export function hasWidgetBlock(sec: GuideSection): boolean {
+  const allBlocks = [
+    ...(sec.blocks ?? []),
+    ...(sec.subSections?.flatMap((sub) => sub.blocks ?? []) ?? []),
+  ];
+  return allBlocks.some((b) => b.type === "widget");
 }
 
 export function splitArticleTitle(rawTitle: string): {
@@ -87,7 +162,8 @@ export function classifySectionTab(
 function renderBlock(
   block: GuideContentBlock,
   locale: GuideLocale,
-  idx: number
+  idx: number,
+  article: GuideArticle
 ) {
   switch (block.type) {
     case "paragraph":
@@ -171,15 +247,87 @@ function renderBlock(
     case "media_spotlight":
       return <MediaSpotlightBlock key={idx} block={block} locale={locale} />;
     case "widget":
-      return null;
+      switch (block.widgetType) {
+        case "hero_encyclopedia":
+          return (
+            <HeroEncyclopediaWidget
+              key={idx}
+              article={article}
+              locale={locale}
+            />
+          );
+        case "biweekly_event_calendar":
+          return (
+            <BiweeklyCalendarWidget
+              key={idx}
+              article={article}
+              locale={locale}
+            />
+          );
+        case "master_data_tables":
+          return (
+            <MasterDataExplorerWidget
+              key={idx}
+              article={article}
+              locale={locale}
+            />
+          );
+        case "account_traps_triage":
+          return (
+            <AccountTrapsTriageWidget
+              key={idx}
+              article={article}
+              locale={locale}
+            />
+          );
+        case "tactical_formation_board":
+          return (
+            <TacticalFormationBoardWidget
+              key={idx}
+              article={article}
+              locale={locale}
+            />
+          );
+        case "horde_pivot_stepper":
+          return (
+            <HordePivotStepperWidget
+              key={idx}
+              article={article}
+              locale={locale}
+            />
+          );
+        case "blacksmith_anvil_matrix":
+          return (
+            <BlacksmithAnvilMatrixWidget
+              key={idx}
+              article={article}
+              locale={locale}
+            />
+          );
+        case "shop_safety_floor_explorer":
+          return (
+            <ShopSafetyFloorWidget
+              key={idx}
+              article={article}
+              locale={locale}
+            />
+          );
+        default:
+          return null;
+      }
   }
 }
 
 function renderSection(
   section: GuideSection,
   locale: GuideLocale,
-  isHidden: boolean
+  isHidden: boolean,
+  article: GuideArticle
 ) {
+  const consolidatedSet = CONSOLIDATED_SUBSECTIONS_BY_SLUG[article.slug];
+  const visibleSubSections =
+    section.subSections?.filter((sub) => !consolidatedSet?.has(sub.id)) ?? [];
+
   return (
     <div
       key={section.id}
@@ -195,12 +343,14 @@ function renderSection(
       </h2>
       {section.blocks.length > 0 && (
         <div className="space-y-4">
-          {section.blocks.map((block, idx) => renderBlock(block, locale, idx))}
+          {section.blocks.map((block, idx) =>
+            renderBlock(block, locale, idx, article)
+          )}
         </div>
       )}
-      {section.subSections && section.subSections.length > 0 && (
+      {visibleSubSections.length > 0 && (
         <div className="space-y-5 pt-1">
-          {section.subSections.map((sub) => (
+          {visibleSubSections.map((sub) => (
             <div
               key={sub.id}
               id={sub.id}
@@ -221,7 +371,7 @@ function renderSection(
               </div>
               <div className="space-y-3.5">
                 {sub.blocks.map((block, idx) =>
-                  renderBlock(block, locale, idx)
+                  renderBlock(block, locale, idx, article)
                 )}
               </div>
             </div>
@@ -237,10 +387,11 @@ export function GuideArticleRenderer({
   article,
   prevArticle,
   nextArticle,
+  locale: propLocale,
 }: GuideArticleRendererProps) {
   const t = useTranslations("Guides");
   const rawLocale = useLocale();
-  const locale: GuideLocale = rawLocale === "en" ? "en" : "vi";
+  const locale: GuideLocale = propLocale ?? (rawLocale === "en" ? "en" : "vi");
 
   const [activeTab, setActiveTab] = useState<ArticleViewTab>("core");
 
@@ -254,6 +405,7 @@ export function GuideArticleRenderer({
       article.freeSections.map((sec, idx) => ({
         section: sec,
         tab: classifySectionTab(sec, idx, false),
+        hasWidget: hasWidgetBlock(sec),
       })),
     [article.freeSections]
   );
@@ -263,9 +415,21 @@ export function GuideArticleRenderer({
       article.proSections.map((sec, idx) => ({
         section: sec,
         tab: classifySectionTab(sec, idx, true),
+        hasWidget: hasWidgetBlock(sec),
       })),
     [article.proSections]
   );
+
+  const isSectionHidden = (
+    tab: Exclude<ArticleViewTab, "all">,
+    hasWidget: boolean
+  ): boolean => {
+    if (activeTab === "all") return false;
+    if (hasWidget && (activeTab === "core" || activeTab === "data")) {
+      return false;
+    }
+    return activeTab !== tab;
+  };
 
   // Map every anchor ID (section.id and subSection.id) to its assigned tab
   const anchorToTabMap = useMemo(() => {
@@ -315,9 +479,10 @@ export function GuideArticleRenderer({
     };
 
     const handleTocNavigate = (e: Event) => {
-      const custom = e as CustomEvent<{ targetId?: string }>;
-      if (custom.detail?.targetId) {
-        navigateToAnchor(custom.detail.targetId);
+      const custom = e as CustomEvent<{ targetId?: string; id?: string }>;
+      const targetId = custom.detail?.targetId ?? custom.detail?.id;
+      if (targetId) {
+        navigateToAnchor(targetId);
       }
     };
 
@@ -337,7 +502,7 @@ export function GuideArticleRenderer({
   }, [anchorToTabMap]);
 
   const hasVisibleProSection = proSectionsWithTab.some(
-    (item) => activeTab === "all" || item.tab === activeTab
+    (item) => !isSectionHidden(item.tab, item.hasWidget)
   );
 
   const nextTabConfig: {
@@ -365,10 +530,14 @@ export function GuideArticleRenderer({
               <BookOpen className="h-3.5 w-3.5 text-amber-500" />
               <span>{t("backToHub")}</span>
             </Link>
-            <span>/</span>
-            <span className="text-amber-600 dark:text-amber-400 font-bold">
-              {category.order}. {category.title[locale]}
-            </span>
+            {category && (
+              <>
+                <span>/</span>
+                <span className="text-amber-600 dark:text-amber-400 font-bold">
+                  {category.order}. {category.title[locale]}
+                </span>
+              </>
+            )}
           </div>
 
           <div className="flex items-center gap-2">
@@ -524,11 +693,12 @@ export function GuideArticleRenderer({
 
       {/* De-Boxed Free Sections */}
       <div className="divide-y divide-border/50">
-        {freeSectionsWithTab.map(({ section, tab }) =>
+        {freeSectionsWithTab.map(({ section, tab, hasWidget }) =>
           renderSection(
             section,
             locale,
-            activeTab !== "all" && activeTab !== tab
+            isSectionHidden(tab, hasWidget),
+            article
           )
         )}
       </div>
@@ -541,11 +711,12 @@ export function GuideArticleRenderer({
           className={cn(!hasVisibleProSection && "hidden")}
         >
           <ProContentGate>
-            {proSectionsWithTab.map(({ section, tab }) =>
+            {proSectionsWithTab.map(({ section, tab, hasWidget }) =>
               renderSection(
                 section,
                 locale,
-                activeTab !== "all" && activeTab !== tab
+                isSectionHidden(tab, hasWidget),
+                article
               )
             )}
           </ProContentGate>

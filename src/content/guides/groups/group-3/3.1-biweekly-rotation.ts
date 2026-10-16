@@ -145,6 +145,10 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
             },
           ],
         },
+        {
+          type: "widget",
+          widgetType: "biweekly_event_calendar",
+        },
       ],
       subSections: [
         {

@@ -188,7 +188,12 @@ export interface GuideMediaSpotlightBlock {
 export type GuideWidgetType =
   | "hero_encyclopedia"
   | "biweekly_event_calendar"
-  | "master_data_tables";
+  | "master_data_tables"
+  | "account_traps_triage"
+  | "tactical_formation_board"
+  | "horde_pivot_stepper"
+  | "blacksmith_anvil_matrix"
+  | "shop_safety_floor_explorer";
 
 export interface GuideWidgetBlock {
   type: "widget";

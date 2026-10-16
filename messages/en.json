@@ -444,7 +444,23 @@
     "viewModeTabAll": "View All",
     "viewModeNextTabPrefix": "Next up:",
     "keyTakeawaysCollapsedLabel": "View {count} core quantitative takeaways",
-    "keyTakeawaysHideLabel": "Hide quantitative takeaways"
+    "keyTakeawaysHideLabel": "Hide quantitative takeaways",
+    "widgetHeroTitle": "Interactive 51-Hero Tactical Encyclopedia",
+    "widgetHeroSubtitle": "Instant filtering by Faction, Rarity, Role & MVS Sweet Spots",
+    "widgetCalendarTitle": "Biweekly Event Cycle & 300% Double-Dip Planner",
+    "widgetCalendarSubtitle": "Switch Phase 1 ⇄ Phase 2 (Week A / Week B) & 4-Hour Golden Windows",
+    "widgetMasterTablesTitle": "12 Master Quantitative Tables Explorer",
+    "widgetMasterTablesSubtitle": "Cross-table instant lookup across all 12 S0 ➔ S4 datasets without scrolling",
+    "widgetTrapsTitle": "10 Account-Ruining Traps Diagnostic & Triage Station",
+    "widgetTrapsSubtitle": "Filter by 4 System Groups or click any trap you committed to reveal its immediate stop-loss protocol",
+    "widgetFormationTitle": "Interactive 2×3 Six-Slot Formation Board & Arena Counter-Swap Simulator",
+    "widgetFormationSubtitle": "Visualize Frontline (Slots 1–2), Safe Zone (Slots 3–4), Backline (Slots 5–6) & 4 Arena Positional Swaps",
+    "widgetPivotTitle": "4-Stage Zero-Loss Horde Pivot Simulator (Queue 1 ⇄ Queue 2)",
+    "widgetPivotSubtitle": "Track Hero, Golden Gear & Soul Stone transitions between Queue 1 and Queue 2 from Day 1 to Season 3",
+    "widgetAnvilTitle": "3×4 Blacksmith Anvil Matrix (+30% Faction Mark) & 24-Hero BiS Finder",
+    "widgetAnvilSubtitle": "Inspect the 4 Anvil Columns (Column 4 Neutral Forbidden) & Best-in-Slot sets across 24 core heroes",
+    "widgetShopSafetyTitle": "13-Shop Instant Selector & Weekly Wallet Safety Floor Explorer",
+    "widgetShopSafetySubtitle": "Instant lookup for mandatory Weekly Currency Freezes & 3-Column Triage: Must-Buy (S+/S) • Surplus (A/B) • Trap (F)"
   }
 }
 
