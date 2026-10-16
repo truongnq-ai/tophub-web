@@ -8,6 +8,7 @@ export interface SavedAccount {
   nickname: string;
   server_id: string;
   added_at: number;
+  active_plan?: "FREE" | "PRO";
 }
 
 interface UidSessionContextType {

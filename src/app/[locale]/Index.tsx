@@ -28,7 +28,7 @@ export default function LandingPage({ initialActiveCodes }: LandingPageProps) {
             <span className="text-xs font-mono">{t("loadingAccount")}</span>
           </div>
         ) : activeAccount ? (
-          <UidControlDashboard account={activeAccount} />
+          <UidControlDashboard account={activeAccount} initialActiveCodes={initialActiveCodes} />
         ) : (
           <UidEnrollForm initialActiveCodes={initialActiveCodes} />
         )}

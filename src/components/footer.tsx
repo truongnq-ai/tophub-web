@@ -37,13 +37,13 @@ export function Footer() {
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <Link href="/giftcodes" className="text-muted-foreground hover:text-amber-500 dark:hover:text-amber-400 transition-colors">
-                  {tNav("giftcodes")} 2026
+                <Link href="/guides" className="text-muted-foreground hover:text-amber-500 dark:hover:text-amber-400 transition-colors font-semibold">
+                  {tNav("guides")} (S0 ➔ S4)
                 </Link>
               </li>
               <li>
-                <Link href="/check" className="text-muted-foreground hover:text-amber-500 dark:hover:text-amber-400 transition-colors">
-                  {tFooter("botStatusLookup")}
+                <Link href="/giftcodes" className="text-muted-foreground hover:text-amber-500 dark:hover:text-amber-400 transition-colors">
+                  {tNav("giftcodes")} 2026
                 </Link>
               </li>
               <li>

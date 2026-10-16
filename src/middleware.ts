@@ -5,6 +5,7 @@ import { routing } from "./i18n/routing";
 
 const publicPages = [
   "/",
+  "/guides",
   "/giftcodes",
   "/pricing",
   "/login",

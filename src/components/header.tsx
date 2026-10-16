@@ -9,11 +9,9 @@ import {
   Menu,
   User,
   LogOut,
-  Gift,
   Home,
   ChevronDown,
-  ShieldCheck,
-  Bot,
+  BookOpen,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -45,8 +43,7 @@ export function Header() {
 
   const navigationItems = [
     { name: tNav("home"), href: "/", icon: Home },
-    { name: tNav("giftcodes"), href: "/giftcodes", icon: Gift },
-    { name: tNav("check"), href: "/check", icon: ShieldCheck },
+    { name: tNav("guides"), href: "/guides", icon: BookOpen },
   ];
 
   return (
@@ -82,7 +79,10 @@ export function Header() {
                 <nav className="mt-8 flex flex-col space-y-1.5">
                   {navigationItems.map((item) => {
                     const Icon = item.icon;
-                    const isActive = pathname === item.href;
+                    const isActive =
+                      item.href === "/"
+                        ? pathname === "/"
+                        : pathname === item.href || pathname.startsWith(`${item.href}/`);
                     return (
                       <Link
                         key={item.href}
@@ -125,13 +125,16 @@ export function Header() {
         <nav className="hidden md:flex items-center gap-1 lg:gap-2">
           {navigationItems.map((item) => {
             const Icon = item.icon;
-            const isActive = pathname === item.href;
+            const isActive =
+              item.href === "/"
+                ? pathname === "/"
+                : pathname === item.href || pathname.startsWith(`${item.href}/`);
             return (
               <Link
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-sm font-semibold transition-all",
+                  "flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-sm font-semibold transition-all min-h-[44px]",
                   isActive
                     ? "bg-amber-500/15 text-amber-600 dark:text-amber-400 font-bold shadow-sm shadow-amber-500/10 border border-amber-500/25"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted/50"

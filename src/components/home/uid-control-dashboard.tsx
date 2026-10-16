@@ -9,14 +9,17 @@ import {
   XCircle,
   Clock,
   Gift,
-  Bot,
   Loader2,
   LogOut,
   RefreshCw,
   Sparkles,
   Calendar,
   AlertCircle,
+  Copy,
+  Check,
+  ArrowRight,
 } from "lucide-react";
+import { Link } from "@/i18n/routing";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -32,18 +35,31 @@ import type { PlayerStatusResponse } from "@/types/api";
 
 interface UidControlDashboardProps {
   account: SavedAccount;
+  initialActiveCodes?: Array<{ code: string; status: string }>;
 }
 
-export function UidControlDashboard({ account }: UidControlDashboardProps) {
+export function UidControlDashboard({ account, initialActiveCodes }: UidControlDashboardProps) {
   const t = useTranslations("Home.dashboard");
+  const tActiveCodes = useTranslations("Home.activeCodes");
   const format = useFormatter();
-  const { logout } = useUidSession();
+  const { logout, saveAccount } = useUidSession();
 
   const [statusData, setStatusData] = useState<PlayerStatusResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [runningNow, setRunningNow] = useState(false);
   const [cooldownSeconds, setCooldownSeconds] = useState(0);
   const [feedbackMsg, setFeedbackMsg] = useState<{ type: "success" | "error"; text: string } | null>(null);
+  const [copiedCode, setCopiedCode] = useState<string | null>(null);
+
+  const handleCopyCode = async (code: string) => {
+    try {
+      await navigator.clipboard.writeText(code);
+      setCopiedCode(code);
+      setTimeout(() => setCopiedCode(null), 2000);
+    } catch {
+      // Fallback ignore if clipboard permission blocked
+    }
+  };
 
   // Load Status
   const loadStatus = useCallback(async () => {
@@ -52,13 +68,19 @@ export function UidControlDashboard({ account }: UidControlDashboardProps) {
       const res = await getPlayerStatusAction(account.uid);
       if (res.success && res.data) {
         setStatusData(res.data);
+        if (res.data.active_plan && res.data.active_plan !== account.active_plan) {
+          await saveAccount({
+            ...account,
+            active_plan: res.data.active_plan,
+          });
+        }
       }
     } catch {
       // Non-blocking error
     } finally {
       setLoading(false);
     }
-  }, [account.uid]);
+  }, [account, saveAccount]);
 
   useEffect(() => {
     loadStatus();
@@ -342,6 +364,59 @@ export function UidControlDashboard({ account }: UidControlDashboardProps) {
           ) : (
             <div className="py-8 text-center text-muted-foreground text-xs sm:text-sm">
               {t("emptyHistory")}
+            </div>
+          )}
+        </CardContent>
+      </Card>
+
+      {/* Active Giftcodes Quick Copy Section */}
+      <Card className="card-rpg rounded-3xl">
+        <CardHeader className="pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <CardTitle className="text-base sm:text-lg font-bold text-foreground flex items-center gap-2 font-heading">
+            <Gift className="h-5 w-5 text-amber-500" />
+            <span>
+              {tActiveCodes("title")} · {(initialActiveCodes ?? []).length}
+            </span>
+          </CardTitle>
+          <div className="flex items-center gap-3">
+            <span className="text-[11px] text-emerald-500 dark:text-emerald-400 font-mono font-bold flex items-center gap-1.5">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              {tActiveCodes("scanning")}
+            </span>
+            <Link
+              href="/giftcodes"
+              className="inline-flex items-center gap-1 text-xs font-semibold text-amber-600 dark:text-amber-400 hover:underline"
+            >
+              <span>{tActiveCodes("viewArchive")}</span>
+              <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          </div>
+        </CardHeader>
+        <CardContent>
+          {(initialActiveCodes ?? []).length > 0 ? (
+            <div className="flex flex-wrap gap-2.5">
+              {(initialActiveCodes ?? []).map((item) => (
+                <button
+                  key={item.code}
+                  type="button"
+                  onClick={() => handleCopyCode(item.code)}
+                  className="group inline-flex items-center gap-2 rounded-xl border border-border/80 dark:border-amber-500/20 bg-muted/40 hover:bg-amber-500/10 hover:border-amber-500/50 px-3.5 py-2 min-h-[40px] font-mono text-xs text-foreground transition-all duration-150"
+                >
+                  <span className="font-bold tracking-wide">{item.code}</span>
+                  {copiedCode === item.code ? (
+                    <Check className="h-3.5 w-3.5 text-emerald-500" />
+                  ) : (
+                    <Copy className="h-3.5 w-3.5 text-muted-foreground group-hover:text-amber-500 transition-colors" />
+                  )}
+                </button>
+              ))}
+            </div>
+          ) : (
+            <div className="rounded-2xl border border-dashed border-border/80 p-4 text-center text-xs text-muted-foreground bg-muted/20">
+              {tActiveCodes("empty")}
             </div>
           )}
         </CardContent>
