@@ -8,6 +8,7 @@ import {
   Info,
   ExternalLink,
   Clock,
+  ArrowRight,
 } from "lucide-react";
 import type {
   GuideLocale,
@@ -42,6 +43,28 @@ export function MediaSpotlightBlock({
         <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
           {block.description[locale]}
         </p>
+
+        {/* Visual Counter Cycle Arrow Banner */}
+        <div className="rounded-xl border border-amber-500/25 bg-background/80 px-3 py-2 flex flex-wrap items-center justify-center gap-2 text-xs font-heading font-bold">
+          <span className="text-rose-600 dark:text-rose-400">
+            🔴 {locale === "en" ? "Horde" : "Bộ Lạc"}
+          </span>
+          <ArrowRight className="h-3.5 w-3.5 text-amber-500" />
+          <span className="text-sky-600 dark:text-sky-400">
+            🔵 {locale === "en" ? "League" : "Liên Minh"}
+          </span>
+          <ArrowRight className="h-3.5 w-3.5 text-amber-500" />
+          <span className="text-emerald-600 dark:text-emerald-400">
+            🟢 {locale === "en" ? "Nature" : "Thiên Nhiên"}
+          </span>
+          <ArrowRight className="h-3.5 w-3.5 text-amber-500" />
+          <span className="text-rose-600 dark:text-rose-400">
+            🔴 {locale === "en" ? "Horde" : "Bộ Lạc"}
+          </span>
+          <Badge className="ml-1 bg-amber-500/15 text-amber-600 dark:text-amber-300 border-amber-500/30 font-mono text-[10px]">
+            +20% DMG / -20% Taken
+          </Badge>
+        </div>
 
         {/* 3-Faction Counter Cycle Strip */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -189,30 +212,35 @@ export function MediaSpotlightBlock({
                 key={pIdx}
                 className={
                   isDo
-                    ? "rounded-xl border border-emerald-500/40 bg-emerald-500/10 p-3 space-y-1"
+                    ? "rounded-xl border border-emerald-500/40 bg-emerald-500/10 p-3 space-y-1.5"
                     : isDont
-                      ? "rounded-xl border border-rose-500/40 bg-rose-500/10 p-3 space-y-1"
-                      : "rounded-xl border border-sky-500/40 bg-sky-500/10 p-3 space-y-1"
+                      ? "rounded-xl border border-rose-500/40 bg-rose-500/10 p-3 space-y-1.5"
+                      : "rounded-xl border border-sky-500/40 bg-sky-500/10 p-3 space-y-1.5"
                 }
               >
-                <div className="flex items-center gap-1.5 text-xs font-heading font-bold">
-                  {isDo ? (
-                    <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
-                  ) : isDont ? (
-                    <XCircle className="h-4 w-4 text-rose-500 shrink-0" />
-                  ) : (
-                    <Info className="h-4 w-4 text-sky-500 shrink-0" />
-                  )}
-                  <span
-                    className={
-                      isDo
-                        ? "text-emerald-600 dark:text-emerald-400"
-                        : isDont
-                          ? "text-rose-600 dark:text-rose-400"
-                          : "text-sky-600 dark:text-sky-400"
-                    }
-                  >
-                    {pin.label[locale]}
+                <div className="flex items-center justify-between gap-2 text-xs font-heading font-bold">
+                  <div className="flex items-center gap-1.5 min-w-0">
+                    {isDo ? (
+                      <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
+                    ) : isDont ? (
+                      <XCircle className="h-4 w-4 text-rose-500 shrink-0" />
+                    ) : (
+                      <Info className="h-4 w-4 text-sky-500 shrink-0" />
+                    )}
+                    <span
+                      className={
+                        isDo
+                          ? "text-emerald-600 dark:text-emerald-400"
+                          : isDont
+                            ? "text-rose-600 dark:text-rose-400"
+                            : "text-sky-600 dark:text-sky-400"
+                      }
+                    >
+                      {pin.label[locale]}
+                    </span>
+                  </div>
+                  <span className="inline-flex h-5 min-w-[24px] items-center justify-center rounded-md bg-amber-500/20 border border-amber-500/40 px-1.5 font-mono text-[10px] font-black text-amber-600 dark:text-amber-300 shrink-0">
+                    #{pIdx + 1}
                   </span>
                 </div>
                 <p className="text-xs text-foreground/90 leading-relaxed">
@@ -226,3 +254,4 @@ export function MediaSpotlightBlock({
     </div>
   );
 }
+

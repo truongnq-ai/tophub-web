@@ -2,10 +2,15 @@ import React from "react";
 import { describe, expect, it, beforeEach } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { TldrActionBox } from "../src/components/guides/blocks/tldr-action-box";
+import { CalloutBox } from "../src/components/guides/blocks/callout-box";
+import { ResponsiveDataTable } from "../src/components/guides/blocks/responsive-data-table";
+import { StepRoadmap } from "../src/components/guides/blocks/step-roadmap";
 import { VisualDiagramBlock } from "../src/components/guides/blocks/visual-diagram-block";
 import { InteractiveChecklistBlock } from "../src/components/guides/blocks/interactive-checklist-block";
 import { CaseStudyBlock } from "../src/components/guides/blocks/case-study-block";
 import { MediaSpotlightBlock } from "../src/components/guides/blocks/media-spotlight-block";
+
+
 
 describe("Rich RPG Guide UI Blocks v2.0", () => {
   beforeEach(() => {
@@ -167,4 +172,211 @@ describe("Rich RPG Guide UI Blocks v2.0", () => {
     expect(link.getAttribute("href")?.startsWith("https://www.youtube.com/results")).toBe(true);
     expect(link.getAttribute("rel")).toBe("noopener noreferrer");
   });
+
+  it("toggles collapsible keyTakeaways drawer inside TldrActionBox", () => {
+    render(
+      <TldrActionBox
+        locale="vi"
+        tldr={{
+          coreRule: { vi: "Luật số 1", en: "Rule 1" },
+          immediateAction: { vi: "Làm ngay", en: "Act now" },
+          strictTaboo: { vi: "Cấm làm", en: "Forbidden" },
+        }}
+        keyTakeaways={[
+          { vi: "Định mức 560 mảnh vàng", en: "560 Universal Shards" },
+          { vi: "Giữ 40,000 Guild Honor", en: "Hold 40,000 Guild Honor" },
+        ]}
+      />
+    );
+
+    const toggleBtn = screen.getByTestId("tldr-takeaways-toggle");
+    expect(toggleBtn.getAttribute("aria-expanded")).toBe("false");
+
+    fireEvent.click(toggleBtn);
+    expect(toggleBtn.getAttribute("aria-expanded")).toBe("true");
+    expect(screen.getByText(/Định mức 560 mảnh vàng/i)).toBeDefined();
+    expect(screen.getByText(/Giữ 40,000 Guild Honor/i)).toBeDefined();
+  });
+
+  it("renders CalloutBox with semantic pill badges per variant", () => {
+    render(
+      <div>
+        <CalloutBox variant="danger" title="Bẫy Quán Rượu" content="Đừng tiêu kim cương" />
+        <CalloutBox variant="tip" title="Mẹo Tối Ưu" content="Mua VIP Shop" />
+        <CalloutBox variant="warning" title="Cảnh Báo" content="Chú ý giờ reset" />
+        <CalloutBox variant="rule" title="Luật Thép" content="Chỉ nuôi Đội 1" />
+      </div>
+    );
+
+    expect(screen.getByText("BẪY ĐỎ")).toBeDefined();
+    expect(screen.getByText("MẸO TỐI ƯU")).toBeDefined();
+    expect(screen.getByText("CẢNH BÁO")).toBeDefined();
+    expect(screen.getByText("LUẬT THÉP")).toBeDefined();
+  });
+
+  it("supports breakpoint highlighting, >8 row progressive disclosure, and full-row search in ResponsiveDataTable", () => {
+    const rows = Array.from({ length: 10 }, (_, idx) => [
+      idx === 2 ? `🔥 Mốc ${idx + 1} (Mythic)` : `Mốc ${idx + 1}`,
+      `${(idx + 1) * 100} Mảnh`,
+    ]);
+
+    const { container } = render(
+      <ResponsiveDataTable
+        caption="Bảng Mốc Sao"
+        headers={["Cấp Sao", "Số Mảnh"]}
+        rows={rows}
+      />
+    );
+
+    // Default: shows first 6 rows when rows.length > 8
+    const initialBodyRows = container.querySelectorAll("tbody tr");
+    expect(initialBodyRows.length).toBe(6);
+
+    // Row 3 (index 2) has 🔥 and Mythic -> marked as breakpoint row
+    expect(initialBodyRows[2].getAttribute("data-breakpoint-row")).toBe("true");
+    expect(initialBodyRows[0].getAttribute("data-breakpoint-row")).toBe("false");
+
+    // Searching searches across ALL 10 rows (including row 10 which was collapsed)
+    const filterInput = screen.getByTestId("table-filter-input");
+    fireEvent.change(filterInput, { target: { value: "Mốc 10" } });
+    const filteredRows = container.querySelectorAll("tbody tr");
+    expect(filteredRows.length).toBe(1);
+    expect(screen.getByText("Mốc 10")).toBeDefined();
+
+    // Clear filter and click expand toggle -> shows all 10 rows
+    fireEvent.change(filterInput, { target: { value: "" } });
+    const expandBtn = screen.getByTestId("table-expand-toggle");
+    fireEvent.click(expandBtn);
+    expect(container.querySelectorAll("tbody tr").length).toBe(10);
+  });
+
+  it("renders visual percentage progress bar in VisualDiagramBlock when variant is metric_bars", () => {
+    render(
+      <VisualDiagramBlock
+        locale="vi"
+        block={{
+          type: "visual_diagram",
+          mediaCode: "MED-2.1-01",
+          variant: "metric_bars",
+          title: { vi: "Tỷ Trọng Sức Mạnh", en: "Power Share" },
+          nodes: [
+            {
+              id: "n1",
+              title: { vi: "Kỹ năng Tướng", en: "Hero Skills" },
+              badge: { vi: "65% Tổng Lực", en: "65% Total Power" },
+              tone: "gold",
+            },
+          ],
+        }}
+      />
+    );
+
+    const bar = screen.getByTestId("diagram-metric-bar");
+    expect((bar as HTMLElement).style.width).toBe("65%");
+  });
+
+  it("supports interactive step filtering and view-all toggle in StepRoadmap", () => {
+    render(
+      <StepRoadmap
+        steps={[
+          {
+            badge: "Bước 1",
+            title: "Mốc Nền Tảng",
+            timing: "Ngày 1-7",
+            description: "Nuôi Liên Minh",
+          },
+          {
+            badge: "Bước 2",
+            title: "Mốc Phá Đảo",
+            timing: "Ngày 21+",
+            description: "Chuyển sang Bộ Lạc",
+          },
+        ]}
+      />
+    );
+
+    const stepItem0 = screen.getByTestId("step-roadmap-item-0");
+    const stepItem1 = screen.getByTestId("step-roadmap-item-1");
+
+    // Default: both steps visible (data-step-hidden="false")
+    expect(stepItem0.getAttribute("data-step-hidden")).toBe("false");
+    expect(stepItem1.getAttribute("data-step-hidden")).toBe("false");
+
+    // Click Step 1 pill -> Step 2 becomes hidden
+    fireEvent.click(screen.getByTestId("stepper-pill-0"));
+    expect(stepItem0.getAttribute("data-step-hidden")).toBe("false");
+    expect(stepItem1.getAttribute("data-step-hidden")).toBe("true");
+
+    // Click View All button -> both steps visible again
+    fireEvent.click(screen.getByTestId("stepper-view-all"));
+    expect(stepItem0.getAttribute("data-step-hidden")).toBe("false");
+    expect(stepItem1.getAttribute("data-step-hidden")).toBe("false");
+  });
+
+  it("renders CaseStudyBlock 2-column diagnostic split grid and InteractiveChecklistBlock details toggle and MediaSpotlightBlock numbered pins", () => {
+    render(
+      <div>
+        <CaseStudyBlock
+          locale="vi"
+          block={{
+            type: "case_study",
+            badge: { vi: "CA BỆNH", en: "CASE" },
+            title: { vi: "Test Split", en: "Test Split" },
+            profileSummary: { vi: "Tóm tắt", en: "Summary" },
+            diagnostics: [{ vi: "Lỗi nâng dàn trải", en: "Spread upgrades" }],
+            recoverySteps: [
+              {
+                stepNumber: "1",
+                title: { vi: "Tái chế đồ", en: "Recycle gear" },
+                detail: { vi: "Chi tiết tái chế", en: "Recycle detail" },
+              },
+            ],
+          }}
+        />
+        <InteractiveChecklistBlock
+          locale="vi"
+          block={{
+            type: "checklist",
+            checklistId: "test-compact",
+            title: { vi: "Checklist Gọn", en: "Compact Checklist" },
+            items: [
+              {
+                id: "c1",
+                label: { vi: "Mục C1", en: "Item C1" },
+                detail: { vi: "Giải thích chi tiết C1", en: "Detail C1" },
+              },
+            ],
+          }}
+        />
+        <MediaSpotlightBlock
+          locale="vi"
+          block={{
+            type: "media_spotlight",
+            mediaCode: "MED-UI-01",
+            tier: "tier2_annotated_ui",
+            title: { vi: "Giao diện Shop", en: "Shop UI" },
+            description: { vi: "Chú thích UI", en: "UI annotations" },
+            annotations: [
+              {
+                kind: "do",
+                label: { vi: "Ô nên mua", en: "Buy slot" },
+                detail: { vi: "Mua Mảnh Vàng", en: "Buy Shards" },
+              },
+            ],
+          }}
+        />
+      </div>
+    );
+
+    expect(screen.getByTestId("case-study-split-grid")).toBeDefined();
+
+    const detailToggle = screen.getByTestId("checklist-details-toggle");
+    expect(detailToggle.getAttribute("aria-expanded")).toBe("true");
+    fireEvent.click(detailToggle);
+    expect(detailToggle.getAttribute("aria-expanded")).toBe("false");
+
+    expect(screen.getByText("#1")).toBeDefined();
+  });
 });
+
+

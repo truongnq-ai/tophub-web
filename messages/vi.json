@@ -437,6 +437,14 @@
     "hideMoreArticlesBtn": "Thu gọn danh sách bài",
     "neonShuttleAria": "Tiến độ đọc và Mục lục Neon",
     "neonSectionEntered": "Đang đọc mục",
-    "neonTocHint": "Bấm để mở mục lục • Tự động sáng theo vị trí đọc"
+    "neonTocHint": "Bấm để mở mục lục • Tự động sáng theo vị trí đọc",
+    "viewModeTabCore": "1. Cốt lõi & Chiến thuật",
+    "viewModeTabData": "2. Bảng số liệu & Điểm gãy",
+    "viewModeTabAction": "3. Phẫu thuật & Checklist",
+    "viewModeTabAll": "Xem toàn bộ",
+    "viewModeNextTabPrefix": "Tiếp theo:",
+    "keyTakeawaysCollapsedLabel": "Xem {count} định mức số liệu cốt lõi",
+    "keyTakeawaysHideLabel": "Thu gọn định mức số liệu"
   }
 }
+

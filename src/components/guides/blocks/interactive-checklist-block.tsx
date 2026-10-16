@@ -1,7 +1,14 @@
 "use client";
 
 import React, { useState, useEffect, useMemo } from "react";
-import { CheckSquare, Square, RotateCcw, Trophy } from "lucide-react";
+import {
+  CheckSquare,
+  Square,
+  RotateCcw,
+  Trophy,
+  Eye,
+  EyeOff,
+} from "lucide-react";
 import type { GuideChecklistBlock, GuideLocale } from "@/content/guides/types";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -24,6 +31,7 @@ export function InteractiveChecklistBlock({
     [block.items]
   );
   const [checkedIds, setCheckedIds] = useState<string[]>([]);
+  const [showDetails, setShowDetails] = useState(true);
 
   useEffect(() => {
     try {
@@ -79,9 +87,9 @@ export function InteractiveChecklistBlock({
     total > 0 ? Math.min(100, Math.round((completed / total) * 100)) : 0;
 
   return (
-    <div className="rounded-2xl border border-emerald-500/35 bg-gradient-to-b from-emerald-500/10 via-card/90 to-card p-4 sm:p-6 space-y-4 shadow-sm">
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <div className="space-y-1">
+    <div className="rounded-2xl border border-emerald-500/35 bg-gradient-to-b from-emerald-500/10 via-card/90 to-card p-4 sm:p-5 space-y-3.5 shadow-sm">
+      <div className="flex flex-wrap items-center justify-between gap-2.5">
+        <div className="space-y-0.5">
           <div className="flex items-center gap-2">
             <Trophy className="h-4 w-4 text-emerald-500 shrink-0" />
             <h4 className="font-heading font-bold text-sm sm:text-base text-foreground">
@@ -95,17 +103,38 @@ export function InteractiveChecklistBlock({
           )}
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <Badge className="bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30 font-mono text-xs font-bold">
             {completed}/{total} ({percent}%)
           </Badge>
+
+          <button
+            type="button"
+            data-testid="checklist-details-toggle"
+            aria-expanded={showDetails}
+            onClick={() => setShowDetails((prev) => !prev)}
+            className="inline-flex items-center gap-1 rounded-xl border border-border/80 bg-background/70 hover:border-amber-500/40 px-2.5 py-1.5 text-xs font-heading font-semibold text-muted-foreground hover:text-foreground transition-colors cursor-pointer min-h-[34px]"
+          >
+            {showDetails ? (
+              <>
+                <EyeOff className="h-3.5 w-3.5" />
+                <span>{locale === "en" ? "Hide details" : "Ẩn giải thích"}</span>
+              </>
+            ) : (
+              <>
+                <Eye className="h-3.5 w-3.5" />
+                <span>{locale === "en" ? "Show details" : "Hiện giải thích"}</span>
+              </>
+            )}
+          </button>
+
           {completed > 0 && (
             <Button
               type="button"
               variant="outline"
               size="sm"
               onClick={handleReset}
-              className="h-9 px-2.5 text-xs rounded-xl border-border/80"
+              className="h-8.5 px-2.5 text-xs rounded-xl border-border/80"
             >
               <RotateCcw className="h-3.5 w-3.5 mr-1" />
               <span>{locale === "en" ? "Reset" : "Đặt lại"}</span>
@@ -123,7 +152,7 @@ export function InteractiveChecklistBlock({
       </div>
 
       {/* Checklist Interactive Items (min-h-[48px] for Mobile UX Core) */}
-      <div className="space-y-2.5">
+      <div className="space-y-2">
         {block.items.map((item) => {
           const isChecked = checkedIds.includes(item.id);
           return (
@@ -134,7 +163,7 @@ export function InteractiveChecklistBlock({
               aria-checked={isChecked}
               onClick={() => toggleItem(item.id)}
               className={cn(
-                "w-full text-left rounded-xl border p-3.5 flex items-start gap-3 transition-all min-h-[48px]",
+                "w-full text-left rounded-xl border px-3.5 py-2.5 flex items-start gap-3 transition-all min-h-[48px] cursor-pointer",
                 isChecked
                   ? "border-emerald-500/50 bg-emerald-500/10"
                   : "border-border/80 bg-background/70 hover:border-amber-500/40"
@@ -147,7 +176,7 @@ export function InteractiveChecklistBlock({
                   <Square className="h-5 w-5 text-muted-foreground" />
                 )}
               </div>
-              <div className="flex-1 space-y-1">
+              <div className="flex-1 space-y-1 min-w-0">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <span
                     className={cn(
@@ -168,7 +197,12 @@ export function InteractiveChecklistBlock({
                     </Badge>
                   )}
                 </div>
-                <p className="text-xs text-muted-foreground leading-relaxed">
+                <p
+                  className={cn(
+                    "text-xs text-muted-foreground leading-relaxed",
+                    !showDetails && "hidden"
+                  )}
+                >
                   {item.detail[locale]}
                 </p>
               </div>
@@ -179,3 +213,4 @@ export function InteractiveChecklistBlock({
     </div>
   );
 }
+

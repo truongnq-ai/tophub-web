@@ -46,7 +46,11 @@ function useArticleScrollSpy(sectionIds: string[]) {
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries
-          .filter((entry) => entry.isIntersecting)
+          .filter(
+            (entry) =>
+              entry.isIntersecting &&
+              !entry.target.closest('[data-tab-hidden="true"]')
+          )
           .sort(
             (a, b) =>
               a.boundingClientRect.top - b.boundingClientRect.top
@@ -79,14 +83,22 @@ function useArticleScrollSpy(sectionIds: string[]) {
         return;
       }
 
-      // GAP-06 Fix: Clamp to 100% and highlight last anchor when scrolled to bottom
+      // GAP-06 & GAP-P2-11 Fix: Clamp to 100% and highlight last visible anchor when scrolled to bottom
       if (scrollTop >= docHeight - 24) {
         setProgress(100);
         if (sectionIds.length > 0) {
-          setActiveId(sectionIds[sectionIds.length - 1]);
+          const visibleIds = sectionIds.filter((id) => {
+            const el = document.getElementById(id);
+            return el && !el.closest('[data-tab-hidden="true"]');
+          });
+          const lastId =
+            visibleIds[visibleIds.length - 1] ??
+            sectionIds[sectionIds.length - 1];
+          setActiveId(lastId);
         }
         return;
       }
+
 
       const pct = Math.min(
         100,
@@ -403,6 +415,13 @@ export function GuidesToc({ article }: GuidesTocProps) {
                       onClick={() => {
                         setActiveId(sec.id);
                         setIsOpen(false);
+                        if (typeof window !== "undefined") {
+                          window.dispatchEvent(
+                            new CustomEvent("tophub:toc-navigate", {
+                              detail: { targetId: sec.id },
+                            })
+                          );
+                        }
                       }}
                       className={cn(
                         "flex items-start justify-between gap-2 rounded-xl px-2.5 py-2 transition-all duration-200 leading-snug border",
@@ -447,8 +466,16 @@ export function GuidesToc({ article }: GuidesTocProps) {
                                 onClick={() => {
                                   setActiveId(sub.id);
                                   setIsOpen(false);
+                                  if (typeof window !== "undefined") {
+                                    window.dispatchEvent(
+                                      new CustomEvent("tophub:toc-navigate", {
+                                        detail: { targetId: sub.id },
+                                      })
+                                    );
+                                  }
                                 }}
                                 className={cn(
+
                                   "flex items-center gap-1.5 rounded-lg px-2 py-1 text-[11px] transition-all duration-200 line-clamp-1",
                                   isSubActive
                                     ? "bg-amber-500/15 text-amber-700 dark:text-amber-300 font-bold border border-amber-400/60 shadow-[0_0_12px_rgba(245,158,11,0.28)]"

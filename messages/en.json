@@ -437,6 +437,14 @@
     "hideMoreArticlesBtn": "Hide group guide list",
     "neonShuttleAria": "Reading progress and Neon Table of Contents",
     "neonSectionEntered": "Now reading",
-    "neonTocHint": "Click to open TOC • Auto-glows with scroll position"
+    "neonTocHint": "Click to open TOC • Auto-glows with scroll position",
+    "viewModeTabCore": "1. Core & Tactics",
+    "viewModeTabData": "2. Data & Breakpoints",
+    "viewModeTabAction": "3. Account Audit & Checklist",
+    "viewModeTabAll": "View All",
+    "viewModeNextTabPrefix": "Next up:",
+    "keyTakeawaysCollapsedLabel": "View {count} core quantitative takeaways",
+    "keyTakeawaysHideLabel": "Hide quantitative takeaways"
   }
 }
+

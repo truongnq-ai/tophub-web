@@ -110,4 +110,25 @@ describe("Phase 1 Guides Registry, Hot Tags & i18n Integrity", () => {
       expect(enGuides[key], `Missing en.json Guides.${key}`).toBeTruthy();
     }
   });
+
+  it("contains all Phase 2 Guides i18n keys in both vi.json and en.json", () => {
+    const phase2Keys = [
+      "viewModeTabCore",
+      "viewModeTabData",
+      "viewModeTabAction",
+      "viewModeTabAll",
+      "viewModeNextTabPrefix",
+      "keyTakeawaysCollapsedLabel",
+      "keyTakeawaysHideLabel",
+    ] as const;
+
+    const viGuides = viMessages.Guides as Record<string, string>;
+    const enGuides = enMessages.Guides as Record<string, string>;
+
+    for (const key of phase2Keys) {
+      expect(viGuides[key], `Missing vi.json Guides.${key}`).toBeTruthy();
+      expect(enGuides[key], `Missing en.json Guides.${key}`).toBeTruthy();
+    }
+  });
 });
+
