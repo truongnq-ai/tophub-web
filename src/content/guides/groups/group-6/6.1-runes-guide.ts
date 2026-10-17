@@ -11,35 +11,35 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
     en: "Runes Master Guide (Lv.1–12): Choice Chest Discipline & Lv.5 / Lv.8 Breakpoints",
   },
   summary: {
-    vi: "Phân tích toàn diện 6 vị trí Cổ Ngữ (Runes), kỷ luật giữ Rương Tự Chọn chờ Lv.4–Lv.5+, bảng chi phí ghép phôi Tam Phân Lv.1–Lv.8 và bảng thông số Lv.1–Lv.12 từ TopHeroes Tables (Tab 🀄️Runes), giá trị toán học tối thượng của dòng Combat Skill Level +1/+2 và lịch xả Bụi Cổ Ngữ vào Ngày 2 (Thứ Ba) Tuần B.",
-    en: "Comprehensive guide to the 6 Rune slots, Choice Chest hoarding discipline until Lv.4–Lv.5+, complete Lv.1–Lv.8 ternary synthesis & Lv.1–Lv.12 stat tables from TopHeroes Tables (Tab 🀄️Runes), Combat Skill Level +1/+2 math analysis, and Day 2 (Tuesday) Week B dumping schedule.",
+    vi: "Phân tích toàn diện 6 vị trí Cổ Ngữ (Runes), kỷ luật giữ Rương Tự Chọn chờ Lv.4–Lv.5+, bảng chi phí ghép phôi Tam Phân Lv.1–Lv.8 và bảng thông số Lv.1–Lv.12 từ TopHeroes Tables (Tab Runes), giá trị toán học tối thượng của dòng Combat Skill Level +1/+2 và lịch xả Bụi Cổ Ngữ vào Ngày 2 (Thứ Ba) Tuần B.",
+    en: "Comprehensive guide to the 6 Rune slots, Choice Chest hoarding discipline until Lv.4–Lv.5+, complete Lv.1–Lv.8 ternary synthesis & Lv.1–Lv.12 stat tables from TopHeroes Tables (Tab Runes), Combat Skill Level +1/+2 math analysis, and Day 2 (Tuesday) Week B dumping schedule.",
   },
   tldr: {
     coreRule: {
-      vi: "Từ Lv.1 đến Lv.4, Cổ Ngữ chỉ cộng chỉ số phẳng (Flat Stats) rất thấp. Phải đến Lv.5 (81 phôi Lv.1, 8,000 Dust/viên = 48,000 Dust/6 ô) mới mở khóa dòng +5% HP/ATK Tướng & +110 Tổng Quy mô Hành quân (March Size), và đến Lv.8 (2,187 phôi Lv.1, 225,000 Dust/viên = 1,350,000 Dust/6 ô) mới mở khóa +5% HP/ATK Toàn bộ Lính & +5% HP Thánh vật. Hãy nâng đồng đều cả 6 ô chạm mốc Lv.5 trước khi ghép bất kỳ viên Lv.6 nào.",
-      en: "From Lv.1 to Lv.4, Runes only grant minor Flat Stats. Reaching Lv.5 (81 Lv.1 runes, 8,000 Dust/rune = 48,000 Dust/6 slots) unlocks +5% Hero HP/ATK & +110 Total March Size, while Lv.8 (2,187 Lv.1 runes, 225,000 Dust/rune = 1,350,000 Dust/6 slots) unlocks +5% All Soldiers HP/ATK & +5% Relic HP. Always bring all 6 slots evenly to Lv.5 before merging any single Lv.6 rune.",
+      vi: "**Luôn nâng đồng đều cả 6 ô Cổ Ngữ chạm điểm gãy `Lv.5` trước khi ghép bất kỳ viên `Lv.6` nào.**\n• **Giai đoạn sơ cấp (`Lv.1–Lv.4`):** Cổ Ngữ chỉ cộng chỉ số phẳng (`Flat Stats`) rất thấp.\n• **Điểm gãy `Lv.5` (`81` phôi Lv.1, `8,000` Dust/viên = `48,000` Dust/6 ô):** Mở khóa `+5%` HP/ATK Tướng & `+110` Tổng Quy mô Hành quân (`March Size`).\n• **Đại đột phá `Lv.8` (`2,187` phôi Lv.1, `225,000` Dust/viên = `1,350,000` Dust/6 ô):** Mở khóa `+5%` HP/ATK Toàn bộ Lính & `+5%` HP Thánh vật.",
+      en: "**Always bring all 6 Rune slots evenly to the `Lv.5` breakpoint before merging any single `Lv.6` rune.**\n• **Early Tiers (`Lv.1–Lv.4`):** Runes only grant minor `Flat Stats`.\n• **`Lv.5` Breakpoint (`81` Lv.1 runes, `8,000` Dust/rune = `48,000` Dust/6 slots):** Unlocks `+5%` Hero HP/ATK & `+110` Total `March Size`.\n• **`Lv.8` Grand Breakpoint (`2,187` Lv.1 runes, `225,000` Dust/rune = `1,350,000` Dust/6 slots):** Unlocks `+5%` All Soldiers HP/ATK & `+5%` Relic HP.",
     },
     immediateAction: {
-      vi: "Nâng cấp công trình Mỏ Cổ Ngữ (Rune Mine) lên cấp cao nhất có thể theo Lâu Đài vào Thứ Hai Tuần B (Ngày Xây dựng), đồng thời khóa chặt toàn bộ Bụi Cổ Ngữ (DE-Dust / Rune Dust / Magic Stones: 600 điểm / 2,000 Magic Stones) và Tinh Thể Bí Thuật (Arcane Crystal: 1,200 điểm / 1 viên) trong túi đồ để xả duy nhất vào Ngày 2 (Thứ Ba — Tech & Runes Day) của Tuần B (GAR / KvK), hoặc trong Tuần A (Guild Race) ngay sau khi nhận Nhiệm vụ Cổ Ngữ chuyên biệt (Dedicated Rune Task).",
-      en: "Upgrade your Rune Mine building to match your Castle level on Monday of Week B (Construction Day), and strictly lock all Rune Dust (DE-Dust / Magic Stones: 600 points per 2,000 Magic Stones) and Arcane Crystals (1,200 points per crystal) in your inventory to spend exclusively on Day 2 (Tuesday — Tech & Runes Day) of Week B (GAR / KvK), or in Week A (Guild Race) immediately after claiming a Dedicated Rune Task.",
+      vi: "**Nâng cấp công trình Mỏ Cổ Ngữ (`Rune Mine`) bám sát cấp Lâu Đài vào Thứ Hai Tuần B (Ngày Xây dựng).**\n• **Tích trữ 100% nguyên liệu:** Khóa chặt Bụi Cổ Ngữ (`DE-Dust` / `Magic Stones`: `600` điểm / `2,000` Magic Stones) và Tinh Thể Bí Thuật (`Arcane Crystal`: `1,200` điểm / 1 viên).\n• **Cửa sổ xả chuẩn:** Chỉ xả vào **Ngày 2 (Thứ Ba — Tech & Runes Day)** của Tuần B (`GAR` / `KvK`) hoặc trong Tuần A (`Guild Race`) ngay sau khi nhận Nhiệm vụ Cổ Ngữ chuyên biệt.",
+      en: "**Upgrade your `Rune Mine` building to match your Castle level on Monday of Week B (Construction Day).**\n• **Stockpile 100% of materials:** Strictly lock all Rune Dust (`DE-Dust` / `Magic Stones`: `600` points per `2,000` Magic Stones) and `Arcane Crystal` (`1,200` points per crystal).\n• **Optimal dump window:** Spend exclusively on **Day 2 (Tuesday — Tech & Runes Day)** of Week B (`GAR` / `KvK`) or in Week A (`Guild Race`) right after claiming a Dedicated Rune Task.",
     },
     strictTaboo: {
-      vi: "CẤM mở Rương Cổ Ngữ Tự Chọn (Rune Choice Chests) ở bậc Lv.1–Lv.3! Bắt buộc tích trữ rương tự chọn chờ đến khi mở khóa tầng Lv.4–Lv.5+ làm mảnh ghép chốt hạ (Finisher Piece) để chọn đúng viên khuyết thiếu nhằm kích hoạt mốc cộng hưởng phần trăm hoặc săn dòng chỉ số hiếm Combat Skill Level +1/+2 (Cấp Kỹ năng Chiến đấu, tương đương 3,000–5,000 Sách Kỹ Năng Cam miễn phí).",
-      en: "NEVER open Rune Choice Chests at Lv.1–Lv.3! Strictly hoard Choice Chests until you unlock the Lv.4–Lv.5+ bracket to use them as Finisher Pieces for missing slots, unlocking percentage breakpoints or hunting the rare Combat Skill Level +1/+2 sub-stat (equivalent to 3,000–5,000 free Orange Skill Books).",
+      vi: "**CẤM mở Rương Cổ Ngữ Tự Chọn (`Rune Choice Chests`) ở bậc thấp `Lv.1–Lv.3`!**\n• **Mảnh ghép chốt hạ (`Finisher Piece`):** Tích trữ Rương Tự Chọn đến tầng `Lv.4–Lv.5+` để chọn đúng viên khuyết thiếu nhằm kích hoạt mốc cộng hưởng `%`.\n• **Săn dòng chỉ số hiếm:** Ưu tiên mở khóa `Combat Skill Level` `+1/+2` (Cấp Kỹ năng Chiến đấu, tương đương `3,000`–`5,000` Sách Kỹ Năng Cam miễn phí).",
+      en: "**NEVER open `Rune Choice Chests` early at the `Lv.1–Lv.3` bracket!**\n• **Save as `Finisher Pieces`:** Strictly hoard Choice Chests until the `Lv.4–Lv.5+` tier to fill missing slots and unlock percentage breakpoints.\n• **Hunt rare sub-stats:** Target the `Combat Skill Level` `+1/+2` sub-stat (equivalent to `3,000`–`5,000` free Orange Skill Books).",
     },
   },
   keyTakeaways: [
     {
-      vi: "Phân loại 6 Vị trí Ô Khảm Cổ Ngữ (Tab 🀄️Runes): Ô 1 (Hero HP Rune: Lv.5 = 15,091 / 5% ➔ Lv.12 = 722,271 / 40%), Ô 2 (Hero Attack Rune: Lv.5 = 371 / 5% ➔ Lv.12 = 17,753 / 40%), Ô 3 (Soldier HP Rune: Lv.5+ cộng +30 ➔ +100 March Size, Lv.8+ cộng 5% ➔ 30% All Soldiers HP), Ô 4 (Soldier Attack Rune: Lv.5+ cộng +30 ➔ +100 March Size, Lv.8+ cộng 5% ➔ 30% All Soldiers ATK), Ô 5 (Relic Mastery Rune: Lv.8 = 28,660 / 5% ➔ Lv.12 = 108,500 / 30% Relic HP), và Ô 6 (Queue Attack Rune: Lv.5 = 3,000 Def / 3,845 Def Break / +50 March Size ➔ Lv.8 = 4,800 / 6,922 / +150 ➔ Lv.12 = 7,200 / 14,000 / +250 & mở khóa Combat Skill Level +1/+2).",
-      en: "The 6 Rune Slots Breakdown (Tab 🀄️Runes): Slot 1 (Hero HP Rune: Lv.5 = 15,091 / 5% ➔ Lv.12 = 722,271 / 40%), Slot 2 (Hero Attack Rune: Lv.5 = 371 / 5% ➔ Lv.12 = 17,753 / 40%), Slot 3 (Soldier HP Rune: Lv.5+ adds +30 ➔ +100 March Size, Lv.8+ adds 5% ➔ 30% All Soldiers HP), Slot 4 (Soldier Attack Rune: Lv.5+ adds +30 ➔ +100 March Size, Lv.8+ adds 5% ➔ 30% All Soldiers ATK), Slot 5 (Relic Mastery Rune: Lv.8 = 28,660 / 5% ➔ Lv.12 = 108,500 / 30% Relic HP), and Slot 6 (Queue Attack Rune: Lv.5 = 3,000 Def / 3,845 Def Break / +50 March Size ➔ Lv.8 = 4,800 / 6,922 / +150 ➔ Lv.12 = 7,200 / 14,000 / +250 & unlocks Combat Skill Level +1/+2).",
+      vi: "**Phân loại 6 Vị trí Ô Khảm Cổ Ngữ (`Tab Runes`):**\n• **Ô 1 (`Hero HP Rune`) & Ô 2 (`Hero Attack Rune`):** Ô 1 từ `Lv.5` (`15,091 / 5%`) ➔ `Lv.12` (`722,271 / 40%`); Ô 2 từ `Lv.5` (`371 / 5%`) ➔ `Lv.12` (`17,753 / 40%`).\n• **Ô 3 (`Soldier HP Rune`) & Ô 4 (`Soldier Attack Rune`):** Từ `Lv.5+` cộng `+30 ➔ +100` `March Size`; từ `Lv.8+` cộng `5% ➔ 30%` All Soldiers HP/ATK.\n• **Ô 5 (`Relic Mastery Rune`):** Đột phá tại `Lv.8` (`28,660 / 5%`) ➔ `Lv.12` (`108,500 / 30%` Relic HP).\n• **Ô 6 (`Queue Attack Rune`):** `Lv.5` (`3,000` Def / `3,845` Def Break / `+50` March) ➔ `Lv.8` (`4,800` / `6,922` / `+150`) ➔ `Lv.12` (`7,200` / `14,000` / `+250` & `Combat Skill Level` `+1/+2`).",
+      en: "**The 6 Rune Slots Breakdown (`Tab Runes`):**\n• **Slot 1 (`Hero HP Rune`) & Slot 2 (`Hero Attack Rune`):** Slot 1 scales `Lv.5` (`15,091 / 5%`) ➔ `Lv.12` (`722,271 / 40%`); Slot 2 scales `Lv.5` (`371 / 5%`) ➔ `Lv.12` (`17,753 / 40%`).\n• **Slot 3 (`Soldier HP Rune`) & Slot 4 (`Soldier Attack Rune`):** `Lv.5+` adds `+30 ➔ +100` `March Size`; `Lv.8+` adds `5% ➔ 30%` All Soldiers HP/ATK.\n• **Slot 5 (`Relic Mastery Rune`):** Unlocks at `Lv.8` (`28,660 / 5%`) ➔ `Lv.12` (`108,500 / 30%` Relic HP).\n• **Slot 6 (`Queue Attack Rune`):** `Lv.5` (`3,000` Def / `3,845` Def Break / `+50` March) ➔ `Lv.8` (`4,800` / `6,922` / `+150`) ➔ `Lv.12` (`7,200` / `14,000` / `+250` & `Combat Skill Level` `+1/+2`).",
     },
     {
-      vi: "Công thức Ghép Phôi Tam Phân (3^(n-1)) & Chi phí Bụi Cổ Ngữ: Lv.1 (1 phôi, 0 Dust), Lv.2 (3 phôi, 200 Dust/viên = 1,200/6 ô), Lv.3 (9 phôi, 800 Dust = 4,800/6 ô), Lv.4 (27 phôi, 2,600 Dust = 15,600/6 ô), Lv.5 🔥 (81 phôi Lv.1, 8,000 Dust/viên = 48,000 Dust/6 ô — mở +5% HP/ATK & +110 March Size), Lv.6 ⭐ (243 phôi Lv.1, 25,000 Dust/viên = 150,000 Dust/6 ô — +10% HP/ATK & +150 March Size), Lv.7 (729 phôi, 75,000 Dust = 450,000/6 ô), Lv.8 👑 (2,187 phôi Lv.1, 225,000 Dust/viên = 1,350,000 Dust/6 ô).",
-      en: "Ternary Synthesis Formula (3^(n-1)) & Rune Dust Costs: Lv.1 (1 base, 0 Dust), Lv.2 (3 base, 200 Dust/rune = 1,200/6 slots), Lv.3 (9 base, 800 Dust = 4,800/6 slots), Lv.4 (27 base, 2,600 Dust = 15,600/6 slots), Lv.5 🔥 (81 Lv.1 base, 8,000 Dust/rune = 48,000 Dust/6 slots — unlocks +5% HP/ATK & +110 March Size), Lv.6 ⭐ (243 Lv.1 base, 25,000 Dust/rune = 150,000 Dust/6 slots — +10% HP/ATK & +150 March Size), Lv.7 (729 base, 75,000 Dust = 450,000/6 slots), Lv.8 👑 (2,187 Lv.1 base, 225,000 Dust/rune = 1,350,000 Dust/6 slots).",
+      vi: "**Công thức Ghép Phôi Tam Phân (`3^(n-1)`) & Chi phí Bụi Cổ Ngữ:**\n• **Bậc `Lv.1–Lv.4`:** `Lv.1` (`1` phôi, `0` Dust) ➔ `Lv.2` (`3` phôi, `200` Dust = `1,200`/6 ô) ➔ `Lv.3` (`9` phôi, `800` Dust = `4,800`/6 ô) ➔ `Lv.4` (`27` phôi, `2,600` Dust = `15,600`/6 ô).\n• **Điểm gãy `Lv.5 ★`:** Cần `81` phôi Lv.1, `8,000` Dust/viên (`48,000` Dust/6 ô) ➔ mở khóa `+5%` HP/ATK & `+110` March Size.\n• **Điểm gãy `Lv.6 ★`:** Cần `243` phôi Lv.1, `25,000` Dust/viên (`150,000` Dust/6 ô) ➔ nâng lên `+10%` HP/ATK & `+150` March Size.\n• **Đột phá `Lv.7` & `Lv.8 ★`:** `Lv.7` (`729` phôi, `75,000` Dust = `450,000`/6 ô) ➔ `Lv.8 ★` (`2,187` phôi Lv.1, `225,000` Dust/viên = `1,350,000` Dust/6 ô).",
+      en: "**Ternary Synthesis Formula (`3^(n-1)`) & Rune Dust Costs:**\n• **Early Tiers (`Lv.1–Lv.4`):** `Lv.1` (`1` base, `0` Dust) ➔ `Lv.2` (`3` base, `200` Dust = `1,200`/6 slots) ➔ `Lv.3` (`9` base, `800` Dust = `4,800`/6) ➔ `Lv.4` (`27` base, `2,600` Dust = `15,600`/6).\n• **`Lv.5 ★` Breakpoint:** `81` Lv.1 base, `8,000` Dust/rune (`48,000` Dust/6 slots) ➔ unlocks `+5%` HP/ATK & `+110` March Size.\n• **`Lv.6 ★` Breakpoint:** `243` Lv.1 base, `25,000` Dust/rune (`150,000` Dust/6 slots) ➔ reaches `+10%` HP/ATK & `+150` March Size.\n• **`Lv.7` & `Lv.8 ★` Breakpoint:** `Lv.7` (`729` base, `75,000` Dust = `450,000`/6 slots) ➔ `Lv.8 ★` (`2,187` Lv.1 base, `225,000` Dust/rune = `1,350,000` Dust/6 slots).",
     },
     {
-      vi: "Lịch xả chuẩn Ground-Truth & Thứ tự ưu tiên 3 Phe: Xả Bụi Cổ Ngữ (600 điểm / 2,000 Magic Stones) và Arcane Crystal (1,200 điểm / 1 viên) vào Ngày 2 (Thứ Ba — Tech & Runes Day) của Tuần B (GAR / KvK) hoặc khi nhận Nhiệm vụ Cổ Ngữ Tuần A. Ưu tiên theo Hệ: Bộ Lạc (Ô 6 Queue Attack & Ô 2 Hero Attack), Liên Minh (Ô 2 Hero Attack & Ô 1 Hero HP ➔ Ô 5 Relic Mastery), Thiên Nhiên (Ô 1 Hero HP & Ô 3 Soldier HP).",
-      en: "Ground-Truth Dumping Schedule & 3-Faction Priority: Spend Rune Dust (600 pts per 2,000 Magic Stones) and Arcane Crystals (1,200 pts each) on Day 2 (Tuesday — Tech & Runes Day) of Week B (GAR / KvK) or during Week A Dedicated Rune Tasks. Faction Priority: Horde (Slot 6 Queue Attack & Slot 2 Hero Attack), League (Slot 2 Hero Attack & Slot 1 Hero HP ➔ Slot 5 Relic Mastery), Nature (Slot 1 Hero HP & Slot 3 Soldier HP).",
+      vi: "**Lịch xả chuẩn Ground-Truth & Thứ tự ưu tiên 3 Phe:**\n• **Lịch xả sự kiện:** Xả Bụi Cổ Ngữ (`600` điểm / `2,000` Magic Stones) và `Arcane Crystal` (`1,200` điểm/viên) vào **Ngày 2 (Thứ Ba — Tech & Runes Day)** Tuần B (`GAR`/`KvK`) hoặc Task Cổ Ngữ Tuần A.\n• **Ưu tiên theo Hệ:** Bộ Lạc (Ô 6 `Queue Attack` & Ô 2 `Hero Attack`), Liên Minh (Ô 2 `Hero Attack` & Ô 1 `Hero HP` ➔ Ô 5 `Relic Mastery`), Thiên Nhiên (Ô 1 `Hero HP` & Ô 3 `Soldier HP`).",
+      en: "**Ground-Truth Dumping Schedule & 3-Faction Priority:**\n• **Event dump window:** Spend Rune Dust (`600` pts per `2,000` Magic Stones) and `Arcane Crystal` (`1,200` pts each) on **Day 2 (Tuesday — Tech & Runes Day)** of Week B (`GAR`/`KvK`) or Week A Rune Tasks.\n• **Faction priority:** Horde (Slot 6 `Queue Attack` & Slot 2 `Hero Attack`), League (Slot 2 `Hero Attack` & Slot 1 `Hero HP` ➔ Slot 5 `Relic Mastery`), Nature (Slot 1 `Hero HP` & Slot 3 `Soldier HP`).",
     },
   ],
   keywords: [
@@ -80,8 +80,8 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Hệ thống Cổ Ngữ / Ấn Thạch (Runes) là một trong những trụ cột sức mạnh quan trọng nhất thuộc nhóm Trang bị & Bổ trợ, giúp gia tăng trực tiếp chỉ số của Tướng, Binh lính, Thánh vật và đặc biệt là Quy mô Hành quân (March Size — số lượng lính mang theo mỗi tướng). Trong bảng khảm Cổ Ngữ (được ký hiệu bằng 6 biểu tượng Mạt chược trong dữ liệu gốc TopHeroes Tables), mỗi hàng đợi được trang bị 6 vị trí ô khảm độc lập chia làm 3 nhóm vai trò rõ rệt.",
-            en: "The Runes system is one of the most impactful progression pillars in Top Heroes, directly amplifying Hero stats, Soldier stats, Relic HP, and most importantly March Size (troop capacity per hero). Represented by 6 Mahjong-tile slots in the TopHeroes Tables dataset, each queue features 6 independent Rune slots divided into 3 distinct combat roles.",
+            vi: "**Hệ thống Cổ Ngữ / Ấn Thạch (`Runes`) là trụ cột sức mạnh cốt lõi gia tăng trực tiếp chỉ số Tướng, Binh lính và Thánh vật.**\n• **Đột phá Quy mô Hành quân (`March Size`):** Tăng trực tiếp số lượng binh lính mang theo mỗi tướng trong đội hình.\n• **Cấu trúc 6 ô khảm (`Tab Runes`):** Được ký hiệu bằng 6 biểu tượng Mạt chược trong dữ liệu gốc `TopHeroes Tables`, chia làm 3 nhóm vai trò chiến đấu rõ rệt.",
+            en: "**The `Runes` system is a foundational progression pillar that directly amplifies Hero stats, Soldier stats, and Relic HP.**\n• **`March Size` Expansion:** Directly increases the troop capacity deployed per hero across your lineup.\n• **6-Slot Architecture (`Tab Runes`):** Represented by 6 Mahjong-tile slots in the `TopHeroes Tables` dataset, divided into 3 distinct combat roles.",
           },
         },
       ],
@@ -89,8 +89,8 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
         {
           id: "sub-1-1-six-rune-slots-table",
           title: {
-            vi: "1.1. Phân loại 6 Vị trí Ô Khảm Cổ Ngữ (The 6 Rune Slots — Tab 🀄️Runes)",
-            en: "1.1. Classification of the 6 Rune Slots (Tab 🀄️Runes)",
+            vi: "1.1. Phân loại 6 Vị trí Ô Khảm Cổ Ngữ (The 6 Rune Slots — Tab Runes)",
+            en: "1.1. Classification of the 6 Rune Slots (Tab Runes)",
           },
           blocks: [
             {
@@ -144,8 +144,8 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
             {
               type: "table",
               caption: {
-                vi: "Bảng 1: Phân Loại 6 Vị Trí Ô Khảm Cổ Ngữ & Chỉ Số Đột Phá Mở Khóa Ở Lv.5 / Lv.8 / Lv.12 (Nguồn: TopHeroes Tables - Tab 🀄️Runes)",
-                en: "Table 1: The 6 Rune Slots Classification & Breakpoint Stats at Lv.5 / Lv.8 / Lv.12 (Source: TopHeroes Tables - Tab 🀄️Runes)",
+                vi: "Bảng 1: Phân Loại 6 Vị Trí Ô Khảm Cổ Ngữ & Chỉ Số Đột Phá Mở Khóa Ở Lv.5 / Lv.8 / Lv.12 (Nguồn: TopHeroes Tables - Tab Runes)",
+                en: "Table 1: The 6 Rune Slots Classification & Breakpoint Stats at Lv.5 / Lv.8 / Lv.12 (Source: TopHeroes Tables - Tab Runes)",
               },
               headers: [
                 {
@@ -173,7 +173,7 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
                   },
                   {
                     vi: "Cổ Ngữ Sinh Lực Tướng (Hero HP Rune)",
-                    en: "Hero HP Rune (Cổ Ngữ Sinh Lực Tướng)",
+                    en: "Hero HP Rune",
                   },
                   {
                     vi: "Cộng HP Tướng phẳng (Flat Hero HP: 650 ở Lv.1 ➔ 5,606 ở Lv.4)",
@@ -191,7 +191,7 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
                   },
                   {
                     vi: "Cổ Ngữ Tấn Công Tướng (Hero Attack Rune)",
-                    en: "Hero Attack Rune (Cổ Ngữ Tấn Công Tướng)",
+                    en: "Hero Attack Rune",
                   },
                   {
                     vi: "Cộng ATK Tướng phẳng (Flat Hero Attack: 16 ở Lv.1 ➔ 138 ở Lv.4)",
@@ -209,7 +209,7 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
                   },
                   {
                     vi: "Cổ Ngữ Sinh Lực Binh Lính (Soldier HP Rune)",
-                    en: "Soldier HP Rune (Cổ Ngữ Sinh Lực Binh Lính)",
+                    en: "Soldier HP Rune",
                   },
                   {
                     vi: "Cộng HP Lính phẳng (Flat Soldier HP: 2 ở Lv.1 ➔ 8 ở Lv.4)",
@@ -227,7 +227,7 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
                   },
                   {
                     vi: "Cổ Ngữ Tấn Công Binh Lính (Soldier Attack Rune)",
-                    en: "Soldier Attack Rune (Cổ Ngữ Tấn Công Binh Lính)",
+                    en: "Soldier Attack Rune",
                   },
                   {
                     vi: "Cộng ATK Lính phẳng (Flat Soldier Attack: 2 ở Lv.1 ➔ 7 ở Lv.4)",
@@ -245,7 +245,7 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
                   },
                   {
                     vi: "Cổ Ngữ Tinh Thông Thánh Vật (Relic Mastery Rune)",
-                    en: "Relic Mastery Rune (Cổ Ngữ Tinh Thông Thánh Vật)",
+                    en: "Relic Mastery Rune",
                   },
                   {
                     vi: "Cộng HP Thánh Vật phẳng (Flat Relic HP: 850 ở Lv.1 ➔ 17,580 ở Lv.7)",
@@ -263,7 +263,7 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
                   },
                   {
                     vi: "Cổ Ngữ Tấn Công Hàng Đợi (Queue Attack Rune)",
-                    en: "Queue Attack Rune (Cổ Ngữ Tấn Công Hàng Đợi)",
+                    en: "Queue Attack Rune",
                   },
                   {
                     vi: "Cộng Phòng thủ (Defense: 600–2,400) & Xuyên thủ (Defense Break: 769–3,076)",
@@ -288,8 +288,8 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Theo quy tắc Ghép Phôi Tam Phân (3-to-1 Synthesis), cứ 3 viên Cổ Ngữ cùng loại, cùng cấp độ kết hợp với một lượng Bụi Cổ Ngữ / Đá Ma Thuật (Rune Dust / DE-Dust / Magic Stones) sẽ hợp thành 1 viên Cổ Ngữ cấp kế tiếp (tiêu tốn 3^(n-1) phôi Lv.1 cho mỗi viên cấp n). Nguồn thu thập chính đến từ Mỏ Cổ Ngữ (Rune Mine) trong Lâu Đài và các Rương Cổ Ngữ Ngẫu Nhiên (Random Rune Chests) vs Rương Cổ Ngữ Tự Chọn (Choice Rune Chests) từ sự kiện.",
-                en: "Under the 3-to-1 Ternary Synthesis rule, combining 3 identical Runes of the same level along with Rune Dust (DE-Dust / Magic Stones) produces 1 Rune of the next level (requiring 3^(n-1) Lv.1 base runes for a Lv.n rune). Primary sources include the passive Rune Mine building inside your Castle and Random Rune Chests vs Choice Rune Chests earned from events.",
+                vi: "**Theo quy tắc Ghép Phôi Tam Phân (`3-to-1 Synthesis`), cứ `3` viên Cổ Ngữ cùng loại và cùng cấp sẽ hợp thành `1` viên cấp kế tiếp.**\n• **Công thức lũy thừa (`3^(n-1)`):** Mỗi viên cấp `n` tiêu tốn `3^(n-1)` phôi `Lv.1` kết hợp cùng Bụi Cổ Ngữ (`Rune Dust` / `DE-Dust` / `Magic Stones`).\n• **Nguồn thu thập chính:** Khai thác từ Mỏ Cổ Ngữ (`Rune Mine`) trong Lâu Đài và các Rương Cổ Ngữ Ngẫu Nhiên (`Random Rune Chests`) vs Tự Chọn (`Choice Rune Chests`).",
+                en: "**Under the `3-to-1` Ternary Synthesis rule, combining `3` identical Runes of the same level produces `1` Rune of the next tier.**\n• **Exponential Formula (`3^(n-1)`):** Each `Lv.n` rune requires `3^(n-1)` `Lv.1` base runes plus Rune Dust (`DE-Dust` / `Magic Stones`).\n• **Primary Sources:** Harvested from the passive `Rune Mine` building inside your Castle and `Random Rune Chests` vs `Choice Rune Chests` from events.",
               },
             },
             {
@@ -431,8 +431,8 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "Lv.5 🔥",
-                    en: "Lv.5 🔥",
+                    vi: "Lv.5 ★",
+                    en: "Lv.5 ★",
                   },
                   {
                     vi: "3 × Lv.4",
@@ -457,8 +457,8 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "Lv.6 ⭐",
-                    en: "Lv.6 ⭐",
+                    vi: "Lv.6 ★",
+                    en: "Lv.6 ★",
                   },
                   {
                     vi: "3 × Lv.5",
@@ -509,8 +509,8 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "Lv.8 👑",
-                    en: "Lv.8 👑",
+                    vi: "Lv.8 ★",
+                    en: "Lv.8 ★",
                   },
                   {
                     vi: "3 × Lv.7",
@@ -543,8 +543,8 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
                 en: "Rune Mine Optimization & The Supreme Value of Combat Skill Level +1/+2",
               },
               content: {
-                vi: "Sản lượng Bụi Cổ Ngữ thu hoạch mỗi giờ phụ thuộc trực tiếp vào cấp độ Mỏ Cổ Ngữ (Rune Mine) — hãy luôn nâng Mỏ Cổ Ngữ bám sát cấp Lâu Đài vào Thứ Hai Tuần B (Ngày Xây dựng). Đặc biệt, khi khảm từ bậc Lv.5–Lv.6+, dòng chỉ số hiếm Combat Skill Level +1 / +2 giúp cộng thẳng 1–2 cấp kỹ năng chiến đấu vượt trần (tăng 15%–35% hệ số sát thương kỹ năng cho Wukong, Storm Maiden, Paragon, Tidecaller), tương đương giá trị của 3,000 đến 5,000 Sách Kỹ Năng Cam (Orange Skill Books) miễn phí!",
-                en: "Your hourly Rune Dust output scales directly with your Rune Mine level—always upgrade the Rune Mine alongside your Castle on Monday of Week B (Construction Day). Furthermore, starting at Lv.5–Lv.6+, rolling the rare Combat Skill Level +1 / +2 sub-stat directly adds +1 to +2 active skill levels beyond normal star caps (boosting skill damage multipliers by 15%–35% for Wukong, Storm Maiden, Paragon, and Tidecaller), equivalent to 3,000 to 5,000 free Orange Skill Books!",
+                vi: "**Sản lượng Bụi Cổ Ngữ mỗi giờ phụ thuộc trực tiếp vào cấp độ Mỏ Cổ Ngữ (`Rune Mine`).**\n• **Lịch nâng mỏ:** Luôn nâng Mỏ Cổ Ngữ bám sát cấp Lâu Đài vào **Thứ Hai Tuần B** (Ngày Xây dựng).\n• **Siêu chỉ số `Combat Skill Level` `+1/+2`:** Từ `Lv.5–Lv.6+`, cộng thẳng `1–2` cấp kỹ năng vượt trần (`+15%–35%` sát thương cho `Wukong`, `Storm Maiden`, `Paragon`, `Tidecaller`).\n• **Giá trị quy đổi:** Tương đương từ `3,000` đến `5,000` Sách Kỹ Năng Cam (`Orange Skill Books`) miễn phí!",
+                en: "**Your hourly Rune Dust output scales directly with your `Rune Mine` building level.**\n• **Mine upgrade schedule:** Always upgrade the `Rune Mine` alongside your Castle on **Monday of Week B** (Construction Day).\n• **Rare `Combat Skill Level` `+1/+2` Sub-Stat:** At `Lv.5–Lv.6+`, adds `+1–2` active skill levels above cap (`+15%–35%` skill dmg for `Wukong`, `Storm Maiden`, `Paragon`, `Tidecaller`).\n• **Equivalent value:** Worth `3,000` to `5,000` free `Orange Skill Books`!",
               },
             },
           ],
@@ -765,8 +765,8 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
           steps: [
             {
               badge: {
-                vi: "🔴 PHE BỘ LẠC (HORDE)",
-                en: "🔴 HORDE FACTION",
+                vi: "PHE BỘ LẠC (HORDE)",
+                en: "HORDE FACTION",
               },
               title: {
                 vi: "Đội hình Sát thương Dồn & Càn lướt (Wukong, Storm Maiden, Desert Prince, Beastmaster)",
@@ -777,14 +777,14 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
                 en: "Priority 1: Slot 6 & Slot 2 ➔ Priority 2: Slot 4 & Slot 1",
               },
               description: {
-                vi: "Đẩy Ô số 6 (Queue Attack Rune) và Ô số 2 (Hero Attack Rune) chạm mốc Lv.5 ➔ Lv.6 đầu tiên để lấy Xuyên Thủ (Defense Break: 3,845 ➔ 4,614) kết hợp +50–80 March Size đục thủng lớp giáp Liên Minh trong 5 giây đầu; sau đó nâng Ô số 4 (Soldier Attack Rune) và Ô số 1 (Hero HP Rune) để tăng máu gốc cho Desert Prince.",
-                en: "Push Slot 6 (Queue Attack Rune) and Slot 2 (Hero Attack Rune) to Lv.5 ➔ Lv.6 first for Defense Break (3,845 ➔ 4,614) plus +50–80 March Size to shred League shields in the opening 5 seconds; follow with Slot 4 (Soldier Attack Rune) and Slot 1 (Hero HP Rune) to bolster Desert Prince's HP pool.",
+                vi: "**Ưu tiên số 1 (`Ô số 6` & `Ô số 2`):** Đẩy `Queue Attack Rune` & `Hero Attack Rune` chạm `Lv.5 ➔ Lv.6` lấy Xuyên Thủ (`3,845 ➔ 4,614` Def Break) kèm `+50–80` `March Size` phá khiên Liên Minh.\n• **Ưu tiên số 2 (`Ô số 4` & `Ô số 1`):** Nâng `Soldier Attack Rune` và `Hero HP Rune` để gia cố lượng máu gốc cho `Desert Prince`.",
+                en: "**Priority 1 (`Slot 6` & `Slot 2`):** Push `Queue Attack Rune` & `Hero Attack Rune` to `Lv.5 ➔ Lv.6` for Defense Break (`3,845 ➔ 4,614`) and `+50–80` `March Size` to shred League shields.\n• **Priority 2 (`Slot 4` & `Slot 1`):** Follow with `Soldier Attack Rune` and `Hero HP Rune` to bolster `Desert Prince`'s HP pool.",
               },
             },
             {
               badge: {
-                vi: "🔵 PHE LIÊN MINH (LEAGUE)",
-                en: "🔵 LEAGUE FACTION",
+                vi: "PHE LIÊN MINH (LEAGUE)",
+                en: "LEAGUE FACTION",
               },
               title: {
                 vi: "Đội hình Phép Thuật & Khiên Chắn (Paragon, Pyromancer, Adjudicator, Rose Princess)",
@@ -795,14 +795,14 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
                 en: "Priority 1: Slot 2 & Slot 1 ➔ Priority 2: Slot 5 & Slot 6",
               },
               description: {
-                vi: "Đẩy Ô số 2 (Hero Attack Rune) và Ô số 1 (Hero HP Rune) lên Lv.5+ trước tiên vì Pháp sư Liên Minh phụ thuộc cực lớn vào % Hero Attack để nổ sát thương diện rộng, còn Khiên của Adjudicator và Rose Princess tỷ lệ thuận với % Hero HP; tiếp theo nâng Ô số 5 (Relic Mastery Rune) và Ô số 6 (Queue Attack Rune) hỗ trợ bộ Thánh vật Soul Guard Orb & Feather of the Pact.",
-                en: "Push Slot 2 (Hero Attack Rune) and Slot 1 (Hero HP Rune) to Lv.5+ first since League mages rely heavily on % Hero Attack for AoE burst while Adjudicator and Rose Princess shields scale with % Hero HP; follow with Slot 5 (Relic Mastery Rune) and Slot 6 (Queue Attack Rune) to amplify Soul Guard Orb and Feather of the Pact.",
+                vi: "**Ưu tiên số 1 (`Ô số 2` & `Ô số 1`):** Đẩy `Hero Attack Rune` & `Hero HP Rune` lên `Lv.5+` để tăng sát thương phép của `Paragon`/`Pyromancer` và độ dày khiên của `Adjudicator`/`Rose Princess`.\n• **Ưu tiên số 2 (`Ô số 5` & `Ô số 6`):** Nâng `Relic Mastery Rune` và `Queue Attack Rune` hỗ trợ bộ Thánh vật `Soul Guard Orb` & `Feather of the Pact`.",
+                en: "**Priority 1 (`Slot 2` & `Slot 1`):** Push `Hero Attack Rune` & `Hero HP Rune` to `Lv.5+` to maximize AoE burst (`Paragon`/`Pyromancer`) and shield scaling (`Adjudicator`/`Rose Princess`).\n• **Priority 2 (`Slot 5` & `Slot 6`):** Follow with `Relic Mastery Rune` and `Queue Attack Rune` to amplify `Soul Guard Orb` and `Feather of the Pact`.",
               },
             },
             {
               badge: {
-                vi: "🟢 PHE THIÊN NHIÊN (NATURE)",
-                en: "🟢 NATURE FACTION",
+                vi: "PHE THIÊN NHIÊN (NATURE)",
+                en: "NATURE FACTION",
               },
               title: {
                 vi: "Đội hình Hồi Phục & Triệu Hồi (Tidecaller, Monk, Pixie, Forest Maiden)",
@@ -813,8 +813,8 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
                 en: "Priority 1: Slot 1 & Slot 3 ➔ Priority 2: Slot 6 & Slot 2",
               },
               description: {
-                vi: "Đẩy Ô số 1 (Hero HP Rune) và Ô số 3 (Soldier HP Rune) lên Lv.5 ➔ Lv.8 đầu tiên để kéo dài giao tranh cho đến khi Tidecaller và Forest Maiden phủ kín sân đấu bằng đơn vị triệu hồi (kế thừa trực tiếp chỉ số máu và quy mô lính của chủ thể); sau đó nâng Ô số 6 (Queue Attack Rune) và Ô số 2 (Hero Attack Rune).",
-                en: "Push Slot 1 (Hero HP Rune) and Slot 3 (Soldier HP Rune) to Lv.5 ➔ Lv.8 first to extend combat until Tidecaller and Forest Maiden flood the battlefield with summons (which directly inherit host HP and troop capacity); follow with Slot 6 (Queue Attack Rune) and Slot 2 (Hero Attack Rune).",
+                vi: "**Ưu tiên số 1 (`Ô số 1` & `Ô số 3`):** Đẩy `Hero HP Rune` & `Soldier HP Rune` lên `Lv.5 ➔ Lv.8` để kéo dài giao tranh cho `Tidecaller` và `Forest Maiden` triệu hồi (kế thừa máu & quy mô lính).\n• **Ưu tiên số 2 (`Ô số 6` & `Ô số 2`):** Nâng tiếp `Queue Attack Rune` và `Hero Attack Rune`.",
+                en: "**Priority 1 (`Slot 1` & `Slot 3`):** Push `Hero HP Rune` & `Soldier HP Rune` to `Lv.5 ➔ Lv.8` to extend combat for `Tidecaller` and `Forest Maiden` summons (inheriting host HP and troop capacity).\n• **Priority 2 (`Slot 6` & `Slot 2`):** Follow with `Queue Attack Rune` and `Hero Attack Rune`.",
               },
             },
           ],
@@ -838,8 +838,8 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
                 en: "Harvest Rune Mine every 12–24 hours & upgrade on Monday of Week B",
               },
               detail: {
-                vi: "Không để kho chứa Mỏ Cổ Ngữ bị đầy tràn và luôn nâng cấp Mỏ Cổ Ngữ bám sát cấp Lâu Đài trong Ngày Xây dựng.",
-                en: "Prevent Rune Mine storage cap overflow and keep the building upgraded to your Castle cap on Construction Day.",
+                vi: "Không để kho chứa `Rune Mine` bị đầy tràn và luôn nâng cấp Mỏ Cổ Ngữ bám sát cấp Lâu Đài trong **Ngày Xây dựng**.",
+                en: "Prevent `Rune Mine` storage cap overflow and keep the building upgraded to your Castle cap on **Construction Day**.",
               },
               badge: {
                 vi: "HÀNG NGÀY",
@@ -853,8 +853,8 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
                 en: "Lock 100% of Rune Choice Chests until reaching the Lv.4–Lv.5+ bracket",
               },
               detail: {
-                vi: "Chỉ mở Rương Ngẫu Nhiên lấy phôi nền; giữ nguyên Rương Tự Chọn làm mảnh ghép chốt hạ cho các ô bị khuyết.",
-                en: "Only open Random Rune Chests for base fodder; preserve Choice Chests as Finisher Pieces for missing slots.",
+                vi: "Chỉ mở Rương Ngẫu Nhiên lấy phôi nền; giữ nguyên Rương Tự Chọn làm mảnh ghép chốt hạ (`Finisher Piece`) cho các ô bị khuyết.",
+                en: "Only open Random Rune Chests for base fodder; preserve Choice Chests as `Finisher Pieces` for missing slots.",
               },
               badge: {
                 vi: "CẤM MỞ SỚM",
@@ -868,8 +868,8 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
                 en: "Level all 6 Queue 1 slots evenly to Full Lv.4 ➔ Full Lv.5 before merging any Lv.6",
               },
               detail: {
-                vi: "Đảm bảo kích hoạt trọn vẹn +5% HP/ATK Tướng và +110 Tổng March Size với chi phí chỉ 48,000 Bụi Cổ Ngữ cho cả 6 ô.",
-                en: "Secure the full +5% Hero HP/ATK and +110 Total March Size breakpoint for just 48,000 total Rune Dust across all 6 slots.",
+                vi: "Đảm bảo kích hoạt trọn vẹn `+5%` HP/ATK Tướng và `+110` Tổng `March Size` với chi phí chỉ `48,000` Bụi Cổ Ngữ cho cả 6 ô.",
+                en: "Secure the full `+5%` Hero HP/ATK and `+110` Total `March Size` breakpoint for just `48,000` total Rune Dust across all 6 slots.",
               },
               badge: {
                 vi: "ĐIỂM GÃY LV.5",
@@ -883,8 +883,8 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
                 en: "Spend Rune Dust (DE-Dust / Magic Stones) & Arcane Crystals only on Tuesday Week B or Week A Task",
               },
               detail: {
-                vi: "Xả đúng Ngày 2 (Thứ Ba — Tech & Runes Day) của Tuần B (600 điểm / 2,000 Magic Stones; 1,200 điểm / 1 Arcane Crystal) hoặc sau khi nhận Nhiệm vụ Cổ Ngữ trong Tuần A.",
-                en: "Dump exclusively on Day 2 (Tuesday — Tech & Runes Day) of Week B (600 pts / 2,000 Magic Stones; 1,200 pts / 1 Arcane Crystal) or after claiming a Dedicated Rune Task in Week A.",
+                vi: "Xả đúng **Ngày 2 (Thứ Ba — Tech & Runes Day)** của Tuần B (`600` điểm / `2,000` Magic Stones; `1,200` điểm / 1 `Arcane Crystal`) hoặc sau khi nhận Nhiệm vụ Cổ Ngữ trong Tuần A.",
+                en: "Dump exclusively on **Day 2 (Tuesday — Tech & Runes Day)** of Week B (`600` pts / `2,000` Magic Stones; `1,200` pts / 1 `Arcane Crystal`) or after claiming a Dedicated Rune Task in Week A.",
               },
               badge: {
                 vi: "THỨ BA TUẦN B",
@@ -910,8 +910,8 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
             en: "Warning: 3 Fatal Mistakes That Cripple Rune Progression & Event Scoring",
           },
           content: {
-            vi: "(1) Mở sạch Rương Cổ Ngữ Tự Chọn ở bậc Lv.1–Lv.3 để lấy vài điểm chỉ số phẳng thay vì giữ chờ Lv.4–Lv.5+ làm mảnh ghép chốt hạ. (2) Ghép dồn 1 viên duy nhất lên Lv.6 (tốn 243 phôi Lv.1, 25,000 Dust) hoặc Lv.7 (729 phôi Lv.1, 75,000 Dust) trước khi hoàn thành Full 6 ô Lv.5 (81 phôi Lv.1/ô) — làm mất +10% chỉ số và +60–80 March Size. (3) Tiêu thụ Bụi Cổ Ngữ (DE-Dust / Magic Stones) và Arcane Crystal rải rác ngày thường thay vì gom xả vào Ngày 2 (Thứ Ba — Tech & Runes Day) của Tuần B (GAR / KvK) hoặc Nhiệm vụ Cổ Ngữ chuyên biệt (Dedicated Rune Task) của Tuần A!",
-            en: "(1) Opening Rune Choice Chests at Lv.1–Lv.3 for minor flat stats instead of saving them until Lv.4–Lv.5+ as Finisher Pieces. (2) Rushing a single Lv.6 rune (243 Lv.1 copies, 25,000 Dust) or Lv.7 rune (729 Lv.1 copies, 75,000 Dust) before completing Full 6x Lv.5 (81 Lv.1 copies each)—sacrificing +10% stats and +60–80 March Size. (3) Spending Rune Dust (DE-Dust / Magic Stones) and Arcane Crystals randomly outside Week B Day 2 (Tuesday — Tech & Runes Day) or Week A Dedicated Rune Tasks!",
+            vi: "**Tuyệt đối tránh 3 sai lầm phá hỏng tiến độ Cổ Ngữ dưới đây:**\n• **(1) Khui Rương Tự Chọn ở `Lv.1–Lv.3`:** Chỉ lấy vài điểm chỉ số phẳng vô nghĩa thay vì giữ chờ `Lv.4–Lv.5+` làm mảnh ghép chốt hạ (`Finisher Piece`).\n• **(2) Ghép dồn 1 viên `Lv.6` (`243` phôi, `25,000` Dust) hoặc `Lv.7` (`729` phôi, `75,000` Dust) sớm:** Bỏ lỡ mốc Full 6 ô `Lv.5` (`81` phôi/ô) làm mất `+10%` chỉ số và `+60–80` `March Size`.\n• **(3) Xả Bụi Cổ Ngữ (`DE-Dust` / `Magic Stones`) & `Arcane Crystal` ngày thường:** Luôn gom xả vào **Ngày 2 (Thứ Ba — Tech & Runes Day)** của Tuần B (`GAR`/`KvK`) hoặc Task Cổ Ngữ Tuần A!",
+            en: "**Strictly avoid these 3 progression-ruining Rune mistakes:**\n• **(1) Opening `Rune Choice Chests` at `Lv.1–Lv.3`:** Wastes chests on minor flat stats instead of saving them until `Lv.4–Lv.5+` as `Finisher Pieces`.\n• **(2) Rushing a single `Lv.6` (`243` copies, `25,000` Dust) or `Lv.7` (`729` copies, `75,000` Dust) early:** Delays Full 6x `Lv.5` (`81` copies each), sacrificing `+10%` stats and `+60–80` `March Size`.\n• **(3) Spending Rune Dust (`DE-Dust` / `Magic Stones`) & `Arcane Crystal` on normal days:** Always hoard for **Week B Day 2 (Tuesday — Tech & Runes Day)** or Week A Dedicated Rune Tasks!",
           },
         },
         {
@@ -919,16 +919,16 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
           ordered: true,
           items: [
             {
-              vi: "Cạm bẫy #1 — Khui Rương Tự Chọn ở Lv.1–Lv.3: Mở Rương Tự Chọn ngay tuần đầu chỉ mang lại vài chục điểm ATK/HP phẳng. Giải pháp: Khóa toàn bộ Rương Tự Chọn chờ đến tầng Lv.4–Lv.5+ để bù đúng viên bị khuyết, kích hoạt ngay +5% HP/ATK ở Lv.5.",
-              en: "Pitfall #1 — Opening Choice Chests at Lv.1–Lv.3: Opening Choice Chests in week one yields only negligible flat ATK/HP. Solution: Lock all Choice Chests until Lv.4–Lv.5+ to fill exact missing copies and immediately trigger +5% HP/ATK at Lv.5.",
+              vi: "**Cạm bẫy #1 — Khui Rương Tự Chọn ở `Lv.1–Lv.3`:** Chỉ cộng vài điểm ATK/HP phẳng vô nghĩa; hãy khóa 100% Rương Tự Chọn chờ tầng `Lv.4–Lv.5+` làm mảnh ghép bù khuyết kích hoạt ngay `+5%` HP/ATK ở `Lv.5`.",
+              en: "**Pitfall #1 — Opening Choice Chests at `Lv.1–Lv.3`:** Yields only minor flat stats; lock 100% of Choice Chests until `Lv.4–Lv.5+` to fill missing copies and immediately trigger `+5%` HP/ATK at `Lv.5`.",
             },
             {
-              vi: "Cạm bẫy #2 — Ghép dồn 1 viên lên Lv.6–Lv.7 khi 5 ô khác còn ở Lv.3–Lv.4: 1 viên Lv.6 tốn 243 phôi Lv.1 (gấp 3 lần viên Lv.5 = 81 phôi) và 1 viên Lv.7 tốn 729 phôi Lv.1 nhưng chỉ cộng thêm +5% đơn lẻ. Giải pháp: Luôn cán mốc đồng đều Full 6x Lv.5 (48,000 Dust) ➔ Full 6x Lv.6 (150,000 Dust) ➔ Full 6x Lv.8 (1,350,000 Dust).",
-              en: "Pitfall #2 — Rushing a single Lv.6–Lv.7 rune while 5 slots sit at Lv.3–Lv.4: A single Lv.6 rune costs 243 Lv.1 copies (3x a Lv.5 rune = 81 copies) and Lv.7 costs 729 copies for only +5% on one slot. Solution: Always progress evenly across all 6 slots: Full 6x Lv.5 (48,000 Dust) ➔ Full 6x Lv.6 (150,000 Dust) ➔ Full 6x Lv.8 (1,350,000 Dust).",
+              vi: "**Cạm bẫy #2 — Ghép dồn 1 viên `Lv.6–Lv.7` sớm:** 1 viên `Lv.6` tốn `243` phôi (`Lv.7` tốn `729` phôi); hãy nâng đồng đều Full 6x `Lv.5` (`48,000` Dust) ➔ 6x `Lv.6` (`150,000` Dust) ➔ 6x `Lv.8` (`1,350,000` Dust).",
+              en: "**Pitfall #2 — Rushing one `Lv.6–Lv.7` rune early:** One `Lv.6` costs `243` copies (`Lv.7` costs `729`); level evenly: Full 6x `Lv.5` (`48,000` Dust) ➔ 6x `Lv.6` (`150,000` Dust) ➔ 6x `Lv.8` (`1,350,000` Dust).",
             },
             {
-              vi: "Cạm bẫy #3 — Chia phôi bậc cao cho Đội 2 và Đội 3 hoặc xả sai ngày sự kiện: Chia nhỏ phôi khiến Đội 1 chậm chạm mốc Lv.5/Lv.8. Giải pháp: Dồn 100% Cổ Ngữ cấp cao nhất cho Đội 1 (Đội 2 & 3 chỉ dùng phôi dư thừa) và chỉ xả Bụi Cổ Ngữ / Arcane Crystal vào Ngày 2 (Thứ Ba — Tech & Runes Day) của Tuần B hoặc khi nhận Nhiệm vụ Cổ Ngữ Tuần A.",
-              en: "Pitfall #3 — Splitting high-tier runes across Queues 2 & 3 or dumping off-schedule: Spreading runes delays Queue 1's Lv.5/Lv.8 breakpoints. Solution: Funnel 100% of highest-tier runes into Queue 1 (Queues 2 & 3 use leftover fodder) and spend Rune Dust / Arcane Crystals exclusively on Week B Day 2 (Tuesday — Tech & Runes Day) or during Week A Dedicated Rune Tasks.",
+              vi: "**Cạm bẫy #3 — Chia phôi cho Đội 2–3 hoặc xả sai ngày:** Dồn 100% Cổ Ngữ cấp cao nhất cho Đội 1 và chỉ xả Bụi Cổ Ngữ / `Arcane Crystal` vào **Ngày 2 (Thứ Ba)** của Tuần B hoặc khi nhận Task Cổ Ngữ Tuần A.",
+              en: "**Pitfall #3 — Splitting runes to Queues 2–3 or dumping off-schedule:** Funnel 100% of top runes into Queue 1 and spend Rune Dust / `Arcane Crystal` only on **Week B Day 2 (Tuesday)** or Week A Rune Tasks.",
             },
           ],
         },
@@ -940,15 +940,15 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
       id: "sec-4-lv1-to-lv12-stat-tables-and-event-dump",
       isPro: true,
       title: {
-        vi: "4. Phân tích Định lượng & Điểm gãy: Bảng Thông Số Lv.1➔Lv.12 (Tab 🀄️Runes), Toán Học Combat Skill Level & Lịch Xả Double-Dip",
-        en: "4. Quantitative Analysis: Lv.1➔Lv.12 Master Stat Table (Tab 🀄️Runes), Combat Skill Level Math & Double-Dip Schedule",
+        vi: "4. Phân tích Định lượng & Điểm gãy: Bảng Thông Số Lv.1➔Lv.12 (Tab Runes), Toán Học Combat Skill Level & Lịch Xả Double-Dip",
+        en: "4. Quantitative Analysis: Lv.1➔Lv.12 Master Stat Table (Tab Runes), Combat Skill Level Math & Double-Dip Schedule",
       },
       blocks: [
         {
           type: "paragraph",
           text: {
-            vi: "Để quy hoạch chính xác lượng phôi và Bụi Cổ Ngữ từ giai đoạn Mid-game đến Endgame (Lv.12), bảng dữ liệu dưới đây trích xuất nguyên bản toàn bộ thông số của cả 6 vị trí Cổ Ngữ từ TopHeroes Tables (Tab 🀄️Runes), kết hợp phân tích toán học dòng chỉ số hiếm Combat Skill Level +1/+2 và ma trận điểm sự kiện.",
-            en: "To accurately plan your rune fodder and Rune Dust allocation from Mid-game through Endgame (Lv.12), the master table below extracts the complete quantitative stats across all 6 Rune slots from TopHeroes Tables (Tab 🀄️Runes), paired with Combat Skill Level +1/+2 math and event scoring matrices.",
+            vi: "**Bảng dữ liệu dưới đây trích xuất nguyên bản toàn bộ thông số của cả 6 vị trí Cổ Ngữ từ `TopHeroes Tables` (`Tab Runes`).**\n• **Quy hoạch ngân sách (`Lv.1 ➔ Lv.12`):** Đối chiếu chính xác lượng phôi và Bụi Cổ Ngữ từ Mid-game đến Endgame.\n• **Tối ưu điểm gãy:** Kết hợp phân tích toán học dòng hiếm `Combat Skill Level` `+1/+2` và ma trận điểm sự kiện.",
+            en: "**The master table below extracts the complete quantitative stats across all 6 Rune slots from `TopHeroes Tables` (`Tab Runes`).**\n• **Budget Planning (`Lv.1 ➔ Lv.12`):** Accurately project rune fodder and Rune Dust allocation from Mid-game through Endgame.\n• **Breakpoint Optimization:** Paired with `Combat Skill Level` `+1/+2` math and event scoring matrices.",
           },
         },
       ],
@@ -956,15 +956,15 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
         {
           id: "sub-4-1-lv1-to-lv12-master-table",
           title: {
-            vi: "4.1. Bảng Thông Số Đột Phá 6 Loại Cổ Ngữ Từ Lv.1 ➔ Lv.12 (Trích xuất TopHeroes Tables - Tab 🀄️Runes)",
-            en: "4.1. Complete 12-Level Master Stat Table Across All 6 Rune Slots (TopHeroes Tables - Tab 🀄️Runes)",
+            vi: "4.1. Bảng Thông Số Đột Phá 6 Loại Cổ Ngữ Từ Lv.1 ➔ Lv.12 (Trích xuất TopHeroes Tables - Tab Runes)",
+            en: "4.1. Complete 12-Level Master Stat Table Across All 6 Rune Slots (TopHeroes Tables - Tab Runes)",
           },
           blocks: [
             {
               type: "table",
               caption: {
-                vi: "Bảng 3: Thông Số Đột Phá 6 Loại Cổ Ngữ Từ Lv.1 ➔ Lv.12 (Nguồn: TopHeroes Tables - Tab 🀄️Runes)",
-                en: "Table 3: Master Stat Progression Across All 6 Rune Slots from Lv.1 ➔ Lv.12 (Source: TopHeroes Tables - Tab 🀄️Runes)",
+                vi: "Bảng 3: Thông Số Đột Phá 6 Loại Cổ Ngữ Từ Lv.1 ➔ Lv.12 (Nguồn: TopHeroes Tables - Tab Runes)",
+                en: "Table 3: Master Stat Progression Across All 6 Rune Slots from Lv.1 ➔ Lv.12 (Source: TopHeroes Tables - Tab Runes)",
               },
               headers: [
                 {
@@ -1034,7 +1034,7 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
                   { vi: "2,400 / 3,076 / -", en: "2,400 / 3,076 / -" },
                 ],
                 [
-                  { vi: "Lv.5 🔥", en: "Lv.5 🔥" },
+                  { vi: "Lv.5 ★", en: "Lv.5 ★" },
                   { vi: "15,091 / 5%", en: "15,091 / 5%" },
                   { vi: "371 / 5%", en: "371 / 5%" },
                   { vi: "11 / 30 / -", en: "11 / 30 / -" },
@@ -1043,7 +1043,7 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
                   { vi: "3,000 / 3,845 / 50", en: "3,000 / 3,845 / 50" },
                 ],
                 [
-                  { vi: "Lv.6 ⭐", en: "Lv.6 ⭐" },
+                  { vi: "Lv.6 ★", en: "Lv.6 ★" },
                   { vi: "40,616 / 10%", en: "40,616 / 10%" },
                   { vi: "999 / 10%", en: "999 / 10%" },
                   { vi: "15 / 35 / -", en: "15 / 35 / -" },
@@ -1061,7 +1061,7 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
                   { vi: "4,200 / 5,383 / 116", en: "4,200 / 5,383 / 116" },
                 ],
                 [
-                  { vi: "Lv.8 👑", en: "Lv.8 👑" },
+                  { vi: "Lv.8 ★", en: "Lv.8 ★" },
                   { vi: "191,019 / 20%", en: "191,019 / 20%" },
                   { vi: "4,696 / 20%", en: "4,696 / 20%" },
                   { vi: "30 / 50 / 5%", en: "30 / 50 / 5%" },
@@ -1119,8 +1119,8 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Tuyệt đối tuân thủ ma trận điểm số từ TopHeroes Tables (Tab 👑KvK & GAR & TOP): Trong Tuần B (GAR / KvK), việc tiêu thụ Bụi Cổ Ngữ (DE-Dust / Rune Dust / Magic Stones) và Tinh Thể Bí Thuật (Arcane Crystal) tính điểm duy nhất vào Ngày 2 (Thứ Ba — Tech & Runes Day). Trong Tuần A (Guild Race), chỉ tiêu thụ ngay sau khi đã nhận Nhiệm vụ Cổ Ngữ chuyên biệt (Dedicated Rune Task).",
-                en: "Strictly follow the scoring matrix from TopHeroes Tables (Tab 👑KvK & GAR & TOP): During Week B (GAR / KvK), consuming Rune Dust (DE-Dust / Magic Stones) and Arcane Crystals scores points exclusively on Day 2 (Tuesday — Tech & Runes Day). During Week A (Guild Race), only spend immediately after claiming a Dedicated Rune Task.",
+                vi: "**Tuyệt đối tuân thủ ma trận điểm số từ `TopHeroes Tables` (`Tab KvK & GAR & TOP`):**\n• **Tuần B (`GAR` / `KvK`):** Tiêu thụ Bụi Cổ Ngữ (`DE-Dust` / `Rune Dust` / `Magic Stones`) và `Arcane Crystal` tính điểm duy nhất vào **Ngày 2 (Thứ Ba — Tech & Runes Day)**.\n• **Tuần A (`Guild Race`):** Chỉ tiêu thụ ngay sau khi đã nhận Nhiệm vụ Cổ Ngữ chuyên biệt (`Dedicated Rune Task`).",
+                en: "**Strictly follow the scoring matrix from `TopHeroes Tables` (`Tab KvK & GAR & TOP`):**\n• **Week B (`GAR` / `KvK`):** Consuming Rune Dust (`DE-Dust` / `Magic Stones`) and `Arcane Crystal` scores points exclusively on **Day 2 (Tuesday — Tech & Runes Day)**.\n• **Week A (`Guild Race`):** Only spend immediately after claiming a `Dedicated Rune Task`.",
               },
             },
             {
@@ -1209,8 +1209,8 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
             en: "Restructuring From a Lopsided 1x Lv.6 Board to Full 6x Lv.5 Synergy on Tuesday Week B",
           },
           profileSummary: {
-            vi: "Tài khoản Mid-game (Lâu đài Lv.27–28, 3.2M–4.1M Lực chiến Đội 1 Bộ Lạc) ghép dồn Ô số 1 (Hero HP Rune) lên Lv.6 nhưng để 5 ô còn lại (Hero Attack, Soldier HP, Soldier Attack, Relic Mastery, Queue Attack) kẹt ở Lv.3–Lv.4 (tổng 336 phôi Lv.1 đã dùng, 34,400 Dust). Trong kho đang giữ 18 Rương Cổ Ngữ Tự Chọn và 60,000–72,000 Bụi Cổ Ngữ (Magic Stones).",
-            en: "Mid-game account (Castle Lv.27–28, 3.2M–4.1M Horde Queue 1 power) over-invested Slot 1 (Hero HP Rune) to Lv.6 while leaving the remaining 5 slots (Hero Attack, Soldier HP, Soldier Attack, Relic Mastery, Queue Attack) stuck at Lv.3–Lv.4 (336 Lv.1 copies used, 34,400 Dust). Inventory holds 18 Rune Choice Chests and 60,000–72,000 Rune Dust (Magic Stones).",
+            vi: "**Tài khoản Mid-game (Lâu đài `Lv.27–28`, `3.2M–4.1M` Lực chiến Đội 1 Bộ Lạc) ghép dồn Ô số 1 (`Hero HP Rune`) lên `Lv.6`.**\n• **Hiện trạng lệch cấp:** 5 ô còn lại (`Hero Attack`, `Soldier HP`, `Soldier Attack`, `Relic Mastery`, `Queue Attack`) bị kẹt ở `Lv.3–Lv.4` (đã dùng `336` phôi Lv.1, `34,400` Dust).\n• **Tài nguyên tồn kho:** Đang giữ `18` Rương Cổ Ngữ Tự Chọn và `60,000–72,000` Bụi Cổ Ngữ (`Magic Stones`).",
+            en: "**Mid-game account (Castle `Lv.27–28`, `3.2M–4.1M` Horde Queue 1 power) over-invested Slot 1 (`Hero HP Rune`) to `Lv.6`.**\n• **Lopsided state:** The remaining 5 slots (`Hero Attack`, `Soldier HP`, `Soldier Attack`, `Relic Mastery`, `Queue Attack`) sit stuck at `Lv.3–Lv.4` (`336` Lv.1 copies used, `34,400` Dust).\n• **Banked resources:** Inventory holds `18` Rune Choice Chests and `60,000–72,000` Rune Dust (`Magic Stones`).",
           },
           metrics: [
             {
@@ -1270,12 +1270,12 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
           ],
           diagnostics: [
             {
-              vi: "Lỗi dồn phôi lệch cấp (Lopsided Synthesis): Đẩy Ô số 1 lên Lv.6 tiêu tốn 243 phôi Lv.1 và 25,000 Dust (để lên Lv.7 cần thêm 486 phôi Lv.1), trong khi Ô số 2 (Hero Attack) và Ô số 6 (Queue Attack) kẹt ở Lv.3–Lv.4 khiến đội hình Bộ Lạc mất trắng +5% Hero Attack, +110 March Size và 3,845 Defense Break.",
-              en: "Lopsided Synthesis Error: Pushing Slot 1 to Lv.6 consumed 243 Lv.1 copies and 25,000 Dust (and Lv.7 would require 486 more Lv.1 copies), while leaving Slot 2 (Hero Attack) and Slot 6 (Queue Attack) stuck at Lv.3–Lv.4 cost the Horde lineup +5% Hero Attack, +110 March Size, and 3,845 Defense Break.",
+              vi: "**Lỗi dồn phôi lệch cấp (`Lopsided Synthesis`):** Đẩy Ô số 1 lên `Lv.6` ngốn `243` phôi Lv.1 và `25,000` Dust (lên `Lv.7` cần thêm `486` phôi Lv.1).\n• **Hậu quả thực chiến:** Ô số 2 (`Hero Attack`) và Ô số 6 (`Queue Attack`) kẹt ở `Lv.3–Lv.4`, làm đội Bộ Lạc mất trắng `+5%` Hero Attack, `+110` March Size và `3,845` Defense Break.",
+              en: "**Lopsided Synthesis Error:** Pushing Slot 1 to `Lv.6` consumed `243` Lv.1 copies and `25,000` Dust (and `Lv.7` would require `486` more Lv.1 copies).\n• **Combat penalty:** Leaving Slot 2 (`Hero Attack`) and Slot 6 (`Queue Attack`) stuck at `Lv.3–Lv.4` cost the Horde lineup `+5%` Hero Attack, `+110` March Size, and `3,845` Defense Break.",
             },
             {
-              vi: "Kẹt phôi xác suất thống kê do chưa dùng Finisher Piece: Người chơi mở Rương Ngẫu Nhiên bị lệch phôi nhưng chưa biết cách dùng 18 Rương Cổ Ngữ Tự Chọn đúng vào cửa sổ Ngày 2 Thứ Ba Tuần B để chốt hạ đồng loạt các ô còn thiếu lên Lv.5.",
-              en: "RNG Bottleneck Without Finisher Execution: Random Chests produced uneven copies across slots, requiring disciplined use of the 18 hoarded Choice Chests during Tuesday Week B (GAR Day 2) to finish the remaining Lv.5 slots simultaneously.",
+              vi: "**Kẹt phôi xác suất do chưa dùng `Finisher Piece`:** Mở Rương Ngẫu Nhiên bị lệch phôi giữa các ô.\n• **Giải pháp:** Cần bung đúng `18` Rương Cổ Ngữ Tự Chọn vào cửa sổ **Ngày 2 Thứ Ba Tuần B** để chốt hạ đồng loạt các ô còn thiếu lên `Lv.5`.",
+              en: "**RNG Bottleneck Without `Finisher Piece` Execution:** Random Chests produced uneven copies across slots.\n• **Solution:** Deploy the `18` hoarded Choice Chests during **Tuesday Week B (`GAR Day 2`)** to finish all remaining `Lv.5` slots simultaneously.",
             },
           ],
           recoverySteps: [
@@ -1286,8 +1286,8 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
                 en: "Freeze Upgrades on the Lv.6 Slot 1 (Hero HP Rune)",
               },
               detail: {
-                vi: "Ngừng hoàn toàn việc dồn thêm phôi vào Ô số 1 (Hero HP Lv.6) vì để lên Lv.7 cần tới 729 tổng phôi Lv.1 (tăng thêm 486 phôi) và 75,000 Dust mà chỉ đổi lấy thêm +5% HP đơn lẻ.",
-                en: "Immediately halt further investment into Slot 1 (Hero HP Lv.6), since reaching Lv.7 requires 729 total Lv.1 copies (486 additional copies) and 75,000 Dust for just +5% HP on a single slot.",
+                vi: "**Ngừng dồn thêm phôi vào Ô số 1 (`Hero HP Lv.6`):** Để lên `Lv.7` cần tới `729` tổng phôi Lv.1 (tăng thêm `486` phôi) và `75,000` Dust mà chỉ đổi lấy thêm `+5%` HP đơn lẻ.",
+                en: "**Halt further investment into Slot 1 (`Hero HP Lv.6`):** Reaching `Lv.7` requires `729` total Lv.1 copies (`486` additional copies) and `75,000` Dust for just `+5%` HP on one slot.",
               },
               impactBadge: {
                 vi: "TIẾT KIỆM 486 PHÔI LV.1",
@@ -1301,8 +1301,8 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
                 en: "Audit Exact Missing Lv.4 Copies Across the Remaining 5 Slots",
               },
               detail: {
-                vi: "Tính toán số phôi Lv.4 còn thiếu tại Ô số 6 (Queue Attack), Ô số 2 (Hero Attack), Ô số 3 (Soldier HP) và Ô số 4 (Soldier Attack) để đạt mốc 81 phôi Lv.1 quy đổi (3 × Lv.4) trên mỗi ô.",
-                en: "Calculate the exact number of Lv.4 copies needed in Slot 6 (Queue Attack), Slot 2 (Hero Attack), Slot 3 (Soldier HP), and Slot 4 (Soldier Attack) to reach 81 Lv.1 equivalent copies (3 × Lv.4) per slot.",
+                vi: "**Tính toán số phôi `Lv.4` còn thiếu:** Rà soát tại Ô số 6 (`Queue Attack`), Ô số 2 (`Hero Attack`), Ô số 3 (`Soldier HP`) và Ô số 4 (`Soldier Attack`) để đạt mốc `81` phôi Lv.1 quy đổi (`3 × Lv.4`) trên mỗi ô.",
+                en: "**Calculate exact missing `Lv.4` copies:** Audit Slot 6 (`Queue Attack`), Slot 2 (`Hero Attack`), Slot 3 (`Soldier HP`), and Slot 4 (`Soldier Attack`) to reach `81` Lv.1 equivalent copies (`3 × Lv.4`) per slot.",
               },
               impactBadge: {
                 vi: "KHỚP NỐI FINISHER PIECE",
@@ -1316,8 +1316,8 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
                 en: "Open Choice Chests & Dump Rune Dust on Tuesday Week B (GAR Day 2)",
               },
               detail: {
-                vi: "Mở vừa đủ số Rương Tự Chọn để bù chính xác các phôi thiếu và xả 60,000–72,000 Bụi Cổ Ngữ (Magic Stones) hợp thành đồng loạt cả 6 ô đạt tối thiểu Full Lv.5 (mở khóa +5% HP/ATK, +110 March Size, +3,845 Def Break, tăng +1,980,000 lực chiến thực tế và thu về 18,000–21,600 điểm GAR Ngày 2).",
-                en: "Open the exact number of Choice Chests needed to fill missing copies and spend 60,000–72,000 Rune Dust (Magic Stones) to bring all 6 slots to at least Full Lv.5 (unlocking +5% HP/ATK, +110 March Size, +3,845 Def Break, +1,980,000 real combat power, and 18,000–21,600 GAR Tuesday Day 2 points).",
+                vi: "**Bung Rương Tự Chọn bù khuyết:** Mở vừa đủ số Rương Tự Chọn để bù chính xác các phôi thiếu và xả `60,000–72,000` Bụi Cổ Ngữ (`Magic Stones`) hợp thành đồng loạt cả 6 ô đạt tối thiểu Full `Lv.5`.\n• **Thành quả kép:** Mở khóa `+5%` HP/ATK, `+110` March Size, `+3,845` Def Break (`+1,980,000` lực chiến thực) và thu về `18,000–21,600` điểm GAR Ngày 2.",
+                en: "**Open Choice Chests to finish slots:** Open the exact number of Choice Chests needed and spend `60,000–72,000` Rune Dust (`Magic Stones`) to bring all 6 slots to at least Full `Lv.5`.\n• **Double payoff:** Unlocks `+5%` HP/ATK, `+110` March Size, `+3,845` Def Break (`+1,980,000` real power) and nets `18,000–21,600` GAR Tuesday Day 2 points.",
               },
               impactBadge: {
                 vi: "+110 MARCH SIZE & +21,600 ĐIỂM GAR",
@@ -1326,8 +1326,8 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
             },
           ],
           conclusion: {
-            vi: "Chỉ với 1 phiên tái cấu trúc vào đúng Ngày 2 (Thứ Ba) Tuần B, đội hình Bộ Lạc tăng thêm 660 tổng quân lính ra trận (+110 March Size × 6 tướng) và đục thủng dễ dàng các đội hình Liên Minh cao hơn 300K lực chiến hiển thị.",
-            en: "In a single Tuesday Week B restructuring session, the Horde queue gains 660 total deployed troops (+110 March Size × 6 heroes) and reliably punches through League lineups 300K higher in displayed power.",
+            vi: "**Chỉ với 1 phiên tái cấu trúc vào Ngày 2 (Thứ Ba) Tuần B:** Đội hình Bộ Lạc tăng thêm `660` tổng quân lính ra trận (`+110` March Size × 6 tướng) và đục thủng các đội hình Liên Minh cao hơn `300K` lực chiến hiển thị.",
+            en: "**In a single Tuesday Week B restructuring session:** The Horde queue gains `660` total deployed troops (`+110` March Size × 6 heroes) and reliably punches through League lineups `300K` higher in displayed power.",
           },
         },
         {

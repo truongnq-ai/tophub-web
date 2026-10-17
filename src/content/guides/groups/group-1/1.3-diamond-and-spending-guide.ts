@@ -16,34 +16,34 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
   },
   tldr: {
     coreRule: {
-      vi: "Kim Cương (Diamonds) là nguồn tài nguyên duy nhất giúp người chơi F2P/Low-Spender sở hữu toàn bộ dàn Tướng Đỏ (Mythic Heroes) và UW (Universal Weapon / Exclusive Weapon — Vũ khí Độc quyền) thông qua sự kiện Vòng Quay May Mắn (Lucky Wheel) và Xúc Xắc (Dice / Gala).",
-      en: "Diamonds are the single essential currency allowing F2P and Low-Spender players to unlock the entire roster of Mythic Heroes and UWs (Universal Weapons / Exclusive Weapons) through weekly Lucky Wheel and Dice / Gala events.",
+      vi: "**Kênh Mở Khóa Tướng Đỏ Duy Nhất:** Kim Cương (`Diamonds`) là tiền tệ cốt lõi giúp F2P/Low-Spender sở hữu toàn bộ Tướng Đỏ (`Mythic Heroes`) và `UW` (`Exclusive Weapon`).\n• **Trục Sự kiện Xoay vòng:** Chỉ giải ngân qua Vòng Quay May Mắn (`Lucky Wheel`) và Xúc Xắc (`Dice` / `Gala`) đúng hệ Đội 1.",
+      en: "**Sole F2P Mythic Currency:** `Diamonds` are the single essential currency allowing F2P/Low-Spenders to unlock all `Mythic Heroes` and `UWs` (`Exclusive Weapons`).\n• **Rotating Banner Focus:** Spend strictly on weekly `Lucky Wheel` and `Dice` / `Gala` events matching Queue 1.",
     },
     immediateAction: {
-      vi: "Thiết lập ngay \"Quỹ Dự Trữ Khẩn Cấp 30,000 – 50,000 Kim Cương\" (cùng Ngưỡng Đóng Băng Ví Cửa Hàng Bang: 40,000 Điểm Vinh Dự Bang hoặc 12,000–18,000 Xu Vinh Quang Hội để săn Hồn Đá Đỏ / Soul Stones giá 40,000 Điểm Vinh Dự / viên hoặc 6,000 Xu Vinh Quang / viên ở S1); chỉ tiêu phần Kim Cương vượt trên ngưỡng dự trữ cho các vật phẩm S-Tier trong Cửa hàng VIP (VIP Shop) hàng tuần.",
-      en: "Establish an immediate \"30,000 – 50,000 Diamond Emergency Reserve\" (alongside a Guild Shop Wallet Safety Floor of 40,000 Guild Honor or 12,000–18,000 Guild Coins to buy Soul Stones at 40,000 Guild Honor / stone or 6,000 Guild Coins / stone in S1); only spend surplus Diamonds above your reserve floor on weekly S-Tier items in the VIP Shop.",
+      vi: "**Thiết lập Quỹ Dự Trữ Khẩn Cấp:** Khóa đáy `30,000 – 50,000` Kim Cương và chỉ tiêu phần thặng dư vào vật phẩm `S-Tier` trong `VIP Shop` hàng tuần.\n• **Ngưỡng Đóng Băng Ví Bang (`S1`):** Giữ `40,000` Điểm Vinh Dự Bang hoặc `12,000–18,000` Xu Vinh Quang Hội để săn `Hồn Đá Đỏ` (`40,000` Điểm / viên hoặc `6,000` Xu / viên).",
+      en: "**Lock Emergency Reserve Floor:** Hold a `30,000 – 50,000` Diamond reserve and only spend surplus above the floor on weekly `S-Tier` items in the `VIP Shop`.\n• **Guild Shop Wallet Floor (`S1`):** Keep `40,000` Guild Honor or `12,000–18,000` Guild Coins to buy `Soul Stones` (`40,000` Honor or `6,000` Coins / stone).",
     },
     strictTaboo: {
-      vi: "Tuyệt đối không dùng Kim Cương để quay chiêu mộ thường trong Quán Rượu (Tavern), không bấm hoàn thành nhanh công trình/nghiên cứu bằng Kim Cương, và không mở khóa Ô Thiên phú thứ 4 của Tướng Tím tốn 2,000 Kim Cương.",
-      en: "Never spend Diamonds on standard Tavern Recruits, never click Instant Finish on buildings/research/troops with Diamonds, and never unlock the 4th Trait slot on Epic Heroes for 2,000 Diamonds.",
+      vi: "**3 Cấm Kỵ Đốt Kim Cương:** Tuyệt đối không dùng Kim Cương quay chiêu mộ thường trong Quán Rượu (`Tavern Recruit`).\n• **Cấm Hoàn thành nhanh & Ô 4 Tướng Tím:** Không bấm `Instant Finish` công trình/nghiên cứu bằng Kim Cương và không mở Ô Thiên phú thứ 4 Tướng Tím tốn `2,000` Kim Cương.",
+      en: "**3 Strict Diamond Taboos:** Never spend Diamonds on standard `Tavern Recruits`.\n• **No Instant Finish or Epic Slot 4:** Never click `Instant Finish` on buildings/research/troops with Diamonds, and never unlock the 4th Trait slot on Epic Heroes for `2,000` Diamonds.",
     },
   },
   keyTakeaways: [
     {
-      vi: "Gia nhập Bang hội Top 1–3 giúp F2P thu về đều đặn 12,000 – 20,000+ Kim Cương mỗi tuần từ rương mốc cá nhân Thi Đấu Hội (Guild Race) / GAR (KvK), chuỗi sự kiện vệ tinh (Tập Kích Cự Ma, Khiêu Chiến Của Đội Quân Hắc Ám), Đấu Trường và Rương quà bang.",
-      en: "Joining a Top 1–3 Guild enables F2P players to earn 12,000 – 20,000+ Diamonds per week from Guild Race / GAR (KvK) personal milestone chests, satellite events (Giant Raid, Dark Legion Challenge), Arena, and Guild Gift Chests.",
+      vi: "**Dòng thu F2P `12,000 – 20,000+` KC/tuần:** Gia nhập Bang hội `Top 1–3` để nhận tối đa rương mốc cá nhân Thi Đấu Hội (`Guild Race`) / `GAR` (`KvK`).\n• **Sự kiện Vệ tinh & Đấu trường:** Cộng hưởng nguồn thu từ Tập Kích Cự Ma, Khiêu Chiến Của Đội Quân Hắc Ám, `Arena` và Rương quà bang.",
+      en: "**F2P Cashflow (`12,000 – 20,000+` Diamonds/week):** Join a `Top 1–3` Guild to maximize personal milestone chests from `Guild Race` and `GAR` (`KvK`).\n• **Satellite Events & Arena:** Stack steady income from Giant Raid, Dark Legion Challenge, `Arena`, and Guild Gift Chests.",
     },
     {
-      vi: "Luôn khóa đáy Quỹ Dự Trữ Khẩn Cấp 30,000 – 50,000 Kim Cương để vét trọn mốc Rương Tích Lũy 100 lượt ( ~22,000 KC/kỳ) khi Tướng Đỏ Đội 1 xuất hiện trên Vòng Quay (Lucky Wheel) hoặc Xúc Xắc (Dice).",
-      en: "Always lock a 30,000 – 50,000 Diamond Emergency Reserve to guarantee hitting the 100-spin Milestone Bonus Chests (~22,000 Diamonds/event) whenever a Queue 1 Mythic Hero appears on Lucky Wheel or Dice.",
+      vi: "**Quỹ Dự Trữ Khẩn Cấp `30,000 – 50,000` KC:** Luôn khóa đáy ngân sách để vét trọn mốc Rương Tích Lũy `100 lượt` (`~22,000 KC/kỳ`).\n• **Giải ngân Đúng Hệ Đội 1:** Chỉ xả Kim Cương khi Tướng Đỏ hoặc `UW` thuộc Đội 1 xuất hiện trên `Lucky Wheel` hoặc `Dice`.",
+      en: "**Emergency Reserve (`30,000 – 50,000` Diamonds):** Always lock your floor to guarantee hitting the `100-spin` Milestone Bonus Chests (`~22,000 Diamonds/event`).\n• **Queue 1 Banner Discipline:** Only pull when a Queue 1 Mythic Hero or `UW` appears on `Lucky Wheel` or `Dice`.",
     },
     {
-      vi: "Khóa chặt Ngưỡng Đóng Băng Tiền Tệ Kép mua Hồn Đá Đỏ (Soul Stone Dual-Currency Floor): giữ tối thiểu 40,000 Điểm Vinh Dự Bang / viên (360,000 / 9 viên) hoặc 6,000 Xu Vinh Quang Hội / viên (54,000 / 9 viên) kèm 345–385 Mảnh Tướng để thức tỉnh hoàn chỉnh 1 tướng Vàng ở Season 1.",
-      en: "Enforce the Soul Stone Dual-Currency Floor: keep at least 40,000 Guild Honor per stone (360,000 / 9 stones) or 6,000 Guild Coins per stone (54,000 / 9 stones) alongside 345–385 Hero Shards to fully awaken a Legendary Hero in Season 1.",
+      vi: "**Ngưỡng Tiền Tệ Kép Hồn Đá Đỏ (`Soul Stone Floor`):** Giữ tối thiểu `40,000` Điểm Vinh Dự Bang / viên (`360,000` / 9 viên) hoặc `6,000` Xu Vinh Quang Hội / viên (`54,000` / 9 viên).\n• **Định mức Thức tỉnh Season 1:** Gom đủ `9 Hồn Đá Đỏ` kèm `345–385` Mảnh Tướng để thức tỉnh hoàn chỉnh 1 tướng Vàng.",
+      en: "**Soul Stone Dual-Currency Floor:** Keep at least `40,000` Guild Honor per stone (`360,000` / 9 stones) or `6,000` Guild Coins per stone (`54,000` / 9 stones).\n• **Season 1 Awakening Quota:** Combine `9 Red Soul Stones` (`9 Soul Stones`) with `345–385` Hero Shards to fully awaken 1 Legendary Hero.",
     },
     {
-      vi: "Với người chơi MVS (Minimum Viable Spender), 4 gói nạp có ROI cao nhất là Thợ Xây Thứ 2 ($0.99–$1.99, ROI ~1,000%+), Xóa Quảng Cáo Vĩnh Viễn ($1.99, ROI ~900%), Thẻ Tháng Đặc Quyền ($4.99–$9.99, ROI ~850%) và Hàng Đợi Nghiên Cứu Thứ 2 ($9.99, ROI ~800%), ưu tiên nạp qua Web Store để nhận thêm +5% Gold Blocks.",
-      en: "For Minimum Viable Spenders (MVS), the top 4 highest-ROI purchases are the 2nd Builder Queue ($0.99–$1.99, ~1,000%+ ROI), Permanent Remove Ads ($1.99, ~900% ROI), Monthly Privilege Pass ($4.99–$9.99, ~850% ROI), and 2nd Research Queue ($9.99, ~800% ROI), ideally bought via the official Web Store for +5% bonus Gold Blocks.",
+      vi: "**Top 4 Gói Nạp `MVS` ROI Cao Nhất:** Thợ Xây Thứ 2 (`$0.99–$1.99`, ROI `~1,000%+`), Xóa Quảng Cáo (`$1.99`, ROI `~900%`), Thẻ Tháng (`$4.99–$9.99`, ROI `~850%`) và Nghiên Cứu Thứ 2 (`$9.99`, ROI `~800%`).\n• **Tối ưu Cổng Web:** Nạp qua `Web Store` chính thức để nhận thêm `+5% Gold Blocks`.",
+      en: "**Top 4 Highest-ROI `MVS` Packs:** 2nd Builder Queue (`$0.99–$1.99`, `~1,000%+` ROI), Remove Ads (`$1.99`, `~900%` ROI), Monthly Pass (`$4.99–$9.99`, `~850%` ROI), and 2nd Research (`$9.99`, `~800%` ROI).\n• **Web Store Bonus:** Top up via the official `Web Store` for `+5% Gold Blocks`.",
     },
   ],
   keywords: [
@@ -86,8 +86,8 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Trong Top Heroes, một người chơi F2P năng nổ khi gia nhập một Bang hội Top 1–3 của máy chủ có thể thu về trung bình từ 12,000 đến 20,000+ Kim Cương mỗi tuần thông qua 3 trục thu nhập ổn định:",
-            en: "In Top Heroes, an active F2P player inside a Top 1–3 server guild can consistently earn an average of 12,000 to 20,000+ Diamonds per week across three reliable income streams:",
+            vi: "**Dòng tiền Kim Cương F2P:** Khi gia nhập một Bang hội `Top 1–3` máy chủ, người chơi F2P năng nổ thu về trung bình `12,000` đến `20,000+` Kim Cương mỗi tuần qua 3 trục thu nhập:",
+            en: "**F2P Weekly Diamond Cashflow:** Inside a `Top 1–3` server guild, an active F2P player consistently earns `12,000` to `20,000+` Diamonds per week across 3 reliable income streams:",
           },
         },
         {
@@ -95,24 +95,24 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
           ordered: false,
           items: [
             {
-              vi: "Mở rương mốc cá nhân và rương bang từ trục sự kiện hàng tuần: Thi Đấu Hội (Guild Race — chạy nối tiếp mỗi tuần 09:00 Thứ Hai ➔ 09:00 Thứ Hai ở giai đoạn đầu Pre-Season hoặc luân phiên ở tuần A) và Chạy Đua Vũ Trang (Guild Arms Race — GAR / KvK ở tuần B), cùng chuỗi sự kiện vệ tinh (Tập Kích Cự Ma, Khiêu Chiến Của Đội Quân Hắc Ám).",
-              en: "Opening personal milestone chests and guild chests from the weekly event axis: Guild Race (Thi Đấu Hội — running back-to-back every week from 09:00 Monday ➔ 09:00 Monday during early Pre-Season or alternating on Week A) and Guild Arms Race (GAR / KvK on Week B), alongside satellite events (Giant Raid / Tập Kích Cự Ma, Dark Legion Challenge / Khiêu Chiến Của Đội Quân Hắc Ám).",
+              vi: "**Trục Sự kiện Hàng tuần:** Mở rương mốc cá nhân & bang từ `Thi Đấu Hội` (`09:00` Thứ Hai ➔ `09:00` Thứ Hai), `GAR` (`KvK`) và sự kiện vệ tinh (`Tập Kích Cự Ma`, `Khiêu Chiến Của Đội Quân Hắc Ám`).",
+              en: "**Weekly Event Axis:** Claim personal & guild chests from `Guild Race` (`09:00` Mon ➔ `09:00` Mon), `GAR` (`KvK`), and satellite events (`Giant Raid`, `Dark Legion Challenge`).",
             },
             {
-              vi: "Phần thưởng xếp hạng Đấu Trường (Arena) hàng ngày và tổng kết cuối mùa.",
-              en: "Daily and end-of-season Arena ranking rewards.",
+              vi: "**Thưởng Xếp hạng Đấu Trường (Arena):** Nhận Kim Cương đều đặn từ phần thưởng tổng kết xếp hạng `Arena` hàng ngày và cuối mùa giải.",
+              en: "**Arena Ranking Rewards:** Collect consistent daily and end-of-season `Arena` ranking Diamond payouts.",
             },
             {
-              vi: "Rương quà khi thành viên trong bang nạp gói (Guild Gift Chests), đánh Boss Thế Giới, Thám hiểm (Adventure) và Cướp Xe Hàng (Carriage Plunder).",
-              en: "Guild Gift Chests from clanmates purchasing packs, World Boss rallies, Adventure progression, and Carriage Plunder.",
+              vi: "**Rương Bang & Hoạt động Thế giới:** Nhận từ `Guild Gift Chests` khi thành viên nạp gói, đánh `World Boss`, `Adventure` và Cướp Xe Hàng (`Carriage Plunder`).",
+              en: "**Guild Chests & World Activities:** Earn from `Guild Gift Chests` when clanmates buy packs, `World Boss` rallies, `Adventure`, and `Carriage Plunder`.",
             },
           ],
         },
         {
           type: "paragraph",
           text: {
-            vi: "Tuy nhiên, game được thiết kế với hàng chục \"cái bẫy tiêu hao nhỏ lẻ\" (Micro-Sinks) nhằm rút cạn số Kim Cương này mỗi ngày. Người chơi chiến thắng là người biết dồn 80% lượng Kim Cương kiếm được vào đúng 2 sự kiện xoay vòng hàng tuần: Vòng Quay May Mắn (Lucky Wheel) và Xúc Xắc (Dice Event) khi tâm điểm sự kiện rơi đúng vào vị Tướng Đỏ hoặc UW (Universal Weapon / Exclusive Weapon — Vũ khí Độc quyền) thuộc Đội hình 1 của mình.",
-            en: "However, the game is engineered with dozens of daily \"Micro-Sinks\" designed to drain this Diamond income. Winning players funnel 80% of their earned Diamonds into the 2 weekly rotating events—Lucky Wheel and Dice Event—specifically when the featured banner matches a Mythic Hero or UW (Universal Weapon / Exclusive Weapon) belonging to Queue 1.",
+            vi: "**Cạm bẫy Tiêu hao Nhỏ lẻ (`Micro-Sinks`):** Game thiết kế hàng chục bẫy tiêu hao mỗi ngày nhằm rút cạn số Kim Cương này trước kỳ sự kiện.\n• **Quy tắc Dồn 80% Ngân sách:** Chỉ xả Kim Cương vào Vòng Quay (`Lucky Wheel`) và Xúc Xắc (`Dice Event`) khi tâm điểm rơi đúng vào Tướng Đỏ hoặc `UW` (`Universal Weapon` / `Exclusive Weapon`) thuộc Đội 1.",
+            en: "**Daily Micro-Sink Traps:** The game is engineered with dozens of daily `Micro-Sinks` designed to drain your Diamond income before major banners.\n• **The 80% Funnel Rule:** Funnel `80%` of earned Diamonds into weekly `Lucky Wheel` and `Dice Event` banners only when they feature a Mythic Hero or `UW` (`Universal Weapon` / `Exclusive Weapon`) for Queue 1.",
           },
         },
         {
@@ -215,8 +215,8 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
                 en: "Micro-Sink Traps (Strictly Forbidden)",
               },
               badge: {
-                vi: "⛔ CẤM TUYỆT ĐỐI (F-Tier)",
-                en: "⛔ STRICTLY FORBIDDEN (F-Tier)",
+                vi: "CẤM TUYỆT ĐỐI (F-Tier)",
+                en: "STRICTLY FORBIDDEN (F-Tier)",
               },
               tone: "rose",
               steps: [
@@ -292,8 +292,8 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Để không bao giờ phải hối tiếc sau mỗi cú chạm màn hình, hãy đối chiếu mọi khoản chi Kim Cương của người chơi F2P và MVS (Minimum Viable Spender — Người chơi nạp gói tối thiểu có hiệu quả đầu tư cao nhất) với Bảng Phân Hạng Ưu Tiên (Diamond Spending Tier List) dưới đây:",
-            en: "To eliminate buyer's remorse after every tap, benchmark every Diamond expenditure for F2P and MVS (Minimum Viable Spender — players purchasing only the highest-ROI starter packs) against the Diamond Spending Priority Tier List below:",
+            vi: "**Chuẩn đối chiếu Chi tiêu (`Diamond Spending Tier List`):** Đối chiếu mọi khoản chi của người chơi `F2P` và `MVS` (`Minimum Viable Spender` — nạp gói tối thiểu có `ROI` cao nhất) với bảng phân hạng dưới đây:",
+            en: "**Diamond Spending Benchmark:** Benchmark every expenditure for `F2P` and `MVS` (`Minimum Viable Spender` — purchasing only the highest-`ROI` starter packs) against the Priority Tier List below:",
           },
         },
         {
@@ -323,8 +323,8 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
           rows: [
             [
               {
-                vi: "🔥 S-Tier (Bắt buộc mua số 1)",
-                en: "🔥 S-Tier (#1 Mandatory Buy)",
+                vi: "[S-Tier ★] Bắt buộc mua số 1",
+                en: "[S-Tier ★] #1 Mandatory Buy",
               },
               {
                 vi: "Vé Vòng Quay May Mắn (Lucky Wheel) & Xúc Xắc (Dice) đúng kỳ Tướng Đỏ / UW (Universal Weapon / Exclusive Weapon — Vũ khí Độc quyền) của Đội 1",
@@ -341,8 +341,8 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
             ],
             [
               {
-                vi: "🔥 S-Tier (Bắt buộc mua hàng tuần)",
-                en: "🔥 S-Tier (Weekly Mandatory)",
+                vi: "[S-Tier ★] Bắt buộc mua hàng tuần",
+                en: "[S-Tier ★] Weekly Mandatory",
               },
               {
                 vi: "Vật phẩm giảm giá sâu trong Cửa hàng VIP & Cửa hàng Hàng Ngày (VIP & Daily Shop): Bình Thể lực (Stamina), Mảnh Tướng Vàng Vạn Năng (Universal Shards), Đá Cường Hóa / Tăng tốc Chung giảm giá 50%–70%",
@@ -354,13 +354,13 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
               },
               {
                 vi: "Thể lực (Stamina) mua bằng Kim Cương trong Cửa hàng VIP có tỷ lệ quy đổi ra điểm sự kiện Thứ Tư Tuần B (GAR) (hoặc săn Boss/vệ tinh Tập Kích Cự Ma) cao gấp 4 lần giá gốc. Mảnh Vàng Vạn Năng giảm giá là khoản đầu tư bắt buộc mỗi tuần.",
-                en: "Stamina bought with Diamonds in the VIP Shop yields 4x value when converted into Wednesday Week B (GAR) points or Boss/Giant Raid (Tập Kích Cự Ma) satellite event rewards. Discounted Universal Shards are mandatory every week.",
+                en: "Stamina bought with Diamonds in the VIP Shop yields 4x value when converted into Wednesday Week B (GAR) points or Boss/Giant Raid satellite event rewards. Discounted Universal Shards are mandatory every week.",
               },
             ],
             [
               {
-                vi: "🌟 A-Tier (Đầu tư chiến lược)",
-                en: "🌟 A-Tier (Strategic Investment)",
+                vi: "[A-Tier] Đầu tư chiến lược",
+                en: "[A-Tier] Strategic Investment",
               },
               {
                 vi: "Thuê Hàng Đợi Xây Dựng Thứ 2 (2nd Builder Queue) (Dành cho F2P thuần 100%)",
@@ -372,13 +372,13 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
               },
               {
                 vi: "Với người chơi không nạp tiền mua vĩnh viễn Thợ xây thứ 2, việc bỏ 500 KC mỗi 2 ngày là khoản đầu tư siêu lời để đua Lâu đài lên Lv.25–30. Mẹo Min-Max: Khi thời hạn thuê còn 01 giờ 59 phút (01h59m), hãy bấm xây một công trình dài ngày nhất (2–4 ngày) — thợ xây vẫn sẽ làm nốt cho đến khi xong!",
-                en: "For pure F2P players without the permanent 2nd Builder pack, spending 500 Diamonds every 2 days is essential to rush Castle Lv.25–30. Min-Max Trick: When the rental timer has 01h59m (01 giờ 59 phút) remaining, start your longest 2–4 day upgrade—the builder will finish the entire job!",
+                en: "For pure F2P players without the permanent 2nd Builder pack, spending 500 Diamonds every 2 days is essential to rush Castle Lv.25–30. Min-Max Trick: When the rental timer has 01h59m remaining, start your longest 2–4 day upgrade—the builder will finish the entire job!",
               },
             ],
             [
               {
-                vi: "🌟 A-Tier (Đầu tư chiến lược)",
-                en: "🌟 A-Tier (Strategic Investment)",
+                vi: "[A-Tier] Đầu tư chiến lược",
+                en: "[A-Tier] Strategic Investment",
               },
               {
                 vi: "Điểm VIP (VIP Points) để chạm các mốc Đặc quyền quan trọng (VIP 4 ➔ VIP 6 ➔ VIP 8) & Khiên Hòa Bình (Peace Shield)",
@@ -395,12 +395,12 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
             ],
             [
               {
-                vi: "⚖️ B-Tier (Mua có điều kiện)",
-                en: "⚖️ B-Tier (Conditional Buy)",
+                vi: "[B-Tier] Mua có điều kiện",
+                en: "[B-Tier] Conditional Buy",
               },
               {
                 vi: "Làm mới Xe Chở Hàng (Carriage Refresh) & Làm mới / Mua vé Nhiệm vụ Độc quyền Đua Bang (Thi Đấu Hội / Guild Race)",
-                en: "Carriage Refresh & Guild Race (Thi Đấu Hội) Task Refresh / Extra Task Tickets",
+                en: "Carriage Refresh & Guild Race Task Refresh / Extra Task Tickets",
               },
               {
                 vi: "50 – 200 KC (Chỉ dùng sau khi hết lượt miễn phí; vé Thi Đấu Hội 50–100 KC)",
@@ -408,13 +408,13 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
               },
               {
                 vi: "Đối với Xe Hàng: Sau 5 lần làm mới chắc chắn ra xe Legendary (Vàng) và từ Lâu đài Lv.15 có 5% cơ hội ra xe Mythic (Đỏ) chứa Mảnh Vạn Năng. Đối với Thi Đấu Hội (Guild Race): Chỉ mua tối đa 1–2 vé nhiệm vụ giá rẻ (50–100 KC) khi thiếu điểm chạm rương mốc cuối và dùng trong lúc có nhiệm vụ tiêu Kim Cương để ăn điểm kép.",
-                en: "For Carriages: 5 refreshes guarantee a Legendary carriage, and from Castle Lv.15+ there is a 5% chance for a Mythic carriage carrying Universal Shards. For Guild Race (Thi Đấu Hội): Only buy 1–2 cheap extra task tickets (50–100 Diamonds) when slightly short of the final milestone chest, and time the purchase during a Spend Diamonds task to double-dip.",
+                en: "For Carriages: 5 refreshes guarantee a Legendary carriage, and from Castle Lv.15+ there is a 5% chance for a Mythic carriage carrying Universal Shards. For Guild Race: Only buy 1–2 cheap extra task tickets (50–100 Diamonds) when slightly short of the final milestone chest, and time the purchase during a Spend Diamonds task to double-dip.",
               },
             ],
             [
               {
-                vi: "⚖️ B-Tier (Mua có điều kiện)",
-                en: "⚖️ B-Tier (Conditional Buy)",
+                vi: "[B-Tier] Mua có điều kiện",
+                en: "[B-Tier] Conditional Buy",
               },
               {
                 vi: "Quyên góp Công nghệ Bang hội (Guild Trait / Tech Donation) bằng Kim Cương",
@@ -431,8 +431,8 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
             ],
             [
               {
-                vi: "⛔ F-Tier (CẤM TUYỆT ĐỐI)",
-                en: "⛔ F-Tier (STRICTLY FORBIDDEN)",
+                vi: "[F-Tier] CẤM TUYỆT ĐỐI",
+                en: "[F-Tier] STRICTLY FORBIDDEN",
               },
               {
                 vi: "Quay Quán Rượu (Tavern Recruit) bằng Kim Cương; Bấm Hoàn thành nhanh (Instant Finish) công trình/nghiên cứu/lính bằng Kim Cương; Mở Ô Thiên phú thứ 4 của Tướng Tím (2,000 KC); Mua tài nguyên Gỗ/Đá/Thịt lẻ bằng Kim Cương",
@@ -457,8 +457,8 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
             en: "Tavern Recruit Level Mechanics & The Pity Counter Rule",
           },
           content: {
-            vi: "Tại sao bạn được phép dùng Vé Chiêu Mộ Thường (Recruit Tokens) hàng ngày (1 lượt làm nhiệm vụ ngày) và xả hàng loạt vào Thứ Năm Tuần GAR / KvK (Ngày 4) (hoặc khi có sự kiện phụ Hero Development Rush), nhưng tuyệt đối CẤM dùng Kim Cương quay Quán Rượu và CẤM xả vé cho nhiệm vụ 20–80 lượt của Thi Đấu Hội?\n1. Tăng Cấp Quán Rượu (Tavern Level) & Nổ Bảo Hiểm (Pity Counter): Mỗi lượt quay bằng Vé Chiêu Mộ miễn phí đều cộng điểm kinh nghiệm nâng cấp Quán Rượu (tăng tỷ lệ rơi tướng Vàng SSR như Pyromancer, Adjudicator, Pixie) và tích lũy thanh Điểm Bảo Hiểm (Pity Counter) cho phép chọn nhận trực tiếp tướng Vàng chỉ định sau mỗi mốc quay cố định.\n2. Vé Chiêu Mộ rơi miễn phí cực nhiều: Bạn nhận được 150 – 300+ Vé Chiêu Mộ mỗi 2 tuần từ Rương Bang, Thám hiểm và các sự kiện vệ tinh luân phiên (Đế Quốc Hắc Ám Xâm Nhập ⇄ Khiêu Chiến Của Đội Quân Hắc Ám, Tập Kích Cự Ma) — hoàn toàn đủ để nâng max Cấp Quán Rượu và ăn trọn mốc điểm GAR Thứ Năm mà không cần tốn dù chỉ 1 Kim Cương. Dùng Kim Cương quay Quán Rượu nghĩa là bạn đang đổi tiền tệ mua Tướng Đỏ (Mythic) lấy những mảnh tướng Vàng/Tím vốn được phát miễn phí!",
-            en: "Why are you encouraged to use free Recruit Tokens (1 daily for quests + bulk dump on Thursday Day 4 of GAR / KvK or Hero Development Rush), yet STRICTLY FORBIDDEN from spending Diamonds in the Tavern or wasting tokens on 20–80 pull tasks in Guild Race (Thi Đấu Hội)?\n1. Tavern Level XP & Pity Counter: Every free Recruit Token pull grants Tavern XP (increasing drop rates for core SSR Legendaries like Pyromancer, Adjudicator, and Pixie) and fills the Pity Counter for guaranteed faction SSR selection.\n2. Massive Free Token Supply: You earn 150 – 300+ free Recruit Tokens every 2 weeks from Guild Chests, Adventure, and rotating satellite events (Dark Empire Invasion / Đế Quốc Hắc Ám Xâm Nhập ⇄ Dark Legion Challenge / Khiêu Chiến Của Đội Quân Hắc Ám, Giant Raid / Tập Kích Cự Ma)—more than enough to max Tavern Level and clear Thursday GAR milestones for 0 Diamonds. Spending Diamonds in the Tavern trades Mythic Hero currency for free SSR/Epic shards!",
+            vi: "**Nguyên tắc Dùng Vé Chiêu Mộ Thường (`Recruit Tokens`):** Chỉ quay 1 lượt/ngày làm quest và tích xả vào Thứ Năm `GAR` / `KvK` (Ngày 4); cấm dùng Kim Cương hoặc xả vé vào nhiệm vụ `20–80 lượt` của `Thi Đấu Hội`.\n• **Tăng Cấp Quán Rượu (`Tavern Level`) & `Pity Counter`:** Mỗi lượt quay bằng vé miễn phí đều cộng XP nâng cấp Quán Rượu (tăng tỷ lệ rơi `Pyromancer`, `Adjudicator`, `Pixie`) và tích điểm Bảo Hiểm tướng Vàng.\n• **Nguồn Vé Miễn phí Dồi dào (`150–300+` vé/2 tuần):** Rơi từ Rương Bang, Thám hiểm và sự kiện vệ tinh (`Đế Quốc Hắc Ám Xâm Nhập` ⇄ `Khiêu Chiến Của Đội Quân Hắc Ám`, `Tập Kích Cự Ma`) — đủ max cấp Quán Rượu với `0 KC`.",
+            en: "**Recruit Token Discipline:** Use 1 free pull daily for quests and bulk-dump on Thursday Day 4 of `GAR` / `KvK`; never spend Diamonds in the Tavern or waste tokens on `20–80 pull` tasks in `Guild Race`.\n• **Tavern Level XP & `Pity Counter`:** Every free Recruit Token pull grants Tavern XP (boosting drop rates for `Pyromancer`, `Adjudicator`, `Pixie`) and fills the `Pity Counter` for guaranteed SSR selection.\n• **Free Supply (`150–300+` tokens/2w):** Earned from Guild Chests, Adventure, and satellite events (`Dark Empire Invasion` ⇄ `Dark Legion Challenge`, `Giant Raid`)—maxing Tavern Level for `0 Diamonds`.",
           },
         },
         {
@@ -537,12 +537,12 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
           },
           headers: [
             {
-              vi: "❌ Sai lầm phổ biến",
-              en: "❌ Common Pitfall",
+              vi: "Sai lầm phổ biến",
+              en: "Common Pitfall",
             },
             {
-              vi: "✅ Giải pháp tối ưu",
-              en: "✅ Optimal Solution",
+              vi: "Giải pháp tối ưu",
+              en: "Optimal Solution",
             },
           ],
           rows: [
@@ -559,11 +559,11 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
             [
               {
                 vi: "Tiêu Kim Cương mua đồ VIP Shop ngay vào sáng Thứ Hai của tuần có Thi Đấu Hội (Guild Race) mà không kiểm tra bảng Nhiệm vụ.",
-                en: "Spending Diamonds in the VIP Shop first thing Monday morning during a Guild Race (Thi Đấu Hội) week without checking the task board first.",
+                en: "Spending Diamonds in the VIP Shop first thing Monday morning during a Guild Race week without checking the task board first.",
               },
               {
                 vi: "Trong mọi tuần có Thi Đấu Hội (Guild Race), hãy mở bảng nhiệm vụ xoay tìm \"Nhiệm vụ Vàng: Chi tiêu Kim Cương\" hoặc \"Mua gói trong Cửa hàng\" trước, bấm nhận nhiệm vụ rồi mới vào VIP Shop mua đồ để ăn trọn điểm Vinh Dự Bang!",
-                en: "During every Guild Race (Thi Đấu Hội) week, open the task board first to roll for the \"Gold Task: Spend Diamonds\" or \"Purchase Shop Items\", accept the task, and only then buy out your VIP Shop to double-dip Guild Honor points!",
+                en: "During every Guild Race week, open the task board first to roll for the \"Gold Task: Spend Diamonds\" or \"Purchase Shop Items\", accept the task, and only then buy out your VIP Shop to double-dip Guild Honor points!",
               },
             ],
             [
@@ -605,8 +605,8 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Để đảm bảo khi một vị Tướng Đỏ Meta xuất hiện trên Vòng Quay (Wheel) hoặc Xúc Xắc (Dice), bạn luôn lấy trọn vẹn được các Rương Mốc Thưởng Tích Lũy (Milestone Bonus Chests — thường ở mốc 50 / 100 / 150 lượt quay) nơi chứa lượng mảnh tướng lời nhất, hãy áp dụng quy tắc 3 Tầng Ngân Sách Kim Cương kết hợp Ngưỡng Đóng Băng Tiền Tệ Bang Hội:",
-                en: "To guarantee that whenever a Meta Mythic Hero lands on Lucky Wheel or Dice you can claim all Milestone Bonus Chests (at 50 / 100 / 150 spins) where the highest shard value is concentrated, enforce the 3-Tier Diamond Budget alongside the Dual-Currency Guild Wallet Floor:",
+                vi: "**Ăn Trọn Rương Mốc `50 / 100 / 150` Lượt:** Khi Tướng Đỏ Meta xuất hiện trên `Lucky Wheel` hoặc `Dice`, lượng mảnh tướng lời nhất nằm ở các Rương Mốc Thưởng Tích Lũy (`Milestone Bonus Chests`).\n• **Quy tắc 3 Tầng Ngân sách:** Kết hợp 3 tầng dự trữ Kim Cương với Ngưỡng Đóng Băng Tiền Tệ Bang Hội dưới đây:",
+                en: "**Securing `50 / 100 / 150`-Spin Milestone Chests:** Whenever a Meta Mythic Hero lands on `Lucky Wheel` or `Dice`, the highest shard value is concentrated inside `Milestone Bonus Chests`.\n• **The 3-Tier Budget Rule:** Enforce the 3-Tier Diamond Budget alongside the Dual-Currency Guild Wallet Floor below:",
               },
             },
             {
@@ -614,16 +614,16 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
               ordered: true,
               items: [
                 {
-                  vi: "Tầng Đáy Bất Khả Xâm Phạm (0 ➔ 30,000 KC): Đây là \"Quỹ Bảo Hiểm Tướng Đỏ\". Nếu số dư Kim Cương trên màn hình đang dưới 30,000 KC, tài khoản đang ở trạng thái Báo Động Đỏ — ngưng mọi khoản chi B-Tier và hạn chế mua sắm ngoài Bình Thể lực cho đến khi quỹ vượt lại mốc 30,000 KC.",
-                  en: "Tier 1 — Inviolable Emergency Floor (0 ➔ 30,000 Diamonds): This is your \"Mythic Hero Insurance Fund\". If your on-screen Diamond balance drops below 30,000 KC, your account is in Red Alert—freeze all B-Tier spending and restrict purchases strictly to Stamina until your balance recovers above 30,000 KC.",
+                  vi: "**Tầng Đáy Bất Khả Xâm Phạm (`0 ➔ 30,000 KC`):** Quỹ Bảo Hiểm Tướng Đỏ — dưới `30,000 KC` là Báo Động Đỏ, ngưng mọi khoản chi `B-Tier` và chỉ mua Bình Thể lực cho đến khi vượt lại `30,000 KC`.",
+                  en: "**Tier 1 — Inviolable Emergency Floor (`0 ➔ 30,000 Diamonds`):** Mythic Hero Insurance Fund—dropping below `30,000 KC` triggers Red Alert; freeze all `B-Tier` spend and buy only Stamina until recovered.",
                 },
                 {
-                  vi: "Tầng Thanh Khoản Chu Kỳ (30,000 ➔ 50,000 KC): Trong giai đoạn Ngày 1 – Ngày 20 (trước khi đợt Tướng Đỏ Bộ Lạc ra mắt liên hoàn ở Ngày 21 Desert Prince ➔ Ngày 27 Storm Maiden ➔ Ngày 41 Witch), người chơi theo định hướng Bộ Lạc phải tích lũy đạt đỉnh 45,000 – 50,000 KC. Nhờ đó, bạn có thể vét sạch tối đa lượt mua bằng Kim Cương ở cả 3 kỳ sự kiện liên tiếp mà không bị đứt gãy dòng tiền.",
-                  en: "Tier 2 — Cyclical Liquidity Buffer (30,000 ➔ 50,000 Diamonds): During Days 1–20 (ahead of the back-to-back Horde Mythic gauntlet: Day 21 Desert Prince ➔ Day 27 Storm Maiden ➔ Day 41 Witch), Horde-focused players must peak at 45,000 – 50,000 Diamonds to max out Diamond spins across all 3 consecutive banners without running dry.",
+                  vi: "**Tầng Thanh Khoản Chu Kỳ (`30,000 ➔ 50,000 KC`):** Ngày 1–20 tích đạt đỉnh `45,000–50,000 KC` để vét sạch 3 kỳ Bộ Lạc liên tiếp (Ngày 21 `Desert Prince` ➔ Ngày 27 `Storm Maiden` ➔ Ngày 41 `Witch`).",
+                  en: "**Tier 2 — Cyclical Liquidity Buffer (`30,000 ➔ 50,000 Diamonds`):** Peak at `45,000–50,000 KC` across Days 1–20 to max out consecutive Horde banners (Day 21 `Desert Prince` ➔ Day 27 `Storm Maiden` ➔ Day 41 `Witch`).",
                 },
                 {
-                  vi: "Tầng Thặng Dư Đầu Tư (> 50,000 KC) & Ngưỡng Đóng Băng Ví Bang Hội (Soul Stone Dual-Currency Floor): Mọi Kim Cương vượt trên mốc 50,000 KC được phép giải ngân mạnh tay vào Cửa hàng VIP (VIP Shop) để gom Mảnh Tướng Vàng Vạn Năng, Hồn Đá Đỏ (Soul Stones) (khi mở khóa ở VIP cao) và đẩy nhanh cấp độ Đặc quyền VIP. Đồng thời, áp dụng Quy tắc Tiền tệ Kép mua Hồn Đá Đỏ (Guild Honor & Guild Coins): Khi Lâu đài đạt Lv.30 và bước vào Season 1, mỗi viên Hồn Đá Đỏ (Soul Stone) có đơn giá chuẩn là 40,000 Điểm Vinh Dự Bang / viên (360,000 / 9 viên) hoặc 6,000 Xu Vinh Quang Hội / viên (54,000 / 9 viên trong Tiệm Bang S1 xoay vòng theo chu kỳ 3 tuần / 1 Phe phái). Do đó, người chơi bắt buộc phải khóa chặt Ngưỡng Đóng Băng Ví Hàng Tuần (Weekly Wallet Safety Floor) ở mức tối thiểu 40,000 Điểm Vinh Dự Bang (hoặc 12,000 – 18,000 Xu Vinh Quang Hội) để luôn vét được ngay 1–3 viên Hồn Đá Đỏ mỗi khi đúng hệ Đội 1 xuất hiện (tổng cộng cần 9 Hồn Đá Đỏ = 360,000 Điểm Vinh Dự hoặc 54,000 Xu Vinh Quang kèm 345–385 Mảnh Tướng để thức tỉnh hoàn chỉnh 1 tướng Vàng).",
-                  en: "Tier 3 — Surplus Investment (> 50,000 Diamonds) & Soul Stone Dual-Currency Floor: Any Diamonds above 50,000 KC can be aggressively deployed into the VIP Shop for Universal Shards, Soul Stones (at high VIP), and VIP Points. Simultaneously, enforce the Dual-Currency Soul Stone Floor (Guild Honor & Guild Coins): At Castle Lv.30 entering Season 1, each Soul Stone (Hồn Đá Đỏ) costs 40,000 Guild Honor per stone (360,000 / 9 stones) or 6,000 Guild Coins per stone (54,000 / 9 stones in the S1 Guild Shop rotating every 3 weeks per faction). You must lock a Weekly Wallet Safety Floor of at least 40,000 Guild Honor (or 12,000 – 18,000 Guild Coins) to immediately buy 1–3 Soul Stones whenever your Queue 1 faction rotates in (requiring 9 Soul Stones = 360,000 Guild Honor or 54,000 Guild Coins plus 345–385 Hero Shards to fully awaken 1 Legendary Hero).",
+                  vi: "**Tầng Thặng Dư (`> 50,000 KC`) & Ví Bang S1:** Vét `VIP Shop` và khóa đáy `40,000` Điểm Vinh Dự (`360,000` / 9 viên) hoặc `6,000` Xu Vinh Quang (`54,000` / 9 viên) gom đủ `9 Hồn Đá Đỏ` + `345–385` Mảnh.",
+                  en: "**Tier 3 — Surplus (`> 50,000 KC`) & S1 Guild Floor:** Clear `VIP Shop` and lock `40,000` Guild Honor (`360,000` / 9 stones) or `6,000` Guild Coins (`54,000` / 9 stones) for `9 Red Soul Stones` + `345–385` Shards.",
                 },
               ],
             },
@@ -635,8 +635,8 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
                 en: "Official Web Store Payment Optimization (+5% Gold Blocks & 30% First Monthly Pass Discount)",
               },
               content: {
-                vi: "Với người chơi có ngân sách nạp tiền thật, thay vì bấm thanh toán trực tiếp trong ứng dụng, việc mua Gold Blocks thông qua cổng nạp Web chính thức của nhà phát hành sẽ luôn nhận thêm +5% Gold Blocks cố định cùng các mốc quà thưởng tích lũy (và ưu đãi giảm giá tới 30% cho gói Thẻ Tháng đầu tiên). Sau đó dùng Gold Blocks để mua các gói trong game.",
-                en: "For players spending real money, instead of paying directly via in-app billing, purchasing Gold Blocks through the publisher's official Web Store grants a permanent +5% Gold Blocks bonus alongside cumulative top-up milestone rewards (plus up to a 30% discount on your first Monthly Pass). Use those Gold Blocks to buy packs in-game.",
+                vi: "**Nhận Thêm `+5% Gold Blocks` Cố Định:** Thay vì thanh toán trực tiếp trong app, nạp `Gold Blocks` qua cổng `Web Store` chính thức luôn tặng thêm `+5% Gold Blocks` cùng quà mốc tích lũy.\n• **Ưu đãi Thẻ Tháng Đầu Tiên (`-30%`):** Nhận ưu đãi giảm giá tới `30%` cho gói Thẻ Tháng đầu tiên rồi dùng `Gold Blocks` đổi các gói trong game.",
+                en: "**Permanent `+5% Gold Blocks` Bonus:** Instead of direct in-app billing, buying `Gold Blocks` via the official `Web Store` grants a permanent `+5% Gold Blocks` bonus plus cumulative top-up rewards.\n• **First Monthly Pass Discount (`-30%`):** Claim up to `30%` off your first Monthly Pass and use `Gold Blocks` to redeem packs in-game.",
               },
             },
           ],
@@ -655,8 +655,8 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Dưới đây là bảng xếp hạng Tỷ suất Hoàn vốn (ROI — Return on Investment) của các gói nạp phổ biến nhất dành cho nhóm MVS (Minimum Viable Spender — Người chơi ít nạp / Minnow với ngân sách tối thiểu từ $1 đến $20):",
-                en: "Below is the Return on Investment (ROI) ranking of the most common packs tailored for MVS players (Minimum Viable Spenders / Minnows operating on a $1 to $20 budget):",
+                vi: "**Bảng Xếp Hạng `ROI` Gói Nạp (`$1–$20`):** Đối chiếu Tỷ suất Hoàn vốn (`ROI — Return on Investment`) của các gói nạp phổ biến nhất cho nhóm `MVS` (`Minimum Viable Spender` / `Minnow`):",
+                en: "**`MVS` Pack `ROI` Ranking (`$1–$20`):** Compare the Return on Investment (`ROI`) of the most common packs tailored for `MVS` players (`Minimum Viable Spenders` / `Minnows`):",
               },
             },
             {
@@ -690,8 +690,8 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
               rows: [
                 [
                   {
-                    vi: "👑 Hạng 1 (ROI ~1,000%+)",
-                    en: "👑 Rank 1 (~1,000%+ ROI)",
+                    vi: "Hạng 1 (★ ROI ~1,000%+)",
+                    en: "Rank 1 (★ ~1,000%+ ROI)",
                   },
                   {
                     vi: "Gói Hàng Đợi Xây Dựng Thứ 2 (2nd Builder Queue)",
@@ -712,8 +712,8 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "👑 Hạng 2 (ROI ~900%)",
-                    en: "👑 Rank 2 (~900% ROI)",
+                    vi: "Hạng 2 (★ ROI ~900%)",
+                    en: "Rank 2 (★ ~900% ROI)",
                   },
                   {
                     vi: "Gói Xóa Quảng Cáo Vĩnh Viễn (Permanent Remove Ads)",
@@ -734,8 +734,8 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "🔥 Hạng 3 (ROI ~850%)",
-                    en: "🔥 Rank 3 (~850% ROI)",
+                    vi: "Hạng 3 (ROI ~850%)",
+                    en: "Rank 3 (~850% ROI)",
                   },
                   {
                     vi: "Thẻ Tháng Đặc Quyền (Monthly Pass / Privilege Card)",
@@ -756,8 +756,8 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "🔥 Hạng 4 (ROI ~800%)",
-                    en: "🔥 Rank 4 (~800% ROI)",
+                    vi: "Hạng 4 (ROI ~800%)",
+                    en: "Rank 4 (~800% ROI)",
                   },
                   {
                     vi: "Hàng Đợi Nghiên Cứu Thứ 2 (2nd Research Tech Queue)",
@@ -778,8 +778,8 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "🌟 Hạng 5 (ROI ~600%)",
-                    en: "🌟 Rank 5 (~600% ROI)",
+                    vi: "Hạng 5 (ROI ~600%)",
+                    en: "Rank 5 (~600% ROI)",
                   },
                   {
                     vi: "Hàng Đợi Xây Dựng Thứ 3 (3rd Builder Queue) & Quỹ Tăng Trưởng (Growth / Castle Funds)",
@@ -800,8 +800,8 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "⚖️ Hạng 6 (ROI ~400%)",
-                    en: "⚖️ Rank 6 (~400% ROI)",
+                    vi: "Hạng 6 (ROI ~400%)",
+                    en: "Rank 6 (~400% ROI)",
                   },
                   {
                     vi: "Gói Khởi Đầu Sự Kiện Vòng Quay / Xúc Xắc ($0.99 – $4.99 Event Packs) & Gói Đặc Quyền Thợ Rèn (Blacksmith Privilege)",
@@ -822,8 +822,8 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "⛔ Hạng F (Cấm mua - ROI <50%)",
-                    en: "⛔ Rank F (DO NOT BUY - ROI <50%)",
+                    vi: "Hạng F (Cấm mua - ROI <50%)",
+                    en: "Rank F (DO NOT BUY - ROI <50%)",
                   },
                   {
                     vi: "Gói Thể Lực Lẻ (150 Stamina = $4.99), Gói Kim Cương Trực Tiếp, Gói Tài Nguyên Gỗ/Đá/Thịt",
@@ -860,8 +860,8 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
                 {
                   id: "mvs-bar-builder2",
                   badge: {
-                    vi: "👑 Hạng 1 • ROI ~1,000%+",
-                    en: "👑 Rank 1 • ~1,000%+ ROI",
+                    vi: "★ Hạng 1 • ROI ~1,000%+",
+                    en: "★ Rank 1 • ~1,000%+ ROI",
                   },
                   title: {
                     vi: "Gói Thợ Xây Thứ 2 (2nd Builder Queue — $0.99–$1.99)",
@@ -886,8 +886,8 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
                 {
                   id: "mvs-bar-noads",
                   badge: {
-                    vi: "👑 Hạng 2 • ROI ~900%",
-                    en: "👑 Rank 2 • ~900% ROI",
+                    vi: "★ Hạng 2 • ROI ~900%",
+                    en: "★ Rank 2 • ~900% ROI",
                   },
                   title: {
                     vi: "Gói Xóa Quảng Cáo Vĩnh Viễn (Permanent Remove Ads — $1.99)",
@@ -912,8 +912,8 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
                 {
                   id: "mvs-bar-monthly",
                   badge: {
-                    vi: "🔥 Hạng 3 • ROI ~850%",
-                    en: "🔥 Rank 3 • ~850% ROI",
+                    vi: "Hạng 3 • ROI ~850%",
+                    en: "Rank 3 • ~850% ROI",
                   },
                   title: {
                     vi: "Thẻ Tháng Đặc Quyền (Monthly Pass / Privilege Card — $4.99–$9.99)",
@@ -938,8 +938,8 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
                 {
                   id: "mvs-bar-research2",
                   badge: {
-                    vi: "🔥 Hạng 4 • ROI ~800%",
-                    en: "🔥 Rank 4 • ~800% ROI",
+                    vi: "Hạng 4 • ROI ~800%",
+                    en: "Rank 4 • ~800% ROI",
                   },
                   title: {
                     vi: "Hàng Đợi Nghiên Cứu Thứ 2 (2nd Research Tech Queue — $9.99)",
@@ -964,8 +964,8 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
                 {
                   id: "mvs-bar-whale-bait",
                   badge: {
-                    vi: "⛔ Hạng F • ROI <50% (CẤM MUA)",
-                    en: "⛔ Rank F • <50% ROI (DO NOT BUY)",
+                    vi: "Hạng F • ROI <50% (CẤM MUA)",
+                    en: "Rank F • <50% ROI (DO NOT BUY)",
                   },
                   title: {
                     vi: "Gói Thể Lực Lẻ (150 Stamina = $4.99) & Gói Kim Cương Trực Tiếp",
@@ -1012,8 +1012,8 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
             en: "Balancing a 68,800-Diamond Cashflow to Unlock Both Desert Prince (Day 21) & Storm Maiden (Day 27)",
           },
           profileSummary: {
-            vi: "Bối cảnh bài toán mẫu: Một người chơi F2P / Low-Spender (chỉ có Thẻ Tháng $4.99 và Hàng đợi Xây dựng/Nghiên cứu) đang ở Đầu Tuần 3 (Thi Đấu Hội / Guild Race) với số dư 38,000 Kim Cương. Mục tiêu là lấy cả Hoàng Tử Sa Mạc (Desert Prince) vào Ngày 21 và Nữ Thần Bão Tố (Storm Maiden) vào Ngày 27, đồng thời vẫn duy trì tốc độ nâng VIP và Thể lực tối đa.",
-            en: "Scenario Profile: An F2P / Low-Spender player (holding only the $4.99 Monthly Pass and 2nd Builder/Research queues) enters the start of Week 3 (Guild Race / Thi Đấu Hội) with a balance of 38,000 Diamonds. The objective is to unlock both Desert Prince on Day 21 and Storm Maiden on Day 27 while maintaining maximum VIP Shop Stamina and shard progression.",
+            vi: "**Bối cảnh Bài toán Mẫu:** Người chơi `F2P` / `Low-Spender` (có Thẻ Tháng `$4.99` và Hàng đợi Xây dựng/Nghiên cứu) bước vào Đầu Tuần 3 (`Thi Đấu Hội`) với `38,000` Kim Cương.\n• **Mục tiêu Chiến lược:** Mở khóa cả `Desert Prince` (Ngày 21) và `Storm Maiden` (Ngày 27) đồng thời duy trì tối đa Thể lực và Mảnh Vạn Năng trong `VIP Shop`.",
+            en: "**Scenario Profile:** An `F2P` / `Low-Spender` player (with `$4.99` Monthly Pass and 2nd Builder/Research queues) enters Week 3 (`Guild Race`) with `38,000` Diamonds.\n• **Strategic Objective:** Unlock both `Desert Prince` (Day 21) and `Storm Maiden` (Day 27) while maintaining full `VIP Shop` Stamina and Universal Shard progression.",
           },
           metrics: [
             {
@@ -1073,12 +1073,12 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
           ],
           diagnostics: [
             {
-              vi: "Thách thức thanh khoản: Hai vị tướng Đỏ trụ cột hệ Bộ Lạc là Desert Prince (Ngày 21) và Storm Maiden (Ngày 27) xuất hiện cách nhau chỉ đúng 6 ngày, đòi hỏi giải ngân liên tiếp 22,000 KC × 2 = 44,000 KC cộng thêm 7,000 KC duy trì VIP Shop trong 2 tuần (tổng 51,000 KC).",
-              en: "Liquidity Challenge: Core Horde Mythics Desert Prince (Day 21) and Storm Maiden (Day 27) launch just 6 days apart, requiring back-to-back deployments of 22,000 Diamonds × 2 = 44,000 Diamonds plus 7,000 Diamonds for 2 weeks of VIP Shop maintenance (51,000 Diamonds total).",
+              vi: "**Thách thức Thanh khoản Liên hoàn:** `Desert Prince` (Ngày 21) và `Storm Maiden` (Ngày 27) ra mắt cách nhau đúng `6 ngày`.\n• **Áp lực Ngân sách `51,000 KC`:** Đòi hỏi giải ngân liên tiếp `22,000 KC × 2 = 44,000 KC` cộng thêm `7,000 KC` duy trì `VIP Shop` trong 2 tuần.",
+              en: "**Back-to-Back Liquidity Challenge:** Core Horde Mythics `Desert Prince` (Day 21) and `Storm Maiden` (Day 27) launch just `6 days` apart.\n• **The `51,000-Diamond` Requirement:** Demands consecutive deployments of `22,000 × 2 = 44,000` Diamonds plus `7,000` Diamonds for 2 weeks of `VIP Shop` maintenance.",
             },
             {
-              vi: "Nếu người chơi lỡ tay tiêu 10,000–15,000 KC vào Quán Rượu hoặc các vòng quay tướng ngoại hệ trước Ngày 21, dòng tiền sẽ lập tức bị đứt gãy ở kỳ Storm Maiden (Ngày 27).",
-              en: "If a player wastes 10,000–15,000 Diamonds in the Tavern or on off-faction banners prior to Day 21, their cashflow will Collapse during the Storm Maiden banner on Day 27.",
+              vi: "**Rủi ro Đứt gãy Dòng tiền:** Nếu lỡ tay tiêu `10,000–15,000 KC` vào Quán Rượu hoặc vòng quay ngoại hệ trước Ngày 21, bạn sẽ mất trắng `Storm Maiden` ở Ngày 27.",
+              en: "**Cashflow Insolvency Risk:** Wasting `10,000–15,000` Diamonds in the Tavern or on off-faction banners before Day 21 guarantees missing `Storm Maiden` on Day 27.",
             },
           ],
           recoverySteps: [
@@ -1093,8 +1093,8 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
                 en: "Total Pool: 68,800 KC",
               },
               detail: {
-                vi: "Thưởng Rương mốc cá nhân + Xếp hạng sự kiện tuần (dù Tuần 4 trên lịch máy chủ tiếp tục là kỳ Thi Đấu Hội nối sóng liên tiếp kèm Tập Kích Cự Ma / Khiêu Chiến Của Đội Quân Hắc Ám, hay chuyển sang Guild Arms Race — GAR): +14,000 KC. Cộng thêm thưởng Đấu Trường, Boss, Nhiệm vụ ngày, Xe hàng & Rương Bang (14 ngày × 1,200 KC/ngày): +16,800 KC. Tổng quỹ Kim Cương khả dụng trong 14 ngày: 38,000 + 14,000 + 16,800 = 68,800 Kim Cương.",
-                en: "Personal milestone chests + weekly event ranking rewards (whether Week 4 on the server calendar continues as back-to-back Guild Race / Thi Đấu Hội alongside Giant Raid / Tập Kích Cự Ma & Dark Legion Challenge / Khiêu Chiến Của Đội Quân Hắc Ám, or transitions into Guild Arms Race — GAR): +14,000 Diamonds. Add Arena, Bosses, daily quests, Carriages & Guild Chests (14 days × 1,200 Diamonds/day): +16,800 Diamonds. Total available 14-day pool: 38,000 + 14,000 + 16,800 = 68,800 Diamonds.",
+                vi: "**Dòng thu Sự kiện (`+14,000 KC`):** Rương mốc cá nhân + Xếp hạng tuần từ `Thi Đấu Hội` nối tiếp kèm `Tập Kích Cự Ma` / `Khiêu Chiến Của Đội Quân Hắc Ám` hoặc `GAR`.\n• **Dòng thu Hàng ngày (`+16,800 KC`):** `Arena`, Boss, Quest, Xe hàng & Rương Bang (`14 ngày × 1,200 KC/ngày`) ➔ Tổng quỹ khả dụng: `38,000 + 14,000 + 16,800 = 68,800` Kim Cương.",
+                en: "**Event Inflows (`+14,000 KC`):** Milestone chests + weekly rankings from `Guild Race`, `Giant Raid`, `Dark Legion Challenge`, or `GAR`.\n• **Daily Inflows (`+16,800 KC`):** `Arena`, Bosses, quests, Carriages & Guild Chests (`14 days × 1,200 KC/day`) ➔ Total 14-day pool: `38,000 + 14,000 + 16,800 = 68,800` Diamonds.",
               },
             },
             {
@@ -1108,8 +1108,8 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
                 en: "VIP Spend: 7,000 KC (3,500 × 2)",
               },
               detail: {
-                vi: "Chi phí Cửa hàng VIP trong 2 tuần: 3,500 KC × 2 = 7,000 KC để mua hết Bình Thể lực, Mảnh Vàng Vạn Năng và Tăng tốc giảm giá sâu. Lưu ý kỷ luật: Luôn bấm nhận Nhiệm vụ Vàng tiêu Kim Cương trên bảng Thi Đấu Hội (Guild Race) trước rồi mới vào VIP Shop mua đồ để ăn điểm kép.",
-                en: "Allocate 3,500 Diamonds × 2 = 7,000 Diamonds across 2 weeks to buy out VIP Shop Stamina Potions, Universal Shards, and deeply discounted Speedups. Execution rule: Always accept a Spend Diamonds Gold Task on the Guild Race (Thi Đấu Hội) board before purchasing.",
+                vi: "**Định mức `VIP Shop` (`7,000 KC`):** Dành `3,500 KC × 2 = 7,000 KC` trong 2 tuần để mua sạch Bình Thể lực, Mảnh Vàng Vạn Năng và Tăng tốc giảm giá sâu.\n• **Kỷ luật Ăn Điểm Kép:** Luôn bấm nhận Nhiệm vụ Vàng tiêu Kim Cương trên bảng `Thi Đấu Hội` (`Guild Race`) trước rồi mới vào `VIP Shop` thanh toán.",
+                en: "**2-Week `VIP Shop` Quota (`7,000 KC`):** Allocate `3,500 Diamonds × 2 = 7,000 Diamonds` to buy out Stamina Potions, Universal Shards, and discounted Speedups.\n• **Double-Dip Execution:** Always accept a Spend Diamonds Gold Task on the `Guild Race` board before purchasing.",
               },
             },
             {
@@ -1123,8 +1123,8 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
                 en: "Event Spend: 44,000 KC (22k × 2)",
               },
               detail: {
-                vi: "Kỳ Sự kiện 1 — Ngày 21 (Desert Prince): Giải ngân 22,000 KC mua trọn gói lượt quay bằng Kim Cương để mở khóa tướng và chạm mốc Rương Tích Lũy 100 lượt. Kỳ Sự kiện 2 — Ngày 27 (Storm Maiden): Giải ngân tiếp 22,000 KC để lấy Storm Maiden cùng mốc Rương Tích Lũy 100 lượt.",
-                en: "Event Banner 1 — Day 21 (Desert Prince): Spend 22,000 Diamonds on full Diamond spins to unlock Desert Prince and claim the 100-spin Milestone Chest. Event Banner 2 — Day 27 (Storm Maiden): Deploy another 22,000 Diamonds to secure Storm Maiden and her 100-spin Milestone Chest.",
+                vi: "**Kỳ 1 — Ngày 21 (`Desert Prince`):** Giải ngân `22,000 KC` mua trọn lượt quay Kim Cương để mở khóa tướng và chạm mốc Rương Tích Lũy `100 lượt`.\n• **Kỳ 2 — Ngày 27 (`Storm Maiden`):** Giải ngân tiếp `22,000 KC` để lấy `Storm Maiden` cùng mốc Rương Tích Lũy `100 lượt`.",
+                en: "**Banner 1 — Day 21 (`Desert Prince`):** Spend `22,000 Diamonds` on full Diamond spins to unlock `Desert Prince` and claim the `100-spin` Milestone Chest.\n• **Banner 2 — Day 27 (`Storm Maiden`):** Deploy another `22,000 Diamonds` to secure `Storm Maiden` and her `100-spin` Milestone Chest.",
               },
             },
             {
@@ -1138,14 +1138,14 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
                 en: "Day 41 Witch Ready: 47,800 KC",
               },
               detail: {
-                vi: "Tổng chi 14 ngày: 7,000 + 22,000 + 22,000 = 51,000 KC. Số dư Kim Cương còn lại sang Tuần 5: 68,800 - 51,000 = 17,800 KC. Vì Ngày 35 (Tuần 5) là kỳ sự kiện của Paragon (hệ Liên Minh — Bỏ qua 100%), người chơi có trọn vẹn 14 ngày tiếp theo (từ Ngày 28 đến Ngày 41) để tích lũy thêm +30,000 KC, đưa quỹ Kim Cương quay lại mốc 47,800 KC kịp đón vị tướng Đỏ thứ ba là Phù Thủy (Witch) vào đúng Ngày 41!",
-                en: "Total 14-day expenditure: 7,000 + 22,000 + 22,000 = 51,000 Diamonds. Remaining balance entering Week 5: 68,800 - 51,000 = 17,800 Diamonds. Because Day 35 (Week 5) features Paragon (League faction — Skip 100%), you have a full 14-day window (Days 28–41) to accumulate +30,000 Diamonds, restoring your reserve to 47,800 Diamonds right on time for your third Horde Mythic, Witch, on Day 41!",
+                vi: "**Kiểm toán Số dư Sang Tuần 5:** Tổng chi `7,000 + 22,000 + 22,000 = 51,000 KC` ➔ Số dư còn lại `68,800 - 51,000 = 17,800 KC`.\n• **Bỏ qua `Paragon` (Ngày 35):** Vì Ngày 35 là tướng Liên Minh (Skip `100%`), bạn có 14 ngày (Ngày 28–41) tích thêm `+30,000 KC` lên `47,800 KC` đón `Witch` (Ngày 41)!",
+                en: "**Week 5 Balance Audit:** Total spend `7,000 + 22,000 + 22,000 = 51,000 KC` ➔ Remaining balance `68,800 - 51,000 = 17,800 Diamonds`.\n• **Skip `Paragon` (Day 35):** Because Day 35 features League (`Skip 100%`), you have 14 days (Days 28–41) to save `+30,000 KC` and hit `47,800 KC` for `Witch` on Day 41!",
               },
             },
           ],
           conclusion: {
-            vi: "Kết luận: Chỉ cần giữ vững kỷ luật Quỹ Dự Trữ 30,000–50,000 KC và bỏ qua 100% các kỳ tướng ngoại hệ (như Paragon ở Ngày 35), người chơi F2P/Low-Spender hoàn toàn lấy trọn bộ ba Tướng Đỏ Bộ Lạc (Desert Prince, Storm Maiden, Witch) ngay trong 41 ngày đầu mở máy chủ.",
-            en: "Conclusion: By enforcing the 30,000–50,000 Diamond Reserve rule and skipping 100% of off-faction banners (such as Paragon on Day 35), F2P and Low-Spender players can unlock the entire core Horde Mythic trio (Desert Prince, Storm Maiden, Witch) within the first 41 days of a server.",
+            vi: "**Kết luận Chiến lược:** Giữ vững Quỹ Dự Trữ `30,000–50,000 KC` và bỏ qua `100%` tướng ngoại hệ (`Paragon` Ngày 35) giúp `F2P/Low-Spender` lấy trọn `Desert Prince`, `Storm Maiden`, `Witch` trong `41 ngày`!",
+            en: "**Conclusion:** Keeping the `30,000–50,000` Diamond Reserve and skipping `100%` of off-faction banners (`Paragon` Day 35) lets `F2P/Low-Spenders` unlock `Desert Prince`, `Storm Maiden`, and `Witch` in `41 days`!",
           },
         },
         {

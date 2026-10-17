@@ -16,34 +16,34 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
   },
   tldr: {
     coreRule: {
-      vi: "Sau 7 ngày đầu tiên, 8 vị Tướng Tím (Epic Heroes) không còn dùng để đánh nhau ở Đội 1 (Queue 1) nhưng lại quyết định tốc độ phát triển của cả tài khoản nhờ Đặc tính Kinh tế Thứ 3 (Trait 3) mở khóa ở mốc 12 Sao (2 Sao Trắng / Bạc = 300 Mảnh Tướng Tím tích lũy).",
-      en: "After the first 7 days, the 8 Epic Heroes (Tướng Tím) no longer fight in Queue 1, but they dictate your entire account's progression speed via their 3rd Passive Economy Trait (Trait 3) unlocked at 12 Stars (2 White / Silver Stars = 300 cumulative Epic Hero Shards).",
+      vi: "**Động cơ kinh tế Tướng Tím:** Sau 7 ngày đầu, 8 **Tướng Tím (Epic Heroes)** ngồi dự bị ở `Queue 1`.\n• Mở khóa **Đặc tính Thứ 3** (`Trait 3`) ở mốc `12 Sao` (`2 Sao Trắng` = `300 Mảnh` tích lũy) để tăng tốc toàn tài khoản.",
+      en: "**Epic Hero Economy Engine:** After 7 days, the 8 **Epic Heroes** sit on the bench outside `Queue 1`.\n• Unlock their **3rd Passive Economy Trait** (`Trait 3`) at `12 Stars` (`2 White Stars` = `300 Shards`) for permanent buffs.",
     },
     immediateAction: {
-      vi: "Dồn 100% Mảnh Tướng Tím Vạn Năng (Universal Epic Shards) cho cặp đôi Brawler (Đấu Sĩ — Bộ Lạc / Horde) và Knight (Kỵ Sĩ — Liên Minh / League) chạm mốc 12 Sao (300 Mảnh), nâng chuỗi Trait 1 Lv.15 ➔ Trait 2 ➔ Trait 3 kịch trần Lv.30 để lấy ngay +30% Tốc độ Nghiên cứu Công nghệ và +30% Tốc độ Huấn luyện Lính vĩnh viễn, sau đó đẩy 1 tướng lên 15 Sao (5 Sao Trắng = 500 Mảnh) để mở khóa Tiệm Đổi Quà (Exchange Shop).",
-      en: "Funnel 100% of Universal Epic Shards into Brawler (Đấu Sĩ — Horde) and Knight (Kỵ Sĩ — League) to hit 12 Stars (300 Shards), upgrade Trait 1 Lv.15 ➔ Trait 2 ➔ Trait 3 Max Lv.30 for +30% Tech Research Rate and +30% Soldier Training Speed permanently, then push one to 15 Stars (5 White Stars = 500 Shards) to unlock the Exchange Shop (Tiệm Đổi Quà).",
+      vi: "**Dồn 100% Mảnh Tím Vạn Năng:** Đẩy **Brawler (Đấu Sĩ)** và **Knight (Kỵ Sĩ)** chạm `12 Sao` (`300 Mảnh`), nâng `Trait 1 Lv.15` ➔ `Trait 2` ➔ `Trait 3 Lv.30`.\n• Khóa ngay `+30%` Nghiên cứu & Huấn luyện lính, rồi đẩy 1 tướng lên `15 Sao` (`500 Mảnh`) mở **Tiệm Đổi Quà**.",
+      en: "**Funnel 100% Universal Epic Shards:** Push **Brawler** and **Knight** to `12 Stars` (`300 Shards`), upgrading `Trait 1 Lv.15` ➔ `Trait 2` ➔ `Trait 3 Lv.30`.\n• Lock in `+30%` Research & Training Speed, then push one to `15 Stars` (`500 Shards`) to unlock the **Exchange Shop**.",
     },
     strictTaboo: {
-      vi: "KHÔNG BAO GIỜ bấm mở khóa Ô Thiên Phú Thứ 4 (4th Trait Slot) tốn 2,000 Kim Cương của Tướng Tím (vì nó chỉ cộng +3.00% HP cho riêng bản thân con tướng Tím đang ngồi dự bị, gây lãng phí tới 16,000 Kim Cương trên 8 tướng Tím!) và không bao giờ nâng Trait 1 quá mốc cầu nối Lv.15 trước khi nâng max Trait 3 Lv.30.",
-      en: "NEVER click to unlock the 4th Trait Slot (Ô Thiên Phú Thứ 4) costing 2,000 Diamonds on Epic Heroes (it only grants +3.00% HP to that benched Epic hero itself, wasting up to 16,000 Diamonds across 8 Epics!), and never upgrade Trait 1 past the Lv.15 prerequisite bridge before maxing Trait 3 Lv.30.",
+      vi: "**Cấm mở Ô Thiên Phú Thứ 4:** KHÔNG BAO GIỜ bấm mở **4th Trait Slot** tốn `2,000 Kim Cương` của Tướng Tím.\n• Nó chỉ cộng `+3.00% HP` cho riêng tướng Tím dự bị (đốt `16,000 Kim Cương` trên 8 tướng); cấm nâng `Trait 1` quá `Lv.15`.",
+      en: "**Never unlock the 4th Trait Slot:** NEVER spend `2,000 Diamonds` on the **4th Trait Slot** of Epic Heroes.\n• It only grants `+3.00% HP` to that benched Epic hero (wasting `16,000 Diamonds` across 8 Epics); never pass `Trait 1 Lv.15`.",
     },
   },
   keyTakeaways: [
     {
-      vi: "Mốc 12 Sao (2 Sao Trắng / Bạc = 300 Mảnh Tím tích lũy) mở khóa chuỗi Thiên Phú: chỉ nâng Trait 1 đúng Lv.15 làm cầu nối qua Trait 2, sau đó dồn 100% mảnh kịch trần Trait 3 Lv.30 để nhận buff kinh tế +30% vĩnh viễn 24/7 dù tướng ngồi dự bị.",
-      en: "Reaching 12 Stars (2 White / Silver Stars = 300 cumulative Epic Shards) unlocks the Trait chain: stop Trait 1 strictly at Lv.15 to bridge through Trait 2, then funnel 100% of shards into maxing Trait 3 Lv.30 for a permanent 24/7 +30% economy buff even while benched.",
+      vi: "**Mốc 12 Sao (300 Mảnh Tím):** Dừng `Trait 1` đúng ở `Lv.15` làm cầu nối qua `Trait 2`, dồn 100% mảnh kịch trần `Trait 3 Lv.30` để nhận buff kinh tế `+30%` vĩnh viễn 24/7 dù tướng ngồi dự bị.",
+      en: "**12-Star Milestone (300 Epic Shards):** Stop `Trait 1` strictly at `Lv.15` to bridge through `Trait 2`, then max `Trait 3 Lv.30` for a permanent 24/7 `+30%` economy buff while benched.",
     },
     {
-      vi: "Chiến thuật Dồn Đứt Điểm (Single-Target Funneling): Ưu tiên số 1 toàn tài khoản là Brawler (+30% Tốc độ Nghiên cứu Công nghệ) và Knight (+30% Tốc độ Huấn luyện Lính), đẩy 1 tướng chạm 15 Sao (5 Sao Trắng = 500 Mảnh) sớm nhất để mở Tiệm Đổi Quà (Exchange Shop).",
-      en: "Single-Target Funneling Strategy: Account-wide #1 and #2 priorities are Brawler (+30% Tech Research Rate) and Knight (+30% Soldier Training Speed); push one straight to 15 Stars (5 White Stars = 500 Shards) first to unlock the Exchange Shop.",
+      vi: "**Chiến thuật Dồn Đứt Điểm (Single-Target Funneling):** Ưu tiên số 1 là **Brawler** (`+30%` Nghiên cứu) và **Knight** (`+30%` Huấn luyện Lính); đẩy 1 tướng chạm `15 Sao` (`500 Mảnh`) mở **Exchange Shop**.",
+      en: "**Single-Target Funneling Strategy:** Account-wide #1 and #2 priorities are **Brawler** (`+30%` Tech Research) and **Knight** (`+30%` Soldier Training); push one to `15 Stars` (`500 Shards`) for **Exchange Shop**.",
     },
     {
-      vi: "Cạm bẫy 2,000 Kim Cương ở Ô Thiên Phú Thứ 4: Dòng chữ 'HP Anh Hùng (của anh hùng này) +3.00%' chỉ tác dụng lên riêng tướng Tím dự bị đó — bấm mở cho cả 8 tướng Tím sẽ đốt sạch 16,000 Kim Cương (tương đương gói nạp $50.00 – $99.99) với 0 lực chiến Đội 1.",
-      en: "The 2,000-Diamond 4th Trait Slot Trap: 'Hero HP (of this hero) +3.00%' only applies to that benched Epic hero itself — unlocking it across all 8 Epics burns 16,000 Diamonds (worth $50.00 – $99.99 in packs) for zero Queue 1 combat power.",
+      vi: "**Cạm bẫy 2,000 Kim Cương ở Ô Thứ 4:** Dòng `HP Anh Hùng (của anh hùng này) +3.00%` chỉ tác dụng lên tướng Tím dự bị — mở cả 8 tướng sẽ đốt `16,000 Kim Cương` (`$50–$99.99`) với `0` lực chiến Đội 1.",
+      en: "**The 2,000-Diamond 4th Trait Slot Trap:** `Hero HP (of this hero) +3.00%` only applies to that benched Epic hero — unlocking all 8 Epics burns `16,000 Diamonds` (`$50–$99.99`) for `0` Queue 1 power.",
     },
     {
-      vi: "Cộng dồn với 10 Tướng Vàng Kinh Tế ở mốc 2 Sao Trắng (300 Mảnh Vàng): Bard (+40% Xây dựng), Shaman (+40% Nghiên cứu ➔ +70% khi đi cùng Brawler), Hostess (+40% Huấn luyện Lính ➔ +70% khi đi cùng Knight), và Stonemason (Tướng Vàng Hệ Thiên Nhiên +40% Đào Đá ➔ +70% cùng Rogue).",
-      en: "Stacks with 10 Legendary Economic Passive Heroes at 2 White Stars (300 Legendary Shards): Bard (+40% Construction), Shaman (+40% Research ➔ +70% with Brawler), Hostess (+40% Soldier Training ➔ +70% with Knight), and Stonemason (Legendary Nature +40% Stone Gathering ➔ +70% with Rogue).",
+      vi: "**Cộng dồn 10 Tướng Vàng Kinh Tế (300 Mảnh Vàng):** **Bard** (`+40%` Xây dựng), **Shaman** (`+40%` Nghiên cứu ➔ `+70%` cùng Brawler), **Hostess** (`+40%` Rèn lính ➔ `+70%`), và **Stonemason** (`+40%` Đào Đá).",
+      en: "**Stacks with 10 Legendary Econ Heroes (300 Shards):** **Bard** (`+40%` Construction), **Shaman** (`+40%` Research ➔ `+70%` with Brawler), **Hostess** (`+40%` Training ➔ `+70%`), and **Stonemason** (`+40%` Stone).",
     },
   ],
   keywords: [
@@ -101,8 +101,8 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Rất nhiều người chơi mới sau khi thay thế hết Tướng Tím bằng Tướng Vàng/Đỏ ở Đội 1 đã bỏ mặc tab Tướng Tím trong kho mà không biết rằng đây là nguồn cung cấp chỉ số phát triển kinh tế vĩnh viễn lớn nhất toàn bộ trò chơi.",
-            en: "Many new players replace all Epic Heroes in Queue 1 with Legendary/Mythic heroes after Week 1 and completely neglect the Epic tab in their roster—unaware that benched Epics provide the single largest permanent economic progression buffs in the game.",
+            vi: "Nhiều người chơi thay hết **Tướng Tím** bằng Tướng Vàng/Đỏ ở `Queue 1` rồi bỏ mặc tab Tướng Tím, không biết đây là nguồn **chỉ số kinh tế vĩnh viễn** (`+30%` tốc độ) lớn nhất trò chơi.",
+            en: "Many players replace all **Epic Heroes** in `Queue 1` after Week 1 and neglect the Epic tab—unaware that benched Epics provide the largest **permanent economic buffs** (`+30%` speed) in the game.",
           },
         },
         {
@@ -333,16 +333,16 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
               type: "list",
               items: [
                 {
-                  vi: "Mở khóa nhánh Ô Đặc Tính Thứ 3 (Trait 3): Khi bất kỳ một vị Tướng Tím (Epic) hoặc Tướng Vàng (Legendary) nào được nâng cấp chạm mốc 12 Sao (2 Sao Trắng / Bạc — tốn 300 Mảnh tích lũy), tab Thiên Phú / Đặc Tính (Traits) ở góc dưới bên phải giao diện tướng sẽ mở khóa trọn vẹn nhánh Ô Đặc Tính Thứ 3 (Trait 3).",
-                  en: "Unlocking the 3rd Trait Branch (Trait 3): When any Epic or Legendary Hero reaches 12 Stars (2 White / Silver Stars — costing 300 cumulative Shards), the Traits tab in the bottom-right corner of the hero screen unlocks the 3rd Passive Trait branch (Trait 3).",
+                  vi: "**Mở khóa Ô Đặc Tính Thứ 3 (Trait 3):** Khi Tướng Tím hoặc Vàng chạm mốc `12 Sao` (`2 Sao Trắng` = `300 Mảnh` tích lũy), tab **Traits** sẽ mở khóa nhánh **Trait 3**.",
+                  en: "**Unlocking the 3rd Trait Branch (Trait 3):** When any Epic or Legendary Hero hits `12 Stars` (`2 White Stars` = `300 Shards`), the **Traits** tab unlocks the **Trait 3** branch.",
                 },
                 {
-                  vi: "Cơ chế kích hoạt vĩnh viễn 24/7 (Active Without Deployment): Chỉ cần mở khóa và dùng mảnh tướng nâng cấp Ô Thứ 3 (Trait 3) lên tối đa Lv.30, hiệu ứng tăng tốc độ (Nghiên cứu, Xây dựng, Huấn luyện lính, Khai thác tài nguyên, Chữa thương Bệnh viện) sẽ luôn luôn có tác dụng 24/7 cho toàn bộ Lâu đài, hoàn toàn KHÔNG cần đưa tướng đó vào Đội hình 1, 2 hay 3!",
-                  en: "Permanent 24/7 Global Passive Mechanic (Active Without Deployment): Once unlocked and upgraded with hero shards to max Lv.30, the Trait 3 speed buff (Research, Construction, Soldier Training, Gathering, or Hospital Healing) remains active 24/7 across your entire Castle—without ever deploying that hero in Queue 1, 2, or 3!",
+                  vi: "**Kích hoạt vĩnh viễn 24/7 (Active Without Deployment):** Nâng `Trait 3` lên `Lv.30` giúp hưởng `+30%` tốc độ (Nghiên cứu, Rèn lính, Đào mỏ, Y tế) 24/7 mà KHÔNG cần đưa tướng vào Đội 1, 2, 3!",
+                  en: "**Permanent 24/7 Global Passive (Active Without Deployment):** Upgrading `Trait 3` to `Lv.30` grants `+30%` speed (Research, Training, Gathering, Healing) 24/7 WITHOUT deploying the hero!",
                 },
                 {
-                  vi: "Chuỗi Điều Kiện Tiên Quyết (Trait 1 Lv.15 ➔ Trait 2 ➔ Trait 3 Lv.30): Hệ thống yêu cầu bạn nâng Trait 1 lên Lv.15 làm cầu nối để mở đường xuống Trait 2 và chạm tới Trait 3. Tuyệt đối dừng Trait 1 ở đúng Lv.15 và giữ Trait 2 ở mức tối thiểu để dồn 100% mảnh tướng nâng kịch trần Trait 3 lên Lv.30 trước!",
-                  en: "Prerequisite Chain (Trait 1 Lv.15 ➔ Trait 2 ➔ Trait 3 Lv.30): The game requires upgrading Trait 1 to Lv.15 as a bridge to unlock Trait 2 and reach Trait 3. Strictly stop Trait 1 at exactly Lv.15 and keep Trait 2 at its minimum unlock level so you can funnel 100% of shards into maxing Trait 3 to Lv.30 first!",
+                  vi: "**Chuỗi Tiên Quyết (Trait 1 Lv.15 ➔ Trait 2 ➔ Trait 3 Lv.30):** Dừng `Trait 1` đúng ở `Lv.15` và giữ `Trait 2` mức tối thiểu làm cầu nối để dồn 100% mảnh nâng kịch trần `Trait 3 Lv.30` trước!",
+                  en: "**Prerequisite Chain (Trait 1 Lv.15 ➔ Trait 2 ➔ Trait 3 Lv.30):** Stop `Trait 1` strictly at `Lv.15` and keep `Trait 2` at minimum unlock level to funnel 100% of shards into `Trait 3 Lv.30` first!",
                 },
               ],
             },
@@ -363,12 +363,12 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
               type: "list",
               items: [
                 {
-                  vi: "Hoàn tất cây sao ở mốc 15 Sao (5 Sao Trắng / Bạc): Khi bạn nâng 1 vị tướng Tím bất kỳ chạm kịch trần 15 Sao (5 Sao Trắng / Bạc — tốn tổng cộng 500 Mảnh Tướng Tím tích lũy), vị tướng đó sẽ hoàn tất toàn bộ cây sao và lập tức mở khóa Tiệm Đổi Quà (Exchange Shop).",
-                  en: "Completing the Star Tree at 15 Stars (5 White / Silver Stars): When you push any single Epic Hero to the 15-Star cap (5 White / Silver Stars — costing 500 cumulative Epic Hero Shards total), that hero completes their entire star tree and immediately unlocks the Exchange Shop (Tiệm Đổi Quà).",
+                  vi: "**Hoàn tất cây sao ở mốc 15 Sao (5 Sao Trắng):** Nâng 1 tướng Tím bất kỳ chạm trần `15 Sao` (tổng `500 Mảnh Tướng Tím` tích lũy) sẽ hoàn tất cây sao và mở khóa ngay **Tiệm Đổi Quà (Exchange Shop)**.",
+                  en: "**Completing the Star Tree at 15 Stars (5 White Stars):** Pushing any single Epic Hero to the `15-Star` cap (`500 Epic Shards` total) completes their star tree and unlocks the **Exchange Shop**.",
                 },
                 {
-                  vi: "Biến mảnh Tím dư thành Mảnh Vàng Vạn Năng hàng tuần: Kể từ giây phút mở khóa Exchange Shop, mọi mảnh dư của vị tướng Tím 15 Sao (rơi ra hàng ngày từ Quán Rượu) đều trở thành tiền tệ để bạn đổi lấy Mảnh Tướng Vàng Vạn Năng (Universal Legendary Shards), Mảnh Tướng Tím Vạn Năng (Universal Epic Shards), Thịt (Meat) và các vật phẩm quý hiếm hàng tuần!",
-                  en: "Turning Excess Epic Shards into Weekly Universal Legendary Shards: From the moment the Exchange Shop opens, every excess shard of that 15-Star Epic hero pulled daily from the Tavern becomes currency to trade weekly for Universal Legendary Shards, Universal Epic Shards, Meat, and rare progression items!",
+                  vi: "**Đổi mảnh Tím dư lấy Mảnh Vàng Vạn Năng hàng tuần:** Mọi mảnh dư của tướng Tím `15 Sao` từ Quán Rượu đều đổi được **Mảnh Vàng Vạn Năng**, **Mảnh Tím Vạn Năng** và **Thịt (Meat)** mỗi tuần!",
+                  en: "**Turning Excess Epic Shards into Universal Legendary Shards:** Every excess shard of a `15-Star` Epic hero pulled from the Tavern trades weekly for **Universal Legendary Shards**, **Epic Shards**, and **Meat**!",
                 },
               ],
             },
@@ -386,8 +386,8 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Thay vì rải đều mảnh Tím cho cả 8 tướng Tím trong kho (khiến không có tướng nào chạm mốc 12 Sao = 300 Mảnh hay 15 Sao = 500 Mảnh trong tháng đầu tiên), người chơi bắt buộc phải thực hiện chiến thuật 'Dồn Đứt Điểm Từng Tướng (Single-Target Funneling)' theo đúng 3 bước sau:",
-            en: "Instead of spreading Epic shards evenly across all 8 Epic heroes in your bag (which leaves zero heroes at 12 Stars = 300 Shards or 15 Stars = 500 Shards during Month 1), players must execute the 'Single-Target Funneling' strategy in 3 strict steps:",
+            vi: "**Tuyệt đối không rải đều mảnh Tím** cho cả 8 tướng trong kho (khiến không tướng nào chạm `12 Sao` = `300 Mảnh` hay `15 Sao` = `500 Mảnh` ở tháng đầu).\n• Thực thi chiến thuật **Dồn Đứt Điểm Từng Tướng (Single-Target Funneling)** theo 3 bước sau:",
+            en: "**Never spread Epic shards evenly** across all 8 Epic heroes in your bag (leaving zero heroes at `12 Stars` = `300 Shards` or `15 Stars` = `500 Shards` in Month 1).\n• Execute the **Single-Target Funneling** strategy in 3 strict steps:",
           },
         },
         {
@@ -407,8 +407,8 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
                 en: "Week 1 – Week 3 (Absolute Priority)",
               },
               description: {
-                vi: "Chọn vị tướng đang có sẵn nhiều mảnh tự nhiên nhất giữa Brawler (Đấu Sĩ — Bộ Lạc / Horde, +30% Tốc độ Nghiên cứu Công nghệ) và Knight (Kỵ Sĩ — Liên Minh / League, +30% Tốc độ Huấn luyện Lính). Dồn 100% Mảnh Tím Vạn Năng kéo lên 12 Sao (300 Mảnh) để mở chuỗi Trait 1 Lv.15 ➔ Trait 2 ➔ Trait 3 Lv.30, sau đó kéo thẳng lên 15 Sao (500 Mảnh) để mở cửa Exchange Shop sớm nhất có thể.",
-                en: "Pick whichever hero has more natural shards between Brawler (Horde, +30% Tech Research Rate) and Knight (League, +30% Soldier Training Speed). Funnel 100% of Universal Epic Shards to hit 12 Stars (300 Shards) and unlock Trait 1 Lv.15 ➔ Trait 2 ➔ Trait 3 Lv.30, then push straight to 15 Stars (500 Shards) to open the Exchange Shop as early as possible.",
+                vi: "Chọn tướng có nhiều mảnh tự nhiên nhất giữa **Brawler** (Đấu Sĩ — Bộ Lạc / Horde, `+30%` Nghiên cứu) và **Knight** (Kỵ Sĩ — Liên Minh / League, `+30%` Huấn luyện Lính).\n• Dồn 100% Mảnh Tím Vạn Năng kéo lên `12 Sao` (`300 Mảnh`) mở `Trait 1 Lv.15` ➔ `Trait 2` ➔ `Trait 3 Lv.30`, rồi đẩy thẳng lên `15 Sao` (`500 Mảnh`) mở **Exchange Shop**.",
+                en: "Pick whichever hero has more natural shards between **Brawler** (Horde, `+30%` Tech Research Rate) and **Knight** (League, `+30%` Soldier Training Speed).\n• Funnel 100% of Universal Epic Shards to hit `12 Stars` (`300 Shards`) for `Trait 1 Lv.15` ➔ `Trait 2` ➔ `Trait 3 Lv.30`, then push to `15 Stars` (`500 Shards`) to open the **Exchange Shop**.",
               },
             },
             {
@@ -425,8 +425,8 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
                 en: "Week 3 – Week 5 (Immediately after Exchange Shop opens)",
               },
               description: {
-                vi: "Khi tướng đầu tiên đã đạt 15 Sao (500 Mảnh), dùng mảnh dư của tướng đó vào Exchange Shop mua sạch Mảnh Tím Vạn Năng mỗi tuần để đập dồn cho vị tướng còn lại trong cặp bài trùng (Brawler / Knight) chạm mốc 12 Sao (300 Mảnh) và nâng max Trait 3 Lv.30 NGAY LẬP TỨC để khóa trọn bộ đôi +30% Nghiên cứu & +30% Huấn luyện Lính.",
-                en: "Once your first hero hits 15 Stars (500 Shards), trade their excess shards in the Exchange Shop every week for Universal Epic Shards and funnel them directly into the second hero of the Brawler / Knight pair to hit 12 Stars (300 Shards) and max Trait 3 Lv.30 IMMEDIATELY—locking in both +30% Research and +30% Soldier Training.",
+                vi: "Khi tướng đầu tiên đạt `15 Sao` (`500 Mảnh`), dùng mảnh dư vào **Exchange Shop** mua sạch Mảnh Tím Vạn Năng mỗi tuần.\n• Đập dồn cho vị tướng còn lại trong cặp **Brawler / Knight** chạm mốc `12 Sao` (`300 Mảnh`) và nâng max `Trait 3 Lv.30` NGAY LẬP TỨC để khóa trọn bộ đôi `+30%` Nghiên cứu & Rèn lính.",
+                en: "Once your first hero hits `15 Stars` (`500 Shards`), trade their excess shards in the **Exchange Shop** every week for Universal Epic Shards.\n• Funnel them directly into the second hero of the **Brawler / Knight** pair to hit `12 Stars` (`300 Shards`) and max `Trait 3 Lv.30` IMMEDIATELY for both `+30%` buffs.",
               },
             },
             {
@@ -443,8 +443,8 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
                 en: "Week 5 Onward (Preparing for GAR & KvK)",
               },
               description: {
-                vi: "Sau khi khóa xong 2 động cơ Nghiên cứu & Huấn luyện lính, tiếp tục đẩy Ranger (+30% Tốc độ Thu thập Ruby), bộ ba tăng tốc độ Bệnh viện gồm Minister + Priestess + Dancer (mỗi tướng +30% ➔ cộng dồn +90% Tốc độ Chữa thương Bệnh viện cho chiến sự KvK), và cuối cùng là Rogue (+30% Đào Đá) cùng Outlaw (+30% Đào Gỗ) lên 12 Sao ➔ 15 Sao.",
-                en: "After locking in both Research and Training engines, push Ranger (+30% Ruby Gathering Speed), the 3 Hospital Healers Minister + Priestess + Dancer (+30% each ➔ +90% combined Hospital Healing Speed for KvK warfare), and finally Rogue (+30% Stone Gathering) and Outlaw (+30% Timber Gathering) to 12 Stars ➔ 15 Stars.",
+                vi: "Sau khi khóa xong 2 động cơ Nghiên cứu & Huấn luyện lính, đẩy tiếp **Ranger** (`+30%` Tốc độ Thu thập Ruby) và bộ ba Bệnh viện **Minister + Priestess + Dancer** (`+90%` Chữa thương cho KvK).\n• Cuối cùng mới nâng **Rogue** (`+30%` Đào Đá) và **Outlaw** (`+30%` Đào Gỗ) lên `12 Sao` ➔ `15 Sao`.",
+                en: "After locking in both Research and Training engines, push **Ranger** (`+30%` Ruby Gathering Speed) and the 3 Hospital Healers **Minister + Priestess + Dancer** (`+90%` Healing Speed for KvK).\n• Finally, upgrade **Rogue** (`+30%` Stone Gathering) and **Outlaw** (`+30%` Timber Gathering) to `12 Stars` ➔ `15 Stars`.",
               },
             },
           ],
@@ -461,8 +461,8 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Khi đã mở khóa tab Thiên Phú (Traits) ở mốc 12 Sao, giao diện trò chơi đặt sẵn một chiếc bẫy tiêu hao Kim Cương cực kỳ tinh vi mà tới 80% người chơi mới đều vô tình bấm nhầm.",
-            en: "Once you unlock the Traits tab at 12 Stars, the game UI presents a deceptive Diamond sink trap that catches nearly 80% of unguided players.",
+            vi: "Khi mở khóa tab **Thiên Phú (Traits)** ở mốc `12 Sao`, giao diện trò chơi đặt sẵn một chiếc bẫy tiêu hao `2,000 Kim Cương` cực kỳ tinh vi mà tới 80% người chơi mới vô tình bấm nhầm.",
+            en: "Once you unlock the **Traits** tab at `12 Stars`, the game UI presents a deceptive `2,000-Diamond` sink trap that catches nearly 80% of unguided players.",
           },
         },
       ],
@@ -470,8 +470,8 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
         {
           id: "sub-3-1-fourth-trait-slot-trap",
           title: {
-            vi: "3.1. ⛔ CẢNH BÁO ĐỎ: Tuyệt Đối Không Bấm Mở Ô Thiên Phú Thứ 4 (Bẫy 2,000 Kim Cương!)",
-            en: "3.1. ⛔ RED ALERT: Never Unlock the 4th Trait Slot (The 2,000-Diamond Trap!)",
+            vi: "3.1. CẢNH BÁO ĐỎ: Tuyệt Đối Không Bấm Mở Ô Thiên Phú Thứ 4 (Bẫy 2,000 Kim Cương!)",
+            en: "3.1. RED ALERT: Never Unlock the 4th Trait Slot (The 2,000-Diamond Trap!)",
           },
           badge: {
             vi: "BẪY 16,000 KIM CƯƠNG",
@@ -482,12 +482,12 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
               type: "list",
               items: [
                 {
-                  vi: "Ô 1, Ô 2 và Ô 3 (Nâng bằng Mảnh Tướng Tím): Được mở khóa và nâng cấp bằng chính Mảnh Tướng Tím của tướng đó (hoặc Mảnh Tím Vạn Năng), trong đó Ô 3 (Trait 3) là ô cộng hiệu ứng kinh tế toàn tài khoản lên tới +30% ở Lv.30.",
-                  en: "Slots 1, 2, and 3 (Upgraded with Epic Hero Shards): Unlocked and upgraded using that hero's Epic Shards (or Universal Epic Shards), where Slot 3 (Trait 3) grants the account-wide +30% economy buff at Lv.30.",
+                  vi: "**Ô 1, Ô 2 và Ô 3 (Nâng bằng Mảnh Tướng Tím):** Mở khóa và nâng cấp bằng **Mảnh Tướng Tím**, trong đó **Ô 3 (Trait 3)** cộng hiệu ứng kinh tế toàn tài khoản lên tới `+30%` ở `Lv.30`.",
+                  en: "**Slots 1, 2, and 3 (Upgraded with Epic Shards):** Unlocked and upgraded using **Epic Hero Shards**, where **Slot 3 (Trait 3)** grants the account-wide `+30%` economy buff at `Lv.30`.",
                 },
                 {
-                  vi: "Ô Thứ 4 (Có biểu tượng ổ khóa — Đòi 2,000 Kim Cương): Hệ thống yêu cầu tiêu tốn 2,000 Kim Cương để mở khóa dòng chữ: 'HP Anh Hùng (của anh hùng này) +3.00%'.",
-                  en: "Slot 4 (Padlock Icon — Costs 2,000 Diamonds): The game prompts you to spend 2,000 Diamonds to unlock the stat line: 'Hero HP (of this hero) +3.00%'.",
+                  vi: "**Ô Thứ 4 (Biểu tượng ổ khóa — Đòi 2,000 Kim Cương):** Hệ thống yêu cầu tiêu tốn `2,000 Kim Cương` để mở khóa dòng chữ: `HP Anh Hùng (của anh hùng này) +3.00%`.",
+                  en: "**Slot 4 (Padlock Icon — Costs 2,000 Diamonds):** The game prompts you to spend `2,000 Diamonds` to unlock the stat line: `Hero HP (of this hero) +3.00%`.",
                 },
               ],
             },
@@ -499,8 +499,8 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
                 en: "The Exact Truth Behind 'Hero HP (of this hero) +3.00%' — The 16,000-Diamond Burn Trap!",
               },
               content: {
-                vi: "Cụm từ '(của anh hùng này / of this hero)' có nghĩa là Ô Thứ 4 CHỈ cộng +3.00% máu cho riêng bản thân con tướng Tím đó khi xuất trận, hoàn toàn KHÔNG cộng cho Đội hình 1 hay toàn tài khoản! Vì Tướng Tím ngồi dự bị vĩnh viễn từ tuần thứ 2 trở đi, việc bấm mở Ô Thứ 4 cho 8 tướng Tím sẽ làm bạn bốc hơi 16,000 Kim Cương (tương đương gần $50.00 – $99.99 giá trị gói nạp) mà nhận về đúng 0 lực chiến thực tế!",
-                en: "The phrase '(of this hero / của anh hùng này)' means the 4th Trait Slot ONLY grants +3.00% HP to that specific benched Epic hero when deployed in battle—it adds ZERO stats to Queue 1 or your global account! Since all 8 Epic Heroes sit permanently on the bench after Week 1, clicking unlock on the 4th Slot across 8 Epics vaporizes 16,000 Diamonds (worth $50.00 – $99.99 in store packs) for strictly 0 actual combat power!",
+                vi: "Cụm từ `(của anh hùng này / of this hero)` có nghĩa là **Ô Thứ 4** CHỈ cộng `+3.00% HP` cho riêng bản thân con tướng Tím đó khi xuất trận, hoàn toàn KHÔNG cộng cho Đội 1 hay toàn tài khoản!\n• Vì Tướng Tím ngồi dự bị vĩnh viễn từ tuần 2, bấm mở Ô Thứ 4 cho 8 tướng Tím sẽ làm bốc hơi `16,000 Kim Cương` (tương đương gói nạp `$50.00 – $99.99`) mà nhận về đúng `0` lực chiến!",
+                en: "The phrase `(of this hero)` means the **4th Trait Slot** ONLY grants `+3.00% HP` to that specific benched Epic hero in battle—adding ZERO stats to Queue 1 or your account!\n• Since all 8 Epic Heroes sit permanently on the bench after Week 1, unlocking the 4th Slot across 8 Epics vaporizes `16,000 Diamonds` (worth `$50.00 – $99.99`) for strictly `0` combat power!",
               },
             },
             {
@@ -558,12 +558,12 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
               type: "list",
               items: [
                 {
-                  vi: "Quy tắc Cấp độ & Thịt (< Lv.80–100): Không bao giờ đút Thịt (Meat) kéo Tướng Tím vượt quá cấp 80–100. Việc mở khóa Thiên Phú hoàn toàn dựa trên Số Sao (12 Sao = 300 Mảnh Tím tích lũy) chứ không phụ thuộc vào Level của tướng.",
-                  en: "Zero-Meat Level Cap Rule (< Lv.80–100): Never feed Meat to level Epic Heroes past Lv.80–100. Unlocking Passive Traits depends strictly on Star Level (12 Stars = 300 cumulative Epic Shards), NOT hero level.",
+                  vi: "**Quy tắc Cấp độ & Thịt (< Lv.80–100):** Không bao giờ đút **Thịt (Meat)** kéo Tướng Tím vượt quá `Lv.80–100`; mở khóa Thiên Phú hoàn toàn dựa trên Số Sao (`12 Sao` = `300 Mảnh Tím`), không phụ thuộc Level.",
+                  en: "**Zero-Meat Level Cap Rule (< Lv.80–100):** Never feed **Meat** to level Epic Heroes past `Lv.80–100`; unlocking Passive Traits depends strictly on Star Level (`12 Stars` = `300 Epic Shards`), NOT hero level.",
                 },
                 {
-                  vi: "Quy tắc 0 Sách Kỹ Năng (0 Skill Books): Tuyệt đối giữ 0 cuốn Sách Kỹ Năng ở tab Kỹ năng Chiến đấu (Combat Skills) của Tướng Tím; chỉ dùng mảnh tướng Tím để nâng điểm vào tab Thiên Phú Kinh Tế (Trait 3).",
-                  en: "Zero-Combat-Skill-Book Rule (0 Skill Books): Strictly keep 0 Skill Books invested in the Combat Skills tab of Epic Heroes; only spend Epic Hero Shards inside the Economic Traits tab (Trait 3).",
+                  vi: "**Quy tắc 0 Sách Kỹ Năng (0 Skill Books):** Tuyệt đối giữ `0` cuốn **Sách Kỹ Năng** ở tab Kỹ năng Chiến đấu (Combat Skills) của Tướng Tím; chỉ dùng mảnh tướng Tím nâng điểm vào tab **Trait 3**.",
+                  en: "**Zero-Combat-Skill-Book Rule (0 Skill Books):** Strictly keep `0` **Skill Books** invested in the Combat Skills tab of Epic Heroes; only spend Epic Hero Shards inside the **Trait 3** economy tab.",
                 },
               ],
             },
@@ -584,8 +584,8 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Dưới đây là hệ thống bảng tra cứu định lượng toàn diện cho cả 8 Tướng Tím (Epic) và 10 Tướng Vàng Kinh Tế (Legendary Economic Passive Heroes) kích hoạt hiệu ứng vĩnh viễn 24/7 trong kho ở mốc 2 Sao Trắng (300 Mảnh), đi kèm bộ quy tắc 4 ô Thiên Phú chuẩn Min-Max.",
-            en: "Below are the complete quantitative reference tables for all 8 Epic Heroes and all 10 Legendary Economic Passive Heroes whose 3rd Traits activate permanently 24/7 from the bench at 2 White Stars (300 Shards), followed by the 4-Slot Trait Rulebook.",
+            vi: "Hệ thống bảng tra cứu định lượng toàn diện cho cả **8 Tướng Tím (Epic)** và **10 Tướng Vàng Kinh Tế (Legendary)** kích hoạt hiệu ứng vĩnh viễn 24/7 ở mốc `2 Sao Trắng` (`300 Mảnh`), kèm quy tắc 4 ô Trait.",
+            en: "Complete quantitative reference tables for all **8 Epic Heroes** and **10 Legendary Economic Passive Heroes** whose 3rd Traits activate 24/7 at `2 White Stars` (`300 Shards`), plus the 4-Slot Rulebook.",
           },
         },
         {
@@ -661,12 +661,12 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
               ],
               rows: [
                 [
-                  { vi: "👑 S+ (#1)", en: "👑 S+ (#1)" },
-                  { vi: "Brawler (Đấu Sĩ)", en: "Brawler (Đấu Sĩ)" },
-                  { vi: "🔴 Horde (Bộ Lạc)", en: "🔴 Horde" },
+                  { vi: "[S+ ★ #1]", en: "[S+ ★ #1]" },
+                  { vi: "Brawler (Đấu Sĩ)", en: "Brawler" },
+                  { vi: "Horde (Bộ Lạc)", en: "Horde" },
                   {
                     vi: "Tăng Tốc độ Nghiên cứu Công nghệ (Tech Research Rate)",
-                    en: "Tech Research Rate (Tăng Tốc độ Nghiên cứu Công nghệ)",
+                    en: "Tech Research Rate",
                   },
                   { vi: "+30%", en: "+30%" },
                   {
@@ -675,12 +675,12 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
                   },
                 ],
                 [
-                  { vi: "👑 S+ (#2)", en: "👑 S+ (#2)" },
-                  { vi: "Knight (Kỵ Sĩ)", en: "Knight (Kỵ Sĩ)" },
-                  { vi: "🔵 League (Liên Minh)", en: "🔵 League" },
+                  { vi: "[S+ ★ #2]", en: "[S+ ★ #2]" },
+                  { vi: "Knight (Kỵ Sĩ)", en: "Knight" },
+                  { vi: "League (Liên Minh)", en: "League" },
                   {
                     vi: "Tăng Tốc độ Huấn luyện Lính (Soldier Training Speed)",
-                    en: "Soldier Training Speed (Tăng Tốc độ Huấn luyện Lính)",
+                    en: "Soldier Training Speed",
                   },
                   { vi: "+30%", en: "+30%" },
                   {
@@ -689,12 +689,12 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
                   },
                 ],
                 [
-                  { vi: "🔥 S (#3)", en: "🔥 S (#3)" },
-                  { vi: "Ranger (Cung Thủ)", en: "Ranger (Cung Thủ)" },
-                  { vi: "🔵 League (Liên Minh)", en: "🔵 League" },
+                  { vi: "[S ★ #3]", en: "[S ★ #3]" },
+                  { vi: "Ranger (Cung Thủ)", en: "Ranger" },
+                  { vi: "League (Liên Minh)", en: "League" },
                   {
                     vi: "Tăng Tốc độ Thu thập Ruby (Ruby Gathering Speed)",
-                    en: "Ruby Gathering Speed (Tăng Tốc độ Thu thập Ruby)",
+                    en: "Ruby Gathering Speed",
                   },
                   { vi: "+30%", en: "+30%" },
                   {
@@ -703,12 +703,12 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
                   },
                 ],
                 [
-                  { vi: "⚡ A (#4)", en: "⚡ A (#4)" },
-                  { vi: "Minister (Bộ Trưởng)", en: "Minister (Bộ Trưởng)" },
-                  { vi: "🔵 League (Liên Minh)", en: "🔵 League" },
+                  { vi: "[A #4]", en: "[A #4]" },
+                  { vi: "Minister (Bộ Trưởng)", en: "Minister" },
+                  { vi: "League (Liên Minh)", en: "League" },
                   {
                     vi: "Tăng Tốc độ Chữa thương Bệnh viện (Hospital Healing Speed)",
-                    en: "Hospital Healing Speed (Tăng Tốc độ Chữa thương Bệnh viện)",
+                    en: "Hospital Healing Speed",
                   },
                   { vi: "+30%", en: "+30%" },
                   {
@@ -717,12 +717,12 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
                   },
                 ],
                 [
-                  { vi: "⚡ A (#5)", en: "⚡ A (#5)" },
-                  { vi: "Priestess (Nữ Tư Tế)", en: "Priestess (Nữ Tư Tế)" },
-                  { vi: "🟢 Nature (Thiên Nhiên)", en: "🟢 Nature" },
+                  { vi: "[A #5]", en: "[A #5]" },
+                  { vi: "Priestess (Nữ Tư Tế)", en: "Priestess" },
+                  { vi: "Nature (Thiên Nhiên)", en: "Nature" },
                   {
                     vi: "Tăng Tốc độ Chữa thương Bệnh viện (Hospital Healing Speed)",
-                    en: "Hospital Healing Speed (Tăng Tốc độ Chữa thương Bệnh viện)",
+                    en: "Hospital Healing Speed",
                   },
                   { vi: "+30%", en: "+30%" },
                   {
@@ -731,12 +731,12 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
                   },
                 ],
                 [
-                  { vi: "⚡ A (#6)", en: "⚡ A (#6)" },
-                  { vi: "Dancer (Vũ Công)", en: "Dancer (Vũ Công)" },
-                  { vi: "🟢 Nature (Thiên Nhiên)", en: "🟢 Nature" },
+                  { vi: "[A #6]", en: "[A #6]" },
+                  { vi: "Dancer (Vũ Công)", en: "Dancer" },
+                  { vi: "Nature (Thiên Nhiên)", en: "Nature" },
                   {
                     vi: "Tăng Tốc độ Chữa thương Bệnh viện (Hospital Healing Speed)",
-                    en: "Hospital Healing Speed (Tăng Tốc độ Chữa thương Bệnh viện)",
+                    en: "Hospital Healing Speed",
                   },
                   { vi: "+30%", en: "+30%" },
                   {
@@ -745,12 +745,12 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
                   },
                 ],
                 [
-                  { vi: "🛠️ B (#7)", en: "🛠️ B (#7)" },
-                  { vi: "Rogue (Đạo Tặc)", en: "Rogue (Đạo Tặc)" },
-                  { vi: "🔴 Horde (Bộ Lạc)", en: "🔴 Horde" },
+                  { vi: "[B #7]", en: "[B #7]" },
+                  { vi: "Rogue (Đạo Tặc)", en: "Rogue" },
+                  { vi: "Horde (Bộ Lạc)", en: "Horde" },
                   {
                     vi: "Tăng Tốc độ Thu thập Đá (Stone Gathering Speed)",
-                    en: "Stone Gathering Speed (Tăng Tốc độ Thu thập Đá)",
+                    en: "Stone Gathering Speed",
                   },
                   { vi: "+30%", en: "+30%" },
                   {
@@ -759,15 +759,15 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
                   },
                 ],
                 [
-                  { vi: "🛠️ B (#8)", en: "🛠️ B (#8)" },
+                  { vi: "[B #8]", en: "[B #8]" },
                   {
                     vi: "Outlaw (Kẻ Ngoài Vòng Pháp Luật)",
-                    en: "Outlaw (Kẻ Ngoài Vòng Pháp Luật)",
+                    en: "Outlaw",
                   },
-                  { vi: "🔴 Horde (Bộ Lạc)", en: "🔴 Horde" },
+                  { vi: "Horde (Bộ Lạc)", en: "Horde" },
                   {
                     vi: "Tăng Tốc độ Thu thập Gỗ (Timber Gathering Speed)",
-                    en: "Timber Gathering Speed (Tăng Tốc độ Thu thập Gỗ)",
+                    en: "Timber Gathering Speed",
                   },
                   { vi: "+30%", en: "+30%" },
                   {
@@ -793,8 +793,8 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Không chỉ có 8 Tướng Tím, 10 vị Tướng Vàng (Legendary) dưới đây cũng sở hữu Đặc tính Nội tại Kinh tế (Trait 3 mở ở 2 Sao Trắng = 300 Mảnh Vàng, kịch trần Lv.30) tự động kích hoạt 24/7 trong kho mà không cần ra trận. Đặc biệt lưu ý: tốc độ Xây dựng (Construction Rate +40%) nằm ở tướng Vàng Bard (Thi Nhân) chứ không nằm ở Tướng Tím, và Stonemason (Thợ Đá) là Tướng Vàng Hệ Thiên Nhiên (+40% Đào Đá)!",
-                en: "Beyond the 8 Epic Heroes, the 10 Legendary Heroes below also possess Economic Passive Traits (Trait 3 unlocked at 2 White Stars = 300 Legendary Shards, max Lv.30) that stay active 24/7 from the bench without deployment. Crucial note: Construction Rate (+40%) belongs to the Legendary hero Bard, NOT an Epic hero, and Stonemason is a Legendary Nature hero (+40% Stone Gathering)!",
+                vi: "Ngoài 8 Tướng Tím, **10 Tướng Vàng (Legendary)** dưới đây cũng sở hữu **Trait 3 Kinh tế** mở ở `2 Sao Trắng` (`300 Mảnh Vàng`, max `Lv.30`) tự động kích hoạt 24/7 trong kho mà không cần ra trận.\n• Lưu ý quan trọng: Tốc độ Xây dựng (`+40% Construction Rate`) nằm ở tướng Vàng **Bard (Thi Nhân)** chứ không nằm ở Tướng Tím, và **Stonemason (Thợ Đá)** là Tướng Vàng Hệ Thiên Nhiên (`+40%` Đào Đá)!",
+                en: "Beyond the 8 Epic Heroes, the **10 Legendary Heroes** below also possess **Economic Passive Traits** (`Trait 3` at `2 White Stars` = `300 Legendary Shards`, max `Lv.30`) active 24/7 from the bench.\n• Crucial note: Construction Rate (`+40%`) belongs to the Legendary hero **Bard**, NOT an Epic hero, and **Stonemason** is a Legendary Nature hero (`+40%` Stone Gathering)!",
               },
             },
             {
@@ -819,12 +819,12 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
               ],
               rows: [
                 [
-                  { vi: "🏗️ Xây Dựng & Nghiên Cứu", en: "🏗️ Construction & Research" },
-                  { vi: "Bard (Thi Nhân)", en: "Bard (Thi Nhân)" },
-                  { vi: "🔵 League (Liên Minh)", en: "🔵 League" },
+                  { vi: "Xây Dựng & Nghiên Cứu", en: "Construction & Research" },
+                  { vi: "Bard (Thi Nhân)", en: "Bard" },
+                  { vi: "League (Liên Minh)", en: "League" },
                   {
                     vi: "Tăng Tốc độ Xây dựng Công trình (Construction Rate)",
-                    en: "Construction Rate (Tăng Tốc độ Xây dựng Công trình)",
+                    en: "Construction Rate",
                   },
                   { vi: "+40%", en: "+40%" },
                   {
@@ -833,12 +833,12 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
                   },
                 ],
                 [
-                  { vi: "🔬 Nghiên Cứu Khoa Học", en: "🔬 Tech Research" },
-                  { vi: "Shaman (Pháp Sư Bộ Lạc)", en: "Shaman (Pháp Sư Bộ Lạc)" },
-                  { vi: "🔴 Horde (Bộ Lạc)", en: "🔴 Horde" },
+                  { vi: "Nghiên Cứu Khoa Học", en: "Tech Research" },
+                  { vi: "Shaman (Pháp Sư Bộ Lạc)", en: "Shaman" },
+                  { vi: "Horde (Bộ Lạc)", en: "Horde" },
                   {
                     vi: "Tăng Tốc độ Nghiên cứu Công nghệ (Tech Research Rate)",
-                    en: "Tech Research Rate (Tăng Tốc độ Nghiên cứu Công nghệ)",
+                    en: "Tech Research Rate",
                   },
                   { vi: "+40%", en: "+40%" },
                   {
@@ -847,12 +847,12 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
                   },
                 ],
                 [
-                  { vi: "⚔️ Huấn Luyện Lính", en: "⚔️ Soldier Training" },
-                  { vi: "Hostess (Bà Chủ Quán)", en: "Hostess (Bà Chủ Quán)" },
-                  { vi: "🔵 League (Liên Minh)", en: "🔵 League" },
+                  { vi: "Huấn Luyện Lính", en: "Soldier Training" },
+                  { vi: "Hostess (Bà Chủ Quán)", en: "Hostess" },
+                  { vi: "League (Liên Minh)", en: "League" },
                   {
                     vi: "Tăng Tốc độ Huấn luyện Lính (Soldier Training Speed)",
-                    en: "Soldier Training Speed (Tăng Tốc độ Huấn luyện Lính)",
+                    en: "Soldier Training Speed",
                   },
                   { vi: "+40%", en: "+40%" },
                   {
@@ -861,15 +861,15 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
                   },
                 ],
                 [
-                  { vi: "🏇 Hành Quân PvP & PvE", en: "🏇 PvP & PvE March Speed" },
+                  { vi: "Hành Quân PvP & PvE", en: "PvP & PvE March Speed" },
                   {
                     vi: "Secret Keeper (Người Giữ Bí Mật)",
-                    en: "Secret Keeper (Người Giữ Bí Mật)",
+                    en: "Secret Keeper",
                   },
-                  { vi: "🔵 League (Liên Minh)", en: "🔵 League" },
+                  { vi: "League (Liên Minh)", en: "League" },
                   {
                     vi: "Tăng Tốc độ Hành quân Công Thành PvP (Castle Siege PvP March Speed)",
-                    en: "Castle Siege PvP March Speed (Tăng Tốc độ Hành quân Công Thành PvP)",
+                    en: "Castle Siege PvP March Speed",
                   },
                   { vi: "+50%", en: "+50%" },
                   {
@@ -878,15 +878,15 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
                   },
                 ],
                 [
-                  { vi: "🏇 Hành Quân PvP & PvE", en: "🏇 PvP & PvE March Speed" },
+                  { vi: "Hành Quân PvP & PvE", en: "PvP & PvE March Speed" },
                   {
                     vi: "Pathfinder (Người Dẫn Đường)",
-                    en: "Pathfinder (Người Dẫn Đường)",
+                    en: "Pathfinder",
                   },
-                  { vi: "🟢 Nature (Thiên Nhiên)", en: "🟢 Nature" },
+                  { vi: "Nature (Thiên Nhiên)", en: "Nature" },
                   {
                     vi: "Tăng Tốc độ Hành quân Săn Quái Bản đồ (World Map Mob PvE March Speed)",
-                    en: "World Map Mob PvE March Speed (Tăng Tốc độ Hành quân Săn Quái Bản đồ)",
+                    en: "World Map Mob PvE March Speed",
                   },
                   { vi: "+50%", en: "+50%" },
                   {
@@ -895,15 +895,15 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
                   },
                 ],
                 [
-                  { vi: "💎 Khai Thác Tài Nguyên", en: "💎 Resource Gathering" },
+                  { vi: "Khai Thác Tài Nguyên", en: "Resource Gathering" },
                   {
                     vi: "Headhunter (Thợ Săn Đầu Người)",
-                    en: "Headhunter (Thợ Săn Đầu Người)",
+                    en: "Headhunter",
                   },
-                  { vi: "🔴 Horde (Bộ Lạc)", en: "🔴 Horde" },
+                  { vi: "Horde (Bộ Lạc)", en: "Horde" },
                   {
                     vi: "Tăng Tốc độ Thu thập Ruby (Ruby Gathering Speed)",
-                    en: "Ruby Gathering Speed (Tăng Tốc độ Thu thập Ruby)",
+                    en: "Ruby Gathering Speed",
                   },
                   { vi: "+40%", en: "+40%" },
                   {
@@ -912,12 +912,12 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
                   },
                 ],
                 [
-                  { vi: "🌲 Khai Thác Tài Nguyên", en: "🌲 Resource Gathering" },
-                  { vi: "Treeguard (Mộc Vệ)", en: "Treeguard (Mộc Vệ)" },
-                  { vi: "🟢 Nature (Thiên Nhiên)", en: "🟢 Nature" },
+                  { vi: "Khai Thác Tài Nguyên", en: "Resource Gathering" },
+                  { vi: "Treeguard (Mộc Vệ)", en: "Treeguard" },
+                  { vi: "Nature (Thiên Nhiên)", en: "Nature" },
                   {
                     vi: "Tăng Tốc độ Thu thập Gỗ (Timber Gathering Speed)",
-                    en: "Timber Gathering Speed (Tăng Tốc độ Thu thập Gỗ)",
+                    en: "Timber Gathering Speed",
                   },
                   { vi: "+40%", en: "+40%" },
                   {
@@ -926,12 +926,12 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
                   },
                 ],
                 [
-                  { vi: "🪨 Khai Thác Tài Nguyên", en: "🪨 Resource Gathering" },
-                  { vi: "Stonemason (Thợ Đá)", en: "Stonemason (Thợ Đá)" },
-                  { vi: "🟢 Nature (Thiên Nhiên)", en: "🟢 Nature" },
+                  { vi: "Khai Thác Tài Nguyên", en: "Resource Gathering" },
+                  { vi: "Stonemason (Thợ Đá)", en: "Stonemason" },
+                  { vi: "Nature (Thiên Nhiên)", en: "Nature" },
                   {
                     vi: "Tăng Tốc độ Thu thập Đá (Stone Gathering Speed)",
-                    en: "Stone Gathering Speed (Tăng Tốc độ Thu thập Đá)",
+                    en: "Stone Gathering Speed",
                   },
                   { vi: "+40%", en: "+40%" },
                   {
@@ -940,15 +940,15 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
                   },
                 ],
                 [
-                  { vi: "🎒 Cướp Bóc & Quân Số", en: "🎒 Plunder & Troop Cap" },
+                  { vi: "Cướp Bóc & Quân Số", en: "Plunder & Troop Cap" },
                   {
                     vi: "Warlock (Phù Thủy Hắc Ám)",
-                    en: "Warlock (Phù Thủy Hắc Ám)",
+                    en: "Warlock",
                   },
-                  { vi: "🔴 Horde (Bộ Lạc)", en: "🔴 Horde" },
+                  { vi: "Horde (Bộ Lạc)", en: "Horde" },
                   {
                     vi: "Tăng Tải trọng Cướp bóc Tài nguyên (Resource Plunder Cap)",
-                    en: "Resource Plunder Cap (Tăng Tải trọng Cướp bóc Tài nguyên)",
+                    en: "Resource Plunder Cap",
                   },
                   { vi: "+360,000", en: "+360,000" },
                   {
@@ -957,15 +957,15 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
                   },
                 ],
                 [
-                  { vi: "🎒 Cướp Bóc & Quân Số", en: "🎒 Plunder & Troop Cap" },
+                  { vi: "Cướp Bóc & Quân Số", en: "Plunder & Troop Cap" },
                   {
                     vi: "Watcher (Người Quan Sát)",
-                    en: "Watcher (Người Quan Sát)",
+                    en: "Watcher",
                   },
-                  { vi: "🟢 Nature (Thiên Nhiên)", en: "🟢 Nature" },
+                  { vi: "Nature (Thiên Nhiên)", en: "Nature" },
                   {
                     vi: "Tăng Giới hạn Chứa Lính Doanh trại (Barracks Soldier Cap)",
-                    en: "Barracks Soldier Cap (Tăng Giới hạn Chứa Lính Doanh trại)",
+                    en: "Barracks Soldier Cap",
                   },
                   { vi: "+2,000", en: "+2,000" },
                   {
@@ -1047,12 +1047,12 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
                     en: "Reach 12 Stars + Unlock Trait 2 bridge",
                   },
                   {
-                    vi: "🌟 BUFF KINH TẾ +30% VĨNH VIỄN TOÀN TÀI KHOẢN",
-                    en: "🌟 +30% PERMANENT ACCOUNT-WIDE ECONOMY BUFF",
+                    vi: "★ BUFF KINH TẾ +30% VĨNH VIỄN TOÀN TÀI KHOẢN",
+                    en: "★ +30% PERMANENT ACCOUNT-WIDE ECONOMY BUFF",
                   },
                   {
-                    vi: "🔥 NÂNG MAX Lv.30 NGAY LẬP TỨC theo thứ tự Brawler ➔ Knight ➔ Ranger ➔ Minister / Priestess / Dancer ➔ Rogue / Outlaw.",
-                    en: "🔥 MAX OUT TO Lv.30 IMMEDIATELY in strict order: Brawler ➔ Knight ➔ Ranger ➔ Minister / Priestess / Dancer ➔ Rogue / Outlaw.",
+                    vi: "NÂNG MAX Lv.30 NGAY LẬP TỨC theo thứ tự Brawler ➔ Knight ➔ Ranger ➔ Minister / Priestess / Dancer ➔ Rogue / Outlaw.",
+                    en: "MAX OUT TO Lv.30 IMMEDIATELY in strict order: Brawler ➔ Knight ➔ Ranger ➔ Minister / Priestess / Dancer ➔ Rogue / Outlaw.",
                   },
                 ],
                 [
@@ -1069,8 +1069,8 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
                     en: "Grants +3.00% HP to that specific benched Epic hero only",
                   },
                   {
-                    vi: "⛔ CẤM TUYỆT ĐỐI! Không bao giờ bấm mở khóa (tránh mất trắng 16,000 Kim Cương cho 8 tướng Tím)!",
-                    en: "⛔ STRICTLY FORBIDDEN! Never click unlock (saves 16,000 Diamonds across 8 Epics)!",
+                    vi: "[CẤM TUYỆT ĐỐI] Không bao giờ bấm mở khóa (tránh mất trắng 16,000 Kim Cương cho 8 tướng Tím)!",
+                    en: "[STRICTLY FORBIDDEN] Never click unlock (saves 16,000 Diamonds across 8 Epics)!",
                   },
                 ],
               ],
@@ -1181,8 +1181,8 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Bài toán thực tế dưới đây chứng minh tại sao việc mở khóa ngay lập tức Trait 3 của Brawler và Knight thông qua Exchange Shop luôn mang lại lợi tức lớn gấp nhiều lần so với việc nhịn nâng sao chờ sự kiện:",
-            en: "The real-world scenario below proves mathematically why immediately unlocking Brawler and Knight's Trait 3 via the Exchange Shop yields far greater returns than hoarding Epic shards for event points:",
+            vi: "Bài toán thực tế dưới đây chứng minh tại sao mở khóa ngay **Trait 3** của **Brawler** và **Knight** qua `Exchange Shop` mang lại lợi tức gấp nhiều lần so với nhịn nâng sao chờ sự kiện:",
+            en: "The real-world scenario below proves mathematically why unlocking **Brawler** and **Knight**'s `Trait 3` via the **Exchange Shop** yields far greater returns than hoarding shards for events:",
           },
         },
         {
@@ -1196,8 +1196,8 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
             en: "Economic Leverage of Early 12-Star Brawler (300 Shards) & 15-Star Knight (500 Shards) in Week 3",
           },
           profileSummary: {
-            vi: "Một tài khoản ở Ngày 18 của máy chủ đang có Knight đã chạm mốc 15 Sao (5 Sao Trắng = 500 Mảnh Tím, mở khóa Tiệm Đổi Quà và +30% Tốc độ Huấn luyện Lính), trong khi Brawler (Đấu Sĩ) đang dừng ở 10 Sao (5 Sao Đỏ = 200 Mảnh Tím — thiếu đúng 100 Mảnh để lên 12 Sao / 2 Sao Trắng = 300 Mảnh). Người chơi phân vân có nên nhịn nâng Brawler thêm 10 ngày nữa để chờ tới Thứ Năm của Tuần B (Guild Arms Race) lấy điểm sự kiện hay không.",
-            en: "A Day 18 server account has Knight at 15 Stars (5 White Stars = 500 Epic Shards, unlocking the Exchange Shop and +30% Soldier Training Speed), while Brawler sits at 10 Stars (5 Red Stars = 200 Epic Shards — exactly 100 Shards short of 12 Stars / 2 White Stars = 300 Shards). The player is debating whether to hold off upgrading Brawler for 10 more days until Thursday of Week B (Guild Arms Race) for event points.",
+            vi: "Tài khoản ở Ngày 18 đã có **Knight** chạm mốc `15 Sao` (`500 Mảnh Tím`, mở Tiệm Đổi Quà và `+30%` Rèn lính), còn **Brawler (Đấu Sĩ)** dừng ở `10 Sao` (`200 Mảnh` — thiếu `100 Mảnh` lên `12 Sao`).\n• Người chơi phân vân có nên nhịn nâng Brawler thêm 10 ngày nữa để chờ tới Thứ Năm của Tuần B (Guild Arms Race) lấy điểm sự kiện hay không.",
+            en: "A Day 18 server account has **Knight** at `15 Stars` (`500 Epic Shards`, unlocking Exchange Shop and `+30%` Training), while **Brawler** sits at `10 Stars` (`200 Shards` — `100 Shards` short of `12 Stars`).\n• The player is debating whether to hold off upgrading Brawler for 10 more days until Thursday of Week B (Guild Arms Race) for event points.",
           },
           metrics: [
             {
@@ -1261,8 +1261,8 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
               en: "Waiting 10 days to push Brawler to 12 Stars (300 Shards) and Trait 3 Lv.30 forfeits 10 full days of +30% Tech Research Rate.",
             },
             {
-              vi: "Trong 10 ngày đó, với 2 hàng đợi nghiên cứu chạy liên tục và đợt xả Tăng tốc Nghiên cứu vào Thứ Ba, việc thiếu +30% tốc độ nghiên cứu làm người chơi thiệt hại tương đương ~72 giờ (3 ngày) Tăng tốc Nghiên cứu — giá trị lớn gấp 5 lần số điểm sự kiện nhận được từ 100 mảnh Tím!",
-              en: "Across those 10 days—with 2 research queues running non-stop and Tuesday's Research Speedup dump—missing +30% Research Rate costs the equivalent of ~72 hours (3 days) of Research Speedups, worth 5x more than the GAR points from 100 Epic shards!",
+              vi: "Trong 10 ngày đó, với 2 hàng đợi nghiên cứu chạy liên tục và đợt xả Tăng tốc Nghiên cứu vào Thứ Ba, việc thiếu `+30%` tốc độ nghiên cứu làm thiệt hại tương đương `~72 giờ` (3 ngày) Tăng tốc Nghiên cứu.\n• Con số này có giá trị lớn gấp `5 lần` số điểm sự kiện nhận được từ `100 mảnh Tím`!",
+              en: "Across those 10 days—with 2 research queues running non-stop and Tuesday's Research Speedup dump—missing `+30%` Research Rate costs the equivalent of `~72 hours` (3 days) of Research Speedups.\n• That speedup value is worth `5x` more than the GAR event points from `100 Epic shards`!",
             },
           ],
           recoverySteps: [
@@ -1288,8 +1288,8 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
                 en: "Push Brawler to 12 Stars (300 Shards) & Max Trait 3 Lv.30 Immediately",
               },
               detail: {
-                vi: "Đập thẳng cho Brawler từ 5 Sao Đỏ (200 Mảnh) lên 2 Sao Trắng (12 Sao = 300 Mảnh) NGAY LẬP TỨC, nâng Trait 1 Lv.15 làm cầu nối qua Trait 2 và nâng kịch trần Ô Thiên Phú Số 3 (Trait 3) lên Lv.30.",
-                en: "Push Brawler from 5 Red Stars (200 Shards) straight to 2 White Stars (12 Stars = 300 Shards) IMMEDIATELY, upgrade Trait 1 Lv.15 as the bridge through Trait 2, and max out the 3rd Trait Slot (Trait 3) to Lv.30.",
+                vi: "Đập thẳng cho **Brawler** từ `5 Sao Đỏ` (`200 Mảnh`) lên `2 Sao Trắng` (`12 Sao` = `300 Mảnh`) NGAY LẬP TỨC, nâng `Trait 1 Lv.15` làm cầu nối qua `Trait 2` và nâng kịch trần `Trait 3 Lv.30`.",
+                en: "Push **Brawler** from `5 Red Stars` (`200 Shards`) straight to `2 White Stars` (`12 Stars` = `300 Shards`) IMMEDIATELY, bridge `Trait 1 Lv.15` ➔ `Trait 2`, and max out `Trait 3 Lv.30`.",
               },
               impactBadge: {
                 vi: "+30% NGHIÊN CỨU 24/7",
@@ -1313,8 +1313,8 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
             },
           ],
           conclusion: {
-            vi: "Quy tắc Vàng: Riêng với cặp đôi Brawler (12 Sao = 300 Mảnh) và Knight (12 Sao = 300 Mảnh ➔ 15 Sao = 500 Mảnh), nâng ngay lập tức khi đủ mảnh để kích hoạt động cơ +30% Nghiên cứu & Huấn luyện lính, tuyệt đối không nhịn chờ sự kiện!",
-            en: "Golden Rule: Specifically for the Brawler (12 Stars = 300 Shards) and Knight (12 Stars = 300 Shards ➔ 15 Stars = 500 Shards) duo, upgrade the instant you have enough shards to activate +30% Research & Training speed—never delay them for event timers!",
+            vi: "**Quy tắc Vàng:** Riêng với cặp đôi **Brawler** (`12 Sao` = `300 Mảnh`) và **Knight** (`12 Sao` ➔ `15 Sao` = `500 Mảnh`), nâng ngay khi đủ mảnh để bật động cơ `+30%` — cấm nhịn chờ sự kiện!",
+            en: "**Golden Rule:** Specifically for the **Brawler** (`12 Stars` = `300 Shards`) and **Knight** (`12 Stars` ➔ `15 Stars` = `500 Shards`) duo, upgrade immediately to activate `+30%` speed—never delay for events!",
           },
         },
       ],

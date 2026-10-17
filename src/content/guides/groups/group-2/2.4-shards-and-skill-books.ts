@@ -16,34 +16,34 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
   },
   tldr: {
     coreRule: {
-      vi: "Để nâng tối đa 1 vị tướng từ 0⭐ lên kịch trần 15 Sao (5 Sao Trắng / Bạc) cần chính xác 1,000 Mảnh Tướng đối với Tướng Đỏ (Mythic) hoặc 500 Mảnh Tướng đối với Tướng Vàng (Legendary) & Tướng Tím (Epic) (chưa tính 10 Mảnh mở khóa tướng gốc). Với một đội hình 6 tướng Mythic (6,000 Mảnh) và 98,800 – 123,500 Sách Kỹ Năng / tướng (~600,000+ Sách Kỹ Năng cho cả Đội 1), mỗi mảnh vạn năng hay cuốn sách bị dùng sai chỗ là một vết sẹo vĩnh viễn cho tài khoản.",
-      en: "Maxing 1 hero from 0⭐ to the 15-Star cap (5 White / Platinum Stars) costs exactly 1,000 Hero Shards for Mythic (Red) or 500 Hero Shards for Legendary (Yellow) & Epic (Purple) (excluding 10 base unlock shards). With 6 Mythic heroes (6,000 Shards) and 98,800 – 123,500 Skill Books per hero (~600,000+ Skill Books for Queue 1), every misspent shard or book leaves a permanent scar on your account.",
+      vi: "**Đường cong nâng sao (`0★ ➔ 15★`):** Cần chính xác `1,000 Mảnh` cho **Tướng Đỏ (`Mythic`)** hoặc `500 Mảnh` cho **Tướng Vàng (`Legendary`) & Tím (`Epic`)**.\n• **Chi phí Đội 1:** Với `6,000 Mảnh` và `98,800 – 123,500 Sách Kỹ Năng`/tướng (`~600,000+ Sách`), mỗi mảnh dùng sai là vết sẹo vĩnh viễn.",
+      en: "**Star Curve (`0★ ➔ 15★`):** Maxing 1 hero costs `1,000 Shards` for **Mythic (Red)** or `500 Shards` for **Legendary (Yellow) & Epic (Purple)**.\n• **Queue 1 Cost:** With `6,000 Shards` and `98,800 – 123,500 Skill Books`/hero (`~600,000+ Books`), every misspent item scars your account.",
     },
     immediateAction: {
-      vi: "Khóa chặt 100% Mảnh Vạn Năng Vàng (Universal Legendary Shards) và Sách Kỹ Năng (Skill Books) trong kho; chỉ xuất kho nâng cấp cho các tướng Thần Thoại (Mythic — Đỏ) của Đội 1 vào đúng Thứ Năm của Tuần B (Ngày Tướng trong Guild Arms Race / KvK) hoặc khi ghép cùng Nhiệm vụ Vàng trong Thi Đấu Hội.",
-      en: "Lock 100% of Universal Legendary Shards and Skill Books in storage; only spend them on Queue 1 Mythic (Red) heroes on Thursday of Week B (Hero Day in Guild Arms Race / KvK) or when paired with Golden Tasks in Guild Race (Thi Đấu Hội).",
+      vi: "**Khóa kho 100%:** Giữ toàn bộ **Mảnh Vạn Năng Vàng (`Universal Shards`)** và **Sách Kỹ Năng (`Skill Books`)** cho tướng **Mythic Đội 1**.\n• **Thời điểm xả kho:** Chỉ nâng vào **Thứ Năm Tuần B** (`Hero Day` — `GAR / KvK`) hoặc ghép cùng **Nhiệm vụ Vàng Thi Đấu Hội**.",
+      en: "**100% Storage Lock:** Reserve all **Universal Legendary Shards** and **Skill Books** exclusively for **Queue 1 Mythic** heroes.\n• **Burst Window:** Only spend on **Thursday of Week B** (`Hero Day` — `GAR / KvK`) or paired with **Guild Race Golden Tasks**.",
     },
     strictTaboo: {
-      vi: "Tuyệt đối không đút Mảnh Vạn Năng Vàng cho bất kỳ tướng Vàng nào có mảnh rơi miễn phí trong Quán Rượu (Tavern), và không nâng dàn trải hoặc dồn lệch 1 tướng Mythic lên 2–5 Sao Trắng khi các tướng Mythic trụ cột khác trong Đội 1 chưa chạm mốc 1 Sao Trắng (11 Sao = 560 Mảnh Mythic tích lũy).",
-      en: "Never feed Universal Legendary Shards to any Tavern-pullable Legendary hero, and never push a single Mythic hero to 2–5 White Stars while other core Mythics in Queue 1 have not yet reached 1 White Star (11 Stars = 560 cumulative Mythic Shards).",
+      vi: "**Cấm đút tướng Quán Rượu:** Tuyệt đối không dùng **Mảnh Vạn Năng Vàng** cho tướng Vàng rơi miễn phí trong `Tavern`.\n• **Cấm dồn lệch sớm:** Không đẩy 1 tướng Mythic lên `2–5★ Trắng` khi các Mythic trụ cột khác của Đội 1 chưa chạm mốc `1★ Trắng` (`11★` = `560 Mảnh`).",
+      en: "**Tavern Shard Taboo:** Never feed **Universal Legendary Shards** to any `Tavern`-pullable Legendary hero.\n• **No Lopsided Maxing:** Never push 1 Mythic to `2–5★ White` while other Queue 1 core Mythics haven't reached `1★ White` (`11★` = `560 Shards`).",
     },
   },
   keyTakeaways: [
     {
-      vi: "Tướng Đỏ (Mythic) tốn gấp đôi mảnh nâng sao so với Tướng Vàng/Tím ở mọi đốt (1,000 Mảnh vs. 500 Mảnh lên 15⭐) và hoàn toàn không rơi từ vé chiêu mộ Quán Rượu — do đó 100% Mảnh Vạn Năng Vàng phải dành riêng cho Mythic Đội 1.",
-      en: "Mythic (Red) heroes cost exactly 2x shards compared to Legendary/Epic heroes at every segment (1,000 Shards vs. 500 Shards to 15⭐) and never drop from Tavern recruitment — 100% of Universal Legendary Shards belong exclusively to Queue 1 Mythics.",
+      vi: "**Tướng Đỏ (`Mythic`) tốn gấp đôi mảnh:** Cần `1,000 Mảnh` vs. `500 Mảnh` của Tướng Vàng/Tím lên `15★` và `0%` rơi từ Quán Rượu — `100%` **Mảnh Vạn Năng Vàng** phải dành riêng cho Mythic Đội 1.",
+      en: "**Mythic (`Red`) Double Shard Cost:** Costs `1,000 Shards` vs. `500 Shards` for Legendary/Epic to `15★` with `0%` Tavern drop — `100%` of **Universal Legendary Shards** belong to Queue 1 Mythics.",
     },
     {
-      vi: "Điểm gãy Sách Kỹ Năng Mid-game nằm ở mốc Lv.10 (8,000 Sách / kỹ năng): mang lại 65% tổng hiệu năng kỹ năng chỉ với 32.4% chi phí, giúp tiết kiệm +16,700 Sách của đoạn Lv.11➔15 (tổng 24,700 Sách/kỹ năng) để phủ đều các kỹ năng trụ cột toàn Đội 1.",
-      en: "The Mid-game Skill Book breakpoint sits at Lv.10 (8,000 Books / skill): delivering 65% of max skill effectiveness for only 32.4% of the total cost, saving the +16,700 Books required for Lv.11➔15 (24,700 Books total/skill) to evenly power up Queue 1 core skills first.",
+      vi: "**Điểm gãy Sách Kỹ Năng `Lv.10` (`8,000 Sách`):** Đạt `65%` hiệu năng kỹ năng chỉ với `32.4%` chi phí, tiết kiệm `+16,700 Sách` của đoạn `Lv.11➔15` (tổng `24,700 Sách`/skill) để phủ đều toàn Đội 1.",
+      en: "**Mid-Game Skill Book Breakpoint `Lv.10` (`8,000 Books`):** Captures `65%` skill effectiveness for `32.4%` cost, saving `+16,700 Books` from `Lv.11➔15` (`24,700 Books`/skill) to power up Queue 1 evenly.",
     },
     {
-      vi: "Quy tắc Domino 1 Sao Trắng (11⭐ = 560 Mảnh Mythic): Luôn đưa lần lượt từng tướng Mythic trong Đội 1 chạm mốc 1 Sao Trắng để kích hoạt +30% hiệu ứng Kỹ năng độc quyền trước khi dồn 440 mảnh cuối (560 ➔ 1,000 Mảnh) cho Hyper-Carry.",
-      en: "The 1-White-Star Domino Rule (11⭐ = 560 Mythic Shards): Always bring each Queue 1 Mythic hero to 1 White Star sequentially to unlock +30% exclusive Mythic skill effects before spending the final 440 shards (560 ➔ 1,000 Shards) to max a single Hyper-Carry.",
+      vi: "**Quy tắc Domino `1★ Trắng` (`11★` = `560 Mảnh Mythic`):** Đưa lần lượt từng tướng Mythic Đội 1 chạm `1★ Trắng` mở khóa `+30%` hiệu ứng Kỹ năng trước khi dồn `+440 mảnh` cuối (`560 ➔ 1,000 Mảnh`).",
+      en: "**`1★ White` Domino Rule (`11★` = `560 Mythic Shards`):** Bring each Queue 1 Mythic hero to `1★ White` sequentially for `+30%` exclusive Skill effects before spending the final `+440 shards` (`560 ➔ 1,000`).",
     },
     {
-      vi: "Thức Tỉnh Tướng Vàng lên Phẩm Đỏ (Awakening Tier 0 ➔ 4) từ Season 1 tiêu tốn trọn gói 9 Hồn Đá Đỏ (Soul Stones) + 345–385 Mảnh tướng riêng, tương đương 360,000 Điểm Vinh Dự Bang (40,000/viên) hoặc 54,000 Xu Vinh Quang Hội (6,000/viên ở S1).",
-      en: "Awakening a Legendary hero to Mythic quality (Awakening Tier 0 ➔ 4) starting in Season 1 requires a total of 9 Red Soul Stones + 345–385 hero-specific shards, equivalent to 360,000 Guild Honor Points (40,000/stone) or 54,000 Guild Glory Coins (6,000/stone in S1).",
+      vi: "**Toán học Thức Tỉnh (`Awakening Tier 0 ➔ 4`):** Tốn trọn gói `9 Hồn Đá Đỏ` + `345–385 Mảnh` riêng, tương đương `360,000 Điểm Vinh Dự Bang` (`40,000`/viên) hoặc `54,000 Xu Vinh Quang Hội` (`6,000`/viên).",
+      en: "**Awakening Math (`Tier 0 ➔ 4`):** Requires `9 Red Soul Stones` + `345–385` named shards, costing `360,000 Guild Honor Points` (`40,000`/stone) or `54,000 Guild Glory Coins` (`6,000`/stone in `S1`).",
     },
   ],
   keywords: [
@@ -75,8 +75,8 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Trong Top Heroes, Mảnh Tướng Vàng Vạn Năng (Universal Legendary Hero Shards) có thể quy đổi 1:1 thành mảnh của cả Tướng Huyền Thoại (Legendary — Vàng) lẫn Tướng Thần Thoại (Mythic — Đỏ). Chính cơ chế dùng chung này tạo ra cái bẫy lớn nhất đối với 90% người chơi mới khi vô tình đốt mảnh vạn năng vào các tướng có thể kiếm miễn phí.",
-            en: "In Top Heroes, Universal Legendary Hero Shards convert 1:1 into shards for both Legendary (Yellow) and Mythic (Red) heroes. This shared conversion mechanic creates the single biggest resource trap for 90% of new players, who inadvertently burn priceless universal shards on farmable tavern heroes.",
+            vi: "Trong Top Heroes, **Mảnh Tướng Vàng Vạn Năng (`Universal Legendary Shards`)** quy đổi `1:1` thành mảnh của cả **Tướng Vàng (`Legendary`)** lẫn **Tướng Đỏ (`Mythic`)**.\n• **Cạm bẫy tài nguyên:** Cơ chế dùng chung này khiến `90%` người chơi mới vô tình đốt mảnh vạn năng vào các tướng Quán Rượu kiếm được miễn phí.",
+            en: "In Top Heroes, **Universal Legendary Hero Shards** convert `1:1` into shards for both **Legendary (Yellow)** and **Mythic (Red)** heroes.\n• **The Resource Trap:** This shared conversion mechanic causes `90%` of new players to accidentally burn priceless universal shards on farmable Tavern heroes.",
           },
         },
         {
@@ -149,8 +149,8 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
                 en: "Ironclad Rule: 1,000 Mythic Shards vs. 500 Legendary Shards & 0% Tavern Drop Rate",
               },
               content: {
-                vi: "Tướng Đỏ (Mythic) KHÔNG BAO GIỜ rơi mảnh từ vé chiêu mộ thường trong Quán Rượu (Tavern) và đòi hỏi gấp đôi chi phí nâng sao (1,000 Mảnh để đạt 5 Sao Trắng / 15⭐ so với 500 Mảnh của Tướng Vàng). Ngoài việc quay Vòng Quay May Mắn (Wheel) hoặc Xúc Xắc (Dice) khi sự kiện mở, cách duy nhất để nâng sao cho Wukong, Storm Maiden, Desert Prince, Tidecaller, Ne Zha, Paragon, Rose Princess là dùng Mảnh Vạn Năng Vàng.",
-                en: "Mythic (Red) heroes NEVER drop shards from regular Tavern recruitment tickets and demand double the star-up cost (1,000 Shards to reach 5 White Stars / 15⭐ vs. 500 Shards for Legendaries). Outside of spinning Lucky Wheel or Dice during limited events, the only way to star up Wukong, Storm Maiden, Desert Prince, Tidecaller, Ne Zha, Paragon, and Rose Princess is via Universal Legendary Shards.",
+                vi: "**Độc quyền sự kiện (`0% Tavern Drop`):** Tướng Đỏ (`Mythic`) KHÔNG BAO GIỜ rơi mảnh từ vé chiêu mộ thường trong Quán Rượu và tốn gấp đôi chi phí nâng sao (`1,000 Mảnh` lên `15★` vs. `500 Mảnh` của Tướng Vàng).\n• **Kênh nâng sao duy nhất:** Ngoài `Wheel` / `Dice`, cách duy nhất để nâng `Wukong`, `Storm Maiden`, `Desert Prince`, `Tidecaller`, `Ne Zha`, `Paragon`, `Rose Princess` là dùng **Mảnh Vạn Năng Vàng**.",
+                en: "**Zero Tavern Drop Rate (`0%`):** Mythic (`Red`) heroes NEVER drop shards from regular Tavern tickets and cost double to max (`1,000 Shards` to `15★` vs. `500 Shards` for Legendaries).\n• **Sole Upgrade Path:** Outside `Wheel` / `Dice` events, the only way to star up `Wukong`, `Storm Maiden`, `Desert Prince`, `Tidecaller`, `Ne Zha`, `Paragon`, and `Rose Princess` is **Universal Shards**.",
               },
             },
             {
@@ -158,12 +158,12 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
               ordered: false,
               items: [
                 {
-                  vi: "Tướng Vàng (Legendary — 500 Mảnh Max 15⭐): Có thể kiếm mảnh riêng hoàn toàn miễn phí mỗi ngày thông qua vé chiêu mộ Quán Rượu (Tavern), Mốc thưởng Chiêu mộ, Tiệm Đấu Trường (Arena Shop) và Tiệm Đổi Quà (Exchange Shop), đồng thời chỉ tốn 500 Mảnh để đạt tối đa 5 Sao Trắng (15 Sao).",
-                  en: "Legendary Heroes (Yellow — 500 Shards Max 15⭐): Hero-specific shards can be farmed completely free every day via Tavern recruitment tickets, Recruitment milestone chests, Arena Shop, and Exchange Shop, while costing only 500 Shards total to hit 5 White Stars (15 Stars).",
+                  vi: "**Tướng Vàng (`Legendary` — `500 Mảnh` Max `15★`):** Kiếm mảnh riêng miễn phí mỗi ngày qua vé Quán Rượu (`Tavern`), Rương mốc chiêu mộ, `Arena Shop` và `Exchange Shop`, chỉ tốn `500 Mảnh` đạt `5★ Trắng`.",
+                  en: "**Legendary Heroes (`Yellow` — `500 Shards` Max `15★`):** Named shards are farmed free daily via `Tavern` tickets, milestone chests, `Arena Shop`, and `Exchange Shop`, costing only `500 Shards` to hit `5★ White`.",
                 },
                 {
-                  vi: "Tướng Đỏ (Mythic — 1,000 Mảnh Max 15⭐): Đòi hỏi 1,000 Mảnh cho mỗi vị tướng (tổng 6,000 Mảnh cho đội hình 6 Mythic). Mọi Mảnh Vạn Năng Vàng bị tiêu vào tướng Quán Rượu là mất đi trực tiếp tiến độ nâng sao của dàn Hyper-Carry Mythic.",
-                  en: "Mythic Heroes (Red — 1,000 Shards Max 15⭐): Require 1,000 Shards per hero (6,000 Shards total for a 6-Mythic lineup). Every Universal Legendary Shard fed to a Tavern hero directly permanently delays your Mythic Hyper-Carry star progression.",
+                  vi: "**Tướng Đỏ (`Mythic` — `1,000 Mảnh` Max `15★`):** Đòi hỏi `1,000 Mảnh`/tướng (`6,000 Mảnh` cho `6 Mythic`); mọi **Mảnh Vạn Năng Vàng** tiêu vào tướng Quán Rượu đều làm chậm trực tiếp tiến độ của Hyper-Carry.",
+                  en: "**Mythic Heroes (`Red` — `1,000 Shards` Max `15★`):** Require `1,000 Shards`/hero (`6,000 Shards` for `6 Mythics`); every **Universal Shard** fed to a Tavern hero permanently delays your Mythic Hyper-Carry.",
                 },
               ],
             },
@@ -183,8 +183,8 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Người chơi cần ghi nhớ danh sách các tướng dưới đây — chỉ được phép nâng sao bằng mảnh riêng mang tên chính tướng đó từ Quán Rượu/Tiệm, tuyệt đối 0 Mảnh Vạn Năng Vàng:",
-                en: "Memorize the faction roster below — these heroes may only be upgraded using their own named shards from Tavern/Shops, with strictly 0 Universal Legendary Shards:",
+                vi: "Người chơi cần ghi nhớ danh sách dưới đây — chỉ được nâng sao bằng **mảnh riêng mang tên tướng** từ Quán Rượu/Tiệm, tuyệt đối **`0 Mảnh Vạn Năng Vàng`**:",
+                en: "Memorize the faction roster below — these heroes may only be upgraded using **named shards** from Tavern/Shops, with strictly **`0 Universal Legendary Shards`**:",
               },
             },
             {
@@ -210,8 +210,8 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
               rows: [
                 [
                   {
-                    vi: "🔵 Liên Minh (League)",
-                    en: "🔵 League",
+                    vi: "Liên Minh (League)",
+                    en: "League",
                   },
                   {
                     vi: "Secret Keeper, Astrologer, Hostess",
@@ -224,8 +224,8 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "🔴 Bộ Lạc (Horde)",
-                    en: "🔴 Horde",
+                    vi: "Bộ Lạc (Horde)",
+                    en: "Horde",
                   },
                   {
                     vi: "Barbarian, Headhunter, Shaman, Boar, Wanderer, Wilderness Hunter, Swordmaster",
@@ -238,8 +238,8 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "🟢 Thiên Nhiên (Nature)",
-                    en: "🟢 Nature",
+                    vi: "Thiên Nhiên (Nature)",
+                    en: "Nature",
                   },
                   {
                     vi: "Treeguard, Druid, Windwalker, Watcher, Pathfinder",
@@ -266,8 +266,8 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Sách Kỹ Năng (Skill Books) là tài nguyên khan hiếm đứng thứ hai sau Mảnh Tướng. Cấp độ cơ bản tối đa của mỗi kỹ năng là Lv.15, tốn chính xác 24,700 Sách Kỹ Năng / 1 kỹ năng — tức 98,800 – 123,500 Sách Kỹ Năng cho 1 vị tướng có 4–5 kỹ năng và ~600,000+ Sách Kỹ Năng cho trọn bộ Đội hình 1 gồm 6 tướng. Trong đó, mốc Lv.10 (8,000 Sách / kỹ năng) là điểm dừng tối ưu ở giai đoạn Mid-game (đạt 65% hiệu năng kỹ năng chỉ với 32.4% tổng chi phí sách), giúp tiết kiệm +16,700 Sách của 5 cấp cuối (Lv.11 ➔ Lv.15) để không bị kẹt tài nguyên.",
-            en: "Skill Books are the second scarcest bottleneck resource after Hero Shards. The base maximum level per skill is Lv.15, costing exactly 24,700 Skill Books per skill — which equals 98,800 – 123,500 Skill Books for a single hero (4–5 skills) and ~600,000+ Skill Books for a full 6-hero Queue 1. The Lv.10 milestone (8,000 Books / skill) serves as the optimal Mid-game breakpoint (delivering 65% skill effectiveness for just 32.4% of total cost), saving the steep +16,700 Books required for the final 5 levels (Lv.11 ➔ Lv.15).",
+            vi: "**Định lượng Sách Kỹ Năng (`Skill Books`):** Cấp cơ bản tối đa mỗi kỹ năng là `Lv.15`, tốn chính xác `24,700 Sách`/skill — tức `98,800 – 123,500 Sách`/tướng (`4–5 skills`) và `~600,000+ Sách` cho trọn bộ Đội hình 1.\n• **Điểm dừng Mid-game (`Lv.10` = `8,000 Sách`):** Đạt `65%` hiệu năng kỹ năng chỉ với `32.4%` tổng chi phí, giúp tiết kiệm `+16,700 Sách` của 5 cấp cuối (`Lv.11 ➔ Lv.15`) để không bị kẹt tài nguyên.",
+            en: "**Skill Book Quantification:** Maxing a skill to `Lv.15` costs `24,700 Skill Books`/skill — totaling `98,800 – 123,500 Books`/hero (`4–5 skills`) and `~600,000+ Books` for a full 6-hero Queue 1.\n• **Mid-Game Breakpoint (`Lv.10` = `8,000 Books`):** Captures `65%` skill effectiveness for just `32.4%` of total cost, saving the steep `+16,700 Books` required for `Lv.11 ➔ Lv.15`.",
           },
         },
         {
@@ -368,16 +368,16 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
           },
           headers: [
             {
-              vi: "Cạm Bẫy Phổ Biến (❌ Sai Lầm)",
-              en: "Common Pitfall (❌ Mistake)",
+              vi: "Cạm Bẫy Phổ Biến (Sai Lầm)",
+              en: "Common Pitfall (Mistake)",
             },
             {
               vi: "Hậu Quả Tài Khoản",
               en: "Account Consequence",
             },
             {
-              vi: "Giải Pháp Tối Ưu Chuẩn Min-Max (✅ Kỷ Luật)",
-              en: "Optimal Min-Max Solution (✅ Discipline)",
+              vi: "Giải Pháp Tối Ưu Chuẩn Min-Max (Kỷ Luật)",
+              en: "Optimal Min-Max Solution (Discipline)",
             },
           ],
           rows: [
@@ -392,7 +392,7 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
               },
               {
                 vi: "Tích trữ toàn bộ mảnh tướng và thẻ chiêu mộ trong kho; chỉ xả vào đúng Thứ Năm của Tuần B (Ngày 4 — Hero Day của Guild Arms Race / KvK), trùng sự kiện phụ Hero Development hoặc ghép cùng Nhiệm vụ Vàng trong Thi Đấu Hội để ăn gấp đôi/gấp ba phần thưởng (Double-Dip)",
-                en: "Hoard all hero shards and recruitment vouchers in storage; only spend on Thursday of Week B (Day 4 — Hero Day in Guild Arms Race / KvK), paired with Hero Development sub-events or Golden Tasks in Guild Race (Thi Đấu Hội) to Double-Dip milestone rewards",
+                en: "Hoard all hero shards and recruitment vouchers in storage; only spend on Thursday of Week B (Day 4 — Hero Day in Guild Arms Race / KvK), paired with Hero Development sub-events or Golden Tasks in Guild Race to Double-Dip milestone rewards",
               },
             ],
             [
@@ -456,8 +456,8 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
             {
               id: "check-1-white-star-domino",
               label: {
-                vi: "Tuân thủ Quy tắc Domino 1 Sao Trắng (11⭐ = 560 Mảnh Mythic tích lũy)",
-                en: "Enforce the 1-White-Star Domino Rule (11⭐ = 560 cumulative Mythic Shards)",
+                vi: "Tuân thủ Quy tắc Domino 1 Sao Trắng (11★ = 560 Mảnh Mythic tích lũy)",
+                en: "Enforce the 1-White-Star Domino Rule (11★ = 560 cumulative Mythic Shards)",
               },
               detail: {
                 vi: "Không đẩy lẻ 1 tướng lên 2–5 Sao Trắng (tốn thêm +440 Mảnh) khi các tướng Mythic trụ cột khác trong Đội 1 chưa chạm mốc 1 Sao Trắng (+30% hiệu ứng Skill).",
@@ -515,8 +515,8 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Trong Top Heroes, hệ thống Sao của tướng gồm 3 bậc màu × 5 ngôi sao mỗi bậc = 15 Sao tổng cộng, trong đó mỗi ngôi sao được chia thành 5 đốt nhỏ (5 Tiers / Segments). Tướng Đỏ (Mythic) tốn chính xác gấp 2 lần số mảnh của Tướng Vàng (Legendary) / Tướng Tím (Epic) ở mọi đốt: Sao Vàng (1⭐ ➔ 5⭐) tốn 50 Mảnh Leg/Epic hoặc 100 Mảnh Mythic; Sao Đỏ (6⭐ ➔ 10⭐, hiển thị 1 ➔ 5 Sao Đỏ) tốn thêm +150 Mảnh (tích lũy 200 Mảnh Leg/Epic) hoặc +300 Mảnh (tích lũy 400 Mảnh Mythic); Sao Trắng / Bạc (11⭐ ➔ 15⭐, hiển thị 1 ➔ 5 Sao Trắng) tốn thêm +300 Mảnh (tích lũy 500 Mảnh Leg/Epic) hoặc +600 Mảnh (tích lũy 1,000 Mảnh Mythic).",
-            en: "In Top Heroes, the hero Star system spans 3 color tiers × 5 stars per tier = 15 Stars total, with each star divided into 5 sub-segments (5 Tiers / Segments). Mythic (Red) heroes cost exactly 2x the shards of Legendary (Yellow) / Epic (Purple) heroes at every single segment: Yellow Stars (1⭐ ➔ 5⭐) cost 50 Leg/Epic Shards or 100 Mythic Shards; Red Stars (6⭐ ➔ 10⭐, displayed as 1 ➔ 5 Red Stars) add +150 Shards (200 cumulative Leg/Epic) or +300 Shards (400 cumulative Mythic); White / Silver / Platinum Stars (11⭐ ➔ 15⭐, displayed as 1 ➔ 5 White Stars) add +300 Shards (500 cumulative Leg/Epic) or +600 Shards (1,000 cumulative Mythic).",
+            vi: "**Cấu trúc 15 Ngôi Sao (`15★`):** Gồm `3 bậc màu` × `5 sao`/bậc (`5 đốt`/sao), trong đó **Tướng Đỏ (`Mythic`)** tốn gấp `2 lần` mảnh so với **Tướng Vàng (`Legendary`) / Tím (`Epic`)**.\n• **Tổng mảnh tích lũy:** Sao Vàng (`1★➔5★`) = `50` / `100 Mảnh`; Sao Đỏ (`6★➔10★`) = `200` / `400 Mảnh`; Sao Trắng (`11★➔15★`) = `500` / `1,000 Mảnh`.",
+            en: "**15-Star Architecture (`15★`):** Spans `3 color tiers` × `5 stars`/tier (`5 segments`/star), where **Mythic (Red)** heroes cost `2x` shards compared to **Legendary / Epic** heroes.\n• **Cumulative Tier Costs:** Yellow Stars (`1★➔5★`) = `50` / `100 Shards`; Red Stars (`6★➔10★`) = `200` / `400 Shards`; White Stars (`11★➔15★`) = `500` / `1,000 Shards`.",
           },
         },
       ],
@@ -525,7 +525,7 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
           id: "sub-4-1-star-cost-table",
           title: {
             vi: "4.1. Bảng Chi Phí Nâng Sao Tướng Chuẩn Xác Từ 0 Sao ➔ 5 Sao Trắng (500 Mảnh Leg/Epic vs. 1,000 Mảnh Mythic)",
-            en: "4.1. Complete Star Upgrade Cost Table From 0⭐ ➔ 5 White Stars (500 Leg/Epic vs. 1,000 Mythic Shards)",
+            en: "4.1. Complete Star Upgrade Cost Table From 0★ ➔ 5 White Stars (500 Leg/Epic vs. 1,000 Mythic Shards)",
           },
           badge: {
             vi: "Bảng 16 Cấp Sao",
@@ -535,8 +535,8 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
             {
               type: "table",
               caption: {
-                vi: "Bảng Chi Phí Từng Bậc & Tích Lũy Từ 0⭐ Mở Khóa Tới 15⭐ (5 Sao Trắng) Cho Legendary/Epic (500 Mảnh) & Mythic (1,000 Mảnh)",
-                en: "Step & Cumulative Shard Cost Table From 0⭐ Unlock to 15⭐ (5 White Stars) for Legendary/Epic (500 Shards) & Mythic (1,000 Shards)",
+                vi: "Bảng Chi Phí Từng Bậc & Tích Lũy Từ 0★ Mở Khóa Tới 15★ (5 Sao Trắng) Cho Legendary/Epic (500 Mảnh) & Mythic (1,000 Mảnh)",
+                en: "Step & Cumulative Shard Cost Table From 0★ Unlock to 15★ (5 White Stars) for Legendary/Epic (500 Shards) & Mythic (1,000 Shards)",
               },
               headers: [
                 {
@@ -575,8 +575,8 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
                     en: "Hero Unlock",
                   },
                   {
-                    vi: "0⭐",
-                    en: "0⭐",
+                    vi: "0★",
+                    en: "0★",
                   },
                   {
                     vi: "10 Mảnh (riêng)",
@@ -601,12 +601,12 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "1 Sao Vàng (1 Yellow ⭐)",
+                    vi: "1 Sao Vàng (1 Yellow ★)",
                     en: "1 Yellow Star (1★)",
                   },
                   {
-                    vi: "1⭐",
-                    en: "1⭐",
+                    vi: "1★",
+                    en: "1★",
                   },
                   {
                     vi: "5 Mảnh (1×5)",
@@ -631,12 +631,12 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "2 Sao Vàng (2 Yellow ⭐)",
+                    vi: "2 Sao Vàng (2 Yellow ★)",
                     en: "2 Yellow Stars (2★)",
                   },
                   {
-                    vi: "2⭐",
-                    en: "2⭐",
+                    vi: "2★",
+                    en: "2★",
                   },
                   {
                     vi: "5 Mảnh (1×5)",
@@ -661,12 +661,12 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "3 Sao Vàng (3 Yellow ⭐)",
+                    vi: "3 Sao Vàng (3 Yellow ★)",
                     en: "3 Yellow Stars (3★)",
                   },
                   {
-                    vi: "3⭐",
-                    en: "3⭐",
+                    vi: "3★",
+                    en: "3★",
                   },
                   {
                     vi: "10 Mảnh (2×5)",
@@ -691,12 +691,12 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "4 Sao Vàng (4 Yellow ⭐)",
+                    vi: "4 Sao Vàng (4 Yellow ★)",
                     en: "4 Yellow Stars (4★)",
                   },
                   {
-                    vi: "4⭐",
-                    en: "4⭐",
+                    vi: "4★",
+                    en: "4★",
                   },
                   {
                     vi: "15 Mảnh (3×5)",
@@ -721,12 +721,12 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "5 Sao Vàng (5 Yellow ⭐)",
+                    vi: "5 Sao Vàng (5 Yellow ★)",
                     en: "5 Yellow Stars (5★)",
                   },
                   {
-                    vi: "5⭐",
-                    en: "5⭐",
+                    vi: "5★",
+                    en: "5★",
                   },
                   {
                     vi: "15 Mảnh (3×5)",
@@ -751,12 +751,12 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "1 Sao Đỏ (1 Red ⭐)",
+                    vi: "1 Sao Đỏ (1 Red ★)",
                     en: "1 Red Star (1★ Red)",
                   },
                   {
-                    vi: "6⭐",
-                    en: "6⭐",
+                    vi: "6★",
+                    en: "6★",
                   },
                   {
                     vi: "30 Mảnh (6×5)",
@@ -775,18 +775,18 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
                     en: "160 Shards",
                   },
                   {
-                    vi: "🔥 Breakpoint #1 (MVS): Kích hoạt mạnh Kỹ năng thứ 5 của tướng Mythic",
-                    en: "🔥 Breakpoint #1 (MVS): Heavily empowers Mythic 5th exclusive skill",
+                    vi: "Breakpoint #1 (MVS): Kích hoạt mạnh Kỹ năng thứ 5 của tướng Mythic",
+                    en: "Breakpoint #1 (MVS): Heavily empowers Mythic 5th exclusive skill",
                   },
                 ],
                 [
                   {
-                    vi: "2 Sao Đỏ (2 Red ⭐)",
+                    vi: "2 Sao Đỏ (2 Red ★)",
                     en: "2 Red Stars (2★ Red)",
                   },
                   {
-                    vi: "7⭐",
-                    en: "7⭐",
+                    vi: "7★",
+                    en: "7★",
                   },
                   {
                     vi: "20 Mảnh (4×5)",
@@ -811,12 +811,12 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "3 Sao Đỏ (3 Red ⭐)",
+                    vi: "3 Sao Đỏ (3 Red ★)",
                     en: "3 Red Stars (3★ Red)",
                   },
                   {
-                    vi: "8⭐",
-                    en: "8⭐",
+                    vi: "8★",
+                    en: "8★",
                   },
                   {
                     vi: "20 Mảnh (4×5)",
@@ -841,12 +841,12 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "4 Sao Đỏ (4 Red ⭐)",
+                    vi: "4 Sao Đỏ (4 Red ★)",
                     en: "4 Red Stars (4★ Red)",
                   },
                   {
-                    vi: "9⭐",
-                    en: "9⭐",
+                    vi: "9★",
+                    en: "9★",
                   },
                   {
                     vi: "40 Mảnh (8×5)",
@@ -871,12 +871,12 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "5 Sao Đỏ (5 Red ⭐)",
+                    vi: "5 Sao Đỏ (5 Red ★)",
                     en: "5 Red Stars (5★ Red)",
                   },
                   {
-                    vi: "10⭐",
-                    en: "10⭐",
+                    vi: "10★",
+                    en: "10★",
                   },
                   {
                     vi: "40 Mảnh (8×5)",
@@ -901,12 +901,12 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "1 Sao Trắng (1 White/Silver ⭐)",
+                    vi: "1 Sao Trắng (1 White/Silver ★)",
                     en: "1 White/Silver Star (1★ White)",
                   },
                   {
-                    vi: "11⭐",
-                    en: "11⭐",
+                    vi: "11★",
+                    en: "11★",
                   },
                   {
                     vi: "80 Mảnh (16×5)",
@@ -925,18 +925,18 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
                     en: "560 Shards",
                   },
                   {
-                    vi: "👑 Breakpoint #2 (ROI Vàng): Mở khóa +30% hiệu ứng Kỹ năng Mythic & Điều kiện khởi tạo Thức tỉnh",
-                    en: "👑 Breakpoint #2 (Golden ROI): Unlocks +30% Mythic Skill effect & Awakening prerequisite",
+                    vi: "Breakpoint #2 (ROI Vàng): Mở khóa +30% hiệu ứng Kỹ năng Mythic & Điều kiện khởi tạo Thức tỉnh",
+                    en: "Breakpoint #2 (Golden ROI): Unlocks +30% Mythic Skill effect & Awakening prerequisite",
                   },
                 ],
                 [
                   {
-                    vi: "2 Sao Trắng (2 White/Silver ⭐)",
+                    vi: "2 Sao Trắng (2 White/Silver ★)",
                     en: "2 White/Silver Stars (2★ White)",
                   },
                   {
-                    vi: "12⭐",
-                    en: "12⭐",
+                    vi: "12★",
+                    en: "12★",
                   },
                   {
                     vi: "20 Mảnh (4×5)",
@@ -955,18 +955,18 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
                     en: "600 Shards",
                   },
                   {
-                    vi: "⚡ Breakpoint #3: Mở khóa Trait 3 Kinh tế (Epic & Leg) & Mốc chuẩn Thức tỉnh",
-                    en: "⚡ Breakpoint #3: Unlocks 3rd Economy Trait (Epic & Leg) & standard Awakening threshold",
+                    vi: "Breakpoint #3: Mở khóa Trait 3 Kinh tế (Epic & Leg) & Mốc chuẩn Thức tỉnh",
+                    en: "Breakpoint #3: Unlocks 3rd Economy Trait (Epic & Leg) & standard Awakening threshold",
                   },
                 ],
                 [
                   {
-                    vi: "3 Sao Trắng (3 White/Silver ⭐)",
+                    vi: "3 Sao Trắng (3 White/Silver ★)",
                     en: "3 White/Silver Stars (3★ White)",
                   },
                   {
-                    vi: "13⭐",
-                    en: "13⭐",
+                    vi: "13★",
+                    en: "13★",
                   },
                   {
                     vi: "60 Mảnh (12×5)",
@@ -991,12 +991,12 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "4 Sao Trắng (4 White/Silver ⭐)",
+                    vi: "4 Sao Trắng (4 White/Silver ★)",
                     en: "4 White/Silver Stars (4★ White)",
                   },
                   {
-                    vi: "14⭐",
-                    en: "14⭐",
+                    vi: "14★",
+                    en: "14★",
                   },
                   {
                     vi: "60 Mảnh (12×5)",
@@ -1021,12 +1021,12 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "5 Sao Trắng (5 White/Silver ⭐)",
+                    vi: "5 Sao Trắng (5 White/Silver ★)",
                     en: "5 White/Silver Stars (5★ White)",
                   },
                   {
-                    vi: "15⭐",
-                    en: "15⭐",
+                    vi: "15★",
+                    en: "15★",
                   },
                   {
                     vi: "80 Mảnh (16×5)",
@@ -1045,8 +1045,8 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
                     en: "1,000 Shards",
                   },
                   {
-                    vi: "🏆 Max Out: Mở khóa đổi mảnh dư trong Exchange Shop",
-                    en: "🏆 Max Out: Unlocks excess shard conversion in Exchange Shop",
+                    vi: "★ Max Out: Mở khóa đổi mảnh dư trong Exchange Shop",
+                    en: "★ Max Out: Unlocks excess shard conversion in Exchange Shop",
                   },
                 ],
               ],
@@ -1067,8 +1067,8 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Từ 0 Sao đến 5 Sao Đỏ (10⭐), một tướng Mythic tốn 400 Mảnh, và bước nhảy lên 1 Sao Trắng (11⭐) cần tổng cộng 560 Mảnh tích lũy để mở khóa trọn vẹn cấp độ đột phá +30% hiệu ứng Kỹ năng độc quyền của tướng Mythic (đặc biệt bước từ 1 Sao Trắng lên 2 Sao Trắng 12⭐ chỉ tốn thêm đúng 40 Mảnh Mythic hoặc 20 Mảnh Leg/Epic). Ngược lại, để đi tiếp từ 1 Sao Trắng (560 Mảnh) lên 5 Sao Trắng (1,000 Mảnh) cho cùng 1 vị tướng đó, bạn phải bỏ ra thêm tới 440 Mảnh nữa — gần bằng chi phí nâng một vị tướng Mythic thứ hai từ 0 Sao lên 1 Sao Trắng!",
-                en: "From 0⭐ to 5 Red Stars (10⭐), a Mythic hero requires 400 Shards, and stepping up to 1 White Star (11⭐) takes 560 cumulative Shards to unlock the massive +30% exclusive Mythic Skill effect spike (remarkably, stepping from 1 White Star to 2 White Stars 12⭐ costs just +40 Mythic Shards or +20 Leg/Epic Shards). Conversely, pushing that same Mythic hero from 1 White Star (560 Shards) to 5 White Stars (1,000 Shards) demands an extra +440 Shards — nearly enough to bring a second Mythic hero from 0⭐ all the way to 1 White Star!",
+                vi: "**Điểm gãy `1★ Trắng` (`11★` = `560 Mảnh Mythic`):** Mở khóa trọn vẹn `+30%` hiệu ứng Kỹ năng độc quyền Mythic (bước lên `2★ Trắng` `12★` chỉ tốn thêm `+40 Mảnh Mythic` hoặc `+20 Mảnh Leg/Epic`).\n• **Chi phí cơ hội đoạn cuối:** Đi tiếp từ `1★ Trắng` (`560 Mảnh`) lên `5★ Trắng` (`1,000 Mảnh`) ngốn thêm `+440 Mảnh` — gần bằng chi phí nâng một tướng Mythic thứ hai từ `0★` lên `1★ Trắng`!",
+                en: "**The `1★ White` Breakpoint (`11★` = `560 Mythic Shards`):** Unlocks `+30%` exclusive Mythic Skill effects (stepping to `2★ White` `12★` costs just `+40 Mythic` or `+20 Leg/Epic Shards`).\n• **Endgame Opportunity Cost:** Pushing that same hero from `1★ White` (`560`) to `5★ White` (`1,000`) demands `+440 Shards` — nearly enough to bring a second Mythic from `0★` to `1★ White`!",
               },
             },
             {
@@ -1080,8 +1080,8 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
                 en: "The 1-White-Star Domino Flow (560 Cumulative Mythic Shards)",
               },
               subtitle: {
-                vi: "Nâng cuốn chiếu từng trụ cột Mythic trong Đội hình 1 chạm mốc 11⭐ (560 Mảnh) trước khi dồn 1,000 Mảnh Max Out",
-                en: "Cascade each Queue 1 Mythic pillar to the 11⭐ (560 Shards) breakpoint before pushing 1,000-Shard Max Out",
+                vi: "Nâng cuốn chiếu từng trụ cột Mythic trong Đội hình 1 chạm mốc 11★ (560 Mảnh) trước khi dồn 1,000 Mảnh Max Out",
+                en: "Cascade each Queue 1 Mythic pillar to the 11★ (560 Shards) breakpoint before pushing 1,000-Shard Max Out",
               },
               nodes: [
                 {
@@ -1095,8 +1095,8 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
                     en: "Mythic Hero #1 (Hyper-Carry: Storm Maiden / Wukong / Paragon)",
                   },
                   subtitle: {
-                    vi: "Đầu tư 560 Mảnh đạt 1 Sao Trắng (11⭐) ➔ Mở khóa +30% hiệu ứng Kỹ năng Mythic độc quyền, sau đó TẠM DỪNG!",
-                    en: "Invest 560 Shards to hit 1 White Star (11⭐) ➔ Unlock +30% exclusive Mythic Skill effect, then PAUSE!",
+                    vi: "Đầu tư 560 Mảnh đạt 1 Sao Trắng (11★) ➔ Mở khóa +30% hiệu ứng Kỹ năng Mythic độc quyền, sau đó TẠM DỪNG!",
+                    en: "Invest 560 Shards to hit 1 White Star (11★) ➔ Unlock +30% exclusive Mythic Skill effect, then PAUSE!",
                   },
                   metrics: [
                     {
@@ -1126,8 +1126,8 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
                   },
                   metrics: [
                     {
-                      vi: "Tích lũy: 560 Mảnh (11⭐)",
-                      en: "Cumulative: 560 Shards (11⭐)",
+                      vi: "Tích lũy: 560 Mảnh (11★)",
+                      en: "Cumulative: 560 Shards (11★)",
                     },
                     {
                       vi: "Chống sập tuyến đầu trong 3 giây đầu trận",
@@ -1169,8 +1169,8 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
                     en: "Return to Max Out Hyper-Carries (#1 & #3) to 3–5 White Stars",
                   },
                   subtitle: {
-                    vi: "Sau khi cả Đội 1 đã vững nền tảng 1 Sao Trắng, dồn +440 mảnh cuối đưa Carry lên 15⭐ (1,000 Mảnh)",
-                    en: "Once Queue 1 secures its 1-White-Star foundation, invest the final +440 shards to push Carries to 15⭐ (1,000 Shards)",
+                    vi: "Sau khi cả Đội 1 đã vững nền tảng 1 Sao Trắng, dồn +440 mảnh cuối đưa Carry lên 15★ (1,000 Mảnh)",
+                    en: "Once Queue 1 secures its 1-White-Star foundation, invest the final +440 shards to push Carries to 15★ (1,000 Shards)",
                   },
                   metrics: [
                     {
@@ -1271,8 +1271,8 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
                     en: "32,000 – 40,000 Books",
                   },
                   {
-                    vi: "🔥 Điểm gãy Mid-game (Lv.10): Đạt 65% hiệu năng kỹ năng chỉ với 32.4% tổng chi phí sách",
-                    en: "🔥 Mid-game Breakpoint (Lv.10): Captures 65% skill effectiveness for just 32.4% of total book cost",
+                    vi: "Điểm gãy Mid-game (Lv.10): Đạt 65% hiệu năng kỹ năng chỉ với 32.4% tổng chi phí sách",
+                    en: "Mid-game Breakpoint (Lv.10): Captures 65% skill effectiveness for just 32.4% of total book cost",
                   },
                 ],
                 [
@@ -1297,8 +1297,8 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
                     en: "98,800 – 123,500 Books",
                   },
                   {
-                    vi: "👑 Max Out (Lv.15): Chỉ dồn +16,700 Sách/ô cho Kỹ năng Ultimate (Ô 1) & Ô 5 của Hyper-Carry trước",
-                    en: "👑 Max Out (Lv.15): Only invest +16,700 Books/slot into Hyper-Carry Ultimate (Slot 1) & 5th Skill (Slot 5) first",
+                    vi: "★ Max Out (Lv.15): Chỉ dồn +16,700 Sách/ô cho Kỹ năng Ultimate (Ô 1) & Ô 5 của Hyper-Carry trước",
+                    en: "★ Max Out (Lv.15): Only invest +16,700 Books/slot into Hyper-Carry Ultimate (Slot 1) & 5th Skill (Slot 5) first",
                   },
                 ],
               ],
@@ -1311,8 +1311,8 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
                 en: "The 1-White-Star Domino Rule & Lv.10 Skill Breakpoint",
               },
               content: {
-                vi: "Luôn nâng lần lượt từng tướng Mythic trong Đội hình 1 chạm mốc 5 Sao Đỏ (400 Mảnh) ➔ 1 Sao Trắng (560 Mảnh) và đẩy các kỹ năng chính chạm mốc Lv.10 (8,000 Sách/kỹ năng) trước. Chỉ khi toàn bộ trụ cột Đội 1 đã đạt nền tảng này, người chơi mới quay lại dồn sách lên Lv.15 (24,700 Sách/kỹ năng) và dồn mảnh lên 5 Sao Trắng (1,000 Mảnh) cho Hyper-Carry.",
-                en: "Always bring each Mythic hero in Queue 1 sequentially to 5 Red Stars (400 Shards) ➔ 1 White Star (560 Shards) and push their core skills to Lv.10 (8,000 Books/skill) first. Only after all Queue 1 pillars have secured this foundation should you return to push Lv.15 skills (24,700 Books/skill) and 5 White Stars (1,000 Shards) on your Hyper-Carry.",
+                vi: "**Quy trình nâng cuốn chiếu:** Luôn nâng lần lượt từng tướng Mythic trong Đội 1 chạm mốc `5★ Đỏ` (`400 Mảnh`) ➔ `1★ Trắng` (`560 Mảnh`) và đẩy kỹ năng chính lên `Lv.10` (`8,000 Sách`/skill) trước.\n• **Giai đoạn Max Out:** Khi toàn bộ trụ cột Đội 1 đạt nền tảng này, mới quay lại dồn sách lên `Lv.15` (`24,700 Sách`) và dồn mảnh lên `5★ Trắng` (`1,000 Mảnh`) cho **Hyper-Carry**.",
+                en: "**Sequential Cascade Rule:** Always bring each Queue 1 Mythic hero sequentially to `5★ Red` (`400 Shards`) ➔ `1★ White` (`560 Shards`) and push core skills to `Lv.10` (`8,000 Books`/skill) first.\n• **Max Out Phase:** Once all Queue 1 pillars secure this foundation, return to push `Lv.15` skills (`24,700 Books`) and `5★ White` (`1,000 Shards`) on your **Hyper-Carry**.",
               },
             },
           ],
@@ -1331,8 +1331,8 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Khi máy chủ bước vào Season 1 và vị tướng Vàng cốt lõi (Pyromancer, Adjudicator, Nun, Soulmancer, Warlock, Pixie, Sage, Forest Maiden, Bard) đạt mốc 1–2 Sao Trắng (280–300 Mảnh Tướng Vàng tích lũy), tính năng Thức Tỉnh (Awakening / Promotion) sẽ mở khóa gồm 4 Bậc (Tier 0 ➔ Tier 4):",
-                en: "When the server enters Season 1 and a core Legendary hero (Pyromancer, Adjudicator, Nun, Soulmancer, Warlock, Pixie, Sage, Forest Maiden, Bard) reaches 1–2 White Stars (280–300 cumulative Legendary Shards), the Awakening / Promotion system unlocks across 4 Tiers (Tier 0 ➔ Tier 4):",
+                vi: "**Điều kiện mở khóa (`Season 1`):** Áp dụng cho tướng Vàng cốt lõi (`Pyromancer`, `Adjudicator`, `Nun`, `Soulmancer`, `Warlock`, `Pixie`, `Sage`, `Forest Maiden`, `Bard`) đạt `1–2★ Trắng` (`280–300 Mảnh`).\n• **Cấu trúc 4 Bậc (`Tier 0 ➔ Tier 4`):** Lộ trình nâng cấp lên phẩm Đỏ (`Mythic`) diễn ra qua 4 giai đoạn tiêu tốn **Hồn Đá Đỏ** và mảnh tướng riêng như sau:",
+                en: "**Awakening Prerequisite (`Season 1`):** Unlocks once a core Legendary (`Pyromancer`, `Adjudicator`, `Nun`, `Soulmancer`, `Warlock`, `Pixie`, `Sage`, `Forest Maiden`, `Bard`) hits `1–2★ White` (`280–300 Shards`).\n• **4-Tier Progression (`Tier 0 ➔ Tier 4`):** Promoting a hero to `Mythic` (Red) quality spans 4 stages consuming **Red Soul Stones** and named shards as follows:",
               },
             },
             {
@@ -1574,8 +1574,8 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
             en: "Allocating 1,000 Universal Legendary Shards & 48,000 Skill Books for a Week 6 (Day 42) Horde Lineup",
           },
           profileSummary: {
-            vi: "Tại Ngày 42 của máy chủ (ngay sau khi sự kiện Witch mở khóa), một người chơi Low-Spender sở hữu 3 tướng Đỏ Bộ Lạc vừa mở khóa ở mức 0 Sao (Storm Maiden, Desert Prince, Witch) và có trong tay 1,000 Mảnh Vạn Năng Vàng cùng 48,000 Sách Kỹ Năng.",
-            en: "At Server Day 42 (right after the Witch unlock event), a Low-Spender holds 3 freshly unlocked 0⭐ Horde Mythic heroes (Storm Maiden, Desert Prince, Witch) with a war chest of 1,000 Universal Legendary Shards and 48,000 Skill Books.",
+            vi: "**Bối cảnh Ngày 42 (Tuần 6):** Ngay sau sự kiện mở khóa `Witch`, một người chơi Low-Spender sở hữu 3 tướng Đỏ Bộ Lạc ở mức `0★` (`Storm Maiden`, `Desert Prince`, `Witch`).\n• **Quỹ tài nguyên hiện có:** Tích lũy được chính xác `1,000 Mảnh Vạn Năng Vàng` cùng `48,000 Sách Kỹ Năng` trong kho.",
+            en: "**Server Day 42 Context (Week 6):** Right after the `Witch` unlock event, a Low-Spender holds 3 freshly unlocked `0★` Horde Mythics (`Storm Maiden`, `Desert Prince`, `Witch`).\n• **Available War Chest:** Holds exactly `1,000 Universal Legendary Shards` and `48,000 Skill Books` ready to invest.",
           },
           metrics: [
             {
@@ -1584,16 +1584,16 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
                 en: "1,000 Universal Shards Split (Storm Maiden / Desert Prince / Witch)",
               },
               before: {
-                vi: "Sai lầm All-in: 1,000 / 0 / 0 Mảnh (15⭐ + 0⭐ + 0⭐)",
-                en: "All-in Mistake: 1,000 / 0 / 0 Shards (15⭐ + 0⭐ + 0⭐)",
+                vi: "Sai lầm All-in: 1,000 / 0 / 0 Mảnh (15★ + 0★ + 0★)",
+                en: "All-in Mistake: 1,000 / 0 / 0 Shards (15★ + 0★ + 0★)",
               },
               after: {
-                vi: "Chuẩn Điểm Gãy: 560 / 400 / 40 Mảnh (11⭐ + 10⭐ + 3⭐)",
-                en: "Breakpoint Split: 560 / 400 / 40 Shards (11⭐ + 10⭐ + 3⭐)",
+                vi: "Chuẩn Điểm Gãy: 560 / 400 / 40 Mảnh (11★ + 10★ + 3★)",
+                en: "Breakpoint Split: 560 / 400 / 40 Shards (11★ + 10★ + 3★)",
               },
               delta: {
-                vi: "Kích hoạt +30% Skill Mythic & Tank 10⭐ cứng cáp",
-                en: "Unlocks +30% Mythic Skill & rock-solid 10⭐ Tank",
+                vi: "Kích hoạt +30% Skill Mythic & Tank 10★ cứng cáp",
+                en: "Unlocks +30% Mythic Skill & rock-solid 10★ Tank",
               },
             },
             {
@@ -1620,8 +1620,8 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
                 en: "Direct Head-to-Head Arena Win Rate",
               },
               before: {
-                vi: "0 / 10 trận (Tuyến trước 0⭐ bốc hơi trong 3 giây đầu)",
-                en: "0 / 10 matches (0⭐ frontline evaporates within first 3 seconds)",
+                vi: "0 / 10 trận (Tuyến trước 0★ bốc hơi trong 3 giây đầu)",
+                en: "0 / 10 matches (0★ frontline evaporates within first 3 seconds)",
               },
               after: {
                 vi: "10 / 10 trận thắng tuyệt đối (Thắng 100%)",
@@ -1635,58 +1635,58 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
           ],
           diagnostics: [
             {
-              vi: "Phương án Sai lầm (All-in 1 Tướng): Đổ toàn bộ 1,000 Mảnh vào một mình Storm Maiden để kéo cô lên kịch trần 5 Sao Trắng (15⭐ = 1,000 Mảnh), và dồn 48,000 Sách nâng max Lv.15 cho đúng 2 kỹ năng của riêng Storm Maiden, để mặc Desert Prince và Witch ở 0 Sao (chết ngay trong 3 giây đầu trận).",
-              en: "Flawed All-In Approach: Dumping all 1,000 Shards into Storm Maiden alone to cap her at 5 White Stars (15⭐ = 1,000 Shards) and burning 48,000 Books to max Lv.15 on just 2 of her skills leaves Desert Prince and Witch at 0⭐ — causing them to die within the first 3 seconds of combat.",
+              vi: "**Phương án Sai lầm (All-in 1 Tướng):** Đổ cả `1,000 Mảnh` vào `Storm Maiden` lên `5★ Trắng` (`15★`) và dồn `48,000 Sách` max `Lv.15` cho 2 kỹ năng.\n• **Lỗ hổng đội hình:** Để mặc `Desert Prince` và `Witch` ở `0★` khiến cả hai bốc hơi ngay trong `3 giây` đầu trận.",
+              en: "**Flawed All-In Approach:** Dumping all `1,000 Shards` into `Storm Maiden` (`15★`) and burning `48,000 Books` to max `Lv.15` on just 2 of her skills.\n• **Lineup Vulnerability:** Leaves `Desert Prince` and `Witch` at `0★`, causing both to die within the first `3 seconds` of combat.",
             },
             {
-              vi: "Nguyên nhân thất bại của đội hình 15⭐ + 0⭐ + 0⭐: Khi Main Tank (Desert Prince 0⭐) và Healer (Witch 0⭐) sập ngay lập tức, Storm Maiden 15⭐ bị toàn bộ đội hình địch dồn sát thương và khống chế chết trước khi kịp tung lốc xoáy lần thứ hai.",
-              en: "Why the 15⭐ + 0⭐ + 0⭐ build collapses: When the Main Tank (0⭐ Desert Prince) and Healer (0⭐ Witch) melt instantly, the 15⭐ Storm Maiden gets focused down and crowd-controlled by the entire enemy team before casting her second tornado.",
+              vi: "**Nguyên nhân thất bại của `15★ + 0★ + 0★`:** Khi Main Tank (`Desert Prince 0★`) và Healer (`Witch 0★`) sập ngay lập tức, tiền tuyến hoàn toàn vỡ trận.\n• **Hệ quả tất yếu:** `Storm Maiden 15★` bị toàn bộ đội địch dồn sát thương và khống chế hạ gục trước khi kịp tung lốc xoáy thứ hai.",
+              en: "**Why the `15★ + 0★ + 0★` Build Collapses:** When the Main Tank (`0★ Desert Prince`) and Healer (`0★ Witch`) melt instantly, the frontline collapses.\n• **Inevitable Wipe:** The `15★ Storm Maiden` gets focused and crowd-controlled by the entire enemy team before casting her second tornado.",
             },
           ],
           recoverySteps: [
             {
               stepNumber: "01",
               title: {
-                vi: "Dồn 560 Mảnh cho Storm Maiden (Hyper-Carry) chạm đúng 1 Sao Trắng (11⭐)",
-                en: "Invest 560 Shards into Storm Maiden (Hyper-Carry) to hit 1 White Star (11⭐)",
+                vi: "Dồn 560 Mảnh cho Storm Maiden (Hyper-Carry) chạm đúng 1 Sao Trắng (11★)",
+                en: "Invest 560 Shards into Storm Maiden (Hyper-Carry) to hit 1 White Star (11★)",
               },
               detail: {
-                vi: "Chạm đúng điểm gãy 1 Sao Trắng (11⭐ = 560 Mảnh Mythic), kích hoạt trọn vẹn +30% sát thương lốc xoáy độc quyền Mythic và giữ lại 440 mảnh thay vì đốt lên 15⭐.",
-                en: "Hits the exact 1 White Star breakpoint (11⭐ = 560 Mythic Shards), unlocking the full +30% exclusive Mythic tornado damage boost while saving 440 shards.",
+                vi: "Chạm đúng điểm gãy 1 Sao Trắng (11★ = 560 Mảnh Mythic), kích hoạt trọn vẹn +30% sát thương lốc xoáy độc quyền Mythic và giữ lại 440 mảnh thay vì đốt lên 15★.",
+                en: "Hits the exact 1 White Star breakpoint (11★ = 560 Mythic Shards), unlocking the full +30% exclusive Mythic tornado damage boost while saving 440 shards.",
               },
               impactBadge: {
-                vi: "560 Mảnh • 1★ Trắng (11⭐)",
-                en: "560 Shards • 1★ White (11⭐)",
+                vi: "560 Mảnh • 1★ Trắng (11★)",
+                en: "560 Shards • 1★ White (11★)",
               },
             },
             {
               stepNumber: "02",
               title: {
-                vi: "Dồn 400 Mảnh cho Desert Prince (Main Tank) chạm mốc 5 Sao Đỏ (10⭐)",
-                en: "Invest 400 Shards into Desert Prince (Main Tank) to reach 5 Red Stars (10⭐)",
+                vi: "Dồn 400 Mảnh cho Desert Prince (Main Tank) chạm mốc 5 Sao Đỏ (10★)",
+                en: "Invest 400 Shards into Desert Prince (Main Tank) to reach 5 Red Stars (10★)",
               },
               detail: {
-                vi: "Đưa Tanker chủ lực lên đỉnh tầng Sao Đỏ (10⭐ = 400 Mảnh Mythic), sở hữu lượng máu và giáp khổng lồ, chỉ còn cách mốc 1 Sao Trắng đúng 160 mảnh ở kỳ GAR kế tiếp.",
-                en: "Brings the Main Tank to the Red Star cap (10⭐ = 400 Mythic Shards) with massive HP and armor, sitting just 160 shards away from 1 White Star in the next GAR cycle.",
+                vi: "Đưa Tanker chủ lực lên đỉnh tầng Sao Đỏ (10★ = 400 Mảnh Mythic), sở hữu lượng máu và giáp khổng lồ, chỉ còn cách mốc 1 Sao Trắng đúng 160 mảnh ở kỳ GAR kế tiếp.",
+                en: "Brings the Main Tank to the Red Star cap (10★ = 400 Mythic Shards) with massive HP and armor, sitting just 160 shards away from 1 White Star in the next GAR cycle.",
               },
               impactBadge: {
-                vi: "400 Mảnh • 5★ Đỏ (10⭐)",
-                en: "400 Shards • 5★ Red (10⭐)",
+                vi: "400 Mảnh • 5★ Đỏ (10★)",
+                en: "400 Shards • 5★ Red (10★)",
               },
             },
             {
               stepNumber: "03",
               title: {
-                vi: "Dùng 40 Mảnh còn lại kéo Witch (Healer) lên 3 Sao Vàng (3⭐)",
-                en: "Spend the remaining 40 Shards to bring Witch (Healer) to 3 Yellow Stars (3⭐)",
+                vi: "Dùng 40 Mảnh còn lại kéo Witch (Healer) lên 3 Sao Vàng (3★)",
+                en: "Spend the remaining 40 Shards to bring Witch (Healer) to 3 Yellow Stars (3★)",
               },
               detail: {
-                vi: "Với 40 Mảnh Mythic (10 + 10 + 20 = 40 Mảnh), Witch đạt 3 Sao Vàng (3⭐) — đủ cứng cáp để đứng Hàng sau bơm máu diện rộng và tung bùa nguyền khống chế.",
-                en: "With 40 Mythic Shards (10 + 10 + 20 = 40 Shards), Witch reaches 3 Yellow Stars (3⭐) — sturdy enough to survive in the backline while casting AoE heals and hexes.",
+                vi: "Với 40 Mảnh Mythic (10 + 10 + 20 = 40 Mảnh), Witch đạt 3 Sao Vàng (3★) — đủ cứng cáp để đứng Hàng sau bơm máu diện rộng và tung bùa nguyền khống chế.",
+                en: "With 40 Mythic Shards (10 + 10 + 20 = 40 Shards), Witch reaches 3 Yellow Stars (3★) — sturdy enough to survive in the backline while casting AoE heals and hexes.",
               },
               impactBadge: {
-                vi: "40 Mảnh • 3★ Vàng (3⭐)",
-                en: "40 Shards • 3★ Yellow (3⭐)",
+                vi: "40 Mảnh • 3★ Vàng (3★)",
+                en: "40 Shards • 3★ Yellow (3★)",
               },
             },
             {
@@ -1706,8 +1706,8 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
             },
           ],
           conclusion: {
-            vi: "Kết quả đối kháng: Đội hình phân bổ theo điểm gãy (11⭐ + 10⭐ + 3⭐ kèm 6 kỹ năng Lv.10) đánh bại hoàn toàn đội hình dồn lệch (15⭐ + 0⭐ + 0⭐) với tỷ lệ thắng 10/10 trận trong Đấu Trường nhờ tuyến trước không bị sập và kích hoạt đồng bộ chuỗi kỹ năng trụ cột.",
-            en: "Head-to-Head Outcome: The breakpoint-optimized lineup (11⭐ + 10⭐ + 3⭐ with 6 Lv.10 skills) crushes the lopsided all-in build (15⭐ + 0⭐ + 0⭐) 10/10 times in the Arena thanks to an unbreakable frontline and synchronized core skill rotations.",
+            vi: "**Kết quả đối kháng (`10/10` Trận Thắng):** Đội hình chuẩn điểm gãy (`11★ + 10★ + 3★` kèm `6 kỹ năng Lv.10`) đánh bại hoàn toàn đội hình dồn lệch (`15★ + 0★ + 0★`).\n• **Nguyên lý cốt lõi:** Giữ vững tuyến trước không bị sập và kích hoạt đồng bộ chuỗi kỹ năng trụ cột toàn đội.",
+            en: "**Head-to-Head Outcome (`10/10` Wins):** The breakpoint-optimized lineup (`11★ + 10★ + 3★` with `6 Lv.10 skills`) crushes the lopsided all-in build (`15★ + 0★ + 0★`).\n• **Core Takeaway:** An intact frontline and synchronized core skill rotations beat a lone maxed carry every time.",
           },
         },
       ],

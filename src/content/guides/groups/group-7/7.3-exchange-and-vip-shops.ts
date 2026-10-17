@@ -16,34 +16,34 @@ export const ARTICLE_7_3_EXCHANGE_AND_VIP_SHOPS: GuideArticle = {
   },
   tldr: {
     coreRule: {
-      vi: "Xu Vòng Quay (Wheel Coins) và Xu/Phiếu Xúc Xắc (Dice Coins / Vouchers) KHÔNG BỊ MẤT ĐI khi sự kiện kết thúc! Tuyệt đối không tiêu lẻ tẻ vài chục xu vào tài nguyên hay đá cường hóa cuối sự kiện; ngoài việc mua ngay gói Deluxe Choice Chest (100 Xu = 10 Mảnh Vàng Vạn Năng), hãy tích lũy qua 2–3 kỳ để chạm mốc 300 – 600 Xu đổi Tướng Đỏ (Mythic Hero), Vũ Khí Độc Quyền (Exclusive Gear), Rương Trang Trí Vàng (300 Xu) hoặc Hồn Đá Đỏ (Soul Stone — 600 Xu).",
-      en: "Wheel Coins and Dice Coins / Vouchers DO NOT EXPIRE when the event ends! Never waste leftover coins on basic resources or enhancement runes on the final day; aside from grabbing the 100-Coin Deluxe Choice Chest (10 Universal Legendary Shards), hoard tokens across 2–3 event cycles until you reach 300 – 600 Coins to redeem Featured Mythic Heroes, Universal Exclusive Gear Shards, Legendary Decoration Choice Chests (300 Coins), or Soul Stones (600 Coins).",
+      vi: "**Xu Vòng Quay (Wheel Coins) & Xúc Xắc (Dice Coins) KHÔNG MẤT ĐI**: Tuyệt đối không tiêu xu lẻ cuối kỳ; ưu tiên mua ngay Deluxe Choice Chest (`100` Xu = `10` Mảnh Vàng).\n• **Tích lũy 2–3 kỳ**: Gom chạm mốc `300` – `600` Xu để đổi Tướng Đỏ, Vũ Khí Độc Quyền, Rương Trang Trí Vàng (`300` Xu) hoặc Hồn Đá Đỏ (`600` Xu).",
+      en: "**Wheel Coins & Dice Coins DO NOT EXPIRE**: Never waste leftover tokens on the final day; immediately grab the `100`-Coin Deluxe Choice Chest (`10` Legendary Shards).\n• **Hoard across 2–3 cycles**: Reach `300` – `600` Coins to redeem Mythic Heroes, Exclusive Gear Shards, Legendary Decor Chests (`300` Coins), or Soul Stones (`600` Coins).",
     },
     immediateAction: {
-      vi: "Đẩy ít nhất 1 Tướng Tím kinh tế (như Knight — Kỵ Sĩ hoặc Ranger — Cung Thủ) lên kịch trần 5 Sao Trắng / Bạc (15 Sao tổng) — cần tổng cộng 500 Mảnh trên một tướng Vàng/Tím (50 Vàng + 150 Đỏ + 300 Trắng, bằng một nửa so với mức 1,000 Mảnh trên tướng Đỏ Mythic) — càng sớm càng tốt để mở khóa Tiệm Đổi Mảnh Dư (Hero Shard Exchange Shop), sau đó nâng toàn bộ dàn Tướng Tím kinh tế lên 12 Sao để kích hoạt +30% tốc độ Nghiên cứu, Luyện lính, Chữa thương & Thu thập.",
-      en: "Push at least 1 Epic economic hero (such as Knight or Ranger) to max 5 White / Silver Stars (15 Stars total)—requiring 500 Shards total for a Legendary/Epic hero (50 Gold + 150 Red + 300 White, half the 1,000 Shards needed for a Mythic hero)—as early as possible to permanently unlock the Hero Shard Exchange Shop, then raise all Epic economic heroes to 12 Stars to activate +30% Research, Training, Healing, and Gathering speeds.",
+      vi: "**Đẩy 1 Tướng Tím kinh tế (Knight / Ranger) lên 15 Sao**: Tốn đúng `500` Mảnh (`50` Vàng + `150` Đỏ + `300` Trắng, bằng nửa mức `1,000` Mảnh Mythic) để mở khóa Hero Shard Exchange Shop.\n• **Kích hoạt Trait 3**: Sau đó nâng toàn bộ dàn Tướng Tím kinh tế lên `12 Sao` để nhận `+30%` tốc độ Nghiên cứu, Luyện lính & Thu thập.",
+      en: "**Push 1 Epic economic hero (Knight / Ranger) to 15 Stars**: Requires `500` Shards (`50` Gold + `150` Red + `300` White, half of `1,000` Mythic Shards) to unlock the Hero Shard Exchange Shop.\n• **Activate Trait 3**: Raise all Epic economic heroes to `12 Stars` for `+30%` Research, Training, Healing, and Gathering speeds.",
     },
     strictTaboo: {
-      vi: "CẤM dùng Kim Cương mua các mặt hàng nguyên giá trong VIP Shop khi quỹ dự phòng Kim Cương dưới 30,000 – 42,000 KC; cấm dừng toàn bộ Tướng Tím ở 12 Sao mà không đẩy 1 tướng lên 15 Sao (500 Mảnh) để mở Exchange Shop; và cấm bỏ quên chu kỳ đổi DE-Dust (100 ➔ 300 ➔ 600 ➔ 1,200 ➔ 2,400) cùng Solar Gold Ingot tại Cửa hàng Tinh luyện Trang bị.",
-      en: "NEVER spend raw Diamonds on full-price VIP Shop items when your Diamond reserve is below the 30,000 – 42,000 Diamond buffer; never stop all Epic heroes at 12 Stars without pushing one hero to 15 Stars (500 Shards) to unlock the Exchange Shop; and never neglect your weekly Solar Gold Ingot and DE-Dust (100 ➔ 300 ➔ 600 ➔ 1,200 ➔ 2,400) exchanges in the Gear Smelting Shop.",
+      vi: "**CẤM mua hàng nguyên giá trong VIP Shop**: Không tiêu lạm khi quỹ dự phòng Kim Cương dưới `30,000` – `42,000` KC hoặc dừng hết Tướng Tím ở `12 Sao`.\n• **Cấm bỏ quên Tiệm Tinh Luyện**: Phải đổi đều đặn DE-Dust (`100` ➔ `300` ➔ `600` ➔ `1,200` ➔ `2,400`) và Solar Gold Ingot hàng tuần.",
+      en: "**NEVER buy full-price VIP Shop items**: Do not spend raw Diamonds below the `30,000` – `42,000` Diamond buffer or stop all Epic heroes at `12 Stars`.\n• **Never neglect Gear Smelting**: Consistently exchange weekly Solar Gold Ingots and DE-Dust (`100` ➔ `300` ➔ `600` ➔ `1,200` ➔ `2,400`).",
     },
   },
   keyTakeaways: [
     {
-      vi: "Chiến thuật Kỵ Sĩ 15 Sao (The 15-Star Knight Strategy): Đạt kịch trần 15 Sao (5 Sao Trắng / Bạc) trên Tướng Tím/Vàng tốn đúng 500 Mảnh (50 Vàng + 150 Đỏ + 300 Trắng, so với 1,000 Mảnh của Tướng Đỏ Mythic). Đẩy 1 Tướng Tím lên 15 Sao giúp mở khóa vĩnh viễn Tiệm Đổi Mảnh Dư (Hero Shard Exchange Shop), từ đó gom Mảnh Tím Vạn Năng nâng toàn bộ dàn tướng kinh tế lên 12 Sao kích hoạt Trait 3 (+30% tốc độ phát triển).",
-      en: "The 15-Star Knight Strategy: Maxing an Epic or Legendary hero at 15 Stars (5 White / Silver Stars) requires exactly 500 Shards (50 Gold + 150 Red + 300 White, compared to 1,000 Shards for a Mythic hero). Pushing 1 Epic hero to 15 Stars permanently unlocks the Hero Shard Exchange Shop, fueling Epic Universal Shards to raise all economic heroes to 12 Stars for their +30% Trait 3 buffs.",
+      vi: "**Chiến thuật Kỵ Sĩ 15 Sao (The 15-Star Knight Strategy)**: Đạt kịch trần `15 Sao` (`5 Sao Trắng`) trên Tướng Tím/Vàng tốn đúng `500` Mảnh (so với `1,000` Mảnh của Tướng Đỏ Mythic).\n• **Mở khóa Tiệm Đổi Mảnh Dư**: Đẩy `1` Tướng Tím lên `15 Sao` để gom Mảnh Tím Vạn Năng nâng toàn bộ dàn tướng kinh tế lên `12 Sao` (`+30%` tốc độ).",
+      en: "**The 15-Star Knight Strategy**: Maxing an Epic or Legendary hero at `15 Stars` (`5 White Stars`) requires `500` Shards (compared to `1,000` Shards for a Mythic hero).\n• **Unlock Hero Shard Exchange**: Push `1` Epic hero to `15 Stars` to farm Epic Universal Shards and raise all economic heroes to `12 Stars` (`+30%` buffs).",
     },
     {
-      vi: "Kỷ luật Quỹ Dự Phòng 42,000 Kim Cương & Bộ lọc VIP Shop: Chỉ trích 10%–15% thu nhập Kim Cương hàng tuần (< 1,000 KC/tuần ở giai đoạn đầu) để mua Thể lực (100 KC × 6 = 600 KC), Mảnh Vàng giảm giá sâu (300 KC) và Sách Kỹ năng (2 KC), bảo toàn quỹ 30,000 – 42,000 KC cho các kỳ Vòng Quay (Wheel) và Xúc Xắc (Dice) thuộc đúng Hệ Đội 1.",
-      en: "42,000-Diamond Buffer Discipline & VIP Shop Filter: Allocate only 10%–15% of weekly Diamond income (< 1,000 Diamonds/week early on) to buy discounted Stamina (100 Diamonds × 6 = 600 Diamonds), 50%-off Universal Legendary Shards (300 Diamonds), and Skill Books (2 Diamonds), preserving a 30,000 – 42,000 Diamond reserve for Queue 1 Mythic Wheel and Dice events.",
+      vi: "**Kỷ luật Quỹ Dự Phòng 42,000 Kim Cương & Bộ lọc VIP Shop**: Chỉ trích `10%–15%` thu nhập KC hàng tuần (`< 1,000 KC/tuần`) mua Thể lực (`600 KC`), Mảnh Vàng giảm giá (`300 KC`) và Sách Kỹ năng (`2 KC`).\n• **Bảo toàn ngân sách**: Giữ vững quỹ `30,000` – `42,000` KC cho các kỳ Vòng Quay (Wheel) và Xúc Xắc (Dice) thuộc Hệ Đội 1.",
+      en: "**42,000-Diamond Buffer Discipline & VIP Shop Filter**: Allocate only `10%–15%` of weekly Diamond income (`< 1,000 Diamonds/week`) for Stamina (`600`), 50%-off Shards (`300`), and Skill Books (`2`).\n• **Preserve event reserve**: Maintain a `30,000` – `42,000` Diamond buffer for Queue 1 Mythic Wheel and Dice events.",
     },
     {
-      vi: "Quy tắc Tích lũy 300–600 Xu Vòng Quay / Xúc Xắc & Tiệm Tinh Luyện: Luôn ưu tiên mua gói Deluxe Choice Chest (100 Coins = 10 Mảnh Vàng, rẻ gấp 3 lần giá thường), sau đó bảo lưu Xu qua 2–3 kỳ chạm mốc 300 Coins (đổi 10 Mảnh Tướng Đỏ / 10 Mảnh Vũ Khí Độc Quyền / Rương Trang Trí Vàng) hoặc 600 Coins (Hồn Đá Đỏ — 1,200 / 2,400 Gacha Coins). Tại Tiệm Tinh luyện, ưu tiên Solar Gold Ingot cho 24 món đồ Vàng Dấu Hệ (+30%) và đổi DE-Dust theo bậc 100 ➔ 300 ➔ 600 ➔ 1,200 ➔ 2,400.",
-      en: "The 300–600 Wheel/Dice Token Hoarding Rule & Smelting Priority: Always grab the 100-Coin Deluxe Choice Chest (10 Universal Legendary Shards at 3x ROI), then hoard remaining tokens across 2–3 events to hit 300 Coins (10 Mythic Hero Shards / 10 Universal Exclusive Gear Shards / Legendary Decor Choice Chest) or 600 Coins (Soul Stone — 1,200 / 2,400 Gacha Coins). In the Gear Smelting Shop, prioritize Solar Gold Ingots for 24 Faction-Marked (+30%) Legendary pieces and weekly DE-Dust tiers (100 ➔ 300 ➔ 600 ➔ 1,200 ➔ 2,400).",
+      vi: "**Quy tắc Tích lũy 300–600 Xu & Tiệm Tinh Luyện**: Luôn mua Deluxe Choice Chest (`100` Coins = `10` Mảnh Vàng), rồi tích lũy `300` Coins (Tướng Đỏ / Vũ Khí Độc Quyền) hoặc `600` Coins (Hồn Đá Đỏ).\n• **Tiệm Tinh luyện Trang bị**: Ưu tiên Solar Gold Ingot cho `24` món đồ Vàng Dấu Hệ (`+30%`) và đổi DE-Dust theo bậc `100` ➔ `300` ➔ `600` ➔ `1,200` ➔ `2,400`.",
+      en: "**The 300–600 Token Hoarding Rule & Smelting Priority**: Always grab the `100`-Coin Deluxe Choice Chest (`10` Shards), then hoard `300` Coins (Mythic Shards / Exclusive Gear) or `600` Coins (Soul Stone).\n• **Gear Smelting Shop**: Prioritize Solar Gold Ingot for `24` Faction-Marked (`+30%`) Legendary pieces and weekly DE-Dust tiers (`100` ➔ `300` ➔ `600` ➔ `1,200` ➔ `2,400`).",
     },
     {
-      vi: "Điểm Gãy VIP 1 ➔ VIP 20 (TopHeroes Tables): Tỷ lệ quy đổi chuẩn $1.00 = 6 VIP Points (hoặc bậc tích lũy mở rộng): VIP 1 (6 pts / 100 pts = $1.00), VIP 4 (300 pts = $50.00 — mở Auto-Battle), VIP 6 (1,000 pts = $166.70 — điểm gãy kinh tế F2P), VIP 8 (6,000 pts = $1,000.00 — +1 Hàng đợi & Mảnh Vàng mỗi ngày), VIP 10 (30,000 pts = $5,000.00 — 2 Mảnh Vàng/ngày), VIP 15 (200,000 pts = $33,670.00) và VIP 16–20 (300,000 ➔ 3,000,000 pts = $50k ➔ $500k).",
-      en: "VIP 1 ➔ VIP 20 Strategic Breakpoints (TopHeroes Tables): Standard conversion rate of $1.00 = 6 VIP Points: VIP 1 (6 pts / 100 pts = $1.00), VIP 4 (300 pts = $50.00 — unlocks Auto-Battle), VIP 6 (1,000 pts = $166.70 — F2P mid-game economic breakpoint), VIP 8 (6,000 pts = $1,000.00 — +1 March Queue & daily Legendary Shard), VIP 10 (30,000 pts = $5,000.00 — 2 Legendary Shards/day), VIP 15 (200,000 pts = $33,670.00), and VIP 16–20 (300,000 ➔ 3,000,000 pts = $50k ➔ $500k).",
+      vi: "**Điểm Gãy VIP 1 ➔ VIP 20 (TopHeroes Tables)**: Tỷ lệ chuẩn `$1.00` = `6 VIP Points`: VIP 1 (`$1.00`), VIP 4 (`300 pts` = `$50.00` Auto-Battle), VIP 6 (`1,000 pts` = `$166.70` F2P).\n• **Mốc Veteran & Whale**: VIP 8 (`6,000 pts` = `$1,000.00`), VIP 10 (`30,000 pts` = `$5,000.00`), VIP 15 (`200,000 pts` = `$33,670.00`) và VIP 16–20 (`300,000` ➔ `3,000,000` pts = `$500k`).",
+      en: "**VIP 1 ➔ VIP 20 Strategic Breakpoints**: Standard rate `$1.00` = `6 VIP Points`: VIP 1 (`$1.00`), VIP 4 (`300 pts` = `$50.00` Auto-Battle), VIP 6 (`1,000 pts` = `$166.70` F2P).\n• **Veteran & Whale Tiers**: VIP 8 (`6,000 pts` = `$1,000.00`), VIP 10 (`30,000 pts` = `$5,000.00`), VIP 15 (`200,000 pts` = `$33,670.00`), and VIP 16–20 (`300,000` ➔ `3,000,000` pts = `$500k`).",
     },
   ],
   keywords: [
@@ -85,8 +85,8 @@ export const ARTICLE_7_3_EXCHANGE_AND_VIP_SHOPS: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Nếu các cửa hàng ở Phần 1 (Arena Shop, Guild Points Shop, Medal Shop) cung cấp nhu yếu phẩm sinh tồn hàng ngày, thì 4 Cửa hàng Đặc quyền & Sự kiện dưới đây chính là nơi tạo ra bước nhảy vọt về Tướng Đỏ (Mythic Hero), Vũ Khí Độc Quyền (Exclusive Weapon), Trang Trí Huyền Thoại (Legendary Decoration) và Kinh tế Vĩ mô toàn tài khoản.",
-            en: "While the foundational shops in Part 1 (Arena Shop, Guild Points Shop, Medal Shop) supply daily survival essentials, the 4 Privilege & Event Shops below drive exponential leaps in Mythic Heroes, Exclusive Weapons, Legendary Decorations, and macro-economic progression.",
+            vi: "**Bước nhảy vọt sức mạnh**: Nếu các tiệm ở Phần 1 cung cấp nhu yếu phẩm hàng ngày, thì 4 Cửa hàng Đặc quyền & Sự kiện dưới đây quyết định trực tiếp Tướng Đỏ, Vũ Khí Độc Quyền, Trang Trí Vàng và Kinh tế Vĩ mô.",
+            en: "**Exponential Power Leaps**: While Part 1 shops supply daily essentials, the 4 Privilege & Event Shops below drive major breakthroughs in Mythic Heroes, Exclusive Weapons, Legendary Decorations, and macro-economy.",
           },
         },
         {
@@ -94,20 +94,20 @@ export const ARTICLE_7_3_EXCHANGE_AND_VIP_SHOPS: GuideArticle = {
           ordered: true,
           items: [
             {
-              vi: "Cửa hàng VIP & Kim Cương (VIP & Diamond Shop): Là cửa hàng động mở khóa dần các ô hàng chiết khấu cao dựa theo Cấp VIP (VIP Level 1 ➔ VIP 20) và Cấp Lâu Đài (Castle Level), làm mới vào 07:00 sáng Thứ Hai hàng tuần. Nguyên tắc cốt lõi: Chỉ trích 10% – 15% thu nhập Kim Cương hàng tuần để mua vật phẩm giảm giá sâu (Stamina 100 KC, Mảnh Vàng giảm 50% giá 300 KC, Sách Kỹ năng 2 KC), giữ lại 85% – 90% Kim Cương (duy trì quỹ dự phòng 30,000 – 42,000 KC) để quay Vòng Quay (Wheel) và Xúc Xắc (Dice).",
-              en: "VIP & Diamond Shop: A dynamic weekly shop that progressively unlocks high-discount slots based on your VIP Level (VIP 1 ➔ VIP 20) and Castle Level, resetting every Monday at 07:00 server time. Core Rule: Spend only 10% – 15% of your weekly Diamond income on deeply discounted essentials (100-Diamond Stamina, 50%-off 300-Diamond Universal Legendary Shards, 2-Diamond Skill Books), reserving 85% – 90% of your Diamonds (maintaining a 30,000 – 42,000 Diamond buffer) for Wheel and Dice events.",
+              vi: "**Cửa hàng VIP (VIP Shop)**: Làm mới Thứ Hai; chỉ chi `10%–15%` thu nhập KC mua Stamina (`100 KC`), Mảnh Vàng giảm `50%` (`300 KC`), Sách Kỹ năng (`2 KC`) và giữ quỹ `30,000–42,000 KC` cho Wheel/Dice.",
+              en: "**VIP & Diamond Shop**: Resets Monday; spend only `10%–15%` of weekly Diamonds on Stamina (`100`), 50%-off Shards (`300`), and Skill Books (`2`), reserving a `30,000–42,000` Diamond buffer for Wheel/Dice.",
             },
             {
-              vi: "Cửa hàng Đổi Điểm Chiêu Mộ & Tiệm Đổi Mảnh Dư (Tavern Points & Hero Shard Exchange Shop): Gồm 2 nhánh độc lập. Nhánh 1 là Đổi Điểm Chiêu Mộ Quán Rượu (Tavern Recruitment Points) tích lũy khi quay thẻ chiêu mộ để đổi trực tiếp mảnh tướng Vàng trụ cột của 3 Phe (Soulmancer, Warlock, Pyromancer, Adjudicator, Nun, Pixie, Sage). Nhánh 2 là Tiệm Đổi Mảnh Dư (Hero Shard Exchange Shop) — chỉ chính thức mở khóa khi tài khoản có ít nhất 1 vị tướng đạt kịch trần 5 Sao Trắng / Bạc (15 Sao tổng), đòi hỏi tổng cộng 500 Mảnh đối với Tướng Vàng/Tím (50 Mảnh cho 5 Sao Vàng + 150 Mảnh cho 5 Sao Đỏ + 300 Mảnh cho 5 Sao Trắng) hoặc 1,000 Mảnh đối với Tướng Đỏ (Mythic). Toàn bộ mảnh dư của tướng 15 Sao đó sẽ quy đổi thành điểm để mua Mảnh Vạn Năng Tím (Epic Universal Shard) và Mảnh Vạn Năng Vàng (Legendary Universal Shard) mỗi tuần.",
-              en: "Tavern Points & Hero Shard Exchange Shop: Split into two branches. Branch 1 is Tavern Recruitment Points earned from tavern pulls to directly redeem core Legendary hero shards across all 3 Factions (Soulmancer, Warlock, Pyromancer, Adjudicator, Nun, Pixie, Sage). Branch 2 is the Hero Shard Exchange Shop—which permanently unlocks only when at least 1 hero on your account reaches max 5 White / Silver Stars (15 Stars total), requiring 500 Shards total for a Legendary/Epic hero (50 Shards for 5 Gold Stars + 150 Shards for 5 Red Stars + 300 Shards for 5 White Stars) or 1,000 Shards for a Mythic hero. All overflow shards from 15-Star heroes convert into currency to buy weekly Epic Universal Shards and Legendary Universal Shards.",
+              vi: "**Tiệm Đổi Điểm & Mảnh Dư (Tavern & Exchange Shop)**: Đổi mảnh tướng Vàng 3 Phe và mở khóa Hero Shard Exchange khi có 1 tướng đạt `15 Sao` (`500` Mảnh Tím/Vàng vs `1,000` Mảnh Mythic) để mua Mảnh Vạn Năng hàng tuần.",
+              en: "**Tavern & Hero Shard Exchange Shop**: Redeem core Faction Legendary shards and unlock the Shard Exchange at `15 Stars` (`500` Epic/Legendary Shards vs `1,000` Mythic Shards) for weekly Universal Shards.",
             },
             {
-              vi: "Cửa hàng Sự Kiện Vòng Quay (Wheel Token Shop), Xúc Xắc (Dice of Fate Shop) & Hero Gacha: Xuất hiện theo chu kỳ xoay vòng 2 – 3 tuần/lần (thường đi kèm Tuần A và Tuần B). Mỗi lượt quay Vòng Quay tốn 750 Kim Cương (Hero Gacha tốn 1,000 KC), và mỗi lượt gieo Xúc Xắc tốn 800 Kim Cương. Ngoài phần thưởng trên bàn quay, người chơi nhận được Xu Sự Kiện (Wheel Coins / Dice Coins / Gacha Coins) được bảo lưu vĩnh viễn qua các kỳ để đổi Deluxe Choice Chest (100 Coins), Tướng Đỏ, Vũ Khí Độc Quyền, Trang Trí Vàng (300 Coins / 1,200 Gacha Coins) và Hồn Đá Đỏ (600 Coins / 2,400 Gacha Coins).",
-              en: "Wheel Token Shop, Dice of Fate Shop & Hero Gacha Shop: Rotate every 2 – 3 weeks alongside Week A and Week B cycles. Each Wheel spin costs 750 Diamonds (Hero Gacha costs 1,000 Diamonds), and each Dice roll costs 800 Diamonds. Alongside board rewards, players earn event tokens (Wheel Coins / Dice Coins / Gacha Coins) that carry over permanently between events to redeem the Deluxe Choice Chest (100 Coins), Featured Mythic Heroes, Universal Exclusive Gear, Legendary Decorations (300 Coins / 1,200 Gacha Coins), and Soul Stones (600 Coins / 2,400 Gacha Coins).",
+              vi: "**Tiệm Vòng Quay, Xúc Xắc & Gacha (Wheel / Dice / Gacha)**: Quay tốn `750` / `800` / `1,000` KC; Xu bảo lưu vĩnh viễn để đổi Deluxe Choice Chest (`100` Xu), Tướng Đỏ, Vũ Khí Độc Quyền (`300` Xu) và Hồn Đá Đỏ (`600` Xu).",
+              en: "**Wheel, Dice & Gacha Shops**: Spins cost `750` / `800` / `1,000` Diamonds; tokens carry over permanently for Deluxe Choice Chest (`100` Coins), Mythic Heroes, Exclusive Gear (`300` Coins), and Soul Stones (`600` Coins).",
             },
             {
-              vi: "Cửa hàng Trang Bị & Tinh Luyện (Gear / Smelting / Material Exchange Shop): Nơi chuyển hóa phôi trang bị dư thừa, điểm phân giải hoặc tiền tệ chuyên biệt thành Thỏi Vàng Mặt Trời (Solar Gold Ingot), Đá Cường Hóa (Gear Enhance Rune), Đá Thăng Cấp Huyền Thoại (Legendary Promotion Stone), nguyên liệu Đồ Chúa Tể, cùng với DE-Dust (Bụi Cổ Ngữ / Dark Empire Dust) theo thang bậc định mức hàng tuần 100 ➔ 300 ➔ 600 ➔ 1,200 ➔ 2,400 dùng để nâng cấp Cổ Ngữ và các nhánh công nghệ bậc cao.",
-              en: "Gear / Smelting / Material Exchange Shop: Converts surplus equipment fodder, smelting points, and specialized currencies into Solar Gold Ingots, Gear Enhance Runes, Legendary Promotion Stones, Lord Gear materials, and weekly tiered DE-Dust (Dark Empire / Rune Dust: 100 ➔ 300 ➔ 600 ➔ 1,200 ➔ 2,400) used to upgrade Runes and late-game technology trees.",
+              vi: "**Tiệm Tinh Luyện Trang Bị (Gear Smelting Shop)**: Phân giải phôi dư lấy Solar Gold Ingot, Đá Cường Hóa, Đá Thăng Cấp Huyền Thoại và đổi DE-Dust theo bậc `100` ➔ `300` ➔ `600` ➔ `1,200` ➔ `2,400` nâng Cổ Ngữ.",
+              en: "**Gear & Smelting Exchange Shop**: Smelt surplus fodder into Solar Gold Ingot, Enhance Runes, Promotion Stones, and weekly tiered DE-Dust (`100` ➔ `300` ➔ `600` ➔ `1,200` ➔ `2,400`) for Runes and late-game tech.",
             },
           ],
         },
@@ -188,16 +188,16 @@ export const ARTICLE_7_3_EXCHANGE_AND_VIP_SHOPS: GuideArticle = {
               type: "list",
               items: [
                 {
-                  vi: "✅ Nhóm Bắt Buộc Mua Hàng Tuần (S+ Tier): Bình Thể Lực 25 (Stamina Potion — 100 KC × 5 & 100 KC × 1 = 600 KC/tuần, mang lại lượng điểm sự kiện, mảnh tướng Boss và tài nguyên gấp nhiều lần giá mua); Mảnh Tướng Vàng Vạn Năng Giảm Giá 50% (300 KC × 1 & 300 KC × 10 khi mở khóa VIP cao — bằng 1/3 giá gốc); và Sách Kỹ Năng (Skill Book — 2,000 Sách giá 2 KC/gói để nuôi kỹ năng Đội 1 và Trait 3 của Tướng Tím kinh tế).",
-                  en: "✅ Mandatory Weekly Buys (S+ Tier): Stamina Potion 25 (100 Diamonds × 5 & 100 Diamonds × 1 = 600 Diamonds/week, generating massive event points, boss shards, and resources); 50%-Off Universal Legendary Hero Shards (300 Diamonds × 1 & 300 Diamonds × 10 at higher VIP tiers—one-third of standard shop price); and Skill Books (2,000 Books for 2 Diamonds/pack to feed Queue 1 skills and Epic Hero Economic Trait 3).",
+                  vi: "**Nhóm Bắt Buộc Mua Hàng Tuần (S+ Tier)**: Bình Thể Lực 25 (`100 KC × 6` = `600 KC/tuần`), Mảnh Tướng Vàng Vạn Năng giảm `50%` (`300 KC × 1`) và Sách Kỹ Năng (`2,000` Sách giá `2 KC/gói`).",
+                  en: "**Mandatory Weekly Buys (S+ Tier)**: Stamina Potion 25 (`100 Diamonds × 6` = `600/week`), 50%-Off Universal Legendary Hero Shards (`300 Diamonds`), and Skill Books (`2,000` for `2 Diamonds`).",
                 },
                 {
-                  vi: "⚠️ Nhóm Mua Có Điều Kiện (A/B Tier — Chỉ mua khi Quỹ KC > 35,000 – 42,000 KC): Đá Cường Hóa Trang Bị giảm giá sâu (Gear Enhance Rune — gói 1,500 viên × 4 KC hoặc 100 viên × 50 KC) và Lệnh Chiêu Mộ Giảm Giá (Recruitment Token — gói 150 KC / 240 KC cho 2 vé, chỉ mua khi thiếu vài vé chạm mốc rương Thứ Năm Tuần B — Arms Race Day 4).",
-                  en: "⚠️ Conditional Buys (A/B Tier — Only when Diamond Reserve > 35,000 – 42,000): Deeply discounted Gear Enhance Runes (1,500 runes × 4 Diamonds or 100 runes × 50 Diamonds) and Discounted Recruitment Tokens (150 / 240 Diamonds for 2 tokens, bought only when a few pulls short of Thursday Week B Arms Race Day 4 milestone chests).",
+                  vi: "**Nhóm Mua Có Điều Kiện (A/B Tier — Quỹ KC > 35,000–42,000 KC)**: Đá Cường Hóa giảm sâu (`1,500` viên × `4 KC`) và Lệnh Chiêu Mộ giảm giá (`150/240 KC` cho `2` vé) khi thiếu điểm rương Thứ Năm Tuần B.",
+                  en: "**Conditional Buys (A/B Tier — Reserve > 35,000–42,000)**: Deeply discounted Gear Enhance Runes (`1,500 × 4 Diamonds`) and Recruitment Tokens (`150/240 Diamonds`) when short of Thursday Week B chests.",
                 },
                 {
-                  vi: "❌ Nhóm Cấm Mua Bằng Kim Cương (F Tier): Rương Thịt / Gỗ / Đá / Ruby (40 – 380 KC), Vàng/Bạc Chest, Tăng tốc nguyên giá, Đá Kinh Nghiệm Tướng và Phôi Trang bị Tím (Amethyst Plate).",
-                  en: "❌ Strictly Forbidden Diamond Traps (F Tier): Meat / Wood / Stone / Ruby Chests (40 – 380 Diamonds), Gold/Silver Chests, full-price Speedups, Hero EXP Stones, and Purple Gear fodder (Amethyst Plate).",
+                  vi: "**Nhóm Cấm Mua Bằng Kim Cương (F Tier)**: Rương Thịt / Gỗ / Đá / Ruby (`40–380 KC`), Vàng/Bạc Chest, Tăng tốc nguyên giá, Đá EXP Tướng và Phôi Đồ Tím.",
+                  en: "**Strictly Forbidden Diamond Traps (F Tier)**: Meat / Wood / Stone / Ruby Chests (`40–380 Diamonds`), Gold/Silver Chests, full-price Speedups, EXP Stones, and Purple Gear.",
                 },
               ],
             },
@@ -218,24 +218,24 @@ export const ARTICLE_7_3_EXCHANGE_AND_VIP_SHOPS: GuideArticle = {
                 en: "Fast-Tracking the Hero Shard Exchange Shop (500 Epic/Legendary Shards vs 1,000 Mythic Shards)",
               },
               content: {
-                vi: "Trong Quán Rượu, tỷ lệ rơi mảnh của các Tướng Tím đầu game (đặc biệt là Knight — Kỵ Sĩ hoặc Ranger — Cung Thủ) là cao nhất. Chi phí đạt kịch trần 5 Sao Trắng / Bạc (15 Sao tổng) của Tướng Tím/Vàng chỉ tốn đúng 500 Mảnh (50 Vàng + 150 Đỏ + 300 Trắng), bằng một nửa so với mức 1,000 Mảnh của Tướng Đỏ (Mythic). Hãy dồn mảnh đẩy 1 Tướng Tím lên 15 Sao sớm nhất có thể để mở khóa vĩnh viễn Hero Shard Exchange Shop! Sau khi mở tiệm, ưu tiên vét sạch Mảnh Tướng Tím Vạn Năng mỗi tuần để đẩy toàn bộ dàn Tướng Tím Kinh Tế (Brawler, Knight, Priestess, Minister, Dancer, Ranger) lên mốc 12 Sao (2 Sao Trắng) nhằm kích hoạt +30% Tốc độ Nghiên cứu, Luyện lính, Chữa thương & Thu thập tài nguyên vĩnh viễn, rồi vét sạch Mảnh Tướng Vàng Vạn Năng nuôi Đội 1.",
-                en: "In the Tavern, early-game Epic heroes (especially Knight and Ranger) have the highest shard drop rates. Reaching max 5 White / Silver Stars (15 Stars total) on an Epic or Legendary hero costs exactly 500 Shards (50 Gold + 150 Red + 300 White)—half the 1,000 Shards needed for a Mythic hero. Rush 1 Epic hero to 15 Stars first to permanently unlock the Hero Shard Exchange Shop! Once unlocked, buy out weekly Epic Universal Hero Shards to push all Economic Epic Heroes (Brawler, Knight, Priestess, Minister, Dancer, Ranger) to 12 Stars (2 White Stars) for permanent +30% Research, Training, Healing, and Gathering speed buffs, alongside weekly Legendary Universal Hero Shards for Queue 1.",
+                vi: "**Tỷ lệ rơi mảnh cao nhất**: Trong Quán Rượu, các Tướng Tím đầu game (như Knight hoặc Ranger) rơi mảnh nhiều nhất và chỉ tốn `500` Mảnh (`50` Vàng + `150` Đỏ + `300` Trắng) để đạt `15 Sao`.\n• **Rẻ bằng nửa Mythic (`1,000` Mảnh)**: Hãy dồn mảnh đẩy `1` Tướng Tím lên `15 Sao` sớm nhất có thể để mở khóa vĩnh viễn Hero Shard Exchange Shop!\n• **Kích hoạt `+30%` tốc độ kinh tế**: Vét Mảnh Tím Vạn Năng mỗi tuần nâng dàn Tướng Tím Kinh Tế lên `12 Sao` (Nghiên cứu, Luyện lính, Chữa thương, Thu thập) và mua Mảnh Vàng nuôi Đội 1.",
+                en: "**Highest Tavern Drop Rate**: Early-game Epic heroes (Knight or Ranger) drop most frequently and cost only `500` Shards (`50` Gold + `150` Red + `300` White) to reach max `15 Stars`.\n• **Half of Mythic Cost (`1,000` Shards)**: Rush `1` Epic hero to `15 Stars` first to permanently unlock the Hero Shard Exchange Shop!\n• **Activate `+30%` Economic Buffs**: Buy weekly Epic Universal Shards to push all Economic Epic Heroes to `12 Stars` (Research, Training, Healing, Gathering) plus Legendary Shards for Queue 1.",
               },
             },
             {
               type: "list",
               items: [
                 {
-                  vi: "🔴 Phe Bộ Lạc (Horde) tại Tavern Exchange: Tập trung đổi mảnh Soulmancer hoặc Warlock (nhằm chuẩn bị đủ 10 Sao Đỏ + 345–385 mảnh cho lộ trình Thức tỉnh Đỏ ở Lâu đài Lv.30 / Mùa 1).",
-                  en: "🔴 Horde Faction in Tavern Exchange: Focus exclusively on Soulmancer or Warlock shards (preparing 10 Red Stars + 345–385 overflow shards for Mythic Awakening at Castle Lv.30 / Season 1).",
+                  vi: "**Phe Bộ Lạc (Horde) tại Tavern Exchange**: Tập trung đổi mảnh Soulmancer hoặc Warlock (chuẩn bị đủ `10 Sao Đỏ` + `345–385` mảnh cho lộ trình Thức tỉnh Đỏ ở Lâu đài `Lv.30` / Mùa 1).",
+                  en: "**Horde Faction in Tavern Exchange**: Focus exclusively on Soulmancer or Warlock shards (preparing `10 Red Stars` + `345–385` overflow shards for Mythic Awakening at Castle `Lv.30`).",
                 },
                 {
-                  vi: "🔵 Phe Liên Minh (League) tại Tavern Exchange: Tập trung đổi mảnh Pyromancer, Adjudicator hoặc Nun.",
-                  en: "🔵 League Faction in Tavern Exchange: Focus exclusively on Pyromancer, Adjudicator, or Nun shards.",
+                  vi: "**Phe Liên Minh (League) tại Tavern Exchange**: Tập trung đổi mảnh Pyromancer, Adjudicator hoặc Nun.",
+                  en: "**League Faction in Tavern Exchange**: Focus exclusively on Pyromancer, Adjudicator, or Nun shards.",
                 },
                 {
-                  vi: "🟢 Phe Thiên Nhiên (Nature) tại Tavern Exchange: Tập trung đổi mảnh Pixie hoặc Sage.",
-                  en: "🟢 Nature Faction in Tavern Exchange: Focus exclusively on Pixie or Sage shards.",
+                  vi: "**Phe Thiên Nhiên (Nature) tại Tavern Exchange**: Tập trung đổi mảnh Pixie hoặc Sage.",
+                  en: "**Nature Faction in Tavern Exchange**: Focus exclusively on Pixie or Sage shards.",
                 },
               ],
             },
@@ -251,8 +251,8 @@ export const ARTICLE_7_3_EXCHANGE_AND_VIP_SHOPS: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Đồng Xu Vòng Quay (Wheel Coins) và Xu/Phiếu Xúc Xắc (Dice Coins / Vouchers) được bảo lưu vĩnh viễn trong túi đồ giữa các kỳ sự kiện. Một người chơi F2P/Low-Spender thường thu về 60 – 120 Xu mỗi kỳ nếu chỉ quay ở các mốc rương cơ bản. Thay vì tiêu sạch xu lẻ vào đồ rác, hãy áp dụng kỷ luật: Mua ngay gói Deluxe Choice Chest (100 Xu = 10 Mảnh Vàng Vạn Năng, giới hạn 1/1, chỉ 10 Xu/mảnh — rẻ gấp 3 lần giá thường), sau đó nhịn tiêu phần xu còn lại qua 2 – 3 kỳ liên tiếp cho đến khi chạm mốc 300 Xu (hoặc 600 Xu) để đổi trọn gói 10 Mảnh Tướng Đỏ Chủ Lực (300 Xu), 10 Mảnh Vũ Khí Độc Quyền Vạn Năng (300 Xu), Rương Tự Chọn Trang Trí Huyền Thoại / Deluxe Choice Chest (300 Tokens) hoặc Rương Tự Chọn Hồn Đá Đỏ (600 Xu).",
-                en: "Wheel Coins and Dice Coins / Vouchers carry over permanently in your inventory across event cycles. Because F2P/Low-Spender players typically earn 60 – 120 Coins per cycle from milestone chests, spending leftover coins on filler items permanently locks you out of top-tier rewards. Instead, enforce strict discipline: immediately grab the 100-Coin Deluxe Choice Chest (10 Universal Legendary Shards, limit 1/1, just 10 Coins/shard—3x cheaper than standard rates), then hoard remaining tokens across 2 – 3 cycles until you hit 300 Coins (or 600 Coins) to redeem a full 10-Shard Mythic Hero unlock (300 Coins), 10 Universal Exclusive Gear Shards (300 Coins), a Legendary Decoration Choice Chest / Deluxe Choice Chest (300 Tokens), or a Soul Stone Choice Chest (600 Coins).",
+                vi: "**Bảo lưu vĩnh viễn giữa các mùa**: Xu Vòng Quay (Wheel Coins) và Xu Xúc Xắc (Dice Coins) không bị mất đi; F2P thường thu về `60–120` Xu mỗi kỳ từ các mốc rương cơ bản.\n• **Bước 1 (`100` Xu)**: Mua ngay gói Deluxe Choice Chest (`100` Xu = `10` Mảnh Vàng Vạn Năng, giới hạn `1/1`, chỉ `10` Xu/mảnh — rẻ gấp `3` lần giá thường).\n• **Bước 2 (`300–600` Xu)**: Nhịn tiêu xu dư qua `2–3` kỳ chạm mốc `300` Xu (đổi `10` Mảnh Tướng Đỏ / `10` Mảnh Vũ Khí Độc Quyền / Rương Trang Trí Vàng) hoặc `600` Xu (Hồn Đá Đỏ).",
+                en: "**Permanent Token Carry-Over**: Wheel Coins and Dice Coins never expire between events; F2P players typically earn `60–120` Coins per cycle from basic milestone chests.\n• **Step 1 (`100` Coins)**: Immediately grab the `100`-Coin Deluxe Choice Chest (`10` Universal Legendary Shards, limit `1/1`, `10` Coins/shard — `3x` ROI).\n• **Step 2 (`300–600` Coins)**: Hoard remaining tokens across `2–3` cycles to hit `300` Coins (`10` Mythic Shards / `10` Exclusive Gear Shards / Legendary Decor Chest) or `600` Coins (Soul Stone).",
               },
             },
             {
@@ -316,12 +316,12 @@ export const ARTICLE_7_3_EXCHANGE_AND_VIP_SHOPS: GuideArticle = {
               type: "list",
               items: [
                 {
-                  vi: "Ưu tiên số 1 (Giai đoạn Đúc Đồ Vàng Đội 1): Đổi Thỏi Vàng Mặt Trời (Solar Gold Ingot) và Bản Vẽ Trang Bị Vàng cho đến khi cả 6 tướng Đội 1 đều mặc đủ 24 món Trang bị Vàng có gắn Dấu Hệ (Faction Mark +30% chỉ số).",
-                  en: "Priority #1 (Queue 1 Legendary Gear Crafting Phase): Redeem Solar Gold Ingots and Legendary Gear Blueprints until all 6 heroes in Queue 1 are fully equipped with 24 Faction-Marked (+30% stat bonus) Legendary gear pieces.",
+                  vi: "**Ưu tiên số 1 (Đúc Đồ Vàng Đội 1)**: Đổi Solar Gold Ingot và Bản Vẽ Trang Bị Vàng cho đến khi cả `6` tướng Đội 1 mặc đủ `24` món Đồ Vàng có gắn Dấu Hệ (`+30%` chỉ số).",
+                  en: "**Priority #1 (Queue 1 Legendary Gear)**: Redeem Solar Gold Ingot and Legendary Blueprints until all `6` Queue 1 heroes wear `24` Faction-Marked (`+30%` bonus) Legendary pieces.",
                 },
                 {
-                  vi: "Ưu tiên số 2 (Chu kỳ DE-Dust & Thăng Cấp Huyền Thoại): Đổi đều đặn DE-Dust (Bụi Cổ Ngữ / Dark Empire Dust) theo các bậc giá tăng dần hàng tuần 100 ➔ 300 ➔ 600 ➔ 1,200 ➔ 2,400 để nuôi bảng Cổ Ngữ (Runes Lv.5–Lv.8) và công nghệ cuối game, đồng thời mua Đá Thăng Cấp Huyền Thoại (Legendary Promotion Stone), Máu Rồng (Dragon Blood) và Đá Cường Hóa (Gear Enhance Rune) kích hoạt mốc Cộng hưởng +10 / +20 / +30 / +40.",
-                  en: "Priority #2 (Weekly DE-Dust Ladder & Mythic Gear Promotion): Consistently exchange weekly tiered DE-Dust (Dark Empire / Rune Dust across the 100 ➔ 300 ➔ 600 ➔ 1,200 ➔ 2,400 cost brackets) to fuel Runes (Lv.5–Lv.8) and late-game tech, alongside Legendary Promotion Stones, Dragon Blood, and Gear Enhance Runes for +10 / +20 / +30 / +40 Gear Resonance.",
+                  vi: "**Ưu tiên số 2 (Chu kỳ DE-Dust & Thăng Cấp)**: Đổi đều đặn DE-Dust theo bậc `100` ➔ `300` ➔ `600` ➔ `1,200` ➔ `2,400` nuôi Cổ Ngữ `Lv.5–Lv.8`, kèm Đá Thăng Cấp Huyền Thoại, Máu Rồng và Đá Cường Hóa.",
+                  en: "**Priority #2 (Weekly DE-Dust & Promotion)**: Exchange weekly tiered DE-Dust (`100` ➔ `300` ➔ `600` ➔ `1,200` ➔ `2,400`) for `Lv.5–Lv.8` Runes, plus Legendary Promotion Stones, Dragon Blood, and Enhance Runes.",
                 },
               ],
             },
@@ -440,16 +440,16 @@ export const ARTICLE_7_3_EXCHANGE_AND_VIP_SHOPS: GuideArticle = {
           },
           headers: [
             {
-              vi: "❌ Sai lầm phổ biến (Account Traps)",
-              en: "❌ Common Pitfall (Account Trap)",
+              vi: "Sai lầm phổ biến (Account Traps)",
+              en: "Common Pitfall (Account Trap)",
             },
             {
-              vi: "💥 Hệ lụy Kinh tế & Lực chiến",
-              en: "💥 Economic & Combat Penalty",
+              vi: "Hệ lụy Kinh tế & Lực chiến",
+              en: "Economic & Combat Penalty",
             },
             {
-              vi: "✅ Giải pháp tối ưu (Min-Max Solution)",
-              en: "✅ Optimal Min-Max Solution",
+              vi: "Giải pháp tối ưu (Min-Max Solution)",
+              en: "Optimal Min-Max Solution",
             },
           ],
           rows: [
@@ -526,8 +526,8 @@ export const ARTICLE_7_3_EXCHANGE_AND_VIP_SHOPS: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Trong hệ thống dữ liệu gốc của TopHeroes Tables (Tab VIP cost USD), điểm tiến trình nạp VIP tuân theo tỷ lệ chuẩn $1.00 USD = 6 VIP Progress Points (hoặc hệ quy chiếu điểm VIP mở rộng 100 pts = $1.00 ở một số cụm máy chủ), bên cạnh nguồn Điểm VIP miễn phí hàng tuần từ Guild Points Shop (1,000 Điểm VIP/tuần) và Rương Đăng Nhập Hàng Ngày. Sơ đồ và 2 bảng dữ liệu chuẩn hóa dưới đây cung cấp toàn bộ các Điểm Gãy Đặc Quyền (VIP Breakpoints) từ VIP 1 đến VIP 20 cùng ma trận định giá 7 tầng của tiệm sự kiện.",
-            en: "In the foundational TopHeroes Tables dataset (Tab VIP cost USD), VIP progression follows the standard conversion rate of $1.00 USD = 6 VIP Progress Points (alongside the 100 pts = $1.00 scaled point notation used on certain server clusters), supplemented by free weekly VIP Points from the Guild Points Shop (1,000 VIP Points/week) and daily login chests. The flowchart and two complete benchmark tables below detail every VIP 1 to VIP 20 breakpoint and the 7-tier event shop priority ranking.",
+            vi: "**Tỷ lệ quy đổi chuẩn TopHeroes Tables**: Điểm tiến trình nạp VIP tuân theo chuẩn `$1.00 USD` = `6 VIP Progress Points` (hoặc hệ quy chiếu mở rộng `100 pts` = `$1.00`).\n• **Nguồn VIP miễn phí & Ma trận 7 tầng**: Kết hợp `1,000` Điểm VIP/tuần từ Guild Shop với Rương Hàng Ngày; dưới đây là bảng Điểm Gãy `VIP 1–20` và bảng ưu tiên `7` tầng tiệm sự kiện.",
+            en: "**TopHeroes Tables Conversion Standard**: VIP progression follows `$1.00 USD` = `6 VIP Progress Points` (alongside the `100 pts` = `$1.00` scaled server reference).\n• **Free Weekly VIP & 7-Tier Matrix**: Supplemented by `1,000` free weekly Guild Shop VIP Points and daily chests; below are the `VIP 1–20` matrix and `7`-tier event shop rankings.",
           },
         },
         {
@@ -769,8 +769,8 @@ export const ARTICLE_7_3_EXCHANGE_AND_VIP_SHOPS: GuideArticle = {
             ],
             [
               {
-                vi: "VIP 4 ⭐ (Breakpoint 1)",
-                en: "VIP 4 ⭐ (Breakpoint 1)",
+                vi: "VIP 4 ★ (Breakpoint 1)",
+                en: "VIP 4 ★ (Breakpoint 1)",
               },
               {
                 vi: "300 Points (Quy chiếu: 2,000 pts ($20.00))",
@@ -805,8 +805,8 @@ export const ARTICLE_7_3_EXCHANGE_AND_VIP_SHOPS: GuideArticle = {
             ],
             [
               {
-                vi: "VIP 6 ⭐ (Breakpoint 2)",
-                en: "VIP 6 ⭐ (Breakpoint 2)",
+                vi: "VIP 6 ★ (Breakpoint 2)",
+                en: "VIP 6 ★ (Breakpoint 2)",
               },
               {
                 vi: "1,000 Points (Quy chiếu: 9,500 pts ($95.00))",
@@ -841,8 +841,8 @@ export const ARTICLE_7_3_EXCHANGE_AND_VIP_SHOPS: GuideArticle = {
             ],
             [
               {
-                vi: "VIP 8 ⭐⭐ (Breakpoint 3)",
-                en: "VIP 8 ⭐⭐ (Breakpoint 3)",
+                vi: "VIP 8 ★★ (Breakpoint 3)",
+                en: "VIP 8 ★★ (Breakpoint 3)",
               },
               {
                 vi: "6,000 Points (Quy chiếu: 35,000 pts ($350.00))",
@@ -877,8 +877,8 @@ export const ARTICLE_7_3_EXCHANGE_AND_VIP_SHOPS: GuideArticle = {
             ],
             [
               {
-                vi: "VIP 10 ⭐⭐⭐ (Breakpoint 4)",
-                en: "VIP 10 ⭐⭐⭐ (Breakpoint 4)",
+                vi: "VIP 10 ★★★ (Breakpoint 4)",
+                en: "VIP 10 ★★★ (Breakpoint 4)",
               },
               {
                 vi: "30,000 Points (Quy chiếu: 100,000 pts ($1,000.00))",
@@ -967,8 +967,8 @@ export const ARTICLE_7_3_EXCHANGE_AND_VIP_SHOPS: GuideArticle = {
             ],
             [
               {
-                vi: "VIP 15 👑",
-                en: "VIP 15 👑",
+                vi: "VIP 15 ★",
+                en: "VIP 15 ★",
               },
               {
                 vi: "200,000 Points (Quy chiếu: 3,367,000 pts ($33,670.00))",
@@ -1241,8 +1241,8 @@ export const ARTICLE_7_3_EXCHANGE_AND_VIP_SHOPS: GuideArticle = {
             en: "Managing a 42,000-Diamond Reserve & 3-Cycle 300-Coin Hoard to Unlock Desert Prince, Storm Maiden, Witch + Exclusive Weapon",
           },
           profileSummary: {
-            vi: "Người chơi F2P / Low-Spender (ngân sách chỉ mua Gói Tháng $4.99 và Thợ Xây $0.99) chuẩn bị cho giai đoạn chuyển giao sang Đội 1 Thuần Bộ Lạc (Horde) từ Ngày 21 đến Ngày 41 của Server, kết hợp đẩy Kỵ Sĩ (Knight) lên 15 Sao (500 Mảnh) mở khóa Exchange Shop và cán mốc VIP 6 (1,000 pts / $166.70 giá trị quy đổi) bằng Điểm VIP miễn phí.",
-            en: "F2P / Low-Spender player (budget limited to the $4.99 Monthly Pass and $0.99 Builder queue) preparing for a Pure Horde Queue 1 transition between Server Day 21 and Day 41, while pushing Knight to 15 Stars (500 Shards) to unlock the Exchange Shop and hitting VIP 6 (1,000 pts / $166.70 equivalent value) via free Guild Shop VIP Points.",
+            vi: "**Hồ sơ F2P / Low-Spender**: Ngân sách chỉ mua Gói Tháng `$4.99` và Thợ Xây `$0.99`, chuẩn bị chuyển giao sang Đội 1 Thuần Bộ Lạc từ Ngày 21 đến Ngày 41.\n• **Mục tiêu kép**: Đẩy Kỵ Sĩ (Knight) lên `15 Sao` (`500` Mảnh) mở khóa Exchange Shop và cán mốc `VIP 6` (`1,000 pts` / `$166.70`) bằng Điểm VIP miễn phí.",
+            en: "**F2P / Low-Spender Profile**: Budget limited to the `$4.99` Monthly Pass and `$0.99` Builder queue, preparing for a Pure Horde Queue 1 transition on Days 21–41.\n• **Dual Milestones**: Push Knight to `15 Stars` (`500` Shards) to unlock the Exchange Shop and hit `VIP 6` (`1,000 pts` / `$166.70`) via free Guild Shop VIP Points.",
           },
           metrics: [
             {
@@ -1302,12 +1302,12 @@ export const ARTICLE_7_3_EXCHANGE_AND_VIP_SHOPS: GuideArticle = {
           ],
           diagnostics: [
             {
-              vi: "Rò rỉ Kim Cương tại VIP Shop & Thiếu kỷ luật Quỹ 42,000 KC: Đa số người chơi tiêu 3,000–5,000 KC/tuần vào rương tài nguyên, tăng tốc nguyên giá và mở Trait 4 Tướng Tím (2,000 KC), khiến tài khoản không đủ 18,000 KC/kỳ khi bộ ba tướng Đỏ Bộ Lạc (Desert Prince, Storm Maiden, Witch) ra mắt liên tiếp từ Ngày 21 đến Ngày 41.",
-              en: "VIP Shop Diamond Leakage & Missing 42,000-Diamond Buffer: Most players burn 3,000–5,000 Diamonds/week on resource chests, full-price speedups, and Epic Hero Trait 4 (2,000 Diamonds), leaving them short of the 18,000 Diamonds/banner needed when the Horde Mythic trio (Desert Prince, Storm Maiden, Witch) drops between Day 21 and Day 41.",
+              vi: "**Rò rỉ Kim Cương tại VIP Shop & Thiếu quỹ `42,000` KC**: Đa số tiêu `3,000–5,000 KC/tuần` vào rương tài nguyên, tăng tốc nguyên giá và mở Trait 4 Tướng Tím (`2,000 KC`).\n• **Hệ lụy**: Tài khoản không đủ `18,000 KC/kỳ` khi bộ ba Tướng Đỏ Bộ Lạc (Desert Prince, Storm Maiden, Witch) ra mắt liên tiếp từ Ngày 21 đến Ngày 41.",
+              en: "**VIP Shop Diamond Leakage & Missing `42,000` Buffer**: Most players burn `3,000–5,000 Diamonds/week` on resource chests, full-price speedups, and Epic Trait 4 (`2,000`).\n• **Consequence**: Leaves the account short of the `18,000 Diamonds/banner` needed when the Horde Mythic trio drops between Day 21 and Day 41.",
             },
             {
-              vi: "Đứt gãy tích lũy 300 Xu Sự Kiện do tâm lý sợ mất Xu ngày cuối: Việc tiêu sạch 80–120 Xu lẻ cuối mỗi kỳ Vòng Quay / Xúc Xắc khiến người chơi F2P mất khả năng chạm mốc 300 Coins để lấy 10 Mảnh Vũ Khí Độc Quyền Vạn Năng (30 Xu × 10).",
-              en: "Broken 300-Coin Accumulation Curve from Day 3 Panic Spending: Spending 80–120 leftover Coins at the end of each Wheel / Dice cycle prevents F2P players from ever reaching the 300-Coin threshold required for 10 Universal Exclusive Gear Shards (30 Coins × 10).",
+              vi: "**Đứt gãy tích lũy `300` Xu Sự Kiện**: Tâm lý sợ mất Xu ngày cuối khiến người chơi tiêu sạch `80–120` Xu lẻ sau mỗi kỳ Vòng Quay / Xúc Xắc.\n• **Hệ lụy**: Mất khả năng chạm mốc `300` Coins để đổi trọn gói `10` Mảnh Vũ Khí Độc Quyền Vạn Năng (`30` Xu × `10`).",
+              en: "**Broken `300`-Coin Accumulation Curve**: Day 3 panic spending causes players to waste `80–120` leftover Coins at the end of each Wheel / Dice cycle.\n• **Consequence**: Prevents F2P players from reaching the `300`-Coin threshold required for `10` Universal Exclusive Gear Shards.",
             },
           ],
           recoverySteps: [
@@ -1318,8 +1318,8 @@ export const ARTICLE_7_3_EXCHANGE_AND_VIP_SHOPS: GuideArticle = {
                 en: "Phase 1 (Day 1 ➔ Day 20): Cap VIP Shop Spend at < 1,000 Diamonds/Week & Bank 42,000 Diamonds",
               },
               detail: {
-                vi: "Mỗi tuần chỉ chi đúng 600 KC mua Thể lực (100 KC × 6) và 300 KC mua 1 Mảnh Vàng giảm giá trong VIP Shop (tổng chi < 1,000 KC/tuần). Đồng thời vét sạch 1,000 Điểm VIP miễn phí trong Guild Points Shop để cán mốc VIP 6 (1,000 pts / $166.70) và đẩy Knight lên 15 Sao (500 Mảnh) mở Exchange Shop. Đến Ngày 21, tài khoản tích lũy đạt chuẩn 42,000 Kim Cương tiền mặt.",
-                en: "Spend strictly 600 Diamonds on Stamina (100 × 6) and 300 Diamonds on 1 discounted Universal Legendary Shard per week in the VIP Shop (< 1,000 Diamonds/week total). Clear the 1,000 free weekly VIP Points in the Guild Points Shop to reach VIP 6 (1,000 pts / $166.70) and push Knight to 15 Stars (500 Shards) to unlock the Exchange Shop. By Day 21, your liquid reserve reaches 42,000 Diamonds.",
+                vi: "**Khóa chi tiêu `< 1,000 KC/tuần`**: Mỗi tuần chỉ chi `600 KC` mua Thể lực (`100 KC × 6`) và `300 KC` mua `1` Mảnh Vàng giảm giá trong VIP Shop.\n• **Cán mốc `VIP 6` & `42,000` KC**: Vét `1,000` Điểm VIP miễn phí trong Guild Shop đạt `VIP 6` (`$166.70`), đẩy Knight lên `15 Sao` (`500` Mảnh) và tích đủ `42,000` KC ở Ngày 21.",
+                en: "**Cap Spend at `< 1,000 Diamonds/Week`**: Spend strictly `600` Diamonds on Stamina (`100 × 6`) and `300` Diamonds on `1` discounted Legendary Shard weekly.\n• **Hit `VIP 6` & `42,000` Diamonds**: Clear `1,000` free weekly Guild VIP Points for `VIP 6` (`$166.70`), push Knight to `15 Stars` (`500` Shards), and bank `42,000` Diamonds by Day 21.",
               },
               impactBadge: {
                 vi: "TÍCH LŨY 42,000 KC & VIP 6",
@@ -1333,8 +1333,8 @@ export const ARTICLE_7_3_EXCHANGE_AND_VIP_SHOPS: GuideArticle = {
                 en: "Cycle 1 (Day 21 — Desert Prince) & Cycle 2 (Day 27 — Storm Maiden): Buy 100-Coin Deluxe Chest & Bank 140 Coins",
               },
               detail: {
-                vi: "Tại Kỳ 1 (Ngày 21), xả 18,000 KC quay mốc rương mở khóa ngay Desert Prince và thu về 115 Xu Sự Kiện: dùng 100 Xu đổi 1 rương Deluxe Choice Chest (100 Xu = 10 Mảnh Vàng) và cất 15 Xu dư vào kho. Tại Kỳ 2 (Ngày 27), xả tiếp 18,000 KC mở khóa Storm Maiden, thu thêm 125 Xu và bảo lưu cộng dồn thành 140 Xu.",
-                en: "In Cycle 1 (Day 21), spend 18,000 Diamonds hitting spin milestones to unlock Desert Prince and earn 115 Event Coins: spend 100 Coins on the Deluxe Choice Chest (10 Universal Legendary Shards) and bank the remaining 15 Coins. In Cycle 2 (Day 27), spend 18,000 Diamonds to unlock Storm Maiden, earning 125 Coins to grow your carry-over reserve to 140 Coins.",
+                vi: "**Kỳ 1 (Ngày 21 — Desert Prince)**: Xả `18,000 KC` mở khóa Desert Prince, thu `115` Xu; dùng `100` Xu đổi Deluxe Choice Chest (`10` Mảnh Vàng) và cất `15` Xu dư vào kho.\n• **Kỳ 2 (Ngày 27 — Storm Maiden)**: Xả tiếp `18,000 KC` mở khóa Storm Maiden, thu thêm `125` Xu và bảo lưu cộng dồn thành `140` Xu.",
+                en: "**Cycle 1 (Day 21 — Desert Prince)**: Spend `18,000` Diamonds to unlock Desert Prince and earn `115` Coins; redeem the `100`-Coin Deluxe Choice Chest and bank `15` Coins.\n• **Cycle 2 (Day 27 — Storm Maiden)**: Spend `18,000` Diamonds to unlock Storm Maiden, earning `125` Coins to grow your carry-over reserve to `140` Coins.",
               },
               impactBadge: {
                 vi: "MỞ 2 TƯỚNG ĐỎ + BẢO LƯU 140 XU",
@@ -1348,8 +1348,8 @@ export const ARTICLE_7_3_EXCHANGE_AND_VIP_SHOPS: GuideArticle = {
                 en: "Cycle 3 (Day 41 — Witch): Hit 300 Coins & Immediately Unlock Carry Exclusive Weapon",
               },
               detail: {
-                vi: "Tại Kỳ 3 (Ngày 41), xả đợt Kim Cương cuối lấy Witch và thu thêm 160 Xu. Tổng số dư chạm đúng mốc 300 Xu Sự Kiện (140 + 160 = 300 Xu)! Ngay lập tức giải ngân 300 Xu đổi trọn gói 10 Mảnh Vũ Khí Độc Quyền Vạn Năng (30 Xu × 10), kích hoạt Vũ Khí Độc Quyền cho chủ lực Bộ Lạc ở Ngày 41 mà không tốn bất kỳ gói nạp đắt đỏ nào.",
-                en: "In Cycle 3 (Day 41), spend your final Diamond tranche to unlock Witch and collect 160 additional Coins. Your total token balance reaches exactly 300 Event Coins (140 + 160 = 300 Coins)! Immediately redeem all 300 Coins for 10 Universal Exclusive Gear Shards (30 Coins × 10), unlocking your Horde carry's Exclusive Weapon on Day 41 without buying a single cash pack.",
+                vi: "**Kỳ 3 (Ngày 41 — Witch)**: Xả đợt Kim Cương cuối lấy Witch và thu thêm `160` Xu, đưa tổng số dư chạm đúng mốc `300` Xu (`140 + 160 = 300` Xu)!\n• **Giải ngân `300` Xu**: Đổi ngay trọn gói `10` Mảnh Vũ Khí Độc Quyền Vạn Năng (`30` Xu × `10`), kích hoạt Vũ Khí Độc Quyền cho chủ lực Bộ Lạc ở Ngày 41.",
+                en: "**Cycle 3 (Day 41 — Witch)**: Spend your final Diamond tranche to unlock Witch and collect `160` Coins, reaching exactly `300` Event Coins (`140 + 160 = 300`)!\n• **Redeem `300` Coins**: Immediately exchange all `300` Coins for `10` Universal Exclusive Gear Shards (`30 × 10`), unlocking your Horde carry's Exclusive Weapon.",
               },
               impactBadge: {
                 vi: "300 XU = VŨ KHÍ ĐỘC QUYỀN NGÀY 41",

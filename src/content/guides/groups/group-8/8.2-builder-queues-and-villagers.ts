@@ -16,30 +16,30 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
   },
   tldr: {
     coreRule: {
-      vi: "Phân hóa chuyên môn tuyệt đối giữa các Hàng đợi Thợ xây theo Mô hình Đường Găng 3–4 Mũi Nhọn: Thợ 1 khóa cứng 100% vào trục Lâu Đài (Castle); Thợ 2 xây đón đầu công trình điều kiện của cấp Lâu Đài kế tiếp và Doanh Trại Đội 1 (Main Barracks); Thợ 3 nâng công trình bổ trợ chiến đấu (Faction Statue, Lord Hall, Medal Hall) & làm mồi sự kiện; Thợ 4 chỉ chạy khi tài nguyên dư trên 150%.",
-      en: "Enforce strict specialization across Builder Queues using the 3–4 Pronged Critical Path Model: Builder 1 stays 100% locked onto the Castle axis; Builder 2 pre-builds the next Castle level's prerequisites and Queue 1 Main Barracks; Builder 3 handles combat support buildings (Faction Statue, Lord Hall, Medal Hall) and event bait; Builder 4 runs only when resources exceed 150% of core demand.",
+      vi: "**Phân hóa chuyên môn tuyệt đối** giữa các Hàng đợi Thợ xây theo **Mô hình Đường Găng 3–4 Mũi Nhọn**:\n• **Thợ 1 & Thợ 2**: Thợ 1 khóa `100%` vào trục **Lâu Đài** (`Castle`); Thợ 2 xây đón đầu điều kiện kế tiếp và **Doanh Trại Đội 1** (`Main Barracks`).\n• **Thợ 3 & Thợ 4**: Thợ 3 nâng công trình bổ trợ (`Faction Statue`, `Lord Hall`, `Medal Hall`) & mồi sự kiện; Thợ 4 chỉ chạy khi dư tài nguyên trên `150%`.",
+      en: "**Enforce strict specialization** across Builder Queues using the **3–4 Pronged Critical Path Model**:\n• **Builders 1 & 2**: Builder 1 locks `100%` onto the `Castle` axis; Builder 2 pre-builds next prerequisites and Queue 1 `Main Barracks`.\n• **Builders 3 & 4**: Builder 3 handles support (`Faction Statue`, `Lord Hall`, `Medal Hall`) and bait; Builder 4 runs only above `150%` resource surplus.",
     },
     immediateAction: {
-      vi: "Vào ngay giao diện Quản lý Dân Làng (Villagers), tắt chế độ tự động (Auto-Assign), tháo toàn bộ Dân làng phẩm chất cao ra khỏi các mỏ Gỗ/Đá và gán thủ công ưu tiên tuyệt đối vào Viện Nghiên Cứu (Tech Research Speed +0.60%➔+3.20% & Free Tech Speed-up 40s➔432s), Hội (Help Accepted Count +1➔+5 lượt), Lâu Đài (Construction Speed +0.60%➔+2.00% & Free Time 40s➔160s), Sảnh Huân Chương (+17.50% HP & +5.60% ATK Toàn bộ Lính) và Doanh Trại Hệ Chính (+4.40% Tốc độ & +13 Sức chứa).",
-      en: "Open the Villager Management UI immediately, disable Auto-Assign, strip high-rarity Villagers from Timber/Stone mills, and manually assign top-tier Villagers to the Research Cottage (Tech Research Speed +0.60%➔+3.20% & Free Tech Speed-up 40s➔432s), Guild (Help Accepted Count +1➔+5), Castle (Construction Speed +0.60%➔+2.00% & Free Time 40s➔160s), Medal Hall (+17.50% All Soldier HP & +5.60% ATK), and Main Barracks (+4.40% Speed & +13 Training Cap).",
+      vi: "**Tắt Auto-Assign** trong giao diện **Quản lý Dân Làng** (`Villagers`), tháo Dân làng khỏi mỏ Gỗ/Đá và gán thủ công:\n• **Nhóm Tốc độ (S+)**: **Viện Nghiên Cứu** (`+0.60% ➔ +3.20%` & `40s ➔ 432s`), **Hội** (`+1 ➔ +5` Help), **Lâu Đài** (`+0.60% ➔ +2.00%` & `40s ➔ 160s`).\n• **Nhóm Chiến đấu (S)**: **Sảnh Huân Chương** (`+17.50%` HP & `+5.60%` ATK Lính) và **Doanh Trại Hệ Chính** (`+4.40%` Tốc độ & `+13` Sức chứa).",
+      en: "**Disable Auto-Assign** in the **Villager Management UI**, strip Villagers from Timber/Stone mills, and slot manually:\n• **Speed Tier (S+)**: **Research Cottage** (`+0.60% ➔ +3.20%` & `40s ➔ 432s`), **Guild** (`+1 ➔ +5` Help), **Castle** (`+0.60% ➔ +2.00%` & `40s ➔ 160s`).\n• **Combat Tier (S)**: **Medal Hall** (`+17.50%` HP & `+5.60%` ATK) and **Main Barracks** (`+4.40%` Speed & `+13` Training Cap).",
     },
     strictTaboo: {
-      vi: "Tuyệt đối KHÔNG bấm cắn bình Tăng tốc Xây dựng khi thanh Trợ giúp Bang hội (Guild Help) chưa đầy, và KHÔNG chạm tay khui biểu tượng Hộp Quà hoàn thành của các công trình lớn vào ngày Thứ Bảy / Chủ Nhật — hãy áp dụng kỹ thuật Gift Box Banking giữ nguyên hộp quà trên mái nhà để bấm mở nổ điểm vào Thứ Hai Tuần B (Arms Race Day 1)!",
-      en: "NEVER consume Construction Speed-ups before your Guild Help bar is completely full, and NEVER tap the Unopened Gift Box icon above completed major buildings on Saturday or Sunday—use Gift Box Banking to leave the gift box on the roof until Monday of Week B (Arms Race Day 1) for an instant power explosion!",
+      vi: "**Tuyệt đối KHÔNG** cắn bình Tăng tốc Xây dựng sớm hoặc khui Hộp Quà công trình sai ngày:\n• **Chờ Guild Help**: Không dùng bình tăng tốc khi thanh **Trợ giúp Bang hội** (`Guild Help`) chưa đầy.\n• **Gift Box Banking**: Không chạm mở biểu tượng Hộp Quà trên mái nhà vào Thứ Bảy/Chủ Nhật — giữ nguyên để nổ điểm vào **Thứ Hai Tuần B** (`Arms Race Day 1`)!",
+      en: "**NEVER waste** Construction Speed-ups early or pop completed building Gift Boxes on the wrong day:\n• **Wait for Guild Help**: Never consume speed-ups before your `Guild Help` bar is completely full.\n• **Gift Box Banking**: Never tap the rooftop Gift Box on Saturday/Sunday—leave it untouched to detonate points on **Monday Week B** (`Arms Race Day 1`)!",
     },
   },
   keyTakeaways: [
     {
-      vi: "Mô hình Đường Găng 3–4 Mũi Nhọn & Nội tại Tướng Kinh Tế (12 Sao / Trait 3 Lv.30): Kết hợp phân luồng Thợ 1➔4 với kích hoạt thụ động trong kho tướng của Bard (+40% Construction Rate), Brawler (+30% Tech Research Rate) + Shaman (+40% Tech Research Rate), Knight (+30% Soldier Training Speed) + Hostess (+40% Soldier Training Speed), Ranger (+30% Ruby) / Rogue (+30% Stone) / Outlaw (+30% Timber) + Headhunter (+40% Ruby) / Stonemason (+40% Stone) / Treeguard (+40% Timber), và Minister / Priestess / Dancer (+30% Healing Speed mỗi tướng).",
-      en: "3–4 Pronged Builder Allocation & Passive Economic Hero Traits (12-Star / Trait 3 Lv.30): Pair specialized Builder 1➔4 routing with passive roster buffs from Bard (+40% Construction Rate), Brawler (+30% Tech Research Rate) + Shaman (+40% Tech Research Rate), Knight (+30% Soldier Training Speed) + Hostess (+40% Soldier Training Speed), Ranger (+30% Ruby) / Rogue (+30% Stone) / Outlaw (+30% Timber) + Headhunter (+40% Ruby) / Stonemason (+40% Stone) / Treeguard (+40% Timber), and Minister / Priestess / Dancer (+30% Healing Speed each).",
+      vi: "**Mô hình Đường Găng 3–4 Mũi Nhọn & Nội tại Tướng Kinh Tế (`12 Sao` / `Trait 3 Lv.30`)**:\n• **Xây dựng, NC & Lính**: Kích hoạt thụ động **Bard** (`+40%` Xây dựng), **Brawler** (`+30%`) + **Shaman** (`+40%` Nghiên cứu), **Knight** (`+30%`) + **Hostess** (`+40%` Luyện lính).\n• **Thu thập & Chữa thương**: **Ranger** / **Rogue** / **Outlaw** (`+30%` Ruby/Đá/Gỗ) + **Headhunter** / **Stonemason** / **Treeguard** (`+40%`), và **Minister** / **Priestess** / **Dancer** (`+30%` Chữa thương).",
+      en: "**3–4 Pronged Builder Allocation & Passive Economic Hero Traits (`12-Star` / `Trait 3 Lv.30`)**:\n• **Build, Tech & Training**: Passive roster buffs from **Bard** (`+40%` Construction), **Brawler** (`+30%`) + **Shaman** (`+40%` Tech), **Knight** (`+30%`) + **Hostess** (`+40%` Training).\n• **Gathering & Healing**: **Ranger** / **Rogue** / **Outlaw** (`+30%` Ruby/Stone/Timber) + **Headhunter** / **Stonemason** / **Treeguard** (`+40%`), and **Minister** / **Priestess** / **Dancer** (`+30%` Healing).",
     },
     {
-      vi: "Bảng 14 Hàng Tra Cứu Toàn Diện Dân Làng (Villagers & Famous Villagers Lv.1 ➔ Lv.6 — Tab 🧑‍🌾Villagers): Hạng S+ Số 1 là Research Cottage (+0.60%➔+3.20% Tốc độ NC & 40s➔360s/432s miễn phí); Hạng S+ Số 2 là Guild (+1➔+5 lượt nhận Trợ giúp) & Castle (+0.60%➔+2.00% Tốc độ xây & 40s➔160s miễn phí); Hạng S Số 3 là Medal Hall (+1.50%➔+17.50% HP & +0.80%➔+5.60% ATK Toàn bộ Lính) & Barracks (+0.60%➔+4.40% Tốc độ luyện lính & +1➔+13 Sức chứa); Hạng A+/A/B gồm Faction Statue (+1➔+7 March Size), Hero Statue, Hospital (+200➔+2,100 chỗ), Mỏ Ruby/Đá Vân/Huân Chương (+57.50%➔+143.75% sản lượng, +16,560s lưu trữ) và Queue (+1%➔+10% Adventure Boss).",
-      en: "14-Row Quantitative Villagers & Famous Villagers Table (Lv.1 ➔ Lv.6 — Tab 🧑‍🌾Villagers): S+ Priority #1 is Research Cottage (+0.60%➔+3.20% Tech Speed & 40s➔360s/432s free speed-up); S+ Priority #2 is Guild (+1➔+5 Help Accepted Count) & Castle (+0.60%➔+2.00% Construction Speed & 40s➔160s free time); S Priority #3 is Medal Hall (+1.50%➔+17.50% All Soldier HP & +0.80%➔+5.60% ATK) & Barracks (+0.60%➔+4.40% Training Speed & +1➔+13 Cap); A+/A/B cover Faction Statue (+1➔+7 March Size), Hero Statue, Hospital (+200➔+2,100 capacity), Ruby/Ore/Medal Mines (+57.50%➔+143.75% yield, +16,560s storage), and Queue (+1%➔+10% Adventure Boss).",
+      vi: "**Bảng 14 Hàng Tra Cứu Toàn Diện Dân Làng (`Villagers Lv.1 ➔ Lv.6` — Tab `Villagers`)**:\n• **Hạng S+ & S**: `Research Cottage` (`+0.60%➔+3.20%`, `40s➔360s/432s`), `Guild` (`+1➔+5` Help), `Castle` (`+0.60%➔+2.00%`, `40s➔160s`), `Medal Hall` (`+17.50%` HP, `+5.60%` ATK), `Barracks` (`+4.40%`, `+13`).\n• **Hạng A+/A/B**: `Faction Statue` (`+1➔+7` March Size), `Hero Statue`, `Hospital` (`+200➔+2,100` chỗ), Mỏ Ruby/Đá Vân/Huân Chương (`+57.50%➔+143.75%`, `+16,560s` lưu trữ) và `Queue` (`+1%➔+10%` Boss).",
+      en: "**14-Row Quantitative Villagers & Famous Villagers Table (`Lv.1 ➔ Lv.6` — `Tab Villagers`)**:\n• **S+ & S Tiers**: `Research Cottage` (`+0.60%➔+3.20%`, `40s➔360s/432s`), `Guild` (`+1➔+5` Help), `Castle` (`+0.60%➔+2.00%`, `40s➔160s`), `Medal Hall` (`+17.50%` HP, `+5.60%` ATK), `Barracks` (`+4.40%`, `+13`).\n• **A+/A/B Tiers**: `Faction Statue` (`+1➔+7` March Size), `Hero Statue`, `Hospital` (`+200➔+2,100` cap), Ruby/Ore/Medal Mines (`+57.50%➔+143.75%`, `+16,560s` storage), and `Queue` (`+1%➔+10%` Boss).",
     },
     {
-      vi: "Lịch trình Nhịp Sinh Học Ngày/Đêm (Sleep-Cycle) & Kỹ thuật Ngâm Hộp Quà Mái Nhà (Gift Box Banking): Ban ngày (08:00–22:00) bấm công trình ngắn 15 phút – 3 giờ ăn tối đa Guild Help; ban đêm (23:00) bấm dự án dài 8 – 48 giờ chạy xuyên đêm; Chủ Nhật giữ nguyên biểu tượng Hộp Quà hoàn thành trên mái nhà (không chạm tay vào) để khui nổ điểm Lực chiến vào khung giờ vàng 13:00–17:00 Thứ Hai Tuần B (Arms Race Day 1)!",
-      en: "Day/Night Sleep-Cycle Scheduling & Unopened Gift Box Banking: Run short 15m–3h upgrades during daytime hours (08:00–22:00) to maximize free Guild Helps; queue long 8h–48h projects before sleep (23:00); and leave Sunday's completed building Gift Boxes untouched on the roof to pop them during Monday Week B's 13:00–17:00 Golden Window (Arms Race Day 1)!",
+      vi: "**Lịch trình Nhịp Sinh Học Ngày/Đêm (`Sleep-Cycle`) & Kỹ thuật Ngâm Hộp Quà (`Gift Box Banking`)**:\n• **Nhịp Ngày/Đêm**: Ban ngày (`08:00–22:00`) bấm nhà ngắn `15m–3h` ăn tối đa `Guild Help`; ban đêm (`23:00`) bấm dự án dài `8h–48h` chạy xuyên đêm.\n• **Ngâm Hộp Quà**: Chủ Nhật giữ nguyên biểu tượng `Gift Box` trên mái nhà để khui nổ điểm vào khung giờ vàng `13:00–17:00` Thứ Hai Tuần B (`Arms Race Day 1`)!",
+      en: "**Day/Night `Sleep-Cycle` Scheduling & Unopened `Gift Box Banking`**:\n• **Day/Night Routing**: Run short `15m–3h` upgrades during daytime (`08:00–22:00`) for free `Guild Helps`; queue long `8h–48h` projects before sleep (`23:00`).\n• **Gift Box Banking**: Leave Sunday's completed building `Gift Boxes` untouched on the roof to pop them in Monday Week B's `13:00–17:00` Golden Window (`Arms Race Day 1`)!",
     },
   ],
   keywords: [
@@ -76,8 +76,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Mặc định khi khởi tạo tài khoản, người chơi có 1 Hàng đợi Thợ xây miễn phí (Builder Queue 1), có thể thuê tạm Thợ xây thứ 2 bằng Kim Cương hoặc mở khóa vĩnh viễn Thợ xây thứ 2, thứ 3 và thứ 4 qua các gói tiện ích đầu game ($0.99 – $4.99 USD). Tuy nhiên, sở hữu nhiều thợ xây mà nâng cấp tự phát, đụng đâu bấm đó sẽ dẫn đến tình trạng 'Nghẽn cổ chai kép': Lúc cần bấm Lâu Đài (Castle) thì cả 3 thợ đều đang kẹt xây công trình phụ mất 24 giờ, hoặc chưa nâng xong công trình điều kiện tiên quyết.",
-            en: "By default, every new account starts with 1 free Builder Queue (Builder Queue 1), with the option to temporarily rent Builder 2 with Diamonds or permanently unlock Builder Queues 2, 3, and 4 via early-game utility packs ($0.99 – $4.99 USD). However, owning multiple builders while upgrading buildings at random creates a 'Double Bottleneck': the exact moment you have enough resources to upgrade your Castle, all 3 builders are tied up on 24-hour side projects or missing mandatory prerequisites.",
+            vi: "Mặc định tài khoản mới có 1 Hàng đợi Thợ xây miễn phí (`Builder Queue 1`), có thể thuê tạm Thợ 2 bằng Kim Cương hoặc mở vĩnh viễn Thợ 2, 3, 4 qua gói tiện ích đầu game (`$0.99 – $4.99 USD`).\n• **Bẫy Nghẽn Cổ Chai Kép**: Có nhiều thợ nhưng nâng tự phát sẽ khiến lúc đủ tài nguyên bấm **Lâu Đài** (`Castle`) thì cả 3 thợ đều kẹt xây nhà phụ `24 giờ` hoặc thiếu công trình điều kiện.",
+            en: "Every new account starts with 1 free Builder Queue (`Builder Queue 1`), with options to rent Builder 2 with Diamonds or permanently unlock Queues 2, 3, and 4 via early utility packs (`$0.99 – $4.99 USD`).\n• **Double Bottleneck Trap**: Owning multiple builders while upgrading at random leaves all 3 builders stuck on `24-hour` side projects or missing prerequisites right when you can upgrade your `Castle`.",
           },
         },
       ],
@@ -92,8 +92,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Để tốc độ phát triển hạ tầng đạt hiệu suất 100% không một phút chết (Zero-Idle Orchestration), người chơi phải gán vai trò chuyên trách cố định cho từng Đội Thợ xây theo bảng phân công chiến lược dưới đây:",
-                en: "To achieve 100% infrastructure velocity with zero idle time (Zero-Idle Orchestration), assign a strict, permanent specialization to each Builder Queue according to the strategic matrix below:",
+                vi: "Để tốc độ phát triển hạ tầng đạt hiệu suất `100%` không một phút chết (`Zero-Idle Orchestration`), hãy gán vai trò chuyên trách cố định cho từng Đội Thợ xây theo bảng dưới đây:",
+                en: "To achieve `100%` infrastructure velocity with zero idle time (`Zero-Idle Orchestration`), assign a strict, permanent specialization to each Builder Queue below:",
               },
             },
             {
@@ -123,8 +123,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
               rows: [
                 [
                   {
-                    vi: "👷 Thợ Xây Số 1 (Primary Builder)",
-                    en: "👷 Builder Queue 1 (Primary Builder)",
+                    vi: "Thợ Xây Số 1 (Primary Builder)",
+                    en: "Builder Queue 1 (Primary Builder)",
                   },
                   {
                     vi: "Đường Găng Lâu Đài (Castle Critical Path)",
@@ -141,8 +141,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "👷 Thợ Xây Số 2 (Prerequisite Builder)",
-                    en: "👷 Builder Queue 2 (Prerequisite Builder)",
+                    vi: "Thợ Xây Số 2 (Prerequisite Builder)",
+                    en: "Builder Queue 2 (Prerequisite Builder)",
                   },
                   {
                     vi: "Đón Đầu Điều Kiện & Doanh Trại Đội 1",
@@ -159,8 +159,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "👷 Thợ Xây Số 3 (Support Builder)",
-                    en: "👷 Builder Queue 3 (Support Builder)",
+                    vi: "Thợ Xây Số 3 (Support Builder)",
+                    en: "Builder Queue 3 (Support Builder)",
                   },
                   {
                     vi: "Hỗ Trợ Chiến Đấu & Mồi Sự Kiện",
@@ -177,8 +177,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "👷 Thợ Xây Số 4 (Optional / Whale)",
-                    en: "👷 Builder Queue 4 (Optional / Whale)",
+                    vi: "Thợ Xây Số 4 (Optional / Whale)",
+                    en: "Builder Queue 4 (Optional / Whale)",
                   },
                   {
                     vi: "Hạ Tầng Đội 2 & Khai Khoáng Đặc Biệt",
@@ -257,28 +257,28 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
               ordered: true,
               items: [
                 {
-                  vi: "Luôn đợi đầy thanh 'Trợ giúp Bang hội' (Guild Help): Mỗi lượt thành viên Bang hội bấm nút bàn tay trợ giúp sẽ cắt giảm trực tiếp một lượng thời gian xây dựng (tối thiểu 1 phút hoặc theo % thời gian của cấp độ Hội / Guild). Nếu vừa bấm xây đã vội cắn bình tăng tốc ngay lập tức, người chơi sẽ tự vứt bỏ từ 30 phút đến hàng giờ đồng hồ giảm giá miễn phí mỗi ngày.",
-                  en: "Always wait for a full Guild Help bar: Each guildmate help tap directly cuts construction duration (at least 1 minute or a percentage scaled by Guild level). Consuming speed-ups immediately after starting an upgrade wastes 30 minutes to several hours of free daily time reduction.",
+                  vi: "**Đợi đầy thanh Trợ giúp Bang hội (Guild Help)**: Mỗi lượt bấm trợ giúp cắt giảm trực tiếp thời gian xây; cắn bình tăng tốc ngay khi vừa bấm xây sẽ làm mất trắng `30 phút` đến hàng giờ giảm giá miễn phí mỗi ngày.",
+                  en: "**Always Wait for a Full Guild Help Bar**: Each guildmate tap directly cuts construction duration; using speed-ups immediately after starting an upgrade wastes `30 minutes` to several hours of free daily reduction.",
                 },
                 {
-                  vi: "Tăng Tốc độ Xây dựng (Construction Rate): Tướng Vàng Liên Minh Bard (+40% Tốc độ Xây dựng / Construction Rate ở Trait 3 Lv.30) — kích hoạt thụ động ngay trong kho tướng, không cần đưa vào đội hình ra trận.",
-                  en: "Construction Rate Boost: League Legendary SSR Hero Bard (+40% Construction Rate at Trait 3 Lv.30)—activates passively from your hero roster without needing to be deployed in a march queue.",
+                  vi: "**Tăng Tốc độ Xây dựng (Construction Rate)**: Tướng Vàng Liên Minh **Bard** (`+40%` Construction Rate ở `Trait 3 Lv.30`) — kích hoạt thụ động ngay trong kho tướng, không cần đưa vào đội hình ra trận.",
+                  en: "**Construction Rate Boost**: League Legendary SSR Hero **Bard** (`+40%` Construction Rate at `Trait 3 Lv.30`)—activates passively from your hero roster without needing to be deployed in a march queue.",
                 },
                 {
-                  vi: "Tăng Tốc độ Nghiên cứu (Tech Research Rate): Tướng Tím Brawler (+30% ở mốc 12 Sao / 2 Sao Trắng, Trait 3 Lv.30) cộng dồn với Tướng Vàng Shaman (+40% Tech Research Rate).",
-                  en: "Tech Research Rate Boost: Epic SSR Hero Brawler (+30% at 12-Star / 2-White-Star, Trait 3 Lv.30) stacking with Legendary Hero Shaman (+40% Tech Research Rate).",
+                  vi: "**Tăng Tốc độ Nghiên cứu (Tech Research Rate)**: Tướng Tím **Brawler** (`+30%` ở mốc `12 Sao` / `Trait 3 Lv.30`) cộng dồn với Tướng Vàng **Shaman** (`+40%` Tech Research Rate).",
+                  en: "**Tech Research Rate Boost**: Epic Hero **Brawler** (`+30%` at `12-Star` / `Trait 3 Lv.30`) stacking with Legendary Hero **Shaman** (`+40%` Tech Research Rate).",
                 },
                 {
-                  vi: "Tăng Tốc độ Huấn luyện Lính (Soldier Training Speed): Tướng Tím Knight (+30% ở mốc 12 Sao / Trait 3 Lv.30) cộng dồn với Tướng Vàng Hostess (+40% Soldier Training Speed).",
-                  en: "Soldier Training Speed Boost: Epic Hero Knight (+30% at 12-Star / Trait 3 Lv.30) stacking with Legendary Hero Hostess (+40% Soldier Training Speed).",
+                  vi: "**Tăng Tốc độ Huấn luyện Lính (Soldier Training Speed)**: Tướng Tím **Knight** (`+30%` ở mốc `12 Sao` / `Trait 3 Lv.30`) cộng dồn với Tướng Vàng **Hostess** (`+40%` Soldier Training Speed).",
+                  en: "**Soldier Training Speed Boost**: Epic Hero **Knight** (`+30%` at `12-Star` / `Trait 3 Lv.30`) stacking with Legendary Hero **Hostess** (`+40%` Soldier Training Speed).",
                 },
                 {
-                  vi: "Tăng Tốc độ Thu thập Tài nguyên (Gathering Speed): Bộ 3 Tướng Tím Ranger (+30% Ruby), Rogue (+30% Đá / Stone), Outlaw (+30% Gỗ / Timber) kết hợp Bộ 3 Tướng Vàng Headhunter (+40% Ruby), Stonemason (+40% Đá / Stone), Treeguard (+40% Gỗ / Timber).",
-                  en: "Resource Gathering Speed Boost: Epic trio Ranger (+30% Ruby), Rogue (+30% Stone), Outlaw (+30% Timber) paired with Legendary trio Headhunter (+40% Ruby), Stonemason (+40% Stone), and Treeguard (+40% Timber).",
+                  vi: "**Tốc độ Thu thập (Gathering Speed)**: Tím **Ranger** (`+30%` Ruby), **Rogue** (`+30%` Đá), **Outlaw** (`+30%` Gỗ) + Vàng **Headhunter** (`+40%` Ruby), **Stonemason** (`+40%` Đá), **Treeguard** (`+40%` Gỗ).",
+                  en: "**Gathering Speed**: Epic **Ranger** (`+30%` Ruby), **Rogue** (`+30%` Stone), **Outlaw** (`+30%` Timber) + SSR **Headhunter** (`+40%` Ruby), **Stonemason** (`+40%` Stone), **Treeguard** (`+40%` Timber).",
                 },
                 {
-                  vi: "Tăng Tốc độ Chữa thương Bệnh viện (Healing Speed): Bộ 3 Tướng Tím Minister / Priestess / Dancer (+30% Tốc độ Chữa thương mỗi tướng ở mốc 12 Sao / Trait 3 Lv.30).",
-                  en: "Hospital Healing Speed Boost: Epic trio Minister / Priestess / Dancer (+30% Healing Speed each at 12-Star / Trait 3 Lv.30).",
+                  vi: "**Tăng Tốc độ Chữa thương Bệnh viện (Healing Speed)**: Bộ 3 Tướng Tím **Minister** / **Priestess** / **Dancer** (`+30%` Tốc độ Chữa thương mỗi tướng ở mốc `12 Sao` / `Trait 3 Lv.30`).",
+                  en: "**Hospital Healing Speed Boost**: Epic trio **Minister** / **Priestess** / **Dancer** (`+30%` Healing Speed each at `12-Star` / `Trait 3 Lv.30`).",
                 },
               ],
             },
@@ -296,8 +296,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Tùy thuộc vào tuổi của Server và lộ trình Phe phái người chơi lựa chọn (Liên Minh / League, Bộ Lạc / Horde, Thiên Nhiên / Nature), trọng tâm điều phối của 3 Đội Thợ xây sẽ dịch chuyển qua 2 giai đoạn chiến lược rõ rệt:",
-            en: "Depending on server age and your chosen Faction path (League, Horde, or Nature), the operational focus of your 3 Builder Queues shifts across two distinct progression stages:",
+            vi: "Tùy thuộc vào tuổi Server và lộ trình Phe phái (`League`, `Horde`, `Nature`), trọng tâm điều phối của **3 Đội Thợ xây** sẽ dịch chuyển qua 2 giai đoạn chiến lược rõ rệt:",
+            en: "Depending on server age and your chosen Faction path (`League`, `Horde`, or `Nature`), the focus of your **3 Builder Queues** shifts across two distinct progression stages:",
           },
         },
       ],
@@ -412,8 +412,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                     en: "Morning Building Queue Audit: Zero Zzz (Idle) Builder Status",
                   },
                   detail: {
-                    vi: "Đảm bảo cả 3–4 Hàng đợi Thợ xây đều đang vận hành đúng phân luồng (Thợ 1 Lâu Đài, Thợ 2 Điều kiện & Doanh Trại Đội 1, Thợ 3 Hỗ trợ/Mồi sự kiện), không để thợ nghỉ quá 15 phút.",
-                    en: "Verify all 3–4 Builder Queues are actively assigned to their dedicated lanes (Builder 1 Castle, Builder 2 Prerequisites & Main Barracks, Builder 3 Support/Bait) with no queue idle for over 15 minutes.",
+                    vi: "Đảm bảo cả 3–4 Hàng đợi Thợ xây vận hành đúng phân luồng (Thợ 1 `Castle`, Thợ 2 Điều kiện & `Main Barracks`, Thợ 3 Hỗ trợ/Mồi sự kiện), không để thợ nghỉ quá `15 phút`.",
+                    en: "Verify all 3–4 Builder Queues run on their dedicated lanes (Builder 1 `Castle`, Builder 2 Prerequisites & `Main Barracks`, Builder 3 Support/Bait) with zero idle time over `15 minutes`.",
                   },
                   badge: {
                     vi: "MỖI SÁNG",
@@ -427,8 +427,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                     en: "Disable Auto-Assign & Manually Slot Top-Tier Villagers & Famous Villagers",
                   },
                   detail: {
-                    vi: "Tháo Dân làng khỏi Mỏ Gỗ/Đá và ưu tiên lắp tối đa vào Viện Nghiên Cứu (+3.20% Tech Speed & 432s), Hội (+5 Help Count), Lâu Đài (+2.00% Speed & 160s), Sảnh Huân Chương (+17.50% HP & +5.60% ATK) và Doanh Trại Hệ Chính (+4.40% Speed & +13 Cap).",
-                    en: "Remove high-tier Villagers from Timber/Stone mills and manually slot them into Research Cottage (+3.20% Tech Speed & 432s), Guild (+5 Help Count), Castle (+2.00% Speed & 160s), Medal Hall (+17.50% HP & +5.60% ATK), and Main Barracks (+4.40% Speed & +13 Cap).",
+                    vi: "Tháo Dân làng khỏi Mỏ Gỗ/Đá, gán vào `Research Cottage` (`+3.20%` & `432s`), `Guild` (`+5` Help), `Castle` (`+2.00%` & `160s`), `Medal Hall` (`+17.50%` HP & `+5.60%` ATK), `Main Barracks` (`+4.40%` & `+13`).",
+                    en: "Strip Villagers from mills and slot into `Research Cottage` (`+3.20%` & `432s`), `Guild` (`+5` Help), `Castle` (`+2.00%` & `160s`), `Medal Hall` (`+17.50%` HP & `+5.60%` ATK), `Main Barracks` (`+4.40%` & `+13`).",
                   },
                   badge: {
                     vi: "ƯU TIÊN S+",
@@ -442,8 +442,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                     en: "Verify Passive Economic Heroes (Bard +40%) & Full Guild Help Bar Before Speeding Up",
                   },
                   detail: {
-                    vi: "Đảm bảo Bard (+40% Construction Rate), Brawler (+30%) + Shaman (+40% Tech Rate), Knight (+30%) + Hostess (+40% Training Speed) đã nâng Trait 3 Lv.30 và thanh Trợ giúp Bang hội đã đầy 100% trước khi dùng bình Tăng tốc.",
-                    en: "Confirm Bard (+40% Construction Rate), Brawler (+30%) + Shaman (+40% Tech Rate), and Knight (+30%) + Hostess (+40% Training Speed) have Trait 3 Lv.30 active and your Guild Help bar is 100% full before consuming Speed-ups.",
+                    vi: "Đảm bảo **Bard** (`+40%`), **Brawler** (`+30%`) + **Shaman** (`+40%`), **Knight** (`+30%`) + **Hostess** (`+40%`) đã nâng `Trait 3 Lv.30` và thanh `Guild Help` đầy `100%` trước khi cắn bình Tăng tốc.",
+                    en: "Confirm **Bard** (`+40%`), **Brawler** (`+30%`) + **Shaman** (`+40%`), and **Knight** (`+30%`) + **Hostess** (`+40%`) have `Trait 3 Lv.30` active and `Guild Help` is `100%` full before using Speed-ups.",
                   },
                   badge: {
                     vi: "TRƯỚC KHI XẢ TĂNG TỐC",
@@ -457,8 +457,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                     en: "Queue Overnight Projects (8–12h+) at 23:00 & Bank Unopened Gift Boxes on Sunday",
                   },
                   detail: {
-                    vi: "Trước khi đi ngủ, nếu có hàng đợi còn dưới 1–2 giờ, hãy dùng một ít tăng tốc dứt điểm rồi bấm công trình dài 8–12+ giờ; vào Chủ Nhật giữ nguyên biểu tượng Gift Box trên mái nhà chờ Thứ Hai Tuần B.",
-                    en: "Before bed, if any queue has under 1–2 hours remaining, finish it with minor speed-ups and start an 8–12h+ overnight upgrade; on Sunday, leave completed Gift Box icons untouched on the roof for Monday Week B.",
+                    vi: "Trước khi ngủ, nếu hàng đợi còn dưới `1–2 giờ`, hãy dùng ít tăng tốc dứt điểm rồi bấm nhà dài `8–12+ giờ`; vào Chủ Nhật giữ nguyên biểu tượng `Gift Box` trên mái nhà chờ Thứ Hai Tuần B.",
+                    en: "Before bed, finish any queue under `1–2 hours` and start an `8–12h+` overnight upgrade; on Sunday, leave completed `Gift Box` icons untouched on the roof for Monday Week B.",
                   },
                   badge: {
                     vi: "23:00 MỖI TỐI",
@@ -481,8 +481,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Ba sai lầm vận hành dưới đây là nguyên nhân trực tiếp khiến hai tài khoản có cùng số lượng Thợ xây nhưng chênh lệch nhau từ 3 đến 5 cấp Lâu Đài và hàng chục ngàn điểm sự kiện mỗi tuần:",
-            en: "The three operational mistakes below explain why two accounts with the exact same number of Builder Queues end up 3 to 5 Castle levels apart and lose tens of thousands of weekly event points:",
+            vi: "Ba sai lầm vận hành dưới đây khiến hai tài khoản có cùng số lượng Thợ xây nhưng chênh lệch từ `3 đến 5 cấp Lâu Đài` và mất hàng chục ngàn điểm sự kiện mỗi tuần:",
+            en: "The three operational mistakes below explain why two accounts with the same Builder Queues end up `3 to 5 Castle levels` apart and lose tens of thousands of weekly points:",
           },
         },
         {
@@ -493,12 +493,12 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
           },
           headers: [
             {
-              vi: "❌ Sai Lầm Phổ Biến (Account Traps)",
-              en: "❌ Common Account Traps",
+              vi: "Sai Lầm Phổ Biến (Account Traps)",
+              en: "Common Account Traps",
             },
             {
-              vi: "✅ Giải Pháp Tối Ưu (Min-Max Solution)",
-              en: "✅ Min-Max Solution",
+              vi: "Giải Pháp Tối Ưu (Min-Max Solution)",
+              en: "Min-Max Solution",
             },
           ],
           rows: [
@@ -549,8 +549,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Trong Top Heroes, hệ thống Dân Làng (Villagers) và Dân Làng Danh Tiếng (Famous Villagers) không chỉ tăng sản lượng mỏ mà còn cung cấp các chỉ số chiến đấu toàn cục (+17.50% HP, +5.60% ATK toàn bộ lính) và cắt giảm trực tiếp thời gian nghiên cứu/xây dựng cực kỳ đắt giá. Dưới đây là bảng thông số định lượng chính xác từ Lv.1 đến Lv.6 trích xuất từ TopHeroes Tables - Max (Tab 🧑‍🌾Villagers):",
-            en: "In Top Heroes, the Villagers and Famous Villagers system does far more than boost resource mills—it grants massive global combat stats (+17.50% HP and +5.60% ATK to all soldiers) and directly slashes base research and construction timers. Below is the complete Lv.1 to Lv.6 quantitative dataset extracted from TopHeroes Tables - Max (Tab 🧑‍🌾Villagers):",
+            vi: "**Gia tăng Chiến đấu & Kinh tế**: Hệ thống **Dân Làng** (`Villagers`) và **Famous Villagers** cộng chỉ số toàn cục (`+17.50%` HP, `+5.60%` ATK toàn bộ lính) và giảm trực tiếp thời gian nghiên cứu/xây dựng.\n• **Nguồn dữ liệu**: Bảng thông số định lượng chính xác từ `Lv.1 ➔ Lv.6` dưới đây được trích xuất từ **TopHeroes Tables - Max** (`Tab Villagers`):",
+            en: "**Global Combat & Speed Boosts**: The **Villagers** and **Famous Villagers** system grants massive global combat stats (`+17.50%` HP and `+5.60%` ATK to all soldiers) and directly slashes research/build timers.\n• **Data Source**: Below is the complete `Lv.1 ➔ Lv.6` quantitative dataset extracted from **TopHeroes Tables - Max** (`Tab Villagers`):",
           },
         },
       ],
@@ -613,8 +613,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
             {
               type: "table",
               caption: {
-                vi: "Bảng 4.1: Bảng Thông Số Định Lượng Dân Làng & Dân Làng Danh Tiếng (Villagers & Famous Villagers Lv.1 ➔ Lv.6 — Tab 🧑‍🌾Villagers)",
-                en: "Table 4.1: Quantitative Villagers & Famous Villagers Skill Matrix (Lv.1 ➔ Lv.6 — Tab 🧑‍🌾Villagers)",
+                vi: "Bảng 4.1: Bảng Thông Số Định Lượng Dân Làng & Dân Làng Danh Tiếng (Villagers & Famous Villagers Lv.1 ➔ Lv.6 — Tab Villagers)",
+                en: "Table 4.1: Quantitative Villagers & Famous Villagers Skill Matrix (Lv.1 ➔ Lv.6 — Tab Villagers)",
               },
               headers: [
                 {
@@ -661,8 +661,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
               rows: [
                 [
                   {
-                    vi: "🔥 S+ (Số 1)",
-                    en: "🔥 S+ (#1)",
+                    vi: "[S+ ★] (Số 1)",
+                    en: "[S+ ★] (#1)",
                   },
                   {
                     vi: "Viện Nghiên Cứu (Research Cottage)",
@@ -703,8 +703,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "🔥 S+ (Số 1)",
-                    en: "🔥 S+ (#1)",
+                    vi: "[S+ ★] (Số 1)",
+                    en: "[S+ ★] (#1)",
                   },
                   {
                     vi: "Viện Nghiên Cứu (Research Cottage)",
@@ -745,8 +745,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "🔥 S+ (Số 2)",
-                    en: "🔥 S+ (#2)",
+                    vi: "[S+ ★] (Số 2)",
+                    en: "[S+ ★] (#2)",
                   },
                   {
                     vi: "Hội (Guild)",
@@ -787,8 +787,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "🔥 S+ (Số 2)",
-                    en: "🔥 S+ (#2)",
+                    vi: "[S+ ★] (Số 2)",
+                    en: "[S+ ★] (#2)",
                   },
                   {
                     vi: "Lâu Đài (Castle)",
@@ -829,8 +829,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "🔥 S+ (Số 2)",
-                    en: "🔥 S+ (#2)",
+                    vi: "[S+ ★] (Số 2)",
+                    en: "[S+ ★] (#2)",
                   },
                   {
                     vi: "Lâu Đài (Castle)",
@@ -871,8 +871,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "⚔️ S (Số 3)",
-                    en: "⚔️ S (#3)",
+                    vi: "S (Số 3)",
+                    en: "S (#3)",
                   },
                   {
                     vi: "Sảnh Huân Chương (Medal Hall)",
@@ -913,8 +913,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "⚔️ S (Số 3)",
-                    en: "⚔️ S (#3)",
+                    vi: "S (Số 3)",
+                    en: "S (#3)",
                   },
                   {
                     vi: "Sảnh Huân Chương (Medal Hall)",
@@ -955,8 +955,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "⚔️ S (Số 3)",
-                    en: "⚔️ S (#3)",
+                    vi: "S (Số 3)",
+                    en: "S (#3)",
                   },
                   {
                     vi: "Doanh Trại 3 Hệ (League / Horde / Nature Barracks)",
@@ -997,8 +997,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "⚔️ S (Số 3)",
-                    en: "⚔️ S (#3)",
+                    vi: "S (Số 3)",
+                    en: "S (#3)",
                   },
                   {
                     vi: "Doanh Trại 3 Hệ & Troop Skin Center",
@@ -1039,8 +1039,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "🛡️ A+ (Số 4)",
-                    en: "🛡️ A+ (#4)",
+                    vi: "A+ (Số 4)",
+                    en: "A+ (#4)",
                   },
                   {
                     vi: "Tượng Phe Phái (League / Horde / Nature Statue)",
@@ -1081,8 +1081,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "🛡️ A+ (Số 4)",
-                    en: "🛡️ A+ (#4)",
+                    vi: "A+ (Số 4)",
+                    en: "A+ (#4)",
                   },
                   {
                     vi: "Tượng Anh Hùng (Hero Statue)",
@@ -1123,8 +1123,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "🏥 A (Số 5)",
-                    en: "🏥 A (#5)",
+                    vi: "A (Số 5)",
+                    en: "A (#5)",
                   },
                   {
                     vi: "Bệnh Viện (Hospital)",
@@ -1165,8 +1165,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "💎 B (Số 6)",
-                    en: "💎 B (#6)",
+                    vi: "B (Số 6)",
+                    en: "B (#6)",
                   },
                   {
                     vi: "Mỏ Đá Vân / Mỏ Huân Chương / Mỏ Ruby",
@@ -1207,8 +1207,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "🗺️ B (Số 7)",
-                    en: "🗺️ B (#7)",
+                    vi: "B (Số 7)",
+                    en: "B (#7)",
                   },
                   {
                     vi: "Đội Hình (Queue)",
@@ -1261,8 +1261,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Để vừa không lãng phí bất kỳ giây phút nào của 3–4 Hàng đợi Thợ xây, vừa gom trọn vẹn 100% điểm số của Tuần A (Guild Race) và Tuần B (Arms Race Day 1 — Thứ Hai), hãy áp dụng sơ đồ điều phối nhịp sinh học 7 ngày dưới đây:",
-                en: "To guarantee zero wasted builder seconds across 3–4 Builder Queues while capturing 100% of event points in Week A (Guild Race) and Week B (Monday Arms Race Day 1), execute the 7-day biological & event-sync timeline below:",
+                vi: "Để không lãng phí giây phút nào của **3–4 Hàng đợi Thợ xây** và gom trọn `100%` điểm số của Tuần A (`Guild Race`) lẫn Tuần B (`Arms Race Day 1`), hãy áp dụng sơ đồ điều phối nhịp sinh học 7 ngày dưới đây:",
+                en: "To guarantee zero wasted seconds across **3–4 Builder Queues** while capturing `100%` of points in Week A (`Guild Race`) and Week B (`Arms Race Day 1`), execute the 7-day biological & event-sync timeline below:",
               },
             },
             {
@@ -1284,8 +1284,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                   en: "7-DAY SYNC PROTOCOL",
                 },
                 title: {
-                  vi: "👷 LỊCH TRÌNH NHỊP SINH HỌC NGÀY/ĐÊM & KỸ THUẬT GĂM HỘP QUÀ (SLEEP-CYCLE & GIFT BOX BANKING)",
-                  en: "👷 DAY/NIGHT SLEEP-CYCLE & UNOPENED ROOFTOP GIFT BOX BANKING PROTOCOL",
+                  vi: "LỊCH TRÌNH NHỊP SINH HỌC NGÀY/ĐÊM & KỸ THUẬT GĂM HỘP QUÀ (SLEEP-CYCLE & GIFT BOX BANKING)",
+                  en: "DAY/NIGHT SLEEP-CYCLE & UNOPENED ROOFTOP GIFT BOX BANKING PROTOCOL",
                 },
                 subtitle: {
                   vi: "0 phút thợ nhàn rỗi + Bảo lưu 100% điểm Lực chiến công trình sang Thứ Hai Tuần B (Arms Race Day 1)",
@@ -1443,8 +1443,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                 },
               ],
               footnote: {
-                vi: "Nguồn: Quy trình chuẩn hóa từ 8.2-builder-queues-and-villagers.md & TopHeroes Tables - Max (🧑‍🌾Villagers).",
-                en: "Source: Standardized workflow from 8.2-builder-queues-and-villagers.md & TopHeroes Tables - Max (🧑‍🌾Villagers).",
+                vi: "Nguồn: Quy trình chuẩn hóa từ 8.2-builder-queues-and-villagers.md & TopHeroes Tables - Max (Tab Villagers).",
+                en: "Source: Standardized workflow from 8.2-builder-queues-and-villagers.md & TopHeroes Tables - Max (Tab Villagers).",
               },
             },
           ],
@@ -1461,12 +1461,12 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
               ordered: false,
               items: [
                 {
-                  vi: "Trong Tuần A (Tuần Thi Đấu Hội / Guild Race): Bạn có thể xả Tăng tốc Xây dựng vào bất kỳ ngày nào trong tuần, nhưng BẮT BUỘC chỉ được bấm cắn bình tăng tốc ngay sau khi vừa bấm 'Nhận' một Nhiệm Vụ Vàng (Legendary Task) trên bảng Thi Đấu Hội có yêu cầu 'Sử dụng X phút Tăng tốc Xây dựng' hoặc 'Tăng X điểm Lực chiến Công trình'. Nếu có sự kiện phụ 2–3 ngày như Guild Rush hoặc Ultimate Power trùng vào Ngày 5–7 (Thứ Sáu – Chủ Nhật), hãy ưu tiên dồn việc nhận Nhiệm vụ Vàng Công trình vào khung giờ đó để ăn Double-Dip.",
-                  en: "During Week A (Guild Race Week): You may spend Construction Speed-ups on any day of the week, but ONLY immediately after accepting a Legendary (Gold) Task on the Guild Race board requiring 'Use X minutes of Construction Speed-ups' or 'Increase Building Power by X'. When 2–3 day sub-events like Guild Rush or Ultimate Power overlap on Days 5–7 (Friday–Sunday), stack your Gold Construction tasks inside that window for a Double-Dip.",
+                  vi: "**Tuần A (Guild Race)**: Chỉ xả Tăng tốc Xây dựng ngay sau khi vừa nhận **Nhiệm Vụ Vàng** (`Legendary Task`) yêu cầu tăng tốc/lực chiến công trình; ưu tiên ghép vào Thứ Sáu–Chủ Nhật nếu trùng `Guild Rush`.",
+                  en: "**Week A (Guild Race)**: Only spend Construction Speed-ups right after accepting a **Legendary Task** requiring build speed-ups or power; stack them on Friday–Sunday when `Guild Rush` or `Ultimate Power` overlaps.",
                 },
                 {
-                  vi: "Trong Tuần B (Tuần Đua Vũ Trang GAR / KvK / Top Lord): Đóng băng 100% bình Tăng tốc Xây dựng từ Thứ Ba đến Chủ Nhật. Chỉ xả tập trung vào Thứ Hai (Ngày 1 của GAR — Xây dựng Lãnh thổ / Territory & Construction), đặc biệt canh đúng Khung giờ Vàng (thường từ 13:00 – 17:00 hoặc theo giờ mở vòng Build của cụm Server) để vừa lấy trọn 6 mốc rương cá nhân (bao gồm Hộp Thứ 6 Extra Rewards), vừa leo Top bảng xếp hạng ngày.",
-                  en: "During Week B (Guild Arms Race GAR / KvK / Top Lord Week): Freeze 100% of Construction Speed-ups from Tuesday through Sunday. Concentrate all building speed-up bursts exclusively on Monday (GAR Day 1 — Territory & Construction), timing your push inside the Golden Window (typically 13:00–17:00 server schedule) to unlock all 6 personal milestone chests (including the 6th Extra Rewards chest) while competing for daily leaderboard ranks.",
+                  vi: "**Tuần B (GAR / KvK / Top Lord)**: Đóng băng `100%` bình Tăng tốc Xây dựng từ Thứ Ba đến Chủ Nhật; chỉ xả vào **Thứ Hai** (`GAR Day 1`) đúng Khung giờ Vàng (`13:00–17:00`) để mở trọn 6 rương (`Extra Rewards`).",
+                  en: "**Week B (GAR / KvK / Top Lord)**: Freeze `100%` of Construction Speed-ups from Tuesday to Sunday; burst exclusively on **Monday** (`GAR Day 1`) inside the `13:00–17:00` Golden Window to clear all 6 chests.",
                 },
               ],
             },
@@ -1510,8 +1510,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
             en: "Friday Prerequisite Pre-Cooking & Sunday Rooftop Gift Box Banking for a Castle Lv.27 Account",
           },
           profileSummary: {
-            vi: "Bài toán mẫu: Tài khoản sở hữu 3 Hàng đợi Thợ xây đang ở tối Thứ Sáu của Tuần A, Lâu Đài đang ở Lv.27 và muốn chuẩn bị bùng nổ điểm tối đa cho Thứ Hai Tuần B (Arms Race Day 1) chỉ với một nửa lượng bình tăng tốc thông thường.",
-            en: "Scenario: A 3-Builder-Queue account on Friday evening of Week A at Castle Lv.27 preparing to maximize construction points on Monday of Week B (Arms Race Day 1) using only half the normal speed-up budget.",
+            vi: "Tài khoản sở hữu **3 Hàng đợi Thợ xây** ở tối Thứ Sáu Tuần A (`Castle Lv.27`) chuẩn bị bùng nổ điểm tối đa cho **Thứ Hai Tuần B** (`Arms Race Day 1`) chỉ với `50%` lượng bình tăng tốc thông thường.",
+            en: "A **3-Builder-Queue** account on Friday evening of Week A (`Castle Lv.27`) preparing to maximize construction points on **Monday Week B** (`Arms Race Day 1`) using only `50%` of the normal speed-up budget.",
           },
           metrics: [
             {
@@ -1571,12 +1571,12 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
           ],
           diagnostics: [
             {
-              vi: "Phân tích Quy luật Luân phiên Chẵn / Lẻ tại mốc Lv.27 ➔ Lv.29: Lâu Đài Lv.28 (cấp chẵn) yêu cầu bộ đôi điều kiện Guild (Lv.27) và Training Ground (Lv.27). Ngay sau đó, Lâu Đài Lv.29 (cấp lẻ) sẽ yêu cầu bộ đôi điều kiện Research Cottage (Lv.28) và Hospital (Lv.28).",
-              en: "Even/Odd Prerequisite Audit from Lv.27 ➔ Lv.29: Castle Lv.28 (even level) requires Guild (Lv.27) and Training Ground (Lv.27). Immediately afterward, Castle Lv.29 (odd level) requires Research Cottage (Lv.28) and Hospital (Lv.28).",
+              vi: "**Phân tích Quy luật Chẵn / Lẻ (`Lv.27 ➔ Lv.29`)**: `Castle Lv.28` (cấp chẵn) đòi bộ đôi `Guild Lv.27` + `Training Ground Lv.27`; ngay sau đó `Castle Lv.29` (cấp lẻ) đòi `Research Cottage Lv.28` + `Hospital Lv.28`.",
+              en: "**Even/Odd Prerequisite Audit (`Lv.27 ➔ Lv.29`)**: `Castle Lv.28` (even) requires `Guild Lv.27` + `Training Ground Lv.27`; immediately after, `Castle Lv.29` (odd) requires `Research Cottage Lv.28` + `Hospital Lv.28`.",
             },
             {
-              vi: "Cơ chế Tách Biệt Hàng Đợi và Hộp Quà Mái Nhà: Khi Guild Lv.27 (~36 giờ) và Training Ground Lv.27 (~38 giờ) chạy xong vào sáng Chủ Nhật, hàng đợi Thợ 1 và Thợ 2 đã lập tức rảnh rỗi, nhưng điểm Lực chiến vẫn nằm nguyên trong biểu tượng Gift Box trên nóc nhà cho đến khi người chơi chạm tay vào.",
-              en: "Queue Release vs. Rooftop Gift Box Separation: When Guild Lv.27 (~36h) and Training Ground Lv.27 (~38h) finish their countdowns on Sunday morning, Builder Queues 1 and 2 are immediately free, while the Building Power points remain stored inside the rooftop Gift Box icon until tapped.",
+              vi: "**Tách Biệt Hàng Đợi & Hộp Quà**: Khi `Guild Lv.27` (`~36h`) và `Training Ground Lv.27` (`~38h`) xong sáng Chủ Nhật, Thợ 1 & 2 lập tức rảnh nhưng điểm Lực chiến vẫn nằm nguyên trong `Gift Box` trên mái nhà.",
+              en: "**Queue Release vs. Gift Box**: When `Guild Lv.27` (`~36h`) and `Training Ground Lv.27` (`~38h`) finish Sunday morning, Builders 1 & 2 free up immediately while Building Power stays banked inside the `Gift Box`.",
             },
           ],
           recoverySteps: [
@@ -1587,8 +1587,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                 en: "Friday Afternoon (Week A): Initiate Prerequisite Pre-Cooking",
               },
               detail: {
-                vi: "Kiểm tra điều kiện của Lâu Đài Lv.28: Dùng Thợ 1 bấm nâng Guild (Lv.26 ➔ 27, mất ~36 giờ) và dùng Thợ 2 bấm nâng Training Ground (Lv.26 ➔ 27, mất ~38 giờ), xin đầy thanh Guild Help để cả hai công trình tự chạy xuyên Thứ Bảy.",
-                en: "Check Castle Lv.28 prerequisites: Assign Builder 1 to upgrade Guild (Lv.26 ➔ 27, ~36 hours) and Builder 2 to upgrade Training Ground (Lv.26 ➔ 27, ~38 hours), filling the Guild Help bar so both projects run naturally through Saturday.",
+                vi: "Kiểm tra điều kiện của `Castle Lv.28`: Dùng Thợ 1 nâng `Guild` (`Lv.26 ➔ 27`, `~36h`) và Thợ 2 nâng `Training Ground` (`Lv.26 ➔ 27`, `~38h`), xin đầy `Guild Help` để tự chạy xuyên Thứ Bảy.",
+                en: "Check `Castle Lv.28` prerequisites: Assign Builder 1 to `Guild` (`Lv.26 ➔ 27`, `~36h`) and Builder 2 to `Training Ground` (`Lv.26 ➔ 27`, `~38h`), filling `Guild Help` so both run through Saturday.",
               },
               impactBadge: {
                 vi: "CHẠY TỰ NHIÊN 36H–38H",
@@ -1602,8 +1602,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                 en: "Sunday Morning: Execute Rooftop 'Gift Box Banking'",
               },
               detail: {
-                vi: "Sáng Chủ Nhật, cả Guild Lv.27 và Training Ground Lv.27 đều hoàn tất đếm ngược và hiện biểu tượng Hộp Quà (Gift Box) trên nóc nhà. Giữ nguyên không chạm vào 2 công trình đó để bảo lưu điểm Lực chiến, hoặc chỉ khui đúng 1 công trình vừa đủ điều kiện để bấm tiếp Thợ 1 vào Lâu Đài (Lv.27 ➔ 28, mất 60 giờ) cho chạy tự nhiên qua đêm Chủ Nhật.",
-                en: "On Sunday morning, both Guild Lv.27 and Training Ground Lv.27 finish their countdowns and display rooftop Gift Box icons. Leave the Gift Boxes untouched to bank their Building Power, or pop only the minimum prerequisite needed to start Builder 1 on Castle (Lv.27 ➔ 28, 60 hours) so it ticks down naturally overnight.",
+                vi: "Sáng Chủ Nhật, cả `Guild Lv.27` và `Training Ground Lv.27` hoàn tất đếm ngược và hiện biểu tượng **Hộp Quà** (`Gift Box`) trên mái nhà.\n• **Bảo lưu điểm**: Giữ nguyên không chạm vào Hộp Quà, hoặc chỉ khui đúng 1 nhà điều kiện để bấm tiếp Thợ 1 vào `Castle Lv.27 ➔ 28` (`60h`) chạy qua đêm Chủ Nhật.",
+                en: "On Sunday morning, both `Guild Lv.27` and `Training Ground Lv.27` finish their countdowns and display rooftop **Gift Box** icons.\n• **Bank Power**: Leave the Gift Boxes untouched, or pop only the minimum prerequisite needed to start Builder 1 on `Castle Lv.27 ➔ 28` (`60h`) overnight.",
               },
               impactBadge: {
                 vi: "BẢO LƯU HỘP QUÀ MÁI NHÀ",
@@ -1617,8 +1617,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                 en: "Monday Week B (Golden Window): Pop Gift Boxes & Clear All 6 Arms Race Chests",
               },
               detail: {
-                vi: "Đúng giờ mở vòng Công trình vào Thứ Hai: Bấm khui toàn bộ Hộp Quà công trình đã ngâm, sau đó dùng Tăng tốc Xây dựng kết thúc Lâu Đài Lv.28 và bấm tiếp Research Cottage (Lv.27 ➔ 28) + Hospital (Lv.27 ➔ 28) — hoàn thành toàn bộ 6 rương thưởng Arms Race (gồm Hộp Thứ 6 Extra Rewards) chỉ với 50% lượng bình tăng tốc thông thường!",
-                en: "At Monday's Construction window open: Tap all banked rooftop Gift Boxes, use Construction Speed-ups to finish Castle Lv.28, and immediately queue Research Cottage (Lv.27 ➔ 28) + Hospital (Lv.27 ➔ 28)—unlocking all 6 Arms Race chests (including the 6th Extra Rewards chest) with just 50% of normal speed-up expenditure!",
+                vi: "Đúng giờ mở vòng Công trình Thứ Hai: Bấm khui toàn bộ `Gift Box` đã ngâm, dùng Tăng tốc Xây dựng kết thúc `Castle Lv.28` và bấm tiếp `Research Cottage Lv.28` + `Hospital Lv.28`.\n• **Kết quả**: Hoàn thành trọn **6 rương Arms Race** (gồm Hộp Thứ 6 `Extra Rewards`) chỉ với `50%` lượng bình tăng tốc thông thường!",
+                en: "At Monday's Construction open: Tap all banked rooftop `Gift Boxes`, use Construction Speed-ups to finish `Castle Lv.28`, and queue `Research Cottage Lv.28` + `Hospital Lv.28`.\n• **Result**: Unlocks all **6 Arms Race chests** (including the 6th `Extra Rewards` chest) using just `50%` of normal speed-ups!",
               },
               impactBadge: {
                 vi: "ĐẠT 6/6 RƯƠNG VỚI 50% TĂNG TỐC",
@@ -1627,8 +1627,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
             },
           ],
           conclusion: {
-            vi: "Kết hợp kỷ luật chuyên môn hóa 3–4 Hàng đợi Thợ xây, gán thủ công Dân làng (Villagers Lv.1–6) vào các công trình trọng điểm và kỹ thuật Ngâm Hộp Quà Mái Nhà (Gift Box Banking) giúp người chơi F2P/Low-Spender nhân đôi hiệu suất điểm sự kiện công trình mà không tốn thêm bất kỳ viên Kim Cương nào.",
-            en: "Combining specialized 3–4 Builder Queue routing, manual Villager (Lv.1–6) assignment into high-ROI buildings, and Sunday Rooftop Gift Box Banking allows F2P and Low-Spender commanders to double their weekly construction event output without spending a single extra Diamond.",
+            vi: "Kết hợp chuyên môn hóa **3–4 Hàng đợi Thợ xây**, gán thủ công **Dân làng** (`Villagers Lv.1–6`) và kỹ thuật **Ngâm Hộp Quà** (`Gift Box Banking`) giúp F2P nhân đôi hiệu suất điểm công trình mà không tốn thêm Kim Cương.",
+            en: "Combining specialized **3–4 Builder Queues**, manual **Villager** (`Lv.1–6`) assignment, and Sunday **Gift Box Banking** allows F2P commanders to double weekly construction event output without spending extra Diamonds.",
           },
         },
       ],

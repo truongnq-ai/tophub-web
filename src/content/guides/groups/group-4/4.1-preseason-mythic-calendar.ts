@@ -16,30 +16,30 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
   },
   tldr: {
     coreRule: {
-      vi: "Lịch ra mắt Tướng Thần Thoại / Tướng Đỏ (Mythic Heroes) được lập trình cố định theo Số ngày tuổi của Máy chủ (Server Age). Biết trước ngày tướng xuất hiện là chìa khóa duy nhất giúp F2P/Low-Spender tích đủ 30,000 – 50,000 Kim Cương (Diamonds) để mở khóa ngay lập tức.",
-      en: "Mythic Hero release dates are strictly programmed by Server Age in days. Knowing exact drop dates is the only way for F2P and Low-Spender players to save 30,000 – 50,000 Diamonds to unlock core Mythics on day one.",
+      vi: "**Lịch ra mắt Tướng Đỏ (Mythic Heroes) được lập trình cố định theo Số ngày tuổi của Máy chủ (Server Age).**\n• **Quản trị Quỹ Kim Cương:** Biết trước ngày tướng xuất hiện giúp F2P/Low-Spender tích đủ `30,000 – 50,000` Kim Cương mở khóa ngay Ngày 1.",
+      en: "**Mythic Hero release dates are strictly programmed by Server Age in days.**\n• **Diamond Reserve Discipline:** Knowing exact drop dates lets F2P/Low-Spender players save `30,000 – 50,000` Diamonds to unlock core Mythics on Day 1.",
     },
     immediateAction: {
-      vi: "Kiểm tra tuổi Server qua Thành tựu Đăng nhập hoặc Event ➔ Lịch Event (cột 09:00 Thứ Hai), khóa chặt 100% Kim Cương và Mảnh Tướng Vàng Vạn Năng trong 20 ngày đầu để đón làn sóng Tướng Đỏ Bộ Lạc từ Ngày 21 (Desert Prince) và Ngày 27 (Storm Maiden).",
-      en: "Check your Server Age via Login Achievements or the Weekly Event Schedule (Monday 09:00 column), and lock 100% of your Diamonds and Universal Legendary Shards during the first 20 days to greet the Horde Mythic wave starting Day 21 (Desert Prince) and Day 27 (Storm Maiden).",
+      vi: "**Kiểm tra tuổi Server qua Thành tựu Đăng nhập hoặc Event ➔ Lịch Event (cột `09:00` Thứ Hai).**\n• **Khóa Kho 20 Ngày Đầu:** Đóng băng `100%` Kim Cương và Mảnh Vạn Năng để đón sóng Bộ Lạc từ `Ngày 21` (Desert Prince) ➔ `Ngày 27` (Storm Maiden).",
+      en: "**Check your Server Age via Login Achievements or the Weekly Event Schedule (Monday `09:00` column).**\n• **20-Day Resource Lock:** Freeze `100%` of Diamonds and Universal Shards to greet the Horde wave on `Day 21` (Desert Prince) ➔ `Day 27` (Storm Maiden).",
     },
     strictTaboo: {
-      vi: "Tuyệt đối KHÔNG xả Kim Cương vào Vòng Quay May Mắn (Lucky Wheel) hoặc Xúc Xắc (Treasure Dice) của những tướng Đỏ trái với Hệ Mục Tiêu (Main Faction) của Đội hình 1 (chỉ quay lượt miễn phí hàng ngày), và KHÔNG tiêu sạch Xu Sự Kiện lẻ vì Xu Wheel/Dice được bảo lưu xuyên kỳ.",
-      en: "NEVER dump Diamonds into Lucky Wheel or Treasure Dice banners featuring Mythic heroes outside your Queue 1 Main Faction (only use free daily spins), and NEVER waste leftover Wheel/Dice shop tokens on filler items because event tokens carry over across future banners.",
+      vi: "**Tuyệt đối KHÔNG xả Kim Cương vào Vòng Quay (Lucky Wheel) hoặc Xúc Xắc (Treasure Dice) trái Hệ Đội 1.**\n• **Kỷ Luật Lượt Quay & Xu Lẻ:** Chỉ quay lượt miễn phí ở banner trái hệ và KHÔNG tiêu Xu lẻ vì Xu Wheel/Dice được bảo lưu xuyên kỳ (`150–300` Xu).",
+      en: "**NEVER dump Diamonds into Lucky Wheel or Treasure Dice banners outside your Queue 1 Main Faction.**\n• **Spin & Token Discipline:** Use only free daily spins on off-faction banners and NEVER waste leftover Wheel/Dice tokens since they carry over (`150–300` Tokens).",
     },
   },
   keyTakeaways: [
     {
-      vi: "Lịch chuẩn Tướng Đỏ S0: Ngày 21 Desert Prince (Bộ Lạc) ➔ Ngày 27 Storm Maiden (Bộ Lạc) ➔ Ngày 35 Paragon (Liên Minh) ➔ Ngày 41 Witch (Bộ Lạc) ➔ Ngày 46 Rose Princess & Bishop (Liên Minh) ➔ Ngày 42–65 Tidecaller & Monk (Thiên Nhiên; lưu ý Brawler là Tướng Tím Kinh tế, Pixie là SSR Vàng, còn Petalis ra mắt ở Season 3).",
-      en: "Exact S0 Mythic Schedule: Day 21 Desert Prince (Horde) ➔ Day 27 Storm Maiden (Horde) ➔ Day 35 Paragon (League) ➔ Day 41 Witch (Horde) ➔ Day 46 Rose Princess & Bishop (League) ➔ Days 42–65 Tidecaller & Monk (Nature; note Brawler is an Economy Epic, Pixie is a Legendary SSR, and Petalis drops in Season 3).",
+      vi: "**Lịch chuẩn Tướng Đỏ S0:** `Ngày 21` Desert Prince ➔ `Ngày 27` Storm Maiden ➔ `Ngày 35` Paragon ➔ `Ngày 41` Witch ➔ `Ngày 46` Rose Princess & Bishop.\n• **Đợt Thiên Nhiên & Đính chính:** `Ngày 42–65` mở Tidecaller & Monk (Brawler là Tướng Tím Kinh tế, Pixie là SSR Vàng, Ne Zha ra ở S1, còn Petalis ra mắt ở Season 3).",
+      en: "**Exact S0 Mythic Schedule:** `Day 21` Desert Prince ➔ `Day 27` Storm Maiden ➔ `Day 35` Paragon ➔ `Day 41` Witch ➔ `Day 46` Rose Princess & Bishop.\n• **Nature Wave & Clarifications:** `Days 42–65` unlock Tidecaller & Monk (Brawler is an Economy Epic, Pixie is a Legendary SSR, Ne Zha drops in S1, and Petalis drops in Season 3).",
     },
     {
-      vi: "Chuẩn quy đổi Sao Tướng Đỏ (Mythic): 1 Sao Đỏ (6 Sao tổng) tốn 160 mảnh Mythic (80 mảnh Legendary); 5 Sao Đỏ (10 Sao tổng) tốn 400 mảnh Mythic; 1 Sao Trắng / Bạc (11 Sao tổng, điểm gãy +30% sức mạnh kỹ năng) tốn 560 mảnh Mythic (280 mảnh Legendary); 5 Sao Trắng (15 Sao tổng) tốn 1,000 mảnh Mythic.",
-      en: "Mythic Star Conversion Standard: 1-Red Star (6 Total Stars) costs 160 Mythic shards (80 Legendary shards); 5-Red Stars (10 Total Stars) costs 400 Mythic shards; 1-White/Silver Star (11 Total Stars, +30% skill power breakpoint) costs 560 Mythic shards (280 Legendary shards); 5-White Stars (15 Total Stars) costs 1,000 Mythic shards.",
+      vi: "**Chuẩn quy đổi Sao Tướng Đỏ (Mythic):** `1★ Đỏ` (6 Sao tổng) tốn `160` mảnh Mythic (`80` mảnh Legendary); `5★ Đỏ` (10 Sao tổng) tốn `400` mảnh Mythic.\n• **Mốc Đột Phá Kỹ Năng:** `1★ Trắng/Bạc` (11 Sao tổng, điểm gãy `+30%` kỹ năng) tốn `560` mảnh Mythic (`280` mảnh Legendary) ➔ `5★ Trắng` (15 Sao) tốn `1,000` mảnh Mythic.",
+      en: "**Mythic Star Conversion Standard:** `1★ Red` (6 Total Stars) costs `160` Mythic shards (`80` Legendary shards); `5★ Red` (10 Total Stars) costs `400` Mythic shards.\n• **Skill Power Breakpoint:** `1★ White/Silver` (11 Total Stars, `+30%` skill power) costs `560` Mythic shards (`280` Legendary shards) ➔ `5★ White` (15 Stars) costs `1,000` Mythic shards.",
     },
     {
-      vi: "Ba điểm gãy Vòng Quay (Lucky Wheel) & Xúc Xắc (Treasure Dice): 25–35 lượt (9,000–12,000 KC mở khóa 10 mảnh 0 Sao), 70–100 lượt (22,000–30,000 KC đạt ROI tối ưu F2P nhận 25–40 mảnh + 120–180 Xu), và 150–300 lượt (gom đủ 300 Xu Sự Kiện đổi Rương Vũ Khí Độc Quyền).",
-      en: "Three Wheel & Dice Spin Breakpoints: 25–35 spins (9,000–12,000 Diamonds for 10 shards base unlock), 70–100 spins (22,000–30,000 Diamonds optimal F2P ROI yielding 25–40 shards + 120–180 tokens), and 150–300 spins (300 Event Tokens for an Exclusive Weapon Choice Chest).",
+      vi: "**Ba điểm gãy Vòng Quay (Lucky Wheel) & Xúc Xắc (Treasure Dice):** `25–35` lượt (`9,000–12,000` KC) mở khóa `10` mảnh tướng `0★`.\n• **Mốc Tối Ưu & Vũ Khí:** `70`–`100` lượt (`22,000–30,000` KC) đạt ROI tối ưu F2P (`25–40` mảnh + `120–180` Xu), và `150–300` lượt gom đủ `300` Xu đổi Rương Vũ Khí Độc Quyền.",
+      en: "**Three Wheel & Dice Spin Breakpoints:** `25–35` spins (`9,000–12,000` Diamonds) for `10` shards base `0★` unlock.\n• **Optimal ROI & Weapon Tier:** `70`–`100` spins (`22,000–30,000` Diamonds) for peak F2P ROI (`25–40` shards + `120–180` tokens), and `150–300` spins (`300` Tokens) for an Exclusive Weapon Chest.",
     },
   ],
   keywords: [
@@ -83,8 +83,8 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Giai đoạn Tiền Mùa Giải (Pre-Season / Season 0 — từ Ngày 1 đến khoảng Ngày 65) là giai đoạn đặt nền móng quan trọng nhất của mọi máy chủ. Toàn bộ các sự kiện lớn, cấp độ Di Tích (Ruins Lv.1–5), Chiến tranh Cây Thế Giới bầu Quốc Vương (First Throne War) và sự xuất hiện của các Tướng Đỏ (Mythic Heroes) đều chạy theo một đồng hồ đếm ngược cố định kể từ ngày máy chủ chính thức mở cửa.",
-            en: "The Pre-Season (Season 0 — Day 1 to roughly Day 65) is the most critical foundation phase of every server. All major events, Ruins levels (Ruins Lv.1–5), the First Throne War for King election, and the arrival of Mythic Heroes follow a fixed countdown clock from the server's official launch date.",
+            vi: "**Giai đoạn Tiền Mùa Giải (`Pre-Season / S0` — `Ngày 1` ➔ `Ngày 65`) là giai đoạn đặt nền móng quan trọng nhất của mọi máy chủ.**\n• **Đồng hồ đếm ngược cố định:** Mọi sự kiện lớn, Di Tích (`Ruins Lv.1–5`), Chiến tranh Cây Thế Giới (`First Throne War`) và lịch Tướng Đỏ đều chạy theo số ngày mở máy chủ.",
+            en: "**The Pre-Season (`Season 0` — `Day 1` to `Day 65`) is the most critical foundation phase of every server.**\n• **Fixed Countdown Clock:** All major events, Ruins levels (`Ruins Lv.1–5`), the `First Throne War`, and Mythic Hero drops follow a fixed schedule from server launch.",
           },
         },
         {
@@ -171,16 +171,16 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
               ordered: true,
               items: [
                 {
-                  vi: "Thành tựu Đăng nhập / Điểm danh Tân thủ (Login Achievements): Nếu tạo nhân vật ngay trong ngày đầu mở máy chủ, bộ đếm Số ngày đăng nhập liên tiếp (Consecutive Login Days) trong mục Thành tựu chính là tuổi tuyệt đối của Server.",
-                  en: "Login Achievements (Consecutive Login Days): If you created your character on day one of server launch, the Consecutive Login Days counter in your Achievements tab equals the exact Server Age.",
+                  vi: "**Thành tựu Đăng nhập (Login Achievements):** Nếu tạo nhân vật ngay Ngày 1 mở máy chủ, bộ đếm Số ngày đăng nhập liên tiếp (`Consecutive Login Days`) trong mục Thành tựu chính là tuổi tuyệt đối của Server.",
+                  en: "**Login Achievements (Consecutive Login Days):** If you created your character on Day 1 of server launch, the `Consecutive Login Days` counter in Achievements equals the exact Server Age.",
                 },
                 {
-                  vi: "Đếm qua Chu kỳ Sự kiện Tuần & Bảng Lịch Event (Weekly Event Schedule — cột 09:00 Thứ Hai): (a) Tuần 1 – Tuần 2 (Ngày 1 – Ngày 14): Sự kiện Mở Máy Chủ & Đua Top Lãnh Chúa Mạnh Nhất (Strongest Lord / Top Lord 7 Giai đoạn); (b) Tuần 3 (Ngày 15 – Ngày 21): Khởi chạy Thi Đấu Hội (Guild Race — xuất phát từ Hạng D) kéo dài từ 09:00 Thứ Hai đến 09:00 Thứ Hai tuần kế tiếp, đi kèm sự kiện vệ tinh (Đế Quốc Hắc Ám Xâm Nhập, Bắt Bướm), và cuối Tuần 3 (Ngày 21) là cột mốc xuất hiện Tướng Đỏ đầu tiên trên máy chủ (Desert Prince); (c) Từ Tuần 4 trở đi (Lịch Động Theo Máy Chủ): Ở máy chủ mới chưa mở đấu Liên Server, Thi Đấu Hội (Guild Race) tiếp tục chạy nối sóng liên tiếp hàng tuần (09:00 Thứ Hai ➔ 09:00 Thứ Hai, leo hạng D ➔ C ➔ B) trong khi sự kiện vệ tinh luân phiên sang Khiêu Chiến Của Đội Quân Hắc Ám và Tập Kích Cự Ma; khi máy chủ mở khóa Guild Arms Race (GAR) và Kingdom Duel (KvK), lịch tuần chuyển sang luân phiên Thi Đấu Hội (Tuần A) ⇄ GAR / KvK (Tuần B).",
-                  en: "Counting via Weekly Event Schedule (Lịch Event — Monday 09:00 column): (a) Weeks 1–2 (Days 1–14): Server Launch & 7-Stage Strongest Lord / Top Lord; (b) Week 3 (Days 15–21): Launches Guild Race (Thi Đấu Hội starting at Rank D) from Monday 09:00 to next Monday 09:00 alongside satellite events (Đế Quốc Hắc Ám Xâm Nhập, Bắt Bướm), culminating on Day 21 with the first Mythic hero drop (Desert Prince); (c) Week 4+ (Dynamic Server Schedule): On young servers prior to cross-server matchmaking, Guild Race continues back-to-back weekly (Monday 09:00 ➔ Monday 09:00, climbing Rank D ➔ C ➔ B) with satellite events rotating to Khiêu Chiến Của Đội Quân Hắc Ám and Tập Kích Cự Ma; once Guild Arms Race (GAR) and Kingdom Duel (KvK) unlock, the schedule alternates between Week A (Guild Race) ⇄ Week B (GAR / KvK).",
+                  vi: "**Chu kỳ Sự kiện Tuần (cột `09:00` Thứ Hai):** Tuần 1–2 (`Ngày 1–14`) chạy Strongest Lord; Tuần 3 (`Ngày 15–21`) mở Thi Đấu Hội & đón Desert Prince (`Ngày 21`); Tuần 4+ luân phiên Thi Đấu Hội ⇄ GAR / KvK.",
+                  en: "**Weekly Event Schedule (Monday `09:00` column):** Weeks 1–2 (`Days 1–14`) run Strongest Lord; Week 3 (`Days 15–21`) opens Guild Race & drops Desert Prince (`Day 21`); Week 4+ alternates Guild Race ⇄ GAR / KvK.",
                 },
                 {
-                  vi: "Quan sát Lịch Mở Khóa Di Tích & Bức Tường Sương Mù (World Map Monuments): Trong nhà Tượng Đài / Biên Niên Sử Vương Quốc (Kingdom Chronicle), từng chương nhiệm vụ toàn máy chủ đều hiển thị mốc thời gian đếm ngược đến ngày mở Di Tích cấp cao (Ruins Lv.1–5) và Chiến tranh Ngai Vàng (First Throne War mở vào khoảng Tuần 5 — Ngày 35).",
-                  en: "World Map Monuments & Kingdom Chronicle: Inside the Monument building, server-wide chronicle chapters display exact countdown timers for high-level Ruins (Ruins Lv.1–5) and the First Throne War (which opens around Week 5 — Day 35).",
+                  vi: "**Nhà Tượng Đài (Kingdom Chronicle):** Từng chương nhiệm vụ toàn máy chủ hiển thị bộ đếm ngược chính xác đến ngày mở Di Tích (`Ruins Lv.1–5`) và Chiến tranh Ngai Vàng (`First Throne War` ở Tuần 5 — `Ngày 35`).",
+                  en: "**World Map Monuments (Kingdom Chronicle):** Inside the Monument building, server chronicle chapters display exact countdown timers for `Ruins Lv.1–5` and the `First Throne War` (Week 5 — `Day 35`).",
                 },
               ],
             },
@@ -200,8 +200,8 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Dựa trên hệ sinh thái tướng của 3 Phe phái (Liên Minh / League, Bộ Lạc / Horde, Thiên Nhiên / Nature), lộ trình mở khóa tướng trong giai đoạn Tiền Mùa Giải và chớm Mùa 1 được chia thành 3 Đợt Sóng Chiến Lược (3 Strategic Faction Waves):",
-                en: "Based on the hero ecosystems of the three factions (League, Horde, Nature), hero releases during Pre-Season S0 and early Season 1 are structured into 3 Strategic Faction Waves:",
+                vi: "**Cấu trúc 3 Đợt Sóng Chiến Lược:** Dựa trên hệ sinh thái 3 Phe phái (Liên Minh, Bộ Lạc, Thiên Nhiên), lịch mở khóa tướng S0 và đầu S1 được chia thành `3 Strategic Faction Waves`:",
+                en: "**3 Strategic Faction Waves:** Based on the hero ecosystems of the three factions (League, Horde, Nature), hero releases during Pre-Season S0 and early Season 1 follow three waves:",
               },
             },
             {
@@ -209,16 +209,16 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
               ordered: true,
               items: [
                 {
-                  vi: "Đợt Liên Minh (League Wave — Khởi chạy Ngày 1–20 & Mở khóa Mythic Ngày 35 / Ngày 46): Giai đoạn Ngày 1 – Ngày 20, máy chủ cung cấp dày đặc các tướng Huyền Thoại Vàng (Legendary SSR) hệ Liên Minh qua Quán rượu, gói nạp đầu ($0.99 Pyromancer) và sự kiện tân thủ, gồm Pyromancer (Pháp Sư Lửa), Adjudicator (Thẩm Phán), Nun (Nữ Tu), Secret Keeper (Người Giữ Bí Mật), Bard (Thi Nhân) và Astrologer (Chiêm Tinh Gia). Bộ 3 Tướng Đỏ Liên Minh gồm Paragon (Thiện Xạ — Sát thương diện rộng, ra mắt Ngày 35), Rose Princess (Công Chúa Rose — Đỡ đòn phản sát thương, Ngày 46) và Bishop (Giám Mục — Khống chế/Hỗ trợ phép, Ngày 46) lần lượt xuất hiện trong các kỳ Vòng Quay / Xúc Xắc.",
-                  en: "League Wave (Days 1–20 Starter SSRs & Day 35 / Day 46 Mythic Unlocks): From Day 1 to Day 20, the server heavily supplies League Legendary SSRs via Tavern, the $0.99 Pyromancer first-purchase pack, and rookie events, including Pyromancer, Adjudicator, Nun, Secret Keeper, Bard, and Astrologer. The three League Mythic pillars—Paragon (AoE DPS, Day 35), Rose Princess (counter-damage tank, Day 46), and Bishop (magic control/support, Day 46)—arrive via Lucky Wheel and Treasure Dice.",
+                  vi: "**Đợt Liên Minh (`Ngày 1–20` & `Ngày 35 / 46`):** Cung cấp 6 SSR Vàng đầu game (Pyromancer, Adjudicator, Nun, Secret Keeper, Bard, Astrologer), rồi mở Mythic Paragon (`Ngày 35`), Rose Princess & Bishop (`Ngày 46`).",
+                  en: "**League Wave (`Days 1–20` & `Days 35 / 46`):** Supplies 6 starter SSRs (Pyromancer, Adjudicator, Nun, Secret Keeper, Bard, Astrologer), then unlocks Mythic Paragon (`Day 35`) and Rose Princess & Bishop (`Day 46`).",
                 },
                 {
-                  vi: "Đợt Bộ Lạc (Horde Wave — Bùng nổ từ Ngày 21–41 & Hoàn thiện ở Season 2): Đây là đợt sóng thay đổi hoàn toàn cục diện PvP của máy chủ. Ba vị tướng Đỏ cốt lõi thế hệ đầu của Bộ Lạc lần lượt đổ bộ: Desert Prince (Hoàng Tử Sa Mạc — Ngày 21, siêu đỡ đòn miễn tử ngắn hạn và hồi phục cực mạnh), Storm Maiden (Nữ Thần Bão Tố — Ngày 27, sát thương chủ lực tầm xa càn quét hàng sau), và Witch (Phù Thủy — Ngày 41, trụ cột hồi máu, khống chế và tăng sát thương toàn đội). Hai mảnh ghép Thần Thoại tối thượng Wukong (Tôn Ngộ Không — Hyper-carry vật lý) và Beastmaster (Thú Tướng — Đỡ đòn tạo khiên/khống chế diện rộng) sẽ hoàn tất bộ khung 5 Mythic Bộ Lạc ở Season 2.",
-                  en: "Horde Wave (Exploding Days 21–41 & Completed in Season 2): This wave reshapes the entire server PvP landscape as three Gen-1 Horde Mythics drop in sequence: Desert Prince (Day 21, ultra tank with brief immortality and massive self-healing), Storm Maiden (Day 27, ranged carry sweeping the backline), and Witch (Day 41, core healer, crowd-controller, and team damage amplifier). The final two Mythic pieces—Wukong (physical hyper-carry) and Beastmaster (shielding/AoE control tank)—complete the 5-Mythic Horde lineup in Season 2.",
+                  vi: "**Đợt Bộ Lạc (`Ngày 21–41` & Mở rộng S2):** Đổ bộ 3 Tướng Đỏ thế hệ đầu gồm Desert Prince (`Ngày 21`), Storm Maiden (`Ngày 27`) và Witch (`Ngày 41`), trước khi hoàn tất 5 Mythic với Wukong & Beastmaster ở Season 2.",
+                  en: "**Horde Wave (`Days 21–41` & S2 Expansion):** Drops three Gen-1 Horde Mythics—Desert Prince (`Day 21`), Storm Maiden (`Day 27`), and Witch (`Day 41`)—before adding Wukong & Beastmaster in Season 2.",
                 },
                 {
-                  vi: "Đợt Thiên Nhiên (Nature Wave — Giai đoạn Ngày 42–65 & Chuyển giao Season 1): Từ Ngày 42 đến Ngày 65, làn sóng Thiên Nhiên xoay quanh 2 vị Tướng Đỏ mở màn là Tidecaller (Triệu Hồi Thủy Triều — Mythic hạt nhân số 1 vừa triệu hồi Thủy Tinh Linh đỡ đòn vừa gây sát thương và hồi máu toàn đội) và Monk (Nhà Sư — Mythic đỡ đòn tạo lá chắn sinh mệnh và giảm sát thương diện rộng) kết hợp cùng bộ 3 Tướng Vàng chủ lực Pixie, Forest Maiden, Sage (sẵn sàng Thức tỉnh lên Đỏ ở Season 1), trước khi đón thêm Ne Zha (Na Tra) ở Season 1. Lưu ý quan trọng: Petalis (Tinh Linh Hoa) KHÔNG xuất hiện ở Pre-Season S0 Ngày 42–65 mà ra mắt muộn hơn rất nhiều ở Season 3!",
-                  en: "Nature Wave (Days 42–65 & Season 1 Transition): Between Days 42 and 65, the Nature wave centers on two opening Mythics—Tidecaller (Nature's #1 core engine summoning Water Elementals to tank, deal damage, and heal the team) and Monk (shielding and AoE damage-reduction tank)—paired with core Legendary SSRs Pixie, Forest Maiden, and Sage (ready for Red Awakening in Season 1), before adding Ne Zha in Season 1. Crucial note: Petalis does NOT appear during Pre-Season S0 Days 42–65; she releases much later in Season 3!",
+                  vi: "**Đợt Thiên Nhiên (`Ngày 42–65` & Season 1):** Mở khóa Tidecaller và Monk đi kèm khung SSR (Pixie, Forest Maiden, Sage), bổ sung Ne Zha ở Season 1 (lưu ý Petalis KHÔNG ra ở S0 mà ra mắt ở Season 3).",
+                  en: "**Nature Wave (`Days 42–65` & Season 1):** Unlocks Tidecaller and Monk alongside SSRs (Pixie, Forest Maiden, Sage), then adds Ne Zha in Season 1 (note Petalis does NOT drop in S0—she releases in Season 3).",
                 },
               ],
             },
@@ -236,8 +236,8 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
               branches: [
                 {
                   title: {
-                    vi: "🔵 ĐỢT 1: LIÊN MINH (Ngày 1–20 & Ngày 35 / 46)",
-                    en: "🔵 WAVE 1: LEAGUE (Days 1–20 & Days 35 / 46)",
+                    vi: "ĐỢT 1: LIÊN MINH (Ngày 1–20 & Ngày 35 / 46)",
+                    en: "WAVE 1: LEAGUE (Days 1–20 & Days 35 / 46)",
                   },
                   badge: {
                     vi: "Wave 1",
@@ -277,8 +277,8 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
                 },
                 {
                   title: {
-                    vi: "🔴 ĐỢT 2: BỘ LẠC (Ngày 21–41 & Mở rộng S2)",
-                    en: "🔴 WAVE 2: HORDE (Days 21–41 & S2 Expansion)",
+                    vi: "ĐỢT 2: BỘ LẠC (Ngày 21–41 & Mở rộng S2)",
+                    en: "WAVE 2: HORDE (Days 21–41 & S2 Expansion)",
                   },
                   badge: {
                     vi: "Wave 2 (Meta)",
@@ -318,8 +318,8 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
                 },
                 {
                   title: {
-                    vi: "🟢 ĐỢT 3: THIÊN NHIÊN (Ngày 42–65 & Season 1)",
-                    en: "🟢 WAVE 3: NATURE (Days 42–65 & Season 1)",
+                    vi: "ĐỢT 3: THIÊN NHIÊN (Ngày 42–65 & Season 1)",
+                    en: "WAVE 3: NATURE (Days 42–65 & Season 1)",
                   },
                   badge: {
                     vi: "Wave 3",
@@ -443,20 +443,20 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
               ordered: true,
               items: [
                 {
-                  vi: "Ngày 1 – Ngày 20: Dùng tạm đội hình 6 tướng Vàng Liên Minh để vượt ải bản đồ (Adventure) và ăn Boss. Đóng băng 100% Kim Cương (chỉ mua điểm VIP cơ bản và vật phẩm giảm giá sâu trong VIP Shop), tích lũy mục tiêu 25,000 – 35,000 Kim Cương trước Ngày 21.",
-                  en: "Days 1–20: Use a temporary 6-SSR League lineup to push Adventure stages and bosses. Freeze 100% of your Diamonds (only buy basic VIP points and deeply discounted VIP Shop essentials), aiming to accumulate 25,000 – 35,000 Diamonds before Day 21.",
+                  vi: "**Ngày 1 – Ngày 20 (Khóa Kho Tích Lũy):** Dùng tạm 6 SSR Liên Minh vượt ải PvE và đóng băng `100%` Kim Cương (chỉ mua điểm VIP & đồ giảm giá sâu VIP Shop), tích lũy `25,000 – 35,000` KC trước `Ngày 21`.",
+                  en: "**Days 1–20 (Resource Freeze):** Use a temporary 6-SSR League team for PvE stages and freeze `100%` of Diamonds (only buy VIP points and discounted VIP Shop items), banking `25,000 – 35,000` Diamonds before `Day 21`.",
                 },
                 {
-                  vi: "Ngày 21 & Ngày 27: Xả Kim Cương mua tối đa lượt quay sự kiện để mở khóa bằng được Desert Prince (Ngày 21) và Storm Maiden (Ngày 27).",
-                  en: "Day 21 & Day 27: Spend Diamonds to max out event spins and immediately unlock Desert Prince (Day 21) and Storm Maiden (Day 27).",
+                  vi: "**Ngày 21 & Ngày 27 (Mở Khóa Cặp Đôi Mở Màn):** Xả Kim Cương mua tối đa lượt quay sự kiện để mở khóa bằng được Desert Prince (`Ngày 21`) và Storm Maiden (`Ngày 27`).",
+                  en: "**Day 21 & Day 27 (Opening Duo Unlock):** Spend Diamonds to max out daily event spins and immediately unlock Desert Prince (`Day 21`) and Storm Maiden (`Day 27`).",
                 },
                 {
-                  vi: "Ngày 35 (Paragon): BỎ QUA 100% (chỉ nhận lượt miễn phí), gom lại Kim Cương trong 2 tuần để đón Witch vào Ngày 41.",
-                  en: "Day 35 (Paragon): SKIP 100% (claim free daily spins only), rebuilding your Diamond reserve over 2 weeks to unlock Witch on Day 41.",
+                  vi: "**Ngày 35 (Paragon — Bỏ Qua 100%):** Chỉ nhận lượt quay miễn phí hàng ngày (`0` KC), gom lại Kim Cương trong 2 tuần để đón Witch vào `Ngày 41`.",
+                  en: "**Day 35 (Paragon — Skip 100%):** Claim free daily spins only (`0` Diamonds), rebuilding your Diamond reserve over 2 weeks to unlock Witch on `Day 41`.",
                 },
                 {
-                  vi: "Ngày 46 (Rose Princess & Bishop) và Đợt Thiên Nhiên (Tidecaller, Monk): Tiếp tục bỏ qua để dồn toàn bộ Mảnh Tướng Vàng Vạn Năng nuôi bộ 3 Mythic Bộ Lạc đạt mốc tối thiểu dùng được đầu game là 1 Sao Đỏ (6 Sao tổng / 160 mảnh Mythic hoặc 80 mảnh Legendary) ➔ tiến lên 5 Sao Đỏ (10 Sao / 400 mảnh Mythic) và bứt phá tại điểm gãy +30% kỹ năng ở 1 Sao Trắng / Bạc (11 Sao tổng / 560 mảnh Mythic hoặc 280 mảnh Legendary, +30% kỹ năng) hướng tới 5 Sao Trắng / Bạc (15 Sao / 1,000 mảnh Mythic), đồng thời tích Kim Cương chờ Wukong + Beastmaster.",
-                  en: "Day 46 (Rose Princess & Bishop) and Nature Wave (Tidecaller, Monk): Continue skipping off-faction banners and funnel all Universal Legendary Shards into your 3 Horde Mythics to hit the early-game usable floor of 1-Red Star (6 Total Stars / 160 Mythic shards or 80 Legendary shards) ➔ push toward 5-Red Stars (10 Total Stars / 400 Mythic shards) and break through to 1-White / Silver Star (11 Total Stars / 560 Mythic shards or 280 Legendary shards, +30% skill power) on the way to 5-White / Silver Stars (15 Total Stars / 1,000 Mythic shards), while saving Diamonds for Wukong + Beastmaster.",
+                  vi: "**Ngày 46 & Đợt Thiên Nhiên:** Bỏ qua tướng ngoại hệ; dồn Mảnh Vạn Năng nuôi 3 Mythic Bộ Lạc lên `1★ Đỏ` (`160` mảnh) ➔ `5★ Đỏ` (`400` mảnh) ➔ `1★ Trắng` (`560` mảnh, `+30%` kỹ năng) ➔ `5★ Trắng` (`1,000` mảnh).",
+                  en: "**Day 46 & Nature Wave:** Skip off-faction banners; funnel Universal Shards into 3 Horde Mythics for `1★ Red` (`160` shards) ➔ `5★ Red` (`400` shards) ➔ `1★ White` (`560` shards, `+30%` skill) ➔ `1,000` shards.",
                 },
               ],
             },
@@ -474,12 +474,12 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
               ordered: false,
               items: [
                 {
-                  vi: "Định hướng Thuần Liên Minh (Pure League): (a) Ngày 1 – Ngày 34: Bỏ qua hoàn toàn sự kiện của Desert Prince (Ngày 21) và Storm Maiden (Ngày 27). Nhờ nhịn suốt 34 ngày đầu, người chơi Thuần Liên Minh sẽ tích được 45,000 – 60,000+ Kim Cương; (b) Ngày 35 (Paragon) & Ngày 46 (Rose Princess, Bishop): Bung toàn bộ kho Kim Cương đã tích để lấy trọn bộ 3 Tướng Đỏ Liên Minh và đẩy thẳng Paragon vượt mốc 1 Sao Đỏ (6 Sao tổng / 160 mảnh Mythic) hướng tới 1 Sao Trắng / Bạc (11 Sao tổng / 560 mảnh Mythic) ngay trong ngày Thứ Năm của Tuần B (Guild Arms Race Day 4).",
-                  en: "Pure League Plan: (a) Days 1–34: Completely skip Desert Prince (Day 21) and Storm Maiden (Day 27). By saving for 34 straight days, Pure League players accumulate 45,000 – 60,000+ Diamonds; (b) Day 35 (Paragon) & Day 46 (Rose Princess, Bishop): Unleash your entire Diamond hoard to secure all 3 League Mythics and push Paragon past 1-Red Star (6 Total Stars / 160 Mythic shards) toward 1-White / Silver Star (11 Total Stars / 560 Mythic shards) on Thursday of Week B (Guild Arms Race Day 4).",
+                  vi: "**Định hướng Thuần Liên Minh (Pure League):** Nhịn `Ngày 1–34` (bỏ qua Desert Prince & Storm Maiden) tích `45,000–60,000+` KC; bung hết ở `Ngày 35` (Paragon) & `Ngày 46` (Rose Princess, Bishop) lên `160` ➔ `560` mảnh.",
+                  en: "**Pure League Plan:** Skip Desert Prince & Storm Maiden (`Days 1–34`) to bank `45,000–60,000+` Diamonds; go all-in on `Day 35` (Paragon) & `Day 46` (Rose Princess, Bishop) to push Paragon to `160` ➔ `560` shards.",
                 },
                 {
-                  vi: "Định hướng Hệ Thiên Nhiên (Nature): (a) Ngày 1 – Ngày 41: Chấp nhận dùng đội hình chuyển giao (Liên Minh hoặc Lai Pyromancer + Forest Maiden + Druid + Pixie) để giữ nhịp PvE, kiên nhẫn tích trữ Kim Cương và Xu Vòng Quay / Xúc Xắc qua các đợt Liên Minh và Bộ Lạc; (b) Từ Ngày 42 – Ngày 65 & Season 1: Dồn toàn lực Kim Cương và Mảnh Vạn Năng vào Tidecaller (bắt buộc nâng cao nhất vì là trạm trung chuyển sát thương lẫn hồi máu của cả hệ) và Monk cùng dàn tướng Vàng Pixie, Forest Maiden, Sage (bước sang Season 1 bổ sung Ne Zha, và đến Season 3 mới đón Petalis).",
-                  en: "Nature Plan: (a) Days 1–41: Run a transitional lineup (League or hybrid Pyromancer + Forest Maiden + Druid + Pixie) to maintain PvE pace while patiently hoarding Diamonds and Wheel/Dice tokens across the League and Horde waves; (b) Days 42–65 & Season 1: Go all-in with Diamonds and Universal Shards on Tidecaller (mandatory top priority as Nature's central damage and healing engine) and Monk alongside Legendary SSRs Pixie, Forest Maiden, and Sage (adding Ne Zha in Season 1, while Petalis arrives in Season 3).",
+                  vi: "**Định hướng Hệ Thiên Nhiên (Nature):** Dùng đội Lai giữ nhịp `Ngày 1–41`; từ `Ngày 42–65` & S1 dồn toàn lực KC và Mảnh Vạn Năng vào Tidecaller (hạt nhân số 1), Monk, Pixie, Forest Maiden, Sage, Ne Zha (Petalis ra ở S3).",
+                  en: "**Nature Plan:** Run a hybrid team during `Days 1–41`; from `Days 42–65` & S1 go all-in on Tidecaller (#1 core engine), Monk, Pixie, Forest Maiden, Sage, and Ne Zha (while Petalis drops in Season 3).",
                 },
               ],
             },
@@ -541,8 +541,8 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
                     en: "Invest Universal Shards on Thursday (GAR Day 4) or during Guild Race Gold Tasks / Hero Rush",
                   },
                   detail: {
-                    vi: "Sau khi mở khóa Tướng Đỏ cuối tuần: nếu tuần kế tiếp là GAR / KvK, chờ đúng Thứ Năm (GAR Day 4: Hero Upgrade) mới nâng Sao; nếu tuần kế tiếp vẫn là Thi Đấu Hội nối sóng, canh lúc nhận Nhiệm vụ Vàng nâng tướng hoặc sự kiện Hero Development Rush để nâng Sao đưa vào Đội 1 ngay.",
-                    en: "After unlocking a Mythic on the weekend: if next week is GAR / KvK, hold Universal Shards until Thursday (GAR Day 4: Hero Upgrade); if next week is back-to-back Guild Race, align your star-up with a Hero Upgrade Gold Task or Hero Development Rush.",
+                    vi: "**Đồng bộ thời điểm nâng Sao sau khi mở khóa cuối tuần:**\n• **Tuần GAR / KvK:** Giữ Mảnh Vạn Năng chờ đúng Thứ Năm (`GAR Day 4: Hero Upgrade`) mới nâng Sao.\n• **Tuần Thi Đấu Hội nối sóng:** Canh lúc nhận Nhiệm vụ Vàng nâng tướng hoặc `Hero Development Rush` để nâng Sao đưa vào Đội 1.",
+                    en: "**Synchronize weekend Mythic Star-Ups:**\n• **GAR / KvK Week:** Hold Universal Shards until Thursday (`GAR Day 4: Hero Upgrade`).\n• **Continuous Guild Race Week:** Align your star-up with a Hero Upgrade Gold Task or `Hero Development Rush`.",
                   },
                   badge: {
                     vi: "Double-Dip",
@@ -570,12 +570,12 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
           },
           headers: [
             {
-              vi: "❌ Sai lầm phổ biến (Account Traps)",
-              en: "❌ Common Account Traps",
+              vi: "Sai lầm phổ biến (Account Traps)",
+              en: "Common Account Traps",
             },
             {
-              vi: "✅ Giải pháp tối ưu (Min-Max Solution)",
-              en: "✅ Optimal Min-Max Solution",
+              vi: "Giải pháp tối ưu (Min-Max Solution)",
+              en: "Optimal Min-Max Solution",
             },
           ],
           rows: [
@@ -636,8 +636,8 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Trong giai đoạn Tiền Mùa Giải (Ngày 1 ➔ Ngày 65), hai sự kiện phát hành Tướng Đỏ là Vòng Quay May Mắn (Lucky Wheel) và Xúc Xắc Kho Báu (Treasure Dice / Chess) xuất hiện theo đúng các mốc ngày tuổi máy chủ. Việc nắm rõ cơ chế toán học và chi phí Kim Cương của từng sự kiện giúp người chơi tối đa hóa số lượng mảnh tướng thu về trên mỗi 1,000 Kim Cương bỏ ra.",
-            en: "Throughout Pre-Season S0 (Day 1 to Day 65), the two Mythic release events—Lucky Wheel and Treasure Dice (Chess)—appear on fixed Server Age milestones. Mastering their mathematical breakpoints maximizes the Mythic shards earned per 1,000 Diamonds spent.",
+            vi: "**Trong Tiền Mùa Giải (`Ngày 1` ➔ `Ngày 65`), Lucky Wheel và Treasure Dice xuất hiện theo đúng các mốc ngày tuổi máy chủ.**\n• **Tối ưu hóa hiệu suất:** Nắm rõ cơ chế toán học và 3 điểm gãy lượt quay giúp thu về số mảnh Tướng Đỏ tối đa trên mỗi `1,000` Kim Cương bỏ ra.",
+            en: "**Throughout Pre-Season S0 (`Day 1` to `Day 65`), Lucky Wheel and Treasure Dice appear on fixed Server Age milestones.**\n• **Mathematical Optimization:** Mastering their spin breakpoints maximizes the Mythic shards earned per `1,000` Diamonds spent.",
           },
         },
       ],
@@ -718,8 +718,8 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
                     en: "Day 21: Mythic Wave 1 Event Launch (Lucky Wheel / Treasure Dice)",
                   },
                   {
-                    vi: "🔴 Desert Prince (Hoàng Tử Sa Mạc — Bộ Lạc)",
-                    en: "🔴 Desert Prince (Horde Mythic Tank)",
+                    vi: "Desert Prince (Hoàng Tử Sa Mạc — Bộ Lạc)",
+                    en: "Desert Prince (Horde Mythic Tank)",
                   },
                   {
                     vi: "• Hệ Bộ Lạc: XẢ 12,000 – 18,000 KC mua hết lượt Kim Cương để mở khóa ngay Desert Prince. • Hệ Liên Minh / Thiên Nhiên: Chỉ quay miễn phí (0 KC).",
@@ -740,8 +740,8 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
                     en: "Day 27: Mythic Wave 2 Event (Lucky Wheel / Treasure Dice)",
                   },
                   {
-                    vi: "🔴 Storm Maiden (Nữ Thần Bão Tố — Bộ Lạc)",
-                    en: "🔴 Storm Maiden (Horde Mythic Ranged DPS)",
+                    vi: "Storm Maiden (Nữ Thần Bão Tố — Bộ Lạc)",
+                    en: "Storm Maiden (Horde Mythic Ranged DPS)",
                   },
                   {
                     vi: "• Hệ Bộ Lạc: Đập mảnh nâng sao Desert Prince (vào Thứ Năm nếu là GAR, hoặc khớp Nhiệm vụ Vàng / Hero Rush nếu là Thi Đấu Hội); Ngày 27 xả 12,000 – 18,000 KC lấy Storm Maiden. • Hệ Liên Minh / Thiên Nhiên: Tiếp tục tích KC (0 KC).",
@@ -762,8 +762,8 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
                     en: "Day 35: Mythic Wave 3 Event (Lucky Wheel / Treasure Dice)",
                   },
                   {
-                    vi: "🔵 Paragon (Thiện Xạ — Liên Minh)",
-                    en: "🔵 Paragon (League Mythic AoE Carry)",
+                    vi: "Paragon (Thiện Xạ — Liên Minh)",
+                    en: "Paragon (League Mythic AoE Carry)",
                   },
                   {
                     vi: "• Hệ Liên Minh: XẢ TỐI ĐA (18,000 – 25,000 KC) lấy Paragon làm Hyper-carry chủ lực. • Hệ Bộ Lạc / Thiên Nhiên: BỎ QUA 100% (0 KC), gom quỹ chờ Ngày 41.",
@@ -784,8 +784,8 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
                     en: "Day 41: Mythic Wave 4 Event (Lucky Wheel / Treasure Dice)",
                   },
                   {
-                    vi: "🔴 Witch (Phù Thủy — Bộ Lạc)",
-                    en: "🔴 Witch (Horde Mythic Healer & Buffer)",
+                    vi: "Witch (Phù Thủy — Bộ Lạc)",
+                    en: "Witch (Horde Mythic Healer & Buffer)",
                   },
                   {
                     vi: "• Hệ Bộ Lạc: XẢ 15,000 – 20,000 KC lấy Witch, hoàn tất bộ 3 Mythic Gen-1 và chuyển Đội 1 sang Thuần Bộ Lạc. • Hệ Liên Minh: Bỏ qua, tích KC cho Ngày 46.",
@@ -799,15 +799,15 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
                   },
                   {
                     vi: "Thi Đấu Hội (Guild Race)",
-                    en: "Guild Race (Thi Đấu Hội)",
+                    en: "Guild Race",
                   },
                   {
                     vi: "Ngày 46: Sự kiện Mythic Đợt 5 (Lucky Wheel / Treasure Dice)",
                     en: "Day 46: Mythic Wave 5 Event (Lucky Wheel / Treasure Dice)",
                   },
                   {
-                    vi: "🔵 Rose Princess & 🔵 Bishop (Liên Minh)",
-                    en: "🔵 Rose Princess & 🔵 Bishop (League Mythics)",
+                    vi: "Rose Princess & Bishop (Liên Minh)",
+                    en: "Rose Princess & Bishop (League Mythics)",
                   },
                   {
                     vi: "• Hệ Liên Minh: ALL-IN 25,000 – 35,000 KC mở khóa cặp đôi Rose Princess + Bishop. • Hệ Bộ Lạc / Thiên Nhiên: BỎ QUA 100% (0 KC).",
@@ -828,8 +828,8 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
                     en: "S0 Mythic Choice Chests & Nature Wave Wheel/Dice Banners",
                   },
                   {
-                    vi: "🟢 Tidecaller, Monk + SSR Pixie, Forest Maiden, Sage (S1 mở Ne Zha; S2 mở 🔴 Wukong, Beastmaster; S3 mới mở 🟢 Petalis)",
-                    en: "🟢 Tidecaller, Monk + SSR Pixie, Forest Maiden, Sage (S1 adds Ne Zha; S2 adds 🔴 Wukong, Beastmaster; S3 adds 🟢 Petalis)",
+                    vi: "Tidecaller, Monk + SSR Pixie, Forest Maiden, Sage (S1 mở Ne Zha; S2 mở Wukong, Beastmaster; S3 mới mở Petalis)",
+                    en: "Tidecaller, Monk + SSR Pixie, Forest Maiden, Sage (S1 adds Ne Zha; S2 adds Wukong, Beastmaster; S3 adds Petalis)",
                   },
                   {
                     vi: "• Hệ Thiên Nhiên: Bung toàn bộ quỹ 45,000+ KC lấy Tidecaller, Monk (và Ne Zha ở S1; lưu ý Petalis ra mắt ở S3). • Hệ Bộ Lạc: Nhịn toàn bộ tướng Thiên Nhiên để tích 40,000 – 50,000 KC đón Wukong & Beastmaster.",
@@ -854,7 +854,7 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Khi một sự kiện Vòng Quay hoặc Xúc Xắc diễn ra (thường kéo dài 3 đến 5 ngày), phần lớn giá trị không nằm ở tỷ lệ rơi ngẫu nhiên trên bàn quay mà nằm ở Các Rương Mốc Tích Lũy Số Lần Quay (Milestone Guarantee Chests) và Xu Đổi Thưởng (Event Shop Tokens):",
+                vi: "Khi Vòng Quay hoặc Xúc Xắc diễn ra (3–5 ngày), phần lớn giá trị không nằm ở tỷ lệ rơi ngẫu nhiên mà nằm ở Rương Mốc Tích Lũy (Milestone Guarantee Chests) và Xu Đổi Thưởng (Event Shop Tokens):",
                 en: "When a Lucky Wheel or Treasure Dice event runs (typically 3 to 5 days), the majority of its value comes not from raw board RNG, but from cumulative Milestone Guarantee Chests and Event Shop Tokens:",
               },
             },
@@ -863,20 +863,20 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
               ordered: true,
               items: [
                 {
-                  vi: "Cơ chế Mua Lượt bằng Kim Cương & Gói Nạp Nhỏ: Mỗi ngày người chơi có 1 lượt miễn phí và được phép mua giới hạn khoảng 30 – 40 lượt/ngày bằng Kim Cương (chi phí trung bình khoảng 3,000 – 4,500 Kim Cương / 10 lượt tùy gói chiết khấu trong sự kiện). Với Low-Spender, gói sự kiện $0.99 và $4.99 hàng ngày cung cấp số vé quay có tỷ lệ quy đổi Kim Cương trên mỗi USD cao gấp 3.5 lần (3.5x) so với nạp Kim Cương trực tiếp.",
-                  en: "Daily Diamond Spin Mechanics & Micro-Packs: Players receive 1 free spin daily and can buy a capped 30–40 spins/day with Diamonds (averaging 3,000–4,500 Diamonds per 10 spins). For Low-Spenders, daily $0.99 and $4.99 event packs deliver spin tickets at 3.5x higher Diamond-per-USD value than direct top-ups.",
+                  vi: "**Cơ chế Mua Lượt & Gói Nạp Nhỏ:** Mỗi ngày có `1` lượt miễn phí và mua tối đa `30–40` lượt bằng Kim Cương (`3,000–4,500` KC / 10 lượt); gói `$0.99` và `$4.99` có ROI vé quay gấp `3.5x` nạp KC trực tiếp.",
+                  en: "**Daily Diamond Spins & Micro-Packs:** Claim `1` free spin daily and buy up to `30–40` Diamond spins/day (`3,000–4,500` Diamonds / 10 spins); daily `$0.99` and `$4.99` packs yield `3.5x` higher spin value.",
                 },
                 {
-                  vi: "Điểm Gãy #1 — Mốc Mở Khóa Cơ Bản (25 – 35 Lượt quay): Đủ để nhận Rương Mốc đầu tiên cộng với Xu Sự Kiện đổi đủ 10 Mảnh Tướng Đỏ (mở khóa tướng 0 Sao với ngân sách khoảng 9,000 – 12,000 Kim Cương).",
-                  en: "Breakpoint #1 — Base Unlock Tier (25 – 35 Spins): Reaches the first Milestone Chest plus enough Event Tokens to secure 10 Mythic Shards (unlocking the 0-Star hero for roughly 9,000 – 12,000 Diamonds).",
+                  vi: "**Điểm Gãy #1 — Mốc Mở Khóa Cơ Bản (`25–35` Lượt quay):** Nhận Rương Mốc đầu tiên + Xu Sự Kiện đổi đủ `10` Mảnh Tướng Đỏ (mở khóa tướng `0★` với ngân sách `9,000 – 12,000` Kim Cương).",
+                  en: "**Breakpoint #1 — Base Unlock Tier (`25–35` Spins):** Reaches the first Milestone Chest plus Event Tokens for `10` Mythic Shards (unlocking the `0★` hero for `9,000 – 12,000` Diamonds).",
                 },
                 {
-                  vi: "Điểm Gãy #2 — Mốc Điểm Gãy Tối Ưu F2P (70 – 100 Lượt quay): Chạm các rương mốc tầm trung, thu về tổng cộng khoảng 25 – 40 Mảnh Tướng Đỏ + 120–180 Xu Sự Kiện (ngân sách khoảng 22,000 – 30,000 Kim Cương). Đây là điểm dừng có ROI cao nhất cho F2P đã tích trữ Kim Cương trước 2–3 tuần.",
-                  en: "Breakpoint #2 — Optimal F2P ROI Tier (70 – 100 Spins): Hits mid-tier milestone chests, yielding 25 – 40 Mythic Shards + 120–180 Event Tokens in total (budgeting 22,000 – 30,000 Diamonds). This is the highest-ROI stopping point for F2P players who saved Diamonds for 2–3 weeks.",
+                  vi: "**Điểm Gãy #2 — Mốc Tối Ưu F2P (`70`–`100` Lượt quay):** Chi `22,000 – 30,000` Kim Cương chạm rương mốc tầm trung, thu về `25–40` Mảnh Tướng Đỏ + `120–180` Xu Sự Kiện (điểm dừng có ROI cao nhất cho F2P).",
+                  en: "**Breakpoint #2 — Optimal F2P ROI Tier (`70`–`100` Spins):** Spend `22,000 – 30,000` Diamonds to hit mid-tier milestone chests, yielding `25–40` Mythic Shards + `120–180` Event Tokens (peak F2P ROI).",
                 },
                 {
-                  vi: "Điểm Gãy #3 — Mốc Mở Khóa Vũ Khí Độc Quyền / Nâng Sao Sâu (150 – 300 Lượt quay): Dành cho người chơi nhịn nguyên một mùa hoặc kết hợp gói $4.99 / $9.99 để gom đủ 300 Xu Sự Kiện đổi Rương Vũ Khí Độc Quyền (Exclusive Weapon Choice Chest) và đẩy tướng vượt mốc sàn 1 Sao Đỏ (6 Sao tổng / 160 mảnh Mythic hoặc 80 mảnh Legendary), tiến tới 5 Sao Đỏ (10 Sao / 400 mảnh Mythic), mốc đột phá +30% kỹ năng tại 1 Sao Trắng / Bạc (11 Sao tổng / 560 mảnh Mythic hoặc 280 mảnh Legendary) và đỉnh 5 Sao Trắng / Bạc (15 Sao / 1,000 mảnh Mythic).",
-                  en: "Breakpoint #3 — Exclusive Weapon & Deep Star-Up Tier (150 – 300 Spins): Designed for players who hoarded across an entire cycle or paired $4.99 / $9.99 packs to accumulate 300 Event Tokens for an Exclusive Weapon Choice Chest while pushing the hero past 1-Red Star (6 Total Stars / 160 Mythic shards or 80 Legendary shards) toward 5-Red Stars (10 Total Stars / 400 Mythic shards), the +30% skill power spike at 1-White / Silver Star (11 Total Stars / 560 Mythic shards or 280 Legendary shards), and 5-White / Silver Stars (15 Total Stars / 1,000 Mythic shards).",
+                  vi: "**Điểm Gãy #3 — Vũ Khí Độc Quyền (`150–300` Lượt):** Gom `300` Xu đổi Vũ Khí Độc Quyền và đẩy tướng qua `1★ Đỏ` (`160` mảnh) ➔ `5★ Đỏ` (`400` mảnh) ➔ `1★ Trắng` (`560` mảnh) ➔ `5★ Trắng` (`1,000` mảnh).",
+                  en: "**Breakpoint #3 — Exclusive Weapon (`150–300` Spins):** Collect `300` Tokens for an Exclusive Weapon and push `1★ Red` (`160` shards) ➔ `5★ Red` (`400` shards) ➔ `1★ White` (`560` shards) ➔ `1,000` shards.",
                 },
               ],
             },
@@ -908,8 +908,8 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
                   en: "Step 0: Banner Check",
                 },
                 title: {
-                  vi: "🎯 KIỂM TRA TƯỚNG TRÊN BANNER WHEEL / DICE & QUỸ KIM CƯƠNG HIỆN CÓ",
-                  en: "🎯 CHECK FEATURED WHEEL / DICE HERO & CURRENT DIAMOND RESERVE",
+                  vi: "KIỂM TRA TƯỚNG TRÊN BANNER WHEEL / DICE & QUỸ KIM CƯƠNG HIỆN CÓ",
+                  en: "CHECK FEATURED WHEEL / DICE HERO & CURRENT DIAMOND RESERVE",
                 },
                 subtitle: {
                   vi: "Tướng Đỏ trên Banner có thuộc đúng Hệ Đội 1 Mục Tiêu (Main Faction) không?",
@@ -920,8 +920,8 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
               branches: [
                 {
                   title: {
-                    vi: "⛔ NHÁNH 1: Không (Trái Hệ Đội 1)",
-                    en: "⛔ BRANCH 1: No (Off-Faction Banner)",
+                    vi: "NHÁNH 1: Không (Trái Hệ Đội 1)",
+                    en: "BRANCH 1: No (Off-Faction Banner)",
                   },
                   badge: {
                     vi: "0 Kim Cương",
@@ -949,8 +949,8 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
                 },
                 {
                   title: {
-                    vi: "✅ NHÁNH 2: Đúng Hệ Đội 1 — Quỹ < 12,000 KC đến 30,000 KC",
-                    en: "✅ BRANCH 2: On-Faction — < 12,000 to 30,000 Diamonds",
+                    vi: "NHÁNH 2: Đúng Hệ Đội 1 — Quỹ < 12,000 KC đến 30,000 KC",
+                    en: "BRANCH 2: On-Faction — < 12,000 to 30,000 Diamonds",
                   },
                   badge: {
                     vi: "25–35 / 70–100 Lượt",
@@ -990,8 +990,8 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
                 },
                 {
                   title: {
-                    vi: "🔥 NHÁNH 3: Đúng Hệ Đội 1 — Quỹ > 40,000 KC (Đã Nhịn 3+ Tuần)",
-                    en: "🔥 BRANCH 3: On-Faction — > 40,000 Diamonds (Saved 3+ Weeks)",
+                    vi: "NHÁNH 3: Đúng Hệ Đội 1 — Quỹ > 40,000 KC (Đã Nhịn 3+ Tuần)",
+                    en: "BRANCH 3: On-Faction — > 40,000 Diamonds (Saved 3+ Weeks)",
                   },
                   badge: {
                     vi: "150–300 Lượt & 300 Xu",
@@ -1058,8 +1058,8 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
             en: "Deploying 28,500 ➔ 33,000 Diamonds & 240 Universal Shards Across the Horde Mythic Wave (Day 18 to Day 41)",
           },
           profileSummary: {
-            vi: "Tài khoản F2P/Low-Spender chuẩn ở Ngày 18 (Giữa Tuần 3 Pre-Season, hướng tới ~6.0M lực chiến ở Ngày 42), đang dùng Đội 1 gồm 6 tướng Vàng Liên Minh (Pyromancer, Adjudicator, Secret Keeper, Astrologer, Nun, Bard) ở cấp độ Lv.160. Kho tài nguyên hiện có: 28,500 Kim Cương, 240 Mảnh Tướng Vàng Vạn Năng, 18 Vé Vòng Quay/Xúc Xắc. Mục tiêu: Chuyển sang Đội hình Bộ Lạc (Horde) để thống trị Đấu Trường và KvK.",
-            en: "Standard F2P/Low-Spender account at Server Day 18 (mid-Week 3 of Pre-Season, scaling to ~6.0M Power by Day 42), running a Lv.160 6-SSR League Queue 1 (Pyromancer, Adjudicator, Secret Keeper, Astrologer, Nun, Bard). Current reserve: 28,500 Diamonds, 240 Universal Legendary Shards, and 18 Wheel/Dice tickets. Goal: Pivot to Horde to dominate Arena and KvK.",
+            vi: "**Tài khoản F2P/Low-Spender chuẩn ở `Ngày 18` (Giữa Tuần 3 Pre-Season, hướng tới `~6.0M` lực chiến ở `Ngày 42`):**\n• **Đội hình hiện tại:** Đang dùng Đội 1 gồm 6 tướng Vàng Liên Minh (Pyromancer, Adjudicator, Secret Keeper, Astrologer, Nun, Bard) ở `Lv.160`.\n• **Kho dự trữ khóa chặt:** Có sẵn `28,500` Kim Cương, `240` Mảnh Vạn Năng và `18` Vé Wheel/Dice để chuyển sang Bộ Lạc (Horde).",
+            en: "**Standard F2P/Low-Spender account at Server `Day 18` (mid-Week 3 Pre-Season, scaling to `~6.0M` Power by `Day 42`):**\n• **Current Lineup:** Running a `Lv.160` 6-SSR League Queue 1 (Pyromancer, Adjudicator, Secret Keeper, Astrologer, Nun, Bard).\n• **Locked Reserve:** Holding `28,500` Diamonds, `240` Universal Shards, and `18` Wheel/Dice tickets to pivot to Horde.",
           },
           metrics: [
             {
@@ -1119,16 +1119,16 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
           ],
           diagnostics: [
             {
-              vi: "Nguy cơ phá sản nếu thiếu Lịch Server: Nếu thấy đội Liên Minh thiếu sát thương rồi đem 15,000 Kim Cương mua mảnh Pyromancer trong VIP/Chợ đen và đút hết 240 Mảnh Vạn Năng cho Adjudicator vào Ngày 19, chỉ 48 giờ sau (Ngày 21) khi Desert Prince xuất hiện, tài khoản sẽ cạn sạch Kim Cương lẫn Mảnh Vạn Năng.",
-              en: "Bankruptcy Risk Without Server Calendar: Spending 15,000 Diamonds on Pyromancer shards in the VIP/Black Market and feeding all 240 Universal Shards into Adjudicator on Day 19 leaves the account with zero Diamonds and zero Universal Shards just 48 hours later when Desert Prince drops on Day 21.",
+              vi: "**Nguy cơ phá sản nếu thiếu Lịch Server:**\n• Nếu đem `15,000` KC mua mảnh Pyromancer và đút hết `240` Mảnh Vạn Năng cho Adjudicator vào `Ngày 19`, chỉ 48 giờ sau (`Ngày 21`) khi Desert Prince ra mắt tài khoản sẽ cạn sạch kho.",
+              en: "**Bankruptcy Risk Without Server Calendar:**\n• Spending `15,000` Diamonds on Pyromancer shards and feeding `240` Universal Shards into Adjudicator on `Day 19` leaves zero reserves 48 hours later when Desert Prince drops on `Day 21`.",
             },
             {
-              vi: "Kiểm soát nhịp xả Kim Cương liên tiếp (Ngày 21 & Ngày 27): Khoảng cách giữa Desert Prince (Ngày 21) và Storm Maiden (Ngày 27) chỉ có 6 ngày, bắt buộc phải giữ lại tối thiểu 19,500 ➔ 24,000 Kim Cương sau đợt Ngày 21.",
-              en: "Back-to-Back Banner Pacing (Day 21 & Day 27): Because only 6 days separate Desert Prince (Day 21) and Storm Maiden (Day 27), you must retain 19,500 ➔ 24,000 Diamonds after the Day 21 banner.",
+              vi: "**Kiểm soát nhịp xả Kim Cương (`Ngày 21` & `Ngày 27`):** Desert Prince (`Ngày 21`) và Storm Maiden (`Ngày 27`) chỉ cách nhau 6 ngày, bắt buộc phải giữ lại `19,500 ➔ 24,000` Kim Cương sau đợt `Ngày 21`.",
+              en: "**Back-to-Back Banner Pacing (`Day 21` & `Day 27`):** Because only 6 days separate Desert Prince (`Day 21`) and Storm Maiden (`Day 27`), you must retain `19,500 ➔ 24,000` Diamonds after the `Day 21` banner.",
             },
             {
-              vi: "Bẫy cám dỗ Ngày 35 (Paragon): Paragon rất mạnh nhưng thuộc hệ Liên Minh; người chơi định hướng Bộ Lạc phải giữ kỷ luật 0 Kim Cương ở Ngày 35 để có đủ 20,000 Kim Cương mở khóa Witch vào Ngày 41.",
-              en: "The Day 35 Paragon Temptation Trap: Paragon is powerful but belongs to League; Horde-bound players must maintain strict 0-Diamond discipline on Day 35 to rebuild 20,000 Diamonds for Witch on Day 41.",
+              vi: "**Bẫy cám dỗ `Ngày 35` (Paragon):** Paragon rất mạnh nhưng thuộc hệ Liên Minh; người chơi Bộ Lạc phải giữ kỷ luật `0` Kim Cương ở `Ngày 35` để tích đủ `20,000` Kim Cương mở khóa Witch vào `Ngày 41`.",
+              en: "**The `Day 35` Paragon Temptation Trap:** Paragon is powerful but belongs to League; Horde-bound players must maintain `0`-Diamond discipline on `Day 35` to rebuild `20,000` Diamonds for Witch on `Day 41`.",
             },
           ],
           recoverySteps: [
@@ -1139,8 +1139,8 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
                 en: "Days 18–20: Lock 28,500 Diamonds & Clear Guild Race Chests to Reach 33,000 Diamonds",
               },
               detail: {
-                vi: "Khóa chặt toàn bộ 28,500 Kim Cương và 240 Mảnh Vạn Năng. Hoàn thành các mốc rương Thi Đấu Hội (Guild Race) để thu về thêm 4,500 Kim Cương, nâng tổng quỹ lên 33,000 Kim Cương.",
-                en: "Lock all 28,500 Diamonds and 240 Universal Shards. Complete Guild Race milestone chests to earn an extra 4,500 Diamonds, bringing your total reserve to 33,000 Diamonds.",
+                vi: "Khóa chặt toàn bộ `28,500` Kim Cương và `240` Mảnh Vạn Năng. Hoàn thành các mốc rương Thi Đấu Hội (Guild Race) để thu về thêm `4,500` Kim Cương, nâng tổng quỹ lên `33,000` Kim Cương.",
+                en: "Lock all `28,500` Diamonds and `240` Universal Shards. Complete Guild Race milestone chests to earn an extra `4,500` Diamonds, bringing your total reserve to `33,000` Diamonds.",
               },
               impactBadge: {
                 vi: "33,000 KC Sẵn Sàng",
@@ -1154,8 +1154,8 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
                 en: "Day 21 (Desert Prince Drop): Spend 13,500 Diamonds to Unlock & Rebuild to 24,000 Diamonds",
               },
               detail: {
-                vi: "Chi 13,500 Kim Cương kết hợp vé sự kiện trong 3 ngày để mở khóa Desert Prince và lấy các mốc thưởng đầu. Quỹ còn lại 19,500 Kim Cương cộng thu nhập hàng ngày sẽ hồi lên lại 24,000 Kim Cương.",
-                en: "Spend 13,500 Diamonds alongside saved tickets over the 3-day event to unlock Desert Prince and claim early milestone chests. Your remaining 19,500 Diamonds plus daily income rebounds to 24,000 Diamonds.",
+                vi: "Chi `13,500` Kim Cương kết hợp vé sự kiện trong 3 ngày để mở khóa Desert Prince và lấy các mốc thưởng đầu. Quỹ còn lại `19,500` Kim Cương cộng thu nhập hàng ngày sẽ hồi lên lại `24,000` Kim Cương.",
+                en: "Spend `13,500` Diamonds alongside saved tickets over the 3-day event to unlock Desert Prince and claim early milestone chests. Your remaining `19,500` Diamonds plus daily income rebounds to `24,000` Diamonds.",
               },
               impactBadge: {
                 vi: "Mở Khóa Desert Prince",
@@ -1169,8 +1169,8 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
                 en: "Week 4 (Check Monday 09:00 Schedule): Push Desert Prince to 1-Red Star (160 Mythic Shards)",
               },
               detail: {
-                vi: "Xuất kho Mảnh Vạn Năng kết hợp mảnh sự kiện đẩy Desert Prince lên thẳng mốc tối thiểu dùng được là 1 Sao Đỏ (6 Sao tổng / 160 mảnh quy đổi tướng Đỏ hoặc 80 mảnh tướng Vàng) — làm bàn đạp tiến tới 5 Sao Đỏ (10 Sao / 400 mảnh Mythic) và 1 Sao Trắng / Bạc (11 Sao tổng / 560 mảnh Mythic). Nếu Tuần 4 là Thi Đấu Hội nối tiếp kèm Tập Kích Cự Ma, canh lúc nhận Nhiệm vụ Vàng nâng tướng hoặc Hero Development Rush để nâng ngay; nếu Tuần 4 là GAR, chờ đúng Thứ Năm (GAR Day 4, khung 17:00–21:00) để ăn trọn 6 rương Chạy Đua Vũ Trang.",
-                en: "Combine Universal Shards and event shards to push Desert Prince straight to the usable floor of 1-Red Star (6 Total Stars / 160 Mythic shards or 80 Legendary shards)—setting up future pushes to 5-Red Stars (10 Total Stars / 400 Mythic shards) and 1-White / Silver Star (11 Total Stars / 560 Mythic shards). If Week 4 runs continuous Guild Race with Troll Raid, align with a Hero Upgrade Gold Task or Hero Development Rush; if Week 4 is GAR, wait for Thursday (GAR Day 4, 17:00–21:00) to sweep all 6 Arms Race chests.",
+                vi: "**Đẩy Desert Prince lên mốc sàn thực chiến `1★ Đỏ` (`160` mảnh Mythic / `80` mảnh Legendary):**\n• **Lộ trình Sao:** Làm bàn đạp tiến tới `5★ Đỏ` (`400` mảnh Mythic) và `1★ Trắng/Bạc` (`560` mảnh Mythic).\n• **Đồng bộ sự kiện:** Canh Nhiệm vụ Vàng / `Hero Development Rush` (nếu là Thi Đấu Hội) hoặc chờ Thứ Năm `GAR Day 4` (`17:00–21:00`).",
+                en: "**Push Desert Prince to the usable floor of `1★ Red` (`160` Mythic shards / `80` Legendary shards):**\n• **Star Roadmap:** Sets up future pushes to `5★ Red` (`400` Mythic shards) and `1★ White/Silver` (`560` Mythic shards).\n• **Event Sync:** Align with a Gold Task / `Hero Development Rush` (if Guild Race) or wait for Thursday `GAR Day 4` (`17:00–21:00`).",
               },
               impactBadge: {
                 vi: "1 Sao Đỏ (160 Mảnh)",
@@ -1184,8 +1184,8 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
                 en: "Day 27 (Storm Maiden Drop): Spend 15,000 Diamonds & Pair for +35% Combat Power",
               },
               detail: {
-                vi: "Chi tiếp 15,000 Kim Cương mở khóa Storm Maiden. Lập tức ghép cặp Desert Prince + Storm Maiden vào Đội 1 (thay thế Secret Keeper và Astrologer), giúp lực chiến thực chiến tăng vọt +35% mà không tốn thêm bất kỳ đồng nạp nào.",
-                en: "Spend 15,000 Diamonds to unlock Storm Maiden. Immediately slot Desert Prince + Storm Maiden into Queue 1 (replacing Secret Keeper and Astrologer), surging real combat power by +35% without spending a dime.",
+                vi: "**Mở khóa Storm Maiden & Kích hoạt Đội hình Lai:**\n• Chi `15,000` Kim Cương mở khóa Storm Maiden, lập tức ghép cặp Desert Prince + Storm Maiden vào Đội 1 (thay Secret Keeper & Astrologer) giúp lực chiến thực chiến tăng vọt `+35%`.",
+                en: "**Unlock Storm Maiden & Activate Hybrid Lineup:**\n• Spend `15,000` Diamonds to unlock Storm Maiden and immediately slot Desert Prince + Storm Maiden into Queue 1 (replacing Secret Keeper and Astrologer) for `+35%` combat power.",
               },
               impactBadge: {
                 vi: "+35% Thực Chiến",
@@ -1199,8 +1199,8 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
                 en: "Day 35 (Skip Paragon — 0 Diamonds) ➔ Rebuild 20,000 Diamonds for Day 41 Witch",
               },
               detail: {
-                vi: "Bỏ qua hoàn toàn sự kiện Paragon Liên Minh ở Ngày 35 (0 Kim Cương), tận dụng 14 ngày từ Ngày 28 đến Ngày 41 để tích lại quỹ 20,000 Kim Cương đón Witch vào Ngày 41, hoàn tất bộ 3 Mythic Bộ Lạc.",
-                en: "Completely skip League's Paragon banner on Day 35 (0 Diamonds), utilizing the 14-day window from Day 28 to Day 41 to rebuild a 20,000 Diamond reserve for Witch on Day 41 and complete the Horde Mythic trio.",
+                vi: "**Kỷ luật khóa ví trước Paragon (`Ngày 35`):**\n• Bỏ qua hoàn toàn sự kiện Paragon Liên Minh (`0` KC), tận dụng 14 ngày (`Ngày 28–41`) để tích lại `20,000` Kim Cương đón Witch vào `Ngày 41`, hoàn tất bộ 3 Mythic Bộ Lạc.",
+                en: "**Strict Wallet Lock on Paragon (`Day 35`):**\n• Completely skip League's Paragon banner (`0` Diamonds), using the 14-day window (`Days 28–41`) to rebuild a `20,000` Diamond reserve for Witch on `Day 41`.",
               },
               impactBadge: {
                 vi: "20,000 KC Đón Witch",
@@ -1209,8 +1209,8 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
             },
           ],
           conclusion: {
-            vi: "Chỉ nhờ nắm vững lịch ra mắt Tướng Đỏ theo Tuổi Server và khóa Kim Cương đúng hệ, tài khoản ~6.0M lực chiến hoàn tất trọn vẹn bộ 3 Mythic Bộ Lạc (Desert Prince, Storm Maiden, Witch) ngay ở Ngày 41 mà không cần nạp gói lớn.",
-            en: "Simply by mastering the Server Age Mythic release calendar and locking Diamonds to one faction, a ~6.0M Power account secures the entire Gen-1 Horde Mythic trio (Desert Prince, Storm Maiden, Witch) on Day 41 without whale spending.",
+            vi: "**Tổng kết chiến dịch `Ngày 18 ➔ Ngày 41`:**\n• Chỉ nhờ nắm vững lịch Tướng Đỏ theo Tuổi Server và khóa Kim Cương đúng hệ, tài khoản `~6.0M` lực chiến hoàn tất bộ 3 Mythic Bộ Lạc (Desert Prince, Storm Maiden, Witch) ngay ở `Ngày 41`.",
+            en: "**Campaign Summary (`Day 18 ➔ Day 41`):**\n• By mastering the Server Age Mythic release calendar and locking Diamonds to one faction, a `~6.0M` Power account secures the entire Gen-1 Horde Mythic trio (Desert Prince, Storm Maiden, Witch) on `Day 41`.",
           },
         },
       ],

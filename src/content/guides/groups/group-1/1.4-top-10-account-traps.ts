@@ -16,34 +16,34 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
   },
   tldr: {
     coreRule: {
-      vi: "Trong Top Heroes, khoảng cách giữa một tài khoản F2P Top đầu và một tài khoản 'phế' không nằm ở số giờ cày cuốc, mà nằm ở việc không mắc phải 10 sai lầm hủy hoại tài nguyên không thể hoàn tác (Hard-Gated Currencies) trong 60 ngày đầu tiên.",
-      en: "In Top Heroes, the gap between a top-tier F2P account and a ruined account lies not in grinding hours, but in avoiding the 10 irreversible Hard-Gated Currency mistakes during the first 60 days.",
+      vi: "**Bảo toàn Tài nguyên Khóa cứng (`Hard-Gated Currencies`):** Khoảng cách giữa tài khoản F2P Top đầu và tài khoản 'phế' không nằm ở số giờ cày cuốc.\n• **Kỷ luật 60 Ngày Đầu:** Tuyệt đối tránh 10 sai lầm hủy hoại tài nguyên không thể hoàn tác trong 60 ngày đầu tiên.",
+      en: "**Preserve Hard-Gated Currencies:** The gap between a top-tier F2P account and a ruined account lies not in grinding hours.\n• **First 60 Days Discipline:** Avoid the 10 irreversible `Hard-Gated Currency` mistakes during the first 60 days.",
     },
     immediateAction: {
-      vi: "Rà soát ngay tài khoản của bạn qua 10 Điểm Kiểm Toán Đỏ dưới đây; nếu phát hiện đang mắc bất kỳ lỗi nào, hãy dừng ngay thao tác đó và áp dụng Phác đồ Cắt lỗ (Stop-Loss Protocol) ở Phần II.",
-      en: "Audit your account immediately against the 10 Red Audit Checkpoints below; if you detect any active mistake, stop that action right away and execute the Stop-Loss Recovery Protocol in Part II.",
+      vi: "**Kiểm toán 10 Điểm Đỏ (`Red Audit`):** Rà soát ngay tài khoản của bạn qua 10 Điểm Kiểm Toán Đỏ dưới đây.\n• **Kích hoạt Phác đồ Cắt lỗ (`Stop-Loss Protocol`):** Nếu phát hiện đang mắc bất kỳ lỗi nào, dừng ngay thao tác đó và thực thi bảng cấp cứu ở Phần II.",
+      en: "**Run the 10-Point Red Audit:** Audit your account immediately against the 10 Red Audit Checkpoints below.\n• **Execute Stop-Loss Recovery:** If you detect any active mistake, halt that action right away and follow the `Stop-Loss Protocol` in Part II.",
     },
     strictTaboo: {
-      vi: "Không bao giờ đút Mảnh Vàng Vạn Năng cho tướng Quán Rượu, không tiêu Điểm Vinh Dự Bang / Xu Vinh Quang trước Lâu đài Lv.30 (để dành mua 9 Hồn Đá Đỏ / Soul Stones), và không mở Rương Vũ Khí Độc Quyền cho tướng quá độ.",
-      en: "Never feed Universal Legendary Shards to Tavern heroes, never spend Guild Honor or Glory Coins before Castle Lv.30 (save for 9 Soul Stones), and never open Exclusive Weapon Choice Chests for transitional heroes.",
+      vi: "**3 Cấm Kỵ Không Thể Hoàn Tác:** Không bao giờ đút Mảnh Vàng Vạn Năng cho tướng Quán Rượu (`Tavern Heroes`).\n• **Khóa Ví Bang & Rương Thần Khí:** Không tiêu `Guild Honor` / Xu Vinh Quang trước Lâu đài `Lv.30` (để mua `9 Hồn Đá Đỏ` / `Soul Stones`) và không mở Rương `UW` cho tướng quá độ.",
+      en: "**3 Irreversible Taboos:** Never feed Universal Legendary Shards to standard `Tavern Heroes`.\n• **Lock Guild Wallet & UW Chests:** Never spend `Guild Honor` or Glory Coins before Castle `Lv.30` (save for `9 Soul Stones`), and never open `Exclusive Weapon` chests for transitional heroes.",
     },
   },
   keyTakeaways: [
     {
-      vi: "Khóa 100% Mảnh Tướng Vàng Vạn Năng cho Tướng Đỏ Đội 1 (tốn 400 / 560 / 1,000 Mảnh gấp đôi mốc 200 / 280 / 500 Mảnh của Tướng Vàng); tướng Quán Rượu chỉ nâng bằng mảnh riêng.",
-      en: "Lock 100% of Universal Legendary Hero Shards for Queue 1 Mythic heroes (costing 400 / 560 / 1,000 Shards vs. 200 / 280 / 500 Shards for Legendaries); upgrade Tavern heroes strictly with their specific shards.",
+      vi: "**Khóa `100%` Mảnh Vàng Vạn Năng cho Tướng Đỏ Đội 1:** Tướng Đỏ tốn `400` / `560` / `1,000` Mảnh (gấp đôi mốc `200` / `280` / `500` Mảnh của Tướng Vàng).\n• **Quy tắc Tướng Quán Rượu (`Tavern`):** Chỉ được nâng sao tự nhiên bằng mảnh riêng rơi miễn phí hàng ngày.",
+      en: "**Lock `100%` of Universal Shards for Queue 1 Mythics:** Mythic heroes cost `400` / `560` / `1,000` Shards (double the `200` / `280` / `500` Shards of Legendaries).\n• **Tavern Hero Rule:** Upgrade `Tavern` heroes strictly using their own specific shards.",
     },
     {
-      vi: "Giữ đáy ví tối thiểu 40,000 Điểm Vinh Dự Bang hoặc 12,000–18,000 Xu Vinh Quang Hội để gom đủ 9 Hồn Đá Đỏ (40,000 Điểm Vinh Dự / viên = 360,000 hoặc 6,000 Xu Vinh Quang / viên = 54,000) + 345–385 Mảnh Tướng khi Lâu đài đạt Lv.30 bước vào Season 1.",
-      en: "Maintain a Weekly Wallet Safety Floor of 40,000 Guild Honor or 12,000–18,000 Glory Coins to secure 9 Soul Stones (40,000 Guild Honor/stone = 360,000 or 6,000 Glory Coins/stone = 54,000) + 345–385 Hero Shards at Castle Lv.30 in Season 1.",
+      vi: "**Đáy Ví Đá Linh Hồn (`Soul Stone Safety Floor`):** Giữ tối thiểu `40,000` Điểm Vinh Dự Bang hoặc `12,000–18,000` Xu Vinh Quang Hội mỗi tuần.\n• **Định mức Thức tỉnh `Lv.30` (`S1`):** Gom đủ `9 Hồn Đá Đỏ` (`40,000` Điểm/viên = `360,000` hoặc `6,000` Xu/viên = `54,000`) + `345–385` Mảnh Tướng.",
+      en: "**Weekly Wallet Safety Floor:** Maintain at least `40,000` Guild Honor or `12,000–18,000` Glory Coins untouched every week.\n• **Castle `Lv.30` (`S1`) Awakening Quota:** Secure `9 Soul Stones` (`40,000` Guild Honor/stone = `360,000` or `6,000` Glory Coins/stone = `54,000`) + `345–385` Hero Shards.",
     },
     {
-      vi: "Đẩy Brawler (+30% Tech Research Rate), Knight (+30% Soldier Training Speed), Ranger (+30% Ruby Gathering Speed) lên 2 Sao Trắng (12 Sao = 300 Mảnh) ➔ 5 Sao Trắng (500 Mảnh) để mở Trait 3 Max Lv.30 (dừng Trait 1 ở Lv.15, cấm mở Ô thứ 4 tốn 2,000 KC); tốc độ xây dựng +40% thuộc về tướng Vàng Bard.",
-      en: "Push Brawler (+30% Tech Research Rate), Knight (+30% Soldier Training Speed), and Ranger (+30% Ruby Gathering Speed) to 2 White Stars (12 Stars = 300 Shards) ➔ 5 White Stars (500 Shards) to max Trait 3 at Lv.30 (stop Trait 1 at Lv.15, never unlock Slot 4 for 2,000 Diamonds); +40% Construction Rate belongs to Legendary hero Bard.",
+      vi: "**Thiên phú Kinh tế Bộ Ba Tướng Tím:** Đẩy `Brawler` (`+30%` Tech Research), `Knight` (`+30%` Soldier Training), `Ranger` (`+30%` Ruby Gathering) lên `2 Sao Trắng` (`300` Mảnh) ➔ `5 Sao Trắng` (`500` Mảnh).\n• **Chuỗi `Trait 3 Max Lv.30`:** Dừng `Trait 1` ở `Lv.15`, cấm mở Ô 4 tốn `2,000` KC; tốc độ xây dựng `+40%` thuộc về tướng Vàng `Bard`.",
+      en: "**Epic Economy Trio Traits:** Push `Brawler` (`+30%` Tech Research), `Knight` (`+30%` Soldier Training), and `Ranger` (`+30%` Ruby Gathering) to `2 White Stars` (`300` Shards) ➔ `5 White Stars` (`500` Shards).\n• **`Trait 3 Max Lv.30` Rule:** Stop `Trait 1` at `Lv.15`, never unlock Slot 4 for `2,000` Diamonds; `+40%` Construction Rate belongs to `Bard`.",
     },
     {
-      vi: "Áp dụng kỹ thuật Thăng cấp Lính Bậc Thang (Staircase Troop Promotion) vào Thứ Sáu GAR/KvK và kiểm tra Lịch Event sáng Thứ Hai (09:00) cùng Hộp Quà Mở Công Trình (Unopened Building Gift Box) mỗi tối Chủ Nhật.",
-      en: "Execute Staircase Troop Promotion on Friday of GAR/KvK and check the Monday 09:00 Event Calendar alongside Unopened Building Gift Boxes every Sunday evening.",
+      vi: "**Kỹ thuật Thăng cấp Lính Bậc Thang (`Staircase`):** Đẻ lính bậc thấp ngày thường rồi bấm `Promote` hàng loạt vào Thứ Sáu `GAR/KvK`.\n• **Kiểm toán Tối Chủ Nhật:** Đọc Lịch Event sáng Thứ Hai (`09:00`) và giữ nguyên Hộp Quà Mở Công Trình (`Unopened Building Gift Box`).",
+      en: "**`Staircase` Troop Promotion:** Pre-train lower-tier troops on weekdays and batch-`Promote` on Friday of `GAR/KvK`.\n• **Sunday Evening Audit:** Check the Monday `09:00` Event Calendar and leave `Unopened Building Gift Box` rewards untouched until reset.",
     },
   ],
   keywords: [
@@ -82,24 +82,24 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Khác với các tựa game nhập vai thông thường nơi bạn có thể 'Reset' tướng để lấy lại 100% nguyên liệu, Top Heroes khóa chặt các loại tài nguyên cấp cao (Hard-Gated Currencies) ngay sau khi đã sử dụng:",
-            en: "Unlike casual RPGs where you can freely reset heroes to refund 100% of invested materials, Top Heroes permanently locks high-tier Hard-Gated Currencies the moment they are spent:",
+            vi: "**Cơ chế Khóa cứng Tài nguyên (`Hard-Gated Currencies`):** Khác với các game nhập vai cho phép `Reset` tướng hoàn trả `100%` nguyên liệu, Top Heroes khóa vĩnh viễn tài nguyên cấp cao ngay khi bấm dùng:",
+            en: "**Permanent `Hard-Gated Currencies`:** Unlike casual RPGs where you can freely `Reset` heroes for a `100%` refund, Top Heroes permanently locks high-tier currencies the moment they are spent:",
           },
         },
         {
           type: "list",
           items: [
             {
-              vi: "Bạn không thể tách một vị tướng đã nâng Sao để lấy lại Mảnh Tướng Vàng Vạn Năng (Universal Legendary Hero Shards).",
-              en: "You cannot dismantle or downgrade a starred-up hero to recover Universal Legendary Hero Shards.",
+              vi: "**Không thể tách Sao Tướng:** Bạn không thể hạ cấp một vị tướng đã nâng Sao để thu hồi lại Mảnh Tướng Vàng Vạn Năng (`Universal Legendary Hero Shards`).",
+              en: "**Irreversible Star Upgrades:** You cannot dismantle or downgrade a starred-up hero to recover `Universal Legendary Hero Shards`.",
             },
             {
-              vi: "Bạn không thể thu hồi Sách Kỹ Năng (Skill Books) hay Vũ khí Độc quyền (Exclusive Weapons) đã nâng nhầm cho tướng phụ.",
-              en: "You cannot refund Skill Books or Exclusive Weapons mistakenly invested into secondary or transitional heroes.",
+              vi: "**Không thể hoàn trả Sách & Thần khí:** Bạn không thể thu hồi Sách Kỹ Năng (`Skill Books`) hay Vũ khí Độc quyền (`Exclusive Weapons`) đã nâng nhầm cho tướng phụ.",
+              en: "**Non-Refundable Books & Weapons:** You cannot refund `Skill Books` or `Exclusive Weapons` mistakenly invested into secondary or transitional heroes.",
             },
             {
-              vi: "Bạn không thể lấy lại hàng chục ngàn Điểm Vinh Dự Bang (Guild Honor) hay Xu Vinh Quang đã lỡ mua trang trí hoặc mảnh tướng lẻ khi bước vào Season 1 và cần gấp 9 viên Hồn Đá Đỏ (Soul Stones) để Thức tỉnh tướng.",
-              en: "You cannot reclaim tens of thousands of Guild Honor or Glory Coins wasted on cosmetics or random shards when Season 1 arrives and you urgently need 9 Soul Stones to Awaken your core heroes.",
+              vi: "**Không thể hoàn lại Tiền tệ Bang:** Hàng chục ngàn `Guild Honor` hay Xu Vinh Quang mua nhầm trang trí/mảnh lẻ sẽ mất vĩnh viễn khi cần `9 Hồn Đá Đỏ` (`Soul Stones`) ở `Season 1`.",
+              en: "**Unrecoverable Guild Currency:** Tens of thousands of `Guild Honor` or Glory Coins wasted on cosmetics/shards are lost forever when `Season 1` demands `9 Soul Stones`.",
             },
           ],
         },
@@ -227,8 +227,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Dưới đây là hồ sơ phân tích chuyên sâu cho từng cạm bẫy trong 10 Điểm Kiểm Toán Đỏ — bao gồm biểu hiện sai lầm phổ biến, cơ chế toán học khiến tài khoản tụt hậu và quy tắc chuẩn Meta để phòng tránh:",
-            en: "Below is the complete diagnostic breakdown of all 10 Red Audit Traps — covering common symptoms, the underlying math that cripples progression, and the exact Meta standard rule for each system:",
+            vi: "**Hồ sơ Chẩn đoán 10 Điểm Kiểm Toán Đỏ:** Phân tích biểu hiện sai lầm phổ biến, cơ chế toán học gây tụt hậu và quy tắc chuẩn Meta cho từng hệ thống:",
+            en: "**Diagnostic Breakdown of the 10 Red Audit Traps:** Covering common symptoms, the underlying math that cripples progression, and the exact Meta standard rule:",
           },
         },
         {
@@ -311,20 +311,20 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
           id: "sub-trap-1",
           badge: { vi: "Cạm bẫy #1", en: "Trap #1" },
           title: {
-            vi: "🚫 Cạm bẫy #1: Đút Mảnh Vàng Vạn Năng cho Tướng SSR Thường trong Quán Rượu (Tavern Heroes)",
-            en: "🚫 Trap #1: Feeding Universal Legendary Shards to Standard Tavern SSR Heroes",
+            vi: "Cạm bẫy #1: Đút Mảnh Vàng Vạn Năng cho Tướng SSR Thường trong Quán Rượu (Tavern Heroes)",
+            en: "Trap #1: Feeding Universal Legendary Shards to Standard Tavern SSR Heroes",
           },
           blocks: [
             {
               type: "list",
               items: [
                 {
-                  vi: "Biểu hiện sai lầm: Vì muốn tăng nhanh lực chiến ở Tuần 1–2, người chơi đem hàng trăm Mảnh Tướng Vàng Vạn Năng (Universal Legendary Shards) đút cho các tướng như Secret Keeper, Astrologer, Shaman, Barbarian, Treeguard hoặc Windwalker.",
-                  en: "Symptom: Chasing fast combat power in Weeks 1–2 by feeding hundreds of Universal Legendary Shards into standard Tavern heroes like Secret Keeper, Astrologer, Shaman, Barbarian, Treeguard, or Windwalker.",
+                  vi: "**Biểu hiện sai lầm:** Đem hàng trăm Mảnh Vàng Vạn Năng (`Universal Shards`) đút cho tướng `Tavern` (`Secret Keeper`, `Astrologer`, `Shaman`, `Barbarian`, `Treeguard`, `Windwalker`) ở Tuần 1–2.",
+                  en: "**Symptom:** Feeding hundreds of `Universal Legendary Shards` in Weeks 1–2 into standard `Tavern` heroes (`Secret Keeper`, `Astrologer`, `Shaman`, `Barbarian`, `Treeguard`, `Windwalker`).",
                 },
                 {
-                  vi: "Tại sao gây phế acc: Toàn bộ các vị tướng này đều có mảnh riêng rơi miễn phí hàng ngày trong Quán Rượu (Tavern) và các tiệm đổi điểm. Hơn nữa, đến Ngày 21–45, đa số các tướng này sẽ bị đẩy xuống Đội 2 khi dàn Tướng Đỏ (Mythic) ra mắt. Trong khi đó, Tướng Đỏ KHÔNG rơi ra từ Quán Rượu và bắt buộc phải nâng sao bằng Mảnh Vạn Năng với chi phí gấp đôi tướng Vàng: 400 Mảnh để đạt 5 Sao Đỏ (10 Sao), 560 Mảnh Quy Đổi để chạm điểm gãy 1 Sao Trắng / Bạc (11 Sao), và 1,000 Mảnh để đạt kịch trần 5 Sao Trắng (15 Sao) (so với 200 / 280 / 500 Mảnh của Tướng Vàng).",
-                  en: "Why It Ruins Your Account: All of these heroes drop specific shards for free daily in the Tavern and exchange shops. By Days 21–45, most of them get relegated to Queue 2 once Mythic heroes release. Meanwhile, Mythic heroes NEVER drop from the Tavern and require Universal Shards at double the cost of Legendaries: 400 Shards for 5 Red Stars (10 Stars), 560 Shards for the 1 White/Silver Star (11 Stars) breakpoint, and 1,000 Shards for max 5 White Stars (15 Stars) (compared to 200 / 280 / 500 Shards for Legendaries).",
+                  vi: "**Tại sao gây phế acc:** Tướng `Tavern` rơi mảnh riêng miễn phí và lùi xuống Đội 2 ở Ngày 21–45; Tướng Đỏ tốn gấp đôi mảnh (`400` = `5★ Đỏ`, `560` = `1★ Trắng`, `1,000` = `5★ Trắng` vs `200 / 280 / 500`).",
+                  en: "**Why It Ruins Your Account:** `Tavern` heroes drop free shards and move to Queue 2 by Days 21–45; Mythics cost double (`400` = `5★ Red`, `560` = `1★ White`, `1,000` = `5★ White` vs `200 / 280 / 500`).",
                 },
               ],
             },
@@ -336,8 +336,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
                 en: "Meta Standard Rule — Trap #1",
               },
               content: {
-                vi: "Tướng Quán Rượu chỉ nâng bằng mảnh riêng của chính nó. 100% Mảnh Vàng Vạn Năng phải đóng băng dành riêng cho Tướng Đỏ Đội 1!",
-                en: "Upgrade Tavern heroes strictly with their own specific shards. Freeze 100% of Universal Legendary Shards exclusively for Queue 1 Mythic heroes!",
+                vi: "**Đóng băng 100% Mảnh Vạn Năng:** Tướng Quán Rượu chỉ nâng bằng mảnh riêng của chính nó. `100%` Mảnh Vàng Vạn Năng phải khóa chặt dành riêng cho Tướng Đỏ Đội 1!",
+                en: "**Freeze 100% Universal Shards:** Upgrade Tavern heroes strictly with their own specific shards. Freeze `100%` of Universal Legendary Shards exclusively for Queue 1 Mythic heroes!",
               },
             },
           ],
@@ -346,20 +346,20 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
           id: "sub-trap-2",
           badge: { vi: "Cạm bẫy #2", en: "Trap #2" },
           title: {
-            vi: "🚫 Cạm bẫy #2: Tiêu Điểm Vinh Dự Bang (Guild Honor) & Xu Vinh Quang trước Lâu Đài Lv.30",
-            en: "🚫 Trap #2: Spending Guild Honor & Glory Coins Before Castle Lv.30",
+            vi: "Cạm bẫy #2: Tiêu Điểm Vinh Dự Bang (Guild Honor) & Xu Vinh Quang trước Lâu Đài Lv.30",
+            en: "Trap #2: Spending Guild Honor & Glory Coins Before Castle Lv.30",
           },
           blocks: [
             {
               type: "list",
               items: [
                 {
-                  vi: "Biểu hiện sai lầm: Mỗi tuần kiếm được vài ngàn Điểm Vinh Dự Bang hoặc Xu Vinh Quang Hội từ sự kiện Guild Race / Guild Boss, người chơi liền vào Tiệm mua sạch mảnh tướng lẻ, rương trang bị tím hoặc mua nhầm vật phẩm Quân Trang Vạn Năng (12,000 xu).",
-                  en: "Symptom: Earning a few thousand Guild Honor or Glory Coins each week from Guild Race / Guild Boss and immediately spending them all on random hero shards, purple gear chests, or the overpriced Universal Munitions item (12,000 coins).",
+                  vi: "**Biểu hiện sai lầm:** Mỗi tuần kiếm được vài ngàn `Guild Honor` hoặc Xu Vinh Quang liền vào Tiệm mua sạch mảnh tướng lẻ, rương đồ tím hoặc Quân Trang Vạn Năng (`12,000 xu`).",
+                  en: "**Symptom:** Spending weekly `Guild Honor` or Glory Coins immediately on random hero shards, purple gear chests, or overpriced Universal Munitions (`12,000 coins`).",
                 },
                 {
-                  vi: "Tại sao gây phế acc: Khi Lâu đài đạt Cấp 30 và máy chủ bước vào Season 1, Tiệm sẽ mở bán Hồn Đá Đỏ (Soul Stones / Đá Thức Tỉnh) với đơn giá chuẩn 40,000 Điểm Vinh Dự Bang / viên (hoặc 6,000 Xu Vinh Quang Hội / viên trong Tiệm Bang S1 xoay vòng 3 tuần / 1 Phe phái). Để thức tỉnh hoàn chỉnh 1 vị tướng Vàng (từ mốc 1–2 Sao Trắng / 11–12 Sao) lên khung Đỏ Mythic (như Soulmancer, Warlock, Pyromancer, Pixie), bạn bắt buộc phải gom đủ 9 Hồn Đá Đỏ + 345–385 Mảnh Tướng (tương đương tổng chi phí 360,000 Điểm Vinh Dự Bang hoặc 54,000 Xu Vinh Quang Hội). Nếu tiêu sạch điểm từ trước, bạn sẽ bị chậm tiến độ Thức tỉnh tướng từ 6 đến 10 tuần!",
-                  en: "Why It Ruins Your Account: Once your Castle reaches Lv.30 and the server enters Season 1, the shop unlocks Soul Stones (Awakening Stones) at 40,000 Guild Honor / stone (or 6,000 Glory Coins / stone in the S1 Guild Shop rotating every 3 weeks per faction). Fully awakening a single Legendary hero (starting at 1–2 White Stars / 11–12 Stars) to Mythic red frame (such as Soulmancer, Warlock, Pyromancer, or Pixie) requires 9 Soul Stones + 345–385 Hero Shards (a total cost of 360,000 Guild Honor or 54,000 Glory Coins). Draining your wallet early delays your Awakening progression by 6 to 10 weeks!",
+                  vi: "**Tại sao gây phế acc:** Lâu đài `Lv.30` (`S1`) mở bán `9 Hồn Đá Đỏ` giá `40,000` Điểm/viên (`360,000`) hoặc `6,000` Xu/viên (`54,000`) + `345–385` Mảnh; tiêu sớm làm chậm Thức tỉnh `6–10 tuần`.",
+                  en: "**Why It Ruins Your Account:** Castle `Lv.30` (`S1`) unlocks `9 Soul Stones` at `40,000` Honor/stone (`360,000`) or `6,000` Coins/stone (`54,000`) + `345–385` Shards; draining early delays Awakening `6–10 weeks`.",
                 },
               ],
             },
@@ -371,8 +371,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
                 en: "Meta Standard Rule — Trap #2",
               },
               content: {
-                vi: "Thiết lập 'Ngưỡng Đóng Băng Ví Hàng Tuần (Weekly Wallet Safety Floor)' ở mức tối thiểu 40,000 Điểm Vinh Dự Bang (hoặc 12,000–18,000 Xu Vinh Quang Hội). Chỉ tiêu phần điểm dư trên ngưỡng này.",
-                en: "Enforce a Weekly Wallet Safety Floor of at least 40,000 Guild Honor (or 12,000–18,000 Glory Coins). Only spend surplus currency above this floor.",
+                vi: "**Ngưỡng Đóng Băng Ví Hàng Tuần (`Weekly Wallet Safety Floor`):** Luôn giữ tối thiểu `40,000` Điểm Vinh Dự Bang (hoặc `12,000–18,000` Xu Vinh Quang Hội) và chỉ tiêu phần điểm dư trên ngưỡng này.",
+                en: "**Weekly Wallet Safety Floor:** Enforce a floor of at least `40,000` Guild Honor (or `12,000–18,000` Glory Coins) and only spend surplus currency above this threshold.",
               },
             },
           ],
@@ -381,24 +381,24 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
           id: "sub-trap-3",
           badge: { vi: "Cạm bẫy #3", en: "Trap #3" },
           title: {
-            vi: "🚫 Cạm bẫy #3: Rèn Trang Bị Vàng Không Gán Dấu Hệ (Unmarked Gear) & Đập Cường Hóa Lệch Bậc",
-            en: "🚫 Trap #3: Crafting Unmarked Legendary Gear & Uneven Enhancement Levels",
+            vi: "Cạm bẫy #3: Rèn Trang Bị Vàng Không Gán Dấu Hệ (Unmarked Gear) & Đập Cường Hóa Lệch Bậc",
+            en: "Trap #3: Crafting Unmarked Legendary Gear & Uneven Enhancement Levels",
           },
           blocks: [
             {
               type: "list",
               items: [
                 {
-                  vi: "Biểu hiện sai lầm 1: Khi đúc Trang bị Vàng (Legendary Gear) trong Lò Rèn, người chơi quên bỏ thêm nguyên liệu gán Hệ hoặc chấp nhận mặc đồ Vàng 'Trắng' (không có biểu tượng Phe phái ở góc món đồ), làm mất trắng +30% chỉ số cộng thêm khi đúng Hệ.",
-                  en: "Symptom 1: Forging Legendary Gear in the Blacksmith without adding a Faction Emblem material or settling for unmarked 'blank' Gold Gear, forfeiting the massive +30% Faction Matching Stat Bonus.",
+                  vi: "**Biểu hiện sai lầm 1:** Đúc Trang bị Vàng (`Legendary Gear`) quên bỏ nguyên liệu gán Hệ hoặc mặc đồ Vàng 'Trắng' không dấu, mất trắng `+30%` chỉ số cộng thêm đúng Hệ.",
+                  en: "**Symptom 1:** Forging `Legendary Gear` without a Faction Emblem or settling for unmarked 'blank' Gold Gear, forfeiting the `+30%` Faction Matching Stat Bonus.",
                 },
                 {
-                  vi: "Biểu hiện sai lầm 2: Dồn toàn bộ Quặng Cường Hóa đập 1 thanh kiếm lên +25 trong khi Mũ, Áo, Giày mới ở mức +4 hoặc +5.",
-                  en: "Symptom 2: Funneling all Enhancement Ore into pushing a single weapon to +25 while leaving the Helmet, Armor, and Boots at +4 or +5.",
+                  vi: "**Biểu hiện sai lầm 2:** Dồn toàn bộ Quặng Cường Hóa (`Enhancement Ore`) đập 1 thanh kiếm lên `+25` trong khi Mũ, Áo, Giày mới ở mức `+4` hoặc `+5`.",
+                  en: "**Symptom 2:** Funneling all `Enhancement Ore` into pushing a single weapon to `+25` while leaving the Helmet, Armor, and Boots at `+4` or `+5`.",
                 },
                 {
-                  vi: "Tại sao gây phế acc: Hệ thống Trang bị Tướng có cơ chế Cộng hưởng Cường hóa Toàn thân (Gear Enhancement Resonance) tại các mốc +10, +20, +30, +40. Khi cả 4 món trên người 1 vị tướng cùng đạt mốc +10 (hoặc +20), một lượng chỉ số ẩn khổng lồ được kích hoạt. Đập lệch 1 món lên cao sẽ tốn gấp 3 lần Quặng mà không kích hoạt được mốc cộng hưởng nào!",
-                  en: "Why It Ruins Your Account: Hero Gear features a full-set Gear Enhancement Resonance system at +10, +20, +30, and +40. When all 4 pieces on a hero simultaneously hit +10 (or +20), a massive hidden stat multiplier activates. Over-leveling a single piece costs 3x more Ore while failing to trigger any resonance tier!",
+                  vi: "**Tại sao gây phế acc:** Cộng hưởng Trang bị (`Gear Resonance`) kích hoạt ở mốc đồng đều `+10`, `+20`, `+30`, `+40` cả 4 món; đập lệch 1 món tốn gấp `3x` Quặng mà mất sạch cộng hưởng!",
+                  en: "**Why It Ruins Your Account:** Full-set `Gear Resonance` activates when all 4 pieces hit `+10`, `+20`, `+30`, or `+40`; over-leveling 1 piece costs `3x` Ore while triggering zero resonance!",
                 },
               ],
             },
@@ -410,8 +410,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
                 en: "Meta Standard Rule — Trap #3",
               },
               content: {
-                vi: "Luôn hướng tới Bộ 4 món Vàng đúng Dấu Hệ (+30% Bonus) và nâng đồng đều từng nấc: cả 4 món lên +10 ➔ cả 4 món lên +20 ➔ +30 ➔ +40.",
-                en: "Always equip a full 4-piece Faction-Marked Gold Gear set (+30% Bonus) and enhance evenly in locked steps: all 4 pieces to +10 ➔ all 4 pieces to +20 ➔ +30 ➔ +40.",
+                vi: "**Đúc Đúng Dấu Hệ & Đập Đều Bậc:** Luôn hướng tới Bộ 4 món Vàng đúng Dấu Hệ (`+30% Bonus`) và nâng đồng đều từng nấc: cả 4 món lên `+10` ➔ cả 4 món lên `+20` ➔ `+30` ➔ `+40`.",
+                en: "**Faction-Marked & Even Resonance:** Always equip a 4-piece Faction-Marked Gold Gear set (`+30% Bonus`) and enhance evenly in locked steps: all 4 pieces to `+10` ➔ `+20` ➔ `+30` ➔ `+40`.",
               },
             },
           ],
@@ -420,24 +420,24 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
           id: "sub-trap-4",
           badge: { vi: "Cạm bẫy #4", en: "Trap #4" },
           title: {
-            vi: "🚫 Cạm bẫy #4: Xả Tài Nguyên Trái Ngày Sự Kiện Hoặc Nhịn Mù Quáng Không Nhìn Lịch Event (Bỏ Lỡ Cơ Chế Double-Dip)",
-            en: "🚫 Trap #4: Dumping Resources Off-Schedule or Blindly Hoarding Without Checking the Monday 09:00 Event Calendar",
+            vi: "Cạm bẫy #4: Xả Tài Nguyên Trái Ngày Sự Kiện Hoặc Nhịn Mù Quáng Không Nhìn Lịch Event (Bỏ Lỡ Cơ Chế Double-Dip)",
+            en: "Trap #4: Dumping Resources Off-Schedule or Blindly Hoarding Without Checking the Monday 09:00 Event Calendar",
           },
           blocks: [
             {
               type: "list",
               items: [
                 {
-                  vi: "Biểu hiện sai lầm 1: Có Mảnh Tướng, Sách Kỹ Năng, Đá Trang bị Lãnh Chúa, Thức ăn Pet hay Tăng tốc là bấm xài ngay trong ngày thường vì 'ngứa tay', hoặc xả cạn sạch kho vô kỷ luật ngay đầu tuần.",
-                  en: "Symptom 1: Impulsively spending Hero Shards, Skill Books, Lord Gear materials, Pet Food, or Speedups on random weekdays, or dumping your entire inventory unconditionally without a leaderboard target.",
+                  vi: "**Biểu hiện sai lầm 1:** Có Mảnh Tướng, Sách Kỹ Năng, Đá `Lord Gear`, Thức ăn Pet hay Tăng tốc là bấm xài ngay trong ngày thường hoặc xả cạn kho vô kỷ luật đầu tuần.",
+                  en: "**Symptom 1:** Impulsively spending Hero Shards, Skill Books, `Lord Gear` materials, Pet Food, or Speedups on random weekdays without an event target.",
                 },
                 {
-                  vi: "Biểu hiện sai lầm 2: Ngược lại, ở máy chủ mới mở (Pre-Season), người chơi máy móc nhịn trắng toàn bộ tài nguyên sang tuần sau chờ GAR mà không mở Lịch Event (09:00 Thứ Hai) kiểm tra xem tuần tới là Thi Đấu Hội chạy nối sóng liên tiếp hay GAR.",
-                  en: "Symptom 2: Conversely, on a young Pre-Season server, blindly skipping an entire week waiting for GAR without opening the Monday 09:00 Event Calendar to check if Guild Race is running back-to-back.",
+                  vi: "**Biểu hiện sai lầm 2:** Ở máy chủ mới (`Pre-Season`), máy móc nhịn trắng tài nguyên chờ `GAR` mà không mở Lịch Event (`09:00` Thứ Hai) kiểm tra xem `Thi Đấu Hội` có chạy nối tiếp không.",
+                  en: "**Symptom 2:** On a young `Pre-Season` server, blindly skipping an entire week waiting for `GAR` without checking the Monday `09:00` Event Calendar for continuous `Guild Race`.",
                 },
                 {
-                  vi: "Tại sao gây phế acc: Top Heroes vận hành theo Lịch Sự Kiện Động Theo Tuổi Máy Chủ (2 Giai đoạn): ở Phase 1 (đầu Pre-Season), Thi Đấu Hội (Guild Race — leo hạng Bang D ➔ C ➔ B ➔ A ➔ S) chạy nối tiếp hàng tuần từ 09:00 Thứ Hai ➔ 09:00 Thứ Hai kèm chuỗi sự kiện vệ tinh xoay vòng (Đế Quốc Hắc Ám Xâm Nhập ⇄ Khiêu Chiến Của Đội Quân Hắc Ám và Bắt Bướm ⇄ Tập Kích Cự Ma) — ở giai đoạn này bạn chỉ tiêu vừa đủ ăn rương mốc cá nhân hàng ngày/tuần và găm tồn kho lớn; sau đó sang Phase 2 khi mở khóa GAR và KvK, máy chủ chuyển sang Chu kỳ Luân phiên (Thi Đấu Hội ⇄ Guild Arms Race / KvK) kết hợp các Sự kiện Phụ 2–3 Ngày (Hero Development, Lord's Set, Ultimate Power) để xả tồn kho đua Top. Người chơi biết đọc Lịch Event và xả đúng khung giờ giao thoa (Double-Dip) sẽ nhận lại lượng Rương Kim Cương, Mảnh Vạn Năng và Điểm Vinh Dự Bang nhiều gấp 250% – 300% so với người xả tự do.",
-                  en: "Why It Ruins Your Account: Top Heroes operates on a 2-Phase Dynamic Server-Age Event Calendar: in Phase 1 (early Pre-Season), Guild Race (Thi Đấu Hội — climbing Guild Ranks D ➔ C ➔ B ➔ A ➔ S) runs continuously every week from Monday 09:00 to Monday 09:00 alongside rotating satellite events (Dark Empire Invasion ⇄ Dark Legion Challenge / Khiêu Chiến Của Đội Quân Hắc Ám and Butterfly Catching ⇄ Giant Raid / Tập Kích Cự Ma), where you should spend only enough to hit daily/weekly personal milestone chests while banking surplus inventory; in Phase 2, once GAR and KvK unlock, the server shifts to an alternating rotation (Guild Race ⇄ GAR / KvK) paired with 2–3 Day sub-events (Hero Development, Lord's Set, Ultimate Power) for leaderboard pushes. Players who check the Monday 09:00 Event Calendar and execute Double-Dip windows earn 250%–300% more Diamonds, Universal Shards, and Guild Honor.",
+                  vi: "**Tại sao gây phế acc:** Phase 1 chạy `Thi Đấu Hội` nối tiếp kèm `Khiêu Chiến Của Đội Quân Hắc Ám` & `Tập Kích Cự Ma`; Phase 2 luân phiên `GAR/KvK` — xả đúng lịch `Double-Dip` lời gấp `250%–300%` quà!",
+                  en: "**Why It Ruins Your Account:** Phase 1 runs continuous `Guild Race` with `Dark Legion Challenge` & `Giant Raid`; Phase 2 alternates `GAR/KvK`—`Double-Dip` timing yields `250%–300%` rewards!",
                 },
               ],
             },
@@ -449,8 +449,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
                 en: "Meta Standard Rule — Trap #4",
               },
               content: {
-                vi: "Chỉ nâng cấp Trang bị Tướng (Hero Gear) vào ngày thường (vì không tính điểm sự kiện). Mọi tài nguyên còn lại (Mảnh tướng, Vé quay, Trang bị Lãnh Chúa, Cổ Ngữ, Pet, Thánh vật, Tăng tốc) bắt buộc phải mở Lịch Event lúc 09:00 Thứ Hai kiểm tra chế độ tuần: chỉ tiêu vừa đủ mốc rương cá nhân trong tuần Thi Đấu Hội và xả tồn kho đúng ngày chủ đề GAR / KvK!",
-                en: "Only upgrade Hero Gear on regular days (since it grants zero event points). For all other resources (Hero Shards, Recruit Vouchers, Lord Gear, Runes, Pets, Relics, Speedups), always inspect the Monday 09:00 Event Calendar first: spend just enough for personal milestone chests during continuous Guild Race weeks, and unleash banked reserves on matching GAR / KvK theme days!",
+                vi: "**Chỉ nâng `Hero Gear` vào ngày thường** (vì không tính điểm sự kiện).\n• **Kiểm tra Lịch Event `09:00` Thứ Hai:** Mọi tài nguyên khác (Mảnh tướng, Vé quay, `Lord Gear`, Cổ Ngữ, Pet, Thánh vật, Tăng tốc) chỉ tiêu đủ rương cá nhân tuần `Thi Đấu Hội` và xả đúng ngày `GAR / KvK`!",
+                en: "**Only upgrade `Hero Gear` on regular days** (since it grants zero event points).\n• **Inspect Monday `09:00` Calendar:** For all other items (Shards, Vouchers, `Lord Gear`, Runes, Pets, Relics, Speedups), spend only for personal chests in `Guild Race` and dump reserves on `GAR / KvK` days!",
               },
             },
           ],
@@ -459,36 +459,36 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
           id: "sub-trap-5",
           badge: { vi: "Cạm bẫy #5", en: "Trap #5" },
           title: {
-            vi: "🚫 Cạm bẫy #5: Nâng Kỹ Năng Chiến Đấu cho Tướng Tím, Nhầm Lẫn Thiên Phú Kinh Tế & Bấm Mở Ô Thứ 4 (2,000 KC)",
-            en: "🚫 Trap #5: Upgrading Epic Hero Combat Skills, Mismanaging Economy Traits & Unlocking the 4th Trait Slot (2,000 Diamonds)",
+            vi: "Cạm bẫy #5: Nâng Kỹ Năng Chiến Đấu cho Tướng Tím, Nhầm Lẫn Thiên Phú Kinh Tế & Bấm Mở Ô Thứ 4 (2,000 KC)",
+            en: "Trap #5: Upgrading Epic Hero Combat Skills, Mismanaging Economy Traits & Unlocking the 4th Trait Slot (2,000 Diamonds)",
           },
           blocks: [
             {
               type: "list",
               items: [
                 {
-                  vi: "Biểu hiện sai lầm: Dùng hàng ngàn Sách Kỹ Năng để nâng các chiêu đánh nhau của Tướng Tím (Knight, Brawler, Ranger), nâng nhầm Trait 1 lên Lv.30 thay vì dừng ở Lv.15, hoặc bấm mất 2,000 Kim Cương để mở khóa Ô Thiên phú thứ 4 (4th Trait Slot) của tướng Tím.",
-                  en: "Symptom: Burning thousands of Skill Books on Epic hero combat skills (Knight, Brawler, Ranger), leveling Trait 1 all the way to Lv.30 instead of stopping at Lv.15, or paying 2,000 Diamonds to unlock an Epic hero's 4th Trait Slot.",
+                  vi: "**Biểu hiện sai lầm:** Đốt hàng ngàn Sách Kỹ Năng vào chiêu chiến đấu của Tướng Tím (`Knight`, `Brawler`, `Ranger`), nâng `Trait 1` lên `Lv.30` thay vì dừng ở `Lv.15`, hoặc mở Ô thứ 4 tốn `2,000` KC.",
+                  en: "**Symptom:** Burning thousands of Skill Books on Epic combat skills (`Knight`, `Brawler`, `Ranger`), leveling `Trait 1` to `Lv.30` instead of `Lv.15`, or paying `2,000` Diamonds for Trait Slot 4.",
                 },
                 {
-                  vi: "Tại sao gây phế acc: Tướng Tím hoàn toàn không có chỗ đứng trong Đội hình 1 sau 10 ngày đầu. Giá trị duy nhất của chúng nằm ở tab Thiên Phú (Traits) mở khóa khi đạt 2 Sao Trắng / Bạc (12 Sao = 300 Mảnh Tướng Tím) — đặc biệt là Ô Thiên phú số 3 (Trait 3, Max Lv.30) có tác dụng vĩnh viễn cho toàn tài khoản dù tướng ngồi dự bị:",
-                  en: "Why It Ruins Your Account: Epic heroes have zero place in Queue 1 after the first 10 days. Their sole permanent value lies in their Traits tab unlocked at 2 White/Silver Stars (12 Stars = 300 Epic Hero Shards) — specifically Trait Slot 3 (Max Lv.30), which passively buffs your entire account from the bench:",
+                  vi: "**Tại sao gây phế acc:** Tướng Tím rút khỏi Đội 1 sau 10 ngày; giá trị duy nhất là `Trait 3` (`Max Lv.30`) mở ở `2 Sao Trắng` (`12 Sao` = `300` Mảnh) buff vĩnh viễn toàn acc từ ghế dự bị:",
+                  en: "**Why It Ruins Your Account:** Epic heroes leave Queue 1 after Day 10; their sole permanent value is `Trait 3` (`Max Lv.30`) unlocked at `2 White Stars` (`12 Stars` = `300` Shards) from the bench:",
                 },
                 {
-                  vi: "• Brawler (Đấu Sĩ): +30% Tốc độ Nghiên cứu Công nghệ (Tech Research Rate) tại Max Trait Lv.30.",
-                  en: "• Brawler: +30% Tech Research Rate at Max Trait Lv.30.",
+                  vi: "**Brawler (Đấu Sĩ):** Cộng `+30%` Tốc độ Nghiên cứu Công nghệ (`Tech Research Rate`) vĩnh viễn tại mốc `Max Trait Lv.30`.",
+                  en: "**Brawler:** Grants `+30%` `Tech Research Rate` permanently at `Max Trait Lv.30`.",
                 },
                 {
-                  vi: "• Knight (Kỵ Sĩ): +30% Tốc độ Huấn luyện Lính (Soldier Training Speed) tại Max Trait Lv.30.",
-                  en: "• Knight: +30% Soldier Training Speed at Max Trait Lv.30.",
+                  vi: "**Knight (Kỵ Sĩ):** Cộng `+30%` Tốc độ Huấn luyện Lính (`Soldier Training Speed`) vĩnh viễn tại mốc `Max Trait Lv.30`.",
+                  en: "**Knight:** Grants `+30%` `Soldier Training Speed` permanently at `Max Trait Lv.30`.",
                 },
                 {
-                  vi: "• Ranger (Cung Thủ / Thợ Săn): +30% Tốc độ Thu thập Ruby (Ruby Gathering Speed) tại Max Trait Lv.30 (Lưu ý: Ranger tăng tốc độ đào Ruby, KHÔNG phải tốc độ xây dựng! Hiệu ứng +40% Tốc độ Xây dựng / Construction Rate thuộc về kỹ năng nội tại kinh tế của Tướng Vàng Huyền Thoại Bard / Nhà Thơ).",
-                  en: "• Ranger: +30% Ruby Gathering Speed at Max Trait Lv.30 (Note: Ranger boosts Ruby gathering, NOT construction speed! The +40% Construction Rate passive belongs to the Legendary hero Bard).",
+                  vi: "**Ranger & Bard:** `Ranger` cộng `+30%` Tốc độ Đào Ruby (`Ruby Gathering Speed`) tại `Lv.30` (KHÔNG phải xây dựng); `+40%` Tốc độ Xây dựng (`Construction Rate`) thuộc về Tướng Vàng `Bard`.",
+                  en: "**Ranger & Bard:** `Ranger` grants `+30%` `Ruby Gathering Speed` at `Lv.30` (NOT construction); the `+40%` `Construction Rate` passive belongs to Legendary hero `Bard`.",
                 },
                 {
-                  vi: "• Ngược lại, Ô Thiên phú thứ 4 tốn 2,000 KC chỉ cộng +3% HP cho riêng bản thân con tướng Tím đó khi ra trận — hoàn toàn vô giá trị!",
-                  en: "• Conversely, the 4th Trait Slot costing 2,000 Diamonds only grants +3% HP to that specific Epic hero when deployed in battle — 100% worthless!",
+                  vi: "**Cấm mở Ô Thiên phú thứ 4 (`2,000` KC):** Chỉ cộng `+3% HP` cho riêng bản thân con tướng Tím đó khi ra trận — hoàn toàn vô giá trị `100%`!",
+                  en: "**Never Unlock 4th Trait Slot (`2,000` Diamonds):** Grants only `+3% HP` to that specific Epic hero when deployed in battle — `100%` worthless!",
                 },
               ],
             },
@@ -500,8 +500,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
                 en: "Meta Standard Rule — Trap #5",
               },
               content: {
-                vi: "Đẩy Brawler, Knight, Ranger lên 2 Sao Trắng (12 Sao = 300 Mảnh) ➔ 5 Sao Trắng (15 Sao = 500 Mảnh), mở chuỗi điều kiện Trait 1 Lv.15 ➔ Trait 2 ➔ Trait 3 Max Lv.30, và tuyệt đối không bao giờ chạm vào Ô thứ 4 tốn 2,000 KC!",
-                en: "Promote Brawler, Knight, and Ranger to 2 White Stars (12 Stars = 300 Shards) ➔ 5 White Stars (15 Stars = 500 Shards), follow the exact prerequisite chain Trait 1 Lv.15 ➔ Trait 2 ➔ Trait 3 Max Lv.30, and never touch the 2,000-Diamond 4th Trait Slot!",
+                vi: "**Chuỗi Mở Khóa `Trait 3 Max Lv.30`:** Đẩy `Brawler`, `Knight`, `Ranger` lên `2 Sao Trắng` (`300` Mảnh) ➔ `5 Sao Trắng` (`500` Mảnh), nâng `Trait 1 Lv.15` ➔ `Trait 2` ➔ `Trait 3 Max Lv.30`, cấm mở Ô 4 (`2,000` KC)!",
+                en: "**`Trait 3 Max Lv.30` Chain:** Push `Brawler`, `Knight`, `Ranger` to `2★ White` (`300` Shards) ➔ `5★ White` (`500` Shards), level `Trait 1 Lv.15` ➔ `Trait 2` ➔ `Trait 3 Max Lv.30`, and skip Slot 4 (`2,000` KC)!",
               },
             },
           ],
@@ -510,20 +510,20 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
           id: "sub-trap-6",
           badge: { vi: "Cạm bẫy #6", en: "Trap #6" },
           title: {
-            vi: "🚫 Cạm bẫy #6: Nâng Sớm Nhánh Nghiên Cứu S1 Battle / Soldiers Trước Khi Mở Hộp 6 Arms Race Prep",
-            en: "🚫 Trap #6: Researching S1 Battle / Soldiers Before Unlocking Chest 6 in Arms Race Prep",
+            vi: "Cạm bẫy #6: Nâng Sớm Nhánh Nghiên Cứu S1 Battle / Soldiers Trước Khi Mở Hộp 6 Arms Race Prep",
+            en: "Trap #6: Researching S1 Battle / Soldiers Before Unlocking Chest 6 in Arms Race Prep",
           },
           blocks: [
             {
               type: "list",
               items: [
                 {
-                  vi: "Biểu hiện sai lầm: Khi vào Viện Nghiên Cứu (Research Cottage), người chơi thấy nhánh Soldiers hoặc S1 Battle cộng lực chiến nên lao vào nghiên cứu hàng tuần trời, bỏ quên nhánh Chuẩn bị Chạy đua Vũ trang (Arms Race Prep / Guild Arms Race Commendation).",
-                  en: "Symptom: Entering the Research Cottage and spending weeks researching the Soldiers or S1 Battle trees for immediate combat power while ignoring the Arms Race Prep (Guild Arms Race Commendation) tree.",
+                  vi: "**Biểu hiện sai lầm:** Vào `Research Cottage` dành hàng tuần nghiên cứu nhánh `Soldiers` hoặc `S1 Battle` lấy lực chiến trước mắt mà bỏ quên nhánh `Arms Race Prep`.",
+                  en: "**Symptom:** Spending weeks in the `Research Cottage` researching `Soldiers` or `S1 Battle` for immediate power while ignoring the `Arms Race Prep` tree.",
                 },
                 {
-                  vi: "Tại sao gây phế acc: Nhánh Arms Race Prep chứa các nốt mở khóa Rương Thưởng Hộp 4–5–6 và đặc biệt là công nghệ Nhân Đôi Phần Thưởng (Double Rewards) cho toàn bộ sự kiện Đua Vũ Trang hàng tuần. Mở khóa chậm nhánh này 1 tháng đồng nghĩa với việc bạn mất trắng một nửa lượng Kim Cương và Mảnh Vạn Năng từ sự kiện mỗi tuần!",
-                  en: "Why It Ruins Your Account: The Arms Race Prep branch unlocks Event Milestone Chests 4–5–6 and the game-changing Double Rewards technology for all weekly Arms Race events. Delaying this branch by a month means losing half of your weekly event Diamonds and Universal Shards!",
+                  vi: "**Tại sao gây phế acc:** Nhánh `Arms Race Prep` mở khóa Rương `4–5–6` và nốt Nhân Đôi Phần Thưởng (`Double Rewards`); chậm nhánh này 1 tháng làm mất trắng `50%` Kim Cương & Mảnh Vạn Năng sự kiện!",
+                  en: "**Why It Ruins Your Account:** `Arms Race Prep` unlocks Event Chests `4–5–6` and `Double Rewards`; delaying this branch by a month forfeits `50%` of your weekly event Diamonds and Universal Shards!",
                 },
               ],
             },
@@ -535,8 +535,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
                 en: "Meta Standard Rule — Trap #6",
               },
               content: {
-                vi: "Thứ tự ưu tiên nghiên cứu bất khả xâm phạm: 1. Combat Expertise (Mở khóa cây) ➔ 2. Development & Arms Race Prep (Lấy Double Rewards) ➔ 3. Queue 1 Boost (Tăng sức mạnh Đội 1) ➔ 4. Soldiers / S1 Battle.",
-                en: "Unbreakable research priority order: 1. Combat Expertise (Unlock tree) ➔ 2. Development & Arms Race Prep (Unlock Double Rewards) ➔ 3. Queue 1 Boost ➔ 4. Soldiers / S1 Battle.",
+                vi: "**Thứ tự Ưu tiên Nghiên cứu:** `1. Combat Expertise` (Mở khóa cây) ➔ `2. Development & Arms Race Prep` (Lấy `Double Rewards`) ➔ `3. Queue 1 Boost` (Tăng sức mạnh Đội 1) ➔ `4. Soldiers / S1 Battle`.",
+                en: "**Unbreakable Research Priority:** `1. Combat Expertise` (Unlock tree) ➔ `2. Development & Arms Race Prep` (Unlock `Double Rewards`) ➔ `3. Queue 1 Boost` ➔ `4. Soldiers / S1 Battle`.",
               },
             },
           ],
@@ -545,20 +545,20 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
           id: "sub-trap-7",
           badge: { vi: "Cạm bẫy #7", en: "Trap #7" },
           title: {
-            vi: "🚫 Cạm bẫy #7: Ghép Vội Rương Cổ Ngữ (Runes) Ở Bậc Thấp Lv.1 – Lv.3",
-            en: "🚫 Trap #7: Prematurely Opening & Merging Low-Tier Runes at Lv.1 – Lv.3",
+            vi: "Cạm bẫy #7: Ghép Vội Rương Cổ Ngữ (Runes) Ở Bậc Thấp Lv.1 – Lv.3",
+            en: "Trap #7: Prematurely Opening & Merging Low-Tier Runes at Lv.1 – Lv.3",
           },
           blocks: [
             {
               type: "list",
               items: [
                 {
-                  vi: "Biểu hiện sai lầm: Mở các rương Cổ Ngữ tự chọn ngay từ Lv.1–Lv.3 hoặc tiêu bụi Cổ Ngữ nâng dàn trải các viên bậc thấp.",
-                  en: "Symptom: Opening Rune Choice Chests at Lv.1–Lv.3 or spreading Rune Dust evenly across low-level runes.",
+                  vi: "**Biểu hiện sai lầm:** Mở các rương Cổ Ngữ tự chọn (`Rune Choice Chests`) ngay từ `Lv.1–Lv.3` hoặc tiêu bụi Cổ Ngữ nâng dàn trải các viên bậc thấp.",
+                  en: "**Symptom:** Prematurely opening `Rune Choice Chests` at `Lv.1–Lv.3` or spreading Rune Dust evenly across low-level runes.",
                 },
                 {
-                  vi: "Tại sao gây phế acc: Theo bảng dữ liệu định lượng TopHeroes Master Tables (Tab 🀄️Runes), từ Lv.1 đến Lv.4, các viên Hero HP Rune và Hero Attack Rune chỉ cộng chỉ số phẳng (Flat Stats) rất nhỏ. Chỉ khi chạm Mốc Đột Phá Lv.5 (Breakpoint Lv.5), Cổ Ngữ mới mở khóa dòng cộng theo phần trăm (+5% ATK/HP Tướng và +30 Quy mô Hành quân / March Size), và ở Mốc Lv.8 mở khóa tiếp +5% ATK/HP Toàn bộ Lính (+5% Soldier ATK/HP).",
-                  en: "Why It Ruins Your Account: According to the TopHeroes Master Data Tables (🀄️Runes tab), Lv.1 to Lv.4 Hero HP and Hero Attack Runes only grant negligible Flat Stats. Only upon hitting the Lv.5 Breakpoint do Runes unlock percentage multipliers (+5% Hero ATK/HP and +30 March Size), followed by the Lv.8 Breakpoint unlocking +5% Soldier ATK/HP.",
+                  vi: "**Tại sao gây phế acc:** Theo `TopHeroes Master Tables` (Tab Runes), `Lv.1–Lv.4` chỉ cộng chỉ số phẳng nhỏ; phải chạm `Lv.5` mới mở `+5%` ATK/HP Tướng & `+30 March Size`, và `Lv.8` mở `+5%` ATK/HP Lính.",
+                  en: "**Why It Ruins Your Account:** Per `TopHeroes Master Tables` (Runes tab), `Lv.1–Lv.4` Runes give tiny flat stats; `Lv.5` unlocks `+5%` Hero ATK/HP & `+30 March Size`, and `Lv.8` unlocks `+5%` Soldier ATK/HP.",
                 },
               ],
             },
@@ -570,8 +570,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
                 en: "Meta Standard Rule — Trap #7",
               },
               content: {
-                vi: "Dồn ghép tập trung từng vị trí Cổ Ngữ của Đội 1 chạm thẳng mốc Lv.5 (+5% Hero ATK/HP & +30 March Size) rồi đến Lv.8 (+5% Soldier ATK/HP) vào đúng Thứ Ba Tuần B (Ngày Nghiên cứu & Cổ Ngữ).",
-                en: "Concentrate rune merges one slot at a time for Queue 1 to hit the Lv.5 (+5% Hero ATK/HP & +30 March Size) and Lv.8 (+5% Soldier ATK/HP) breakpoints specifically on Tuesday of Week B (Research & Runes Day).",
+                vi: "**Dồn Điểm Gãy `Lv.5` & `Lv.8`:** Ghép tập trung từng vị trí Cổ Ngữ Đội 1 chạm thẳng `Lv.5` (`+5%` Hero ATK/HP & `+30 March Size`) rồi `Lv.8` (`+5%` Soldier ATK/HP) vào đúng Thứ Ba Tuần B.",
+                en: "**Target `Lv.5` & `Lv.8` Breakpoints:** Concentrate rune merges one slot at a time for Queue 1 to hit `Lv.5` (`+5%` Hero ATK/HP & `+30 March Size`) and `Lv.8` (`+5%` Soldier ATK/HP) on Tuesday of Week B.",
               },
             },
           ],
@@ -580,20 +580,20 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
           id: "sub-trap-8",
           badge: { vi: "Cạm bẫy #8", en: "Trap #8" },
           title: {
-            vi: "🚫 Cạm bẫy #8: Nâng Cấp Nhà Kho (Warehouse) & Mỏ Tài Nguyên Làm Chậm Tiến Độ Rush Lâu Đài Lv.30",
-            en: "🚫 Trap #8: Upgrading Warehouses & Resource Mines Instead of Rushing Castle Lv.25 / Lv.30",
+            vi: "Cạm bẫy #8: Nâng Cấp Nhà Kho (Warehouse) & Mỏ Tài Nguyên Làm Chậm Tiến Độ Rush Lâu Đài Lv.30",
+            en: "Trap #8: Upgrading Warehouses & Resource Mines Instead of Rushing Castle Lv.25 / Lv.30",
           },
           blocks: [
             {
               type: "list",
               items: [
                 {
-                  vi: "Biểu hiện sai lầm: Dành hàng chục ngày thợ xây để nâng tất cả các Mỏ Gỗ, Mỏ Đá, Nhà Kho, Tháp Canh lên ngang cấp với Lâu đài.",
-                  en: "Symptom: Tying up builder queues for weeks upgrading Timber Mills, Quarries, Warehouses, and Watchtowers to match your Castle level.",
+                  vi: "**Biểu hiện sai lầm:** Dành hàng chục ngày thợ xây để nâng tất cả các Mỏ Gỗ, Mỏ Đá, Nhà Kho (`Warehouse`), Tháp Canh lên ngang cấp với Lâu đài.",
+                  en: "**Symptom:** Tying up builder queues for weeks upgrading Timber Mills, Quarries, `Warehouses`, and Watchtowers to match your Castle level.",
                 },
                 {
-                  vi: "Tại sao gây phế acc: Sản lượng tự sản xuất của các mỏ trong làng chỉ bằng một phần rất nhỏ so với việc đi Đánh Boss Rally, mở Rương Adventure và Đào mỏ trên Bản đồ Thế giới. Việc giam Thợ xây vào các công trình phụ làm chậm tiến độ đạt Lâu đài Cấp 25 và Cấp 30 — nơi mở khóa Bậc Lính mới (cứ mỗi 5 cấp Doanh Trại = +1 Tier Lính) và mở khóa giới hạn cấp độ tướng.",
-                  en: "Why It Ruins Your Account: Passive village mine production is a tiny fraction compared to Rally Boss rewards, Adventure Chests, and World Map gathering. Locking builders into non-essential buildings delays Castle Lv.25 and Lv.30 — which gate new Soldier Tiers (every 5 Barracks levels = +1 Soldier Tier) and Hero Level Caps.",
+                  vi: "**Tại sao gây phế acc:** Sản lượng mỏ làng rất nhỏ so với `Rally Boss` & đào mỏ thế giới; giam thợ xây ở công trình phụ làm chậm `Castle Lv.25 / Lv.30` (mỗi `5 cấp` Doanh Trại = `+1 Tier` Lính).",
+                  en: "**Why It Ruins Your Account:** Village mine output is tiny compared to `Rally Bosses` and world gathering; delaying `Castle Lv.25 / Lv.30` blocks new Soldier Tiers (every `5 Barracks levels` = `+1 Tier`).",
                 },
               ],
             },
@@ -605,8 +605,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
                 en: "Meta Standard Rule — Trap #8",
               },
               content: {
-                vi: "Chỉ nâng đúng các công trình nằm trong Điều kiện bắt buộc để lên cấp Lâu Đài tiếp theo (Research Cottage, Hospital, Guild, Training Ground, và Doanh Trại hệ Đội 1).",
-                en: "Only upgrade buildings strictly required as prerequisites for the next Castle level (Research Cottage, Hospital, Guild, Training Ground, and Queue 1 Faction Barracks).",
+                vi: "**Khóa Trục Công Trình Điều Kiện:** Chỉ nâng đúng các công trình bắt buộc để lên cấp Lâu Đài tiếp theo (`Research Cottage`, `Hospital`, `Guild`, `Training Ground`, và Doanh Trại hệ Đội 1).",
+                en: "**Strict Prerequisite Chain:** Only upgrade buildings required as prerequisites for the next Castle level (`Research Cottage`, `Hospital`, `Guild`, `Training Ground`, and Queue 1 Faction Barracks).",
               },
             },
           ],
@@ -615,20 +615,20 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
           id: "sub-trap-9",
           badge: { vi: "Cạm bẫy #9", en: "Trap #9" },
           title: {
-            vi: "🚫 Cạm bẫy #9: Mở Nhầm Rương Vũ Khí Độc Quyền (Exclusive Weapon Choice Chest) Cho Tướng Quá Độ",
-            en: "🚫 Trap #9: Opening Exclusive Weapon Choice Chests for Transitional Heroes",
+            vi: "Cạm bẫy #9: Mở Nhầm Rương Vũ Khí Độc Quyền (Exclusive Weapon Choice Chest) Cho Tướng Quá Độ",
+            en: "Trap #9: Opening Exclusive Weapon Choice Chests for Transitional Heroes",
           },
           blocks: [
             {
               type: "list",
               items: [
                 {
-                  vi: "Biểu hiện sai lầm: Khi nhận được Rương tự chọn Mảnh Vũ khí Độc quyền đầu tiên từ sự kiện, người chơi mở ngay cho Astrologer, Secret Keeper hoặc Wilderness Hunter vì đang dùng chúng ở Tuần 2.",
-                  en: "Symptom: Opening your first Exclusive Weapon Choice Chests from events for Astrologer, Secret Keeper, or Wilderness Hunter simply because they are in your Week 2 lineup.",
+                  vi: "**Biểu hiện sai lầm:** Nhận được Rương tự chọn Mảnh Vũ khí Độc quyền (`Exclusive Weapon Choice Chest`) đầu tiên liền mở ngay cho `Astrologer`, `Secret Keeper` hoặc `Wilderness Hunter` ở Tuần 2.",
+                  en: "**Symptom:** Opening your first `Exclusive Weapon Choice Chests` in Week 2 for transitional heroes like `Astrologer`, `Secret Keeper`, or `Wilderness Hunter`.",
                 },
                 {
-                  vi: "Tại sao gây phế acc: Mảnh Vũ khí Độc quyền là một trong những tài nguyên đắt đỏ nhất game. Chỉ vài ngày sau (từ Ngày 21–41), Astrologer và Secret Keeper bị thay thế bởi dàn Tướng Đỏ (Desert Prince, Storm Maiden, Witch, Wukong, Paragon, Tidecaller), khiến món Vũ khí Độc quyền vừa mở bị vứt xó ở Đội 2 mãi mãi.",
-                  en: "Why It Ruins Your Account: Exclusive Weapon shards are among the rarest currencies in Top Heroes. Within days (Days 21–41), Astrologer and Secret Keeper are replaced by Mythic carries (Desert Prince, Storm Maiden, Witch, Wukong, Paragon, Tidecaller), permanently stranding that Exclusive Weapon on Queue 2.",
+                  vi: "**Tại sao gây phế acc:** Mảnh `UW` đắt đỏ bậc nhất game; đến Ngày 21–41 khi `Desert Prince`, `Storm Maiden`, `Witch`, `Wukong`, `Paragon`, `Tidecaller` ra mắt, `UW` mở nhầm sẽ bị vứt xó ở Đội 2.",
+                  en: "**Why It Ruins Your Account:** `UW` shards are ultra-rare; by Days 21–41 when `Desert Prince`, `Storm Maiden`, `Witch`, `Wukong`, `Paragon`, and `Tidecaller` arrive, that `UW` is stranded on Queue 2.",
                 },
               ],
             },
@@ -640,8 +640,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
                 en: "Meta Standard Rule — Trap #9",
               },
               content: {
-                vi: "Giữ nguyên các Rương tự chọn Vũ khí Độc quyền trong túi đồ cho đến khi bạn sở hữu vị Tướng Đỏ chủ lực của Đội 1, và chỉ bấm ghép mảnh vào Thứ Năm (17:00 – 21:00) của Tuần B (GAR).",
-                en: "Keep Exclusive Weapon Choice Chests sealed in your inventory until you unlock your Queue 1 Mythic carries, and only craft/upgrade them on Thursday (17:00 – 21:00) of Week B (GAR).",
+                vi: "**Niêm phong Rương Thần Khí:** Giữ nguyên các Rương tự chọn Vũ khí Độc quyền trong túi đồ cho đến khi sở hữu Tướng Đỏ chủ lực Đội 1, và chỉ ghép mảnh vào Thứ Năm (`17:00 – 21:00`) Tuần B (`GAR`).",
+                en: "**Seal UW Choice Chests:** Keep Exclusive Weapon Choice Chests sealed in your inventory until you unlock your Queue 1 Mythic carries, and only craft/upgrade them on Thursday (`17:00 – 21:00`) of Week B (`GAR`).",
               },
             },
           ],
@@ -650,20 +650,20 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
           id: "sub-trap-10",
           badge: { vi: "Cạm bẫy #10", en: "Trap #10" },
           title: {
-            vi: "🚫 Cạm bẫy #10: Huấn Luyện Mới Lính Cấp Cao Thay Vì Dùng Kỹ Thuật 'Nuôi Lính Bậc Thang (Staircase Promotion)'",
-            en: "🚫 Trap #10: Training High-Tier Troops from Scratch Instead of Using Staircase Troop Promotion",
+            vi: "Cạm bẫy #10: Huấn Luyện Mới Lính Cấp Cao Thay Vì Dùng Kỹ Thuật 'Nuôi Lính Bậc Thang (Staircase Promotion)'",
+            en: "Trap #10: Training High-Tier Troops from Scratch Instead of Using Staircase Troop Promotion",
           },
           blocks: [
             {
               type: "list",
               items: [
                 {
-                  vi: "Biểu hiện sai lầm: Khi Doanh Trại vừa mở khóa bậc lính mới (ví dụ từ T5 lên T6 hoặc T7), người chơi xóa bỏ lính cũ hoặc bấm huấn luyện mới hoàn toàn lính bậc cao nhất ngay trong ngày thường, đồng thời để hàng vạn lính cấp thấp T1–T4 tồn đọng trong doanh trại.",
-                  en: "Symptom: Upon unlocking a new troop tier (e.g., T5 to T6 or T7), dismissing old troops or training max-tier troops from scratch on normal weekdays while leaving tens of thousands of T1–T4 troops sitting idle in the barracks.",
+                  vi: "**Biểu hiện sai lầm:** Mở bậc lính mới (`T5 ➔ T6/T7`) liền xóa lính cũ hoặc đẻ mới lính cấp cao nhất vào ngày thường, đồng thời để hàng vạn lính `T1–T4` tồn đọng trong doanh trại.",
+                  en: "**Symptom:** Unlocking a new troop tier (`T5 ➔ T6/T7`) and dismissing old troops or training max-tier troops from scratch on weekdays while leaving `T1–T4` troops idle.",
                 },
                 {
-                  vi: "Tại sao gây phế acc: Lính cấp thấp tồn đọng vừa tạo ra Lực chiến ảo, vừa chiếm chỗ trong Bệnh Viện khi bị đánh, lại khiến hệ thống tự động xếp nhầm lính yếu vào đội hình xuất trận. Hơn nữa, huấn luyện trực tiếp lính bậc cao tốn rất nhiều giờ cho mỗi đợt.",
-                  en: "Why It Ruins Your Account: Leftover low-tier troops inflate fake power, clog Hospital capacity during PvP, and get auto-assigned into your combat marches. Furthermore, training max-tier troops from scratch takes vastly longer per batch.",
+                  vi: "**Tại sao gây phế acc:** Lính cấp thấp tồn đọng gây Lực chiến ảo, làm tràn `Hospital` khi đánh `PvP` và tự động chèn nhầm vào đội hình chính; đẻ mới trực tiếp lính cấp cao lại tốn quá nhiều giờ.",
+                  en: "**Why It Ruins Your Account:** Leftover low-tier troops inflate fake power, clog `Hospital` capacity in `PvP`, and auto-fill into combat marches, while training max-tier troops from scratch is slow.",
                 },
               ],
             },
@@ -675,8 +675,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
                 en: "Meta Standard Rule — Trap #10 (Staircase Troop Promotion)",
               },
               content: {
-                vi: "Áp dụng kỹ thuật 'Thăng cấp Lính Bậc Thang (Staircase Troop Promotion)': Trong các ngày thường (Thứ Bảy ➔ Thứ Năm tuần sau), chỉ huấn luyện lính bậc thấp hơn 1–2 cấp (T(n-1)). Đến đúng Thứ Sáu của Tuần B (Ngày Huấn luyện Lính của GAR / KvK), bấm nút Thăng cấp (Promote) toàn bộ số lính cũ lên bậc cao nhất (T(n)) kèm xả Tăng tốc Lính — giúp vừa dọn sạch lính cấp thấp, vừa ăn điểm sự kiện cao gấp 2–3 lần trên mỗi giờ tăng tốc!",
-                en: "Execute 'Staircase Troop Promotion' (Thăng cấp Lính Bậc Thang): On normal days (Saturday ➔ Thursday), only train troops 1–2 tiers below your max tier (T(n-1)). On Friday of Week B (GAR / KvK Troop Training Day), hit Promote to upgrade all pre-trained lower tiers into max-tier T(n) troops with Training Speedups — clearing low-tier clutter while scoring 2–3x more event points per speedup hour!",
+                vi: "**Kỹ thuật Thăng cấp Lính Bậc Thang (`Staircase Troop Promotion`):** Trong ngày thường (Thứ Bảy ➔ Thứ Năm), chỉ huấn luyện lính bậc thấp hơn 1–2 cấp (`T(n-1)`).\n• **Bùng nổ Điểm Thứ Sáu Tuần B (`GAR/KvK`):** Bấm nút Thăng cấp (`Promote`) toàn bộ lính cũ lên bậc cao nhất (`T(n)`) kèm xả Tăng tốc Lính để ăn điểm gấp `2–3 lần` mỗi giờ tăng tốc!",
+                en: "**Execute `Staircase Troop Promotion`:** On normal days (Saturday ➔ Thursday), only train troops 1–2 tiers below your max tier (`T(n-1)`).\n• **Week B Friday (`GAR/KvK`) Spike:** Hit `Promote` to upgrade all pre-trained lower tiers into max-tier `T(n)` troops with Speedups—scoring `2–3x` more event points per speedup hour!",
               },
             },
           ],
@@ -699,12 +699,12 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
           headers: [
             { vi: "Nhóm Hệ Thống", en: "System Pillar" },
             {
-              vi: "❌ Dấu Hiệu Tài Khoản Đang Dính Bẫy",
-              en: "❌ Red Flag Trap Symptoms",
+              vi: "Dấu Hiệu Tài Khoản Đang Dính Bẫy",
+              en: "Red Flag Trap Symptoms",
             },
             {
-              vi: "✅ Trạng Thái Tài Khoản Chuẩn Meta",
-              en: "✅ Meta-Standard Account State",
+              vi: "Trạng Thái Tài Khoản Chuẩn Meta",
+              en: "Meta-Standard Account State",
             },
           ],
           rows: [
@@ -758,8 +758,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Nếu bạn đọc tài liệu này khi đã lỡ mắc phải một hoặc nhiều cạm bẫy trong 10 điều trên, đừng vội bỏ tài khoản (Reroll) trừ khi máy chủ mới mở dưới 7 ngày và bạn đã đốt sạch toàn bộ Kim Cương vào Quán Rượu. Hãy tra cứu Bảng Phác Đồ Cấp Cứu Định Lượng (MED-1.4-04) dưới đây để thực hiện cắt lỗ ngay lập tức:",
-            en: "If you are reading this guide after falling into one or more of the 10 traps above, do NOT rush to abandon your account (Reroll) unless your server is under 7 days old and you burned all your Diamonds in the Tavern. Consult the Quantitative Account Recovery Protocol (MED-1.4-04) below to execute immediate stop-loss actions:",
+            vi: "**Quy Tắc Chống Reroll Vội Vàng:** Đừng vội bỏ tài khoản trừ khi server mới mở dưới 7 ngày và bạn đã đốt sạch toàn bộ Kim Cương vào Quán Rượu.\n• **Phác Đồ Cắt Lỗ:** Hãy tra cứu Bảng Phác Đồ Cấp Cứu Định Lượng (`MED-1.4-04`) dưới đây để thực hiện cắt lỗ ngay lập tức:",
+            en: "**Anti-Panic Reroll Rule:** Do NOT rush to abandon your account (Reroll) unless your server is under 7 days old and you burned all Diamonds in the Tavern.\n• **Stop-Loss Lookup:** Consult the Quantitative Account Recovery Protocol (`MED-1.4-04`) below to execute immediate stop-loss actions:",
           },
         },
         {
@@ -794,8 +794,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
                 en: "Trap #1 (Feeding Universal Shards to Tavern heroes)",
               },
               {
-                vi: "🔴 Nặng (Thất thoát vĩnh viễn số mảnh đã đút)",
-                en: "🔴 Severe (Permanent loss of invested Universal Shards)",
+                vi: "Nặng (Thất thoát vĩnh viễn số mảnh đã đút)",
+                en: "Severe (Permanent loss of invested Universal Shards)",
               },
               {
                 vi: "Ngưng đút thêm 100%. Tận dụng vị tướng Vàng đã lỡ nâng sao cao làm Carry tạm thời cho đến Ngày 21–41, sau đó chuyển nguyên con tướng đó xuống làm trụ cột cho Đội hình 2 (nhờ cơ chế Thừa kế).",
@@ -807,7 +807,7 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
               },
               {
                 vi: "Chỉ Reroll nếu đã đốt > 400 Mảnh Vàng Vạn Năng (trên 400 Mảnh Vàng Vạn Năng — tương đương 1 tướng Đỏ đạt 5 Sao Đỏ / 10 Sao, hoặc gần đủ 560 Mảnh lên 1 Sao Trắng / 11 Sao, trong lộ trình 1,000 Mảnh lên 5 Sao Trắng / 15 Sao) cho các tướng phế (Shaman, Barbarian, Astrologer) trước Ngày 20.",
-                en: "Only Reroll if you burned > 400 Universal Legendary Shards (over 400 Mảnh Vàng Vạn Năng — equivalent to a 5-Red-Star / 10-Star Mythic, or nearly the 560 Shards for 1 White Star / 11 Stars on the 1,000-Shard path to 5 White Stars / 15 Stars) on weak Tavern heroes (Shaman, Barbarian, Astrologer) before Day 20.",
+                en: "Only Reroll if you burned > 400 Universal Legendary Shards (equivalent to a 5-Red-Star / 10-Star Mythic, or nearly the 560 Shards for 1 White Star / 11 Stars on the 1,000-Shard path to 5 White Stars / 15 Stars) on weak Tavern heroes (Shaman, Barbarian, Astrologer) before Day 20.",
               },
             ],
             [
@@ -816,12 +816,12 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
                 en: "Trap #2 (Draining Guild Honor / Glory Coins before Lv.30)",
               },
               {
-                vi: "🔴 Nặng (Chậm tiến độ Thức tỉnh tướng ở S1)",
-                en: "🔴 Severe (Delays Season 1 Hero Awakening)",
+                vi: "Nặng (Chậm tiến độ Thức tỉnh tướng ở S1)",
+                en: "Severe (Delays Season 1 Hero Awakening)",
               },
               {
                 vi: "Khóa ngay mọi giao dịch mua mảnh lẻ/quân trang trong Tiệm Bang từ hôm nay; giữ đáy ví 40,000 Điểm Vinh Dự (12,000–18,000 Xu Vinh Quang). Trong tuần Thi Đấu Hội (Guild Race), chỉ chọn các Nhiệm vụ Độc quyền Vàng điểm cao nhất và mua tối đa 1–2 vé nhiệm vụ giá rẻ bằng KC để cày bù điểm.",
-                en: "Freeze all shard/munition purchases in the Guild Shop immediately; enforce the 40,000 Guild Honor (12,000–18,000 Glory Coins) floor. During Guild Race (Thi Đấu Hội), pick only high-point Golden Exclusive Tasks and buy 1–2 cheap task tickets to farm back currency.",
+                en: "Freeze all shard/munition purchases in the Guild Shop immediately; enforce the 40,000 Guild Honor (12,000–18,000 Glory Coins) floor. During Guild Race, pick only high-point Golden Exclusive Tasks and buy 1–2 cheap task tickets to farm back currency.",
               },
               {
                 vi: "2 – 3 Chu kỳ (4 – 6 Tuần) cày full mốc Guild Race để gom lại đủ 9 Hồn Đá Đỏ (40,000 Điểm Vinh Dự / viên = 360,000 hoặc 6,000 Xu Vinh Quang / viên = 54,000 ở S1) + 345–385 Mảnh Tướng.",
@@ -838,8 +838,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
                 en: "Trap #3 (Unmarked Gold Gear & Uneven enhancement)",
               },
               {
-                vi: "🟢 Nhẹ (Khắc phục được 90%–100%)",
-                en: "🟢 Mild (90%–100% Recoverable)",
+                vi: "Nhẹ (Khắc phục được 90%–100%)",
+                en: "Mild (90%–100% Recoverable)",
               },
               {
                 vi: "1. Vào Lò Rèn phân giải toàn bộ đồ Tím đã cường hóa ở Đội 2 để thu hồi 100% Quặng. 2. Đập bù các món thấp của Đội 1 chạm đều mốc +10 / +20. 3. Khi đúc được đồ Vàng có Dấu Hệ mới, tháo đồ Vàng không dấu chuyển xuống cho Đội 2.",
@@ -860,8 +860,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
                 en: "Trap #4 (Dumping resources outside Double-Dip windows)",
               },
               {
-                vi: "🟡 Trung bình (Mất phần thưởng cơ hội của tuần đó)",
-                en: "🟡 Moderate (Lost opportunity rewards for that cycle)",
+                vi: "Trung bình (Mất phần thưởng cơ hội của tuần đó)",
+                en: "Moderate (Lost opportunity rewards for that cycle)",
               },
               {
                 vi: "Thiết lập ngay quy tắc 'Đọc Lịch Event 5 Giây lúc 09:00 Thứ Hai & Khóa Túi Đồ'. Từ thời điểm này, chỉ tiêu vừa đủ mốc rương cá nhân trong tuần Thi Đấu Hội (kèm Khiêu Chiến Của Đội Quân Hắc Ám / Tập Kích Cự Ma) và găm tồn kho xả vào đúng ngày chủ đề GAR / KvK.",
@@ -882,8 +882,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
                 en: "Trap #5 (Upgrading Epic combat skills & Unlocking Slot 4 for 2,000 KC)",
               },
               {
-                vi: "🟡 Trung bình (Mất 2,000 KC và vài ngàn Sách Kỹ năng)",
-                en: "🟡 Moderate (Loss of 2,000 Diamonds & several thousand Skill Books)",
+                vi: "Trung bình (Mất 2,000 KC và vài ngàn Sách Kỹ năng)",
+                en: "Moderate (Loss of 2,000 Diamonds & several thousand Skill Books)",
               },
               {
                 vi: "Dừng mở ô thứ 4 cho tất cả các tướng Tím còn lại. Vào Tiệm Đổi Quà (Exchange Shop) dùng mảnh tướng 15 Sao (500 Mảnh) dư thừa đổi lấy Mảnh Vạn Năng Tím đẩy Brawler (+30% Nghiên cứu), Knight (+30% Huấn luyện lính) và Ranger (+30% Đào Ruby) lên 2 Sao Trắng (12 Sao = 300 Mảnh) ➔ 5 Sao Trắng (500 Mảnh) mở Ô Thiên phú số 3 (Max Lv.30) ngay.",
@@ -904,8 +904,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
                 en: "Trap #6 (Researching Soldiers before Arms Race Prep)",
               },
               {
-                vi: "🟡 Trung bình (Thiệt 50% rương thưởng sự kiện mỗi tuần)",
-                en: "🟡 Moderate (Lose 50% weekly event chest rewards)",
+                vi: "Trung bình (Thiệt 50% rương thưởng sự kiện mỗi tuần)",
+                en: "Moderate (Lose 50% weekly event chest rewards)",
               },
               {
                 vi: "Ngay khi hàng đợi nghiên cứu hiện tại chạy xong, chuyển 100% cả 2 hàng đợi và toàn bộ Tăng tốc Nghiên cứu (vào Thứ Ba Tuần B) dồn thẳng một mạch xuống nốt Double Rewards của nhánh Arms Race Prep.",
@@ -926,8 +926,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
                 en: "Trap #7 (Spreading low-tier Lv.1–3 Runes)",
               },
               {
-                vi: "🟢 Nhẹ (Khắc phục được 100%)",
-                en: "🟢 Mild (100% Recoverable)",
+                vi: "Nhẹ (Khắc phục được 100%)",
+                en: "Mild (100% Recoverable)",
               },
               {
                 vi: "Gỡ toàn bộ Cổ Ngữ bậc thấp đang gắn ở các bảng phụ, gom về ghép nối tiếp nhau để đẩy các viên Hero ATK / HP Rune và Soldier Rune chạm mốc Lv.5 (+5% Hero ATK/HP & +30 March Size) rồi Lv.8 (+5% Soldier ATK/HP).",
@@ -948,8 +948,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
                 en: "Trap #8 (Upgrading Warehouses / Mines over Castle)",
               },
               {
-                vi: "🟢 Nhẹ (Chậm tiến độ Lâu đài vài ngày)",
-                en: "🟢 Mild (Delays Castle progression by a few days)",
+                vi: "Nhẹ (Chậm tiến độ Lâu đài vài ngày)",
+                en: "Mild (Delays Castle progression by a few days)",
               },
               {
                 vi: "Hủy hoặc chờ xây xong công trình phụ hiện tại, sau đó khóa chặt 2–3 Thợ xây vào duy nhất trục công trình bắt buộc: Castle ➔ Barracks (Hệ Đội 1) ➔ Research Cottage ➔ Hospital / Guild.",
@@ -970,8 +970,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
                 en: "Trap #9 (Opening UW Choice Chests for transitional heroes)",
               },
               {
-                vi: "🔴 Nặng (Thất thoát mảnh Thần khí quý hiếm)",
-                en: "🔴 Severe (Loss of scarce Exclusive Weapon shards)",
+                vi: "Nặng (Thất thoát mảnh Thần khí quý hiếm)",
+                en: "Severe (Loss of scarce Exclusive Weapon shards)",
               },
               {
                 vi: "Ngưng nâng cấp thêm cho Vũ khí Độc quyền đã mở nhầm (giữ ở Lv.1–Lv.5 cho Đội 2 dùng tạm). Toàn bộ rương mới nhận được phải khóa kỹ chờ tướng Đỏ Đội 1 (đã chạm 5 Sao Đỏ = 400 Mảnh ➔ 1 Sao Trắng = 560 Mảnh ➔ 5 Sao Trắng = 1,000 Mảnh).",
@@ -992,8 +992,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
                 en: "Trap #10 (Mass-training low-tier troops without Staircase Promotion)",
               },
               {
-                vi: "🟢 Nhẹ (Khắc phục được 100% và còn ra điểm lớn!)",
-                en: "🟢 Mild (100% Recoverable — turns into a massive point jackpot!)",
+                vi: "Nhẹ (Khắc phục được 100% và còn ra điểm lớn!)",
+                en: "Mild (100% Recoverable — turns into a massive point jackpot!)",
               },
               {
                 vi: "Không xóa lính cấp thấp! Hãy giữ nguyên số lính T1–T5 đó chờ đến đúng Thứ Sáu của Tuần B (Ngày Lính của GAR/KvK), sau đó bấm Thăng cấp (Promote) theo kỹ thuật Staircase Troop Promotion (Thăng cấp Lính Bậc Thang) toàn bộ lên bậc cao nhất để nổ hàng triệu điểm sự kiện!",
@@ -1023,8 +1023,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Để đảm bảo tài khoản luôn vận hành ở hiệu suất 100% Min-Max trước khi bước vào tuần sự kiện mới (khởi chạy lúc 09:00 sáng Thứ Hai theo giờ lịch game), hãy thực hiện Quy trình Kiểm toán 5 Điểm mỗi tối Chủ Nhật:",
-            en: "To guarantee your account operates at 100% Min-Max efficiency before the new event week resets at Monday 09:00 server time, complete this 5-Point Audit Checklist every Sunday evening:",
+            vi: "**Quy Trình Kiểm Toán Tối Chủ Nhật:** Để đảm bảo tài khoản vận hành ở hiệu suất 100% Min-Max trước tuần sự kiện mới (`09:00` sáng Thứ Hai giờ game), hãy thực hiện Quy trình Kiểm toán 5 Điểm:",
+            en: "**Sunday Evening Audit Routine:** To guarantee your account operates at 100% Min-Max efficiency before the weekly reset at Monday `09:00` server time, complete this 5-Point Audit Checklist:",
           },
         },
         {
@@ -1047,8 +1047,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
                 en: "Checkpoint 1 — Open Event ➔ Event Calendar and inspect the Monday (09:00) event bars",
               },
               detail: {
-                vi: "Nếu tuần tới là Thi Đấu Hội (Guild Race — chạy nối tiếp ở đầu Pre-Season kèm Khiêu Chiến Của Đội Quân Hắc Ám & Tập Kích Cự Ma, hoặc rơi vào Tuần A): chỉ tiêu vừa đủ mốc rương cá nhân hàng ngày/tuần, chuẩn bị các nốt nghiên cứu ngắn (5–30 phút), mẻ lính Pre-cook và hộp quà công trình làm mồi trả Nhiệm vụ Vàng; giữ nguyên liệu Lord Gear cho Ngày 5–7 (Thứ Sáu ➔ Chủ Nhật). Nếu tuần tới là Đua Vũ Trang Bang Hội (GAR) hoặc Chiến Tranh Vương Quốc (KvK) (Tuần B): đóng băng mọi thao tác nâng cấp để xả theo đúng 6 ngày chủ đề cố định.",
-                en: "If the week is Guild Race (Thi Đấu Hội — running continuously in Phase 1 Pre-Season alongside Dark Legion Challenge & Giant Raid, or Week A): spend only enough for personal milestone chests, prep short 5–30m research nodes, pre-cooked troops, and building gift boxes for Golden Tasks, and save Lord Gear for Days 5–7. If the week is GAR or KvK (Week B): freeze upgrades to unleash across the 6 fixed theme days.",
+                vi: "**Tuần Thi Đấu Hội (Guild Race — kèm Khiêu Chiến Của Đội Quân Hắc Ám & Tập Kích Cự Ma, hoặc Tuần A):** Chỉ tiêu vừa đủ mốc rương cá nhân, chuẩn bị nghiên cứu ngắn (5–30p), lính Pre-cook và hộp quà công trình.\n• **Giữ Nguyên Liệu & Khóa Tuần B:** Giữ nguyên liệu Lord Gear cho Ngày 5–7 (Thứ Sáu ➔ Chủ Nhật); nếu tuần tới là GAR hoặc KvK (Tuần B), đóng băng mọi nâng cấp để xả theo đúng 6 ngày chủ đề cố định.",
+                en: "**Guild Race Week (with Dark Legion Challenge & Giant Raid, or Week A):** Spend only for personal milestone chests, and prep 5–30m research nodes, pre-cooked troops, and building gift boxes.\n• **Save Lord Gear & Lock Week B:** Save Lord Gear for Days 5–7; if the upcoming week is GAR or KvK (Week B), freeze upgrades to unleash across the 6 fixed theme days.",
               },
             },
             {
@@ -1059,8 +1059,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
                 en: "Checkpoint 2 — Verify the 30,000 Diamond Reserve & Soul Stone Dual-Currency Floor",
               },
               detail: {
-                vi: "Đảm bảo Quỹ Kim Cương đạt tối thiểu 30,000 KC và Quỹ Điểm Vinh Dự Bang / Xu Vinh Quang Hội không bị xâm phạm dưới ngưỡng mua 9 viên Hồn Đá Đỏ (40,000 Điểm Vinh Dự / viên = 360,000 hoặc 6,000 Xu Vinh Quang / viên = 54,000; giữ đáy ví 40,000 Điểm Vinh Dự hoặc 12,000–18,000 Xu Vinh Quang).",
-                en: "Confirm your Diamond reserve stays above 30,000 Diamonds and your Guild wallet stays above the safety floor for 9 Soul Stones (40,000 Guild Honor/stone = 360,000 or 6,000 Glory Coins/stone = 54,000; keep at least 40,000 Guild Honor or 12,000–18,000 Glory Coins untouched).",
+                vi: "**Đáy Ví Kim Cương:** Đảm bảo Quỹ Kim Cương đạt tối thiểu `30,000 KC` trước giờ khởi chạy sự kiện tuần mới.\n• **Đáy Ví Đá Linh Hồn:** Giữ nguyên quỹ mua 9 Hồn Đá Đỏ (40,000 Điểm Vinh Dự / viên = 360,000 hoặc 6,000 Xu Vinh Quang / viên = 54,000; khóa đáy ví 40,000 Điểm Vinh Dự hoặc 12,000–18,000 Xu Vinh Quang).",
+                en: "**Diamond Floor:** Confirm your Diamond reserve stays above `30,000 Diamonds` before the weekly reset.\n• **Soul Stone Floor:** Keep your Guild wallet above the safety floor for 9 Soul Stones (40,000 Guild Honor/stone = 360,000 or 6,000 Glory Coins/stone = 54,000; lock 40,000 Guild Honor or 12,000–18,000 Glory Coins).",
               },
             },
             {
@@ -1071,8 +1071,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
                 en: "Checkpoint 3 — Audit Queue 2 & Queue 3 Equipment",
               },
               detail: {
-                vi: "Kiểm tra xem trong tuần có vô tình lắp nhầm Trang bị Vàng có Dấu Hệ (+30%) hoặc nâng cấp Quặng vào đồ của Đội 2/3 hay không. Nếu có, tháo ngay hoặc phân giải đồ Tím cường hóa để dồn 100% về kích mốc Cộng hưởng +10 / +20 / +30 / +40 cho Đội 1.",
-                en: "Check if any Faction-Marked Gold Gear (+30%) or Enhancement Ore was accidentally placed on Queue 2/3. Reclaim and dismantle enhanced purple pieces immediately to push Queue 1 +10 / +20 / +30 / +40 resonance.",
+                vi: "**Rà Soát Đồ Đội 2/3:** Kiểm tra xem trong tuần có vô tình lắp nhầm Trang bị Vàng có Dấu Hệ (+30%) hoặc nâng cấp Quặng vào đồ của Đội 2/3 hay không.\n• **Thu Hồi Dồn Đội 1:** Nếu có, tháo ngay hoặc phân giải đồ Tím cường hóa để dồn 100% về kích mốc Cộng hưởng `+10` / `+20` / `+30` / `+40` cho Đội 1.",
+                en: "**Sweep Secondary Queues:** Check if any Faction-Marked Gold Gear (+30%) or Enhancement Ore was accidentally placed on Queue 2/3.\n• **Reclaim for Queue 1:** Reclaim and dismantle enhanced purple pieces immediately to push Queue 1 `+10` / `+20` / `+30` / `+40` resonance.",
               },
             },
             {
@@ -1083,8 +1083,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
                 en: "Checkpoint 4 — Check Epic Hero Economy Traits & Weekly Exchange Shop Reset",
               },
               detail: {
-                vi: "Vào Tháp Anh Hùng / Tiệm Đổi Quà (Exchange Shop), đổi toàn bộ mảnh tướng Tím 15 Sao (500 Mảnh) dư thừa sang Mảnh Vạn Năng Tím / Cam và Sách Kỹ năng giảm giá trước khi cửa hàng làm mới đầu tuần; ưu tiên đẩy Brawler (+30% Nghiên cứu), Knight (+30% Huấn luyện lính), Ranger (+30% Đào Ruby) đạt 2 Sao Trắng (300 Mảnh) ➔ 5 Sao Trắng (500 Mảnh).",
-                en: "In the Exchange Shop, convert all surplus shards from maxed 15-Star (500 Shards) Epic heroes into Universal Epic/Legendary Shards and discounted Skill Books before the weekly reset; prioritize pushing Brawler (+30% Research), Knight (+30% Training), and Ranger (+30% Ruby Gathering) to 2 White Stars (300 Shards) ➔ 5 White Stars (500 Shards).",
+                vi: "**Đổi Mảnh Dư Tiệm Đổi Quà:** Vào Exchange Shop đổi toàn bộ mảnh tướng Tím 15 Sao (500 Mảnh) dư thừa sang Mảnh Vạn Năng Tím / Cam và Sách Kỹ năng giảm giá trước khi làm mới.\n• **Đẩy Tướng Kinh Tế:** Ưu tiên đẩy Brawler (+30% Nghiên cứu), Knight (+30% Huấn luyện lính), Ranger (+30% Đào Ruby) đạt 2 Sao Trắng (`300 Mảnh`) ➔ 5 Sao Trắng (`500 Mảnh`).",
+                en: "**Convert Surplus Shards:** In the Exchange Shop, convert all surplus shards from maxed 15-Star (500 Shards) Epic heroes into Universal Epic/Legendary Shards and discounted Skill Books before reset.\n• **Push Economy Heroes:** Prioritize pushing Brawler (+30% Research), Knight (+30% Training), and Ranger (+30% Ruby Gathering) to 2 White Stars (`300 Shards`) ➔ 5 White Stars (`500 Shards`).",
               },
             },
             {
@@ -1095,8 +1095,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
                 en: "Checkpoint 5 — Prep 'Pre-Cooking Queues' & Leave Building Gift Boxes Unopened",
               },
               detail: {
-                vi: "Bấm xây các công trình lớn từ trước để chúng hoàn thành, nhưng TUYỆT ĐỐI KHÔNG BẤM VÀO HỘP QUÀ MỞ CÔNG TRÌNH (Unopened Building Gift Box) trên màn hình làng — chờ qua Thứ Hai (khi đã nhận Nhiệm vụ Vàng Công trình trên bảng Thi Đấu Hội hoặc vào khung giờ vàng 13:00–17:00 Thứ Hai của GAR/KvK) mới bấm khui hộp để ăn trọn điểm sự kiện ngay trong 10 giây!",
-                en: "Start major building upgrades in advance so the timer finishes, but NEVER TAP THE UNOPENED BUILDING GIFT BOX on your village screen — wait until Monday (after claiming a Golden Building Task in Guild Race or during the 13:00–17:00 Monday GAR/KvK window) before popping the box for instant event points in 10 seconds!",
+                vi: "**Nấu Trước Công Trình:** Bấm xây các công trình lớn từ trước để hoàn thành, nhưng TUYỆT ĐỐI KHÔNG BẤM VÀO HỘP QUÀ MỞ CÔNG TRÌNH (Unopened Building Gift Box) trên màn hình làng.\n• **Khui Hộp Đúng Nhịp:** Chờ qua Thứ Hai (khi đã nhận Nhiệm vụ Vàng Công trình trên bảng Thi Đấu Hội hoặc vào khung giờ vàng `13:00–17:00` Thứ Hai của GAR/KvK) mới bấm khui hộp ăn điểm trong 10 giây!",
+                en: "**Pre-Cook Buildings:** Start major building upgrades in advance so the timer finishes, but NEVER TAP THE UNOPENED BUILDING GIFT BOX (Unopened Building Gift Box) on your village screen.\n• **Pop on Monday Window:** Wait until Monday (after claiming a Golden Building Task in Guild Race or during the `13:00–17:00` Monday GAR/KvK window) before popping the box for instant points in 10 seconds!",
               },
             },
           ],

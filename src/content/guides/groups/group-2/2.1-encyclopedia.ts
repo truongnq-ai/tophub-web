@@ -16,34 +16,34 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
   },
   tldr: {
     coreRule: {
-      vi: "Phẩm chất gốc và thời điểm ra mắt quyết định trần sức mạnh. Tướng Thần Thoại (Mythic — Màu Đỏ) có chỉ số cơ bản và hệ số kỹ năng gấp 2.5 – 5 lần tướng Huyền Thoại (Legendary — Màu Vàng) thông thường.",
-      en: "Base rarity and release era dictate a hero's power ceiling. Mythic (Red) heroes boast 2.5x–5x the base stats and skill multipliers of regular Legendary (Yellow) heroes.",
+      vi: "**Phẩm chất gốc và thời điểm ra mắt quyết định trần sức mạnh thực chiến của từng tướng.**\n• **Tướng Thần Thoại (`Mythic` — Màu Đỏ):** Sở hữu chỉ số cơ bản và hệ số kỹ năng gấp `2.5 – 5 lần` tướng Huyền Thoại (`Legendary` — Màu Vàng) thông thường.",
+      en: "**Base rarity and release era dictate a hero's combat power ceiling.**\n• **Mythic (`Red` Tier):** Boasts `2.5x–5x` the base stats and skill multipliers of regular Legendary (`Yellow`) heroes.",
     },
     immediateAction: {
-      vi: "Giai đoạn Ngày 1–20 dùng dàn tướng Vàng Liên Minh (League) dễ kiếm từ Quán Rượu để vượt ải PvE; đóng băng 100% Mảnh Vạn Năng Vàng (Universal Legendary Shards) chờ đợt Tướng Đỏ (Mythic) từ Ngày 21+.",
-      en: "During Days 1–20, use easily farmable League Legendary heroes from the Tavern to clear PvE; freeze 100% of Universal Legendary Shards for Mythic heroes starting on Day 21+.",
+      vi: "**Dùng dàn tướng Vàng Liên Minh đầu game và khóa chặt Mảnh Vạn Năng Vàng chờ Tướng Đỏ.**\n• **Ngày `1–20`:** Dùng tướng Vàng Liên Minh (`League`) dễ kiếm từ Quán Rượu để vượt ải PvE.\n• **Ngày `21+`:** Đóng băng `100%` Mảnh Vạn Năng Vàng (`Universal Legendary Shards`) chờ đợt Tướng Đỏ (`Mythic`).",
+      en: "**Use farmable League Legendaries early and lock all Universal Shards for Mythics.**\n• **Days `1–20`:** Field easily farmable `League` Legendary heroes from the Tavern to clear PvE stages.\n• **Day `21+`:** Freeze `100%` of `Universal Legendary Shards` for `Mythic` heroes starting on Day `21+`.",
     },
     strictTaboo: {
-      vi: "Không bao giờ dùng Mảnh Vạn Năng Vàng cho tướng có sẵn trong Quán Rượu (như Secret Keeper, Astrologer, Barbarian, Treeguard) và tuyệt đối không đút Thịt (Meat) cho Tướng Xanh Lam (Rare) hoặc Tướng Tím (Epic) quá cấp độ mở khóa cơ bản.",
-      en: "Never spend Universal Legendary Shards on Tavern-pullable heroes (Secret Keeper, Astrologer, Barbarian, Treeguard) and never feed Meat to Rare (Blue) or Epic (Purple) heroes past basic unlock levels.",
+      vi: "**Cấm đốt Mảnh Vạn Năng Vàng vào tướng Quán Rượu và cấm đút Thịt dư cho tướng Lam/Tím.**\n• **Tướng Quán Rượu:** Không bao giờ dùng Mảnh Vạn Năng Vàng cho `Secret Keeper`, `Astrologer`, `Barbarian`, `Treeguard`.\n• **Tướng Lam (`Rare`) & Tím (`Epic`):** Tuyệt đối không đút Thịt (`Meat`) vượt quá cấp độ mở khóa cơ bản.",
+      en: "**Never waste Universal Shards on Tavern heroes or feed excess Meat to Rare/Epic units.**\n• **Tavern Heroes:** Never spend `Universal Legendary Shards` on `Secret Keeper`, `Astrologer`, `Barbarian`, or `Treeguard`.\n• **Rare (`Blue`) & Epic (`Purple`):** Never feed `Meat` past basic unlock levels.",
     },
   },
   keyTakeaways: [
     {
-      vi: "Tướng Thần Thoại (Mythic — Phẩm Đỏ) có chỉ số cơ bản và hệ số kỹ năng gấp 2.5–5 lần Tướng Vàng thường; cần 160 Mảnh lên 1 Sao Đỏ, 400 Mảnh lên 5 Sao Đỏ, 560 Mảnh lên 1 Sao Trắng (+30% hiệu ứng kỹ năng) và 1,000 Mảnh lên 5 Sao Trắng (15 Sao).",
-      en: "Mythic (Red) heroes scale at 2.5x–5x the stats and skill multipliers of regular Legendaries; they require 160 Shards for 1 Red Star, 400 Shards for 5 Red Stars, 560 Shards for 1 White Star (+30% skill effect), and 1,000 Shards for 5 White Stars (15 Stars).",
+      vi: "**Đường cong Mảnh Tướng Thần Thoại (`Mythic` — Phẩm Đỏ):** Chỉ số và hệ số kỹ năng gấp `2.5–5 lần` Tướng Vàng thường.\n• **Định mức nâng sao:** Cần `160` Mảnh lên `1 Sao Đỏ` ➔ `400` Mảnh lên `5 Sao Đỏ` ➔ `560` Mảnh lên `1 Sao Trắng` (`+30%` hiệu ứng kỹ năng) ➔ `1,000` Mảnh lên `5 Sao Trắng` (`15 Sao`).",
+      en: "**Mythic (`Red`) Shard Scaling Curve:** Scales at `2.5x–5x` the stats and skill multipliers of regular Legendaries.\n• **Star Breakpoints:** Requires `160` Shards for `1 Red Star` ➔ `400` Shards for `5 Red Stars` ➔ `560` Shards for `1 White Star` (`+30%` skill effect) ➔ `1,000` Shards for `5 White Stars` (`15 Stars`).",
     },
     {
-      vi: "Tướng Vàng (Legendary) tốn bằng đúng 1/2 lượng mảnh nâng sao so với Tướng Đỏ (80 / 200 / 280 = 1 Sao Trắng / 300 = 2 Sao Trắng / 500 = 5 Sao Trắng); nhóm Tướng Vàng Cốt Lõi có thể Thức tỉnh lên Đỏ ở Season 1+ với chi phí 9 Hồn Đá Đỏ (Soul Stones) + 345–385 Mảnh Tướng.",
-      en: "Legendary (Yellow) heroes require exactly half the shards of Mythics (80 / 200 / 280 = 1 White Star / 300 = 2 White Stars / 500 = 5 White Stars); Awakenable Legendaries can ascend to Mythic in Season 1+ for 9 Red Soul Stones + 345–385 Hero Shards.",
+      vi: "**Chi phí nâng sao & Thức tỉnh Tướng Vàng (`Legendary`):** Tốn đúng `1/2` lượng mảnh so với Tướng Đỏ (`80` / `200` / `280` = `1 Sao Trắng` / `300` = `2 Sao Trắng` / `500` = `5 Sao Trắng`).\n• **Chi phí Thức tỉnh (Season 1+):** Tướng Vàng Cốt Lõi lên Đỏ tiêu tốn `9 Hồn Đá Đỏ` (`Soul Stones`) + `345–385` Mảnh Tướng.",
+      en: "**Legendary (`Yellow`) Star & Awakening Math:** Requires half the shards of Mythics (`80` / `200` / `280` = `1 White Star` / `300` = `2 White Stars` / `500` = `5 White Stars`).\n• **Season 1+ Awakening Cost:** Awakenable Legendaries ascend to Mythic for `9 Red Soul Stones` + `345–385` Hero Shards.",
     },
     {
-      vi: "Toàn bộ 8 Tướng Tím Sử Thi (Epic) mở khóa Đặc tính Kinh tế Ô 3 (Max Lv.30 = +30%) ở mốc 2 Sao Trắng (12 Sao = 300 Mảnh) và mở Tiệm Đổi Quà (Exchange Shop) ở 5 Sao Trắng (15 Sao = 500 Mảnh), cùng 10 Tướng Vàng Kinh Tế kích hoạt buff toàn tài khoản ngay cả khi ngồi dự bị (Active without deployment).",
-      en: "All 8 Epic (Purple) heroes unlock their 3rd Economy Trait (Max Lv.30 = +30%) at 2 White Stars (12 Stars = 300 Shards) and unlock the Exchange Shop at 5 White Stars (15 Stars = 500 Shards), alongside 10 Legendary Economic Passive Heroes whose buffs remain Active without deployment.",
+      vi: "**Động cơ Kinh tế Dự bị (`Active without deployment`):** Toàn bộ `8` Tướng Tím Sử Thi (`Epic`) mở khóa Đặc tính Kinh tế Ô 3 (Max `Lv.30` = `+30%`) ở `2 Sao Trắng` (`12 Sao` = `300` Mảnh).\n• **Mở khóa Tiệm & Cộng dồn:** Chạm `5 Sao Trắng` (`15 Sao` = `500` Mảnh) mở `Exchange Shop`, cộng hưởng cùng `10` Tướng Vàng Kinh Tế kích hoạt buff toàn tài khoản từ ghế dự bị.",
+      en: "**Bench Economy Engine (`Active without deployment`):** All `8` Epic (`Purple`) heroes unlock their 3rd Economy Trait (Max `Lv.30` = `+30%`) at `2 White Stars` (`12 Stars` = `300` Shards).\n• **Shop & Passive Stacking:** Reaching `5 White Stars` (`15 Stars` = `500` Shards) unlocks the `Exchange Shop`, alongside `10` Legendary Economic Passive Heroes active from the bench.",
     },
     {
-      vi: "Mọi tướng trong Đội hình 1 (Queue 1) đều hướng tới 1 trong 3 Bộ Trang Bị Vàng Chuẩn Hóa có gán Dấu Hệ (+30% Faction Mark Bonus): Huyết Titan / Nộ Huyết (Tank/Bruiser), Kỵ Sĩ Vinh Quang (Hyper-Carry Burst/Skill DPS) và Hiền Triết Quang Vinh (Support/Healer/Hybrid).",
-      en: "Every hero in Queue 1 targets 1 of the 3 Standardized Golden Gear Sets with a +30% Faction Mark Bonus: Blood of the Titan / Fury of Blood (Tank/Bruiser), Knight's Glory (Hyper-Carry Burst/Skill DPS), and Glory of the Sage (Support/Healer/Hybrid).",
+      vi: "**Chuẩn hóa `3` Bộ Trang Bị Vàng (`+30% Faction Mark Bonus`):** Mọi tướng Đội 1 (`Queue 1`) đều hướng tới 1 trong 3 bộ đồ Vàng có Dấu Hệ.\n• **Phân bổ theo vai trò:** `Huyết Titan / Nộ Huyết` (Tank/Bruiser) ➔ `Kỵ Sĩ Vinh Quang` (Hyper-Carry Burst/Skill DPS) ➔ `Hiền Triết Quang Vinh` (Support/Healer/Hybrid).",
+      en: "**Standardized `3` Golden Gear Sets (`+30% Faction Mark Bonus`):** Every hero in `Queue 1` targets 1 of the 3 Standardized Golden Gear Sets with a Faction Mark.\n• **Role Mapping:** `Blood of the Titan / Fury of Blood` (Tank/Bruiser) ➔ `Knight's Glory` (Hyper-Carry Burst/Skill DPS) ➔ `Glory of the Sage` (Support/Healer/Hybrid).",
     },
   ],
   keywords: [
@@ -99,8 +99,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Trong Top Heroes, hệ thống nhân vật được thiết kế xoay quanh 4 bậc phẩm chất (Rarity Tiers) và 5 vai trò chiến thuật (Tactical Roles). Nắm vững ranh giới giữa các bậc phẩm chất giúp người chơi phân bổ đúng loại tài nguyên ngay từ tuần đầu tiên.",
-            en: "In Top Heroes, the character roster is built around 4 Rarity Tiers and 5 Tactical Roles. Mastering the exact boundaries and shard costs across rarity tiers ensures players allocate scarce progression resources accurately from Week 1.",
+            vi: "**Hệ thống nhân vật xoay quanh `4` bậc phẩm chất (`Rarity Tiers`) và `5` vai trò chiến thuật (`Tactical Roles`).** Nắm vững ranh giới giữa các bậc phẩm chất giúp phân bổ đúng tài nguyên ngay từ Tuần 1.",
+            en: "**The character roster is built around `4` Rarity Tiers and `5` Tactical Roles.** Mastering the exact boundaries and shard costs across rarity tiers ensures accurate resource allocation from Week 1.",
           },
         },
       ],
@@ -121,20 +121,20 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
               ordered: true,
               items: [
                 {
-                  vi: "Thần Thoại (Mythic — Phẩm Đỏ): Bậc phẩm chất tối thượng với 5 kỹ năng chiến đấu và chỉ số thống lĩnh binh lính vượt trội (gấp 2.5–5 lần tướng Vàng thường). Chỉ xuất hiện qua các sự kiện giới hạn theo lịch máy chủ như Vòng Quay May Mắn (Lucky Wheel), Xúc Xắc (Dice Event) hoặc gói đặc quyền. Là điểm đến duy nhất hợp lệ cho Mảnh Vạn Năng Vàng (Universal Legendary Hero Shards): cần 160 Mảnh lên 1 Sao Đỏ (1 Red Star), 400 Mảnh lên 5 Sao Đỏ (5 Red Stars), 560 Mảnh lên 1 Sao Trắng (1 White Star), và 1,000 Mảnh lên 5 Sao Trắng / 15 Sao (5 White Stars / 15 Stars).",
-                  en: "Mythic (Red Tier): The apex rarity featuring 5 combat skills and superior troop command scaling (2.5x–5x regular Legendaries). Exclusively obtained via scheduled server events such as Lucky Wheel, Dice Event, or special bundles. Mythics are the only valid destination for Universal Legendary Hero Shards: requiring 160 Shards for 1 Red Star, 400 Shards for 5 Red Stars, 560 Shards for 1 White Star, and 1,000 Shards for 5 White Stars / 15 Stars.",
+                  vi: "**Thần Thoại (`Mythic` — Đỏ):** Có `5` kỹ năng, chỉ số gấp `2.5–5 lần` Vàng thường; điểm đến duy nhất của Mảnh Vạn Năng Vàng (`160` ➔ `1★ Đỏ`, `400` ➔ `5★ Đỏ`, `560` ➔ `1★ Trắng`, `1,000` ➔ `5★ Trắng / 15★`).",
+                  en: "**Mythic (`Red` Tier):** Features `5` skills and `2.5x–5x` Legendary stats; sole valid target for Universal Shards (`160` ➔ `1★ Red`, `400` ➔ `5★ Red`, `560` ➔ `1★ White`, `1,000` ➔ `5★ White / 15★`).",
                 },
                 {
-                  vi: "Huyền Thoại (Legendary / SSR — Phẩm Vàng/Cam): Lực lượng nòng cốt gánh đội hình trong 3 tuần đầu tiên (Pre-Season S0), tốn bằng đúng 1/2 lượng mảnh nâng sao so với tướng Đỏ (80 Mảnh lên 1 Sao Đỏ, 200 Mảnh lên 5 Sao Đỏ, 280 Mảnh lên 1 Sao Trắng, 300 Mảnh lên 2 Sao Trắng, và 500 Mảnh lên 5 Sao Trắng / 15 Sao). Chia làm 2 nhóm giá trị dài hạn: (a) Nhóm Tướng Vàng Cốt Lõi Có Thể Thức Tỉnh (Awakenable Legendaries: Pyromancer, Adjudicator, Nun, Soulmancer, Warlock, Pixie, Sage...) — khi đạt 1–2 Sao Trắng (11–12 Sao = 280–300 Mảnh) ở Season 1+, có thể tiêu tốn 9 Hồn Đá Đỏ (Soul Stones) + 345–385 Mảnh Tướng để thăng hoa lên phẩm chất Thần Thoại (Đỏ); (b) Nhóm 10 Tướng Vàng Kinh Tế (Legendary Economic Passive Heroes: Bard, Shaman, Hostess, Secret Keeper, Pathfinder, Headhunter, Treeguard, Stonemason, Warlock, Watcher) — sở hữu Thiên phú Kinh tế Ô 3 (Trait 3 Lv.30) tự động kích hoạt vĩnh viễn cho toàn tài khoản ngay cả khi ngồi dự bị (Active without deployment).",
-                  en: "Legendary (SSR — Yellow/Orange Tier): The core backbone carrying lineups during the first 3 weeks (Pre-Season S0), requiring exactly half the shards of Mythic heroes (80 Shards for 1 Red Star, 200 Shards for 5 Red Stars, 280 Shards for 1 White Star, 300 Shards for 2 White Stars, and 500 Shards for 5 White Stars / 15 Stars). Divided into 2 long-term value groups: (a) Awakenable Legendaries (Pyromancer, Adjudicator, Nun, Soulmancer, Warlock, Pixie, Sage...) — upon reaching 1–2 White Stars (11–12 Stars = 280–300 Shards) in Season 1+, they can consume 9 Hồn Đá Đỏ (Soul Stones) + 345–385 Mảnh Tướng (Hero Shards) to awaken into Mythic (Red) tier; (b) 10 Legendary Economic Passive Heroes (Bard, Shaman, Hostess, Secret Keeper, Pathfinder, Headhunter, Treeguard, Stonemason, Warlock, Watcher) — possessing a 3rd Economic Trait (Trait 3 Lv.30) that remains permanently Active without deployment across your entire account.",
+                  vi: "**Huyền Thoại (`Legendary` — Vàng):** Tốn `1/2` mảnh (`80`/`200`/`280`/`300`/`500` Mảnh); gồm nhóm Thức tỉnh lên Đỏ ở S1+ (`9 Hồn Đá Đỏ` + `345–385` Mảnh) và `10` Tướng Kinh Tế (`Trait 3 Lv.30` dự bị).",
+                  en: "**Legendary (`SSR` — Yellow):** Costs `1/2` shards (`80`/`200`/`280`/`300`/`500` Shards); split into S1+ Awakenable cores (`9 Red Soul Stones` + `345–385` Shards) and `10` Economic Heroes (`Trait 3 Lv.30` on bench).",
                 },
                 {
-                  vi: "Sử Thi (Epic / SR — Phẩm Tím — Gồm Đúng 8 Tướng): Chỉ sử dụng lấp chỗ trống trong 3–5 ngày đầu mở máy chủ. Giá trị thực sự nằm ở Đặc tính Kinh tế Thứ 3 (Trait 3 Lv.30 = +30%) mở khóa khi đạt 2 Sao Trắng / Bạc (12 Sao = 300 Mảnh Tướng Tím) — cung cấp buff vĩnh viễn cho toàn tài khoản (Active without deployment) ngay cả khi tướng ngồi dự bị. Khi đạt 5 Sao Trắng (15 Sao = 500 Mảnh), tướng mở khóa Tiệm Đổi Quà (Exchange Shop).",
-                  en: "Epic (SR — Purple Tier — Exactly 8 Heroes): Used only as temporary fillers during the first 3–5 days of a new server. Their true value lies in their 3rd Economy Trait (Trait 3 Lv.30 = +30%) unlocked at 2 Sao Trắng / White Stars (12 Stars = 300 Mảnh / Epic Shards) — granting permanent account-wide buffs (Active without deployment) from the bench. Reaching 5 Sao Trắng / White Stars (15 Stars = 500 Mảnh / Shards) unlocks the Exchange Shop.",
+                  vi: "**Sử Thi (`Epic` — Tím, `8` Tướng):** Dùng tạm `3–5` ngày đầu; mở Đặc tính Kinh tế Ô 3 (`Lv.30` = `+30%` dự bị) ở `2 Sao Trắng` (`12★` = `300` Mảnh) và mở `Exchange Shop` ở `5 Sao Trắng` (`15★` = `500` Mảnh).",
+                  en: "**Epic (`SR` — Purple, `8` Heroes):** 3–5 day fillers; unlocks 3rd Economy Trait (`Lv.30` = `+30%` on bench) at `2 White Stars` (`12★` = `300` Shards) and opens `Exchange Shop` at `5 White Stars` (`15★` = `500` Shards).",
                 },
                 {
-                  vi: "Hiếm (Rare / R — Phẩm Xanh Lam): Nhân vật dẫn đường trong 24 giờ đầu tiên (24h starter). Không có giá trị chiến đấu lẫn kinh tế lâu dài; ngưng nâng cấp hoàn toàn ngay khi rút được tướng Tím/Vàng.",
-                  en: "Rare (R — Blue Tier): 24h starter tutorial characters with zero long-term combat or economic value; stop upgrading them completely the moment you pull Epic or Legendary heroes.",
+                  vi: "**Hiếm (`Rare` — Xanh Lam):** Nhân vật dẫn đường trong `24 giờ` đầu tiên (`24h starter`); không có giá trị chiến đấu hay kinh tế lâu dài, ngưng nâng cấp ngay khi rút được tướng Tím/Vàng.",
+                  en: "**Rare (`R` — Blue Tier):** `24h` starter tutorial characters with zero long-term combat or economic value; stop upgrading them completely the moment you pull Epic or Legendary heroes.",
                 },
               ],
             },
@@ -148,14 +148,14 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
               },
               description: {
                 vi: "Ảnh chụp màn hình giao diện Chi tiết Tướng Mythic (Storm Maiden), khoanh đỏ biểu tượng Kỹ năng thứ 5 mở khóa ở 1 Sao Đỏ (160 Mảnh) và dòng chú thích mở khóa +30% hiệu ứng kỹ năng đặc thù tại mốc 1 Sao Trắng (560 Mảnh).",
-                en: "Annotated screenshot of the Mythic Hero Detail UI (Storm Maiden), highlighting the 5th Skill icon unlocked at 1 Red Star (160 Shards) and the tooltip confirming the +30% signature skill effect boost at 1 Sao Trắng / 1 White Star (560 Mảnh / Shards).",
+                en: "Annotated screenshot of the Mythic Hero Detail UI (Storm Maiden), highlighting the 5th Skill icon unlocked at 1 Red Star (160 Shards) and the tooltip confirming the +30% signature skill effect boost at 1 White Star (560 Shards).",
               },
               annotations: [
                 {
                   kind: "do",
                   label: {
-                    vi: "✅ KỸ NĂNG THỨ 5 & ĐIỂM GÃY 1 SAO TRẮNG (560 MẢNH = +30%)",
-                    en: "✅ 5TH SKILL & 1 WHITE STAR BREAKPOINT (560 SHARDS = +30%)",
+                    vi: "KỸ NĂNG THỨ 5 & ĐIỂM GÃY 1 SAO TRẮNG (560 MẢNH = +30%)",
+                    en: "5TH SKILL & 1 WHITE STAR BREAKPOINT (560 SHARDS = +30%)",
                   },
                   detail: {
                     vi: "Mở khóa Kỹ năng thứ 5 ở 1 Sao Đỏ (160 Mảnh) giúp Storm Maiden vượt mặt tướng Vàng 3–4 Sao Đỏ; chạm mốc 1 Sao Trắng (560 Mảnh) kích hoạt nhảy vọt +30% hiệu ứng kỹ năng cốt lõi.",
@@ -165,8 +165,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 {
                   kind: "dont",
                   label: {
-                    vi: "🚫 KHÔNG DỪNG LƯNG CHỪNG Ở 3–4 SAO ĐỎ",
-                    en: "🚫 DO NOT STOP MIDWAY AT 3–4 RED STARS",
+                    vi: "KHÔNG DỪNG LƯNG CHỪNG Ở 3–4 SAO ĐỎ",
+                    en: "DO NOT STOP MIDWAY AT 3–4 RED STARS",
                   },
                   detail: {
                     vi: "Chia mảnh dàn trải làm nhiều tướng Mythic kẹt ở 3–4 Sao Đỏ sẽ bỏ lỡ hoàn toàn bước nhảy +30% sức mạnh tại 1 Sao Trắng (560 Mảnh).",
@@ -192,24 +192,24 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
               type: "list",
               items: [
                 {
-                  vi: "Đỡ đòn Chính (Main Tank — Hàng trước / Slots 1–2): Chịu đòn trực diện ở Hàng trước (Ô 1 & Ô 2), sở hữu kỹ năng tạo Khiên (Shield), Khiêu khích (Taunt) hoặc Bất tử ngắn hạn.",
-                  en: "Main Tank (Frontline / Slots 1–2): Absorbs direct focus fire in the Frontline (Slots 1 & 2), equipped with Shield generation, Taunt, or short-term Invulnerability.",
+                  vi: "**Đỡ đòn Chính (`Main Tank` — Hàng trước / `Ô 1–2`):** Chịu đòn trực diện ở Hàng trước (`Ô 1 & Ô 2`), sở hữu kỹ năng tạo Khiên (`Shield`), Khiêu khích (`Taunt`) hoặc Bất tử ngắn hạn.",
+                  en: "**Main Tank (Frontline / `Slots 1–2`):** Absorbs direct focus fire in the Frontline (`Slots 1 & 2`), equipped with `Shield` generation, `Taunt`, or short-term Invulnerability.",
                 },
                 {
-                  vi: "Đấu sĩ / Đỡ đòn Phụ (Bruiser / Off-Tank — Hàng trước / Slots 1–2): Đứng Hàng trước (Ô 1 & Ô 2), vừa chia sẻ sát thương với Main Tank vừa gây sát thương cận chiến hoặc khống chế diện rộng.",
-                  en: "Bruiser / Off-Tank (Frontline / Slots 1–2): Stands in the Frontline (Slots 1 & 2), sharing incoming damage with the Main Tank while dealing heavy melee damage or AoE crowd control.",
+                  vi: "**Đấu sĩ / Đỡ đòn Phụ (`Bruiser / Off-Tank` — Hàng trước / `Ô 1–2`):** Đứng Hàng trước (`Ô 1 & Ô 2`), vừa chia sẻ sát thương với `Main Tank` vừa gây sát thương cận chiến hoặc khống chế diện rộng.",
+                  en: "**Bruiser / Off-Tank (Frontline / `Slots 1–2`):** Stands in the Frontline (`Slots 1 & 2`), sharing incoming damage with the `Main Tank` while dealing heavy melee damage or AoE crowd control.",
                 },
                 {
-                  vi: "Sát thương Chủ lực (Hyper-Carry DPS — Hàng giữa / Slots 3–4): Đứng Hàng giữa (Ô 3 & Ô 4), chia thành DPS Diện rộng (AoE) chuyên dọn lính và DPS Đơn mục tiêu / Bộc phát (Burst / Single-Target) chuyên kết liễu tướng địch và săn Boss.",
-                  en: "Hyper-Carry DPS (Midline / Slots 3–4): Positioned in the Midline (Slots 3 & 4), divided into AoE DPS for wave-clearing soldiers and Burst / Single-Target DPS for executing enemy heroes and melting Bosses.",
+                  vi: "**Sát thương Chủ lực (`Hyper-Carry DPS` — Hàng giữa / `Ô 3–4`):** Đứng Hàng giữa (`Ô 3 & Ô 4`), gồm `AoE DPS` dọn lính diện rộng và `Burst / Single-Target DPS` chuyên kết liễu tướng địch, săn Boss.",
+                  en: "**Hyper-Carry DPS (Midline / `Slots 3–4`):** Positioned in the Midline (`Slots 3 & 4`), split into `AoE DPS` for wave-clearing soldiers and `Burst / Single-Target DPS` for executing heroes and Bosses.",
                 },
                 {
-                  vi: "Hồi máu (Healer — Hàng sau / Slots 5–6): Đứng Hàng sau (Ô 5 & Ô 6), duy trì lượng máu cho cả tướng và đội quân hộ vệ (Soldiers).",
-                  en: "Healer (Backline / Slots 5–6): Positioned in the Backline (Slots 5 & 6), sustaining HP across both heroes and their escorting Soldiers.",
+                  vi: "**Hồi máu (`Healer` — Hàng sau / `Ô 5–6`):** Đứng Hàng sau (`Ô 5 & Ô 6`), duy trì lượng máu liên tục cho cả tướng lẫn đội quân hộ vệ (`Soldiers`).",
+                  en: "**Healer (Backline / `Slots 5–6`):** Positioned in the Backline (`Slots 5 & 6`), sustaining HP across both heroes and their escorting `Soldiers`.",
                 },
                 {
-                  vi: "Hỗ trợ / Khống chế / Triệu hồi (Support / Controller / Summoner — Hàng sau / Slots 5–6): Đứng Hàng sau (Ô 5 & Ô 6), gia tăng Tốc đánh, Chí mạng, Giảm thủ kẻ địch hoặc triệu hồi vật thể phụ trợ làm bia đỡ đạn.",
-                  en: "Support / Controller / Summoner (Backline / Slots 5–6): Positioned in the Backline (Slots 5 & 6), boosting Attack Speed and Crit Rate, shredding enemy DEF, or summoning units to soak incoming projectiles.",
+                  vi: "**Hỗ trợ / Khống chế / Triệu hồi (`Support / Controller / Summoner` — `Ô 5–6`):** Đứng Hàng sau (`Ô 5 & Ô 6`), tăng Tốc đánh, Chí mạng, Giảm thủ địch hoặc triệu hồi đệ làm bia đỡ đạn.",
+                  en: "**Support / Controller / Summoner (Backline / `Slots 5–6`):** Positioned in the Backline (`Slots 5 & 6`), boosting Attack Speed and Crit Rate, shredding enemy DEF, or summoning units to soak fire.",
                 },
               ],
             },
@@ -229,15 +229,15 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Hệ Thống Liên Kết Tướng (Hero Bonds — Buff Toàn Cục Ngay Cả Khi Dự Bị): Mỗi vị tướng trong danh mục đều thuộc về một hoặc nhiều Nhóm Liên Kết (Hero Bonds) theo cốt truyện và phe phái. Khi bạn mở khóa đủ các tướng trong cùng một Liên kết và nâng chúng chạm các mốc Sao chỉ định (3 Sao Vàng, 1 Sao Đỏ, 1 Sao Trắng...), hệ thống sẽ kích hoạt các dòng cộng thêm % ATK, % HP và % DEF vĩnh viễn cho toàn bộ tướng trong tài khoản (không cần đưa tướng đó vào đội hình xuất chiến). Đây là lý do bạn vẫn nên mở khóa và nâng sao tự nhiên (bằng mảnh riêng rơi từ Quán Rượu) cho toàn bộ tướng Vàng/Tím trong kho vào Thứ Năm Tuần B (GAR).",
-                en: "Hero Bonds (Account-Wide Passive Buffs From the Bench): Every hero belongs to one or more lore and faction Hero Bond groups. Unlocking all heroes within a bond and raising them to designated star milestones (3 Yellow Stars, 1 Red Star, 1 White Star...) permanently activates global % ATK, % HP, and % DEF bonuses across all heroes in your account (Active without deployment). That is why you should naturally unlock and star-up all Tavern Legendary/Epic heroes using their specific shards on Thursday of Week B (GAR).",
+                vi: "**Hệ Thống Liên Kết Tướng (`Hero Bonds`):** Mở khóa tướng cùng nhóm và chạm mốc Sao (`3★ Vàng`, `1★ Đỏ`, `1★ Trắng`) sẽ cộng vĩnh viễn `% ATK`, `% HP`, `% DEF` toàn tài khoản.\n• **Kỷ luật nâng sao tự nhiên:** Có hiệu lực từ băng ghế dự bị (`Active without deployment`); dùng mảnh riêng nâng sao tướng Vàng/Tím vào Thứ Năm Tuần B (`GAR`).",
+                en: "**Hero Bonds (`Active without deployment` Global Buffs):** Unlocking bond groups and hitting star milestones (`3★ Yellow`, `1★ Red`, `1★ White`) permanently adds global `% ATK`, `% HP`, and `% DEF`.\n• **Natural Star-Up Discipline:** Buffs apply account-wide from the bench; naturally star-up all Tavern Legendary/Epic heroes using specific shards on Thursday of Week B (`GAR`).",
               },
             },
             {
               type: "paragraph",
               text: {
-                vi: "3 Bộ Trang Bị Vàng Chuẩn Hóa Theo Vai Trò (Standardized Golden Gear Sets): Khi trang bị cho Đội hình 1, mọi vị tướng đều hướng tới 1 trong 3 bộ Trang bị Vàng có gán đúng Dấu Hệ nhận +30% Faction Mark Bonus:",
-                en: "3 Standardized Golden Gear Sets by Role: When gearing Queue 1, every hero targets 1 of 3 Legendary Gear Sets equipped with a matching Faction Mark for the +30% Faction Mark Bonus:",
+                vi: "**`3` Bộ Trang Bị Vàng Chuẩn Hóa Theo Vai Trò (`Standardized Golden Gear Sets`):**\n• Khi trang bị cho Đội hình 1 (`Queue 1`), mọi vị tướng đều hướng tới 1 trong 3 bộ Trang bị Vàng có gán đúng Dấu Hệ nhận `+30% Faction Mark Bonus`:",
+                en: "**`3` Standardized Golden Gear Sets by Role:**\n• When gearing `Queue 1`, every hero targets 1 of 3 Legendary Gear Sets equipped with a matching Faction Mark for the `+30% Faction Mark Bonus`:",
               },
             },
             {
@@ -245,16 +245,16 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
               ordered: true,
               items: [
                 {
-                  vi: "🩸 Huyết Titan / Nộ Huyết (Blood of the Titan / Fury of Blood): Bộ trang bị trấn phái cho Main Tank & Bruiser — gia tăng cực đại % HP, Giảm sát thương và tạo Khiên máu đầu trận (kèm +30% Faction Mark Bonus).",
-                  en: "🩸 Huyết Titan / Nộ Huyết (Blood of the Titan / Fury of Blood): Signature gear set for Main Tanks & Bruisers — maximizes % HP, Damage Reduction, and opening-combat HP Shields (with +30% Faction Mark Bonus).",
+                  vi: "**Huyết Titan / Nộ Huyết (`Blood of the Titan / Fury of Blood`):** Bộ trang bị trấn phái cho `Main Tank & Bruiser` — tối đa hóa `% HP`, Giảm sát thương và tạo Khiên máu đầu trận (kèm `+30% Faction Mark Bonus`).",
+                  en: "**Blood of the Titan / Fury of Blood (`Tank & Bruiser Set`):** Signature gear set for `Main Tanks & Bruisers` — maximizes `% HP`, Damage Reduction, and opening HP Shields (with `+30% Faction Mark Bonus`).",
                 },
                 {
-                  vi: "⚔️ Kỵ Sĩ Vinh Quang (Knight's Glory): Bộ trang bị trấn phái cho Hyper-Carry Burst / Skill DPS — khuếch đại Sát thương Kỹ năng (Skill Damage) và Tỷ lệ Chí mạng (kèm +30% Faction Mark Bonus).",
-                  en: "⚔️ Kỵ Sĩ Vinh Quang (Knight's Glory): Signature gear set for Hyper-Carry Burst / Skill DPS — amplifies Skill Damage and Critical Strike Rate (with +30% Faction Mark Bonus).",
+                  vi: "**Kỵ Sĩ Vinh Quang (`Knight's Glory`):** Bộ trang bị trấn phái cho `Hyper-Carry Burst / Skill DPS` — khuếch đại Sát thương Kỹ năng (`Skill Damage`) và Tỷ lệ Chí mạng (kèm `+30% Faction Mark Bonus`).",
+                  en: "**Knight's Glory (`Burst & Skill DPS Set`):** Signature gear set for `Hyper-Carry Burst / Skill DPS` — amplifies `Skill Damage` and Critical Strike Rate (with `+30% Faction Mark Bonus`).",
                 },
                 {
-                  vi: "⚡ Hiền Triết Quang Vinh (Glory of the Sage / Glory of the Knight): Bộ trang bị trấn phái cho Support, Healer, Controller & Hybrid DPS — gia tăng Tốc độ đánh (Attack Speed), Giảm hồi chiêu và Tốc độ hồi Năng lượng (Energy Regen, kèm +30% Faction Mark Bonus).",
-                  en: "⚡ Hiền Triết Quang Vinh (Glory of the Sage / Glory of the Knight): Signature gear set for Supports, Healers, Controllers & Hybrid DPS — boosts Attack Speed, Cooldown Reduction, and Energy Regen (with +30% Faction Mark Bonus).",
+                  vi: "**Hiền Triết Quang Vinh (`Glory of the Sage`):** Bộ trang bị trấn phái cho `Support, Healer, Controller & Hybrid DPS` — tăng Tốc đánh (`Attack Speed`), Giảm hồi chiêu và Hồi Năng lượng (`+30% Faction Mark Bonus`).",
+                  en: "**Glory of the Sage (`Support & Speed Set`):** Signature gear set for `Supports, Healers, Controllers & Hybrid DPS` — boosts `Attack Speed`, Cooldown Reduction, and Energy Regen (`+30% Faction Mark Bonus`).",
                 },
               ],
             },
@@ -272,8 +272,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Dưới đây là hồ sơ phân tích đầy đủ toàn bộ 51 vị tướng thuộc 3 Phe phái (16 tướng Liên Minh, 19 tướng Bộ Lạc, 16 tướng Thiên Nhiên), bao gồm phẩm chất gốc, vai trò chiến thuật, vị trí đứng chuẩn trong đội hình 6 người, bộ trang bị Vàng khuyến nghị và chỉ số nội tại kinh tế.",
-            en: "Below is the complete master directory of all 51 heroes across the 3 Factions (16 League, 19 Horde, 16 Nature), detailing base rarity, tactical role, optimal slot positioning, recommended Golden Gear set, and passive economic traits.",
+            vi: "**Hồ sơ phân tích đầy đủ toàn bộ `51` vị tướng thuộc `3` Phe phái (`16` Liên Minh, `19` Bộ Lạc, `16` Thiên Nhiên).**\n• **Thông số tra cứu chuẩn:** Bao gồm phẩm chất gốc, vai trò chiến thuật, vị trí đứng chuẩn trong đội hình `6` người, bộ trang bị Vàng khuyến nghị và chỉ số nội tại kinh tế.",
+            en: "**Complete master directory of all `51` heroes across the `3` Factions (`16` League, `19` Horde, `16` Nature).**\n• **Standardized Reference Metrics:** Details base rarity, tactical role, optimal `6-slot` positioning, recommended Golden Gear set, and passive economic traits.",
           },
         },
         {
@@ -296,8 +296,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
             {
               kind: "info",
               label: {
-                vi: "🔴 VIỀN ĐỎ (MYTHIC) & 🟡 VIỀN VÀNG THỨC TỈNH (AWAKENABLE)",
-                en: "🔴 RED BORDER (MYTHIC) & 🟡 AWAKENABLE LEGENDARY",
+                vi: "VIỀN ĐỎ (MYTHIC) & VIỀN VÀNG THỨC TỈNH (AWAKENABLE)",
+                en: "RED BORDER (MYTHIC) & AWAKENABLE LEGENDARY",
               },
               detail: {
                 vi: "Nhóm tướng duy nhất được phép đầu tư tài nguyên chiến đấu dài hạn cho Đội hình 1 (Queue 1).",
@@ -307,8 +307,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
             {
               kind: "do",
               label: {
-                vi: "🟣 8 TƯỚNG TÍM & 🟡 10 TƯỚNG VÀNG KINH TẾ (ACTIVE WITHOUT DEPLOYMENT)",
-                en: "🟣 8 EPIC & 🟡 10 LEGENDARY ECONOMY HEROES (ACTIVE WITHOUT DEPLOYMENT)",
+                vi: "8 TƯỚNG TÍM & 10 TƯỚNG VÀNG KINH TẾ (ACTIVE WITHOUT DEPLOYMENT)",
+                en: "8 EPIC & 10 LEGENDARY ECONOMY HEROES (ACTIVE WITHOUT DEPLOYMENT)",
               },
               detail: {
                 vi: "Nâng lên 2 Sao Trắng (12 Sao = 300 Mảnh) bằng mảnh riêng để mở khóa Thiên phú Kinh tế Ô 3 (Lv.30) tự động cộng hiệu suất vĩnh viễn khi ngồi dự bị.",
@@ -333,8 +333,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Đặc trưng bởi hệ thống khiên chắn kiên cố, khả năng tăng tỷ lệ Chí mạng phép/vật lý và sát thương nổ diện rộng (Burst AoE). Đây là phe khởi đầu mượt nhất cho mọi người chơi F2P và Low-Spender trong Ngày 1–20.",
-                en: "Defined by fortified shields, magic/physical Critical Rate buffs, and explosive AoE burst damage. League is the smoothest starting faction for all F2P and Low-Spender players during Days 1–20.",
+                vi: "Đặc trưng bởi hệ thống **khiên chắn kiên cố**, tăng tỷ lệ **Chí mạng** và sát thương nổ diện rộng (`Burst AoE`).\n• Phe khởi đầu mượt nhất cho người chơi `F2P` và `Low-Spender` trong **Ngày 1–20**.",
+                en: "Defined by **fortified shields**, magic/physical **Critical Rate** buffs, and explosive `Burst AoE` damage.\n• `League` is the smoothest starting faction for `F2P` and `Low-Spender` players during **Days 1–20**.",
               },
             },
             {
@@ -345,7 +345,7 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
               },
               headers: [
                 { vi: "Tên Quốc Tế (EN)", en: "Hero Name (EN)" },
-                { vi: "Tên Tiếng Việt (VI)", en: "Vietnamese Name (VI)" },
+                { vi: "Tên Tiếng Việt (VI)", en: "Hero Title / Alias (EN)" },
                 { vi: "Phẩm Chất Gốc", en: "Base Rarity" },
                 { vi: "Vai Trò Chiến Thuật", en: "Tactical Role" },
                 { vi: "Vị Trí Chuẩn", en: "Standard Slot" },
@@ -357,85 +357,85 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
               rows: [
                 [
                   { vi: "Rose Princess", en: "Rose Princess" },
-                  { vi: "Công Chúa Rose", en: "Công Chúa Rose" },
-                  { vi: "🔴 Mythic", en: "🔴 Mythic" },
+                  { vi: "Công Chúa Rose", en: "Rose Princess" },
+                  { vi: "Mythic", en: "Mythic" },
                   { vi: "Main Tank / Buffer", en: "Main Tank / Buffer" },
                   { vi: "Hàng trước", en: "Frontline" },
                   {
-                    vi: "Trụ cột bất khả xâm phạm của Liên Minh Endgame; phản sát thương và buff công thủ toàn đội. Bộ đồ: 🩸 Huyết Titan.",
-                    en: "Untouchable Endgame League frontline pillar; reflects damage and buffs team-wide ATK/DEF. Gear Set: 🩸 Huyết Titan (Blood of the Titan).",
+                    vi: "Trụ cột bất khả xâm phạm của Liên Minh Endgame; phản sát thương và buff công thủ toàn đội. Bộ đồ: Huyết Titan.",
+                    en: "Untouchable Endgame League frontline pillar; reflects damage and buffs team-wide ATK/DEF. Gear Set: Blood of the Titan.",
                   },
                 ],
                 [
                   { vi: "Paragon", en: "Paragon" },
-                  { vi: "Thiện Xạ", en: "Thiện Xạ" },
-                  { vi: "🔴 Mythic", en: "🔴 Mythic" },
+                  { vi: "Thiện Xạ", en: "Paragon" },
+                  { vi: "Mythic", en: "Mythic" },
                   { vi: "Hyper-Carry DPS", en: "Hyper-Carry DPS" },
                   { vi: "Hàng giữa", en: "Midline" },
                   {
-                    vi: "Sát thương chuẩn và chí mạng diện rộng cực gắt; nguồn hỏa lực số 1 của Liên Minh từ Ngày 35+. Bộ đồ: ⚔️ Kỵ Sĩ Vinh Quang.",
-                    en: "Devastating AoE true damage and critical strikes; #1 League firepower carry from Day 35+. Gear Set: ⚔️ Kỵ Sĩ Vinh Quang (Knight's Glory).",
+                    vi: "Sát thương chuẩn và chí mạng diện rộng cực gắt; nguồn hỏa lực số 1 của Liên Minh từ Ngày 35+. Bộ đồ: Kỵ Sĩ Vinh Quang.",
+                    en: "Devastating AoE true damage and critical strikes; #1 League firepower carry from Day 35+. Gear Set: Knight's Glory.",
                   },
                 ],
                 [
                   { vi: "Bishop", en: "Bishop" },
-                  { vi: "Giám Mục", en: "Giám Mục" },
-                  { vi: "🔴 Mythic", en: "🔴 Mythic" },
+                  { vi: "Giám Mục", en: "Bishop" },
+                  { vi: "Mythic", en: "Mythic" },
                   { vi: "Burst DPS / Support", en: "Burst DPS / Support" },
                   { vi: "Hàng giữa / sau", en: "Midline / Backline" },
                   {
-                    vi: "Sát thương bộc phát Sacred Burst khắc chế cứng các đội hình triệu hồi (Nature); mạnh từ mốc 1–3 Sao Trắng. Bộ đồ: ⚔️ Kỵ Sĩ Vinh Quang.",
-                    en: "Explosive Sacred Burst that hard-counters summon swarms (Nature); spikes hard at 1–3 White Stars. Gear Set: ⚔️ Kỵ Sĩ Vinh Quang (Knight's Glory).",
+                    vi: "Sát thương bộc phát Sacred Burst khắc chế cứng các đội hình triệu hồi (Nature); mạnh từ mốc 1–3 Sao Trắng. Bộ đồ: Kỵ Sĩ Vinh Quang.",
+                    en: "Explosive Sacred Burst that hard-counters summon swarms (Nature); spikes hard at 1–3 White Stars. Gear Set: Knight's Glory.",
                   },
                 ],
                 [
                   { vi: "Artificer", en: "Artificer" },
-                  { vi: "Thợ Chế Tạo", en: "Thợ Chế Tạo" },
-                  { vi: "🔴 Mythic (S3)", en: "🔴 Mythic (S3)" },
+                  { vi: "Thợ Chế Tạo", en: "Artificer" },
+                  { vi: "Mythic (S3)", en: "Mythic (S3)" },
                   { vi: "Top-tier Support", en: "Top-tier Support" },
                   { vi: "Hàng sau", en: "Backline" },
                   {
-                    vi: "Siêu hỗ trợ ra mắt ở Season 3; cường hóa vũ khí và khuếch đại sát thương toàn đội Liên Minh. Bộ đồ: ⚡ Hiền Triết Quang Vinh.",
-                    en: "Premier Season 3 hyper-support; enchants weapons and amplifies full-team League damage. Gear Set: ⚡ Hiền Triết Quang Vinh (Glory of the Sage).",
+                    vi: "Siêu hỗ trợ ra mắt ở Season 3; cường hóa vũ khí và khuếch đại sát thương toàn đội Liên Minh. Bộ đồ: Hiền Triết Quang Vinh.",
+                    en: "Premier Season 3 hyper-support; enchants weapons and amplifies full-team League damage. Gear Set: Glory of the Sage.",
                   },
                 ],
                 [
                   { vi: "Adjudicator", en: "Adjudicator" },
-                  { vi: "Thẩm Phán", en: "Thẩm Phán" },
-                  { vi: "🟡 Legendary (Awaken)", en: "🟡 Legendary (Awaken)" },
+                  { vi: "Thẩm Phán", en: "Adjudicator" },
+                  { vi: "Legendary (Awaken)", en: "Legendary (Awaken)" },
                   { vi: "Main Tank", en: "Main Tank" },
                   { vi: "Hàng trước", en: "Frontline" },
                   {
-                    vi: "Tanker Vàng bền bỉ nhất đầu game; khi Thức tỉnh lên Đỏ (9 Hồn Đá Đỏ + 345–385 Mảnh Tướng) tạo lá chắn bất hoại. Bộ đồ: 🩸 Huyết Titan.",
-                    en: "Most durable early-game Legendary tank; Awakening to Mythic (9 Soul Stones + 345–385 Shards) grants an unbreakable shield. Gear Set: 🩸 Huyết Titan.",
+                    vi: "Tanker Vàng bền bỉ nhất đầu game; khi Thức tỉnh lên Đỏ (9 Hồn Đá Đỏ + 345–385 Mảnh Tướng) tạo lá chắn bất hoại. Bộ đồ: Huyết Titan.",
+                    en: "Most durable early-game Legendary tank; Awakening to Mythic (9 Soul Stones + 345–385 Shards) grants an unbreakable shield. Gear Set: Blood of the Titan.",
                   },
                 ],
                 [
                   { vi: "Pyromancer", en: "Pyromancer" },
-                  { vi: "Pháp Sư Lửa", en: "Pháp Sư Lửa" },
-                  { vi: "🟡 Legendary (Awaken)", en: "🟡 Legendary (Awaken)" },
+                  { vi: "Pháp Sư Lửa", en: "Pyromancer" },
+                  { vi: "Legendary (Awaken)", en: "Legendary (Awaken)" },
                   { vi: "AoE Magic DPS", en: "AoE Magic DPS" },
                   { vi: "Hàng giữa", en: "Midline" },
                   {
-                    vi: "\"Nữ hoàng vượt ải\" giai đoạn S0; sát thương thiêu đốt diện rộng cực lớn, bắt buộc Thức tỉnh nếu chơi thuần Liên Minh. Bộ đồ: ⚔️ Kỵ Sĩ Vinh Quang.",
-                    en: "The S0 PvE wave-clear queen; massive AoE burn damage and mandatory Awakening target for pure League mains. Gear Set: ⚔️ Kỵ Sĩ Vinh Quang.",
+                    vi: "\"Nữ hoàng vượt ải\" giai đoạn S0; sát thương thiêu đốt diện rộng cực lớn, bắt buộc Thức tỉnh nếu chơi thuần Liên Minh. Bộ đồ: Kỵ Sĩ Vinh Quang.",
+                    en: "The S0 PvE wave-clear queen; massive AoE burn damage and mandatory Awakening target for pure League mains. Gear Set: Knight's Glory.",
                   },
                 ],
                 [
                   { vi: "Nun", en: "Nun" },
-                  { vi: "Nữ Tu", en: "Nữ Tu" },
-                  { vi: "🟡 Legendary (Awaken)", en: "🟡 Legendary (Awaken)" },
+                  { vi: "Nữ Tu", en: "Nun" },
+                  { vi: "Legendary (Awaken)", en: "Legendary (Awaken)" },
                   { vi: "Pure Healer", en: "Pure Healer" },
                   { vi: "Hàng sau", en: "Backline" },
                   {
-                    vi: "Nguồn hồi máu diện rộng lớn nhất phe Liên Minh; giữ sống toàn bộ hàng Tank. Bộ đồ: ⚡ Hiền Triết Quang Vinh.",
-                    en: "Largest AoE healer in the League faction; keeps the entire frontline alive. Gear Set: ⚡ Hiền Triết Quang Vinh.",
+                    vi: "Nguồn hồi máu diện rộng lớn nhất phe Liên Minh; giữ sống toàn bộ hàng Tank. Bộ đồ: Hiền Triết Quang Vinh.",
+                    en: "Largest AoE healer in the League faction; keeps the entire frontline alive. Gear Set: Glory of the Sage.",
                   },
                 ],
                 [
                   { vi: "Bard", en: "Bard" },
-                  { vi: "Nhà Thơ", en: "Nhà Thơ" },
-                  { vi: "🟡 Legendary (Econ)", en: "🟡 Legendary (Econ)" },
+                  { vi: "Nhà Thơ", en: "Bard" },
+                  { vi: "Legendary (Econ)", en: "Legendary (Econ)" },
                   { vi: "Speed Buffer / Kinh tế", en: "Speed Buffer / Economy" },
                   { vi: "Hàng sau / Dự bị", en: "Backline / Bench" },
                   {
@@ -445,8 +445,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Astrologer", en: "Astrologer" },
-                  { vi: "Chiêm Tinh Gia", en: "Chiêm Tinh Gia" },
-                  { vi: "🟡 Legendary", en: "🟡 Legendary" },
+                  { vi: "Chiêm Tinh Gia", en: "Astrologer" },
+                  { vi: "Legendary", en: "Legendary" },
                   { vi: "Single-Target DPS", en: "Single-Target DPS" },
                   { vi: "Hàng giữa", en: "Midline" },
                   {
@@ -456,8 +456,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Secret Keeper", en: "Secret Keeper" },
-                  { vi: "Người Giữ Bí Mật", en: "Người Giữ Bí Mật" },
-                  { vi: "🟡 Legendary (Econ)", en: "🟡 Legendary (Econ)" },
+                  { vi: "Người Giữ Bí Mật", en: "Secret Keeper" },
+                  { vi: "Legendary (Econ)", en: "Legendary (Econ)" },
                   { vi: "Early Tank / Kinh tế", en: "Early Tank / Economy" },
                   { vi: "Hàng trước / Dự bị", en: "Frontline / Bench" },
                   {
@@ -467,8 +467,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Hostess", en: "Hostess" },
-                  { vi: "Nữ Chủ Quán", en: "Nữ Chủ Quán" },
-                  { vi: "🟡 Legendary (Econ)", en: "🟡 Legendary (Econ)" },
+                  { vi: "Nữ Chủ Quán", en: "Hostess" },
+                  { vi: "Legendary (Econ)", en: "Legendary (Econ)" },
                   { vi: "Support / Kinh tế", en: "Support / Economy" },
                   { vi: "Dự bị (Bench)", en: "Bench" },
                   {
@@ -478,8 +478,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Knight", en: "Knight" },
-                  { vi: "Kỵ Sĩ", en: "Kỵ Sĩ" },
-                  { vi: "🟣 Epic (#2)", en: "🟣 Epic (#2)" },
+                  { vi: "Kỵ Sĩ", en: "Knight" },
+                  { vi: "Epic (#2)", en: "Epic (#2)" },
                   { vi: "Kinh tế (Trait 3)", en: "Economy (Trait 3)" },
                   { vi: "Dự bị (Bench)", en: "Bench" },
                   {
@@ -489,8 +489,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Ranger", en: "Ranger" },
-                  { vi: "Cung Thủ / Thợ Săn", en: "Cung Thủ / Thợ Săn" },
-                  { vi: "🟣 Epic (#3)", en: "🟣 Epic (#3)" },
+                  { vi: "Cung Thủ / Thợ Săn", en: "Ranger" },
+                  { vi: "Epic (#3)", en: "Epic (#3)" },
                   { vi: "Kinh tế (Trait 3)", en: "Economy (Trait 3)" },
                   { vi: "Dự bị (Bench)", en: "Bench" },
                   {
@@ -500,8 +500,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Minister", en: "Minister" },
-                  { vi: "Bộ Trưởng", en: "Bộ Trưởng" },
-                  { vi: "🟣 Epic (#6)", en: "🟣 Epic (#6)" },
+                  { vi: "Bộ Trưởng", en: "Minister" },
+                  { vi: "Epic (#6)", en: "Epic (#6)" },
                   { vi: "Kinh tế (Trait 3)", en: "Economy (Trait 3)" },
                   { vi: "Dự bị (Bench)", en: "Bench" },
                   {
@@ -511,8 +511,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Guardsman", en: "Guardsman" },
-                  { vi: "Vệ Binh", en: "Vệ Binh" },
-                  { vi: "🔵 Rare", en: "🔵 Rare" },
+                  { vi: "Vệ Binh", en: "Guard" },
+                  { vi: "Rare", en: "Rare" },
                   { vi: "Tân thủ 24h", en: "24h Starter" },
                   { vi: "Dự bị (Bench)", en: "Bench" },
                   {
@@ -522,8 +522,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Crossbowman", en: "Crossbowman" },
-                  { vi: "Nỏ Thủ", en: "Nỏ Thủ" },
-                  { vi: "🔵 Rare", en: "🔵 Rare" },
+                  { vi: "Nỏ Thủ", en: "Crossbowman" },
+                  { vi: "Rare", en: "Rare" },
                   { vi: "Tân thủ 24h", en: "24h Starter" },
                   { vi: "Dự bị (Bench)", en: "Bench" },
                   {
@@ -549,8 +549,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Nổi tiếng với cơ chế Hút máu (Lifesteal), Cuồng nộ tăng tốc đánh (Berserk) và khả năng càn quét cả PvP lẫn Boss Thế Giới. Dù yếu ở 20 ngày đầu do tướng Vàng thiếu liên kết, Bộ Lạc vươn lên thống trị tuyệt đối từ Ngày 21+ nhờ sở hữu tới 5–6 Tướng Đỏ gốc (Native Mythics).",
-                en: "Renowned for Lifesteal, Berserk attack-speed steroids, and unmatched dominance across both PvP and World Bosses. Although weak during the first 20 days due to disjointed starter Legendaries, Horde rises to absolute supremacy from Day 21+ thanks to fielding 5–6 Native Mythic heroes.",
+                vi: "Nổi tiếng với cơ chế **Hút máu (`Lifesteal`)**, **Cuồng nộ (`Berserk`)** và khả năng càn quét cả `PvP` lẫn **Boss Thế Giới**.\n• Dù yếu ở 20 ngày đầu do tướng Vàng thiếu liên kết, **Bộ Lạc** thống trị tuyệt đối từ **Ngày 21+** nhờ sở hữu `5–6` **Tướng Đỏ gốc (`Native Mythics`)**.",
+                en: "Renowned for **`Lifesteal`**, **`Berserk`** attack-speed steroids, and unmatched dominance across `PvP` and **World Bosses**.\n• Though weak during the first 20 days, `Horde` rises to supremacy from **Day 21+** by fielding `5–6` **Native Mythic** heroes.",
               },
             },
             {
@@ -561,7 +561,7 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
               },
               headers: [
                 { vi: "Tên Quốc Tế (EN)", en: "Hero Name (EN)" },
-                { vi: "Tên Tiếng Việt (VI)", en: "Vietnamese Name (VI)" },
+                { vi: "Tên Tiếng Việt (VI)", en: "Hero Title / Alias (EN)" },
                 { vi: "Phẩm Chất Gốc", en: "Base Rarity" },
                 { vi: "Vai Trò Chiến Thuật", en: "Tactical Role" },
                 { vi: "Vị Trí Chuẩn", en: "Standard Slot" },
@@ -573,87 +573,87 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
               rows: [
                 [
                   { vi: "Desert Prince", en: "Desert Prince" },
-                  { vi: "Hoàng Tử Sa Mạc", en: "Hoàng Tử Sa Mạc" },
-                  { vi: "🔴 Mythic (Day 21)", en: "🔴 Mythic (Day 21)" },
+                  { vi: "Hoàng Tử Sa Mạc", en: "Desert Prince" },
+                  { vi: "Mythic (Day 21)", en: "Mythic (Day 21)" },
                   { vi: "Bruiser / Main Tank", en: "Bruiser / Main Tank" },
                   { vi: "Hàng trước", en: "Frontline" },
                   {
-                    vi: "Mở màn kỷ nguyên Bộ Lạc ở Ngày 21; vừa trâu bò vừa chém diện rộng và tự hồi phục cực mạnh. Bộ đồ: 🩸 Huyết Titan.",
-                    en: "Ushers in the Horde era on Day 21; combines massive frontline durability with AoE cleaves and self-healing. Gear Set: 🩸 Huyết Titan.",
+                    vi: "Mở màn kỷ nguyên Bộ Lạc ở Ngày 21; vừa trâu bò vừa chém diện rộng và tự hồi phục cực mạnh. Bộ đồ: Huyết Titan.",
+                    en: "Ushers in the Horde era on Day 21; combines massive frontline durability with AoE cleaves and self-healing. Gear Set: Blood of the Titan.",
                   },
                 ],
                 [
                   { vi: "Storm Maiden", en: "Storm Maiden" },
-                  { vi: "Nữ Thần Bão Tố", en: "Nữ Thần Bão Tố" },
-                  { vi: "🔴 Mythic (Day 27)", en: "🔴 Mythic (Day 27)" },
+                  { vi: "Nữ Thần Bão Tố", en: "Storm Maiden" },
+                  { vi: "Mythic (Day 27)", en: "Mythic (Day 27)" },
                   { vi: "Hyper-Carry AoE DPS", en: "Hyper-Carry AoE DPS" },
                   { vi: "Hàng giữa", en: "Midline" },
                   {
-                    vi: "Ra mắt Ngày 27; gọi lốc xoáy sấm sét hủy diệt hàng giữa và hàng sau đối phương. Trụ cột số 1 của Horde S0–S1. Bộ đồ: ⚔️ Kỵ Sĩ Vinh Quang.",
-                    en: "Releases on Day 27; summons lightning tornadoes that shred enemy midline and backline units. #1 Horde carry in S0–S1. Gear Set: ⚔️ Kỵ Sĩ Vinh Quang.",
+                    vi: "Ra mắt Ngày 27; gọi lốc xoáy sấm sét hủy diệt hàng giữa và hàng sau đối phương. Trụ cột số 1 của Horde S0–S1. Bộ đồ: Kỵ Sĩ Vinh Quang.",
+                    en: "Releases on Day 27; summons lightning tornadoes that shred enemy midline and backline units. #1 Horde carry in S0–S1. Gear Set: Knight's Glory.",
                   },
                 ],
                 [
                   { vi: "Witch", en: "Witch" },
-                  { vi: "Phù Thủy", en: "Phù Thủy" },
-                  { vi: "🔴 Mythic (Day 41)", en: "🔴 Mythic (Day 41)" },
+                  { vi: "Phù Thủy", en: "Witch" },
+                  { vi: "Mythic (Day 41)", en: "Mythic (Day 41)" },
                   { vi: "Mythic Healer / CC", en: "Mythic Healer / CC" },
                   { vi: "Hàng sau", en: "Backline" },
                   {
-                    vi: "Ra mắt Ngày 41; Healer phẩm Đỏ duy nhất giai đoạn đầu, vừa hồi máu toàn đội vừa nguyền rủa giảm thủ kẻ địch. Bộ đồ: ⚡ Hiền Triết Quang Vinh.",
-                    en: "Releases on Day 41; the only early-game Mythic Healer, providing full-team healing while cursing and shredding enemy DEF. Gear Set: ⚡ Hiền Triết Quang Vinh.",
+                    vi: "Ra mắt Ngày 41; Healer phẩm Đỏ duy nhất giai đoạn đầu, vừa hồi máu toàn đội vừa nguyền rủa giảm thủ kẻ địch. Bộ đồ: Hiền Triết Quang Vinh.",
+                    en: "Releases on Day 41; the only early-game Mythic Healer, providing full-team healing while cursing and shredding enemy DEF. Gear Set: Glory of the Sage.",
                   },
                 ],
                 [
                   { vi: "Wukong", en: "Wukong" },
-                  { vi: "Tôn Ngộ Không", en: "Tôn Ngộ Không" },
-                  { vi: "🔴 Mythic (S2)", en: "🔴 Mythic (S2)" },
+                  { vi: "Tôn Ngộ Không", en: "Monkey King (Wukong)" },
+                  { vi: "Mythic (S2)", en: "Mythic (S2)" },
                   { vi: "Hyper-Carry Assassin", en: "Hyper-Carry Assassin" },
                   { vi: "Hàng giữa", en: "Midline" },
                   {
-                    vi: "Siêu phẩm Mùa 2; phân thân và đập gậy Như Ý gây sát thương vật lý gấp 5 lần tướng thường. Bộ đồ: ⚔️ Kỵ Sĩ Vinh Quang.",
-                    en: "Season 2 apex hyper-carry; summons clones and slams his staff for 5x the physical damage of regular heroes. Gear Set: ⚔️ Kỵ Sĩ Vinh Quang.",
+                    vi: "Siêu phẩm Mùa 2; phân thân và đập gậy Như Ý gây sát thương vật lý gấp 5 lần tướng thường. Bộ đồ: Kỵ Sĩ Vinh Quang.",
+                    en: "Season 2 apex hyper-carry; summons clones and slams his staff for 5x the physical damage of regular heroes. Gear Set: Knight's Glory.",
                   },
                 ],
                 [
                   { vi: "Beastmaster", en: "Beastmaster" },
-                  { vi: "Thú Tướng", en: "Thú Tướng" },
-                  { vi: "🔴 Mythic (S2)", en: "🔴 Mythic (S2)" },
+                  { vi: "Thú Tướng", en: "Beastmaster" },
+                  { vi: "Mythic (S2)", en: "Mythic (S2)" },
                   { vi: "Ultimate Main Tank", en: "Ultimate Main Tank" },
                   { vi: "Hàng trước", en: "Frontline" },
                   {
-                    vi: "Ra mắt Mùa 2; tạo khiên máu khổng lồ và khống chế cứng tuyến đầu, hoàn thiện bức tường thép Bộ Lạc. Bộ đồ: 🩸 Huyết Titan.",
-                    en: "Releases in Season 2; generates colossal HP shields and hard frontline crowd control, completing Horde's iron wall. Gear Set: 🩸 Huyết Titan.",
+                    vi: "Ra mắt Mùa 2; tạo khiên máu khổng lồ và khống chế cứng tuyến đầu, hoàn thiện bức tường thép Bộ Lạc. Bộ đồ: Huyết Titan.",
+                    en: "Releases in Season 2; generates colossal HP shields and hard frontline crowd control, completing Horde's iron wall. Gear Set: Blood of the Titan.",
                   },
                 ],
                 [
                   { vi: "Shadow Priest", en: "Shadow Priest" },
-                  { vi: "Giáo Sĩ Bóng Tối", en: "Giáo Sĩ Bóng Tối" },
-                  { vi: "🔴 Mythic (S3)", en: "🔴 Mythic (S3)" },
+                  { vi: "Giáo Sĩ Bóng Tối", en: "Shadow Priest" },
+                  { vi: "Mythic (S3)", en: "Mythic (S3)" },
                   { vi: "Dark Support / DPS", en: "Dark Support / DPS" },
                   { vi: "Hàng sau", en: "Backline" },
                   {
-                    vi: "Ra mắt Mùa 3; thay thế hoàn toàn vị trí tướng Vàng cuối cùng để tạo đội hình 6 Mythic Thuần Bộ Lạc. Bộ đồ: ⚡ Hiền Triết Quang Vinh.",
-                    en: "Releases in Season 3; replaces the final Legendary slot to complete a 100% 6-Mythic Pure Horde lineup. Gear Set: ⚡ Hiền Triết Quang Vinh.",
+                    vi: "Ra mắt Mùa 3; thay thế hoàn toàn vị trí tướng Vàng cuối cùng để tạo đội hình 6 Mythic Thuần Bộ Lạc. Bộ đồ: Hiền Triết Quang Vinh.",
+                    en: "Releases in Season 3; replaces the final Legendary slot to complete a 100% 6-Mythic Pure Horde lineup. Gear Set: Glory of the Sage.",
                   },
                 ],
                 [
                   { vi: "Soulmancer", en: "Soulmancer" },
-                  { vi: "Thuật Sĩ Linh Hồn", en: "Thuật Sĩ Linh Hồn" },
-                  { vi: "🟡 Legendary (Awaken)", en: "🟡 Legendary (Awaken)" },
+                  { vi: "Thuật Sĩ Linh Hồn", en: "Soulmancer" },
+                  { vi: "Legendary (Awaken)", en: "Legendary (Awaken)" },
                   { vi: "Link Buffer / Support", en: "Link Buffer / Support" },
                   { vi: "Hàng sau", en: "Backline" },
                   {
-                    vi: "Chia sẻ sát thương và cộng hưởng linh hồn tăng công toàn đội Bộ Lạc; ứng viên Thức tỉnh lên Đỏ ở S1. Bộ đồ: ⚡ Hiền Triết Quang Vinh.",
-                    en: "Links allies to share incoming damage and buffs Horde team ATK; prime Season 1 Awakening candidate. Gear Set: ⚡ Hiền Triết Quang Vinh.",
+                    vi: "Chia sẻ sát thương và cộng hưởng linh hồn tăng công toàn đội Bộ Lạc; ứng viên Thức tỉnh lên Đỏ ở S1. Bộ đồ: Hiền Triết Quang Vinh.",
+                    en: "Links allies to share incoming damage and buffs Horde team ATK; prime Season 1 Awakening candidate. Gear Set: Glory of the Sage.",
                   },
                 ],
                 [
                   { vi: "Warlock", en: "Warlock" },
-                  { vi: "Pháp Sư Bóng Tối", en: "Pháp Sư Bóng Tối" },
+                  { vi: "Pháp Sư Bóng Tối", en: "Warlock" },
                   {
-                    vi: "🟡 Legendary (Awaken/Econ)",
-                    en: "🟡 Legendary (Awaken/Econ)",
+                    vi: "Legendary (Awaken/Econ)",
+                    en: "Legendary (Awaken/Econ)",
                   },
                   {
                     vi: "Bloodlust Buffer / Kinh tế",
@@ -667,8 +667,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Wilderness Hunter", en: "Wilderness Hunter" },
-                  { vi: "Thợ Săn Hoang Dã", en: "Thợ Săn Hoang Dã" },
-                  { vi: "🟡 Legendary", en: "🟡 Legendary" },
+                  { vi: "Thợ Săn Hoang Dã", en: "Wilderness Hunter" },
+                  { vi: "Legendary", en: "Legendary" },
                   { vi: "Mid-game Physical DPS", en: "Mid-game Physical DPS" },
                   { vi: "Hàng giữa", en: "Midline" },
                   {
@@ -678,8 +678,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Swordmaster", en: "Swordmaster" },
-                  { vi: "Kiếm Thánh", en: "Kiếm Thánh" },
-                  { vi: "🟡 Legendary", en: "🟡 Legendary" },
+                  { vi: "Kiếm Thánh", en: "Swordmaster" },
+                  { vi: "Legendary", en: "Legendary" },
                   { vi: "Off-Tank / Bruiser", en: "Off-Tank / Bruiser" },
                   { vi: "Hàng trước", en: "Frontline" },
                   {
@@ -689,8 +689,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Barbarian", en: "Barbarian" },
-                  { vi: "Chiến Binh Man Rợ", en: "Chiến Binh Man Rợ" },
-                  { vi: "🟡 Legendary", en: "🟡 Legendary" },
+                  { vi: "Chiến Binh Man Rợ", en: "Barbarian" },
+                  { vi: "Legendary", en: "Legendary" },
                   { vi: "Early Tank", en: "Early Tank" },
                   { vi: "Hàng trước", en: "Frontline" },
                   {
@@ -700,8 +700,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Wanderer", en: "Wanderer" },
-                  { vi: "Kẻ Lang Thang", en: "Kẻ Lang Thang" },
-                  { vi: "🟡 Legendary", en: "🟡 Legendary" },
+                  { vi: "Kẻ Lang Thang", en: "Wanderer" },
+                  { vi: "Legendary", en: "Legendary" },
                   { vi: "Boss DPS", en: "Boss DPS" },
                   { vi: "Hàng giữa / sau", en: "Midline / Backline" },
                   {
@@ -711,8 +711,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Headhunter", en: "Headhunter" },
-                  { vi: "Thợ Săn Đầu Người", en: "Thợ Săn Đầu Người" },
-                  { vi: "🟡 Legendary (Econ)", en: "🟡 Legendary (Econ)" },
+                  { vi: "Thợ Săn Đầu Người", en: "Headhunter" },
+                  { vi: "Legendary (Econ)", en: "Legendary (Econ)" },
                   {
                     vi: "Early Assassin / Kinh tế",
                     en: "Early Assassin / Economy",
@@ -725,8 +725,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Shaman", en: "Shaman" },
-                  { vi: "Pháp Sư Bộ Lạc", en: "Pháp Sư Bộ Lạc" },
-                  { vi: "🟡 Legendary (Econ)", en: "🟡 Legendary (Econ)" },
+                  { vi: "Pháp Sư Bộ Lạc", en: "Shaman" },
+                  { vi: "Legendary (Econ)", en: "Legendary (Econ)" },
                   {
                     vi: "Early Healer / Kinh tế",
                     en: "Early Healer / Economy",
@@ -739,8 +739,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Boar", en: "Boar" },
-                  { vi: "Người Heo Rừng", en: "Người Heo Rừng" },
-                  { vi: "🟡 Legendary", en: "🟡 Legendary" },
+                  { vi: "Người Heo Rừng", en: "Boarman" },
+                  { vi: "Legendary", en: "Legendary" },
                   { vi: "Early Tank", en: "Early Tank" },
                   { vi: "Hàng trước", en: "Frontline" },
                   {
@@ -750,8 +750,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Brawler", en: "Brawler" },
-                  { vi: "Đấu Sĩ", en: "Đấu Sĩ" },
-                  { vi: "🟣 Epic (#1)", en: "🟣 Epic (#1)" },
+                  { vi: "Đấu Sĩ", en: "Brawler" },
+                  { vi: "Epic (#1)", en: "Epic (#1)" },
                   { vi: "Kinh tế Vua (Trait 3)", en: "King Economy (Trait 3)" },
                   { vi: "Dự bị (Bench)", en: "Bench" },
                   {
@@ -761,8 +761,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Rogue", en: "Rogue" },
-                  { vi: "Đạo Tặc / Sát Thủ", en: "Đạo Tặc / Sát Thủ" },
-                  { vi: "🟣 Epic (#4)", en: "🟣 Epic (#4)" },
+                  { vi: "Đạo Tặc / Sát Thủ", en: "Rogue" },
+                  { vi: "Epic (#4)", en: "Epic (#4)" },
                   { vi: "Kinh tế (Trait 3)", en: "Economy (Trait 3)" },
                   { vi: "Dự bị (Bench)", en: "Bench" },
                   {
@@ -772,8 +772,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Outlaw", en: "Outlaw" },
-                  { vi: "Kẻ Ngoài Vòng Pháp Luật", en: "Kẻ Ngoài Vòng Pháp Luật" },
-                  { vi: "🟣 Epic (#5)", en: "🟣 Epic (#5)" },
+                  { vi: "Kẻ Ngoài Vòng Pháp Luật", en: "Outlaw" },
+                  { vi: "Epic (#5)", en: "Epic (#5)" },
                   { vi: "Kinh tế (Trait 3)", en: "Economy (Trait 3)" },
                   { vi: "Dự bị (Bench)", en: "Bench" },
                   {
@@ -783,8 +783,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Grunt", en: "Grunt" },
-                  { vi: "Lính Đánh Thuê", en: "Lính Đánh Thuê" },
-                  { vi: "🔵 Rare", en: "🔵 Rare" },
+                  { vi: "Lính Đánh Thuê", en: "Mercenary" },
+                  { vi: "Rare", en: "Rare" },
                   { vi: "Tân thủ 24h", en: "24h Starter" },
                   { vi: "Dự bị (Bench)", en: "Bench" },
                   {
@@ -810,8 +810,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Sở hữu lối chơi Biển Người Triệu Hồi (Summon Swarm), Cộng hưởng Khiên & Hồi phục liên hoàn và khả năng né tránh/khống chế dây chuyền. Thiên Nhiên là khắc tinh số 1 của các đội hình Bộ Lạc ở giai đoạn Cuối Game (S1–S4).",
-                en: "Built around Summon Swarm mechanics, cascading Shield & Heal resonance, and chain evasion/crowd control. Nature is the #1 hard-counter to Horde lineups during Endgame (S1–S4).",
+                vi: "Sở hữu lối chơi **Biển Người Triệu Hồi (`Summon Swarm`)**, **Cộng hưởng Khiên & Hồi phục** và khống chế dây chuyền.\n• **Thiên Nhiên (`Nature`)** là khắc tinh số 1 của đội hình **Bộ Lạc** ở giai đoạn Cuối Game (`S1–S4`).",
+                en: "Built around **`Summon Swarm`** mechanics, cascading **Shield & Heal resonance**, and chain crowd control.\n• **`Nature`** is the #1 hard-counter to `Horde` lineups during **Endgame (`S1–S4`)**.",
               },
             },
             {
@@ -822,7 +822,7 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
               },
               headers: [
                 { vi: "Tên Quốc Tế (EN)", en: "Hero Name (EN)" },
-                { vi: "Tên Tiếng Việt (VI)", en: "Vietnamese Name (VI)" },
+                { vi: "Tên Tiếng Việt (VI)", en: "Hero Title / Alias (EN)" },
                 { vi: "Phẩm Chất Gốc", en: "Base Rarity" },
                 { vi: "Vai Trò Chiến Thuật", en: "Tactical Role" },
                 { vi: "Vị Trí Chuẩn", en: "Standard Slot" },
@@ -834,10 +834,10 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
               rows: [
                 [
                   { vi: "Tidecaller", en: "Tidecaller" },
-                  { vi: "Thuật Sĩ Thủy Triều", en: "Thuật Sĩ Thủy Triều" },
+                  { vi: "Thuật Sĩ Thủy Triều", en: "Tidecaller" },
                   {
-                    vi: "🔴 Mythic (Cuối S0/S1)",
-                    en: "🔴 Mythic (Late S0/S1)",
+                    vi: "Mythic (Cuối S0/S1)",
+                    en: "Mythic (Late S0/S1)",
                   },
                   {
                     vi: "Core Summoner / DPS / Heal",
@@ -845,92 +845,92 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                   },
                   { vi: "Hàng giữa", en: "Midline" },
                   {
-                    vi: "Trái tim của hệ Thiên Nhiên: Vừa triệu hồi Thủy tinh linh đỡ đạn, vừa hồi máu và gây sát thương sóng thần. Bộ đồ: ⚔️ Kỵ Sĩ Vinh Quang hoặc ⚡ Hiền Triết Quang Vinh.",
-                    en: "The beating heart of Nature: summons Water Elementals to soak fire while healing allies and unleashing tidal wave AoE damage. Gear Set: ⚔️ Kỵ Sĩ Vinh Quang or ⚡ Hiền Triết Quang Vinh.",
+                    vi: "Trái tim của hệ Thiên Nhiên: Vừa triệu hồi Thủy tinh linh đỡ đạn, vừa hồi máu và gây sát thương sóng thần. Bộ đồ: Kỵ Sĩ Vinh Quang hoặc Hiền Triết Quang Vinh.",
+                    en: "The beating heart of Nature: summons Water Elementals to soak fire while healing allies and unleashing tidal wave AoE damage. Gear Set: Knight's Glory or Glory of the Sage.",
                   },
                 ],
                 [
                   { vi: "Monk", en: "Monk" },
-                  { vi: "Hòa Thượng / Tu Sĩ", en: "Hòa Thượng / Tu Sĩ" },
-                  { vi: "🔴 Mythic (S1)", en: "🔴 Mythic (S1)" },
+                  { vi: "Hòa Thượng / Tu Sĩ", en: "Monk" },
+                  { vi: "Mythic (S1)", en: "Mythic (S1)" },
                   { vi: "Evasion Main Tank", en: "Evasion Main Tank" },
                   { vi: "Hàng trước", en: "Frontline" },
                   {
-                    vi: "Tanker phẩm Đỏ siêu cứng với khả năng tạo Khiên vàng, miễn nhiễm khống chế và gom địch. Bộ đồ: 🩸 Huyết Titan.",
-                    en: "Ultra-tanky Mythic frontline with golden shields, crowd-control immunity, and enemy grouping. Gear Set: 🩸 Huyết Titan.",
+                    vi: "Tanker phẩm Đỏ siêu cứng với khả năng tạo Khiên vàng, miễn nhiễm khống chế và gom địch. Bộ đồ: Huyết Titan.",
+                    en: "Ultra-tanky Mythic frontline with golden shields, crowd-control immunity, and enemy grouping. Gear Set: Blood of the Titan.",
                   },
                 ],
                 [
                   { vi: "Ne Zha", en: "Ne Zha" },
-                  { vi: "Na Tra", en: "Na Tra" },
-                  { vi: "🔴 Mythic (S1)", en: "🔴 Mythic (S1)" },
+                  { vi: "Na Tra", en: "Ne Zha" },
+                  { vi: "Mythic (S1)", en: "Mythic (S1)" },
                   {
                     vi: "Hyper-Carry AoE / Bruiser",
                     en: "Hyper-Carry AoE / Bruiser",
                   },
                   { vi: "Hàng trước / giữa", en: "Frontline / Midline" },
                   {
-                    vi: "Tướng công-thủ toàn diện bậc nhất game; lướt Hỗn Thiên Lăng đốt cháy toàn màn hình và tự tái sinh. Bộ đồ: ⚔️ Kỵ Sĩ Vinh Quang / 🩸 Huyết Titan.",
-                    en: "One of the most complete two-way carries in the game; scorches the entire screen and self-revives. Gear Set: ⚔️ Kỵ Sĩ Vinh Quang / 🩸 Huyết Titan.",
+                    vi: "Tướng công-thủ toàn diện bậc nhất game; lướt Hỗn Thiên Lăng đốt cháy toàn màn hình và tự tái sinh. Bộ đồ: Kỵ Sĩ Vinh Quang / Huyết Titan.",
+                    en: "One of the most complete two-way carries in the game; scorches the entire screen and self-revives. Gear Set: Knight's Glory / Blood of the Titan.",
                   },
                 ],
                 [
                   { vi: "Petalis", en: "Petalis" },
-                  { vi: "Tiên Hoa Petalis", en: "Tiên Hoa Petalis" },
-                  { vi: "🔴 Mythic (S3)", en: "🔴 Mythic (S3)" },
+                  { vi: "Tiên Hoa Petalis", en: "Petalis" },
+                  { vi: "Mythic (S3)", en: "Mythic (S3)" },
                   {
                     vi: "Ultimate Nature Support",
                     en: "Ultimate Nature Support",
                   },
                   { vi: "Hàng sau", en: "Backline" },
                   {
-                    vi: "Mảnh ghép Mùa 3 giúp hệ Thiên Nhiên đạt độ bất tử và phản sát thương tối đa. Bộ đồ: ⚡ Hiền Triết Quang Vinh.",
-                    en: "Season 3 capstone support granting Nature lineups near-immortality and maximum damage reflection. Gear Set: ⚡ Hiền Triết Quang Vinh.",
+                    vi: "Mảnh ghép Mùa 3 giúp hệ Thiên Nhiên đạt độ bất tử và phản sát thương tối đa. Bộ đồ: Hiền Triết Quang Vinh.",
+                    en: "Season 3 capstone support granting Nature lineups near-immortality and maximum damage reflection. Gear Set: Glory of the Sage.",
                   },
                 ],
                 [
                   { vi: "Pixie", en: "Pixie" },
-                  { vi: "Tiên Nhỏ", en: "Tiên Nhỏ" },
-                  { vi: "🟡 Legendary (Awaken)", en: "🟡 Legendary (Awaken)" },
+                  { vi: "Tiên Nhỏ", en: "Pixie" },
+                  { vi: "Legendary (Awaken)", en: "Legendary (Awaken)" },
                   {
                     vi: "AoE Burst / Summon DPS",
                     en: "AoE Burst / Summon DPS",
                   },
                   { vi: "Hàng giữa / sau", en: "Midline / Backline" },
                   {
-                    vi: "Nguồn sát thương phép chủ lực đi cặp hoàn hảo với Tidecaller; ưu tiên số 1 để Thức tỉnh lên Đỏ của hệ Nature. Bộ đồ: ⚔️ Kỵ Sĩ Vinh Quang.",
-                    en: "Primary magic burst DPS that pairs seamlessly with Tidecaller; #1 Awakening priority for Nature mains. Gear Set: ⚔️ Kỵ Sĩ Vinh Quang.",
+                    vi: "Nguồn sát thương phép chủ lực đi cặp hoàn hảo với Tidecaller; ưu tiên số 1 để Thức tỉnh lên Đỏ của hệ Nature. Bộ đồ: Kỵ Sĩ Vinh Quang.",
+                    en: "Primary magic burst DPS that pairs seamlessly with Tidecaller; #1 Awakening priority for Nature mains. Gear Set: Knight's Glory.",
                   },
                 ],
                 [
                   { vi: "Forest Maiden", en: "Forest Maiden" },
-                  { vi: "Thiếu Nữ Rừng Xanh", en: "Thiếu Nữ Rừng Xanh" },
-                  { vi: "🟡 Legendary", en: "🟡 Legendary" },
+                  { vi: "Thiếu Nữ Rừng Xanh", en: "Forest Maiden" },
+                  { vi: "Legendary", en: "Legendary" },
                   {
                     vi: "Summon Buffer / Healer",
                     en: "Summon Buffer / Healer",
                   },
                   { vi: "Hàng sau", en: "Backline" },
                   {
-                    vi: "Mỗi khi có đơn vị triệu hồi ngã xuống hoặc xuất hiện, cô cộng dồn Năng lượng và Hồi máu cho toàn đội. Bộ đồ: ⚡ Hiền Triết Quang Vinh.",
-                    en: "Whenever a summoned unit spawns or falls, she stacks team-wide Energy and Healing. Gear Set: ⚡ Hiền Triết Quang Vinh.",
+                    vi: "Mỗi khi có đơn vị triệu hồi ngã xuống hoặc xuất hiện, cô cộng dồn Năng lượng và Hồi máu cho toàn đội. Bộ đồ: Hiền Triết Quang Vinh.",
+                    en: "Whenever a summoned unit spawns or falls, she stacks team-wide Energy and Healing. Gear Set: Glory of the Sage.",
                   },
                 ],
                 [
                   { vi: "Sage", en: "Sage" },
-                  { vi: "Hiền Giả", en: "Hiền Giả" },
-                  { vi: "🟡 Legendary (Awaken)", en: "🟡 Legendary (Awaken)" },
+                  { vi: "Hiền Giả", en: "Sage" },
+                  { vi: "Legendary (Awaken)", en: "Legendary (Awaken)" },
                   { vi: "Shield Tank / Support", en: "Shield Tank / Support" },
                   { vi: "Hàng trước", en: "Frontline" },
                   {
-                    vi: "Tạo giáp cây và hồi phục bền bỉ cho tuyến đầu; có thể Thức tỉnh lên Đỏ để đứng cặp cùng Monk hoặc Ne Zha. Bộ đồ: 🩸 Huyết Titan.",
-                    en: "Generates bark shields and sustained frontline regen; can Awaken to Mythic to pair with Monk or Ne Zha. Gear Set: 🩸 Huyết Titan.",
+                    vi: "Tạo giáp cây và hồi phục bền bỉ cho tuyến đầu; có thể Thức tỉnh lên Đỏ để đứng cặp cùng Monk hoặc Ne Zha. Bộ đồ: Huyết Titan.",
+                    en: "Generates bark shields and sustained frontline regen; can Awaken to Mythic to pair with Monk or Ne Zha. Gear Set: Blood of the Titan.",
                   },
                 ],
                 [
                   { vi: "Windwalker", en: "Windwalker" },
-                  { vi: "Phong Hành Giả", en: "Phong Hành Giả" },
-                  { vi: "🟡 Legendary", en: "🟡 Legendary" },
+                  { vi: "Phong Hành Giả", en: "Windwalker" },
+                  { vi: "Legendary", en: "Legendary" },
                   { vi: "Backline Assassin", en: "Backline Assassin" },
                   { vi: "Hàng giữa", en: "Midline" },
                   {
@@ -940,8 +940,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Treeguard", en: "Treeguard" },
-                  { vi: "Vệ Thần Rừng", en: "Vệ Thần Rừng" },
-                  { vi: "🟡 Legendary (Econ)", en: "🟡 Legendary (Econ)" },
+                  { vi: "Vệ Thần Rừng", en: "Treeguard" },
+                  { vi: "Legendary (Econ)", en: "Legendary (Econ)" },
                   { vi: "Early Tank / Kinh tế", en: "Early Tank / Economy" },
                   { vi: "Hàng trước / Dự bị", en: "Frontline / Bench" },
                   {
@@ -951,10 +951,10 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Stonemason", en: "Stonemason" },
-                  { vi: "Thợ Đá", en: "Thợ Đá" },
+                  { vi: "Thợ Đá", en: "Stonemason" },
                   {
-                    vi: "🟡 Legendary Nature (Econ)",
-                    en: "🟡 Legendary Nature (Econ)",
+                    vi: "Legendary Nature (Econ)",
+                    en: "Legendary Nature (Econ)",
                   },
                   { vi: "Defense / Kinh tế", en: "Defense / Economy" },
                   { vi: "Dự bị (Bench)", en: "Bench" },
@@ -965,8 +965,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Druid", en: "Druid" },
-                  { vi: "Đại Tư Tế Rừng", en: "Đại Tư Tế Rừng" },
-                  { vi: "🟡 Legendary", en: "🟡 Legendary" },
+                  { vi: "Đại Tư Tế Rừng", en: "Druid" },
+                  { vi: "Legendary", en: "Legendary" },
                   {
                     vi: "Pure Healer / Summoner",
                     en: "Pure Healer / Summoner",
@@ -979,8 +979,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Watcher", en: "Watcher" },
-                  { vi: "Người Quan Sát", en: "Người Quan Sát" },
-                  { vi: "🟡 Legendary (Econ)", en: "🟡 Legendary (Econ)" },
+                  { vi: "Người Quan Sát", en: "Watcher" },
+                  { vi: "Legendary (Econ)", en: "Legendary (Econ)" },
                   { vi: "Mid-range CC / Kinh tế", en: "Mid-range CC / Economy" },
                   { vi: "Dự bị (Bench)", en: "Bench" },
                   {
@@ -990,8 +990,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Pathfinder", en: "Pathfinder" },
-                  { vi: "Người Mở Đường", en: "Người Mở Đường" },
-                  { vi: "🟡 Legendary (Econ)", en: "🟡 Legendary (Econ)" },
+                  { vi: "Người Mở Đường", en: "Pathfinder" },
+                  { vi: "Legendary (Econ)", en: "Legendary (Econ)" },
                   { vi: "Explorer / Kinh tế", en: "Explorer / Economy" },
                   { vi: "Dự bị (Bench)", en: "Bench" },
                   {
@@ -1001,8 +1001,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Priestess", en: "Priestess" },
-                  { vi: "Nữ Tư Tế", en: "Nữ Tư Tế" },
-                  { vi: "🟣 Epic (#7)", en: "🟣 Epic (#7)" },
+                  { vi: "Nữ Tư Tế", en: "Priestess" },
+                  { vi: "Epic (#7)", en: "Epic (#7)" },
                   { vi: "Kinh tế (Trait 3)", en: "Economy (Trait 3)" },
                   { vi: "Dự bị (Bench)", en: "Bench" },
                   {
@@ -1012,8 +1012,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Dancer", en: "Dancer" },
-                  { vi: "Vũ Công", en: "Vũ Công" },
-                  { vi: "🟣 Epic (#8)", en: "🟣 Epic (#8)" },
+                  { vi: "Vũ Công", en: "Dancer" },
+                  { vi: "Epic (#8)", en: "Epic (#8)" },
                   { vi: "Kinh tế (Trait 3)", en: "Economy (Trait 3)" },
                   { vi: "Dự bị (Bench)", en: "Bench" },
                   {
@@ -1023,8 +1023,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Scout", en: "Scout" },
-                  { vi: "Trinh Sát Rừng", en: "Trinh Sát Rừng" },
-                  { vi: "🔵 Rare", en: "🔵 Rare" },
+                  { vi: "Trinh Sát Rừng", en: "Forest Scout" },
+                  { vi: "Rare", en: "Rare" },
                   { vi: "Tân thủ 24h", en: "24h Starter" },
                   { vi: "Dự bị (Bench)", en: "Bench" },
                   {
@@ -1063,8 +1063,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
               rows: [
                 [
                   {
-                    vi: "🟣 8 Tướng Tím Sử Thi (Epic Heroes — Mở ở 2 Sao Trắng / 300 Mảnh, Max Lv.30 = +30%; 5 Sao Trắng / 500 Mảnh mở Exchange Shop)",
-                    en: "🟣 8 Epic Economy Heroes (Unlocked at 2 White Stars / 300 Shards, Max Lv.30 = +30%; 5 White Stars / 500 Shards unlocks Exchange Shop)",
+                    vi: "8 Tướng Tím Sử Thi (Epic Heroes — Mở ở 2 Sao Trắng / 300 Mảnh, Max Lv.30 = +30%; 5 Sao Trắng / 500 Mảnh mở Exchange Shop)",
+                    en: "8 Epic Economy Heroes (Unlocked at 2 White Stars / 300 Shards, Max Lv.30 = +30%; 5 White Stars / 500 Shards unlocks Exchange Shop)",
                   },
                   {
                     vi: "1. Brawler (Đấu Sĩ): +30% Tech Research Rate (Tốc độ Nghiên cứu)\n2. Knight (Kỵ Sĩ): +30% Soldier Training Speed (Tốc độ Huấn luyện Lính)\n3. Ranger (Cung Thủ): +30% Ruby Gathering Speed (Tốc độ Đào Ruby — Không phải xây dựng!)\n4. Rogue (Đạo Tặc): +30% Stone Gathering Speed (Tốc độ Đào Đá)\n5. Outlaw (Kẻ Ngoài Vòng Pháp Luật): +30% Timber Gathering Speed (Tốc độ Đốn Gỗ)\n6. Minister (Bộ Trưởng): +30% Hospital Healing Speed (Tốc độ Chữa thương)\n7. Priestess (Nữ Tư Tế): +30% Hospital Healing Speed (Tốc độ Chữa thương)\n8. Dancer (Vũ Công): +30% Hospital Healing Speed (Tốc độ Chữa thương)",
@@ -1073,8 +1073,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "🟡 10 Tướng Vàng Huyền Thoại Kinh Tế (Legendary Economic Passive Heroes — Mở ở 2 Sao Trắng / 300 Mảnh, Max Trait 3 Lv.30 Active without deployment)",
-                    en: "🟡 10 Legendary Economic Passive Heroes (Unlocked at 2 White Stars / 300 Shards, Max Trait 3 Lv.30 Active without deployment)",
+                    vi: "10 Tướng Vàng Huyền Thoại Kinh Tế (Legendary Economic Passive Heroes — Mở ở 2 Sao Trắng / 300 Mảnh, Max Trait 3 Lv.30 Active without deployment)",
+                    en: "10 Legendary Economic Passive Heroes (Unlocked at 2 White Stars / 300 Shards, Max Trait 3 Lv.30 Active without deployment)",
                   },
                   {
                     vi: "1. Bard (Nhà Thơ): +40% Construction Rate (Tốc độ Xây dựng)\n2. Shaman (Pháp Sư Bộ Lạc): +40% Tech Research Rate (Tốc độ Nghiên cứu)\n3. Hostess (Nữ Chủ Quán): +40% Soldier Training Speed (Tốc độ Huấn luyện Lính)\n4. Secret Keeper (Người Giữ Bí Mật): +50% PvP March Speed (Tốc độ Hành quân PvP)\n5. Pathfinder (Người Mở Đường): +50% PvE March Speed (Tốc độ Hành quân PvE)\n6. Headhunter (Thợ Săn Đầu Người): +40% Ruby Gathering Speed (Tốc độ Đào Ruby)\n7. Treeguard (Vệ Thần Rừng): +40% Timber Gathering Speed (Tốc độ Đốn Gỗ)\n8. Stonemason (Thợ Đá — Legendary Nature): +40% Stone Gathering Speed (Tốc độ Đào Đá)\n9. Warlock (Pháp Sư Bóng Tối): +360,000 Plunder Cap (Giới hạn Cướp bóc Tài nguyên)\n10. Watcher (Người Quan Sát): +2,000 Soldier Capacity (Giới hạn Sức chứa Binh lính)",
@@ -1097,8 +1097,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Sức mạnh của một vị tướng thay đổi rõ rệt khi máy chủ bước từ giai đoạn Tiền Mùa Giải (Pre-Season S0: Ngày 1–65) sang Các Mùa Giải Chính Thức (Season 1 – Season 4). Bảng dưới đây phân tách rạch ròi 2 thời kỳ để người chơi không đầu tư nhầm vào các tướng \"sớm nở tối tàn\":",
-            en: "A hero's combat value shifts dramatically as a server transitions from Pre-Season (S0: Days 1–65) into Official Seasons (S1–S4 Endgame). The table below separates both eras so players never waste Universal Shards on early-game falloff units:",
+            vi: "Sức mạnh của một vị tướng thay đổi rõ rệt khi máy chủ bước từ giai đoạn **Tiền Mùa Giải (`Pre-Season S0`: Ngày 1–65)** sang **Mùa Giải Chính Thức (`S1–S4`)**.\n• Bảng dưới đây phân tách rạch ròi 2 thời kỳ để người chơi không đầu tư nhầm vào các tướng \"sớm nở tối tàn\":",
+            en: "A hero's combat value shifts dramatically as a server transitions from **Pre-Season (`S0`: Days 1–65)** into **Official Seasons (`S1–S4` Endgame)**.\n• The table below separates both eras so players never waste `Universal Shards` on early-game falloff units:",
           },
         },
         {
@@ -1122,8 +1122,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
           rows: [
             [
               {
-                vi: "👑 Tier S+ (God / Meta-Defining)",
-                en: "👑 Tier S+ (God / Meta-Defining)",
+                vi: "Tier S+ ★ (God / Meta-Defining)",
+                en: "Tier S+ ★ (God / Meta-Defining)",
               },
               {
                 vi: "Trụ cột gánh đội; ưu tiên dồn 100% Mảnh Vạn Năng Vàng và Vũ Khí Độc Quyền.",
@@ -1140,8 +1140,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
             ],
             [
               {
-                vi: "🔥 Tier S (Core Staple)",
-                en: "🔥 Tier S (Core Staple)",
+                vi: "Tier S (Core Staple)",
+                en: "Tier S (Core Staple)",
               },
               {
                 vi: "Mảnh ghép bắt buộc để hoàn thiện chuỗi cộng hưởng 6 tướng thuần hệ.",
@@ -1158,8 +1158,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
             ],
             [
               {
-                vi: "⚡ Tier A (Viable / Transition)",
-                en: "⚡ Tier A (Viable / Transition)",
+                vi: "Tier A (Viable / Transition)",
+                en: "Tier A (Viable / Transition)",
               },
               {
                 vi: "Dùng rất tốt khi chuyển giao hoặc lắp vào Đội 2 / Đội 3; chỉ nâng bằng mảnh riêng.",
@@ -1176,8 +1176,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
             ],
             [
               {
-                vi: "🛠️ Tier B (Situational / Economy)",
-                en: "🛠️ Tier B (Situational / Economy)",
+                vi: "Tier B (Situational / Economy)",
+                en: "Tier B (Situational / Economy)",
               },
               {
                 vi: "Tướng Tím & Tướng Vàng lấy nội tại kinh tế (Trait 3) hoặc kích hệ tạm thời tuần đầu.",
@@ -1194,8 +1194,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
             ],
             [
               {
-                vi: "🚫 Tier C (Outclassed in PvP)",
-                en: "🚫 Tier C (Outclassed in PvP)",
+                vi: "Tier C (Outclassed in PvP)",
+                en: "Tier C (Outclassed in PvP)",
               },
               {
                 vi: "Không đầu tư Mảnh Vạn Năng; chỉ nâng bằng mảnh riêng Quán Rượu để lấy Trait Kinh tế & Hero Bonds.",
@@ -1220,8 +1220,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
             en: "Common Pitfall: Feeding 200–300 Universal Legendary Shards Into Astrologer / Secret Keeper in Week 1",
           },
           content: {
-            vi: "❌ Sai lầm phổ biến: Thấy Astrologer hoặc Secret Keeper dễ lên sao ở tuần đầu nên đút thêm 200–300 Mảnh Vạn Năng Vàng để đua Top lực chiến ngắn hạn. Đến Ngày 35–46 khi Paragon và Rose Princess ra mắt (hoặc khi chuyển sang Bộ Lạc ở Ngày 21–27), hai tướng cũ lập tức bị thay thế khiến toàn bộ số mảnh vạn năng đã đút bị chôn vùi vĩnh viễn.\n✅ Giải pháp tối ưu: Chỉ nâng Secret Keeper, Astrologer, Barbarian, Treeguard, Stonemason bằng mảnh riêng rơi tự nhiên từ Quán Rượu (Tavern). Mọi Mảnh Vạn Năng Vàng phải được khóa két sắt dành riêng cho tướng Tier S+ / Mythic.",
-            en: "❌ Common Mistake: Seeing Astrologer or Secret Keeper star up easily in Week 1 and dumping 200–300 Universal Legendary Shards into them for short-term power rankings. When Paragon and Rose Princess arrive on Days 35–46 (or when pivoting to Horde on Days 21–27), both starter heroes are immediately benched, permanently burying those 200–300 Universal Shards.\n✅ Optimal Solution: Only upgrade Secret Keeper, Astrologer, Barbarian, Treeguard, and Stonemason using natural hero-specific shards from the Tavern. Lock 100% of Universal Legendary Shards in your vault exclusively for Tier S+ / Mythic heroes.",
+            vi: "**Sai lầm phổ biến:** Đút `200–300` **Mảnh Vạn Năng Vàng** cho `Astrologer` hoặc `Secret Keeper` ở tuần đầu để đua Top ngắn hạn.\n• **Hậu quả:** Đến **Ngày 35–46** khi `Paragon` và `Rose Princess` ra mắt (hoặc đổi sang **Bộ Lạc** ở Ngày 21–27), cả hai bị thay thế và chôn vùi số mảnh đã đút.\n• **Giải pháp tối ưu:** Chỉ nâng `Secret Keeper`, `Astrologer`, `Barbarian`, `Treeguard`, `Stonemason` bằng mảnh riêng tự nhiên từ **Quán Rượu (`Tavern`)**.\n• **Kỷ luật kho:** Khóa két sắt `100%` **Mảnh Vạn Năng Vàng** dành riêng cho tướng `Tier S+` / `Mythic`.",
+            en: "**Common Mistake:** Dumping `200–300` **Universal Legendary Shards** into `Astrologer` or `Secret Keeper` in Week 1 for short-term power rankings.\n• **Consequence:** When `Paragon` and `Rose Princess` arrive on **Days 35–46** (or when pivoting to `Horde` on Days 21–27), both are benched, burying those shards forever.\n• **Optimal Solution:** Only upgrade `Secret Keeper`, `Astrologer`, `Barbarian`, `Treeguard`, and `Stonemason` using natural hero-specific shards from the `Tavern`.\n• **Vault Discipline:** Lock `100%` of **Universal Legendary Shards** exclusively for `Tier S+` / `Mythic` heroes.",
           },
         },
       ],
@@ -1239,24 +1239,24 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Trong giới nghiên cứu chiến thuật quốc tế (Theorycrafting), mỗi vị tướng có một \"Mốc Sao Tối Thiểu Khả Dụng\" (Minimum Viable Stars — MVS) — tức là ngưỡng sao mà tại đó bộ kỹ năng của tướng kích hoạt đủ cơ chế để vượt qua một tướng Vàng nhiều sao hơn:",
-            en: "In competitive Top Heroes theorycrafting, every hero has a \"Minimum Viable Stars\" (MVS) threshold — the exact star breakpoint where their skill kit unlocks enough mechanics to outperform a higher-star regular Legendary hero:",
+            vi: "Trong giới nghiên cứu chiến thuật (`Theorycrafting`), mỗi vị tướng có một **Mốc Sao Tối Thiểu Khả Dụng (`Minimum Viable Stars — MVS`)**.\n• Đây là ngưỡng sao mà bộ kỹ năng kích hoạt đủ cơ chế để vượt qua một tướng Vàng nhiều sao hơn:",
+            en: "In competitive Top Heroes `Theorycrafting`, every hero has a **Minimum Viable Stars (`MVS`)** threshold.\n• This is the exact star breakpoint where their skill kit unlocks enough mechanics to outperform a higher-star regular Legendary hero:",
           },
         },
         {
           type: "list",
           items: [
             {
-              vi: "Điểm gãy 1 Sao Đỏ (6 Sao tổng = 160 Mảnh Mythic / 80 Mảnh Legendary): Mở khóa cấp độ cơ bản của Kỹ năng thứ 5 cho tướng Mythic, giúp một tướng Đỏ 1 Sao Đỏ mạnh tương đương hoặc nhỉnh hơn một tướng Vàng thường ở mốc 3–4 Sao Đỏ.",
-              en: "1 Red Star Breakpoint (1 Sao Đỏ = 6 Total Stars = 160 Mythic Shards / 80 Legendary Shards): Unlocks the base level of a Mythic hero's 5th Skill, allowing a 1 Red Star Mythic to match or beat a regular Legendary at 3–4 Red Stars.",
+              vi: "**Điểm gãy 1 Sao Đỏ (`6★` = `160` Mảnh Mythic / `80` Mảnh Vàng):** Mở khóa cấp cơ bản Kỹ năng 5 của tướng `Mythic`, giúp tướng Đỏ `1★ Đỏ` mạnh ngang hoặc vượt tướng Vàng `3–4★ Đỏ`.",
+              en: "**1 Red Star Breakpoint (`6★` = `160` Mythic / `80` Legendary Shards):** Unlocks the base level of a `Mythic` hero's 5th Skill, letting a `1★ Red` Mythic beat a `3–4★ Red` regular Legendary.",
             },
             {
-              vi: "Điểm gãy 5 Sao Đỏ (10 Sao tổng = 400 Mảnh Mythic / 200 Mảnh Legendary): Hoàn tất tầng Sao Đỏ, làm bàn đạp bước lên tầng Sao Trắng/Bạc.",
-              en: "5 Red Stars Breakpoint (5 Sao Đỏ = 10 Total Stars = 400 Mythic Shards / 200 Legendary Shards): Completes the Red Star tier, serving as the launchpad into the White/Silver Star tier.",
+              vi: "**Điểm gãy 5 Sao Đỏ (`10★` = `400` Mảnh Mythic / `200` Mảnh Vàng):** Hoàn tất tầng Sao Đỏ với chỉ số cơ bản cao, làm bàn đạp tiến lên tầng Sao Trắng/Bạc (`White/Silver Stars`).",
+              en: "**5 Red Stars Breakpoint (`10★` = `400` Mythic / `200` Legendary Shards):** Completes the Red Star tier with high base stats, acting as the launchpad into `White/Silver Stars`.",
             },
             {
-              vi: "Điểm gãy Vàng 1 Sao Trắng / Bạc (11 Sao tổng = 560 Mảnh Mythic / 280 Mảnh Legendary): Cột mốc ROI cao nhất trong toàn bộ trò chơi đối với tướng Mythic. Tại đúng mốc 1 Sao Trắng (560 Mảnh), kỹ năng cốt lõi nhận bước nhảy vọt +30% hiệu ứng đặc thù (+30% skill effect), biến tướng thành cỗ máy hủy diệt thực sự trước khi tiến lên 2 Sao Trắng (12 Sao = 600 Mảnh Mythic / 300 Mảnh Legendary) và 5 Sao Trắng (15 Sao = 1,000 Mảnh Mythic / 500 Mảnh Legendary).",
-              en: "Golden ROI Breakpoint — 1 White / Silver Star (1 Sao Trắng = 11 Total Stars = 560 Mythic Shards / 280 Legendary Shards): The highest-ROI milestone in the entire game for Mythic heroes. At exactly 1 White Star (560 Shards), the hero's signature skill receives a massive +30% skill effect boost, transforming them into a true carry before pushing to 2 White Stars (12 Stars = 600 Mythic / 300 Legendary Shards) and 5 White Stars (15 Stars = 1,000 Mythic / 500 Legendary Shards).",
+              vi: "**Điểm gãy Vàng 1 Sao Trắng (`11★` = `560` Mảnh Mythic / `280` Mảnh Vàng):** Mở khóa `+30%` hiệu ứng kỹ năng cốt lõi trước khi lên `2★ Trắng` (`600`/`300`) và `5★ Trắng` (`1,000`/`500` Mảnh).",
+              en: "**Golden 1 White Star Breakpoint (`11★` = `560` Mythic / `280` Legendary Shards):** Unlocks `+30%` signature skill effect before `2★ White` (`600`/`300`) and `5★ White` (`1,000`/`500` Shards).",
             },
           ],
         },
@@ -1303,7 +1303,7 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
               rows: [
                 [
                   { vi: "Desert Prince", en: "Desert Prince" },
-                  { vi: "🔴 Horde", en: "🔴 Horde" },
+                  { vi: "Horde", en: "Horde" },
                   { vi: "Mythic", en: "Mythic" },
                   {
                     vi: "Vòng Quay (Wheel) / Xúc Xắc (Ngày 21)",
@@ -1315,13 +1315,13 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "1★ White (560 Shards) ➔ Max 5★ White (1,000)",
                   },
                   {
-                    vi: "🩸 Huyết Titan / Nộ Huyết — Mythic gốc (0 Đá)",
-                    en: "🩸 Huyết Titan / Nộ Huyết — Native Mythic (0 Stones)",
+                    vi: "Huyết Titan / Nộ Huyết — Mythic gốc (0 Đá)",
+                    en: "Blood of the Titan — Native Mythic (0 Stones)",
                   },
                 ],
                 [
                   { vi: "Storm Maiden", en: "Storm Maiden" },
-                  { vi: "🔴 Horde", en: "🔴 Horde" },
+                  { vi: "Horde", en: "Horde" },
                   { vi: "Mythic", en: "Mythic" },
                   {
                     vi: "Vòng Quay / Xúc Xắc (Ngày 27)",
@@ -1333,13 +1333,13 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "1★ White (560 Shards) ➔ Max 5★ White (1,000)",
                   },
                   {
-                    vi: "⚔️ Kỵ Sĩ Vinh Quang — Mythic gốc (0 Đá)",
-                    en: "⚔️ Kỵ Sĩ Vinh Quang — Native Mythic (0 Stones)",
+                    vi: "Kỵ Sĩ Vinh Quang — Mythic gốc (0 Đá)",
+                    en: "Knight's Glory — Native Mythic (0 Stones)",
                   },
                 ],
                 [
                   { vi: "Witch", en: "Witch" },
-                  { vi: "🔴 Horde", en: "🔴 Horde" },
+                  { vi: "Horde", en: "Horde" },
                   { vi: "Mythic", en: "Mythic" },
                   {
                     vi: "Vòng Quay / Xúc Xắc (Ngày 41)",
@@ -1351,13 +1351,13 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "1★ White (560 Shards) (Full heal/debuff value)",
                   },
                   {
-                    vi: "⚡ Hiền Triết Quang Vinh — Mythic gốc (0 Đá)",
-                    en: "⚡ Hiền Triết Quang Vinh — Native Mythic (0 Stones)",
+                    vi: "Hiền Triết Quang Vinh — Mythic gốc (0 Đá)",
+                    en: "Glory of the Sage — Native Mythic (0 Stones)",
                   },
                 ],
                 [
                   { vi: "Wukong", en: "Wukong" },
-                  { vi: "🔴 Horde", en: "🔴 Horde" },
+                  { vi: "Horde", en: "Horde" },
                   { vi: "Mythic", en: "Mythic" },
                   {
                     vi: "Sự kiện Mùa 2 (Wheel / Dice S2)",
@@ -1369,13 +1369,13 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "Max 5★ White (1,000 Shards) (#1 S2 Priority)",
                   },
                   {
-                    vi: "⚔️ Kỵ Sĩ Vinh Quang — Mythic gốc (0 Đá)",
-                    en: "⚔️ Kỵ Sĩ Vinh Quang — Native Mythic (0 Stones)",
+                    vi: "Kỵ Sĩ Vinh Quang — Mythic gốc (0 Đá)",
+                    en: "Knight's Glory — Native Mythic (0 Stones)",
                   },
                 ],
                 [
                   { vi: "Beastmaster", en: "Beastmaster" },
-                  { vi: "🔴 Horde", en: "🔴 Horde" },
+                  { vi: "Horde", en: "Horde" },
                   { vi: "Mythic", en: "Mythic" },
                   {
                     vi: "Sự kiện Mùa 2 (Wheel / Dice S2)",
@@ -1387,13 +1387,13 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "1★ White (560 Shards) ➔ 3★ White",
                   },
                   {
-                    vi: "🩸 Huyết Titan / Nộ Huyết — Mythic gốc (0 Đá)",
-                    en: "🩸 Huyết Titan / Nộ Huyết — Native Mythic (0 Stones)",
+                    vi: "Huyết Titan / Nộ Huyết — Mythic gốc (0 Đá)",
+                    en: "Blood of the Titan — Native Mythic (0 Stones)",
                   },
                 ],
                 [
                   { vi: "Shadow Priest", en: "Shadow Priest" },
-                  { vi: "🔴 Horde", en: "🔴 Horde" },
+                  { vi: "Horde", en: "Horde" },
                   { vi: "Mythic", en: "Mythic" },
                   {
                     vi: "Sự kiện Mùa 3 (Wheel / Dice S3)",
@@ -1402,13 +1402,13 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                   { vi: "1★ Đỏ (160 Mảnh)", en: "1★ Red (160 Shards)" },
                   { vi: "1★ Trắng (560 Mảnh)", en: "1★ White (560 Shards)" },
                   {
-                    vi: "⚡ Hiền Triết Quang Vinh — Mythic gốc (0 Đá)",
-                    en: "⚡ Hiền Triết Quang Vinh — Native Mythic (0 Stones)",
+                    vi: "Hiền Triết Quang Vinh — Mythic gốc (0 Đá)",
+                    en: "Glory of the Sage — Native Mythic (0 Stones)",
                   },
                 ],
                 [
                   { vi: "Soulmancer", en: "Soulmancer" },
-                  { vi: "🔴 Horde", en: "🔴 Horde" },
+                  { vi: "Horde", en: "Horde" },
                   { vi: "Legendary", en: "Legendary" },
                   {
                     vi: "Quán Rượu / Tiệm Đổi / Rương Hệ",
@@ -1420,13 +1420,13 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "2★ White (300 Shards) + Mythic Awakening",
                   },
                   {
-                    vi: "⚡ Hiền Triết Quang Vinh — 9 Hồn Đá Đỏ (Soul Stones) + 345–385 Mảnh Tướng",
-                    en: "⚡ Hiền Triết Quang Vinh — 9 Red Soul Stones + 345–385 Hero Shards",
+                    vi: "Hiền Triết Quang Vinh — 9 Hồn Đá Đỏ (Soul Stones) + 345–385 Mảnh Tướng",
+                    en: "Glory of the Sage — 9 Red Soul Stones + 345–385 Hero Shards",
                   },
                 ],
                 [
                   { vi: "Warlock", en: "Warlock" },
-                  { vi: "🔴 Horde", en: "🔴 Horde" },
+                  { vi: "Horde", en: "Horde" },
                   { vi: "Legendary", en: "Legendary" },
                   {
                     vi: "Quán Rượu / Tiệm Đổi / Rương Hệ",
@@ -1438,13 +1438,13 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "2★ White (300 Shards) + Mythic Awakening",
                   },
                   {
-                    vi: "⚡ Hiền Triết Quang Vinh — 9 Hồn Đá Đỏ (Soul Stones) + 345–385 Mảnh Tướng",
-                    en: "⚡ Hiền Triết Quang Vinh — 9 Red Soul Stones + 345–385 Hero Shards",
+                    vi: "Hiền Triết Quang Vinh — 9 Hồn Đá Đỏ (Soul Stones) + 345–385 Mảnh Tướng",
+                    en: "Glory of the Sage — 9 Red Soul Stones + 345–385 Hero Shards",
                   },
                 ],
                 [
                   { vi: "Paragon", en: "Paragon" },
-                  { vi: "🔵 League", en: "🔵 League" },
+                  { vi: "League", en: "League" },
                   { vi: "Mythic", en: "Mythic" },
                   {
                     vi: "Vòng Quay / Xúc Xắc (Ngày 35)",
@@ -1456,13 +1456,13 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "1★ White (560 Shards) ➔ Max 5★ White (1,000)",
                   },
                   {
-                    vi: "⚔️ Kỵ Sĩ Vinh Quang — Mythic gốc (0 Đá)",
-                    en: "⚔️ Kỵ Sĩ Vinh Quang — Native Mythic (0 Stones)",
+                    vi: "Kỵ Sĩ Vinh Quang — Mythic gốc (0 Đá)",
+                    en: "Knight's Glory — Native Mythic (0 Stones)",
                   },
                 ],
                 [
                   { vi: "Rose Princess", en: "Rose Princess" },
-                  { vi: "🔵 League", en: "🔵 League" },
+                  { vi: "League", en: "League" },
                   { vi: "Mythic", en: "Mythic" },
                   {
                     vi: "Vòng Quay / Xúc Xắc (Ngày 46)",
@@ -1474,13 +1474,13 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "1★ White (560 Shards) ➔ 3★ White",
                   },
                   {
-                    vi: "🩸 Huyết Titan / Nộ Huyết — Mythic gốc (0 Đá)",
-                    en: "🩸 Huyết Titan / Nộ Huyết — Native Mythic (0 Stones)",
+                    vi: "Huyết Titan / Nộ Huyết — Mythic gốc (0 Đá)",
+                    en: "Blood of the Titan — Native Mythic (0 Stones)",
                   },
                 ],
                 [
                   { vi: "Bishop", en: "Bishop" },
-                  { vi: "🔵 League", en: "🔵 League" },
+                  { vi: "League", en: "League" },
                   { vi: "Mythic", en: "Mythic" },
                   {
                     vi: "Vòng Quay / Xúc Xắc (Ngày 46+)",
@@ -1492,13 +1492,13 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "3★ White (720 Shards) (Needs high stars to burst)",
                   },
                   {
-                    vi: "⚔️ Kỵ Sĩ Vinh Quang — Mythic gốc (0 Đá)",
-                    en: "⚔️ Kỵ Sĩ Vinh Quang — Native Mythic (0 Stones)",
+                    vi: "Kỵ Sĩ Vinh Quang — Mythic gốc (0 Đá)",
+                    en: "Knight's Glory — Native Mythic (0 Stones)",
                   },
                 ],
                 [
                   { vi: "Artificer", en: "Artificer" },
-                  { vi: "🔵 League", en: "🔵 League" },
+                  { vi: "League", en: "League" },
                   { vi: "Mythic", en: "Mythic" },
                   {
                     vi: "Sự kiện Mùa 3 (Wheel / Dice S3)",
@@ -1510,13 +1510,13 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "1★ White (560 Shards) ➔ 3★ White",
                   },
                   {
-                    vi: "⚡ Hiền Triết Quang Vinh — Mythic gốc (0 Đá)",
-                    en: "⚡ Hiền Triết Quang Vinh — Native Mythic (0 Stones)",
+                    vi: "Hiền Triết Quang Vinh — Mythic gốc (0 Đá)",
+                    en: "Glory of the Sage — Native Mythic (0 Stones)",
                   },
                 ],
                 [
                   { vi: "Pyromancer", en: "Pyromancer" },
-                  { vi: "🔵 League", en: "🔵 League" },
+                  { vi: "League", en: "League" },
                   { vi: "Legendary", en: "Legendary" },
                   {
                     vi: "Quán Rượu / Tiệm Đấu Trường / Gói $0.99",
@@ -1528,13 +1528,13 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "Max 5★ White (500 Shards) + Awakening",
                   },
                   {
-                    vi: "⚔️ Kỵ Sĩ Vinh Quang — 9 Hồn Đá Đỏ (Soul Stones) + 345–385 Mảnh Tướng",
-                    en: "⚔️ Kỵ Sĩ Vinh Quang — 9 Red Soul Stones + 345–385 Hero Shards",
+                    vi: "Kỵ Sĩ Vinh Quang — 9 Hồn Đá Đỏ (Soul Stones) + 345–385 Mảnh Tướng",
+                    en: "Knight's Glory — 9 Red Soul Stones + 345–385 Hero Shards",
                   },
                 ],
                 [
                   { vi: "Adjudicator", en: "Adjudicator" },
-                  { vi: "🔵 League", en: "🔵 League" },
+                  { vi: "League", en: "League" },
                   { vi: "Legendary", en: "Legendary" },
                   {
                     vi: "Quán Rượu / Tiệm Đấu Trường",
@@ -1546,13 +1546,13 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "2★–5★ White (300–500 Shards) + Awakening",
                   },
                   {
-                    vi: "🩸 Huyết Titan / Nộ Huyết — 9 Hồn Đá Đỏ (Soul Stones) + 345–385 Mảnh Tướng",
-                    en: "🩸 Huyết Titan / Nộ Huyết — 9 Red Soul Stones + 345–385 Hero Shards",
+                    vi: "Huyết Titan / Nộ Huyết — 9 Hồn Đá Đỏ (Soul Stones) + 345–385 Mảnh Tướng",
+                    en: "Blood of the Titan — 9 Red Soul Stones + 345–385 Hero Shards",
                   },
                 ],
                 [
                   { vi: "Nun", en: "Nun" },
-                  { vi: "🔵 League", en: "🔵 League" },
+                  { vi: "League", en: "League" },
                   { vi: "Legendary", en: "Legendary" },
                   {
                     vi: "Quán Rượu / Tiệm Đổi",
@@ -1564,13 +1564,13 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "2★ White (300 Shards) + Awakening",
                   },
                   {
-                    vi: "⚡ Hiền Triết Quang Vinh — 9 Hồn Đá Đỏ (Soul Stones) + 345–385 Mảnh Tướng",
-                    en: "⚡ Hiền Triết Quang Vinh — 9 Red Soul Stones + 345–385 Hero Shards",
+                    vi: "Hiền Triết Quang Vinh — 9 Hồn Đá Đỏ (Soul Stones) + 345–385 Mảnh Tướng",
+                    en: "Glory of the Sage — 9 Red Soul Stones + 345–385 Hero Shards",
                   },
                 ],
                 [
                   { vi: "Bard", en: "Bard" },
-                  { vi: "🔵 League", en: "🔵 League" },
+                  { vi: "League", en: "League" },
                   { vi: "Legendary", en: "Legendary" },
                   {
                     vi: "Quán Rượu / Tiệm Đổi",
@@ -1582,13 +1582,13 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "2★ White (300 Shards) (Unlocks +40% Construction)",
                   },
                   {
-                    vi: "⚡ Hiền Triết Quang Vinh — Tuỳ chọn (Ưu tiên sau Pyro/Adj)",
-                    en: "⚡ Hiền Triết Quang Vinh — Optional (After Pyro/Adj)",
+                    vi: "Hiền Triết Quang Vinh — Tuỳ chọn (Ưu tiên sau Pyro/Adj)",
+                    en: "Glory of the Sage — Optional (After Pyro/Adj)",
                   },
                 ],
                 [
                   { vi: "Tidecaller", en: "Tidecaller" },
-                  { vi: "🟢 Nature", en: "🟢 Nature" },
+                  { vi: "Nature", en: "Nature" },
                   { vi: "Mythic", en: "Mythic" },
                   {
                     vi: "Vòng Quay / Xúc Xắc (Cuối S0 / Đầu S1)",
@@ -1600,13 +1600,13 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "Max 5★ White (1,000 Shards) (Core #1 Nature)",
                   },
                   {
-                    vi: "⚔️ Kỵ Sĩ Vinh Quang / ⚡ Hiền Triết Quang Vinh — Mythic gốc (0 Đá)",
-                    en: "⚔️ Kỵ Sĩ Vinh Quang / ⚡ Hiền Triết Quang Vinh — Native Mythic (0 Stones)",
+                    vi: "Kỵ Sĩ Vinh Quang / Hiền Triết Quang Vinh — Mythic gốc (0 Đá)",
+                    en: "Knight's Glory / Glory of the Sage — Native Mythic (0 Stones)",
                   },
                 ],
                 [
                   { vi: "Monk", en: "Monk" },
-                  { vi: "🟢 Nature", en: "🟢 Nature" },
+                  { vi: "Nature", en: "Nature" },
                   { vi: "Mythic", en: "Mythic" },
                   {
                     vi: "Sự kiện Mùa 1 (Wheel / Dice S1)",
@@ -1618,13 +1618,13 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "1★ White (560 Shards) ➔ 3★ White",
                   },
                   {
-                    vi: "🩸 Huyết Titan / Nộ Huyết — Mythic gốc (0 Đá)",
-                    en: "🩸 Huyết Titan / Nộ Huyết — Native Mythic (0 Stones)",
+                    vi: "Huyết Titan / Nộ Huyết — Mythic gốc (0 Đá)",
+                    en: "Blood of the Titan — Native Mythic (0 Stones)",
                   },
                 ],
                 [
                   { vi: "Ne Zha", en: "Ne Zha" },
-                  { vi: "🟢 Nature", en: "🟢 Nature" },
+                  { vi: "Nature", en: "Nature" },
                   { vi: "Mythic", en: "Mythic" },
                   {
                     vi: "Sự kiện Mùa 1 (Wheel / Dice S1)",
@@ -1636,13 +1636,13 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "Max 5★ White (1,000 Shards) (Core #2 Nature)",
                   },
                   {
-                    vi: "⚔️ Kỵ Sĩ Vinh Quang / 🩸 Huyết Titan — Mythic gốc (0 Đá)",
-                    en: "⚔️ Kỵ Sĩ Vinh Quang / 🩸 Huyết Titan — Native Mythic (0 Stones)",
+                    vi: "Kỵ Sĩ Vinh Quang / Huyết Titan — Mythic gốc (0 Đá)",
+                    en: "Knight's Glory / Blood of the Titan — Native Mythic (0 Stones)",
                   },
                 ],
                 [
                   { vi: "Petalis", en: "Petalis" },
-                  { vi: "🟢 Nature", en: "🟢 Nature" },
+                  { vi: "Nature", en: "Nature" },
                   { vi: "Mythic", en: "Mythic" },
                   {
                     vi: "Sự kiện Mùa 3 (Wheel / Dice S3)",
@@ -1651,13 +1651,13 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                   { vi: "1★ Đỏ (160 Mảnh)", en: "1★ Red (160 Shards)" },
                   { vi: "1★ Trắng (560 Mảnh)", en: "1★ White (560 Shards)" },
                   {
-                    vi: "⚡ Hiền Triết Quang Vinh — Mythic gốc (0 Đá)",
-                    en: "⚡ Hiền Triết Quang Vinh — Native Mythic (0 Stones)",
+                    vi: "Hiền Triết Quang Vinh — Mythic gốc (0 Đá)",
+                    en: "Glory of the Sage — Native Mythic (0 Stones)",
                   },
                 ],
                 [
                   { vi: "Pixie", en: "Pixie" },
-                  { vi: "🟢 Nature", en: "🟢 Nature" },
+                  { vi: "Nature", en: "Nature" },
                   { vi: "Legendary", en: "Legendary" },
                   {
                     vi: "Quán Rượu / Rương Hệ Nature",
@@ -1669,13 +1669,13 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "2★–5★ White (300–500 Shards) + Awakening",
                   },
                   {
-                    vi: "⚔️ Kỵ Sĩ Vinh Quang — 9 Hồn Đá Đỏ (Soul Stones) + 345–385 Mảnh Tướng",
-                    en: "⚔️ Kỵ Sĩ Vinh Quang — 9 Red Soul Stones + 345–385 Hero Shards",
+                    vi: "Kỵ Sĩ Vinh Quang — 9 Hồn Đá Đỏ (Soul Stones) + 345–385 Mảnh Tướng",
+                    en: "Knight's Glory — 9 Red Soul Stones + 345–385 Hero Shards",
                   },
                 ],
                 [
                   { vi: "Forest Maiden", en: "Forest Maiden" },
-                  { vi: "🟢 Nature", en: "🟢 Nature" },
+                  { vi: "Nature", en: "Nature" },
                   { vi: "Legendary", en: "Legendary" },
                   {
                     vi: "Quán Rượu / Rương Hệ Nature",
@@ -1684,13 +1684,13 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                   { vi: "1★ Đỏ (80 Mảnh)", en: "1★ Red (80 Shards)" },
                   { vi: "2★ Trắng (300 Mảnh)", en: "2★ White (300 Shards)" },
                   {
-                    vi: "⚡ Hiền Triết Quang Vinh — Tuỳ chọn",
-                    en: "⚡ Hiền Triết Quang Vinh — Optional",
+                    vi: "Hiền Triết Quang Vinh — Tuỳ chọn",
+                    en: "Glory of the Sage — Optional",
                   },
                 ],
                 [
                   { vi: "Sage", en: "Sage" },
-                  { vi: "🟢 Nature", en: "🟢 Nature" },
+                  { vi: "Nature", en: "Nature" },
                   { vi: "Legendary", en: "Legendary" },
                   {
                     vi: "Quán Rượu / Tiệm Đấu Trường",
@@ -1702,13 +1702,13 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "2★ White (300 Shards) + Awakening",
                   },
                   {
-                    vi: "🩸 Huyết Titan / Nộ Huyết — 9 Hồn Đá Đỏ (Soul Stones) + 345–385 Mảnh Tướng",
-                    en: "🩸 Huyết Titan / Nộ Huyết — 9 Red Soul Stones + 345–385 Hero Shards",
+                    vi: "Huyết Titan / Nộ Huyết — 9 Hồn Đá Đỏ (Soul Stones) + 345–385 Mảnh Tướng",
+                    en: "Blood of the Titan — 9 Red Soul Stones + 345–385 Hero Shards",
                   },
                 ],
                 [
                   { vi: "Stonemason", en: "Stonemason" },
-                  { vi: "🟢 Nature", en: "🟢 Nature" },
+                  { vi: "Nature", en: "Nature" },
                   { vi: "Legendary", en: "Legendary" },
                   {
                     vi: "Quán Rượu / Rương Hệ Nature",
@@ -1774,8 +1774,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "Branch 1: Tavern-Pullable Legendary Heroes",
                   },
                   badge: {
-                    vi: "⛔ CẤM TUYỆT ĐỐI",
-                    en: "⛔ STRICT TABOO",
+                    vi: "CẤM TUYỆT ĐỐI",
+                    en: "STRICT TABOO",
                   },
                   tone: "rose",
                   steps: [
@@ -1793,8 +1793,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     },
                   ],
                   outcome: {
-                    vi: "⛔ DỪNG LẠI NGAY! Chỉ nâng bằng mảnh riêng tự nhiên để lấy Trait Kinh tế & Hero Bonds.",
-                    en: "⛔ STOP IMMEDIATELY! Upgrade strictly using hero-specific shards for Economy Traits & Hero Bonds.",
+                    vi: "DỪNG LẠI NGAY! Chỉ nâng bằng mảnh riêng tự nhiên để lấy Trait Kinh tế & Hero Bonds.",
+                    en: "STOP IMMEDIATELY! Upgrade strictly using hero-specific shards for Economy Traits & Hero Bonds.",
                   },
                 },
                 {
@@ -1803,8 +1803,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "Branch 2: Queue 1 Mythic Hero Below 1 White Star (< 560 Shards)",
                   },
                   badge: {
-                    vi: "🔥 ƯU TIÊN SỐ 1",
-                    en: "🔥 #1 PRIORITY",
+                    vi: "ƯU TIÊN SỐ 1",
+                    en: "#1 PRIORITY",
                   },
                   tone: "gold",
                   steps: [
@@ -1826,8 +1826,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     },
                   ],
                   outcome: {
-                    vi: "🔥 Dồn 100% mảnh kéo lên đúng 1 Sao Trắng (560 Mảnh) để mở khóa bước nhảy +30% hiệu ứng kỹ năng cốt lõi.",
-                    en: "🔥 Funnel 100% of shards straight to 1 White Star (560 Shards) to unlock the +30% signature skill effect spike.",
+                    vi: "Dồn 100% mảnh kéo lên đúng 1 Sao Trắng (560 Mảnh) để mở khóa bước nhảy +30% hiệu ứng kỹ năng cốt lõi.",
+                    en: "Funnel 100% of shards straight to 1 White Star (560 Shards) to unlock the +30% signature skill effect spike.",
                   },
                 },
                 {
@@ -1836,8 +1836,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "Branch 3: Queue 1 Mythic Hero Already at 1 White Star (≥ 560 Shards)",
                   },
                   badge: {
-                    vi: "👑 PHÂN NHÁNH VAI TRÒ",
-                    en: "👑 ROLE SPLIT",
+                    vi: "PHÂN NHÁNH VAI TRÒ",
+                    en: "ROLE SPLIT",
                   },
                   tone: "emerald",
                   steps: [
@@ -1867,8 +1867,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     },
                   ],
                   outcome: {
-                    vi: "👑 Tối ưu hóa hoàn hảo tỷ suất ROI trên từng Mảnh Vạn Năng Vàng cho toàn bộ 6 vị trí Đội hình 1.",
-                    en: "👑 Maximizes ROI per Universal Legendary Shard across all 6 slots of Queue 1.",
+                    vi: "Tối ưu hóa hoàn hảo tỷ suất ROI trên từng Mảnh Vạn Năng Vàng cho toàn bộ 6 vị trí Đội hình 1.",
+                    en: "Maximizes ROI per Universal Legendary Shard across all 6 slots of Queue 1.",
                   },
                 },
               ],
@@ -1916,8 +1916,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
             en: "Restructuring a Shard-Diluted Castle Lv.27 (5.8M Power) Account After Spreading 950 Universal Shards",
           },
           profileSummary: {
-            vi: "Hiện trạng trước khi tối ưu: Người chơi tại Lâu đài Lv.27 (5.8M Lực chiến) sưu tầm đủ 42 tướng và chia đều 950 Mảnh Vạn Năng Vàng cho 8 tướng khác nhau thuộc cả 3 phe (Pyromancer 2 Sao Đỏ, Astrologer 2 Sao Đỏ, Secret Keeper 1 Sao Đỏ, Wilderness Hunter 2 Sao Đỏ, Desert Prince 4 Sao Vàng, Storm Maiden 3 Sao Vàng, Treeguard 1 Sao Đỏ, Pixie 1 Sao Đỏ). Hậu quả là không có bất kỳ vị tướng Mythic nào chạm mốc 1 Sao Đỏ (6 Sao = 160 Mảnh) hoặc 1 Sao Trắng (11 Sao = 560 Mảnh). Khi vào Đấu Trường (Arena), đội hình 5.8M lực chiến này liên tục thua các tài khoản 4.6M lực chiến nhưng sở hữu cặp Storm Maiden + Desert Prince đạt 1 Sao Trắng mặc đúng bộ ⚔️ Kỵ Sĩ Vinh Quang và 🩸 Huyết Titan / Nộ Huyết.",
-            en: "Pre-Optimization State: A Castle Lv.27 (5.8M Power) player collected 42 heroes and diluted 950 Universal Legendary Shards across 8 different heroes spanning all 3 factions (Pyromancer 2 Red Stars, Astrologer 2 Red Stars, Secret Keeper 1 Red Star, Wilderness Hunter 2 Red Stars, Desert Prince 4 Yellow Stars, Storm Maiden 3 Yellow Stars, Treeguard 1 Red Star, Pixie 1 Red Star). Consequently, not a single Mythic hero reached 1 Red Star (6 Stars = 160 Shards) or 1 White Star (11 Stars = 560 Shards). In Arena, this 5.8M lineup repeatedly lost to 4.6M accounts fielding a 1 White Star Storm Maiden + Desert Prince duo wearing ⚔️ Knight's Glory and 🩸 Blood of the Titan.",
+            vi: "**Hiện trạng trước tối ưu:** Người chơi Lâu đài `Lv.27` (`5.8M` Lực chiến) chia đều `950` **Mảnh Vạn Năng Vàng** cho 8 tướng thuộc cả 3 phe.\n• **Chi tiết phân mảnh:** `Pyromancer` `2★ Đỏ`, `Astrologer` `2★ Đỏ`, `Secret Keeper` `1★ Đỏ`, `Wilderness Hunter` `2★ Đỏ`, `Desert Prince` `4★ Vàng`, `Storm Maiden` `3★ Vàng`, `Treeguard` `1★ Đỏ`, `Pixie` `1★ Đỏ`.\n• **Hậu quả:** Không có tướng `Mythic` nào chạm mốc `1★ Đỏ` (`6★` = `160` Mảnh) hoặc `1★ Trắng` (`11★` = `560` Mảnh).\n• **Thực chiến Arena:** Đội `5.8M` thua liên tiếp các acc `4.6M` có cặp `Storm Maiden` + `Desert Prince` `1★ Trắng` mặc chuẩn bộ `Kỵ Sĩ Vinh Quang` và `Huyết Titan / Nộ Huyết`.",
+            en: "**Pre-Optimization State:** A Castle `Lv.27` (`5.8M` Power) player diluted `950` **Universal Legendary Shards** across 8 heroes spanning all 3 factions.\n• **Shard Spread:** `Pyromancer` `2★ Red`, `Astrologer` `2★ Red`, `Secret Keeper` `1★ Red`, `Wilderness Hunter` `2★ Red`, `Desert Prince` `4★ Yellow`, `Storm Maiden` `3★ Yellow`, `Treeguard` `1★ Red`, `Pixie` `1★ Red`.\n• **Consequence:** Zero `Mythic` heroes reached `1★ Red` (`6★` = `160` Shards) or `1★ White` (`11★` = `560` Shards).\n• **Arena Reality:** This `5.8M` lineup repeatedly lost to `4.6M` accounts fielding a `1★ White` `Storm Maiden` + `Desert Prince` duo in `Knight's Glory` and `Blood of the Titan`.",
           },
           metrics: [
             {
@@ -1977,12 +1977,12 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
           ],
           diagnostics: [
             {
-              vi: "Chẩn đoán 1: Lãng phí hàng trăm Mảnh Vạn Năng Vàng vào các tướng Quán Rượu (Astrologer 2 Sao Đỏ, Secret Keeper 1 Sao Đỏ, Treeguard 1 Sao Đỏ) vốn sẽ rút xuống dự bị làm kinh tế.",
-              en: "Diagnosis 1: Wasted hundreds of Universal Legendary Shards on Tavern-pullable heroes (Astrologer 2 Red Stars, Secret Keeper 1 Red Star, Treeguard 1 Red Star) destined for the economy bench.",
+              vi: "**Chẩn đoán 1:** Lãng phí hàng trăm **Mảnh Vạn Năng Vàng** vào tướng Quán Rượu (`Astrologer` `2★ Đỏ`, `Secret Keeper` `1★ Đỏ`, `Treeguard` `1★ Đỏ`) vốn chỉ dùng làm kinh tế dự bị.",
+              en: "**Diagnosis 1:** Wasted hundreds of **Universal Legendary Shards** on Tavern-pullable heroes (`Astrologer` `2★ Red`, `Secret Keeper` `1★ Red`, `Treeguard` `1★ Red`) meant for the economy bench.",
             },
             {
-              vi: "Chẩn đoán 2: Hai trụ cột Mythic Bộ Lạc là Desert Prince (4 Sao Vàng) và Storm Maiden (3 Sao Vàng) bị bỏ đói mảnh, chưa mở khóa được Kỹ năng thứ 5 ở 1 Sao Đỏ (160 Mảnh) lẫn hiệu ứng +30% ở 1 Sao Trắng (560 Mảnh).",
-              en: "Diagnosis 2: Core Horde Mythics Desert Prince (4 Yellow Stars) and Storm Maiden (3 Yellow Stars) were starved of shards, failing to unlock either their 5th Skill at 1 Red Star (160 Shards) or the +30% boost at 1 White Star (560 Shards).",
+              vi: "**Chẩn đoán 2:** Hai trụ cột `Mythic` là `Desert Prince` (`4★ Vàng`) và `Storm Maiden` (`3★ Vàng`) đói mảnh, chưa mở được Kỹ năng 5 ở `1★ Đỏ` (`160` Mảnh) lẫn `+30%` ở `1★ Trắng` (`560` Mảnh).",
+              en: "**Diagnosis 2:** Core `Mythic` carries `Desert Prince` (`4★ Yellow`) and `Storm Maiden` (`3★ Yellow`) lacked shards for their 5th Skill at `1★ Red` (`160` Shards) or `+30%` at `1★ White` (`560` Shards).",
             },
           ],
           recoverySteps: [
@@ -1993,8 +1993,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 en: "Immediate Freeze on Non-Core Upgrades",
               },
               detail: {
-                vi: "Ngưng tuyệt đối việc bấm nâng sao bằng Mảnh Vạn Năng cho toàn bộ tướng ở Đội 2, Đội 3 và các tướng Vàng Quán Rượu (Secret Keeper, Astrologer, Treeguard, Wilderness Hunter).",
-                en: "Immediately halt all Universal Shard upgrades on Queue 2, Queue 3, and Tavern Legendary heroes (Secret Keeper, Astrologer, Treeguard, Wilderness Hunter).",
+                vi: "**Ngưng tuyệt đối** việc nâng sao bằng **Mảnh Vạn Năng** cho toàn bộ tướng ở Đội 2, Đội 3 và tướng Vàng Quán Rượu (`Secret Keeper`, `Astrologer`, `Treeguard`, `Wilderness Hunter`).",
+                en: "**Immediately halt** all **Universal Shard** upgrades on Queue 2, Queue 3, and Tavern Legendary heroes (`Secret Keeper`, `Astrologer`, `Treeguard`, `Wilderness Hunter`).",
               },
               impactBadge: {
                 vi: "Cắt đứt 100% rò rỉ mảnh",
@@ -2008,8 +2008,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 en: "Hyper-Focus Universal Shards Across 2 GAR Cycles",
               },
               detail: {
-                vi: "Dồn toàn bộ Mảnh Vạn Năng Vàng thu được trong 2 kỳ Guild Arms Race (Tuần B) tiếp theo để kéo Storm Maiden từ 3 Sao Vàng lên thẳng 1 Sao Trắng (11 Sao = 560 Mảnh Quy Đổi), sau đó kéo Desert Prince lên 1 Sao Đỏ (160 Mảnh) ➔ 1 Sao Trắng (560 Mảnh), đồng thời mặc chuẩn bộ ⚔️ Kỵ Sĩ Vinh Quang và 🩸 Huyết Titan / Nộ Huyết.",
-                en: "Funnel 100% of Universal Legendary Shards earned across the next 2 Guild Arms Race (Week B) cycles to push Storm Maiden from 3 Yellow Stars straight to 1 White Star (11 Stars = 560 Shards), then push Desert Prince to 1 Red Star (160 Shards) ➔ 1 White Star (560 Shards) while equipping ⚔️ Knight's Glory and 🩸 Blood of the Titan.",
+                vi: "**Dồn 100% Mảnh Vạn Năng Vàng** trong 2 kỳ `Guild Arms Race` (Tuần B) để kéo `Storm Maiden` từ `3★ Vàng` lên thẳng `1★ Trắng` (`11★` = `560` Mảnh).\n• Tiếp tục kéo `Desert Prince` lên `1★ Đỏ` (`160` Mảnh) ➔ `1★ Trắng` (`560` Mảnh), mặc chuẩn bộ `Kỵ Sĩ Vinh Quang` và `Huyết Titan / Nộ Huyết`.",
+                en: "**Funnel 100% of Universal Legendary Shards** across the next 2 `Guild Arms Race` (Week B) cycles to push `Storm Maiden` from `3★ Yellow` straight to `1★ White` (`11★` = `560` Shards).\n• Then push `Desert Prince` to `1★ Red` (`160` Shards) ➔ `1★ White` (`560` Shards) while equipping `Knight's Glory` and `Blood of the Titan`.",
               },
               impactBadge: {
                 vi: "560 Mảnh/Tướng • +30% Skill",
@@ -2023,8 +2023,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 en: "Harvest Real Combat Power Breakthrough After 28 Days",
               },
               detail: {
-                vi: "Sau 28 ngày (2 Chu kỳ Tuần A/B), dù tổng lực chiến toàn tài khoản chỉ tăng nhẹ, Lực chiến thực chiến của Đội 1 tăng vọt +1.2M, giúp tài khoản vượt thêm 45 tầng Tháp Thử Thách và lọt vào Top 30 Đấu Trường máy chủ.",
-                en: "After 28 days (2 Bi-Weekly A/B Cycles), although account-wide Total Influence grew modestly, Queue 1 Combat Power surged by +1.2M, propelling the account through +45 Trial Tower floors and into the Top 30 Server Arena.",
+                vi: "Sau **28 ngày** (2 Chu kỳ Tuần A/B), **Lực chiến thực chiến Đội 1** tăng vọt `+1.2M`.\n• Giúp tài khoản vượt thêm `+45` tầng **Tháp Thử Thách** và lọt vào `Top 30` **Đấu Trường** máy chủ.",
+                en: "After **28 days** (2 Bi-Weekly A/B Cycles), **Queue 1 Combat Power** surged by `+1.2M`.\n• Propelled the account through `+45` **Trial Tower** floors and into the `Top 30` **Server Arena**.",
               },
               impactBadge: {
                 vi: "+1.2M Queue 1 • Top 30 Arena",
@@ -2033,8 +2033,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
             },
           ],
           conclusion: {
-            vi: "Bài học cốt lõi: 1 tướng Mythic đạt mốc 1 Sao Trắng (560 Mảnh) mặc đúng Bộ Đồ Vàng Chuẩn Hóa luôn nghiền nát 4 tướng Vàng/Đỏ nâng lưng chừng ở 3–4 Sao Vàng.",
-            en: "Core Takeaway: A single Mythic hero pushed to 1 White Star (560 Shards) in a matching Standardized Golden Gear Set will always crush four half-built heroes stranded at 3–4 Yellow Stars.",
+            vi: "**Bài học cốt lõi:** `1` tướng `Mythic` đạt `1 Sao Trắng` (`560` Mảnh) mặc đúng **Bộ Đồ Vàng Chuẩn Hóa** luôn nghiền nát 4 tướng nâng lưng chừng ở `3–4 Sao Vàng`.",
+            en: "**Core Takeaway:** A single `Mythic` hero pushed to `1 White Star` (`560` Shards) in a **Standardized Golden Gear Set** will always crush four heroes stranded at `3–4 Yellow Stars`.",
           },
         },
       ],

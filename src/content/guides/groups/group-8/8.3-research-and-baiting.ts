@@ -16,30 +16,30 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
   },
   tldr: {
     coreRule: {
-      vi: "Ngay khi Viện Nghiên Cứu (Research Cottage) đạt Lv.20, dồn 100% tài nguyên vào nhánh Arms Race Prep / Commendation (Chuẩn Bị Chạy Đua Vũ Trang) để mở khóa Hộp Phần Thưởng Thứ 6 (Extra Rewards / Double Rewards — nhân đôi phần thưởng rương GAR +200%), song song với việc đẩy nhánh Queue 1 Boost / Combat Expertise (Tăng Cường Đội 1) đạt 100%.",
-      en: "The moment your Research Cottage hits Lv.20, funnel 100% of resources into the Arms Race Prep / Commendation tree to unlock the 6th Reward Box (Extra Rewards / Double Rewards—doubling GAR chest yields by +200%), in parallel with pushing Queue 1 Boost / Combat Expertise to 100%.",
+      vi: "**Mục tiêu Tối thượng**: Khi Research Cottage đạt `Lv.20`, dồn `100%` tài nguyên vào `Arms Race Prep` / `Commendation`.\n• **Đột phá Lợi tức**: Mở Hộp Thứ 6 (`Extra Rewards` / `Double Rewards`) nhân đôi rương GAR `+200%`, song song đẩy `Queue 1 Boost` / `Combat Expertise` đạt `100%`.",
+      en: "**Ultimate Priority**: Once Research Cottage hits `Lv.20`, funnel `100%` of resources into `Arms Race Prep` / `Commendation`.\n• **Yield Breakthrough**: Unlock the 6th Chest (`Extra Rewards` / `Double Rewards`) for `+200%` GAR yields while pushing `Queue 1 Boost` / `Combat Expertise` to `100%`.",
     },
     immediateAction: {
-      vi: "Giữ nguyên các nốt nghiên cứu ngắn (5–30 phút) của nhánh Economy (Kinh Tế) ở mức ~20%–25% làm 'Kho Mồi Sự Kiện' ăn Nhiệm vụ Vàng Guild Race (Tuần A) hoặc rướn rương Thứ Ba Arms Race (Tuần B); đồng thời luôn thực hiện Quy trình 4 Bước Pre-Click Snapshot (Brawler/Knight 12★ +30% + Shaman/Hostess +40% + Dân làng +3.20% + Chức vụ Secretary of Science) TRƯỚC mili-giây bấm nút Research!",
-      en: "Freeze short 5–30 minute nodes in the Economy branch at ~20%–25% as an 'Event Bait Bank' for Week A Guild Race Golden Tasks and Week B Tuesday Arms Race chest thresholds; and always execute the 4-Step Pre-Click Snapshot (12★ Brawler/Knight +30% + Shaman/Hostess +40% + Villagers +3.20% + Secretary of Science title) BEFORE the millisecond you tap Research!",
+      vi: "**Bảo tồn Kho Mồi**: Giữ các nốt ngắn (`5–30 phút`) của nhánh `Economy` ở `~20%–25%` (`24.8%`) làm mồi ăn Nhiệm vụ Vàng Guild Race (Tuần A) và rương GAR (Tuần B).\n• **Pre-Click Snapshot**: Bật đủ 4 bước (`Brawler`/`Knight` `12★` `+30%`, `Shaman`/`Hostess` `+40%`, Dân làng `+3.20%`, `Secretary of Science`) TRƯỚC khi bấm Research!",
+      en: "**Preserve Bait Bank**: Freeze short `5–30m` `Economy` nodes at `~20%–25%` (`24.8%`) for Week A Guild Race Golden Tasks and Week B Tuesday GAR chest thresholds.\n• **Pre-Click Snapshot**: Lock all 4 buffs (`12★` `Brawler`/`Knight` `+30%`, `Shaman`/`Hostess` `+40%`, Villagers `+3.20%`, `Secretary of Science`) BEFORE tapping Research!",
     },
     strictTaboo: {
-      vi: "Tuyệt đối ĐÓNG BĂNG các nhánh công nghệ ngốn tài nguyên khổng lồ cuối game như S1 Battle, Peacekeeper hay Queue 2 & 3 Boost khi chưa mở xong Hộp Thứ 6 của Arms Race Prep và chưa hoàn tất 100% Queue 1 Boost; cấm bấm nâng sạch 100% nhánh Economy vào ngày thường!",
-      en: "Strictly FREEZE resource-draining endgame branches like S1 Battle, Peacekeeper, or Queue 2 & 3 Boost until you have unlocked the 6th Chest in Arms Race Prep and completed 100% of Queue 1 Boost; never clear out 100% of short Economy nodes on normal days!",
+      vi: "**Đóng băng Nhánh Đắt**: Cấm nâng các nhánh ngốn tài nguyên như `S1 Battle`, `Peacekeeper` hay `Queue 2 & 3 Boost` trước khi xong Hộp Thứ 6 `Arms Race Prep` và `100%` `Queue 1 Boost`.\n• **Cấm dọn sạch Economy**: Tuyệt đối không bấm nâng sạch `100%` các nốt ngắn của nhánh `Economy` vào ngày thường!",
+      en: "**Freeze Costly Trees**: Strictly freeze `S1 Battle`, `Peacekeeper`, and `Queue 2 & 3 Boost` until unlocking the 6th Chest in `Arms Race Prep` and `100%` `Queue 1 Boost`.\n• **Never Clear Economy**: Never clear out `100%` of short `5–30m` `Economy` nodes on non-event days!",
     },
   },
   keyTakeaways: [
     {
-      vi: "Thứ tự 5 Tầng Cây Nghiên Cứu & Kho Mồi Economy: (1) Số 1 Tuyệt đối là Arms Race Prep / Commendation (mở Hộp Thứ 6 Extra Rewards / Double Rewards tăng 200% lợi tức rương GAR); (2) Số 2 là Queue 1 Boost / Combat Expertise (100% mở March Size & nhánh sau); (3) Số 3 là Growth / Development & Economy (chỉ lấy node giảm thời gian Xây dựng/Nghiên cứu & Tool Improvement -5%, giữ nhánh Economy ở ~20%–25% làm mồi 5–30 phút); (4) Số 4 là Soldiers & Heroes + Season Tech (chỉ số Season Tech giữ lại vĩnh viễn); (5) Đóng băng S1 Battle / Peacekeeper / Queue 2 & 3 Boost.",
-      en: "5-Tier Tech Priority & Economy Bait Bank: (1) #1 Absolute Priority is Arms Race Prep / Commendation (unlocking the 6th Box Extra Rewards / Double Rewards for +200% GAR chest returns); (2) #2 is Queue 1 Boost / Combat Expertise (100% for March Size & deeper trees); (3) #3 is Growth / Development & Economy (take only Construction/Research speed & Tool Improvement -5%, freezing Economy at ~20%–25% as 5–30m quest bait); (4) #4 is Soldiers & Heroes + Season Tech (Season Tech combat stats persist permanently after season end); (5) Freeze S1 Battle / Peacekeeper / Queue 2 & 3 Boost.",
+      vi: "**Thứ tự 5 Tầng Nghiên cứu**: (1) `Arms Race Prep` / `Commendation` mở Hộp Thứ 6 `Extra Rewards` / `Double Rewards` (`+200%` rương GAR); (2) `Queue 1 Boost` / `Combat Expertise` (`100%`).\n• **Phân bổ Tầng 3–5**: (3) `Growth` / `Development` & `Economy` (chỉ lấy tốc độ & `Tool Improvement -5%`, giữ `Economy` ở `24.8%`); (4) `Soldiers & Heroes` + `Season Tech`; (5) Đóng băng `S1 Battle` / `Peacekeeper`.",
+      en: "**5-Tier Tech Priority**: (1) `Arms Race Prep` / `Commendation` for the 6th Box `Extra Rewards` / `Double Rewards` (`+200%` GAR chests); (2) `Queue 1 Boost` / `Combat Expertise` (`100%`).\n• **Tiers 3–5 Allocation**: (3) `Growth` / `Development` & `Economy` (max speed & `Tool Improvement -5%`, freeze `Economy` at `24.8%`); (4) `Soldiers & Heroes` + `Season Tech`; (5) Freeze `S1 Battle` / `Peacekeeper`.",
     },
     {
-      vi: "Kỹ thuật Thực chiến 'Mồi Nhử Phá Tuyến Địch (Formation Tank Baiting)' trong 3 Giây Đầu Trận (0.0s ➔ 3.5s+): Lợi dụng cơ chế AI khóa mục tiêu theo khoảng cách hình học gần nhất (Euclidean Distance) từ giây 0.0s–3.0s để đặt Off-Tank / Summoner (Desert Prince, đệ Tidecaller/Forest Maiden/Treeguard, Adjudicator) lệch trục hút cả 2 Tanker địch chéo sang một bên cánh, mở hành lang trống (Open Chokepoint) cho Hyper-Carry (Wukong, Storm Maiden, Paragon, Pyromancer, Ne Zha, Pixie) đột kích thẳng vào Mid/Backline địch!",
-      en: "3-Second 'Formation Tank Baiting' Combat Technique (0.0s ➔ 3.5s+): Exploit the 0.0s–3.0s AI targeting window—which locks onto the nearest Euclidean Distance unit—by placing an asymmetric Off-Tank or Summoner (Desert Prince, Tidecaller/Forest Maiden/Treeguard summons, Adjudicator) on the opposite flank to pull both enemy Tankers diagonally, opening an unobstructed Open Chokepoint for your Hyper-Carry (Wukong, Storm Maiden, Paragon, Pyromancer, Ne Zha, Pixie) to assassinate the enemy Mid/Backline!",
+      vi: "**Mồi Nhử Phá Tuyến (`0.0s ➔ 3.0s ➔ 3.5s+`)**: Lợi dụng AI khóa mục tiêu theo `Euclidean Distance` gần nhất trong 3 giây đầu để đặt Off-Tank (`Desert Prince`, `Tidecaller`, `Adjudicator`) lệch trục.\n• **Đột kích Hàng sau**: Kéo lệch 2 Tanker địch sang một cánh, mở `Open Chokepoint` cho `Wukong`, `Storm Maiden`, `Paragon`, `Pyromancer`, `Bishop`, `Ne Zha`, `Pixie` kết liễu hàng sau địch!",
+      en: "**Formation Tank Baiting (`0.0s ➔ 3.0s ➔ 3.5s+`)**: Exploit the `0.0s–3.0s` AI targeting (`Euclidean Distance`) by placing an asymmetric Off-Tank (`Desert Prince`, `Tidecaller`, `Adjudicator`).\n• **Backline Assassination**: Pull both enemy Tankers diagonally to open an `Open Chokepoint` for `Wukong`, `Storm Maiden`, `Paragon`, `Pyromancer`, `Bishop`, `Ne Zha`, `Pixie` to burst the backline!",
     },
     {
-      vi: "Công thức Pre-Click Snapshot & Bảng 17 Hàng Chi Phí Tinh Chất Rồng (DE-Dust Tech Cost — Tab ♾️DE-Dust): Chốt toàn bộ buff tốc độ (Brawler/Knight 12★ +30%, Shaman/Hostess +40%, Villagers +3.20% & 432s, chức vụ Secretary of Science) trước giây bấm nút để cắt giảm 40%–60% thời gian gốc. Trong Viện Huy Hoàng (Brilliance Institute), lộ trình mở khóa Lính Bậc 11 (Soldier Level ở BI Lv.15 tốn 288 DE) cần tổng đường găng 4,677 DE (Training Speed 1: 24 DE, Relic HP/ATK: 394 DE, Soldier Assault/Defense 1: 584 DE, March Size: 390 DE, Hero Level Tier 1: 193 DE, Soldier Capacity/Mastery: 580 DE, Healing Speed: 482 DE, Hero Assault/Defense 1: 2,316 DE, Healing Boost: 770 DE, Hero Assault/Defense 2: 2,888 DE, Hero Level Tier 2: 1,152 DE; cộng Faction Tech 461 DE / 723 DE và Season 2 Tech 13 DE / 61+175+441 DE).",
-      en: "Pre-Click Snapshot Formula & 17-Row Dragon Essence Tech Cost Table (Tab ♾️DE-Dust): Lock in all speed buffs (12★ Brawler/Knight +30%, Shaman/Hostess +40%, Villagers +3.20% & 432s, Secretary of Science title) prior to clicking Research to slash 40%–60% off base duration. Inside the Brilliance Institute, unlocking Tier 11 Troops (Soldier Level at BI Lv.15 costing 288 DE) requires a 4,677 DE critical path (Training Speed 1: 24 DE, Relic HP/ATK: 394 DE, Soldier Assault/Defense 1: 584 DE, March Size: 390 DE, Hero Level Tier 1: 193 DE, Soldier Capacity/Mastery: 580 DE, Healing Speed: 482 DE, Hero Assault/Defense 1: 2,316 DE, Healing Boost: 770 DE, Hero Assault/Defense 2: 2,888 DE, Hero Level Tier 2: 1,152 DE; plus Faction Tech 461 DE / 723 DE and Season 2 Tech 13 DE / 61+175+441 DE).",
+      vi: "**Pre-Click Snapshot & `Tab DE-Dust`**: Chốt buff (`Brawler`/`Knight` `12★` `+30%`, `Shaman`/`Hostess` `+40%`, Dân làng `+3.20%`, `Secretary of Science`) trước khi bấm để giảm `40%–60%` giờ.\n• **Đường găng T11 (`4,677 DE`)**: Mở `Soldier Level` (`BI Lv.15`, `288 DE`) qua Training 1 (`24 DE`), Relic (`394 DE`), Soldier 1 (`584 DE`), March Size (`390 DE`).\n• **Các Nốt Điều kiện & Nhánh Sâu**: Tiếp qua Hero Lv1 (`193 DE`), Capacity (`580 DE`), Heal Speed (`482 DE`), Soldier 2 (`1,297 DE`), Soldier 3 (`1,472 DE`), Hero 1 (`2,316 DE`), Hero 2 (`2,888 DE`).",
+      en: "**Pre-Click Snapshot & `Tab DE-Dust`**: Lock buffs (`12★` `Brawler`/`Knight` `+30%`, `Shaman`/`Hostess` `+40%`, Villagers `+3.20%`, `Secretary of Science`) before clicking to cut `40%–60%` time.\n• **T11 Critical Path (`4,677 DE`)**: Unlock `Soldier Level` (`BI Lv.15`, `288 DE`) via Training 1 (`24 DE`), Relic (`394 DE`), Soldier 1 (`584 DE`), March Size (`390 DE`).\n• **Prerequisite & Deep Nodes**: Followed by Hero Lv1 (`193 DE`), Capacity (`580 DE`), Heal Speed (`482 DE`), Soldier 2 (`1,297 DE`), Soldier 3 (`1,472 DE`), Hero 1 (`2,316 DE`), Hero 2 (`2,888 DE`).",
     },
   ],
   keywords: [
@@ -77,8 +77,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Nếu cấp độ Lâu Đài (Castle) là 'phần xác' quyết định trần cấp độ anh hùng và doanh trại, thì Viện Nghiên Cứu (Research Cottage) chính là 'phần hồn' quyết định tốc độ sinh lời tài nguyên và sức mạnh thực chiến ẩn của toàn tài khoản. Ngay sau khi hoàn thành nhánh nhập môn Hoàn Thành Tân Thủ (Beginner Combat — 100%), người chơi sẽ đứng trước hơn 7 nhánh công nghệ lớn. Việc phân bổ sai thứ tự ưu tiên sẽ khiến tài khoản thất thoát hàng chục ngàn Kim Cương và Mảnh Tướng Vàng Vạn Năng mỗi tháng.",
-            en: "If your Castle level represents the structural shell governing hero and barracks level caps, the Research Cottage is the economic engine and hidden combat core of your entire account. Immediately after completing the introductory Beginner Combat tree (100%), commanders face 7+ major technology branches. Investing in the wrong sequence will cost you tens of thousands of Diamonds and Universal Legendary Hero Shards every single month.",
+            vi: "**Động cơ Kinh tế & Thực chiến**: Nếu Lâu Đài (`Castle`) là phần xác quyết định trần cấp độ, thì Viện Nghiên Cứu (`Research Cottage`) là phần hồn quyết định tốc độ sinh lời tài nguyên và sức mạnh ẩn.\n• **Rủi ro Sai thứ tự**: Sau khi xong nhánh Tân Thủ (`Beginner Combat` `100%`), việc phân bổ sai thứ tự giữa `7+` nhánh lớn sẽ làm thất thoát hàng chục ngàn Kim Cương và Mảnh Tướng Vàng mỗi tháng.",
+            en: "**Economic & Combat Engine**: If your `Castle` level governs building caps, the `Research Cottage` is the economic engine and hidden combat core of your entire account.\n• **Misallocation Cost**: After finishing `Beginner Combat` (`100%`), investing across the `7+` major tech branches in the wrong sequence costs tens of thousands of Diamonds and Universal Shards monthly.",
           },
         },
       ],
@@ -165,8 +165,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
               rows: [
                 [
                   {
-                    vi: "🥇 SỐ 1 TUYỆT ĐỐI",
-                    en: "🥇 #1 ABSOLUTE PRIORITY",
+                    vi: "SỐ 1 TUYỆT ĐỐI ★",
+                    en: "#1 ABSOLUTE PRIORITY ★",
                   },
                   {
                     vi: "Arms Race Prep / Commendation (Chuẩn Bị Chạy Đua Vũ Trang — Mở ở Viện NC Lv.20)",
@@ -183,8 +183,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "🥈 SỐ 2",
-                    en: "🥈 #2 PRIORITY",
+                    vi: "SỐ 2",
+                    en: "#2 PRIORITY",
                   },
                   {
                     vi: "Queue 1 Boost / Combat Expertise (Tăng Cường Đội Hình 1)",
@@ -201,8 +201,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "🥉 SỐ 3",
-                    en: "🥉 #3 PRIORITY",
+                    vi: "SỐ 3",
+                    en: "#3 PRIORITY",
                   },
                   {
                     vi: "Growth / Development & Economy (Phát Triển & Kinh Tế)",
@@ -219,8 +219,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "🏅 SỐ 4",
-                    en: "🏅 #4 PRIORITY",
+                    vi: "SỐ 4",
+                    en: "#4 PRIORITY",
                   },
                   {
                     vi: "Soldiers & Heroes (Binh Lính & Anh Hùng — Sau khi xong 1, 2, 3)",
@@ -237,8 +237,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "❄️ ĐÓNG BĂNG",
-                    en: "❄️ STRICT FREEZE",
+                    vi: "ĐÓNG BĂNG",
+                    en: "STRICT FREEZE",
                   },
                   {
                     vi: "S1 Battle / Peacekeeper / Queue 2 & 3 Boost (Các nhánh đắt đỏ / Đội phụ)",
@@ -269,8 +269,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Để tối đa hóa tốc độ mở khóa công nghệ mà không bị kẹt nhiệm vụ trong các sự kiện bi-weekly (Tuần A Guild Race và Tuần B Guild Arms Race), người chơi cần thiết lập kỷ luật phân luồng 2 Hàng đợi Nghiên cứu, bảo tồn kho mồi Economy và định hướng đúng nhánh quân sự theo Hệ chủ lực.",
-            en: "To maximize tech progression without getting locked out of bi-weekly event tasks (Week A Guild Race and Week B Guild Arms Race), commanders must enforce strict dual-queue routing, preserve the Economy bait bank, and align military research with their main faction.",
+            vi: "**Kỷ luật Nghiên cứu Bi-Weekly**: Để tối đa hóa tốc độ mở khóa công nghệ mà không bị kẹt nhiệm vụ trong Tuần A (`Guild Race`) và Tuần B (`Guild Arms Race`), người chơi cần thiết lập kỷ luật vận hành.\n• **3 Trụ cột Tối ưu**: Phân luồng cố định `2 Hàng đợi Nghiên cứu`, bảo tồn kho mồi `Economy` (`~20%–25%`) và định hướng đúng nhánh quân sự theo Hệ chủ lực của Đội 1.",
+            en: "**Bi-Weekly Research Discipline**: To maximize tech progression without getting locked out of bi-weekly event tasks in Week A (`Guild Race`) and Week B (`Guild Arms Race`), enforce a strict operating protocol.\n• **3 Optimization Pillars**: Lock in fixed roles across `2 Research Queues`, preserve the `Economy` bait bank (`~20%–25%`), and align military tech with Queue 1's main faction.",
           },
         },
       ],
@@ -285,8 +285,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Nếu tài khoản sở hữu 2 Hàng đợi Nghiên cứu (1 hàng đợi mặc định + 1 hàng đợi mở khóa qua gói Second Tech Queue $9.99 USD hoặc đặc quyền), hãy phân luồng cố định cho từng hàng đợi thay vì bấm ngẫu nhiên:",
-                en: "If your account owns 2 Research Queues (1 default queue + 1 unlocked via the $9.99 USD Second Tech Queue pack or privilege), assign fixed roles to each queue rather than starting upgrades randomly:",
+                vi: "**Phân luồng 2 Hàng đợi**: Nếu sở hữu `2 Hàng đợi Nghiên cứu` (1 mặc định + 1 từ gói `Second Tech Queue` `$9.99 USD`), hãy phân công vai trò cố định cho từng hàng đợi thay vì bấm ngẫu nhiên:",
+                en: "**Dual-Queue Routing**: If your account owns `2 Research Queues` (1 default + 1 unlocked via the `$9.99 USD` `Second Tech Queue` pack), assign fixed roles to each queue rather than upgrading randomly:",
               },
             },
             {
@@ -294,12 +294,12 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
               ordered: false,
               items: [
                 {
-                  vi: "🔬 Hàng Đợi Nghiên Cứu 1 (Main Tech Queue): Cắm cố định vào các dự án dài hạn có thời gian chờ lớn (Arms Race Prep / Commendation ➔ Queue 1 Boost / Combat Expertise ➔ Soldiers / Season Tech). Chỉ bấm thu hoạch và xả bình Tăng tốc Nghiên cứu vào Thứ Ba Tuần B (Arms Race Day 2: Tech & Runes) hoặc khi vừa nhận Nhiệm vụ Vàng trong Tuần A (Guild Race).",
-                  en: "🔬 Research Queue 1 (Main Tech Queue): Dedicate permanently to long-duration critical path projects (Arms Race Prep / Commendation ➔ Queue 1 Boost / Combat Expertise ➔ Soldiers / Season Tech). Only collect completions and burn Research Speedups on Week B Tuesday (Arms Race Day 2: Tech & Runes) or when holding an active Golden Task in Week A (Guild Race).",
+                  vi: "**Hàng Đợi Nghiên Cứu 1 (Main Queue)**: Cắm cố định vào nhánh dài hạn (`Arms Race Prep` / `Commendation` ➔ `Queue 1 Boost` / `Combat Expertise` ➔ `Soldiers` / `Season Tech`), xả tăng tốc vào Thứ Ba Tuần B.",
+                  en: "**Research Queue 1 (Main Queue)**: Dedicate to long projects (`Arms Race Prep` / `Commendation` ➔ `Queue 1 Boost` / `Combat Expertise` ➔ `Soldiers` / `Season Tech`), burning speedups on Week B Tuesday.",
                 },
                 {
-                  vi: "🔬 Hàng Đợi Nghiên Cứu 2 (Support / Speed Queue): Cắm vào nhánh Development / Growth (ưu tiên tối đa các node giảm thời gian Xây dựng Construction Speed, Nghiên cứu Research Speed và Tool Improvement -5%) ở giai đoạn đầu, sau đó hỗ trợ quét nốt các node điều kiện của Arms Race Prep và Heroes.",
-                  en: "🔬 Research Queue 2 (Support / Speed Queue): Dedicate to the Development / Growth branch early on (maxing Construction Speed, Research Speed, and Tool Improvement -5%), then use it to clear prerequisite nodes in Arms Race Prep and Heroes.",
+                  vi: "**Hàng Đợi Nghiên Cứu 2 (Speed Queue)**: Cắm vào nhánh `Development` / `Growth` (tối đa `Construction Speed`, `Research Speed`, `Tool Improvement -5%`), rồi quét các node điều kiện `Arms Race Prep` & `Heroes`.",
+                  en: "**Research Queue 2 (Speed Queue)**: Dedicate to `Development` / `Growth` (maxing `Construction Speed`, `Research Speed`, and `Tool Improvement -5%`), then clear prerequisite nodes in `Arms Race Prep` & `Heroes`.",
                 },
               ],
             },
@@ -315,8 +315,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Tại sao trong mọi hồ sơ kiểm toán tài khoản chuẩn v2.0, nhánh Economy (Kinh Tế) luôn được khuyên dừng ở mức ~20%–25% (ví dụ 24.8%) và TUYỆT ĐỐI KHÔNG ấn nâng cấp vào ngày thường?",
-                en: "Why does every standardized v2.0 account audit recommend freezing the Economy branch at ~20%–25% (e.g., 24.8%) and NEVER tapping upgrades on normal days?",
+                vi: "**Nguyên lý Kho Mồi 24.8%**: Tại sao trong mọi hồ sơ kiểm toán chuẩn v2.0, nhánh `Economy` (Kinh Tế) luôn được khuyên dừng ở `~20%–25%` (`24.8%`) và TUYỆT ĐỐI KHÔNG ấn nâng cấp vào ngày thường?",
+                en: "**The 24.8% Bait Principle**: Why does every standardized v2.0 account audit recommend freezing the `Economy` branch at `~20%–25%` (`24.8%`) and NEVER tapping upgrades on normal days?",
               },
             },
             {
@@ -324,16 +324,16 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
               ordered: false,
               items: [
                 {
-                  vi: "Kho dự trữ node ngắn hạn: Nhánh Economy chứa hàng chục node nghiên cứu bậc thấp (1/5, 2/5) chỉ mất từ 5 phút đến 30 phút cho mỗi lần nâng cấp.",
-                  en: "Short-Node Reserve Bank: The Economy branch contains dozens of low-tier research nodes (1/5, 2/5) that take only 5 minutes to 30 minutes per upgrade.",
+                  vi: "**Kho dự trữ node ngắn hạn**: Nhánh `Economy` chứa hàng chục node nghiên cứu bậc thấp (`1/5`, `2/5`) chỉ mất từ `5 phút` đến `30 phút` cho mỗi lần nâng cấp.",
+                  en: "**Short-Node Reserve Bank**: The `Economy` branch contains dozens of low-tier research nodes (`1/5`, `2/5`) that take only `5 minutes` to `30 minutes` per upgrade.",
                 },
                 {
-                  vi: "Ứng dụng 1 — Trong Tuần A (Thi Đấu Hội / Guild Race): Khi xoay ra Nhiệm vụ Vàng yêu cầu 'Hoàn thành X lần nghiên cứu công nghệ' (tính theo số lần hoàn thành chứ không tính theo điểm lực chiến), người chơi chỉ việc bấm liên tiếp 4–6 node ngắn của nhánh Economy là lấy trọn điểm Nhiệm vụ Vàng mà tốn chưa tới 1 giờ tăng tốc!",
-                  en: "Application 1 — During Week A (Guild Race): When you roll a Golden Task requiring 'Complete X technology researches' (counted by completion frequency rather than power gained), simply tap 4–6 short Economy nodes back-to-back to claim full Golden Task points using less than 1 hour of speedups!",
+                  vi: "**Ứng dụng 1 — Tuần A (Guild Race)**: Khi nhận Nhiệm vụ Vàng đếm số lần hoàn thành nghiên cứu, chỉ cần bấm liên tiếp `4–6` node ngắn của nhánh `Economy` là lấy trọn điểm với chưa tới `1 giờ` tăng tốc!",
+                  en: "**Application 1 — Week A (Guild Race)**: When holding a Golden Task counting research completions, tap `4–6` short `Economy` nodes back-to-back to claim full points using under `1 hour` of speedups!",
                 },
                 {
-                  vi: "Ứng dụng 2 — Trong Tuần B (GAR Thứ Ba): Khi còn thiếu một lượng điểm nhỏ để chạm mốc rương thưởng cuối ngày nhưng các dự án ở nhánh chính đều mất 48 giờ, việc bấm các node Economy ngắn giúp rướn qua vạch đích tức thì với chi phí tiết kiệm nhất.",
-                  en: "Application 2 — During Week B (Tuesday GAR): When you are slightly short of the final daily chest threshold while your main queues are locked in 48-hour projects, tapping short Economy nodes pushes you across the finish line instantly at minimal cost.",
+                  vi: "**Ứng dụng 2 — Tuần B (GAR Thứ Ba)**: Khi thiếu chút điểm chạm mốc rương cuối ngày mà nhánh chính kẹt dự án `48 giờ`, bấm các node `Economy` ngắn giúp rướn qua vạch đích tức thì với chi phí thấp nhất.",
+                  en: "**Application 2 — Week B (Tuesday GAR)**: When slightly short of the final daily chest while main queues are locked in `48-hour` projects, tapping short `Economy` nodes crosses the threshold instantly.",
                 },
               ],
             },
@@ -351,16 +351,16 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
               ordered: false,
               items: [
                 {
-                  vi: "🔴 Người chơi Hệ Bộ Lạc (Horde — hoặc Chuyển giao Liên Minh ➔ Bộ Lạc): Từ Tuần 4 trở đi, dồn 100% điểm nghiên cứu hệ vào các node Tăng Công/Máu Lính Bộ Lạc (Horde Soldier ATK/HP), Tăng Công/Máu Tướng Bộ Lạc (Horde Hero ATK/HP) và Quy mô Hành quân Bộ Lạc (Full Horde March Size).",
-                  en: "🔴 Horde Commanders (or League ➔ Horde Pivot): From Week 4 onward, funnel 100% of faction research into Horde Soldier ATK/HP, Horde Hero ATK/HP, and Full Horde March Size.",
+                  vi: "**Người chơi Hệ Bộ Lạc (Horde)**: Từ Tuần 4 trở đi, dồn `100%` điểm nghiên cứu hệ vào `Horde Soldier ATK/HP`, `Horde Hero ATK/HP` và Quy mô Hành quân Bộ Lạc (`Full Horde March Size`).",
+                  en: "**Horde Commanders (or League ➔ Horde Pivot)**: From Week 4 onward, funnel `100%` of faction research into `Horde Soldier ATK/HP`, `Horde Hero ATK/HP`, and `Full Horde March Size`.",
                 },
                 {
-                  vi: "🔵 Người chơi Hệ Liên Minh (League): Tập trung tối đa vào nhánh League Soldier / Hero và các node tăng sát thương khắc chế (Damage on Counter).",
-                  en: "🔵 League Commanders: Focus exclusively on League Soldier / Hero nodes and Damage on Counter multipliers.",
+                  vi: "**Người chơi Hệ Liên Minh (League)**: Tập trung tối đa vào nhánh `League Soldier / Hero` và các node tăng sát thương khắc chế hệ (`Damage on Counter`).",
+                  en: "**League Commanders**: Focus exclusively on `League Soldier / Hero` stat nodes and faction counter damage multipliers (`Damage on Counter`).",
                 },
                 {
-                  vi: "🟢 Người chơi Hệ Thiên Nhiên (Nature): Ưu tiên tối đa các node tăng HP Lính Thiên Nhiên (Nature Soldier HP), Giảm sát thương nhận vào khi khắc chế (Damage Reduction on Counter) và Full Nature March Size để nuôi sống dàn triệu hồi của Tidecaller, Forest Maiden và Treeguard.",
-                  en: "🟢 Nature Commanders: Prioritize Nature Soldier HP, Damage Reduction on Counter, and Full Nature March Size to sustain the summon frontline of Tidecaller, Forest Maiden, and Treeguard.",
+                  vi: "**Người chơi Hệ Thiên Nhiên (Nature)**: Ưu tiên `Nature Soldier HP`, `Damage Reduction on Counter` và `Full Nature March Size` để nuôi dàn đệ triệu hồi của `Tidecaller`, `Forest Maiden` và `Treeguard`.",
+                  en: "**Nature Commanders**: Prioritize `Nature Soldier HP`, `Damage Reduction on Counter`, and `Full Nature March Size` to sustain the summon frontline of `Tidecaller`, `Forest Maiden`, and `Treeguard`.",
                 },
               ],
             },
@@ -429,7 +429,7 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
                   },
                   detail: {
                     vi: "Đặt Desert Prince, đệ Tidecaller hoặc Adjudicator lệch cánh để hút 2 Tanker địch sang một bên, mở hành lang trống cho Wukong, Storm Maiden, Paragon, Pyromancer, Ne Zha hoặc Pixie kết liễu hàng sau.",
-                    en: "Place Desert Prince, Tidecaller summons, or Adjudicator asymmetrically to pull both enemy Tankers to one side, opening a chokepoint for Wukong, Storm Maiden, Paragon, Pyromancer, Ne Zha, or Pixie to assassinate the backline.",
+                    en: "Place Desert Prince, Tidecaller summons, or Adjudicator asymmetrically to pull both enemy Tankers sideways, opening a lane for Wukong, Storm Maiden, Paragon, Pyromancer, Ne Zha, or Pixie to burst the backline.",
                   },
                   badge: {
                     vi: "PvP 0.0s–3.5s",
@@ -457,12 +457,12 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
           },
           headers: [
             {
-              vi: "❌ Sai Lầm Phổ Biến (Account Traps)",
-              en: "❌ Common Account Traps",
+              vi: "Sai Lầm Phổ Biến (Account Traps)",
+              en: "Common Account Traps",
             },
             {
-              vi: "✅ Giải Pháp Tối Ưu (Min-Max Solution)",
-              en: "✅ Min-Max Solution",
+              vi: "Giải Pháp Tối Ưu (Min-Max Solution)",
+              en: "Min-Max Solution",
             },
           ],
           rows: [
@@ -513,8 +513,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Ở phân tầng PRO, sự khác biệt giữa một người chơi thông thường và một chiến lược gia Min-Max nằm ở 3 kỹ năng định lượng: (1) Thao túng thuật toán tìm đường Euclidean Distance trong 3 giây đầu trận bằng Formation Tank Baiting để thắng các đối thủ hơn 20%–30% lực chiến; (2) Chốt công thức Pre-Click Snapshot cắt giảm 40%–60% thời gian nghiên cứu gốc; và (3) Quy hoạch chính xác từng giọt Tinh Chất Rồng (Dragon Essence — tổng đường găng 4,677 DE trong Viện Huy Hoàng để mở khóa Lính Bậc 11).",
-            en: "In the PRO tier, the gap between an average player and a Min-Max strategist comes down to 3 quantitative skills: (1) Manipulating the 3-second Euclidean Distance pathfinding algorithm via Formation Tank Baiting to defeat opponents 20%–30% higher in power; (2) Locking in the Pre-Click Snapshot formula to slash 40%–60% off base research timers; and (3) Budgeting every single drop of Dragon Essence (4,677 DE critical path inside the Brilliance Institute to unlock Tier 11 Troops).",
+            vi: "**3 Kỹ năng Định lượng PRO**: (1) Thao túng thuật toán tìm đường `Euclidean Distance` trong 3 giây đầu bằng `Formation Tank Baiting` để thắng đối thủ hơn `20%–30%` lực chiến.\n• **Snapshot & Đường găng DE**: (2) Chốt công thức `Pre-Click Snapshot` cắt giảm `40%–60%` thời gian gốc; và (3) Quy hoạch chuẩn xác đường găng `4,677 DE` trong Viện Huy Hoàng để mở Lính Bậc 11 (`T11`).",
+            en: "**3 Quantitative PRO Skills**: (1) Manipulate the 3-second `Euclidean Distance` pathfinding algorithm via `Formation Tank Baiting` to defeat opponents `20%–30%` higher in power.\n• **Snapshot & DE Critical Path**: (2) Lock in the `Pre-Click Snapshot` formula to cut `40%–60%` off base timers; and (3) Budget the `4,677 DE` critical path in the Brilliance Institute to unlock `T11` Troops.",
           },
         },
       ],
@@ -529,8 +529,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Trong các trận giao tranh PvP Đấu Trường (Arena) hoặc khi leo Ải Boss có lực chiến cao hơn 20%–30%, nếu xếp đội hình đối xứng truyền thống (2 Tanker đứng thẳng hàng với 2 Tanker địch), toàn bộ sát thương đầu trận sẽ bị hút sạch vào lớp khiên bất tử của Tanker đối phương (như Adjudicator, Rose Princess, Desert Prince, Monk). Khi trận đấu bắt đầu (00:00 ➔ 00:03), toàn bộ tướng và binh lính của cả hai bên sẽ tiến về phía trước và khóa mục tiêu vào đơn vị kẻ địch có khoảng cách hình học (Euclidean Distance) gần nhất tại thời điểm tiếp xúc. Kỹ thuật Formation Tank Baiting lợi dụng chính quy luật này để kéo lệch Tanker chủ lực của địch ra khỏi hành lang bảo vệ:",
-                en: "In Arena PvP matches or Boss stages where the enemy exceeds your power by 20%–30%, deploying a traditional symmetric formation (2 Tankers directly facing 2 enemy Tankers) causes all of your opening burst damage to be absorbed by enemy Tanker invulnerability shields (such as Adjudicator, Rose Princess, Desert Prince, or Monk). During the First 3-Second AI Targeting Window (00:00 ➔ 00:03), all heroes and soldiers advance and lock onto the enemy unit with the shortest geometric Euclidean Distance upon contact. Formation Tank Baiting exploits this exact rule to pull the enemy's main Tankers away from their protective lane:",
+                vi: "**Bẫy Đội hình Đối xứng**: Trong Arena hoặc Ải Boss hơn `20%–30%` lực chiến, xếp 2 Tanker đối xứng khiến sát thương đầu trận bị hút sạch vào khiên bất tử của `Adjudicator`, `Rose Princess`, `Desert Prince`, `Monk`.\n• **Cơ chế Khóa Mục tiêu (`00:00 ➔ 00:03`)**: Trong 3 giây đầu, AI khóa vào đơn vị địch có `Euclidean Distance` gần nhất. `Formation Tank Baiting` lợi dụng quy luật này để kéo lệch Tanker địch:",
+                en: "**Symmetric Formation Trap**: In Arena or Boss stages `20%–30%` above your power, symmetric frontlines dump all burst into enemy Tanker shields (`Adjudicator`, `Rose Princess`, `Desert Prince`, `Monk`).\n• **AI Targeting Window (`00:00 ➔ 00:03`)**: During the first 3 seconds, units lock onto the nearest `Euclidean Distance` target. `Formation Tank Baiting` exploits this rule to pull enemy Tankers sideways:",
               },
             },
             {
@@ -552,8 +552,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
                   en: "00:00 ➔ 00:03 AI WINDOW",
                 },
                 title: {
-                  vi: "⚔️ KỸ THUẬT MỒI NHỬ PHÁ TUYẾN ĐỊCH (FORMATION TANK BAITING)",
-                  en: "⚔️ FORMATION TANK BAITING (EUCLIDEAN AI PATHING PULL)",
+                  vi: "KỸ THUẬT MỒI NHỬ PHÁ TUYẾN ĐỊCH (FORMATION TANK BAITING)",
+                  en: "FORMATION TANK BAITING (EUCLIDEAN AI PATHING PULL)",
                 },
                 subtitle: {
                   vi: "Kéo lệch 2 Tanker địch sang một bên cánh ➔ Mở hành lang trống (Open Chokepoint) kết liễu DPS/Healer địch",
@@ -564,8 +564,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
               branches: [
                 {
                   title: {
-                    vi: "⏱️ Giây 0.0s: Bố Trí Lệch Trục (Asymmetric Setup)",
-                    en: "⏱️ Second 0.0s: Asymmetric Frontline Setup",
+                    vi: "Giây 0.0s: Bố Trí Lệch Trục (Asymmetric Setup)",
+                    en: "Second 0.0s: Asymmetric Frontline Setup",
                   },
                   badge: {
                     vi: "BƯỚC 1 (0.0s)",
@@ -613,8 +613,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
                 },
                 {
                   title: {
-                    vi: "⏱️ Giây 1.5s – 3.0s: Kéo Lệch Tuyến Địch (Euclidean AI Pathing Pull)",
-                    en: "⏱️ Second 1.5s – 3.0s: Euclidean AI Pathing Pull & Open Chokepoint",
+                    vi: "Giây 1.5s – 3.0s: Kéo Lệch Tuyến Địch (Euclidean AI Pathing Pull)",
+                    en: "Second 1.5s – 3.0s: Euclidean AI Pathing Pull & Open Chokepoint",
                   },
                   badge: {
                     vi: "BƯỚC 2 (1.5s–3.0s)",
@@ -645,8 +645,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
                         en: "Open Chokepoint",
                       },
                       title: {
-                        vi: "🔥 Lộ Khoảng Trống Hành Lang Tấn Công (Unobstructed Lane)",
-                        en: "🔥 Unobstructed Attack Corridor Opens on Opposite Flank",
+                        vi: "Lộ Khoảng Trống Hành Lang Tấn Công (Unobstructed Lane)",
+                        en: "Unobstructed Attack Corridor Opens on Opposite Flank",
                       },
                       subtitle: {
                         vi: "Hàng giữa và hàng sau của đối phương mất hoàn toàn lá chắn Tanker che chắn trực diện.",
@@ -662,8 +662,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
                 },
                 {
                   title: {
-                    vi: "⏱️ Giây 3.5s+: Đột Kích Hàng Sau (Backline Assassination)",
-                    en: "⏱️ Second 3.5s+: Mid & Backline Assassination",
+                    vi: "Giây 3.5s+: Đột Kích Hàng Sau (Backline Assassination)",
+                    en: "Second 3.5s+: Mid & Backline Assassination",
                   },
                   badge: {
                     vi: "BƯỚC 3 (3.5s+)",
@@ -704,16 +704,16 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
               ordered: true,
               items: [
                 {
-                  vi: "Với Đội hình Bộ Lạc (Horde): Đặt Desert Prince (có cơ chế bất tử tạm thời và lao lên rất nhanh) ở cánh đối diện với DPS địch làm Mồi Nhử, còn cánh cùng phía với DPS địch thì kẹp Beastmaster + Wukong / Storm Maiden. Khi Desert Prince lao lên hút cả 2 mục tiêu tiền tuyến của địch quay mặt sang một bên, Wukong và Storm Maiden sẽ lập tức xuyên qua khe hở để kết liễu Pháp sư/Healer hàng sau của đối thủ.",
-                  en: "For Horde Formations: Place Desert Prince (whose rapid charge and temporary invulnerability make him the ultimate bait) on the flank opposite the enemy DPS, while stacking Beastmaster + Wukong / Storm Maiden on the same side as the enemy DPS. As Desert Prince pulls both enemy frontline units sideways, Wukong and Storm Maiden slip through the gap to execute enemy backline Mages and Healers.",
+                  vi: "**Đội hình Bộ Lạc (Horde)**: Đặt `Desert Prince` ở cánh đối diện DPS địch hút 2 Tanker địch xoay sang một bên, giúp `Beastmaster` + `Wukong` / `Storm Maiden` xuyên thẳng vào Pháp sư/Healer địch.",
+                  en: "**Horde Formations**: Place `Desert Prince` on the flank opposite enemy DPS to pull both enemy Tankers sideways, letting `Beastmaster` + `Wukong` / `Storm Maiden` slip through to execute Mages/Healers.",
                 },
                 {
-                  vi: "Với Đội hình Thiên Nhiên (Nature): Tận dụng các đơn vị triệu hồi của Tidecaller, Forest Maiden hoặc Treeguard ở một bên cánh làm bia đỡ đạn thu hút chiêu cuối đầu tiên của địch, giúp Ne Zha hoặc Pixie ở cánh đối diện thoải mái xả sát thương.",
-                  en: "For Nature Formations: Use summoned units from Tidecaller, Forest Maiden, or Treeguard on one flank as sacrificial bait to absorb the enemy's opening ultimate skills, leaving Ne Zha or Pixie on the opposite flank free to unleash uninterrupted burst damage.",
+                  vi: "**Đội hình Thiên Nhiên (Nature)**: Dùng đệ của `Tidecaller`, `Forest Maiden` hoặc `Treeguard` ở một cánh hút chiêu cuối đầu trận của địch, giúp `Ne Zha` hoặc `Pixie` ở cánh kia thoải mái xả sát thương.",
+                  en: "**Nature Formations**: Use summoned units from `Tidecaller`, `Forest Maiden`, or `Treeguard` on one flank to absorb opening enemy ultimates, leaving `Ne Zha` or `Pixie` on the other flank free to burst.",
                 },
                 {
-                  vi: "Với Đội hình Liên Minh (League): Đặt Adjudicator lệch sang cánh có sát thương vật lý mạnh của địch, đồng thời xếp Rose Princess + Paragon / Pyromancer dồn hỏa lực diện rộng (AOE) vào đúng góc mà 2 Tanker địch bị gom cụm lại.",
-                  en: "For League Formations: Offset Adjudicator toward the enemy's heavy physical damage flank while aligning Rose Princess + Paragon / Pyromancer to concentrate massive AOE fire directly onto the cluster where both enemy Tankers are pulled together.",
+                  vi: "**Đội hình Liên Minh (League)**: Đặt `Adjudicator` lệch sang cánh sát thương vật lý của địch, đồng thời xếp `Rose Princess` + `Paragon` / `Pyromancer` dồn hỏa lực AOE vào đúng góc mà 2 Tanker địch bị gom cụm lại.",
+                  en: "**League Formations**: Offset `Adjudicator` toward the enemy's physical flank while aligning `Rose Princess` + `Paragon` / `Pyromancer` to concentrate massive AOE fire directly onto the clustered enemy Tankers.",
                 },
               ],
             },
@@ -729,8 +729,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Trong Top Heroes, công thức toán học tính thời gian nghiên cứu thực tế là: Thời Gian Thực Tế = Thời Gian Gốc (Base Time) / [1 + Tổng (% Tốc Độ Nghiên Cứu Tại Giây Bấm Nút)]. Mọi chỉ số % Tốc độ Nghiên cứu đều được máy chủ chụp ảnh tĩnh (Pre-Click Snapshot) ngay tại mili-giây bạn bấm nút bắt đầu! Do đó, trước khi bấm bất kỳ nhánh nghiên cứu lớn nào (từ 24 giờ đến 10+ ngày), bắt buộc thực hiện Quy trình 4 Bước Pre-Click Snapshot sau:",
-                en: "In Top Heroes, the mathematical formula governing actual research duration is: Actual Duration = Base Time / [1 + Sum of (% Research Speed Buffs at the Millisecond of Clicking)]. Every % Research Speed modifier is permanently snapshotted (Pre-Click Snapshot) at the exact millisecond you tap the start button! Therefore, before starting any major tech project (24 hours to 10+ days), always execute this 4-Step Pre-Click Snapshot Protocol:",
+                vi: "**Công thức Toán học**: `Thời Gian Thực Tế = Base Time / [1 + Tổng % Tốc Độ Nghiên Cứu]`. Mọi chỉ số `% Tốc độ Nghiên cứu` đều được máy chủ chụp ảnh tĩnh (`Pre-Click Snapshot`) ngay tại mili-giây bấm nút!\n• **Quy trình Bắt buộc**: Trước khi bấm bất kỳ dự án nghiên cứu lớn nào (từ `24 giờ` đến `10+ ngày`), bắt buộc thực hiện đầy đủ Quy trình 4 Bước `Pre-Click Snapshot` dưới đây:",
+                en: "**Duration Formula**: `Actual Duration = Base Time / [1 + Sum of % Research Speed Buffs]`. Every `% Research Speed` modifier is permanently snapshotted (`Pre-Click Snapshot`) at the millisecond you click!\n• **Mandatory Protocol**: Before starting any major tech project (`24 hours` to `10+ days`), always execute the complete 4-Step `Pre-Click Snapshot` Protocol below:",
               },
             },
             {
@@ -738,20 +738,20 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
               ordered: true,
               items: [
                 {
-                  vi: "Bước 1 — Kích hoạt Nội tại Tướng Kinh Tế (Passive Hero Traits): Đảm bảo Tướng Tím Brawler (Đấu Sĩ — Tăng tốc Nghiên cứu) và Knight (Kỵ Sĩ — Tăng tốc Luyện lính) đã được nâng lên mốc 2 Sao Trắng / 12 Sao và nâng tối đa Trait 3 Lv.30 để nhận trọn vẹn +30% ở Cấp Tối Đa cho mỗi tướng. Các chỉ số này cộng dồn (Stack) trực tiếp với nội tại Tướng Vàng Shaman (+40% Tốc độ Nghiên cứu / Tech Research Rate +40%) và Hostess (+40% Tốc độ Luyện lính / Soldier Training Speed +40%) kích hoạt thụ động ngay trong kho tướng (Active without deployment).",
-                  en: "Step 1 — Activate Passive Economic Hero Traits: Ensure Epic heroes Brawler (Tech Research Speed) and Knight (Soldier Training Speed) are promoted to 2 White Stars / 12 Stars with Trait 3 maxed at Lv.30 to grant the full +30% Max Level bonus each. These stack directly with Legendary heroes Shaman (+40% Tech Research Rate) and Hostess (+40% Soldier Training Speed), which remain active passively from your hero roster without deployment.",
+                  vi: "**Bước 1 — Nội tại Tướng Kinh Tế**: Nâng `Brawler` và `Knight` lên `12 Sao` (`Trait 3 Lv.30` nhận `+30%` mỗi tướng), cộng dồn thụ động trong kho tướng với `Shaman` (`+40%` Nghiên cứu) và `Hostess` (`+40%` Luyện lính).",
+                  en: "**Step 1 — Passive Hero Traits**: Promote `Brawler` and `Knight` to `12 Stars` (`Trait 3 Lv.30` for `+30%` each), stacking passively in your roster with `Shaman` (`+40%` Research) and `Hostess` (`+40%` Training Speed).",
                 },
                 {
-                  vi: "Bước 2 — Kiểm tra Dân Làng trong Viện Nghiên Cứu (Research Cottage Villagers): Đảm bảo toàn bộ các ô Dân làng trong Research Cottage đang gắn các Dân làng có dòng Tech Research Speed (+0.60% ➔ +3.20%) và Free Tech Speed-up (40s ➔ 432s) cao nhất đang sở hữu.",
-                  en: "Step 2 — Verify Research Cottage Villagers: Ensure every villager slot inside the Research Cottage is staffed with your highest-level villagers granting Tech Research Speed (+0.60% ➔ +3.20%) and Free Tech Speed-up (40s ➔ 432s).",
+                  vi: "**Bước 2 — Dân Làng Research Cottage**: Đảm bảo toàn bộ ô Dân làng trong `Research Cottage` đang gắn các Dân làng có dòng `Tech Research Speed` (`+0.60% ➔ +3.20%`) và `Free Tech Speed-up` (`40s ➔ 432s`) cao nhất.",
+                  en: "**Step 2 — Research Cottage Villagers**: Ensure all slots in the `Research Cottage` are staffed with your highest villagers granting `Tech Research Speed` (`+0.60% ➔ +3.20%`) and `Free Tech Speed-up` (`40s ➔ 432s`).",
                 },
                 {
-                  vi: "Bước 3 — Xin Chức Vụ Vương Quốc (Secretary of Science / Bộ Trưởng Khoa Học): Nếu máy chủ đã mở Cung điện Vương quốc (Throne / Capitol), hãy nộp đơn xin chức vụ Bộ Trưởng Khoa Học (Secretary of Science — thường được duyệt tự động xoay vòng mỗi 5–10 phút). Đợi đúng lúc biểu tượng vương miện chức vụ hiện lên trên đầu Lâu Đài.",
-                  en: "Step 3 — Claim the Kingdom Title (Secretary of Science): Once your server opens the Capitol / Throne, apply for the Secretary of Science title (typically auto-rotated every 5–10 minutes). Wait until the title crown icon appears directly above your Castle.",
+                  vi: "**Bước 3 — Xin Chức Vụ Secretary of Science**: Khi máy chủ mở Cung điện (`Capitol`), nộp đơn xin chức vụ Bộ Trưởng Khoa Học (`Secretary of Science`) và đợi biểu tượng vương miện hiện lên trên đầu Lâu Đài.",
+                  en: "**Step 3 — Claim Secretary of Science Title**: Once the `Capitol` opens, apply for the `Secretary of Science` kingdom title (auto-rotated every `5–10m`) and wait until the crown icon appears above your Castle.",
                 },
                 {
-                  vi: "Bước 4 — Bấm Nút Nghiên Cứu ➔ Xin Đầy Guild Help ➔ Xả Tăng Tốc: Ngay khi có chức vụ Secretary of Science, lập tức bấm bắt đầu dự án nghiên cứu lớn (thời gian tổng đã được cắt giảm 40%–60%!). Sau khi bấm xong, bạn có thể trả lại chức vụ cho người khác mà thời gian đã giảm vẫn được giữ nguyên 100%. Cuối cùng, đợi thành viên Bang hội bấm đầy thanh Guild Help rồi mới xả bình Tăng tốc vào đúng Thứ Ba Tuần B (Arms Race Day 2).",
-                  en: "Step 4 — Tap Research ➔ Max Out Guild Help ➔ Dump Speedups: The moment the Secretary of Science buff is active, tap Research to lock in a 40%–60% duration reduction! You can immediately relinquish the title afterward while keeping 100% of the shortened timer. Finally, wait for guildmates to fill your Guild Help bar before burning Research Speedups on Week B Tuesday (Arms Race Day 2).",
+                  vi: "**Bước 4 — Bấm Nút ➔ Guild Help ➔ Xả Tăng Tốc**: Có `Secretary of Science` thì bấm Research ngay (giảm `40%–60%` giờ) rồi nhường lại chức vụ; đợi đầy thanh `Guild Help` mới xả tăng tốc vào Thứ Ba Tuần B.",
+                  en: "**Step 4 — Tap Research ➔ Guild Help ➔ Speedups**: Tap Research while `Secretary of Science` is active (cutting `40%–60%` time), relinquish the title, then wait for full `Guild Help` before dumping speedups on Tuesday.",
                 },
               ],
             },
@@ -797,7 +797,7 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
                     en: "Never Burn Speedups Before the Guild Help Bar Is Full",
                   },
                   detail: {
-                    vi: "Luôn đợi thành viên Bang hội ấn满 (đầy) lượt trợ giúp miễn phí rồi mới xả bình Tăng tốc vào đúng khung giờ Thứ Ba Tuần B (Arms Race Day 2: Tech & Runes).",
+                    vi: "Luôn đợi thành viên Bang hội ấn đầy lượt trợ giúp miễn phí rồi mới xả bình Tăng tốc vào đúng khung giờ Thứ Ba Tuần B (Arms Race Day 2: Tech & Runes).",
                     en: "Always wait for guildmates to max out your free Guild Help clicks before dumping speedups during Week B Tuesday (Arms Race Day 2: Tech & Runes).",
                   },
                 },
@@ -808,22 +808,22 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
         {
           id: "sub-4-3-dragon-essence-tech-cost-master-table",
           title: {
-            vi: "4.3. Bảng Tra Cứu 17 Hàng Chi Phí Công Nghệ Tinh Chất Rồng (Dragon Essence Tech Cost — Season 1 & 2, Tab ♾️DE-Dust)",
-            en: "4.3. 17-Row Dragon Essence Tech Cost Master Table (Season 1 & 2, Tab ♾️DE-Dust)",
+            vi: "4.3. Bảng Tra Cứu 17 Hàng Chi Phí Công Nghệ Tinh Chất Rồng (Dragon Essence Tech Cost — Season 1 & 2, Tab DE-Dust)",
+            en: "4.3. 17-Row Dragon Essence Tech Cost Master Table (Season 1 & 2, Tab DE-Dust)",
           },
           blocks: [
             {
               type: "paragraph",
               text: {
-                vi: "Dữ liệu dưới đây được trích xuất chính xác 100% từ TopHeroes Tables (Tab ♾️DE-Dust), dùng để quy hoạch lượng Tinh Chất Rồng (Dragon Essence) cho Viện Huy Hoàng (Brilliance Institute) và Cây Công nghệ Phe phái (Faction Tech & Season 2 Tech):",
-                en: "The dataset below is extracted 100% verbatim from TopHeroes Tables (Tab ♾️DE-Dust) to budget your Dragon Essence across the Brilliance Institute, Faction Tech, and Season 2 Tech trees:",
+                vi: "**Dữ liệu Chuẩn xác 100% (`Tab DE-Dust`)**: Trích xuất từ TopHeroes Tables (`Tab DE-Dust`) để quy hoạch `Dragon Essence` cho `Brilliance Institute`, `Faction Tech` và `Season 2 Tech`:",
+                en: "**100% Verified Dataset (`Tab DE-Dust`)**: Extracted verbatim from TopHeroes Tables (`Tab DE-Dust`) to budget your `Dragon Essence` across the `Brilliance Institute`, `Faction Tech`, and `Season 2 Tech` trees:",
               },
             },
             {
               type: "table",
               caption: {
-                vi: "Bảng 4.3: Bảng tra cứu 17 hàng chi phí Công nghệ Tinh Chất Rồng (Dragon Essence Tech Cost — Season 1 & 2, Tab ♾️DE-Dust)",
-                en: "Table 4.3: 17-Row Dragon Essence (DE-Dust) Technology Cost Master Table (Season 1 & 2, Tab ♾️DE-Dust)",
+                vi: "Bảng 4.3: Bảng tra cứu 17 hàng chi phí Công nghệ Tinh Chất Rồng (Dragon Essence Tech Cost — Season 1 & 2, Tab DE-Dust)",
+                en: "Table 4.3: 17-Row Dragon Essence (DE-Dust) Technology Cost Master Table (Season 1 & 2, Tab DE-Dust)",
               },
               headers: [
                 {
@@ -854,8 +854,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
               rows: [
                 [
                   {
-                    vi: "🏛️ Viện Huy Hoàng (Brilliance Institute)",
-                    en: "🏛️ Brilliance Institute",
+                    vi: "Viện Huy Hoàng (Brilliance Institute)",
+                    en: "Brilliance Institute",
                   },
                   {
                     vi: "Training Speed 1 (Tốc độ Luyện lính 1)",
@@ -880,8 +880,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "🏛️ Viện Huy Hoàng",
-                    en: "🏛️ Brilliance Institute",
+                    vi: "Viện Huy Hoàng",
+                    en: "Brilliance Institute",
                   },
                   {
                     vi: "Relic HP & Relic Attack (Máu & Công Thánh tích)",
@@ -906,8 +906,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "🏛️ Viện Huy Hoàng",
-                    en: "🏛️ Brilliance Institute",
+                    vi: "Viện Huy Hoàng",
+                    en: "Brilliance Institute",
                   },
                   {
                     vi: "Soldier Assault 1 & Soldier Defense 1",
@@ -932,8 +932,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "🏛️ Viện Huy Hoàng",
-                    en: "🏛️ Brilliance Institute",
+                    vi: "Viện Huy Hoàng",
+                    en: "Brilliance Institute",
                   },
                   {
                     vi: "March Size (Quy mô Hành quân)",
@@ -958,8 +958,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "🏛️ Viện Huy Hoàng",
-                    en: "🏛️ Brilliance Institute",
+                    vi: "Viện Huy Hoàng",
+                    en: "Brilliance Institute",
                   },
                   {
                     vi: "Hero Level (Tier 1) (Mở trần Cấp Tướng 1)",
@@ -984,8 +984,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "🏛️ Viện Huy Hoàng",
-                    en: "🏛️ Brilliance Institute",
+                    vi: "Viện Huy Hoàng",
+                    en: "Brilliance Institute",
                   },
                   {
                     vi: "Soldier Capacity 1 & Training Mastery",
@@ -1010,8 +1010,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "🏛️ Viện Huy Hoàng",
-                    en: "🏛️ Brilliance Institute",
+                    vi: "Viện Huy Hoàng",
+                    en: "Brilliance Institute",
                   },
                   {
                     vi: "Healing Speed (Tốc độ Chữa thương)",
@@ -1036,8 +1036,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "🏛️ Viện Huy Hoàng",
-                    en: "🏛️ Brilliance Institute",
+                    vi: "Viện Huy Hoàng",
+                    en: "Brilliance Institute",
                   },
                   {
                     vi: "Hero Assault 1 & Hero Defense 1",
@@ -1062,8 +1062,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "🏛️ Viện Huy Hoàng",
-                    en: "🏛️ Brilliance Institute",
+                    vi: "Viện Huy Hoàng",
+                    en: "Brilliance Institute",
                   },
                   {
                     vi: "Healing Boost (Hiệu quả Chữa thương)",
@@ -1088,8 +1088,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "🏛️ Viện Huy Hoàng",
-                    en: "🏛️ Brilliance Institute",
+                    vi: "Viện Huy Hoàng",
+                    en: "Brilliance Institute",
                   },
                   {
                     vi: "Hero Assault 2 & Hero Defense 2",
@@ -1114,8 +1114,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "🔥 Viện Huy Hoàng",
-                    en: "🔥 Brilliance Institute",
+                    vi: "Viện Huy Hoàng ★",
+                    en: "Brilliance Institute ★",
                   },
                   {
                     vi: "Soldier Level (Tier 11 Troops Unlock)",
@@ -1140,8 +1140,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "🏛️ Viện Huy Hoàng",
-                    en: "🏛️ Brilliance Institute",
+                    vi: "Viện Huy Hoàng",
+                    en: "Brilliance Institute",
                   },
                   {
                     vi: "Hero Level (Tier 2) (Mở trần Cấp Tướng 2)",
@@ -1166,8 +1166,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "⚔️ Công Nghệ Hệ (Faction Tech)",
-                    en: "⚔️ Faction Tech",
+                    vi: "Công Nghệ Hệ (Faction Tech)",
+                    en: "Faction Tech",
                   },
                   {
                     vi: "Soldier Attack 1/2/3 & Soldier HP 1/2/3",
@@ -1192,8 +1192,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "⚔️ Công Nghệ Hệ (Faction Tech)",
-                    en: "⚔️ Faction Tech",
+                    vi: "Công Nghệ Hệ (Faction Tech)",
+                    en: "Faction Tech",
                   },
                   {
                     vi: "Hero Attack 1/2/3 & Hero HP 1/2/3",
@@ -1218,8 +1218,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "⚔️ Công Nghệ Hệ (Faction Tech)",
-                    en: "⚔️ Faction Tech",
+                    vi: "Công Nghệ Hệ (Faction Tech)",
+                    en: "Faction Tech",
                   },
                   {
                     vi: "Damage / Reduction on Counter 1/2/3",
@@ -1244,8 +1244,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "❄️ Season 2 Tech",
-                    en: "❄️ Season 2 Tech",
+                    vi: "Season 2 Tech",
+                    en: "Season 2 Tech",
                   },
                   {
                     vi: "League / Horde / Nature Hero Level",
@@ -1270,8 +1270,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "❄️ Season 2 Tech",
-                    en: "❄️ Season 2 Tech",
+                    vi: "Season 2 Tech",
+                    en: "Season 2 Tech",
                   },
                   {
                     vi: "Full Faction March Size (Tier 1 / 2 / 3)",
@@ -1336,17 +1336,17 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
             en: "Auditing a Castle Lv.25 (Research Cottage Lv.24) Account: Halting Fragmented Tech Upgrades & Preserving the 24.8% Economy Bait Bank",
           },
           profileSummary: {
-            vi: "Bài toán mẫu: Tài khoản ở giai đoạn Lâu Đài Lv.25 (Viện Nghiên Cứu Lv.24), sở hữu 2 Hàng đợi Nghiên cứu, đang có tiến độ công nghệ dàn trải: Tân Thủ (95.3%), Tăng Cường Đội 1 / Combat Expertise (36.6%), Phát Triển / Development (30.1%), Kinh Tế / Economy (24.8%), Lính / Soldiers (17.0%) và Anh Hùng / Heroes (13.6%).",
-            en: "Benchmark Profile: A Castle Lv.25 account (Research Cottage Lv.24) owning 2 Research Queues with a fragmented tech progression profile: Beginner Combat (95.3%), Queue 1 Boost / Combat Expertise (36.6%), Development (30.1%), Economy (24.8%), Soldiers (17.0%), and Heroes (13.6%).",
+            vi: "**Hồ sơ Kiểm toán**: Lâu Đài `Lv.25` (Viện NC `Lv.24`), có `2 Hàng đợi Nghiên cứu`.\n• **Tiến độ Dàn trải**: Tân Thủ (`95.3%`), Tăng Cường Đội 1 / `Combat Expertise` (`36.6%`), Phát Triển (`30.1%`), Kinh Tế (`24.8%`), Lính (`17.0%`) và Anh Hùng (`13.6%`).",
+            en: "**Audit Profile**: Castle `Lv.25` (Research Cottage `Lv.24`) owning `2 Research Queues`.\n• **Fragmented Progress**: Beginner Combat (`95.3%`), Queue 1 Boost / `Combat Expertise` (`36.6%`), Development (`30.1%`), Economy (`24.8%`), Soldiers (`17.0%`), and Heroes (`13.6%`).",
           },
           diagnostics: [
             {
-              vi: "Chia nhỏ thời gian nghiên cứu quá sớm: Dù đã mở khóa nhánh Arms Race Prep / Commendation từ Viện NC Lv.20 và nhánh Tân Thủ mới ở mức 95.3%, người chơi lại phân tán hàng đợi sang cả nhánh Lính (17.0%) và Anh Hùng (13.6%), khiến cả Arms Race Prep lẫn Tăng Cường Đội 1 (36.6%) đều dở dang.",
-              en: "Premature Research Fragmentation: Despite unlocking Arms Race Prep / Commendation at Research Cottage Lv.20 while Beginner Combat sits at 95.3%, the commander diverted queues into Soldiers (17.0%) and Heroes (13.6%), leaving both Arms Race Prep and Queue 1 Boost (36.6%) unfinished.",
+              vi: "**Chia nhỏ Thời gian Quá sớm**: Dù đã mở `Arms Race Prep` / `Commendation` từ Viện NC `Lv.20` và Tân Thủ ở `95.3%`, người chơi lại rải điểm sang Lính (`17.0%`) và Anh Hùng (`13.6%`).\n• **Hệ quả**: Khiến cả `Arms Race Prep` lẫn Tăng Cường Đội 1 (`36.6%`) đều dở dang, mất trắng `+200%` lợi tức rương GAR.",
+              en: "**Premature Fragmentation**: Despite unlocking `Arms Race Prep` / `Commendation` at `Lv.20` while Beginner sits at `95.3%`, queues were diverted into Soldiers (`17.0%`) and Heroes (`13.6%`).\n• **Consequence**: Both `Arms Race Prep` and Queue 1 Boost (`36.6%`) remain stalled, forfeiting `+200%` GAR chest yields.",
             },
             {
-              vi: "Nguy cơ cạn kiệt Kho Mồi Sự Kiện: Nhánh Phát Triển đang ở 30.1% và nhánh Kinh Tế đang ở đúng ngưỡng vàng 24.8%. Nếu tiếp tục bấm nâng cấp tự do vào ngày thường, tài khoản sẽ mất sạch các node ngắn 10–20 phút phục vụ Guild Race (Tuần A) và Thứ Ba GAR (Tuần B).",
-              en: "Event Bait Depletion Risk: Development sits at 30.1% while Economy is right at the golden 24.8% threshold. Continuing to tap Economy nodes on normal days would wipe out the 10–20 minute nodes needed for Week A Guild Race and Week B Tuesday GAR.",
+              vi: "**Nguy cơ Cạn kiệt Kho Mồi**: Nhánh Phát Triển đang ở `30.1%` và Kinh Tế (`Economy`) đang ở đúng ngưỡng vàng `24.8%`.\n• **Hệ quả**: Nếu tiếp tục bấm nâng tự do vào ngày thường, tài khoản sẽ mất sạch các node ngắn `10–20 phút` phục vụ Guild Race (Tuần A) và Thứ Ba GAR (Tuần B).",
+              en: "**Event Bait Depletion Risk**: Development sits at `30.1%` while `Economy` is right at the golden `24.8%` threshold.\n• **Consequence**: Continuing to tap `Economy` nodes on normal days wipes out the `10–20m` nodes needed for Week A Guild Race and Week B Tuesday GAR.",
             },
           ],
           metrics: [
@@ -1413,8 +1413,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
                 en: "Queue 1 (100% Fixed): Rush Arms Race Prep 6th Chest ➔ Push Queue 1 Boost From 36.6% to 100%",
               },
               detail: {
-                vi: "Hoàn tất nốt 4.7% cuối của nhánh Tân Thủ (95.3% ➔ 100%), sau đó dồn toàn lực Hàng đợi 1 đẩy thẳng nhánh Arms Race Prep / Commendation chạm mốc mở Hộp Thưởng Thứ 6 (Extra Rewards / Double Rewards). Ngay khi mở xong Hộp Thứ 6, quay lại đẩy nhánh Tăng Cường Đội 1 (Queue 1 Boost / Combat Expertise) từ 36.6% lên thẳng 100% để lấy tối đa March Size.",
-                en: "Finish the remaining 4.7% of Beginner Combat (95.3% ➔ 100%), then dedicate Queue 1 100% to pushing Arms Race Prep / Commendation straight to the 6th Reward Chest (Extra Rewards / Double Rewards). Once unlocked, return to Queue 1 Boost / Combat Expertise and push it from 36.6% to 100% for maximum March Size.",
+                vi: "**Đột phá Hộp Thứ 6**: Hoàn tất nốt `4.7%` nhánh Tân Thủ (`95.3% ➔ 100%`), rồi dồn `100%` Hàng đợi 1 đẩy `Arms Race Prep` / `Commendation` mở Hộp Thứ 6 (`Extra Rewards` / `Double Rewards`).\n• **Tối đa Đội 1**: Ngay khi mở xong Hộp Thứ 6, quay lại đẩy nhánh Tăng Cường Đội 1 (`Queue 1 Boost` / `Combat Expertise`) từ `36.6%` lên thẳng `100%` lấy tối đa March Size.",
+                en: "**6th Chest Breakthrough**: Finish the last `4.7%` of Beginner Combat (`95.3% ➔ 100%`), then dedicate Queue 1 to `Arms Race Prep` / `Commendation` to unlock the 6th Chest (`Extra Rewards` / `Double Rewards`).\n• **Max Queue 1**: Once unlocked, return to `Queue 1 Boost` / `Combat Expertise` and push it from `36.6%` straight to `100%` for maximum March Size.",
               },
               impactBadge: {
                 vi: "Hàng Đợi 1 Chủ Lực",
@@ -1428,8 +1428,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
                 en: "Queue 2 (Time Compounding): Sweep Development From 30.1% & Freeze Soldiers (17.0%) / Heroes (13.6%)",
               },
               detail: {
-                vi: "Tạm dừng hoàn toàn việc rải điểm vào nhánh Lính (17.0%) và Anh Hùng (13.6%). Cho Hàng đợi 2 chạy dọc nhánh Phát Triển (Development) từ 30.1%, chỉ bấm vào các node Giảm thời gian Xây dựng (Construction Speed), Giảm thời gian Nghiên cứu (Research Speed) và Tool Improvement (-5%) kèm áp dụng Pre-Click Snapshot.",
-                en: "Immediately halt all scattered upgrades in Soldiers (17.0%) and Heroes (13.6%). Run Queue 2 along the Development branch from 30.1%, tapping exclusively Construction Speed, Research Speed, and Tool Improvement (-5%) nodes while applying the Pre-Click Snapshot protocol.",
+                vi: "**Đóng băng Nhánh Phụ**: Tạm dừng hoàn toàn việc rải điểm vào nhánh Lính (`17.0%`) và Anh Hùng (`13.6%`).\n• **Tối ưu Tốc độ**: Cho Hàng đợi 2 chạy dọc nhánh Phát Triển (`Development`) từ `30.1%`, chỉ bấm các node `Construction Speed`, `Research Speed` và `Tool Improvement -5%` kèm `Pre-Click Snapshot`.",
+                en: "**Freeze Sub-Branches**: Immediately halt all scattered upgrades in Soldiers (`17.0%`) and Heroes (`13.6%`).\n• **Speed Optimization**: Run Queue 2 along `Development` from `30.1%`, tapping exclusively `Construction Speed`, `Research Speed`, and `Tool Improvement -5%` while applying `Pre-Click Snapshot`.",
               },
               impactBadge: {
                 vi: "Hàng Đợi 2 Tốc Độ",
@@ -1443,8 +1443,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
                 en: "Tactical Freeze on Economy (24.8%) Reserved for Week B Tuesday 17:00 – 21:00 & Guild Race",
               },
               detail: {
-                vi: "Giữ nguyên nhánh Kinh Tế (Economy) ở đúng mức 24.8% vào ngày thường — bảo toàn nguyên vẹn các node 10–20 phút để dành riêng cho khung giờ 17:00 – 21:00 Thứ Ba Tuần B (Arms Race Day 2: Tech & Runes) và các Nhiệm vụ Vàng đếm số lần nghiên cứu của Guild Race (Tuần A)!",
-                en: "Freeze the Economy branch strictly at 24.8% on normal days—preserving all 10–20 minute nodes exclusively for the 17:00 – 21:00 window on Week B Tuesday (Arms Race Day 2: Tech & Runes) and frequency-based Golden Tasks in Week A Guild Race!",
+                vi: "**Khóa Chặt Ngưỡng 24.8%**: Giữ nguyên nhánh Kinh Tế (`Economy`) ở đúng mức `24.8%` vào ngày thường.\n• **Xả Đúng Giờ Vàng**: Bảo toàn các node `10–20 phút` dành riêng cho khung giờ `17:00 – 21:00` Thứ Ba Tuần B (`Arms Race Day 2`) và Nhiệm vụ Vàng đếm số lần nghiên cứu của `Guild Race` (Tuần A)!",
+                en: "**Lock the 24.8% Threshold**: Freeze the `Economy` branch strictly at `24.8%` on non-event days.\n• **Golden Window Execution**: Preserve all `10–20m` nodes exclusively for `17:00 – 21:00` on Week B Tuesday (`Arms Race Day 2`) and frequency-based Golden Tasks in Week A `Guild Race`!",
               },
               impactBadge: {
                 vi: "Bảo Toàn Kho Mồi 24.8%",
@@ -1453,8 +1453,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
             },
           ],
           conclusion: {
-            vi: "Chỉ sau 2 chu kỳ Tuần A – Tuần B tái cơ cấu từ trạng thái dàn trải (Tân Thủ 95.3%, Tăng Cường Đội 1 36.6%, Phát Triển 30.1%, Kinh Tế 24.8%, Lính 17.0%, Anh Hùng 13.6%), tài khoản mở khóa thành công Hộp Thứ 6 Arms Race Prep (+200% lợi tức rương), hoàn tất 100% Queue 1 Boost và tiết kiệm hàng trăm giờ tăng tốc nhờ Pre-Click Snapshot.",
-            en: "Within just two Week A – Week B cycles of restructuring from a fragmented state (Beginner 95.3%, Queue 1 Boost 36.6%, Development 30.1%, Economy 24.8%, Soldiers 17.0%, Heroes 13.6%), the account unlocks the Arms Race Prep 6th Chest (+200% chest returns), completes 100% Queue 1 Boost, and saves hundreds of speedup hours via Pre-Click Snapshot.",
+            vi: "**Kết quả Tái cơ cấu**: Sau 2 chu kỳ Tuần A – Tuần B từ trạng thái dàn trải (Tân Thủ `95.3%`, Đội 1 `36.6%`, Phát Triển `30.1%`, Kinh Tế `24.8%`, Lính `17.0%`, Anh Hùng `13.6%`).\n• **Thành tựu Đột phá**: Mở khóa thành công Hộp Thứ 6 `Arms Race Prep` (`+200%` rương GAR), hoàn tất `100%` `Queue 1 Boost` và tiết kiệm hàng trăm giờ tăng tốc nhờ `Pre-Click Snapshot`.",
+            en: "**Restructure Outcome**: Within two Week A – Week B cycles from a fragmented state (Beginner `95.3%`, Queue 1 `36.6%`, Development `30.1%`, Economy `24.8%`, Soldiers `17.0%`, Heroes `13.6%`).\n• **Breakthrough Gains**: Unlocked the `Arms Race Prep` 6th Chest (`+200%` GAR chests), completed `100%` `Queue 1 Boost`, and saved hundreds of speedup hours via `Pre-Click Snapshot`.",
           },
         },
       ],

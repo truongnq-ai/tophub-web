@@ -16,34 +16,34 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
   },
   tldr: {
     coreRule: {
-      vi: "Mỗi đồng tiền tệ trong 13 cửa hàng (Arena Shop, Guild Points, Medal Shop, VIP Shop, Exchange Shop, Wheel, Dice of Fate, Kingdom Emblem...) chỉ có 1–2 vật phẩm tối thượng đạt hiệu suất ROI 300%–600% đáng mua. Tuyệt đối không rải điểm mua nguyên liệu thô (Thịt, Gỗ, Đá, Ruby) có thể cày miễn phí trên bản đồ.",
-      en: "Every currency across the 13 shops (Arena Shop, Guild Points, Medal Shop, VIP Shop, Exchange Shop, Wheel, Dice of Fate, Kingdom Emblem...) has only 1–2 supreme items delivering 300%–600% Diamond Equivalent ROI. Never scatter scarce shop currencies on farmable raw resources (Meat, Wood, Stone, Rubies).",
+      vi: "**Quy tắc Tối ưu Tỷ giá (ROI):** Mỗi đồng tiền tệ trong `13` cửa hàng chỉ có `1–2` vật phẩm tối thượng đạt hiệu suất ROI `300%`–`600%` đáng mua.\n• **Hệ thống 13 Cửa hàng:** Từ Arena Shop, Guild Points, Medal Shop, VIP Shop, Exchange Shop đến Wheel, Dice of Fate, Kingdom Emblem — cấm rải điểm mua nguyên liệu thô (Thịt, Gỗ, Đá, Ruby).",
+      en: "**Diamond Equivalent ROI Rule:** Every currency across the `13` in-game shops has only `1–2` supreme items delivering `300%`–`600%` Diamond Equivalent ROI.\n• **13-Shop Ecosystem:** Across Arena Shop, Guild Points, Medal Shop, VIP Shop, Exchange Shop, Wheel, Dice of Fate, and Kingdom Emblem, never waste currency on farmable Meat, Wood, Stone, or Rubies.",
     },
     immediateAction: {
-      vi: "Thiết lập Ngưỡng Đóng Băng Ví (Weekly Wallet Safety Floor) trước 07:00 sáng Thứ Hai: giữ tối thiểu 1,900–2,000 Sao Đấu Trường (Arena Shop), 12,000–15,000 Điểm Cống Hiến Bang (Guild Points), và 40,000 Điểm Vinh Dự Bang / 6,000 Xu Vinh Quang Hội mỗi viên Hồn Đá Đỏ (Soul Stone). Trong Tuần A (Guild Race), chờ nhận Nhiệm vụ Vàng 'Chi tiêu Điểm Tiệm' rồi mới thanh toán giỏ hàng.",
-      en: "Establish your Weekly Wallet Safety Floor before Monday 07:00 server reset: keep at least 1,900–2,000 Arena Stars (Arena Shop), 12,000–15,000 Guild Contribution Points (Guild Points), and 40,000 Guild Honor / 6,000 Guild Coins per Soul Stone. During Week A (Guild Race), wait until you claim a Gold 'Spend Shop Currency' task before checking out.",
+      vi: "**Thiết lập Ngưỡng Đóng Băng Ví (Weekly Safety Floor):** Khóa số dư trước `07:00` sáng Thứ Hai: `1,900`–`2,000` Sao (Arena Shop) và `12,000`–`15,000` Điểm (Guild Points).\n• **Dự phòng Hồn Đá & Tuần A:** Khóa `40,000` Điểm Vinh Dự / `6,000` Xu Vinh Quang mỗi viên Soul Stone; trong Tuần A (Guild Race), chờ nhận Nhiệm vụ Vàng 'Chi tiêu Điểm Tiệm' mới thanh toán.",
+      en: "**Lock Weekly Wallet Safety Floors:** Before Monday `07:00` reset, keep at least `1,900`–`2,000` Arena Stars (Arena Shop) and `12,000`–`15,000` Guild Contribution Points (Guild Points).\n• **Soul Stone & Week A Sync:** Reserve `40,000` Guild Honor / `6,000` Guild Coins per Soul Stone; during Week A (Guild Race), claim a Gold 'Spend Shop Currency' task before checking out.",
     },
     strictTaboo: {
-      vi: "CẤM mua Trang phục Tướng Guardian Skin giá 12,000 Sao trong Arena Shop khi Đội 1 chưa tối đa sao; CẤM mua Vé Chiêu Mộ giá gốc 300 Sao; CẤM nhầm lẫn mốc 12 Sao (2 Sao Trắng mở Trait 3 +30%) với mốc 15 Sao (5 Sao Trắng/Bạc = 500 hoặc 1,000 Mảnh mở khóa Hero Shard Exchange Shop); và CẤM xả ngay Vé Chiêu Mộ hay Mảnh Tướng (1,500 Sao/5 mảnh) vừa mua trong Tuần A.",
-      en: "NEVER buy the 12,000 Arena Stars Guardian Skin in Arena Shop before maxing Queue 1 stars; NEVER buy full-price 300-Star Recruitment Tokens; NEVER confuse the 12-Star Trait 3 milestone (2 White Stars +30%) with the 15-Star Hero Shard Exchange Shop unlock (5 White/Silver Stars = 500 or 1,000 Shards); and NEVER immediately consume Recruitment Tokens or Hero Shards (1,500 Stars/5 shards) bought during Week A.",
+      vi: "**Cấm mua vật phẩm bẫy F-Tier:** CẤM mua Guardian Skin giá `12,000` Sao tại Arena Shop khi Đội 1 chưa tối đa sao, và CẤM mua Vé Chiêu Mộ giá gốc `300` Sao.\n• **Không nhầm mốc Sao & Xả sớm:** Phân biệt mốc `12` Sao (Trait 3 `+30%`) với mốc `15` Sao (`500` hoặc `1,000` Mảnh mở Exchange Shop); cấm xả ngay Vé/Mảnh (`1,500` Sao/5 mảnh) trong Tuần A.",
+      en: "**Zero F-Tier Trap Purchases:** NEVER buy the `12,000`-Star Guardian Skin in Arena Shop before maxing Queue 1 stars, and NEVER buy full-price `300`-Star Tokens.\n• **Star Milestones & Week A Hold:** Never confuse `12`-Star Trait 3 (`+30%`) with the `15`-Star Exchange Shop unlock (`500` or `1,000` Shards); never consume `1,500`-Star shards in Week A.",
     },
   },
   keyTakeaways: [
     {
-      vi: "Phân tầng 3 nhóm kiến trúc trong Bản đồ 13 Cửa hàng: (1) Tiệm Tĩnh (Arena Shop, Guild Points, Medal Shop) giữ nguyên danh mục từ Ngày 1 đến Season 4+; (2) Tiệm Động Tiến Hóa (Guild Honor / Guild Coin Shop, VIP Shop, Exchange Shop, Decor Token Shop) nâng cấp đột biến ở Lâu Đài Lv.30 & Season 1+ (bán Soul Stone giá 40,000 Điểm Vinh Dự hoặc 6,000 Xu Vinh Quang Hội); (3) Tiệm Sự Kiện & Liên Server (Combat Valor, 4 Nations, Wheel, Dice of Fate, Kingdom Emblem, Invasion) cung cấp Orichalcum, Dragon Blood và Mảnh Vũ Khí Độc Quyền.",
-      en: "Three architectural tiers across the 13 In-Game Shops: (1) Static Shops (Arena Shop, Guild Points, Medal Shop) keep fixed inventories from Day 1 through Season 4+; (2) Dynamic Evolving Shops (Guild Honor / Guild Coin Shop, VIP Shop, Exchange Shop, Decor Token Shop) upgrade drastically at Castle Lv.30 & Season 1+ (unlocking Soul Stones at 40,000 Guild Honor or 6,000 Guild Coins); (3) Event & Cross-Server Shops (Combat Valor, 4 Nations, Wheel, Dice of Fate, Kingdom Emblem, Invasion) supply Orichalcum, Dragon Blood, and Universal Exclusive Gear Shards.",
+      vi: "**Kiến trúc 3 tầng của 13 Cửa hàng:** Phân tách rõ nhóm Tiệm Tĩnh, Tiệm Động Tiến Hóa (Lv.30 / Season 1+) và Tiệm Sự Kiện Liên Server.\n• **Tiệm Tĩnh & Tiệm Động:** Arena Shop, Guild Points, Medal Shop giữ danh mục cố định; Guild Honor / VIP Shop / Exchange Shop mở bán Soul Stone giá `40,000` Điểm hoặc `6,000` Xu ở Lv.30/S1+.\n• **Tiệm Sự Kiện:** Combat Valor, 4 Nations, Wheel, Dice of Fate, Kingdom Emblem cung cấp Orichalcum, Dragon Blood và Mảnh Vũ Khí Độc Quyền.",
+      en: "**3 Architectural Shop Tiers:** Categorizes all `13` shops into Static, Dynamic Evolving (Lv.30 / Season 1+), and Cross-Server Event storefronts.\n• **Static & Dynamic Shops:** Arena Shop, Guild Points, and Medal Shop keep fixed catalogs; Guild Honor, VIP Shop, and Exchange Shop unlock Soul Stones at `40,000` Honor or `6,000` Coins.\n• **Event & Cross-Server Shops:** Combat Valor, 4 Nations, Wheel, Dice of Fate, and Kingdom Emblem supply Orichalcum, Dragon Blood, and Exclusive Gear Shards.",
     },
     {
-      vi: "Kỷ luật Ngưỡng Đóng Băng Ví (Weekly Safety Floor) & Tỷ giá ROI: Luôn khóa tối thiểu 1,900–2,000 Sao tại Arena Shop để sáng Thứ Hai vét ngay Gói 300 KC siêu rẻ (50 Sao, ROI 600%), Vé Chiêu Mộ giảm giá (50 Sao, ROI 300%), Gói 300 KC định mức (300 Sao) và 5 Mảnh Tướng Vàng Hệ Chính (1,500 Sao cho Soulmancer, Warlock, Pyromancer, Adjudicator hoặc Pixie).",
-      en: "Weekly Safety Floor & ROI Discipline: Always lock at least 1,900–2,000 Arena Stars in Arena Shop before Monday reset to instantly buy the Super Discount 300 Diamonds Pack (50 Stars, 600% ROI), Discounted Recruitment Token (50 Stars, 300% ROI), Standard 300 Diamonds Pack (300 Stars), and 5 Main-Faction Legendary Hero Shards (1,500 Stars for Soulmancer, Warlock, Pyromancer, Adjudicator, or Pixie).",
+      vi: "**Kỷ luật Ngưỡng Đóng Băng Ví (Safety Floor):** Luôn khóa tối thiểu `1,900`–`2,000` Sao tại Arena Shop trước `07:00` sáng Thứ Hai để vét trọn combo S+.\n• **Combo 1,900 Sao/tuần:** Mua Gói `300` KC (`50` Sao, ROI `600%`), Vé (`50` Sao, ROI `300%`), Gói `300` KC (`300` Sao) và `5` Mảnh (`1,500` Sao: Soulmancer, Warlock, Pyromancer, Adjudicator, Pixie).",
+      en: "**Weekly Safety Floor & ROI Discipline:** Always lock at least `1,900`–`2,000` Arena Stars in Arena Shop before Monday `07:00` reset to sweep the S+ bundle.\n• **1,900-Star Bundle:** Buy `300` Diamonds (`50` Stars, `600%` ROI), Token (`50` Stars, `300%` ROI), `300` Diamonds (`300` Stars), and `5` Shards (`1,500` Stars: Soulmancer, Warlock, Pyromancer, Adjudicator, Pixie).",
     },
     {
-      vi: "Quản trị Guild Points, Chiến Trường & Tiệm Đổi Mảnh (Exchange Shop): Duy trì 12,000–15,000 Guild Points dự phòng, mỗi tuần mua 1,000 Điểm VIP, Bình Thể Lực (800 Điểm) và Khiên Hòa Bình 8h/24h. Lưu ý phân biệt rõ: Tướng Tím Kinh tế nâng lên 12 Sao (2 Sao Trắng) để mở Trait 3 (+30% tốc độ xây dựng/nghiên cứu), còn phải đẩy 1 tướng lên tối đa 15 Sao (5 Sao Trắng/Bạc = 500 hoặc 1,000 Mảnh) mới mở khóa Hero Shard Exchange Shop.",
-      en: "Guild Points, Battlefield & Exchange Shop Governance: Maintain a 12,000–15,000 Guild Points reserve while buying 1,000 VIP Points, Stamina Potions (800 Points), and 8h/24h Peace Shields weekly. Strictly distinguish star milestones: Economy Epic heroes reach 12 Stars (2 White Stars) to unlock Trait 3 (+30% build/research speed), whereas maxing a hero to 15 Stars (5 White/Silver Stars = 500 or 1,000 Shards) is required to unlock the Hero Shard Exchange Shop.",
+      vi: "**Quản trị Guild Points & Exchange Shop:** Duy trì sàn `12,000`–`15,000` Guild Points, mỗi tuần mua `1,000` Điểm VIP, Bình Thể Lực (`800` Điểm) và Khiên Hòa Bình 8h/24h.\n• **Phân biệt mốc 12 Sao vs 15 Sao:** Tướng Tím Kinh tế dừng ở `12` Sao (2 Sao Trắng) mở Trait 3 (`+30%`), còn đẩy 1 tướng chạm `15` Sao (`500` hoặc `1,000` Mảnh) mới mở Exchange Shop.",
+      en: "**Guild Points & Exchange Shop Governance:** Maintain a `12,000`–`15,000` Guild Points floor while buying `1,000` VIP Points, Stamina (`800` Points), and 8h/24h Shields weekly.\n• **12-Star vs 15-Star Milestone:** Economy Epics stop at `12` Stars (2 White Stars) for Trait 3 (`+30%`), while maxing one hero to `15` Stars (`500` or `1,000` Shards) unlocks Exchange Shop.",
     },
     {
-      vi: "Đồng bộ Chu kỳ Đôi (Tuần A Guild Race ⇄ Tuần B GAR / KvK): Trong Tuần A, đóng băng giỏ hàng đầu tuần chờ nhận Nhiệm vụ Vàng 'Chi tiêu Điểm Tiệm' rồi mới thanh toán; toàn bộ Vé Chiêu Mộ và Mảnh Tướng mua được phải cất kho 100% chờ Thứ Năm Tuần B (Arms Race Day 4) mới xả để ăn điểm Double-Dip.",
-      en: "Bi-Weekly Cycle Synchronization (Week A Guild Race ⇄ Week B GAR / KvK): In Week A, freeze Monday shop checkouts until you claim a Gold 'Spend Shop Currency' task; lock 100% of purchased Recruitment Tokens and Hero Shards in inventory until Thursday of Week B (Arms Race Day 4) for Double-Dip event scoring.",
+      vi: "**Đồng bộ Chu kỳ Đôi (Tuần A ⇄ Tuần B):** Trong Tuần A (Guild Race), đóng băng giỏ hàng đầu tuần chờ nhận Nhiệm vụ Vàng 'Chi tiêu Điểm Tiệm' mới thanh toán.\n• **Tích kho Double-Dip:** Cất kho `100%` Vé Chiêu Mộ và Mảnh Tướng mua được trong Tuần A chờ Thứ Năm Tuần B (Arms Race Day 4) mới xả để nhân đôi điểm.",
+      en: "**Bi-Weekly Cycle Sync (Week A ⇄ Week B):** In Week A (Guild Race), freeze Monday shop checkouts until claiming a Gold 'Spend Shop Currency' task first.\n• **Thursday Double-Dip Hoard:** Lock `100%` of purchased Recruitment Tokens and Hero Shards in inventory until Thursday Week B (Arms Race Day 4) to score.",
     },
   ],
   keywords: [
@@ -89,8 +89,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Trong Top Heroes, hệ thống kinh tế được phân mảnh thành 13 nhóm cửa hàng độc lập (Arena Shop, Guild Points, Guild Honor / Guild Coin Shop, Combat Valor / Battlefield, 4 Nations / Citadel Clash, Medal Shop, VIP Shop, Exchange Shop, Wheel, Dice of Fate, Kingdom Emblem, Black Dragon / Yeti Invasion và Decor Token Shop). Sai lầm lớn nhất khiến người chơi F2P và Low-Spender bị tụt lại phía sau không phải là thiếu lực chiến, mà là đốt tiền tệ quý hiếm vào các mặt hàng có tỷ giá quy đổi Kim Cương (Diamond Equivalent ROI) thấp thay vì tập trung vào nhóm vật phẩm đạt ROI 300% đến 600%.",
-            en: "In Top Heroes, the game economy is partitioned across 13 independent shop groups (Arena Shop, Guild Points, Guild Honor / Guild Coin Shop, Combat Valor / Battlefield, 4 Nations / Citadel Clash, Medal Shop, VIP Shop, Exchange Shop, Wheel, Dice of Fate, Kingdom Emblem, Black Dragon / Yeti Invasion, and Decor Token Shop). The biggest mistake holding F2P and Low-Spender accounts back is burning scarce currencies on low-yield items instead of focusing strictly on 300% to 600% Diamond Equivalent ROI targets.",
+            vi: "**Phân mảnh Kinh tế 13 Cửa hàng:** Hệ thống tiệm chia làm `13` nhóm độc lập (Arena Shop, Guild Points, Guild Honor, Combat Valor, 4 Nations, Medal Shop, VIP Shop, Exchange Shop, Wheel, Dice of Fate, Kingdom Emblem).\n• **Nguyên nhân Thọt Tài Nguyên:** Sai lầm lớn nhất của F2P/Low-Spender là đốt tiền tệ quý vào mặt hàng có tỷ giá Kim Cương (Diamond Equivalent ROI) thấp thay vì dồn 100% vào nhóm đạt ROI `300%` đến `600%`.",
+            en: "**The 13-Shop Economic Landscape:** Top Heroes splits currencies across `13` shops (Arena Shop, Guild Points, Guild Honor, Medal Shop, VIP Shop, Exchange Shop, Wheel, Dice of Fate, Kingdom Emblem).\n• **Root Cause of Resource Starvation:** F2P/Low-Spenders fall behind by burning scarce currencies on low-yield items instead of focusing strictly on `300%` to `600%` Diamond Equivalent ROI targets.",
           },
         },
       ],
@@ -107,16 +107,16 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
               ordered: true,
               items: [
                 {
-                  vi: "Nhóm Cửa hàng Tĩnh (Static Shops — Danh mục cố định vĩnh viễn): Bao gồm Cửa hàng Đấu Trường (Arena Shop), Cửa hàng Cống Hiến Bang (Guild Points Shop) và Cửa hàng Huân Chương (Medal Shop). Danh mục hàng hóa giữ nguyên từ Ngày 1 cho đến Season 4+ và không bao giờ cập nhật thêm Tướng Đỏ (Mythic) hay Quân Trang Vàng. Chiến lược chuẩn là duy trì Ngưỡng Đóng Băng Ví (Safety Floor: 1,900–2,000 Sao tại Arena Shop và 12,000–15,000 Điểm tại Guild Points Shop) và vét đều đặn các ô giảm giá sâu (ROI 300%–600%) mỗi tuần.",
-                  en: "Static Shops (Permanently Fixed Inventories): Includes the Arena Shop, Guild Contribution Shop (Guild Points Shop), and Medal Shop. Their item catalogs remain unchanged from Day 1 through Season 4+ and never add Mythic Heroes or Legendary Troop Skins. The optimal strategy is maintaining your Weekly Safety Floor (1,900–2,000 Stars in Arena Shop and 12,000–15,000 Points in Guild Points Shop) while sweeping deep-discount slots (300%–600% ROI) every week.",
+                  vi: "**Nhóm Cửa hàng Tĩnh (Static Shops):** Gồm Arena Shop, Guild Points và Medal Shop có danh mục cố định vĩnh viễn; luôn giữ sàn `1,900`–`2,000` Sao và `12,000`–`15,000` Điểm để vét ô ROI `300%`–`600%` mỗi tuần.",
+                  en: "**Static Shops (Fixed Inventories):** Arena Shop, Guild Points, and Medal Shop keep fixed catalogs through Season 4+; maintain `1,900`–`2,000` Stars and `12,000`–`15,000` Points floors to sweep `300%`–`600%` ROI slots.",
                 },
                 {
-                  vi: "Nhóm Cửa hàng Động Tiến Hóa (Dynamic / Evolving Shops — Mở khóa theo Lâu Đài & Mùa Giải): Bao gồm Cửa hàng Vinh Dự Bang / Xu Vinh Quang Hội (Guild Honor / Guild Coin Shop), Cửa hàng VIP & Kim Cương (VIP Shop), Cửa hàng Đổi Điểm Chiêu Mộ / Mảnh Dư (Exchange Shop) và Cửa hàng Trang Trí (Decor Token Shop). Khi Lâu Đài đạt Lv.30 hoặc máy chủ bước vào Season 1+, Guild Honor / Guild Coin Shop sẽ mở bán Hồn Đá Đỏ (Soul Stone) với 2 biểu giá chuẩn: 40,000 Điểm Vinh Dự Bang / viên (Rương tự chọn Lv.30, tổng 360,000 Điểm cho 9 viên) và 6,000 Xu Vinh Quang Hội / viên (xoay tua 3 tuần S1: League ➔ Horde ➔ Nature, tổng 54,000 Xu cho 9 viên). Đối với Exchange Shop, cần phân biệt rõ: nâng Tướng Tím Kinh tế lên 12 Sao (2 Sao Trắng) giúp mở khóa Trait 3 (+30% tốc độ xây dựng/nghiên cứu), còn phải đẩy ít nhất 1 tướng lên tối đa 15 Sao (5 Sao Trắng/Bạc = 500 Mảnh với Knight hoặc 1,000 Mảnh với Tướng Tím/Vàng) mới chính thức mở khóa Hero Shard Exchange Shop.",
-                  en: "Dynamic / Evolving Shops (Castle & Season Progression Unlocks): Includes the Guild Honor / Guild Coin Shop, VIP Shop, Exchange Shop, and Decor Token Shop. Reaching Castle Lv.30 or entering Season 1+ upgrades the Guild Honor / Guild Coin Shop with Soul Stones under two pricing models: 40,000 Guild Honor per stone (Lv.30 Choice Chest, 360,000 Honor for 9 stones) and 6,000 Guild Coins per stone (3-week S1 faction rotation: League ➔ Horde ➔ Nature, 54,000 Coins for 9 stones). For the Exchange Shop, distinguish the exact star milestones: pushing Economy Epic heroes to 12 Stars (2 White Stars) unlocks Trait 3 (+30% build/research speed), whereas maxing at least one hero to 15 Stars (5 White/Silver Stars = 500 Shards for Knight or 1,000 Shards for Epic/Legendary heroes) is required to unlock the Hero Shard Exchange Shop.",
+                  vi: "**Nhóm Cửa hàng Động (Evolving Shops):** Gồm Guild Honor, VIP Shop, Exchange Shop; ở Lv.30/S1+ mở bán Soul Stone (`40,000` Điểm / `6,000` Xu), còn Exchange Shop mở khi có tướng đạt `15` Sao (`500` hoặc `1,000` Mảnh).",
+                  en: "**Dynamic Evolving Shops:** Guild Honor, VIP Shop, and Exchange Shop upgrade at Lv.30/S1+ with Soul Stones (`40,000` Honor / `6,000` Coins), while Exchange Shop unlocks at `15` Stars (`500` or `1,000` Shards).",
                 },
                 {
-                  vi: "Nhóm Cửa hàng Sự Kiện & Chiến Trường Liên Server (Event & Cross-Server Shops): Bao gồm Cửa hàng Chiến Trường / Dũng Khí (Combat Valor / Battlefield Shop), Cửa hàng 4 Quốc Gia / Thành Đô (4 Nations / Citadel Clash Shop), Cửa hàng Vòng Quay (Wheel Token Shop), Cửa hàng Xúc Xắc (Dice of Fate Shop), Cửa hàng Vương Quốc (Kingdom Emblem Shop) và Cửa hàng Xâm Lăng (Black Dragon / Yeti Invasion Shop). Đây là nguồn cung độc quyền nguyên liệu cuối game như Bản vẽ Chúa tể (Orichalcum), Máu Rồng (Dragon Blood), Tinh chất Rồng (Dragon Essence) và Mảnh Vũ Khí Độc Quyền Vạn Năng.",
-                  en: "Event & Cross-Server Shops: Includes the Combat Valor / Battlefield Shop, 4 Nations / Citadel Clash Shop, Wheel Token Shop (Wheel), Dice of Fate Shop, Kingdom Emblem Shop, and Black Dragon / Yeti Invasion Shop. These shops provide exclusive endgame bottlenecks including Lord Gear blueprints (Orichalcum), Dragon Blood, Dragon Essence, and Universal Exclusive Gear Shards.",
+                  vi: "**Nhóm Cửa hàng Sự Kiện Liên Server (Event Shops):** Gồm Combat Valor, 4 Nations, Wheel, Dice of Fate, Kingdom Emblem và Invasion cung cấp độc quyền Orichalcum, Dragon Blood, Dragon Essence và Mảnh Vũ Khí Độc Quyền.",
+                  en: "**Event & Cross-Server Shops:** Combat Valor, 4 Nations, Wheel, Dice of Fate, Kingdom Emblem, and Invasion shops supply exclusive endgame Orichalcum, Dragon Blood, Dragon Essence, and Exclusive Gear Shards.",
                 },
               ],
             },
@@ -194,8 +194,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
               rows: [
                 [
                   { vi: "1", en: "1" },
-                  { vi: "Cửa hàng Đấu Trường (Arena Shop)", en: "Arena Shop (Cửa hàng Đấu Trường)" },
-                  { vi: "Sao Đấu Trường (Arena Stars)", en: "Arena Stars (Sao Đấu Trường)" },
+                  { vi: "Cửa hàng Đấu Trường (Arena Shop)", en: "Arena Shop" },
+                  { vi: "Sao Đấu Trường (Arena Stars)", en: "Arena Stars" },
                   { vi: "Tĩnh (Static)", en: "Static" },
                   { vi: "7 ngày (07:00 Thứ Hai)", en: "Weekly (Monday 07:00)" },
                   {
@@ -205,8 +205,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                 ],
                 [
                   { vi: "2", en: "2" },
-                  { vi: "Cửa hàng Bang Hội Thường (Guild Points Shop)", en: "Guild Points Shop (Cửa hàng Bang Hội Thường)" },
-                  { vi: "Điểm Cống Hiến Bang (Guild Points)", en: "Guild Points (Điểm Cống Hiến Bang)" },
+                  { vi: "Cửa hàng Bang Hội Thường (Guild Points Shop)", en: "Guild Points Shop" },
+                  { vi: "Điểm Cống Hiến Bang (Guild Points)", en: "Guild Points" },
                   { vi: "Tĩnh (Static)", en: "Static" },
                   { vi: "Hàng ngày & 7 ngày", en: "Daily & Weekly" },
                   {
@@ -216,8 +216,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                 ],
                 [
                   { vi: "3", en: "3" },
-                  { vi: "Cửa hàng Chiến Trường (Combat Valor / Battlefield Shop)", en: "Combat Valor / Battlefield Shop (Cửa hàng Chiến Trường)" },
-                  { vi: "Điểm Dũng Khí (Valor Coins)", en: "Valor Coins (Điểm Dũng Khí)" },
+                  { vi: "Cửa hàng Chiến Trường (Combat Valor / Battlefield Shop)", en: "Combat Valor / Battlefield Shop" },
+                  { vi: "Điểm Dũng Khí (Valor Coins)", en: "Valor Coins" },
                   { vi: "Bán động (Semi-Dynamic)", en: "Semi-Dynamic" },
                   { vi: "7 ngày / Theo kỳ", en: "Weekly / Per Event" },
                   {
@@ -227,8 +227,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                 ],
                 [
                   { vi: "4", en: "4" },
-                  { vi: "Cửa hàng 4 Quốc Gia / Thành Đô (4 Nations / Citadel Clash Shop)", en: "4 Nations / Citadel Clash Shop (Cửa hàng 4 Quốc Gia)" },
-                  { vi: "Xu Chiến Đấu / Vé (Clash Coins / Tickets)", en: "Clash Coins / Tickets (Xu Chiến Đấu)" },
+                  { vi: "Cửa hàng 4 Quốc Gia / Thành Đô (4 Nations / Citadel Clash Shop)", en: "4 Nations / Citadel Clash Shop" },
+                  { vi: "Xu Chiến Đấu / Vé (Clash Coins / Tickets)", en: "Clash Coins / Tickets" },
                   { vi: "Bán động (Semi-Dynamic)", en: "Semi-Dynamic" },
                   { vi: "Theo mùa giải / Tuần", en: "Seasonal / Weekly" },
                   {
@@ -238,8 +238,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                 ],
                 [
                   { vi: "5", en: "5" },
-                  { vi: "Cửa hàng Vinh Dự Bang / Xu Vinh Quang (Guild Honor / Guild Coin Shop)", en: "Guild Honor / Guild Coin Shop (Cửa hàng Vinh Dự Bang)" },
-                  { vi: "Điểm Vinh Dự (Guild Honor) / Xu Vinh Quang Hội (Guild Coins)", en: "Guild Honor / Guild Coins (Điểm Vinh Dự / Xu Vinh Quang)" },
+                  { vi: "Cửa hàng Vinh Dự Bang / Xu Vinh Quang (Guild Honor / Guild Coin Shop)", en: "Guild Honor / Guild Coin Shop" },
+                  { vi: "Điểm Vinh Dự (Guild Honor) / Xu Vinh Quang Hội (Guild Coins)", en: "Guild Honor / Guild Coins" },
                   { vi: "Động (Evolving Lv.30 & S1+)", en: "Dynamic Evolving (Lv.30 & S1+)" },
                   { vi: "7 ngày (07:00 Thứ Hai)", en: "Weekly (Monday 07:00)" },
                   {
@@ -249,8 +249,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                 ],
                 [
                   { vi: "6", en: "6" },
-                  { vi: "Cửa hàng VIP & Kim Cương (VIP Shop)", en: "VIP Shop (Cửa hàng VIP & Kim Cương)" },
-                  { vi: "Kim Cương (Diamonds)", en: "Diamonds (Kim Cương)" },
+                  { vi: "Cửa hàng VIP & Kim Cương (VIP Shop)", en: "VIP Shop" },
+                  { vi: "Kim Cương (Diamonds)", en: "Diamonds" },
                   { vi: "Động (Theo cấp VIP & Castle)", en: "Dynamic (Scales with VIP & Castle)" },
                   { vi: "7 ngày (07:00 Thứ Hai)", en: "Weekly (Monday 07:00)" },
                   {
@@ -260,7 +260,7 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                 ],
                 [
                   { vi: "7", en: "7" },
-                  { vi: "Cửa hàng Đổi Điểm / Mảnh Dư (Exchange Shop)", en: "Exchange Shop (Cửa hàng Đổi Điểm / Mảnh Dư)" },
+                  { vi: "Cửa hàng Đổi Điểm / Mảnh Dư (Exchange Shop)", en: "Exchange Shop" },
                   { vi: "Điểm Chiêu Mộ & Mảnh Tướng 15 Sao dư", en: "Tavern Recruitment Points & Excess 15-Star Hero Shards" },
                   { vi: "Động (Mở khi có tướng tối đa 15 Sao)", en: "Dynamic (Unlocks at 15-Star Max Hero)" },
                   { vi: "7 ngày (07:00 Thứ Hai)", en: "Weekly (Monday 07:00)" },
@@ -271,8 +271,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                 ],
                 [
                   { vi: "8", en: "8" },
-                  { vi: "Cửa hàng Vòng Quay (Wheel Token Shop)", en: "Wheel Token Shop (Cửa hàng Vòng Quay — Wheel)" },
-                  { vi: "Xu Vòng Quay (Wheel Coins)", en: "Wheel Coins (Xu Vòng Quay)" },
+                  { vi: "Cửa hàng Vòng Quay (Wheel Token Shop)", en: "Wheel Token Shop (Wheel)" },
+                  { vi: "Xu Vòng Quay (Wheel Coins)", en: "Wheel Coins" },
                   { vi: "Sự kiện (Chu kỳ 3 tuần/lần)", en: "Event (3-Week Rotation)" },
                   { vi: "Bảo lưu Xu qua các kỳ", en: "Coins Carry Over Across Events" },
                   {
@@ -282,8 +282,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                 ],
                 [
                   { vi: "9", en: "9" },
-                  { vi: "Cửa hàng Xúc Xắc (Dice of Fate Shop)", en: "Dice of Fate Shop (Cửa hàng Xúc Xắc)" },
-                  { vi: "Xu / Phiếu Xúc Xắc (Dice Vouchers)", en: "Dice Vouchers / Coins (Phiếu Xúc Xắc)" },
+                  { vi: "Cửa hàng Xúc Xắc (Dice of Fate Shop)", en: "Dice of Fate Shop" },
+                  { vi: "Xu / Phiếu Xúc Xắc (Dice Vouchers)", en: "Dice Vouchers / Coins" },
                   { vi: "Sự kiện (Chu kỳ 3 tuần/lần)", en: "Event (3-Week Rotation)" },
                   { vi: "Bảo lưu Xu qua các kỳ", en: "Vouchers Carry Over Across Events" },
                   {
@@ -293,8 +293,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                 ],
                 [
                   { vi: "10", en: "10" },
-                  { vi: "Cửa hàng Huân Chương (Medal Shop)", en: "Medal Shop (Cửa hàng Huân Chương)" },
-                  { vi: "Huân Chương Vinh Quang (Glory Medals)", en: "Glory Medals (Huân Chương Vinh Quang)" },
+                  { vi: "Cửa hàng Huân Chương (Medal Shop)", en: "Medal Shop" },
+                  { vi: "Huân Chương Vinh Quang (Glory Medals)", en: "Glory Medals" },
                   { vi: "Tĩnh (Static)", en: "Static" },
                   { vi: "7 ngày (Skin) & 24h (Tăng tốc)", en: "Weekly (Skins) & 24h (Speed-ups)" },
                   {
@@ -304,8 +304,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                 ],
                 [
                   { vi: "11", en: "11" },
-                  { vi: "Cửa hàng Vương Quốc (Kingdom Emblem Shop)", en: "Kingdom Emblem Shop (Cửa hàng Vương Quốc)" },
-                  { vi: "Huy Hiệu Vương Quốc (Kingdom Emblems)", en: "Kingdom Emblems (Huy Hiệu Vương Quốc)" },
+                  { vi: "Cửa hàng Vương Quốc (Kingdom Emblem Shop)", en: "Kingdom Emblem Shop" },
+                  { vi: "Huy Hiệu Vương Quốc (Kingdom Emblems)", en: "Kingdom Emblems" },
                   { vi: "Động (KvK / Season 1+)", en: "Dynamic (KvK / Season 1+)" },
                   { vi: "Theo kỳ KvK / Mùa giải", en: "Per KvK / Seasonal Cycle" },
                   {
@@ -315,8 +315,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                 ],
                 [
                   { vi: "12", en: "12" },
-                  { vi: "Cửa hàng Xâm Lăng (Black Dragon / Yeti Invasion Shop)", en: "Black Dragon / Yeti Invasion Shop (Cửa hàng Xâm Lăng)" },
-                  { vi: "Xu Rồng Đen / Yeti (Invasion Coins)", en: "Invasion Coins (Xu Rồng Đen / Yeti)" },
+                  { vi: "Cửa hàng Xâm Lăng (Black Dragon / Yeti Invasion Shop)", en: "Black Dragon / Yeti Invasion Shop" },
+                  { vi: "Xu Rồng Đen / Yeti (Invasion Coins)", en: "Invasion Coins" },
                   { vi: "Sự kiện (4 tuần/lần)", en: "Event (4-Week Cycle)" },
                   { vi: "Theo kỳ sự kiện", en: "Per Invasion Event" },
                   {
@@ -326,8 +326,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                 ],
                 [
                   { vi: "13", en: "13" },
-                  { vi: "Cửa hàng Trang Trí (Decor Token Shop)", en: "Decor Token Shop (Cửa hàng Trang Trí)" },
-                  { vi: "Xu Trang Trí (Decor Tokens)", en: "Decor Tokens (Xu Trang Trí)" },
+                  { vi: "Cửa hàng Trang Trí (Decor Token Shop)", en: "Decor Token Shop" },
+                  { vi: "Xu Trang Trí (Decor Tokens)", en: "Decor Tokens" },
                   { vi: "Bán động (Semi-Dynamic)", en: "Semi-Dynamic" },
                   { vi: "7 ngày / Theo mùa", en: "Weekly / Seasonal" },
                   {
@@ -351,8 +351,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Trong Phần 1 của chuyên đề Kinh tế Cửa hàng, trọng tâm hàng ngày của mọi người chơi nằm ở 3 nhóm cửa hàng hoạt động liên tục từ tuần đầu tiên: Cửa hàng Đấu Trường (Arena Shop), Cửa hàng Bang Hội Thường (Guild Points Shop), và cụm Cửa hàng Chiến Trường / 4 Quốc Gia (Combat Valor / 4 Nations Shop).",
-            en: "In Part 1 of the Shop Economy series, daily progression revolves around the 3 core shop groups active from week one: the Arena Shop, the Guild Points Shop, and the Battlefield / 4 Nations Shops.",
+            vi: "**Trọng tâm Mua sắm Hàng ngày (Phần 1):** Mọi người chơi đều xoay quanh 3 cụm cửa hàng hoạt động liên tục từ tuần đầu tiên.\n• **Ba Trụ cột Cốt lõi:** Bao gồm Cửa hàng Đấu Trường (Arena Shop), Cửa hàng Bang Hội Thường (Guild Points Shop), và cụm Cửa hàng Chiến Trường / 4 Quốc Gia (Combat Valor / 4 Nations Shop).",
+            en: "**Daily Progression Core (Part 1):** Weekly resource management revolves around 3 foundational shop groups active from week one.\n• **Three Core Pillars:** Includes the Arena Shop, the Guild Points Shop, and the Battlefield / 4 Nations Shops (Combat Valor / Citadel Clash).",
           },
         },
       ],
@@ -369,16 +369,16 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
               ordered: false,
               items: [
                 {
-                  vi: "✅ Nhóm Bắt Buộc Vét Sạch Hàng Tuần (S+ Must-Buy): (1) Gói 300 Kim Cương Siêu Rẻ (50 Arena Stars — Giới hạn 1/1, tỷ giá 1 Sao = 6 KC, hiệu suất ROI 600%); (2) Lệnh Chiêu Mộ Giảm Giá (Recruitment Token giá 50 Arena Stars — Giới hạn 1/1, hiệu suất ROI 300%, rẻ gấp 6 lần vé giá gốc 300 Sao nằm ngay bên dưới); (3) Gói 300 Kim Cương Định Mức (300 Arena Stars — Giới hạn 1/1, tỷ giá 1 Sao = 1 KC để tích quỹ quay Wheel và Dice of Fate).",
-                  en: "✅ Weekly S+ Must-Buys: (1) 300 Diamonds Super Pack (50 Arena Stars — Limit 1/1, 1 Star = 6 Diamonds, 600% ROI); (2) Discounted Recruitment Token (50 Arena Stars — Limit 1/1, 300% ROI, 6x cheaper than the full-price 300-Star token below it); (3) Standard 300 Diamonds Pack (300 Arena Stars — Limit 1/1, 1 Star = 1 Diamond to fund Wheel and Dice of Fate events).",
+                  vi: "**Nhóm S+ Must-Buy Hàng Tuần:** Vét sạch Gói `300` KC siêu rẻ (`50` Sao, ROI `600%`), Vé Chiêu Mộ giảm giá (`50` Sao, ROI `300%`, rẻ hơn 6 lần vé `300` Sao) và Gói `300` KC định mức (`300` Sao).",
+                  en: "**Weekly S+ Must-Buys:** Sweep the `300` Diamonds Super Pack (`50` Stars, `600%` ROI), Discounted Recruitment Token (`50` Stars, `300%` ROI vs `300`-Star full price), and Standard `300` Diamonds Pack (`300` Stars).",
                 },
                 {
-                  vi: "✅ Nhóm Mua Theo Định Hướng 3 Phe Phái (S/A-Tier Faction Focus — 5 Mảnh Tướng Vàng = 1,500 Arena Stars/tuần): Ô đầu tiên của Arena Shop bán 5 mảnh Tướng Vàng (300 Sao/mảnh = 1,500 Sao/tuần) xoay tua mỗi sáng Thứ Hai. Phe Bộ Lạc (Horde): mua ngay Soulmancer và Warlock (2 trụ cột bắt buộc lên 5 Sao Trắng để Thức tỉnh Đỏ bằng Soul Stone ở Lv.30/S1); Phe Liên Minh (League): mua ngay Pyromancer và Adjudicator (hoặc Secret Keeper giai đoạn đầu); Phe Thiên Nhiên (Nature): mua ngay Pixie, Sage, Windwalker hoặc Treeguard.",
-                  en: "✅ 3-Faction Legendary Shard Focus (S/A-Tier — 5 Legendary Shards = 1,500 Arena Stars/week): The first slot of Arena Shop rotates 5 Legendary Hero Shards (300 Stars/shard = 1,500 Stars/week) every Monday morning. Horde: immediately buy Soulmancer and Warlock (both mandatory 5-White-Star Awakening targets at Lv.30/S1); League: immediately buy Pyromancer and Adjudicator (or early Secret Keeper); Nature: immediately buy Pixie, Sage, Windwalker, or Treeguard.",
+                  vi: "**Nhóm Mảnh Tướng Vàng 3 Phe (`1,500` Sao/5 mảnh):** Xoay tua Thứ Hai; Bộ Lạc mua Soulmancer & Warlock, Liên Minh mua Pyromancer & Adjudicator, Thiên Nhiên mua Pixie, Sage hoặc Windwalker.",
+                  en: "**3-Faction Legendary Shards (`1,500` Stars/5 shards):** Rotates Mondays; Horde buys Soulmancer & Warlock, League buys Pyromancer & Adjudicator, and Nature buys Pixie, Sage, or Windwalker.",
                 },
                 {
-                  vi: "✅ Nhóm Mua Khi Dư Điểm (B-Tier Surplus) & ❌ Nhóm Cấm Mua Tuyệt Đối (F-Tier Traps): Chỉ mua Rương Trang Trí Tím Tự Chọn (2,500 Sao) khi số dư vượt xa ngưỡng an toàn 2,000 Sao. Tuyệt đối CẤM mua Trang phục Guardian Skin giá 12,000 Arena Stars (tương đương 12,000 KC / 40 mảnh Tướng Vàng nhưng chỉ cộng chỉ số rất nhỏ), CẤM mua Vé Chiêu Mộ giá gốc 300 Sao hoặc Mảnh Tướng Đỏ lẻ giá 800 Sao đắt đỏ.",
-                  en: "✅ B-Tier Surplus & ❌ F-Tier Traps: Only buy the Epic Decoration Choice Chest (2,500 Stars) when your balance is well above the 2,000-Star floor. Strictly NEVER buy the 12,000 Arena Stars Guardian Skin (costs the equivalent of 12,000 Diamonds / 40 Legendary Shards for negligible stats), NEVER buy full-price 300-Star Recruitment Tokens, and avoid overpriced 800-Star single shard traps.",
+                  vi: "**Nhóm B-Tier Thặng Dư & Bẫy F-Tier Cấm Mua:** Chỉ mua Rương Trang Trí Tím (`2,500` Sao) khi vượt sàn `2,000` Sao; tuyệt đối CẤM mua Guardian Skin giá `12,000` Sao, vé giá gốc `300` Sao hay mảnh lẻ `800` Sao.",
+                  en: "**B-Tier Surplus & F-Tier Traps:** Only buy Epic Decor Chests (`2,500` Stars) above the `2,000`-Star floor; strictly NEVER buy the `12,000`-Star Guardian Skin, full-price `300`-Star tokens, or `800`-Star shards.",
                 },
               ],
             },
@@ -390,8 +390,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                 en: "Arena Shop Safety Floor Rule: Always Lock 1,900 – 2,000 Arena Stars",
               },
               content: {
-                vi: "Luôn giữ tối thiểu 1,900 – 2,000 Sao Đấu Trường trong tài khoản trước 07:00 sáng Thứ Hai để vừa mở Arena Shop là đủ tiền thanh toán ngay combo chuẩn: 50 Sao (300 KC) + 50 Sao (1 Vé) + 300 Sao (300 KC) + 1,500 Sao (5 mảnh Soulmancer / Warlock / Pyromancer / Adjudicator / Pixie) = 1,900 Arena Stars!",
-                en: "Always preserve at least 1,900 – 2,000 Arena Stars before Monday 07:00 server reset so you can immediately purchase the full weekly core combo: 50 Stars (300 Diamonds) + 50 Stars (1 Token) + 300 Stars (300 Diamonds) + 1,500 Stars (5 shards of Soulmancer / Warlock / Pyromancer / Adjudicator / Pixie) = 1,900 Arena Stars!",
+                vi: "**Khóa Sàn `1,900` – `2,000` Sao Đấu Trường:** Luôn giữ tối thiểu `1,900`–`2,000` Sao trước `07:00` sáng Thứ Hai để vừa mở Arena Shop là đủ thanh toán ngay combo chuẩn.\n• **Công thức `1,900` Sao:** `50` Sao (`300` KC) + `50` Sao (1 Vé) + `300` Sao (`300` KC) + `1,500` Sao (5 mảnh Soulmancer / Warlock / Pyromancer / Adjudicator / Pixie) = `1,900` Arena Stars!",
+                en: "**Lock `1,900` – `2,000` Arena Stars:** Preserve at least `1,900`–`2,000` Arena Stars before Monday `07:00` server reset to immediately purchase the full weekly core bundle.\n• **The `1,900`-Star Formula:** `50` Stars (`300` Diamonds) + `50` Stars (Token) + `300` Stars (`300` Diamonds) + `1,500` Stars (5 shards: Soulmancer/Warlock/Pyromancer/Adjudicator/Pixie) = `1,900` Stars!",
               },
             },
             {
@@ -456,12 +456,12 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
               ordered: true,
               items: [
                 {
-                  vi: "Cửa hàng Bang Hội Thường (Guild Points Shop — Ngưỡng Đóng Băng 12,000–15,000 Guild Points): (1) Điểm VIP (20 × 50 = 1,000 Điểm/tuần, tương đương 1,000 KC miễn phí giúp F2P mở VIP 4, VIP 6 và VIP 8); (2) Bình Thể Lực 25 (2 × 400 = 800 Điểm, cất túi đồ xả vào Thứ Tư Tuần B — Arms Race Day 3); (3) Khiên Hòa Bình 8h / 24h (400 / 800 / 2,500 Điểm, luôn tích sẵn 2–3 Khiên 8h và 1 Khiên 24h cho Thứ Bảy KvK); (4) Dịch Chuyển Bang & Cao Cấp (300 / 2,000 Điểm); (5) Tăng Tốc 60m (10 × 200 = 2,000 Điểm, chỉ mua khi Guild Points vượt trên 15,000 Điểm).",
-                  en: "Guild Points Shop (12,000–15,000 Guild Points Safety Floor): (1) VIP Points (20 × 50 = 1,000 Points/week, yielding 1,000 free Diamonds of VIP progression toward VIP 4, VIP 6, and VIP 8); (2) Stamina Potion 25 (2 × 400 = 800 Points, hoarded for Wednesday Week B — Arms Race Day 3); (3) 8h / 24h Peace Shields (400 / 800 / 2,500 Points, keeping 2–3x 8h and 1x 24h Shields for Saturday KvK); (4) Guild & Advanced Relocates (300 / 2,000 Points); (5) 60m Speed-ups (10 × 200 = 2,000 Points, bought strictly when Guild Points exceed 15,000).",
+                  vi: "**Cửa hàng Bang Hội Thường (Sàn `12,000`–`15,000` Guild Points):** Mua `1,000` Điểm VIP/tuần, Thể Lực (`800` Điểm), Khiên 8h/24h (`400`/`800`/`2,500` Điểm), Dịch Chuyển và Tăng Tốc 60m khi trên `15,000` Điểm.",
+                  en: "**Guild Points Shop (`12,000`–`15,000` Guild Points Floor):** Buy `1,000` VIP Points/week, Stamina (`800` Points), 8h/24h Shields (`400`/`800`/`2,500` Points), Relocates, and 60m Speed-ups above `15,000` Points.",
                 },
                 {
-                  vi: "Cửa hàng Chiến Trường & 4 Quốc Gia (Combat Valor / Citadel Clash / 4 Nations Shop): Ưu tiên số 1 là Mảnh Vũ Khí Độc Quyền Vạn Năng (Universal Exclusive Gear Shard: 15–400 Xu) để đột phá mốc Lv.10 và Lv.20 cho tướng Đội 1; ưu tiên số 2 là Mảnh Tướng Vàng Vạn Năng giảm giá (30–80 Xu); ưu tiên số 3 là Nguyên liệu Đồ Chúa Tể bậc cao (Orichalcum, Magic Thread, Refined Metal, Titan Mark) và Tinh Chất Rồng (Dragon Essence) từ Season 1+.",
-                  en: "Battlefield & 4 Nations Shops (Combat Valor / Citadel Clash / 4 Nations Shop): Priority #1 is Universal Exclusive Gear Shards (15–400 Coins) to hit Lv.10 and Lv.20 weapon breakpoints on Queue 1; Priority #2 is discounted Universal Legendary Hero Shards (30–80 Coins); Priority #3 is high-tier Lord Gear blueprints (Orichalcum, Magic Thread, Refined Metal, Titan Mark) and Dragon Essence in Season 1+.",
+                  vi: "**Cửa hàng Chiến Trường & 4 Quốc Gia:** Ưu tiên số 1 là Mảnh Vũ Khí Độc Quyền (`15`–`400` Xu), số 2 là Mảnh Vàng giảm giá (`30`–`80` Xu), số 3 là nguyên liệu Đồ Chúa Tể (Orichalcum) và Dragon Essence.",
+                  en: "**Battlefield & 4 Nations Shops:** Priority #1 is Universal Exclusive Gear Shards (`15`–`400` Coins), #2 is discounted Legendary Shards (`30`–`80` Coins), and #3 is Lord Gear blueprints (Orichalcum) and Dragon Essence.",
                 },
               ],
             },
@@ -558,8 +558,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
             en: "Warning: 4 Currency-Burning Traps That Cripple Awakening Shards & Event Scoring",
           },
           content: {
-            vi: "Tuyệt đối tránh 4 sai lầm kinh điển: (1) Mua Guardian Skin giá 12,000 Sao tại Arena Shop; (2) Xả cạn tiền tệ tối Chủ Nhật làm vỡ Ngưỡng Đóng Băng 1,900–2,000 Sao / 12,000–15,000 Guild Points / 40,000 Guild Honor / 6,000 Guild Coins; (3) Nhầm lẫn mốc 12 Sao (2 Sao Trắng mở Trait 3 +30%) với điều kiện mở khóa Hero Shard Exchange Shop ở mốc 15 Sao (5 Sao Trắng/Bạc = 500 hoặc 1,000 Mảnh); (4) Mua Vé Chiêu Mộ giá gốc 300 Sao, mảnh lẻ giá đắt 800 Sao hoặc nguyên liệu thô thay vì Orichalcum.",
-            en: "Strictly avoid the 4 classic shop traps: (1) Buying the 12,000-Star Guardian Skin in Arena Shop; (2) Zeroing out balances on Sunday night below the 1,900–2,000 Arena Stars / 12,000–15,000 Guild Points / 40,000 Guild Honor / 6,000 Guild Coins safety floors; (3) Confusing the 12-Star Trait 3 milestone (2 White Stars +30%) with the 15-Star Hero Shard Exchange Shop unlock requirement (5 White/Silver Stars = 500 or 1,000 Shards); (4) Buying full-price 300-Star tokens, overpriced 800-Star single shards, or raw resources instead of Orichalcum.",
+            vi: "**Bốn Cạm Bẫy Đốt Tiền Tệ Cửa Hàng:** Tuyệt đối tránh 4 sai lầm làm đứt gãy tiến độ thức tỉnh và điểm sự kiện hàng tuần.\n• **Bẫy 1 & 2 (Arena & Sàn Ví):** Mua Guardian Skin `12,000` Sao, hoặc xả cạn tiền tối Chủ Nhật làm vỡ sàn `1,900`–`2,000` Sao, `12,000`–`15,000` Guild Points, `40,000` Guild Honor, `6,000` Guild Coins.\n• **Bẫy 3 & 4 (Mốc Sao & Vật phẩm Bẫy):** Nhầm mốc `12` Sao (Trait 3 `+30%`) với `15` Sao (`500` hoặc `1,000` Mảnh mở Exchange Shop), hoặc mua vé `300` Sao, mảnh `800` Sao thay vì Orichalcum.",
+            en: "**Four Currency-Burning Shop Traps:** Strictly avoid the 4 classic mistakes that cripple hero awakening and weekly event scoring.\n• **Traps 1 & 2 (Arena & Floor Breach):** Buying the `12,000`-Star Guardian Skin, or zeroing Sunday balances below `1,900`–`2,000` Stars, `12,000`–`15,000` Guild Points, `40,000` Honor, `6,000` Coins.\n• **Traps 3 & 4 (Star Milestones & Filler):** Confusing `12`-Star Trait 3 (`+30%`) with `15`-Star Exchange Shop unlock (`500` or `1,000` Shards), or buying `300`-Star tokens, `800`-Star shards over Orichalcum.",
           },
         },
         {
@@ -569,9 +569,9 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
             en: "Table 3.1: 4 Critical Shop Economy Mistakes & Min-Max Recovery Solutions",
           },
           headers: [
-            { vi: "❌ Sai lầm phổ biến (Account Traps)", en: "❌ Common Account Traps" },
-            { vi: "💥 Hậu quả Định lượng (Quantitative Impact)", en: "💥 Quantitative Impact" },
-            { vi: "✅ Giải pháp tối ưu (Min-Max Solution)", en: "✅ Min-Max Recovery Solution" },
+            { vi: "Sai lầm phổ biến (Account Traps)", en: "Common Account Traps" },
+            { vi: "Hậu quả Định lượng (Quantitative Impact)", en: "Quantitative Impact" },
+            { vi: "Giải pháp tối ưu (Min-Max Solution)", en: "Min-Max Recovery Solution" },
           ],
           rows: [
             [
@@ -647,8 +647,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Để đánh giá chính xác một món hàng trong 13 cửa hàng (Arena Shop, Guild Points, Medal Shop, VIP Shop, Exchange Shop, Wheel, Dice of Fate, Kingdom Emblem...) là Món Hời (Bargain) hay Cạm Bẫy (Trap), hệ thống định lượng từ TopHeroes Tables quy đổi toàn bộ vật phẩm về Mệnh Giá Kim Cương Chuẩn (Baseline Diamond Value): 1 Mảnh Tướng Vàng Vạn Năng = 300 KC (giá giảm VIP Shop: 150–240 KC), 1 Lệnh Chiêu Mộ = 150 KC, 1 Bình Thể Lực 25 = 100 KC, 100 Đá Cường Hóa = 50 KC, và 1 Giờ Tăng Tốc = 60–100 KC.",
-            en: "To objectively evaluate whether any item across the 13 shops (Arena Shop, Guild Points, Medal Shop, VIP Shop, Exchange Shop, Wheel, Dice of Fate, Kingdom Emblem...) is a Bargain or a Trap, the TopHeroes Tables quantitative model normalizes every item to its Baseline Diamond Value: 1 Universal Legendary Hero Shard = 300 Diamonds (VIP Shop discount: 150–240 Diamonds), 1 Recruitment Token = 150 Diamonds, 1 Stamina Potion 25 = 100 Diamonds, 100 Gear Enhance Runes = 50 Diamonds, and 1x 60m Speed-up = 60–100 Diamonds.",
+            vi: "**Hệ Quy Chiếu Mệnh Giá Kim Cương (Baseline Diamond Value):** Mô hình định lượng từ TopHeroes Tables quy đổi mọi vật phẩm trong 13 cửa hàng về giá trị Kim Cương chuẩn.\n• **Định mức Cơ sở:** 1 Mảnh Vàng = `300` KC, 1 Vé = `150` KC, 1 Thể Lực = `100` KC, 100 Đá = `50` KC, 1h Tăng Tốc = `60`–`100` KC (mốc `3,200` / `4,000` / `7,500` / `8,000` / `50,000`).\n• **Biên độ Lợi tức (ROI Spread):** Các gói S+ Must-Buy đạt biên lợi nhuận từ `+500%`, `+800%` đến `+1,067%` (ROI `300%`–`600%`), trong khi tài nguyên thô cày miễn phí có giá trị quy đổi bằng `0%`.",
+            en: "**Baseline Diamond Value Normalization:** The TopHeroes Tables quantitative model normalizes every item across all 13 shops to its true Diamond equivalent value.\n• **Core Benchmarks:** 1 Legendary Shard = `300` Diamonds, 1 Token = `150` Diamonds, 1 Stamina = `100` Diamonds, 100 Runes = `50` Diamonds (across `3,200` / `4,000` / `7,500` / `8,000` / `50,000` brackets).\n• **ROI Efficiency Spread:** S+ Must-Buy packs deliver net value gains of `+500%`, `+800%`, and `+1,067%` (`300%`–`600%` ROI), whereas farmable world-map resources yield `0%` Diamond ROI.",
           },
         },
       ],
@@ -710,7 +710,7 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                 ],
                 [
                   { vi: "S+ (Must-Buy)", en: "S+ (Must-Buy)" },
-                  { vi: "Hồn Đá Đỏ (Soul Stone)", en: "Soul Stone (Hồn Đá Đỏ)" },
+                  { vi: "Hồn Đá Đỏ (Soul Stone)", en: "Soul Stone" },
                   { vi: "Guild Honor / Guild Coin Shop", en: "Guild Honor / Guild Coin Shop" },
                   {
                     vi: "40,000 Điểm Vinh Dự/viên (360,000 Điểm/9 viên ở Lv.30) hoặc 6,000 Xu Vinh Quang Hội/viên (54,000 Xu/9 viên xoay tua 3 tuần S1: League ➔ Horde ➔ Nature)",
@@ -1005,8 +1005,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
             en: "Restructuring a Cash-Starved Castle Lv.27 Account into Full Weekly Safety Floor Compliance",
           },
           profileSummary: {
-            vi: "Tài khoản Mid-game (Lâu đài Lv.27 — Đội 1 đang chuyển giao sang Bộ Lạc với Soulmancer & Warlock, hoặc Liên Minh với Pyromancer & Adjudicator / Thiên Nhiên với Pixie) có thu nhập trung bình 2,450 Arena Stars/tuần (Top 50–100 Đấu trường) và 22,000 Guild Points/tuần. Trước đây thường tiêu sạch điểm vào Chủ Nhật mua Tăng tốc và Rương Thịt, khiến sáng Thứ Hai chỉ còn 200 Sao và không đủ 1,500 Sao mua 5 mảnh tướng chủ lực.",
-            en: "Mid-game account (Castle Lv.27 — Queue 1 transitioning to Horde with Soulmancer & Warlock, or League with Pyromancer & Adjudicator / Nature with Pixie) earning an average of 2,450 Arena Stars/week (Top 50–100 Arena) and 22,000 Guild Points/week. Previously zeroed out balances every Sunday on Speed-ups and Meat Chests, leaving only 200 Stars on Monday morning and missing 1,500-Star 5x main-faction shard rotations.",
+            vi: "**Hồ sơ tài khoản (Castle Lv.27)**: Đang chuyển Đạo 1 sang Bộ Lạc (Soulmancer, Warlock) hoặc Liên Minh (Pyromancer, Adjudicator) / Thiên Nhiên (Pixie), thu `2,450` Arena Stars và `22,000` Guild Points/tuần.\n• **Điểm nghẽn**: Tiêu sạch điểm vào Chủ Nhật mua Tăng tốc và Rương Thịt khiến sáng Thứ Hai chỉ còn `200` Sao, thiếu `1,500` Sao mua 5 mảnh tướng chủ lực.",
+            en: "**Account Profile (Castle Lv.27)**: Queue 1 transitioning to Horde (Soulmancer, Warlock) or League (Pyromancer, Adjudicator) / Nature (Pixie), earning `2,450` Arena Stars and `22,000` Guild Points/week.\n• **Bottleneck**: Zeroed out balances every Sunday on Speed-ups and Meat Chests, leaving only `200` Stars on Monday morning and missing `1,500`-Star 5x main-faction shard rotations.",
           },
           metrics: [
             {
@@ -1066,12 +1066,12 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
           ],
           diagnostics: [
             {
-              vi: "Chẩn đoán #1 — Thủng Ngưỡng Đóng Băng Ví vào tối Chủ Nhật: Tiêu sạch Arena Stars và Guild Points vào cuối tuần khiến sáng Thứ Hai không có 1,900–2,000 Sao để mua gói ROI 600%/300% và 5 mảnh tướng (1,500 Sao), đồng thời bỏ lỡ thời điểm vàng mở khóa Soul Stone (40,000 Điểm Vinh Dự hoặc 6,000 Xu Vinh Quang Hội) khi lên Lv.30.",
-              en: "Diagnostic #1 — Sunday Night Safety Floor Breach: Zeroing out Arena Stars and Guild Points on Sunday left the account without the 1,900–2,000 Stars required on Monday morning for 600%/300% ROI packs and 5x faction shards (1,500 Stars), while risking Soul Stone delays (40,000 Guild Honor or 6,000 Guild Coins) at Castle Lv.30.",
+              vi: "**Chẩn đoán #1 — Thủng Ngưỡng Đóng Băng Ví**: Tiêu sạch Arena Stars và Guild Points vào Chủ Nhật khiến sáng Thứ Hai thiếu `1,900`–`2,000` Sao mua gói ROI `600%`/`300%` và 5 mảnh tướng (`1,500` Sao).\n• **Hệ lụy Lv.30**: Nguy cơ trễ tiến độ gom `40,000` Điểm Vinh Dự hoặc `6,000` Xu Vinh Quang Hội để mua Soul Stone khi lên Castle Lv.30.",
+              en: "**Diagnostic #1 — Sunday Safety Floor Breach**: Zeroing out Arena Stars and Guild Points on Sunday left the account without `1,900`–`2,000` Stars on Monday for `600%`/`300%` ROI packs and 5x shards (`1,500` Stars).\n• **Lv.30 Fallout**: Risked delaying Soul Stone unlocks (`40,000` Guild Honor or `6,000` Guild Coins) upon reaching Castle Lv.30.",
             },
             {
-              vi: "Chẩn đoán #2 — Lệch pha Chu kỳ Sự kiện & Tiệm Đổi Mảnh (Exchange Shop): Mua đồ ngay thứ Hai Tuần A trước khi nhận Nhiệm vụ Vàng Guild Race, bấm ghép mảnh tướng ngay lập tức thay vì chờ Thứ Năm Tuần B, và chưa dồn mảnh đẩy 1 tướng chạm mốc 15 Sao (500 hoặc 1,000 Mảnh) để mở khóa Hero Shard Exchange Shop.",
-              en: "Diagnostic #2 — Event Desynchronization & Delayed Exchange Shop Unlock: Checking out on Monday of Week A before claiming Gold Guild Race tasks, consuming shards immediately instead of waiting for Thursday Week B, and failing to funnel shards into a single 15-Star hero (500 or 1,000 Shards) to unlock the Hero Shard Exchange Shop.",
+              vi: "**Chẩn đoán #2 — Lệch pha Sự kiện & Exchange Shop**: Mua đồ Thứ Hai Tuần A trước khi nhận Nhiệm vụ Vàng Guild Race và ghép mảnh tướng ngay lập tức thay vì chờ Thứ Năm Tuần B.\n• **Chậm mở tiệm**: Chưa dồn mảnh đẩy 1 tướng chạm mốc 15 Sao (`500` hoặc `1,000` Mảnh) để mở khóa Hero Shard Exchange Shop.",
+              en: "**Diagnostic #2 — Event Desynchronization & Exchange Shop Delay**: Checked out on Monday Week A before claiming Gold Guild Race tasks and consumed shards immediately instead of waiting for Thursday Week B.\n• **Delayed Unlock**: Failed to funnel shards into a single 15-Star hero (`500` or `1,000` Shards) to unlock the Hero Shard Exchange Shop.",
             },
           ],
           recoverySteps: [
@@ -1082,8 +1082,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                 en: "Week 1: Rebuild Arena Shop Working Capital (2,350 Stars > 1,900–2,000 Safety Floor)",
               },
               detail: {
-                vi: "Trong tuần đầu tiên tại Arena Shop, chỉ chi đúng 100 Sao mua 2 gói 50 Sao (300 KC ROI 600% + 1 Vé Chiêu Mộ ROI 300%), giữ lại toàn bộ 2,350 Sao làm quỹ dự phòng vượt Ngưỡng Đóng Băng 1,900–2,000 Sao.",
-                en: "During Week 1 in Arena Shop, spend only 100 Stars on the two 50-Star packs (300 Diamonds at 600% ROI + 1 Token at 300% ROI), banking 2,350 Stars to establish your 1,900–2,000 Stars safety buffer.",
+                vi: "Trong tuần đầu tại Arena Shop, chỉ chi đúng `100` Sao mua 2 gói `50` Sao (`300` KC ROI `600%` + 1 Vé Chiêu Mộ ROI `300%`), giữ lại `2,350` Sao vượt Ngưỡng Đóng Băng `1,900`–`2,000` Sao.",
+                en: "During Week 1 in Arena Shop, spend only `100` Stars on the two `50`-Star packs (`300` Diamonds at `600%` ROI + 1 Token at `300%` ROI), banking `2,350` Stars above the `1,900`–`2,000` Stars floor.",
               },
               impactBadge: {
                 vi: "VỐN LƯU ĐỘNG 2,350 SAO",
@@ -1097,8 +1097,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                 en: "Week 2+: Execute the Fixed 1,900 Stars/Week Core Bundle & Bank +550 Surplus Stars",
               },
               detail: {
-                vi: "Mỗi tuần chi đúng 1,900 Sao: 50 Sao (300 KC) + 50 Sao (1 Vé) + 300 Sao (300 KC) + 1,500 Sao (5 mảnh Soulmancer, Warlock, Pyromancer, Adjudicator hoặc Pixie). Khoản thặng dư ròng 2,450 - 1,900 = +550 Sao/tuần sau 5 tuần đạt 2,750 Sao, đủ mua thêm 1 Rương Trang Trí Tím Tự Chọn (2,500 Sao) mà không phạm vào sàn 1,900–2,000 Sao.",
-                en: "Spend exactly 1,900 Stars weekly: 50 Stars (300 Diamonds) + 50 Stars (1 Token) + 300 Stars (300 Diamonds) + 1,500 Stars (5 shards of Soulmancer, Warlock, Pyromancer, Adjudicator, or Pixie). The net surplus of 2,450 - 1,900 = +550 Stars/week reaches 2,750 Stars every 5 weeks, funding a 2,500-Star Epic Decor Choice Chest without touching your 1,900–2,000 Stars floor.",
+                vi: "**Chi cố định 1,900 Sao/tuần**: `50` Sao (`300` KC) + `50` Sao (1 Vé) + `300` Sao (`300` KC) + `1,500` Sao (5 mảnh Soulmancer, Warlock, Pyromancer, Adjudicator hoặc Pixie).\n• **Tích lũy thặng dư**: Khoản dư `2,450 - 1,900 = +550` Sao/tuần đạt `2,750` Sao sau 5 tuần, đủ mua 1 Rương Trang Trí Tím (`2,500` Sao) mà vẫn giữ nguyên sàn `1,900`–`2,000` Sao.",
+                en: "**Spend 1,900 Stars/week**: `50` Stars (`300` Diamonds) + `50` Stars (1 Token) + `300` Stars (`300` Diamonds) + `1,500` Stars (5 shards of Soulmancer, Warlock, Pyromancer, Adjudicator, or Pixie).\n• **Surplus Compounding**: The `2,450 - 1,900 = +550` Stars/week surplus hits `2,750` Stars every 5 weeks, funding a `2,500`-Star Epic Decor Chest above the `1,900`–`2,000` Stars floor.",
               },
               impactBadge: {
                 vi: "+550 SAO THẶNG DƯ/TUẦN",
@@ -1112,8 +1112,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                 en: "Synchronize Guild Points, Battlefield (Orichalcum) & Thursday Week B Dumping",
               },
               detail: {
-                vi: "Giữ 22,000 Guild Points trong Tuần A chờ nhận 2 Nhiệm vụ Vàng rồi thanh toán: 1,000 Điểm (Điểm VIP) + 800 Điểm (Thể lực) + 2,500 Điểm (Khiên 24h) + 2,000 Điểm (Dịch chuyển Cao cấp) + 4,000 Điểm (Tăng tốc 60m), vẫn giữ vững sàn 12,000–15,000 Điểm. Đồng thời gom Orichalcum tại tiệm Chiến Trường, khóa quỹ 40,000 Guild Honor / 6,000 Guild Coins cho Soul Stone, và xả toàn bộ Mảnh Tướng vào Thứ Năm Tuần B.",
-                en: "Hold 22,000 Guild Points in Week A until claiming 2 Gold tasks, then buy: 1,000 Points (VIP) + 800 Points (Stamina) + 2,500 Points (24h Shield) + 2,000 Points (Advanced Relocate) + 4,000 Points (60m Speed-ups) while staying above the 12,000–15,000 Points floor. Simultaneously sweep Orichalcum in Battlefield shops, lock 40,000 Guild Honor / 6,000 Guild Coins for Soul Stones, and dump all Hero Shards on Thursday Week B.",
+                vi: "**Đồng bộ Guild Points**: Giữ `22,000` Điểm ở Tuần A chờ 2 Nhiệm vụ Vàng rồi chi `1,000` (VIP) + `800` (Thể lực) + `2,500` (Khiên) + `2,000` (Dịch chuyển) + `4,000` (Tăng tốc), giữ sàn `12,000`–`15,000` Điểm.\n• **Chiến Trường & Xả Kho**: Gom Orichalcum tại tiệm Chiến Trường, khóa quỹ `40,000` Guild Honor / `6,000` Guild Coins cho Soul Stone, và xả Mảnh Tướng vào Thứ Năm Tuần B.",
+                en: "**Guild Points Sync**: Hold `22,000` Points in Week A for 2 Gold tasks, then spend `1,000` (VIP) + `800` (Stamina) + `2,500` (Shield) + `2,000` (Relocate) + `4,000` (Speed-ups), keeping `12,000`–`15,000` Points.\n• **Battlefield & Shard Dump**: Sweep Orichalcum in Battlefield shops, lock `40,000` Guild Honor / `6,000` Guild Coins for Soul Stones, and dump Hero Shards on Thursday Week B.",
               },
               impactBadge: {
                 vi: "+1,200 KC & +2,000 VIP",
@@ -1122,8 +1122,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
             },
           ],
           conclusion: {
-            vi: "Sau đúng 1 chu kỳ 14 ngày (Tuần A + Tuần B), tài khoản thu về 1,200 Kim Cương trực tiếp, 10 Mảnh Tướng Vàng Hệ Chính, 2,000 Điểm VIP miễn phí, hoàn thành gọn 2 Nhiệm vụ Vàng Guild Race và thiết lập nền tảng vững chắc cho toàn bộ 13 cửa hàng (Arena Shop, Guild Points, Medal Shop, VIP Shop, Exchange Shop, Wheel, Dice of Fate, Kingdom Emblem).",
-            en: "After a single 14-day cycle (Week A + Week B), the account nets 1,200 direct Diamonds, 10 Main-Faction Legendary Hero Shards, 2,000 free VIP Points, effortlessly clears 2 Gold Guild Race tasks, and locks in sustainable reserves across all 13 shops (Arena Shop, Guild Points, Medal Shop, VIP Shop, Exchange Shop, Wheel, Dice of Fate, Kingdom Emblem).",
+            vi: "**Thành quả sau 14 ngày (Tuần A + Tuần B)**: Thu về `1,200` Kim Cương trực tiếp, `10` Mảnh Tướng Vàng Hệ Chính, `2,000` Điểm VIP miễn phí và hoàn thành gọn 2 Nhiệm vụ Vàng Guild Race.\n• **Kỷ luật toàn diện**: Thiết lập nền tảng quỹ bền vững cho cả 13 cửa hàng (Arena Shop, Guild Points, Medal Shop, VIP Shop, Exchange Shop, Wheel, Dice of Fate, Kingdom Emblem).",
+            en: "**14-Day Cycle Outcome (Week A + Week B)**: Nets `1,200` direct Diamonds, `10` Main-Faction Legendary Hero Shards, `2,000` free VIP Points, and effortlessly clears 2 Gold Guild Race tasks.\n• **System-Wide Stability**: Locks in sustainable reserves across all 13 shops (Arena Shop, Guild Points, Medal Shop, VIP Shop, Exchange Shop, Wheel, Dice of Fate, Kingdom Emblem).",
           },
         },
         {

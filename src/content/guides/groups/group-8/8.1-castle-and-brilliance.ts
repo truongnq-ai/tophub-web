@@ -16,30 +16,30 @@ export const ARTICLE_8_1_CASTLE_AND_BRILLIANCE: GuideArticle = {
   },
   tldr: {
     coreRule: {
-      vi: "Đua Cấp Lâu Đài (Castle Rush Lv.1 ➔ Lv.40) là ưu tiên tối thượng của toàn bộ hệ thống hạ tầng. Mỗi cấp Lâu Đài trực tiếp mở trần cấp độ Tướng (+5 cấp/level, riêng Lv.14➔15 và Lv.29➔30 nhảy vọt +10 cấp) và mỗi 5 cấp Doanh Trại (Lv.15 / Lv.20 / Lv.25 / Lv.30 / Lv.35) mở khóa một Bậc Lính mới (Troop Tier T6 ➔ T10).",
-      en: "Rushing Castle Level (Castle Rush Lv.1 ➔ Lv.40) is the supreme infrastructure priority. Every Castle level raises your Hero Level Cap (+5 levels per upgrade, with +10 level surges at Lv.14➔15 and Lv.29➔30), while every 5 Barracks levels (Lv.15 / Lv.20 / Lv.25 / Lv.30 / Lv.35) unlock a new Troop Tier (T6 ➔ T10).",
+      vi: "**Đua Cấp Lâu Đài** (`Castle Rush Lv.1 ➔ Lv.40`) là ưu tiên tối thượng của toàn bộ hệ thống hạ tầng.\n• **Trần Cấp Tướng**: Mỗi cấp cộng `+5 cấp`, riêng `Lv.14 ➔ Lv.15` và `Lv.29 ➔ Lv.30` nhảy vọt `+10 cấp`.\n• **Mở Bậc Lính**: Mỗi `5 cấp` Doanh Trại (`Lv.15` / `Lv.20` / `Lv.25` / `Lv.30` / `Lv.35`) mở thêm `1 Bậc Lính` (`T6 ➔ T10`).",
+      en: "**Rushing Castle Level** (`Castle Rush Lv.1 ➔ Lv.40`) is the supreme infrastructure priority.\n• **Hero Level Cap**: Every level adds `+5 levels`, with `+10 level` surges at `Lv.14 ➔ Lv.15` and `Lv.29 ➔ Lv.30`.\n• **Troop Tiers**: Every `5 levels` of Barracks (`Lv.15` / `Lv.20` / `Lv.25` / `Lv.30` / `Lv.35`) unlocks a new `Troop Tier` (`T6 ➔ T10`).",
     },
     immediateAction: {
-      vi: "Chỉ nâng các công trình nằm trên Đường Găng Tiên Quyết (Critical Prerequisite Path) theo quy luật luân phiên Chẵn/Lẻ: Cấp Lâu Đài Chẵn (Lv.2N) luôn đòi Hội (Guild) + Sân Tập (Training Ground); Cấp Lâu Đài Lẻ (Lv.2N+1) luôn đòi Viện Nghiên Cứu (Research Cottage) + Bệnh Viện (Hospital), kết hợp kéo duy nhất Doanh Trại Hệ Đội 1 (Main Faction Barracks).",
-      en: "Only upgrade buildings on the Critical Prerequisite Path following the Even/Odd alternating rule: Even Castle Levels (Lv.2N) always require Guild + Training Ground; Odd Castle Levels (Lv.2N+1) always require Research Cottage + Hospital, alongside pushing only your Queue 1 Main Faction Barracks.",
+      vi: "**Bám sát Đường Găng Tiên Quyết** (`Critical Prerequisite Path`) theo quy luật luân phiên Chẵn/Lẻ:\n• **Cấp Chẵn (`Lv.2N`)**: Luôn đòi **Hội** (`Guild`) + **Sân Tập** (`Training Ground`).\n• **Cấp Lẻ (`Lv.2N+1`)**: Luôn đòi **Viện Nghiên Cứu** (`Research Cottage`) + **Bệnh Viện** (`Hospital`), kết hợp kéo duy nhất **Doanh Trại Đội 1** (`Main Barracks`).",
+      en: "**Follow the Critical Prerequisite Path** using the Even/Odd alternating rule:\n• **Even Levels (`Lv.2N`)**: Always require **Guild** + **Training Ground**.\n• **Odd Levels (`Lv.2N+1`)**: Always require **Research Cottage** + **Hospital**, alongside pushing only your Queue 1 `Main Faction Barracks`.",
     },
     strictTaboo: {
-      vi: "Tuyệt đối KHÔNG nâng vượt cấp các công trình kinh tế/phòng thủ phụ như Nhà Kho (Warehouse), Khu Đốn Gỗ (Lumber Mill), Mỏ Đá (Quarry), Trang Trại (Farm) hay Doanh Trại 2 Hệ Phụ ngoài mốc bắt buộc — việc này làm cạn kiệt Gỗ/Đá/Ruby trước Điểm gãy sinh tử Lâu Đài Lv.35 (mở Lính Bậc 10 / Tier 10 Troops)!",
-      en: "NEVER over-level secondary economy or filler buildings such as the Warehouse, Lumber Mill, Quarry, Farm, or off-faction Barracks beyond mandatory requirements—doing so drains hundreds of hours and millions of Timber/Stone/Rubies before the lethal Castle Lv.35 (Tier 10 Troops) breakpoint!",
+      vi: "**Tuyệt đối KHÔNG nâng vượt cấp** các công trình kinh tế hoặc phòng thủ phụ ngoài mốc bắt buộc:\n• **Đóng băng**: **Nhà Kho** (`Warehouse`), **Mỏ Gỗ** (`Lumber Mill`), **Mỏ Đá** (`Quarry`), **Trang Trại** (`Farm`) và **2 Doanh Trại Phụ**.\n• **Bảo toàn Tài nguyên**: Tránh cạn kiệt Gỗ/Đá/Ruby trước điểm gãy sinh tử **Lâu Đài `Lv.35`** (mở **Lính Bậc 10** / `Tier 10 Troops`)!",
+      en: "**NEVER over-level** secondary economy or filler buildings beyond mandatory requirements:\n• **Freeze List**: **Warehouse**, **Lumber Mill**, **Quarry**, **Farm**, and off-faction **Barracks**.\n• **Protect Breakpoint**: Avoid draining Timber/Stone/Rubies before the lethal `Castle Lv.35` (**Tier 10 Troops**) breakpoint!",
     },
   },
   keyTakeaways: [
     {
-      vi: "Phân loại 3 Nhóm Công trình & Quy luật Luân phiên Chẵn/Lẻ (Lv.10 ➔ Lv.40): Nhóm 1 Đường Găng Lõi (Castle, Guild, Training Ground, Research Cottage, Hospital, Main Barracks) chiếm 100% thời gian Thợ 1 & Thợ 2; Nhóm 2 Hỗ trợ Chiến đấu (Faction Statues Lv.20 cộng +100 lính/tướng, Rally Hall, Lord Hall Lv.25, Medal Hall Lv.25, Blacksmith, Monastery); Nhóm 3 Nông nghiệp & Hậu cần đóng băng ở Lv.12–16 làm mồi nhiệm vụ 5–15 phút.",
-      en: "3 Building Priority Groups & Even/Odd Alternating Rule (Lv.10 ➔ Lv.40): Group 1 Critical Core (Castle, Guild, Training Ground, Research Cottage, Hospital, Main Barracks) takes 100% of Builder 1 & 2 uptime; Group 2 Combat Support (Faction Statues adding +100 soldiers/hero at Lv.20, Rally Hall, Lord Hall Lv.25, Medal Hall Lv.25, Blacksmith, Monastery); Group 3 Resource/Filler frozen at Lv.12–16 as 5–15 minute daily quest bait.",
+      vi: "**Phân loại 3 Nhóm Công trình & Quy luật Luân phiên Chẵn/Lẻ (`Lv.10 ➔ Lv.40`)**:\n• **Nhóm 1 (Đường Găng Lõi)**: `Castle`, `Guild`, `Training Ground`, `Research Cottage`, `Hospital`, `Main Barracks` chiếm `100%` thời gian Thợ 1 & Thợ 2.\n• **Nhóm 2 & 3**: **Tượng Phe Phái** `Lv.20` (`+100 lính/tướng`), `Rally Hall`, `Lord Hall Lv.25`, `Medal Hall Lv.25`; Nhóm 3 đóng băng ở `Lv.12–16` làm mồi `5–15 phút`.",
+      en: "**3 Building Priority Groups & Even/Odd Alternating Rule (`Lv.10 ➔ Lv.40`)**:\n• **Group 1 (Critical Core)**: `Castle`, `Guild`, `Training Ground`, `Research Cottage`, `Hospital`, `Main Barracks` take `100%` of Builder 1 & 2 uptime.\n• **Groups 2 & 3**: **Faction Statues** `Lv.20` (`+100 soldiers/hero`), `Rally Hall`, `Lord Hall Lv.25`, `Medal Hall Lv.25`; Group 3 frozen at `Lv.12–16` as `5–15 min` bait.",
     },
     {
-      vi: "Điểm Gãy Sinh Tử Số 1 Mid-Game — Lâu Đài Lv.35 + Doanh Trại Lv.35 = Lính Bậc 10 (Tier 10 Troops): Toàn trình Lv.10 ➔ Lv.40 tốn ~490M–500M Gỗ/Đá và ~165M Ruby (Trần Tướng Lv.220), nhưng từ Lv.10 ➔ Lv.35 chỉ tốn ~82M Gỗ/Đá (Lv.35 tốn 26.6M Gỗ/Đá & 8.36M Ruby, Trần Lv.195), trong khi 5 cấp cuối Lv.36 ➔ Lv.40 ngốn tới ~417M Gỗ/Đá và ~142.8M Ruby (đắt gấp 3.5 lần) mà Doanh Trại Lv.36–40 KHÔNG mở khóa Bậc Lính mới!",
-      en: "Mid-Game Lethal Breakpoint #1 — Castle Lv.35 + Barracks Lv.35 = Tier 10 Troops: While Lv.10 ➔ Lv.40 totals ~490M–500M Timber/Stone and ~165M Rubies (Hero Cap Lv.220), Lv.10 ➔ Lv.35 costs only ~82M Timber/Stone (Lv.35 costs 26.6M Timber/Stone & 8.36M Rubies, Hero Cap Lv.195), whereas the final 5 levels Lv.36 ➔ Lv.40 devour ~417M Timber/Stone and ~142.8M Rubies (3.5x more expensive) without unlocking any new Troop Tier!",
+      vi: "**Điểm Gãy Sinh Tử Số 1 Mid-Game — Lâu Đài `Lv.35` + Doanh Trại `Lv.35` = Lính Bậc 10 (`Tier 10 Troops`)**:\n• **Chi phí Tích lũy**: Toàn trình `Lv.10 ➔ Lv.40` tốn `~490M–500M` Gỗ/Đá và `~165M` Ruby (Trần `Lv.220`), nhưng `Lv.10 ➔ Lv.35` chỉ tốn `~82M` Gỗ/Đá (`Lv.35` tốn `26.6M` Gỗ/Đá & `8.36M` Ruby, Trần `Lv.195`).\n• **Bẫy Chi phí Cuối**: 5 cấp cuối `Lv.36 ➔ Lv.40` ngốn tới `~417M` Gỗ/Đá và `~142.8M` Ruby (đắt gấp `3.5 lần`) mà Doanh Trại `Lv.36–40` KHÔNG mở khóa Bậc Lính mới!",
+      en: "**Mid-Game Lethal Breakpoint #1 — `Castle Lv.35` + `Barracks Lv.35` = `Tier 10 Troops`**:\n• **Cumulative Cost**: `Lv.10 ➔ Lv.40` totals `~490M–500M` Timber/Stone and `~165M` Rubies (Cap `Lv.220`), yet `Lv.10 ➔ Lv.35` costs only `~82M` (`Lv.35` is `26.6M` Timber/Stone & `8.36M` Rubies, Cap `Lv.195`).\n• **Late-Level Trap**: The final 5 levels `Lv.36 ➔ Lv.40` devour `~417M` Timber/Stone and `~142.8M` Rubies (`3.5x` more expensive) without unlocking any new Troop Tier!",
     },
     {
-      vi: "Kỷ Nguyên Quang Huy (Brilliance B1 ➔ B6, Lv.41 ➔ Lv.70) & Bí Mật Mở Lính T11 (5,422 DE): Nâng vỏ Lâu Đài trọn 6 bậc B1–B6 (B1: 630 DE | B2: 755 DE, Trần Lv.225 | B3: 1,135 DE | B4: 1,515 DE, Trần Lv.230 | B5: 1,940 DE | B6: 2,425 DE, Trần Lv.235) ngốn tổng cộng 8,400 Dragon Essence, 1,238.8M Ruby và 4,931.8M Gỗ/Đá. Ngược lại, để mở khóa Lính Bậc 11 (Tier 11 Troops) tại Viện Huy Hoàng (Brilliance Institute Lv.15), chỉ cần 745 DE xây viện (1,375M Gỗ/Đá) + 4,677 DE nghiên cứu đường găng (node Soldier Level tốn 288 DE) = 5,422 Dragon Essence!",
-      en: "The Brilliance Era (B1 ➔ B6, Lv.41 ➔ Lv.70) & The 5,422 DE Tier 11 Troops Secret: Maxing the Castle shell across B1–B6 (B1: 630 DE | B2: 755 DE, Cap Lv.225 | B3: 1,135 DE | B4: 1,515 DE, Cap Lv.230 | B5: 1,940 DE | B6: 2,425 DE, Cap Lv.235) consumes 8,400 Dragon Essence, 1,238.8M Rubies, and 4,931.8M Timber/Stone. Conversely, unlocking Tier 11 Troops at Brilliance Institute Lv.15 requires only 745 DE for building upgrades (1,375M Timber/Stone) + 4,677 DE in prerequisite tech (including 288 DE for Soldier Level) = 5,422 Dragon Essence!",
+      vi: "**Kỷ Nguyên Quang Huy (`Brilliance B1 ➔ B6`, `Lv.41 ➔ Lv.70`) & Bí Mật Mở Lính T11 (`5,422 DE`)**:\n• **Vỏ Lâu Đài `B1–B6`**: `B1: 630` | `B2: 755` (`Lv.225`) | `B3: 1,135` | `B4: 1,515` (`Lv.230`) | `B5: 1,940` | `B6: 2,425` (`Lv.235`) = `8,400` Dragon Essence, `1,238.8M` Ruby, `4,931.8M` Gỗ/Đá.\n• **Đường Găng Lính T11**: Tại **Viện Huy Hoàng** (`Brilliance Institute Lv.15`), chỉ cần `745 DE` xây viện (`1,375M` Gỗ/Đá) + `4,677 DE` công nghệ (node `Soldier Level` tốn `288 DE`) = `5,422` Dragon Essence!",
+      en: "**The Brilliance Era (`B1 ➔ B6`, `Lv.41 ➔ Lv.70`) & The `5,422 DE` Tier 11 Troops Secret**:\n• **Castle Shell `B1–B6`**: `B1: 630` | `B2: 755` (`Lv.225`) | `B3: 1,135` | `B4: 1,515` (`Lv.230`) | `B5: 1,940` | `B6: 2,425` (`Lv.235`) = `8,400` Dragon Essence, `1,238.8M` Rubies, `4,931.8M` Timber/Stone.\n• **Tier 11 Path**: At `Brilliance Institute Lv.15`, **Tier 11 Troops** need only `745 DE` building (`1,375M` Timber/Stone) + `4,677 DE` tech (`288 DE` for `Soldier Level`) = `5,422` Dragon Essence!",
     },
   ],
   keywords: [
@@ -78,8 +78,8 @@ export const ARTICLE_8_1_CASTLE_AND_BRILLIANCE: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Trong Top Heroes, nhiều người chơi mới thường mắc hội chứng \"quy hoạch đô thị đồng đều\" — tức là cố gắng nâng tất cả mọi công trình trong làng lên bằng cấp với Lâu Đài / Pháo Đài (Castle). Đây là sai lầm chiến lược nghiêm trọng nhất về mặt hạ tầng, khiến tài khoản bị tụt lại từ 2 đến 4 tuần tiến độ so với các người chơi cùng mức đầu tư.",
-            en: "In Top Heroes, many newcomers fall into the \"uniform urban planning\" trap—trying to upgrade every building in town to match their Castle level. This is the single most destructive infrastructure mistake, setting your account back 2 to 4 weeks compared to peers with the same spending level.",
+            vi: "Trong Top Heroes, nhiều người chơi mới thường mắc hội chứng **\"quy hoạch đô thị đồng đều\"** — cố nâng mọi công trình trong làng bằng cấp với **Lâu Đài** (`Castle`).\n• **Hậu quả**: Đây là sai lầm hạ tầng nghiêm trọng nhất, làm tài khoản tụt lại từ `2 đến 4 tuần` tiến độ so với người chơi cùng mức đầu tư.",
+            en: "In Top Heroes, many newcomers fall into the **\"uniform urban planning\"** trap—trying to upgrade every town building to match their `Castle` level.\n• **Impact**: This is the most destructive infrastructure mistake, setting your account back `2 to 4 weeks` compared to peers at the same spend level.",
           },
         },
       ],
@@ -103,12 +103,12 @@ export const ARTICLE_8_1_CASTLE_AND_BRILLIANCE: GuideArticle = {
               ordered: true,
               items: [
                 {
-                  vi: "Giới hạn Cấp độ Tướng Tối đa (Hero Level Cap): Cứ mỗi cấp Lâu Đài được nâng lên từ Lv.1 đến Lv.40, trần cấp độ của toàn bộ tướng tăng thêm +5 cấp (riêng mốc đột phá Lv.14 ➔ Lv.15 nhảy từ Lv.80 lên Lv.90 và Lv.29 ➔ Lv.30 tăng vọt +10 cấp, từ Lv.160 lên Lv.170). Một đội hình ở Lâu Đài Lv.30 (Tướng Lv.170) sẽ đè bẹp hoàn toàn đội hình ở Lâu Đài Lv.27 (Tướng Lv.150) nhờ lượng chỉ số Tấn công (ATK) và Máu (HP) cơ bản chênh lệch vượt trội.",
-                  en: "Maximum Hero Level Cap: Every Castle upgrade from Lv.1 to Lv.40 increases your Hero Level Cap by +5 levels (with special +10 level surges at Lv.14 ➔ Lv.15 from Lv.80 to Lv.90 and Lv.29 ➔ Lv.30 from Lv.160 to Lv.170). A Castle Lv.30 lineup (Heroes Lv.170) completely crushes a Castle Lv.27 lineup (Heroes Lv.150) due to massive base ATK and HP stat superiority.",
+                  vi: "**Giới hạn Cấp độ Tướng (Hero Level Cap)**: Mỗi cấp Lâu Đài (`Lv.1 ➔ Lv.40`) tăng `+5 cấp` tướng (riêng `Lv.14 ➔ Lv.15` từ `Lv.80` lên `Lv.90` và `Lv.29 ➔ Lv.30` từ `Lv.160` lên `Lv.170` nhảy vọt `+10 cấp`).",
+                  en: "**Maximum Hero Level Cap**: Every Castle upgrade (`Lv.1 ➔ Lv.40`) adds `+5 levels` to your Hero Cap (with `+10 level` surges at `Lv.14 ➔ Lv.15` to `Lv.90` and `Lv.29 ➔ Lv.30` from `Lv.160` to `Lv.170`).",
                 },
                 {
-                  vi: "Mở khóa Bậc Lính Mới (Troop Tiers — Quy tắc Bước nhảy 5 Cấp): Lính đóng góp tới 40%–50% tổng lượng máu chống chịu và sát thương duy trì của đội hình. Cứ mỗi 5 cấp độ của Doanh Trại (Barracks) — vốn bị khóa trần bởi cấp Lâu Đài (Lv.15, Lv.20, Lv.25, Lv.30, Lv.35, Lv.40) — toàn bộ binh lính thuộc phe đó sẽ được Thăng thêm 1 Bậc (Tier). Đặc biệt, bước nhảy từ Lính Bậc 9 (T9 ở Lv.30) lên Lính Bậc 10 (Tier 10 Troops / T10 ở Lv.35) tạo ra sự khác biệt một trời một vực trên chiến trường.",
-                  en: "Unlocking New Troop Tiers (The 5-Level Step Rule): Soldiers contribute 40%–50% of your lineup's total tankiness and sustained damage. Every 5 Barracks levels—hard-capped by your Castle level (Lv.15, Lv.20, Lv.25, Lv.30, Lv.35, Lv.40)—promotes all troops of that faction by +1 Tier. In particular, the leap from Tier 9 (T9 at Lv.30) to Tier 10 Troops (T10 at Lv.35) creates a night-and-day difference on the battlefield.",
+                  vi: "**Mở khóa Bậc Lính Mới (Quy tắc 5 Cấp)**: Lính đóng góp `40%–50%` máu/sát thương; mỗi `5 cấp` **Doanh Trại** (`Lv.15, 20, 25, 30, 35`) tăng `+1 Tier`, đặc biệt từ `T9` (`Lv.30`) lên **Tier 10 Troops** (`Lv.35`).",
+                  en: "**Unlocking New Troop Tiers (5-Level Rule)**: Troops provide `40%–50%` of tankiness and damage; every `5 levels` of **Barracks** (`Lv.15, 20, 25, 30, 35`) adds `+1 Tier`, peaking at **Tier 10 Troops** (`Lv.35`).",
                 },
               ],
             },
@@ -207,8 +207,8 @@ export const ARTICLE_8_1_CASTLE_AND_BRILLIANCE: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Từ cấp Lâu Đài Lv.20 trở lên, chi phí Gỗ / Đá (Timber / Stone) và Ruby để nâng cấp Lâu Đài tăng theo cấp số nhân. Kỷ luật đóng băng công trình phụ và đồng bộ Doanh Trại theo phe phái chủ lực là chìa khóa giúp F2P bắt kịp tiến độ Top Server.",
-            en: "From Castle Lv.20 onward, Timber / Stone and Ruby upgrade costs scale exponentially. Strict freeze discipline on filler buildings and faction-aligned Barracks progression are the keys for F2P players to keep pace with top server progression.",
+            vi: "Từ cấp Lâu Đài `Lv.20` trở lên, chi phí **Gỗ / Đá** (`Timber / Stone`) và `Ruby` để nâng cấp Lâu Đài tăng theo cấp số nhân.\n• **Chìa khóa F2P**: Kỷ luật đóng băng công trình phụ và đồng bộ **Doanh Trại** theo phe phái chủ lực giúp F2P bắt kịp tiến độ Top Server.",
+            en: "From `Castle Lv.20` onward, **Timber / Stone** and `Ruby` upgrade costs scale exponentially.\n• **F2P Key**: Strict freeze discipline on filler buildings and faction-aligned **Barracks** progression let F2P players keep pace with top server accounts.",
           },
         },
       ],
@@ -225,20 +225,20 @@ export const ARTICLE_8_1_CASTLE_AND_BRILLIANCE: GuideArticle = {
               ordered: true,
               items: [
                 {
-                  vi: "Nhà Kho (Warehouse): Công trình vô dụng nhất đối với người chơi biết quản lý túi đồ. Toàn bộ tài nguyên nằm trong Rương Tự Chọn (Resource Chests) trong Túi đồ (Bag) vốn dĩ không bao giờ bị cướp và không chiếm dung lượng kho. Chỉ nâng Nhà Kho khi có nhiệm vụ bắt buộc.",
-                  en: "Warehouse: The most redundant building for players who practice proper inventory management. All resources stored inside Resource Chests in your Bag can never be plundered and take zero warehouse capacity. Only upgrade the Warehouse when required by main quests.",
+                  vi: "**Nhà Kho (Warehouse)**: Tài nguyên trong **Rương Tự Chọn** (`Resource Chests`) ở **Túi đồ** (`Bag`) không bao giờ bị cướp và không chiếm dung lượng kho; chỉ nâng **Nhà Kho** khi có nhiệm vụ bắt buộc.",
+                  en: "**Warehouse**: Resources kept inside **Resource Chests** in your **Bag** can never be plundered and take zero warehouse capacity; only upgrade the **Warehouse** when forced by main quests.",
                 },
                 {
-                  vi: "Mỏ Gỗ, Mỏ Đá và Trang Trại Thịt (Lumber Mill, Quarry, Farm): Sản lượng thu hoạch tự nhiên trong làng từ cấp Lv.15 trở lên tốn hàng tuần mới hoàn vốn (ROI cực thấp) so với việc đi đào mỏ trên Bản đồ Thế giới hoặc ăn rương sự kiện Arms Race. Hãy giữ chúng ở khoảng Lv.12 – Lv.15 để mỗi khi cần làm nhiệm vụ \"Hoàn thành 1 lần nâng cấp công trình\", bạn chỉ mất vài phút là xong.",
-                  en: "Lumber Mill, Quarry, and Farm: Passive town resource production above Lv.15 takes weeks to pay back its upgrade cost (extremely low ROI) compared to World Map gathering or Arms Race chests. Keep them at Lv.12 – Lv.15 so \"Complete 1 building upgrade\" quests take only a few minutes.",
+                  vi: "**Mỏ Gỗ, Mỏ Đá & Trang Trại (Lumber Mill, Quarry, Farm)**: Từ `Lv.15+` tốn hàng tuần mới hoàn vốn (ROI thấp hơn đào mỏ/Arms Race); hãy đóng băng ở `Lv.12–15` để làm mồi nhiệm vụ nâng nhà trong vài phút.",
+                  en: "**Lumber Mill, Quarry, and Farm**: Passive production above `Lv.15` has terrible ROI compared to World Map gathering or Arms Race; freeze them at `Lv.12–15` for fast building quest completions.",
                 },
                 {
-                  vi: "Doanh Trại của 2 Hệ Phụ (Off-Faction Barracks): Trước khi Lâu Đài và Doanh Trại của Đội hình 1 (Queue 1) chạm mốc Lv.30 (hoặc Lv.35), tuyệt đối không đốt hàng chục triệu Gỗ/Đá để kéo cả 3 Doanh Trại (Liên Minh, Bộ Lạc, Thiên Nhiên) lên cùng một lúc.",
-                  en: "Off-Faction Barracks (2 Secondary Factions): Before your Castle and Queue 1 Main Barracks reach Lv.30 (or Lv.35), never burn tens of millions of Timber/Stone leveling all 3 Barracks (League, Horde, Nature) simultaneously.",
+                  vi: "**Doanh Trại 2 Hệ Phụ (Off-Faction Barracks)**: Trước khi **Lâu Đài** và **Doanh Trại Đội 1** (`Queue 1`) chạm `Lv.30` (hoặc `Lv.35`), tuyệt đối không đốt Gỗ/Đá kéo cả 3 Doanh Trại lên cùng lúc.",
+                  en: "**Off-Faction Barracks (2 Secondary Factions)**: Before your **Castle** and **Queue 1 Main Barracks** reach `Lv.30` (or `Lv.35`), never burn Timber/Stone leveling all 3 Barracks simultaneously.",
                 },
                 {
-                  vi: "Quán Rượu (Tavern) & Lò Rèn (Blacksmith) ở cấp cao: Chỉ nâng đến mốc mở khóa tính năng cốt lõi, không chạy đua theo cấp Lâu Đài khi đang thiếu tài nguyên.",
-                  en: "High-Level Tavern & Blacksmith: Only upgrade to unlock core feature milestones; never race them alongside your Castle when Timber, Stone, or Rubies are tight.",
+                  vi: "**Quán Rượu (Tavern) & Lò Rèn (Blacksmith)**: Chỉ nâng đến mốc mở khóa tính năng cốt lõi, tuyệt đối không chạy đua theo cấp **Lâu Đài** khi đang thiếu Gỗ, Đá hoặc `Ruby`.",
+                  en: "**High-Level Tavern & Blacksmith**: Only upgrade to unlock core feature milestones; never race them alongside your **Castle** when Timber, Stone, or `Rubies` are tight.",
                 },
               ],
             },
@@ -255,16 +255,16 @@ export const ARTICLE_8_1_CASTLE_AND_BRILLIANCE: GuideArticle = {
               type: "list",
               items: [
                 {
-                  vi: "🔵 Lộ trình Thuần Liên Minh (Pure League Path): Tập trung 100% vào Doanh Trại Liên Minh (League Barracks) và Tượng Liên Minh (League Statue) xuyên suốt từ Lv.1 ➔ Lv.40. Giữ Doanh Trại Bộ Lạc và Thiên Nhiên lùi lại phía sau từ 5–10 cấp (chỉ nâng lên các mốc chẵn Lv.20 / Lv.25 khi dư thừa tài nguyên hoặc cần điểm sự kiện Thứ Hai).",
-                  en: "🔵 Pure League Path: Focus 100% on League Barracks and League Statue from Lv.1 ➔ Lv.40. Keep Horde and Nature Barracks 5–10 levels behind (only tapping even milestones Lv.20 / Lv.25 when overflowing with resources or scoring Monday event points).",
+                  vi: "**Lộ trình Thuần Liên Minh (Pure League Path)**: Dồn `100%` vào `League Barracks` và `League Statue` từ `Lv.1 ➔ Lv.40`; giữ Doanh Trại Bộ Lạc và Thiên Nhiên lùi lại `5–10 cấp` (chỉ nâng khi thừa tài nguyên).",
+                  en: "**Pure League Path**: Focus `100%` on `League Barracks` and `League Statue` from `Lv.1 ➔ Lv.40`; keep Horde and Nature Barracks `5–10 levels` behind (only tapping `Lv.20 / Lv.25` for Monday points).",
                 },
                 {
-                  vi: "🔴 Lộ trình Khởi đầu Liên Minh ➔ Chuyển giao Bộ Lạc (League Start to Horde Pivot — Khuyên dùng cho F2P/Low-Spender): Giai đoạn 1 (Tuần 1 – Tuần 3 / Đua mốc Lv.25) ưu tiên nâng Doanh Trại Liên Minh lên Lv.20 ➔ Lv.25 để Đội 1 Liên Minh đầu game càn quét PvE/Arena, nhưng từ cuối Tuần 2 dùng Thợ phụ kéo Doanh Trại Bộ Lạc (Horde Barracks) đuổi theo lên Lv.23 ➔ Lv.25. Giai đoạn 2 (Từ Ngày 21+ / Đua mốc Lv.30 – Lv.35): Ngay khi đón tướng Thần Thoại Bộ Lạc (Desert Prince ở Ngày 21, Storm Maiden ở Ngày 27, Witch ở Ngày 41), lập tức đảo chiều ưu tiên đưa Doanh Trại Bộ Lạc và Tượng Bộ Lạc lên vị trí Ưu tiên Số 1 ngang hàng với Lâu Đài (Lv.25 ➔ Lv.30 ➔ Lv.35), đóng băng Doanh Trại Liên Minh ở Lv.25 cho Đội 2.",
-                  en: "🔴 League Start to Horde Pivot Path (Recommended for F2P/Low-Spenders): Stage 1 (Weeks 1–3 / Rush Lv.25) prioritizes League Barracks to Lv.20 ➔ Lv.25 so your early League Queue 1 clears PvE/Arena, while a secondary builder pulls Horde Barracks to Lv.23 ➔ Lv.25 from late Week 2. Stage 2 (Day 21+ / Rush Lv.30–35): As soon as Horde Mythics arrive (Desert Prince Day 21, Storm Maiden Day 27, Witch Day 41), immediately flip priority—making Horde Barracks and Horde Statue Priority #1 alongside Castle (Lv.25 ➔ Lv.30 ➔ Lv.35) while freezing League Barracks at Lv.25 for Queue 2.",
+                  vi: "**Lộ trình Liên Minh ➔ Bộ Lạc (Horde Pivot)**: Tuần 1–3 nâng `League Barracks Lv.25` và kéo `Horde Barracks Lv.25`; từ Ngày 21+ (`Desert Prince`, `Witch`), đảo ưu tiên Số 1 sang `Horde Barracks Lv.30 ➔ Lv.35`.",
+                  en: "**League Start to Horde Pivot Path**: Weeks 1–3 push `League Barracks Lv.25` while pulling `Horde Barracks` to `Lv.25`; from Day 21+ (`Desert Prince`, `Witch`), make `Horde Barracks Lv.30 ➔ Lv.35` Priority #1.",
                 },
                 {
-                  vi: "🟢 Lộ trình Chuyển giao Thiên Nhiên (Nature Path): Kéo Doanh Trại Thiên Nhiên (Nature Barracks) và Tượng Thiên Nhiên (Nature Statue) lên ngang cấp Lâu Đài trước ngày ra mắt bộ đôi Tidecaller + Monk (Giai đoạn Ngày 42–65 / đầu Season 1) để tối đa hóa lượng máu cho đội hình triệu hồi.",
-                  en: "🟢 Nature Pivot Path: Pull Nature Barracks and Nature Statue to match your Castle level ahead of the Tidecaller + Monk release window (Days 42–65 / early Season 1) to maximize HP scaling for summon lineups.",
+                  vi: "**Lộ trình Chuyển giao Thiên Nhiên (Nature Path)**: Kéo `Nature Barracks` và `Nature Statue` ngang cấp Lâu Đài trước kỳ ra mắt `Tidecaller + Monk` (Ngày 42–65 / đầu Season 1) để tối đa hóa máu đội hình triệu hồi.",
+                  en: "**Nature Pivot Path**: Pull `Nature Barracks` and `Nature Statue` to match your Castle level ahead of the `Tidecaller + Monk` window (Days 42–65 / early Season 1) to maximize HP for summon lineups.",
                 },
               ],
             },
@@ -307,8 +307,8 @@ export const ARTICLE_8_1_CASTLE_AND_BRILLIANCE: GuideArticle = {
                     en: "Stack all Construction Speed buffs before clicking any major building upgrade",
                   },
                   detail: {
-                    vi: "Gồm Bard (+40% Construction Rate — Tướng Vàng Liên Minh, kích hoạt thụ động không cần ra trận), kỹ năng Dân làng (Villager traits), Công nghệ Bang hội (Guild Tech), đặc quyền VIP và Chức vụ Vương quốc (King/Server titles) — phân biệt rõ với nhóm tăng Tốc độ Nghiên cứu từ Brawler (+30% Tech Research Rate) và Shaman (+40% Tech Research Rate).",
-                    en: "Includes Bard (+40% Construction Rate — League Legendary hero, passive in-town effect), Villager traits, Guild Tech, VIP perks, and King/Server titles—distinguishing them clearly from Research Speed buffs provided by Brawler (+30% Tech Research Rate) and Shaman (+40% Tech Research Rate).",
+                    vi: "Kích hoạt **Bard** (`+40% Construction Rate` — Tướng Vàng Liên Minh thụ động), kỹ năng Dân làng, Công nghệ Bang, VIP và Chức vụ Server.\n• **Lưu ý**: Phân biệt rõ với nhóm tăng Tốc độ Nghiên cứu từ **Brawler** (`+30% Tech Research Rate`) và **Shaman** (`+40% Tech Research Rate`).",
+                    en: "Stack **Bard** (`+40% Construction Rate` — League Legendary passive), Villager traits, Guild Tech, VIP perks, and King/Server titles.\n• **Note**: Distinguish these from Research Speed buffs provided by **Brawler** (`+30% Tech Research Rate`) and **Shaman** (`+40% Tech Research Rate`).",
                   },
                 },
                 {
@@ -354,12 +354,12 @@ export const ARTICLE_8_1_CASTLE_AND_BRILLIANCE: GuideArticle = {
           },
           headers: [
             {
-              vi: "❌ Sai lầm Phổ biến (Account Traps)",
-              en: "❌ Common Pitfalls (Account Traps)",
+              vi: "Sai lầm Phổ biến (Account Traps)",
+              en: "Common Pitfalls (Account Traps)",
             },
             {
-              vi: "✅ Giải pháp Tối ưu (Min-Max Solution)",
-              en: "✅ Optimal Solution (Min-Max Solution)",
+              vi: "Giải pháp Tối ưu (Min-Max Solution)",
+              en: "Optimal Solution (Min-Max Solution)",
             },
           ],
           rows: [
@@ -411,12 +411,12 @@ export const ARTICLE_8_1_CASTLE_AND_BRILLIANCE: GuideArticle = {
           type: "callout",
           variant: "rule",
           title: {
-            vi: "Dữ liệu Kiểm chứng từ TopHeroes Tables - Max (Tab 🏰Castle, 👤Heroes & ♾️DE-Dust)",
-            en: "Verified Ground-Truth Data from TopHeroes Tables - Max (🏰Castle, 👤Heroes & ♾️DE-Dust Tabs)",
+            vi: "Dữ liệu Kiểm chứng từ TopHeroes Tables - Max (Tab Castle, Heroes & DE-Dust)",
+            en: "Verified Ground-Truth Data from TopHeroes Tables - Max (Castle, Heroes & DE-Dust Tabs)",
           },
           content: {
-            vi: "Toàn bộ số liệu Gỗ/Đá, Ruby, Trần Cấp Tướng và Tinh Chất Rồng (Dragon Essence / DE-Dust) dưới đây đã được chuẩn hóa 100%, loại bỏ hoàn toàn các con số ước tính sai lệch cũ và bổ sung định mức mở khóa Lính Bậc 11 (5,422 DE).",
-            en: "All Timber/Stone, Ruby, Hero Level Cap, and Dragon Essence (DE-Dust) figures below are 100% standardized from raw community spreadsheets, eliminating legacy estimation errors and detailing the exact 5,422 DE path to Tier 11 Troops.",
+            vi: "**Dữ liệu Chuẩn hóa 100%**: Toàn bộ số liệu Gỗ/Đá, Ruby, Trần Cấp Tướng và Tinh Chất Rồng (`Dragon Essence` / `DE-Dust`) dưới đây đã được chuẩn hóa 100%.\n• **Định mức Lính Bậc 11**: Loại bỏ hoàn toàn các con số ước tính sai lệch cũ và bổ sung định mức mở khóa Lính Bậc 11 (`5,422 DE`).",
+            en: "**100% Standardized Data**: All Timber/Stone, Ruby, Hero Level Cap, and `Dragon Essence` (`DE-Dust`) figures below are 100% standardized from raw community spreadsheets.\n• **Tier 11 Troops Benchmark**: Eliminates legacy estimation errors and details the exact `5,422 DE` path to Tier 11 Troops.",
           },
         },
       ],
@@ -431,8 +431,8 @@ export const ARTICLE_8_1_CASTLE_AND_BRILLIANCE: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Điều kiện tiên quyết để nâng cấp Lâu Đài từ Lv.10 đến Lv.40 tuân theo một Quy luật Luân phiên Chẵn – Lẻ tuyệt đối: Để lên Cấp Lâu Đài Chẵn (Lv.2N), hệ thống LUÔN LUÔN yêu cầu Hội (Guild) và Sân Tập (Training Ground) đạt cấp 2N - 1; để lên Cấp Lâu Đài Lẻ (Lv.2N + 1), hệ thống LUÔN LUÔN yêu cầu Viện Nghiên Cứu (Research Cottage) và Bệnh Viện (Hospital) đạt cấp 2N.",
-                en: "Castle upgrade prerequisites from Lv.10 to Lv.40 obey an absolute Alternating Even–Odd Rule: Reaching an Even Castle Level (Lv.2N) ALWAYS requires Guild and Training Ground at level 2N - 1; reaching an Odd Castle Level (Lv.2N + 1) ALWAYS requires Research Cottage and Hospital at level 2N.",
+                vi: "Điều kiện nâng **Lâu Đài** từ `Lv.10` đến `Lv.40` tuân theo **Quy luật Luân phiên Chẵn – Lẻ** tuyệt đối:\n• **Cấp Chẵn (`Lv.2N`)**: Luôn đòi **Hội** (`Guild`) và **Sân Tập** (`Training Ground`) đạt cấp `2N - 1`.\n• **Cấp Lẻ (`Lv.2N + 1`)**: Luôn đòi **Viện Nghiên Cứu** (`Research Cottage`) và **Bệnh Viện** (`Hospital`) đạt cấp `2N`.",
+                en: "Castle upgrade prerequisites from `Lv.10` to `Lv.40` obey an absolute **Alternating Even–Odd Rule**:\n• **Even Castle Level (`Lv.2N`)**: Always requires **Guild** and **Training Ground** at level `2N - 1`.\n• **Odd Castle Level (`Lv.2N + 1`)**: Always requires **Research Cottage** and **Hospital** at level `2N`.",
               },
             },
             {
@@ -579,8 +579,8 @@ export const ARTICLE_8_1_CASTLE_AND_BRILLIANCE: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Nguồn dữ liệu: Trích xuất chính xác từ TopHeroes Tables - Max — Tab 🏰Castle & 👤Heroes. Lưu ý: Lượng tài nguyên thực tế giảm ~5% khi nâng công nghệ Tool Improvement I; thời gian xây dựng thực tế được cắt giảm nhờ Bard (+40% Construction Rate — Tướng Vàng Liên Minh, kích hoạt thụ động không cần ra trận), Dân làng, Công nghệ Bang, VIP và Chức vụ Vương quốc, trong khi thời gian nghiên cứu tại Viện Nghiên Cứu được cắt giảm nhờ Brawler (+30% Tech Research Rate) và Shaman (+40% Tech Research Rate).",
-                en: "Data Source: Extracted verbatim from TopHeroes Tables - Max — 🏰Castle & 👤Heroes tabs. Note: Actual resource costs drop by ~5% with Tool Improvement I tech; build times are reduced by Bard (+40% Construction Rate — League Legendary hero, passive in-town effect), Villagers, Guild Tech, VIP, and Server Titles, whereas Research Cottage timers are reduced by Brawler (+30% Tech Research Rate) and Shaman (+40% Tech Research Rate).",
+                vi: "Nguồn dữ liệu: Trích xuất chính xác từ **TopHeroes Tables - Max** — Tab `Castle` & `Heroes` (chi phí thực tế giảm `~5%` nhờ công nghệ `Tool Improvement I`).\n• **Giảm Thời gian Xây**: Nhờ **Bard** (`+40% Construction Rate` thụ động), Dân làng, Công nghệ Bang, VIP và Chức vụ Server.\n• **Giảm Thời gian Nghiên cứu**: Tại Viện Nghiên Cứu nhờ **Brawler** (`+30% Tech Research Rate`) và **Shaman** (`+40% Tech Research Rate`).",
+                en: "Data Source: Extracted verbatim from **TopHeroes Tables - Max** — `Castle` & `Heroes` tabs (actual costs drop by `~5%` with `Tool Improvement I` tech).\n• **Build Speed Buffs**: Reduced by **Bard** (`+40% Construction Rate` passive), Villagers, Guild Tech, VIP, and Server Titles.\n• **Research Speed Buffs**: Reduced at the Research Cottage by **Brawler** (`+30% Tech Research Rate`) and **Shaman** (`+40% Tech Research Rate`).",
               },
             },
             {
@@ -817,7 +817,7 @@ export const ARTICLE_8_1_CASTLE_AND_BRILLIANCE: GuideArticle = {
                   { vi: "Bước đệm chuẩn bị tích Tăng tốc cho Điểm gãy Lv.35", en: "Staging level to hoard Speed-ups for the Lv.35 Breakpoint" },
                 ],
                 [
-                  { vi: "🔥 Lv.35", en: "🔥 Lv.35" },
+                  { vi: "Lv.35 ★", en: "Lv.35 ★" },
                   { vi: "Research Cottage (34), Hospital (34)", en: "Research Cottage (34), Hospital (34)" },
                   { vi: "26.6M", en: "26.6M" },
                   { vi: "8.36M", en: "8.36M" },
@@ -857,7 +857,7 @@ export const ARTICLE_8_1_CASTLE_AND_BRILLIANCE: GuideArticle = {
                   { vi: "—", en: "—" },
                 ],
                 [
-                  { vi: "👑 Lv.40", en: "👑 Lv.40" },
+                  { vi: "Lv.40 ★", en: "Lv.40 ★" },
                   { vi: "Guild (39), Training Ground (39)", en: "Guild (39), Training Ground (39)" },
                   { vi: "139M", en: "139M" },
                   { vi: "51.8M", en: "51.8M" },
@@ -888,16 +888,16 @@ export const ARTICLE_8_1_CASTLE_AND_BRILLIANCE: GuideArticle = {
               ordered: true,
               items: [
                 {
-                  vi: "Chi phí từ Lv.35 lên Lv.40 đắt gấp 3.5 lần tổng chi phí từ Lv.1 đến Lv.35 cộng lại: Nhìn vào bảng số liệu trên, tổng lượng Gỗ/Đá từ Lv.10 đến Lv.35 chỉ tốn khoảng ~82M, nhưng chỉ riêng 5 cấp cuối (Lv.36 ➔ Lv.40) ngốn tới ~417M Gỗ/Đá và ~142.8M Ruby!",
-                  en: "Upgrading from Lv.35 to Lv.40 costs 3.5x more than Lv.1 to Lv.35 combined: As shown in the master table, cumulative Timber/Stone from Lv.10 to Lv.35 is only ~82M, whereas the final 5 levels alone (Lv.36 ➔ Lv.40) devour ~417M Timber/Stone and ~142.8M Rubies!",
+                  vi: "**Chi phí Lv.35 ➔ Lv.40 đắt gấp 3.5 lần**: Tổng Gỗ/Đá từ `Lv.10 ➔ Lv.35` chỉ tốn `~82M`, nhưng riêng 5 cấp cuối (`Lv.36 ➔ Lv.40`) ngốn tới `~417M` Gỗ/Đá và `~142.8M` Ruby!",
+                  en: "**Lv.35 ➔ Lv.40 Costs 3.5x More**: Cumulative Timber/Stone from `Lv.10 ➔ Lv.35` is only `~82M`, whereas the final 5 levels alone (`Lv.36 ➔ Lv.40`) devour `~417M` Timber/Stone and `~142.8M` Rubies!",
                 },
                 {
-                  vi: "Doanh Trại Lv.36 ➔ Lv.40 KHÔNG mở khóa Bậc Lính mới: Lính Bậc 10 (Tier 10 Troops) mở khóa ngay tại Doanh Trại Lv.35 (khi Lâu Đài đạt Lv.35). Từ Lv.36 đến Lv.40, bạn chỉ nhận được thêm cấp độ tướng (Lv.195 ➔ Lv.220), trong khi Lính Bậc 11 (Tier 11 Troops) phải đợi sang tận giai đoạn Viện Huy Hoàng (Brilliance Institute) ở Season 1+!",
-                  en: "Barracks Lv.36 ➔ Lv.40 DO NOT unlock a new Troop Tier: Tier 10 Troops unlock right at Barracks Lv.35 (when Castle hits Lv.35). From Lv.36 to Lv.40, you only gain Hero Level Cap increases (Lv.195 ➔ Lv.220), while Tier 11 Troops wait until the Brilliance Institute in Season 1+!",
+                  vi: "**Doanh Trại Lv.36 ➔ Lv.40 KHÔNG mở lính mới**: **Tier 10 Troops** mở ngay tại `Barracks Lv.35`; từ `Lv.36 ➔ Lv.40` chỉ tăng trần tướng (`Lv.195 ➔ Lv.220`), còn **Tier 11 Troops** đợi Viện Huy Hoàng ở Season 1+.",
+                  en: "**Barracks Lv.36 ➔ Lv.40 Unlock Zero Troop Tiers**: **Tier 10 Troops** unlock at `Barracks Lv.35`; `Lv.36 ➔ Lv.40` only raises Hero Cap (`Lv.195 ➔ Lv.220`), while **Tier 11 Troops** wait for the Brilliance Institute.",
                 },
                 {
-                  vi: "Chiến thuật Thực thi: Khi tài khoản chạm mốc Lv.32 – Lv.33, hãy ngừng hoàn toàn việc tiêu Gỗ/Đá/Ruby/Tăng tốc vào các công trình phụ. Dồn 100% Rương Tài Nguyên và Tăng tốc Xây dựng để đẩy một mạch qua mốc Lâu Đài Lv.35 + Doanh Trại Hệ Đội 1 Lv.35, sau đó dùng kỹ thuật Thăng cấp Lính Bậc Thang (T9 ➔ T10) vào đúng Thứ Sáu Tuần B (Arms Race Day 5).",
-                  en: "Execution Protocol: Once your account hits Lv.32 – Lv.33, halt all Timber/Stone/Ruby/Speed-up spending on side buildings. Funnel 100% of your Resource Chests and Construction Speed-ups to blast straight through Castle Lv.35 + Queue 1 Main Barracks Lv.35, then execute Ladder Troop Promotion (T9 ➔ T10) on Friday Week B (Arms Race Day 5).",
+                  vi: "**Chiến thuật Thực thi**: Từ `Lv.32–33`, ngừng nâng nhà phụ; dồn `100%` Rương Tài Nguyên và Tăng tốc đẩy thẳng `Castle Lv.35` + `Main Barracks Lv.35`, rồi thăng cấp lính bậc thang `T9 ➔ T10` vào Thứ Sáu Tuần B.",
+                  en: "**Execution Protocol**: At `Lv.32–33`, halt side buildings; funnel `100%` of Resource Chests and Speed-ups into `Castle Lv.35` + `Main Barracks Lv.35`, then execute `T9 ➔ T10` ladder promotion on Friday Week B.",
                 },
               ],
             },
@@ -961,8 +961,8 @@ export const ARTICLE_8_1_CASTLE_AND_BRILLIANCE: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Sau khi Lâu Đài đạt Lv.40 và máy chủ bước vào Season 1+, hệ thống hạ tầng chuyển sang sử dụng tài nguyên quý hiếm Tinh Chất Rồng / Bụi Rồng (Dragon Essence / DE-Dust). Mỗi bậc Quang Huy (Brilliance Level 1 ➔ 6) được chia làm 5 tiểu cấp (tương ứng trên bảng dữ liệu là Level 41 đến Level 70):",
-                en: "Once your Castle reaches Lv.40 and the server enters Season 1+, infrastructure progression shifts to the rare resource Dragon Essence (DE-Dust). Each Brilliance tier (Brilliance Level 1 ➔ 6) is divided into 5 sub-levels (corresponding to Levels 41 through 70 in the raw data tables):",
+                vi: "Sau khi đạt `Castle Lv.40` và vào Season 1+, hạ tầng chuyển sang dùng **Tinh Chất Rồng** (`Dragon Essence` / `DE-Dust`).\n• **Cấu trúc Bậc**: Mỗi bậc Quang Huy (`Brilliance Level 1 ➔ 6`) chia làm `5 tiểu cấp` (tương ứng `Level 41 ➔ Level 70` trên bảng dữ liệu):",
+                en: "Once you reach `Castle Lv.40` and enter Season 1+, infrastructure shifts to **Dragon Essence** (`DE-Dust`).\n• **Tier Structure**: Each Brilliance tier (`Brilliance Level 1 ➔ 6`) has `5 sub-levels` (corresponding to `Levels 41 ➔ 70` in the raw data tables):",
               },
             },
             {
@@ -1071,12 +1071,12 @@ export const ARTICLE_8_1_CASTLE_AND_BRILLIANCE: GuideArticle = {
               type: "callout",
               variant: "tip",
               title: {
-                vi: "💡 Bí mật Tối ưu Tinh Chất Rồng (5,422 DE) để mở khóa Lính Bậc 11 (Tier 11 Troops)",
-                en: "💡 Dragon Essence Secret (5,422 DE) to Unlock Tier 11 Troops (T11)",
+                vi: "Bí mật Tối ưu Tinh Chất Rồng (5,422 DE) để mở khóa Lính Bậc 11 (Tier 11 Troops)",
+                en: "Dragon Essence Secret (5,422 DE) to Unlock Tier 11 Troops (T11)",
               },
               content: {
-                vi: "Theo dữ liệu kiểm chứng từ TopHeroes Tables - Max (♾️DE-Dust), người chơi KHÔNG CẦN nâng Lâu Đài lên tận Brilliance 3 (B3) để nâng Viện Huy Hoàng (Brilliance Institute — BI) lên mốc tối đa Lv.15 (B3)! Chi phí xây dựng Viện Huy Hoàng từ Lv.1 ➔ Lv.15 chỉ tốn tổng cộng 745 Dragon Essence (32 DE/cấp từ Lv.1–6; 57 DE/cấp từ Lv.7–11; 67 DE/cấp từ Lv.12–15) và 1,375M Gỗ/Đá. Kết hợp với 4,677 Dragon Essence cho các nhánh nghiên cứu bắt buộc trong Viện Huy Hoàng (đến node Soldier Level ở BI Lv.15 tốn 288 DE), tổng cộng bạn chỉ cần 5,422 Dragon Essence để mở khóa Lính Bậc 11 (Tier 11 Troops) — rẻ hơn rất nhiều so với việc đốt 8,400 DE vào vỏ Lâu Đài!",
-                en: "According to verified data from TopHeroes Tables - Max (♾️DE-Dust), you DO NOT need to push your Castle to Brilliance 3 (B3) to upgrade the Brilliance Institute (BI) to Lv.15 (B3)! Building the Brilliance Institute from Lv.1 ➔ Lv.15 costs only 745 Dragon Essence (32 DE/lv for Lv.1–6; 57 DE/lv for Lv.7–11; 67 DE/lv for Lv.12–15) and 1,375M Timber/Stone. Combined with 4,677 Dragon Essence for mandatory prerequisite tech inside the Brilliance Institute (including 288 DE for the Soldier Level node at BI Lv.15), you need only 5,422 Dragon Essence total to unlock Tier 11 Troops—far cheaper than burning 8,400 DE on the Castle shell!",
+                vi: "Theo dữ liệu **TopHeroes Tables - Max** (`DE-Dust`), bạn **KHÔNG CẦN** nâng Lâu Đài lên `Brilliance 3 (B3)` để nâng **Viện Huy Hoàng** (`Brilliance Institute` — BI) lên `Lv.15 (B3)`!\n• **Chi phí Xây Viện**: Nâng BI từ `Lv.1 ➔ Lv.15` chỉ tốn `745` Dragon Essence (`32 DE/cấp` từ Lv.1–6; `57 DE/cấp` từ Lv.7–11; `67 DE/cấp` từ Lv.12–15) và `1,375M` Gỗ/Đá.\n• **Tổng Mở Lính T11**: Cộng thêm `4,677` Dragon Essence nghiên cứu đường găng (node `Soldier Level` ở BI Lv.15 tốn `288` DE) = **`5,422` Dragon Essence** (rẻ hơn hẳn mốc `8,400` DE vỏ Lâu Đài)!",
+                en: "Per verified **TopHeroes Tables - Max** (`DE-Dust`) data, you **DO NOT** need a `Brilliance 3 (B3)` Castle to upgrade the **Brilliance Institute** (BI) to `Lv.15 (B3)`!\n• **BI Construction**: Upgrading BI from `Lv.1 ➔ Lv.15` costs only `745` Dragon Essence (`32 DE/lv` for Lv.1–6; `57 DE/lv` for Lv.7–11; `67 DE/lv` for Lv.12–15) and `1,375M` Timber/Stone.\n• **Total T11 Unlock**: Combined with `4,677` Dragon Essence for prerequisite tech (`288` DE for `Soldier Level` at BI Lv.15), you need only **`5,422` Dragon Essence** total (vs. `8,400` DE for Castle B1–B6)!",
               },
             },
             {
@@ -1167,17 +1167,17 @@ export const ARTICLE_8_1_CASTLE_AND_BRILLIANCE: GuideArticle = {
             en: "Day 18–20 Account (Castle Lv.24): Breaking Lv.25 & Flipping Barracks Priority for Desert Prince",
           },
           profileSummary: {
-            vi: "Tài khoản ở Giai đoạn Ngày 18–20 (Lâu Đài Lv.24, Doanh Trại Liên Minh Lv.24, Doanh Trại Bộ Lạc Lv.21, 3 Hàng đợi Thợ Xây) chuẩn bị bước vào kỳ Chuyển giao Bộ Lạc (Horde Pivot) từ Ngày 21 (Desert Prince) đến Ngày 41 (Witch).",
-            en: "Account at Days 18–20 (Castle Lv.24, League Barracks Lv.24, Horde Barracks Lv.21, 3 Builder Queues) preparing for the Horde Pivot window from Day 21 (Desert Prince) through Day 41 (Witch).",
+            vi: "Tài khoản Ngày 18–20 (`Castle Lv.24`, `League Barracks Lv.24`, `Horde Barracks Lv.21`, 3 Thợ Xây) chuẩn bị bước vào kỳ **Chuyển giao Bộ Lạc** (`Horde Pivot`) từ Ngày 21 (`Desert Prince`) đến Ngày 41 (`Witch`).",
+            en: "Account at Days 18–20 (`Castle Lv.24`, `League Barracks Lv.24`, `Horde Barracks Lv.21`, 3 Builder Queues) preparing for the **Horde Pivot** window from Day 21 (`Desert Prince`) through Day 41 (`Witch`).",
           },
           diagnostics: [
             {
-              vi: "Nguy cơ kẹt mốc Lv.25: Tài khoản đang ở ngưỡng cửa đột phá Lv.24 ➔ Lv.25 (đòi Research Cottage 24 + Hospital 24). Nếu tiếp tục rải thợ xây nâng Mỏ Gỗ/Đá hoặc nâng Doanh Trại Thiên Nhiên, tài khoản sẽ bị chậm mốc Lv.25 (mất Lính T8 và mở muộn Sảnh Lãnh Chúa Lord Hall / Sảnh Huân Chương Medal Hall).",
-              en: "Lv.25 Bottleneck Risk: The account sits at the Lv.24 ➔ Lv.25 threshold (requiring Research Cottage 24 + Hospital 24). Spreading builders across Timber/Stone mines or Nature Barracks delays Lv.25 (losing T8 Troops and delaying Lord Hall / Medal Hall unlocks).",
+              vi: "**Nguy cơ kẹt mốc Lv.25**: Tài khoản đang ở ngưỡng `Lv.24 ➔ Lv.25` (đòi `Research Cottage 24` + `Hospital 24`).\n• **Hệ lụy**: Nếu rải thợ nâng Mỏ Gỗ/Đá hoặc Doanh Trại Thiên Nhiên sẽ bị chậm `Lv.25` (mất Lính `T8` và mở muộn `Lord Hall` / `Medal Hall`).",
+              en: "**Lv.25 Bottleneck Risk**: The account sits at the `Lv.24 ➔ Lv.25` threshold (requiring `Research Cottage 24` + `Hospital 24`).\n• **Impact**: Spreading builders across mines or Nature Barracks delays `Lv.25` (losing `T8` Troops and delaying `Lord Hall` / `Medal Hall`).",
             },
             {
-              vi: "Nguy cơ lệch pha Bậc Lính khi tướng Mythic ra mắt: Nếu không kéo Doanh Trại Bộ Lạc (đang ở Lv.21) đuổi theo kịp thời, khi Desert Prince (Ngày 21) và Storm Maiden (Ngày 27) xuất hiện, quân lính Bộ Lạc vẫn mắc kẹt ở Bậc 7 (T7).",
-              en: "Troop Tier Desync on Mythic Release: Without pulling Horde Barracks (currently Lv.21) up in time, when Desert Prince (Day 21) and Storm Maiden (Day 27) launch, Horde troops remain stuck at Tier 7 (T7).",
+              vi: "**Nguy cơ lệch pha Bậc Lính**: Nếu không kéo `Horde Barracks` (đang `Lv.21`) đuổi theo kịp thời, khi `Desert Prince` (Ngày 21) và `Storm Maiden` (Ngày 27) ra mắt, lính Bộ Lạc vẫn kẹt ở `T7`.",
+              en: "**Troop Tier Desync**: Without pulling `Horde Barracks` (currently `Lv.21`) up in time, when `Desert Prince` (Day 21) and `Storm Maiden` (Day 27) launch, Horde troops remain stuck at `T7`.",
             },
           ],
           recoverySteps: [
@@ -1188,8 +1188,8 @@ export const ARTICLE_8_1_CASTLE_AND_BRILLIANCE: GuideArticle = {
                 en: "48-Hour Lv.25 Breakthrough",
               },
               detail: {
-                vi: "Cắm Thợ 1 vào Doanh Trại Liên Minh (Lv.24 ➔ Lv.25) để lấy ngay Lính T8 gánh đội hình hiện tại; cắm Thợ 2 hoàn tất Research Cottage (24) + Hospital (24) rồi bấm thẳng Lâu Đài (Lv.24 ➔ Lv.25, tốn 3.04M Gỗ/Đá & 142K Ruby) vào ngày Thứ Hai Tuần B (Arms Race Day 1).",
-                en: "Lock Builder 1 on League Barracks (Lv.24 ➔ Lv.25) to secure T8 Troops for the active lineup; use Builder 2 to finish Research Cottage (24) + Hospital (24) and launch Castle (Lv.24 ➔ Lv.25, costing 3.04M Timber/Stone & 142K Rubies) on Monday Week B (Arms Race Day 1).",
+                vi: "Cắm Thợ 1 vào `League Barracks` (`Lv.24 ➔ Lv.25`) lấy Lính `T8`; cắm Thợ 2 hoàn tất `Research Cottage 24` + `Hospital 24`.\n• **Bấm Lâu Đài**: Đẩy thẳng `Castle Lv.24 ➔ Lv.25` (tốn `3.04M` Gỗ/Đá & `142K` Ruby) vào Thứ Hai Tuần B (`Arms Race Day 1`).",
+                en: "Lock Builder 1 on `League Barracks` (`Lv.24 ➔ Lv.25`) for `T8` Troops; use Builder 2 to finish `Research Cottage 24` + `Hospital 24`.\n• **Launch Castle**: Push `Castle Lv.24 ➔ Lv.25` (`3.04M` Timber/Stone & `142K` Rubies) on Monday Week B (`Arms Race Day 1`).",
               },
             },
             {
@@ -1210,8 +1210,8 @@ export const ARTICLE_8_1_CASTLE_AND_BRILLIANCE: GuideArticle = {
                 en: "Pivot Infrastructure to Horde from Day 21",
               },
               detail: {
-                vi: "Cố định Thợ 2 vào Doanh Trại Bộ Lạc (Lv.21 ➔ Lv.25 ➔ Lv.30) và Tượng Bộ Lạc (Horde Statue) để trước Ngày 41 (khi Witch xuất hiện hoàn tất đội hình 100% Bộ Lạc), toàn bộ quân lính Bộ Lạc đã sẵn sàng ở Bậc 9 (T9 — Lv.30).",
-                en: "Dedicate Builder 2 to Horde Barracks (Lv.21 ➔ Lv.25 ➔ Lv.30) and Horde Statue so that before Day 41 (when Witch completes the 5-Horde lineup), all Horde troops are combat-ready at Tier 9 (T9 — Lv.30).",
+                vi: "Cố định Thợ 2 vào `Horde Barracks` (`Lv.21 ➔ Lv.25 ➔ Lv.30`) và `Horde Statue` để trước Ngày 41 (khi `Witch` hoàn tất đội 5 Bộ Lạc), toàn bộ lính Bộ Lạc đã đạt **Bậc 9** (`T9 — Lv.30`).",
+                en: "Dedicate Builder 2 to `Horde Barracks` (`Lv.21 ➔ Lv.25 ➔ Lv.30`) and `Horde Statue` so that before Day 41 (when `Witch` completes 5-Horde), all Horde troops are ready at **Tier 9** (`T9 — Lv.30`).",
               },
             },
           ],
@@ -1260,8 +1260,8 @@ export const ARTICLE_8_1_CASTLE_AND_BRILLIANCE: GuideArticle = {
             },
           ],
           conclusion: {
-            vi: "Đua cấp Lâu Đài không phải là nâng bừa mọi công trình, mà là nghệ thuật điều phối đường găng Chẵn/Lẻ (Guild + Training Ground vs Research Cottage + Hospital), dồn lực phá vỡ Điểm gãy Lv.35 (Lính T10) và ưu tiên 5,422 DE vào Viện Huy Hoàng để mở Lính T11 sớm nhất.",
-            en: "Castle rushing is not blind upgrading—it is the art of orchestrating the Even/Odd critical path (Guild + Training Ground vs. Research Cottage + Hospital), concentrating resources to shatter the Lv.35 (Tier 10 Troops) breakpoint, and prioritizing 5,422 DE in the Brilliance Institute for the earliest Tier 11 Troops unlock.",
+            vi: "Đua cấp Lâu Đài là nghệ thuật điều phối đường găng Chẵn/Lẻ (`Guild` + `Training Ground` vs `Research Cottage` + `Hospital`).\n• **Đích đến**: Dồn lực phá Điểm gãy `Lv.35` (**Tier 10 Troops**) và ưu tiên `5,422 DE` vào **Viện Huy Hoàng** để mở **Lính T11** sớm nhất.",
+            en: "Castle rushing is the art of orchestrating the Even/Odd critical path (`Guild` + `Training Ground` vs. `Research Cottage` + `Hospital`).\n• **Endgame Target**: Shatter the `Lv.35` (**Tier 10 Troops**) breakpoint and prioritize `5,422 DE` in the **Brilliance Institute** for **Tier 11 Troops**.",
           },
         },
       ],

@@ -11,35 +11,35 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
     en: "Relics Master Guide (Relics Trio): 3-Faction BiS Loadouts & Star Progression Tables",
   },
   summary: {
-    vi: "Giải mã cơ chế 3 Ô Thánh Vật (Tấn công / Phòng thủ & Khống chế / Hỗ trợ & Hồi phục), sự khác biệt giữa Kỹ năng Kích hoạt và Chỉ số Sở hữu Toàn cục, quy luật Áp Chế Sao -50% (Star Rating Suppression), cấu hình BiS cho cả 3 Phe phái, phân định cộng hưởng +1 giây (1s) vs Sustain, bảng chi phí 20 cấp Sao từ TopHeroes Tables (Tab 👑Relics) và lịch xả Ngày 1–2 Tuần B.",
-    en: "Complete guide to the 3 Relic slots (Offense / Defense & CC / Support & Healing), Active Combat Skills vs Owned Passive Stats, the -50% Star Rating Suppression rule, BiS Relic Loadouts for all 3 Factions, +1s duration synergy vs Sustain relics, 20-level Star upgrade cost tables from TopHeroes Tables (Tab 👑Relics), and Day 1–2 Week B event dumping.",
+    vi: "Giải mã cơ chế 3 Ô Thánh Vật (Tấn công / Phòng thủ & Khống chế / Hỗ trợ & Hồi phục), sự khác biệt giữa Kỹ năng Kích hoạt và Chỉ số Sở hữu Toàn cục, quy luật Áp Chế Sao -50% (Star Rating Suppression), cấu hình BiS cho cả 3 Phe phái, phân định cộng hưởng +1 giây (1s) vs Sustain, bảng chi phí 20 cấp Sao từ TopHeroes Tables (Tab Relics) và lịch xả Ngày 1–2 Tuần B.",
+    en: "Complete guide to the 3 Relic slots (Offense / Defense & CC / Support & Healing), Active Combat Skills vs Owned Passive Stats, the -50% Star Rating Suppression rule, BiS Relic Loadouts for all 3 Factions, +1s duration synergy vs Sustain relics, 20-level Star upgrade cost tables from TopHeroes Tables (Tab Relics), and Day 1–2 Week B event dumping.",
   },
   tldr: {
     coreRule: {
-      vi: "Mọi Thánh Vật (từ Xanh Rare 4,810 mảnh = +6.00% ATK / +12.00% HP, Tím Epic 3,130 mảnh = +12.00% ATK / +24.00% HP đến Vàng Legendary 1,800 mảnh = +20.00% ATK / +40.00% HP) ngay khi mở khóa và nâng Sao trong Sảnh Thánh Tích (Relic Hall) đều cộng vĩnh viễn chỉ số cho TOÀN BỘ TƯỚNG (Owned Passive Stats). Đặc biệt, nếu Tổng số Sao của 3 Thánh Vật Vàng (Legendary) trên đội hình cao hơn đối thủ dù chỉ 1 Sao, toàn bộ sát thương, hồi máu và thời gian hiệu lực Thánh Vật địch bị cắt giảm -50% (Star Rating Suppression)!",
-      en: "Every Relic (from Rare 4,810 shards = +6.00% ATK / +12.00% HP and Epic 3,130 shards = +12.00% ATK / +24.00% HP to Legendary 1,800 shards = +20.00% ATK / +40.00% HP) grants permanent global Owned Passive Stats to ALL heroes once unlocked and upgraded in the Relic Hall. Crucially, if your team's total Legendary Relic star rating exceeds the enemy's by even 1 Star, all enemy relic damage, healing, and effect durations are halved (-50% Star Rating Suppression)!",
+      vi: "**Chỉ Số Sở Hữu Toàn Cục & Quy Luật Áp Chế Sao `-50%` (Star Rating Suppression):**\n• Mọi Thánh Vật trong `Relic Hall` cộng **Owned Passive Stats** toàn cục: **Rare** `4,810` mảnh (`+6.00%` ATK / `+12.00%` HP), **Epic** `3,130` mảnh (`+12.00%` / `+24.00%`).\n• **Legendary Relic** chỉ cần `1,800` mảnh đạt Max `20★` nhưng cộng tới `+20.00%` Hero ATK / `+40.00%` Hero HP.\n• Nếu tổng Sao của **3 Thánh Vật Vàng (Legendary)** trên đội hình cao hơn đối thủ dù chỉ `1★`, toàn bộ sát thương, hồi máu và hiệu lực Thánh Vật địch bị cắt giảm `-50%`!",
+      en: "**Global Owned Passive Stats & `-50%` Star Rating Suppression Rule:**\n• Every Relic in the `Relic Hall` grants **Owned Passive Stats**: **Rare** `4,810` shards (`+6.00%` ATK / `+12.00%` HP), **Epic** `3,130` shards (`+12.00%` / `+24.00%`).\n• **Legendary Relics** require only `1,800` shards for Max `20★` yet grant `+20.00%` Hero ATK / `+40.00%` Hero HP.\n• If your team's total **Legendary Relic** star rating exceeds the enemy's by even `1★`, all enemy relic damage, healing, and durations are halved (`-50%`)!",
     },
     immediateAction: {
-      vi: "Kiểm tra ngay 3 Ô Thánh Vật (Relics Trio) của Đội hình 1 để đảm bảo đeo đủ 3 món Vàng (Legendary) kích hoạt dòng Cộng hưởng Đồng Hệ khớp với phe phái chủ lực (Bộ Lạc Dragon's Might / Liên Minh Arcane Vault / Thiên Nhiên Oath of the Sacred Forest), và ưu tiên đẩy 3 món Vàng chủ lực chạm các mốc điểm gãy Bậc 1 - Sao 5 (5★ = 130 Mảnh Tích Lũy, +1.60% ATK / +3.20% HP), Bậc 2 - Sao 3 (330 Mảnh, +4.00% ATK / +8.00% HP) và Bậc 2 - Sao 5 (10★ = 490 Mảnh Tích Lũy, +6.00% ATK / +12.00% HP).",
-      en: "Audit Queue 1's 3 active Relic slots (Relics Trio) immediately to ensure all 3 equipped pieces are Legendary Relics matching your main faction's synergy set (Horde Dragon's Might / League Arcane Vault / Nature Oath of the Sacred Forest), and push your core trio to the golden ROI breakpoints at Tier 1 - Star 5 (5★ = 130 Cumulative Shards, +1.60% ATK / +3.20% HP), Tier 2 - Star 3 (330 Shards, +4.00% ATK / +8.00% HP), and Tier 2 - Star 5 (10★ = 490 Cumulative Shards, +6.00% ATK / +12.00% HP).",
+      vi: "**Kiểm Toán 3 Ô Thánh Vật (Relics Trio) & Đẩy Điểm Gãy Sao Vàng Đội 1:**\n• Đeo đủ **3 Thánh Vật Vàng (Legendary)** khớp bộ cộng hưởng của Phe chủ lực: Bộ Lạc (`Dragon's Might`), Liên Minh (`Arcane Vault`), hoặc Thiên Nhiên (`Oath of the Sacred Forest`).\n• Dồn mảnh Vàng chạm các điểm gãy ROI: **Bậc 1 - Sao 5** (`5★` = `130` mảnh, `+1.60%` ATK / `+3.20%` HP) và **Bậc 2 - Sao 3** (`330` mảnh, `+4.00%` ATK / `+8.00%` HP).\n• Tiếp tục đẩy lên **Bậc 2 - Sao 5** (`10★` = `490` mảnh, `+6.00%` ATK / `+12.00%` HP) và **Bậc 3 - Sao 5** (`15★` = `1,100` mảnh).",
+      en: "**Audit Queue 1's 3 Active Relic Slots (Relics Trio) & Hit Legendary Breakpoints:**\n• Equip **3 Legendary Relics** matching your main faction's synergy set: Horde (`Dragon's Might`), League (`Arcane Vault`), or Nature (`Oath of the Sacred Forest`).\n• Push your core trio to the golden ROI breakpoints: **Tier 1 - Star 5** (`5★` = `130` shards, `+1.60%` ATK / `+3.20%` HP) and **Tier 2 - Star 3** (`330` shards, `+4.00%` / `+8.00%`).\n• Advance to **Tier 2 - Star 5** (`10★` = `490` shards, `+6.00%` ATK / `+12.00%` HP) and **Tier 3 - Star 5** (`15★` = `1,100` shards).",
     },
     strictTaboo: {
-      vi: "CẤM đeo Thánh Vật Tím 5 Sao thay vì Vàng 2–3 Sao ở Đội 1 (vì Tím tính 0 Sao Vàng khiến bị khóa -50% sức mạnh) và CẤM tiêu thụ Mảnh Thánh Vật (Relic Shards), Đá Bí Thuật (Arcane Crystals) hay Lượt Ước Nguyện (Wish Relic) vào ngày thường! Trong Tuần B (GAR / KvK), Thánh Vật tính điểm vào Ngày 1 (Thứ Hai) & Ngày 2 (Thứ Ba) (và thêm Ngày 5 — Thứ Sáu chỉ riêng trong KvK, còn GAR tiêu chuẩn KHÔNG tính điểm Thánh Vật vào Ngày 5). Trong Tuần A (Guild Race), chỉ xả vào sự kiện phụ 2 ngày Guild Rush: Relic Hall & Relics (Thứ Tư – Thứ Năm) kết hợp làm Nhiệm vụ Hội.",
-      en: "NEVER equip a 5-Star Epic Relic over a 2–3 Star Legendary Relic in Queue 1 (Epics count for 0 Legendary Stars, triggering -50% suppression against you), and NEVER spend Relic Shards, Arcane Crystals, or Wish Relic scrolls on normal days! In Week B (GAR / KvK), Relics score on Day 1 (Monday) & Day 2 (Tuesday) (plus Day 5 — Friday exclusively in KvK; standard GAR does NOT score Relics on Day 5). In Week A (Guild Race), only spend during the 2-day Guild Rush: Relic Hall & Relics sub-event (Wednesday – Thursday) stacked with Guild Tasks.",
+      vi: "**Cấm Đeo Thánh Vật Tím Ở Đội 1 & Cấm Xả Sai Ngày Sự Kiện:**\n• **CẤM** đeo Thánh Vật Tím `5★` thay vì Vàng `2–3★` ở Đội 1 (Tím tính `0` Sao Vàng gây phạt `-50%`) và **CẤM** tiêu thụ `Relic Shards`, `Arcane Crystals`, `Wish Relic` ngày thường.\n• **Tuần B (GAR / KvK):** Xả vào **Ngày 1 (Thứ Hai) & Ngày 2 (Thứ Ba)** (thêm Ngày 5 Thứ Sáu riêng trong KvK, còn GAR tiêu chuẩn KHÔNG tính điểm Thánh Vật vào Ngày 5).\n• **Tuần A (Guild Race):** Chỉ xả vào sự kiện phụ 2 ngày `Guild Rush: Relic Hall & Relics` (**Thứ Tư – Thứ Năm**) kết hợp làm Nhiệm vụ Hội.",
+      en: "**Never Equip Epics in Queue 1 & Never Dump on Non-Scoring Days:**\n• **NEVER** equip a `5★` Epic over a `2–3★` Legendary in Queue 1 (Epics count as `0` Legendary Stars, triggering `-50%` penalty) or spend `Relic Shards`, `Arcane Crystals`, or `Wish Relic` on weekdays.\n• **Week B (GAR / KvK):** Dump on **Day 1 (Monday) & Day 2 (Tuesday)** (plus Day 5 Friday exclusively in KvK; standard GAR does NOT score Relics on Day 5).\n• **Week A (Guild Race):** Only spend during the 2-day `Guild Rush: Relic Hall & Relics` sub-event (**Wednesday – Thursday**) stacked with Guild Tasks.",
     },
   },
   keyTakeaways: [
     {
-      vi: "Cấu hình Bộ 3 Thánh Vật BiS Cho Cả 3 Phe: (1) 🔴 Bộ Lạc (Horde — Dragon's Might): Ô 1 Thunder Judgment (Frost Diadem / Duke's Signet Ring) + Ô 2 Dragonheart (Scale of Injustice) + Ô 3 Dragonbone Amulet (Eternal Wings / Marshal's Warhorn); (2) 🔵 Liên Minh (League — Arcane Vault): Ô 1 Petrification Staff (Persecution / Frost Diadem) + Ô 2 Soul Guard Orb (Anti-Magic Handcuffs / Royalty) + Ô 3 Feather of the Pact (Eternal Wings / Sacred Scroll); (3) 🟢 Thiên Nhiên (Nature — Oath of the Sacred Forest): Ô 1 Vineborne Bow (Frost Diadem / Persecution) + Ô 2 Undefeated Crown (Scale of Injustice) + Ô 3 Sacred Scroll (Moonstone / Eternal Wings).",
-      en: "3-Faction BiS Relic Trio Loadouts: (1) 🔴 Horde (Dragon's Might): Slot 1 Thunder Judgment (Frost Diadem / Duke's Signet Ring) + Slot 2 Dragonheart (Scale of Injustice) + Slot 3 Dragonbone Amulet (Eternal Wings / Marshal's Warhorn); (2) 🔵 League (Arcane Vault): Slot 1 Petrification Staff (Persecution / Frost Diadem) + Slot 2 Soul Guard Orb (Anti-Magic Handcuffs / Royalty) + Slot 3 Feather of the Pact (Eternal Wings / Sacred Scroll); (3) 🟢 Nature (Oath of the Sacred Forest): Slot 1 Vineborne Bow (Frost Diadem / Persecution) + Slot 2 Undefeated Crown (Scale of Injustice) + Slot 3 Sacred Scroll (Moonstone / Eternal Wings).",
+      vi: "**Cấu Hình Bộ 3 Thánh Vật BiS Cho Cả 3 Phe:**\n• **Bộ Lạc (`Dragon's Might`):** #1 `Thunder Judgment` (`Frost Diadem` / `Duke's Signet Ring`) + #2 `Dragonheart` (`Scale of Injustice`) + #3 `Dragonbone Amulet` (`Eternal Wings` / `Marshal's Warhorn`).\n• **Liên Minh (`Arcane Vault`):** #1 `Petrification Staff` (`Persecution` / `Frost Diadem`) + #2 `Soul Guard Orb` (`Anti-Magic Handcuffs` / `Royalty`) + #3 `Feather of the Pact` (`Eternal Wings` / `Sacred Scroll`).\n• **Thiên Nhiên (`Oath of the Sacred Forest`):** #1 `Vineborne Bow` (`Frost Diadem` / `Persecution`) + #2 `Undefeated Crown` (`Scale of Injustice`) + #3 `Sacred Scroll` (`Moonstone` / `Eternal Wings`).",
+      en: "**3-Faction BiS Relic Trio Loadouts:**\n• **Horde (`Dragon's Might`):** #1 `Thunder Judgment` (`Frost Diadem` / `Duke's Signet Ring`) + #2 `Dragonheart` (`Scale of Injustice`) + #3 `Dragonbone Amulet` (`Eternal Wings` / `Marshal's Warhorn`).\n• **League (`Arcane Vault`):** #1 `Petrification Staff` (`Persecution` / `Frost Diadem`) + #2 `Soul Guard Orb` (`Anti-Magic Handcuffs` / `Royalty`) + #3 `Feather of the Pact` (`Eternal Wings` / `Sacred Scroll`).\n• **Nature (`Oath of the Sacred Forest`):** #1 `Vineborne Bow` (`Frost Diadem` / `Persecution`) + #2 `Undefeated Crown` (`Scale of Injustice`) + #3 `Sacred Scroll` (`Moonstone` / `Eternal Wings`).",
     },
     {
-      vi: "Phân định chính xác Cộng hưởng +1 giây (1s) vs Nhóm Phòng thủ/Sustain: Hiệu ứng kéo dài +1 giây (1s) thời gian tác dụng thuộc về 3 Thánh Vật Khống chế/Buff cốt lõi (Feather of the Pact, Dragonbone Amulet, Sacred Scroll); trong khi Duke's Signet Ring, Soul Guard Orb và Moonstone là bộ 3 Thánh Vật Phòng thủ / Hồi phục (Defensive / Sustain Relics).",
-      en: "Exact Distinction Between +1 Second (1s) Synergy & Defensive/Sustain Relics: The +1 second (1s) duration extension synergy belongs to the 3 Core Control/Buff Relics (Feather of the Pact, Dragonbone Amulet, Sacred Scroll), whereas Duke's Signet Ring, Soul Guard Orb, and Moonstone serve as the 3 Defensive / Sustain Relics.",
+      vi: "**Phân Định Cộng Hưởng `+1s` vs Nhóm Phòng Thủ / Sustain:**\n• Hiệu ứng kéo dài **+1 giây (`1s`)** thời gian tác dụng thuộc về 3 Thánh Vật Khống chế/Buff cốt lõi: `Feather of the Pact`, `Dragonbone Amulet`, `Sacred Scroll`.\n• Trong khi đó, `Duke's Signet Ring`, `Soul Guard Orb` và `Moonstone` đóng vai trò là bộ 3 Thánh Vật Phòng thủ / Hồi phục (**Defensive / Sustain Relics**).",
+      en: "**Exact Distinction Between `+1s` Synergy & Defensive / Sustain Relics:**\n• The **+1 second (`1s`)** duration extension synergy belongs to the 3 Core Control/Buff Relics: `Feather of the Pact`, `Dragonbone Amulet`, and `Sacred Scroll`.\n• Conversely, `Duke's Signet Ring`, `Soul Guard Orb`, and `Moonstone` serve as the 3 **Defensive / Sustain Relics**.",
     },
     {
-      vi: "Bảng 20 Cấp Sao (4 Bậc × 5 Sao — Tab 👑Relics) & Điểm Sự Kiện: Legendary Relic cần 1,800 mảnh đạt Max 20★ (+20.00% ATK / +40.00% HP, điểm gãy ở 5★ = 130 mảnh, Bậc 2 Sao 3 = 330 mảnh, 10★ = 490 mảnh, 15★ = 1,100 mảnh), ít mảnh hơn hẳn Epic (3,130 mảnh) và Rare (4,810 mảnh). Trong GAR/KvK Ngày 1–2 (Thứ Hai–Thứ Ba), mỗi 1 Mảnh Vàng = 5,000 điểm, 1 Mảnh Tím = 1,000 điểm, 1 Mảnh Xanh = 200 điểm, 1 lần Wish = 1,500 điểm, 1 Arcane Crystal = 1,200 điểm.",
-      en: "20-Level Star Progression (4 Tiers × 5 Stars — Tab 👑Relics) & Event Scoring: A Legendary Relic requires only 1,800 shards for Max 20★ (+20.00% ATK / +40.00% HP, with breakpoints at 5★ = 130 shards, Tier 2 Star 3 = 330 shards, 10★ = 490 shards, 15★ = 1,100 shards)—far fewer than Epic (3,130 shards) and Rare (4,810 shards). On GAR/KvK Days 1–2 (Monday–Tuesday), 1 Legendary Shard = 5,000 pts, 1 Epic Shard = 1,000 pts, 1 Rare Shard = 200 pts, 1 Wish = 1,500 pts, and 1 Arcane Crystal = 1,200 pts.",
+      vi: "**Bảng 20 Cấp Sao (`4 Bậc × 5 Sao` — Tab Relics) & Điểm Sự Kiện:**\n• **Legendary Relic** chỉ cần `1,800` mảnh đạt Max `20★` (`+20.00%` ATK / `+40.00%` HP), ít hơn hẳn **Epic** (`3,130` mảnh) và **Rare** (`4,810` mảnh).\n• Điểm gãy mảnh Vàng: `5★` = `130` mảnh, Bậc 2 Sao 3 (`8★`) = `330` mảnh, `10★` = `490` mảnh, `15★` = `1,100` mảnh.\n• **GAR/KvK Ngày 1–2 (Thứ Hai–Thứ Ba):** `1` Mảnh Vàng = `5,000` điểm, `1` Mảnh Tím = `1,000` điểm, `1` Mảnh Xanh = `200` điểm, `1` Wish = `1,500` điểm, `1` Arcane Crystal = `1,200` điểm.",
+      en: "**20-Level Star Progression (`4 Tiers × 5 Stars` — Tab Relics) & Event Scoring:**\n• A **Legendary Relic** requires only `1,800` shards for Max `20★` (`+20.00%` ATK / `+40.00%` HP)—far fewer than **Epic** (`3,130` shards) and **Rare** (`4,810` shards).\n• Legendary breakpoints: `5★` = `130` shards, Tier 2 Star 3 (`8★`) = `330` shards, `10★` = `490` shards, `15★` = `1,100` shards.\n• **GAR/KvK Days 1–2 (Mon–Tue):** `1` Legendary Shard = `5,000` pts, `1` Epic Shard = `1,000` pts, `1` Rare Shard = `200` pts, `1` Wish = `1,500` pts, `1` Arcane Crystal = `1,200` pts.",
     },
   ],
   keywords: [
@@ -85,8 +85,8 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Hệ thống Thánh Vật / Bí Bảo (Relics) và Sảnh Thánh Tích (Relic Hall) đóng vai trò như bộ kỹ năng tối thượng thứ hai của toàn đội hình. Không chỉ tung ra các đòn khống chế diện rộng, tạo khiên chắn hay hồi máu giữa giao tranh, hệ thống Thánh Vật còn sở hữu cơ chế cộng dồn chỉ số toàn cục và Áp Chế Sao trực tiếp (-50%) lên đối phương.",
-            en: "The Relics and Relic Hall system acts as a second ultimate skill kit for your entire march. Beyond unleashing AoE crowd control, damage-cap shields, and mid-combat healing, Relics provide permanent account-wide passive stats and direct -50% Star Rating Suppression against enemy queues.",
+            vi: "Hệ thống **Thánh Vật / Bí Bảo (Relics)** và **Sảnh Thánh Tích (`Relic Hall`)** đóng vai trò như bộ kỹ năng tối thượng thứ hai của toàn đội hình.\nKhông chỉ tung đòn khống chế diện rộng, tạo khiên chắn hay hồi máu giữa giao tranh, Thánh Vật còn sở hữu cơ chế cộng dồn chỉ số toàn cục và **Áp Chế Sao trực tiếp (`-50%`)** lên đối phương.",
+            en: "The **Relics** and **Relic Hall** system acts as a second ultimate skill kit for your entire march.\nBeyond unleashing AoE crowd control, damage-cap shields, and mid-combat healing, Relics provide permanent account-wide passive stats and direct **`-50%` Star Rating Suppression** against enemy queues.",
           },
         },
       ],
@@ -239,8 +239,8 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Mỗi Thánh Vật trong Top Heroes sở hữu 2 tầng giá trị hoàn toàn tách biệt: (1) Kỹ năng Kích hoạt trong trận (Equipped Active Skill) chỉ áp dụng cho 3 món đang đeo trực tiếp trên Hàng đợi và được nhân thêm hiệu lực theo số lượng tướng đồng hệ; (2) Chỉ số Sở hữu Toàn cục (Owned Passive Stats — Buff for all Heroes) cộng vĩnh viễn 24/7 cho TẤT CẢ TƯỚNG trong tài khoản ngay cả khi Thánh Vật nằm trong kho dự bị.",
-                en: "Every Relic in Top Heroes provides two distinct layers of value: (1) Equipped Active Skills, which trigger only for the 3 Relics equipped on a march and scale with the number of same-faction heroes; and (2) Global Owned Passive Stats (Buff for all Heroes), which permanently boost ALL heroes in your roster 24/7 even while sitting in storage.",
+                vi: "• **Kỹ năng Kích hoạt (`Equipped Active Skill`):** Chỉ áp dụng cho 3 món đang đeo trực tiếp trên Hàng đợi và nhân thêm hiệu lực theo số lượng tướng đồng hệ.\n• **Chỉ số Sở hữu Toàn cục (`Owned Passive Stats` — Buff for all Heroes):** Cộng vĩnh viễn 24/7 cho **TẤT CẢ TƯỚNG** trong tài khoản ngay cả khi Thánh Vật nằm trong kho dự bị.",
+                en: "• **Equipped Active Skills:** Trigger only for the 3 Relics equipped on a march and scale with the number of same-faction heroes.\n• **Global Owned Passive Stats (Buff for all Heroes):** Permanently boost **ALL heroes** in your roster 24/7 even while sitting in storage.",
               },
             },
             {
@@ -251,8 +251,8 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
                 en: "Life-or-Death Rule: -50% Star Rating Suppression & Global Owned Passive Stats Comparison (Max 20★)",
               },
               content: {
-                vi: "Theo quy tắc chuẩn từ TopHeroes Tables (Tab 👑Relics): Nếu Tổng số Sao của 3 Thánh Vật trên đội hình (CHỈ TÍNH phẩm chất Vàng Legendary trở lên) cao hơn đối thủ dù chỉ +1 Sao, TOÀN BỘ sát thương, lượng hồi máu và thời gian hiệu lực Thánh Vật của kẻ địch bị cắt giảm một nửa (-50%)! Về Chỉ số Sở hữu Toàn cục khi nâng kịch trần Bậc 4 - Sao 5 (20★): Thánh Vật Xanh (Rare Relic) tốn 4,810 mảnh cộng +6.00% Hero ATK / +12.00% Hero HP; Thánh Vật Tím (Epic Relic) tốn 3,130 mảnh cộng +12.00% Hero ATK / +24.00% Hero HP; trong khi Thánh Vật Vàng (Legendary Relic) chỉ tốn 1,800 mảnh nhưng cộng tới +20.00% Hero ATK / +40.00% Hero HP (mạnh gấp 3.3 lần với số mảnh ít hơn hẳn, đạt điểm gãy +1.60% ATK / +3.20% HP ở 5★ = 130 mảnh, +4.00% ATK / +8.00% HP ở Bậc 2 - Sao 3 = 330 mảnh, +6.00% ATK / +12.00% HP ở 10★ = 490 mảnh và +11.00% ATK / +22.00% HP ở 15★ = 1,100 mảnh).",
-                en: "Per TopHeroes Tables (Tab 👑Relics): If your team's total Relic star rating (counting ONLY Legendary or higher quality Relics) exceeds the enemy's by even +1 Star, ALL enemy Relic damage, healing, and effect durations are halved (-50%)! Regarding Global Owned Passive Stats at Max Tier 4 - Star 5 (20★): a Rare Relic costs 4,810 shards for +6.00% Hero ATK / +12.00% Hero HP; an Epic Relic costs 3,130 shards for +12.00% Hero ATK / +24.00% Hero HP; whereas a Legendary Relic requires only 1,800 shards yet grants +20.00% Hero ATK / +40.00% Hero HP (3.3x stronger for far fewer shards, hitting key breakpoints of +1.60% ATK / +3.20% HP at 5★ = 130 shards, +4.00% ATK / +8.00% HP at Tier 2 - Star 3 = 330 shards, +6.00% ATK / +12.00% HP at 10★ = 490 shards, and +11.00% ATK / +22.00% HP at 15★ = 1,100 shards).",
+                vi: "• **Áp Chế Sao (`-50%` — Tab Relics):** Nếu Tổng Sao của 3 Thánh Vật trên đội (**CHỈ TÍNH Vàng Legendary+**) cao hơn địch dù chỉ `+1` Sao, sát thương, hồi máu và hiệu lực Thánh Vật địch bị giảm `-50%`!\n• **Chỉ số Sở hữu Toàn cục ở Max `20★`:** Rare Relic tốn `4,810` mảnh (`+6.00%` Hero ATK / `+12.00%` Hero HP); Epic Relic tốn `3,130` mảnh (`+12.00%` Hero ATK / `+24.00%` Hero HP).\n• **Ưu thế Legendary Relic:** Chỉ tốn `1,800` mảnh nhưng cộng tới `+20.00%` Hero ATK / `+40.00%` Hero HP.\n• **Điểm gãy mảnh Vàng:** `5★` = `130` mảnh (`+1.60%`/`+3.20%`), Bậc 2 Sao 3 = `330` mảnh (`+4.00%`/`+8.00%`), `10★` = `490` mảnh (`+6.00%`/`+12.00%`), `15★` = `1,100` mảnh (`+11.00%`/`+22.00%`).",
+                en: "• **Star Rating Suppression (`-50%` — Tab Relics):** If your team's total Relic stars (**counting ONLY Legendary+ Relics**) exceed the enemy's by `+1` Star, all enemy Relic effects are halved (`-50%`)!\n• **Global Owned Passive Stats at Max `20★`:** Rare Relic costs `4,810` shards (`+6.00%` Hero ATK / `+12.00%` Hero HP); Epic Relic costs `3,130` shards (`+12.00%` Hero ATK / `+24.00%` Hero HP).\n• **Legendary Relic Advantage:** Costs only `1,800` shards yet grants `+20.00%` Hero ATK / `+40.00%` Hero HP.\n• **Legendary Breakpoints:** `5★` = `130` shards (`+1.60%`/`+3.20%`), Tier 2 Star 3 = `330` shards (`+4.00%`/`+8.00%`), `10★` = `490` shards (`+6.00%`/`+12.00%`), `15★` = `1,100` shards (`+11.00%`/`+22.00%`).",
               },
             },
           ],
@@ -331,8 +331,8 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
                 en: "Season 0 – Early Season 1 (Tier 1 - Star 1 Unlock = 20 shards)",
               },
               description: {
-                vi: "Mỗi khi có mảnh Thánh Vật mới, ưu tiên mở khóa (Activate) để kích hoạt các cặp Liên kết Thư viện (Relic Hall Bonds) và cộng dồn Owned Passive Stats. Đặc biệt ưu tiên liên kết kéo dài +1 giây (1s) thời gian hiệu lực gắn liền với 3 Thánh Vật Khống chế / Buff cốt lõi: Feather of the Pact (Liên Minh), Dragonbone Amulet (Bộ Lạc) và Sacred Scroll (Thiên Nhiên); trong khi Duke's Signet Ring, Soul Guard Orb và Moonstone đảm nhận vai trò bộ 3 Phòng thủ / Hồi phục (Defensive / Sustain).",
-                en: "Whenever you acquire new Relic shards, unlock the base item first to activate Relic Hall Bonds and global Owned Passive Stats. Prioritize the +1 second (1s) duration extension synergy tied to the 3 Core Control/Buff Relics—Feather of the Pact (League), Dragonbone Amulet (Horde), and Sacred Scroll (Nature)—while utilizing Duke's Signet Ring, Soul Guard Orb, and Moonstone as your Defensive / Sustain trio.",
+                vi: "• Mở khóa (`Activate`) ngay khi đủ `20` mảnh để kích hoạt **Relic Hall Bonds** và cộng dồn **Owned Passive Stats** toàn cục.\n• Ưu tiên liên kết kéo dài **+1 giây (`1s`)** của 3 Thánh Vật Khống chế/Buff cốt lõi (`Feather of the Pact`, `Dragonbone Amulet`, `Sacred Scroll`).\n• Dùng `Duke's Signet Ring`, `Soul Guard Orb`, `Moonstone` làm bộ 3 Phòng thủ / Hồi phục (**Defensive / Sustain**).",
+                en: "• Unlock (`Activate`) base Relics at `20` shards first to trigger **Relic Hall Bonds** and global **Owned Passive Stats**.\n• Prioritize the **+1 second (`1s`)** duration synergy tied to the 3 Core Control/Buff Relics (`Feather of the Pact`, `Dragonbone Amulet`, `Sacred Scroll`).\n• Use `Duke's Signet Ring`, `Soul Guard Orb`, and `Moonstone` as your **Defensive / Sustain** trio.",
               },
             },
             {
@@ -349,8 +349,8 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
                 en: "Mid-to-Endgame (PvP & Winning -50% Star Suppression)",
               },
               description: {
-                vi: "Khi Đội 1 đã đeo đủ 3 Thánh Vật Vàng (Legendary) đúng hệ phái chủ lực, tập trung 80% mảnh Vàng tự chọn đẩy 3 món này vượt qua các điểm gãy Bậc 1 - Sao 5 (5★ = 130 mảnh tích lũy), Bậc 2 - Sao 3 (8★ = 330 mảnh) và Bậc 2 - Sao 5 (10★ = 490 mảnh) để giữ Tổng số Sao Vàng luôn cao hơn đối thủ tối thiểu +1 Sao.",
-                en: "Once Queue 1 has 3 faction-matched Legendary Relics equipped, funnel 80% of your Legendary shards into pushing those 3 pieces across the golden breakpoints at Tier 1 - Star 5 (5★ = 130 cumulative shards), Tier 2 - Star 3 (8★ = 330 shards), and Tier 2 - Star 5 (10★ = 490 shards) so your total Legendary Star rating stays at least +1 Star ahead of rivals.",
+                vi: "• Khi Đội 1 đã đeo đủ **3 Thánh Vật Vàng (Legendary)** đúng hệ phái, dồn `80%` mảnh Vàng tự chọn vào 3 món này.\n• Đẩy vượt **Bậc 1 - Sao 5** (`5★` = `130` mảnh), **Bậc 2 - Sao 3** (`8★` = `330` mảnh) và **Bậc 2 - Sao 5** (`10★` = `490` mảnh) để giữ Tổng Sao Vàng cao hơn địch tối thiểu `+1` Sao.",
+                en: "• Once Queue 1 has **3 faction-matched Legendary Relics** equipped, funnel `80%` of your Legendary shards into those 3 pieces.\n• Push past **Tier 1 - Star 5** (`5★` = `130` shards), **Tier 2 - Star 3** (`8★` = `330` shards), and **Tier 2 - Star 5** (`10★` = `490` shards) to stay `+1` Star ahead of rivals.",
               },
             },
             {
@@ -367,8 +367,8 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
                 en: "All Multi-Queue Stages (Queue 1 ➔ Queue 2 ➔ Queue 3)",
               },
               description: {
-                vi: "Đội hình 1 (Main Queue) luôn giữ 3 Thánh Vật Vàng cao sao nhất đúng phe phái. Đội hình 2 (Secondary Queue) trang bị các Thánh Vật Vàng đa dụng hoặc Thánh Vật Tím đã nâng cao sao như Duke's Signet Ring, Scale of Injustice, Eternal Wings, Moonstone, Frost Diadem, Marshal's Warhorn. Đội hình 3 (Gathering / PVE) đeo các món còn lại để tối ưu lực chiến phụ trợ.",
-                en: "Queue 1 (Main Queue) always retains your 3 highest-star faction Legendary Relics. Queue 2 (Secondary Queue) equips surplus versatile Legendaries or high-star Epics such as Duke's Signet Ring, Scale of Injustice, Eternal Wings, Moonstone, Frost Diadem, and Marshal's Warhorn. Queue 3 (Gathering / PvE) equips remaining pieces for auxiliary power.",
+                vi: "• **Đội hình 1 (Main Queue):** Luôn giữ 3 Thánh Vật Vàng cao sao nhất đúng phe phái chủ lực.\n• **Đội hình 2 & 3 (Secondary / PvE):** Trang bị Thánh Vật Vàng đa dụng hoặc Tím sao cao như `Duke's Signet Ring`, `Scale of Injustice`, `Eternal Wings`, `Moonstone`, `Frost Diadem`, `Marshal's Warhorn`.",
+                en: "• **Queue 1 (Main Queue):** Always retains your 3 highest-star faction-matched Legendary Relics.\n• **Queues 2 & 3 (Secondary / PvE):** Equip surplus versatile Legendaries or high-star Epics such as `Duke's Signet Ring`, `Scale of Injustice`, `Eternal Wings`, `Moonstone`, `Frost Diadem`, and `Marshal's Warhorn`.",
               },
             },
           ],
@@ -437,8 +437,8 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
                 en: "Hoard 100% of Relic Shards, Arcane Crystals & Magic Stones for Week A / Week B windows",
               },
               detail: {
-                vi: "Tuần B (GAR / KvK): xả vào Ngày 1 (Thứ Hai) & Ngày 2 (Thứ Ba) (+ Ngày 5 Thứ Sáu chỉ riêng trong KvK, lưu ý GAR tiêu chuẩn không tính điểm Thánh Vật vào Ngày 5). Tuần A: xả vào Thứ Tư – Thứ Năm trong sự kiện phụ Guild Rush: Relic Hall & Relics kết hợp Task Hội.",
-                en: "Week B (GAR / KvK): dump on Day 1 (Monday) & Day 2 (Tuesday) (+ Day 5 Friday in KvK only; standard GAR does NOT score Relics on Day 5). Week A: dump on Wednesday – Thursday during Guild Rush: Relic Hall & Relics stacked with Guild Race tasks.",
+                vi: "• **Tuần B (GAR / KvK):** Xả vào Ngày 1 (Thứ Hai) & Ngày 2 (Thứ Ba) (+ Ngày 5 Thứ Sáu riêng trong KvK; lưu ý GAR tiêu chuẩn không tính điểm Thánh Vật vào Ngày 5).\n• **Tuần A:** Xả vào Thứ Tư – Thứ Năm trong sự kiện phụ `Guild Rush: Relic Hall & Relics` kết hợp Task Hội.",
+                en: "• **Week B (GAR / KvK):** Dump on Day 1 (Monday) & Day 2 (Tuesday) (+ Day 5 Friday in KvK only; standard GAR does NOT score Relics on Day 5).\n• **Week A:** Dump on Wednesday – Thursday during `Guild Rush: Relic Hall & Relics` stacked with Guild Race tasks.",
               },
               badge: {
                 vi: "5,000 đ / Mảnh Vàng",
@@ -464,8 +464,8 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
             en: "Warning: 3 Fatal Relic Mistakes That Cripple Queue 1 by -50%",
           },
           content: {
-            vi: "(1) Đeo Thánh Vật Tím (Epic) 5 Sao thay vì Thánh Vật Vàng (Legendary) 2–3 Sao ở Đội 1: Cơ chế Áp Chế Sao (-50%) CHỈ TÍNH SAO CỦA THÁNH VẬT VÀNG TRỞ LÊN, nên đeo món Tím khiến Đội 1 bị tính 0 Sao ở ô đó và bị đối thủ cắt giảm -50% sát thương, hồi máu lẫn thời gian khống chế của cả 3 Thánh Vật! (2) Nhầm lẫn vai trò giữa bộ 3 kéo dài +1 giây (Feather of the Pact, Dragonbone Amulet, Sacred Scroll) với bộ 3 Phòng thủ / Sustain (Duke's Signet Ring, Soul Guard Orb, Moonstone), hoặc lắp sai bộ Phe phái làm mất dòng cộng hưởng theo số tướng đồng hệ. (3) Bấm nâng Sao lẻ tẻ vào ngày thường hoặc xả nhầm vào Ngày 5 của GAR tiêu chuẩn: Hãy nhớ GAR tiêu chuẩn không tính điểm Thánh Vật vào Ngày 5 — chỉ xả vào Ngày 1–2 (Thứ Hai–Thứ Ba) của Tuần B (và Ngày 5 Thứ Sáu nếu là KvK) hoặc Thứ Tư–Thứ Năm của Tuần A trong sự kiện Guild Rush: Relic Hall & Relics.",
-            en: "(1) Equipping a 5-Star Epic Relic instead of a 2–3 Star Legendary Relic on Queue 1: -50% Star Rating Suppression ONLY counts Legendary+ Relic stars, so equipping an Epic contributes 0 Stars and gets all 3 of your Relics halved (-50%) in damage, healing, and duration! (2) Confusing the +1s duration extension trio (Feather of the Pact, Dragonbone Amulet, Sacred Scroll) with the Defensive/Sustain trio (Duke's Signet Ring, Soul Guard Orb, Moonstone), or equipping mismatched faction sets that forfeit per-hero faction scaling. (3) Spending Relic shards on normal weekdays or dumping on Day 5 of standard GAR: remember that standard GAR does NOT score Relics on Day 5—only dump on Week B Days 1–2 (Monday–Tuesday, plus Day 5 Friday exclusively in KvK) or Week A Wednesday–Thursday during Guild Rush: Relic Hall & Relics.",
+            vi: "• **Bẫy 1 (Đeo Tím `5★` ở Đội 1):** Áp Chế Sao (`-50%`) CHỈ TÍNH SAO VÀNG TRỞ LÊN, nên đeo món Tím khiến Đội 1 bị tính `0` Sao ở ô đó và bị giảm `-50%` hiệu lực!\n• **Bẫy 2 (Nhầm vai trò):** Nhầm bộ 3 kéo dài `+1s` (`Feather of the Pact`, `Dragonbone Amulet`, `Sacred Scroll`) với bộ 3 Sustain (`Duke's Signet Ring`, `Soul Guard Orb`, `Moonstone`).\n• **Bẫy 3 (Xả sai ngày):** GAR tiêu chuẩn không tính điểm Thánh Vật vào Ngày 5 — chỉ xả vào Ngày 1–2 Tuần B (thêm Ngày 5 nếu là KvK) hoặc Thứ Tư–Thứ Năm Tuần A dịp `Guild Rush`.",
+            en: "• **Trap 1 (Equipping a `5★` Epic on Queue 1):** `-50%` Star Rating Suppression ONLY counts Legendary+ stars, so an Epic contributes `0` Stars and gets all 3 Relics halved (`-50%`)!\n• **Trap 2 (Role Mismatch):** Confusing the `+1s` trio (`Feather of the Pact`, `Dragonbone Amulet`, `Sacred Scroll`) with the Sustain trio (`Duke's Signet Ring`, `Soul Guard Orb`, `Moonstone`).\n• **Trap 3 (Wrong Dump Day):** Standard GAR does NOT score Relics on Day 5—only dump on Week B Days 1–2 (plus Day 5 in KvK) or Week A Wed–Thu during `Guild Rush: Relic Hall & Relics`.",
           },
         },
         {
@@ -473,20 +473,20 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
           ordered: true,
           items: [
             {
-              vi: "Sai lầm #1 — Đeo Thánh Vật Tím 5 Sao thay vì Thánh Vật Vàng 2–3 Sao ở Đội 1 vì thấy chỉ số cơ bản nhỉnh hơn: Giải pháp là luôn đeo đủ 3 Thánh Vật Vàng (Legendary) trên Đội 1 để bảo toàn Tổng Sao Vàng và đẩy Duke's Signet Ring / Frost Diadem / Scale of Injustice xuống Đội 2.",
-              en: "Pitfall #1 — Equipping a 5-Star Epic Relic over a 2–3 Star Legendary Relic on Queue 1 for slightly higher base stats: Always equip 3 Legendary Relics on Queue 1 to protect your total Legendary Star count, and move Duke's Signet Ring / Frost Diadem / Scale of Injustice to Queue 2.",
+              vi: "**Sai lầm #1 — Đeo Thánh Vật Tím 5 Sao ở Đội 1:** Tím tính `0` Sao Vàng gây phạt `-50%`; hãy đeo đủ 3 món Legendary trên Đội 1 và chuyển `Duke's Signet Ring` / `Frost Diadem` xuống Đội 2.",
+              en: "**Pitfall #1 — Equipping a 5-Star Epic on Queue 1:** Epics count as `0` Legendary Stars (`-50%` penalty); always equip 3 Legendaries on Queue 1 and move `Duke's Signet Ring` / `Frost Diadem` to Queue 2.",
             },
             {
-              vi: "Sai lầm #2 — Lắp bộ Thánh Vật Liên Minh (Arcane Vault) cho đội hình thuần Bộ Lạc (Horde) hoặc ngược lại: Giải pháp là luôn đeo đúng bộ Thánh Vật của phe Đội 1 (Dragon's Might cho Bộ Lạc, Arcane Vault cho Liên Minh, Oath of the Sacred Forest cho Thiên Nhiên) để nhận nhân hệ số theo 6 tướng đồng hệ.",
-              en: "Pitfall #2 — Equipping League's Arcane Vault set on a pure Horde march (or vice versa): Always match your Queue 1 faction set (Dragon's Might for Horde, Arcane Vault for League, Oath of the Sacred Forest for Nature) to maximize 6-hero same-faction scaling.",
+              vi: "**Sai lầm #2 — Lắp lệch bộ Phe phái cho Đội 1:** Luôn đeo đúng bộ của phe chủ lực (`Dragon's Might` Bộ Lạc, `Arcane Vault` Liên Minh, `Oath of the Sacred Forest` Thiên Nhiên) để nhân hệ số theo 6 tướng.",
+              en: "**Pitfall #2 — Mismatching Faction Relic Sets on Queue 1:** Always match your Queue 1 faction set (`Dragon's Might` Horde, `Arcane Vault` League, `Oath of the Sacred Forest` Nature) for 6-hero scaling.",
             },
             {
-              vi: "Sai lầm #3 — Nâng Sao Thánh Vật lẻ tẻ mỗi ngày hoặc xả nhầm vào Ngày 5 của GAR tiêu chuẩn: Trong Tuần B (GAR / KvK), chỉ xả vào Ngày 1 (Thứ Hai) & Ngày 2 (Thứ Ba) để nhận 5,000 điểm / mảnh Vàng (riêng KvK tính điểm thêm vào Ngày 5 Thứ Sáu, còn GAR tiêu chuẩn không tính điểm Thánh Vật vào Ngày 5). Trong Tuần A, xả vào Thứ Tư – Thứ Năm dịp Guild Rush: Relic Hall & Relics.",
-              en: "Pitfall #3 — Upgrading Relic stars randomly every day or dumping on Day 5 of standard GAR: In Week B (GAR / KvK), dump strictly on Day 1 (Monday) & Day 2 (Tuesday) for 5,000 pts per Legendary shard (KvK adds Day 5 Friday, whereas standard GAR does NOT score Relics on Day 5). In Week A, dump on Wednesday – Thursday during Guild Rush: Relic Hall & Relics.",
+              vi: "**Sai lầm #3 — Nâng lẻ hoặc xả nhầm Ngày 5 GAR:** Tuần B xả Ngày 1–2 (`5,000` điểm/mảnh Vàng; GAR tiêu chuẩn không tính điểm Thánh Vật vào Ngày 5, chỉ KvK có Ngày 5); Tuần A xả Thứ Tư–Năm dịp `Guild Rush`.",
+              en: "**Pitfall #3 — Upgrading Randomly or on GAR Day 5:** Week B dumps on Days 1–2 (`5,000` pts/Leg shard; standard GAR does NOT score Relics on Day 5, only KvK adds Day 5); Week A dumps Wed–Thu in `Guild Rush`.",
             },
             {
-              vi: "Sai lầm #4 — Nhầm lẫn giữa bộ 3 Khống chế/Buff cộng +1s và bộ 3 Phòng thủ/Sustain: Hiệu ứng kéo dài +1 giây (1s) thuộc về Feather of the Pact (Liên Minh), Dragonbone Amulet (Bộ Lạc) và Sacred Scroll (Thiên Nhiên); còn Duke's Signet Ring, Soul Guard Orb và Moonstone là nhóm Phòng thủ / Hồi phục duy trì sinh tồn.",
-              en: "Pitfall #4 — Mixing up the +1s Control/Buff trio with the Defensive/Sustain trio: The +1 second (1s) duration extension belongs to Feather of the Pact (League), Dragonbone Amulet (Horde), and Sacred Scroll (Nature), while Duke's Signet Ring, Soul Guard Orb, and Moonstone are the Defensive / Sustain Relics.",
+              vi: "**Sai lầm #4 — Nhầm bộ 3 `+1s` với bộ 3 Sustain:** Nhóm kéo dài `+1s` là `Feather of the Pact`, `Dragonbone Amulet`, `Sacred Scroll`; còn `Duke's Signet Ring`, `Soul Guard Orb`, `Moonstone` là nhóm Sustain.",
+              en: "**Pitfall #4 — Mixing Up `+1s` vs. Sustain Trio:** `+1s` duration belongs to `Feather of the Pact`, `Dragonbone Amulet`, and `Sacred Scroll`, while `Duke's Signet Ring`, `Soul Guard Orb`, and `Moonstone` are Sustain.",
             },
           ],
         },
@@ -498,15 +498,15 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
       id: "sec-4-bis-loadouts-and-20-star-cost-tables",
       isPro: true,
       title: {
-        vi: "4. Phân tích Định lượng & Điểm gãy: Cấu Hình BiS 3 Phe, Bảng 20 Cấp Sao (4 Bậc × 5 Sao — Tab 👑Relics) & Ma Trận Điểm Sự Kiện",
-        en: "4. Quantitative Analysis: 3-Faction BiS Loadouts, 20-Level Star Progression Table (Tab 👑Relics) & Event Scoring Matrix",
+        vi: "4. Phân tích Định lượng & Điểm gãy: Cấu Hình BiS 3 Phe, Bảng 20 Cấp Sao (4 Bậc × 5 Sao — Tab Relics) & Ma Trận Điểm Sự Kiện",
+        en: "4. Quantitative Analysis: 3-Faction BiS Loadouts, 20-Level Star Progression Table (Tab Relics) & Event Scoring Matrix",
       },
       blocks: [
         {
           type: "paragraph",
           text: {
-            vi: "Phần dữ liệu chuyên sâu dưới đây tổng hợp trọn bộ cấu hình 3 Ô Thánh Vật chuẩn (Endgame BiS & F2P Transition) cho cả 3 Phe phái, bảng chi phí chính xác 20 cấp Sao (4 Bậc × 5 Sao) trích xuất nguyên bản từ TopHeroes Tables - Max (Tab 👑Relics) và ma trận điểm số sự kiện Tuần A / Tuần B.",
-            en: "This quantitative reference compiles the exact 3-slot BiS and F2P transition loadouts for all 3 Factions, the complete 20-level Star progression table (4 Tiers × 5 Stars) extracted from TopHeroes Tables - Max (Tab 👑Relics), and the ground-truth Week A / Week B event scoring matrix.",
+            vi: "Phần dữ liệu dưới đây tổng hợp cấu hình **3 Ô Thánh Vật chuẩn (Endgame BiS & F2P Transition)** cho cả 3 Phe phái.\nĐi kèm là bảng chi phí **20 cấp Sao (`4 Bậc × 5 Sao`)** từ `TopHeroes Tables - Max` (Tab Relics) và ma trận điểm số sự kiện Tuần A / Tuần B.",
+            en: "This quantitative reference compiles the exact **3-slot BiS and F2P transition loadouts** for all 3 Factions.\nIt also includes the complete **20-level Star progression table (`4 Tiers × 5 Stars`)** from `TopHeroes Tables - Max` (Tab Relics) and the Week A / Week B scoring matrix.",
           },
         },
       ],
@@ -521,8 +521,8 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
             {
               type: "table",
               caption: {
-                vi: "Bảng Ma Trận Phối Bộ 3 Thánh Vật Chuẩn (Endgame BiS & Phương Án Thay Thế F2P) Cho 3 Phe Phái (Tab 👑Relics)",
-                en: "3-Faction BiS Relic Trio Loadouts & F2P Mid-Game Transition Matrix (Tab 👑Relics)",
+                vi: "Bảng Ma Trận Phối Bộ 3 Thánh Vật Chuẩn (Endgame BiS & Phương Án Thay Thế F2P) Cho 3 Phe Phái (Tab Relics)",
+                en: "3-Faction BiS Relic Trio Loadouts & F2P Mid-Game Transition Matrix (Tab Relics)",
               },
               headers: [
                 {
@@ -549,8 +549,8 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
               rows: [
                 [
                   {
-                    vi: "🔥 PHE BỘ LẠC (Horde — Bộ Dragon's Might)",
-                    en: "🔥 HORDE (Dragon's Might Set)",
+                    vi: "PHE BỘ LẠC (Horde — Bộ Dragon's Might)",
+                    en: "HORDE (Dragon's Might Set)",
                   },
                   {
                     vi: "BiS: Thunder Judgment (F2P / Mid-game: Frost Diadem / Frost Diablo Horn / Duke's Signet Ring)",
@@ -571,8 +571,8 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "🛡️ PHE LIÊN MINH (League — Bộ Arcane Vault)",
-                    en: "🛡️ LEAGUE (Arcane Vault Set)",
+                    vi: "PHE LIÊN MINH (League — Bộ Arcane Vault)",
+                    en: "LEAGUE (Arcane Vault Set)",
                   },
                   {
                     vi: "BiS: Petrification Staff (F2P / Mid-game: Persecution / Frost Diadem)",
@@ -593,8 +593,8 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "🌿 PHE THIÊN NHIÊN (Nature — Bộ Oath of the Sacred Forest)",
-                    en: "🌿 NATURE (Oath of the Sacred Forest Set)",
+                    vi: "PHE THIÊN NHIÊN (Nature — Bộ Oath of the Sacred Forest)",
+                    en: "NATURE (Oath of the Sacred Forest Set)",
                   },
                   {
                     vi: "BiS: Vineborne Bow (F2P / Mid-game: Frost Diadem / Persecution)",
@@ -623,8 +623,8 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
                 en: "Exact Distinction: +1 Second (1s) Duration Extension Trio vs. Defensive / Sustain Trio",
               },
               content: {
-                vi: "3 Thánh Vật Khống Chế / Buff Cốt Lõi (Core Control/Buff Relics) sở hữu hiệu ứng cộng hưởng kéo dài +1 giây (1s) thời gian tác dụng là: Feather of the Pact (Lông Vũ Giao Ước — Liên Minh), Dragonbone Amulet (Bùa Xương Rồng — Bộ Lạc) và Sacred Scroll (Cuộn Thánh Thư — Thiên Nhiên). Ngược lại, 3 Thánh Vật Phòng Thủ / Duy Trì Sinh Tồn (Defensive / Sustain Relics) là: Duke's Signet Ring (Nhẫn Công Tước), Soul Guard Orb (Ngọc Hộ Hồn) và Moonstone (Đá Mặt Trăng).",
-                en: "The 3 Core Control/Buff Relics possessing the +1 second (1s) duration extension synergy are Feather of the Pact (League), Dragonbone Amulet (Horde), and Sacred Scroll (Nature). Conversely, the 3 Defensive / Sustain Relics dedicated to damage mitigation and healing are Duke's Signet Ring, Soul Guard Orb, and Moonstone.",
+                vi: "• **Bộ 3 Khống Chế / Buff Cốt Lõi (+1 giây / `1s`):** `Feather of the Pact` (Lông Vũ Giao Ước — Liên Minh), `Dragonbone Amulet` (Bùa Xương Rồng — Bộ Lạc) và `Sacred Scroll` (Cuộn Thánh Thư — Thiên Nhiên).\n• **Bộ 3 Phòng Thủ / Duy Trì Sinh Tồn (`Defensive / Sustain Relics`):** `Duke's Signet Ring` (Nhẫn Công Tước), `Soul Guard Orb` (Ngọc Hộ Hồn) và `Moonstone` (Đá Mặt Trăng).",
+                en: "• **3 Core Control/Buff Relics (+1 second / `1s` duration synergy):** `Feather of the Pact` (League), `Dragonbone Amulet` (Horde), and `Sacred Scroll` (Nature).\n• **3 Defensive / Sustain Relics (mitigation & healing):** `Duke's Signet Ring`, `Soul Guard Orb`, and `Moonstone`.",
               },
             },
           ],
@@ -632,8 +632,8 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
         {
           id: "sub-4-2-twenty-level-star-progression-table",
           title: {
-            vi: "4.2. Bảng Chi Phí Mảnh Thánh Tích 20 Cấp Sao — 4 Bậc × 5 Sao (Rare / Epic / Legendary — Tab 👑Relics)",
-            en: "4.2. Complete 20-Level Star Progression Table — 4 Tiers × 5 Stars (Rare / Epic / Legendary — Tab 👑Relics)",
+            vi: "4.2. Bảng Chi Phí Mảnh Thánh Tích 20 Cấp Sao — 4 Bậc × 5 Sao (Rare / Epic / Legendary — Tab Relics)",
+            en: "4.2. Complete 20-Level Star Progression Table — 4 Tiers × 5 Stars (Rare / Epic / Legendary — Tab Relics)",
           },
           blocks: [
             {
@@ -735,8 +735,8 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "🔥 Bậc 1 - Sao 5 (5★ — Đột phá 1)",
-                    en: "🔥 Tier 1 - Star 5 (5★ — Breakthrough 1)",
+                    vi: "Bậc 1 - Sao 5 (5★ — Đột phá 1)",
+                    en: "Tier 1 - Star 5 (5★ — Breakthrough 1)",
                   },
                   {
                     vi: "40 (150) Rare",
@@ -825,8 +825,8 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "🔥 Bậc 2 - Sao 5 (10★ — Đột phá 2)",
-                    en: "🔥 Tier 2 - Star 5 (10★ — Breakthrough 2)",
+                    vi: "Bậc 2 - Sao 5 (10★ — Đột phá 2)",
+                    en: "Tier 2 - Star 5 (10★ — Breakthrough 2)",
                   },
                   {
                     vi: "140 (610) Rare",
@@ -915,8 +915,8 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "🔥 Bậc 3 - Sao 5 (15★ — Đột phá 3)",
-                    en: "🔥 Tier 3 - Star 5 (15★ — Breakthrough 3)",
+                    vi: "Bậc 3 - Sao 5 (15★ — Đột phá 3)",
+                    en: "Tier 3 - Star 5 (15★ — Breakthrough 3)",
                   },
                   {
                     vi: "510 (2,460) Rare",
@@ -1005,8 +1005,8 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "👑 Bậc 4 - Sao 5 (Max 20★)",
-                    en: "👑 Tier 4 - Star 5 (Max 20★)",
+                    vi: "Bậc 4 - Sao 5 (Max 20★)",
+                    en: "Tier 4 - Star 5 (Max 20★)",
                   },
                   {
                     vi: "630 (4,810) Rare (+6.00% ATK / +12.00% HP)",
@@ -1174,8 +1174,8 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
                 },
               ],
               footnote: {
-                vi: "Nguồn đối chiếu: TopHeroes Tables - Tab 👑KvK & GAR & TOP. Tuyệt đối không xả Thánh Vật vào ngày thường.",
-                en: "Source: TopHeroes Tables - Tab 👑KvK & GAR & TOP. Never spend Relic materials on non-scoring weekdays.",
+                vi: "Nguồn đối chiếu: TopHeroes Tables - Tab KvK & GAR & TOP. Tuyệt đối không xả Thánh Vật vào ngày thường.",
+                en: "Source: TopHeroes Tables - Tab KvK & GAR & TOP. Never spend Relic materials on non-scoring weekdays.",
               },
             },
             {
@@ -1336,8 +1336,8 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
             en: "Queue 1 Relic Audit (Castle 29 / 45M): Replacing a 5-Star Epic Relic & Dumping 110 Legendary Shards for 550,000 GAR Day 1 Points",
           },
           profileSummary: {
-            vi: "Tài khoản Castle 29 (45M tổng lực chiến, Đội 1 Liên Minh 4.5M lực chiến) liên tục thua các đối thủ 13★ Sao Vàng trong Đấu Trường (tỷ lệ thắng chỉ 68%) dù chỉ số tướng tương đương. Kiểm toán Sảnh Thánh Tích phát hiện Đội 1 đang đeo Petrification Staff (6★ Vàng), Duke's Signet Ring (5★ Tím — tính 0 Sao Vàng!) và Feather of the Pact (5★ Vàng), khiến Tổng Sao Vàng chỉ đạt 11★ (6 + 0 + 5 = 11★) so với 13★ của đối thủ và bị khóa -50% hiệu lực Thánh Vật.",
-            en: "A Castle 29 account (45M total power, 4.5M League Queue 1) repeatedly lost to 13★ Legendary Star rivals in Arena (only 68% win-rate) despite equal hero stats. A Relic Hall audit revealed Queue 1 was equipping Petrification Staff (6★ Legendary), Duke's Signet Ring (5★ Epic — counting as 0 Legendary Stars!), and Feather of the Pact (5★ Legendary), leaving total Legendary Stars at 11★ (6 + 0 + 5 = 11★) against the enemy's 13★ and suffering -50% Star Rating Suppression.",
+            vi: "• **Hồ sơ:** Castle 29 (`45M` tổng lực chiến, Đội 1 Liên Minh `4.5M`) liên tục thua các đối thủ `13★` Sao Vàng trong Đấu Trường (tỷ lệ thắng `68%`) dù chỉ số tướng tương đương.\n• **Hiện trạng:** Đội 1 đeo `Petrification Staff` (`6★` Vàng), `Duke's Signet Ring` (`5★` Tím = `0` Sao Vàng!) và `Feather of the Pact` (`5★` Vàng) ➔ Tổng Sao Vàng chỉ đạt `11★` (`6 + 0 + 5`), bị phạt `-50%`.",
+            en: "• **Profile:** A Castle 29 account (`45M` total power, `4.5M` League Queue 1) repeatedly lost to `13★` Legendary Star rivals in Arena (`68%` win-rate) despite equal hero stats.\n• **Current State:** Queue 1 equipped `Petrification Staff` (`6★` Leg), `Duke's Signet Ring` (`5★` Epic = `0` Leg Stars!), and `Feather of the Pact` (`5★` Leg) ➔ `11★` total (`6 + 0 + 5`), suffering `-50%` suppression.",
           },
           metrics: [
             {
@@ -1397,12 +1397,12 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
           ],
           diagnostics: [
             {
-              vi: "Chẩn đoán #1 (Bẫy Thánh Vật Tím 5 Sao): Duke's Signet Ring dù ở Bậc 1 - Sao 5 (5★ Tím) vẫn chỉ tính là 0 Sao Vàng trong công thức Áp Chế Sao, làm Đội 1 hụt mất 4–5 Sao Vàng so với chuẩn 3 món Legendary.",
-              en: "Diagnostic #1 (5-Star Epic Trap): Although Duke's Signet Ring was at Tier 1 - Star 5 (5★ Epic), it contributed 0 Legendary Stars toward Star Rating Suppression, costing Queue 1 4–5 Legendary Stars.",
+              vi: "**Chẩn đoán #1 (Bẫy Thánh Vật Tím 5 Sao):** `Duke's Signet Ring` dù ở Bậc 1 - Sao 5 (`5★` Tím) vẫn tính là `0` Sao Vàng trong Áp Chế Sao, làm Đội 1 hụt mất 4–5 Sao Vàng so với chuẩn 3 món Legendary.",
+              en: "**Diagnostic #1 (5-Star Epic Trap):** Although `Duke's Signet Ring` was at Tier 1 - Star 5 (`5★` Epic), it contributed `0` Legendary Stars toward Star Rating Suppression, costing Queue 1 4–5 Legendary Stars.",
             },
             {
-              vi: "Chẩn đoán #2 (Đứt gãy Cộng hưởng Bộ 3 Phe Phái): Thiếu mảnh ghép thứ 2 của bộ Arcane Vault (Soul Guard Orb) hoặc bộ Dragon's Might (Thunder Judgment, Dragonheart, Dragonbone Amulet), làm mất khả năng chặn trần sát thương (Damage Cap) cho hàng trước.",
-              en: "Diagnostic #2 (Broken 3-Piece Faction Synergy): Missing the Slot 2 Legendary centerpiece (Soul Guard Orb for Arcane Vault, or Dragonheart for Horde Dragon's Might) left the frontline without per-hit Damage Cap mitigation.",
+              vi: "**Chẩn đoán #2 (Đứt gãy Bộ 3 Phe Phái):** Thiếu mảnh ghép thứ 2 của bộ `Arcane Vault` (`Soul Guard Orb`) hoặc `Dragon's Might` (`Thunder Judgment`, `Dragonheart`, `Dragonbone Amulet`), mất hiệu ứng `Damage Cap`.",
+              en: "**Diagnostic #2 (Broken 3-Piece Faction Synergy):** Missing the Slot 2 Legendary centerpiece (`Soul Guard Orb` for `Arcane Vault`, or `Dragonheart` for `Dragon's Might`) left the frontline without per-hit `Damage Cap`.",
             },
           ],
           recoverySteps: [
@@ -1413,8 +1413,8 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
                 en: "Move Duke's Signet Ring (5★ Epic) to Queue 2 & Equip a Full 3-Piece Faction Legendary Trio",
               },
               detail: {
-                vi: "Chuyển Duke's Signet Ring xuống Đội hình 2 làm phôi giảm kháng chí mạng phụ trợ, đồng thời lắp Soul Guard Orb vào Ô số 2 của Đội 1 để hoàn thiện bộ 3 Arcane Vault (Petrification Staff + Soul Guard Orb + Feather of the Pact).",
-                en: "Reassign Duke's Signet Ring to Queue 2 for secondary crit-resistance shred, and slot Soul Guard Orb into Queue 1's Slot 2 to complete the 3-piece Arcane Vault set (Petrification Staff + Soul Guard Orb + Feather of the Pact).",
+                vi: "• Chuyển `Duke's Signet Ring` xuống Đội hình 2 làm phôi giảm kháng chí mạng phụ trợ.\n• Lắp `Soul Guard Orb` vào Ô số 2 của Đội 1 để hoàn thiện bộ 3 `Arcane Vault` (`Petrification Staff` + `Soul Guard Orb` + `Feather of the Pact`).",
+                en: "• Reassign `Duke's Signet Ring` to Queue 2 for secondary crit-resistance shred.\n• Slot `Soul Guard Orb` into Queue 1's Slot 2 to complete the 3-piece `Arcane Vault` set (`Petrification Staff` + `Soul Guard Orb` + `Feather of the Pact`).",
               },
               impactBadge: {
                 vi: "Kích hoạt Full Bộ 3 Legendary",
@@ -1428,8 +1428,8 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
                 en: "Dump 110 Legendary Shards on Monday Week B (GAR Day 1) to Push 11★ ➔ 15★",
               },
               detail: {
-                vi: "Đợi đúng Ngày 1 (Thứ Hai) của Tuần B (nhớ quy tắc GAR tiêu chuẩn không tính điểm Thánh Vật vào Ngày 5), xả 110 Mảnh Thánh Vật Vàng (thu về 550,000 điểm GAR) nâng Soul Guard Orb lên 4★ (100 mảnh) và cộng dồn đưa Đội 1 từ 11★ vọt lên 15★ Sao Vàng, vượt qua mốc 13★ của đối thủ.",
-                en: "Wait for Day 1 (Monday) of Week B (remembering standard GAR does NOT score Relics on Day 5), then spend 110 Legendary Shards (scoring 550,000 GAR points) to raise Soul Guard Orb to 4★ (100 shards) and lift Queue 1 from 11★ to 15★ Legendary Stars—surpassing the rival's 13★.",
+                vi: "• Đợi đúng Ngày 1 (Thứ Hai) của Tuần B (nhớ quy tắc GAR tiêu chuẩn không tính điểm Thánh Vật vào Ngày 5).\n• Xả `110` Mảnh Vàng (`550,000` điểm GAR) nâng `Soul Guard Orb` lên `4★` (`100` mảnh), đưa Đội 1 từ `11★` lên `15★` Sao Vàng (vượt mốc `13★` của địch).",
+                en: "• Wait for Day 1 (Monday) of Week B (remembering standard GAR does NOT score Relics on Day 5).\n• Spend `110` Legendary Shards (`550,000` GAR pts) to raise `Soul Guard Orb` to `4★` (`100` shards), lifting Queue 1 from `11★` to `15★` Legendary Stars (past the enemy's `13★`).",
               },
               impactBadge: {
                 vi: "11★ ➔ 15★ & +550,000 đ GAR",
@@ -1443,8 +1443,8 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
                 en: "Lock Enemy Relics at -50% & Activate +1s Duration Synergy",
               },
               detail: {
-                vi: "Với 15★ > 13★, toàn bộ sát thương và lá chắn Thánh Vật của đối thủ bị cắt giảm -50%, trong khi liên kết +1 giây của Feather of the Pact và hiệu ứng chặn trần sát thương từ Soul Guard Orb hoạt động 100% công suất, nâng tỷ lệ thắng Đấu Trường từ 68% lên 100%.",
-                en: "With 15★ > 13★, all enemy Relic damage and shields are cut by -50%, while Feather of the Pact's +1s duration synergy and Soul Guard Orb's damage cap operate at 100% strength—lifting Arena win-rate from 68% to 100%.",
+                vi: "• Với `15★ > 13★`, toàn bộ sát thương và lá chắn Thánh Vật của đối thủ bị cắt giảm `-50%`.\n• Liên kết `+1s` của `Feather of the Pact` và hiệu ứng chặn trần sát thương từ `Soul Guard Orb` hoạt động `100%` công suất, nâng tỷ lệ thắng Đấu Trường từ `68%` lên `100%`.",
+                en: "• With `15★ > 13★`, all enemy Relic damage and shields are cut by `-50%`.\n• `Feather of the Pact`'s `+1s` duration synergy and `Soul Guard Orb`'s damage cap operate at `100%` strength—lifting Arena win-rate from `68%` to `100%`.",
               },
               impactBadge: {
                 vi: "68% ➔ 100% Win-Rate",
@@ -1453,8 +1453,8 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
             },
           ],
           conclusion: {
-            vi: "Chỉ cần thay 1 món Tím 5 Sao bằng Thánh Vật Vàng đúng hệ và xả 110 mảnh Vàng đúng Ngày 1–2 Tuần B, bạn vừa thu về 550,000 điểm GAR vừa lật ngược hoàn toàn cán cân Áp Chế Sao -50% trong mọi trận PvP.",
-            en: "Simply replacing one 5-Star Epic with a faction-matched Legendary Relic and dumping 110 Legendary shards on Week B Days 1–2 nets 550,000 GAR points while completely flipping the -50% Star Rating Suppression advantage in your favor.",
+            vi: "Chỉ cần thay 1 món Tím `5★` bằng Thánh Vật Vàng đúng hệ và xả `110` mảnh Vàng đúng Ngày 1–2 Tuần B, Đội 1 vừa thu về `550,000` điểm GAR vừa lật ngược cán cân **Áp Chế Sao `-50%`**.",
+            en: "Replacing one `5★` Epic with a faction Legendary Relic and dumping `110` Legendary shards on Week B Days 1–2 nets `550,000` GAR pts while flipping **`-50%` Star Rating Suppression** in your favor.",
           },
         },
         {

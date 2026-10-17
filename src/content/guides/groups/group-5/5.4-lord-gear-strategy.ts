@@ -16,30 +16,30 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
   },
   tldr: {
     coreRule: {
-      vi: "6 món Trang bị Chúa Tể (Lord Gear) chia đều cho 3 Phe phái (mỗi phe 2 món), trong đó 3 món Nhánh Phải (RIGHT) cộng % ATK Tướng Phe, % ATK Lính Phe & % HP Toàn bộ Lính (đỉnh Mythic T1 3★: +20.75% / +43.15% / +38.00%), còn 3 món Nhánh Trái (LEFT) cộng % HP Tướng Phe, % HP Lính Phe & % ATK Toàn bộ Lính (đỉnh Mythic T1 3★: +41.45% / +113.95% / +14.40%).",
-      en: "The 6 Lord Gear pieces are split across the 3 Factions (2 per faction): the 3 Right-side (RIGHT) slots boost Faction Hero ATK, Faction Soldier ATK & All Soldiers HP (Mythic T1 3★ cap: +20.75% / +43.15% / +38.00%), while the 3 Left-side (LEFT) slots boost Faction Hero HP, Faction Soldier HP & All Soldiers ATK (Mythic T1 3★ cap: +41.45% / +113.95% / +14.40%).",
+      vi: "6 món **Trang bị Chúa Tể (`Lord Gear`)** chia đều cho 3 Phe phái (mỗi phe 2 món):\n• **Nhánh Phải (`RIGHT` — 3 món Công):** Cộng `% ATK` Tướng Phe, `% ATK` Lính Phe & `% HP` Toàn Lính (đỉnh `Mythic T1 3★`: `+20.75%` / `+43.15%` / `+38.00%`).\n• **Nhánh Trái (`LEFT` — 3 món Thủ):** Cộng `% HP` Tướng Phe, `% HP` Lính Phe & `% ATK` Toàn Lính (đỉnh `Mythic T1 3★`: `+41.45%` / `+113.95%` / `+14.40%`).",
+      en: "The 6 **Lord Gear (`Military Gear`)** pieces split across the 3 Factions (2 per faction):\n• **Right Branch (`RIGHT` — 3 Offense Slots):** Boosts Faction Hero/Soldier `ATK` & All Soldiers `HP` (`Mythic T1 3★` cap: `+20.75%` / `+43.15%` / `+38.00%`).\n• **Left Branch (`LEFT` — 3 Defense Slots):** Boosts Faction Hero/Soldier `HP` & All Soldiers `ATK` (`Mythic T1 3★` cap: `+41.45%` / `+113.95%` / `+14.40%`).",
     },
     immediateAction: {
-      vi: "Áp dụng chu trình 4 bước Lệch Pha Thông Minh (Smart Staggered Upgrade): Luôn nâng 2 món thuộc Hệ Đội 1 dẫn trước 1 bậc nhỏ (Bước 1 nâng món Nhánh Phải RIGHT trước, Bước 2 nâng món Nhánh Trái LEFT sau), Bước 3 nâng 1 món Nhánh Trái Hệ Phụ để kích Cộng hưởng 3 món, rồi Bước 4 kéo 3 món Hệ Phụ còn lại chốt Cộng hưởng 6 món.",
-      en: "Execute the 4-step Smart Staggered Upgrade cycle: Push your Queue 1 Faction's 2 pieces 1 sub-tier ahead (Step 1 Right-side ATK piece first, Step 2 Left-side HP piece second), Step 3 bring 1 off-faction Left-side piece up to trigger 3-Piece Resonance, and Step 4 pull the remaining 3 off-faction pieces up to lock in 6-Piece Resonance.",
+      vi: "Áp dụng chu trình 4 bước **Lệch Pha Thông Minh (`Smart Staggered Upgrade`)**:\n• **Bước 1 & 2 (Hệ Đội 1):** Đẩy món **Nhánh Phải (`RIGHT`)** dẫn trước 1 bậc nhỏ, tiếp theo là món **Nhánh Trái (`LEFT`)** của Hệ Đội 1.\n• **Bước 3 & 4 (Hệ Phụ):** Nâng 1 món **Nhánh Trái (`LEFT`)** Hệ Phụ kích `Cộng hưởng 3 món`, rồi kéo nốt 3 món còn lại chốt `Cộng hưởng 6 món`.",
+      en: "Execute the 4-step **Smart Staggered Upgrade** cycle:\n• **Steps 1 & 2 (Queue 1 Faction):** Push your Queue 1 **Right-side (`RIGHT`)** piece 1 sub-tier ahead first, then its **Left-side (`LEFT`)** piece.\n• **Steps 3 & 4 (Off-Faction):** Upgrade 1 off-faction **Left-side (`LEFT`)** piece to trigger `3-Piece Resonance`, then pull the last 3 pieces up for `6-Piece Resonance`.",
     },
     strictTaboo: {
-      vi: "Tuyệt đối KHÔNG bấm nâng cấp Đồ Chúa Tể vào ngày thường hay vào Ngày 6 (Thứ Bảy — chỉ tính điểm Quân Trang Troop Skins)! Phải tích trữ 100% nguyên liệu xả vào Ngày 3 & Ngày 4 (Thứ Tư & Thứ Năm) của Tuần B (GAR / KvK, hoặc thêm Ngày 5 trong KvK) hoặc Thứ Sáu – Chủ Nhật (Ngày 5–7) của Tuần A (Guild Race) để ăn Double-Dip.",
-      en: "NEVER upgrade Lord Gear on normal days or on Day 6 (Saturday — which only scores Troop Skins)! Strictly hoard 100% of materials to dump on Days 3 & 4 (Wednesday & Thursday) of Week B (GAR / KvK, plus Day 5 in KvK) or Friday – Sunday (Days 5–7) of Week A (Guild Race) for Double-Dip rewards.",
+      vi: "Tuyệt đối **KHÔNG bấm nâng cấp Đồ Chúa Tể** vào ngày thường hay **Ngày 6 (Thứ Bảy)**:\n• **Bẫy Ngày 6 (Thứ Bảy):** Chỉ tính điểm Quân Trang (`Troop Skins`), hoàn toàn cho `0 điểm` Đồ Chúa Tể.\n• **Kỷ luật Double-Dip:** Tích 100% nguyên liệu xả vào **Ngày 3 & Ngày 4** Tuần B (`GAR / KvK`, cộng Ngày 5 trong `KvK`) hoặc **Ngày 5–7** Tuần A (`Guild Race`).",
+      en: "Strictly **NEVER upgrade Lord Gear** on normal weekdays or on **Day 6 (Saturday)**:\n• **Day 6 (Saturday) Trap:** Scores `Troop Skins` exclusively and awards `0 points` for Lord Gear.\n• **Double-Dip Discipline:** Hoard 100% of materials to dump on **Days 3 & 4** of Week B (`GAR / KvK`, plus Day 5 in `KvK`) or **Days 5–7** of Week A (`Guild Race`).",
     },
   },
   keyTakeaways: [
     {
-      vi: "Tổng chi phí 102 nấc nâng cấp (G1 ➔ Mythic T1 3★): 958,800 Đá Xanh / Thép Tinh Luyện (Refined Metal) + 9,955 Dây Gai / Chỉ Phép (Magic Thread) + 2,030 Bản Vẽ / Hợp Kim (Blueprints / Orichalcum) + 101 Máu Rồng (Dragon Blood) cho 1 món (tương đương 5,752,800 Thép + 59,730 Dây Gai + 12,180 Bản Vẽ + 606 Máu Rồng cho cả 6 món; điểm nghẽn 175 Bản Vẽ/món = 1,050 Bản Vẽ từ B1 1★ đến hết P4 3★).",
-      en: "Complete 102-Step Upgrade Cost (G1 ➔ Mythic T1 3★): 958,800 Refined Metal + 9,955 Magic Thread + 2,030 Blueprints/Orichalcum + 101 Dragon Blood per piece (5,752,800 Refined Metal + 59,730 Magic Thread + 12,180 Blueprints + 606 Dragon Blood for all 6 pieces; note the 175 Blueprints/piece = 1,050 Blueprints bottleneck from B1 1★ through P4 3★).",
+      vi: "**Tổng chi phí 102 nấc nâng cấp (`G1 ➔ Mythic T1 3★`):** `958,800` Đá Xanh / Thép Tinh Luyện + `9,955` Dây Gai + `2,030` Bản Vẽ + `101` Máu Rồng cho 1 món.\n• **Toàn bộ 6 món:** Tốn `5,752,800` Thép + `59,730` Dây Gai + `12,180` Bản Vẽ + `606` Máu Rồng (điểm nghẽn `175` Bản Vẽ/món = `1,050` Bản Vẽ từ `B1 1★` đến hết `P4 3★`).",
+      en: "**Complete 102-Step Upgrade Cost (`G1 ➔ Mythic T1 3★`):** `958,800` Refined Metal + `9,955` Magic Thread + `2,030` Blueprints/Orichalcum + `101` Dragon Blood per piece.\n• **All 6 Pieces Total:** Requires `5,752,800` Refined Metal + `59,730` Magic Thread + `12,180` Blueprints + `606` Dragon Blood (with a `175` Blueprints/piece = `1,050` Blueprints bottleneck from `B1 1★` to `P4 3★`).",
     },
     {
-      vi: "Điều kiện mở khóa tính năng Season 3: Cả 6 món chính phải đạt tối thiểu bậc Vàng Y1 (T1 Legendary) để mở Ô Trang bị Chúa Tể Thứ 7 vào Tuần 3 Season 3, và đạt tối thiểu bậc Vàng Y2 (T2 Legendary) để mở Thánh Điển (Sacred Codex) vào Tuần 4 Season 3.",
-      en: "Season 3 Unlock Requirements: All 6 main Lord Gear pieces must reach at least Y1 (T1 Legendary) to unlock the 7th Lord Gear Slot in Season 3 Week 3, and reach at least Y2 (T2 Legendary) to unlock the Sacred Codex in Season 3 Week 4.",
+      vi: "**Điều kiện mở khóa tính năng `Season 3`:** Cả 6 món chính phải đạt tối thiểu bậc Vàng `Y1` (`T1 Legendary`) để mở **Ô Trang bị Chúa Tể Thứ 7** vào Tuần 3 `Season 3`.\n• **Mở khóa Thánh Điển (`Sacred Codex`):** Cả 6 món chính bắt buộc đạt tối thiểu bậc Vàng `Y2` (`T2 Legendary`) vào Tuần 4 `Season 3`.",
+      en: "**`Season 3` Unlock Requirements:** All 6 main Lord Gear pieces must reach at least `Y1` (`T1 Legendary`) to unlock the **7th Lord Gear Slot** in `Season 3` Week 3.\n• **Sacred Codex Unlock:** All 6 main pieces must reach at least `Y2` (`T2 Legendary`) in `Season 3` Week 4.",
     },
     {
-      vi: "Điểm sự kiện Đồ Chúa Tể: Trong Tuần B (GAR / KvK Ngày 3 & 4), mỗi 100 Thép Tinh Luyện = 400 điểm và mỗi 1 Dây Gai = 400 điểm; trong Tuần A (Guild Race Ngày 5–7), kết hợp nhận Nhiệm vụ Vàng Độc quyền (Exclusive Gold Task) và sự kiện phụ Guild Rush: Troop Skin & Lord Gear.",
-      en: "Lord Gear Event Scoring: During Week B (GAR / KvK Days 3 & 4), every 100 Refined Metal = 400 points and every 1 Magic Thread = 400 points; during Week A (Guild Race Days 5–7), Double-Dip by stacking Exclusive Gold Tasks with Guild Rush: Troop Skin & Lord Gear.",
+      vi: "**Điểm sự kiện Đồ Chúa Tể:** Trong Tuần B (`GAR / KvK` Ngày 3 & 4), mỗi `100` Thép Tinh Luyện = `400 điểm` và mỗi `1` Dây Gai = `400 điểm`.\n• **Ăn kép Tuần A (`Guild Race` Ngày 5–7):** Nhận Nhiệm vụ Vàng Độc quyền (`Exclusive Gold Task`) kết hợp sự kiện phụ `Guild Rush: Troop Skin & Lord Gear`.",
+      en: "**Lord Gear Event Scoring:** During Week B (`GAR / KvK` Days 3 & 4), every `100` Refined Metal = `400 points` and every `1` Magic Thread = `400 points`.\n• **Week A (`Guild Race` Days 5–7) Double-Dip:** Stack `Exclusive Gold Task` selections with the `Guild Rush: Troop Skin & Lord Gear` milestone event.",
     },
   ],
   keywords: [
@@ -82,8 +82,8 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Khác với Trang bị Tướng chỉ có tác dụng lên 1 cá nhân, Trang bị Chúa Tể (Lord Gear / Military Gear) nằm trong Hồ sơ Nhân vật (Avatar Lãnh Chúa) là hệ thống cung cấp Chỉ số Toàn cục (Global Passive Buff) cộng thẳng phần trăm (%) ATK và HP cho toàn bộ Tướng lẫn Binh lính của bạn trong mọi chế độ chơi. Theo dữ liệu gốc từ TopHeroes Tables (Tab Аркуш23), 6 ô Trang bị Chúa Tể được chia đối xứng theo 3 Phe phái (Liên Minh, Bộ Lạc, Thiên Nhiên) và 2 cột Nhánh Trái (LEFT) / Nhánh Phải (RIGHT).",
-            en: "Unlike Hero Gear which only buffs a single equipped hero, Lord Gear (Military Gear) inside your Lord Profile provides a permanent Global Passive Buff that grants percentage (%) ATK and HP to all Heroes and Soldiers across every game mode. According to TopHeroes Tables (Tab Аркуш23), the 6 Lord Gear slots are symmetrically divided across the 3 Factions (League, Horde, Nature) and 2 stat columns: Left Branch (LEFT) and Right Branch (RIGHT).",
+            vi: "Khác với Trang bị Tướng chỉ tác dụng lên 1 cá nhân, **Trang bị Chúa Tể (`Lord Gear / Military Gear`)** cung cấp Chỉ số Toàn cục (`Global Passive Buff`) cộng thẳng `% ATK` và `% HP` cho toàn bộ Tướng lẫn Binh lính.\n• **Cấu trúc đối xứng (Tab Аркуш23):** 6 ô Trang bị Chúa Tể chia đều theo 3 Phe phái (Liên Minh, Bộ Lạc, Thiên Nhiên) và 2 cột **Nhánh Trái (`LEFT`)** / **Nhánh Phải (`RIGHT`)**.",
+            en: "Unlike Hero Gear which only buffs a single hero, **Lord Gear (`Military Gear`)** inside your Lord Profile grants a permanent `Global Passive Buff` (`% ATK` and `% HP`) to all Heroes and Soldiers across every mode.\n• **Symmetrical Matrix (Tab Аркуш23):** The 6 Lord Gear slots divide evenly across the 3 Factions (League, Horde, Nature) and 2 stat columns: **Left Branch (`LEFT`)** and **Right Branch (`RIGHT`)**.",
           },
         },
         {
@@ -94,8 +94,8 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
             en: "Core Rule: Right Branch (RIGHT — Offense) vs Left Branch (LEFT — Defense) & Season 3 Unlocks",
           },
           content: {
-            vi: "👉 Nhánh Phải (RIGHT — 3 Món Công) đạt đỉnh Mythic T1 3★: +20.75% ATK Tướng Phe, +43.15% ATK Lính Phe, +38.00% HP Toàn Lính (mốc Mythic T1 1★: +18.70% / +38.90% / +34.25%). 👈 Nhánh Trái (LEFT — 3 Món Thủ) đạt đỉnh Mythic T1 3★: +41.45% HP Tướng Phe, +113.95% HP Lính Phe, và +14.40% ATK Toàn bộ Lính. Đủ 6 món Vàng Y1 (T1 Legendary) mở Ô Chúa Tể Thứ 7 (Tuần 3 S3); đủ 6 món Vàng Y2 (T2 Legendary) mở Thánh Điển Sacred Codex (Tuần 4 S3).",
-            en: "👉 Right Branch (RIGHT — 3 Offense Slots) at Mythic T1 3★ Cap: +20.75% Faction Hero ATK, +43.15% Faction Soldier ATK, +38.00% All Soldiers HP (Mythic T1 1★: +18.70% / +38.90% / +34.25%). 👈 Left Branch (LEFT — 3 Defense Slots) at Mythic T1 3★ Cap: +41.45% Faction Hero HP, +113.95% Faction Soldier HP, and +14.40% All Soldiers ATK. Reaching 6 pieces at Y1 (T1 Legendary) unlocks the 7th Slot (S3 Week 3); reaching 6 pieces at Y2 (T2 Legendary) unlocks the Sacred Codex (S3 Week 4).",
+            vi: "**Nhánh Phải (`RIGHT` — 3 Món Công)** đạt đỉnh `Mythic T1 3★`: `+20.75%` ATK Tướng Phe, `+43.15%` ATK Lính Phe, `+38.00%` HP Toàn Lính (mốc `Mythic T1 1★`: `+18.70%` / `+38.90%` / `+34.25%`).\n• **Nhánh Trái (`LEFT` — 3 Món Thủ)** đạt đỉnh `Mythic T1 3★`: `+41.45%` HP Tướng Phe, `+113.95%` HP Lính Phe, và `+14.40%` ATK Toàn bộ Lính.\n• **Mở khóa Season 3:** Đủ 6 món Vàng `Y1` mở Ô Chúa Tể Thứ 7 (Tuần 3 S3); đủ 6 món Vàng `Y2` mở Thánh Điển `Sacred Codex` (Tuần 4 S3).",
+            en: "**Right Branch (`RIGHT` — 3 Offense Slots)** at `Mythic T1 3★` Cap: `+20.75%` Faction Hero ATK, `+43.15%` Faction Soldier ATK, `+38.00%` All Soldiers HP (`Mythic T1 1★`: `+18.70%` / `+38.90%` / `+34.25%`).\n• **Left Branch (`LEFT` — 3 Defense Slots)** at `Mythic T1 3★` Cap: `+41.45%` Faction Hero HP, `+113.95%` Faction Soldier HP, and `+14.40%` All Soldiers ATK.\n• **Season 3 Unlocks:** Reaching 6 pieces at `Y1` unlocks the 7th Slot (S3 Week 3); reaching 6 pieces at `Y2` unlocks the `Sacred Codex` (S3 Week 4).",
           },
         },
         {
@@ -125,8 +125,8 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
           rows: [
             [
               {
-                vi: "👈 Nhánh Trái (LEFT — 3 Món): 1 Liên Minh (League) • 1 Bộ Lạc (Horde) • 1 Thiên Nhiên (Nature)",
-                en: "👈 Left Branch (LEFT — 3 Slots): 1 League • 1 Horde • 1 Nature",
+                vi: "Nhánh Trái (LEFT — 3 Món): 1 Liên Minh (League) • 1 Bộ Lạc (Horde) • 1 Thiên Nhiên (Nature)",
+                en: "Left Branch (LEFT — 3 Slots): 1 League • 1 Horde • 1 Nature",
               },
               {
                 vi: "(1) % HP Tướng theo Phe (Faction Hero HP) • (2) % HP Lính theo Phe (Faction Soldier HP) • (3) % ATK Toàn bộ Lính (All Soldiers Attack)",
@@ -143,8 +143,8 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
             ],
             [
               {
-                vi: "👉 Nhánh Phải (RIGHT — 3 Món): 1 Liên Minh (League) • 1 Bộ Lạc (Horde) • 1 Thiên Nhiên (Nature)",
-                en: "👉 Right Branch (RIGHT — 3 Slots): 1 League • 1 Horde • 1 Nature",
+                vi: "Nhánh Phải (RIGHT — 3 Món): 1 Liên Minh (League) • 1 Bộ Lạc (Horde) • 1 Thiên Nhiên (Nature)",
+                en: "Right Branch (RIGHT — 3 Slots): 1 League • 1 Horde • 1 Nature",
               },
               {
                 vi: "(1) % ATK Tướng theo Phe (Faction Hero Attack) • (2) % ATK Lính theo Phe (Faction Soldier Attack) • (3) % HP Toàn bộ Lính (All Soldiers HP)",
@@ -165,16 +165,16 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
           type: "list",
           items: [
             {
-              vi: "Cộng hưởng 3 Món (3-Piece Resonance): Kích hoạt ngay khi có ít nhất 3 trên 6 món đạt cùng một bậc phẩm chất và cấp Sao (ví dụ: 3 món cùng đạt Tím 1★ hoặc Vàng Y1).",
-              en: "3-Piece Resonance: Activates immediately when at least 3 out of 6 pieces reach the exact same quality tier and star level (e.g., 3 pieces at Epic 1★ or Legendary Y1).",
+              vi: "**Cộng hưởng 3 Món (3-Piece Resonance):** Kích hoạt ngay khi có ít nhất 3 trên 6 món đạt cùng một bậc phẩm chất và cấp Sao (ví dụ: 3 món cùng đạt Tím 1★ hoặc Vàng Y1).",
+              en: "**3-Piece Resonance:** Activates immediately when at least 3 out of 6 pieces reach the exact same quality tier and star level (e.g., 3 pieces at Epic 1★ or Legendary Y1).",
             },
             {
-              vi: "Cộng hưởng 6 Món (6-Piece Resonance): Kích hoạt khi cả 6 trên 6 món đều chạm cùng một bậc phẩm chất và cấp Sao, mang lại bước nhảy vọt Lực chiến toàn cục.",
-              en: "6-Piece Resonance: Activates when all 6 out of 6 pieces reach the same quality tier and star level, granting a massive global combat power spike.",
+              vi: "**Cộng hưởng 6 Món (6-Piece Resonance):** Kích hoạt khi cả 6 trên 6 món đều chạm cùng một bậc phẩm chất và cấp Sao, mang lại bước nhảy vọt Lực chiến toàn cục.",
+              en: "**6-Piece Resonance:** Activates when all 6 out of 6 pieces reach the same quality tier and star level, granting a massive global combat power spike.",
             },
             {
-              vi: "Điều kiện Mở khóa Season 3 (Ô Thứ 7 & Thánh Điển Sacred Codex): Cả 6 món chính bắt buộc đạt tối thiểu bậc Huyền Thoại Vàng T1 (Y1 / T1 Legendary) để mở Ô Trang bị Chúa Tể thứ 7 vào Tuần 3 Season 3, và đạt tối thiểu bậc Huyền Thoại Vàng T2 (Y2 / T2 Legendary) để mở khóa Thánh Điển (Sacred Codex) vào Tuần 4 Season 3.",
-              en: "Season 3 Unlock Requirements (7th Slot & Sacred Codex): All 6 main pieces must reach at least Y1 (T1 Legendary) to unlock the 7th Lord Gear Slot in Season 3 Week 3, and reach at least Y2 (T2 Legendary) to unlock the Sacred Codex in Season 3 Week 4.",
+              vi: "**Điều kiện Mở khóa Season 3:** Đủ 6 món đạt Vàng Y1 (T1 Legendary) mở Ô Chúa Tể Thứ 7 (Tuần 3 Season 3); đủ 6 món đạt Vàng Y2 (T2 Legendary) mở Thánh Điển (Sacred Codex, Tuần 4 Season 3).",
+              en: "**Season 3 Unlock Requirements:** All 6 pieces at Y1 (T1 Legendary) unlocks the 7th Lord Gear Slot (Season 3 Week 3); all 6 at Y2 (T2 Legendary) unlocks the Sacred Codex (Season 3 Week 4).",
             },
           ],
         },
@@ -242,8 +242,8 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Nguyên liệu nâng cấp Trang bị Chúa Tể gồm 4 bậc chuẩn hóa song ngữ: Đá Xanh / Thép Tinh Luyện (Refined Metal), Dây Gai / Chỉ Phép (Magic Thread), Bản Vẽ / Hợp Kim (Blueprints / Orichalcum), và Nguyên Liệu Đỏ / Máu Rồng (Mythic Material / Dragon Blood). Vì nguồn cung miễn phí rất giới hạn và Đồ Chúa Tể là một trong những mỏ điểm sự kiện lớn nhất game, người chơi phải tuân thủ thứ tự nâng cấp 3 bước và lịch xả Ground-Truth dưới đây:",
-            en: "Lord Gear progression requires 4 standardized materials: Refined Metal (Đá Xanh / Thép Tinh Luyện), Magic Thread (Dây Gai / Chỉ Phép), Blueprints / Orichalcum (Bản Vẽ / Hợp Kim), and Mythic Material / Dragon Blood (Nguyên Liệu Đỏ / Máu Rồng). Because free supply is tightly gated and Lord Gear is one of the highest-scoring event categories in Top Heroes, enforce this 3-step priority and Ground-Truth dump schedule:",
+            vi: "Nguyên liệu nâng cấp Trang bị Chúa Tể gồm 4 loại chuẩn: **Đá Xanh / Thép (`Refined Metal`)**, **Dây Gai (`Magic Thread`)**, **Bản Vẽ (`Blueprints / Orichalcum`)** và **Máu Rồng (`Dragon Blood`)**.\n• **Kỷ luật tối ưu:** Vì nguồn cung miễn phí rất giới hạn và Đồ Chúa Tể là mỏ điểm sự kiện cực lớn, hãy tuân thủ thứ tự nâng cấp 3 bước và lịch xả `Ground-Truth` dưới đây.",
+            en: "Lord Gear progression uses 4 standardized materials: **Refined Metal**, **Magic Thread**, **Blueprints / Orichalcum**, and **Dragon Blood**.\n• **Optimization Discipline:** Because free supply is tightly gated and Lord Gear is a top-scoring event category, enforce this 3-step priority and `Ground-Truth` dump schedule.",
           },
         },
         {
@@ -263,8 +263,8 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
                 en: "Start of every upgrade cycle",
               },
               description: {
-                vi: "Đập món Nhánh Phải (RIGHT) thuộc Phe Đội 1 (Bộ Lạc 🔴 / Liên Minh 🔵 / Thiên Nhiên 🟢) lên bậc N+1 trước để tối đa hóa % ATK, tiếp theo là món Nhánh Trái (LEFT) của Đội 1 lên bậc N+1.",
-                en: "Push your Queue 1 Faction's Right-side (RIGHT) slot (Horde 🔴 / League 🔵 / Nature 🟢) to tier N+1 first for maximum % ATK, followed immediately by Queue 1's Left-side (LEFT) slot.",
+                vi: "Đập món Nhánh Phải (RIGHT) thuộc Phe Đội 1 (Bộ Lạc / Liên Minh / Thiên Nhiên) lên bậc N+1 trước để tối đa hóa % ATK, tiếp theo là món Nhánh Trái (LEFT) của Đội 1 lên bậc N+1.",
+                en: "Push your Queue 1 Faction's Right-side (RIGHT) slot (Horde / League / Nature) to tier N+1 first for maximum % ATK, followed immediately by Queue 1's Left-side (LEFT) slot.",
               },
             },
             {
@@ -299,8 +299,8 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
                 en: "Strictly forbidden on Day 6 (Saturday)",
               },
               description: {
-                vi: "Tuần B xả vào Thứ Tư & Thứ Năm (Ngày 3–4 GAR/KvK, hoặc thêm Ngày 5 trong KvK: 100 Thép = 400 điểm, 1 Dây Gai = 400 điểm). Tuần A xả vào Thứ Sáu – Chủ Nhật (Ngày 5–7 Guild Race) ăn kép Exclusive Gold Task + Guild Rush: Troop Skin & Lord Gear.",
-                en: "In Week B, dump on Wed & Thu (GAR/KvK Days 3–4, plus Day 5 in KvK: 100 Refined Metal = 400 pts, 1 Magic Thread = 400 pts). In Week A, dump on Fri–Sun (Guild Race Days 5–7) to stack Exclusive Gold Tasks + Guild Rush: Troop Skin & Lord Gear.",
+                vi: "Tuần B xả vào Thứ Tư & Thứ Năm (Ngày 3–4 GAR/KvK, cộng Ngày 5 trong KvK: 100 Thép = 400 điểm, 1 Dây Gai = 400 điểm).\n• Tuần A xả vào Thứ Sáu – Chủ Nhật (Ngày 5–7 Guild Race) ăn kép Exclusive Gold Task + Guild Rush: Troop Skin & Lord Gear.",
+                en: "In Week B, dump on Wed & Thu (GAR/KvK Days 3–4, plus Day 5 in KvK: 100 Refined Metal = 400 points, 1 Magic Thread = 400 points).\n• In Week A, dump on Fri–Sun (Guild Race Days 5–7) to stack Exclusive Gold Task + Guild Rush: Troop Skin & Lord Gear.",
               },
             },
           ],
@@ -432,8 +432,8 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
                 en: "5. Align early with Horde Pivot & Season 3 Y1/Y2 unlock milestones",
               },
               detail: {
-                vi: "Nếu dùng tạm Liên Minh ở Ngày 1–20 nhưng xác định chuyển sang Bộ Lạc ở Ngày 21+, hãy ưu tiên dẫn trước 2 món Bộ Lạc 🔴 và hướng tới mốc 6 món đạt Y1 (Ô Thứ 7) & Y2 (Sacred Codex).",
-                en: "If running temporary League on Days 1–20 before pivoting to Horde on Day 21+, lead with the 2 Horde 🔴 pieces and target all 6 pieces at Y1 (7th Slot) & Y2 (Sacred Codex) for Season 3.",
+                vi: "Nếu dùng tạm Liên Minh ở Ngày 1–20 nhưng xác định chuyển sang Bộ Lạc ở Ngày 21+, hãy ưu tiên dẫn trước 2 món Bộ Lạc và hướng tới mốc 6 món đạt Y1 (Ô Thứ 7) & Y2 (Sacred Codex).",
+                en: "If running temporary League on Days 1–20 before pivoting to Horde on Day 21+, lead with the 2 Horde pieces and target all 6 pieces at Y1 (7th Slot) & Y2 (Sacred Codex) for Season 3.",
               },
               badge: {
                 vi: "SEASON 3 UNLOCK",
@@ -456,16 +456,16 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
           ordered: true,
           items: [
             {
-              vi: "Cạm bẫy #1 — Dồn toàn bộ tài nguyên đẩy duy nhất 2 món Hệ Đội 1 lên Vàng (Y1–Y2) nhưng bỏ mặc 4 món Hệ Phụ ở Lục/Lam (G1/B1): Càng lên cao, chi phí Bản Vẽ / Hợp Kim và Dây Gai cho 1 món tăng gấp 5–10 lần. Bỏ rơi 4 món phụ khiến bạn mất toàn bộ Hào quang Cộng hưởng 6 món, mất dòng % ATK/HP Toàn bộ Lính trên cả 4 món đó, và bị khóa cứng không thể mở Ô Chúa Tể Thứ 7 (yêu cầu 6 món đạt Y1) lẫn Thánh Điển Sacred Codex (yêu cầu 6 món đạt Y2) ở Season 3. Giải pháp: Tuân thủ nghiêm ngặt quy tắc 'Lệch Pha Tối Đa 1 Bậc'.",
-              en: "Pitfall #1 — Tunnel-visioning only 2 Queue 1 pieces to Legendary (Y1–Y2) while leaving 4 off-faction pieces at Green/Blue (G1/B1): At higher tiers, Blueprint/Orichalcum and Magic Thread costs scale 5–10x per piece. Neglecting the 4 off-faction slots costs you 6-Piece Resonance, forfeits global All Soldiers ATK/HP lines across 4 slots, and locks you out of the Season 3 7th Slot (requires 6x Y1) and Sacred Codex (requires 6x Y2). Solution: Enforce the 'Max 1 Sub-Tier Gap' rule.",
+              vi: "**Cạm bẫy #1 — Đẩy lẻ 2 món Đội 1 lên Vàng (Y1–Y2) bỏ mặc 4 món Hệ Phụ ở Lục/Lam:** Mất Cộng hưởng 6 món và bị khóa Ô Thứ 7 (Y1) lẫn Sacred Codex (Y2) ở Season 3; luôn giữ độ lệch tối đa 1 bậc nhỏ.",
+              en: "**Pitfall #1 — Pushing only 2 Queue 1 pieces to Y1–Y2 while leaving 4 off-faction pieces at G1/B1:** Forfeits 6-Piece Resonance and locks out the Season 3 7th Slot (Y1) & Sacred Codex (Y2); keep max gap to 1 sub-tier.",
             },
             {
-              vi: "Cạm bẫy #2 — Bấm nâng cấp Đồ Chúa Tể vào Thứ Hai/Thứ Ba hoặc lầm tưởng Ngày 6 (Thứ Bảy) của GAR / KvK có tính điểm Đồ Chúa Tể: Ngày 6 (Thứ Bảy) trong GAR / KvK chỉ tính điểm Quân Trang (Troop Skins), hoàn toàn cho 0 điểm Đồ Chúa Tể! Giải pháp: Chỉ xả vào Ngày 3 & Ngày 4 (Thứ Tư & Thứ Năm) của Tuần B (GAR / KvK, hoặc thêm Ngày 5 trong KvK) và Thứ Sáu – Chủ Nhật (Ngày 5–7) của Tuần A (Guild Race) để ăn Double-Dip.",
-              en: "Pitfall #2 — Upgrading Lord Gear on Monday/Tuesday or mistakenly waiting for Day 6 (Saturday) of GAR / KvK: Day 6 (Saturday) of GAR / KvK only scores Troop Skins and gives 0 points for Lord Gear! Solution: Dump strictly on Days 3 & 4 (Wednesday & Thursday) of Week B (GAR / KvK, plus Day 5 in KvK) and Friday – Sunday (Days 5–7) of Week A (Guild Race) for Double-Dip rewards.",
+              vi: "**Cạm bẫy #2 — Xả Đồ Chúa Tể vào ngày thường hoặc Ngày 6 (Thứ Bảy) của GAR / KvK:** Ngày 6 chỉ tính điểm Quân Trang (0 điểm Đồ Chúa Tể); chỉ xả vào Ngày 3–4 Tuần B (GAR/KvK) hoặc Ngày 5–7 Tuần A (Guild Race).",
+              en: "**Pitfall #2 — Upgrading Lord Gear on weekdays or Day 6 (Saturday) of GAR / KvK:** Day 6 only scores Troop Skins (0 Lord Gear points); dump strictly on Week B Days 3–4 (GAR/KvK) or Week A Days 5–7 (Guild Race).",
             },
             {
-              vi: "Cạm bẫy #3 — Mua Thép Tinh Luyện (Refined Metal) giá đắt thay vì gom Bản Vẽ / Hợp Kim & nâng đều từ trên xuống dưới không phân biệt Nhánh Phải vs Nhánh Trái: Nút cổ chai thực sự nằm ở Dây Gai (Magic Thread), Bản Vẽ / Hợp Kim (175 Bản Vẽ/món = 1,050 Bản Vẽ từ B1 1★ đến P4 3★) và Máu Rồng (Dragon Blood). Đồng thời, luôn phải nâng theo đúng thứ tự: Nhánh Phải (RIGHT) Đội 1 ➔ Nhánh Trái (LEFT) Đội 1 ➔ Nhánh Trái (LEFT) Hệ Phụ (+ATK Toàn Lính) ➔ Nhánh Phải (RIGHT) Hệ Phụ.",
-              en: "Pitfall #3 — Buying overpriced Refined Metal instead of scarce Blueprints / Magic Thread & upgrading top-to-bottom without separating Right vs Left branches: Your true bottlenecks are Magic Thread, Blueprints / Orichalcum (175 Blueprints/piece = 1,050 Blueprints from B1 1★ through P4 3★), and Dragon Blood. Always upgrade in strict order: Queue 1 RIGHT ➔ Queue 1 LEFT ➔ Off-Faction LEFT (+All Soldiers ATK) ➔ Off-Faction RIGHT.",
+              vi: "**Cạm bẫy #3 — Mua Thép đắt đỏ thay vì gom Bản Vẽ (1,050 Bản Vẽ B1➔P4) & nâng sai thứ tự nhánh:** Luôn ưu tiên mua Bản Vẽ/Dây Gai và nâng theo chuẩn: RIGHT Đội 1 ➔ LEFT Đội 1 ➔ LEFT Hệ Phụ ➔ RIGHT Hệ Phụ.",
+              en: "**Pitfall #3 — Buying overpriced Metal instead of Blueprints (1,050 from B1➔P4) & ignoring branch order:** Stockpile Blueprints/Thread and upgrade strictly: Queue 1 RIGHT ➔ Queue 1 LEFT ➔ Off-Faction LEFT ➔ RIGHT.",
             },
           ],
         },
@@ -477,8 +477,8 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
             en: "Red Alert: Never Dump Lord Gear on Day 6 (Saturday) of GAR / KvK!",
           },
           content: {
-            vi: "Rất nhiều người chơi nhìn thấy chữ 'Trang bị' vào Ngày 6 (Thứ Bảy) của GAR/KvK liền bấm xả sạch hàng trăm Bản Vẽ và hàng ngàn Dây Gai, nhưng Ngày 6 chỉ tính điểm Quân Trang (Troop Skins)! Hãy khóa chặt tay và chỉ xả Đồ Chúa Tể vào Thứ Tư – Thứ Năm (Ngày 3–4 Tuần B GAR/KvK, hoặc thêm Ngày 5 trong KvK) hoặc Thứ Sáu – Chủ Nhật (Ngày 5–7 Tuần A Guild Race).",
-            en: "Many players see equipment themes on Day 6 (Saturday) of GAR/KvK and dump hundreds of Blueprints and thousands of Magic Threads, only to realize Day 6 scores Troop Skins exclusively! Keep your materials locked and only dump Lord Gear on Wednesday–Thursday (Week B GAR/KvK Days 3–4, plus Day 5 in KvK) or Friday–Sunday (Week A Guild Race Days 5–7).",
+            vi: "Rất nhiều người chơi nhìn thấy chữ 'Trang bị' vào **Ngày 6 (Thứ Bảy)** của `GAR / KvK` liền bấm xả sạch hàng trăm Bản Vẽ và hàng ngàn Dây Gai, nhưng Ngày 6 chỉ tính điểm **Quân Trang (`Troop Skins`)**!\n• **Kỷ luật sắt:** Khóa chặt tay và chỉ xả Đồ Chúa Tể vào **Thứ Tư – Thứ Năm** (Ngày 3–4 Tuần B `GAR / KvK`, cộng Ngày 5 trong `KvK`) hoặc **Thứ Sáu – Chủ Nhật** (Ngày 5–7 Tuần A `Guild Race`).",
+            en: "Many players see equipment themes on **Day 6 (Saturday)** of `GAR / KvK` and dump hundreds of Blueprints and thousands of Magic Threads, only to realize Day 6 scores **Troop Skins** exclusively!\n• **Iron Discipline:** Keep materials locked and only dump Lord Gear on **Wednesday–Thursday** (Week B `GAR / KvK` Days 3–4, plus Day 5 in `KvK`) or **Friday–Sunday** (Week A `Guild Race` Days 5–7).",
           },
         },
       ],
@@ -512,8 +512,8 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
               en: "BASELINE SYNC STATE",
             },
             title: {
-              vi: "👑 CẢ 6 MÓN ĐỒ CHÚA TỂ ĐỒNG BỘ Ở BẬC N (ĐANG BẬT CỘNG HƯỞNG 6 MÓN)",
-              en: "👑 ALL 6 LORD GEAR PIECES SYNCED AT TIER N (6-PIECE RESONANCE ACTIVE)",
+              vi: "CẢ 6 MÓN ĐỒ CHÚA TỂ ĐỒNG BỘ Ở BẬC N (ĐANG BẬT CỘNG HƯỞNG 6 MÓN)",
+              en: "ALL 6 LORD GEAR PIECES SYNCED AT TIER N (6-PIECE RESONANCE ACTIVE)",
             },
             subtitle: {
               vi: "Từ trạng thái đồng bộ Bậc N, thực hiện tuần tự 4 bước dưới đây trong giờ vàng sự kiện để bước lên Bậc N+1",
@@ -675,7 +675,7 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
                 en: "Phase 2: Trigger 3-Piece Resonance (Step 3)",
               },
               badge: {
-                vi: "3/6 MÓN ĐỒNG BỘ",
+                vi: "3/6 MÓN CÙNG BẬC",
                 en: "3/6 SLOTS SYNCED",
               },
               tone: "gold",
@@ -736,8 +736,8 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
         {
           type: "table",
           caption: {
-            vi: "Bảng 2: Chi Phí Nguyên Liệu & Thông Số Toàn Trình 102 Nấc Trang Bị Chúa Tể (G1 ➔ R4 Mythic T1 3★) — Nguồn: TopHeroes Tables (Tab Аркуш23 & ⚔️Gear)",
-            en: "Table 2: Complete 102-Step Lord Gear Material Cost & Stat Progression Table (G1 ➔ R4 Mythic T1 3★) — Source: TopHeroes Tables (Tab Аркуш23 & ⚔️Gear)",
+            vi: "Bảng 2: Chi Phí Nguyên Liệu & Thông Số Toàn Trình 102 Nấc Trang Bị Chúa Tể (G1 ➔ R4 Mythic T1 3★) — Nguồn: TopHeroes Tables (Tab Аркуш23 & Gear)",
+            en: "Table 2: Complete 102-Step Lord Gear Material Cost & Stat Progression Table (G1 ➔ R4 Mythic T1 3★) — Source: TopHeroes Tables (Tab Аркуш23 & Gear)",
           },
           headers: [
             {
@@ -750,19 +750,19 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
             },
             {
               vi: "Đá Xanh / Thép Tinh Luyện (Refined Metal)",
-              en: "Refined Metal (Đá Xanh / Thép)",
+              en: "Refined Metal",
             },
             {
               vi: "Dây Gai / Chỉ Phép (Magic Thread)",
-              en: "Magic Thread (Dây Gai / Chỉ Phép)",
+              en: "Magic Thread",
             },
             {
               vi: "Bản Vẽ / Hợp Kim (Blueprints / Orichalcum)",
-              en: "Blueprints / Orichalcum (Bản Vẽ)",
+              en: "Blueprints / Orichalcum",
             },
             {
               vi: "Nguyên Liệu Đỏ / Máu Rồng (Dragon Blood)",
-              en: "Mythic Material / Dragon Blood (Máu Rồng)",
+              en: "Mythic Material / Dragon Blood",
             },
             {
               vi: "Chỉ Số Đạt Được Ở Cuối Bậc (Nhánh Trái LEFT | Nhánh Phải RIGHT)",
@@ -772,8 +772,8 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
           rows: [
             [
               {
-                vi: "🟢 G1 — Lục (Uncommon Base ➔ 1★)",
-                en: "🟢 G1 — Uncommon (Base ➔ 1★)",
+                vi: "G1 — Lục (Uncommon Base ➔ 1★)",
+                en: "G1 — Uncommon (Base ➔ 1★)",
               },
               {
                 vi: "2 nấc (Base, 1★)",
@@ -802,8 +802,8 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
             ],
             [
               {
-                vi: "🔵 B1 — Lam 1 (Rare Base ➔ 1★)",
-                en: "🔵 B1 — Rare 1 (Base ➔ 1★)",
+                vi: "B1 — Lam 1 (Rare Base ➔ 1★)",
+                en: "B1 — Rare 1 (Base ➔ 1★)",
               },
               {
                 vi: "3 nấc (Base + 2 nấc 1★)",
@@ -832,8 +832,8 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
             ],
             [
               {
-                vi: "🔵 B2 — Lam 2 (Rare 2★)",
-                en: "🔵 B2 — Rare 2 (2★)",
+                vi: "B2 — Lam 2 (Rare 2★)",
+                en: "B2 — Rare 2 (2★)",
               },
               {
                 vi: "2 nấc",
@@ -862,8 +862,8 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
             ],
             [
               {
-                vi: "🔵 B3 — Lam 3 (Rare 3★)",
-                en: "🔵 B3 — Rare 3 (3★)",
+                vi: "B3 — Lam 3 (Rare 3★)",
+                en: "B3 — Rare 3 (3★)",
               },
               {
                 vi: "2 nấc",
@@ -892,8 +892,8 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
             ],
             [
               {
-                vi: "🟣 P1–P2 — Tím 1–2 (Epic Base ➔ 1★)",
-                en: "🟣 P1–P2 — Epic 1–2 (Base ➔ 1★)",
+                vi: "P1–P2 — Tím 1–2 (Epic Base ➔ 1★)",
+                en: "P1–P2 — Epic 1–2 (Base ➔ 1★)",
               },
               {
                 vi: "4 nấc (Base + 3 nấc 1★)",
@@ -922,8 +922,8 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
             ],
             [
               {
-                vi: "🟣 P3 — Tím 3 (Epic 2★)",
-                en: "🟣 P3 — Epic 3 (2★)",
+                vi: "P3 — Tím 3 (Epic 2★)",
+                en: "P3 — Epic 3 (2★)",
               },
               {
                 vi: "3 nấc",
@@ -952,8 +952,8 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
             ],
             [
               {
-                vi: "🟣 P4 — Tím 4 (Epic 3★)",
-                en: "🟣 P4 — Epic 4 (3★)",
+                vi: "P4 — Tím 4 (Epic 3★)",
+                en: "P4 — Epic 4 (3★)",
               },
               {
                 vi: "3 nấc",
@@ -982,8 +982,8 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
             ],
             [
               {
-                vi: "🟡 Y1 — Vàng T1 (Legendary T1 Base ➔ 3★)",
-                en: "🟡 Y1 — Legendary T1 (Base ➔ 3★)",
+                vi: "Y1 — Vàng T1 (Legendary T1 Base ➔ 3★)",
+                en: "Y1 — Legendary T1 (Base ➔ 3★)",
               },
               {
                 vi: "13 nấc (Base + 4×1★ + 4×2★ + 4×3★)",
@@ -1006,14 +1006,14 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
                 en: "0",
               },
               {
-                vi: "🎯 Mốc Điều Kiện 1: Đủ 6 món đạt Y1 (T1 Legendary) mở khóa Ô Chúa Tể Thứ 7 ở Season 3 Tuần 3.",
-                en: "🎯 Milestone 1: All 6 pieces at Y1 (T1 Legendary) unlocks the 7th Lord Gear Slot in Season 3 Week 3.",
+                vi: "Mốc Điều Kiện 1: Đủ 6 món đạt Y1 (T1 Legendary) mở khóa Ô Chúa Tể Thứ 7 ở Season 3 Tuần 3.",
+                en: "Milestone 1: All 6 pieces at Y1 (T1 Legendary) unlocks the 7th Lord Gear Slot in Season 3 Week 3.",
               },
             ],
             [
               {
-                vi: "🟡 Y2 — Vàng T2 (Legendary T2 Base ➔ 3★)",
-                en: "🟡 Y2 — Legendary T2 (Base ➔ 3★)",
+                vi: "Y2 — Vàng T2 (Legendary T2 Base ➔ 3★)",
+                en: "Y2 — Legendary T2 (Base ➔ 3★)",
               },
               {
                 vi: "13 nấc (Base + 4×1★ + 4×2★ + 4×3★)",
@@ -1036,14 +1036,14 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
                 en: "0",
               },
               {
-                vi: "🎯 Mốc Điều Kiện 2: Đủ 6 món đạt Y2 (T2 Legendary) mở khóa Thánh Điển (Sacred Codex) ở Season 3 Tuần 4.",
-                en: "🎯 Milestone 2: All 6 pieces at Y2 (T2 Legendary) unlocks the Sacred Codex in Season 3 Week 4.",
+                vi: "Mốc Điều Kiện 2: Đủ 6 món đạt Y2 (T2 Legendary) mở khóa Thánh Điển (Sacred Codex) ở Season 3 Tuần 4.",
+                en: "Milestone 2: All 6 pieces at Y2 (T2 Legendary) unlocks the Sacred Codex in Season 3 Week 4.",
               },
             ],
             [
               {
-                vi: "🟡 Y3 — Vàng T3 (Legendary T3 Base ➔ 3★)",
-                en: "🟡 Y3 — Legendary T3 (Base ➔ 3★)",
+                vi: "Y3 — Vàng T3 (Legendary T3 Base ➔ 3★)",
+                en: "Y3 — Legendary T3 (Base ➔ 3★)",
               },
               {
                 vi: "13 nấc (Base + 4×1★ + 4×2★ + 4×3★)",
@@ -1072,8 +1072,8 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
             ],
             [
               {
-                vi: "🟡 Y4 — Vàng T4 (Legendary T4 Base ➔ 3★)",
-                en: "🟡 Y4 — Legendary T4 (Base ➔ 3★)",
+                vi: "Y4 — Vàng T4 (Legendary T4 Base ➔ 3★)",
+                en: "Y4 — Legendary T4 (Base ➔ 3★)",
               },
               {
                 vi: "13 nấc (Base + 4×1★ + 4×2★ + 4×3★)",
@@ -1102,8 +1102,8 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
             ],
             [
               {
-                vi: "🔴 R1–R2 — Đỏ Thần Thoại (Mythic Base ➔ 3★)",
-                en: "🔴 R1–R2 — Mythic (Base ➔ 3★)",
+                vi: "R1–R2 — Đỏ Thần Thoại (Mythic Base ➔ 3★)",
+                en: "R1–R2 — Mythic (Base ➔ 3★)",
               },
               {
                 vi: "16 nấc (Base + 5×1★ + 5×2★ + 5×3★)",
@@ -1132,8 +1132,8 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
             ],
             [
               {
-                vi: "🔴 R3–R4 — Đỏ Thần Thoại T1 (Mythic T1 Base ➔ 3★ Kịch Trần)",
-                en: "🔴 R3–R4 — Mythic T1 (Base ➔ 3★ Cap)",
+                vi: "R3–R4 — Đỏ Thần Thoại T1 (Mythic T1 Base ➔ 3★ Kịch Trần)",
+                en: "R3–R4 — Mythic T1 (Base ➔ 3★ Cap)",
               },
               {
                 vi: "15 nấc (Base + 5×1★ + 5×2★ + 4×3★)",
@@ -1156,8 +1156,8 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
                 en: "55 (3 ➔ 4/step)",
               },
               {
-                vi: "🔥 Trái (3★): +41.45% HP Tướng / +113.95% HP Lính / +14.40% All ATK | Phải (1★): +18.70% / +38.90% / +34.25% | 🔥 Phải (3★): +20.75% Hero ATK / +43.15% Soldier ATK / +38.00% All HP",
-                en: "🔥 Left (3★): +41.45% Hero HP / +113.95% Soldier HP / +14.40% All ATK | Right (1★): +18.70% / +38.90% / +34.25% | 🔥 Right (3★): +20.75% Hero ATK / +43.15% Soldier ATK / +38.00% All HP",
+                vi: "Trái (3★): +41.45% HP Tướng / +113.95% HP Lính / +14.40% All ATK | Phải (1★): +18.70% / +38.90% / +34.25% | Phải (3★): +20.75% Hero ATK / +43.15% Soldier ATK / +38.00% All HP",
+                en: "Left (3★): +41.45% Hero HP / +113.95% Soldier HP / +14.40% All ATK | Right (1★): +18.70% / +38.90% / +34.25% | Right (3★): +20.75% Hero ATK / +43.15% Soldier ATK / +38.00% All HP",
               },
             ],
             [
@@ -1200,8 +1200,8 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
             en: "Blueprints / Orichalcum Bottleneck Breakpoint: 175 Blueprints/Piece (1,050 Blueprints Across 6 Pieces)",
           },
           content: {
-            vi: "Từ bậc G1 đến B1 (nấc 2), bạn tốn 0 Bản Vẽ (chỉ tốn 15,700 Đá Xanh / Thép Tinh Luyện và 170 Dây Gai / Chỉ Phép cho mỗi món). Nhưng ngay từ nấc cuối của B1 1★ lên hết P4 3★, mỗi món ngốn 175 Bản Vẽ / Hợp Kim (tương đương 1,050 Bản Vẽ cho cả 6 món). Vì vậy, hãy luôn ưu tiên đổi Bản Vẽ / Hợp Kim (Blueprints / Orichalcum) trong các cửa hàng sự kiện và chiến trường ngay từ giai đoạn đầu game để không bị tắc nghẽn khi bước lên bậc Tím và Vàng.",
-            en: "From G1 through B1 (step 2), upgrades require 0 Blueprints (costing only 15,700 Refined Metal and 170 Magic Thread per piece). However, from the final step of B1 1★ through P4 3★, each piece demands 175 Blueprints / Orichalcum (1,050 Blueprints across all 6 pieces). Always prioritize redeeming Blueprints / Orichalcum in event and battlefield shops early so your progression never stalls entering Epic and Legendary tiers.",
+            vi: "Từ bậc `G1` đến `B1` (nấc 2), bạn tốn `0` Bản Vẽ (chỉ tốn `15,700` Đá Xanh / Thép Tinh Luyện và `170` Dây Gai / Chỉ Phép cho mỗi món).\n• **Nút cổ chai B1 ➔ P4:** Từ nấc cuối `B1 1★` lên hết `P4 3★`, mỗi món ngốn `175` Bản Vẽ (`1,050` Bản Vẽ cho 6 món); hãy ưu tiên đổi Bản Vẽ trong các tiệm sự kiện từ sớm.",
+            en: "From `G1` through `B1` (step 2), upgrades require `0` Blueprints (costing only `15,700` Refined Metal and `170` Magic Thread per piece).\n• **B1 ➔ P4 Bottleneck:** From the final step of `B1 1★` through `P4 3★`, each piece demands `175` Blueprints (`1,050` Blueprints across 6 pieces); redeem Blueprints early in event shops.",
           },
         },
       ],
@@ -1225,8 +1225,8 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
             en: "Mid-Game Pure Horde Account: 6 Pieces Synced at P3 (Epic 2★) Dumping Materials on Week B GAR Days 3–4",
           },
           profileSummary: {
-            vi: "Một tài khoản Mid-game vận hành Đội 1 Thuần Bộ Lạc (Pure Horde) có cả 6 món Trang bị Chúa Tể đang đồng bộ ở bậc Tím 3 (P3 — Epic 2★). Sau 2 tuần tích trữ, kho đang có 65,000 Đá Xanh / Thép Tinh Luyện (Refined Metal), 520 Dây Gai / Chỉ Phép (Magic Thread) và 230 Bản Vẽ / Hợp Kim (Blueprints / Orichalcum).",
-            en: "A mid-game Pure Horde account has all 6 Lord Gear pieces synchronized at Epic 2★ (P3). After 2 weeks of disciplined hoarding, the inventory holds 65,000 Refined Metal, 520 Magic Thread, and 230 Blueprints / Orichalcum.",
+            vi: "Tài khoản Mid-game vận hành Đội 1 Thuần Bộ Lạc (`Pure Horde`) có cả 6 món Trang bị Chúa Tể đang đồng bộ ở bậc Tím 3 (`P3 — Epic 2★`).\n• **Ngân sách tích trữ sau 2 tuần:** Kho đang có `65,000` Đá Xanh / Thép Tinh Luyện, `520` Dây Gai / Chỉ Phép và `230` Bản Vẽ / Hợp Kim.",
+            en: "A mid-game Pure Horde account has all 6 Lord Gear pieces synchronized at Epic 2★ (`P3`).\n• **2-Week Hoarded Inventory:** Holds `65,000` Refined Metal, `520` Magic Thread, and `230` Blueprints / Orichalcum.",
           },
           metrics: [
             {
@@ -1286,12 +1286,12 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
           ],
           diagnostics: [
             {
-              vi: "Sai lầm 1 (Bẫy Ngày 6 Thứ Bảy): Người chơi định chờ tới Thứ Bảy (GAR Ngày 6) mới xả kho, nhưng Ngày 6 chỉ tính điểm Quân Trang (Troop Skins), hoàn toàn không tính điểm Đồ Chúa Tể — nếu xả vào Thứ Bảy sẽ mất trắng 100% điểm GAR.",
-              en: "Mistake 1 (Saturday Day 6 Trap): The player planned to wait until Saturday (GAR Day 6) to dump, but Day 6 only scores Troop Skins and awards zero Lord Gear points — dumping on Saturday would forfeit 100% of GAR rewards.",
+              vi: "**Sai lầm 1 (Bẫy Ngày 6 Thứ Bảy):** Người chơi định chờ tới Thứ Bảy (`GAR` Ngày 6) mới xả kho, nhưng Ngày 6 chỉ tính điểm Quân Trang (`Troop Skins`).\n• **Hậu quả:** Xả Đồ Chúa Tể vào Thứ Bảy sẽ mất trắng 100% điểm sự kiện `GAR`.",
+              en: "**Mistake 1 (Saturday Day 6 Trap):** The player planned to wait until Saturday (`GAR` Day 6) to dump, but Day 6 only scores `Troop Skins`.\n• **Consequence:** Dumping Lord Gear on Saturday forfeits 100% of `GAR` milestone rewards.",
             },
             {
-              vi: "Sai lầm 2 (Dồn 1 món lẻ phá vỡ Cộng hưởng): Nếu dồn toàn bộ ngân sách vào duy nhất 1 món Nhánh Phải Bộ Lạc lên Vàng T1 2★ (Y1 2★, tốn 47,500 Thép, 365 Dây Gai, 164 Bản Vẽ), tài khoản chỉ tăng chỉ số cho 1 ô nhưng không mở được Cộng hưởng 3 món ở cả bậc P4 lẫn bậc Y1.",
-              en: "Mistake 2 (Single-Slot Tunnel Vision): Dumping everything into a single Horde Right-side piece to Y1 2★ (costing 47,500 Refined Metal, 365 Magic Thread, 164 Blueprints) buffs 1 slot while failing to unlock 3-Piece Resonance at either P4 or Y1.",
+              vi: "**Sai lầm 2 (Dồn 1 món lẻ phá vỡ Cộng hưởng):** Dồn toàn bộ ngân sách vào duy nhất 1 món Nhánh Phải Bộ Lạc lên `Y1 2★` (tốn `47,500` Thép, `365` Dây Gai, `164` Bản Vẽ).\n• **Hậu quả:** Chỉ tăng chỉ số cho 1 ô nhưng mất sạch Cộng hưởng 3 món ở cả bậc `P4` lẫn bậc `Y1`.",
+              en: "**Mistake 2 (Single-Slot Tunnel Vision):** Dumping everything into a single Horde Right-side piece to `Y1 2★` (costing `47,500` Metal, `365` Thread, `164` Blueprints).\n• **Consequence:** Buffs 1 slot while failing to unlock 3-Piece Resonance at either `P4` or `Y1`.",
             },
           ],
           recoverySteps: [
@@ -1302,8 +1302,8 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
                 en: "Sync All 6 Slots from P3 to Complete P4 (Epic 3★) During Days 3–4 Golden Window",
               },
               detail: {
-                vi: "Đúng Thứ Tư/Thứ Năm Tuần B (GAR/KvK Ngày 3–4) hoặc Thứ Sáu–Chủ Nhật Tuần A (Guild Race Ngày 5–7), nâng cả 6 món từ P3 lên P4 (Epic 3★) với tổng chi phí 61,800 Thép, 540 Dây Gai (lấy 20 Dây Gai từ rương mốc sự kiện vừa nhảy) và 234 Bản Vẽ (lấy 4 Bản Vẽ từ rương mốc sự kiện).",
-                en: "On Wed/Thu of Week B (GAR/KvK Days 3–4) or Fri–Sun of Week A (Guild Race Days 5–7), bring all 6 pieces from P3 to P4 (Epic 3★) for 61,800 Refined Metal, 540 Magic Thread (20 Thread rebated from live milestone chests), and 234 Blueprints (4 Blueprints rebated from milestone chests).",
+                vi: "Đúng Thứ Tư/Thứ Năm Tuần B (`GAR / KvK` Ngày 3–4) hoặc Thứ Sáu–Chủ Nhật Tuần A (`Guild Race` Ngày 5–7), nâng cả 6 món từ `P3` lên `P4` (`Epic 3★`).\n• **Chi phí & Hoàn trả:** Tốn `61,800` Thép, `540` Dây Gai và `234` Bản Vẽ (lấy `20` Dây Gai và `4` Bản Vẽ từ rương mốc sự kiện vừa nhảy).",
+                en: "On Wed/Thu of Week B (`GAR / KvK` Days 3–4) or Fri–Sun of Week A (`Guild Race` Days 5–7), bring all 6 pieces from `P3` to `P4` (`Epic 3★`).\n• **Cost & Rebates:** Uses `61,800` Refined Metal, `540` Magic Thread, and `234` Blueprints (`20` Thread and `4` Blueprints rebated live from milestone chests).",
               },
               impactBadge: {
                 vi: "61,800 THÉP + 540 DÂY GAI + 234 BẢN VẼ",
@@ -1328,12 +1328,12 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
             {
               stepNumber: "3",
               title: {
-                vi: "Tái Đầu Tư Nguyên Liệu Hoàn Trả Đẩy Món Nhánh Phải Bộ Lạc 🔴 Lên Y1 (Legendary T1 Base)",
-                en: "Reinvest Rebated Materials to Push Horde Right Slot 🔴 into Y1 (Legendary T1 Base)",
+                vi: "Tái Đầu Tư Nguyên Liệu Hoàn Trả Đẩy Món Nhánh Phải Bộ Lạc Lên Y1 (Legendary T1 Base)",
+                en: "Reinvest Rebated Materials to Push Horde Right Slot into Y1 (Legendary T1 Base)",
               },
               detail: {
-                vi: "Dùng phần nguyên liệu thưởng hoàn trả từ rương mốc sự kiện để đột phá Món Nhánh Phải Bộ Lạc 🔴 sang nấc đầu tiên của Y1 (Legendary T1 Base: 3,900 Thép, 30 Dây Gai, 15 Bản Vẽ), mở đầu chu kỳ Lệch Pha Thông Minh tiếp theo.",
-                en: "Use the remaining milestone chest rebates to promote the Horde Right-side 🔴 piece into the first step of Y1 (Legendary T1 Base: 3,900 Refined Metal, 30 Magic Thread, 15 Blueprints), initiating the next Smart Staggered cycle.",
+                vi: "Dùng phần nguyên liệu thưởng hoàn trả từ rương mốc sự kiện để đột phá Món Nhánh Phải Bộ Lạc sang nấc đầu tiên của `Y1` (`Legendary T1 Base`).\n• **Chi phí mở đầu Y1:** Tốn `3,900` Thép, `30` Dây Gai, `15` Bản Vẽ, mở đầu chu kỳ Lệch Pha Thông Minh tiếp theo.",
+                en: "Use the remaining milestone chest rebates to promote the Horde Right-side piece into the first step of `Y1` (`Legendary T1 Base`).\n• **Y1 Entry Cost:** Spends `3,900` Refined Metal, `30` Magic Thread, and `15` Blueprints, initiating the next Smart Staggered cycle.",
               },
               impactBadge: {
                 vi: "ĐỘT PHÁ VÀNG Y1 (+ATK ĐỘI 1)",
@@ -1342,8 +1342,8 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
             },
           ],
           conclusion: {
-            vi: "Kết quả thực chiến: Người chơi ăn trọn vẹn 100% rương mốc cá nhân của cả 2 sự kiện nhờ hiệu ứng hoàn trả nguyên liệu dây chuyền, vừa mở khóa Cộng hưởng 6 món P4, vừa đưa món Nhánh Phải của Hệ Đội 1 chạm ngưỡng Huyền Thoại Vàng Y1.",
-            en: "Combat Result: The player claims 100% of personal milestone chests across both events via chained material rebates, simultaneously unlocking P4 6-Piece Resonance and advancing Queue 1's Right-side slot into Legendary Y1.",
+            vi: "**Kết quả thực chiến:** Người chơi ăn trọn vẹn 100% rương mốc cá nhân của cả 2 sự kiện nhờ hiệu ứng hoàn trả nguyên liệu dây chuyền.\n• **Đột phá sức mạnh:** Vừa mở khóa Cộng hưởng 6 món `P4`, vừa đưa món Nhánh Phải của Hệ Đội 1 chạm ngưỡng Huyền Thoại Vàng `Y1`.",
+            en: "**Combat Result:** The player claims 100% of personal milestone chests across both events via chained material rebates.\n• **Power Breakthrough:** Simultaneously unlocks `P4` 6-Piece Resonance and advances Queue 1's Right-side slot into Legendary `Y1`.",
           },
         },
       ],

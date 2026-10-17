@@ -16,34 +16,34 @@ export const ARTICLE_1_2_STRICT_ONE_QUEUE: GuideArticle = {
   },
   tldr: {
     coreRule: {
-      vi: "Dồn 100% tài nguyên quý hiếm vào duy nhất 6 vị tướng thuộc Đội hình 1 (Main Queue / Queue 1). Đội hình 2 và Đội hình 3 chỉ tồn tại để đi đào mỏ (Gathering) và mặc lại trang bị thừa từ Đội 1 (Hand-me-down System).",
-      en: "Funnel 100% of scarce resources into the 6 heroes of Queue 1 (Main Queue). Queue 2 and Queue 3 exist solely for resource gathering (Gathering) and wearing leftover equipment from Queue 1 (Hand-me-down System).",
+      vi: "**Kỷ luật 1 Đội hình Tuyệt đối:** Dồn `100%` tài nguyên quý hiếm vào duy nhất `6 tướng` thuộc Đội hình 1 (`Main Queue` / `Queue 1`).\n• **Vai trò Đội 2 & 3:** Chỉ tồn tại để đi đào mỏ (`Gathering`) và mặc lại trang bị thừa từ Đội 1 (`Hand-me-down System`).",
+      en: "**Strict 1-Queue Discipline:** Funnel `100%` of scarce resources into the `6 heroes` of Queue 1 (`Main Queue`).\n• **Queue 2 & 3 Role:** Exist solely for resource gathering (`Gathering`) and wearing leftover equipment from Queue 1 (`Hand-me-down System`).",
     },
     immediateAction: {
-      vi: "Ngưng đút Thịt (Food), Sách Kỹ Năng (Skill Books) và Đá Cường Hóa (Enhancement Ore) cho Đội 2/Đội 3 ngay lập tức; tháo toàn bộ Trang bị Vàng hoặc Trang bị Tím đã cường hóa ở Đội 2 đem về phân giải hoặc dồn đập mốc +10 / +20 cho Đội 1.",
-      en: "Immediately stop feeding Meat (Food), Skill Books, and Enhancement Ore to Queue 2/Queue 3; unequip all enhanced Golden or Epic Gear on Queue 2 and dismantle them to recover Ore for pushing +10 / +20 resonance milestones on Queue 1.",
+      vi: "**Đóng băng Tài nguyên Đội phụ:** Ngưng đút Thịt (`Food`), Sách Kỹ Năng (`Skill Books`) và Đá Cường Hóa (`Enhancement Ore`) cho Đội 2/3 ngay lập tức.\n• **Tái chế Trang bị Đội 2:** Tháo toàn bộ Đồ Vàng/Tím đã đập ở Đội 2 đem Phân giải (`Dismantle`) để dồn mốc Cộng hưởng `+10` / `+20` cho Đội 1.",
+      en: "**Freeze Secondary Queues:** Immediately stop feeding Meat (`Food`), `Skill Books`, and `Enhancement Ore` to Queue 2/Queue 3.\n• **Recycle Queue 2 Gear:** Unequip all enhanced Gold/Epic Gear on Queue 2 and `Dismantle` them to push `+10` / `+20` resonance on Queue 1.",
     },
     strictTaboo: {
-      vi: "Tuyệt đối không chia Mảnh Tướng Vàng Vạn Năng, Sách Kỹ Năng Cam, Đá Cường Hóa Trang Bị, Tinh chất Vũ khí Độc quyền hay Thức ăn Pet chính cho bất kỳ tướng nào nằm ngoài Đội 1 cho đến khi Đội 1 'tốt nghiệp' hoàn toàn (tiêu tốn ~6,000 Mảnh Vàng và ~600,000+ Sách Kỹ năng — tương đương 98,800–123,500 Sách/tướng để đạt trần Lv.15).",
-      en: "Never split Universal Legendary Hero Shards, Orange Skill Books, Gear Enhancement Stone/Ore, Exclusive Weapon Essence/Shards, or Main Pet Food with any hero outside Queue 1 until Queue 1 fully 'graduates' (requiring ~6,000 Universal Shards and ~600,000+ Skill Books — equivalent to 98,800–123,500 Books/hero to hit the Lv.15 cap).",
+      vi: "**Cấm chia 5 Tài nguyên Cốt lõi:** Tuyệt đối không chia Mảnh Vàng Vạn Năng, Sách Kỹ Năng Cam, Đá Cường Hóa, `UW Essence` hay Thức ăn Pet chính cho tướng ngoài Đội 1.\n• **Ngưỡng Tốt nghiệp Đội 1:** Chỉ mở khóa đầu tư Đội 2 sau khi Đội 1 hoàn tất `~6,000` Mảnh Vàng và `~600,000+` Sách Kỹ năng (`98,800–123,500` Sách/tướng đạt trần `Lv.15`).",
+      en: "**Never Split the 5 Scarce Resources:** Never share Universal Legendary Shards, Orange Skill Books, Enhancement Stone/Ore, `UW Essence`, or Main Pet Food outside Queue 1.\n• **Queue 1 Graduation Cap:** Only invest in Queue 2 after Queue 1 completes `~6,000` Universal Shards and `~600,000+` Skill Books (`98,800–123,500` Books/hero for `Lv.15` cap).",
     },
   },
   keyTakeaways: [
     {
-      vi: "1 Đội hình 5.0M quét sạch liên tiếp 3 Đội hình 2.5M mà vẫn giữ nguyên 85%–90% HP nhờ Công thức Trừ Giáp và cơ chế Áp Chế Cấp Sao (Star Suppression) kèm đột phá +30% Skill Effect tại mốc 1 Sao Trắng (11 Sao = 560 Mảnh Mythic / 280 Mảnh Leg).",
-      en: "A single 5.0M Queue wipes out three 2.5M queues back-to-back while retaining 85%–90% HP thanks to the Defense Mitigation Formula and Star Suppression (+30% Skill Effect at 1 White Star = 560 Mythic / 280 Leg Shards).",
+      vi: "**Ưu thế Toán học 1 Đội `5.0M`:** Quét sạch liên tiếp 3 Đội hình `2.5M` mà vẫn giữ nguyên `85%–90% HP` nhờ Công thức Trừ Giáp.\n• **Áp Chế Cấp Sao (`Star Suppression`):** Đột phá `+30% Skill Effect` tại mốc `1 Sao Trắng` (`11 Sao` = `560` Mảnh Mythic / `280` Mảnh Leg).",
+      en: "**Mathematical Supremacy (`5.0M` vs `3x 2.5M`):** Wipes out three `2.5M` queues back-to-back while retaining `85%–90% HP` via the Defense Mitigation Formula.\n• **Star Suppression Spike:** Unlocks `+30% Skill Effect` at `1 White Star` (`11 Stars` = `560` Mythic / `280` Leg Shards).",
     },
     {
-      vi: "Thiết lập bức tường lửa cấm chia 5 loại tài nguyên cho Đội 2/3: Mảnh Vàng Vạn Năng (560 / 280 / 1,000 / 500 Mảnh), Sách Kỹ Năng (Lv.10 = 8,000 Sách ➔ Lv.15 Max = 24,700 Sách/kỹ năng), Đá Cường Hóa (+10/+20/+30/+40), Tinh chất Vũ khí Độc quyền (UW Essence) và Thức ăn Pet chính (Cactini / Eggy / Cubbly).",
-      en: "Enforce a strict firewall on 5 scarce resources for Queue 2/3: Universal Shards (560 / 280 / 1,000 / 500 Shards), Skill Books (Lv.10 = 8,000 ➔ Lv.15 Max = 24,700 Books/skill), Enhancement Stone (+10/+20/+30/+40), UW Essence, and Main Pet Food (Cactini / Eggy / Cubbly).",
+      vi: "**Bức tường lửa 5 Tài nguyên Cấm chia:** Khóa chặt Mảnh Vàng Vạn Năng (`560` / `280` / `1,000` / `500` Mảnh) và Sách Kỹ Năng (`Lv.10` = `8,000` ➔ `Lv.15 Max` = `24,700` Sách/kỹ năng).\n• **Trang bị, Thần khí & Pet:** Dồn `100%` Đá Cường Hóa (`+10/+20/+30/+40`), `UW Essence` và Thức ăn Pet chính (`Cactini / Eggy / Cubbly`) cho Đội 1.",
+      en: "**5-Resource Firewall for Queue 2/3:** Lock Universal Shards (`560` / `280` / `1,000` / `500` Shards) and Skill Books (`Lv.10` = `8,000` ➔ `Lv.15 Max` = `24,700` Books/skill) on Queue 1.\n• **Gear, UWs & Main Pet:** Funnel `100%` of Enhancement Stone (`+10/+20/+30/+40`), `UW Essence`, and Main Pet Food (`Cactini / Eggy / Cubbly`) into Queue 1.",
     },
     {
-      vi: "Giữ Đội 2 dừng ở ngưỡng Lv.120–140 để bảo toàn hơn 1.18 Tỷ Thịt nâng Faction Level 40 (+20% Queue HP) và nuôi Đội 2 lớn lên hoàn toàn miễn phí qua 3 luồng Luân Chuyển Thừa Kế (Hand-Me-Down System).",
-      en: "Cap Queue 2 at Lv.120–140 to preserve over 1.18 Billion Meat for Faction Level 40 (+20% Queue HP) while growing Queue 2 for free via the 3-stream Hand-Me-Down System.",
+      vi: "**Quản trị Quỹ Thịt (`1.18 Tỷ Thịt`):** Giữ Đội 2 dừng ở ngưỡng `Lv.120–140` để bảo toàn hơn `1.18 Tỷ Thịt` nâng `Faction Level 40` (`+20% Queue HP`).\n• **Luân Chuyển Thừa Kế (`Hand-Me-Down System`):** Nuôi Đội 2 lớn lên miễn phí qua 3 luồng thừa kế Tướng, Trang bị và Cổ Ngữ.",
+      en: "**Meat Reserve Management (`1.18 Billion Meat`):** Cap Queue 2 at `Lv.120–140` to preserve over `1.18 Billion Meat` for `Faction Level 40` (`+20% Queue HP`).\n• **Free Queue 2 Growth:** Grow Queue 2 at zero cost via the 3-stream `Hand-Me-Down System` (Roster, Gear, and Runes).",
     },
     {
-      vi: "Chỉ chuyển tài nguyên sang Đội 2 khi Đội 1 đạt đủ 5/5 tiêu chuẩn tốt nghiệp: 6,000 Mảnh Tướng (5 Sao Trắng), Thức tỉnh Bậc 4 (9 Hồn Đá Đỏ + 345–385 Mảnh), ~600,000+ Sách Kỹ năng (592,800–741,000 Sách), 24 Đồ Vàng đúng Dấu Hệ (+20/+30/+40) và UW Lv.10+.",
-      en: "Only invest in Queue 2 after Queue 1 meets all 5/5 graduation criteria: 6,000 Hero Shards (5 White Stars), Tier-4 Awakening (9 Red Soul Stones + 345–385 Shards), ~600,000+ Skill Books (592,800–741,000 Books), 24 Faction-Marked Golden Gear pieces (+20/+30/+40), and Lv.10+ UWs.",
+      vi: "**5/5 Tiêu chuẩn Tốt nghiệp Đội 1:** Chỉ nuôi Đội 2 khi Đội 1 hoàn tất `6,000` Mảnh Tướng (`5 Sao Trắng`) và Thức tỉnh Bậc 4 (`9 Hồn Đá Đỏ` + `345–385` Mảnh).\n• **Hoàn thiện Kỹ năng & Đồ Vàng:** Đạt `~600,000+` Sách Kỹ năng (`592,800–741,000` Sách), `24 Đồ Vàng` đúng Dấu Hệ (`+20/+30/+40`) và `UW Lv.10+`.",
+      en: "**5/5 Queue 1 Graduation Criteria:** Only invest in Queue 2 after Queue 1 hits `6,000` Hero Shards (`5 White Stars`) and Tier-4 Awakening (`9 Red Soul Stones` + `345–385` Shards).\n• **Maxed Skills & Faction Gear:** Complete `~600,000+` Skill Books (`592,800–741,000` Books), `24 Faction-Marked Golden Gear` (`+20/+30/+40`), and `Lv.10+ UWs`.",
     },
   ],
   keywords: [
@@ -81,15 +81,15 @@ export const ARTICLE_1_2_STRICT_ONE_QUEUE: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Sai lầm phổ biến nhất khiến 90% người chơi F2P và Low-Spender bị chững lại ở giai đoạn Lâu đài Cấp 25–30 là tâm lý \"muốn cả 3 đội hình đều mạnh đồng đều\". Khi mở khóa Hàng đợi 2 (Queue 2) và Hàng đợi 3 (Queue 3), nhiều người chơi bắt đầu chia đều Thịt, Mảnh Vạn Năng và Trang bị Vàng cho 18 vị tướng cùng lúc.",
-            en: "The most common mistake that stalls 90% of F2P and Low-Spender players at Castle Lv.25–30 is the \"balanced 3-queue\" mentality. Upon unlocking Queue 2 and Queue 3, many players start splitting Meat, Universal Shards, and Golden Gear evenly across 18 heroes at once.",
+            vi: "**Cạm bẫy \"3 Đội Đồng Đều\":** Sai lầm khiến `90%` người chơi F2P/Low-Spender chững lại ở Lâu đài `Lv.25–30` là tâm lý muốn cả 3 đội hình mạnh ngang nhau.\n• **Hệ lụy Chia nhỏ Nguồn lực:** Khi mở khóa `Queue 2` và `Queue 3`, việc chia đều Thịt, Mảnh Vạn Năng và Đồ Vàng cho `18 tướng` cùng lúc làm phế hoàn toàn Đội 1.",
+            en: "**The \"Balanced 3-Queue\" Trap:** The mistake that stalls `90%` of F2P/Low-Spender players at Castle `Lv.25–30` is trying to build all 3 queues equally.\n• **Resource Dilution Penalty:** Splitting Meat, Universal Shards, and Golden Gear evenly across `18 heroes` in `Queue 2` and `Queue 3` cripples your main march.",
           },
         },
         {
           type: "paragraph",
           text: {
-            vi: "Trong cơ chế chiến đấu toán học của Top Heroes, sức mạnh không tăng theo cấp số cộng tuyến tính mà tăng theo cấp số nhân phi tuyến tính (Exponential Scaling) thông qua các mốc đột phá (Breakpoints).",
-            en: "In Top Heroes' mathematical combat engine, power does not scale linearly—it scales exponentially through key stat and skill breakpoints (Exponential Scaling).",
+            vi: "**Cấp số nhân Phi tuyến tính (`Exponential Scaling`):** Trong cơ chế chiến đấu toán học của Top Heroes, sức mạnh tăng vọt qua các mốc đột phá (`Breakpoints`) chứ không tăng cộng tuyến tính.",
+            en: "**Non-Linear Exponential Scaling:** In Top Heroes' mathematical combat engine, power scales exponentially through key stat and skill breakpoints (`Exponential Scaling`) rather than linearly.",
           },
         },
         {
@@ -238,24 +238,24 @@ export const ARTICLE_1_2_STRICT_ONE_QUEUE: GuideArticle = {
               ordered: true,
               items: [
                 {
-                  vi: "Công thức Trừ Giáp & Vượt Ngưỡng Sát Thương (Defense Mitigation Formula / Armor Piercing): Khi một Đội hình 5.0M giao chiến với Đội hình 2.5M, chỉ số Tấn công (ATK), hiệu ứng CC (Crowd Control — Khống chế cứng như Choáng, Đóng băng, Câm lặng) và Xuyên thủ (Defense Break) của Đội 5.0M vượt xa ngưỡng Phòng thủ (DEF) của Đội 2.5M, khiến mỗi đòn đánh gây sát thương chí mạng tối đa. Ngược lại, đòn đánh của Đội 2.5M vào Tanker của Đội 5.0M bị trừ giáp gần hết, cộng thêm lượng hồi máu từ Healer Đội 1 (Witch / Nun / Tidecaller) khiến Đội 5.0M kết thúc trận đấu với hơn 85%–90% lượng máu còn nguyên. Do đó, 3 đội 2.5M lao vào lần lượt cũng chỉ như 'lấy trứng chọi đá', bị Đội 5.0M tiêu diệt sạch cả 3 mà không kịp hạ gục nổi Tanker hàng trước.",
-                  en: "Armor Piercing & Defense Mitigation Formula: When a 5.0M Queue fights a 2.5M Queue, its Attack (ATK), hard Crowd Control (Stun, Freeze, Silence), and Defense Break far exceed the 2.5M Queue's Defense (DEF) threshold, causing every hit to deal maximum critical damage. Conversely, the 2.5M Queue's attacks barely scratch the 5.0M Tanker's armor, and combined with Queue 1 Healer sustain (Witch / Nun / Tidecaller), the 5.0M Queue finishes the battle with over 85%–90% HP remaining. Sending three 2.5M queues in one by one results in all three being wiped out without taking down a single frontline Tank.",
+                  vi: "**Công thức Trừ Giáp (Defense Mitigation):** ATK, CC & Xuyên thủ Đội `5.0M` vượt ngưỡng DEF Đội `2.5M`, cùng Healer (`Witch` / `Nun` / `Tidecaller`) giữ `85%–90% HP` và quét sạch cả 3 đội `2.5M`.",
+                  en: "**Armor Piercing & Defense Mitigation:** A `5.0M` Queue's ATK, CC & Defense Break crush a `2.5M` Queue's DEF; with Healer sustain (`Witch`/`Nun`/`Tidecaller`), it keeps `85%–90% HP` and wipes three `2.5M` queues.",
                 },
                 {
-                  vi: "Cơ chế Áp Chế Cấp Sao (Star Suppression): Trong Top Heroes, sự chênh lệch về Bậc Màu Sao giữa hai tướng đối đầu trực tiếp (Sao Vàng 1★–5★ ➔ Sao Đỏ 6★–10★ ➔ Sao Trắng/Bạc 11★–15★) kích hoạt hệ số Áp Chế Cấp Sao ẩn — giúp tướng có bậc Sao Trắng (1★–5★ Trắng) vừa được khuếch đại sát thương gây ra, vừa được giảm sát thương nhận vào trước các mục tiêu Sao Đỏ/Sao Vàng thấp hơn, đồng thời mở khóa đột phá +30% hiệu ứng Kỹ năng (+30% Skill Effect) tại mốc 1 Sao Trắng (11 Sao = 560 Mảnh Mythic / 280 Mảnh Leg). Đó là lý do dồn mảnh đẩy Carry và Main Tank Đội 1 lên 1★–5★ Trắng luôn nghiền nát các đội hình chia mảnh dàn trải ở mức 3★–5★ Đỏ (240–400 Mảnh).",
-                  en: "Star Suppression (Áp Chế Cấp Sao): In Top Heroes, a Star Color Tier gap between opposing heroes (Gold 1★–5★ ➔ Red 6★–10★ ➔ White/Silver 11★–15★) triggers a hidden Star Suppression multiplier—granting White-Star heroes (1★–5★ White) both bonus damage dealt and damage reduction against lower Red/Gold-Star targets, while unlocking the massive +30% Skill Effect breakthrough at 1 Sao Trắng (11 Sao = 560 Mảnh Mythic / 280 Mảnh Leg). This is why funneling shards to push your Queue 1 Carry and Main Tank to 1★–5★ White effortlessly crushes rosters spread thin at 3★–5★ Red (240–400 Shards).",
+                  vi: "**Áp Chế Cấp Sao (Star Suppression):** Bậc `1★–5★ Trắng` mở khóa `+30% Skill Effect` tại `1 Sao Trắng` (`11 Sao` = `560` Mảnh Mythic / `280` Mảnh Leg), nghiền nát các đội chia lẻ ở `3★–5★ Đỏ` (`240–400 Mảnh`).",
+                  en: "**Star Suppression:** White-Star tier (`1★–5★ White`) unlocks `+30% Skill Effect` at `1 White Star` (`560` Mythic / `280` Leg Shards), effortlessly crushing rosters spread thin at `3★–5★ Red` (`240–400 Shards`).",
                 },
                 {
-                  vi: "95% Hoạt động Quan trọng nhất trong Game chỉ dùng 1 Đội hình: (1) Đấu Trường 1v1 (Arena): Chỉ Đội 1 xuất trận; (2) Bảo vệ & Cướp Xe Hàng Mythic (Carriage Plunder): Chỉ cần 1 đội mạnh nhất giữ xe chính và đi cướp xe mảnh Vạn Năng của đối phương; (3) Đánh Boss Thế Giới, Boss Bang Hội & Thám Hiểm (Adventure / Sanctum / Trial): Điểm số và phần thưởng phụ thuộc hoàn toàn vào sát thương kỷ lục của Đội 1; (4) Tập kích Liên Minh (Guild Rally): Khi tham gia Rally cùng bang hội, mỗi thành viên chỉ được cử duy nhất 1 đội hình vào xe Rally của chủ phòng.",
-                  en: "95% of Core Game Modes Use Only 1 Queue: (1) 1v1 Arena: Only Queue 1 enters combat; (2) Mythic Carriage Defense & Plunder: Only your single strongest queue guards your main carriage and plunders enemy Universal Shard carriages; (3) World Boss, Guild Boss & Adventure / Sanctum / Trial: Rewards and rankings depend 100% on Queue 1's peak damage record; (4) Guild Rally: When joining a guildmate's Rally, each member is allowed to send only ONE single queue into the Rally captain's march.",
+                  vi: "**95% Hoạt động Cốt lõi chỉ dùng 1 Đội:** Đấu Trường 1v1 (`Arena`), Cướp & Bảo vệ Xe Hàng (`Carriage Plunder`), Boss Thế Giới / `Adventure` / `Sanctum` / `Trial` và `Guild Rally` chỉ tính duy nhất `Queue 1`.",
+                  en: "**95% of Core Modes Use Only 1 Queue:** `1v1 Arena`, Mythic `Carriage Plunder`, World/Guild Bosses, `Adventure` / `Sanctum` / `Trial`, and `Guild Rally` rely 100% on your single strongest `Queue 1` march.",
                 },
                 {
-                  vi: "Quy mô Hành quân (March Size) và Khoảng cách Bậc Lính (Troop Tier Gap): Chỉ số cộng thêm theo phần trăm (+35% Faction Aura, +30% Gear Mark, +25% Queue 1 Tech Boost — bộ hệ số nhân +35% / +30% / +25%) nhân trực tiếp vào số lượng lính mang theo của Đội 1. Khi dồn toàn bộ nghiên cứu và trang bị vào Đội 1, mỗi người lính trong Đội 1 mạnh gấp 2.5–3 lần người lính trong đội hình bị chia lẻ.",
-                  en: "March Size Multipliers (+35% / +30% / +25%) & Troop Tier Gap: Percentage stat multipliers (+35% Faction Aura, +30% Gear Mark, +25% Queue 1 Tech Boost) multiply directly against Queue 1's troop count and base stats. When all research and gear are concentrated into Queue 1, every single soldier in Queue 1 is 2.5x–3x stronger than a soldier in a split queue.",
+                  vi: "**Quy mô Hành quân (March Size) & Bậc Lính:** Bộ hệ số nhân `+35% / +30% / +25%` (`+35%` Aura, `+30%` Gear Mark, `+25%` Queue 1 Tech) giúp mỗi người lính Đội 1 mạnh gấp `2.5x–3x` đội chia lẻ.",
+                  en: "**March Size Multipliers (`+35% / +30% / +25%`):** Stacking `+35%` Faction Aura, `+30%` Gear Mark, and `+25%` Queue 1 Tech Boost makes every soldier in `Queue 1` `2.5x–3x` stronger than a split queue.",
                 },
                 {
-                  vi: "Bảo toàn Tài nguyên Y tế trong Chiến sự (Hospital Capacity Management): Mang Đội 2 và Đội 3 yếu ớt ra đánh nhau trong ngày KvK / Chiến tranh Vương quốc chỉ làm hàng vạn lính bị thương nặng tràn ngập Bệnh Viện (Hospital), tiêu tốn hàng triệu Thịt/Đá và hàng chục giờ tăng tốc chữa trị vô ích.",
-                  en: "Hospital Preservation in KvK Warfare (Hospital Capacity Management): Sending weak Queue 2 and Queue 3 marches into combat during KvK / Server Wars only floods your Hospital with tens of thousands of severely wounded troops, wasting millions of Meat/Stone and dozens of hours of healing speedups.",
+                  vi: "**Bảo toàn Dung lượng Bệnh Viện (Hospital Capacity):** Mang Đội 2/3 yếu ra đánh `KvK` chỉ làm tràn `Hospital`, đốt hàng triệu Thịt/Đá và hàng chục giờ tăng tốc chữa thương vô ích.",
+                  en: "**Hospital Capacity Management in KvK:** Sending weak Queue 2/3 marches into `KvK` combat floods your `Hospital` with wounded troops, wasting millions of Meat/Stone and healing speedups.",
                 },
               ],
             },
@@ -273,8 +273,8 @@ export const ARTICLE_1_2_STRICT_ONE_QUEUE: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Để thực thi Quy tắc 1 Đội hình Tuyệt đối (Strict 1-Queue Rule) một cách kỷ luật, bạn cần thiết lập bức tường lửa ngăn cách tài nguyên giữa Đội 1 và các đội còn lại.",
-            en: "To execute the Strict 1-Queue Rule with discipline, you must enforce an impenetrable resource firewall separating Queue 1 from your secondary queues.",
+            vi: "**Bức tường lửa Tài nguyên (`Resource Firewall`):** Để thực thi Quy tắc 1 Đội hình Tuyệt đối (`Strict 1-Queue Rule`), bạn phải khóa chặt luồng tài nguyên giữa Đội 1 và các đội phụ.",
+            en: "**Enforcing the Resource Firewall:** To execute the `Strict 1-Queue Rule` with discipline, you must enforce an impenetrable firewall separating `Queue 1` from secondary queues.",
           },
         },
       ],
@@ -315,12 +315,12 @@ export const ARTICLE_1_2_STRICT_ONE_QUEUE: GuideArticle = {
                 [
                   { vi: "1", en: "1" },
                   {
-                    vi: "🧩 Mảnh Tướng Vàng Vạn Năng (Universal Legendary Hero Shards)",
-                    en: "🧩 Universal Legendary Hero Shards (Mảnh Tướng Vàng Vạn Năng)",
+                    vi: "Mảnh Tướng Vàng Vạn Năng (Universal Legendary Hero Shards)",
+                    en: "Universal Legendary Hero Shards",
                   },
                   {
                     vi: "100% dồn cho các tướng Đỏ (Mythic) và tướng trụ cột trong Đội 1 để chạm mốc 1 Sao Trắng (560 Mảnh Mythic / 280 Mảnh Leg), 5 Sao Trắng (1,000 Mảnh Mythic / 500 Mảnh Leg) — các mốc 560 / 280 / 1,000 / 500 Mảnh — và Thức Tỉnh (9 Hồn Đá Đỏ + 345–385 Mảnh).",
-                    en: "100% funneled into Mythic and core heroes in Queue 1 to hit 1 White Star (560 Mythic / 280 Leg Shards), 5 White Stars (1,000 Mythic / 500 Leg Shards) — the 560 / 280 / 1,000 / 500 Mảnh milestones — and Awakening (9 Red Soul Stones / 9 Hồn Đá Đỏ + 345–385 Mảnh).",
+                    en: "100% funneled into Mythic and core heroes in Queue 1 to hit 1 White Star (560 Mythic / 280 Leg Shards), 5 White Stars (1,000 Mythic / 500 Leg Shards) — the 560 / 280 / 1,000 / 500 Shard milestones — and Awakening (9 Red Soul Stones + 345–385 Shards).",
                   },
                   {
                     vi: "0 mảnh. Đội 2 và Đội 3 chỉ được nâng sao tự nhiên bằng mảnh riêng chỉ định rơi ra từ Quán Rượu (Tavern) hoặc rương mảnh ngẫu nhiên.",
@@ -330,12 +330,12 @@ export const ARTICLE_1_2_STRICT_ONE_QUEUE: GuideArticle = {
                 [
                   { vi: "2", en: "2" },
                   {
-                    vi: "📘 Sách Kỹ Năng Cam / Tím (Skill Books)",
-                    en: "📘 Orange / Purple Skill Books (Sách Kỹ Năng)",
+                    vi: "Sách Kỹ Năng Cam / Tím (Skill Books)",
+                    en: "Orange / Purple Skill Books",
                   },
                   {
                     vi: "100% dùng để nâng cấp kỹ năng cho 6 tướng Đội 1 chạm mốc dừng Mid-game Lv.10 = 8,000 (8,000 Sách/kỹ năng) rồi tiến lên trần cơ bản Lv.15 Max = 24,700 Sách/kỹ năng = 98,800–123,500 Sách/tướng, cộng thêm quỹ dự trữ 24,700+ cuốn chờ tướng Đỏ mới.",
-                    en: "100% used to upgrade skills for the 6 Queue 1 heroes to the Mid-game stop Lv.10 = 8,000 (8,000 Books/skill) and then to the base cap Lv.15 Max = 24,700 Sách/kỹ năng = 98,800–123,500 Sách/tướng, plus a 24,700+ Book reserve for upcoming Mythic heroes.",
+                    en: "100% used to upgrade skills for the 6 Queue 1 heroes to the Mid-game stop Lv.10 = 8,000 (8,000 Books/skill) and then to the base cap Lv.15 Max = 24,700 Books/skill = 98,800–123,500 Books/hero, plus a 24,700+ Book reserve for upcoming Mythic heroes.",
                   },
                   {
                     vi: "0 cuốn (ngoại trừ việc nâng Chuỗi Thiên phú Kinh tế Ô 3 của Tướng Tím như Brawler và Knight). Tuyệt đối không nâng kỹ năng chiến đấu cho tướng Đội 2/3.",
@@ -345,8 +345,8 @@ export const ARTICLE_1_2_STRICT_ONE_QUEUE: GuideArticle = {
                 [
                   { vi: "3", en: "3" },
                   {
-                    vi: "⚒️ Đá Cường Hóa & Trang Bị Vàng (Enhancement Stone / Ore, Titan Iron & Golden Gear)",
-                    en: "⚒️ Enhancement Stone / Ore, Titan Iron & Golden Gear",
+                    vi: "Đá Cường Hóa & Trang Bị Vàng (Enhancement Stone / Ore, Titan Iron & Golden Gear)",
+                    en: "Enhancement Stone / Ore, Titan Iron & Golden Gear",
                   },
                   {
                     vi: "100% Trang bị Vàng và Đá/Quặng Cường Hóa (Enhancement Stone) được dồn để đập bộ đồ của 6 tướng Đội 1 lên mốc Cộng hưởng +10/+20/+30/+40 (+10 ➔ +20 ➔ +30 ➔ +40).",
@@ -360,8 +360,8 @@ export const ARTICLE_1_2_STRICT_ONE_QUEUE: GuideArticle = {
                 [
                   { vi: "4", en: "4" },
                   {
-                    vi: "🗡️ Tinh Chất Vũ Khí Độc Quyền & Máu Rồng (UW Essence / Exclusive Weapon Shards & Dragon Blood)",
-                    en: "🗡️ UW Essence / Exclusive Weapon Shards & Dragon Blood",
+                    vi: "Tinh Chất Vũ Khí Độc Quyền & Máu Rồng (UW Essence / Exclusive Weapon Shards & Dragon Blood)",
+                    en: "UW Essence / Exclusive Weapon Shards & Dragon Blood",
                   },
                   {
                     vi: "100% Rương Vũ khí Độc quyền tự chọn (UW Essence) và nguyên liệu cường hóa Thần khí chỉ mở cho tướng chủ lực Đội 1 (Desert Prince, Storm Maiden, Wukong, Paragon, Tidecaller).",
@@ -375,8 +375,8 @@ export const ARTICLE_1_2_STRICT_ONE_QUEUE: GuideArticle = {
                 [
                   { vi: "5", en: "5" },
                   {
-                    vi: "🐾 Thức Ăn Pet, Bụi Cổ Ngữ & Tinh Chất Thánh Vật (Pet Food, DE-Dust & Core Relic Essence)",
-                    en: "🐾 Pet Food, DE-Dust & Core Relic Essence",
+                    vi: "Thức Ăn Pet, Bụi Cổ Ngữ & Tinh Chất Thánh Vật (Pet Food, DE-Dust & Core Relic Essence)",
+                    en: "Pet Food, DE-Dust & Core Relic Essence",
                   },
                   {
                     vi: "100% Thức ăn Pet dồn nâng cấp duy nhất 1 con Pet chủ lực đi theo Đội 1 (Cactini / Eggy / Cubbly); toàn bộ DE-Dust (Bụi Cổ Ngữ / Dark Empire Dust) dùng để chế tạo/nâng cấp Cổ Ngữ Lv.5–Lv.8 cho Đội 1.",
@@ -410,7 +410,7 @@ export const ARTICLE_1_2_STRICT_ONE_QUEUE: GuideArticle = {
                   },
                   detail: {
                     vi: "Dồn 100% Mảnh Vàng Vạn Năng (560 / 280 / 1,000 / 500 Mảnh), Sách Kỹ Năng (Lv.15 Max = 24,700 Sách/kỹ năng), Đá Cường Hóa (+10/+20/+30/+40), UW Essence và Pet chính (Cactini / Eggy / Cubbly).",
-                    en: "Funnel 100% of Universal Shards (560 / 280 / 1,000 / 500 Mảnh), Skill Books (Lv.15 Max = 24,700/skill), Enhancement Stone (+10/+20/+30/+40), UW Essence, and Main Pet (Cactini / Eggy / Cubbly).",
+                    en: "Funnel 100% of Universal Shards (560 / 280 / 1,000 / 500 Shards), Skill Books (Lv.15 Max = 24,700/skill), Enhancement Stone (+10/+20/+30/+40), UW Essence, and Main Pet (Cactini / Eggy / Cubbly).",
                   },
                 },
                 {
@@ -434,8 +434,8 @@ export const ARTICLE_1_2_STRICT_ONE_QUEUE: GuideArticle = {
                 en: "Food / Meat Management Rule (1.18 Billion Meat for Faction Level 40)",
               },
               content: {
-                vi: "Từ Cấp Lâu đài 24 trở đi, lượng Thịt cần để đẩy 1 vị tướng từ Lv.150 lên Lv.200 tăng vọt lên hàng chục triệu đơn vị, đồng thời bạn còn cần hơn 1.18 Tỷ Thịt để nâng Cấp độ Phe phái (Faction Level 40). Vì vậy, hãy giữ Đội 2 dừng lại ở ngưỡng Lv.120 – Lv.140 (vừa đủ tải trọng đi đào mỏ Ruby/Đá/Gỗ) và dồn 100% Thịt cho 6 tướng Đội 1 chạm trần Lâu đài!",
-                en: "From Castle Lv.24 onward, pushing a single hero from Lv.150 to Lv.200 costs tens of millions of Meat, while reaching Faction Level 40 requires over 1.18 Billion Meat (1.18 Tỷ Thịt). Keep Queue 2 parked at Lv.120–140 (just enough load capacity for Ruby/Stone/Wood gathering) and funnel 100% of your Meat into keeping all 6 Queue 1 heroes at your Castle level cap!",
+                vi: "**Chi phí Thịt Cấp số nhân:** Từ Lâu đài `Lv.24+`, đẩy 1 tướng từ `Lv.150` lên `Lv.200` tốn hàng chục triệu Thịt, và nâng `Faction Level 40` cần hơn `1.18 Tỷ Thịt`.\n• **Ngưỡng Khóa Cấp Đội 2:** Giữ Đội 2 dừng ở `Lv.120–140` (đủ tải trọng đào mỏ Ruby/Đá/Gỗ) và dồn `100%` Thịt cho 6 tướng Đội 1 chạm trần Lâu đài!",
+                en: "**Exponential Meat Scaling:** From Castle `Lv.24+`, pushing a hero from `Lv.150` to `Lv.200` costs tens of millions of Meat, while `Faction Level 40` requires `1.18 Billion Meat`.\n• **Queue 2 Level Cap:** Keep Queue 2 parked at `Lv.120–140` (enough load for Ruby/Stone/Wood gathering) and funnel `100%` of Meat into capping Queue 1!",
               },
             },
           ],
@@ -454,8 +454,8 @@ export const ARTICLE_1_2_STRICT_ONE_QUEUE: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Không đầu tư tài nguyên quý hiếm cho Đội 2 không có nghĩa là Đội 2 của bạn sẽ yếu mãi mãi. Trong Top Heroes, Đội 2 lớn lên hoàn toàn miễn phí nhờ Cơ chế Thừa kế Dây chuyền (Hand-Me-Down):",
-                en: "Investing zero scarce resources into Queue 2 does not mean Queue 2 stays weak forever. In Top Heroes, Queue 2 grows completely for free through the 3-stream Hand-Me-Down System:",
+                vi: "**Tăng trưởng Đội 2 Chi phí `0 Đồng`:** Không chia tài nguyên quý hiếm cho Đội 2 không làm Đội 2 yếu đi — Đội 2 lớn lên tự động nhờ 3 luồng Thừa kế Dây chuyền (`Hand-Me-Down`):",
+                en: "**Zero-Cost Queue 2 Growth:** Investing zero scarce resources into Queue 2 does not keep it weak—Queue 2 grows automatically through the 3-stream `Hand-Me-Down System`:",
               },
             },
             {
@@ -463,16 +463,16 @@ export const ARTICLE_1_2_STRICT_ONE_QUEUE: GuideArticle = {
               ordered: false,
               items: [
                 {
-                  vi: "Thừa kế Nhân sự khi Chuyển giao Phe phái (Roster Inheritance): Khi bạn khởi đầu bằng 6 tướng Liên Minh ở Đội 1 (Ngày 1–20) rồi chuyển dần sang Bộ Lạc ở Ngày 21–41 (Desert Prince, Storm Maiden, Witch), từng vị tướng Liên Minh đã được nâng lên Lv.160 trước đó sẽ tự động lùi xuống tạo thành một Đội hình 2 Thuần Liên Minh cực kỳ hoàn chỉnh mà không tốn thêm 1 miếng Thịt nào.",
-                  en: "Hero Roster Inheritance During Faction Pivot: When you start with 6 League heroes in Queue 1 (Days 1–20) and pivot into Horde across Days 21–41 (Desert Prince, Storm Maiden, Witch), each Lv.160 League hero automatically rotates down to form a complete Pure-League Queue 2 without costing a single extra piece of Meat.",
+                  vi: "**Thừa kế Nhân sự (Roster Inheritance):** Khởi đầu bằng 6 tướng Liên Minh ở Đội 1 (Ngày 1–20) rồi xoay sang Bộ Lạc (Ngày 21–41), dàn tướng Liên Minh `Lv.160` tự động lùi xuống làm Đội 2 tốn `0 Thịt`.",
+                  en: "**Hero Roster Inheritance:** Starting with 6 League heroes in Queue 1 (Days 1–20) and pivoting to Horde (Days 21–41) rotates your `Lv.160` League lineup into a complete Pure-League Queue 2 for `0 Meat`.",
                 },
                 {
-                  vi: "Thừa kế Trang bị (Gear Inheritance): Khi bạn rèn được một món Trang bị Vàng có Dấu Hệ (+30% Bonus) mới cho tướng Đội 1, món Trang bị Vàng không dấu (hoặc Trang bị Tím) mà tướng Đội 1 đang mặc sẽ được tháo ra và chuyển xuống cho tướng tương ứng ở Đội 2.",
-                  en: "Gear Inheritance: Whenever you forge a new Faction-Marked Golden Gear piece (+30% Bonus) for a Queue 1 hero, the unmarked Golden Gear (or Epic Gear) they were wearing is unequipped and passed down to the corresponding role in Queue 2.",
+                  vi: "**Thừa kế Trang bị (Gear Inheritance):** Mỗi khi rèn được Đồ Vàng có Dấu Hệ (`+30% Bonus`) cho Đội 1, món Đồ Vàng không dấu hoặc Đồ Tím đang mặc sẽ tháo ra chuyển xuống cho tướng tương ứng ở Đội 2.",
+                  en: "**Gear Inheritance:** Whenever you forge a Faction-Marked Golden Gear piece (`+30% Bonus`) for Queue 1, the displaced unmarked Golden or Epic Gear passes down directly to the matching role in Queue 2.",
                 },
                 {
-                  vi: "Thừa kế Thánh Vật & Cổ Ngữ bậc trung (Relic & Mid-Tier Rune Inheritance): Khi Đội 1 dùng DE-Dust (Bụi Cổ Ngữ) thay thế các viên Cổ Ngữ Lv.4 bằng Lv.5–Lv.8, các viên bậc thấp hơn hoặc Thánh vật phụ sẽ tự động lấp đầy bảng bổ trợ của Đội 2.",
-                  en: "Relic & Mid-Tier Rune Inheritance: As Queue 1 uses DE-Dust to replace Lv.4 Runes with Lv.5–Lv.8 Runes, the displaced mid-tier Runes and secondary Relics automatically populate Queue 2's loadout.",
+                  vi: "**Thừa kế Thánh Vật & Cổ Ngữ (Relic & Rune Inheritance):** Khi Đội 1 dùng `DE-Dust` nâng Cổ Ngữ `Lv.4` lên `Lv.5–Lv.8`, các viên bậc trung và Thánh vật phụ dôi ra sẽ tự động lấp đầy Đội 2.",
+                  en: "**Relic & Mid-Tier Rune Inheritance:** As Queue 1 uses `DE-Dust` to replace `Lv.4` Runes with `Lv.5–Lv.8` Runes, the displaced mid-tier Runes and secondary Relics automatically populate Queue 2.",
                 },
               ],
             },
@@ -494,8 +494,8 @@ export const ARTICLE_1_2_STRICT_ONE_QUEUE: GuideArticle = {
             en: "3 Common Multi-Queue Pitfalls & Optimal Meta Solutions",
           },
           headers: [
-            { vi: "❌ Sai lầm phổ biến", en: "❌ Common Pitfall" },
-            { vi: "✅ Giải pháp tối ưu", en: "✅ Optimal Meta Solution" },
+            { vi: "Sai lầm phổ biến", en: "Common Pitfall" },
+            { vi: "Giải pháp tối ưu", en: "Optimal Meta Solution" },
           ],
           rows: [
             [
@@ -545,8 +545,8 @@ export const ARTICLE_1_2_STRICT_ONE_QUEUE: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Nhiều người chơi đặt câu hỏi: \"Đến khi nào thì Đội 1 mới được coi là hoàn thiện để bắt đầu chuyển tài nguyên sang nuôi Đội 2?\" Câu trả lời nằm ở bảng tính chi phí nâng cấp định lượng trích xuất từ TopHeroes Master Data Tables:",
-            en: "Many players ask: \"When is Queue 1 officially considered complete so I can start funneling scarce resources into Queue 2?\" The answer lies in the quantitative upgrade cost breakdown extracted from the TopHeroes Master Data Tables:",
+            vi: "**Khi nào được phép nuôi Đội 2?** Nhiều người chơi hỏi đến lúc nào Đội 1 mới hoàn thiện để bắt đầu chuyển tài nguyên sang Đội 2.\n• **Bảng Định lượng Master Data:** Câu trả lời nằm ở chi phí nâng cấp định lượng trích xuất trực tiếp từ `TopHeroes Master Data Tables` dưới đây:",
+            en: "**When Can You Invest in Queue 2?** Many players ask when `Queue 1` is officially complete enough to start funneling scarce resources into `Queue 2`.\n• **Master Data Cost Breakdown:** The answer lies in the quantitative upgrade cost breakdown extracted from the `TopHeroes Master Data Tables`:",
           },
         },
       ],
@@ -616,8 +616,8 @@ export const ARTICLE_1_2_STRICT_ONE_QUEUE: GuideArticle = {
                     en: "3,360 Shards (at 1★ White — 560 / 3,360)",
                   },
                   {
-                    vi: "🔥 ĐIỂM GÃY VÀNG SỐ 1: Mốc 1 Sao Trắng (560 Mảnh Mythic) mở khóa hiệu ứng cường hóa kỹ năng đặc biệt (+30% Skill Effect) và kích hoạt Áp Chế Cấp Sao (Star Suppression). Mốc 2 Sao Trắng (300 Mảnh Leg) mở khóa Thức Tỉnh!",
-                    en: "🔥 GOLDEN BREAKPOINT #1: 1 White Star (560 Mythic Shards) unlocks the +30% Skill Effect boost and activates Star Suppression. 2 White Stars (300 Leg Shards) unlocks Awakening!",
+                    vi: "ĐIỂM GÃY VÀNG SỐ 1: Mốc 1 Sao Trắng (560 Mảnh Mythic) mở khóa hiệu ứng cường hóa kỹ năng đặc biệt (+30% Skill Effect) và kích hoạt Áp Chế Cấp Sao (Star Suppression). Mốc 2 Sao Trắng (300 Mảnh Leg) mở khóa Thức Tỉnh!",
+                    en: "GOLDEN BREAKPOINT #1: 1 White Star (560 Mythic Shards) unlocks the +30% Skill Effect boost and activates Star Suppression. 2 White Stars (300 Leg Shards) unlocks Awakening!",
                   },
                 ],
                 [
@@ -645,15 +645,15 @@ export const ARTICLE_1_2_STRICT_ONE_QUEUE: GuideArticle = {
                   },
                   {
                     vi: "9 Hồn Đá Đỏ (Soul Stones) + 345–385 Mảnh Tướng (bảng chuẩn cơ sở 345 Mảnh từ mốc 1–2 Sao Trắng)",
-                    en: "9 Red Soul Stones (9 Hồn Đá Đỏ + 345–385 Mảnh) (base table 345 Shards from 1–2 White Stars)",
+                    en: "9 Red Soul Stones + 345–385 Hero Shards (base table 345 Shards from 1–2 White Stars)",
                   },
                   {
                     vi: "Phụ thuộc vào Phe phái: Bộ Lạc (1 tướng Vàng): 9 Hồn Đá Đỏ + 345–385 Mảnh | Thiên Nhiên (2 tướng Vàng): 18 Hồn Đá Đỏ + 690–770 Mảnh | Liên Minh (3 tướng Vàng): 27 Hồn Đá Đỏ + 1,035–1,155 Mảnh",
                     en: "Faction-dependent: Horde (1 Leg hero): 9 Soul Stones + 345–385 Shards | Nature (2 Leg heroes): 18 Soul Stones + 690–770 Shards | League (3 Leg heroes): 27 Soul Stones + 1,035–1,155 Shards",
                   },
                   {
-                    vi: "🔥 ĐIỂM GÃY VÀNG SỐ 2: Chứng minh tại sao đội hình 5-Mythic Bộ Lạc tiết kiệm tới 18 Hồn Đá Đỏ và ~700+ Mảnh Vạn Năng so với Liên Minh, giúp tốt nghiệp Đội 1 sớm hơn 2–3 tháng!",
-                    en: "🔥 GOLDEN BREAKPOINT #2: Proves why the 5-Mythic Horde lineup saves 18 Soul Stones and ~700+ Universal Shards compared to League, graduating Queue 1 2–3 months earlier!",
+                    vi: "ĐIỂM GÃY VÀNG SỐ 2: Chứng minh tại sao đội hình 5-Mythic Bộ Lạc tiết kiệm tới 18 Hồn Đá Đỏ và ~700+ Mảnh Vạn Năng so với Liên Minh, giúp tốt nghiệp Đội 1 sớm hơn 2–3 tháng!",
+                    en: "GOLDEN BREAKPOINT #2: Proves why the 5-Mythic Horde lineup saves 18 Soul Stones and ~700+ Universal Shards compared to League, graduating Queue 1 2–3 months earlier!",
                   },
                 ],
                 [
@@ -663,11 +663,11 @@ export const ARTICLE_1_2_STRICT_ONE_QUEUE: GuideArticle = {
                   },
                   {
                     vi: "24,700 Sách/kỹ năng (Lv.1 ➔ Lv.10 = 8,000 Sách; Lv.11 ➔ Lv.15 = +16,700 Sách) ➔ 98,800–123,500 Sách/tướng (4–5 Kỹ năng)",
-                    en: "24,700 Books/skill (24,700 Sách/kỹ năng: Lv.1 ➔ Lv.10 = 8,000; Lv.11 ➔ Lv.15 = +16,700) ➔ 98,800–123,500 Books/hero (4–5 Skills)",
+                    en: "24,700 Books/skill (Lv.1 ➔ Lv.10 = 8,000; Lv.11 ➔ Lv.15 = +16,700) ➔ 98,800–123,500 Books/hero (4–5 Skills)",
                   },
                   {
                     vi: "~600,000+ Sách Kỹ Năng (592,800–741,000 Sách cho 6 tướng)",
-                    en: "~600,000+ Skill Books (~600,000+ Sách: 592,800–741,000 Books for 6 heroes)",
+                    en: "~600,000+ Skill Books (592,800–741,000 Books for 6 heroes)",
                   },
                   {
                     vi: "Trần cấp độ kỹ năng cơ bản là Lv.15 (không phải Lv.20). Ưu tiên đưa các kỹ năng cốt lõi chạm điểm dừng Mid-game Lv.10 (8,000 Sách/kỹ năng) trước khi dồn 24,700 Sách/kỹ năng lên Lv.15 Max cho Carry & Main Tank.",
@@ -790,8 +790,8 @@ export const ARTICLE_1_2_STRICT_ONE_QUEUE: GuideArticle = {
                     en: "Criterion 1 (Hero Stars): Full team at 3–5 White Stars, Carry & Main Tank maxed at 5 White Stars",
                   },
                   detail: {
-                    vi: "Toàn bộ 6 tướng trong Đội 1 đều đã đạt tối thiểu 3 Sao Trắng – 5 Sao Trắng (Platinum 3–5 Stars), trong đó tướng Sát thương chủ lực (Wukong / Storm Maiden / Paragon / Tidecaller) và Main Tank (Desert Prince / Adjudicator / Monk) đã chạm kịch trần 5 Sao Trắng (1,000 Mảnh Mythic / 500 Mảnh Legendary).",
-                    en: "All 6 heroes in Queue 1 have reached at least 3–5 White Stars (Platinum 3–5 Stars), with your main DPS Carry (Wukong / Storm Maiden / Paragon / Tidecaller) and Main Tank (Desert Prince / Adjudicator / Monk) capped at 5 White Stars (1,000 Mythic / 500 Legendary Shards).",
+                    vi: "**Toàn đội 3–5 Sao Trắng:** Cả 6 tướng trong Đội 1 đều đạt tối thiểu `3–5 Sao Trắng` (`Platinum 3–5 Stars`).\n• **Kịch trần Chủ lực:** Tướng Carry (`Wukong` / `Storm Maiden` / `Paragon` / `Tidecaller`) và Main Tank (`Desert Prince` / `Adjudicator` / `Monk`) đạt `5 Sao Trắng` (`1,000` Mảnh Mythic / `500` Mảnh Leg).",
+                    en: "**Full Team at 3–5 White Stars:** All 6 heroes in Queue 1 have reached at least `3–5 White Stars` (`Platinum 3–5 Stars`).\n• **Maxed Core Carry & Tank:** Main DPS (`Wukong` / `Storm Maiden` / `Paragon` / `Tidecaller`) and Main Tank (`Desert Prince` / `Adjudicator` / `Monk`) capped at `5 White Stars` (`1,000` Mythic / `500` Leg Shards).",
                   },
                 },
                 {
@@ -805,8 +805,8 @@ export const ARTICLE_1_2_STRICT_ONE_QUEUE: GuideArticle = {
                     en: "Criterion 2 (Awakening): Complete Tier-4 Awakening into a full Red Mythic frame",
                   },
                   detail: {
-                    vi: "Vị tướng Vàng mảnh ghép cuối cùng trong Đội 1 (Soulmancer / Warlock / Pyromancer / Nun / Pixie) đã hoàn tất Thức Tỉnh Bậc 4 (9 Hồn Đá Đỏ + 345–385 Mảnh) chuyển sang khung Đỏ Mythic hoàn toàn.",
-                    en: "The final Legendary hero slot in Queue 1 (Soulmancer / Warlock / Pyromancer / Nun / Pixie) has completed Tier-4 Awakening (9 Red Soul Stones + 345–385 Shards) into a full Red Mythic frame.",
+                    vi: "**Hoàn tất Thức Tỉnh Bậc 4:** Tướng Vàng mảnh ghép cuối trong Đội 1 (`Soulmancer` / `Warlock` / `Pyromancer` / `Nun` / `Pixie`) đã hoàn tất `9 Hồn Đá Đỏ` + `345–385` Mảnh chuyển sang khung Đỏ Mythic.",
+                    en: "**Complete Tier-4 Awakening:** The final Legendary in Queue 1 (`Soulmancer` / `Warlock` / `Pyromancer` / `Nun` / `Pixie`) has finished Awakening (`9 Red Soul Stones` + `345–385` Shards) into a Red Mythic frame.",
                   },
                 },
                 {
@@ -820,8 +820,8 @@ export const ARTICLE_1_2_STRICT_ONE_QUEUE: GuideArticle = {
                     en: "Criterion 3 (Skills): All 24–30 skill slots in Queue 1 capped at Lv.15 Max",
                   },
                   detail: {
-                    vi: "Toàn bộ 24–30 ô kỹ năng của 6 tướng Đội 1 đã được nâng kịch trần Lv.15 Max (24,700 Sách/kỹ năng, tổng ~600,000+ Sách Kỹ năng — 592,800–741,000 Sách).",
-                    en: "All 24–30 skill slots across the 6 Queue 1 heroes have been maxed at Lv.15 Max (24,700 Books/skill, totaling ~600,000+ Skill Books — 592,800–741,000 Books).",
+                    vi: "**Kịch trần 24–30 Ô Kỹ năng:** Toàn bộ kỹ năng của 6 tướng Đội 1 đạt `Lv.15 Max` (`24,700` Sách/kỹ năng, tổng `~600,000+` Sách Kỹ năng — `592,800–741,000` Sách).",
+                    en: "**Maxed 24–30 Skill Slots:** All skill slots across the 6 Queue 1 heroes are maxed at `Lv.15 Max` (`24,700` Books/skill, totaling `~600,000+` Skill Books — `592,800–741,000` Books).",
                   },
                 },
                 {
@@ -835,8 +835,8 @@ export const ARTICLE_1_2_STRICT_ONE_QUEUE: GuideArticle = {
                     en: "Criterion 4 (Golden Gear): 24 Faction-Marked Golden Gear pieces (+30% Bonus) at +20 to +40 Resonance",
                   },
                   detail: {
-                    vi: "Cả 24 món trang bị trên người 6 tướng Đội 1 đều là Trang bị Vàng có gắn đúng Dấu Hệ (+30% Faction Bonus) và đạt mốc Cộng hưởng Cường hóa tối thiểu +20 đến +30 (riêng vũ khí và giày của DPS đạt +40 hoặc lên Thần Thoại).",
-                    en: "All 24 equipment slots on the 6 Queue 1 heroes are Golden Gear with matching Faction Marks (+30% Faction Bonus) enhanced to at least +20 to +30 resonance (with DPS weapons and boots at +40 or Mythic).",
+                    vi: "**24 Đồ Vàng Đúng Dấu Hệ:** Toàn bộ 24 món trên 6 tướng Đội 1 đều gắn đúng Dấu Hệ (`+30% Faction Bonus`).\n• **Mốc Cộng hưởng Cường hóa:** Đạt tối thiểu `+20` đến `+30` (riêng vũ khí và giày của DPS đạt `+40` hoặc lên Thần Thoại).",
+                    en: "**24 Faction-Marked Gold Gear:** All 24 slots across Queue 1 have matching Faction Marks (`+30% Faction Bonus`).\n• **Enhancement Resonance:** Enhanced to at least `+20` to `+30` resonance (with DPS weapons and boots at `+40` or Mythic).",
                   },
                 },
                 {
@@ -850,8 +850,8 @@ export const ARTICLE_1_2_STRICT_ONE_QUEUE: GuideArticle = {
                     en: "Criterion 5 (Exclusive Weapons & Pet): Lv.10+ Exclusive Weapons & Legendary/Mythic Main Pet",
                   },
                   detail: {
-                    vi: "Cả 6 tướng Đội 1 đã mở khóa Vũ khí Độc quyền (Exclusive Weapons) đạt mốc Lv.10+, và Pet chính của Đội 1 (Cactini / Eggy / Cubbly) đã đạt bậc tiến hóa Huyền Thoại/Thần Thoại.",
-                    en: "All 6 Queue 1 heroes have unlocked Exclusive Weapons (UW) at Lv.10+, and Queue 1's main Pet (Cactini / Eggy / Cubbly) has reached Legendary/Mythic evolution.",
+                    vi: "**Thần khí & Pet Tối đa:** Cả 6 tướng Đội 1 đã mở khóa Vũ khí Độc quyền đạt `UW Lv.10+`, và Pet chính (`Cactini / Eggy / Cubbly`) đạt tiến hóa Huyền Thoại/Thần Thoại.",
+                    en: "**Maxed UWs & Main Pet:** All 6 Queue 1 heroes have unlocked Exclusive Weapons at `Lv.10+`, and Queue 1's main Pet (`Cactini / Eggy / Cubbly`) has reached Legendary/Mythic evolution.",
                   },
                 },
               ],
@@ -879,8 +879,8 @@ export const ARTICLE_1_2_STRICT_ONE_QUEUE: GuideArticle = {
             en: "4-Step Recovery Protocol: Castle Lv.26 Account Surgery from 3.6M to 4.25M (+650,000 Power) in 7 Days",
           },
           profileSummary: {
-            vi: "Hồ sơ Kiểm toán (Audit Profile): Lâu đài Cấp 26, Tổng lực chiến toàn tài khoản đạt 8.4M, nhưng Đội hình 1 chỉ đạt 3.6M lực chiến (trong khi các tài khoản F2P chuẩn cùng cấp Lâu đài 26 có Đội 1 đạt 4.8M – 5.2M). Triệu chứng thực chiến: Liên tục thua các tài khoản Lâu đài Cấp 24–25 trong Đấu Trường, không giữ nổi Xe Hàng Legendary và bị kẹt cứng ở ải Adventure Classic.",
-            en: "Audit Profile: Castle Lv.26 with 8.4M Total Influence, yet Queue 1 sits at only 3.6M Combat Power (compared to 4.8M–5.2M for standard F2P accounts at Castle Lv.26). Combat Symptoms: Repeatedly losing to Castle Lv.24–25 accounts in Arena, unable to defend Legendary Carriages, and stuck in Classic Adventure.",
+            vi: "**Hồ sơ Kiểm toán (`Audit Profile`):** Lâu đài `Lv.26`, Tổng lực chiến `8.4M`, nhưng Đội 1 chỉ đạt `3.6M` (trong khi F2P chuẩn cùng cấp đạt `4.8M–5.2M`).\n• **Triệu chứng Thực chiến:** Liên tục thua các tài khoản Lâu đài `Lv.24–25` trong Đấu Trường, mất Xe Hàng Legendary và kẹt cứng ở ải `Adventure Classic`.",
+            en: "**Audit Profile:** Castle `Lv.26` with `8.4M` Total Influence, yet Queue 1 sits at only `3.6M` Combat Power (vs `4.8M–5.2M` for standard F2P at Castle `Lv.26`).\n• **Combat Symptoms:** Repeatedly losing to Castle `Lv.24–25` accounts in Arena, unable to defend Legendary Carriages, and stuck in `Classic Adventure`.",
           },
           metrics: [
             {
@@ -913,20 +913,20 @@ export const ARTICLE_1_2_STRICT_ONE_QUEUE: GuideArticle = {
           ],
           diagnostics: [
             {
-              vi: "Chia 420 Mảnh Vàng Vạn Năng cho 9 vị tướng khác nhau ở cả 3 hệ (Pyromancer, Astrologer, Secret Keeper, Wilderness Hunter, Shaman, Treeguard, Windwalker, Desert Prince, Storm Maiden), khiến không một tướng Đỏ nào chạm nổi mốc 5 Sao Đỏ (400 Mảnh) hay 1 Sao Trắng (560 Mảnh Quy Đổi).",
-              en: "Split 420 Universal Legendary Shards across 9 different heroes from all 3 factions (Pyromancer, Astrologer, Secret Keeper, Wilderness Hunter, Shaman, Treeguard, Windwalker, Desert Prince, Storm Maiden), leaving zero Mythic heroes at 5 Red Stars (400 Shards) or 1 White Star (560 Shards).",
+              vi: "**Chia lẻ `420` Mảnh Vàng Vạn Năng:** Rải cho 9 tướng ở cả 3 hệ (`Pyromancer`, `Astrologer`, `Secret Keeper`, `Wilderness Hunter`, `Shaman`, `Treeguard`, `Windwalker`, `Desert Prince`, `Storm Maiden`).\n• **Hậu quả Đột phá Sao:** Không một tướng Đỏ nào chạm nổi mốc `5 Sao Đỏ` (`400` Mảnh) hay `1 Sao Trắng` (`560` Mảnh Quy Đổi).",
+              en: "**Split `420` Universal Shards:** Spread across 9 heroes from all 3 factions (`Pyromancer`, `Astrologer`, `Secret Keeper`, `Wilderness Hunter`, `Shaman`, `Treeguard`, `Windwalker`, `Desert Prince`, `Storm Maiden`).\n• **Star Bottleneck:** Left zero Mythic heroes at `5 Red Stars` (`400` Shards) or `1 White Star` (`560` Shards).",
             },
             {
-              vi: "Đã tiêu tốn 32,000 Sách Kỹ Năng (tương đương 4 kỹ năng đạt mốc Lv.10 = 8,000 Sách hoặc hơn 1 kỹ năng Lv.15 Max = 24,700 Sách) để nâng kỹ năng chiến đấu cho các tướng ở Đội 2 và Đội 3.",
-              en: "Wasted 32,000 Skill Books (equivalent to four Lv.10 skills at 8,000 Books each or more than one Lv.15 Max skill at 24,700 Books) upgrading combat skills on Queue 2 and Queue 3 heroes.",
+              vi: "**Lãng phí `32,000` Sách Kỹ Năng:** Đốt lượng sách tương đương 4 kỹ năng `Lv.10` (`8,000` Sách) hoặc hơn 1 kỹ năng `Lv.15 Max` (`24,700` Sách) vào các tướng ở Đội 2 và Đội 3.",
+              en: "**Wasted `32,000` Skill Books:** Burned books equivalent to four `Lv.10` skills (`8,000` Books) or over one `Lv.15 Max` skill (`24,700` Books) on Queue 2 and Queue 3 combat skills.",
             },
             {
-              vi: "Đang giữ 12 món Trang bị Tím +10 trên người Đội 2, trong khi Storm Maiden ở Đội 1 đang mặc 2 món đồ Vàng mới chỉ ở mức +6 và +8 (chưa kích hoạt được mốc Cộng hưởng +10).",
-              en: "Kept 12 pieces of +10 Epic Gear equipped on Queue 2 while Storm Maiden in Queue 1 wore two Golden Gear pieces stuck at +6 and +8 (failing to activate +10 Gear Resonance).",
+              vi: "**Chôn Quặng ở Đồ Tím Đội 2:** Giữ `12 món` Trang bị Tím `+10` trên Đội 2 trong khi `Storm Maiden` ở Đội 1 mặc 2 món Đồ Vàng kẹt ở `+6` và `+8` (mất Cộng hưởng `+10`).",
+              en: "**Trapped Ore in Queue 2 Epic Gear:** Kept `12 pieces` of `+10` Epic Gear on Queue 2 while `Storm Maiden` in Queue 1 wore Golden Gear stuck at `+6` and `+8` (missing `+10` Resonance).",
             },
             {
-              vi: "Đội 2 và Đội 3 đều được bơm Thịt lên Lv.155, làm cạn sạch kho Thịt khiến 2 tướng Đỏ mới lấy ở Đội 1 bị kẹt ở Lv.130.",
-              en: "Fed Meat to push Queue 2 and Queue 3 heroes to Lv.155, depleting the Meat reserve and leaving 2 newly unlocked Mythic heroes in Queue 1 stuck at Lv.130.",
+              vi: "**Bơm Thịt Lệch Đội Phụ:** Đẩy Đội 2 và Đội 3 lên `Lv.155` làm cạn sạch kho Thịt, khiến 2 tướng Đỏ mới lấy ở Đội 1 bị kẹt cứng ở `Lv.130`.",
+              en: "**Misallocated Meat to Secondary Queues:** Pushed Queue 2 and Queue 3 heroes to `Lv.155`, depleting the Meat reserve and leaving 2 new Mythic heroes in Queue 1 stuck at `Lv.130`.",
             },
           ],
           recoverySteps: [
@@ -937,8 +937,8 @@ export const ARTICLE_1_2_STRICT_ONE_QUEUE: GuideArticle = {
                 en: "Step 1 — Immediately Dismantle Queue 2 Enhanced Gear (In 5 Minutes)",
               },
               detail: {
-                vi: "Tháo toàn bộ 12 món Trang bị Tím +10 ở Đội 2 đưa vào Lò Rèn bấm Phân giải (Dismantle) để thu hồi 100% Quặng Cường Hóa (Enhancement Ore). Dùng số Quặng này đập ngay toàn bộ 24 món đồ của 6 tướng Đội 1 chạm đồng đều mốc +10 (riêng 4 món Vàng của Carry chính đẩy lên +20). Chỉ riêng thao tác này đã giúp Đội 1 tăng vọt +280,000 Lực chiến thật hoàn toàn miễn phí!",
-                en: "Unequip all 12 pieces of +10 Epic Gear from Queue 2 and use the Blacksmith Dismantle tab to recover 100% of your Enhancement Ore. Immediately enhance all 24 gear pieces across your 6 Queue 1 heroes evenly to +10 (and push your primary Carry's 4 Golden pieces to +20). This single step boosts Queue 1 by +280,000 True Combat Power for free!",
+                vi: "**Phân giải Đồ Tím Đội 2:** Tháo `12 món` Đồ Tím `+10` ở Đội 2 đưa vào Lò Rèn bấm Phân giải (`Dismantle`) để thu hồi `100%` Quặng Cường Hóa (`Enhancement Ore`).\n• **Đập Cộng hưởng Đội 1:** Đập đồng đều `24 món` của 6 tướng Đội 1 lên `+10` (riêng 4 món Vàng của Carry đẩy lên `+20`), tăng vọt `+280,000` Lực chiến thật miễn phí!",
+                en: "**Dismantle Queue 2 Epic Gear:** Unequip all `12 pieces` of `+10` Epic Gear from Queue 2 and use the Blacksmith `Dismantle` tab to recover `100%` of your `Enhancement Ore`.\n• **Activate Queue 1 Resonance:** Enhance all `24 pieces` across Queue 1 evenly to `+10` (and Carry's 4 Golden pieces to `+20`), gaining `+280,000` True Combat Power for free!",
               },
               impactBadge: {
                 vi: "+280,000 Power",
@@ -952,8 +952,8 @@ export const ARTICLE_1_2_STRICT_ONE_QUEUE: GuideArticle = {
                 en: "Step 2 — Enforce a Strict Queue 2/3 Resource Embargo",
               },
               detail: {
-                vi: "Khoanh vùng cố định 6 cái tên thuộc Đội 1. Khóa hoàn toàn việc cấp Thịt, Sách Kỹ Năng và Mảnh Vạn Năng cho mọi tướng ngoài danh sách này.",
-                en: "Lock in the exact 6 heroes belonging to Queue 1. Completely freeze all Meat, Skill Book, and Universal Shard allocation to any hero outside this list.",
+                vi: "**Khóa Danh sách Đội 1:** Khoanh vùng cố định 6 vị tướng thuộc Đội 1 và đóng băng `100%` việc cấp Thịt, Sách Kỹ Năng, Mảnh Vạn Năng cho mọi tướng ngoài danh sách này.",
+                en: "**Lock Queue 1 Roster:** Lock in the exact 6 heroes belonging to Queue 1 and freeze `100%` of Meat, Skill Book, and Universal Shard allocation outside this list.",
               },
               impactBadge: {
                 vi: "Cắt lỗ 100%",
@@ -967,8 +967,8 @@ export const ARTICLE_1_2_STRICT_ONE_QUEUE: GuideArticle = {
                 en: "Step 3 — Funnel Meat to Cap Queue 1 Hero Levels",
               },
               detail: {
-                vi: "Toàn bộ Thịt thu được từ Thám hiểm, Boss Bang và Rương sự kiện trong 5 ngày tiếp theo được dồn 100% để kéo 2 tướng Đỏ từ Lv.130 lên chạm trần Lv.170 ngang với cả Đội 1 (cộng thêm +190,000 Lực chiến thật và kích hoạt lại hiệu ứng Hào quang Đội hình).",
-                en: "Funnel 100% of Meat obtained from Adventure, Guild Bosses, and Event Chests over the next 5 days to pull the two Lv.130 Mythic heroes up to the Lv.170 cap alongside the rest of Queue 1 (adding +190,000 True Combat Power and restoring full Queue Aura scaling).",
+                vi: "**Kéo Trần Level `Lv.170`:** Dồn `100%` Thịt từ Thám hiểm, Boss Bang và Rương sự kiện trong 5 ngày để kéo 2 tướng Đỏ từ `Lv.130` lên `Lv.170` ngang toàn Đội 1.\n• **Hiệu quả Thực chiến:** Cộng thêm `+190,000` Lực chiến thật và kích hoạt lại hiệu ứng Hào quang Đội hình.",
+                en: "**Push to `Lv.170` Cap:** Funnel `100%` of Meat from Adventure, Guild Bosses, and Event Chests over 5 days to pull the two `Lv.130` Mythic heroes up to `Lv.170`.\n• **Combat Impact:** Adds `+190,000` True Combat Power and restores full Queue Aura scaling.",
               },
               impactBadge: {
                 vi: "+190,000 Power",
@@ -982,8 +982,8 @@ export const ARTICLE_1_2_STRICT_ONE_QUEUE: GuideArticle = {
                 en: "Step 4 — Break Through 1 White Star (560 Shards) on Week B Thursday",
               },
               detail: {
-                vi: "Tích gom toàn bộ Mảnh Vàng Vạn Năng từ VIP Shop, Xe Hàng và Rương AR trong tuần, chờ đúng Thứ Năm Tuần B (GAR) dồn ép một mạch cho Desert Prince và Storm Maiden vượt qua 5 Sao Đỏ (400 Mảnh) lên chạm mốc 1 Sao Trắng (11 Sao = 560 Mảnh Quy Đổi) để mở khóa +30% hiệu ứng Kỹ năng (cộng thêm +180,000 Lực chiến thật và lật ngược hoàn toàn thế cờ trong Đấu Trường!).",
-                en: "Save all Universal Legendary Shards from the VIP Shop, Carriages, and AR Chests during the week, then wait for Week B Thursday (GAR) to push Desert Prince and Storm Maiden past 5 Red Stars (400 Shards) straight to 1 White Star (11 Stars = 560 Shards) to unlock +30% Skill Effect (adding +180,000 True Combat Power and completely turning the tables in Arena!).",
+                vi: "**Tích Mảnh Chờ Thứ Năm (`GAR`):** Gom toàn bộ Mảnh Vàng Vạn Năng từ `VIP Shop`, Xe Hàng và Rương `AR` trong tuần, chờ đúng Thứ Năm Tuần B (`GAR`).\n• **Đột phá `1 Sao Trắng` (`560` Mảnh):** Đẩy `Desert Prince` và `Storm Maiden` vượt `5 Sao Đỏ` (`400` Mảnh) lên `1 Sao Trắng` (`11 Sao` = `560` Mảnh), mở khóa `+30% Skill Effect` và `+180,000` Power!",
+                en: "**Hoard for Thursday (`GAR`):** Save all Universal Legendary Shards from the `VIP Shop`, Carriages, and `AR` Chests during the week until Week B Thursday (`GAR`).\n• **Break `1 White Star` (`560` Shards):** Push `Desert Prince` and `Storm Maiden` past `5 Red Stars` (`400` Shards) to `1 White Star` (`11 Stars` = `560` Shards) for `+30% Skill Effect` and `+180,000` Power!",
               },
               impactBadge: {
                 vi: "+180,000 Power",
@@ -992,8 +992,8 @@ export const ARTICLE_1_2_STRICT_ONE_QUEUE: GuideArticle = {
             },
           ],
           conclusion: {
-            vi: "Kết quả sau 7 ngày phẫu thuật: Đội hình 1 tăng vọt từ 3.6M lên 4.25M (+650,000 Power = +280,000 + +190,000 + +180,000) mà không tốn 1 đồng nạp thêm, thắng ngược toàn bộ các đối thủ Lâu đài Lv.26–27 chia đều 3 đội!",
-            en: "7-Day Recovery Result: Queue 1 surges from 3.6M to 4.25M (+650,000 Power = +280,000 + +190,000 + +180,000) with zero extra spending, defeating Castle Lv.26–27 balanced-queue opponents across Arena and Carriages!",
+            vi: "**Kết quả sau 7 ngày phẫu thuật:** Đội 1 tăng vọt từ `3.6M` lên `4.25M` (`+650,000` Power = `+280,000` + `+190,000` + `+180,000`) với `0 đồng` nạp thêm.\n• **Lật ngược Thế cờ:** Thắng ngược toàn bộ các đối thủ Lâu đài `Lv.26–27` chia đều 3 đội trong Đấu Trường và Xe Hàng!",
+            en: "**7-Day Recovery Result:** Queue 1 surges from `3.6M` to `4.25M` (`+650,000` Power = `+280,000` + `+190,000` + `+180,000`) with zero extra spending.\n• **Arena Turnaround:** Defeats Castle `Lv.26–27` balanced-queue opponents across Arena and Carriages!",
           },
         },
         {

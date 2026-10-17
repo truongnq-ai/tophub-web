@@ -16,38 +16,38 @@ export const ARTICLE_3_2_WEEK_A_GUILD_RACE: GuideArticle = {
   },
   tldr: {
     coreRule: {
-      vi: "Mục tiêu sống còn của Thi Đấu Bang Hội (Guild Race — Tuần A) là tối đa hóa Điểm Vinh Dự Bang (Guild Honor — Xu Xanh) để đổi Hồn Đá Đỏ (Soul Stones) thức tỉnh tướng Vàng lên Đỏ. Để làm được điều đó, CHỈ nhận Nhiệm vụ Vàng (Legendary Tasks: +210 đến +450 điểm) và bỏ qua hoàn toàn nhiệm vụ Xanh/Tím.",
-      en: "The primary survival goal of Guild Race (Week A) is maximizing Guild Honor (Green Coins) to purchase Soul Stones and awaken Legendary heroes to Mythic quality. To achieve this, ONLY accept Gold/Legendary Tasks (+210 to +450 points) and completely ignore Blue/Purple tasks.",
+      vi: "**Săn 100% Nhiệm Vụ Vàng Đổi Hồn Đá Đỏ:** Mục tiêu sống còn của `Guild Race` (Tuần A) là gom tối đa `Điểm Vinh Dự Bang (Xu Xanh)` để mua `Hồn Đá Đỏ (Soul Stones)` thức tỉnh tướng Vàng lên Đỏ.\n• **Bộ lọc kỷ luật:** CHỈ bấm nhận `Nhiệm vụ Vàng (+210 ➔ +450 điểm)` và bỏ qua hoàn toàn nhiệm vụ Xanh/Tím.",
+      en: "**Hunt 100% Gold Tasks for Soul Stones:** The primary goal of `Guild Race` (Week A) is maximizing `Guild Honor (Green Coins)` to buy `Soul Stones` and awaken Legendary heroes to Mythic.\n• **Strict filter:** ONLY accept `Gold/Legendary Tasks (+210 ➔ +450 points)` and completely ignore Blue/Purple tasks.",
     },
     immediateAction: {
-      vi: "Tận dụng 2 Ô Nhiệm Vụ Độc Quyền (Exclusive Tasks) ở trên cùng bảng nhiệm vụ — bấm làm mới miễn phí mỗi 10 phút (144 lần/ngày); đặc biệt tích trữ nguyên liệu Trang bị Chúa tể (Lord Gear) từ đầu tuần để xả vào Ngày 5, Ngày 6 và Ngày 7 (Thứ Sáu ➔ Chủ Nhật) khi nhiệm vụ Vàng đặc biệt xuất hiện.",
-      en: "Exploit the 2 Personal Exclusive Task slots at the top of the board — tap the free refresh button every 10 minutes (144 refreshes/day); specifically hoard Lord Gear materials from Monday to Thursday and unleash them on Days 5, 6, and 7 (Friday ➔ Sunday) when Super Gold Exclusive Tasks unlock.",
+      vi: "**Xoay 2 Ô Độc Quyền & Găm Đồ Chúa Tể:** Tận dụng `2 Ô Nhiệm Vụ Độc Quyền` ở trên cùng bảng — bấm làm mới miễn phí mỗi `10 phút` (`144 lần/ngày`).\n• **Mỏ vàng Ngày 5–7:** Tích trữ nguyên liệu `Trang bị Chúa tể (Lord Gear)` từ Thứ Hai đến Thứ Năm để xả vào `Ngày 5–7 (Thứ Sáu ➔ Chủ Nhật)` khi nhiệm vụ Vàng `S+ Tier` xuất hiện.",
+      en: "**Roll 2 Exclusive Slots & Lock Lord Gear:** Exploit the `2 Personal Exclusive Task` slots at the top of the board — tap free refresh every `10 minutes` (`144 refreshes/day`).\n• **Days 5–7 Gold Mine:** Hoard `Lord Gear` materials from Monday to Thursday and unleash them on `Days 5–7 (Friday ➔ Sunday)` when Super Gold Exclusive Tasks unlock.",
     },
     strictTaboo: {
-      vi: "Tuyệt đối KHÔNG nhận nhiệm vụ 'Chiêu mộ Anh hùng 20–80 lần' hoặc 'Tiêu 20–40 Mảnh Tướng Cam' trên bảng Guild Race (tỷ lệ điểm cực thấp, gây cạn kiệt tài nguyên trước Thứ Năm Tuần B).",
-      en: "NEVER accept 'Recruit Heroes 20–80 times' or 'Consume 20–40 Legendary Hero Shards' tasks on the Guild Race board (terrible point efficiency that drains your reserves right before Week B Thursday).",
+      vi: "**Cấm Cắn Bẫy F-Tier Trên Bảng:** Tuyệt đối KHÔNG nhận nhiệm vụ `'Chiêu mộ Anh hùng 20–80 lần'` hoặc `'Tiêu 20–40 Mảnh Tướng Cam'` trên bảng `Guild Race`.\n• **Lý do kinh tế:** Tỷ lệ điểm cực thấp (`+180 ➔ +260 điểm`), gây cạn kiệt tài nguyên ngay trước `Thứ Năm Tuần B (GAR Day 4)`.",
+      en: "**Never Take F-Tier Board Traps:** NEVER accept `'Recruit Heroes 20–80 times'` or `'Consume 20–40 Legendary Hero Shards'` tasks on the `Guild Race` board.\n• **Economic reason:** Terrible point efficiency (`+180 ➔ +260 points`) that drains your reserves right before `Week B Thursday (GAR Day 4)`.",
     },
   },
   keyTakeaways: [
     {
-      vi: "Bảng Nhiệm Vụ 9 Ô chia làm 2 khu vực: 2 Ô Nhiệm Vụ Độc Quyền Cá Nhân (làm mới miễn phí mỗi 10 phút = 144 lần/ngày, không ai cướp được) và 7 Ô Nhiệm Vụ Chung Của Bang (làm mới mỗi 30 phút). Mọi hành động chỉ tính điểm SAU KHI bấm nút 'Nhận (Accept)'.",
-      en: "The 9-Slot Task Board splits into 2 zones: 2 Personal Exclusive Task slots (free refresh every 10 minutes = 144 times/day, immune to guildmate sniping) and 7 Shared Guild Task slots (30-min refresh). Actions only score points AFTER tapping 'Accept'.",
+      vi: "**Giải Phẫu Bảng 9 Ô:** Bảng nhiệm vụ chia làm `2 Ô Nhiệm Vụ Độc Quyền Cá Nhân` (làm mới miễn phí mỗi `10 phút` = `144 lần/ngày`, không ai cướp được) và `7 Ô Nhiệm Vụ Chung` (làm mới `30 phút`).\n• **Quy tắc tính điểm:** Mọi hành động chỉ tính điểm SAU KHI bấm nút `'Nhận (Accept)'`.",
+      en: "**9-Slot Board Anatomy:** Splits into `2 Personal Exclusive Task` slots (free refresh every `10 minutes` = `144 times/day`, immune to sniping) and `7 Shared Guild Task` slots (`30-min` refresh).\n• **Scoring rule:** Actions only score points AFTER tapping `'Accept'`.",
     },
     {
-      vi: "Hồn Đá Đỏ (Soul Stone) có giá chuẩn 40,000 Điểm Vinh Dự Bang/viên (360,000 cho 9 viên) hoặc 6,000 Xu Vinh Quang Hội/viên (54,000 cho 9 viên). Luôn giữ Ngưỡng Đóng Băng Ví Hàng Tuần tối thiểu 40,000 Điểm Vinh Dự Bang (hoặc 12,000–18,000 Xu Vinh Quang Hội).",
-      en: "Each Soul Stone costs 40,000 Guild Honor (360,000 for 9 stones) or 6,000 Guild Glory Coins (54,000 for 9 stones). Always maintain a Weekly Wallet Safety Floor of at least 40,000 Guild Honor (or 12,000–18,000 Guild Glory Coins).",
+      vi: "**Đơn Giá Hồn Đá Đỏ & Ngưỡng Đóng Băng Ví:** Mỗi viên `Soul Stone` có giá chuẩn `40,000` Điểm Vinh Dự Bang (`360,000` cho 9 viên) hoặc `6,000` Xu Vinh Quang Hội (`54,000` cho 9 viên).\n• **Kỷ luật ví:** Luôn giữ Ngưỡng Đóng Băng Ví tối thiểu `40,000` Điểm Vinh Dự Bang (hoặc `12,000–18,000` Xu Vinh Quang Hội).",
+      en: "**Soul Stone Pricing & Wallet Floor:** Each `Soul Stone` costs `40,000` Guild Honor (`360,000` for 9 stones) or `6,000` Guild Glory Coins (`54,000` for 9 stones).\n• **Wallet discipline:** Always maintain a Weekly Wallet Safety Floor of `40,000` Guild Honor (or `12,000–18,000` Guild Glory Coins).",
     },
     {
-      vi: "Khóa chặt nguyên liệu Trang bị Chúa tể (Lord Gear) từ Thứ Hai đến Thứ Năm; chờ đúng Ngày 5–7 (Thứ Sáu ➔ Chủ Nhật) mới xoay 2 ô Độc quyền săn Nhiệm vụ Vàng S+ Tier (+300 ➔ +450 điểm) khớp 100% với Guild Rush: Quân Trang & Đồ Chúa Tể.",
-      en: "Lock all Lord Gear materials from Monday to Thursday; wait for Days 5–7 (Friday ➔ Sunday) to roll S+ Tier Exclusive Gold Tasks (+300 ➔ +450 points), overlapping 100% with the 2-Day Guild Rush: Troop Skin & Lord Gear.",
+      vi: "**Mỏ Vàng Ngày 5–7 (Lord Gear):** Khóa chặt nguyên liệu `Trang bị Chúa tể (Lord Gear)` từ Thứ Hai đến Thứ Năm.\n• **Điểm nổ cuối tuần:** Chờ `Ngày 5–7 (Thứ Sáu ➔ Chủ Nhật)` mới xoay 2 ô Độc quyền săn Nhiệm vụ Vàng `S+ Tier (+300 ➔ +450 điểm)` khớp 100% với `Guild Rush: Quân Trang & Đồ Chúa Tể`.",
+      en: "**Days 5–7 Gold Mine (Lord Gear):** Lock all `Lord Gear` materials from Monday to Thursday.\n• **Weekend burst:** Wait for `Days 5–7 (Friday ➔ Sunday)` to roll `S+ Tier (+300 ➔ +450 points)` Exclusive Gold Tasks overlapping 100% with the 2-Day `Guild Rush: Troop Skin & Lord Gear`.",
     },
     {
-      vi: "Áp dụng kỹ thuật 'Nấu sẵn hàng đợi (Pre-cooking)' cho Doanh trại lính, Hộp quà công trình có ruy-băng đỏ và 4–6 nhiệm vụ Bounty để hoàn thành Nhiệm vụ Vàng trong 5 giây mà tốn 0 phút Tăng tốc.",
-      en: "Apply 'Pre-cooking' queue tactics to Barracks troop batches, unopened Red-Ribbon Building Gift Boxes, and 4–6 completed Bounty quests to finish Gold Tasks in 5 seconds using 0 minutes of speedups.",
+      vi: "**Kỹ Thuật Nấu Sẵn Hàng Đợi (`Pre-cooking`):** Chuẩn bị trước Doanh trại lính, Hộp quà công trình có ruy-băng đỏ và `4–6 nhiệm vụ Bounty`.\n• **Tốc độ 5 giây:** Hoàn thành Nhiệm vụ Vàng ngay sau khi bấm Nhận mà tốn `0 phút Tăng tốc`.",
+      en: "**Queue `Pre-cooking` Tactics:** Stage Barracks troop batches, unopened Red-Ribbon Building Gift Boxes, and `4–6 completed Bounty` quests in advance.\n• **5-second finish:** Complete Gold Tasks immediately after tapping Accept using `0 minutes of speedups`.",
     },
     {
-      vi: "Toán học mua thêm Vé Nhiệm Vụ: Lượt #1 (50–100 KC = ROI ~400%, bắt buộc mua cả 7 ngày) và Lượt #2 (100–200 KC = ROI ~250%, mua vào Ngày 5–7) giúp F2P mở khóa Rương Cá Nhân Cuối Cùng với lãi ròng +600 Kim Cương.",
-      en: "Extra Task Attempts ROI Math: Attempt #1 (50–100 Diamonds = ~400% ROI, mandatory all 7 days) and Attempt #2 (100–200 Diamonds = ~250% ROI, buy on Days 5–7) allow F2P players to unlock the Final Milestone Chest with a +600 net Diamond profit.",
+      vi: "**Toán Học Mua Thêm Vé Nhiệm Vụ:** Lượt #1 (`50–100 KC` = ROI `~400%`, mua cả 7 ngày) và Lượt #2 (`100–200 KC` = ROI `~250%`, mua Ngày 5–7).\n• **Lãi ròng Kim Cương:** Giúp F2P mở khóa Rương Cá Nhân Cuối Cùng với lãi ròng `+600` Kim Cương.",
+      en: "**Extra Task Attempts ROI Math:** Attempt #1 (`50–100 Diamonds` = `~400%` ROI, buy all 7 days) and Attempt #2 (`100–200 Diamonds` = `~250%` ROI, buy Days 5–7).\n• **Net Diamond profit:** Lets F2P unlock the Final Milestone Chest with a `+600` net Diamond profit.",
     },
   ],
   keywords: [
@@ -86,24 +86,24 @@ export const ARTICLE_3_2_WEEK_A_GUILD_RACE: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Thi Đấu Hội (Guild Race) là sự kiện Bang hội kéo dài trọn 7 ngày (khởi chạy từ 09:00 sáng Thứ Hai tuần này đến 09:00 sáng Thứ Hai tuần kế tiếp theo lịch game). Tùy theo độ tuổi của máy chủ, sự kiện vận hành theo 2 chế độ nhưng luôn giữ nguyên quy tắc ghi nhận điểm bất di bất dịch:",
-            en: "Guild Race is a full 7-day guild event running from Monday 09:00 AM to the following Monday 09:00 AM server time. Depending on server age, it operates in two distinct phases while enforcing one immutable scoring rule:",
+            vi: "**Thi Đấu Hội (Guild Race)** kéo dài trọn `7 ngày` (từ `09:00` sáng Thứ Hai tuần này đến `09:00` sáng Thứ Hai tuần kế tiếp).\n• **Hai chế độ vận hành:** Tùy độ tuổi máy chủ, sự kiện chạy theo 2 giai đoạn nhưng luôn giữ nguyên quy tắc tính điểm:",
+            en: "**Guild Race** is a full `7-day` guild event running from Monday `09:00 AM` to the following Monday `09:00 AM` server time.\n• **Two operating phases:** Depending on server age, it runs in two phases under one immutable scoring rule:",
           },
         },
         {
           type: "list",
           items: [
             {
-              vi: "Ở giai đoạn đầu Pre-Season (Server mới mở): Khi các Bang hội vừa xuất phát từ Hạng D và máy chủ chưa mở giải đấu Liên Bang (GAR) hay Liên Server (KvK), Thi Đấu Hội chạy nối sóng liên tiếp mỗi tuần (đi kèm các sự kiện vệ tinh xoay vòng như Đế Quốc Hắc Ám Xâm Nhập ⇄ Khiêu Chiến Của Đội Quân Hắc Ám và Bắt Bướm ⇄ Tập Kích Cự Ma) để các Bang hội leo dần từ Hạng D ➔ Hạng C ➔ Hạng B ➔ Hạng A ➔ Hạng S.",
-              en: "Early Pre-Season Phase (New Servers): While guilds start from Rank D and cross-guild (GAR) or cross-server (KvK) brackets are not yet unlocked, Guild Race runs back-to-back every single week (paired with rotating satellite events like Dark Empire Invasion ⇄ Dark Legion Challenge and Butterfly Catching ⇄ Giant/Troll Raid) so guilds climb from Rank D ➔ Rank C ➔ Rank B ➔ Rank A ➔ Rank S.",
+              vi: "**Giai đoạn Pre-Season (Server mới):** Thi Đấu Hội chạy liên tiếp mỗi tuần (kèm Đế Quốc Hắc Ám ⇄ Quân Hắc Ám, Bắt Bướm ⇄ Cự Ma) để Bang leo từ Hạng D ➔ Hạng C ➔ Hạng B ➔ Hạng A ➔ Hạng S.",
+              en: "**Early Pre-Season Phase (New Servers):** Guild Race runs every week (paired with Dark Empire ⇄ Dark Legion and Butterfly ⇄ Giant Raid) so guilds climb from Rank D ➔ Rank C ➔ Rank B ➔ Rank A ➔ Rank S.",
             },
             {
-              vi: "Ở giai đoạn Trưởng thành & Liên Server: Thi Đấu Hội luân phiên theo chu kỳ Tuần A (Guild Race) ⇄ Tuần B (Guild Arms Race — GAR / KvK).",
-              en: "Mature & Cross-Server Phase: Guild Race alternates on a 14-day bi-weekly rotation between Week A (Guild Race) ⇄ Week B (Guild Arms Race — GAR / KvK).",
+              vi: "**Giai đoạn Trưởng thành & Liên Server:** Thi Đấu Hội luân phiên theo chu kỳ 14 ngày giữa Tuần A (`Guild Race`) ⇄ Tuần B (`Guild Arms Race — GAR / KvK`).",
+              en: "**Mature & Cross-Server Phase:** Guild Race alternates on a 14-day bi-weekly rotation between Week A (`Guild Race`) ⇄ Week B (`Guild Arms Race — GAR / KvK`).",
             },
             {
-              vi: "Quy tắc ghi nhận điểm bất di bất dịch: Khác với các sự kiện tự động cộng điểm, trong Thi Đấu Hội, mọi hành động của bạn (xây nhà, nghiên cứu, luyện lính, tiêu Kim Cương, thu thập tài nguyên...) chỉ được tính điểm sau khi bạn đã vào tab Nhiệm Vụ và bấm nút 'Nhận (Accept)' nhiệm vụ tương ứng.",
-              en: "Immutable Scoring Rule: Unlike passive point-scoring events, in Guild Race every action (building, researching, training troops, spending Diamonds, gathering resources) ONLY counts AFTER you open the Tasks tab and tap the 'Accept' button on a specific task.",
+              vi: "**Quy tắc ghi nhận điểm bất di bất dịch:** Mọi hành động (xây nhà, nghiên cứu, luyện lính, tiêu Kim Cương, thu thập tài nguyên) CHỈ tính điểm SAU KHI vào tab Nhiệm Vụ và bấm nút `Nhận (Accept)`.",
+              en: "**Immutable Scoring Rule:** Every action (building, researching, training troops, spending Diamonds, gathering resources) ONLY counts AFTER opening the Tasks tab and tapping the `Accept` button.",
             },
           ],
         },
@@ -172,8 +172,8 @@ export const ARTICLE_3_2_WEEK_A_GUILD_RACE: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Trên giao diện chính của Thi Đấu Hội (gồm 3 tab: Nhiệm Vụ | Thưởng Cá Nhân | Thưởng Hội và 2 bộ đếm Vé Nhiệm Vụ Thường + Vé Nhiệm Vụ Độc Quyền ở góc trên), lưới 9 ô nhiệm vụ được chia thành 2 khu vực tách biệt hoàn toàn:",
-                en: "On the main Guild Race interface (featuring 3 tabs: Tasks | Personal Rewards | Guild Rewards and 2 counters at the top for Normal Task Tickets + Exclusive Task Tickets), the 9-slot grid is divided into 2 distinct zones:",
+                vi: "Trên giao diện Thi Đấu Hội (3 tab: `Nhiệm Vụ | Thưởng Cá Nhân | Thưởng Hội` cùng 2 bộ đếm `Vé Thường + Vé Độc Quyền`), lưới 9 ô chia làm 2 khu vực tách biệt:",
+                en: "On the Guild Race interface (3 tabs: `Tasks | Personal Rewards | Guild Rewards` plus `Normal + Exclusive Ticket` counters), the 9-slot grid splits into 2 zones:",
               },
             },
             {
@@ -181,12 +181,12 @@ export const ARTICLE_3_2_WEEK_A_GUILD_RACE: GuideArticle = {
               ordered: true,
               items: [
                 {
-                  vi: "Khu vực 1 — Hai Ô Nhiệm Vụ Độc Quyền Cá Nhân (Độc quyền / Personal Exclusive Tasks — 2 ô đầu tiên góc trên bên trái có dải băng xanh lá chữ 'Độc quyền'): Đây là khu vực riêng tư của từng tài khoản (sử dụng bộ đếm Vé Độc Quyền riêng); không một thành viên nào khác trong Bang hội có thể nhìn thấy hay cướp mất nhiệm vụ ở 2 ô này. Cơ chế làm mới: Ngay trên mỗi ô Độc quyền có nút mũi tên xoay màu xanh dương cho phép bấm Làm mới Miễn phí (Free Refresh) mỗi 10 phút/lần (tối đa 144 lần/ngày) không giới hạn số lần trong ngày cho đến khi ra Nhiệm vụ Vàng!",
-                  en: "Zone 1 — Two Personal Exclusive Task Slots ('Exclusive Tasks' — the first 2 top-left slots marked with a green 'Exclusive' ribbon): This is your private account zone (using the dedicated Exclusive Ticket counter); no other guild member can see or snipe these 2 slots. Refresh mechanic: Each Exclusive slot features a blue circular refresh arrow allowing a Free Refresh every 10 minutes (10-min refresh = up to 144 times/day) with zero daily cap until a Gold Task rolls!",
+                  vi: "**Khu vực 1 — 2 Ô Nhiệm Vụ Độc Quyền (Exclusive Tasks):** Khu riêng tư (không ai cướp được); nút mũi tên xanh cho phép bấm `Làm mới Miễn phí` mỗi `10 phút`/lần (tối đa `144` lần/ngày) tới khi ra Nhiệm vụ Vàng!",
+                  en: "**Zone 1 — 2 Personal Exclusive Task Slots:** Private zone (immune to sniping); the blue refresh arrow allows a `Free Refresh` every `10 minutes` (`10-min refresh` = up to `144` times/day) until a Gold Task rolls!",
                 },
                 {
-                  vi: "Khu vực 2 — Bảy Ô Nhiệm Vụ Chung Của Bang (Shared Guild Task Board — 7 ô còn lại trên lưới 9 ô): Dùng chung cho toàn bộ 80–100 thành viên trong Bang hội (sử dụng bộ đếm Vé Nhiệm Vụ Thường). Khi một người bấm nhận, nhiệm vụ đó sẽ biến mất khỏi bảng của người khác. Cơ chế làm mới: Tự động làm mới sau mỗi 30 phút khi có nhiệm vụ bị lấy đi hoặc được R4/R5 (Lãnh đạo Bang) xóa bỏ các nhiệm vụ phẩm chất thấp (Xanh/Tím).",
-                  en: "Zone 2 — Seven Shared Guild Task Slots ('Shared Guild Task Board' — the remaining 7 slots on the 9-slot grid): Shared across all 80–100 guild members (using the Normal Task Ticket counter). Once claimed by any member, that task vanishes from everyone else's board. Refresh mechanic: Automatically refreshes every 30 minutes (30-min refresh) after a task is taken or when R4/R5 leadership trashes low-tier (Blue/Purple) tasks.",
+                  vi: "**Khu vực 2 — 7 Ô Nhiệm Vụ Chung (Shared Guild Board):** Dùng chung cho 80–100 thành viên (ai nhận trước sẽ mất trên bảng người khác); tự động làm mới sau mỗi `30 phút` hoặc khi R4/R5 xóa nhiệm vụ Xanh/Tím.",
+                  en: "**Zone 2 — 7 Shared Guild Task Slots:** Shared across all 80–100 members (vanishes once claimed); automatically refreshes every `30 minutes` (`30-min refresh`) or when R4/R5 leadership trashes Blue/Purple tasks.",
                 },
               ],
             },
@@ -206,24 +206,24 @@ export const ARTICLE_3_2_WEEK_A_GUILD_RACE: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Phần thưởng quý giá nhất của Thi Đấu Hội nằm ở các mốc Thưởng Cá Nhân (trả về Mảnh Tướng Vàng Vạn Năng, Kim Cương) và đặc biệt là Điểm Vinh Dự Bang (Guild Honor) dùng trong Cửa Hàng Vinh Dự (Guild Honor Shop) để mua Hồn Đá Đỏ (Soul Stones) cho cả 3 Phe:",
-                en: "The most valuable rewards in Guild Race come from Personal Milestone tiers (Universal Legendary Shards, Diamonds) and especially Guild Honor spent in the Guild Honor Shop to acquire Soul Stones across all 3 Factions:",
+                vi: "Phần thưởng cốt lõi của Thi Đấu Hội nằm ở mốc Thưởng Cá Nhân và đặc biệt là `Điểm Vinh Dự Bang (Guild Honor)` dùng mua `Hồn Đá Đỏ (Soul Stones)` cho cả 3 Phe:",
+                en: "The core rewards in Guild Race come from Personal Milestones and especially `Guild Honor` spent in the Guild Shop to buy `Soul Stones` across all 3 Factions:",
               },
             },
             {
               type: "list",
               items: [
                 {
-                  vi: "Phe Bộ Lạc (Horde): Dù đội hình Endgame sở hữu tới 5 tướng Đỏ (Mythic) gốc, bạn vẫn bắt buộc phải có 9 viên Hồn Đá Đỏ (Soul Stones) để thức tỉnh hoàn toàn 1 vị trí tướng Vàng duy nhất trong đội (Soulmancer hoặc Warlock) nhằm kích hoạt hào quang thuần hệ Đỏ.",
-                  en: "Horde Faction: Even though the Endgame Horde lineup features 5 native Mythic heroes, you still strictly need 9 Soul Stones to fully awaken the single remaining Legendary slot (Soulmancer or Warlock) to activate the full Mythic faction aura.",
+                  vi: "**Phe Bộ Lạc (Horde):** Dù đội hình Endgame có 5 tướng Đỏ (Mythic) gốc, bạn vẫn bắt buộc cần `9 viên Hồn Đá Đỏ (Soul Stones)` để thức tỉnh 1 vị trí tướng Vàng duy nhất (Soulmancer/Warlock) kích hoạt hào quang Đỏ.",
+                  en: "**Horde Faction:** Even though Endgame Horde features 5 native Mythic heroes, you strictly need `9 Soul Stones` to awaken the single Legendary slot (Soulmancer or Warlock) and activate the full Mythic aura.",
                 },
                 {
-                  vi: "Phe Liên Minh (League): Đội hình chuẩn cần thức tỉnh từ 2 đến 3 tướng Vàng chủ lực (Pyromancer, Adjudicator, Nun), tương đương nhu cầu khổng lồ 18 đến 27 viên Hồn Đá Đỏ (18–27 Soul Stones).",
-                  en: "League Faction: The standard meta lineup requires awakening 2 to 3 core Legendary heroes (Pyromancer, Adjudicator, Nun), creating a massive demand for 18–27 Soul Stones.",
+                  vi: "**Phe Liên Minh (League):** Đội hình chuẩn cần thức tỉnh từ 2 đến 3 tướng Vàng chủ lực (Pyromancer, Adjudicator, Nun), tương đương nhu cầu khổng lồ `18 đến 27 viên Hồn Đá Đỏ (18–27 Soul Stones)`.",
+                  en: "**League Faction:** The standard meta lineup requires awakening 2 to 3 core Legendary heroes (Pyromancer, Adjudicator, Nun), creating a massive demand for `18–27 Soul Stones`.",
                 },
                 {
-                  vi: "Phe Thiên Nhiên (Nature): Cần thức tỉnh Pixie và Sage lên phẩm chất Đỏ để phối hợp cùng Tidecaller và Monk, tiêu tốn 18 viên Hồn Đá Đỏ (18 Soul Stones).",
-                  en: "Nature Faction: Requires awakening both Pixie and Sage to Mythic quality to synergize with Tidecaller and Monk, consuming 18 Soul Stones.",
+                  vi: "**Phe Thiên Nhiên (Nature):** Cần thức tỉnh Pixie và Sage lên phẩm chất Đỏ để phối hợp cùng Tidecaller và Monk, tiêu tốn `18 viên Hồn Đá Đỏ (18 Soul Stones)`.",
+                  en: "**Nature Faction:** Requires awakening both Pixie and Sage to Mythic quality to synergize with Tidecaller and Monk, consuming `18 Soul Stones`.",
                 },
               ],
             },
@@ -235,8 +235,8 @@ export const ARTICLE_3_2_WEEK_A_GUILD_RACE: GuideArticle = {
                 en: "Standard Soul Stone Pricing & Weekly Wallet Safety Floor",
               },
               content: {
-                vi: "Mỗi viên Hồn Đá Đỏ trong Cửa hàng Bang hội có đơn giá chuẩn là 40,000 Điểm Vinh Dự Bang / viên (Rương tự chọn mở khóa ở Lâu đài Lv.30 — tổng cộng 360,000 Điểm Vinh Dự cho 9 viên) hoặc 6,000 Xu Vinh Quang Hội / viên (theo lịch xoay tua 3 tuần/hệ ở Season 1 — tổng cộng 54,000 Xu Vinh Quang cho 9 viên). Người chơi bắt buộc phải duy trì Ngưỡng Đóng Băng Ví Hàng Tuần (Weekly Wallet Safety Floor) ở mức tối thiểu 40,000 Điểm Vinh Dự Bang (hoặc 12,000–18,000 Xu Vinh Quang Hội) để hốt ngay Hồn Đá Đỏ mỗi khi làm mới kệ hàng. Nếu nhận nhiệm vụ Xanh/Tím (80–175 điểm), bạn sẽ mất gấp đôi số tháng để thức tỉnh xong Đội 1 so với người chơi kỷ luật chỉ nhận Nhiệm vụ Vàng (240–450 điểm).",
-                en: "Each Soul Stone in the Guild Shop has a standard unit price of 40,000 Guild Honor / stone (Lv.30 Castle Selection Chest — totaling 360,000 Guild Honor for 9 stones) or 6,000 Guild Glory Coins / stone (3-week faction rotation in Season 1 — totaling 54,000 Guild Glory Coins for 9 stones). Players MUST maintain a Weekly Wallet Safety Floor of at least 40,000 Guild Honor (or 12,000–18,000 Guild Glory Coins) to immediately buy Soul Stones upon weekly shop reset. Taking sloppy Blue/Purple tasks (80–175 points) doubles the months needed to awaken Queue 1 compared to disciplined Gold Task hunting (240–450 points).",
+                vi: "**Đơn giá Hồn Đá Đỏ:** Chuẩn `40,000` Điểm Vinh Dự Bang/viên (Rương tự chọn Lv.30 — tổng `360,000` cho 9 viên) hoặc `6,000` Xu Vinh Quang Hội/viên (xoay tua 3 tuần/hệ ở S1 — tổng `54,000` cho 9 viên).\n• **Ngưỡng Đóng Băng Ví Hàng Tuần:** Luôn giữ tối thiểu `40,000` Điểm Vinh Dự Bang (hoặc `12,000–18,000` Xu Vinh Quang Hội) để mua ngay Hồn Đá Đỏ khi reset tuần.\n• **Cảnh báo:** Nhận nhiệm vụ Xanh/Tím (`80–175 điểm`) làm bạn mất gấp đôi số tháng thức tỉnh Đội 1 so với chỉ săn Nhiệm vụ Vàng (`240–450 điểm`).",
+                en: "**Standard Soul Stone Price:** `40,000` Guild Honor/stone (Lv.30 Selection Chest — `360,000` total for 9 stones) or `6,000` Guild Glory Coins/stone (Season 1 3-week rotation — `54,000` total for 9 stones).\n• **Weekly Wallet Safety Floor:** Maintain at least `40,000` Guild Honor (or `12,000–18,000` Guild Glory Coins) to immediately buy Soul Stones upon weekly shop reset.\n• **Warning:** Taking Blue/Purple tasks (`80–175 points`) doubles the months needed to awaken Queue 1 compared to Gold Task hunting (`240–450 points`).",
               },
             },
           ],
@@ -253,8 +253,8 @@ export const ARTICLE_3_2_WEEK_A_GUILD_RACE: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Để đạt điểm tối đa với chi phí tài nguyên thấp nhất, người chơi cần phân biệt rõ đâu là nhiệm vụ 'hái ra điểm' và đâu là cái bẫy hút máu tài khoản, đồng thời kết hợp chặt chẽ với Lịch Cố Định Sự Kiện Phụ Guild Rush 2 Ngày:",
-            en: "To achieve maximum points at the lowest resource cost, players must separate high-yield Gold tasks from account-draining traps while syncing tightly with the Fixed 2-Day Guild Rush schedule:",
+            vi: "Để đạt điểm tối đa với chi phí thấp nhất, hãy phân biệt nhiệm vụ `S+ Tier` hái ra điểm với bẫy `F Tier`, đồng thời khớp chặt cùng lịch `Guild Rush 2 Ngày`:",
+            en: "To achieve maximum points at the lowest cost, separate high-yield `S+ Tier` Gold tasks from `F Tier` traps while syncing tightly with the `Fixed 2-Day Guild Rush` schedule:",
           },
         },
         {
@@ -337,8 +337,8 @@ export const ARTICLE_3_2_WEEK_A_GUILD_RACE: GuideArticle = {
               rows: [
                 [
                   {
-                    vi: "🌟 S+ TIER (Mỏ Vàng Ngày 5–7)",
-                    en: "🌟 S+ TIER (Days 5–7 Gold Mine)",
+                    vi: "[S+ TIER ★] (Mỏ Vàng Ngày 5–7)",
+                    en: "[S+ TIER ★] (Days 5–7 Gold Mine)",
                   },
                   {
                     vi: "Nâng cấp Lực chiến Trang bị Chúa tể (Upgrade Lord Gear Power)",
@@ -355,8 +355,8 @@ export const ARTICLE_3_2_WEEK_A_GUILD_RACE: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "🌟 S+ TIER (Mỏ Vàng Ngày 5–7)",
-                    en: "🌟 S+ TIER (Days 5–7 Gold Mine)",
+                    vi: "[S+ TIER ★] (Mỏ Vàng Ngày 5–7)",
+                    en: "[S+ TIER ★] (Days 5–7 Gold Mine)",
                   },
                   {
                     vi: "Tăng Lực chiến Công trình / Khoa học (Increase Building / Tech Power)",
@@ -373,8 +373,8 @@ export const ARTICLE_3_2_WEEK_A_GUILD_RACE: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "✅ S TIER (Nhận Hàng Ngày)",
-                    en: "✅ S TIER (Daily Priority)",
+                    vi: "[S TIER] (Nhận Hàng Ngày)",
+                    en: "[S TIER] (Daily Priority)",
                   },
                   {
                     vi: "Chi tiêu Sao Đấu Trường / Điểm Bang / Kim Cương (Spend Arena Stars / Guild Points / Diamonds)",
@@ -391,8 +391,8 @@ export const ARTICLE_3_2_WEEK_A_GUILD_RACE: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "✅ A TIER (Nhận Hàng Ngày)",
-                    en: "✅ A TIER (Situational Daily)",
+                    vi: "[A TIER] (Nhận Hàng Ngày)",
+                    en: "[A TIER] (Situational Daily)",
                   },
                   {
                     vi: "Dùng Tăng tốc Xây dựng / Nghiên cứu / Luyện lính (Use Construction / Research / Troop Speedups)",
@@ -409,8 +409,8 @@ export const ARTICLE_3_2_WEEK_A_GUILD_RACE: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "✅ A TIER (Nhận Hàng Ngày)",
-                    en: "✅ A TIER (Zero-Cost Daily)",
+                    vi: "[A TIER] (Nhận Hàng Ngày)",
+                    en: "[A TIER] (Zero-Cost Daily)",
                   },
                   {
                     vi: "Hoàn thành Nhiệm vụ Tiền thưởng / Đánh Boss Rally (Complete Bounty Quests / Join Boss Rallies)",
@@ -427,8 +427,8 @@ export const ARTICLE_3_2_WEEK_A_GUILD_RACE: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "⚠️ B TIER (Cân nhắc)",
-                    en: "⚠️ B TIER (Conditional)",
+                    vi: "[B TIER] (Cân nhắc)",
+                    en: "[B TIER] (Conditional)",
                   },
                   {
                     vi: "Mở Rương Trang Bị / Ghép Mảnh Trang Bị (Open Gear Chests / Craft Gear)",
@@ -445,8 +445,8 @@ export const ARTICLE_3_2_WEEK_A_GUILD_RACE: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "❌ F TIER (BẪY — CẤM NHẬN)",
-                    en: "❌ F TIER (TRAP — BLACKLIST)",
+                    vi: "[F TIER] (BẪY — CẤM NHẬN)",
+                    en: "[F TIER] (TRAP — BLACKLIST)",
                   },
                   {
                     vi: "Chiêu mộ Tướng 20 – 80 lần trong Quán Rượu (Recruit Heroes 20–80 times)",
@@ -463,8 +463,8 @@ export const ARTICLE_3_2_WEEK_A_GUILD_RACE: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "❌ F TIER (BẪY — CẤM NHẬN)",
-                    en: "❌ F TIER (TRAP — BLACKLIST)",
+                    vi: "[F TIER] (BẪY — CẤM NHẬN)",
+                    en: "[F TIER] (TRAP — BLACKLIST)",
                   },
                   {
                     vi: "Tiêu thụ 20 – 40 Mảnh Tướng Vàng (Consume 20–40 Legendary Hero Shards)",
@@ -513,8 +513,8 @@ export const ARTICLE_3_2_WEEK_A_GUILD_RACE: GuideArticle = {
                     en: "The 10-Minute Rule (144 Free Refreshes/Day on the 2 Exclusive Slots)",
                   },
                   detail: {
-                    vi: "Mỗi khi mở game trong ngày, việc đầu tiên là vào bảng Guild Race bấm nút Làm mới (Refresh) ở 2 ô Nhiệm vụ Độc quyền nếu đang hiện nhiệm vụ Xanh/Tím hoặc nhiệm vụ bẫy F-Tier.",
-                    en: "Every time you log in during the day, immediately open the Guild Race board and tap Free Refresh on the 2 Exclusive Task slots if they show Blue/Purple or F-Tier trap tasks.",
+                    vi: "Mỗi khi mở game trong ngày, việc đầu tiên là vào bảng Guild Race bấm nút Làm mới (`Refresh`) ở 2 ô Nhiệm vụ Độc quyền nếu đang hiện nhiệm vụ Xanh/Tím hoặc nhiệm vụ bẫy F-Tier.",
+                    en: "Every time you log in during the day, immediately open the Guild Race board and tap `Free Refresh` on the 2 Exclusive Task slots if they show Blue/Purple or F-Tier trap tasks.",
                   },
                   badge: {
                     vi: "10 Phút / Lần",
@@ -528,8 +528,8 @@ export const ARTICLE_3_2_WEEK_A_GUILD_RACE: GuideArticle = {
                     en: "Sync with Week A's Fixed 2-Day Guild Rush (Lock Lord Gear Until Day 5)",
                   },
                   detail: {
-                    vi: "Thứ Hai–Thứ Ba: Guild Rush Nâng cấp Thú Cưng (chỉ nâng cầm chừng lấy mốc cơ bản, giữ Pet Food & Pet Essence cho Ngày 5–6 Tuần B) | Thứ Tư–Thứ Năm: Guild Rush Thánh Tích (găm Wish Relic, Relic Shards, Arcane Crystals, Magic Stones sang Ngày 1–2 Tuần B) | Thứ Sáu–Thứ Bảy: Guild Rush Quân Trang & Đồ Chúa Tể — Khóa chặt Kho Trang Bị Chúa Tể từ Thứ Hai đến Thứ Năm, chờ đúng 00:00 UTC Thứ Sáu (Ngày 5) mới xoay 2 ô Độc quyền săn nhiệm vụ Vàng Lord Gear (+300 ➔ +450 điểm) để ăn điểm kép!",
-                    en: "Mon–Tue: Guild Rush Pets Development (tap lightly for base milestones, save Pet Food & Pet Essence for Week B Days 5–6) | Wed–Thu: Guild Rush Relic Hall & Relics (save Wish Relic, Relic Shards, Arcane Crystals, Magic Stones for Week B Days 1–2) | Fri–Sat: Guild Rush Troop Skin & Lord Gear — Lock all Lord Gear materials from Mon–Thu and wait until 00:00 UTC Friday (Day 5) to roll Exclusive Gold Lord Gear tasks (+300 ➔ +450 pts) for a massive double-dip!",
+                    vi: "**Thứ Hai–Thứ Ba (Thú Cưng):** Chỉ nâng cầm chừng lấy mốc cơ bản, giữ `Pet Food` & `Pet Essence` cho Ngày 5–6 Tuần B.\n• **Thứ Tư–Thứ Năm (Thánh Tích):** Găm `Wish Relic`, `Relic Shards`, `Arcane Crystals`, `Magic Stones` sang Ngày 1–2 Tuần B.\n• **Thứ Sáu–Thứ Bảy (Quân Trang & Đồ Chúa Tể):** Khóa chặt Kho `Lord Gear` từ Thứ Hai đến Thứ Năm, chờ đúng `00:00 UTC` Thứ Sáu (Ngày 5) mới xoay 2 ô Độc quyền săn nhiệm vụ Vàng `Lord Gear (+300 ➔ +450 điểm)`!",
+                    en: "**Mon–Tue (Pets Development):** Tap lightly for base milestones, saving `Pet Food` & `Pet Essence` for Week B Days 5–6.\n• **Wed–Thu (Relic Hall & Relics):** Save `Wish Relic`, `Relic Shards`, `Arcane Crystals`, and `Magic Stones` for Week B Days 1–2.\n• **Fri–Sat (Troop Skin & Lord Gear):** Lock all `Lord Gear` materials from Mon–Thu and wait until `00:00 UTC` Friday (Day 5) to roll Exclusive Gold `Lord Gear tasks (+300 ➔ +450 pts)`!",
                   },
                   badge: {
                     vi: "Thứ Sáu 00:00 UTC",
@@ -543,8 +543,8 @@ export const ARTICLE_3_2_WEEK_A_GUILD_RACE: GuideArticle = {
                     en: "Stage 4–6 Completed Bounty Quests Without Tapping 'Claim'",
                   },
                   detail: {
-                    vi: "Khi làm nhiệm vụ Tiền thưởng trên bản đồ, hãy bấm cho tướng đi làm nhiệm vụ nhưng ĐỪNG bấm nút 'Nhận thưởng (Claim)' vội. Để nguyên 4–6 nhiệm vụ ở trạng thái 'Hoàn thành (Completed)' chờ khi nào nhận nhiệm vụ Vàng Bounty (+210 ➔ +280 điểm) trên bảng Guild Race thì bấm thu hoạch một lượt!",
-                    en: "Send heroes to complete map Bounty Quests, but DO NOT tap 'Claim' prematurely. Leave 4–6 quests sitting in the glowing 'Completed' state so you can claim them all in 3 seconds the moment you accept a Gold Bounty task (+210 ➔ +280 pts)!",
+                    vi: "**Chạy sẵn không thu hoạch:** Cho tướng đi làm nhiệm vụ Tiền thưởng trên bản đồ nhưng ĐỪNG bấm nút `'Nhận thưởng (Claim)'` vội.\n• **Kết liễu trong 3 giây:** Để nguyên `4–6 nhiệm vụ` ở trạng thái `'Hoàn thành (Completed)'` chờ khi nhận nhiệm vụ Vàng Bounty (`+210 ➔ +280 điểm`) trên bảng Guild Race thì bấm thu hoạch một lượt!",
+                    en: "**Run without claiming:** Send heroes to complete map Bounty Quests, but DO NOT tap `'Claim'` prematurely.\n• **3-second finish:** Leave `4–6 quests` in the glowing `'Completed'` state so you can claim them all in 3 seconds the moment you accept a Gold Bounty task (`+210 ➔ +280 pts`)!",
                   },
                   badge: {
                     vi: "Pre-cooking Bounty",
@@ -572,12 +572,12 @@ export const ARTICLE_3_2_WEEK_A_GUILD_RACE: GuideArticle = {
           },
           headers: [
             {
-              vi: "❌ Sai lầm Phổ biến (Mất điểm & Lãng phí Lượt)",
-              en: "❌ Common Pitfall (Lost Points & Wasted Attempts)",
+              vi: "Sai lầm Phổ biến (Mất điểm & Lãng phí Lượt)",
+              en: "Common Pitfall (Lost Points & Wasted Attempts)",
             },
             {
-              vi: "✅ Giải pháp Tối ưu (Chuẩn Cao Thủ Bang Hội)",
-              en: "✅ Optimal Fix (Top Guild Standard)",
+              vi: "Giải pháp Tối ưu (Chuẩn Cao Thủ Bang Hội)",
+              en: "Optimal Fix (Top Guild Standard)",
             },
           ],
           rows: [
@@ -628,8 +628,8 @@ export const ARTICLE_3_2_WEEK_A_GUILD_RACE: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Để đạt điểm tuyệt đối trong Guild Race mà không tốn một giây Tăng tốc dư thừa nào, các bang hội Top 1 Server áp dụng quy trình 2 Giai đoạn (Ngày 1–4 vs Ngày 5–7) kết hợp kỹ thuật Nấu Sẵn Hàng Đợi (Pre-cooking Tasks) và bài toán Mua Thêm Lượt Nhiệm Vụ (Extra Task Attempts ROI).",
-            en: "To achieve maximum Guild Race points without wasting a single second of speedups, Top 1 Server guilds execute a 2-Phase weekly protocol (Days 1–4 vs. Days 5–7) combining Queue Pre-cooking Tactics with Extra Task Attempts ROI math.",
+            vi: "Để đạt điểm tuyệt đối trong `Guild Race` mà không tốn Tăng tốc dư thừa, các bang Top 1 áp dụng quy trình 2 Giai đoạn (`Ngày 1–4` vs `Ngày 5–7`) kết hợp `Pre-cooking` hàng đợi và bài toán `Extra Task Attempts ROI`.",
+            en: "To achieve maximum `Guild Race` points without wasting speedups, Top 1 guilds execute a 2-Phase protocol (`Days 1–4` vs. `Days 5–7`) combining Queue `Pre-cooking` Tactics with `Extra Task Attempts ROI` math.",
           },
         },
       ],
@@ -824,20 +824,20 @@ export const ARTICLE_3_2_WEEK_A_GUILD_RACE: GuideArticle = {
               ordered: true,
               items: [
                 {
-                  vi: "Pre-cooking Doanh Trại Lính (Troop Training Pre-cook): Trước khi đi ngủ, hãy bấm huấn luyện (hoặc thăng cấp) mẻ lính tối đa ở cả 3 Doanh trại (League, Horde, Nature hoặc dồn Doanh trại chính) sao cho thời gian hoàn thành rơi vào sáng hôm sau. Khi lính đã huấn luyện xong (biểu tượng cái khiên/đầu lính hiện lên trên nóc Doanh trại), TUYỆT ĐỐI KHÔNG BẤM THU HOẠCH. Vào bảng Guild Race, xoay cho đến khi ra Nhiệm vụ Vàng: Huấn luyện X Binh lính / Tăng Lực chiến Lính, bấm Nhận, rồi mới chạm vào nóc Doanh trại để thu hoạch. Bạn hoàn thành 60–80% nhiệm vụ ngay lập tức mà tốn 0 phút Tăng tốc!",
-                  en: "Barracks Troop Training Pre-cook: Before going to sleep, start training (or promoting) a full batch of troops across your Barracks (League, Horde, Nature) timed to finish the next morning. Once training finishes (the shield/troop icon hovers over the Barracks roof), DO NOT TAP TO COLLECT. Open the Guild Race board, roll until you get a Gold Task for Training Troops / Increasing Troop Power, tap Accept, and only then tap the Barracks roof to harvest. You complete 60–80% of the task instantly using 0 minutes of speedups!",
+                  vi: "**Pre-cooking Doanh Trại Lính:** Luyện mẻ lính từ tối hôm trước; khi lính chín trên nóc trại, chờ xoay ra Nhiệm vụ Vàng Luyện Lính rồi mới bấm `Nhận` và thu hoạch (hoàn thành 60–80%, tốn `0 phút` Tăng tốc)!",
+                  en: "**Barracks Troop Pre-cooking:** Train full troop batches overnight; once complete on the Barracks roof, roll a Gold Troop Task, tap `Accept`, then harvest (completes 60–80% using `0 minutes` of speedups)!",
                 },
                 {
-                  vi: "Pre-cooking Hộp Quà Công Trình (Unopened Building Box Pre-cook): Khi một công trình xây dựng hoàn tất, trong Top Heroes công trình đó sẽ biến thành một Hộp Quà có dải ruy-băng đỏ (Wrapped Gift Box). Lực chiến của công trình chỉ thực sự cộng vào tài khoản tại giây phút bạn chạm tay mở hộp quà đó. Trong Tuần A (đặc biệt là từ Thứ Năm bước sang Thứ Sáu — Ngày 5), nếu có công trình lớn xây xong, hãy để nguyên hộp quà chưa khui, chờ xoay ra Nhiệm vụ Độc quyền Vàng 'Tăng Lực chiến Công trình (+280 ➔ +420 điểm)' rồi mới bấm mở hộp!",
-                  en: "Unopened Building Gift Box Pre-cook: When a building upgrade finishes in Top Heroes, it turns into a Wrapped Gift Box with a red ribbon. Building power is only added to your account at the exact second you tap to unwrap that box. During Week A (especially Thursday night into Friday — Day 5), leave completed major buildings unwrapped as gift boxes until you roll the Exclusive Gold Task 'Increase Building / Tech Power (+280 ➔ +420 points)', accept it, and then unwrap!",
+                  vi: "**Pre-cooking Hộp Quà Công Trình:** Giữ công trình xây xong ở dạng Hộp Quà ruy-băng đỏ chưa khui; chờ Ngày 5–7 xoay ra Nhiệm vụ Vàng `Tăng Lực chiến Công trình (+280 ➔ +420 điểm)`, bấm `Nhận` rồi mới mở hộp!",
+                  en: "**Unopened Building Box Pre-cooking:** Leave finished buildings as red-ribbon Wrapped Gift Boxes; on Days 5–7, roll the Gold Task `Increase Building / Tech Power (+280 ➔ +420 points)`, tap `Accept`, then unwrap!",
                 },
                 {
-                  vi: "Pre-cooking Nhiệm Vụ Tiền Thưởng & Rương Mảnh Trang Bị (Bounty & Gear Chest Pre-cook): Luôn giữ 4–6 nhiệm vụ Tiền thưởng (Bounty) ở trạng thái đã chạy xong nhưng chưa bấm Claim, và giữ lại tối thiểu 20–30 Rương Trang bị Tím/Vàng trong túi đồ không mở lắt nhắt để sẵn sàng kết liễu nhiệm vụ mở rương trong 3 giây.",
-                  en: "Bounty Quests & Gear Chests Pre-cook: Always keep 4–6 map Bounty Quests in the completed state without tapping 'Claim', and maintain a reserve of at least 20–30 Purple/Gold Gear Chests in your inventory bag instead of opening them piecemeal so you can finish chest-opening tasks in 3 seconds.",
+                  vi: "**Pre-cooking Bounty & Rương Trang Bị:** Luôn giữ `4–6 nhiệm vụ Bounty` đã chạy xong chưa bấm `Claim` và tích trữ `20–30 Rương Trang Bị` Tím/Vàng trong túi đồ để kết liễu nhiệm vụ mở rương trong `3 giây`.",
+                  en: "**Bounty & Gear Chest Pre-cooking:** Keep `4–6 map Bounty Quests` completed without tapping `Claim` and hold `20–30 Purple/Gold Gear Chests` in your bag to finish chest-opening tasks in `3 seconds`.",
                 },
                 {
-                  vi: "Khai thác 'Mỏ Vàng Ngày 5–7' (Day 5–7 Exclusive Task Pool) & Đồng Bộ Guild Rush 2 Ngày (Tuần A vs Tuần B): Hệ thống chia bảng xác suất Guild Race thành 2 nửa: Ngày 1–4 (Thứ Hai ➔ Thứ Năm) chỉ có các nhiệm vụ tiêu chuẩn (+210 đến +320 điểm); nhưng bước sang Ngày 5–7 (Thứ Sáu ➔ Chủ Nhật), bể nhiệm vụ Độc quyền mở khóa nhóm nhiệm vụ Siêu Cấp (+350 đến +450 điểm), đứng đầu là Nâng cấp Trang bị Chúa tể (Lord Gear +300 ➔ +450 điểm). Đặc biệt, lịch Sự kiện Phụ Bang Hội Cố định 2 Ngày (Fixed 2-Day Guild Rush) khớp nối hoàn hảo giữa 2 tuần: Ở Tuần A (Guild Race), Thứ Hai–Thứ Ba là Nâng cấp Thú Cưng (Pets Development) | Thứ Tư–Thứ Năm là Thánh Tích (Relic Hall & Relics) | Thứ Sáu–Thứ Bảy là Quân Trang & Đồ Chúa Tể (Troop Skin & Lord Gear — trùng khớp 100% với Nhiệm vụ Vàng Độc quyền Ngày 5–7 của Guild Race!). Ở Tuần B (KvK / GAR), Thứ Hai–Thứ Ba là Xây dựng & Nghiên cứu (Ngày 1–2 cũng cộng điểm cho Thánh Tích & Behemoth) | Thứ Tư–Thứ Năm là Phát triển Tướng (Ngày 3–4 cộng điểm cho Đồ Chúa Tể / Lord Gear, Ngày 3 KvK có Behemoth, và Ngày 4 cộng điểm Tướng, Mảnh Tướng, Hồn Đá Đỏ 120,000đ, Sách Kỹ Năng, Mảnh UW 6,000đ, Lõi Sắt Thiên Thạch 6,000đ) | Thứ Sáu–Thứ Bảy là Nâng cấp Trang trí (Ngày 5 cộng điểm Thú Cưng, Heroic Spirit Shards, Behemoth và thêm Relics/Lord Gear nếu là KvK; Ngày 6 cộng điểm Quân Trang / Glory Medals, Trang Trí / Decor Tokens, Thú Cưng, Behemoth — LƯU Ý: Đồ Chúa Tể KHÔNG tính điểm vào Ngày 6 GAR/KvK, nên chỉ xả Đồ Chúa Tể vào Thứ Sáu–Chủ Nhật Tuần A hoặc Thứ Tư–Thứ Năm Tuần B!). Nếu định dùng Kim Cương mua thêm lượt làm nhiệm vụ, hãy dồn mua thêm lượt vào Ngày 5, Ngày 6 và Ngày 7 thay vì mua ở đầu tuần!",
-                  en: "Exploiting the 'Days 5–7 Gold Mine' & Fixed 2-Day Guild Rush Sync (Week A vs. Week B): The game splits Guild Race probabilities into two halves: Days 1–4 (Mon–Thu) only offer standard tasks (+210 to +320 points), whereas Days 5–7 (Fri–Sun) unlock the Super Exclusive Pool (+350 to +450 points), led by Upgrade Lord Gear (+300 ➔ +450 points). Crucially, the Fixed 2-Day Guild Rush schedule interlocks across both weeks: In Week A (Guild Race), Mon–Tue is Pets Development | Wed–Thu is Relic Hall & Relics | Fri–Sat is Troop Skin & Lord Gear (100% overlap with Days 5–7 Exclusive Gold Lord Gear tasks!). In Week B (KvK / GAR), Mon–Tue is Construction & Research (Days 1–2 also score Relics & Behemoth) | Wed–Thu is Hero Development (Days 3–4 score Lord Gear, Day 3 KvK scores Behemoth, and Day 4 scores Heroes, Shards, Soul Stones 120,000 pts, Skill Books, UW Shards 6,000 pts, Meteorite Iron Cores 6,000 pts) | Fri–Sat is Decorations (Day 5 scores Pets, Heroic Spirit Shards, Behemoth plus Relics/Lord Gear in KvK; Day 6 scores Glory Medals, Decor Tokens, Pets, Behemoth — WARNING: Lord Gear scores ZERO points on Day 6 of GAR/KvK, so ONLY spend Lord Gear on Fri–Sun of Week A or Wed–Thu of Week B!). Therefore, concentrate your Diamond Extra Task Attempt purchases on Days 5, 6, and 7 rather than early in the week!",
+                  vi: "**Mỏ Vàng Ngày 5–7 & Đồng Bộ Guild Rush:** Ngày 5–7 mở khóa bể Độc quyền Siêu Cấp dẫn đầu bởi `Lord Gear (+300 ➔ +450 điểm)`, khớp 100% với `Guild Rush: Quân Trang & Đồ Chúa Tể` (dồn mua vé phụ vào Ngày 5–7)!",
+                  en: "**Days 5–7 Gold Mine & Guild Rush Sync:** Days 5–7 unlock the Super Exclusive Pool led by `Upgrade Lord Gear (+300 ➔ +450 points)`, overlapping 100% with `Guild Rush: Troop Skin & Lord Gear` (buy extra tickets here)!",
                 },
               ],
             },
@@ -857,8 +857,8 @@ export const ARTICLE_3_2_WEEK_A_GUILD_RACE: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Mỗi ngày người chơi có một số lượt nhận nhiệm vụ miễn phí cố định (thường là 8–10 lượt tùy cấp độ sự kiện) và có thể dùng Kim Cương để mua thêm các lượt phụ (Extra Attempts). Dưới đây là bảng định lượng ROI chính xác cho F2P và Low-Spender:",
-                en: "Each day players receive a fixed number of free task attempts (typically 8–10 attempts depending on guild tier) and can spend Diamonds to buy Extra Attempts. Below is the exact ROI math by player segment:",
+                vi: "Mỗi ngày bạn có `8–10 lượt` nhận nhiệm vụ miễn phí cố định và có thể dùng Kim Cương mua thêm lượt phụ (`Extra Attempts`). Dưới đây là bảng định lượng `ROI` chính xác cho F2P và Low-Spender:",
+                en: "Each day you receive `8–10 free task attempts` and can spend Diamonds to buy `Extra Attempts`. Below is the exact `ROI` breakpoint matrix by player segment:",
               },
             },
             {
@@ -983,8 +983,8 @@ export const ARTICLE_3_2_WEEK_A_GUILD_RACE: GuideArticle = {
             en: "7-Day F2P Guild Race Optimization: Unlocking Max Personal Tier with +600 Net Diamond Profit",
           },
           profileSummary: {
-            vi: "Một tài khoản F2P ở Lâu đài Lv.28 (đang chuyển giao sang đội hình Bộ Lạc / Horde) cần tối đa hóa Điểm Vinh Dự Bang trong kỳ Guild Race để gom đủ tiền mua viên Hồn Đá Đỏ (Soul Stone) thứ 6 cho Soulmancer, nhưng chỉ có ngân sách 1,200 Kim Cương dành cho việc mua lượt và 45 giờ Tăng tốc tổng hợp.",
-            en: "An F2P Castle Lv.28 account (transitioning to a main Horde lineup) needs to maximize Guild Honor during Week A Guild Race to afford the 6th Soul Stone for Soulmancer, operating with a strict budget of 1,200 Diamonds for extra tickets and 45 hours of total Speedups.",
+            vi: "**Hồ sơ Lâu đài Lv.28 (F2P Bộ Lạc):** Cần tối đa hóa `Điểm Vinh Dự Bang` trong kỳ `Guild Race` để mua viên `Hồn Đá Đỏ (Soul Stone)` thứ 6 cho `Soulmancer`.\n• **Ràng buộc ngân sách:** Chỉ có `1,200 Kim Cương` dành cho việc mua lượt phụ và `45 giờ Tăng tốc` tổng hợp.",
+            en: "**Castle Lv.28 Profile (F2P Horde):** Needs to maximize `Guild Honor` during Week A `Guild Race` to afford the 6th `Soul Stone` for `Soulmancer`.\n• **Budget constraints:** Operating with a strict budget of `1,200 Diamonds` for extra tickets and `45 hours` of total Speedups.",
           },
           metrics: [
             {
@@ -1044,12 +1044,12 @@ export const ARTICLE_3_2_WEEK_A_GUILD_RACE: GuideArticle = {
           ],
           diagnostics: [
             {
-              vi: "Ngân sách Kim Cương hạn hẹp (1,200 KC) và quỹ Tăng tốc thấp (45 giờ) không cho phép nhận các nhiệm vụ đua Tăng tốc nặng hay mua tới lượt vé thứ 3–4 đắt đỏ.",
-              en: "Tight Diamond budget (1,200 Diamonds) and limited Speedup reserves (45 hours) prohibit heavy speedup tasks or expensive #3/#4 extra ticket purchases.",
+              vi: "**Giới hạn ngân sách:** Quỹ `1,200 KC` và `45 giờ Tăng tốc` không cho phép nhận nhiệm vụ đua Tăng tốc nặng hay mua tới lượt vé thứ 3–4 đắt đỏ.",
+              en: "**Budget ceiling:** Tight `1,200 Diamonds` and `45 hours` of Speedups prohibit heavy speedup tasks or expensive #3/#4 extra ticket purchases.",
             },
             {
-              vi: "Cần gom đủ đơn giá 40,000 Điểm Vinh Dự Bang / viên (hoặc giữ Ngưỡng Đóng Băng Ví 40,000 Điểm Vinh Dự / 12,000–18,000 Xu Vinh Quang) để mua viên Hồn Đá Đỏ thứ 6 trên tổng số 9 viên (360,000 Điểm Vinh Dự) cho Soulmancer.",
-              en: "Must reach the 40,000 Guild Honor unit price (while respecting the 40,000 Guild Honor / 12,000–18,000 Guild Glory Coins Wallet Safety Floor) to purchase the 6th of 9 Soul Stones (360,000 Guild Honor total) for Soulmancer.",
+              vi: "**Mục tiêu Hồn Đá Đỏ:** Cần gom đủ `40,000` Điểm Vinh Dự Bang/viên (giữ Ngưỡng Đóng Băng Ví `40,000` Điểm Vinh Dự / `12,000–18,000` Xu Vinh Quang) để mua viên thứ 6/9 (`360,000` tổng) cho `Soulmancer`.",
+              en: "**Soul Stone target:** Must reach the `40,000` Guild Honor unit price (respecting the `40,000` Guild Honor / `12,000–18,000` Glory Coins Wallet Floor) for `Soulmancer`'s 6th of 9 stones (`360,000` total).",
             },
           ],
           recoverySteps: [
@@ -1060,8 +1060,8 @@ export const ARTICLE_3_2_WEEK_A_GUILD_RACE: GuideArticle = {
                 en: "Days 1 to 4 (Monday ➔ Thursday — Pacing & Pre-Cooking Phase)",
               },
               detail: {
-                vi: "Chỉ dùng các lượt miễn phí + 1 lượt mua thêm giá rẻ (50–100 KC/ngày, ROI ~400%). Áp dụng Pre-cooking lính mỗi sáng và làm nhiệm vụ Chi tiêu Sao Đấu Trường / Điểm Bang (+240 ➔ +350 điểm) + Săn Boss / Bounty Vàng (+210 ➔ +280 điểm). Tốn gần như 0 giờ Tăng tốc, trung bình đạt 280 điểm/lượt. Giữ nguyên 100% nguyên liệu Trang bị Chúa tể (Lord Gear) và 2 hộp công trình Doanh trại Lv.27 vừa xây xong chưa khui.",
-                en: "Use only free daily attempts + 1 cheap Extra Attempt (50–100 KC/day, ~400% ROI). Execute morning Barracks troop Pre-cooking alongside Spend Arena Stars / Guild Points (+240 ➔ +350 pts) and Gold Bounty / Boss Rally tasks (+210 ➔ +280 pts). Consumes ~0 hours of speedups while averaging 280 points/attempt. Strictly lock 100% of Lord Gear materials and leave 2 completed Lv.27 Barracks Wrapped Gift Boxes unopened.",
+                vi: "**Mua vé & Pre-cooking:** Dùng lượt miễn phí + 1 lượt mua thêm (`50–100 KC/ngày`, ROI `~400%`). Áp dụng `Pre-cooking` lính mỗi sáng, tiêu Sao Đấu Trường (`+240 ➔ +350đ`) và Bounty Vàng (`+210 ➔ +280đ`).\n• **Khóa kho chờ Ngày 5:** Tốn `0 giờ Tăng tốc`, trung bình `280 điểm/lượt`. Giữ nguyên 100% nguyên liệu `Lord Gear` và 2 hộp công trình Doanh trại Lv.27 chưa khui.",
+                en: "**Tickets & Pre-cooking:** Use free daily attempts + 1 Extra Attempt (`50–100 KC/day`, `~400%` ROI). Execute morning troop `Pre-cooking`, Arena Stars (`+240 ➔ +350 pts`), and Gold Bounties (`+210 ➔ +280 pts`).\n• **Lock until Day 5:** Consumes `0h speedups` averaging `280 pts/attempt`. Lock 100% of `Lord Gear` materials and leave 2 Lv.27 Barracks Gift Boxes unopened.",
               },
               impactBadge: {
                 vi: "Tốn 0h Tăng Tốc • Trung Bình 280 Điểm/Lượt",
@@ -1075,8 +1075,8 @@ export const ARTICLE_3_2_WEEK_A_GUILD_RACE: GuideArticle = {
                 en: "Days 5 to 7 (Friday ➔ Sunday — Super Exclusive Harvest Phase)",
               },
               detail: {
-                vi: "Mua 2 lượt vé phụ mỗi ngày (Lượt #1: 50–100 KC & Lượt #2: 100–200 KC, ROI ~250%–400%) để tối đa hóa số lần nhận nhiệm vụ trong giai đoạn mở khóa bể nhiệm vụ Siêu Cấp. Bấm làm mới 2 ô Độc quyền mỗi 10 phút (144 lần/ngày): Xoay trúng 6 lần Nhiệm vụ Vàng Lord Gear (+400 điểm/lần, ăn kép với Guild Rush: Quân Trang & Đồ Chúa Tể) và 3 lần Nhiệm vụ Vàng Tăng Lực chiến Công trình / Khoa học (+380 điểm/lần) bằng cách khui 2 hộp quà Doanh trại Lv.27 đã nấu sẵn.",
-                en: "Purchase 2 Extra Attempts per day (Attempt #1: 50–100 KC & Attempt #2: 100–200 KC, ~250%–400% ROI) to maximize task volume during the Super Exclusive pool window. Refresh the 2 Exclusive slots every 10 minutes (144 times/day): hit 6x Gold Lord Gear tasks (+400 points/each, double-dipping with Guild Rush: Troop Skin & Lord Gear) and 3x Gold Building/Tech Power tasks (+380 points/each) by unwrapping the 2 pre-cooked Lv.27 Barracks gift boxes.",
+                vi: "**Mua 2 vé phụ/ngày:** Mua Lượt #1 (`50–100 KC`) & Lượt #2 (`100–200 KC`, ROI `~250%–400%`) khi mở khóa bể nhiệm vụ Siêu Cấp.\n• **Xoay 10 phút (`144` lần/ngày):** Trúng `6x Nhiệm vụ Vàng Lord Gear (+400đ/lần)` ăn kép với `Guild Rush` và `3x Nhiệm vụ Vàng Công trình/Khoa học (+380đ/lần)` nhờ khui 2 hộp Doanh trại Lv.27.",
+                en: "**Buy 2 Extra Attempts/day:** Purchase Attempt #1 (`50–100 KC`) & Attempt #2 (`100–200 KC`, `~250%–400%` ROI) during the Super Exclusive pool window.\n• **10-min refresh (`144`/day):** Hit `6x Gold Lord Gear tasks (+400 pts)` double-dipping with `Guild Rush` and `3x Gold Building/Tech tasks (+380 pts)` by unwrapping the 2 Lv.27 Barracks boxes.",
               },
               impactBadge: {
                 vi: "6x Lord Gear (+400đ) & 3x Building/Tech (+380đ)",
@@ -1085,8 +1085,8 @@ export const ARTICLE_3_2_WEEK_A_GUILD_RACE: GuideArticle = {
             },
           ],
           conclusion: {
-            vi: "Kết quả Nghiệm thu Cuối Tuần A: Tổng điểm cá nhân vượt mốc Rương Thưởng Tối Đa (Max Personal Tier) với chi phí chỉ 900 Kim Cương (và nhận hoàn lại 1,500+ Kim Cương từ các mốc rương, tức lãi ròng +600 Kim Cương). Tài khoản gom đủ Điểm Vinh Dự Bang mua viên Hồn Đá Đỏ thứ 6 cho Soulmancer và bảo toàn nguyên vẹn 100% Vé Chiêu Mộ cùng Mảnh Tướng Vàng để bước sang Thứ Năm của Tuần B (GAR Day 4).",
-            en: "End-of-Week A Outcome: Total personal score surpasses the Max Personal Tier with only 900 Diamonds spent and 1,500+ Diamonds refunded from milestone chests (a net profit of +600 Diamonds). The account secures enough Guild Honor for Soulmancer's 6th Soul Stone while preserving 100% of Recruit Tokens and Legendary Hero Shards for Week B Thursday (GAR Day 4).",
+            vi: "**Nghiệm thu Cuối Tuần A:** Tổng điểm cá nhân vượt mốc `Max Personal Tier` với chi phí `900 Kim Cương` và nhận hoàn lại `1,500+ Kim Cương` từ các mốc rương (lãi ròng `+600` Kim Cương).\n• **Bảo toàn kho:** Đủ `40,000` Điểm Vinh Dự Bang mua viên Hồn Đá Đỏ thứ 6 cho `Soulmancer` và giữ nguyên 100% Vé Chiêu Mộ cùng Mảnh Tướng Vàng cho Thứ Năm Tuần B (`GAR Day 4`).",
+            en: "**End-of-Week A Outcome:** Total score surpasses `Max Personal Tier` with `900 Diamonds` spent and `1,500+ Diamonds` refunded from milestone chests (net profit of `+600` Diamonds).\n• **Vault preserved:** Secures `40,000` Guild Honor for `Soulmancer`'s 6th Soul Stone while preserving 100% of Recruit Tokens and Legendary Shards for Week B Thursday (`GAR Day 4`).",
           },
         },
       ],

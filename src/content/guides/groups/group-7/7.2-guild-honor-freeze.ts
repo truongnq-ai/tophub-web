@@ -16,34 +16,34 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
   },
   tldr: {
     coreRule: {
-      vi: "Hồn Đá Đỏ (Soul Stone) là nguyên liệu bắt buộc để Thức Tỉnh (Awakening) một Tướng Vàng Huyền Thoại (Legendary SSR) đạt 5 Sao Đỏ lên phẩm chất Thần Thoại Đỏ (Mythic) qua 4 Bậc với tổng chi phí 9 Hồn Đá Đỏ (1 + 2 + 2 + 4) + 345–385 Mảnh Tướng (55–65 + 75–95 + 85–95 + 130). Đây là nút cổ chai khắc nghiệt nhất của mọi tài khoản F2P và Low-Spender từ Giữa Game trở đi.",
-      en: "Soul Stones are the mandatory bottleneck material required to Awaken a 5-Red-Star Legendary SSR Hero to Ascended Mythic quality across 4 Awakening Tiers, costing a total of 9 Soul Stones (1 + 2 + 2 + 4) + 345–385 Hero Shards (55–65 + 75–95 + 85–95 + 130). This represents the tightest progression bottleneck for F2P and Low-Spender accounts from Mid-Game onward.",
+      vi: "**Nút cổ chai Hồn Đá Đỏ (Soul Stone):** Nguyên liệu bắt buộc để Thức Tỉnh (Awakening) Tướng Vàng 5 Sao Đỏ lên Thần Thoại Đỏ (Mythic) qua 4 Bậc.\n• **Tổng định mức Cố định:** Cần chính xác `9` Hồn Đá Đỏ (`1 + 2 + 2 + 4`) cộng với `345–385` Mảnh Tướng (`55–65` + `75–95` + `85–95` + `130`, cộng dồn `185` mảnh ở Bậc III).",
+      en: "**The Soul Stone Bottleneck:** Mandatory material required to Awaken a 5-Red-Star Legendary SSR Hero to Ascended Mythic quality across 4 Awakening Tiers.\n• **Fixed Total Cost:** Demands `9` Soul Stones (`1 + 2 + 2 + 4`) plus `345–385` Hero Shards (`55–65` + `75–95` + `85–95` + `130`, hitting `185` cumulative shards by Tier III).",
     },
     immediateAction: {
-      vi: "Áp dụng ngay Lệnh Đóng Băng Điểm Vinh Dự & Xu Vinh Quang (The 40,000 Guild Honor / 18,000 Guild Coin Freeze) từ Lâu Đài Lv.15 đến Lv.29. Tuyệt đối giữ nguyên quỹ dự phòng để vừa chạm mốc Lâu Đài Lv.30 (40,000 Điểm Vinh Dự / viên, 360,000 Điểm cho 9 viên) hoặc mở khóa Tiệm Xu Vinh Quang Hội Season 1 (6,000 Xu Vinh Quang Hội / viên, 54,000 Xu cho 9 viên, xoay tua 3 tuần/chu kỳ: League ➔ Horde ➔ Nature) là mua ngay Hồn Đá Đỏ trên kệ.",
-      en: "Enforce the 40,000 Guild Honor / 18,000 Guild Coin Freeze immediately from Castle Lv.15 through Lv.29. Strictly preserve your reserve floor so the exact day you reach Castle Lv.30 (40,000 Guild Honor Points per stone, 360,000 Points for 9 stones) or unlock the Season 1 Guild Coin Shop (6,000 Guild Coins per stone, 54,000 Guild Coins for 9 stones on a 3-week League ➔ Horde ➔ Nature rotation), you can buy Soul Stones on sight.",
+      vi: "**Lệnh Đóng Băng Điểm Vinh Dự (Lv.15–Lv.29):** Khóa chặt quỹ dự phòng tối thiểu `40,000` Điểm Vinh Dự (hoặc sàn `15,000`–`18,000` Xu Vinh Quang) trước khi lên Lv.30.\n• **Mua ngay khi mở kệ:** Chạm Lâu Đài Lv.30 (`40,000` Điểm/viên, `360,000` Điểm/9 viên) hoặc Tiệm S1 (`6,000` Xu/viên, `54,000` Xu/9 viên xoay tua 3 tuần: League ➔ Horde ➔ Nature) là xúc ngay.",
+      en: "**The 40,000 Guild Honor Freeze (Lv.15–Lv.29):** Lock a minimum reserve floor of `40,000` Guild Honor (or `15,000`–`18,000` Guild Coins) before reaching Castle Lv.30.\n• **Buy on Sight at Unlock:** Hit Castle Lv.30 (`40,000` Honor/stone, `360,000` for 9) or Season 1 Guild Coin Shop (`6,000` Coins/stone, `54,000` for 9 on a 3-week League ➔ Horde ➔ Nature cycle) and buy immediately.",
     },
     strictTaboo: {
-      vi: "CẤM tiêu sạch Điểm Vinh Dự / Xu Vinh Quang vào Mảnh Vàng lẻ tẻ từ Lv.15–Lv.29 khi chưa đạt ngưỡng dự phòng an toàn; CẤM mua nhầm Quân Trang Vạn Năng (Universal Legendary Troop Skin giá 12,000 Xu) khi chưa sở hữu lính Vàng gốc vì vật phẩm này chỉ dùng để nâng sao chứ KHÔNG THỂ mở khóa lính mới!",
-      en: "NEVER drain Guild Honor or Guild Coins on single SSR Hero Shards between Lv.15 and Lv.29 before securing your safety reserve; NEVER buy the Universal Legendary Troop Skin (12,000 Guild Coins) without owning the base Gold troop skin first, as this item only upgrades stars and CANNOT unlock a new troop skin!",
+      vi: "**Cấm xả điểm sớm & Cấm thức tỉnh tướng phụ:** CẤM tiêu sạch Điểm Vinh Dự mua mảnh lẻ từ Lv.15–Lv.29 hoặc thức tỉnh tướng ngoài meta (Astrologer, Wilderness Hunter, Swordmaster, Barbarian).\n• **Bẫy Quân Trang 12,000 Xu:** CẤM mua Universal Legendary Troop Skin (`12,000` Xu / `72,000` Điểm / `1,440` KC quy đổi) khi chưa sở hữu Quân trang Vàng gốc vì vật phẩm này chỉ nâng sao, không mở khóa lính mới!",
+      en: "**Zero Early Draining & Off-Meta Awakening:** NEVER drain Guild Honor on minor shards from Lv.15–Lv.29 or awaken off-meta heroes (Astrologer, Wilderness Hunter, Swordmaster, Barbarian).\n• **The 12,000-Coin Troop Skin Trap:** NEVER buy Universal Legendary Troop Skin (`12,000` Coins / `72,000` Honor / `1,440` Diamonds eq.) without owning the base Gold skin—it only upgrades stars and cannot unlock a skin!",
     },
   },
   keyTakeaways: [
     {
-      vi: "Định mức Kép Hồn Đá Đỏ (Dual Soul Stone Pricing): Tại Cửa hàng Vinh Dự Bang Lâu Đài Lv.30, Hồn Đá Đỏ có giá 40,000 Điểm Vinh Dự / viên (360,000 Điểm cho trọn bộ 9 viên). Tại Tiệm Xu Vinh Quang Hội Season 1+, Hồn Đá theo Hệ có giá 6,000 Xu Vinh Quang Hội / viên (54,000 Xu cho 9 viên), xoay tua cố định 3 tuần/chu kỳ: Liên Minh (League) ➔ Bộ Lạc (Horde) ➔ Thiên Nhiên (Nature).",
-      en: "Dual Soul Stone Pricing Standard: In the Castle Lv.30 Guild Honor Shop, Soul Stones cost 40,000 Guild Honor Points each (360,000 Points for a full set of 9). In the Season 1+ Guild Coin Shop, faction-specific Soul Stones cost 6,000 Guild Coins each (54,000 Guild Coins for 9), rotating on a fixed 3-week cycle: League ➔ Horde ➔ Nature.",
+      vi: "**Định mức Kép Hồn Đá Đỏ (Dual Soul Stone Pricing):** Tại Cửa hàng Vinh Dự Bang Lâu Đài Lv.30, Hồn Đá Đỏ có giá `40,000` Điểm Vinh Dự/viên (`360,000` Điểm cho bộ `9` viên).\n• **Chuẩn Xoay Tua Season 1+:** Tại Tiệm Xu Vinh Quang Hội S1+, Hồn Đá theo Hệ có giá `6,000` Xu/viên (`54,000` Xu cho `9` viên), xoay tua cố định 3 tuần: Liên Minh (League) ➔ Bộ Lạc (Horde) ➔ Thiên Nhiên (Nature).",
+      en: "**Dual Soul Stone Pricing Standard:** In the Castle Lv.30 Guild Honor Shop, Soul Stones cost `40,000` Guild Honor Points each (`360,000` Points for a full set of `9`).\n• **Season 1+ Rotation Standard:** In the S1+ Guild Coin Shop, faction Soul Stones cost `6,000` Guild Coins each (`54,000` Coins for `9`), rotating every 3 weeks: League ➔ Horde ➔ Nature.",
     },
     {
-      vi: "Ma trận Chi phí 4 Bậc Thức Tỉnh (4-Tier Awakening Matrix): Bậc I cần 1 Hồn Đá + 55–65 Mảnh Tướng (40,000 Điểm / 6,000 Xu); Bậc II cần 2 Hồn Đá + 75–95 Mảnh (80,000 Điểm / 12,000 Xu — cường hóa Tuyệt chiêu); Bậc III cần 2 Hồn Đá + 85–95 Mảnh (80,000 Điểm / 12,000 Xu); Bậc IV cần 4 Hồn Đá + 130 Mảnh (160,000 Điểm / 24,000 Xu — Hóa Đỏ Mythic). Tổng cộng: 9 Hồn Đá Đỏ + 345–385 Mảnh Tướng.",
-      en: "4-Tier Awakening Cost Matrix: Tier I requires 1 Soul Stone + 55–65 Hero Shards (40,000 Honor / 6,000 Coins); Tier II requires 2 Soul Stones + 75–95 Shards (80,000 Honor / 12,000 Coins — Ultimate skill upgrade); Tier III requires 2 Soul Stones + 85–95 Shards (80,000 Honor / 12,000 Coins); Tier IV requires 4 Soul Stones + 130 Shards (160,000 Honor / 24,000 Coins — Mythic Ascension). Total: 9 Soul Stones + 345–385 Hero Shards.",
+      vi: "**Ma trận Chi phí 4 Bậc Thức Tỉnh (4-Tier Awakening Matrix):** Tổng chi phí hoàn tất 1 tướng là `9` Hồn Đá Đỏ + `345–385` Mảnh Tướng (`345` đến `385` mảnh, mốc `50`–`100` mảnh đầu).\n• **Chi tiết 4 Bậc:** Bậc I (`1` Đá + `55–65` Mảnh); Bậc II (`2` Đá + `75–95` Mảnh); Bậc III (`2` Đá + `85–95` Mảnh); Bậc IV (`4` Đá + `130` Mảnh, `160,000` Điểm / `24,000` Xu).",
+      en: "**4-Tier Awakening Cost Matrix:** Fully awakening 1 hero requires `9` Soul Stones + `345–385` Hero Shards (`345` to `385` shards total, starting with `50`–`100` early shards).\n• **Tier Breakdown:** Tier I (`1` Stone + `55–65` Shards); Tier II (`2` Stones + `75–95` Shards); Tier III (`2` Stones + `85–95` Shards); Tier IV (`4` Stones + `130` Shards, `160,000` Honor / `24,000` Coins).",
     },
     {
-      vi: "Lợi thế Kinh tế Tuyệt đối của Phe Bộ Lạc (Horde Economy Edge): Bộ Lạc dùng 5 Tướng Đỏ nguyên bản + 1 Tướng Vàng Thức tỉnh (Soulmancer hoặc Warlock), chỉ tốn đúng 9 Hồn Đá Đỏ (360,000 Điểm Vinh Dự hoặc 54,000 Xu Vinh Quang). Ngược lại, Liên Minh (Pyromancer, Adjudicator, Nun / Bard) và Thiên Nhiên (Pixie, Forest Maiden, Sage) cần 2–3 tướng thức tỉnh, tiêu tốn 18–27 Hồn Đá (720,000 – 1,080,000 Điểm Vinh Dự hoặc 108,000 – 162,000 Xu).",
-      en: "Horde's Supreme Soul Stone Economy Advantage: Endgame Horde runs 5 Native Mythics + 1 Awakened SSR (Soulmancer or Warlock), requiring only 9 Soul Stones total (360,000 Guild Honor or 54,000 Guild Coins). Conversely, League (Pyromancer, Adjudicator, Nun / Bard) and Nature (Pixie, Forest Maiden, Sage) require 2–3 Awakened SSRs, costing 18–27 Soul Stones (720,000 – 1,080,000 Guild Honor or 108,000 – 162,000 Guild Coins).",
+      vi: "**Lợi thế Kinh tế Tuyệt đối của Phe Bộ Lạc (Horde Economy Edge):** Bộ Lạc dùng 5 Tướng Đỏ gốc + 1 Tướng Vàng Thức tỉnh (Soulmancer hoặc Warlock), chỉ tốn đúng `9` Hồn Đá (`360,000` Điểm / `54,000` Xu).\n• **Áp lực Liên Minh & Thiên Nhiên:** Liên Minh (Pyromancer, Adjudicator, Nun) và Thiên Nhiên (Pixie, Forest Maiden, Sage) cần 2–3 tướng, tốn `18–27` Đá (`720,000`–`1,080,000` Điểm / `108,000`–`162,000` Xu).",
+      en: "**Horde's Supreme Soul Stone Economy Advantage:** Endgame Horde runs 5 Native Mythics + 1 Awakened SSR (Soulmancer or Warlock), needing only `9` Soul Stones (`360,000` Honor / `54,000` Coins).\n• **League & Nature Burden:** League (Pyromancer, Adjudicator, Nun) and Nature (Pixie, Forest Maiden, Sage) need 2–3 Awakened SSRs, costing `18–27` Stones (`720,000`–`1,080,000` Honor / `108,000`–`162,000` Coins).",
     },
     {
-      vi: "Cạm bẫy Universal Legendary Troop Skin (12,000 Xu) & Công thức Ngưỡng Dư An Toàn: Tuyệt đối không mua Quân Trang Vạn Năng 12,000 Xu khi chưa mở khóa Quân trang Vàng gốc (chỉ người chơi Bộ Lạc sau khi xong 9 Hồn Đá và đã có Quân trang Vàng mới dùng 12,000 Xu dư để nâng sao). Chỉ mua Mảnh Vàng Vạn Năng khi số dư vượt trên Ngưỡng Đóng Băng Cứng (40,000–80,000 Điểm Vinh Dự hoặc 12,000–18,000 Xu Vinh Quang).",
-      en: "The 12,000-Coin Universal Legendary Troop Skin Trap & Safe Surplus Formula: Never buy the 12,000-Coin Universal Legendary Troop Skin without owning the base Gold skin first (only Horde players who have completed their 9 Soul Stones and already own a Gold Troop Skin can redirect 12,000 surplus Coins into star upgrades). Only buy Universal Hero Shards with currency above the Hard Freeze Floor (40,000–80,000 Guild Honor or 12,000–18,000 Guild Coins).",
+      vi: "**Cạm bẫy Universal Legendary Troop Skin (`12,000` Xu) & Ngưỡng Dư An Toàn:** Cấm mua Quân Trang Vạn Năng `12,000` Xu khi chưa mở khóa Quân trang Vàng gốc.\n• **Kỷ luật Giải ngân:** Chỉ Bộ Lạc đã xong `9` Đá và có lính Vàng mới dùng `12,000` Xu nâng sao; chỉ mua Mảnh Vàng khi vượt sàn `40,000`–`80,000` Điểm (`100,000` Điểm dư) hoặc `12,000`–`18,000` Xu.",
+      en: "**The `12,000`-Coin Universal Legendary Troop Skin Trap & Safe Surplus:** Never buy the `12,000`-Coin Universal Legendary Troop Skin without owning the base Gold skin first.\n• **Surplus Rule:** Only Horde players with `9` Stones done and a Gold skin can spend `12,000` Coins on stars; only buy Shards above the `40,000`–`80,000` Honor (`100,000` buffer) or `12,000`–`18,000` Coins floor.",
     },
   ],
   keywords: [
@@ -88,8 +88,8 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Trong giai đoạn đầu game (Lâu Đài Lv.1 – Lv.25), người chơi thường chỉ quan tâm đến Mảnh Tướng Vàng Vạn Năng (Universal Legendary Hero Shards) để nâng sao tướng. Tuy nhiên, bước sang Giữa và Cuối Game, khoảng cách sức mạnh thực chiến giữa một đội hình thường và một đội hình Top Server nằm ở cơ chế Thức Tỉnh Tướng (Hero Awakening) — quá trình nâng cấp một Tướng Vàng Huyền Thoại (Legendary SSR) lên phẩm chất Thần Thoại Đỏ (Ascended Mythic).",
-            en: "During the early game (Castle Lv.1 – Lv.25), players mostly focus on Universal Legendary Hero Shards to star up their roster. However, entering Mid and Late Game, the true combat power gap between an average lineup and a top-server squad is defined by Hero Awakening—the system that ascends a Legendary SSR Hero into an Ascended Mythic powerhouse.",
+            vi: "**Giai đoạn Đầu Game (Castle Lv.1 – Lv.25):** Người chơi thường chỉ quan tâm đến Mảnh Tướng Vàng Vạn Năng (Universal Legendary Hero Shards) để nâng sao đội hình.\n• **Bước ngoặt Giữa & Cuối Game:** Khoảng cách sức mạnh thực chiến với đội hình Top Server nằm ở cơ chế Thức Tỉnh Tướng (Hero Awakening) — nâng cấp Tướng Vàng (Legendary SSR) lên Thần Thoại Đỏ (Ascended Mythic).",
+            en: "**Early Game Focus (Castle Lv.1 – Lv.25):** Players mostly focus on Universal Legendary Hero Shards to star up their initial roster.\n• **Mid & Late Game Inflection Point:** The true combat power gap separating top-server squads is defined by Hero Awakening—ascending a Legendary SSR Hero into an Ascended Mythic powerhouse.",
           },
         },
         {
@@ -154,16 +154,16 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
               ordered: true,
               items: [
                 {
-                  vi: "Điều kiện mở khóa Cây Thức Tỉnh: Khi một Tướng Vàng cốt lõi (như Pyromancer, Adjudicator, Nun của Liên Minh; Soulmancer, Warlock của Bộ Lạc; hoặc Pixie, Forest Maiden, Sage của Thiên Nhiên) đạt mốc 10 Sao (5 Sao Đỏ / Red 5-Star), tướng đó sẽ mở khóa Cây Thức Tỉnh gồm 4 Bậc (Awakening Tiers I ➔ IV).",
-                  en: "Awakening Tree Prerequisite: Once a core Legendary SSR Hero (such as Pyromancer, Adjudicator, or Nun for League; Soulmancer or Warlock for Horde; or Pixie, Forest Maiden, or Sage for Nature) reaches 10 Stars (Red 5-Star), they unlock the 4-Tier Awakening Tree (Tiers I ➔ IV).",
+                  vi: "**Điều kiện mở Cây Thức Tỉnh:** Tướng Vàng cốt lõi (Pyromancer, Adjudicator, Nun; Soulmancer, Warlock; Pixie, Forest Maiden, Sage) đạt `10` Sao (5 Sao Đỏ) sẽ mở 4 Bậc Thức Tỉnh (Tiers I ➔ IV).",
+                  en: "**Awakening Tree Prerequisite:** Core SSR Heroes (Pyromancer, Adjudicator, Nun; Soulmancer, Warlock; Pixie, Forest Maiden, Sage) reaching `10` Stars (Red 5-Star) unlock the 4-Tier Awakening Tree (Tiers I ➔ IV).",
                 },
                 {
-                  vi: "Đột phá phẩm chất Thần Thoại Đỏ: Sau khi hoàn tất cả 4 bậc Thức tỉnh, tướng Vàng sẽ chính thức hóa Đỏ (Ascended Mythic), mở khóa kỹ năng thức tỉnh đột phá, tăng vọt giới hạn chỉ số toàn đội và kích hoạt Hào quang Đỏ (Mythic Faction Aura).",
-                  en: "Ascended Mythic Breakthrough: Completing all 4 Awakening Tiers transforms the SSR Hero into an Ascended Mythic unit, unlocking upgraded ultimate/passive skills, dramatically raising stat ceilings, and activating Mythic Faction Aura bonuses.",
+                  vi: "**Đột phá Thần Thoại Đỏ:** Hoàn tất 4 bậc giúp tướng Vàng hóa Đỏ (Ascended Mythic), nâng cấp kỹ năng chủ động/bị động, tăng vọt trần chỉ số và kích hoạt Hào quang Đỏ (Mythic Faction Aura).",
+                  en: "**Ascended Mythic Breakthrough:** Completing all 4 Awakening Tiers transforms the SSR Hero into an Ascended Mythic unit, upgrading skills, raising stat ceilings, and activating Mythic Faction Aura.",
                 },
                 {
-                  vi: "Tổng định mức nguyên liệu cố định: Để Thức tỉnh hoàn toàn 1 tướng Vàng từ Bậc I lên Bậc IV cần chính xác 9 Hồn Đá Đỏ (1 + 2 + 2 + 4 Soul Stones) cộng với 345–385 Mảnh Tướng (55–65 + 75–95 + 85–95 + 130 Hero Shards) của tướng đó hoặc Mảnh Vàng Vạn Năng.",
-                  en: "Fixed Total Material Requirement: Fully awakening a single SSR Hero from Tier I through Tier IV requires exactly 9 Soul Stones (1 + 2 + 2 + 4) plus 345–385 Hero Shards (55–65 + 75–95 + 85–95 + 130) via specific or Universal Legendary Shards.",
+                  vi: "**Định mức nguyên liệu cố định:** Mỗi tướng cần đúng `9` Hồn Đá Đỏ (`1 + 2 + 2 + 4`) cộng `345–385` Mảnh Tướng (`55–65` + `75–95` + `85–95` + `130` mảnh riêng hoặc Mảnh Vàng Vạn Năng).",
+                  en: "**Fixed Total Material Requirement:** Each SSR Hero requires `9` Soul Stones (`1 + 2 + 2 + 4`) plus `345–385` Hero Shards (`55–65` + `75–95` + `85–95` + `130` specific or Universal Shards).",
                 },
               ],
             },
@@ -179,8 +179,8 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Hệ thống tiệm Vinh Dự / Vinh Quang Bang là Cửa hàng Động (Dynamic Evolving Shop). Ở giai đoạn Lâu Đài Lv.15 – Lv.29 (Pre-Season), khi mở cửa hàng này ra, người chơi hoàn toàn chưa thấy Hồn Đá Đỏ xuất hiện trên kệ mà chỉ thấy Mảnh Vàng Vạn Năng, Quân Trang Vạn Năng (Universal Legendary Troop Skin giá 12,000 Xu) và các vật phẩm phụ. Chỉ khi Lâu Đài chạm mốc Lv.30 hoặc khi máy chủ bước vào Season 1, ô hàng đầu tiên mới mở khóa Hồn Đá Đỏ theo 2 định mức tiền tệ chuẩn:",
-                en: "The Guild Honor and Guild Coin storefront operates as a Dynamic Evolving Shop. From Castle Lv.15 to Lv.29 (Pre-Season), Soul Stones are completely hidden from the shelves—players only see Universal Legendary Hero Shards, the Universal Legendary Troop Skin (12,000 Guild Coins), and minor consumables. Only when your Castle hits Lv.30 or your server enters Season 1 does the top slot unlock Soul Stones under two standard pricing models:",
+                vi: "**Cơ chế Cửa hàng Động (Dynamic Evolving Shop):** Từ Lâu Đài Lv.15 – Lv.29 (Pre-Season), Hồn Đá Đỏ bị ẩn hoàn toàn trên kệ; người chơi chỉ thấy Mảnh Vàng Vạn Năng và Universal Legendary Troop Skin (`12,000` Xu).\n• **Mở khóa ở Lv.30 & Season 1:** Chỉ khi Lâu Đài chạm mốc Lv.30 hoặc máy chủ bước vào Season 1, ô hàng đầu tiên mới mở bán Hồn Đá Đỏ theo 2 định mức tiền tệ chuẩn dưới đây:",
+                en: "**Dynamic Evolving Shop Mechanics:** From Castle Lv.15 to Lv.29 (Pre-Season), Soul Stones are hidden from the shelves—players only see Universal Hero Shards and Universal Legendary Troop Skin (`12,000` Coins).\n• **Unlock at Lv.30 & Season 1:** Only when your Castle hits Lv.30 or your server enters Season 1 does the top slot unlock Soul Stones under two standard pricing models:",
               },
             },
             {
@@ -188,12 +188,12 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
               ordered: false,
               items: [
                 {
-                  vi: "Chuẩn Cửa hàng Vinh Dự Bang Lâu Đài Lv.30 (Guild Honor Shop — Rương Tự Chọn): Giá 40,000 Điểm Vinh Dự / viên (tổng cộng 360,000 Điểm Vinh Dự cho trọn bộ 9 viên), giới hạn mua theo chu kỳ làm mới cửa hàng.",
-                  en: "Castle Lv.30 Guild Honor Shop Standard (Soul Stone Choice Chest): Priced at 40,000 Guild Honor Points per stone (360,000 Guild Honor Points for a full set of 9 stones), capped by the shop's refresh cycle.",
+                  vi: "**Chuẩn Vinh Dự Bang Lv.30 (Rương Tự Chọn):** Giá `40,000` Điểm Vinh Dự/viên (tổng `360,000` Điểm Vinh Dự cho trọn bộ `9` viên), giới hạn mua theo chu kỳ làm mới cửa hàng.",
+                  en: "**Castle Lv.30 Guild Honor Standard (Choice Chest):** Priced at `40,000` Guild Honor Points per stone (`360,000` Guild Honor Points for a full set of `9` stones), capped by shop refresh.",
                 },
                 {
-                  vi: "Chuẩn Tiệm Xu Vinh Quang Hội Season 1 (Guild Coin Shop — Xoay Tua Hệ 3 Tuần/Chu Kỳ): Mở bán Hồn Đá theo Hệ giá 6,000 Xu Vinh Quang Hội / viên (tổng cộng 54,000 Xu Vinh Quang Hội cho trọn bộ 9 viên) cùng Mảnh Vũ Khí Độc Quyền Vạn Năng, xoay tua cố định 3 tuần/chu kỳ theo đúng thứ tự: Liên Minh (League) ➔ Bộ Lạc (Horde) ➔ Thiên Nhiên (Nature).",
-                  en: "Season 1 Guild Coin Shop Standard (3-Week Faction Rotation): Sells faction-specific Soul Stones at 6,000 Guild Coins per stone (54,000 Guild Coins for a full set of 9 stones) alongside Universal Exclusive Weapon Shards, rotating on a strict 3-week cycle: League ➔ Horde ➔ Nature.",
+                  vi: "**Chuẩn Xu Vinh Quang Hội S1 (Xoay Tua 3 Tuần):** Giá `6,000` Xu Vinh Quang Hội/viên (tổng `54,000` Xu cho `9` viên), xoay tua cố định 3 tuần: Liên Minh (League) ➔ Bộ Lạc (Horde) ➔ Thiên Nhiên (Nature).",
+                  en: "**Season 1 Guild Coin Standard (3-Week Rotation):** Priced at `6,000` Guild Coins per stone (`54,000` Guild Coins for `9` stones), rotating on a 3-week cycle: League ➔ Horde ➔ Nature.",
                 },
               ],
             },
@@ -205,8 +205,8 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
                 en: "The Lv.15–Lv.29 'Hidden Shelf' Trap That Delays Awakening by 2–3 Months",
               },
               content: {
-                vi: "Vì Hồn Đá Đỏ bị ẩn đi trước khi đạt Lâu Đài Lv.30 / Season 1, 90% người chơi mới tưởng rằng Cửa hàng Vinh Dự Bang chỉ dùng để mua Mảnh Vàng Vạn Năng hàng tuần. Họ tiêu sạch điểm kiếm được từ sự kiện Guild Race, dẫn đến bi kịch: Ngày vừa lên Lâu Đài Lv.30 hoặc bước vào Season 1, nhìn thấy Hồn Đá Đỏ nằm trên kệ (40,000 Điểm Vinh Dự hoặc 6,000 Xu Vinh Quang) nhưng trong túi chỉ còn vài trăm điểm, khiến tiến độ Thức tỉnh Đội 1 bị chậm lại từ 2 đến 3 tháng!",
-                en: "Because Soul Stones are hidden prior to Castle Lv.30 and Season 1, 90% of new players assume the Guild Shop is merely for weekly Universal Hero Shards. They drain all points earned from Guild Race, leading to disaster: the day they hit Castle Lv.30 or enter Season 1 and see Soul Stones on the top shelf (40,000 Guild Honor or 6,000 Guild Coins), their balance is near zero—delaying Queue 1 Awakening by 2 to 3 months!",
+                vi: "**Ảo giác Kệ hàng Lv.15–Lv.29:** Vì Hồn Đá Đỏ bị ẩn trước Lâu Đài Lv.30 / Season 1, `90%` người chơi mới tưởng Cửa hàng Vinh Dự Bang chỉ dùng để mua Mảnh Vàng Vạn Năng hàng tuần.\n• **Bi kịch Rỗng Ví Ngày Mở Khóa:** Tiêu sạch điểm Guild Race khiến ngày lên Lv.30 / S1 nhìn thấy Hồn Đá Đỏ (`40,000` Điểm hoặc `6,000` Xu) nhưng ví rỗng túi, làm chậm Thức tỉnh Đội 1 từ `2–3` tháng!",
+                en: "**The Lv.15–Lv.29 Shelf Illusion:** Because Soul Stones are hidden prior to Castle Lv.30 and Season 1, `90%` of new players assume the Guild Shop is merely for weekly Universal Hero Shards.\n• **Unlock Day Bankruptcy:** Draining Guild Race points leaves your wallet empty when Soul Stones (`40,000` Guild Honor or `6,000` Guild Coins) appear at Lv.30 / Season 1—delaying Queue 1 Awakening by `2–3` months!",
               },
             },
           ],
@@ -223,8 +223,8 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Để không bao giờ rơi vào cảnh đứt gãy nguyên liệu Thức tỉnh khi bước sang ngưỡng Lâu Đài Lv.30 và Season 1, mọi người chơi F2P và Low-Spender cần tuân thủ nghiêm ngặt lộ trình tích lũy và phân bổ Hồn Đá Đỏ theo đặc thù của từng Phe phái.",
-            en: "To avoid Awakening material starvation upon reaching Castle Lv.30 and Season 1, every F2P and Low-Spender player must strictly follow the freeze accumulation protocol and faction-specific Soul Stone allocation roadmap below.",
+            vi: "**Lộ trình Đóng Băng & Phân bổ 3 Phe:** Để không đứt gãy nguyên liệu Thức tỉnh ở Lv.30 và Season 1, người chơi F2P/Low-Spender phải tuân thủ quy trình tích lũy và dồn Hồn Đá Đỏ theo từng Phe.",
+            en: "**Freeze & 3-Faction Allocation Roadmap:** To avoid Awakening material starvation at Castle Lv.30 and Season 1, every F2P and Low-Spender must follow the freeze protocol and faction Soul Stone roadmap.",
           },
         },
         {
@@ -289,16 +289,16 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
               ordered: false,
               items: [
                 {
-                  vi: "Nguồn thu Điểm Vinh Dự Bang (Guild Honor) & Xu Vinh Quang Hội (Guild Coins): Kiếm được chủ yếu từ việc mở đủ các mốc Rương Cá Nhân & Rương Bang Hội trong sự kiện Đua Bang Hội (Guild Race — Tuần A) diễn ra 2 tuần/lần, kết hợp cùng hoạt động Cự Thú (Behemoth) và Chiến sự Bang.",
-                  en: "Guild Honor & Guild Coin Income Sources: Earned primarily by clearing all Personal and Guild Milestone Chests during the bi-weekly Guild Race (Week A), supplemented by Guild Boss / Behemoth raids and Guild warfare.",
+                  vi: "**Nguồn thu Điểm Vinh Dự & Xu Vinh Quang:** Cày từ 9 mốc Rương Cá Nhân & Rương Bang Hội trong sự kiện Đua Bang Hội (Guild Race — Tuần A) mỗi 2 tuần, kết hợp săn Cự Thú (Behemoth).",
+                  en: "**Guild Honor & Guild Coin Income:** Earned by clearing all 9 Personal and Guild Milestone Chests in the bi-weekly Guild Race (Week A), supplemented by Behemoth raids and Guild warfare.",
                 },
                 {
-                  vi: "Quy tắc Bất khả xâm phạm: Từ lúc mở khóa tính năng Bang hội ở Lv.15 cho đến khi Lâu Đài đạt Lv.29, hãy coi Điểm Vinh Dự Bang / Xu Vinh Quang Hội là tài sản dự trữ chiến lược.",
-                  en: "Inviolable Reserve Rule: From the moment Guild features unlock at Lv.15 until your Castle reaches Lv.29, treat Guild Honor Points and Guild Coins as a locked strategic reserve.",
+                  vi: "**Quy tắc Bất khả xâm phạm:** Từ lúc mở tính năng Bang hội ở Lv.15 đến khi Lâu Đài đạt Lv.29, coi Điểm Vinh Dự Bang và Xu Vinh Quang Hội là tài sản dự trữ chiến lược bất khả xâm phạm.",
+                  en: "**Inviolable Reserve Rule:** From the moment Guild features unlock at Lv.15 until your Castle reaches Lv.29, treat Guild Honor Points and Guild Coins as a locked strategic reserve.",
                 },
                 {
-                  vi: "Kỷ luật Khóa Ví: Không mua đá cường hóa, không mua tài nguyên, không mua ngoại trang lính, và tạm ngưng mua cả Mảnh Vàng Vạn Năng cho đến khi tích đủ quỹ gốc tối thiểu 40,000 Điểm Vinh Dự (chuẩn Lv.30) hoặc 12,000–18,000 Xu Vinh Quang Hội (chuẩn xoay tua S1).",
-                  en: "Wallet Lock Discipline: Do not buy enhancement stones, resources, or troop skins, and pause even Universal Legendary Hero Shard purchases until you have banked the minimum reserve floor of 40,000 Guild Honor Points (Lv.30 standard) or 12,000–18,000 Guild Coins (S1 rotation standard).",
+                  vi: "**Kỷ luật Khóa Ví Tuyệt Đối:** Ngưng mua cả Mảnh Vàng Vạn Năng cho đến khi tích đủ quỹ gốc tối thiểu `40,000` Điểm Vinh Dự (Lv.30) hoặc `12,000`–`18,000` Xu Vinh Quang Hội (S1).",
+                  en: "**Strict Wallet Lock Discipline:** Pause even Universal Legendary Hero Shard purchases until banking the minimum reserve floor of `40,000` Guild Honor Points (Lv.30) or `12,000`–`18,000` Guild Coins (S1).",
                 },
               ],
             },
@@ -314,8 +314,8 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Vì mỗi tướng Vàng cần tới 9 Hồn Đá Đỏ + 345–385 Mảnh Tướng mới hoàn tất 4 bậc Thức tỉnh (trong đó điểm gãy quan trọng nhất là Bậc II nâng cấp Tuyệt chiêu tốn 3 viên cộng dồn và Bậc IV Hóa Đỏ tốn 9 viên cộng dồn), tuyệt đối không chia lẻ mỗi tướng 1 viên Bậc I. Hãy tập trung dồn đủ 9 viên cho duy nhất 1 tướng trụ cột số 1 của Đội 1:",
-                en: "Because each SSR Hero demands 9 Soul Stones + 345–385 Hero Shards to complete all 4 Awakening Tiers (with the critical breakpoints being Tier II Ultimate upgrade at 3 cumulative stones and Tier IV Mythic Ascension at 9 cumulative stones), never spread 1 stone across multiple heroes. Funnel all 9 stones into your single #1 core hero in Queue 1 first:",
+                vi: "**Quy tắc Dồn 1 Tướng Duy Nhất:** Mỗi tướng Vàng cần tới `9` Hồn Đá Đỏ + `345–385` Mảnh Tướng mới hoàn tất 4 bậc Thức tỉnh (điểm gãy Bậc II tốn `3` viên cộng dồn và Bậc IV Hóa Đỏ tốn `9` viên cộng dồn).\n• **Cấm rải lẻ Bậc I:** Tuyệt đối không chia lẻ mỗi tướng 1 viên Bậc I; hãy tập trung dồn đủ `9` viên cho duy nhất 1 tướng trụ cột số 1 của Đội 1:",
+                en: "**Single-Hero Focus Rule:** Each SSR Hero demands `9` Soul Stones + `345–385` Hero Shards to complete all 4 Awakening Tiers (with Tier II Ultimate upgrade at `3` stones and Tier IV Mythic Ascension at `9` stones).\n• **Zero Tier-I Spreading:** Never spread 1 stone across multiple heroes; funnel all `9` stones into your single #1 core hero in Queue 1 first:",
               },
             },
             {
@@ -323,8 +323,8 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
               steps: [
                 {
                   badge: {
-                    vi: "🔴 PHE BỘ LẠC (HORDE)",
-                    en: "🔴 HORDE FACTION",
+                    vi: "PHE BỘ LẠC (HORDE)",
+                    en: "HORDE FACTION",
                   },
                   title: {
                     vi: "Lợi thế Kinh tế Hồn Đá lớn nhất game: Chỉ cần 1 Tướng Vàng Thức Tỉnh (Soulmancer hoặc Warlock)",
@@ -335,14 +335,14 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
                     en: "Total Budget: 9 Soul Stones (360,000 Guild Honor or 54,000 Guild Coins)",
                   },
                   description: {
-                    vi: "Đội hình chuẩn cuối game của Bộ Lạc gồm 5 Tướng Đỏ Nguyên Bản (Desert Prince, Wukong, Storm Maiden, Beastmaster, Witch — không tốn Hồn Đá) + 1 Tướng Vàng Thức Tỉnh ở vị trí thứ 6 là Soulmancer (chia sẻ sát thương/bảo kê) hoặc Warlock (buff tốc đánh/khống chế). Sau khi gom đủ 9 viên cho Soulmancer / Warlock, người chơi Bộ Lạc hoàn toàn giải phóng quỹ Xu Vinh Quang để mua Mảnh Vũ Khí Độc Quyền và nâng sao Universal Legendary Troop Skin (12,000 Xu).",
-                    en: "Endgame Horde fields 5 Native Mythics (Desert Prince, Wukong, Storm Maiden, Beastmaster, Witch—requiring zero Soul Stones) + 1 Awakened SSR in the 6th slot: either Soulmancer (damage link/sustain) or Warlock (attack speed/control buff). Once those 9 stones for Soulmancer / Warlock are done, Horde players permanently free up their Guild Coins for Exclusive Weapon Shards and 12,000-Coin Universal Legendary Troop Skin star upgrades.",
+                    vi: "**Cấu trúc 5 Mythic gốc:** Đội hình chuẩn Bộ Lạc gồm 5 Tướng Đỏ gốc (Desert Prince, Wukong, Storm Maiden, Beastmaster, Witch) + 1 Tướng Vàng Thức Tỉnh là Soulmancer hoặc Warlock.\n• **Giải phóng Quỹ Xu S1:** Sau khi gom đủ `9` viên cho Soulmancer / Warlock, Bộ Lạc giải phóng hoàn toàn Xu Vinh Quang để mua Mảnh Vũ Khí Độc Quyền và nâng sao Universal Legendary Troop Skin (`12,000` Xu).",
+                    en: "**5-Native-Mythic Roster:** Endgame Horde fields 5 Native Mythics (Desert Prince, Wukong, Storm Maiden, Beastmaster, Witch) + 1 Awakened SSR: either Soulmancer or Warlock.\n• **Permanent Coin Liberation:** Once those `9` stones for Soulmancer / Warlock are done, Horde players free up their Guild Coins for Exclusive Weapon Shards and `12,000`-Coin Universal Legendary Troop Skin upgrades.",
                   },
                 },
                 {
                   badge: {
-                    vi: "🔵 PHE LIÊN MINH (LEAGUE)",
-                    en: "🔵 LEAGUE FACTION",
+                    vi: "PHE LIÊN MINH (LEAGUE)",
+                    en: "LEAGUE FACTION",
                   },
                   title: {
                     vi: "Đội hình 2–3 Tướng Vàng Thức Tỉnh: Ưu tiên Pyromancer ➔ Adjudicator ➔ Nun / Bard",
@@ -353,14 +353,14 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
                     en: "Total Budget: 18–27 Soul Stones (720,000 – 1,080,000 Guild Honor or 108,000 – 162,000 Guild Coins)",
                   },
                   description: {
-                    vi: "Đội hình Liên Minh sử dụng từ 2 đến 3 tướng Vàng cần thức tỉnh (Pyromancer, Adjudicator, Nun hoặc Bard). Hãy dồn 9 viên đầu tiên thức tỉnh Pyromancer (tăng đột biến sát thương nổ diện rộng) hoặc Adjudicator (nếu cần dàn chắn bất tử tuyến đầu trước), sau đó mới gom tiếp 9 viên thứ hai và thứ ba.",
-                    en: "Standard League lineups rely on 2 to 3 Awakened SSRs (Pyromancer, Adjudicator, Nun, or Bard). Funnel your first 9 Soul Stones into Pyromancer (massive AoE burst spike) or Adjudicator (if you need an unbreakable frontline tank first), before starting your second and third sets of 9 stones.",
+                    vi: "**Cấu trúc 2–3 Tướng Thức Tỉnh:** Đội hình Liên Minh sử dụng 2 đến 3 tướng Vàng cần thức tỉnh (Pyromancer, Adjudicator, Nun hoặc Bard).\n• **Thứ tự Ưu tiên:** Dồn `9` viên đầu tiên thức tỉnh Pyromancer (nổ sát thương diện rộng) hoặc Adjudicator (dàn chắn bất tử tuyến đầu) trước khi gom bộ `9` viên thứ hai và thứ ba.",
+                    en: "**2–3 Awakened SSR Structure:** Standard League lineups rely on 2 to 3 Awakened SSRs (Pyromancer, Adjudicator, Nun, or Bard).\n• **Priority Order:** Funnel your first `9` Soul Stones into Pyromancer (massive AoE burst spike) or Adjudicator (unbreakable frontline tank) before starting your second and third sets of `9` stones.",
                   },
                 },
                 {
                   badge: {
-                    vi: "🟢 PHE THIÊN NHIÊN (NATURE)",
-                    en: "🟢 NATURE FACTION",
+                    vi: "PHE THIÊN NHIÊN (NATURE)",
+                    en: "NATURE FACTION",
                   },
                   title: {
                     vi: "Đội hình 2–3 Tướng Vàng Thức Tỉnh: Ưu tiên Pixie ➔ Forest Maiden / Sage",
@@ -371,8 +371,8 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
                     en: "Total Budget: 18–27 Soul Stones (720,000 – 1,080,000 Guild Honor or 108,000 – 162,000 Guild Coins)",
                   },
                   description: {
-                    vi: "Đội hình Thiên Nhiên cần thức tỉnh từ 2 đến 3 tướng Vàng (Pixie, Forest Maiden, cùng Sage / Druid / Windwalker). Bắt buộc dồn 9 viên đầu tiên cho Pixie (sát thương chủ lực đi cặp cùng Tidecaller), sau đó mới chuyển sang Forest Maiden hoặc Sage.",
-                    en: "Nature lineups require awakening 2 to 3 SSR heroes (Pixie, Forest Maiden, plus Sage / Druid / Windwalker). Always invest your first 9 Soul Stones into Pixie (primary AoE carry paired with Tidecaller), then transition to Forest Maiden or Sage.",
+                    vi: "**Cấu trúc 2–3 Tướng Thức Tỉnh:** Đội hình Thiên Nhiên cần thức tỉnh 2 đến 3 tướng Vàng (Pixie, Forest Maiden, cùng Sage / Druid / Windwalker).\n• **Thứ tự Ưu tiên:** Bắt buộc dồn `9` viên đầu tiên cho Pixie (sát thương chủ lực đi cặp cùng Tidecaller), sau đó mới chuyển sang Forest Maiden hoặc Sage.",
+                    en: "**2–3 Awakened SSR Structure:** Nature lineups require awakening 2 to 3 SSR heroes (Pixie, Forest Maiden, plus Sage / Druid / Windwalker).\n• **Priority Order:** Always invest your first `9` Soul Stones into Pixie (primary AoE carry paired with Tidecaller), then transition to Forest Maiden or Sage.",
                   },
                 },
               ],
@@ -465,8 +465,8 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Dưới đây là 4 sai lầm kinh điển nhất tại Cửa hàng Vinh Dự Bang và Tiệm Xu Vinh Quang Hội khiến hàng loạt tài khoản F2P / Low-Spender bị kẹt cứng ở khung tướng Vàng suốt Season 1 – Season 2:",
-            en: "Below are the 4 most destructive mistakes in the Guild Honor and Guild Coin Shops that leave F2P and Low-Spender accounts stuck with unawakened SSR heroes throughout Season 1 and Season 2:",
+            vi: "**Bốn Cạm bẫy Đốt Điểm Vinh Dự & Xu Vinh Quang:** Dưới đây là 4 sai lầm chí mạng khiến hàng loạt tài khoản F2P / Low-Spender bị kẹt cứng ở khung tướng Vàng suốt Season 1 – Season 2:",
+            en: "**Four Destructive Guild Honor & Soul Stone Traps:** Below are the 4 critical mistakes that leave F2P and Low-Spender accounts stuck with unawakened SSR heroes throughout Season 1 and Season 2:",
           },
         },
         {
@@ -477,16 +477,16 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
           },
           headers: [
             {
-              vi: "❌ Sai lầm phổ biến (Account Traps)",
-              en: "❌ Common Pitfall (Account Trap)",
+              vi: "Sai lầm phổ biến (Account Traps)",
+              en: "Common Pitfall (Account Trap)",
             },
             {
-              vi: "💥 Hậu quả lên Tiến độ Tài khoản",
-              en: "💥 Account Progression Penalty",
+              vi: "Hậu quả lên Tiến độ Tài khoản",
+              en: "Account Progression Penalty",
             },
             {
-              vi: "✅ Giải pháp tối ưu (Min-Max Solution)",
-              en: "✅ Optimal Min-Max Solution",
+              vi: "Giải pháp tối ưu (Min-Max Solution)",
+              en: "Optimal Min-Max Solution",
             },
           ],
           rows: [
@@ -563,8 +563,8 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Để lập kế hoạch tài chính chính xác đến từng tuần trong Season 1 và Season 2, người chơi cần nắm vững ma trận định lượng chi phí của cả 4 Bậc Thức Tỉnh, sự chênh lệch ngân sách khổng lồ giữa 3 Phe phái và sơ đồ quyết định chi tiêu theo Ngưỡng Dư An Toàn (Safe Surplus Formula).",
-            en: "To plan your Guild currency budget down to the exact week across Season 1 and Season 2, you must master the quantitative 4-Tier Awakening cost matrix, the massive budget divergence across the 3 Factions, and the Safe Surplus decision flow.",
+            vi: "**Kế hoạch Tài chính Season 1 & Season 2:** Nắm vững ma trận định lượng chi phí của 4 Bậc Thức Tỉnh, sự chênh lệch ngân sách giữa 3 Phe phái và sơ đồ chi tiêu theo Ngưỡng Dư An Toàn (Safe Surplus Formula).",
+            en: "**Season 1 & Season 2 Financial Planning:** Master the quantitative 4-Tier Awakening cost matrix, the massive budget divergence across the 3 Factions, and the Safe Surplus decision flow.",
           },
         },
         {
@@ -623,7 +623,7 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
                   id: "step-7-2-pre30-surplus-only",
                   title: {
                     vi: "Chỉ Mua Mảnh Vàng Vạn Năng Khi Số Dư Vượt Ngưỡng 40,000 Điểm / 18,000 Xu",
-                    en: "Only Spend Surplus Above 40,000 Honor / 18,000 Coins on Universal Hero Shards",
+                  en: "Only Spend Surplus Above 40,000 Honor / 18,000 Coins on Universal Hero Shards",
                   },
                   subtitle: {
                     vi: "Giữ nguyên phần quỹ gốc để xúc ngay Hồn Đá Đỏ vào ngày cán mốc Lv.30 / Season 1",
@@ -737,8 +737,8 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Trước khi lập ngân sách Điểm Vinh Dự Bang và Xu Vinh Quang Hội, người chơi cần nắm rõ lượng Hồn Đá Đỏ (Soul Stones) và Mảnh Tướng (Hero Shards) tiêu chuẩn cần thiết ở từng bậc Thức tỉnh (điều kiện tiên quyết: Tướng Vàng đã đạt 5 Sao Đỏ / 10 Sao):",
-                en: "Before budgeting your Guild Honor Points and Guild Coins, review the exact Soul Stone and Hero Shard requirements across each of the 4 Awakening Tiers (prerequisite: SSR Hero at Red 5-Star / 10-Star):",
+                vi: "**Định mức Hồn Đá & Mảnh Tướng:** Đối chiếu lượng Hồn Đá Đỏ (Soul Stones) và Mảnh Tướng (Hero Shards) cần thiết ở từng bậc Thức tỉnh (điều kiện tiên quyết: Tướng Vàng đã đạt 5 Sao Đỏ / `10` Sao):",
+                en: "**Soul Stone & Hero Shard Requirements:** Review the exact Soul Stone and Hero Shard requirements across each of the 4 Awakening Tiers (prerequisite: SSR Hero at Red 5-Star / `10`-Star):",
               },
             },
             {
@@ -802,8 +802,8 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "Bậc II (Tier II) 🔥",
-                    en: "Tier II 🔥",
+                    vi: "Bậc II (Tier II) ★",
+                    en: "Tier II ★",
                   },
                   {
                     vi: "2 Viên (Cộng dồn: 3)",
@@ -854,8 +854,8 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "Bậc IV (Tier IV — Ascended) 👑",
-                    en: "Tier IV (Ascended Mythic) 👑",
+                    vi: "Bậc IV (Tier IV — Ascended) ★",
+                    en: "Tier IV (Ascended Mythic) ★",
                   },
                   {
                     vi: "4 Viên (Cộng dồn: 9)",
@@ -918,8 +918,8 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Sự chênh lệch về số lượng Tướng Đỏ nguyên bản (Native Mythics) và Tướng Vàng cần thức tỉnh (Awakened SSRs) giữa 3 Phe phái tạo ra bài toán kinh tế hoàn toàn khác biệt cho F2P và Low-Spender:",
-                en: "The structural difference in Native Mythics versus Awakened SSRs across the 3 Factions creates a massive long-term Guild currency divergence for F2P and Low-Spender accounts:",
+                vi: "**Chênh lệch Ngân sách 3 Phe phái:** Sự khác biệt về số lượng Tướng Đỏ gốc (Native Mythics) và Tướng Vàng cần thức tỉnh (Awakened SSRs) tạo ra bài toán kinh tế hoàn toàn khác biệt cho F2P/Low-Spender:",
+                en: "**3-Faction Budget Divergence:** The structural difference in Native Mythics versus Awakened SSRs across the 3 Factions creates a massive long-term Guild currency divergence for F2P and Low-Spender accounts:",
               },
             },
             {
@@ -985,8 +985,8 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
                     en: "54,000 Guild Coins",
                   },
                   {
-                    vi: "⭐⭐⭐⭐⭐ (Tối ưu số 1): Tiết kiệm 50%–66% ngân sách Hồn Đá, giải phóng 12,000 Xu Vinh Quang để nâng sao Universal Legendary Troop Skin (khi đã có lính Vàng gốc) & vét sạch Mảnh VK Độc Quyền!",
-                    en: "⭐⭐⭐⭐⭐ (#1 F2P Choice): Saves 50%–66% on Soul Stones, freeing 12,000 Guild Coins to star up Universal Legendary Troop Skin (once base Gold skin is owned) & buy out Exclusive Weapon Shards!",
+                    vi: "★★★★★ (Tối ưu số 1): Tiết kiệm 50%–66% ngân sách Hồn Đá, giải phóng 12,000 Xu Vinh Quang để nâng sao Universal Legendary Troop Skin (khi đã có lính Vàng gốc) & vét sạch Mảnh VK Độc Quyền!",
+                    en: "★★★★★ (#1 F2P Choice): Saves 50%–66% on Soul Stones, freeing 12,000 Guild Coins to star up Universal Legendary Troop Skin (once base Gold skin is owned) & buy out Exclusive Weapon Shards!",
                   },
                 ],
                 [
@@ -1015,8 +1015,8 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
                     en: "108,000 – 162,000 Guild Coins",
                   },
                   {
-                    vi: "⭐⭐ (Đắt đỏ nhất): Áp lực Hồn Đá cực lớn, buộc phải khóa chặt chi tiêu Mảnh Vàng suốt nhiều tháng; ưu tiên dồn 9 viên đầu cho Pyromancer hoặc Adjudicator.",
-                    en: "⭐⭐ (Most Expensive): Extreme Soul Stone pressure requiring strict shard freeze for months; prioritize first 9 stones into Pyromancer or Adjudicator.",
+                    vi: "★★ (Đắt đỏ nhất): Áp lực Hồn Đá cực lớn, buộc phải khóa chặt chi tiêu Mảnh Vàng suốt nhiều tháng; ưu tiên dồn 9 viên đầu cho Pyromancer hoặc Adjudicator.",
+                    en: "★★ (Most Expensive): Extreme Soul Stone pressure requiring strict shard freeze for months; prioritize first 9 stones into Pyromancer or Adjudicator.",
                   },
                 ],
                 [
@@ -1045,8 +1045,8 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
                     en: "108,000 – 162,000 Guild Coins",
                   },
                   {
-                    vi: "⭐⭐⭐ (Trung bình – Cao): Cần gấp 2–3 lần thời gian tích Hồn Đá so với Bộ Lạc; bắt buộc dồn 9 viên đầu tiên cho Pixie (cặp bài trùng với Tidecaller).",
-                    en: "⭐⭐⭐ (Moderate–High Cost): Requires 2x–3x the Soul Stone accumulation time of Horde; strictly funnel the first 9 stones into Pixie (core carry alongside Tidecaller).",
+                    vi: "★★★ (Trung bình – Cao): Cần gấp 2–3 lần thời gian tích Hồn Đá so với Bộ Lạc; bắt buộc dồn 9 viên đầu tiên cho Pixie (cặp bài trùng với Tidecaller).",
+                    en: "★★★ (Moderate–High Cost): Requires 2x–3x the Soul Stone accumulation time of Horde; strictly funnel the first 9 stones into Pixie (core carry alongside Tidecaller).",
                   },
                 ],
               ],
@@ -1063,8 +1063,8 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Khi nào bạn được phép trích Điểm Vinh Dự Bang / Xu Vinh Quang Hội để mua 10 Mảnh Tướng Vàng Vạn Năng (300 Xu × 10 = 3,000 Xu/tuần) hoặc 10 Mảnh Vũ Khí Độc Quyền (400 Xu × 10 = 4,000 Xu/tuần) mà không sợ thiếu tiền mua Hồn Đá Đỏ? Hãy áp dụng Công thức Ngưỡng Dư An Toàn: Điểm Có Thể Chi Tiêu Tuần Này = Số Dư Hiện Tại − (Ngưỡng Đóng Băng Cứng + Chi Phí Hồn Đá Chu Kỳ Tới).",
-                en: "When are you allowed to spend Guild Honor Points or Guild Coins on 10 Universal Legendary Hero Shards (300 Coins × 10 = 3,000 Coins/week) or 10 Universal Exclusive Weapon Shards (400 Coins × 10 = 4,000 Coins/week) without starving your Soul Stone fund? Apply the Safe Surplus Formula: Spendable Weekly Currency = Current Balance − (Hard Freeze Floor + Next Cycle Soul Stone Cost).",
+                vi: "**Khi nào được mua Mảnh Vàng & Vũ Khí Độc Quyền?** Chỉ trích quỹ mua `10` Mảnh Vàng (`300 × 10 = 3,000` Xu/tuần) hoặc `10` Mảnh VK Độc Quyền (`400 × 10 = 4,000` Xu/tuần) khi vượt sàn dự phòng.\n• **Công thức Ngưỡng Dư An Toàn:** `Điểm Có Thể Chi Tiêu Tuần Này = Số Dư Hiện Tại − (Ngưỡng Đóng Băng Cứng + Chi Phí Hồn Đá Chu Kỳ Tới)`.",
+                en: "**When to Buy Hero & Exclusive Weapon Shards?** Only spend currency on `10` Universal Hero Shards (`300 × 10 = 3,000` Coins/week) or `10` Exclusive Weapon Shards (`400 × 10 = 4,000` Coins/week) above your safety floor.\n• **Safe Surplus Formula:** `Spendable Weekly Currency = Current Balance − (Hard Freeze Floor + Next Cycle Soul Stone Cost)`.",
               },
             },
             {
@@ -1075,8 +1075,8 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
                 en: "The Two Mandatory Hard Freeze Floor Benchmarks",
               },
               content: {
-                vi: "1) Chuẩn Lâu Đài Lv.30 (40,000 Điểm Vinh Dự / viên): Giữ Ngưỡng Đóng Băng Cứng 40,000 Điểm (cho 1 viên ngay khi mở khóa) hoặc 80,000 Điểm (nếu sát ngày reset tháng). Chỉ phần điểm vượt trên 40,000–80,000 Điểm mới được đổi Mảnh Vàng.\n2) Chuẩn Xoay Tua 3 Tuần Season 1+ (6,000 Xu Vinh Quang Hội / viên): Mỗi vòng 3 tuần (League ➔ Horde ➔ Nature) cần 6,000 Xu cho 1 viên Hồn Đá Hệ Đội 1 + 4,000 Xu/tuần cho 10 Mảnh Vũ Khí Độc Quyền. Luôn giữ tối thiểu 12,000–18,000 Xu Vinh Quang Hội trong ví; chỉ khi số dư > 18,000 Xu mới chi 3,000 Xu mua 10 Mảnh Tướng Vàng Vạn Năng!",
-                en: "1) Castle Lv.30 Standard (40,000 Guild Honor Points / stone): Maintain a Hard Freeze Floor of 40,000 Points (for 1 immediate stone on unlock) or 80,000 Points (near monthly reset). Only spend points above 40,000–80,000 on Universal Hero Shards.\n2) Season 1+ 3-Week Rotation Standard (6,000 Guild Coins / stone): Every 3-week cycle (League ➔ Horde ➔ Nature) requires 6,000 Coins for 1 Queue 1 Soul Stone + 4,000 Coins/week for 10 Exclusive Weapon Shards. Always keep at least 12,000–18,000 Guild Coins banked; only spend 3,000 Coins on 10 Universal Hero Shards when your balance exceeds 18,000 Guild Coins!",
+                vi: "**1. Chuẩn Lâu Đài Lv.30 (`40,000` Điểm Vinh Dự/viên):** Giữ Ngưỡng Đóng Băng Cứng `40,000` Điểm (cho 1 viên ngay khi mở khóa) hoặc `80,000`–`100,000` Điểm (sát ngày reset tháng); chỉ tiêu phần vượt sàn.\n• **2. Chuẩn Xoay Tua 3 Tuần S1+ (`6,000` Xu/viên):** Mỗi vòng 3 tuần cần `6,000` Xu cho 1 Hồn Đá + `4,000` Xu/tuần cho `10` Mảnh VK; giữ sàn `12,000`–`18,000` Xu (`15,000` Xu chuẩn), chỉ mua Mảnh Vàng khi `> 18,000` Xu!",
+                en: "**1. Castle Lv.30 Standard (`40,000` Guild Honor/stone):** Maintain a Hard Freeze Floor of `40,000` Points (for 1 immediate stone on unlock) or `80,000`–`100,000` Points (near monthly reset); only spend surplus.\n• **2. S1+ Rotation (`6,000` Coins/stone):** Every 3 weeks needs `6,000` Coins (1 Stone) + `4,000` Coins/wk (`10` EW Shards); keep `12,000`–`18,000` Coins (`15,000` floor) and buy Shards above `18,000`!",
               },
             },
           ],
@@ -1102,8 +1102,8 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
             en: "Comparing Two F2P Accounts Hitting Castle Lv.30 on Day 55 & Entering Season 1 on Day 65",
           },
           profileSummary: {
-            vi: "Đối chiếu hai tài khoản F2P xuất phát cùng Ngày 1: Tài khoản A tiêu sạch Điểm Vinh Dự mỗi tuần và dính bẫy Universal Legendary Troop Skin 12,000 Xu khi chơi Liên Minh; Tài khoản B thực thi nghiêm ngặt Lệnh Đóng Băng 40,000 Điểm / 18,000 Xu và chuyển giao sang Đội 1 Bộ Lạc (5 Native Mythics + Soulmancer).",
-            en: "Side-by-side audit of two Day-1 F2P accounts: Account A drained Guild Honor weekly and fell for the 12,000-Coin Universal Legendary Troop Skin trap while running League; Account B enforced the 40,000 Honor / 18,000 Coin Freeze and transitioned to Queue 1 Horde (5 Native Mythics + Soulmancer).",
+            vi: "**Đối chiếu 2 tài khoản F2P xuất phát Ngày 1:** Tài khoản A tiêu sạch Điểm Vinh Dự mỗi tuần và dính bẫy Universal Legendary Troop Skin `12,000` Xu khi chơi Liên Minh.\n• **Tài khoản B (Chuẩn Đóng Băng):** Thực thi nghiêm ngặt Lệnh Đóng Băng `40,000` Điểm / `18,000` Xu và chuyển giao sang Đội 1 Bộ Lạc (5 Native Mythics + Soulmancer).",
+            en: "**Side-by-side audit of two Day-1 F2P accounts:** Account A drained Guild Honor weekly and fell for the `12,000`-Coin Universal Legendary Troop Skin trap while running League.\n• **Account B (Freeze Standard):** Enforced the `40,000` Honor / `18,000` Coin Freeze and transitioned to Queue 1 Horde (5 Native Mythics + Soulmancer).",
           },
           metrics: [
             {
@@ -1163,12 +1163,12 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
           ],
           diagnostics: [
             {
-              vi: "Thiệt hại kép từ hiệu ứng 'Ẩn kệ hàng' và cạm bẫy 12,000 Xu: Tài khoản A tiêu sạch Điểm Vinh Dự từ Lv.15–Lv.29 vào Mảnh Vàng lẻ tẻ và mua nhầm 1 Universal Legendary Troop Skin giá 12,000 Xu (tương đương 2 viên Hồn Đá Đỏ S1) nhưng không có Quân trang Vàng gốc để dùng. Đồng thời, việc theo đuổi đội hình Liên Minh cần tới 18–27 Hồn Đá (720,000 – 1,080,000 Điểm Vinh Dự hoặc 108,000 – 162,000 Xu) khiến tài khoản bị khóa chặt thanh khoản suốt 4 tháng.",
-              en: "Double penalty from the 'Hidden Shelf' effect and 12,000-Coin trap: Account A drained Guild Honor from Lv.15–Lv.29 on minor shards and wasted 12,000 Coins (equal to 2 Season 1 Soul Stones) on a Universal Legendary Troop Skin without owning a base Gold skin. Simultaneously, running League required 18–27 Soul Stones (720,000 – 1,080,000 Guild Honor or 108,000 – 162,000 Guild Coins), locking shop liquidity for 4 months.",
+              vi: "**Thiệt hại kép từ 'Ẩn kệ hàng' & bẫy `12,000` Xu:** Tài khoản A tiêu sạch Điểm Vinh Dự từ Lv.15–Lv.29 và mua nhầm Universal Legendary Troop Skin `12,000` Xu khi chưa có lính Vàng gốc.\n• **Áp lực Liên Minh:** Theo đuổi đội hình Liên Minh cần tới `18–27` Hồn Đá (`720,000` – `1,080,000` Điểm Vinh Dự hoặc `108,000` – `162,000` Xu) khiến tài khoản bị khóa chặt thanh khoản suốt 4 tháng.",
+              en: "**Double penalty from 'Hidden Shelf' & `12,000`-Coin trap:** Account A drained Guild Honor from Lv.15–Lv.29 and wasted `12,000` Coins on Universal Legendary Troop Skin without a base Gold skin.\n• **League Burden:** Running League required `18–27` Soul Stones (`720,000` – `1,080,000` Guild Honor or `108,000` – `162,000` Guild Coins), locking shop liquidity for 4 months.",
             },
             {
-              vi: "Đòn bẩy kinh tế 5 Mythic gốc của Bộ Lạc trên Tài khoản B: Bằng cách đóng băng 40,000 Điểm Vinh Dự từ Ngày 15–55 và chuyển sang Bộ Lạc (Desert Prince, Wukong, Storm Maiden, Beastmaster, Witch + 1 Awakened SSR là Soulmancer hoặc Warlock), Tài khoản B chỉ cần duy nhất 9 Hồn Đá Đỏ + 345–385 Mảnh Tướng (360,000 Điểm hoặc 54,000 Xu) để khép kín đội hình 6 Tướng Đỏ.",
-              en: "Horde's 5-Native-Mythic economic leverage on Account B: By freezing 40,000+ Guild Honor from Day 15–55 and pivoting to Horde (Desert Prince, Wukong, Storm Maiden, Beastmaster, Witch + 1 Awakened SSR in Soulmancer or Warlock), Account B needed only 9 Soul Stones + 345–385 Hero Shards (360,000 Honor or 54,000 Coins) to complete a full 6-Mythic lineup.",
+              vi: "**Đòn bẩy kinh tế 5 Mythic gốc của Bộ Lạc:** Đóng băng `40,000` Điểm từ Ngày 15–55 và chuyển sang Bộ Lạc (Desert Prince, Wukong, Storm Maiden, Beastmaster, Witch + 1 Awakened SSR là Soulmancer hoặc Warlock).\n• **Tối giản Ngân sách:** Tài khoản B chỉ cần đúng `9` Hồn Đá Đỏ + `345–385` Mảnh Tướng (`360,000` Điểm hoặc `54,000` Xu) để khép kín đội hình 6 Tướng Đỏ.",
+              en: "**Horde's 5-Native-Mythic economic leverage:** Froze `40,000`+ Guild Honor from Day 15–55 and pivoted to Horde (Desert Prince, Wukong, Storm Maiden, Beastmaster, Witch + Soulmancer or Warlock).\n• **Minimal Budget:** Account B needed only `9` Soul Stones + `345–385` Hero Shards (`360,000` Honor or `54,000` Coins) to complete a full 6-Mythic lineup.",
             },
           ],
           recoverySteps: [
@@ -1179,8 +1179,8 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
                 en: "Freeze All Guild Honor & Guild Coins from Day 15 to Day 55",
               },
               detail: {
-                vi: "Tích lũy quỹ dự phòng vượt ngưỡng 40,000–80,000 Điểm Vinh Dự và 18,000 Xu Vinh Quang Hội thông qua việc mở trọn 9 rương mốc cá nhân sự kiện Guild Race (Tuần A).",
-                en: "Accumulate a reserve exceeding 40,000–80,000 Guild Honor Points and 18,000 Guild Coins by clearing all 9 personal milestone chests in bi-weekly Guild Race (Week A).",
+                vi: "Tích lũy quỹ dự phòng vượt ngưỡng `40,000`–`80,000` Điểm Vinh Dự và `18,000` Xu Vinh Quang Hội thông qua việc mở trọn 9 rương mốc cá nhân sự kiện Guild Race (Tuần A).",
+                en: "Accumulate a reserve exceeding `40,000`–`80,000` Guild Honor Points and `18,000` Guild Coins by clearing all 9 personal milestone chests in bi-weekly Guild Race (Week A).",
               },
               impactBadge: {
                 vi: "QUỸ GỐC 80,000+ ĐIỂM",
@@ -1194,8 +1194,8 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
                 en: "Funnel All 9 Soul Stones + 345–385 Shards into Primary Carry in Early Season 1",
               },
               detail: {
-                vi: "Mua liền mạch theo chu kỳ xoay tua 3 tuần kết hợp mở Rương Hồn Đá Tự Chọn và xả đúng Thứ Năm Tuần B (GAR Day 4) để đưa Soulmancer / Warlock (hoặc Pyromancer / Adjudicator / Pixie) qua Bậc II (75–95 Mảnh) lên thẳng Bậc IV Hóa Đỏ (130 Mảnh).",
-                en: "Buy consistently on the 3-week rotation, unseal Soul Stone Choice Chests, and upgrade on Thursday Week B (GAR Day 4) to push Soulmancer / Warlock (or Pyromancer / Adjudicator / Pixie) past Tier II (75–95 Shards) straight to Tier IV Mythic (130 Shards).",
+                vi: "**Mua liền mạch 3 tuần:** Kết hợp mở Rương Hồn Đá Tự Chọn và xả Thứ Năm Tuần B (GAR Day 4).\n• **Chạm thẳng Bậc IV:** Đưa Soulmancer / Warlock (hoặc Pyromancer / Adjudicator / Pixie) qua Bậc II (`75–95` Mảnh) lên thẳng Bậc IV Hóa Đỏ (`130` Mảnh).",
+                en: "**Buy on 3-Week Cycle:** Unseal Soul Stone Choice Chests and upgrade on Thursday Week B (GAR Day 4).\n• **Push to Tier IV:** Advance Soulmancer / Warlock (or Pyromancer / Adjudicator / Pixie) past Tier II (`75–95` Shards) straight to Tier IV Mythic (`130` Shards).",
               },
               impactBadge: {
                 vi: "HOÀN TẤT 9 VIÊN ĐẦU S1",
@@ -1209,8 +1209,8 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
                 en: "Redirect 100% of Post-Awakening Guild Income into Exclusive Weapons & Gold Troop Skins",
               },
               detail: {
-                vi: "Sau khi hoàn tất 9 viên cho Soulmancer / Warlock (54,000 Xu), Tài khoản B vét sạch 10 Mảnh Vũ Khí Độc Quyền (4,000 Xu/tuần) + 10 Mảnh Vàng Vạn Năng (3,000 Xu/tuần) và dùng 12,000 Xu thặng dư nâng sao Universal Legendary Troop Skin đã sở hữu.",
-                en: "After finishing all 9 stones for Soulmancer / Warlock (54,000 Coins), Account B buys out 10 Exclusive Weapon Shards (4,000 Coins/week) + 10 Universal Hero Shards (3,000 Coins/week) and invests 12,000 surplus Coins into upgrading owned Universal Legendary Troop Skins.",
+                vi: "**Giải phóng Xu S1:** Sau khi xong `9` viên cho Soulmancer / Warlock (`54,000` Xu), vét sạch `10` Mảnh VK Độc Quyền (`4,000` Xu/tuần) + `10` Mảnh Vàng (`3,000` Xu/tuần).\n• **Nâng sao Quân trang:** Dùng `12,000` Xu thặng dư nâng sao Universal Legendary Troop Skin đã sở hữu.",
+                en: "**Free Up S1 Coins:** After finishing `9` stones for Soulmancer / Warlock (`54,000` Coins), buy out `10` Exclusive Weapon Shards (`4,000` Coins/week) + `10` Hero Shards (`3,000` Coins/week).\n• **Star Up Troop Skins:** Invest `12,000` surplus Coins into upgrading owned Universal Legendary Troop Skins.",
               },
               impactBadge: {
                 vi: "+1.5M LỰC CHIẾN S2",
@@ -1219,8 +1219,8 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
             },
           ],
           conclusion: {
-            vi: "Kỷ luật Đóng Băng 40,000 Điểm Vinh Dự kết hợp lựa chọn thông minh cấu trúc đội hình 5 Mythic gốc của Bộ Lạc giúp người chơi F2P rút ngắn tới 4 tháng cày Hồn Đá Đỏ và chiếm ưu thế tuyệt đối về Vũ Khí Độc Quyền ở Season 2.",
-            en: "Combining the 40,000 Guild Honor Freeze with Horde's 5-Native-Mythic roster architecture saves F2P players up to 4 months of Soul Stone grinding and establishes a decisive Exclusive Weapon advantage by Season 2.",
+            vi: "Kỷ luật Đóng Băng `40,000` Điểm Vinh Dự kết hợp cấu trúc 5 Mythic gốc của Bộ Lạc giúp F2P rút ngắn tới 4 tháng cày Hồn Đá Đỏ và chiếm ưu thế tuyệt đối về Vũ Khí Độc Quyền ở Season 2.",
+            en: "Combining the `40,000` Guild Honor Freeze with Horde's 5-Native-Mythic roster architecture saves F2P players up to 4 months of Soul Stone grinding and establishes a decisive Exclusive Weapon lead by Season 2.",
           },
         },
         {

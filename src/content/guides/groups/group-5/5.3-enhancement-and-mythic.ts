@@ -16,30 +16,30 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
   },
   tldr: {
     coreRule: {
-      vi: "Luôn nâng cấp trang bị theo bậc thang đồng đều 4 món (+10 ➔ +20 ➔ +30 ➔ +40) để kích hoạt chỉ số ẩn Bậc Thầy Cường Hóa (Enhancement Master — mở ngay +5,900 ATK & +74,000 HP ở mốc Vàng +10). Hệ thống luôn tính theo món có phẩm chất thấp nhất và cấp độ thấp nhất trong 4 món đang mặc.",
-      en: "Always enhance equipment in synchronized 4-piece brackets (+10 ➔ +20 ➔ +30 ➔ +40) to unlock hidden Enhancement Master resonance stats (granting +5,900 ATK & +74,000 HP right at Golden +10). The system always evaluates resonance based on the lowest-rarity and lowest-level piece among the 4 equipped slots.",
+      vi: "• **Quy luật đồng bộ**: Luôn nâng cấp trang bị theo bậc thang đồng đều 4 món (`+10` ➔ `+20` ➔ `+30` ➔ `+40`) để kích hoạt chỉ số ẩn **Bậc Thầy Cường Hóa (Enhancement Master)**.\n• **Mốc cộng hưởng**: Mở ngay +5,900 ATK & +74,000 HP ở mốc Vàng `+10`; hệ thống luôn tính theo món có phẩm chất thấp nhất và cấp độ thấp nhất trong 4 món.",
+      en: "• **Synchronized Law**: Always enhance equipment in synchronized 4-piece brackets (`+10` ➔ `+20` ➔ `+30` ➔ `+40`) to unlock hidden **Enhancement Master** resonance stats.\n• **Resonance Rule**: Grants +5,900 ATK & +74,000 HP right at Golden `+10`; the system always evaluates resonance by the lowest-rarity and lowest-level piece among the 4 slots.",
     },
     immediateAction: {
-      vi: "Đẩy đồng loạt 24 món của Đội 1 lên Full +10 (504,000 Quặng + 2.42M Ruby) trước khi nâng bất kỳ món nào lên +11. Khi bước sang bậc mới (+20/+30/+40), luôn đập Kiếm + Giày trước cho DPS/Healer và đập Mũ + Giáp trước cho Tanker/Support, sau đó kéo 2 món còn lại chạm đúng bội số của 10.",
-      en: "Bring all 24 pieces across Queue 1 to Full +10 (504,000 Upgrade Runes + 2.42M Rubies) before pushing any single piece to +11. When advancing to the next bracket (+20/+30/+40), always upgrade Weapon + Boots first for DPS/Healers and Helmet + Chestplate first for Tanks/Supports, then pull the remaining 2 slots to the exact multiple of 10.",
+      vi: "• **Đồng bộ Đội 1**: Đẩy đồng loạt `24` món của Đội 1 lên Full `+10` (504,000 Quặng + 2.42M Ruby) trước khi nâng bất kỳ món nào lên `+11`.\n• **Thứ tự vai trò**: Khi bước sang bậc mới (`+20`/`+30`/`+40`), đập **Kiếm + Giày** trước cho DPS/Healer và **Mũ + Giáp** trước cho Tanker/Support, rồi kéo 2 món còn lại chạm bội số của `10`.",
+      en: "• **Sync Queue 1**: Bring all `24` pieces across Queue 1 to Full `+10` (504,000 Upgrade Runes + 2.42M Rubies) before pushing any single piece to `+11`.\n• **Role Slot Order**: When advancing to `+20`/`+30`/`+40`, upgrade **Weapon + Boots** first for DPS/Healers and **Helmet + Chestplate** first for Tanks/Supports, then pull the other 2 slots to the multiple of `10`.",
     },
     strictTaboo: {
-      vi: "Không đập dồn 1 món lẻ lên +25 – +30 khi 3 món còn lại đang ở +12/+15, và không tiêu lãng phí Mảnh Vũ Khí Độc Quyền Vạn Năng cho tướng chuyển giao hoặc đẩy 1 tướng lẻ lên Lv.18 khi các trụ cột Carry/Tank trong Đội 1 chưa đạt Điểm gãy Vàng Lv.10 (275 Mảnh).",
-      en: "NEVER tunnel-vision a single piece to +25 – +30 while leaving 3 pieces at +12/+15, and NEVER waste Universal Exclusive Weapon Shards on transitional heroes or push a single weapon to Lv.18 before your core Queue 1 Carries and Tanks reach the Lv.10 Golden Breakpoint (275 Shards).",
+      vi: "• **Cấm đập lệch cấp**: Không đập dồn 1 món lẻ lên `+25` – `+30` khi 3 món còn lại đang ở `+12`/`+15`.\n• **Cấm đốt mảnh vũ khí**: Không tiêu Mảnh Vũ Khí Độc Quyền Vạn Năng cho tướng quá độ hoặc đẩy 1 tướng lẻ lên `Lv.18` khi các trụ cột Đội 1 chưa đạt Điểm gãy Vàng `Lv.10` (275 Mảnh).",
+      en: "• **No Split-Leveling**: NEVER tunnel-vision a single piece to `+25` – `+30` while leaving 3 pieces at `+12`/`+15`.\n• **No Shard Burn**: NEVER waste Universal Exclusive Weapon Shards on transitional heroes or push a single weapon to `Lv.18` before Queue 1 pillars reach the `Lv.10` Golden Breakpoint (275 Shards).",
     },
   },
   keyTakeaways: [
     {
-      vi: "Chi phí Cường hóa Đồ Vàng (Lv.0 ➔ +40): Lv.0➔+10 tốn 21,000 Quặng + 100,800 Ruby/món (84,000 Quặng/tướng = 504,000 Quặng/24 món, kích hoạt +5,900 ATK & +74,000 HP); Lv.11➔+20 tốn +39,000 Quặng (tích lũy 60,000 Quặng + 288,000 Ruby/món = 240,000 Quặng/tướng); Lv.21➔+30 tốn +58,500 Quặng (tích lũy 118,500 Quặng + 568,800 Ruby/món = 474,000 Quặng/tướng); Lv.31➔+40 tốn +76,500 Quặng (tích lũy 195,000 Quặng + 936,000 Ruby/món = 780,000 Quặng + 3,744,000 Ruby/tướng = 4,680,000 Quặng + 22,464,000 Ruby cho 24 món Đội 1).",
-      en: "Golden Gear Enhancement Costs (Lv.0 ➔ +40): Lv.0➔+10 costs 21,000 Runes + 100,800 Rubies/piece (84,000 Runes/hero = 504,000 Runes/24 pieces, unlocking +5,900 ATK & +74,000 HP); Lv.11➔+20 adds 39,000 Runes (cumulative 60,000 Runes + 288,000 Rubies/piece = 240,000 Runes/hero); Lv.21➔+30 adds 58,500 Runes (cumulative 118,500 Runes + 568,800 Rubies/piece = 474,000 Runes/hero); Lv.31➔+40 adds 76,500 Runes (cumulative 195,000 Runes + 936,000 Rubies/piece = 780,000 Runes + 3,744,000 Rubies/hero = 4,680,000 Runes + 22,464,000 Rubies for Queue 1's 24 pieces).",
+      vi: "**Chi phí Cường hóa Đồ Vàng (`Lv.0` ➔ `+40`):**\n• `Lv.0➔+10`: 21,000 Quặng + 100,800 Ruby/món (84,000 Quặng/tướng = 504,000 Quặng/24 món, kích hoạt +5,900 ATK & +74,000 HP).\n• `Lv.11➔+20`: +39,000 Quặng (tích lũy 60,000 Quặng + 288,000 Ruby/món = 240,000 Quặng/tướng); `Lv.21➔+30`: +58,500 Quặng (tích lũy 118,500 Quặng/món = 474,000 Quặng/tướng).\n• `Lv.31➔+40`: +76,500 Quặng (tích lũy 195,000 Quặng + 936,000 Ruby/món = 780,000 Quặng + 3,744,000 Ruby/tướng = 4,680,000 Quặng + 22,464,000 Ruby cho 24 món Đội 1).",
+      en: "**Golden Gear Enhancement Costs (`Lv.0` ➔ `+40`):**\n• `Lv.0➔+10`: 21,000 Runes + 100,800 Rubies/piece (84,000 Runes/hero = 504,000 Runes/24 pieces, unlocking +5,900 ATK & +74,000 HP).\n• `Lv.11➔+20`: +39,000 Runes (cumulative 60,000 Runes + 288,000 Rubies/piece = 240,000 Runes/hero); `Lv.21➔+30`: +58,500 Runes (cumulative 118,500 Runes/piece = 474,000 Runes/hero).\n• `Lv.31➔+40`: +76,500 Runes (cumulative 195,000 Runes + 936,000 Rubies/piece = 780,000 Runes + 3,744,000 Rubies/hero = 4,680,000 Runes + 22,464,000 Rubies for Queue 1's 24 pieces).",
     },
     {
-      vi: "Chi phí Đột phá Sao Đồ Đỏ (Lv.40 ➔ 1★ ➔ 5★ Mythic): 1★ (750 Thỏi Vàng + 62,500 Quặng + 3M Ruby + 5 Đá Vàng), 2★ (975 Thỏi Vàng + 81,250 Quặng + 3.9M Ruby + 10 Đá Vàng), 3★ (1,200 Thỏi Vàng + 100,000 Quặng + 4.8M Ruby + 15 Đá Vàng), 4★ (1,425 Thỏi Vàng + 118,750 Quặng + 5.68M Ruby + 20 Đá Vàng), 5★ MYTHIC (1,650 Thỏi Vàng + 137,500 Quặng + 6.6M Ruby + 10 Đá Đỏ). Tổng 0★➔5★ Đỏ: 6,000 Thỏi Vàng + 500,000 Quặng + 23,980,000 Ruby + 50 Đá Vàng + 10 Đá Đỏ/món (144,000 Thỏi Vàng + 12,000,000 Quặng + 575.52M Ruby cho 24 món Đội 1).",
-      en: "Mythic Gear Star Promotion Costs (Lv.40 ➔ 1★ ➔ 5★ Mythic): 1★ (750 Gold Ingots + 62,500 Runes + 3M Rubies + 5 Legendary Stones), 2★ (975 Ingots + 81,250 Runes + 3.9M Rubies + 10 Legendary Stones), 3★ (1,200 Ingots + 100,000 Runes + 4.8M Rubies + 15 Legendary Stones), 4★ (1,425 Ingots + 118,750 Runes + 5.68M Rubies + 20 Legendary Stones), 5★ MYTHIC (1,650 Ingots + 137,500 Runes + 6.6M Rubies + 10 Mythic Stones). Total 0★➔5★ Mythic: 6,000 Gold Ingots + 500,000 Runes + 23,980,000 Rubies + 50 Legendary Stones + 10 Mythic Stones per piece (144,000 Gold Ingots + 12,000,000 Runes + 575.52M Rubies for Queue 1's 24 pieces).",
+      vi: "**Chi phí Đột phá Sao Đồ Đỏ (`Lv.40` ➔ `1★` ➔ `5★ Mythic`):**\n• `1★`: 750 Thỏi Vàng + 62,500 Quặng + 3M Ruby + 5 Đá Vàng; `2★`: 975 Thỏi Vàng + 81,250 Quặng + 3.9M Ruby + 10 Đá Vàng; `3★`: 1,200 Thỏi Vàng + 100,000 Quặng + 4.8M Ruby + 15 Đá Vàng.\n• `4★`: 1,425 Thỏi Vàng + 118,750 Quặng + 5.68M Ruby + 20 Đá Vàng; `5★ MYTHIC`: 1,650 Thỏi Vàng + 137,500 Quặng + 6.6M Ruby + 10 Đá Đỏ.\n• **Tổng `0★➔5★` Đỏ**: 6,000 Thỏi Vàng + 500,000 Quặng + 23,980,000 Ruby + 50 Đá Vàng + 10 Đá Đỏ/món (144,000 Thỏi Vàng + 12,000,000 Quặng + 575.52M Ruby cho 24 món Đội 1).",
+      en: "**Mythic Gear Star Promotion Costs (`Lv.40` ➔ `1★` ➔ `5★ Mythic`):**\n• `1★`: 750 Gold Ingots + 62,500 Runes + 3M Rubies + 5 Legendary Stones; `2★`: 975 Ingots + 81,250 Runes + 3.9M Rubies + 10 Stones; `3★`: 1,200 Ingots + 100,000 Runes + 4.8M Rubies + 15 Stones.\n• `4★`: 1,425 Ingots + 118,750 Runes + 5.68M Rubies + 20 Legendary Stones; `5★ MYTHIC`: 1,650 Ingots + 137,500 Runes + 6.6M Rubies + 10 Mythic Stones.\n• **Total `0★➔5★` Mythic**: 6,000 Gold Ingots + 500,000 Runes + 23,980,000 Rubies + 50 Legendary Stones + 10 Mythic Stones/piece (144,000 Gold Ingots + 12,000,000 Runes + 575.52M Rubies for 24 pieces).",
     },
     {
-      vi: "Vũ khí Độc quyền (UW Lv.1 ➔ Lv.20 = 1,185 Mảnh / 7,110 Mảnh cho 6 tướng & Star Level 1★ ➔ 5★ = 920 Lõi Sắt Thiên Thạch / Meteoric Iron Cores): Mở khóa Lv.1 (5 mảnh) cho cả 6 tướng Đội 1, dừng hỗ trợ ở Lv.5 (75 mảnh), và dồn đạt Điểm gãy Vàng Lv.10 (275 mảnh: 500 Defense Break, -0.60% Initial Ult CD, +5.00% ATK, +10.00% HP) theo thứ tự ưu tiên chuẩn 3 Phe — Bộ Lạc (Wukong & Storm Maiden ➔ Desert Prince & Beastmaster ➔ Witch, Soulmancer & Warlock), Liên Minh (Paragon & Pyromancer ➔ Rose Princess & Adjudicator ➔ Bishop, Artificer & Nun), Thiên Nhiên (Tidecaller & Ne Zha ➔ Monk & Pixie ➔ Petalis & Forest Maiden) — trước khi hướng tới Lv.15 (605 mảnh, 1,160 Defense Break), Lv.19 (1,035 mảnh) và Lv.20 (1,185 mảnh: 1,850 Defense Break, -2.30% Initial Ult CD, +18.50% ATK, +37.00% HP).",
-      en: "Exclusive Weapons (UW Lv.1 ➔ Lv.20 = 1,185 Shards / 7,110 Shards for 6 heroes & Star Level 1★ ➔ 5★ = 920 Meteoric Iron Cores): Unlock Lv.1 (5 shards) for all 6 Queue 1 heroes, park supports at Lv.5 (75 shards), and prioritize the Lv.10 Golden Breakpoint (275 shards: 500 Defense Break, -0.60% Initial Ult CD, +5.00% ATK, +10.00% HP) in strict 3-Faction order — Horde (Wukong & Storm Maiden ➔ Desert Prince & Beastmaster ➔ Witch, Soulmancer & Warlock), League (Paragon & Pyromancer ➔ Rose Princess & Adjudicator ➔ Bishop, Artificer & Nun), Nature (Tidecaller & Ne Zha ➔ Monk & Pixie ➔ Petalis & Forest Maiden) — before pushing Lv.15 (605 shards, 1,160 Defense Break), Lv.19 (1,035 shards), and Lv.20 (1,185 shards: 1,850 Defense Break, -2.30% Initial Ult CD, +18.50% ATK, +37.00% HP).",
+      vi: "**Vũ khí Độc quyền (`UW Lv.1` ➔ `Lv.20` = 1,185 Mảnh / 7,110 Mảnh cho 6 tướng & `1★➔5★` = 920 Lõi Sắt Thiên Thạch):**\n• Mở `Lv.1` (5 Mảnh) cho 6 tướng Đội 1, dừng hỗ trợ ở `Lv.5` (75 Mảnh), dồn đạt Điểm gãy Vàng `Lv.10` (275 Mảnh: 500 Defense Break, -0.60% Initial Ult CD, +5.00% ATK, +10.00% HP).\n• **Thứ tự 3 Phe**: Bộ Lạc (Wukong & Storm Maiden ➔ Desert Prince & Beastmaster) | Liên Minh (Paragon & Pyromancer ➔ Rose Princess & Adjudicator) | Thiên Nhiên (Tidecaller & Ne Zha ➔ Monk & Pixie).\n• Sau đó mới tiến tới `Lv.15` (605 Mảnh, 1,160 Defense Break), `Lv.19` (1,035 Mảnh) và `Lv.20` (1,185 Mảnh: 1,850 Defense Break, -2.30% Initial Ult CD, +18.50% ATK, +37.00% HP).",
+      en: "**Exclusive Weapons (`UW Lv.1` ➔ `Lv.20` = 1,185 Shards / 7,110 Shards for 6 heroes & `1★➔5★` = 920 Meteoric Iron Cores):**\n• Unlock `Lv.1` (5 Shards) for all 6 Queue 1 heroes, park supports at `Lv.5` (75 Shards), and prioritize the `Lv.10` Golden Breakpoint (275 Shards: 500 Defense Break, -0.60% Initial Ult CD, +5.00% ATK, +10.00% HP).\n• **3-Faction Order**: Horde (Wukong & Storm Maiden ➔ Desert Prince & Beastmaster) | League (Paragon & Pyromancer ➔ Rose Princess & Adjudicator) | Nature (Tidecaller & Ne Zha ➔ Monk & Pixie).\n• Push `Lv.15` (605 Shards, 1,160 Defense Break), `Lv.19` (1,035 Shards), and `Lv.20` (1,185 Shards: 1,850 Defense Break, -2.30% Initial Ult CD, +18.50% ATK, +37.00% HP) only on primary Hyper-Carries.",
     },
   ],
   keywords: [
@@ -77,8 +77,8 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Trong Top Heroes, việc nâng cấp trang bị bằng Quặng Cường Hóa (Upgrade Runes / Enhancement Ore) và Ruby không chỉ tăng chỉ số lẻ của từng món đồ mà còn mở khóa một hệ thống cộng hưởng cực mạnh mang tên Bậc Thầy Cường Hóa (Enhancement Master). Ngay ở mốc Trang bị Vàng đồng bộ +10, hệ thống đã thưởng trực tiếp +5,900 ATK và +74,000 HP cho vị tướng sở hữu.",
-            en: "In Top Heroes, upgrading equipment with Upgrade Runes (Enhancement Ore) and Rubies does far more than raise individual item stats—it unlocks a powerful hidden resonance system called Enhancement Master. Right at the synchronized Golden +10 bracket, the system grants an immediate +5,900 ATK and +74,000 HP bonus to the equipped hero.",
+            vi: "• **Cộng hưởng ẩn**: Nâng trang bị bằng Quặng Cường Hóa (Upgrade Runes) và Ruby không chỉ tăng chỉ số lẻ mà còn mở khóa **Bậc Thầy Cường Hóa (Enhancement Master)**.\n• **Đột biến ngay mốc `+10`**: Ngay ở mốc Trang bị Vàng đồng bộ `+10`, hệ thống thưởng trực tiếp +5,900 ATK và +74,000 HP cho vị tướng sở hữu.",
+            en: "• **Hidden Resonance**: Upgrading equipment with Upgrade Runes and Rubies does far more than raise individual item stats—it unlocks **Enhancement Master**.\n• **Immediate `+10` Spike**: Right at the synchronized Golden `+10` bracket, the system grants an immediate +5,900 ATK and +74,000 HP bonus to the equipped hero.",
           },
         },
         {
@@ -147,12 +147,12 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
               ordered: true,
               items: [
                 {
-                  vi: "Quy luật 'Mắt Xích Yếu Nhất' (Lowest-Piece Bottleneck): Để kích hoạt mốc thưởng Bậc Thầy Cường Hóa, tướng phải mặc đủ 4 món trang bị cùng phẩm chất (cùng màu) và cả 4 món đều phải đạt cấp độ cường hóa chẵn +10, +20, +30 hoặc +40. Ví dụ về Phẩm chất: Mặc 3 món Vàng +10 nhưng kẹt 1 chiếc Mũ Tím +10 sẽ chỉ được tính phẩm chất Tím ➔ Mất trắng mốc thưởng Bậc Thầy Cường Hóa Vàng (+5,900 ATK và +74,000 HP ngay ở mốc +10). Ví dụ về Cấp độ: Đập thanh Kiếm lên +27 nhưng để Mũ, Giáp và Giày ở +19 sẽ chỉ được ghi nhận cấp thấp nhất là 19 (tương đương mốc +10); ngay khi kéo nốt 3 món kia chạm +20, biểu tượng Bậc Thầy Cường Hóa +20 mới phát sáng.",
-                  en: "The 'Lowest-Piece Bottleneck' Law: To activate an Enhancement Master milestone, a hero must wear 4 pieces of the same rarity (color) and all 4 pieces must reach an exact multiple of 10 (+10, +20, +30, or +40). Rarity Example: Wearing 3 Golden +10 pieces with 1 Epic +10 Helmet restricts resonance to Epic—forfeiting the Golden +10 bonus (+5,900 ATK and +74,000 HP). Level Example: Pushing Weapon to +27 while leaving Helmet, Chestplate, and Boots at +19 evaluates the lowest level as 19 (only granting +10 resonance); the moment the remaining 3 pieces hit +20, the +20 Enhancement Master badge activates.",
+                  vi: "**Quy luật Mắt Xích Yếu Nhất:** Cả `4` món phải cùng phẩm chất và đạt mốc chẵn `+10`/`+20`/`+30`/`+40` (kẹt 1 món Tím hoặc để `+27` kèm 3 món `+19` sẽ mất mốc cộng hưởng mới).",
+                  en: "**Lowest-Piece Bottleneck Law:** All `4` pieces must share the same rarity and hit `+10`/`+20`/`+30`/`+40` (1 Epic piece or a `+27` piece with three `+19` pieces forfeits the higher tier).",
                 },
                 {
-                  vi: "Quy luật Độc lập với Phe Phái (Faction-Agnostic Resonance): Khác với dòng thưởng +30% Dấu Hệ, cơ chế Bậc Thầy Cường Hóa chỉ xét theo Độ hiếm (Màu sắc) và Cấp độ, hoàn toàn không bắt buộc 4 món đồ phải cùng chung một phe phái. Nếu tạm thời lắp 1 món đồ Vàng Không Hệ hoặc khác hệ vào bộ 3 món Vàng đang có và đập cả 4 món lên +10, tướng vẫn nhận được 100% mốc thưởng Bậc Thầy Cường Hóa Vàng.",
-                  en: "The 'Faction-Agnostic Resonance' Law: Unlike the +30% Faction Mark bonus, Enhancement Master only evaluates Rarity (Color) and Enhancement Level—it never requires the 4 items to share a faction mark. Temporarily slotting an unmarked or off-faction Golden piece alongside 3 faction Golden pieces at +10 still grants 100% of the Golden +10 Enhancement Master bonus.",
+                  vi: "**Quy luật Độc lập Phe Phái:** Bậc Thầy Cường Hóa chỉ xét Độ hiếm (Màu sắc) và Cấp độ chẵn `10`, không bắt buộc `4` món phải cùng chung Dấu Hệ.",
+                  en: "**Faction-Agnostic Resonance Law:** Enhancement Master only evaluates Rarity (Color) and multiples of `10`—it never requires the `4` items to share a Faction Mark.",
                 },
               ],
             },
@@ -164,8 +164,8 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
                 en: "Golden Rule: Lowest Rarity & Lowest Level Dictate 100% of Resonance",
               },
               content: {
-                vi: "Mọi điểm Quặng Cường Hóa đổ vào 1 món lẻ vượt quá bậc của 3 món còn lại (như đập Kiếm lên +25 khi 3 món kia ở +12) đều bị treo chỉ số cộng hưởng cho đến khi cả 4 món cùng chạm bội số của 10 (+10 / +20 / +30 / +40).",
-                en: "Every single Upgrade Rune invested into pushing a lone piece past the bracket of the other 3 slots (such as +25 Weapon with +12 armor) yields zero additional resonance until all 4 slots converge at the next multiple of 10 (+10 / +20 / +30 / +40).",
+                vi: "Mọi điểm Quặng đổ vào 1 món lẻ vượt quá bậc của 3 món còn lại (như Kiếm `+25` khi 3 món kia ở `+12`) đều bị treo cộng hưởng cho đến khi cả 4 món chạm bội số của `10` (`+10`/`+20`/`+30`/`+40`).",
+                en: "Every Upgrade Rune spent pushing a lone piece past the bracket of the other 3 slots (such as `+25` Weapon with `+12` armor) yields zero new resonance until all 4 slots hit `+10`/`+20`/`+30`/`+40`.",
               },
             },
           ],
@@ -184,8 +184,8 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Do mỗi lần bước sang bậc mới (từ +10 lên +20, hoặc từ +20 lên +30) cần tích lũy Quặng Cường Hóa trong nhiều ngày, người chơi tuyệt đối không nâng ngẫu nhiên mà phải tuân thủ thứ tự ưu tiên theo nhóm chỉ số vai trò:",
-                en: "Because advancing from one bracket to the next (+10 to +20, or +20 to +30) requires several days of accumulating Upgrade Runes, never upgrade slots randomly—strictly follow role-based stat priority:",
+                vi: "Do mỗi lần bước sang bậc mới (từ `+10` lên `+20`, hoặc `+20` lên `+30`) cần tích lũy Quặng trong nhiều ngày, hãy tuân thủ thứ tự ưu tiên theo nhóm chỉ số vai trò:",
+                en: "Because advancing to the next bracket (`+10` to `+20`, or `+20` to `+30`) takes days of saving Upgrade Runes, strictly follow role-based stat priority:",
               },
             },
             {
@@ -193,12 +193,12 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
               ordered: false,
               items: [
                 {
-                  vi: "Đối với Tướng Sát Thương Chủ Lực (DPS) & Hồi Máu Theo ATK (Healer): Bước 1 ưu tiên đập Kiếm (Weapon) + Giày (Boots) lên mốc mục tiêu trước (vì đây là 2 món cộng lượng lớn ATK trực tiếp); Bước 2 sau đó mới đập Mũ (Helmet) + Áo Giáp (Chestplate) đuổi theo để kích hoạt mốc cộng hưởng 4 món.",
-                  en: "For Primary Damage Dealers (DPS) & ATK-Scaling Healers: Step 1 upgrade Weapon + Boots to the target milestone first (as these two slots provide massive flat ATK); Step 2 pull Helmet + Chestplate up afterward to trigger the 4-piece resonance milestone.",
+                  vi: "**Tướng Sát Thương (DPS) & Healer Theo ATK:** Bước 1 ưu tiên đập **Kiếm (Weapon) + Giày (Boots)** lên mốc mục tiêu trước để lấy Flat ATK; Bước 2 kéo **Mũ + Giáp** đuổi theo chốt mốc 4 món.",
+                  en: "**Damage Dealers (DPS) & ATK-Scaling Healers:** Step 1 upgrade **Weapon + Boots** to the target milestone first for flat ATK; Step 2 pull **Helmet + Chestplate** up afterward for 4-piece resonance.",
                 },
                 {
-                  vi: "Đối với Tướng Đỡ Đòn (Tanker), Tạo Khiên Theo HP & Hỗ Trợ Thuần (Buff/Control): Bước 1 làm ngược lại hoàn toàn — ưu tiên đập Mũ (Helmet) + Áo Giáp (Chestplate) lên mốc mục tiêu trước để tối đa hóa HP chống sốc sát thương tuyến đầu; Bước 2 sau đó mới đập Kiếm (Weapon) + Giày (Boots) đuổi theo để chốt mốc cộng hưởng.",
-                  en: "For Frontline Tanks, Max-HP Shielders & Pure Supports (Buff/Control): Step 1 do the exact opposite—upgrade Helmet + Chestplate to the target milestone first to maximize frontline HP and burst survivability; Step 2 bring Weapon + Boots up afterward to lock in the 4-piece resonance.",
+                  vi: "**Tướng Đỡ Đòn (Tanker) & Hỗ Trợ Thuần:** Bước 1 làm ngược lại — ưu tiên đập **Mũ (Helmet) + Áo Giáp (Chestplate)** trước để tối đa hóa HP tuyến đầu; Bước 2 mới kéo **Kiếm + Giày** đuổi theo.",
+                  en: "**Frontline Tanks, HP-Shielders & Pure Supports:** Step 1 do the opposite—upgrade **Helmet + Chestplate** first to maximize frontline HP; Step 2 bring **Weapon + Boots** up afterward.",
                 },
               ],
             },
@@ -216,8 +216,8 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Chi phí Quặng Cường Hóa (Upgrade Runes) và Ruby tăng theo cấp số cộng ở mỗi bậc 10 cấp độ. Toàn bộ quá trình cường hóa từ Lv.0 lên kịch trần Lv.40 cho 1 món Đồ Vàng ngốn chính xác 195,000 Quặng và 936,000 Ruby (tương đương 780,000 Quặng + 3,744,000 Ruby cho 1 tướng 4 món, và 4,680,000 Quặng + 22,464,000 Ruby cho trọn bộ 24 món Đội 1).",
-            en: "Upgrade Rune and Ruby costs scale progressively across each 10-level bracket. Enhancing a single Golden Gear piece from Lv.0 to the Lv.40 cap requires exactly 195,000 Upgrade Runes and 936,000 Rubies (equaling 780,000 Runes + 3,744,000 Rubies per hero's 4-piece set, and 4,680,000 Runes + 22,464,000 Rubies across all 24 pieces in Queue 1).",
+            vi: "• **Quy luật chi phí**: Chi phí Quặng Cường Hóa (Upgrade Runes) và Ruby tăng theo cấp số cộng ở mỗi bậc `10` cấp độ; từ `Lv.0` lên `Lv.40` cho 1 món Đồ Vàng tốn 195,000 Quặng và 936,000 Ruby.\n• **Tổng cầu Đội 1**: Tương đương 780,000 Quặng + 3,744,000 Ruby cho 1 tướng 4 món, và 4,680,000 Quặng + 22,464,000 Ruby cho trọn bộ `24` món Đội 1.",
+            en: "• **Progressive Scaling**: Upgrade Rune and Ruby costs scale across each `10`-level bracket; enhancing 1 Golden Gear piece from `Lv.0` to `Lv.40` requires 195,000 Upgrade Runes and 936,000 Rubies.\n• **Queue 1 Total**: Equals 780,000 Runes + 3,744,000 Rubies per hero's 4-piece set, and 4,680,000 Runes + 22,464,000 Rubies across all `24` pieces in Queue 1.",
           },
         },
         {
@@ -435,8 +435,8 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
                     en: "+156,000 Runes / Hero",
                   },
                   description: {
-                    vi: "Mỗi món từ +10 lên +20 tốn thêm 39,000 Quặng + 187,200 Ruby (tích lũy 60,000 Quặng + 288,000 Ruby/món = 240,000 Quặng + 1,152,000 Ruby/tướng). Kéo lần lượt Carry #1 ➔ Tank #1 ➔ 4 tướng còn lại chạm Full +20.",
-                    en: "Each piece from +10 to +20 adds 39,000 Runes + 187,200 Rubies (cumulative 60,000 Runes + 288,000 Rubies/piece = 240,000 Runes + 1,152,000 Rubies/hero). Advance Carry #1 ➔ Tank #1 ➔ remaining 4 heroes to Full +20.",
+                    vi: "Từ `+10` lên `+20` tốn thêm 39,000 Quặng + 187,200 Ruby/món (tích lũy 60,000 Quặng/món = 240,000 Quặng/tướng). Kéo lần lượt Carry #1 ➔ Tank #1 ➔ 4 tướng còn lại chạm Full `+20`.",
+                    en: "From `+10` to `+20` adds 39,000 Runes + 187,200 Rubies/piece (cumulative 60,000 Runes/piece = 240,000 Runes/hero). Advance Carry #1 ➔ Tank #1 ➔ remaining 4 heroes to Full `+20`.",
                   },
                 },
                 {
@@ -471,8 +471,8 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
                     en: "780,000 Runes / Hero",
                   },
                   description: {
-                    vi: "Mỗi món từ +30 lên +40 tốn thêm 76,500 Quặng + 367,200 Ruby (tích lũy 195,000 Quặng + 936,000 Ruby/món = 4,680,000 Quặng + 22,464,000 Ruby cho 24 món Đội 1), mở khóa giao diện Đột phá Sao bằng Thỏi Vàng và Đá Thăng Cấp.",
-                    en: "Each piece from +30 to +40 adds 76,500 Runes + 367,200 Rubies (cumulative 195,000 Runes + 936,000 Rubies/piece = 4,680,000 Runes + 22,464,000 Rubies for 24 pieces), unlocking Star Promotion via Gold Ingots and Promotion Stones.",
+                    vi: "Từ `+30` lên `+40` tốn thêm 76,500 Quặng/món (tích lũy 195,000 Quặng + 936,000 Ruby/món = 4,680,000 Quặng + 22,464,000 Ruby/24 món), mở khóa Đột phá Sao bằng Thỏi Vàng và Đá Thăng Cấp.",
+                    en: "From `+30` to `+40` adds 76,500 Runes/piece (cumulative 195,000 Runes + 936,000 Rubies/piece = 4,680,000 Runes + 22,464,000 Rubies/24 pieces), unlocking Star Promotion via Ingots and Stones.",
                   },
                 },
               ],
@@ -578,8 +578,8 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Dưới đây là 3 sai lầm nghiêm trọng nhất khiến người chơi F2P và Low-Spender lãng phí hàng trăm ngàn Quặng Cường Hóa, Thỏi Vàng và Mảnh Vũ Khí Độc Quyền mà lực chiến thực tế vẫn dậm chân tại chỗ:",
-            en: "Below are the 3 most destructive mistakes that cause F2P and Low-Spender players to burn hundreds of thousands of Upgrade Runes, Gold Ingots, and Exclusive Weapon Shards with minimal combat gain:",
+            vi: "Dưới đây là `3` sai lầm nghiêm trọng nhất khiến người chơi F2P và Low-Spender lãng phí hàng trăm ngàn Quặng Cường Hóa, Thỏi Vàng và Mảnh Vũ Khí Độc Quyền:",
+            en: "Below are the `3` most destructive mistakes that cause F2P and Low-Spender players to burn hundreds of thousands of Upgrade Runes, Gold Ingots, and Exclusive Weapon Shards:",
           },
         },
         {
@@ -587,16 +587,16 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
           ordered: true,
           items: [
             {
-              vi: "Sai lầm #1 — Đập Kiếm của Carry lên thẳng +35 trong khi Mũ/Giáp đang ở +15 vì nghĩ rằng DPS chỉ cần nâng Vũ khí: Giải pháp chuẩn Min-Max là nâng đồng bộ theo bậc +10! Đập Kiếm từ +20 lên +35 ngốn tới 95,250 Quặng nhưng KHÔNG mở được bất kỳ mốc cộng hưởng nào; dùng đúng số Quặng đó kéo 3 món còn lại từ +15 lên +20 sẽ kích hoạt ngay Bậc Thầy Cường Hóa +20 cộng thêm cả tấn ATK lẫn HP.",
-              en: "Pitfall #1 — Tunnel-visioning a Carry's Weapon to +35 while leaving Helmet/Chestplate at +15 thinking DPS only need ATK: The Min-Max solution is strictly synchronized +10 brackets! Pushing a single Weapon from +20 to +35 burns 95,250 Upgrade Runes for zero new resonance; spending those exact Runes to pull the other 3 slots from +15 to +20 immediately activates Enhancement Master +20 for massive team-wide ATK and HP.",
+              vi: "**Sai lầm #1 — Đập Kiếm lẻ lên `+35` khi Mũ/Giáp ở `+15`:** Tốn `95,250` Quặng mà không mở mốc cộng hưởng nào; dùng đúng số Quặng đó kéo 3 món kia lên `+20` sẽ kích hoạt ngay Bậc Thầy Cường Hóa `+20`.",
+              en: "**Pitfall #1 — Pushing a lone Weapon to `+35` with `+15` armor:** Burns `95,250` Runes for zero new resonance; spending those Runes to pull the other 3 slots to `+20` immediately unlocks Enhancement Master `+20`.",
             },
             {
-              vi: "Sai lầm #2 — Tưởng rằng Trang bị Đỏ (Mythic Gear) được đúc trực tiếp trong Lò Rèn nên giữ nguyên liệu không dám nâng Đồ Vàng: Giải pháp chuẩn là hiểu đúng cơ chế tiến hóa! Bạn KHÔNG THỂ đúc trực tiếp Đồ Đỏ trong Lò Rèn; mọi món Đồ Đỏ 5 Sao trên máy chủ đều được tiến hóa lên từ chính món Đồ Vàng có Dấu Hệ đã đập đạt mốc Lv.40 (sau đó thăng cấp qua 5 cấp Sao 1★ ➔ 5★ tốn 6,000 Thỏi Vàng/món). Hãy tự tin đầu tư tối đa vào bộ Đồ Vàng chuẩn Dấu Hệ của Đội 1.",
-              en: "Pitfall #2 — Hoarding materials waiting to 'forge Red Mythic Gear directly in the Blacksmith': Understand the true evolution mechanic! You CANNOT craft Red Mythic Gear directly at the Blacksmith; every 5-Star Mythic Gear piece on the server evolves directly from a Faction-marked Golden Gear piece enhanced to Lv.40 (and promoted across 1★ ➔ 5★ using 6,000 Gold Ingots). Invest confidently into Queue 1's Faction-marked Golden Gear.",
+              vi: "**Sai lầm #2 — Chờ đúc trực tiếp Đồ Đỏ trong Lò Rèn:** Bạn **KHÔNG THỂ** đúc trực tiếp Đồ Đỏ; mọi món Đồ Đỏ `5★` đều tiến hóa từ Đồ Vàng có Dấu Hệ đã đập `Lv.40` (tốn 6,000 Thỏi Vàng/món qua `1★➔5★`).",
+              en: "**Pitfall #2 — Waiting to craft Red Mythic Gear directly in the Blacksmith:** You **CANNOT** forge Red Gear directly; every `5★` Mythic piece evolves from a `Lv.40` Faction-marked Golden piece (6,000 Gold Ingots).",
             },
             {
-              vi: "Sai lầm #3 — Mở Rương Vũ Khí Độc Quyền Tự Chọn cho các tướng quá độ đầu game (như Astrologer, Secret Keeper, Treeguard) hoặc nhầm tưởng tướng Tím Kinh tế (như Brawler / Đấu Sĩ) có Vũ khí Độc quyền: Giải pháp chuẩn là khóa chặt Rương Vũ Khí Độc Quyền Tự Chọn cho đến khi sở hữu các tướng Carry/Tanker chủ lực Endgame của từng hệ (Wukong, Storm Maiden, Desert Prince, Beastmaster, Paragon, Pyromancer, Rose Princess, Adjudicator, Tidecaller, Ne Zha, Monk, Pixie).",
-              en: "Pitfall #3 — Opening Exclusive Weapon Choice Chests for early transitional heroes (such as Astrologer, Secret Keeper, or Treeguard) or mistakenly believing Epic economy heroes (like Brawler) possess Exclusive Weapons: Lock all Exclusive Weapon Choice Chests until you acquire your faction's true Endgame Carries and Tanks (Wukong, Storm Maiden, Desert Prince, Beastmaster, Paragon, Pyromancer, Rose Princess, Adjudicator, Tidecaller, Ne Zha, Monk, Pixie).",
+              vi: "**Sai lầm #3 — Mở Rương Vũ Khí Tự Chọn cho tướng quá độ:** Tướng Tím (như Brawler) không có Vũ khí Độc quyền; khóa chặt rương tự chọn cho trụ cột Endgame (Wukong, Storm Maiden, Paragon, Tidecaller).",
+              en: "**Pitfall #3 — Spending Weapon Choice Chests on transitional heroes:** Epic heroes (like Brawler) have no Exclusive Weapon; lock choice chests for Endgame pillars (Wukong, Storm Maiden, Paragon, Tidecaller).",
             },
           ],
         },
@@ -608,8 +608,8 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
             en: "Shard Burn Warning: Never Push a Single Hero to Lv.18–Lv.19 Before Core Queue 1 Reaches Lv.10!",
           },
           content: {
-            vi: "Nâng 1 Vũ khí Độc quyền từ Lv.10 (275 mảnh) lên Lv.20 (1,185 mảnh) ngốn thêm tới 910 mảnh — đủ để đập hơn 3 vị tướng trụ cột khác từ Lv.0 lên thẳng Điểm gãy Vàng Lv.10 (275 mảnh × 3 = 825 mảnh)! Chỉ đầu tư vượt quá Lv.10 cho siêu Hyper-Carry số 1 sau khi các trụ cột Đội 1 đã hoàn tất mốc Lv.10.",
-            en: "Pushing a single Exclusive Weapon from Lv.10 (275 shards) to Lv.20 (1,185 shards) consumes an extra 910 shards—enough to bring more than 3 other core heroes from Lv.0 straight to the Lv.10 Golden Breakpoint (275 shards × 3 = 825 shards)! Only push past Lv.10 on your #1 Hyper-Carry after your core Queue 1 pillars have secured Lv.10.",
+            vi: "• **Chi phí bậc cao**: Nâng 1 Vũ khí Độc quyền từ `Lv.10` (275 Mảnh) lên `Lv.20` (1,185 Mảnh) ngốn thêm tới `910` mảnh.\n• **Bài toán cơ hội**: Số mảnh đó đủ đập hơn `3` tướng trụ cột khác từ `Lv.0` lên thẳng Điểm gãy Vàng `Lv.10` (`275 × 3 = 825` mảnh)!",
+            en: "• **Steep Upper Cost**: Pushing a single Exclusive Weapon from `Lv.10` (275 Shards) to `Lv.20` (1,185 Shards) consumes an extra `910` shards.\n• **Opportunity Cost**: Those shards can bring more than `3` other core heroes from `Lv.0` straight to the `Lv.10` Golden Breakpoint (`275 × 3 = 825` shards)!",
           },
         },
       ],
@@ -627,8 +627,8 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Ngay khi một món Trang bị Vàng chạm mốc Lv.40 (195,000 Quặng + 936,000 Ruby), giao diện nâng cấp sẽ mở khóa tab Thăng Cấp Sao (Star Promotion) gồm 5 Cấp Sao (1★ ➔ 5★). Mỗi cấp Sao được chia thành 5 nấc nhỏ (1/5 ➔ 5/5): 4 nấc đầu (1/5 ➔ 4/5) tiêu tốn Thỏi Vàng (Gold Ingots) + Quặng Cường Hóa (Upgrade Runes) + Ruby; nấc thứ 5 (5/5 — Đột phá Sao) tiêu tốn Thỏi Vàng + Quặng Cường Hóa + Đá Thăng Cấp Huyền Thoại (Đá Vàng) ở 1★–4★, hoặc Đá Thăng Cấp Thần Thoại (Đá Đỏ) ở 5★ (miễn Ruby ở nấc 5/5).",
-            en: "The moment a Golden Gear piece hits Lv.40 (195,000 Runes + 936,000 Rubies), the upgrade UI unlocks the Star Promotion tab spanning 5 Star Tiers (1★ ➔ 5★). Each Star Tier is divided into 5 sub-steps (1/5 ➔ 5/5): the first 4 sub-steps (1/5 ➔ 4/5) consume Gold Ingots + Upgrade Runes + Rubies, while the 5th sub-step (5/5 — Star Breakthrough) consumes Gold Ingots + Upgrade Runes + Legendary Promotion Stones (1★–4★) or Mythic Promotion Stones (5★, with 0 Ruby cost on step 5/5).",
+            vi: "• **Mở khóa Đột phá Sao**: Ngay khi Trang bị Vàng chạm `Lv.40` (195,000 Quặng + 936,000 Ruby), giao diện nâng cấp mở khóa tab **Thăng Cấp Sao (Star Promotion)** gồm 5 Cấp Sao (`1★` ➔ `5★`).\n• **Cấu trúc 5 nấc nhỏ**: 4 nấc đầu (`1/5➔4/5`) tốn Thỏi Vàng + Quặng + Ruby; nấc thứ 5 (`5/5` — Đột phá Sao) tốn Thỏi Vàng + Quặng + **Đá Vàng** (`1★–4★`) hoặc **Đá Đỏ** (`5★`, miễn Ruby ở nấc `5/5`).",
+            en: "• **Unlocking Star Promotion**: When a Golden Gear piece hits `Lv.40` (195,000 Runes + 936,000 Rubies), the upgrade UI unlocks the **Star Promotion** tab spanning 5 Star Tiers (`1★` ➔ `5★`).\n• **5 Sub-Step Structure**: The first 4 sub-steps (`1/5➔4/5`) consume Gold Ingots + Runes + Rubies, while step `5/5` consumes Ingots + Runes + **Legendary Stones** (`1★–4★`) or **Mythic Stones** (`5★`, 0 Ruby cost).",
           },
         },
       ],
@@ -647,8 +647,8 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
             {
               type: "table",
               caption: {
-                vi: "Bảng 4.1 — Chi Phí Đột Phá Sao Trang Bị Từ Lv.40 Lên 5★ Đỏ Thần Thoại (Trích xuất chính xác 100% từ TopHeroes Tables — Tab ⚔️Gear)",
-                en: "Table 4.1 — Gear Star Promotion Costs From Lv.40 to 5★ Mythic (100% Exact Data from TopHeroes Tables — Tab ⚔️Gear)",
+                vi: "Bảng 4.1 — Chi Phí Đột Phá Sao Trang Bị Từ Lv.40 Lên 5★ Đỏ Thần Thoại (Trích xuất chính xác 100% từ TopHeroes Tables — Tab Gear)",
+                en: "Table 4.1 — Gear Star Promotion Costs From Lv.40 to 5★ Mythic (100% Exact Data from TopHeroes Tables — Tab Gear)",
               },
               headers: [
                 {
@@ -675,8 +675,8 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
               rows: [
                 [
                   {
-                    vi: "⭐ 1 Sao (1-Star)",
-                    en: "⭐ 1-Star (1★)",
+                    vi: "★ 1 Sao (1-Star)",
+                    en: "★ 1-Star (1★)",
                   },
                   {
                     vi: "150 Thỏi Vàng + 12,500 Quặng + 750,000 Ruby (×4 nấc)",
@@ -697,8 +697,8 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "⭐⭐ 2 Sao (2-Star)",
-                    en: "⭐⭐ 2-Star (2★)",
+                    vi: "★★ 2 Sao (2-Star)",
+                    en: "★★ 2-Star (2★)",
                   },
                   {
                     vi: "195 Thỏi Vàng + 16,250 Quặng + 975,000 Ruby (×4 nấc)",
@@ -719,8 +719,8 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "⭐⭐⭐ 3 Sao (3-Star)",
-                    en: "⭐⭐⭐ 3-Star (3★)",
+                    vi: "★★★ 3 Sao (3-Star)",
+                    en: "★★★ 3-Star (3★)",
                   },
                   {
                     vi: "240 Thỏi Vàng + 20,000 Quặng + 1,200,000 Ruby (×4 nấc)",
@@ -741,8 +741,8 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "⭐⭐⭐⭐ 4 Sao (4-Star)",
-                    en: "⭐⭐⭐⭐ 4-Star (4★)",
+                    vi: "★★★★ 4 Sao (4-Star)",
+                    en: "★★★★ 4-Star (4★)",
                   },
                   {
                     vi: "285 Thỏi Vàng + 23,750 Quặng + 1,420,000 Ruby (×4 nấc)",
@@ -763,8 +763,8 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "⭐⭐⭐⭐⭐ 5 Sao (5-Star MYTHIC)",
-                    en: "⭐⭐⭐⭐⭐ 5-Star (5★ MYTHIC)",
+                    vi: "★★★★★ 5 Sao (5-Star MYTHIC)",
+                    en: "★★★★★ 5-Star (5★ MYTHIC)",
                   },
                   {
                     vi: "330 Thỏi Vàng + 27,500 Quặng + 1,650,000 Ruby (×4 nấc)",
@@ -779,8 +779,8 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
                     en: "1,650 Gold Ingots + 137,500 Runes + 6,600,000 Rubies + 10 Mythic Stones",
                   },
                   {
-                    vi: "🔥 TIẾN HÓA THÀNH TRANG BỊ ĐỎ THẦN THOẠI (MYTHIC GEAR 5★)!",
-                    en: "🔥 EVOLVES INTO 5-STAR RED MYTHIC GEAR (MYTHIC GEAR 5★)!",
+                    vi: "TIẾN HÓA THÀNH TRANG BỊ ĐỎ THẦN THOẠI (MYTHIC GEAR 5★)!",
+                    en: "EVOLVES INTO 5-STAR RED MYTHIC GEAR (MYTHIC GEAR 5★)!",
                   },
                 ],
                 [
@@ -839,8 +839,8 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
                   en: "Exclusive Weapon & Iron Cores",
                 },
                 title: {
-                  vi: "🗡️ LỘ TRÌNH ĐIỂM GÃY VŨ KHÍ ĐỘC QUYỀN (1,185 MẢNH) & ĐỘT PHÁ SAO (920 LÕI SẮT THIÊN THẠCH)",
-                  en: "🗡️ EXCLUSIVE WEAPON BREAKPOINT ROADMAP (1,185 SHARDS) & STAR PROMOTION (920 METEORIC IRON CORES)",
+                  vi: "LỘ TRÌNH ĐIỂM GÃY VŨ KHÍ ĐỘC QUYỀN (1,185 MẢNH) & ĐỘT PHÁ SAO (920 LÕI SẮT THIÊN THẠCH)",
+                  en: "EXCLUSIVE WEAPON BREAKPOINT ROADMAP (1,185 SHARDS) & STAR PROMOTION (920 METEORIC IRON CORES)",
                 },
                 subtitle: {
                   vi: "Ưu tiên tuyệt đối chạm Điểm gãy Vàng Lv.10 (275 Mảnh) cho bộ khung Đội 1 trước khi đẩy Hyper-Carry lên Lv.15 / Lv.20",
@@ -875,8 +875,8 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
                     {
                       id: "uw-phase1-lv5",
                       title: {
-                        vi: "🎯 Lv.5 (Tích Lũy 75 Mảnh): Cường Hóa Kỹ Năng Bậc 1 (+58.00% Base, +0.50% ATK)",
-                        en: "🎯 Lv.5 (75 Cumulative Shards): Tier 1 Skill Upgrade (+58.00% Base, +0.50% ATK)",
+                        vi: "Lv.5 ★ (Tích Lũy 75 Mảnh): Cường Hóa Kỹ Năng Bậc 1 (+58.00% Base, +0.50% ATK)",
+                        en: "Lv.5 ★ (75 Cumulative Shards): Tier 1 Skill Upgrade (+58.00% Base, +0.50% ATK)",
                       },
                       subtitle: {
                         vi: "Điểm dừng ngắn hạn hiệu quả cho các tướng Hỗ trợ / Tank phụ trong Đội 1.",
@@ -892,8 +892,8 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
                 },
                 {
                   title: {
-                    vi: "Giai đoạn 2: 🔥 ĐIỂM GÃY VÀNG F2P Lv.10 (275 Mảnh = 1,650 Mảnh Cho 6 Tướng)",
-                    en: "Phase 2: 🔥 F2P GOLDEN BREAKPOINT Lv.10 (275 Shards = 1,650 Shards For 6 Heroes)",
+                    vi: "Giai đoạn 2: ĐIỂM GÃY VÀNG F2P Lv.10 ★ (275 Mảnh = 1,650 Mảnh Cho 6 Tướng)",
+                    en: "Phase 2: F2P GOLDEN BREAKPOINT Lv.10 ★ (275 Shards = 1,650 Shards For 6 Heroes)",
                   },
                   badge: {
                     vi: "275 Mảnh / Tướng",
@@ -945,8 +945,8 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
                     {
                       id: "uw-phase3-lv15",
                       title: {
-                        vi: "⚡ Lv.15 (605 Mảnh): Kỹ Năng Bậc 3 + 1,160 Defense Break, +11.50% ATK, +23.00% HP",
-                        en: "⚡ Lv.15 (605 Shards): Tier 3 Skill + 1,160 Defense Break, +11.50% ATK, +23.00% HP",
+                        vi: "Lv.15 ★ (605 Mảnh): Kỹ Năng Bậc 3 + 1,160 Defense Break, +11.50% ATK, +23.00% HP",
+                        en: "Lv.15 ★ (605 Shards): Tier 3 Skill + 1,160 Defense Break, +11.50% ATK, +23.00% HP",
                       },
                       subtitle: {
                         vi: "Mốc mục tiêu Mid-to-Late Game cho Hyper-Carry số 1 (Wukong, Storm Maiden, Paragon, Tidecaller).",
@@ -957,8 +957,8 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
                     {
                       id: "uw-phase3-lv20-and-stars",
                       title: {
-                        vi: "👑 Lv.20 (1,185 Mảnh = 7,110 Mảnh/6 Tướng) & 1★–5★ (920 Lõi Sắt Thiên Thạch)",
-                        en: "👑 Lv.20 (1,185 Shards = 7,110 Shards/6 Heroes) & 1★–5★ (920 Meteoric Iron Cores)",
+                        vi: "Lv.20 ★ (1,185 Mảnh = 7,110 Mảnh/6 Tướng) & 1★–5★ (920 Lõi Sắt Thiên Thạch)",
+                        en: "Lv.20 ★ (1,185 Shards = 7,110 Shards/6 Heroes) & 1★–5★ (920 Meteoric Iron Cores)",
                       },
                       subtitle: {
                         vi: "Lv.20 mở Kỹ năng Bậc 4 (+86.20% Base, 1,850 Defense Break, -2.30% Initial Ult CD, +18.50% ATK, +37.00% HP) kết hợp 5 cấp Sao (65 / 200 / 480 / 720 / 920 Lõi Sắt).",
@@ -1110,8 +1110,8 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "🎯 Lv.5 (Mốc Đột Phá 1)",
-                    en: "🎯 Lv.5 (Breakpoint 1)",
+                    vi: "Lv.5 ★ (Mốc Đột Phá 1)",
+                    en: "Lv.5 ★ (Breakpoint 1)",
                   },
                   {
                     vi: "25 Mảnh",
@@ -1220,8 +1220,8 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "🔥 Lv.10 (ĐIỂM GÃY VÀNG)",
-                    en: "🔥 Lv.10 (GOLDEN BREAKPOINT)",
+                    vi: "Lv.10 ★ (ĐIỂM GÃY VÀNG)",
+                    en: "Lv.10 ★ (GOLDEN BREAKPOINT)",
                   },
                   {
                     vi: "50 Mảnh",
@@ -1330,8 +1330,8 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "⚡ Lv.15 (Mốc Đột Phá 3)",
-                    en: "⚡ Lv.15 (Breakpoint 3)",
+                    vi: "Lv.15 ★ (Mốc Đột Phá 3)",
+                    en: "Lv.15 ★ (Breakpoint 3)",
                   },
                   {
                     vi: "80 Mảnh",
@@ -1440,8 +1440,8 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "👑 Lv.20 (Đỉnh Cao Kịch Trần)",
-                    en: "👑 Lv.20 (Max Ceiling)",
+                    vi: "Lv.20 ★ (Đỉnh Cao Kịch Trần)",
+                    en: "Lv.20 ★ (Max Ceiling)",
                   },
                   {
                     vi: "150 Mảnh",
@@ -1502,8 +1502,8 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
               rows: [
                 [
                   {
-                    vi: "⭐ 1 Sao (1★)",
-                    en: "⭐ 1-Star (1★)",
+                    vi: "★ 1 Sao (1★)",
+                    en: "★ 1-Star (1★)",
                   },
                   {
                     vi: "65 Lõi (10 + 10 + 15 + 15 + 15)",
@@ -1520,8 +1520,8 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "⭐⭐ 2 Sao (2★)",
-                    en: "⭐⭐ 2-Star (2★)",
+                    vi: "★★ 2 Sao (2★)",
+                    en: "★★ 2-Star (2★)",
                   },
                   {
                     vi: "135 Lõi (20 + 25 + 25 + 30 + 35)",
@@ -1538,8 +1538,8 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "⭐⭐⭐ 3 Sao (3★)",
-                    en: "⭐⭐⭐ 3-Star (3★)",
+                    vi: "★★★ 3 Sao (3★)",
+                    en: "★★★ 3-Star (3★)",
                   },
                   {
                     vi: "280 Lõi (40 + 50 + 55 + 65 + 70)",
@@ -1556,8 +1556,8 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "⭐⭐⭐⭐ 4 Sao (4★)",
-                    en: "⭐⭐⭐⭐ 4-Star (4★)",
+                    vi: "★★★★ 4 Sao (4★)",
+                    en: "★★★★ 4-Star (4★)",
                   },
                   {
                     vi: "240 Lõi",
@@ -1574,8 +1574,8 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "⭐⭐⭐⭐⭐ 5 Sao (5★ Max)",
-                    en: "⭐⭐⭐⭐⭐ 5-Star (5★ Max)",
+                    vi: "★★★★★ 5 Sao (5★ Max)",
+                    en: "★★★★★ 5-Star (5★ Max)",
                   },
                   {
                     vi: "200 Lõi",
@@ -1597,16 +1597,16 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
               ordered: true,
               items: [
                 {
-                  vi: "🔴 Thứ tự ưu tiên đập Vũ khí Độc quyền Lv.10 (275 Mảnh) — Phe Bộ Lạc (Horde): Mở khóa Lv.1 (5 mảnh) cho cả 6 tướng ➔ Đập thẳng Lv.10 cho Wukong và Storm Maiden (kích hoạt bùng nổ sát thương diện rộng và phân thân) ➔ Lv.10 cho Desert Prince và Beastmaster ➔ Lv.10 cho Witch và Soulmancer / Warlock.",
-                  en: "🔴 3-Faction Exclusive Weapon Lv.10 (275 Shards) Priority — Horde Faction: Unlock Lv.1 (5 shards) for all 6 heroes ➔ Push Lv.10 first for Wukong and Storm Maiden (unlocking AoE burst and clone scaling) ➔ Lv.10 for Desert Prince and Beastmaster ➔ Lv.10 for Witch and Soulmancer / Warlock.",
+                  vi: "**Thứ tự `Lv.10` (275 Mảnh) — Phe Bộ Lạc (Horde):** Mở `Lv.1` (5 Mảnh) cho 6 tướng ➔ `Lv.10` cho Wukong và Storm Maiden ➔ `Lv.10` cho Desert Prince và Beastmaster ➔ `Lv.10` cho Witch, Soulmancer / Warlock.",
+                  en: "**`Lv.10` (275 Shards) Priority — Horde Faction:** Unlock `Lv.1` (5 Shards) for 6 heroes ➔ `Lv.10` for Wukong and Storm Maiden ➔ `Lv.10` for Desert Prince and Beastmaster ➔ `Lv.10` for Witch, Soulmancer / Warlock.",
                 },
                 {
-                  vi: "🔵 Thứ tự ưu tiên đập Vũ khí Độc quyền Lv.10 (275 Mảnh) — Phe Liên Minh (League): Mở khóa Lv.1 (5 mảnh) cho cả 6 tướng ➔ Đập thẳng Lv.10 cho Paragon và Pyromancer ➔ Lv.10 cho Rose Princess và Adjudicator ➔ Lv.10 cho Bishop, Artificer và Nun.",
-                  en: "🔵 3-Faction Exclusive Weapon Lv.10 (275 Shards) Priority — League Faction: Unlock Lv.1 (5 shards) for all 6 heroes ➔ Push Lv.10 first for Paragon and Pyromancer ➔ Lv.10 for Rose Princess and Adjudicator ➔ Lv.10 for Bishop, Artificer, and Nun.",
+                  vi: "**Thứ tự `Lv.10` (275 Mảnh) — Phe Liên Minh (League):** Mở `Lv.1` (5 Mảnh) cho 6 tướng ➔ `Lv.10` cho Paragon và Pyromancer ➔ `Lv.10` cho Rose Princess và Adjudicator ➔ `Lv.10` cho Bishop, Artificer và Nun.",
+                  en: "**`Lv.10` (275 Shards) Priority — League Faction:** Unlock `Lv.1` (5 Shards) for 6 heroes ➔ `Lv.10` for Paragon and Pyromancer ➔ `Lv.10` for Rose Princess and Adjudicator ➔ `Lv.10` for Bishop, Artificer, and Nun.",
                 },
                 {
-                  vi: "🟢 Thứ tự ưu tiên đập Vũ khí Độc quyền Lv.10 (275 Mảnh) — Phe Thiên Nhiên (Nature): Mở khóa Lv.1 (5 mảnh) cho cả 6 tướng ➔ Đập thẳng Lv.10 cho Tidecaller và Ne Zha ➔ Lv.10 cho Monk và Pixie ➔ Lv.10 cho Petalis và Forest Maiden.",
-                  en: "🟢 3-Faction Exclusive Weapon Lv.10 (275 Shards) Priority — Nature Faction: Unlock Lv.1 (5 shards) for all 6 heroes ➔ Push Lv.10 first for Tidecaller and Ne Zha ➔ Lv.10 for Monk and Pixie ➔ Lv.10 for Petalis and Forest Maiden.",
+                  vi: "**Thứ tự `Lv.10` (275 Mảnh) — Phe Thiên Nhiên (Nature):** Mở `Lv.1` (5 Mảnh) cho 6 tướng ➔ `Lv.10` cho Tidecaller và Ne Zha ➔ `Lv.10` cho Monk và Pixie ➔ `Lv.10` cho Petalis và Forest Maiden.",
+                  en: "**`Lv.10` (275 Shards) Priority — Nature Faction:** Unlock `Lv.1` (5 Shards) for 6 heroes ➔ `Lv.10` for Tidecaller and Ne Zha ➔ `Lv.10` for Monk and Pixie ➔ `Lv.10` for Petalis and Forest Maiden.",
                 },
               ],
             },
@@ -1650,8 +1650,8 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
             en: "Allocating 850 Universal Exclusive Weapon Shards & 600,000 Upgrade Runes: Tunnel-Vision vs Min-Max Breakpoints",
           },
           profileSummary: {
-            vi: "Một tài khoản Mid-game (Lâu đài Lv.31) đã tích lũy được 850 Mảnh Vũ Khí Độc Quyền Vạn Năng (Universal Exclusive Gear Shards) và 600,000 Quặng Cường Hóa (Upgrade Runes) để xả vào Ngày Thứ Năm Tuần B (GAR Day 4). Người chơi phân vân giữa Phương án A (đập dồn 830 mảnh vào duy nhất vũ khí của Carry #1 từ Lv.5 lên Lv.18, và dùng 270,000 Quặng đập riêng Kiếm + Giày của Carry lên Lv.40 trong khi để Mũ + Giáp ở Lv.20) và Phương án B (phân bổ chuẩn Điểm gãy Vàng Lv.10 = 275 mảnh kết hợp đồng bộ Bậc Thầy Cường Hóa +30).",
-            en: "A mid-game account (Castle Lv.31) has saved 850 Universal Exclusive Weapon Shards and 600,000 Upgrade Runes for Thursday of Week B (GAR Day 4). The player is torn between Option A (dumping 830 shards into Carry #1's weapon from Lv.5 to Lv.18 while spending 270,000 Runes pushing only Carry #1's Weapon + Boots to Lv.40 with Helmet + Chestplate left at Lv.20) and Option B (distributing across Lv.10 = 275-shard Golden Breakpoints and synchronized +30 Enhancement Master brackets).",
+            vi: "• **Ngân sách tích lũy**: Tài khoản Mid-game (Lâu đài Lv.31) tích được 850 Mảnh Vũ Khí Độc Quyền Vạn Năng và 600,000 Quặng Cường Hóa để xả vào Ngày Thứ Năm Tuần B (GAR Day 4).\n• **Phương án A (Sai lầm)**: Dồn 830 mảnh vào Carry #1 từ `Lv.5` lên Lv.18, và dùng 270,000 Quặng đập riêng Kiếm + Giày của Carry lên `Lv.40` (để Mũ + Giáp ở `Lv.20`).\n• **Phương án B (Chuẩn Min-Max)**: Phân bổ chuẩn Điểm gãy Vàng `Lv.10` = 275 Mảnh kết hợp đồng bộ Bậc Thầy Cường Hóa `+30`.",
+            en: "• **Saved Budget**: A mid-game account (Castle Lv.31) saved 850 Universal Exclusive Weapon Shards and 600,000 Upgrade Runes for Thursday Week B (GAR Day 4).\n• **Option A (Flawed)**: Dumping 830 shards into Carry #1 from `Lv.5` to Lv.18, and spending 270,000 Runes pushing only Carry #1's Weapon + Boots to `Lv.40` (Helmet + Chestplate at `Lv.20`).\n• **Option B (Min-Max)**: Distributing across `Lv.10` = 275 Shards Golden Breakpoints and synchronized `+30` Enhancement Master brackets.",
           },
           metrics: [
             {
@@ -1711,12 +1711,12 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
           ],
           diagnostics: [
             {
-              vi: "Bẫy Lv.18 Vũ khí Độc quyền: Đẩy 1 vũ khí từ Lv.5 (75 mảnh) lên Lv.18 (905 mảnh) ngốn tới 830 mảnh nhưng vẫn chưa chạm trần Lv.20 (1,185 mảnh), làm lỡ cơ hội kích hoạt kỹ năng đột phá Bậc 2 (Lv.10 = 275 mảnh) cho Carry số 2 và Main Tank.",
-              en: "The Lv.18 Exclusive Weapon Trap: Pushing a single weapon from Lv.5 (75 shards) to Lv.18 (905 shards) consumes 830 shards without reaching the Lv.20 (1,185 shards) skill cap, starving Carry #2 and Main Tank of their Tier 2 skill breakthroughs at Lv.10 (275 shards).",
+              vi: "**Bẫy Lv.18 Vũ khí Độc quyền**:\n• Đẩy 1 vũ khí từ `Lv.5` (75 Mảnh) lên Lv.18 (905 Mảnh) ngốn tới 830 mảnh nhưng chưa chạm `Lv.20` (1,185 Mảnh), làm lỡ kỹ năng Bậc 2 (`Lv.10` = 275 Mảnh) cho Carry số 2 và Main Tank.",
+              en: "**The Lv.18 Exclusive Weapon Trap**:\n• Pushing a single weapon from `Lv.5` (75 Shards) to Lv.18 (905 Shards) consumes 830 shards without reaching `Lv.20` (1,185 Shards), starving Carry #2 and Main Tank of `Lv.10` (275 Shards) skills.",
             },
             {
-              vi: "Bẫy lệch cấp +40/+20: Đập Kiếm + Giày từ +20 lên +40 ngốn 270,000 Quặng (135,000 Quặng/món), nhưng vì Mũ + Giáp vẫn ở +20 nên hệ thống chỉ ghi nhận cấp thấp nhất là 20 — mất trắng mốc thưởng Bậc Thầy Cường Hóa +30.",
-              en: "The +40/+20 Split-Level Trap: Pushing Weapon + Boots from +20 to +40 burns 270,000 Runes (135,000 Runes/piece), yet leaving Helmet + Chestplate at +20 forces the system to evaluate the lowest piece as 20—forfeiting the +30 Enhancement Master bonus.",
+              vi: "**Bẫy lệch cấp `+40`/`+20`**:\n• Đập Kiếm + Giày từ `+20` lên `+40` ngốn 270,000 Quặng (`135,000`/món), nhưng vì Mũ + Giáp vẫn ở `+20` nên hệ thống chỉ ghi nhận cấp thấp nhất là `20` — mất trắng Bậc Thầy Cường Hóa `+30`.",
+              en: "**The `+40`/`+20` Split-Level Trap**:\n• Pushing Weapon + Boots from `+20` to `+40` burns 270,000 Runes (`135,000`/piece), yet leaving Helmet + Chestplate at `+20` restricts evaluation to `20`—forfeiting the `+30` Enhancement Master bonus.",
             },
           ],
           recoverySteps: [
@@ -1727,8 +1727,8 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
                 en: "Allocate 825/850 Weapon Shards Across Lv.10 & Lv.5 Breakpoints",
               },
               detail: {
-                vi: "Dùng 200 mảnh đẩy Carry #1 từ Lv.5 ➔ Lv.10 (tích lũy 275 mảnh), dùng 275 mảnh đẩy Carry #2 từ Lv.0 ➔ Lv.10, dùng 275 mảnh đẩy Main Tank từ Lv.0 ➔ Lv.10, và dùng 75 mảnh đẩy Healer chạm mốc Lv.5 (tổng tốn 825 mảnh, giữ lại 25 mảnh dư).",
-                en: "Spend 200 shards pushing Carry #1 from Lv.5 ➔ Lv.10 (275 cumulative shards), 275 shards pushing Carry #2 from Lv.0 ➔ Lv.10, 275 shards pushing Main Tank from Lv.0 ➔ Lv.10, and 75 shards bringing Healer to Lv.5 (825 shards spent, 25 shards banked).",
+                vi: "• **3 trụ cột chạm `Lv.10`**: Dùng 200 mảnh đẩy Carry #1 từ `Lv.5➔Lv.10` (275 Mảnh), 275 mảnh đẩy Carry #2 lên `Lv.10`, và 275 mảnh đẩy Main Tank lên `Lv.10`.\n• **Hỗ trợ chạm `Lv.5`**: Dùng 75 mảnh đẩy Healer chạm mốc `Lv.5` (tổng tốn 825 mảnh, giữ lại 25 mảnh dư).",
+                en: "• **3 Pillars to `Lv.10`**: Spend 200 shards pushing Carry #1 from `Lv.5➔Lv.10` (275 Shards), 275 shards pushing Carry #2 to `Lv.10`, and 275 shards pushing Main Tank to `Lv.10`.\n• **Healer to `Lv.5`**: Spend 75 shards bringing Healer to `Lv.5` (825 shards spent, 25 shards banked).",
               },
               impactBadge: {
                 vi: "3 Kỹ năng Lv.10 + 1 Kỹ năng Lv.5",
@@ -1742,8 +1742,8 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
                 en: "Allocate 585,000/600,000 Runes to Unlock Two Full +30 Enhancement Master Sets",
               },
               detail: {
-                vi: "Chi 234,000 Quặng (58,500 Quặng × 4 món) đẩy trọn bộ 4 món của Carry #1 từ +20 lên chạm chuẩn +30; chi tiếp 234,000 Quặng đẩy cả 4 món của Main Tank từ +20 lên chạm chuẩn +30; dùng 117,000 Quặng còn lại nâng Kiếm + Giày của Carry #2 lên +30.",
-                en: "Spend 234,000 Runes (58,500 Runes × 4 pieces) bringing Carry #1's 4 pieces from +20 to Full +30; spend another 234,000 Runes bringing Main Tank's 4 pieces from +20 to Full +30; use 117,000 remaining Runes to upgrade Carry #2's Weapon + Boots to +30.",
+                vi: "• **2 Bộ Full `+30`**: Chi 234,000 Quặng (`58,500 × 4` món) đẩy bộ 4 món Carry #1 từ `+20` lên `+30`; chi tiếp 234,000 Quặng đẩy 4 món Main Tank lên `+30`.\n• **Bước đệm Carry #2**: Dùng 117,000 Quặng còn lại (tổng 585,000 Quặng) nâng Kiếm + Giày của Carry #2 lên `+30`.",
+                en: "• **Two Full `+30` Sets**: Spend 234,000 Runes (`58,500 × 4` pieces) bringing Carry #1's 4 pieces from `+20` to Full `+30`; spend another 234,000 Runes bringing Main Tank's 4 pieces to Full `+30`.\n• **Carry #2 Prep**: Use 117,000 remaining Runes (585,000 total) to upgrade Carry #2's Weapon + Boots to `+30`.",
               },
               impactBadge: {
                 vi: "2 Huy hiệu Cộng hưởng +30",
@@ -1752,8 +1752,8 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
             },
           ],
           conclusion: {
-            vi: "Kết quả kiểm chứng: Với cùng ngân sách 850 Mảnh Vũ khí và 600,000 Quặng Cường Hóa trong Ngày Thứ Năm Tuần B (GAR Day 4), Phương án B giúp lực chiến thực tế trong PvP tăng cao hơn +38% so với Phương án A nhờ kích hoạt đồng loạt 3 kỹ năng đột phá Lv.10 (+1,500 Defense Break, +15% ATK, +30% HP) và 2 Huy hiệu Bậc Thầy Cường Hóa +30.",
-            en: "Verified Outcome: Using the exact same budget of 850 Weapon Shards and 600,000 Upgrade Runes on Thursday Week B (GAR Day 4), Option B delivers +38% higher effective PvP combat power than Option A by unlocking three Lv.10 weapon breakthroughs (+1,500 Defense Break, +15% ATK, +30% HP) and two +30 Enhancement Master badges.",
+            vi: "• **Hiệu quả vượt trội**: Với cùng ngân sách 850 Mảnh Vũ khí và 600,000 Quặng Cường Hóa trong GAR Day 4, Phương án B giúp lực chiến thực tế PvP tăng cao hơn `+38%` so với Phương án A.\n• **Đột biến toàn đội**: Kích hoạt đồng loạt `3` kỹ năng đột phá `Lv.10` (`+1,500` Defense Break, `+15%` ATK, `+30%` HP) và `2` Huy hiệu Bậc Thầy Cường Hóa `+30`.",
+            en: "• **Superior ROI**: Using the exact same budget of 850 Weapon Shards and 600,000 Upgrade Runes on GAR Day 4, Option B delivers `+38%` higher effective PvP combat power than Option A.\n• **Squad-Wide Spike**: Unlocks `3` simultaneous `Lv.10` weapon breakthroughs (`+1,500` Defense Break, `+15%` ATK, `+30%` HP) and `2` Enhancement Master `+30` badges.",
           },
         },
       ],

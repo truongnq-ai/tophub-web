@@ -16,34 +16,34 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
   },
   tldr: {
     coreRule: {
-      vi: "Sức mạnh thực chiến trong Top Heroes được quyết định bởi Lực chiến Đội hình 1 (Queue 1 Combat Power) chứ không phải Tổng Lực chiến toàn tài khoản (Total Influence). Một tài khoản 15M tổng lực chiến có Đội 1 đạt 6M sẽ nghiền nát tài khoản 20M tổng lực chiến nhưng Đội 1 chỉ đạt 4M.",
-      en: "Real combat effectiveness in Top Heroes is dictated by Queue 1 Combat Power rather than account-wide Total Influence. A 15M total influence account with a 6.0M Queue 1 will effortlessly crush a 20M total influence account whose Queue 1 is only 4.0M.",
+      vi: "**Sức mạnh thực chiến được quyết định 100% bởi Lực chiến Đội hình 1 (`Queue 1 Combat Power`), không phải Tổng Lực chiến (`Total Influence`).**\n• **Đối chiếu thực chiến:** Tài khoản `15M` tổng lực chiến có Đội 1 đạt `6M` sẽ nghiền nát tài khoản `20M` tổng nhưng Đội 1 chỉ đạt `4M`.",
+      en: "**Real combat effectiveness is dictated 100% by `Queue 1 Combat Power` rather than account-wide `Total Influence`.**\n• **Combat Reality:** A `15M` total influence account with a `6.0M` Queue 1 effortlessly crushes a `20M` account whose Queue 1 is only `4.0M`.",
     },
     immediateAction: {
-      vi: "Gia nhập Bang hội Top 1–3 của máy chủ ngay khi Lâu đài đạt Cấp 7; khởi đầu bằng đội hình Liên Minh (League) dễ kiếm mảnh và đóng băng toàn bộ Mảnh Tướng Vàng Vạn Năng (Universal Legendary Hero Shards) cùng Kim Cương (Diamonds) chờ làn sóng Tướng Đỏ (Mythic) từ Ngày 21.",
-      en: "Join a Top 1–3 Server Guild immediately upon reaching Castle Lv.7; start with an easily farmable League lineup and freeze 100% of Universal Legendary Hero Shards and Diamonds for the Mythic Hero wave starting on Day 21.",
+      vi: "**Gia nhập Bang hội `Top 1–3` của máy chủ ngay khi Lâu đài đạt `Cấp 7` (`Castle Lv.7`).**\n• **Đội hình & Tích trữ:** Khởi đầu bằng đội Liên Minh dễ kiếm mảnh, đồng thời đóng băng 100% `Mảnh Tướng Vàng Vạn Năng` và `Kim Cương` chờ làn sóng Tướng Đỏ từ `Ngày 21`.",
+      en: "**Join a `Top 1–3` Server Guild immediately upon reaching `Castle Lv.7`.**\n• **Roster & Hoarding:** Start with an easily farmable League lineup and freeze 100% of `Universal Legendary Hero Shards` and `Diamonds` for the Mythic Hero wave on `Day 21`.",
     },
     strictTaboo: {
-      vi: "Không tiêu Kim Cương vào Quán Rượu (Tavern), không chia tài nguyên cho Đội 2/Đội 3, và không xả vật phẩm nâng cấp mù quáng khi chưa mở Lịch Event (Event Calendar — 09:00 Thứ Hai) kiểm tra chế độ sự kiện tuần của máy chủ (Chế độ 1: Thi Đấu Hội nối tiếp hàng tuần ở đầu Pre-Season hay Chế độ 2: Đua Vũ Trang GAR / KvK 6 ngày).",
-      en: "Never spend Diamonds in the Tavern, never split scarce resources into Queue 2/Queue 3, and never dump upgrade items blindly without checking the Monday 09:00 Event Calendar for your server's active weekly mode (Mode 1: continuous weekly Guild Race in early Pre-Season vs. Mode 2: 6-day GAR / KvK rotation).",
+      vi: "**Tuyệt đối không đốt `Kim Cương` vào Quán Rượu (`Tavern`) và không chia tài nguyên cho Đội 2 / Đội 3.**\n• **Kỷ luật Lịch Event (`09:00` Thứ Hai):** Luôn mở Lịch kiểm tra chế độ tuần (Chế độ 1: Thi Đấu Hội nối tiếp hàng tuần ở đầu Pre-Season hay Chế độ 2: Đua Vũ Trang `GAR / KvK` 6 ngày) trước khi xả vật phẩm.",
+      en: "**Never spend `Diamonds` in the `Tavern` and never split scarce resources into Queue 2 or Queue 3.**\n• **Monday `09:00` Calendar Check:** Never dump upgrade items blindly without checking your server's active weekly mode (Mode 1: continuous weekly `Guild Race` vs. Mode 2: 6-day `GAR / KvK` rotation).",
     },
   },
   keyTakeaways: [
     {
-      vi: "Hệ sinh thái Top Heroes vận hành qua 7 Trụ cột Sức mạnh, trong đó Đội hình 1 (Queue 1 — 6 tướng chính) chiếm 35% tỷ trọng PvP và Lịch Sự kiện Động (Thi Đấu Hội / GAR / KvK) đóng vai trò đòn bẩy nhân 2–3 lần tốc độ tăng trưởng.",
-      en: "The Top Heroes ecosystem runs on 7 Strategic Pillars, where Queue 1 (your 6 main heroes) drives 35% of PvP impact and the Dynamic Event Schedule (Guild Race / GAR / KvK) acts as a 2x–3x progression multiplier.",
+      vi: "**Kiến trúc `7 Trụ cột Sức mạnh`:** Đội hình 1 (`Queue 1` — 6 tướng chính) chiếm `35%` tỷ trọng PvP.\n• **Đòn bẩy Sự kiện:** Lịch Sự kiện Động (Thi Đấu Hội / `GAR / KvK`) đóng vai trò đòn bẩy nhân `2–3 lần` tốc độ tăng trưởng toàn tài khoản.",
+      en: "**The `7 Strategic Pillars` Architecture:** `Queue 1` (your 6 main heroes) drives `35%` of total PvP combat impact.\n• **Event Multiplier:** The Dynamic Event Schedule (`Guild Race / GAR / KvK`) acts as a `2x–3x` account progression multiplier.",
     },
     {
-      vi: "Lộ trình Chuyển giao Bộ Lạc 3 Bước (Ngày 1–20 Liên Minh ➔ Ngày 21–40 Đội Lai 4 Liên Minh + 2 Bộ Lạc ➔ Ngày 41+ Thuần Bộ Lạc) giúp F2P sở hữu 5 Tướng Đỏ (Mythic) và chỉ tốn đúng 9 Hồn Đá Đỏ (Soul Stones) + 345–385 Mảnh để thức tỉnh 1 Tướng Vàng (thay vì 27 Đá như Liên Minh).",
-      en: "The 3-Step Meta Horde Pivot (Days 1–20 League ➔ Days 21–40 Hybrid 4 League + 2 Horde ➔ Day 41+ Pure Horde) lets F2P players field 5 Mythic heroes while needing only 9 Soul Stones + 345–385 Shards to awaken a single Legendary hero (versus 27 Soul Stones for League).",
+      vi: "**Lộ trình Chuyển giao Bộ Lạc `3 Bước`:** Ngày 1–20 Liên Minh ➔ Ngày 21–40 Đội Lai (`4 Liên Minh + 2 Bộ Lạc`) ➔ Ngày 41+ Thuần Bộ Lạc.\n• **Tối ưu Thức tỉnh:** Giúp F2P sở hữu `5 Tướng Đỏ` và chỉ tốn `9 Hồn Đá Đỏ` + `345–385` Mảnh để thức tỉnh 1 Tướng Vàng (thay vì `27 Đá` như Liên Minh).",
+      en: "**The `3-Step` Meta Horde Pivot:** Days 1–20 League ➔ Days 21–40 Hybrid (`4 League + 2 Horde`) ➔ Day 41+ Pure Horde.\n• **Awakening Efficiency:** Lets F2P field `5 Mythic` heroes while needing only `9 Soul Stones` + `345–385` Shards to awaken 1 Legendary (vs. `27 Soul Stones` for League).",
     },
     {
-      vi: "Nắm vững Hệ thống 15 Sao (3 Màu Sao): điểm dừng ROI tối ưu đầu tiên cho mỗi Tướng Đỏ là 1 Sao Trắng / Bạc (11 Sao = 560 Mảnh Mythic / 280 Mảnh Leg), trong khi Tướng Tím kinh tế (Brawler, Knight) cần đạt 2 Sao Trắng (12 Sao = 300 Mảnh) để mở khóa +30% Tốc độ Nghiên cứu & Huấn luyện.",
-      en: "Master the 15-Star (3-Color) System: the first optimal ROI breakpoint for every Mythic hero is 1 White/Platinum Star (11 Stars = 560 Mythic Shards / 280 Legendary Shards), while economy Epic heroes (Brawler, Knight) must reach 2 White Stars (12 Stars = 300 Shards) to unlock +30% Research & Training speed.",
+      vi: "**Quy chuẩn Hệ thống `15 Sao` (3 Màu Sao):** Điểm dừng ROI tối ưu đầu tiên cho mỗi Tướng Đỏ là `1 Sao Trắng` (`11 Sao` = `560` Mảnh Mythic / `280` Mảnh Leg).\n• **Động cơ Kinh tế Tím:** Đẩy `Brawler` và `Knight` đạt `2 Sao Trắng` (`12 Sao` = `300` Mảnh) để mở khóa `+30%` Tốc độ Nghiên cứu & Huấn luyện.",
+      en: "**Master the `15-Star` (3-Color) System:** The first optimal ROI breakpoint for every Mythic hero is `1 White Star` (`11 Stars` = `560` Mythic / `280` Legendary Shards).\n• **Epic Economy Engine:** Push `Brawler` and `Knight` to `2 White Stars` (`12 Stars` = `300` Shards) to unlock `+30%` Research & Training speed.",
     },
     {
-      vi: "Luôn áp dụng Quy tắc Nhìn Lịch Event 5 Giây lúc 09:00 Thứ Hai để phân biệt tuần chạy Thi Đấu Hội nối tiếp (kèm Tập Kích Cự Ma & Khiêu Chiến Của Đội Quân Hắc Ám) với tuần mở Đua Vũ Trang GAR / KvK 6 ngày trước khi xả Mảnh Vạn Năng hay Tăng tốc.",
-      en: "Always apply the Monday 09:00 5-Second Event Calendar Check to distinguish continuous weekly Guild Race cycles (paired with Giant Raid & Dark Army Challenge) from 6-day GAR / KvK war weeks before spending Universal Shards or Speedups.",
+      vi: "**Quy tắc Nhìn Lịch Event `5 Giây` (`09:00` Thứ Hai):** Kiểm tra lịch tuần trước khi xả Mảnh Vạn Năng hoặc Tăng tốc.\n• **Phân tách 2 Chế độ:** Phân biệt tuần chạy Thi Đấu Hội nối tiếp (kèm Tập Kích Cự Ma & Khiêu Chiến Của Đội Quân Hắc Ám) với tuần mở Đua Vũ Trang `GAR / KvK` 6 ngày.",
+      en: "**The Monday `09:00` 5-Second Calendar Check:** Inspect the weekly schedule before spending Universal Shards or Speedups.\n• **Two Active Modes:** Distinguish continuous weekly `Guild Race` cycles (paired with `Giant Raid` & `Dark Army Challenge`) from 6-day `GAR / KvK` war weeks.",
     },
   ],
   keywords: [
@@ -89,8 +89,8 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Trong Top Heroes, hệ thống phát triển tài khoản vận hành như một cỗ máy đồng hồ gồm 7 Trụ cột Sức mạnh (The 7 Strategic Pillars) liên kết chặt chẽ với nhau. Người chơi mới thường bị choáng ngợp bởi hàng chục tính năng mở khóa liên tục từ Cấp Lâu đài 1 đến Cấp 30, dẫn đến việc đầu tư cảm tính vào những chỉ số không mang lại khả năng chiến thắng trong giao tranh.",
-            en: "In Top Heroes, account progression operates like a precision clockwork mechanism built around 7 interconnected Strategic Pillars. New players are often overwhelmed by dozens of features unlocking between Castle Lv.1 and Lv.30, leading to emotional investments in vanity stats that contribute zero combat value in real battles.",
+            vi: "**Hệ thống phát triển tài khoản trong Top Heroes vận hành qua `7 Trụ cột Sức mạnh` (`The 7 Strategic Pillars`) liên kết chặt chẽ.**\n• **Sai lầm Tân thủ:** Dễ bị choáng ngợp bởi hàng chục tính năng mở khóa từ Lâu đài `Lv.1 ➔ Lv.30`, dẫn đến đầu tư cảm tính vào các chỉ số ảo không có giá trị thực chiến.",
+            en: "**Account progression in Top Heroes operates around `7 interconnected Strategic Pillars` that scale together.**\n• **Beginner Pitfall:** Players often get overwhelmed by features unlocking from `Castle Lv.1 ➔ Lv.30`, leading to emotional investments in vanity stats with zero combat value.",
           },
         },
         {
@@ -329,7 +329,7 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
                   },
                   {
                     vi: "Quản trị Điểm Vinh Dự Bang (Guild Honor) và Xu Vinh Quang (Guild Glory Coins) để mua Hồn Đá Đỏ (Soul Stones) thức tỉnh tướng Vàng lên Đỏ khi Lâu đài đạt Lv.30 (9 Hồn Đá Đỏ + 345–385 Mảnh Tướng).",
-                    en: "Manage Guild Honor and Guild Glory Coins to purchase Red Soul Stones for awakening Legendary heroes to Mythic at Castle Lv.30 (9 Hồn Đá Đỏ / Soul Stones + 345–385 Hero Shards).",
+                    en: "Manage Guild Honor and Guild Glory Coins to purchase Red Soul Stones for awakening Legendary heroes to Mythic at Castle Lv.30 (9 Red Soul Stones + 345–385 Hero Shards).",
                   },
                   { vi: "5%", en: "5%" },
                 ],
@@ -341,7 +341,7 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
                   },
                   {
                     vi: "Đọc Lịch Event (09:00 Thứ Hai) để điều phối tài nguyên theo đúng pha máy chủ: từ giai đoạn Thi Đấu Hội chạy nối tiếp hàng tuần (09:00 Thứ Hai ➔ 09:00 Thứ Hai ở đầu Pre-Season, leo hạng Bang D ➔ S kèm sự kiện vệ tinh Tập Kích Cự Ma / Khiêu Chiến Của Đội Quân Hắc Ám) sang chu kỳ luân phiên Thi Đấu Hội ⇄ GAR / KvK 6 ngày kết hợp Sự kiện Phụ (Double-Dip).",
-                    en: "Read the Monday 09:00 Event Calendar to sync spending with your server's active phase: from continuous weekly Guild Race (Thi Đấu Hội running Monday 09:00 ➔ Monday 09:00 in early Pre-Season while climbing Guild Rank D ➔ S alongside Giant Raid / Tập Kích Cự Ma & Dark Army Challenge / Khiêu Chiến Của Đội Quân Hắc Ám) to the 6-day alternating Guild Race ⇄ GAR / KvK rotation with sub-event Double-Dipping.",
+                    en: "Read the Monday 09:00 Event Calendar to sync spending with your server's active phase: from continuous weekly Guild Race (running Monday 09:00 ➔ Monday 09:00 in early Pre-Season while climbing Guild Rank D ➔ S alongside Giant Raid & Dark Legion Challenge) to the 6-day alternating Guild Race ⇄ GAR / KvK rotation with sub-event Double-Dipping.",
                   },
                   { vi: "Đòn bẩy x2–x3 tốc độ", en: "x2–x3 Speed Multiplier" },
                 ],
@@ -375,8 +375,8 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Một trong những cú lừa thị giác lớn nhất của thể loại game chiến thuật 4X là con số Tổng Lực Chiến (Total Influence / Total Power) hiển thị ở góc trái màn hình. Khi bước vào giao tranh thực tế (Đấu Trường / Arena, Chiến tranh Vương quốc / KvK, hay Cướp Xe Hàng / Plunder Carriages), chỉ có 6 vị tướng trong Đội hình 1 (Queue 1 — 6 tướng chính) trực tiếp bước lên sàn đấu.",
-                en: "One of the biggest visual traps in 4X strategy games is the Total Influence (Total Power) number displayed in the top-left corner of the screen. In actual combat (Arena, Kingdom vs. Kingdom / KvK, or Plunder Carriages), only the 6 heroes inside Queue 1 step onto the battlefield.",
+                vi: "**Con số Tổng Lực Chiến (`Total Influence`) ở góc trái màn hình là cú lừa thị giác lớn nhất của dòng game chiến thuật 4X.**\n• **Quy luật Thực chiến:** Trong Đấu Trường (`Arena`), Chiến tranh Vương quốc (`KvK`) hay Cướp Xe Hàng (`Plunder Carriages`), chỉ có `6 vị tướng` thuộc Đội hình 1 (`Queue 1`) trực tiếp bước lên sàn đấu.",
+                en: "**The `Total Influence` (`Total Power`) number in the top-left corner of the screen is the biggest visual trap in 4X strategy games.**\n• **Combat Reality:** In real battles (`Arena`, `Kingdom vs. Kingdom / KvK`, or `Plunder Carriages`), only the `6 heroes` inside `Queue 1` ever step onto the battlefield.",
               },
             },
             {
@@ -388,12 +388,12 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
               headers: [
                 { vi: "Tiêu Chí So Sánh", en: "Comparison Criterion" },
                 {
-                  vi: "⚔️ Lực Chiến Thực Chiến (True Combat Power)",
-                  en: "⚔️ True Combat Power (Queue 1 Focus)",
+                  vi: "Lực Chiến Thực Chiến (True Combat Power)",
+                  en: "True Combat Power (Queue 1 Focus)",
                 },
                 {
-                  vi: "🎈 Lực Chiến Ảo / Phình To (Inflated / Bloated Power)",
-                  en: "🎈 Inflated / Bloated Power (Account-Wide Spread)",
+                  vi: "Lực Chiến Ảo / Phình To (Inflated / Bloated Power)",
+                  en: "Inflated / Bloated Power (Account-Wide Spread)",
                 },
               ],
               rows: [
@@ -459,8 +459,8 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
                 {
                   kind: "do",
                   label: {
-                    vi: "✅ CHUẨN META — HỘI TỤ ĐỘI 1 (15M TỔNG / 5.5M ĐỘI 1)",
-                    en: "✅ META STANDARD — QUEUE 1 FUNNEL (15M TOTAL / 5.5M QUEUE 1)",
+                    vi: "CHUẨN META — HỘI TỤ ĐỘI 1 (15M TỔNG / 5.5M ĐỘI 1)",
+                    en: "META STANDARD — QUEUE 1 FUNNEL (15M TOTAL / 5.5M QUEUE 1)",
                   },
                   detail: {
                     vi: "Dồn 100% Mảnh Vàng, Sách Kỹ năng và Đồ Vàng Dấu Hệ cho 6 tướng Đội 1 giúp vượt ngưỡng trừ giáp và kết thúc trận đấu khi vẫn còn >80% HP.",
@@ -470,8 +470,8 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
                 {
                   kind: "dont",
                   label: {
-                    vi: "🚫 BẪY LỰC CHIẾN ẢO (21M TỔNG / 4.1M ĐỘI 1)",
-                    en: "🚫 INFLATED POWER TRAP (21M TOTAL / 4.1M QUEUE 1)",
+                    vi: "BẪY LỰC CHIẾN ẢO (21M TỔNG / 4.1M ĐỘI 1)",
+                    en: "INFLATED POWER TRAP (21M TOTAL / 4.1M QUEUE 1)",
                   },
                   detail: {
                     vi: "Chia đều tài nguyên cho 3 đội khiến Đội 1 thiếu sát thương dứt điểm, bị khắc chế cấp sao (Star Suppression) và làm mồi điểm trong ngày Kill Event.",
@@ -494,8 +494,8 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Trong Top Heroes, mọi tướng đều thuộc một trong 3 Phe phái (Factions) khắc chế lẫn nhau theo vòng tròn: Bộ Lạc (Horde) khắc chế cứng Liên Minh (League) (+20% Sát thương gây ra / Giảm 20% Sát thương nhận vào); Liên Minh (League) khắc chế cứng Thiên Nhiên (Nature); và Thiên Nhiên (Nature) khắc chế cứng Bộ Lạc (Horde). Đồng thời, khi xếp từ 4 đến 6 tướng cùng phe vào một đội hình, bạn kích hoạt Hào Quang Đồng Hệ (Faction Aura): 4 Tướng cùng hệ (+15% ATK & HP), 5 Tướng cùng hệ (+25% ATK & HP), và 6 Tướng thuần hệ (+35% ATK & HP toàn đội + Kích hoạt hiệu ứng Liên kết Phe phái đặc biệt).",
-            en: "In Top Heroes, every hero belongs to one of 3 Factions locked-in a rock-paper-scissors counter loop: Horde hard-counters League (+20% DMG Dealt / -20% DMG Taken); League hard-counters Nature; and Nature hard-counters Horde. Simultaneously, deploying 4 to 6 same-faction heroes activates Faction Aura: 4 Same-Faction (+15% team ATK & HP), 5 Same-Faction (+25% team ATK & HP), and 6 Pure-Faction (+35% team ATK & HP + special Faction Bond passive).",
+            vi: "**Mọi anh hùng trong Top Heroes thuộc một trong `3 Phe phái` (`Factions`) khắc chế vòng tròn và cộng hưởng Hào Quang Đồng Hệ (`Faction Aura`).**\n• **Vòng tròn Khắc chế (`+20% DMG` / `-20% DMG Taken`):** Bộ Lạc (`Horde`) khắc Liên Minh (`League`) ➔ Liên Minh khắc Thiên Nhiên (`Nature`) ➔ Thiên Nhiên khắc Bộ Lạc.\n• **Mốc Hào Quang Đồng Hệ:** Xếp `4 Tướng` cùng hệ (`+15% ATK & HP`), `5 Tướng` cùng hệ (`+25% ATK & HP`), và `6 Tướng` thuần hệ (`+35% ATK & HP` + Liên kết Phe phái).",
+            en: "**Every hero in Top Heroes belongs to one of `3 Factions` locked in a counter loop while scaling with `Faction Aura` bonuses.**\n• **Counter Loop (`+20% DMG Dealt` / `-20% DMG Taken`):** `Horde` counters `League` ➔ `League` counters `Nature` ➔ `Nature` counters `Horde`.\n• **Faction Aura Milestones:** `4 Same-Faction` (`+15% ATK & HP`), `5 Same-Faction` (`+25% ATK & HP`), and `6 Pure-Faction` (`+35% ATK & HP` + Faction Bond passive).",
           },
         },
         {
@@ -539,7 +539,7 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
               ],
               rows: [
                 [
-                  { vi: "🔵 Liên Minh (League)", en: "🔵 League" },
+                  { vi: "Liên Minh (League)", en: "League" },
                   {
                     vi: "Sát thương phép diện rộng (AoE Burst), tạo khiên dày và buff tốc độ đánh/giảm hồi chiêu.",
                     en: "AoE magic burst damage, thick shields, and attack speed / cooldown reduction buffs.",
@@ -558,14 +558,14 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
                   },
                 ],
                 [
-                  { vi: "🔴 Bộ Lạc (Horde)", en: "🔴 Horde" },
+                  { vi: "Bộ Lạc (Horde)", en: "Horde" },
                   {
                     vi: "Đấu sĩ cận chiến lăn xả, hút máu, bạo kích tốc độ cao và nhảy thẳng vào hàng sau đối phương.",
                     en: "Aggressive melee brawlers, lifesteal, high-speed critical strikes, and backline diving.",
                   },
                   {
                     vi: "Sở hữu tới 5 Tướng Đỏ (Mythic) cực mạnh (Desert Prince, Storm Maiden, Witch, Wukong, Beastmaster). Chỉ cần thức tỉnh duy nhất 1 Tướng Vàng (Soulmancer hoặc Warlock = chỉ tốn 9 Hồn Đá Đỏ (Soul Stones) + 345–385 Mảnh Tướng từ mốc 1–2 Sao Trắng / 11–12 Sao). Khắc chế cứng 80% server đang chơi Liên Minh!",
-                    en: "Boasts 5 powerhouse Mythic heroes (Desert Prince, Storm Maiden, Witch, Wukong, Beastmaster). Requires awakening only 1 Legendary hero (Soulmancer or Warlock = costing just 9 Hồn Đá Đỏ / Soul Stones + 345–385 Hero Shards from 1–2 White Stars / 11–12 Stars). Hard-counters 80% of League players on the server!",
+                    en: "Boasts 5 powerhouse Mythic heroes (Desert Prince, Storm Maiden, Witch, Wukong, Beastmaster). Requires awakening only 1 Legendary hero (Soulmancer or Warlock = costing just 9 Red Soul Stones + 345–385 Hero Shards from 1–2 White Stars / 11–12 Stars). Hard-counters 80% of League players on the server!",
                   },
                   {
                     vi: "Giai đoạn Ngày 1–20 dàn tướng Vàng Bộ Lạc (Barbarian, Wilderness Hunter, Shaman) khá yếu và thiếu sát thương diện rộng.",
@@ -577,7 +577,7 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
                   },
                 ],
                 [
-                  { vi: "🟢 Thiên Nhiên (Nature)", en: "🟢 Nature" },
+                  { vi: "Thiên Nhiên (Nature)", en: "Nature" },
                   {
                     vi: "Triệu hồi đệ (Summon Units), hồi máu liên tục và phản đòn bền bỉ theo thời gian.",
                     en: "Unit summoning (Summon Units), sustained healing over time, and resilient counter-attacks.",
@@ -613,8 +613,8 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Thay vì cố chấp chơi thuần Bộ Lạc ngay từ Ngày 1 (chịu thiệt thòi suốt 3 tuần đầu) hoặc lún quá sâu vào Liên Minh (bị kẹt 27 viên Đá Linh Hồn ở Season 1), lộ trình thông minh nhất cho F2P và Low-Spender là Chuyển giao 3 Bước (3-Step Pivot):",
-                en: "Instead of forcing pure Horde on Day 1 (suffering through weak PvE/PvP for the first 3 weeks) or over-investing in League (getting trapped by a 27 Soul Stone wall in Season 1), the smartest path for F2P and Low-Spenders is the 3-Step Pivot:",
+                vi: "**Lộ trình thông minh nhất cho F2P và Low-Spender là chiến thuật Chuyển giao `3 Bước` (`3-Step Pivot`).**\n• **Tránh 2 thái cực sai lầm:** Không cố chấp chơi thuần Bộ Lạc từ Ngày 1 (thọt PvE/PvP 3 tuần đầu) và không lún quá sâu vào Liên Minh (bị kẹt bức tường `27 Hồn Đá Đỏ` ở Season 1).",
+                en: "**The smartest progression path for F2P and Low-Spenders is the `3-Step Pivot` (`League ➔ Horde`).**\n• **Avoid Both Extremes:** Do not force pure Horde on Day 1 (weak early PvE/PvP for 3 weeks) or over-invest in League (getting trapped by a `27 Soul Stone` wall in Season 1).",
               },
             },
             {
@@ -631,8 +631,8 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
                     en: "Day 1 – Day 20",
                   },
                   description: {
-                    vi: "Sử dụng các mảnh tướng rơi tự nhiên từ Quán Rượu để lắp đội hình 6 tướng Vàng Liên Minh (Adjudicator, Secret Keeper, Pyromancer, Astrologer, Nun, Bard). Tuyệt đối đóng băng Mảnh Vạn Năng Vàng từ đầu Tuần 3.",
-                    en: "Use natural hero-specific shards from the Tavern to assemble a 6-Legendary League lineup (Adjudicator, Secret Keeper, Pyromancer, Astrologer, Nun, Bard). Strictly freeze 100% of Universal Legendary Shards starting at Week 3.",
+                    vi: "**Dùng mảnh tướng rơi tự nhiên từ Quán Rượu lắp đội hình `6 tướng Vàng Liên Minh` (`Adjudicator`, `Secret Keeper`, `Pyromancer`, `Astrologer`, `Nun`, `Bard`).**\n• **Kỷ luật Tích trữ:** Tuyệt đối đóng băng `100% Mảnh Vạn Năng Vàng` bắt đầu từ đầu `Tuần 3`.",
+                    en: "**Use natural hero-specific shards from the Tavern to assemble a `6-Legendary League` lineup (`Adjudicator`, `Secret Keeper`, `Pyromancer`, `Astrologer`, `Nun`, `Bard`).**\n• **Hoarding Discipline:** Strictly freeze `100% of Universal Legendary Shards` starting at `Week 3`.",
                   },
                 },
                 {
@@ -646,8 +646,8 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
                     en: "Day 21 – Day 40",
                   },
                   description: {
-                    vi: "Ngay khi Hoàng Tử Sa Mạc (Desert Prince) ra mắt ở Ngày 21 và Nữ Thần Bão Tố (Storm Maiden) ra mắt ở Ngày 27, dùng Kim Cương tích trữ lấy ngay 2 tướng Đỏ này, dồn Mảnh Vạn Năng đẩy lên 1 Sao Trắng (11 Sao = 560 Mảnh Quy Đổi) và đưa vào Đội 1 thay thế Secret Keeper và Astrologer.",
-                    en: "As soon as Desert Prince (Day 21) and Storm Maiden (Day 27) release, spend your saved Diamonds to unlock both Mythic heroes, funnel Universal Shards to push them to 1 White Star (11 Stars = 560 Shards), and slot them into Queue 1 replacing Secret Keeper and Astrologer.",
+                    vi: "**Dùng Kim Cương tích trữ mở khóa ngay `Desert Prince` (`Ngày 21`) và `Storm Maiden` (`Ngày 27`) khi sự kiện ra mắt.**\n• **Đột phá Đội Lai:** Dồn Mảnh Vạn Năng đẩy cả hai lên `1 Sao Trắng` (`11 Sao` = `560` Mảnh Quy Đổi) và đưa vào Đội 1 thay thế `Secret Keeper` cùng `Astrologer`.",
+                    en: "**Spend saved Diamonds to immediately unlock `Desert Prince` (`Day 21`) and `Storm Maiden` (`Day 27`) upon release.**\n• **Hybrid Breakthrough:** Funnel Universal Shards to push both to `1 White Star` (`11 Stars` = `560` Shards) and slot them into Queue 1 replacing `Secret Keeper` and `Astrologer`.",
                   },
                 },
                 {
@@ -661,8 +661,8 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
                     en: "Day 41 Onward",
                   },
                   description: {
-                    vi: "Khi Phù Thủy (Witch) ra mắt vào Ngày 41, lấy Witch làm Healer chủ lực và chuyển toàn bộ Đội 1 sang 6 tướng Bộ Lạc (Desert Prince, Swordmaster/Beastmaster, Storm Maiden, Wilderness Hunter/Wukong, Witch, Soulmancer/Warlock). Tháo toàn bộ Trang bị Vàng +10/+20 từ tướng Liên Minh chuyển sang cho tướng Bộ Lạc, đồng thời đẩy 6 tướng Liên Minh cũ xuống làm Đội 2 hoàn chỉnh mà không tốn thêm bất kỳ tài nguyên nào!",
-                    en: "When Witch arrives on Day 41, claim her as your main Healer and convert Queue 1 into 6 pure Horde heroes (Desert Prince, Swordmaster/Beastmaster, Storm Maiden, Wilderness Hunter/Wukong, Witch, Soulmancer/Warlock). Transfer all +10/+20 Legendary Gear from your League heroes onto Horde, and push the 6 old League heroes down to form a complete Queue 2 at zero extra cost!",
+                    vi: "**Khi `Witch` ra mắt vào `Ngày 41`, lấy làm Healer chủ lực và chuyển toàn bộ Đội 1 sang `6 tướng Bộ Lạc` thuần hệ.**\n• **Đội hình Bộ Lạc:** Gồm `Desert Prince`, `Swordmaster/Beastmaster`, `Storm Maiden`, `Wilderness Hunter/Wukong`, `Witch`, và `Soulmancer/Warlock`.\n• **Thừa kế 0 Đồng:** Chuyển toàn bộ Đồ Vàng `+10/+20` sang tướng Bộ Lạc và đẩy `6 tướng Liên Minh` cũ xuống làm Đội 2 hoàn chỉnh miễn phí!",
+                    en: "**When `Witch` arrives on `Day 41`, claim her as your main Healer and convert Queue 1 into `6 pure Horde` heroes.**\n• **Pure Horde Lineup:** Field `Desert Prince`, `Swordmaster/Beastmaster`, `Storm Maiden`, `Wilderness Hunter/Wukong`, `Witch`, and `Soulmancer/Warlock`.\n• **Zero-Cost Inheritance:** Transfer all `+10/+20` Legendary Gear onto Horde and push your `6 old League` heroes down to form Queue 2 for free!",
                   },
                 },
               ],
@@ -705,7 +705,7 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
                   { vi: "Ngày 1 – Ngày 65", en: "Day 1 – Day 65" },
                   {
                     vi: "Lâu đài Lv.1 ➔ Lv.30, Quán Rượu, Thánh vật cơ bản, Lò Rèn Trang bị Vàng, Lịch Sự kiện Động: Thi Đấu Hội chạy nối tiếp hàng tuần (09:00 Thứ Hai ➔ 09:00 Thứ Hai, leo hạng Bang D ➔ C ➔ B ➔ A ➔ S kèm Tập Kích Cự Ma / Khiêu Chiến Của Đội Quân Hắc Ám) trước khi chuyển sang luân phiên Thi Đấu Hội ⇄ GAR / KvK.",
-                    en: "Castle Lv.1 ➔ Lv.30, Tavern, basic Relics, Legendary Gear Blacksmith, Dynamic Event Schedule: continuous weekly Guild Race (Thi Đấu Hội from Monday 09:00 ➔ Monday 09:00 climbing Guild Rank D ➔ C ➔ B ➔ A ➔ S alongside Giant Raid / Tập Kích Cự Ma & Dark Army Challenge / Khiêu Chiến Của Đội Quân Hắc Ám) before transitioning into alternating Guild Race ⇄ GAR / KvK.",
+                    en: "Castle Lv.1 ➔ Lv.30, Tavern, basic Relics, Legendary Gear Blacksmith, Dynamic Event Schedule: continuous weekly Guild Race (from Monday 09:00 ➔ Monday 09:00 climbing Guild Rank D ➔ C ➔ B ➔ A ➔ S alongside Giant Raid & Dark Legion Challenge) before transitioning into alternating Guild Race ⇄ GAR / KvK.",
                   },
                   {
                     vi: "Ra mắt Desert Prince (Ngày 21), Storm Maiden (Ngày 27), Paragon (Ngày 35), Witch (Ngày 41), Rose Princess (Ngày 46). Chuyển giao Liên Minh ➔ Bộ Lạc.",
@@ -758,8 +758,8 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
                 en: "Standardized 15-Star System (3 Star Colors) & Exact Awakening Costs",
               },
               content: {
-                vi: "• Tầng 1 — 1★–5★ Vàng (Yellow Stars: 1★–5★): 50 Mảnh (Tướng Vàng Legendary / Tím Epic) | 100 Mảnh (Tướng Đỏ Mythic).\n• Tầng 2 — 1★–5★ Đỏ (Red Stars: 6★–10★): +150 Mảnh (Tích lũy: 1★ Đỏ = 80 | 5★ Đỏ = 200 Mảnh Leg/Epic) | +300 Mảnh (Tích lũy: 1★ Đỏ = 160 | 5★ Đỏ = 400 Mảnh Mythic).\n• Tầng 3 — 1★–5★ Trắng / Bạc (Platinum / Silver Stars: 11★–15★): +300 Mảnh (Tích lũy: 1★ Trắng = 280 | 2★ Trắng = 300 | 5★ Trắng = 500 Mảnh Leg/Epic) | +600 Mảnh (Tích lũy: 1★ Trắng = 560 | 2★ Trắng = 600 | 5★ Trắng = 1,000 Mảnh Mythic).\n• Chi phí Thức Tỉnh Tướng Vàng lên Đỏ (Awakening): Bắt đầu khi tướng Vàng đạt 1–2 Sao Trắng (11–12 Sao), tiêu tốn tổng cộng 9 Hồn Đá Đỏ (Soul Stones) + 345–385 Mảnh Tướng qua 4 bậc.",
-                en: "• Tier 1 — 1★–5★ Yellow Stars (1★–5★): 50 Shards (Legendary / Epic) | 100 Shards (Mythic).\n• Tier 2 — 1★–5★ Red Stars (6★–10★): +150 Shards (Cumulative: 1★ Red = 80 | 5★ Red = 200 Shards Leg/Epic) | +300 Shards (Cumulative: 1★ Red = 160 | 5★ Red = 400 Shards Mythic).\n• Tier 3 — 1★–5★ White / Platinum / Silver Stars (11★–15★): +300 Shards (Cumulative: 1★ White = 280 | 2★ White = 300 | 5★ White = 500 Shards Leg/Epic) | +600 Shards (Cumulative: 1★ White = 560 | 2★ White = 600 | 5★ White = 1,000 Shards Mythic).\n• Legendary-to-Mythic Awakening Cost: Begins once a Legendary hero reaches 1–2 White Stars (11–12 Stars), consuming a total of 9 Hồn Đá Đỏ (Soul Stones) + 345–385 Hero Shards across 4 Awakening tiers.",
+                vi: "**Bảng định mức Mảnh Tướng theo `3 Màu Sao` (`15 Sao`) và chi phí `Thức Tỉnh` chuẩn quốc tế:**\n• **Tầng 1 — `1★–5★ Vàng` (`1★–5★`):** Tốn `50 Mảnh` (Tướng Vàng Legendary / Tím Epic) | `100 Mảnh` (Tướng Đỏ Mythic).\n• **Tầng 2 — `1★–5★ Đỏ` (`6★–10★`):** Tốn `+150 Mảnh` (Tích lũy: `1★ Đỏ = 80` | `5★ Đỏ = 200` Mảnh Leg/Epic) | `+300 Mảnh` (Tích lũy: `1★ Đỏ = 160` | `5★ Đỏ = 400` Mảnh Mythic).\n• **Tầng 3 — `1★–5★ Trắng / Bạc` (`11★–15★`):** Tốn `+300 Mảnh` (Tích lũy Leg/Epic: `1★ = 280` | `2★ = 300` | `5★ = 500`) | `+600 Mảnh` (Tích lũy Mythic: `1★ = 560` | `2★ = 600` | `5★ = 1,000`).\n• **Chi phí Thức Tỉnh (`Awakening`):** Mở khi tướng Vàng đạt `1–2 Sao Trắng` (`11–12 Sao`), tiêu tốn tổng cộng `9 Hồn Đá Đỏ` (`Soul Stones`) + `345–385` Mảnh Tướng qua 4 bậc.",
+                en: "**International `3-Color Star` (`15-Star`) shard cost table and `Awakening` requirements:**\n• **Tier 1 — `1★–5★ Yellow Stars` (`1★–5★`):** Costs `50 Shards` (Legendary / Epic) | `100 Shards` (Mythic).\n• **Tier 2 — `1★–5★ Red Stars` (`6★–10★`):** Costs `+150 Shards` (Cumulative Leg/Epic: `1★ = 80` | `5★ = 200`) | `+300 Shards` (Cumulative Mythic: `1★ = 160` | `5★ = 400`).\n• **Tier 3 — `1★–5★ White / Silver Stars` (`11★–15★`):** Costs `+300 Shards` (Leg/Epic: `1★ = 280` | `2★ = 300` | `5★ = 500`) | `+600 Shards` (Mythic: `1★ = 560` | `2★ = 600` | `5★ = 1,000`).\n• **Legendary-to-Mythic Awakening:** Starts at `1–2 White Stars` (`11–12 Stars`), consuming `9 Red Soul Stones` + `345–385` Hero Shards across 4 tiers.",
               },
             },
           ],
@@ -780,8 +780,8 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
             en: "The 4 most common beginner mistakes during early progression and their Meta solutions",
           },
           headers: [
-            { vi: "❌ Sai lầm phổ biến của Tân thủ", en: "❌ Common Beginner Pitfall" },
-            { vi: "✅ Giải pháp Chuẩn Meta", en: "✅ Meta-Standard Solution" },
+            { vi: "Sai lầm phổ biến của Tân thủ", en: "Common Beginner Pitfall" },
+            { vi: "Giải pháp Chuẩn Meta", en: "Meta-Standard Solution" },
           ],
           rows: [
             [
@@ -791,7 +791,7 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
               },
               {
                 vi: "Tướng Xanh ngừng nâng ngay sau Ngày 2. Tướng Tím chỉ nâng Sao (lên 2 Sao Trắng / 12 Sao = 300 Mảnh mở Thiên phú Kinh tế), giữ cấp độ dưới Lv.100 để dành hàng trăm triệu Thịt cho Đội 1.",
-                en: "Stop leveling Blue heroes after Day 2. Only star-up Epic heroes to 2 Sao Trắng / White Stars (12 Sao = 300 Mảnh / Shards) to unlock their 3rd Economy Trait, keeping their level below Lv.100 to save hundreds of millions of Food for Queue 1.",
+                en: "Stop leveling Blue heroes after Day 2. Only star-up Epic heroes to 2 White Stars (12 Stars = 300 Shards) to unlock their 3rd Economy Trait, keeping their level below Lv.100 to save hundreds of millions of Food for Queue 1.",
               },
             ],
             [
@@ -841,8 +841,8 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Để không bao giờ bị động trước lịch cập nhật của nhà phát hành, người chơi cần nắm vững Bản đồ Lộ trình 90 Ngày Đầu Tiên (First 90 Days Server Timeline) từ giai đoạn Tiền Mùa Giải (Pre-Season / S0) bước sang Mùa Giải 1 (Season 1):",
-            en: "To stay ahead of the publisher's release cadence, players must master the First 90-Day Server Timeline transitioning from Pre-Season (S0) into Season 1:",
+            vi: "**Chủ Động Lộ Trình 90 Ngày:** Để không bị động trước lịch cập nhật, người chơi cần nắm vững Bản đồ Lộ trình 90 Ngày Đầu Tiên (`Pre-Season S0 ➔ Season 1`):",
+            en: "**Master the 90-Day Cadence:** To stay ahead of the publisher's release cadence, players must master the First 90-Day Server Timeline (`Pre-Season S0 ➔ Season 1`):",
           },
         },
         {
@@ -962,7 +962,7 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
               ],
               rows: [
                 [
-                  { vi: "💎 Kim Cương (Diamonds)", en: "💎 Diamonds (KC)" },
+                  { vi: "Kim Cương (Diamonds)", en: "Diamonds (KC)" },
                   {
                     vi: "20% Chi tiêu (Mua Điểm VIP chạm VIP 4, thuê Thợ xây thứ 2 bằng 500 KC) / 80% Tích trữ (Giữ đáy 30,000+ KC).",
                     en: "20% Spend (Buy VIP points to reach VIP 4, hire 2nd Builder Queue for 500 KC) / 80% Save (Maintain 30,000+ KC floor).",
@@ -982,8 +982,8 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "🧩 Mảnh Tướng Vàng Vạn Năng (Universal Shards)",
-                    en: "🧩 Universal Legendary Shards",
+                    vi: "Mảnh Tướng Vàng Vạn Năng (Universal Shards)",
+                    en: "Universal Legendary Shards",
                   },
                   {
                     vi: "0% Chi tiêu — Đóng băng 100% từ đầu Tuần 3. Chỉ dùng mảnh riêng nâng tướng Liên Minh khởi đầu.",
@@ -991,11 +991,11 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
                   },
                   {
                     vi: "100% Dồn cho Tướng Đỏ Đội 1 (Desert Prince, Storm Maiden, Witch hoặc chủ lực hệ đã chọn) vào Thứ Năm Tuần B (GAR / KvK Day 4) (hoặc canh lúc có Hero Development Rush / Nhiệm vụ Vàng nâng tướng nếu máy chủ đang ở giai đoạn Thi Đấu Hội chạy nối tiếp).",
-                    en: "100% Funneled into Queue 1 Mythic heroes (Desert Prince, Storm Maiden, Witch) on Thursday of Week B (GAR / KvK Day 4) (or synced with Hero Development Rush / Golden Hero Upgrade Quests if the server is in continuous weekly Thi Đấu Hội / Guild Race mode).",
+                    en: "100% Funneled into Queue 1 Mythic heroes (Desert Prince, Storm Maiden, Witch) on Thursday of Week B (GAR / KvK Day 4) (or synced with Hero Development Rush / Golden Hero Upgrade Quests if the server is in continuous weekly Guild Race mode).",
                   },
                   {
                     vi: "70% Đẩy Tướng Đỏ lên 5 Sao Trắng (1,000 Mảnh/tướng Mythic; 500 Mảnh Legendary) / 30% Dành cho Thức Tỉnh Tướng Vàng (9 Hồn Đá Đỏ (Soul Stones) + 345–385 Mảnh Tướng từ mốc 1–2 Sao Trắng / 11–12 Sao).",
-                    en: "70% Push Mythics to 5 White Stars (1,000 Shards/Mythic; 500 Shards/Legendary) / 30% Reserved for Legendary Awakening (9 Hồn Đá Đỏ / Soul Stones + 345–385 Shards starting from 1–2 White Stars / 11–12 Stars).",
+                    en: "70% Push Mythics to 5 White Stars (1,000 Shards/Mythic; 500 Shards/Legendary) / 30% Reserved for Legendary Awakening (9 Red Soul Stones + 345–385 Shards starting from 1–2 White Stars / 11–12 Stars).",
                   },
                   {
                     vi: "Mốc 1 Sao Trắng / Bạc (11 Sao = 560 Mảnh Mythic / 280 Mảnh Leg) mở khóa +30% hiệu ứng Kỹ năng là điểm dừng ROI tối ưu đầu tiên cho mỗi Tướng Đỏ.",
@@ -1004,8 +1004,8 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "🍖 Thịt & Cấp Độ Phe Phái (Food & Faction Level)",
-                    en: "🍖 Food & Faction Level",
+                    vi: "Thịt & Cấp Độ Phe Phái (Food & Faction Level)",
+                    en: "Food & Faction Level",
                   },
                   {
                     vi: "90% Đẩy Level 6 tướng Đội 1 chạm trần Lâu đài / 10% Nâng Đội 2 lên Lv.120–135 để đi đào mỏ.",
@@ -1021,13 +1021,13 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
                   },
                   {
                     vi: "Mốc Faction Level 40 = 1,181.16 Triệu Thịt + 1,307 Mảnh = +20% Queue HP (+5% mỗi 10 cấp).",
-                    en: "Faction Level 40 = 1,181.16 Million Meat (1,181.16 Triệu Thịt) + 1,307 Shards = +20% Queue HP (+5% per 10 levels).",
+                    en: "Faction Level 40 = 1,181.16 Million Meat + 1,307 Shards = +20% Queue HP (+5% per 10 levels).",
                   },
                 ],
                 [
                   {
-                    vi: "🔬 Tăng Tốc Nghiên Cứu (Research Speedups)",
-                    en: "🔬 Research Speedups",
+                    vi: "Tăng Tốc Nghiên Cứu (Research Speedups)",
+                    en: "Research Speedups",
                   },
                   {
                     vi: "100% Nhánh Combat Expertise & Development (mở khóa toàn bộ cây công nghệ và giảm thời gian nghiên cứu).",
@@ -1043,13 +1043,13 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
                   },
                   {
                     vi: "Hoàn thành Đấu Sĩ (Brawler 2 Sao Trắng = 300 Mảnh = +30% Tech Research Rate) trước khi xả hàng trăm giờ tăng tốc nghiên cứu ở GAR / KvK (hoặc Nhiệm vụ Vàng Thi Đấu Hội).",
-                    en: "Complete Brawler 2 White Stars (Brawler 2 Sao Trắng = 300 Mảnh = +30% Tech Research Rate) before burning hundreds of hours of research speedups in GAR / KvK or Guild Race Golden Quests.",
+                    en: "Complete Brawler 2 White Stars (12 Stars = 300 Shards = +30% Tech Research Rate) before burning hundreds of hours of research speedups in GAR / KvK or Guild Race Golden Quests.",
                   },
                 ],
                 [
                   {
-                    vi: "⚒️ Quặng & Trang Bị (Gear Ore & Lord Materials)",
-                    en: "⚒️ Gear Ore & Lord Materials",
+                    vi: "Quặng & Trang Bị (Gear Ore & Lord Materials)",
+                    en: "Gear Ore & Lord Materials",
                   },
                   {
                     vi: "Đúc đủ 24 món Trang bị Tím/Vàng cho Đội 1. Phân giải toàn bộ đồ Xanh/Lục.",
@@ -1093,8 +1093,8 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
             en: "72-Hour Pre-Launch Protocol: Preparing Your Account for Desert Prince on Day 21",
           },
           profileSummary: {
-            vi: "Bối cảnh bài toán mẫu: Một tài khoản tiêu chuẩn ở Ngày thứ 18 của Máy chủ mới (Giữa Tuần 3 — đang chạy sự kiện Thi Đấu Hội / Guild Race kèm Đế Quốc Hắc Ám Xâm Nhập & Bắt Bướm), đạt Lâu đài Cấp 24–25 với tổng lực chiến khoảng 6.0M và Đội 1 thuần 6 tướng Vàng Liên Minh (Pyromancer, Adjudicator, Secret Keeper, Astrologer, Nun, Bard ở Lv.160). Chỉ còn đúng 3 ngày nữa (Ngày 21), vị Tướng Đỏ đầu tiên của hệ Bộ Lạc là Hoàng Tử Sa Mạc (Desert Prince) sẽ xuất hiện.",
-            en: "Sample Scenario Context: A standard account on Day 18 of a new server (Mid-Week 3 — actively running Guild Race / Thi Đấu Hội alongside Dark Empire Invasion & Butterfly Catching), at Castle Lv.24–25 with ~6.0M Total Influence and a pure 6-Legendary League Queue 1 (Pyromancer, Adjudicator, Secret Keeper, Astrologer, Nun, Bard at Lv.160). In exactly 3 days (Day 21), the first Horde Mythic hero — Desert Prince — will arrive.",
+            vi: "**Bối cảnh bài toán mẫu: Tài khoản tiêu chuẩn ở `Ngày thứ 18` của Máy chủ mới (Giữa Tuần 3), đạt Lâu đài `Lv.24–25` với tổng lực chiến `6.0M`.**\n• **Trạng thái hiện tại:** Đang chạy sự kiện Thi Đấu Hội (`Guild Race`) kèm `Đế Quốc Hắc Ám Xâm Nhập` & `Bắt Bướm`; Đội 1 thuần `6 tướng Vàng Liên Minh` ở `Lv.160`.\n• **Mục tiêu 72 giờ tới:** Chuẩn bị tài nguyên đón vị Tướng Đỏ đầu tiên của hệ Bộ Lạc là Hoàng Tử Sa Mạc (`Desert Prince`) ra mắt vào đúng `Ngày 21`.",
+            en: "**Scenario Context: A standard account on `Day 18` of a new server (Mid-Week 3) at `Castle Lv.24–25` with `~6.0M` Total Influence.**\n• **Current State:** Running `Guild Race` alongside `Dark Empire Invasion` & `Butterfly Catching` with a pure `6-Legendary League` Queue 1 at `Lv.160`.\n• **72-Hour Target:** Prepare reserves for the first Horde Mythic hero — `Desert Prince` — arriving in exactly 3 days on `Day 21`.",
           },
           metrics: [
             {
@@ -1154,16 +1154,16 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
           ],
           diagnostics: [
             {
-              vi: "Nguy cơ 1: Tiếp tục nâng sao và kỹ năng cho Astrologer hoặc Secret Keeper ở Tuần 3 sẽ làm hụt mốc 160 Mảnh Vạn Năng (1 Sao Đỏ) và 24,700+ Sách Kỹ Năng khi Desert Prince ra mắt vào Ngày 21.",
-              en: "Risk 1: Continuing to invest shards and skill books into Astrologer or Secret Keeper during Week 3 leaves you short of the 160 Universal Shards (1 Red Star) and 24,700+ Skill Books needed for Desert Prince on Day 21.",
+              vi: "**Nguy cơ 1 (Hụt Mảnh & Sách):** Tiếp tục nâng `Astrologer` hoặc `Secret Keeper` ở Tuần 3 sẽ làm hụt mốc `160 Mảnh Vạn Năng` (`1★ Đỏ`) và `24,700+` Sách Kỹ Năng cho `Desert Prince` (`Ngày 21`).",
+              en: "**Risk 1 (Shard & Book Deficit):** Investing shards/books into `Astrologer` or `Secret Keeper` in Week 3 leaves you short of `160 Universal Shards` (`1★ Red`) and `24,700+` Skill Books on `Day 21`.",
             },
             {
-              vi: "Nguy cơ 2: Để mảnh Kỵ Sĩ (Knight) 15 Sao (500 Mảnh) nằm im trong túi thay vì đổi sang Mảnh Vạn Năng Tím trong Tiệm Đổi Quà (Exchange Shop) để hoàn thiện Đấu Sĩ (Brawler 300 Mảnh = +30% Nghiên cứu).",
-              en: "Risk 2: Letting excess shards of a 15-Star Knight (500 Shards) sit idle in inventory instead of converting them in the Exchange Shop to finish Brawler (300 Shards = +30% Research Speed).",
+              vi: "**Nguy cơ 2 (Đọng Mảnh Tím):** Để mảnh `Knight` `15 Sao` (`500 Mảnh`) nằm im thay vì đổi lấy Mảnh Vạn Năng Tím trong `Exchange Shop` để hoàn thiện `Brawler` (`300 Mảnh` = `+30% Nghiên cứu`).",
+              en: "**Risk 2 (Idle Epic Shards):** Letting excess `15-Star Knight` (`500 Shards`) shards sit idle instead of trading them in the `Exchange Shop` to finish `Brawler` (`300 Shards` = `+30% Research`).",
             },
             {
-              vi: "Nguy cơ 3: Không kiểm tra Lịch Event lúc 09:00 sáng Thứ Hai để biết Tuần 4 của máy chủ tiếp tục chạy Thi Đấu Hội nối sóng (kèm Tập Kích Cự Ma & Khiêu Chiến Của Đội Quân Hắc Ám) hay đã mở GAR / KvK 6 ngày.",
-              en: "Risk 3: Failing to check the Monday 09:00 Event Calendar to verify whether Week 4 continues back-to-back Guild Race (with Giant Raid & Dark Army Challenge) or switches to a 6-day GAR / KvK rotation.",
+              vi: "**Nguy cơ 3 (Lệch Lịch Event):** Không kiểm tra Lịch Event lúc `09:00` Thứ Hai để biết Tuần 4 chạy Thi Đấu Hội nối sóng (kèm Tập Kích Cự Ma & Khiêu Chiến Của Đội Quân Hắc Ám) hay mở `GAR / KvK`.",
+              en: "**Risk 3 (Calendar Desync):** Failing to check the Monday `09:00` Event Calendar to verify whether Week 4 continues back-to-back `Guild Race` (`Giant Raid` & `Dark Army`) or opens `GAR / KvK`.",
             },
           ],
           recoverySteps: [
@@ -1174,8 +1174,8 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
                 en: "Audit Universal Shard & Skill Book Reserves",
               },
               detail: {
-                vi: "Ngưng toàn bộ việc nâng sao và nâng kỹ năng cho Astrologer và Secret Keeper. Đảm bảo trong kho tích lũy tối thiểu 160–250 Mảnh Vàng Vạn Năng (đủ kéo lên 1 Sao Đỏ = 160 Mảnh ngay lập tức) và 24,700+ Sách Kỹ Năng (đủ nâng max 1 kỹ năng trọng điểm từ Lv.1 ➔ Lv.15 hoặc 3 kỹ năng lên Lv.10 = 8,000 Sách/skill) cho Desert Prince ngay khi sở hữu.",
-                en: "Immediately halt all star and skill upgrades on Astrologer and Secret Keeper. Ensure your inventory holds at least 160–250 Universal Legendary Shards (enough for an instant 1 Red Star = 160 Shards) and 24,700+ Skill Books (enough to max 1 signature skill from Lv.1 ➔ Lv.15 or raise 3 skills to Lv.10 = 8,000 Books/skill) for Desert Prince upon unlock.",
+                vi: "**Ngưng toàn bộ việc nâng sao và kỹ năng cho `Astrologer` và `Secret Keeper` ngay lập tức.**\n• **Mốc Tích trữ:** Giữ tối thiểu `160–250 Mảnh Vàng Vạn Năng` (kéo thẳng `1 Sao Đỏ = 160 Mảnh`) và `24,700+` Sách Kỹ Năng (max 1 skill `Lv.15` hoặc 3 skill `Lv.10 = 8,000` Sách/skill) cho `Desert Prince`.",
+                en: "**Immediately halt all star and skill upgrades on `Astrologer` and `Secret Keeper`.**\n• **Target Reserves:** Hold at least `160–250 Universal Shards` (instant `1 Red Star = 160 Shards`) and `24,700+` Skill Books (1 skill at `Lv.15 Max` or 3 skills at `Lv.10 = 8,000` Books/skill) for `Desert Prince`.",
               },
               impactBadge: {
                 vi: "160–250 Mảnh + 24,700+ Sách",
@@ -1189,8 +1189,8 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
                 en: "Activate the Epic Hero Economy Engine (Knight ➔ Brawler)",
               },
               detail: {
-                vi: "Kiểm tra tiến độ sao của Kỵ Sĩ (Knight) và Đấu Sĩ (Brawler). Nếu Knight đã đạt kịch trần 15 Sao (5 Sao Trắng / Bạc = 500 Mảnh), toàn bộ mảnh Knight dư thừa phải được đem vào Tiệm Đổi Quà (Exchange Shop) mua Mảnh Vạn Năng Tím đút cho Brawler chạm mốc 12 Sao (2 Sao Trắng / Bạc = 300 Mảnh) ngay lập tức để lấy +30% Tốc độ Nghiên cứu Công nghệ (Tech Research Rate) vĩnh viễn.",
-                en: "Check the star progression of Knight and Brawler. Once Knight hits the 15-Star cap (5 White / Silver Stars = 500 Shards), trade all excess Knight shards in the Exchange Shop for Universal Epic Shards and push Brawler to 12 Stars (2 White / Silver Stars = 300 Shards) to permanently unlock +30% Tech Research Rate.",
+                vi: "**Kiểm tra tiến độ sao của Kỵ Sĩ (`Knight`) và Đấu Sĩ (`Brawler`) trong danh sách tướng Tím.**\n• **Quy đổi Mảnh dư:** Khi `Knight` đạt `15 Sao` (`500 Mảnh`), đem mảnh dư vào `Exchange Shop` đổi Mảnh Tím đút cho `Brawler` chạm `12 Sao` (`2★ Trắng = 300 Mảnh`) để lấy `+30% Tech Research Rate`.",
+                en: "**Audit the star progression of `Knight` and `Brawler` in your Epic hero roster.**\n• **Shard Conversion:** Once `Knight` hits `15 Stars` (`500 Shards`), trade excess shards in the `Exchange Shop` to push `Brawler` to `12 Stars` (`2★ White = 300 Shards`) for `+30% Tech Research Rate`.",
               },
               impactBadge: {
                 vi: "Brawler 300 Mảnh = +30% Research",
@@ -1204,8 +1204,8 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
                 en: "Pre-Build Horde Transition Infrastructure",
               },
               detail: {
-                vi: "Đưa Doanh Trại Bộ Lạc (Horde Barracks) và Tượng Bộ Lạc (Horde Statue) vào danh sách ưu tiên xây dựng ngang hàng với Lâu đài từ cuối Tuần 3, sẵn sàng cung cấp lính Bộ Lạc bậc cao nhất ngay khi đội hình chuyển giao ở Ngày 21–27.",
-                en: "Elevate Horde Barracks and Horde Statue to top construction priority alongside your Castle starting in late Week 3, ensuring highest-tier Horde troops are ready the moment your lineup pivots during Days 21–27.",
+                vi: "**Đưa Doanh Trại Bộ Lạc (`Horde Barracks`) và Tượng Bộ Lạc (`Horde Statue`) vào danh sách ưu tiên xây dựng ngang với Lâu đài từ cuối Tuần 3.**\n• **Sẵn sàng Chuyển dịch:** Đảm bảo cung cấp lính Bộ Lạc bậc cao nhất ngay khi Đội 1 chuyển giao ở `Ngày 21–27`.",
+                en: "**Elevate `Horde Barracks` and `Horde Statue` to top construction priority alongside your Castle starting in late Week 3.**\n• **Transition Readiness:** Ensure highest-tier Horde troops are ready the moment Queue 1 pivots during `Days 21–27`.",
               },
               impactBadge: {
                 vi: "Horde Barracks & Statue Ready",
@@ -1219,8 +1219,8 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
                 en: "The \"Monday 09:00 5-Second Event Calendar Check\" Before Spending Shards",
               },
               detail: {
-                vi: "Khi quay ra Desert Prince vào Ngày 21, việc đầu tiên là mở Event ➔ Lịch Event và bấm vào các thanh sự kiện bắt đầu lúc 09:00 Thứ Hai tuần kế tiếp (Tuần 4):\n• Trường hợp A — Tuần 4 tiếp tục là Thi Đấu Hội nối sóng liên tiếp (Phổ biến ở Server mới giai đoạn đầu Pre-Season khi Bang hội đang leo hạng D ➔ C ➔ B, đi kèm Khiêu Chiến Của Đội Quân Hắc Ám và Tập Kích Cự Ma mà chưa mở GAR): Bạn KHÔNG cần nhịn trắng sang tuần sau! Hãy canh lúc nhận Nhiệm vụ Vàng nâng Tướng / Tăng Lực chiến trên bảng Thi Đấu Hội (hoặc trùng sự kiện phụ Hero Development Rush) để đút Mảnh Vạn Năng đẩy Desert Prince lên thẳng 1 Sao Đỏ (160 Mảnh) ngay lập tức, giúp Đội 1 mạnh vượt trội để càn quét Đấu Trường và Tập Kích Cự Ma.\n• Trường hợp B — Tuần 4 trên lịch mở Đua Vũ Trang Bang Hội (GAR) hoặc KvK 6 ngày: Chỉ mở khóa tướng ở mức cơ bản vào Ngày 21 và giữ toàn bộ Mảnh Vạn Năng chờ đến đúng Thứ Năm của Tuần 4 (Ngày 4 của GAR/KvK) trong khung giờ vàng 17:00 – 21:00 mới bấm nâng sao để ăn trọn điểm đôi (Double-Dip)!",
-                en: "Upon unlocking Desert Prince on Day 21, immediately open Event ➔ Event Calendar and inspect the event bars starting at 09:00 Monday of the following week (Week 4):\n• Case A — Week 4 continues with back-to-back Guild Race (Thi Đấu Hội) (Common on new Pre-Season servers while Guilds climb Ranks D ➔ C ➔ B, paired with Dark Army Challenge / Khiêu Chiến Của Đội Quân Hắc Ám and Giant Raid / Tập Kích Cự Ma before GAR opens): You DO NOT need to hoard blindly into next week! Claim a Golden Hero Upgrade / Power Quest on the Guild Race board (or align with Hero Development Rush) and immediately push Desert Prince to 1 Red Star (160 Shards) to dominate Arena and Giant Raid.\n• Case B — Week 4 opens 6-day Guild Arms Race (GAR) or KvK: Unlock base Desert Prince on Day 21 and hold 100% of Universal Shards until Thursday of Week 4 (Day 4 of GAR/KvK) during the 17:00 – 21:00 golden window for maximum Double-Dip points!",
+                vi: "**Khi mở khóa `Desert Prince` vào `Ngày 21`, hãy mở ngay `Event ➔ Lịch Event` kiểm tra thanh sự kiện bắt đầu lúc `09:00` Thứ Hai Tuần 4:**\n• **Trường hợp A (Tuần 4 chạy Thi Đấu Hội nối sóng kèm Khiêu Chiến Của Đội Quân Hắc Ám & Tập Kích Cự Ma):** Canh Nhiệm vụ Vàng nâng Tướng để đút Mảnh đẩy `Desert Prince` lên thẳng `1 Sao Đỏ` (`160 Mảnh`) ngay.\n• **Trường hợp B (Tuần 4 mở `GAR / KvK` 6 ngày):** Chỉ mở khóa tướng ở Ngày 21 và giữ 100% Mảnh Vạn Năng chờ đúng Thứ Năm Tuần 4 (`Ngày 4 GAR/KvK`, khung `17:00 – 21:00`) mới nâng sao ăn trọn `Double-Dip`!",
+                en: "**Upon unlocking `Desert Prince` on `Day 21`, immediately open `Event ➔ Event Calendar` and inspect Monday `09:00` of Week 4:**\n• **Case A (Week 4 continues back-to-back `Guild Race` with `Dark Army Challenge` & `Giant Raid`):** Claim a Golden Hero Upgrade Task and immediately push `Desert Prince` to `1 Red Star` (`160 Shards`).\n• **Case B (Week 4 opens 6-day `GAR / KvK`):** Unlock base `Desert Prince` on Day 21 and hold 100% of Universal Shards until Thursday of Week 4 (`Day 4 GAR/KvK`, `17:00 – 21:00`) for full `Double-Dip` points!",
               },
               impactBadge: {
                 vi: "09:00 Thứ Hai • Tối ưu Double-Dip",
@@ -1229,8 +1229,8 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
             },
           ],
           conclusion: {
-            vi: "Kết quả thực chiến: Tài khoản bước sang Ngày 21 với Desert Prince đạt 1 Sao Đỏ (160 Mảnh) + Kỹ năng chủ lực Lv.15 (24,700 Sách), giữ trọn tốc độ nghiên cứu +30% từ Brawler (300 Mảnh) và đồng bộ 100% điểm thưởng theo đúng chế độ Lịch Event của máy chủ.",
-            en: "Tactical Outcome: The account enters Day 21 with a 1 Red Star (160 Shards) Desert Prince + Lv.15 signature skill (24,700 Books), permanent +30% Research speed from Brawler (300 Shards), and 100% event point synchronization.",
+            vi: "**Kết quả thực chiến: Tài khoản bước sang `Ngày 21` với `Desert Prince` đạt `1 Sao Đỏ` (`160 Mảnh`) + Kỹ năng chủ lực `Lv.15` (`24,700` Sách).**\n• **Đồng bộ Toàn diện:** Giữ trọn tốc độ nghiên cứu `+30%` từ `Brawler` (`300 Mảnh`) và ăn khớp 100% điểm thưởng theo đúng chế độ Lịch Event của máy chủ.",
+            en: "**Tactical Outcome: The account enters `Day 21` with a `1 Red Star` (`160 Shards`) `Desert Prince` + `Lv.15` signature skill (`24,700` Books).**\n• **Full Synchronization:** Retains permanent `+30%` Research speed from `Brawler` (`300 Shards`) and achieves 100% event point alignment.",
           },
         },
         {

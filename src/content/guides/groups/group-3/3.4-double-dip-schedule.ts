@@ -16,34 +16,34 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
   },
   tldr: {
     coreRule: {
-      vi: "Double-Dip (Nhân đôi lợi tức — 200%) và Triple-Dip (Nhân ba lợi tức — 300%) là kỹ thuật chờ cho 2 đến 3 sự kiện có cùng điều kiện tính điểm trùng khớp nhau trên cùng một khung giờ, sau đó mới bấm xả tài nguyên để 1 vật phẩm ăn đồng thời 2–3 bảng phần thưởng.",
-      en: "Double-Dip (200% yield) and Triple-Dip (300% yield) are the art of waiting until 2 to 3 events with identical scoring conditions overlap within the exact same time window before spending resources—allowing a single item to claim rewards from 2–3 event boards simultaneously.",
+      vi: "**Định Nghĩa `Double-Dip (200%)` & `Triple-Dip (300%)`:** Là kỹ thuật chờ cho `2 đến 3 sự kiện` có cùng điều kiện tính điểm giao thoa trên cùng một khung giờ.\n• **Lợi tức gộp:** Chỉ bấm xả tài nguyên tại đúng điểm giao thoa để `1 vật phẩm` ăn đồng thời `2–3 bảng phần thưởng`.",
+      en: "**Defining `Double-Dip (200%)` & `Triple-Dip (300%)`:** The art of waiting until `2 to 3 events` with identical scoring conditions overlap within the exact same time window.\n• **Compounded yield:** Unload only during overlap windows so `1 item` claims rewards from `2–3 event boards` simultaneously.",
     },
     immediateAction: {
-      vi: "Phân tách rạch ròi túi đồ của bạn thành 2 Nhóm: Nhóm 'Đập Ngay Lập Tức' (Trang bị Tướng Hero Gear, Đá Cường hóa thường +10/+20/+30/+40, Mảnh Tướng Tím mở Trait 3 Kinh tế ở mốc 12 Sao = 2 Sao Trắng = 300 Mảnh) và Nhóm 'Găm Chờ Giao Thoa' (Mảnh Tướng Vàng, Hồn Đá Đỏ, Bản vẽ Chúa tể Lord Gear, Cổ Ngữ, Thánh Tích, Thức ăn Pet, Tăng tốc).",
-      en: "Strictly divide your inventory into 2 Groups: Group A 'Spend Immediately' (Hero Gear forging, regular Enhancement Ore +10/+20/+30/+40, Epic Economy Hero Shards to unlock Trait 3 at 12 Stars = 2 White Stars = 300 Shards) and Group B 'Hoard for Overlap' (Universal Legendary/Mythic Shards, Soul Stones, Lord Gear materials, Runes, Relics, Pet Food, Speedups).",
+      vi: "**Phân Tách Túi Đồ Thành 2 Nhóm:** `Nhóm A 'Đập Ngay'` gồm đúc `Hero Gear`, Đá Cường hóa thường `+10/+20/+30/+40`, và Mảnh Tướng Tím Kinh tế mở `Trait 3` ở mốc `12★ = 2 Sao Trắng = 300 Mảnh`.\n• **Nhóm B 'Găm Chờ Giao Thoa':** Khóa chặt Mảnh Tướng Vàng, `Hồn Đá Đỏ`, nguyên liệu `Lord Gear`, `Runes`, `Relics`, `Pets` và `Tăng tốc`.",
+      en: "**Divide Inventory into 2 Groups:** `Group A 'Spend Immediately'` covers `Hero Gear` forging, regular Enhancement Ore `+10/+20/+30/+40`, and Epic Economy Shards unlocking `Trait 3` at `12★ = 2 White Stars = 300 Shards`.\n• **Group B 'Hoard for Overlap':** Lock Universal Shards, `Soul Stones`, `Lord Gear`, `Runes`, `Relics`, `Pet Food`, and `Speedups`.",
     },
     strictTaboo: {
-      vi: "Tuyệt đối KHÔNG xả tài nguyên ở khung hiệu suất 0% (Ngoài sự kiện) hoặc xả nhầm vật phẩm vào sự kiện không ghi nhận điểm của vật phẩm đó (như găm Đồ Chúa Tể Lord Gear sang Thứ Bảy Ngày 6 GAR/KvK hoặc xả Thánh Tích Relics vào Thứ Sáu Ngày 5 GAR tiêu chuẩn).",
-      en: "NEVER spend hoarding resources during a 0% efficiency window (outside events) or dump items into an event day that does not score them (such as saving Lord Gear for Saturday Day 6 of GAR/KvK, or spending Relics on Friday Day 5 of standard GAR).",
+      vi: "**Cấm Xả Vùng `0%` Hoặc Lệch Ngày:** Tuyệt đối KHÔNG xả tài nguyên ngoài sự kiện (`0%`) hoặc xả nhầm vào ngày không tính điểm.\n• **Hai bẫy chí mạng:** Cấm găm Đồ Chúa Tể (`Lord Gear`) sang Thứ Bảy Ngày 6 `GAR/KvK` và cấm xả Thánh Tích (`Relics`) vào Thứ Sáu Ngày 5 `GAR` tiêu chuẩn!",
+      en: "**Never Spend in `0%` or Wrong-Day Traps:** NEVER spend hoarding resources outside events (`0%`) or dump items on a day that does not score them.\n• **Two fatal traps:** Never save `Lord Gear` for Saturday Day 6 of `GAR/KvK`, and never spend `Relics` on Friday Day 5 of standard `GAR`!",
     },
   },
   keyTakeaways: [
     {
-      vi: "Hệ thống sự kiện Top Heroes vận hành theo 3 Lớp Chồng Xếp Nhau (Lớp 1: Sự kiện trục chính 7 ngày Guild Race / GAR / KvK; Lớp 2: Vệ tinh, Guild Rush 2 ngày & 8 sự kiện phụ xoay tua; Lớp 3: Sự kiện Giờ 4 tiếng 6 ca/ngày), tạo ra 4 bậc hiệu suất xả tài nguyên từ 0% (Forbidden) ➔ 100% (Single-Dip) ➔ 200% (Double-Dip) ➔ 300% (Triple-Dip).",
-      en: "Top Heroes events operate across 3 Overlapping Layers (Layer 1: 7-Day Macro Event Guild Race / GAR / KvK; Layer 2: Satellite Events, Fixed 2-Day Guild Rush & 8 Rotating Sub-Events; Layer 3: 4-Hour Hourly Arms Race 6 shifts/day), creating 4 resource efficiency tiers from 0% (Forbidden) ➔ 100% (Single-Dip) ➔ 200% (Double-Dip) ➔ 300% (Triple-Dip).",
+      vi: "**Kiến Trúc 3 Lớp Sự Kiện:** Lớp 1 (`7-Day Guild Race / GAR / KvK`), Lớp 2 (`Vệ tinh, Guild Rush 2 ngày & 8 Sub-Events`), Lớp 3 (`Hourly Arms Race 4h — 6 ca/ngày`).\n• **4 Bậc hiệu suất:** Tạo ra 4 cấp độ xả tài nguyên từ `0% (Forbidden)` ➔ `100% (Single-Dip)` ➔ `200% (Double-Dip)` ➔ `300% (Triple-Dip)`.",
+      en: "**3 Overlapping Event Layers:** Layer 1 (`7-Day Guild Race / GAR / KvK`), Layer 2 (`Satellites, 2-Day Guild Rush & 8 Sub-Events`), Layer 3 (`4-Hour Hourly Arms Race — 6 shifts/day`).\n• **4 Efficiency tiers:** Creates 4 spending tiers from `0% (Forbidden)` ➔ `100% (Single-Dip)` ➔ `200% (Double-Dip)` ➔ `300% (Triple-Dip)`.",
     },
     {
-      vi: "Phân biệt sống còn giữa Trang bị Tướng (Hero Gear trong Lò rèn + Đá Cường hóa thường +10/+20/+30/+40 = hoàn toàn KHÔNG tính điểm GAR/KvK, phải đúc và đập ngay cho Đội 1) và Trang bị Chúa Tể (Lord Gear trên Avatar = găm kỹ chờ Thứ Sáu–Chủ Nhật Tuần A hoặc Thứ Tư–Thứ Năm Tuần B, tuyệt đối CẤM chờ Thứ Bảy Ngày 6).",
-      en: "Master the critical boundary between Hero Gear (Blacksmith forging + regular Enhancement Ore +10/+20/+30/+40 = 0 points in GAR/KvK, forge and upgrade immediately for Queue 1) and Lord Gear (Avatar gear = hoard strictly for Fri–Sun Week A or Wed–Thu Week B, NEVER wait until Saturday Day 6).",
+      vi: "**Ranh Giới `Hero Gear` vs `Lord Gear`:** Trang bị Tướng (`Hero Gear` trong Lò rèn + Đá Cường hóa thường `+10/+20/+30/+40`) hoàn toàn KHÔNG tính điểm `GAR/KvK` — phải đúc và đập ngay cho Đội 1.\n• **Đồ Chúa Tể (`Lord Gear`):** Găm kỹ chờ Thứ Sáu–CN Tuần A hoặc Thứ Tư–Năm Tuần B (cấm chờ Thứ Bảy Ngày 6).",
+      en: "**`Hero Gear` vs. `Lord Gear` Boundary:** `Hero Gear` (Blacksmith forging + regular Enhancement Ore `+10/+20/+30/+40`) grants `0 points` in `GAR/KvK` — forge and upgrade immediately for Queue 1.\n• **`Lord Gear` (Avatar):** Hoard strictly for Fri–Sun Week A or Wed–Thu Week B (NEVER wait until Saturday Day 6).",
     },
     {
-      vi: "Ngoại lệ Kinh tế Nhóm A2: Mảnh Tướng Tím Kinh tế (Knight, Brawler, Ranger) khi CHƯA đạt mốc 12 Sao (2 Sao Trắng = 300 Mảnh) bắt buộc phải nâng ngay lập tức để mở khóa Trait 3 (+25% đến +30% tốc độ Nghiên cứu / Luyện lính).",
-      en: "Group A2 Economic Exception: Epic Economy Hero Shards (Knight, Brawler, Ranger) below 12 Stars (2 White Stars = 300 Shards) must be upgraded immediately to unlock Trait 3 (+25% to +30% Research / Troop Training speed).",
+      vi: "**Ngoại Lệ Kinh Tế Nhóm A2 (`12★ = 300 Mảnh`):** Mảnh Tướng Tím Kinh tế (`Knight`, `Brawler`, `Ranger`) khi CHƯA đạt `12★ (2 Sao Trắng = 300 Mảnh)` bắt buộc phải nâng ngay.\n• **Mở khóa động cơ kinh tế:** Kích hoạt ngay `Trait 3 (+25% đến +30% tốc độ Nghiên cứu / Luyện lính)` vĩnh viễn.",
+      en: "**Group A2 Economic Exception (`12★ = 300 Shards`):** Epic Economy Hero Shards (`Knight`, `Brawler`, `Ranger`) below `12★ (2 White Stars = 300 Shards)` must be upgraded immediately.\n• **Unlock economy engine:** Permanently activates `Trait 3 (+25% to +30% Research / Troop Training speed)`.",
     },
     {
-      vi: "Thực thi cú nổ Triple-Dip 300% trong 15 phút (17:15–17:30 Thứ Năm Tuần B) với 365 Mảnh Vàng Vạn Năng, 9 Hồn Đá Đỏ (1 + 2 + 2 + 4 = 9), 6,000 Sách Kỹ Năng, 240 Vé Chiêu Mộ và Lord Gear giúp hoàn lại 9,800 Kim Cương, 42 Mảnh Vàng, 1,200 Sách Kỹ Năng và 65h Tăng tốc (tương đương gói nạp ~$49.99 miễn phí).",
-      en: "Executing a 15-minute 300% Triple-Dip burst (Thursday 17:15–17:30 Week B) with 365 Universal Shards, 9 Soul Stones (1 + 2 + 2 + 4 = 9), 6,000 Skill Books, 240 Recruit Tokens, and Lord Gear yields a massive rebate of 9,800 Diamonds, 42 Universal Shards, 1,200 Skill Books, and 65h Speedups (worth ~$49.99 for free).",
+      vi: "**Cú Nổ `Triple-Dip 300%` Chiều Thứ Năm Tuần B:** Xả trong 15 phút (`17:15–17:30`) với `365 Mảnh Vàng`, `9 Hồn Đá Đỏ (1 + 2 + 2 + 4 = 9)`, `6,000 Sách`, `240 Vé` và `Lord Gear`.\n• **Hoàn vốn khổng lồ:** Thu về `9,800` Kim Cương, `42 Mảnh Vàng`, `1,200 Sách` và `65h Tăng tốc` (tương đương gói `~$49.99` miễn phí).",
+      en: "**Thursday `300% Triple-Dip` Burst (Week B):** Unload in 15 minutes (`17:15–17:30`) with `365 Universal Shards`, `9 Soul Stones (1 + 2 + 2 + 4 = 9)`, `6,000 Skill Books`, `240 Tokens`, and `Lord Gear`.\n• **Massive rebate:** Returns `9,800` Diamonds, `42 Universal Shards`, `1,200 Skill Books`, and `65h Speedups` (worth `~$49.99` free).",
     },
   ],
   keywords: [
@@ -84,8 +84,8 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Trong Top Heroes, hệ thống sự kiện không bao giờ chạy đơn lẻ mà được thiết kế theo 3 Lớp Chồng Xếp Nhau (3 Overlapping Event Layers) — bạn luôn có thể kiểm tra trực tiếp tại Event ➔ Lịch Event (cột 09:00 Thứ Hai). Hiểu rõ cách 3 lớp này giao thoa là vũ khí tối thượng giúp người chơi F2P và Low-Spender biến 1 đơn vị tài nguyên thành 2–3 lần phần thưởng hoàn lại.",
-            en: "In Top Heroes, the event ecosystem never runs in isolation; it is engineered around 3 Overlapping Event Layers—which you should always verify directly via Event ➔ Event Calendar (Monday 09:00 column). Mastering how these 3 layers intersect is the ultimate F2P and Low-Spender weapon to turn 1 unit of resource into 2–3x rebate rewards.",
+            vi: "**Kiến trúc 3 Lớp Chồng Xếp:** Trong Top Heroes, hệ thống sự kiện được thiết kế theo `3 Lớp Chồng Xếp Nhau` — hãy kiểm tra trực tiếp tại `Event ➔ Lịch Event` (cột `09:00` Thứ Hai).\n• **Đòn bẩy F2P:** Hiểu rõ cách 3 lớp này giao thoa giúp biến `1 đơn vị tài nguyên` thành `2–3 lần phần thưởng hoàn lại`.",
+            en: "**3 Overlapping Event Layers:** In Top Heroes, events are engineered around `3 Overlapping Event Layers` — always verify directly via `Event ➔ Event Calendar` (Monday `09:00` column).\n• **F2P leverage:** Mastering how these 3 layers intersect turns `1 unit of resource` into `2–3x rebate rewards`.",
           },
         },
       ],
@@ -106,16 +106,16 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
               ordered: true,
               items: [
                 {
-                  vi: "Lớp 1 — Sự Kiện Trục Chính 7 Ngày (7-Day Macro Event): Ở Chế độ Tuần A (Thi Đấu Hội / Guild Race — chạy nối tiếp mỗi tuần ở đầu Pre-Season hoặc luân phiên ở Tuần A), đây là bảng nhiệm vụ 9 ô Thi Đấu Hội (Guild Race) kéo dài từ 09:00 Thứ Hai đến 09:00 Thứ Hai tuần kế tiếp. Ở Chế độ Tuần B (GAR / KvK / Top Lord), đây là Chạy Đua Vũ Trang (Guild Arms Race — GAR), Chiến Tranh Vương Quốc (Kingdom Duel — KvK) hoặc Lãnh Chúa Tối Cao (Top Lord) với 6 Ngày Chủ Đề cố định.",
-                  en: "Layer 1 — 7-Day Macro Event: In Week A Mode (Guild Race—running back-to-back weekly in early Pre-Season or bi-weekly in mature servers), this is the 9-slot Guild Race task board running from Monday 09:00 to the following Monday 09:00. In Week B Mode (GAR / KvK / Top Lord), this is Guild Arms Race (GAR), Kingdom Duel (KvK), or Top Lord featuring 6 Fixed Daily Themes.",
+                  vi: "**Lớp 1 — Sự Kiện Trục Chính 7 Ngày (7-Day Macro Event):** Tuần A chạy bảng 9 ô `Thi Đấu Hội (Guild Race)`; Tuần B chạy `GAR / KvK / Top Lord` với 6 Ngày Chủ Đề cố định từ Thứ Hai đến Thứ Bảy.",
+                  en: "**Layer 1 — 7-Day Macro Event:** Week A Mode runs the 9-slot `Guild Race` task board; Week B Mode runs `Guild Arms Race (GAR)`, `Kingdom Duel (KvK)`, or `Top Lord` featuring 6 Fixed Daily Themes.",
                 },
                 {
-                  vi: "Lớp 2 — Sự Kiện Vệ Tinh (Event Giá Trị / Thường), Guild Rush 2 Ngày & Chuỗi Đua Ngắn Hạn 2–3 Ngày (Sub-Events): (a) Sự kiện Vệ tinh & Event Giá Trị xoay vòng hàng tuần như Đế Quốc Hắc Ám Xâm Nhập ⇄ Khiêu Chiến Của Đội Quân Hắc Ám (mục Thường) và Bắt Bướm ⇄ Tập Kích Cự Ma + Thẻ Thông Hành Tập Kích Cự Ma (mục Event Giá Trị); (b) Lịch Cố định Guild Rush 2 Ngày (Thứ Hai ➔ Thứ Bảy): Tuần A (Guild Race) gồm Thứ Hai–Thứ Ba Nâng cấp Thú Cưng (Pets Development) | Thứ Tư–Thứ Năm Thánh Tích (Relic Hall & Relics) | Thứ Sáu–Thứ Bảy Quân Trang & Đồ Chúa Tể (Troop Skin & Lord Gear — trùng khớp 100% với Nhiệm vụ Vàng Độc quyền Ngày 5–7 của Guild Race!); Tuần B (KvK / GAR) gồm Thứ Hai–Thứ Ba Xây dựng & Nghiên cứu (Building & Research) | Thứ Tư–Thứ Năm Phát triển Tướng (Hero Development) | Thứ Sáu–Thứ Bảy Nâng cấp Trang trí (Decor Upgrading); (c) Chuỗi 8 Sự kiện Phụ xoay tua 2–3 ngày: Ultimate Power, Lord's Set, Hero Development, Rush Top, Decorations, Soul Stone, Pet Power, Relic Power.",
-                  en: "Layer 2 — Satellite Events, Fixed 2-Day Guild Rush & 8 Rotating 2–3 Day Sub-Events: (a) Weekly rotating Satellite & Value Events such as Dark Empire Invasion ⇄ Dark Legion Challenge (Regular tab) and Butterfly Catching ⇄ Giant/Troll Raid + Giant Raid Pass (Value Event tab); (b) Fixed 2-Day Guild Rush Schedule (Monday ➔ Saturday): Week A (Guild Race) features Mon–Tue Pets Development | Wed–Thu Relic Hall & Relics | Fri–Sat Troop Skin & Lord Gear (matching 100% with Days 5–7 Exclusive Gold Tasks in Guild Race!); Week B (KvK / GAR) features Mon–Tue Building & Research | Wed–Thu Hero Development | Fri–Sat Decor Upgrading; (c) 8 Rotating 2–3 Day Sub-Events: Ultimate Power, Lord's Set, Hero Development, Rush Top, Decorations, Soul Stone, Pet Power, Relic Power.",
+                  vi: "**Lớp 2 — Vệ Tinh, Guild Rush 2 Ngày & 8 Sự Kiện Phụ:** Gồm sự kiện Vệ tinh (Đế Quốc Hắc Ám, Cự Ma), lịch `Guild Rush 2 Ngày` (Tuần A: Pet/Relic/Lord Gear; Tuần B: Xây/Tướng/Decor) và 8 sự kiện phụ 2–3 ngày.",
+                  en: "**Layer 2 — Satellite, Fixed 2-Day Guild Rush & 8 Sub-Events:** Includes Satellite events (Dark Empire, Giant Raid), `2-Day Guild Rush` (Week A: Pets/Relics/Lord Gear; Week B: Build/Hero/Decor), and 8 sub-events.",
                 },
                 {
-                  vi: "Lớp 3 — Sự Kiện Giờ Xoay Vòng 4 Tiếng (4-Hour Hourly Arms Race): Chạy liên tục 6 ca/ngày (mỗi ca 4 tiếng) với các chủ đề: Xây Lãnh Thổ (Territory Construction), Nghiên Cứu Công Nghệ (Tech Research), Mở Rộng Quân Đội (Army Expansion), Bồi Dưỡng Anh Hùng (Hero Development), Loại Trừ Mối Nguy (Threat Elimination).",
-                  en: "Layer 3 — 4-Hour Hourly Arms Race: Runs continuously across 6 shifts per day (4 hours per shift) rotating through 5 themes: Territory Construction, Tech Research, Army Expansion, Hero Development, and Threat Elimination.",
+                  vi: "**Lớp 3 — Sự Kiện Giờ Xoay Vòng 4 Tiếng (Hourly Arms Race):** Chạy liên tục `6 ca/ngày` (mỗi ca 4h) với 5 chủ đề: `Xây Lãnh Thổ`, `Nghiên Cứu Công Nghệ`, `Mở Rộng Quân Đội`, `Bồi Dưỡng Anh Hùng`, `Loại Trừ Mối Nguy`.",
+                  en: "**Layer 3 — 4-Hour Hourly Arms Race:** Runs `6 shifts/day` (4 hours/shift) rotating through 5 themes: `Territory Construction`, `Tech Research`, `Army Expansion`, `Hero Development`, and `Threat Elimination`.",
                 },
               ],
             },
@@ -136,20 +136,20 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
               type: "list",
               items: [
                 {
-                  vi: "⛔ Hiệu suất 0% (0% Forbidden — Đốt Tài Nguyên, Cấm Xả Tuyệt Đối): Bạn bấm dùng vật phẩm vào ngày thường không có sự kiện nào liên quan (Ví dụ: Đập 100 Mảnh Tướng Vàng vào chiều Thứ Ba khi không có nhiệm vụ hay sự kiện Tướng, hoặc đập Đồ Chúa Tể Lord Gear vào Thứ Bảy Tuần B khi không tính điểm). Bạn nhận được 0 Kim Cương, 0 rương thưởng sự kiện.",
-                  en: "⛔ 0% Efficiency (0% Forbidden — Resource Burn, Strictly Prohibited): Spending items on a regular day with no matching event (e.g., fusing 100 Legendary Hero Shards on Tuesday afternoon with no hero task or event active, or upgrading Lord Gear on Saturday Week B when it grants zero points). You receive 0 Diamonds and 0 event chests.",
+                  vi: "**[0% Forbidden] — Đốt Tài Nguyên (Cấm Xả Tuyệt Đối):** Xả vật phẩm vào ngày thường không có sự kiện hoặc lệch ngày tính điểm (như đập `Lord Gear` vào Thứ Bảy Tuần B), nhận về `0 Kim Cương` và `0 rương thưởng`.",
+                  en: "**[0% Forbidden] — Resource Burn (Strictly Prohibited):** Spending items on regular off-days or wrong scoring days (such as upgrading `Lord Gear` on Saturday Week B), receiving `0 Diamonds` and `0 event chests`.",
                 },
                 {
-                  vi: "🟡 Hiệu suất 100% (100% Single-Dip — Đạt Chuẩn Cơ Bản): Bạn xả vật phẩm khi chỉ có 1 sự kiện duy nhất đang tính điểm (Ví dụ: Xả Thức ăn Pet khi chỉ có Guild Rush: Nâng cấp Thú Cưng ở Thứ Hai–Thứ Ba Tuần A). Khuyên dùng: Chỉ xả vừa đủ lấy các rương mốc cá nhân cơ bản, tuyệt đối không xả lố.",
-                  en: "🟡 100% Efficiency (100% Single-Dip — Baseline Standard): Spending items when only 1 standalone event is scoring them (e.g., feeding Pets when only Guild Rush: Pets Development is active on Mon–Tue Week A). Recommended rule: Spend just enough to claim basic personal milestone chests, never overspend.",
+                  vi: "**[100% Single-Dip] — Đạt Chuẩn Cơ Bản:** Xả vật phẩm khi chỉ có `1 sự kiện duy nhất` đang tính điểm (như xả Thức ăn Pet ở `Guild Rush` đầu Tuần A) — chỉ xả vừa đủ mốc rương cá nhân cơ bản, cấm xả lố.",
+                  en: "**[100% Single-Dip] — Baseline Standard:** Spending items when only `1 standalone event` scores them (e.g., feeding Pets in Week A `Guild Rush`) — spend just enough for basic milestone chests, never overspend.",
                 },
                 {
-                  vi: "🟢 Hiệu suất 200% (200% Double-Dip — Một Mũi Tên Trúng 2 Đích): Bạn canh thời điểm Lớp 1 + Lớp 2 (hoặc Lớp 1 + Lớp 3) trùng chủ đề với nhau (Ví dụ: Thứ Sáu–Thứ Bảy Tuần A vừa nhận Nhiệm vụ Độc quyền Vàng Lord Gear trên bảng Guild Race, vừa ăn điểm Guild Rush: Quân Trang & Đồ Chúa Tể). Cùng 1 lần nâng cấp ăn điểm ở cả 2 bảng!",
-                  en: "🟢 200% Efficiency (200% Double-Dip — Two Birds with One Stone): Timing your spend when Layer 1 + Layer 2 (or Layer 1 + Layer 3) share the exact same theme (e.g., Fri–Sat Week A when you accept an Exclusive Gold Lord Gear Task on the Guild Race board while simultaneously scoring in Guild Rush: Troop Skin & Lord Gear). A single upgrade scores across both boards!",
+                  vi: "**[200% Double-Dip] — Một Mũi Tên Trúng 2 Đích:** Canh `Lớp 1 + Lớp 2` (hoặc `Lớp 1 + Lớp 3`) trùng chủ đề (như Ngày 5–6 Tuần A nhận NV Vàng `Lord Gear` trùng `Guild Rush`) để 1 lần nâng ăn điểm cả 2 bảng!",
+                  en: "**[200% Double-Dip] — Two Birds with One Stone:** Timing your spend when `Layer 1 + Layer 2` (or `Layer 1 + Layer 3`) align (e.g., Week A Gold `Lord Gear` task + `Guild Rush`) so 1 upgrade scores on both boards!",
                 },
                 {
-                  vi: "🔥 Hiệu suất 300% (300% Triple-Dip — Điểm Nổ Tối Thượng): Bạn canh đúng Khung Giờ Vàng 4 Tiếng (Lớp 3) nằm trong Ngày Chủ Đề Tương Ứng của Tuần B (Lớp 1) lại trùng đúng ngày diễn ra Guild Rush / Sự Kiện Phụ (Lớp 2) (Ví dụ: Khung 17:00–21:00 Thứ Năm Tuần B khi cả GAR/KvK Day 4, Hourly Hero Dev và Guild Rush: Phát triển Tướng / Soul Stone cùng mở). Một viên Hồn Đá Đỏ (120,000đ) hoặc 1 Mảnh Tướng Vàng xả ra lúc này cộng điểm đồng thời vào 3 sự kiện khác nhau!",
-                  en: "🔥 300% Efficiency (300% Triple-Dip — Ultimate Burst Window): Timing your spend inside the 4-Hour Golden Window (Layer 3) on the matching Week B Theme Day (Layer 1) while a matching Guild Rush / Sub-Event (Layer 2) is also active (e.g., Thursday 17:00–21:00 Week B when GAR/KvK Day 4, Hourly Hero Dev, and Guild Rush: Hero Development / Soul Stone all align). Every Soul Stone (120,000 pts) or Universal Shard spent scores simultaneously across 3 separate events!",
+                  vi: "**[300% Triple-Dip ★] — Điểm Nổ Tối Thượng:** Canh `Giờ Vàng 4h (Lớp 3)` trong `Ngày Chủ Đề Tuần B (Lớp 1)` trùng `Guild Rush (Lớp 2)` (như `17:00–21:00` Thứ Năm Tuần B) để 1 vật phẩm nổ điểm cả 3 sự kiện!",
+                  en: "**[300% Triple-Dip ★] — Ultimate Burst Window:** Unload inside the `4-Hour Golden Window (Layer 3)` on the matching `Week B Theme Day (Layer 1)` + `Guild Rush (Layer 2)` to score across 3 events simultaneously!",
                 },
               ],
             },
@@ -167,8 +167,8 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Sai lầm lớn nhất của người mới là cái gì cần giữ thì lại đem xả sớm, còn cái gì không bao giờ tính điểm sự kiện thì lại nhịn không dám nâng làm kẹt tiến độ Đội 1 của cả 3 Phe phái (Liên Minh / League, Bộ Lạc / Horde, Thiên Nhiên / Nature). Hãy dùng bộ nhận diện trực quan và bảng phân định ranh giới dưới đây để dọn dẹp túi đồ ngay hôm nay.",
-            en: "The biggest mistake beginners make across all 3 Factions (League, Horde, Nature) is prematurely spending items that should be hoarded, while hoarding items that NEVER score event points—throttling Queue 1 progression. Use the visual spotlight cards and boundary table below to organize your inventory today.",
+            vi: "**Sai lầm phổ biến ở cả 3 Phe (`League`, `Horde`, `Nature`):** Cái cần giữ lại đem xả sớm, còn cái không bao giờ tính điểm sự kiện lại nhịn nâng làm kẹt tiến độ Đội 1.\n• **Giải pháp:** Dùng bộ nhận diện trực quan và bảng phân định ranh giới dưới đây để dọn dẹp túi đồ ngay hôm nay.",
+            en: "**Common mistake across all 3 Factions (`League`, `Horde`, `Nature`):** Prematurely spending items that should be hoarded, while holding back items that NEVER score event points.\n• **Fix:** Use the visual spotlight cards and boundary table below to organize your inventory today.",
           },
         },
         {
@@ -188,8 +188,8 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
             {
               kind: "do",
               label: {
-                vi: "⚡ Nhóm A1 — Đồ Tướng (Hero Gear & Enhancement Ore +10/+20/+30/+40)",
-                en: "⚡ Group A1 — Hero Gear Forging & Enhancement Ore (+10/+20/+30/+40)",
+                vi: "[Nhóm A1] — Đồ Tướng (Hero Gear & Enhancement Ore +10/+20/+30/+40)",
+                en: "[Group A1] — Hero Gear Forging & Enhancement Ore (+10/+20/+30/+40)",
               },
               detail: {
                 vi: "Đúc trang bị Vàng đúng Dấu Hệ (+30%) và đập đá cường hóa thường trong Lò rèn hoàn toàn KHÔNG tính điểm GAR/KvK hay Guild Race ➔ Đập ngay lập tức cho Đội 1!",
@@ -199,8 +199,8 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
             {
               kind: "do",
               label: {
-                vi: "⚡ Nhóm A2 — Mảnh Tướng Tím Kinh Tế Dưới 12 Sao (2 Sao Trắng = 300 Mảnh)",
-                en: "⚡ Group A2 — Epic Economy Heroes Below 12 Stars (2 White Stars = 300 Shards)",
+                vi: "[Nhóm A2] — Mảnh Tướng Tím Kinh Tế Dưới 12 Sao (2 Sao Trắng = 300 Mảnh)",
+                en: "[Group A2] — Epic Economy Heroes Below 12 Stars (2 White Stars = 300 Shards)",
               },
               detail: {
                 vi: "Knight, Brawler và Ranger khi chưa đạt 12 Sao (2 Sao Trắng = 300 Mảnh) phải nâng ngay để mở khóa Trait 3 (+25% đến +30% tốc độ Nghiên cứu / Luyện lính).",
@@ -210,8 +210,8 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
             {
               kind: "dont",
               label: {
-                vi: "🔒 Nhóm B — Mảnh Vàng, Hồn Đá Đỏ (120,000đ), Sách Kỹ Năng, Vé Chiêu Mộ, Mảnh UW & Lõi Sắt (6,000đ)",
-                en: "🔒 Group B — Universal Shards, Soul Stones (120,000 pts), Skill Books, Recruit Tokens, UW Shards & Iron Cores (6,000 pts)",
+                vi: "[Nhóm B] — Mảnh Vàng, Hồn Đá Đỏ (120,000đ), Sách Kỹ Năng, Vé Chiêu Mộ, Mảnh UW & Lõi Sắt (6,000đ)",
+                en: "[Group B] — Universal Shards, Soul Stones (120,000 pts), Skill Books, Recruit Tokens, UW Shards & Iron Cores (6,000 pts)",
               },
               detail: {
                 vi: "Tuyệt đối cấm xả tự do ngày thường! Khóa chặt 100% chờ khung Giờ Vàng 17:00–21:00 Thứ Năm Tuần B để ăn trọn cú nổ Triple-Dip 300%.",
@@ -221,8 +221,8 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
             {
               kind: "info",
               label: {
-                vi: "🔒 Nhóm B — Đồ Chúa Tể (Lord Gear), Cổ Ngữ (Runes), Thánh Tích (Relics), Pet, Quân Trang & Trang Trí",
-                en: "🔒 Group B — Lord Gear, Runes, Relics, Pets, Glory Medals & Decor Tokens",
+                vi: "[Nhóm B] — Đồ Chúa Tể (Lord Gear), Cổ Ngữ (Runes), Thánh Tích (Relics), Pet, Quân Trang & Trang Trí",
+                en: "[Group B] — Lord Gear, Runes, Relics, Pets, Glory Medals & Decor Tokens",
               },
               detail: {
                 vi: "Mỗi nhóm có khung ngày cộng điểm chính và phụ riêng biệt (VD: Lord Gear xả Ngày 5–7 Tuần A hoặc Ngày 3–4 Tuần B; Glory Medals & Decor Tokens xả Thứ Bảy Ngày 6 Tuần B).",
@@ -244,16 +244,16 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
             en: "Annotated Inventory Bag Split: Green Zone 'Spend Immediately' vs. Red Zone 'Lock for Overlap'",
           },
           description: {
-            vi: "Ảnh chụp màn hình Túi Đồ (Inventory Bag) chia làm 2 nửa rõ rệt: Khung Xanh Lá (⚡ Đập Ngay) cho Quặng Đồ Tướng và Khung Đỏ (🔒 Khóa Chờ Thứ Năm/Thứ Sáu Tuần B) cho Mảnh Vàng, Hồn Đá Đỏ, Rương Cổ Ngữ.",
-            en: "Annotated Inventory Bag screenshot divided into two clear zones: Green Frame (⚡ Spend Immediately) for Hero Gear Ore and Red Frame (🔒 Lock for Thu/Fri Week B) for Universal Shards, Soul Stones, and Rune Chests.",
+            vi: "Ảnh chụp màn hình Túi Đồ (Inventory Bag) chia làm 2 nửa rõ rệt: Khung Xanh Lá (Đập Ngay) cho Quặng Đồ Tướng và Khung Đỏ (Khóa Chờ Thứ Năm/Thứ Sáu Tuần B) cho Mảnh Vàng, Hồn Đá Đỏ, Rương Cổ Ngữ.",
+            en: "Annotated Inventory Bag screenshot divided into two clear zones: Green Frame (Spend Immediately) for Hero Gear Ore and Red Frame (Lock for Thu/Fri Week B) for Universal Shards, Soul Stones, and Rune Chests.",
           },
           imageSrc: "/images/guides/events/inventory-bag-split-zones.webp",
           annotations: [
             {
               kind: "do",
               label: {
-                vi: "Khung Xanh Lá (⚡ Đập Ngay Lập Tức)",
-                en: "Green Frame (⚡ Spend Immediately)",
+                vi: "Khung Xanh Lá (Đập Ngay Lập Tức)",
+                en: "Green Frame (Spend Immediately)",
               },
               detail: {
                 vi: "Thỏi Vàng & Quặng Đúc Đồ Tướng (Hero Gear Forging), Đá Cường Hóa Thường (+10/+20/+30/+40) và Mảnh Tướng Tím Kinh tế chưa chạm mốc 12 Sao (2 Sao Trắng = 300 Mảnh).",
@@ -263,8 +263,8 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
             {
               kind: "dont",
               label: {
-                vi: "Khung Đỏ (🔒 Khóa Chặt Chờ Điểm Nổ 200%–300%)",
-                en: "Red Frame (🔒 Strictly Lock for 200%–300% Burst Windows)",
+                vi: "Khung Đỏ (Khóa Chặt Chờ Điểm Nổ 200%–300%)",
+                en: "Red Frame (Strictly Lock for 200%–300% Burst Windows)",
               },
               detail: {
                 vi: "13 nhóm vật phẩm tính điểm sự kiện (Mảnh Vàng, Hồn Đá Đỏ 120,000đ, Sách Kỹ Năng, Vé Chiêu Mộ, Lord Gear, Runes, Relics, Pets, Speedups, Glory Medals, Decor Tokens) giúp hoàn vốn 30%–50%.",
@@ -300,8 +300,8 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
           rows: [
             [
               {
-                vi: "⚡ NHÓM A1: ĐẬP NGAY LẬP TỨC (Không cần chờ sự kiện)",
-                en: "⚡ GROUP A1: SPEND IMMEDIATELY (No event wait required)",
+                vi: "[NHÓM A1] ĐẬP NGAY LẬP TỨC (Không cần chờ sự kiện)",
+                en: "[GROUP A1] SPEND IMMEDIATELY (No event wait required)",
               },
               {
                 vi: "1. Thỏi Vàng & Quặng Đúc Đồ Tướng (Hero Gear Forging) | 2. Đá Cường Hóa Đồ Tướng Thường (Enhancement Ore +10/+20/+30/+40)",
@@ -318,8 +318,8 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
             ],
             [
               {
-                vi: "⚡ NHÓM A2: ĐẬP NGAY LẬP TỨC (Ngoại lệ Kinh tế)",
-                en: "⚡ GROUP A2: SPEND IMMEDIATELY (Economic Exception)",
+                vi: "[NHÓM A2] ĐẬP NGAY LẬP TỨC (Ngoại lệ Kinh tế)",
+                en: "[GROUP A2] SPEND IMMEDIATELY (Economic Exception)",
               },
               {
                 vi: "3. Mảnh Tướng Tím Kinh Tế (Knight, Brawler, Ranger) khi CHƯA đạt 12 Sao (2 Sao Trắng = 300 Mảnh)",
@@ -336,8 +336,8 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
             ],
             [
               {
-                vi: "🔒 NHÓM B: GĂM CHỜ DOUBLE-DIP (Cấm xả tự do — 13 Nhóm Vật Phẩm)",
-                en: "🔒 GROUP B: HOARD FOR DOUBLE-DIP (Strictly Lock — 13 Item Categories)",
+                vi: "[NHÓM B] GĂM CHỜ DOUBLE-DIP (Cấm xả tự do — 13 Nhóm Vật Phẩm)",
+                en: "[GROUP B] HOARD FOR DOUBLE-DIP (Strictly Lock — 13 Item Categories)",
               },
               {
                 vi: "1. Mảnh Tướng Vàng/Đỏ, Hồn Đá Đỏ (120,000đ), Sách Kỹ Năng, Vé Chiêu Mộ, Mảnh UW (6,000đ), Lõi Sắt (6,000đ) | 2. Đồ Chúa Tể (Lord Gear: Đá Xanh, Dây Gai, Bản Vẽ, Máu Rồng), Quân Trang (Glory Medals), Trang Trí (Decor Tokens) | 3. Cổ Ngữ (Runes), Thánh Tích (Relics), Thú Cưng (Pets), Anh Linh (Heroic Spirits), Cự Thú (Behemoth) | 4. Mọi loại Tăng Tốc, Đá Rồng (Dragon Essence), Thể Lực (Stamina)",
@@ -371,12 +371,12 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
           },
           headers: [
             {
-              vi: "❌ Sai lầm Phổ biến (Mất Double-Dip & Thọt Lực Chiến)",
-              en: "❌ Common Pitfall (Lost Double-Dip & Power Stall)",
+              vi: "Sai lầm Phổ biến (Mất Double-Dip & Thọt Lực Chiến)",
+              en: "Common Pitfall (Lost Double-Dip & Power Stall)",
             },
             {
-              vi: "✅ Giải pháp Tối ưu (Chuẩn Điều Phối Gia Sản)",
-              en: "✅ Optimal Solution (Master Inventory Discipline)",
+              vi: "Giải pháp Tối ưu (Chuẩn Điều Phối Gia Sản)",
+              en: "Optimal Solution (Master Inventory Discipline)",
             },
           ],
           rows: [
@@ -427,8 +427,8 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Trước khi bấm sử dụng bất kỳ vật phẩm nào trong túi đồ, hãy đi qua Sơ đồ Luồng Quyết định 3 Câu hỏi và tra cứu trực tiếp trên Bảng Ma Trận Giao Thoa Tài Nguyên Toàn Diện (The Master Double-Dip Matrix) dưới đây để xác định chính xác thời điểm hiện tại đang mang lại hiệu suất 300% (Triple-Dip), 200% (Double-Dip), 100% (Single-Dip) hay 0% (Cấm xả).",
-            en: "Before tapping 'Use' on any item in your bag, walk through the 3-Question Decision Flowchart and consult The Master Double-Dip Matrix below to verify whether the current window yields 300% (Triple-Dip), 200% (Double-Dip), 100% (Single-Dip), or 0% (Forbidden) efficiency.",
+            vi: "Trước khi bấm sử dụng bất kỳ vật phẩm nào trong túi đồ, hãy đi qua **Sơ đồ Luồng Quyết định 3 Câu hỏi** và tra cứu trực tiếp trên **Bảng Ma Trận Giao Thoa Tài Nguyên Toàn Diện (`Master Double-Dip Matrix`)** dưới đây.\n• **4 Cấp hiệu suất:** Xác định chính xác thời điểm hiện tại đang mang lại hiệu suất `300% (Triple-Dip)`, `200% (Double-Dip)`, `100% (Single-Dip)` hay `0% (Cấm xả)`.",
+            en: "Before tapping 'Use' on any item in your bag, walk through the **3-Question Decision Flowchart** and consult **The Master Double-Dip Matrix** below.\n• **4 Efficiency tiers:** Verify whether the current window yields `300% (Triple-Dip)`, `200% (Double-Dip)`, `100% (Single-Dip)`, or `0% (Forbidden)` efficiency.",
           },
         },
       ],
@@ -463,8 +463,8 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
                   en: "INVENTORY AUDIT GATE",
                 },
                 title: {
-                  vi: "🔍 ĐỊNH BẤM DÙNG VẬT PHẨM TRONG TÚI ĐỒ: KIỂM TRA 3 CÂU HỎI",
-                  en: "🔍 ABOUT TO USE AN INVENTORY ITEM: THE 3-QUESTION CHECK",
+                  vi: "ĐỊNH BẤM DÙNG VẬT PHẨM TRONG TÚI ĐỒ: KIỂM TRA 3 CÂU HỎI",
+                  en: "ABOUT TO USE AN INVENTORY ITEM: THE 3-QUESTION CHECK",
                 },
                 subtitle: {
                   vi: "Câu hỏi #1: Có thuộc Nhóm A (Đập ngay)? ➔ Câu hỏi #2: Có trùng Ngày Chủ Đề Tuần B / Nhiệm vụ Vàng Tuần A? ➔ Câu hỏi #3: Giao thoa mấy lớp sự kiện?",
@@ -489,8 +489,8 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
                     en: "Branch 1: Group A — Spend Immediately (Non-Scoring or Economic Exception)",
                   },
                   badge: {
-                    vi: "⚡ ĐẬP NGAY LẬP TỨC",
-                    en: "⚡ SPEND IMMEDIATELY",
+                    vi: "ĐẬP NGAY LẬP TỨC",
+                    en: "SPEND IMMEDIATELY",
                   },
                   tone: "emerald",
                   steps: [
@@ -528,8 +528,8 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
                     },
                   ],
                   outcome: {
-                    vi: "⚡ KẾT LUẬN NHÁNH 1: ĐẬP NGAY LẬP TỨC! Tăng Lực chiến Đội 1 vượt ải PvE/Đấu trường và kích hoạt động cơ kinh tế vĩnh viễn ngay hôm nay.",
-                    en: "⚡ BRANCH 1 OUTCOME: SPEND IMMEDIATELY! Boost Queue 1 combat power for PvE/Arena and activate your permanent account economy engine today.",
+                    vi: "KẾT LUẬN NHÁNH 1: ĐẬP NGAY LẬP TỨC! Tăng Lực chiến Đội 1 vượt ải PvE/Đấu trường và kích hoạt động cơ kinh tế vĩnh viễn ngay hôm nay.",
+                    en: "BRANCH 1 OUTCOME: SPEND IMMEDIATELY! Boost Queue 1 combat power for PvE/Arena and activate your permanent account economy engine today.",
                   },
                 },
                 {
@@ -538,16 +538,16 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
                     en: "Branch 2: Group B — Event Overlap Windows (100% Single-Dip ➔ 200% Double-Dip ➔ 300% Triple-Dip)",
                   },
                   badge: {
-                    vi: "🔥 GIAO THOA 100% ➔ 300%",
-                    en: "🔥 100% ➔ 300% OVERLAP",
+                    vi: "GIAO THOA 100% ➔ 300%",
+                    en: "100% ➔ 300% OVERLAP",
                   },
                   tone: "gold",
                   steps: [
                     {
                       id: "branch-2-step-1",
                       badge: {
-                        vi: "🟡 1 LỚP — 100% SINGLE-DIP",
-                        en: "🟡 1 LAYER — 100% SINGLE-DIP",
+                        vi: "1 LỚP — 100% SINGLE-DIP",
+                        en: "1 LAYER — 100% SINGLE-DIP",
                       },
                       title: {
                         vi: "Chỉ Có 1 Sự Kiện Độc Lập Đang Tính Điểm",
@@ -562,8 +562,8 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
                     {
                       id: "branch-2-step-2",
                       badge: {
-                        vi: "🟢 2 LỚP — 200% DOUBLE-DIP",
-                        en: "🟢 2 LAYERS — 200% DOUBLE-DIP",
+                        vi: "2 LỚP — 200% DOUBLE-DIP",
+                        en: "2 LAYERS — 200% DOUBLE-DIP",
                       },
                       title: {
                         vi: "Trùng 2 Lớp Sự Kiện (Lớp 1 + Lớp 2 Hoặc Lớp 1 + Lớp 3)",
@@ -578,8 +578,8 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
                     {
                       id: "branch-2-step-3",
                       badge: {
-                        vi: "🔥 3 LỚP — 300% TRIPLE-DIP",
-                        en: "🔥 3 LAYERS — 300% TRIPLE-DIP",
+                        vi: "3 LỚP — 300% TRIPLE-DIP",
+                        en: "3 LAYERS — 300% TRIPLE-DIP",
                       },
                       title: {
                         vi: "Giao Thoa Đủ 3 Lớp (GAR/KvK + Guild Rush/Sub-Event + Khung Giờ Vàng 4h)",
@@ -593,8 +593,8 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
                     },
                   ],
                   outcome: {
-                    vi: "🔥 KẾT LUẬN NHÁNH 2: XẢ ĐÚNG ĐIỂM NỔ 200%–300%! Một vật phẩm ăn trọn 2–3 bảng phần thưởng, hoàn vốn 30%–50% tổng tài nguyên tiêu thụ.",
-                    en: "🔥 BRANCH 2 OUTCOME: UNLOAD AT 200%–300% BURST WINDOWS! One item claims 2–3 reward tracks simultaneously, rebating 30%–50% of spent resources.",
+                    vi: "KẾT LUẬN NHÁNH 2: XẢ ĐÚNG ĐIỂM NỔ 200%–300%! Một vật phẩm ăn trọn 2–3 bảng phần thưởng, hoàn vốn 30%–50% tổng tài nguyên tiêu thụ.",
+                    en: "BRANCH 2 OUTCOME: UNLOAD AT 200%–300% BURST WINDOWS! One item claims 2–3 reward tracks simultaneously, rebating 30%–50% of spent resources.",
                   },
                 },
                 {
@@ -603,8 +603,8 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
                     en: "Branch 3: 0% Forbidden Zone — Strictly Prohibited (Off-Event or Wrong Scoring Day)",
                   },
                   badge: {
-                    vi: "⛔ HIỆU SUẤT 0% — CẤM XẢ",
-                    en: "⛔ 0% FORBIDDEN ZONE",
+                    vi: "HIỆU SUẤT 0% — CẤM XẢ",
+                    en: "0% FORBIDDEN ZONE",
                   },
                   tone: "rose",
                   steps: [
@@ -642,8 +642,8 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
                     },
                   ],
                   outcome: {
-                    vi: "⛔ KẾT LUẬN NHÁNH 3: HIỆU SUẤT 0% — ĐÓNG BẢNG LẠI NGAY! Giữ nguyên 100% vật phẩm trong túi đồ và tra cứu khung giờ vàng tại Bảng Ma Trận 13 Nhóm Vật Phẩm.",
-                    en: "⛔ BRANCH 3 OUTCOME: 0% EFFICIENCY — CLOSE MENU IMMEDIATELY! Keep 100% of your items locked in the bag and check the 13-Item Master Matrix below.",
+                    vi: "KẾT LUẬN NHÁNH 3: HIỆU SUẤT 0% — ĐÓNG BẢNG LẠI NGAY! Giữ nguyên 100% vật phẩm trong túi đồ và tra cứu khung giờ vàng tại Bảng Ma Trận 13 Nhóm Vật Phẩm.",
+                    en: "BRANCH 3 OUTCOME: 0% EFFICIENCY — CLOSE MENU IMMEDIATELY! Keep 100% of your items locked in the bag and check the 13-Item Master Matrix below.",
                   },
                 },
               ],
@@ -681,20 +681,20 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
                   en: "Inventory Item Category",
                 },
                 {
-                  vi: "🔥 Điểm Nổ 300% (Triple-Dip — Xả Tất Tay 80–100% Kho)",
-                  en: "🔥 300% Triple-Dip Burst (Spend 80–100% Stockpile)",
+                  vi: "Điểm Nổ 300% (Triple-Dip — Xả Tất Tay 80–100% Kho)",
+                  en: "300% Triple-Dip Burst (Spend 80–100% Stockpile)",
                 },
                 {
-                  vi: "🟢 Điểm Giao Thoa 200% (Double-Dip — Xả Đủ Full Rương Mốc)",
-                  en: "🟢 200% Double-Dip Overlap (Max 6/6 Milestone Chests)",
+                  vi: "Điểm Giao Thoa 200% (Double-Dip — Xả Đủ Full Rương Mốc)",
+                  en: "200% Double-Dip Overlap (Max 6/6 Milestone Chests)",
                 },
                 {
-                  vi: "🟡 Mốc Cầm Chừng 100% (Single-Dip — Chỉ Rướn Mốc Cơ Bản)",
-                  en: "🟡 100% Single-Dip Baseline (Minimal Chest Threshold Only)",
+                  vi: "Mốc Cầm Chừng 100% (Single-Dip — Chỉ Rướn Mốc Cơ Bản)",
+                  en: "100% Single-Dip Baseline (Minimal Chest Threshold Only)",
                 },
                 {
-                  vi: "⛔ Vùng Cấm 0% (Forbidden Zone — Cấm Đụng Tuyệt Đối)",
-                  en: "⛔ 0% Forbidden Zone (Strictly Do Not Touch)",
+                  vi: "Vùng Cấm 0% (Forbidden Zone — Cấm Đụng Tuyệt Đối)",
+                  en: "0% Forbidden Zone (Strictly Do Not Touch)",
                 },
               ],
               rows: [
@@ -1039,8 +1039,8 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
             en: "Castle Lv.29 ($4.99 Monthly Pass): 15-Minute Thursday 17:15–17:30 Week B Triple-Dip Burst Yielding ~$49.99 in Free Rebate Rewards",
           },
           profileSummary: {
-            vi: "Một tài khoản Lâu đài Lv.29 (Đội 1 Liên Minh / League hoặc Bộ Lạc / Horde, ngân sách gói Tháng $4.99) đã kiên trì đóng băng túi đồ suốt 13 ngày. Trong kho hiện có: 365 Mảnh Tướng Vàng Vạn Năng, 9 viên Hồn Đá Đỏ (đổi từ Cửa hàng Bang hội với đơn giá 40,000 Điểm Vinh Dự Bang / viên hoặc 6,000 Xu Vinh Quang Hội / viên, vẫn bảo toàn Ngưỡng Đóng Băng Ví 40,000 Điểm Vinh Dự / 12,000–18,000 Xu Vinh Quang), 6,000 Sách Kỹ Năng Cam, 240 Thẻ Chiêu Mộ và nguyên liệu Đồ Chúa Tể (Lord Gear).",
-            en: "A Castle Lv.29 account (Queue 1 League or Horde, $4.99 Monthly Pass budget) strictly froze its inventory for 13 consecutive days. Stockpile ready: 365 Universal Legendary Hero Shards, 9 Soul Stones (redeemed from the Guild Shop at 40,000 Guild Honor / stone or 6,000 Guild Glory Coins / stone while preserving the 40,000 Guild Honor / 12,000–18,000 Glory Coins Wallet Freeze Floor), 6,000 Legendary Skill Books, 240 Tavern Recruit Tokens, and Lord Gear materials.",
+            vi: "Một tài khoản **Lâu đài Lv.29** (Đội 1 Liên Minh / Bộ Lạc, ngân sách gói Tháng `$4.99`) đã kiên trì đóng băng túi đồ suốt `13 ngày`.\n• **Kho Hồn Đá Đỏ:** Có `365 Mảnh Vàng` và `9 viên Hồn Đá Đỏ` (đổi giá `40,000` Điểm Vinh Dự hoặc `6,000` Xu Vinh Quang / viên, giữ nguyên Ngưỡng Đóng Băng Ví `40,000` Điểm Vinh Dự / `12,000–18,000` Xu Vinh Quang).\n• **Kho bổ trợ:** Sẵn sàng `6,000 Sách Kỹ Năng Cam`, `240 Thẻ Chiêu Mộ` và nguyên liệu Đồ Chúa Tể (`Lord Gear`).",
+            en: "A **Castle Lv.29** account (Queue 1 League or Horde, `$4.99` Monthly Pass budget) strictly froze its inventory for `13 consecutive days`.\n• **Soul Stone stockpile:** Holds `365 Universal Shards` and `9 Soul Stones` (redeemed at `40,000` Guild Honor or `6,000` Glory Coins / stone while keeping the `40,000` / `12,000–18,000` Wallet Freeze Floor).\n• **Support stockpile:** Ready with `6,000 Legendary Skill Books`, `240 Tavern Recruit Tokens`, and `Lord Gear` materials.",
           },
           metrics: [
             {
@@ -1100,16 +1100,16 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
           ],
           diagnostics: [
             {
-              vi: "Lớp 1 (7-Day Macro Event): Ngày 4 của Kingdom Duel (KvK Stage 4: Hero Growth — Hồn Đá Đỏ 120,000đ/viên + tính điểm phụ Đồ Chúa Tể Lord Gear).",
-              en: "Layer 1 (7-Day Macro Event): Day 4 of Kingdom Duel (KvK Stage 4: Hero Growth — Soul Stones score 120,000 pts/stone + secondary scoring for Lord Gear).",
+              vi: "**Lớp 1 (`7-Day Macro Event`):** Ngày 4 của Kingdom Duel (`KvK Stage 4: Hero Growth` — Hồn Đá Đỏ `120,000đ/viên` + tính điểm phụ Đồ Chúa Tể `Lord Gear`).",
+              en: "**Layer 1 (`7-Day Macro Event`):** Day 4 of Kingdom Duel (`KvK Stage 4: Hero Growth` — Soul Stones score `120,000 pts/stone` + secondary scoring for `Lord Gear`).",
             },
             {
-              vi: "Lớp 2 (Guild Rush & Sub-Event): Ngày thứ 2 của Guild Rush: Phát triển Tướng (Thứ Tư–Thứ Năm) kết hợp sự kiện phụ Soul Stone Rush.",
-              en: "Layer 2 (Guild Rush & Sub-Event): Day 2 of Guild Rush: Hero Development (Wed–Thu) combined with the Soul Stone Rush sub-event.",
+              vi: "**Lớp 2 (`Guild Rush & Sub-Event`):** Ngày thứ 2 của `Guild Rush: Phát triển Tướng (Thứ Tư–Thứ Năm)` kết hợp sự kiện phụ `Soul Stone Rush`.",
+              en: "**Layer 2 (`Guild Rush & Sub-Event`):** Day 2 of `Guild Rush: Hero Development (Wed–Thu)` combined with the `Soul Stone Rush` sub-event.",
             },
             {
-              vi: "Lớp 3 (4-Hour Hourly Window): Khung giờ vàng 17:00 – 21:00 của Hourly Arms Race (ca Bồi Dưỡng Anh Hùng / Hero Development).",
-              en: "Layer 3 (4-Hour Hourly Window): The 17:00 – 21:00 golden shift of Hourly Arms Race (Hero Development theme).",
+              vi: "**Lớp 3 (`4-Hour Hourly Window`):** Khung giờ vàng `17:00 – 21:00` của `Hourly Arms Race` (ca `Bồi Dưỡng Anh Hùng / Hero Development`).",
+              en: "**Layer 3 (`4-Hour Hourly Window`):** The `17:00 – 21:00` golden shift of `Hourly Arms Race` (`Hero Development` theme).",
             },
           ],
           recoverySteps: [
@@ -1120,8 +1120,8 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
                 en: "13-Day Inventory Freeze & Wallet Floor Preservation",
               },
               detail: {
-                vi: "Tích lũy đủ 365 Mảnh Tướng Vàng Vạn Năng, 9 viên Hồn Đá Đỏ (đổi với giá 40,000 Điểm Vinh Dự Bang / viên hoặc 6,000 Xu Vinh Quang Hội / viên nhưng luôn giữ nguyên Ngưỡng Đóng Băng Ví 40,000 Điểm Vinh Dự / 12,000–18,000 Xu Vinh Quang), 6,000 Sách Kỹ Năng Cam, 240 Thẻ Chiêu Mộ và nguyên liệu Lord Gear.",
-                en: "Accumulate 365 Universal Legendary Shards, 9 Soul Stones (redeemed at 40,000 Guild Honor / stone or 6,000 Guild Glory Coins / stone while strictly keeping the 40,000 Guild Honor / 12,000–18,000 Glory Coins Wallet Freeze Floor intact), 6,000 Legendary Skill Books, 240 Recruit Tokens, and Lord Gear materials.",
+                vi: "Tích lũy đủ `365 Mảnh Tướng Vàng Vạn Năng` và `9 viên Hồn Đá Đỏ` (đổi với giá `40,000` Điểm Vinh Dự Bang / viên hoặc `6,000` Xu Vinh Quang Hội / viên).\n• **Bảo toàn vốn và phụ liệu:** Giữ nguyên **Ngưỡng Đóng Băng Ví** (`40,000` Điểm Vinh Dự / `12,000–18,000` Xu Vinh Quang), kèm `6,000 Sách Kỹ Năng Cam`, `240 Thẻ Chiêu Mộ` và nguyên liệu `Lord Gear`.",
+                en: "Accumulate `365 Universal Legendary Shards` and `9 Soul Stones` (redeemed at `40,000` Guild Honor / stone or `6,000` Guild Glory Coins / stone).\n• **Preserve floor and materials:** Keep the **Wallet Freeze Floor** (`40,000` Guild Honor / `12,000–18,000` Glory Coins) intact, alongside `6,000 Skill Books`, `240 Recruit Tokens`, and `Lord Gear` materials.",
               },
               impactBadge: {
                 vi: "365 MẢNH + 9 HỒN ĐÁ ĐỎ",
@@ -1135,8 +1135,8 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
                 en: "Execute the 15-Minute Triple-Dip Burst (Thursday 17:15 – 17:30 Week B)",
               },
               detail: {
-                vi: "Đúng 17:15 Thứ Năm khi cả 3 lớp sự kiện giao thoa, mở khóa trọn vẹn 4 Bậc Thức Tỉnh (Awakening Tier 1 ➔ Tier 4: tốn 1 + 2 + 2 + 4 = 9 Hồn Đá Đỏ + 345–385 Mảnh Tướng) cho tướng Vàng chủ lực Đội 1, đồng thời xả 240 Thẻ Chiêu Mộ, 6,000 Sách Kỹ Năng và nâng cấp Đồ Chúa Tể (Lord Gear).",
-                en: "At 17:15 Thursday when all 3 event layers align, unlock all 4 Awakening Tiers (Tier 1 ➔ Tier 4: costing 1 + 2 + 2 + 4 = 9 Soul Stones + 345–385 Hero Shards) on Queue 1's core Legendary carry, while simultaneously spending 240 Recruit Tokens, 6,000 Skill Books, and upgrading Lord Gear.",
+                vi: "Đúng `17:15 Thứ Năm` khi cả 3 lớp sự kiện giao thoa, mở khóa trọn vẹn **4 Bậc Thức Tỉnh** (`Awakening Tier 1 ➔ Tier 4`: tốn `1 + 2 + 2 + 4 = 9 Hồn Đá Đỏ` + `345–385 Mảnh Tướng`) cho tướng Vàng chủ lực Đội 1.\n• **Xả đồng bộ phụ liệu:** Đồng thời xả `240 Thẻ Chiêu Mộ`, `6,000 Sách Kỹ Năng` và nâng cấp Đồ Chúa Tể (`Lord Gear`).",
+                en: "At `17:15 Thursday` when all 3 event layers align, unlock all **4 Awakening Tiers** (`Tier 1 ➔ Tier 4`: costing `1 + 2 + 2 + 4 = 9 Soul Stones` + `345–385 Hero Shards`) on Queue 1's core Legendary carry.\n• **Synchronized material dump:** Simultaneously spend `240 Recruit Tokens`, `6,000 Skill Books`, and upgrade `Lord Gear`.",
               },
               impactBadge: {
                 vi: "1 + 2 + 2 + 4 = 9 HỒN ĐÁ",
@@ -1150,8 +1150,8 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
                 en: "Claim 3 Simultaneous Event Boards & Double Milestone Chests",
               },
               detail: {
-                vi: "Ăn trọn: (1) 6/6 Rương Cá Nhân + 3 Rương Nhân Đôi (Double Rewards) của KvK Stage 4; (2) 3/3 Rương Mốc + Top 5 Bảng Xếp Hạng của sự kiện phụ Soul Stone / Hero Rush; và (3) 3/3 Rương Mốc + Top 1 Bảng Xếp Hạng Ca Giờ 17:00–21:00.",
-                en: "Sweep all 3 tracks: (1) 6/6 Personal Chests + 3 Double Rewards Chests in KvK Stage 4; (2) 3/3 Milestone Chests + Top 5 Leaderboard in the Soul Stone / Hero Rush sub-event; and (3) 3/3 Milestone Chests + Top 1 Leaderboard in the 17:00–21:00 Hourly Arms Race shift.",
+                vi: "Ăn trọn lớp vĩ mô và trung gian: `(1) 6/6 Rương Cá Nhân + 3 Rương Nhân Đôi (Double Rewards)` của KvK Stage 4; và `(2) 3/3 Rương Mốc + Top 5 Bảng Xếp Hạng` của sự kiện phụ Soul Stone / Hero Rush.\n• **Chốt hạ lớp vi mô:** Ăn tiếp `(3) 3/3 Rương Mốc + Top 1 Bảng Xếp Hạng` Ca Giờ `17:00–21:00`.",
+                en: "Sweep the macro and mid-tier tracks: `(1) 6/6 Personal Chests + 3 Double Rewards Chests` in KvK Stage 4; and `(2) 3/3 Milestone Chests + Top 5 Leaderboard` in the Soul Stone / Hero Rush sub-event.\n• **Close out the micro track:** Claim `(3) 3/3 Milestone Chests + Top 1 Leaderboard` in the `17:00–21:00` Hourly Arms Race shift.",
               },
               impactBadge: {
                 vi: "HOÀN LẠI ~$49.99 MIỄN PHÍ",
@@ -1160,8 +1160,8 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
             },
           ],
           conclusion: {
-            vi: "Tổng phần thưởng hoàn lại (Rebate): Thu về 9,800 Kim Cương, 42 Mảnh Tướng Vàng Vạn Năng, 1,200 Sách Kỹ Năng và 65 giờ Tăng tốc — tương đương giá trị của một gói nạp ~$49.99 hoàn toàn miễn phí chỉ nhờ kỷ luật canh giờ Triple-Dip 300%!",
-            en: "Total Rebate Earned: 9,800 Diamonds, 42 Universal Legendary Shards, 1,200 Skill Books, and 65 hours of Speedups—equivalent to a ~$49.99 store bundle completely free, achieved purely through 300% Triple-Dip timing discipline!",
+            vi: "**Tổng phần thưởng hoàn lại (`Rebate`):** Thu về `9,800` Kim Cương, `42 Mảnh Tướng Vàng Vạn Năng`, `1,200 Sách Kỹ Năng` và `65 giờ Tăng tốc`.\n• **Giá trị thực chiến:** Tương đương một gói nạp `~$49.99` hoàn toàn miễn phí chỉ nhờ kỷ luật canh giờ `Triple-Dip 300%`!",
+            en: "**Total Rebate Earned:** `9,800` Diamonds, `42 Universal Legendary Shards`, `1,200 Skill Books`, and `65 hours of Speedups`.\n• **Tactical value:** Equivalent to a `~$49.99` store bundle completely free, achieved purely through `300% Triple-Dip` timing discipline!",
           },
         },
       ],

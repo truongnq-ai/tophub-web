@@ -16,30 +16,30 @@ export const ARTICLE_5_1_GEAR_OVERVIEW: GuideArticle = {
   },
   tldr: {
     coreRule: {
-      vi: "Top Heroes vận hành 3 hệ thống trang bị hoàn toàn độc lập: Trang bị Tướng (24 món cho Đội 1), Vũ khí Độc quyền (1 món riêng cho từng tướng Vàng Legendary / Đỏ Mythic — tướng Tím Kinh tế như Brawler / Đấu Sĩ với +30% Tốc độ Nghiên cứu tuyệt đối không có Vũ khí Độc quyền!), và Trang bị Chúa Tể (6 món cộng chỉ số toàn cục cho cả 3 Phe). Mỗi hệ thống dùng nguyên liệu riêng và có quy tắc tính điểm sự kiện khác nhau.",
-      en: "Top Heroes operates 3 completely independent equipment systems: Hero Gear (24 pieces for Queue 1), Exclusive Weapons (1 signature weapon per Legendary/Mythic hero — Economy Epics like Brawler with +30% Research Speed do not possess an Exclusive Weapon!), and Lord Gear (6 global passive slots across all 3 Factions). Each system uses distinct materials and follows different event scoring rules.",
+      vi: "**Top Heroes vận hành `3` hệ thống trang bị hoàn toàn độc lập với nguyên liệu và luật điểm sự kiện riêng biệt:**\n• **Trang bị Tướng (`24` món Đội 1) & Đồ Chúa Tể (`6` món):** Đồ Tướng cộng riêng lẻ, còn Đồ Chúa Tể cộng chỉ số toàn cục cho cả `3` Phe.\n• **Vũ khí Độc quyền (`1` món/tướng Vàng/Đỏ):** Tướng Tím kinh tế như `Brawler` (Đấu Sĩ `+30%` Tốc độ Nghiên cứu) tuyệt đối không có Vũ khí Độc quyền.",
+      en: "**Top Heroes operates `3` independent equipment systems with distinct materials and event scoring rules:**\n• **Hero Gear (`24` Queue 1 pieces) & Lord Gear (`6` global slots):** Hero Gear buffs the wearer, while Lord Gear grants global passive stats across all `3` Factions.\n• **Exclusive Weapons (`1` per Legendary/Mythic hero):** Economy Epics like `Brawler` (`+30%` Research Speed) do not possess an Exclusive Weapon.",
     },
     immediateAction: {
-      vi: "Dồn 100% Thỏi Vàng (Gold Ingots) và Quặng Cường Hóa (Upgrade Runes) để rèn và nâng cấp 24 món Trang bị Vàng có Dấu Hệ (+30%) cho duy nhất Đội hình 1 (Main Queue). Đúc Trang bị Vàng và Cường hóa Trang bị Tướng (Lv.0 ➔ Lv.40 bằng Quặng Cường Hóa + Ruby) KHÔNG cộng điểm sự kiện Arms Race / KvK (0 điểm), nên hãy rèn và nâng ngay khi đủ mốc cộng hưởng +10/+20/+30/+40 để vượt ải!",
-      en: "Funnel 100% of your Gold Ingots and Upgrade Runes into forging and enhancing 24 Faction-marked (+30%) Golden Gear pieces exclusively for Queue 1. Forging Golden Gear and enhancing Hero Gear (Lv.0 ➔ Lv.40 with Upgrade Runes + Rubies) grant 0 points in Arms Race / KvK, so forge and upgrade immediately whenever you hit a +10/+20/+30/+40 resonance bracket!",
+      vi: "**Dồn `100%` Thỏi Vàng (Gold Ingots) và Quặng Cường Hóa (Upgrade Runes) cho `24` món Vàng Đội 1:**\n• **Rèn đúng Dấu Hệ (`+30%`):** Chế tạo đủ `24` món Trang bị Vàng có Dấu Hệ cho duy nhất Đội hình 1 (Main Queue).\n• **Đập ngay không cần chờ sự kiện:** Đúc đồ Vàng và Cường hóa `Lv.0` ➔ `Lv.40` cho `0` điểm Arms Race / KvK ➔ nâng ngay khi đủ mốc `+10`/`+20`/`+30`/`+40`.",
+      en: "**Funnel `100%` of Gold Ingots and Upgrade Runes into `24` Faction-marked Golden Gear pieces for Queue 1:**\n• **Forge with Faction Mark (`+30%`):** Craft all `24` Faction-marked Golden Gear pieces exclusively for Queue 1.\n• **Upgrade immediately (`0` event points):** Forging Golden Gear and enhancing `Lv.0` ➔ `Lv.40` grant `0` points in Arms Race / KvK ➔ upgrade right away at `+10`/`+20`/`+30`/`+40`.",
     },
     strictTaboo: {
-      vi: "Tuyệt đối KHÔNG rèn đồ Vàng cho Đội 2 trước khi Đội 1 hoàn tất đột phá Thần Thoại 5 Sao Đỏ (1★ ➔ 5★ tốn 6,000 Thỏi Vàng/món = 144,000 Thỏi Vàng/24 món), giữ trang bị Đội 2/3 ở cấp +0, và tuyệt đối KHÔNG tiêu thụ Đá Thăng Cấp Trang Bị (Gear Promotion Stones 1★–5★ sau Lv.40), Mảnh Vũ Khí Độc Quyền (275 / 1,185 mảnh & 920 Lõi Sắt Thiên Thạch) hay Nguyên liệu Đồ Chúa Tể ngoài ngày sự kiện ăn điểm kép.",
-      en: "NEVER forge Golden Gear for Queue 2 before Queue 1 completes 5-Star Mythic promotion (1★ ➔ 5★ costing 6,000 Gold Ingots per piece = 144,000 Gold Ingots for 24 pieces), freeze Queue 2/3 gear at +0, and NEVER spend Gear Promotion Stones (1★–5★ after Lv.40), Exclusive Weapon Shards (275 / 1,185 shards & 920 Meteoric Iron Cores), or Lord Gear materials outside Double-Dip event windows.",
+      vi: "**Tuyệt đối cấm phân tán Thỏi Vàng sang Đội 2 hoặc xả nguyên liệu ăn điểm ngoài ngày sự kiện:**\n• **Cấm rèn đồ Vàng Đội 2 sớm:** Đột phá `1★` ➔ `5★` Đỏ tốn `6,000` Thỏi Vàng/món (`144,000` Thỏi Vàng/24 món); giữ Đội 2/3 ở cấp `+0`.\n• **Cấm xả lẻ nguyên liệu sự kiện:** Khóa chặt Đá Thăng Cấp (`1★`–`5★` sau `Lv.40`), Mảnh Vũ Khí (`275` / `1,185` mảnh & `920` Lõi Sắt) và Đồ Chúa Tể chờ ngày Double-Dip.",
+      en: "**Never divert Gold Ingots to Queue 2 or spend high-scoring materials outside Double-Dip events:**\n• **No early Queue 2 Golden Gear:** `1★` ➔ `5★` Mythic promotion costs `6,000` Gold Ingots/piece (`144,000` Gold Ingots/24 pieces); freeze Queue 2/3 at `+0`.\n• **No off-event material dumps:** Strictly hoard Gear Promotion Stones (`1★`–`5★` after `Lv.40`), Exclusive Weapon Shards (`275` / `1,185` shards & `920` Meteoric Iron Cores), and Lord Gear.",
     },
   },
   keyTakeaways: [
     {
-      vi: "Đúc Đồ Vàng (Gold Ingots) và Cường hóa Đồ Tướng (Lv.0 ➔ Lv.40 tốn 195,000 Quặng + 936,000 Ruby/món = 4,680,000 Quặng + 22,464,000 Ruby cho 24 món Đội 1) cho 0 ĐIỂM trong Arms Race / KvK / Guild Race — hãy đập ngay khi đủ mốc +10/+20/+30/+40; ngược lại Đá Thăng Cấp Trang Bị (Gear Promotion Stones 1★–5★ sau Lv.40) mới cộng điểm lớn!",
-      en: "Forging Golden Gear (Gold Ingots) and enhancing Hero Gear (Lv.0 ➔ Lv.40 costing 195,000 Upgrade Runes + 936,000 Rubies per piece = 4,680,000 Upgrade Runes + 22,464,000 Rubies for Queue 1's 24 pieces) yield 0 POINTS in Arms Race / KvK / Guild Race — upgrade immediately at +10/+20/+30/+40 breakpoints; only Gear Promotion Stones (1★–5★ after Lv.40) score massive event points!",
+      vi: "**Quy tắc `0` Điểm vs Điểm Cực Lớn:** Đúc Đồ Vàng và Cường hóa `Lv.0` ➔ `Lv.40` cho `0` ĐIỂM sự kiện — hãy đập ngay khi đủ mốc `+10`/`+20`/`+30`/`+40`.\n• **Chi phí `Lv.0` ➔ `Lv.40`:** Tốn `195,000` Quặng + `936,000` Ruby/món (`4,680,000` Quặng + `22,464,000` Ruby cho `24` món Đội 1).\n• **Nguyên liệu cộng điểm lớn:** Chỉ Đá Thăng Cấp Trang Bị (Gear Promotion Stones `1★`–`5★` sau `Lv.40`) mới cộng điểm lớn trong Arms Race / KvK!",
+      en: "**The `0` Points vs. Massive Points Rule:** Forging Golden Gear and enhancing `Lv.0` ➔ `Lv.40` yield `0` POINTS in events — upgrade immediately at `+10`/`+20`/`+30`/`+40`.\n• **`Lv.0` ➔ `Lv.40` Cost:** Requires `195,000` Upgrade Runes + `936,000` Rubies/piece (`4,680,000` Upgrade Runes + `22,464,000` Rubies across `24` Queue 1 pieces).\n• **High-Scoring Materials:** Only Gear Promotion Stones (`1★`–`5★` after `Lv.40`) score massive points in Arms Race / KvK!",
     },
     {
-      vi: "Phân giải (Dismantle / Recycle) đồ Tím hoặc đồ Xanh đã cường hóa trong Lò Rèn hoàn trả lại 100% Quặng Cường Hóa (Upgrade Runes) để chuyển thẳng sang đồ Vàng Đội 1; toàn bộ trang bị trên Đội 2 và Đội 3 bắt buộc khóa ở cấp +0.",
-      en: "Dismantling/Recycling enhanced Epic or Rare gear at the Blacksmith refunds 100% of invested Upgrade Runes to transfer directly into Queue 1 Golden Gear; all Queue 2 and Queue 3 equipment must remain locked at +0.",
+      vi: "**Tái chế Đồ Tím hoàn trả `100%` Quặng:** Phân giải (Dismantle / Recycle) đồ Tím/Xanh đã cường hóa trong Lò Rèn hoàn trả trọn vẹn `100%` Quặng Cường Hóa.\n• **Dồn tài nguyên tuyệt đối:** Chuyển toàn bộ Quặng thu hồi sang đồ Vàng Đội 1 và khóa cứng trang bị Đội 2/3 ở cấp `+0`.",
+      en: "**`100%` Upgrade Rune Recycling:** Dismantling enhanced Epic or Rare gear at the Blacksmith refunds `100%` of invested Upgrade Runes.\n• **Strict Queue 1 Funnel:** Transfer all recovered Runes directly into Queue 1 Golden Gear and keep all Queue 2/3 equipment locked at `+0`.",
     },
     {
-      vi: "Tổng cầu tài nguyên Đội 1 ở bậc tối đa: Đột phá Đồ Đỏ 5★ tốn 144,000 Thỏi Vàng + 12,000,000 Quặng + 575.52M Ruby + 1,200 Đá Vàng + 240 Đá Đỏ (24 món); Vũ khí Độc quyền tốn 1,650 Mảnh (6 tướng Lv.10 = 275 mảnh/tướng) hoặc 7,110 Mảnh (Full Lv.20 = 1,185 mảnh/tướng, cộng 920 Lõi Sắt Thiên Thạch cho 1★–5★); Đồ Chúa Tể tốn 958,800 Thép/món = 5,752,800 Thép + 59,730 Dây Gai + 12,180 Bản Vẽ + 606 Máu Rồng (6 món).",
-      en: "Queue 1 Max-Tier Resource Demand: 5★ Mythic Gear promotion requires 144,000 Gold Ingots + 12,000,000 Upgrade Runes + 575.52M Rubies + 1,200 Legendary Stones + 240 Mythic Stones (24 pieces); Exclusive Weapons require 1,650 Shards (6 heroes at Lv.10 = 275 shards each) or 7,110 Shards (Full Lv.20 = 1,185 shards each, plus 920 Meteoric Iron Cores for 1★–5★); Lord Gear requires 958,800 Refined Metal per piece = 5,752,800 Refined Metal + 59,730 Magic Thread + 12,180 Blueprints + 606 Dragon Blood (6 pieces).",
+      vi: "**Tổng cầu tài nguyên Đội 1 ở bậc tối đa (`Max Tier`):**\n• **Đột phá Đồ Đỏ `5★` (`24` món):** Tốn `144,000` Thỏi Vàng + `12,000,000` Quặng + `575.52M` Ruby + `1,200` Đá Vàng + `240` Đá Đỏ.\n• **Vũ khí Độc quyền (`6` tướng):** Tốn `1,650` Mảnh ở mốc `Lv.10` (`275` mảnh/tướng) hoặc `7,110` Mảnh ở `Lv.20` (`1,185` mảnh/tướng), cộng `920` Lõi Sắt Thiên Thạch (`1★`–`5★`).\n• **Đồ Chúa Tể (`6` món):** Tốn `958,800` Thép/món = `5,752,800` Thép + `59,730` Dây Gai + `12,180` Bản Vẽ + `606` Máu Rồng.",
+      en: "**Queue 1 Max-Tier Resource Demand:**\n• **`5★` Mythic Gear (`24` pieces):** Costs `144,000` Gold Ingots + `12,000,000` Upgrade Runes + `575.52M` Rubies + `1,200` Legendary Stones + `240` Mythic Stones.\n• **Exclusive Weapons (`6` heroes):** Costs `1,650` Shards at `Lv.10` (`275` shards/hero) or `7,110` Shards at `Lv.20` (`1,185` shards/hero), plus `920` Meteoric Iron Cores (`1★`–`5★`).\n• **Lord Gear (`6` pieces):** Costs `958,800` Refined Metal/piece = `5,752,800` Refined Metal + `59,730` Magic Thread + `12,180` Blueprints + `606` Dragon Blood.",
     },
   ],
   keywords: [
@@ -81,8 +81,8 @@ export const ARTICLE_5_1_GEAR_OVERVIEW: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Một trong những rào cản lớn nhất khiến người chơi mới phân bổ sai tài nguyên là nhầm lẫn giữa các loại trang bị trong game. Thực tế, Top Heroes vận hành 3 hệ thống trang bị tách biệt hoàn toàn về giao diện, nguyên liệu chế tạo, phạm vi cộng chỉ số và cơ chế tính điểm sự kiện.",
-            en: "One of the biggest pitfalls causing newer players to misallocate resources is confusing the different equipment layers in Top Heroes. In reality, the game runs 3 completely separate equipment systems with distinct interfaces, crafting materials, stat buff scopes, and weekly event scoring rules.",
+            vi: "**Sai lầm lớn nhất của tân thủ là nhầm lẫn các tầng trang bị trong Top Heroes:**\n• **Ba hệ thống tách biệt hoàn toàn:** Khác biệt từ giao diện, nguyên liệu chế tạo đến phạm vi cộng chỉ số và cơ chế tính điểm sự kiện tuần.",
+            en: "**The biggest pitfall for newer players is confusing the equipment layers in Top Heroes:**\n• **Three completely separate systems:** Distinct interfaces, crafting materials, stat buff scopes, and weekly event scoring rules.",
           },
         },
         {
@@ -152,16 +152,16 @@ export const ARTICLE_5_1_GEAR_OVERVIEW: GuideArticle = {
               ordered: true,
               items: [
                 {
-                  vi: "Trang Bị Tướng (Hero Gear — 4 món/tướng × 6 tướng = 24 món cho Đội 1): Nằm trực tiếp trong giao diện của từng tướng và chỉ cộng chỉ số cho cá nhân vị tướng đang mặc. Chia làm Nhóm Tấn Công gồm Kiếm (Weapon) + Giày (Boots) cộng lượng lớn ATK cho DPS & Healer hồi máu theo ATK, và Nhóm Phòng Thủ gồm Mũ (Helmet) + Áo Giáp (Chestplate) cộng lượng lớn HP cho Tanker & Khiên tính theo % Max HP. Có 3 Bộ Đồ Vàng chuẩn hóa: 🩸 Bộ Huyết Titan / Nộ Huyết (Blood of the Titan / Fury of Blood) cho Tank/Bruiser, ⚔️ Bộ Kỵ Sĩ Vinh Quang (Knight's Glory) cho Burst Skill DPS / Hyper-Carry, và ⚡ Bộ Hiền Triết Quang Vinh (Glory of the Sage / Glory of the Knight) cho Support / Control / Hybrid Caster.",
-                  en: "Hero Gear (4 pieces per hero × 6 heroes = 24 pieces for Queue 1): Located directly inside each hero's profile and buffs only the individual equipped hero. Divided into Offensive Pieces—Weapon (Sword) + Boots granting massive ATK for DPS and ATK-scaling Healers—and Defensive Pieces—Helmet + Chestplate granting massive HP for Tankers and % Max HP Shields. Features 3 standardized Golden Gear sets: 🩸 Blood of the Titan / Fury of Blood for Tank/Bruiser, ⚔️ Knight's Glory for Burst Skill DPS / Hyper-Carry, and ⚡ Glory of the Sage / Glory of the Knight for Support / Control / Hybrid Caster.",
+                  vi: "**Trang Bị Tướng (`24` món Đội 1):** Gồm Kiếm/Giày (`ATK`) và Mũ/Giáp (`HP`) cho cá nhân tướng với `3` bộ Vàng: Huyết Titan (Tank), Kỵ Sĩ Vinh Quang (DPS) và Hiền Triết Quang Vinh (Support).",
+                  en: "**Hero Gear (`24` Queue 1 pieces):** Includes Sword/Boots (`ATK`) and Helmet/Chestplate (`HP`) per hero across `3` Golden sets: Blood of the Titan (Tank), Knight's Glory (DPS), and Glory of the Sage (Support).",
                 },
                 {
-                  vi: "Vũ Khí Độc Quyền (Exclusive Weapon / Signature Gear — 1 món riêng/tướng): Ô trang bị đặc biệt chỉ tồn tại ở các tướng phẩm chất Huyền Thoại (Legendary — Vàng) và Thần Thoại (Mythic — Đỏ), mở khóa Kỹ năng Độc quyền (Exclusive Passive Skill) và kích hoạt các mốc đột phá cơ chế chiến đấu ở Lv.5, Lv.10 (275 mảnh), Lv.15 và Lv.20 (1,185 mảnh), cùng đột phá 1★–5★ (920 Lõi Sắt Thiên Thạch). Lưu ý đính chính quan trọng: Đấu Sĩ (Brawler) là Tướng Tím kinh tế (+30% Tốc độ Nghiên cứu), tuyệt đối không có Vũ khí Độc quyền và không bao giờ đứng trong Đội hình 1 chiến đấu!",
-                  en: "Exclusive Weapon / Signature Gear (1 unique weapon per hero): A dedicated slot available strictly to Legendary (Gold) and Mythic (Red) heroes that unlocks their Exclusive Passive Skill and combat breakpoints at Lv.5, Lv.10 (275 shards), Lv.15, and Lv.20 (1,185 shards), plus 1★–5★ star promotions (920 Meteoric Iron Cores). Crucial Clarification: Brawler is an Epic economy hero (+30% Research Speed) who does not possess an Exclusive Weapon and never belongs in Queue 1 combat lineups!",
+                  vi: "**Vũ Khí Độc Quyền (`1` món/tướng Vàng/Đỏ):** Mở kỹ năng ở `Lv.5`, `Lv.10` (`275` mảnh), `Lv.15`, `Lv.20` (`1,185` mảnh) & `1★`–`5★` (`920` Lõi Sắt); tướng Tím `Brawler` (`+30%` Nghiên cứu) không có ô này!",
+                  en: "**Exclusive Weapon (`1` per Gold/Red hero):** Unlocks skills at `Lv.5`, `Lv.10` (`275` shards), `Lv.15`, `Lv.20` (`1,185` shards) & `1★`–`5★` (`920` Cores); Epic `Brawler` (`+30%` Research Speed) has none!",
                 },
                 {
-                  vi: "Trang Bị Chúa Tể / Quân Trang (Lord Gear / Military Gear — 6 món trên Hồ sơ Nhân vật): Nằm trong giao diện Thông tin Lãnh Chúa (Lord Profile — bấm vào Avatar góc trên bên trái màn hình), gồm 6 ô trang bị chia đều cho 3 Phe phái: 2 món Liên Minh (League), 2 món Bộ Lạc (Horde) và 2 món Thiên Nhiên (Nature). Cộng chỉ số Toàn cục (Global Passive Buff) cho toàn bộ tướng và binh lính thuộc phe phái tương ứng trong mọi đội hình, đồng thời kích hoạt hào quang cộng hưởng khi nâng đồng bộ 3 món hoặc 6 món cùng phẩm chất.",
-                  en: "Lord Gear / Military Gear (6 global slots on the Lord Profile): Located inside the Lord Profile menu (tap your top-left Avatar), consisting of 6 equipment slots split evenly across all 3 Factions: 2 League pieces, 2 Horde pieces, and 2 Nature pieces. Grants Global Passive Buffs to all heroes and soldiers of the corresponding faction across every queue while activating tier resonance auras at 3 matching pieces or 6 matching pieces.",
+                  vi: "**Trang Bị Chúa Tể (`6` món Hồ sơ Lãnh Chúa):** Chia đều `2` Liên Minh, `2` Bộ Lạc, `2` Thiên Nhiên ➔ cộng chỉ số Toàn cục (Global Passive Buff) cho cả `3` Phe và bật hào quang `3`/`6` món.",
+                  en: "**Lord Gear (`6` Lord Profile slots):** Split into `2` League, `2` Horde, and `2` Nature pieces ➔ grants Global Passive Buffs across all `3` Factions and activates `3`-piece / `6`-piece resonance auras.",
                 },
               ],
             },
@@ -309,8 +309,8 @@ export const ARTICLE_5_1_GEAR_OVERVIEW: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Đối với người chơi F2P và Nạp ít (từ các gói khởi đầu $0.99 – $4.99 đến thẻ tháng $9.99), lò rèn và mỏ quặng luôn có giới hạn sản lượng nghiêm ngặt. Để tối đa hóa lực chiến thực tế, người chơi bắt buộc phải áp dụng Quy tắc 1 Đội hình Tuyệt đối (Strict 1-Queue Rule) cho hệ thống trang bị.",
-            en: "For F2P and Low-Spender players (from $0.99 – $4.99 starter packs to the $9.99 Monthly Card), Blacksmith and ore mine outputs are strictly capped. Maximizing real combat power requires enforcing the Strict 1-Queue Rule across all equipment upgrades.",
+            vi: "**Người chơi F2P và Nạp ít (`$0.99` – `$9.99`) luôn bị giới hạn sản lượng Lò Rèn và mỏ quặng:**\n• **Quy tắc 1 Đội hình Tuyệt đối (`Strict 1-Queue Rule`):** Bắt buộc dồn `100%` tài nguyên trang bị cho Đội 1 để tối đa hóa lực chiến thực tế.",
+            en: "**F2P and Low-Spender players (`$0.99` – `$9.99`) face strict Blacksmith and ore mine output caps:**\n• **Enforce the `Strict 1-Queue Rule`:** Funnel `100%` of equipment upgrades into Queue 1 to maximize real combat power.",
           },
         },
         {
@@ -391,8 +391,8 @@ export const ARTICLE_5_1_GEAR_OVERVIEW: GuideArticle = {
                     en: "First 2 Server Weeks",
                   },
                   description: {
-                    vi: "Khi chưa có đủ Thỏi Vàng, Đội 1 mặc tạm các bộ Trang bị Tím (Epic Gear) nâng lên mốc +10 để vượt ải Adventure Mode. Giữ Lò Rèn hoạt động 24/7 để chế tạo Thỏi Đồng ➔ Thỏi Tím (Amethyst) ➔ Thỏi Vàng (Gold Ingots).",
-                    en: "Before accumulating enough Gold Ingots, equip Queue 1 with temporary +10 Epic Gear to clear Adventure Mode stages while keeping Blacksmith slots running 24/7 crafting Bronze ➔ Amethyst ➔ Gold Ingots.",
+                    vi: "**Trang bị quá độ cho Đội 1:** Mặc tạm bộ Trang bị Tím (Epic Gear) nâng lên mốc `+10` để vượt ải Adventure Mode.\n• **Chạy Lò Rèn `24/7`:** Liên tục chế tạo Thỏi Đồng ➔ Thỏi Tím (Amethyst) ➔ Thỏi Vàng (Gold Ingots).",
+                    en: "**Transitional Queue 1 setup:** Equip Queue 1 with temporary `+10` Epic Gear to clear Adventure Mode stages.\n• **Run Blacksmith `24/7`:** Continuously smelt Bronze ➔ Amethyst ➔ Gold Ingots.",
                   },
                 },
                 {
@@ -409,8 +409,8 @@ export const ARTICLE_5_1_GEAR_OVERVIEW: GuideArticle = {
                     en: "Core Early-to-Mid Game Goal",
                   },
                   description: {
-                    vi: "Phe Liên Minh (League 🔵): Đúc 24 món Vàng Dấu Khiên Xanh cho Adjudicator, Rose Princess, Paragon, Pyromancer, Nun, Bishop / Bard. Phe Bộ Lạc (Horde 🔴): Đúc 24 món Vàng Dấu Lửa Đỏ cho Desert Prince, Beastmaster, Wukong, Storm Maiden, Witch, Warlock / Soulmancer. Phe Thiên Nhiên (Nature 🟢): Đúc 24 món Vàng Dấu Lá Xanh cho Monk, Sage, Ne Zha, Tidecaller, Forest Maiden, Pixie / Petalis.",
-                    en: "League (🔵): Craft 24 Blue-Shield Golden pieces for Adjudicator, Rose Princess, Paragon, Pyromancer, Nun, Bishop / Bard. Horde (🔴): Craft 24 Red-Flame Golden pieces for Desert Prince, Beastmaster, Wukong, Storm Maiden, Witch, Warlock / Soulmancer. Nature (🟢): Craft 24 Green-Leaf Golden pieces for Monk, Sage, Ne Zha, Tidecaller, Forest Maiden, Pixie / Petalis.",
+                    vi: "**Đúc đủ `24` món Vàng đúng Dấu Hệ (`+30%`) cho Đội 1:**\n• **Liên Minh (League):** Khiên Xanh cho Adjudicator, Rose Princess, Paragon, Pyromancer, Nun, Bishop / Bard.\n• **Bộ Lạc (Horde):** Lửa Đỏ cho Desert Prince, Beastmaster, Wukong, Storm Maiden, Witch, Warlock / Soulmancer.\n• **Thiên Nhiên (Nature):** Lá Xanh cho Monk, Sage, Ne Zha, Tidecaller, Forest Maiden, Pixie / Petalis.",
+                    en: "**Craft `24` Faction-Marked (`+30%`) Golden pieces for Queue 1:**\n• **League:** Blue-Shield pieces for Adjudicator, Rose Princess, Paragon, Pyromancer, Nun, Bishop / Bard.\n• **Horde:** Red-Flame pieces for Desert Prince, Beastmaster, Wukong, Storm Maiden, Witch, Warlock / Soulmancer.\n• **Nature:** Green-Leaf pieces for Monk, Sage, Ne Zha, Tidecaller, Forest Maiden, Pixie / Petalis.",
                   },
                 },
                 {
@@ -419,16 +419,16 @@ export const ARTICLE_5_1_GEAR_OVERVIEW: GuideArticle = {
                     en: "Stage 3 (Faction Pivot)",
                   },
                   title: {
-                    vi: "Mẹo Đúc Sẵn Dấu Ấn Bộ Lạc (Cột 2 🔴) Cho Lộ Trình Khởi Đầu Liên Minh ➔ Bộ Lạc Ngày 21+",
-                    en: "Pre-Crafting Column 2 Horde Marks (🔴) for the League Starter ➔ Day 21+ Horde Pivot",
+                    vi: "Mẹo Đúc Sẵn Dấu Ấn Bộ Lạc (Cột 2) Cho Lộ Trình Khởi Đầu Liên Minh ➔ Bộ Lạc Ngày 21+",
+                    en: "Pre-Crafting Column 2 Horde Marks for the League Starter ➔ Day 21+ Horde Pivot",
                   },
                   timing: {
                     vi: "Từ Tuần 3 Máy Chủ",
                     en: "Starting Server Week 3",
                   },
                   description: {
-                    vi: "Ngay từ Tuần 3, khi rèn đồ Vàng trong Lò Rèn, hãy chủ động chọn Dấu Ấn Bộ Lạc (Cột 2). Tướng Liên Minh mượn mặc tạm (như Pyromancer hoặc Adjudicator) vẫn nhận đủ 100% chỉ số gốc của đồ Vàng và kích hoạt đầy đủ Hiệu ứng Bộ 4 món, chỉ tạm thời chưa bật dòng thưởng +30% hệ. Khi mở khóa Desert Prince và Storm Maiden, tháo đồ sang là kích hoạt ngay lập tức +30% chỉ số mà không tốn lại một viên Thỏi Vàng nào.",
-                    en: "Starting Week 3, proactively select the Horde Faction Mark (Column 2) when forging Golden Gear. Temporary League wearers (like Pyromancer or Adjudicator) still receive 100% of the Golden Gear base stats and full 4-piece Set Bonuses, only pausing the +30% faction line until you transfer the gear onto Desert Prince and Storm Maiden for an instant zero-cost +30% stat activation.",
+                    vi: "**Đúc trước Dấu Ấn Bộ Lạc (Cột 2) từ Tuần 3:**\n• **Mặc tạm trên tướng Liên Minh:** Pyromancer hay Adjudicator vẫn nhận đủ `100%` chỉ số gốc và Hiệu ứng Bộ `4` món.\n• **Chuyển giao tốn `0` Thỏi Vàng:** Khi mở khóa Desert Prince & Storm Maiden, tháo đồ sang là bật ngay `+30%` chỉ số hệ.",
+                    en: "**Pre-select the Horde Faction Mark (Column 2) starting Week 3:**\n• **Temporary League wearers:** Pyromancer or Adjudicator still get `100%` base stats and full `4`-piece Set Bonuses.\n• **Zero-cost Horde pivot:** Transferring the gear onto Desert Prince & Storm Maiden immediately activates the `+30%` faction bonus.",
                   },
                 },
               ],
@@ -451,16 +451,16 @@ export const ARTICLE_5_1_GEAR_OVERVIEW: GuideArticle = {
               ordered: true,
               items: [
                 {
-                  vi: "Bước 1 — Thay thế bằng Đồ Vàng: Khi đúc xong một bộ 4 món Đồ Vàng cho tướng Đội 1, tháo món đồ Tím khỏi người tướng Đội 1 và chỉ dùng các món đồ Tím Lv.0 (+0) cho tướng Đội 2 / Đội 3 mặc nhằm lấy chỉ số gốc (Base Stats Lv.0).",
-                  en: "Step 1 — Golden Gear Replacement: Once you finish forging a 4-piece Golden set for a Queue 1 hero, unequip their Epic Gear and only place unenhanced Lv.0 (+0) Epic pieces onto Queue 2 / Queue 3 heroes for raw base stats.",
+                  vi: "**Bước 1 — Thay thế bằng Đồ Vàng:** Khi đúc xong bộ `4` món Vàng cho tướng Đội 1, tháo đồ Tím ra và chỉ cho Đội 2 / Đội 3 mặc đồ Tím `Lv.0` (`+0`) lấy chỉ số gốc.",
+                  en: "**Step 1 — Golden Gear Replacement:** Once a `4`-piece Golden set is ready for Queue 1, unequip their Epic Gear and only place `Lv.0` (`+0`) Epic pieces on Queue 2/3.",
                 },
                 {
-                  vi: "Bước 2 — Phân giải thu hồi 100% Quặng Cường Hóa: Nếu món đồ Tím đó từng được đập lên +10 (hoặc bất kỳ cấp độ nào), hãy vào Lò Rèn (Blacksmith) ➔ chọn tính năng Phân Giải / Tái Chế (Dismantle / Recycle) món đồ Tím đó (hoặc dùng trực tiếp làm phôi nâng cấp).",
-                  en: "Step 2 — Dismantle for 100% Upgrade Rune Recovery: If that Epic piece was previously enhanced to +10 (or any level > 0), open the Blacksmith ➔ select Dismantle / Recycle on the enhanced Epic piece (or feed it directly as enhancement fodder).",
+                  vi: "**Bước 2 — Phân giải thu hồi `100%` Quặng:** Đưa mọi món đồ Tím/Xanh từng đập lên `+10` vào Lò Rèn (Blacksmith) ➔ bấm Phân Giải / Tái Chế (Dismantle / Recycle).",
+                  en: "**Step 2 — Dismantle for `100%` Rune Recovery:** Take any Epic/Rare piece previously enhanced to `+10` into the Blacksmith ➔ select Dismantle / Recycle.",
                 },
                 {
-                  vi: "Bước 3 — Dồn thẳng sang Đồ Vàng Đội 1 & Khóa Đội 2/3 ở +0: Hệ thống Top Heroes hoàn trả lại 100% số Quặng Cường Hóa (Upgrade Runes) đã đầu tư. Dùng toàn bộ số Quặng thu hồi được đập thẳng vào món đồ Vàng mới của Đội 1. Tuyệt đối giữ trang bị của Đội 2 và Đội 3 ở Cấp độ 0 (+0).",
-                  en: "Step 3 — Funnel into Queue 1 Golden Gear & Freeze Queue 2/3 at +0: Top Heroes refunds 100% of invested Upgrade Runes. Pour all recovered Runes directly into Queue 1's new Golden Gear while strictly keeping all Queue 2 and Queue 3 equipment locked at Level 0 (+0).",
+                  vi: "**Bước 3 — Dồn sang Đội 1 & Khóa Đội 2/3 ở `+0`:** Đập toàn bộ `100%` Quặng Cường Hóa thu hồi được vào đồ Vàng mới của Đội 1 và khóa cứng trang bị Đội 2/3 ở cấp `+0`.",
+                  en: "**Step 3 — Funnel into Queue 1 & Freeze Queue 2/3 at `+0`:** Pour `100%` of refunded Upgrade Runes into Queue 1's Golden Gear and lock all Queue 2/3 equipment at `+0`.",
                 },
               ],
             },
@@ -472,8 +472,8 @@ export const ARTICLE_5_1_GEAR_OVERVIEW: GuideArticle = {
                 en: "Golden Rule: 0 Event Points (Forging & Lv.0 ➔ Lv.40 Runes) vs. Massive Event Points (1★–5★ Promotion Stones, Exclusive Weapons & Lord Gear)",
               },
               content: {
-                vi: "Đúc Trang bị Vàng bằng Thỏi Vàng (Gold Ingots) và Cường hóa từ Lv.0 lên Lv.40 bằng Quặng Cường Hóa (Upgrade Runes) cho 0 điểm trong Arms Race / KvK / Guild Race — hãy đập ngay lập tức khi đủ mốc +10/+20/+30/+40! Ngược lại, Đá Thăng Cấp Trang Bị (1★–5★ sau Lv.40), Mảnh Vũ Khí Độc Quyền (275 mảnh Lv.10 / 1,185 mảnh Lv.20 & 920 Lõi Sắt Thiên Thạch) và Nguyên liệu Đồ Chúa Tể cộng điểm sự kiện cực lớn nên bắt buộc phải tích trữ chờ đúng ngày Double-Dip.",
-                en: "Forging Golden Gear with Gold Ingots and enhancing from Lv.0 to Lv.40 with Upgrade Runes grant 0 points in Arms Race / KvK / Guild Race — upgrade immediately whenever you reach +10/+20/+30/+40 breakpoints! Conversely, Gear Promotion Stones (1★–5★ after Lv.40), Exclusive Weapon Shards (275 shards Lv.10 / 1,185 shards Lv.20 & 920 Meteoric Iron Cores), and Lord Gear materials yield massive event points and must be hoarded for Double-Dip windows.",
+                vi: "**Phân tách rõ nguyên liệu đập ngay và nguyên liệu tích sự kiện:**\n• **Nhóm `0` điểm sự kiện:** Đúc Đồ Vàng (Gold Ingots) và Cường hóa `Lv.0` ➔ `Lv.40` (Upgrade Runes) cho `0` điểm GAR / KvK ➔ đập ngay khi đủ mốc `+10`/`+20`/`+30`/`+40`!\n• **Nhóm điểm cực lớn:** Đá Thăng Cấp (`1★`–`5★` sau `Lv.40`), Mảnh Vũ Khí Độc Quyền (`275` mảnh `Lv.10` / `1,185` mảnh `Lv.20` & `920` Lõi Sắt) và Đồ Chúa Tể bắt buộc tích chờ ngày Double-Dip.",
+                en: "**Strictly separate immediate-upgrade materials from event-hoarding materials:**\n• **`0` Event Point Group:** Forging Golden Gear (Gold Ingots) and enhancing `Lv.0` ➔ `Lv.40` (Upgrade Runes) grant `0` GAR / KvK points ➔ upgrade immediately at `+10`/`+20`/`+30`/`+40`!\n• **Massive Event Point Group:** Gear Promotion Stones (`1★`–`5★` after `Lv.40`), Exclusive Weapon Shards (`275` shards `Lv.10` / `1,185` shards `Lv.20` & `920` Cores), and Lord Gear must be hoarded for Double-Dip days.",
               },
             },
           ],
@@ -594,16 +594,16 @@ export const ARTICLE_5_1_GEAR_OVERVIEW: GuideArticle = {
           ordered: true,
           items: [
             {
-              vi: "Cạm bẫy #1 — Đập đồ Tím lên +10 / +20 cho Đội 2 và Đội 3 vì tưởng dư Quặng Cường Hóa: Nhiều người chơi thấy Đội 1 đã lên +10 còn dư vài chục ngàn Quặng liền đem đập cho Đội 2/3. Giải pháp chuẩn Min-Max: Đóng băng cấp độ trang bị Đội 2/3 ở mức +0. Để nâng 1 bộ 4 món Vàng từ +10 lên Lv.40 cần tới 780,000 Quặng/tướng (tức 4,680,000 Quặng và 22,464,000 Ruby cho cả 24 món Đội 1) — bạn không bao giờ dư Quặng cho Đội 2!",
-              en: "Pitfall #1 — Enhancing Queue 2 and Queue 3 Epic Gear to +10 / +20 With 'Leftover' Upgrade Runes: Players often see a few thousand leftover Runes after Queue 1 hits +10 and waste them on Queue 2/3. Min-Max Solution: Freeze all Queue 2/3 gear strictly at +0. Pushing a 4-piece Golden set to Lv.40 requires 780,000 Upgrade Runes per hero (4,680,000 Upgrade Runes and 22,464,000 Rubies across Queue 1's 24 pieces)—you never have 'surplus' Runes for Queue 2!",
+              vi: "**Cạm bẫy #1 — Đập đồ Tím lên `+10`/`+20` cho Đội 2/3:** Khóa cứng Đội 2/3 ở `+0`; nâng `4` món Vàng lên `Lv.40` ngốn `780,000` Quặng/tướng (`4,680,000` Quặng + `22,464,000` Ruby cho `24` món Đội 1).",
+              en: "**Pitfall #1 — Enhancing Queue 2/3 Epic Gear to `+10`/`+20`:** Freeze Queue 2/3 at `+0`; pushing `4` Golden pieces to `Lv.40` requires `780,000` Runes/hero (`4,680,000` Runes + `22,464,000` Rubies for Queue 1).",
             },
             {
-              vi: "Cạm bẫy #2 — Đúc tiếp Đồ Vàng cho Đội 2 ngay khi Đội 1 vừa mặc đủ 24 món Vàng: Tưởng rằng Đội 1 đã xong trang bị nên chuyển sang rèn Đồ Vàng cho Đội 2. Giải pháp chuẩn Min-Max: Giữ lại 100% Thỏi Vàng sau khi Đội 1 đủ 24 món. Giai đoạn Đột phá Sao (Star Promotion từ Lv.40 lên 1★ ➔ 5★ Đỏ Thần Thoại) ngốn tới 6,000 Thỏi Vàng cho mỗi món đồ (144,000 Thỏi Vàng cho 24 món Đội 1) — nếu đúc đồ Vàng cho Đội 2, Đội 1 sẽ bị kẹt vĩnh viễn ở Lv.40 0 Sao.",
-              en: "Pitfall #2 — Forging Golden Gear for Queue 2 Immediately After Queue 1 Equips 24 Golden Pieces: Assuming Queue 1 is finished and crafting Golden Gear for Queue 2. Min-Max Solution: Hoard 100% of Gold Ingots after Queue 1 reaches 24 Golden pieces. Star Promotion (from Lv.40 through 1★ ➔ 5★ Red Mythic) devours 6,000 Gold Ingots per piece (144,000 Gold Ingots for Queue 1's 24 pieces)—crafting Golden Gear for Queue 2 permanently traps Queue 1 at Lv.40 0-Star.",
+              vi: "**Cạm bẫy #2 — Đúc Đồ Vàng cho Đội 2 quá sớm:** Tích `100%` Thỏi Vàng sau khi Đội 1 đủ `24` món vì đột phá `1★` ➔ `5★` Đỏ ngốn `6,000` Thỏi Vàng/món (`144,000` Thỏi Vàng cho `24` món Đội 1).",
+              en: "**Pitfall #2 — Forging Queue 2 Golden Gear Too Early:** Hoard `100%` of Gold Ingots after Queue 1's `24` pieces because `1★` ➔ `5★` promotion devours `6,000` Gold Ingots/piece (`144,000` Gold Ingots total).",
             },
             {
-              vi: "Cạm bẫy #3 — Mặc đồ \"cọc cạch\" (3 món Vàng + 1 món Tím) & Nhịn đập Quặng cả tuần chờ GAR: Mặc 3 món Vàng kèm 1 món Tím trên cùng 1 tướng khiến mất trắng mốc thưởng Phẩm chất 4 món Vàng và bị kéo tụt Bậc Thầy Cường Hóa xuống mốc Tím; đồng thời nhịn đập Quặng chờ GAR làm kẹt ải vô ích. Giải pháp chuẩn Min-Max: Luôn dồn nguyên bộ 4 món cùng phẩm chất Vàng cho từng tướng chủ lực (Carry DPS và Main Tank trước), và đập Quặng Cường Hóa lên các mốc +10 / +20 / +30 / +40 ngay khi đủ nguyên liệu vì Quặng Cường Hóa cho 0 điểm trong GAR & Guild Race!",
-              en: "Pitfall #3 — Wearing Mixed-Rarity Gear (3 Golden + 1 Epic) & Hoarding Upgrade Runes All Week for GAR: Equipping 3 Golden pieces + 1 Epic piece on the same hero forfeits the 4-piece Golden Set Bonus and bottlenecks Enhancement Master resonance down to Epic tier; meanwhile, hoarding Upgrade Runes for GAR stalls stage progression for nothing. Min-Max Solution: Always complete full 4-piece Golden sets per core hero (Carry DPS and Main Tank first), and spend Upgrade Runes at +10 / +20 / +30 / +40 breakpoints immediately since Upgrade Runes grant 0 points in GAR & Guild Race!",
+              vi: "**Cạm bẫy #3 — Mặc `3` Vàng + `1` Tím & Nhịn đập Quặng chờ GAR:** Luôn mặc đồng bộ `4` món Vàng cho Carry/Tank và đập Quặng ngay ở mốc `+10`/`+20`/`+30`/`+40` vì Quặng cho `0` điểm GAR!",
+              en: "**Pitfall #3 — Mixing `3` Golden + `1` Epic & Hoarding Runes for GAR:** Always complete full `4`-piece Golden sets per hero and spend Runes immediately at `+10`/`+20`/`+30`/`+40` (`0` GAR points)!",
             },
           ],
         },
@@ -615,8 +615,8 @@ export const ARTICLE_5_1_GEAR_OVERVIEW: GuideArticle = {
             en: "Mechanics Correction Warning: Brawler Does NOT Have an Exclusive Weapon!",
           },
           content: {
-            vi: "Đấu Sĩ (Brawler) là Tướng Tím kinh tế (+30% Tốc độ Nghiên cứu), tuyệt đối không có Vũ khí Độc quyền và không phải tướng sát thương chủ lực của Đội 1. Chỉ các tướng Vàng (Legendary) và Đỏ (Mythic) mới sở hữu Vũ khí Độc quyền — hãy dồn toàn bộ Mảnh Vũ Khí Độc Quyền Vạn Năng cho dàn Carry/Tank chủ lực (như Wukong, Storm Maiden, Desert Prince, Beastmaster, Paragon, Pyromancer, Tidecaller, Ne Zha).",
-            en: "Brawler is an Epic economy hero (+30% Research Speed) who does not possess an Exclusive Weapon and is never a Queue 1 combat carry. Only Legendary (Gold) and Mythic (Red) heroes have Exclusive Weapons—save 100% of your Universal Exclusive Weapon Shards for true Queue 1 carries and tanks (such as Wukong, Storm Maiden, Desert Prince, Beastmaster, Paragon, Pyromancer, Tidecaller, and Ne Zha).",
+            vi: "**Đính chính quan trọng về tướng Tím `Brawler` (Đấu Sĩ):**\n• **Thuần kinh tế:** Đấu Sĩ (`Brawler`) là Tướng Tím cộng `+30%` Tốc độ Nghiên cứu, không có Vũ khí Độc quyền và không phải tướng Đội 1.\n• **Dồn mảnh chuẩn xác:** Chỉ tướng Vàng/Đỏ mới có Vũ khí Độc quyền — hãy dồn mảnh Vạn năng cho Wukong, Storm Maiden, Desert Prince, Beastmaster, Paragon, Pyromancer, Tidecaller, Ne Zha.",
+            en: "**Crucial mechanics clarification regarding Epic hero `Brawler`:**\n• **Economy Epic only:** `Brawler` grants `+30%` Research Speed, does not possess an Exclusive Weapon, and is never a Queue 1 combat hero.\n• **Proper shard funnel:** Only Legendary/Mythic heroes have Exclusive Weapons — save Universal Shards for Wukong, Storm Maiden, Desert Prince, Beastmaster, Paragon, Pyromancer, Tidecaller, and Ne Zha.",
           },
         },
       ],
@@ -634,8 +634,8 @@ export const ARTICLE_5_1_GEAR_OVERVIEW: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Để tối ưu hóa đồng thời Sức mạnh Thực chiến (Combat Power) và Phần thưởng Sự kiện (Event Double-Dip), người chơi nâng cao cần phân tách rõ luồng xử lý nguyên liệu của 3 hệ thống theo sơ đồ quyết định và ma trận ngân sách định lượng dưới đây.",
-            en: "To simultaneously maximize Real Combat Power and Event Double-Dip rewards, advanced players must separate material workflows across the 3 equipment systems using the decision flowchart and quantitative budget matrix below.",
+            vi: "**Tối ưu hóa đồng thời Sức mạnh Thực chiến (`Combat Power`) và Phần thưởng Sự kiện (`Event Double-Dip`):**\n• **Phân tách luồng nguyên liệu:** Tách rõ `3` hệ thống theo sơ đồ quyết định và ma trận ngân sách định lượng dưới đây.",
+            en: "**Simultaneously maximize Real Combat Power and Event Double-Dip rewards:**\n• **Separate material workflows:** Route the `3` equipment systems using the decision flowchart and quantitative budget matrix below.",
           },
         },
       ],
@@ -670,8 +670,8 @@ export const ARTICLE_5_1_GEAR_OVERVIEW: GuideArticle = {
                   en: "Weekly Gear Inventory",
                 },
                 title: {
-                  vi: "📦 KHO NGUYÊN LIỆU TRANG BỊ HÀNG TUẦN: PHÂN TÁCH LUỒNG 0 ĐIỂM (ĐẬP NGAY) VS ĐIỂM CỰC LỚN (TÍCH XẢ DOUBLE-DIP)",
-                  en: "📦 WEEKLY GEAR INVENTORY: SPLIT 0-POINT STREAM (UPGRADE NOW) VS. HIGH-POINT STREAM (DOUBLE-DIP DUMP)",
+                  vi: "KHO NGUYÊN LIỆU TRANG BỊ HÀNG TUẦN: PHÂN TÁCH LUỒNG 0 ĐIỂM (ĐẬP NGAY) VS ĐIỂM CỰC LỚN (TÍCH XẢ DOUBLE-DIP)",
+                  en: "WEEKLY GEAR INVENTORY: SPLIT 0-POINT STREAM (UPGRADE NOW) VS. HIGH-POINT STREAM (DOUBLE-DIP DUMP)",
                 },
                 subtitle: {
                   vi: "Kiểm tra loại nguyên liệu đang có để quyết định đập ngay vượt ải hay khóa kho chờ ngày sự kiện",
@@ -933,8 +933,8 @@ export const ARTICLE_5_1_GEAR_OVERVIEW: GuideArticle = {
                 en: "Strict Distinction: Golden Gear Crafting & Runes (0 Points) vs. Star Promotion Stones & Lord Gear (Massive Points)",
               },
               content: {
-                vi: "Đúc Trang bị Vàng (Gold Ingots) và Cường hóa Trang bị Tướng (Lv.0 ➔ Lv.40 bằng Quặng Cường Hóa) KHÔNG cộng điểm sự kiện Arms Race / KvK. Do đó, người chơi có thể chủ động rèn các bộ đồ Vàng chuẩn hóa (🩸 Bộ Huyết Titan / Nộ Huyết, ⚔️ Bộ Kỵ Sĩ Vinh Quang, ⚡ Bộ Hiền Triết Quang Vinh) và nâng cấp ngay khi đủ mốc cộng hưởng +10 / +20 / +30 / +40 để vượt ải ngay lập tức. Ngược lại, Đá Thăng Cấp Trang Bị (Gear Promotion Stones khi đột phá Sao 1★–5★ sau Lv.40) và Nguyên liệu Đồ Chúa Tể (Lord Gear) mới cộng điểm lớn trong sự kiện — hãy khóa chặt 2 nhóm nguyên liệu này chờ đúng ngày sự kiện mới xả!",
-                en: "Forging Golden Gear (Gold Ingots) and enhancing Hero Gear (Lv.0 ➔ Lv.40 with Upgrade Runes) do NOT score points in Arms Race / KvK. You can freely craft standardized Golden Gear sets (🩸 Blood of the Titan / Fury of Blood, ⚔️ Knight's Glory, ⚡ Glory of the Sage) and upgrade immediately at +10 / +20 / +30 / +40 resonance milestones to push stages right away. Conversely, Gear Promotion Stones (1★–5★ Star Promotion after Lv.40) and Lord Gear materials yield massive event points—lock both material groups strictly for active event windows!",
+                vi: "**Quy tắc thực thi Lò Rèn và Sự Kiện Tuần:**\n• **Nhóm `0` điểm (Rèn & Đập ngay):** Đúc Đồ Vàng (Huyết Titan, Kỵ Sĩ Vinh Quang, Hiền Triết Quang Vinh) và Cường hóa `Lv.0` ➔ `Lv.40` cho `0` điểm ➔ nâng ngay ở mốc `+10`/`+20`/`+30`/`+40`.\n• **Nhóm điểm lớn (Khóa kho):** Đá Thăng Cấp (`1★`–`5★` sau `Lv.40`) và Nguyên liệu Đồ Chúa Tể cộng điểm cực lớn ➔ khóa chặt chờ ngày sự kiện mới xả!",
+                en: "**Blacksmith & Weekly Event Execution Rule:**\n• **`0`-Point Group (Craft & Upgrade Now):** Forging Golden Gear (Blood of the Titan, Knight's Glory, Glory of the Sage) and enhancing `Lv.0` ➔ `Lv.40` score `0` points ➔ upgrade immediately at `+10`/`+20`/`+30`/`+40`.\n• **Massive-Point Group (Lock in Bag):** Gear Promotion Stones (`1★`–`5★` after `Lv.40`) and Lord Gear materials yield massive points ➔ hoard strictly for active event windows!",
               },
             },
             {
@@ -976,8 +976,8 @@ export const ARTICLE_5_1_GEAR_OVERVIEW: GuideArticle = {
             en: "4.1M Power Account Surgery: Recovering 280,000 Dead Upgrade Runes & Unlocking +20 Golden Resonance (+240,000 Real Power)",
           },
           profileSummary: {
-            vi: "Tài khoản Lâu đài Lv.27 (tổng 4.1M Lực chiến: Đội 1 đạt 1.85M, Đội 2 đạt 1.25M, Đội 3 đạt 1.0M). Trên Đội 1: Tướng chủ lực Pyromancer mặc 3 món Vàng ⚔️ Bộ Kỵ Sĩ Vinh Quang (Knight's Glory) +14 và 1 chiếc Mũ Tím +12; Tanker Adjudicator mặc 2 món Vàng 🩸 Bộ Huyết Titan / Nộ Huyết (Blood of the Titan / Fury of Blood) +12 và 2 món Tím +10. Trên Đội 2 và trong Túi đồ có 16 món Trang bị Tím/Xanh đã đập lên +10/+11 (chôn chết ~280,000 Quặng Cường Hóa), khiến Đội 1 thường xuyên thua các đối thủ chỉ có 1.6M Lực chiến trong Đấu Trường.",
-            en: "Castle Lv.27 account (4.1M total power: Queue 1 at 1.85M, Queue 2 at 1.25M, Queue 3 at 1.0M). In Queue 1, main carry Pyromancer wears 3 Golden ⚔️ Knight's Glory pieces at +14 plus 1 Epic Helmet at +12; main tank Adjudicator wears 2 Golden 🩸 Blood of the Titan / Fury of Blood pieces at +12 plus 2 Epic pieces at +10. Meanwhile, Queue 2 and the Bag hold 16 Epic/Rare pieces enhanced to +10/+11 (burying ~280,000 dead Upgrade Runes), causing Queue 1 to lose repeatedly to 1.6M Power Arena opponents.",
+            vi: "**Hồ sơ Lâu đài `Lv.27` (`4.1M` Lực chiến: Đội 1 `1.85M`, Đội 2 `1.25M`, Đội 3 `1.0M`):**\n• **Mặc lệch phẩm chất Đội 1:** Pyromancer mặc `3` món Vàng Kỵ Sĩ Vinh Quang `+14` + `1` Mũ Tím `+12`; Adjudicator mặc `2` món Vàng Huyết Titan `+12` + `2` món Tím `+10`.\n• **Chôn Quặng ở Đội 2:** Có `16` món Tím/Xanh đập lên `+10`/`+11` (chôn chết `~280,000` Quặng), khiến Đội 1 thua đối thủ `1.6M` Lực chiến.",
+            en: "**Castle `Lv.27` profile (`4.1M` total power: Queue 1 at `1.85M`, Queue 2 at `1.25M`, Queue 3 at `1.0M`):**\n• **Queue 1 mixed-rarity:** Pyromancer wears `3` Golden Knight's Glory pieces (`+14`) + `1` Epic Helmet (`+12`); Adjudicator wears `2` Golden Blood of the Titan (`+12`) + `2` Epics (`+10`).\n• **Dead Runes in Queue 2:** `16` Epic/Rare pieces at `+10`/`+11` bury `~280,000` Upgrade Runes, causing losses to `1.6M` Arena opponents.",
           },
           metrics: [
             {
@@ -1037,12 +1037,12 @@ export const ARTICLE_5_1_GEAR_OVERVIEW: GuideArticle = {
           ],
           diagnostics: [
             {
-              vi: "Lỗi phân tán Quặng Cường Hóa sang Đội 2: Đập 16 món đồ Tím/Xanh lên +10/+11 làm đóng băng 280,000 Quặng Cường Hóa mà không đóng góp bất kỳ giá trị nào cho các trận PvP 1 đội hình.",
-              en: "Upgrade Rune Dilution Across Queue 2: Enhancing 16 Epic/Rare pieces to +10/+11 froze 280,000 Upgrade Runes with zero contribution to single-queue PvP combat.",
+              vi: "**Lỗi phân tán Quặng sang Đội 2:** Đập `16` món Tím/Xanh lên `+10`/`+11` làm đóng băng `280,000` Quặng Cường Hóa vô ích trong PvP `1` đội hình.",
+              en: "**Upgrade Rune Dilution Across Queue 2:** Enhancing `16` Epic/Rare pieces to `+10`/`+11` froze `280,000` Upgrade Runes with zero single-queue PvP value.",
             },
             {
-              vi: "Lỗi mặc đồ lệch phẩm chất (3 Vàng + 1 Tím): Chỉ cần 1 chiếc Mũ Tím nằm chung với 3 món Vàng trên Pyromancer là toàn bộ hiệu ứng Bộ 4 món Vàng và Bậc Thầy Cường Hóa Vàng (+10/+20) bị vô hiệu hóa hoàn toàn.",
-              en: "Mixed-Rarity Bottleneck (3 Golden + 1 Epic): A single Epic Helmet paired with 3 Golden pieces on Pyromancer completely disables both the 4-piece Golden Set Bonus and Golden Enhancement Master (+10/+20) resonance.",
+              vi: "**Lỗi mặc đồ lệch phẩm chất (`3` Vàng + `1` Tím):** Chỉ `1` chiếc Mũ Tím trên Pyromancer đã làm mất trắng Bộ `4` món Vàng và Bậc Thầy Cường Hóa Vàng (`+10`/`+20`).",
+              en: "**Mixed-Rarity Bottleneck (`3` Golden + `1` Epic):** A single Epic Helmet on Pyromancer disables both the `4`-piece Golden Set Bonus and Golden Enhancement Master (`+10`/`+20`).",
             },
           ],
           recoverySteps: [
@@ -1053,8 +1053,8 @@ export const ARTICLE_5_1_GEAR_OVERVIEW: GuideArticle = {
                 en: "Recover 100% of Dead Runes (~280,000 Upgrade Runes & 1.2M Rubies) via Blacksmith",
               },
               detail: {
-                vi: "Đưa toàn bộ 16 món đồ Tím/Xanh +10/+11 ở Đội 2 và trong Túi đồ vào Lò Rèn bấm Phân Giải (Dismantle), thu hồi ngay lập tức ~280,000 Quặng Cường Hóa và hơn 1.2 triệu Ruby. Cho Đội 2 mặc lại các món đồ Tím/Xanh mới nhặt ở mức +0.",
-                en: "Dismantle all 16 enhanced (+10/+11) Epic/Rare pieces from Queue 2 and the Bag at the Blacksmith to immediately recover ~280,000 Upgrade Runes and over 1.2M Rubies. Re-equip Queue 2 with unenhanced (+0) Epic/Rare gear.",
+                vi: "**Phân giải thu hồi `100%` tài nguyên:** Đưa `16` món Tím/Xanh `+10`/`+11` ở Đội 2 và Túi đồ vào Lò Rèn bấm Phân Giải (Dismantle) ➔ thu hồi `~280,000` Quặng + `1.2M` Ruby và đưa Đội 2 về `+0`.",
+                en: "**Dismantle for `100%` recovery:** Recycle all `16` enhanced (`+10`/`+11`) Epic/Rare pieces from Queue 2 and Bag at the Blacksmith ➔ recover `~280,000` Runes + `1.2M` Rubies and reset Queue 2 to `+0`.",
               },
               impactBadge: {
                 vi: "+280,000 Quặng Thu Hồi",
@@ -1068,8 +1068,8 @@ export const ARTICLE_5_1_GEAR_OVERVIEW: GuideArticle = {
                 en: "Restructure Full 4-Piece Golden Sets on Pyromancer & Adjudicator",
               },
               detail: {
-                vi: "Đúc bổ sung ngay 1 chiếc Mũ Vàng cho Pyromancer (hoàn thiện 4 món ⚔️ Bộ Kỵ Sĩ Vinh Quang hoặc ⚡ Bộ Hiền Triết Quang Vinh) và gom đủ 4 món Vàng 🩸 Bộ Huyết Titan / Nộ Huyết cho Adjudicator (chuyển 2 món Tím sang cho tướng hỗ trợ thứ 6 mặc nguyên bộ 4 món Tím). Ngay lập tức, cả DPS chính và Tank chính đều bật sáng Hiệu ứng Bộ 4 món Vàng.",
-                en: "Forge 1 Golden Helmet for Pyromancer (completing a 4-piece ⚔️ Knight's Glory or ⚡ Glory of the Sage set) and consolidate 4 Golden 🩸 Blood of the Titan / Fury of Blood pieces onto Adjudicator (moving the 2 Epic pieces to the 6th support hero for a full 4-piece Epic set). Both main DPS and main Tank immediately activate their 4-piece Golden Set Bonuses.",
+                vi: "**Đồng bộ `4` món Vàng:** Đúc `1` Mũ Vàng cho Pyromancer (đủ `4` món Kỵ Sĩ Vinh Quang / Hiền Triết) và gom `4` món Vàng Huyết Titan cho Adjudicator (chuyển `2` món Tím sang tướng thứ 6).",
+                en: "**Consolidate `4`-piece Golden sets:** Forge `1` Golden Helmet for Pyromancer (`4`-piece Knight's Glory / Glory of the Sage) and equip `4` Golden Blood of the Titan pieces on Adjudicator.",
               },
               impactBadge: {
                 vi: "Bật Bộ 4 Món Vàng",
@@ -1083,8 +1083,8 @@ export const ARTICLE_5_1_GEAR_OVERVIEW: GuideArticle = {
                 en: "Funnel 280,000 Runes to Hit Exact +20 & +10 Resonance Breakpoints",
               },
               detail: {
-                vi: "Dùng 280,000 Quặng vừa thu hồi được để kéo đồng đều cả 4 món Vàng của Pyromancer lên đúng mốc +20 (ưu tiên đập Kiếm và Giày lên +20 trước, sau đó kéo Mũ và Giáp chạm +20) và đưa cả 4 món Vàng của Adjudicator chạm chuẩn mốc +10.",
-                en: "Spend the 280,000 recovered Upgrade Runes to bring all 4 Golden pieces on Pyromancer evenly to +20 (enhancing Weapon and Boots to +20 first, then Helmet and Chestplate to +20) while bringing all 4 Golden pieces on Adjudicator evenly to +10.",
+                vi: "**Chạm chuẩn điểm gãy cộng hưởng:** Dùng `280,000` Quặng thu hồi kéo đồng đều `4` món Vàng của Pyromancer lên `+20` (Kiếm/Giày trước) và đưa `4` món Vàng của Adjudicator chạm chuẩn `+10`.",
+                en: "**Hit exact resonance breakpoints:** Spend the `280,000` recovered Runes to bring all `4` Golden pieces on Pyromancer evenly to `+20` (Sword/Boots first) and all `4` on Adjudicator to `+10`.",
               },
               impactBadge: {
                 vi: "+240,000 Lực Chiến Đội 1",
@@ -1093,8 +1093,8 @@ export const ARTICLE_5_1_GEAR_OVERVIEW: GuideArticle = {
             },
           ],
           conclusion: {
-            vi: "Chỉ sau 5 phút tái cơ cấu với chi phí 0 Kim Cương, lực chiến ảo của Đội 2 giảm nhẹ 80,000 điểm nhưng lực chiến thực chiến của Đội 1 tăng vọt thêm +240,000 điểm (mở khóa Cộng hưởng Cường hóa Vàng Lv.20 và +8% Khuếch đại Kỹ năng), giúp tài khoản vượt ngay 18 tầng Tháp Thử Thách và leo thẳng vào Top 30 Đấu Trường.",
-            en: "In just 5 minutes of zero-Diamond restructuring, Queue 2's paper power dipped by 80,000 while Queue 1's real combat power surged by +240,000 (unlocking Golden Lv.20 Enhancement Resonance and +8% Skill Damage Amplify), propelling the account through 18 Trial Tower floors and straight into the Arena Top 30.",
+            vi: "**Kết quả sau `5` phút tái cơ cấu (`0` Kim Cương):**\n• **Đột phá lực chiến thực:** Đội 2 giảm nhẹ `80,000` lực chiến ảo nhưng Đội 1 tăng vọt `+240,000` lực chiến thực.\n• **Leo hạng tức thì:** Mở Cộng hưởng Vàng `Lv.20` & `+8%` Khuếch đại Kỹ năng ➔ vượt `18` tầng Tháp và vào Top 30 Đấu Trường.",
+            en: "**Results after `5` minutes of `0`-Diamond restructuring:**\n• **Real combat power surge:** Queue 2 dipped by `80,000` paper power while Queue 1 surged by `+240,000` real combat power.\n• **Immediate rank climb:** Unlocked Golden `Lv.20` Resonance & `+8%` Skill Damage Amplify ➔ +`18` Trial Tower floors & Top 30 Arena.",
           },
         },
       ],

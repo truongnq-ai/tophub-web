@@ -16,30 +16,30 @@ export const ARTICLE_4_3_SEASON_1_TO_4_ROADMAP: GuideArticle = {
   },
   tldr: {
     coreRule: {
-      vi: "Sau khoảng 65 – 75 ngày Tiền Mùa Giải (Pre-Season / S0), máy chủ bước vào kỷ nguyên Mùa Giải (Season 1 ➔ Season 4, mỗi mùa ~8 tuần chính thức). Mỗi mùa mở khóa hệ thống sức mạnh vĩnh viễn mới: S1 mở Suối Nguồn (The Spring), Cây Công Nghệ S1 vĩnh viễn, Thú Cưng (Pets), Thức Tỉnh Hồn Đá Đỏ và điểm dừng Lâu Đài Lv.35 (Lính T10); S2 đẩy Lv.40 mở Viện Huy Hoàng (Brilliance Institute) & 5,422 Dragon Essence lên Lính T11 cùng Wukong & Beastmaster.",
-      en: "After 65 – 75 days of Pre-Season (S0), servers enter the Seasonal Era (Season 1 ➔ Season 4, ~8 official weeks each). Every season unlocks permanent power systems: S1 unlocks The Spring, permanent S1 Tech Tree combat stats, Pets, Soul Stone Awakening, and the Castle Lv.35 (T10 Troops) tactical parking spot; S2 pushes Castle Lv.40 to unlock the Brilliance Institute & 5,422 Dragon Essence for T11 Troops alongside Wukong and Beastmaster.",
+      vi: "**Bản đồ Tiến hóa Mùa giải:** Sau `65–75 ngày` Tiền Mùa Giải (Pre-Season / S0), máy chủ bước vào kỷ nguyên Mùa Giải (Season 1 ➔ Season 4, mỗi mùa `~8 tuần` chính thức).\n• **Trọng tâm Season 1:** Mở Suối Nguồn (The Spring), Cây Công Nghệ S1 vĩnh viễn, Thú Cưng (Pets), Thức Tỉnh Hồn Đá Đỏ và điểm dừng chiến thuật Lâu Đài Lv.35 (`Lính T10`).\n• **Trọng tâm Season 2:** Đẩy Lâu Đài Lv.40 mở Viện Huy Hoàng (Brilliance Institute) & gom 5,422 Dragon Essence lên `Lính T11` cùng bộ đôi Wukong & Beastmaster.",
+      en: "**Seasonal Era Evolution:** After `65–75 days` of Pre-Season (S0), servers enter the Seasonal Era (Season 1 ➔ Season 4, `~8 official weeks` each) with permanent progression systems.\n• **Season 1 Milestones:** Unlocks The Spring, permanent S1 Tech Tree combat stats, Pets, Soul Stone Awakening, and the Castle Lv.35 (`T10 Troops`) tactical parking spot.\n• **Season 2 Milestones:** Pushes Castle Lv.40 to unlock the Brilliance Institute & 5,422 Dragon Essence for `T11 Troops` alongside Wukong and Beastmaster.",
     },
     immediateAction: {
-      vi: "Bắt đầu từ Ngày 45 của S0 (3 tuần trước khi mở Season 1), thực hiện chế độ tích trữ nghiêm ngặt 7 nhóm tài nguyên: Bình Thể lực (4,000–12,000+), Điểm Vinh Dự Bang (giữ sàn 40,000 / tích 80,000–360,000), Tinh Hoa Rồng (2,500–5,422+ viên), Tăng tốc (15–60+ ngày), Huy Chương Vinh Quang (1,500–8,000+), Trứng/Thức ăn Pet và Kim Cương + Mảnh Vạn Năng.",
-      en: "Starting on Day 45 of S0 (3 weeks before Season 1 opens), enforce strict hoarding across 7 resource categories: Stamina Potions (4,000–12,000+), Guild Honor (keep 40,000 floor / target 80,000–360,000), Dragon Essence (2,500–5,422+ stones), Speedups (15–60+ days), Glory Medals (1,500–8,000+), Pet Eggs/Food, and Diamonds + Universal Shards.",
+      vi: "**Tích trữ 7 nhóm tài nguyên từ Ngày 45 S0:** Khóa chặt Bình Thể lực (`4,000–12,000+`), Điểm Vinh Dự Bang (giữ sàn `40,000` / tích `80,000–360,000`) và Tinh Hoa Rồng (`2,500–5,422+` viên).\n• **Nhóm Tăng tốc & Đua Top:** Dự trữ Tăng tốc (`15–60+ ngày`), Huy Chương Vinh Quang (`1,500–8,000+`), Trứng/Thức ăn Pet (`100%`) cùng quỹ Kim Cương & Mảnh Vạn Năng.",
+      en: "**Hoard 7 resource categories starting Day 45 of S0:** Lock down Stamina Potions (`4,000–12,000+`), Guild Honor (keep `40,000` floor / target `80,000–360,000`), and Dragon Essence (`2,500–5,422+` stones).\n• **Speedups & Leaderboard Reserves:** Stockpile Speedups (`15–60+ days`), Glory Medals (`1,500–8,000+`), Pet Eggs/Food (`100%`), plus Diamonds and Universal Shards.",
     },
     strictTaboo: {
-      vi: "Tuyệt đối KHÔNG bước vào Ngày 1 của Season 1 với túi Thể lực trống rỗng hoặc số dư Điểm Vinh Dự Bang dưới Ngưỡng Đóng Băng Ví 40,000 điểm, và đối với người chơi Bộ Lạc, tuyệt đối KHÔNG tiêu Kim Cương hay Mảnh Vạn Năng vào 3 tướng Thiên Nhiên S1 (Monk, Tidecaller, Ne Zha) để bảo toàn 50,000+ KC & 300–500 Mảnh đón Wukong + Beastmaster ở Ngày 1 Season 2!",
-      en: "NEVER enter Day 1 of Season 1 with an empty Stamina bag or a Guild Honor balance below the 40,000 Wallet Floor, and for Horde mains, NEVER spend Diamonds or Universal Shards on S1 Nature heroes (Monk, Tidecaller, Ne Zha) so you can carry 50,000+ Diamonds and 300–500 Universal Shards into Day 1 of Season 2 for Wukong and Beastmaster!",
+      vi: "**Cấm cạn Thể lực & Thủng sàn Vinh Dự:** Tuyệt đối KHÔNG bước vào `Ngày 1 Season 1` với túi Thể lực trống rỗng hoặc số dư Điểm Vinh Dự Bang dưới Ngưỡng Đóng Băng Ví `40,000` điểm.\n• **Kỷ luật Nhịn Tướng S1 (Bộ Lạc):** KHÔNG tiêu Kim Cương hay Mảnh Vạn Năng vào 3 tướng Thiên Nhiên S1 (Monk, Tidecaller, Ne Zha) để giữ `50,000+ KC` & `300–500 Mảnh` đón Wukong + Beastmaster ở S2!",
+      en: "**Never Enter S1 Empty-Handed:** NEVER enter `Day 1 of Season 1` with an empty Stamina bag or a Guild Honor balance below the `40,000` Wallet Floor.\n• **Horde S1 Skip Discipline:** NEVER spend Diamonds or Universal Shards on S1 Nature heroes (Monk, Tidecaller, Ne Zha) so you carry `50,000+ Diamonds` & `300–500 Shards` into S2 for Wukong and Beastmaster!",
     },
   },
   keyTakeaways: [
     {
-      vi: "Season 1 (World Tree — Ngày 65–75+): Xây Suối Nguồn (The Spring Lv.35) lấy Nước Xuân (Spring Water) nâng Cây Công Nghệ S1 (giữ chỉ số vĩnh viễn), săn Boss Sâu Cát (Dune Devourer), đấu Tứ Quốc Chiến (4NL), mở Pets & Soul Stone Awakening, và đậu chiến thuật ở Lâu Đài Lv.35 (Mở Lính T10).",
-      en: "Season 1 (World Tree — Days 65–75+): Build The Spring (Lv.35) to harvest Spring Water for the permanent S1 Tech Tree, hunt Dune Devourer, compete in Four Nations League (4NL), unlock Pets & Soul Stone Awakening, and tactically park at Castle Lv.35 (T10 Troops).",
+      vi: "**Season 1 (World Tree — `Ngày 65–75+`):** Xây Suối Nguồn (The Spring Lv.35) lấy Nước Xuân (Spring Water) nâng Cây Công Nghệ S1 vĩnh viễn và săn Boss Sâu Cát (Dune Devourer).\n• **Hệ thống & Điểm dừng S1:** Đấu Tứ Quốc Chiến (`4NL`), mở Pets & Soul Stone Awakening (`9 Đá` + `345–385 Mảnh`), và đậu chiến thuật ở Lâu Đài Lv.35 (Mở `Lính T10`).",
+      en: "**Season 1 (World Tree — `Days 65–75+`):** Build The Spring (Lv.35) to harvest Spring Water for the permanent S1 Tech Tree and hunt the Dune Devourer world boss.\n• **S1 Systems & Parking:** Compete in Four Nations League (`4NL`), unlock Pets & Soul Stone Awakening (`9 Stones` + `345–385 Shards`), and tactically park at Castle Lv.35 (`T10 Troops`).",
     },
     {
-      vi: "Season 2 (Frozen Flame): Duy trì Lò Sưởi Cá Nhân (Personal Furnace > 30°C), đẩy Lâu Đài lên Lv.40 mở Viện Huy Hoàng (Brilliance Institute) & gom 5,422 Tinh Hoa Rồng (Dragon Essence) lên Lính Bậc 11 (Lính T11), mở Anh Linh (Heroic Spirits), và bung kho lấy cặp đôi Wukong + Beastmaster.",
-      en: "Season 2 (Frozen Flame): Maintain your Personal Furnace (> 30°C), push Castle Lv.40 to unlock the Brilliance Institute & gather 5,422 Dragon Essence for Tier 11 Troops (T11), unlock Heroic Spirits, and go all-in for Wukong and Beastmaster.",
+      vi: "**Season 2 (Frozen Flame):** Duy trì Lò Sưởi Cá Nhân (Personal Furnace > 30°C) và đẩy Lâu Đài lên Lv.40 mở Viện Huy Hoàng (Brilliance Institute).\n• **Đột phá Lính T11 & Meta Bộ Lạc:** Gom 5,422 Tinh Hoa Rồng (Dragon Essence) lên Lính Bậc 11 (`Lính T11`), mở Anh Linh (Heroic Spirits) và bung kho lấy Wukong + Beastmaster.",
+      en: "**Season 2 (Frozen Flame):** Maintain your Personal Furnace (> 30°C) and push Castle Lv.40 to unlock the Brilliance Institute.\n• **T11 Troops & Horde Meta:** Gather 5,422 Dragon Essence for Tier 11 Troops (`T11`), unlock Heroic Spirits, and go all-in for Wukong and Beastmaster.",
     },
     {
-      vi: "Season 3 (Twilight City) & Season 4 (Oxygen Tide): S3 mở Tháp Ánh Sáng (Light Tower Lv.25), Mạch Mỏ Liên Server (Mine Vein 12h), cấp tướng Lv.265, Ô Đồ Chúa Tể Thứ 7 (Tuần 3 — Legendary T1), Sách Thánh (Sacred Codex Tuần 4 — Legendary T2), Behemoth và bộ 3 Artificer / Petalis / Shadow Priest (hoàn tất 6 Mythic gốc Bộ Lạc); S4 mở Algae Pond, Oxygen Plant, Merchant Fleet, Boss Sea Giant (8,200 Huy chương), PhantomPals và Tiến Hóa Thượng Cổ (Ancient).",
-      en: "Season 3 (Twilight City) & Season 4 (Oxygen Tide): S3 unlocks Light Tower (Lv.25), Cross-Server Mine Vein (12h shield), Hero Lv.265 cap, 7th Lord Gear Slot (Week 3 — Legendary T1), Sacred Codex (Week 4 — Legendary T2), Behemoths, and Artificer / Petalis / Shadow Priest (completing 6 Native Horde Mythics); S4 unlocks Algae Pond, Oxygen Plant, Merchant Fleet, Sea Giant (8,200 Seasonal Medals), PhantomPals, and Ancient Promotions.",
+      vi: "**Season 3 (Twilight City):** Mở Tháp Ánh Sáng (`Lv.25`), Mạch Mỏ (`12h`), cấp tướng `Lv.265`, Ô Đồ Chúa Tể #7 (Legendary T1), Sách Thánh (Sacred Codex — Legendary T2), Behemoth & Artificer / Petalis / Shadow Priest.\n• **Season 4 (Oxygen Tide):** Vận hành Algae Pond, Oxygen Plant, Merchant Fleet, săn Boss Sea Giant (8,200 Huy chương), mở PhantomPals và Tiến Hóa Thượng Cổ (`Ancient`).",
+      en: "**Season 3 (Twilight City):** Unlocks Light Tower (`Lv.25`), Mine Vein (`12h`), Hero `Lv.265`, 7th Lord Gear Slot (Legendary T1), Sacred Codex (Legendary T2), Behemoths & Artificer / Petalis / Shadow Priest.\n• **Season 4 (Oxygen Tide):** Run Algae Pond, Oxygen Plant, and Merchant Fleet, hunt Sea Giant (8,200 Seasonal Medals), and unlock PhantomPals & `Ancient` Promotions.",
     },
   ],
   keywords: [
@@ -96,8 +96,8 @@ export const ARTICLE_4_3_SEASON_1_TO_4_ROADMAP: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Khi kết thúc giai đoạn Tiền Mùa Giải (Pre-Season / S0 kéo dài khoảng 65–75 ngày), trò chơi chuyển từ cuộc đua mở sương mù cục bộ sang Chiến trường Liên Máy Chủ (Cross-Server / Cross-Cluster Seasonal Warfare). Dưới đây là bản đồ tổng quan 5 kỷ nguyên từ S0 đến Season 4 để người chơi hoạch định tài nguyên dài hạn:",
-            en: "Once the Pre-Season (S0, lasting roughly 65–75 days) concludes, Top Heroes transitions from a local fog-clearing race into Cross-Server and Cross-Cluster Seasonal Warfare. Below is the macro evolution map spanning S0 through Season 4 for long-term resource planning:",
+            vi: "**Chuyển dịch Chiến trường Liên Máy Chủ:** Khi kết thúc Tiền Mùa Giải (`65–75 ngày` S0), trò chơi chuyển từ đua mở sương mù cục bộ sang Chiến trường Liên Máy Chủ (Cross-Server / Cross-Cluster).\n• **Bản đồ 5 Kỷ Nguyên:** Dưới đây là lộ trình tổng quan từ S0 đến Season 4 để người chơi hoạch định tài nguyên dài hạn mà không bị hụt hơi.",
+            en: "**Transition to Cross-Server Warfare:** Once Pre-Season (`65–75 days` of S0) concludes, Top Heroes shifts from a local fog-clearing race into Cross-Server and Cross-Cluster Seasonal Warfare.\n• **5-Era Macro Map:** Below is the complete progression roadmap spanning S0 through Season 4 for long-term resource planning.",
           },
         },
         {
@@ -118,8 +118,8 @@ export const ARTICLE_4_3_SEASON_1_TO_4_ROADMAP: GuideArticle = {
               en: "FOUNDATION ERA (DAYS 1 ➔ 65+)",
             },
             title: {
-              vi: "🏁 PRE-SEASON (S0): Lâu Đài Lv.1–35 (Mở Lính T10) & 6 Mythic Thế Hệ 1",
-              en: "🏁 PRE-SEASON (S0): Castle Lv.1–35 (T10 Troops) & 6 Gen-1 Mythics",
+              vi: "PRE-SEASON (S0): Lâu Đài Lv.1–35 (Mở Lính T10) & 6 Mythic Thế Hệ 1",
+              en: "PRE-SEASON (S0): Castle Lv.1–35 (T10 Troops) & 6 Gen-1 Mythics",
             },
             subtitle: {
               vi: "Mở khóa Lính Bậc 10 (Lính T10) tại Lâu đài Lv.35, hoàn thiện khung Relics & Troop Skins và tích trữ 7 nhóm tài nguyên từ Ngày 45",
@@ -135,8 +135,8 @@ export const ARTICLE_4_3_SEASON_1_TO_4_ROADMAP: GuideArticle = {
                 en: "DAYS 65–75+ (~8 WEEKS)",
               },
               title: {
-                vi: "🌳 S1: World Tree (Cây Thế Giới)",
-                en: "🌳 S1: World Tree",
+                vi: "S1: World Tree (Cây Thế Giới)",
+                en: "S1: World Tree",
               },
               subtitle: {
                 vi: "Suối Nguồn (The Spring Lv.35) & Nước Xuân (Spring Water)",
@@ -165,8 +165,8 @@ export const ARTICLE_4_3_SEASON_1_TO_4_ROADMAP: GuideArticle = {
                 en: "~8 OFFICIAL WEEKS",
               },
               title: {
-                vi: "❄️ S2: Frozen Flame (Lục Địa Băng Giá)",
-                en: "❄️ S2: Frozen Flame",
+                vi: "S2: Frozen Flame (Lục Địa Băng Giá)",
+                en: "S2: Frozen Flame",
               },
               subtitle: {
                 vi: "Lò Sưởi Cá Nhân (Personal Furnace > 30°C) & Viện Huy Hoàng Lv.40",
@@ -195,8 +195,8 @@ export const ARTICLE_4_3_SEASON_1_TO_4_ROADMAP: GuideArticle = {
                 en: "~8 OFFICIAL WEEKS",
               },
               title: {
-                vi: "🌑 S3: Twilight City (Thành Phố Chạng Vạng)",
-                en: "🌑 S3: Twilight City",
+                vi: "S3: Twilight City (Thành Phố Chạng Vạng)",
+                en: "S3: Twilight City",
               },
               subtitle: {
                 vi: "Tháp Ánh Sáng (Light Tower Lv.25), Cấp tướng Lv.265 & Cự Thú Behemoth",
@@ -225,8 +225,8 @@ export const ARTICLE_4_3_SEASON_1_TO_4_ROADMAP: GuideArticle = {
                 en: "CROSS-CLUSTER ENDGAME",
               },
               title: {
-                vi: "🌊 S4: Oxygen Tide (Thủy Triều Oxy)",
-                en: "🌊 S4: Oxygen Tide",
+                vi: "S4: Oxygen Tide (Thủy Triều Oxy)",
+                en: "S4: Oxygen Tide",
               },
               subtitle: {
                 vi: "Algae Pond, Oxygen Plant, Merchant Fleet & Boss Sea Giant (8,200)",
@@ -352,24 +352,24 @@ export const ARTICLE_4_3_SEASON_1_TO_4_ROADMAP: GuideArticle = {
               type: "list",
               items: [
                 {
-                  vi: "Cơ chế Bản đồ & Tài nguyên Mùa giải: Bản đồ bước vào kỷ nguyên khô hạn với Boss Thế Giới mới là Sâu Cát (Dune Devourer) và giải đấu liên máy chủ Tứ Quốc Chiến (Four Nations League — 4NL). Mở khóa công trình mùa giải Suối Nguồn (The Spring — tối đa Lv.35) sản xuất Nước Xuân (Spring Water) — tài nguyên bắt buộc để hành quân trên sa mạc, đánh quái mùa giải và nâng cấp Cây Công Nghệ Season 1 (S1 Tech Tree — các chỉ số chiến đấu trong cây này được giữ lại vĩnh viễn sau khi hết mùa!).",
-                  en: "Map Mechanics & Seasonal Resources: The world map enters an arid desert era featuring the Dune Devourer World Boss and the cross-server Four Nations League (4NL) tournament. Unlocks the seasonal building The Spring (max Lv.35), which produces Spring Water — mandatory for desert marching, hunting seasonal monsters, and upgrading the Season 1 Tech Tree (S1 Tech Tree combat stats are permanently retained after the season ends!).",
+                  vi: "**Cơ chế Bản đồ & Tài nguyên Mùa giải:** Săn Sâu Cát (Dune Devourer), đấu Tứ Quốc Chiến (`4NL`) và xây Suối Nguồn (The Spring Lv.35) lấy Nước Xuân (Spring Water) nâng `S1 Tech Tree` giữ chỉ số vĩnh viễn.",
+                  en: "**Map Mechanics & Seasonal Resources:** Hunt Dune Devourer, compete in Four Nations League (`4NL`), and build The Spring (Lv.35) to harvest Spring Water for the permanent `S1 Tech Tree` combat stats.",
                 },
                 {
-                  vi: "1. Thức Tỉnh Tướng Vàng lên Đỏ (Soul Stone Awakening): Mở bán Đá Linh Hồn / Hồn Đá Đỏ (Soul Stones) trong Cửa hàng Bang hội (đơn giá 40,000 Điểm Vinh Dự Bang / viên ở Rương tự chọn Lâu đài Lv.30 hoặc 6,000 Xu Vinh Quang Hội / viên theo lịch xoay tua 3 tuần/hệ ở S1; tốn 9 Hồn Đá Đỏ + 345–385 Mảnh Tướng mỗi tướng) để tiến hóa các tướng SSR Vàng cốt lõi (Pyromancer, Adjudicator, Nun, Soulmancer, Warlock, Pixie, Sage) lên phẩm chất Thần Thoại Đỏ.",
-                  en: "1. Soul Stone Awakening (Legendary SSR to Mythic Red): Unlocks Soul Stones in the Guild Shop (40,000 Guild Honor per stone via Castle Lv.30 Choice Chests or 6,000 Guild Glory Coins per stone on the 3-week faction rotation in S1; requires 9 Soul Stones + 345–385 Hero Shards per hero) to awaken core Legendary SSR heroes (Pyromancer, Adjudicator, Nun, Soulmancer, Warlock, Pixie, Sage) to Mythic Red quality.",
+                  vi: "**1. Thức Tỉnh Tướng Vàng lên Đỏ (Soul Stone Awakening):** Mua Hồn Đá Đỏ (`40,000` Điểm Vinh Dự hoặc `6,000` Xu Vinh Quang/viên; cần `9 Đá` + `345–385 Mảnh`) để tiến hóa tướng SSR chủ lực lên Đỏ.",
+                  en: "**1. Soul Stone Awakening (SSR to Mythic Red):** Buy Soul Stones (`40,000` Guild Honor or `6,000` Glory Coins/stone; costs `9 Stones` + `345–385 Shards`) to awaken core SSR heroes to Mythic Red.",
                 },
                 {
-                  vi: "2. Hệ thống Thú Cưng (Pets) & 3. Vũ Khí Độc Quyền (Exclusive Weapons / Signature Gear): Mở Trại Ấp Trứng cho phép ấp, thăng cấp và gắn Pet chủ lực vào từng Đội hình; đồng thời mở rộng nguồn cung mảnh Vũ khí Độc quyền kích hoạt kỹ năng riêng tại các mốc +5 / +10 / +15 / +20.",
-                  en: "2. Pets System & 3. Exclusive Weapons (Signature Gear): Unlocks the Pet Hatchery to hatch, upgrade, and assign main Pets to each queue, while expanding Exclusive Weapon shard sources to unlock signature skills at +5 / +10 / +15 / +20.",
+                  vi: "**2. Thú Cưng (Pets) & 3. Vũ Khí Độc Quyền (Exclusive Weapons):** Mở Trại Ấp Trứng gắn Pet chủ lực cho từng Đội hình và nâng mảnh Vũ khí Độc quyền kích hoạt kỹ năng riêng tại mốc `+5 / +10 / +15 / +20`.",
+                  en: "**2. Pets System & 3. Exclusive Weapons:** Unlock the Pet Hatchery to assign main Pets to each queue and upgrade Exclusive Weapons to activate signature skills at `+5 / +10 / +15 / +20`.",
                 },
                 {
-                  vi: "4. Điểm Dừng Chiến Thuật Lâu Đài Lv.35 (Tier 10 Troops / Lính T10) trước khi tiến lên Lv.40: Ở mốc Lâu đài Lv.35, người chơi đã mở khóa được Lính Bậc 10 (Lính T10). Các cấp từ Lv.36 đến Lv.40 chỉ tăng giới hạn cấp độ Tướng thêm +5 cấp/level mà không mở khóa bậc lính mới ở Lv.40. Do đó, người chơi F2P/Mid-game nên dừng tạm ở Lv.35 trong giai đoạn S1 để dồn tài nguyên tối đa hóa Nghiên cứu và Doanh trại trước khi đẩy thẳng lên Lv.40 ở S2/S3.",
-                  en: "4. Castle Lv.35 Tactical Parking Spot (Tier 10 Troops) Before Pushing Lv.40: Reaching Castle Lv.35 unlocks Tier 10 Troops (T10). Castle levels Lv.36 through Lv.40 only add +5 hero levels per castle level and unlock NO new troop tier at Lv.40. Therefore, F2P and Mid-game players should park at Lv.35 during S1 to max Research and Barracks before pushing Lv.40 in S2/S3.",
+                  vi: "**4. Điểm Dừng Chiến Thuật Lâu Đài Lv.35 (`Lính T10`):** Lv.35 mở `Lính T10` (`Lv.36–40` không có lính mới ở Lv.40); F2P nên đậu ở Lv.35 suốt S1 để max Nghiên cứu/Doanh trại trước khi lên Lv.40 ở S2.",
+                  en: "**4. Castle Lv.35 Tactical Parking (`T10 Troops`):** Lv.35 unlocks `T10 Troops` (`Lv.36–40` unlock no new troops at Lv.40); F2P players should park at Lv.35 in S1 to max Research/Barracks before S2.",
                 },
                 {
-                  vi: "Tướng Đỏ Ra Mắt (Đợt Thiên Nhiên S1): 🟢 Monk (Nhà Sư / Tu Sĩ), 🟢 Tidecaller (Triệu Hồi Thủy Triều) và 🟢 Ne Zha (Na Tra).",
-                  en: "Season 1 Mythic Releases (Nature Wave): 🟢 Monk, 🟢 Tidecaller, and 🟢 Ne Zha.",
+                  vi: "**Tướng Đỏ Ra Mắt (Đợt Thiên Nhiên S1):** Mở khóa bộ 3 Thần Thoại hệ Thiên Nhiên gồm Monk (Nhà Sư / Tu Sĩ), Tidecaller (Triệu Hồi Thủy Triều) và Ne Zha (Na Tra).",
+                  en: "**Season 1 Mythic Releases (Nature Wave):** Introduces the three core Nature Mythic heroes: Monk, Tidecaller, and Ne Zha.",
                 },
               ],
             },
@@ -390,16 +390,16 @@ export const ARTICLE_4_3_SEASON_1_TO_4_ROADMAP: GuideArticle = {
               type: "list",
               items: [
                 {
-                  vi: "Cơ chế Bản đồ & Công trình Mùa giải: Bản đồ chuyển sang Lục địa Băng Giá (Frozen Continent). Người chơi phải nâng cấp Lò Sưởi Cá Nhân (Personal Furnace) duy trì nhiệt độ trên 30°C (> 30°C); nếu nhiệt độ tụt xuống dưới ngưỡng đóng băng, tốc độ xây dựng, nghiên cứu và hành quân sẽ bị giảm nghiêm trọng.",
-                  en: "Map Mechanics & Seasonal Building: The map shifts to the Frozen Continent. Players must upgrade their Personal Furnace to keep temperatures above 30°C (> 30°C); if temperatures drop below freezing, construction, research, and march speeds suffer severe penalties.",
+                  vi: "**Cơ chế Bản đồ & Công trình Mùa giải:** Trên Lục địa Băng Giá, phải nâng Lò Sưởi Cá Nhân (Personal Furnace) duy trì nhiệt độ trên 30°C (`> 30°C`) để không bị phạt giảm tốc độ xây dựng và nghiên cứu.",
+                  en: "**Map Mechanics & Seasonal Building:** On the Frozen Continent, upgrade your Personal Furnace to keep temperatures above 30°C (`> 30°C`) and avoid severe construction, research, and march speed penalties.",
                 },
                 {
-                  vi: "Đẩy Lâu Đài Lv.40 & Mở Khóa Viện Huy Hoàng (Brilliance Institute): Sau khi hoàn thiện nền tảng ở Lv.35 (Lính T10), người chơi đẩy Lâu đài từ Lv.35 lên Lv.40 trong S2/S3 để chính thức mở khóa Viện Huy Hoàng (Brilliance Institute) và kỷ nguyên Tinh Hoa Rồng (Dragon Essence) — hướng tới mục tiêu mở khóa Lính Bậc 11 (Lính T11, đòi hỏi tổng cộng 5,422 Dragon Essence). Đồng thời mở khóa hệ thống Anh Linh (Heroic Spirits), mở rộng giới hạn Vũ khí Độc quyền và bậc tiến hóa Pet mới.",
-                  en: "Pushing Castle Lv.40 & Unlocking the Brilliance Institute: After solidifying your Castle Lv.35 (T10 Troops) foundation, push Castle Lv.35 to Lv.40 in S2/S3 to unlock the Brilliance Institute and the Dragon Essence tech tree — requiring a total of 5,422 Dragon Essence to unlock Tier 11 Troops (T11). Season 2 also unlocks Heroic Spirits, higher Exclusive Weapon caps, and new Pet evolution tiers.",
+                  vi: "**Đẩy Lâu Đài Lv.40 & Mở Viện Huy Hoàng (Brilliance Institute):** Đẩy Lv.35 lên Lv.40 để mở Viện Huy Hoàng, gom 5,422 Tinh Hoa Rồng (Dragon Essence) mở khóa `Lính T11` cùng hệ thống Anh Linh (Heroic Spirits).",
+                  en: "**Pushing Castle Lv.40 & Brilliance Institute:** Push Castle Lv.35 to Lv.40 to unlock the Brilliance Institute, gathering 5,422 Dragon Essence to unlock `T11 Troops` alongside Heroic Spirits.",
                 },
                 {
-                  vi: "Chuyển dịch Meta Đỉnh điểm (Thời đại Hoàng Kim của Bộ Lạc): Ra mắt liên tiếp 2 siêu phẩm Tướng Đỏ Bộ Lạc mạnh nhất trò chơi: 🔴 Wukong (Tôn Ngộ Không — Sát thương vật lý diện rộng gấp nhiều lần tướng thường) và 🔴 Beastmaster (Thú Tướng — Đỡ đòn tạo khiên và khống chế cứng). Khi ghép cùng Desert Prince, Storm Maiden, Witch và Soulmancer (Awakened), đội hình Bộ Lạc chính thức thống trị tuyệt đối cả PvP lẫn PvE.",
-                  en: "Peak Meta Shift (The Golden Age of Horde): Releases the two strongest Horde Mythics in Top Heroes back-to-back: 🔴 Wukong (massive AoE physical burst) and 🔴 Beastmaster (shield-generating tank with hard crowd control). Paired with Desert Prince, Storm Maiden, Witch, and Awakened Soulmancer, Pure Horde dominates both PvP and PvE.",
+                  vi: "**Chuyển dịch Meta Đỉnh điểm (Hoàng Kim Bộ Lạc):** Ra mắt bộ đôi Wukong (Sát thương AoE hủy diệt) và Beastmaster (Đỡ đòn tạo khiên), ghép cùng Desert Prince, Storm Maiden, Witch và Soulmancer thống trị PvP/PvE.",
+                  en: "**Peak Meta Shift (Golden Age of Horde):** Releases Wukong (explosive AoE burst) and Beastmaster (shield tank with hard CC), pairing with Desert Prince, Storm Maiden, Witch, and Soulmancer to dominate PvP/PvE.",
                 },
               ],
             },
@@ -420,20 +420,20 @@ export const ARTICLE_4_3_SEASON_1_TO_4_ROADMAP: GuideArticle = {
               type: "list",
               items: [
                 {
-                  vi: "Season 3 (\"Twilight City\" — Thành Phố Chạng Vạng): Bản đồ Sương Mù Nguyền Rủa yêu cầu nâng cấp Tháp Ánh Sáng (Light Tower — Lv.25) để xóa hiệu ứng giảm chỉ số khi công thành; mở chiến trường Mạch Mỏ Liên Server (Mine Vein — quy tắc bảo hộ 12 giờ) và tăng giới hạn cấp độ Tướng lên Lv.265.",
-                  en: "Season 3 (\"Twilight City\"): The Cursed Fog map requires upgrading the Light Tower (Lv.25) to cleanse siege stat debuffs, opens the Cross-Server Mine Vein battlefield (12-hour protection shield rule), and raises the Hero level cap to Lv.265.",
+                  vi: "**Season 3 (\"Twilight City\" — Thành Phố Chạng Vạng):** Nâng Tháp Ánh Sáng (`Light Tower Lv.25`) xóa debuff công thành, mở Mạch Mỏ Liên Server (`Mine Vein` bảo hộ `12h`) và tăng trần cấp Tướng lên `Lv.265`.",
+                  en: "**Season 3 (\"Twilight City\"):** Upgrade the Light Tower (`Lv.25`) to cleanse siege stat debuffs, unlock the Cross-Server `Mine Vein` (`12h` protection shield), and raise the Hero level cap to `Lv.265`.",
                 },
                 {
-                  vi: "Mở Khóa Ô Đồ Chúa Tể Thứ 7 (7th Lord Gear Slot) & Sách Thánh (Sacred Codex) trong Season 3: Tại Tuần 3 của Season 3, mở khóa Ô Trang Bị Chúa Tể Thứ 7 (7th Lord Gear Slot) khi toàn bộ 6 món Đồ Chúa Tể chính đạt phẩm chất Legendary T1. Tại Tuần 4 của Season 3, mở khóa Sách Thánh (Sacred Codex) khi toàn bộ 6 món Đồ Chúa Tể đạt phẩm chất Legendary T2.",
-                  en: "Unlocking the 7th Lord Gear Slot & Sacred Codex in Season 3: In Season 3 Week 3, the 7th Lord Gear Slot unlocks once all 6 main Lord Gear pieces reach Legendary T1 quality. In Season 3 Week 4, the Sacred Codex unlocks once all 6 main Lord Gear pieces reach Legendary T2 quality.",
+                  vi: "**Ô Đồ Chúa Tể Thứ 7 & Sách Thánh (Sacred Codex):** Mở Ô Đồ Chúa Tể #7 ở `Tuần 3 S3` (khi 6 món đạt Legendary T1) và mở Sách Thánh (Sacred Codex) ở `Tuần 4 S3` (khi 6 món đạt Legendary T2).",
+                  en: "**7th Lord Gear Slot & Sacred Codex in Season 3:** Unlocks the 7th Lord Gear Slot in `S3 Week 3` (all 6 pieces at Legendary T1) and the Sacred Codex in `S3 Week 4` (all 6 pieces at Legendary T2).",
                 },
                 {
-                  vi: "Cự Thú Bang Hội (Behemoths) & Bộ 3 Tướng Đỏ Đa Hệ Season 3: Mở khóa Cự Thú Bang Hội (Behemoths) cùng Pet thế hệ mới (Candy Boo, Flickerkit). Ra mắt 3 Tướng Đỏ đa hệ: 🔵 Artificer (Thợ Chế Tạo — Liên Minh), 🟢 Petalis (Thiên Nhiên) và 🔴 Shadow Priest (Giáo Sĩ Bóng Tối — mảnh ghép Mythic gốc thứ 6 giúp đội hình Bộ Lạc đạt 100% 6 Tướng Đỏ bẩm sinh!).",
-                  en: "Guild Behemoths & Season 3 Multi-Faction Mythics: Unlocks Guild Behemoths and next-gen Pets (Candy Boo, Flickerkit). Releases 3 Mythic heroes: 🔵 Artificer (League), 🟢 Petalis (Nature), and 🔴 Shadow Priest (Horde — the 6th native Mythic that completes a 100% 6-Native-Mythic Horde lineup!).",
+                  vi: "**Cự Thú Bang Hội (Behemoths) & Bộ 3 Tướng Đỏ S3:** Mở Cự Thú Behemoths, Pet Candy Boo / Flickerkit và 3 tướng Đỏ: Artificer (Liên Minh), Petalis (Thiên Nhiên) và Shadow Priest (Mythic gốc thứ 6 Bộ Lạc).",
+                  en: "**Guild Behemoths & Season 3 Multi-Faction Mythics:** Unlocks Behemoths, Candy Boo / Flickerkit Pets, and 3 Mythics: Artificer (League), Petalis (Nature), and Shadow Priest (6th Native Horde Mythic).",
                 },
                 {
-                  vi: "Season 4 (\"Oxygen Tide\" — Thủy Triều Oxy & Liên Cụm Server): Bản đồ Đại Dương & Đảo Ngầm; xây dựng Hồ Tảo (Algae Pond) cung cấp nguyên liệu cho Nhà Máy Oxy (Oxygen Plant), vận hành Hạm Đội Thương Nhân (Merchant Fleet) và săn Boss Khổng Lồ Biển (Sea Giant) để tích lũy mốc 8,200 Huy chương Mùa. Mở khóa hệ thống Endgame gồm PhantomPals, chiến trường Liên Cụm Máy Chủ (Cross-Cluster KvK), và các bậc Tiến Hóa Thượng Cổ (Ancient / Mythic Promotion).",
-                  en: "Season 4 (\"Oxygen Tide\" — Cross-Cluster Endgame): Set on an Ocean & Subterranean Island map where players build the Algae Pond to supply the Oxygen Plant, operate the Merchant Fleet, and hunt the Sea Giant world boss to reach the 8,200 Seasonal Medals milestone. Unlocks PhantomPals, Cross-Cluster KvK warfare, and Ancient Promotions.",
+                  vi: "**Season 4 (\"Oxygen Tide\" — Thủy Triều Oxy):** Xây Algae Pond, Oxygen Plant, Merchant Fleet, săn Boss Sea Giant (mốc 8,200 Huy chương Mùa), mở PhantomPals, Cross-Cluster KvK và Tiến Hóa Thượng Cổ (`Ancient`).",
+                  en: "**Season 4 (\"Oxygen Tide\" — Cross-Cluster Endgame):** Build Algae Pond, Oxygen Plant, and Merchant Fleet, hunt Sea Giant (8,200 Seasonal Medals), and unlock PhantomPals, Cross-Cluster KvK, and `Ancient` Promotions.",
                 },
               ],
             },
@@ -451,8 +451,8 @@ export const ARTICLE_4_3_SEASON_1_TO_4_ROADMAP: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Sự khác biệt giữa một tài khoản F2P nằm trong Top 20 Server và một tài khoản dậm chân tại chỗ nằm ở Kế hoạch Phân bổ Mảnh Vạn Năng & Kim Cương Xuyên Mùa (Cross-Season Allocation) dựa trên chuẩn quy đổi Sao Tướng Đỏ: 1 Sao Đỏ (6 Sao tổng = 160 mảnh Mythic), 5 Sao Đỏ (10 Sao tổng = 400 mảnh Mythic), 1 Sao Trắng / Bạc (11 Sao tổng = 560 mảnh Mythic, điểm gãy +30% kỹ năng) và 5 Sao Trắng / Bạc (15 Sao tổng = 1,000 mảnh Mythic).",
-            en: "The difference between a Top 20 F2P account and a stagnant roster lies in Cross-Season Universal Shard & Diamond Allocation anchored to Mythic Star Conversion benchmarks: 1-Red Star (6 Total Stars = 160 Mythic shards), 5-Red Stars (10 Total Stars = 400 Mythic shards), 1-White / Silver Star (11 Total Stars = 560 Mythic shards, +30% skill power breakpoint), and 5-White / Silver Stars (15 Total Stars = 1,000 Mythic shards).",
+            vi: "**Phân bổ Xuyên Mùa (Cross-Season Allocation):** Khác biệt giữa Top 20 F2P và tài khoản dậm chân tại chỗ nằm ở kế hoạch phân bổ Mảnh Vạn Năng & Kim Cương theo chuẩn quy đổi Sao Tướng Đỏ.\n• **Chuẩn Sao Tướng Đỏ:** `1 Sao Đỏ` (`6 Sao` = `160` mảnh Mythic), `5 Sao Đỏ` (`10 Sao` = `400` mảnh), `1 Sao Trắng / Bạc` (`11 Sao` = `560` mảnh, `+30%` kỹ năng) và `5 Sao Trắng / Bạc` (`15 Sao` = `1,000` mảnh).",
+            en: "**Cross-Season Allocation Discipline:** The gap between a Top 20 F2P account and a stagnant roster lies in Cross-Season Universal Shard & Diamond Allocation anchored to Mythic Star benchmarks.\n• **Mythic Star Benchmarks:** `1-Red Star` (`160` shards), `5-Red Stars` (`400` shards), `1-White / Silver Star` (`11 Stars` = `560` shards, `+30%` skill power), and `5-White Stars` (`15 Stars` = `1,000` shards).",
           },
         },
       ],
@@ -469,16 +469,16 @@ export const ARTICLE_4_3_SEASON_1_TO_4_ROADMAP: GuideArticle = {
               ordered: true,
               items: [
                 {
-                  vi: "Chiến thuật cho Người chơi Hệ Bộ Lạc (Horde Main): Trong suốt Season 1, vì cả 3 tướng Đỏ mới của S1 (Monk, Tidecaller, Ne Zha) đều thuộc hệ Thiên Nhiên, người chơi Bộ Lạc có 8 tuần lễ vàng để tiết kiệm 100% Kim Cương vòng quay! Chỉ dùng tài nguyên S1 để mua đủ 9 Hồn Đá Đỏ Bộ Lạc (40,000 Điểm Vinh Dự / viên hoặc 6,000 Xu Vinh Quang / viên, kèm 345–385 mảnh tướng) thức tỉnh Soulmancer/Warlock, nâng Vũ khí Độc quyền của Storm Maiden & Desert Prince lên +10, và đóng băng tối thiểu 300–500 Mảnh Vàng Vạn Năng + 50,000 Kim Cương vào cuối S1. Ngay Ngày 1 của Season 2, bung toàn bộ kho Kim Cương và Mảnh Vạn Năng để lấy Wukong và Beastmaster, lập tức đẩy cả hai vượt qua mốc sàn 1 Sao Đỏ (6 Sao / 160 mảnh Mythic) và 5 Sao Đỏ (10 Sao / 400 mảnh Mythic) để chạm thẳng điểm gãy +30% kỹ năng tại 1 Sao Trắng / Bạc (11 Sao / 560 mảnh Mythic) ngay trong tuần đầu ra mắt!",
-                  en: "Strategy for Horde Mains: Throughout all 8 weeks of Season 1, because all 3 new S1 Mythics (Monk, Tidecaller, Ne Zha) belong to Nature, Horde players enjoy an 8-week golden window to save 100% of their Wheel/Dice Diamonds! Use S1 resources strictly to buy 9 Horde Soul Stones (40,000 Guild Honor/stone or 6,000 Guild Glory Coins/stone, plus 345–385 shards) to awaken Soulmancer/Warlock, upgrade Storm Maiden & Desert Prince Exclusive Weapons to +10, and freeze at least 300–500 Universal Shards + 50,000 Diamonds by the end of S1. On Day 1 of Season 2, unload your entire reserve to unlock Wukong and Beastmaster, pushing past 1-Red Star (6 Total Stars / 160 Mythic shards) and 5-Red Stars (10 Total Stars / 400 Mythic shards) straight to the +30% skill power breakpoint at 1-White / Silver Star (11 Total Stars / 560 Mythic shards) in week one!",
+                  vi: "**Chiến thuật Hệ Bộ Lạc (Horde Main):** Nhịn 3 tướng Thiên Nhiên S1, dùng `9 Hồn Đá Đỏ` (`345–385` mảnh) thức tỉnh Soulmancer/Warlock, giữ `300–500` Mảnh + `50,000` KC bung lấy Wukong & Beastmaster (`560` mảnh) ở S2!",
+                  en: "**Strategy for Horde Mains:** Skip all 3 S1 Nature banners, spend `9 Soul Stones` (`345–385` shards) to awaken Soulmancer/Warlock, and bank `300–500` Shards + `50,000` Diamonds for S2 Wukong & Beastmaster (`560` shards)!",
                 },
                 {
-                  vi: "Chiến thuật cho Người chơi Hệ Thiên Nhiên (Nature Main): Season 1 là Mùa Bùng Nổ Chính — dồn 100% Kim Cương và Mảnh Vạn Năng tích từ cuối S0 để lấy trọn bộ Tidecaller (ưu tiên nâng lên 1 Sao Trắng / Bạc — 11 Sao / 560 mảnh Mythic đầu tiên), Monk và Ne Zha, đồng thời dùng Hồn Đá Đỏ thức tỉnh Pixie và Sage. Sang Season 2, nhịn hoàn toàn vòng quay của Wukong và Beastmaster để tích tài nguyên chờ đón Petalis ở Season 3.",
-                  en: "Strategy for Nature Mains: Season 1 is your Primary Burst Season — invest 100% of the Diamonds and Universal Shards saved since late S0 to secure Tidecaller (prioritize pushing her to 1-White / Silver Star — 11 Total Stars / 560 Mythic shards first), Monk, and Ne Zha, while using Soul Stones to awaken Pixie and Sage. In Season 2, completely skip Wukong and Beastmaster banners to hoard resources for Petalis in Season 3.",
+                  vi: "**Chiến thuật Hệ Thiên Nhiên (Nature Main):** Bung `100%` KC & Mảnh ở S1 lấy Tidecaller (`1 Sao Trắng / 560 mảnh`), Monk, Ne Zha và thức tỉnh Pixie + Sage; sang S2 nhịn Wukong/Beastmaster chờ Petalis ở S3.",
+                  en: "**Strategy for Nature Mains:** Unload `100%` of Diamonds & Shards in S1 for Tidecaller (`1-White Star / 560 shards`), Monk, and Ne Zha while awakening Pixie + Sage; skip S2 banners to hoard for S3 Petalis.",
                 },
                 {
-                  vi: "Chiến thuật cho Người chơi Hệ Liên Minh (League Main): Trong Season 1 & Season 2, tập trung tối đa vào việc thu thập 18 – 27 Hồn Đá Đỏ Liên Minh để thức tỉnh Pyromancer, Adjudicator và Nun, đồng thời đẩy Paragon và Rose Princess vượt 1 Sao Trắng / Bạc (11 Sao / 560 mảnh Mythic) hướng tới 5 Sao Trắng / Bạc (15 Sao / 1,000 mảnh Mythic). Tích trữ Kim Cương ở cuối S2 để lấy siêu hỗ trợ Artificer ngay khi mở màn Season 3.",
-                  en: "Strategy for League Mains: Across Season 1 and Season 2, focus on collecting 18–27 League Soul Stones to awaken Pyromancer, Adjudicator, and Nun, while pushing Paragon and Rose Princess past 1-White / Silver Star (11 Total Stars / 560 Mythic shards) toward 5-White / Silver Stars (15 Total Stars / 1,000 Mythic shards). Hoard Diamonds in late S2 to unlock the premier League support Artificer on Day 1 of Season 3.",
+                  vi: "**Chiến thuật Hệ Liên Minh (League Main):** Gom `18–27 Hồn Đá Đỏ` ở S1–S2 thức tỉnh Pyromancer, Adjudicator, Nun; đẩy Paragon & Rose Princess vượt `560` ➔ `1,000` mảnh và tích KC cuối S2 đón Artificer ở S3.",
+                  en: "**Strategy for League Mains:** Collect `18–27 League Soul Stones` in S1–S2 to awaken Pyromancer, Adjudicator, and Nun; push Paragon & Rose Princess to `560` ➔ `1,000` shards and save Diamonds for S3 Artificer.",
                 },
               ],
             },
@@ -499,9 +499,9 @@ export const ARTICLE_4_3_SEASON_1_TO_4_ROADMAP: GuideArticle = {
               },
               headers: [
                 { vi: "Mùa Giải", en: "Season" },
-                { vi: "🔵 Trọng Tâm Hệ Liên Minh (League)", en: "🔵 League Main Focus" },
-                { vi: "🔴 Trọng Tâm Hệ Bộ Lạc (Horde)", en: "🔴 Horde Main Focus" },
-                { vi: "🟢 Trọng Tâm Hệ Thiên Nhiên (Nature)", en: "🟢 Nature Main Focus" },
+                { vi: "Trọng Tâm Hệ Liên Minh (League)", en: "League Main Focus" },
+                { vi: "Trọng Tâm Hệ Bộ Lạc (Horde)", en: "Horde Main Focus" },
+                { vi: "Trọng Tâm Hệ Thiên Nhiên (Nature)", en: "Nature Main Focus" },
               ],
               rows: [
                 [
@@ -584,8 +584,8 @@ export const ARTICLE_4_3_SEASON_1_TO_4_ROADMAP: GuideArticle = {
             en: "4 account-ruining seasonal transition traps and their min-max countermeasures",
           },
           headers: [
-            { vi: "❌ Sai lầm phổ biến (Account Traps)", en: "❌ Common Seasonal Pitfalls (Account Traps)" },
-            { vi: "✅ Giải pháp tối ưu (Min-Max Solution)", en: "✅ Optimal Countermeasure (Min-Max Solution)" },
+            { vi: "Sai lầm phổ biến (Account Traps)", en: "Common Seasonal Pitfalls (Account Traps)" },
+            { vi: "Giải pháp tối ưu (Min-Max Solution)", en: "Optimal Countermeasure (Min-Max Solution)" },
           ],
           rows: [
             [
@@ -645,8 +645,8 @@ export const ARTICLE_4_3_SEASON_1_TO_4_ROADMAP: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Tuần đầu tiên của Season 1 (khoảng Ngày 65–75 của máy chủ) là thời điểm diễn ra cuộc thanh lọc thứ hạng khốc liệt nhất: hàng loạt bảng xếp hạng đua Top Mùa Giải (Pet Rush, Seasonal Building Rush, Soul Stone Awakening, Brilliance Breakthrough) mở ra cùng lúc. Người chơi chuẩn bị sẵn kho tài nguyên từ Ngày 45 của Pre-Season (S0) sẽ bứt phá lực chiến gấp đôi người chơi bình thường ngay trong 7 ngày đầu S1.",
-            en: "Week 1 of Season 1 (around Server Days 65–75) triggers the fiercest leaderboard shakeup in Top Heroes: multiple seasonal rush events (Pet Rush, Seasonal Building Rush, Soul Stone Awakening, Brilliance Breakthrough) launch simultaneously. Players who start hoarding on Day 45 of Pre-Season (S0) gain double the combat power spike during the first 7 days of S1.",
+            vi: "**Thanh lọc Thứ hạng Tuần 1 Season 1:** Khoảng `Ngày 65–75` của máy chủ mở đồng loạt các giải đua Top Mùa Giải (Pet Rush, Seasonal Building Rush, Soul Stone Awakening, Brilliance Breakthrough).\n• **Đòn bẩy Tích trữ Ngày 45 S0:** Người chơi chuẩn bị sẵn kho tài nguyên từ `Ngày 45` của Pre-Season (S0) sẽ bứt phá lực chiến gấp đôi người chơi thường ngay trong `7 ngày đầu` S1.",
+            en: "**Season 1 Week 1 Leaderboard Shakeup:** Around `Server Days 65–75`, multiple seasonal rush events (Pet Rush, Seasonal Building Rush, Soul Stone Awakening, Brilliance Breakthrough) launch at once.\n• **Day 45 S0 Hoarding Leverage:** Players who start hoarding on `Day 45` of Pre-Season (S0) gain double the combat power spike during the first `7 days` of Season 1.",
           },
         },
       ],
@@ -847,8 +847,8 @@ export const ARTICLE_4_3_SEASON_1_TO_4_ROADMAP: GuideArticle = {
                   en: "PRE-S1 LOCKDOWN (DAYS 45 ➔ 65 S0)",
                 },
                 title: {
-                  vi: "🔒 Khóa Kho Tài Nguyên Chiến Lược Trước Ngày Mở Màn Season 1",
-                  en: "🔒 Lock Down Strategic Resource Reserves Before Season 1 Day 1",
+                  vi: "Khóa Kho Tài Nguyên Chiến Lược Trước Ngày Mở Màn Season 1",
+                  en: "Lock Down Strategic Resource Reserves Before Season 1 Day 1",
                 },
                 subtitle: {
                   vi: "Tích sẵn 4,000–12,000+ Thể lực, 15–60+ ngày Tăng tốc, >= 40,000 Điểm Vinh Dự (tối ưu 80,000–360,000 / 36,000–54,000 Xu Vinh Quang) & 2,500–5,422+ Dragon Essence",
@@ -1137,8 +1137,8 @@ export const ARTICLE_4_3_SEASON_1_TO_4_ROADMAP: GuideArticle = {
             en: "Head-to-Head Comparison: Two 8.5M Power Pure Horde Accounts (Castle Lv.35 T10) Across Season 1 & Season 2",
           },
           profileSummary: {
-            vi: "Bối cảnh xuất phát (Ngày 65 — Đêm trước khi mở Season 1): Hai tài khoản A và B cùng đạt cấp độ Lâu đài Lv.35 (đã mở Lính T10) và cùng có lực chiến hiển thị 8.5M với đội hình Thuần Bộ Lạc (Desert Prince, Storm Maiden, Witch, Wilderness Hunter, Swordmaster, Soulmancer). Tuy nhiên, kỷ luật quản trị kho tài nguyên xuyên S1–S2 đã tạo ra khoảng cách một trời một vực ở Ngày 1 Season 2.",
-            en: "Starting Baseline (Day 65 — Eve of Season 1): Accounts A and B are both at Castle Lv.35 (Tier 10 Troops unlocked) with identical 8.5M displayed power running a Pure Horde Queue 1 (Desert Prince, Storm Maiden, Witch, Wilderness Hunter, Swordmaster, Soulmancer). However, their cross-season resource discipline creates a massive power gulf on Day 1 of Season 2.",
+            vi: "**Bối cảnh xuất phát (`Ngày 65` — Đêm trước Season 1):** Hai tài khoản A và B cùng đạt Lâu đài Lv.35 (mở `Lính T10`) và lực chiến 8.5M với Đội 1 Thuần Bộ Lạc.\n• **Biến số Kỷ luật Kho:** Gồm Desert Prince, Storm Maiden, Witch, Wilderness Hunter, Swordmaster, Soulmancer; kỷ luật quản trị kho S1–S2 tạo ra khoảng cách một trời một vực ở `Ngày 1 Season 2`.",
+            en: "**Starting Baseline (`Day 65` — Eve of Season 1):** Accounts A and B are both at Castle Lv.35 (`T10 Troops` unlocked) with identical 8.5M displayed power running Pure Horde Queue 1.\n• **Hoarding Discipline Variable:** Featuring Desert Prince, Storm Maiden, Witch, Wilderness Hunter, Swordmaster, and Soulmancer; cross-season discipline creates a massive power gulf on `Day 1 of S2`.",
           },
           metrics: [
             {
@@ -1216,16 +1216,16 @@ export const ARTICLE_4_3_SEASON_1_TO_4_ROADMAP: GuideArticle = {
           ],
           diagnostics: [
             {
-              vi: "Sai lầm #1 của Tài khoản A (8.5M): Cuối S0 tiêu hết Thể lực đánh quái thường và tiêu Điểm Vinh Dự Bang mua mảnh tướng lẻ làm thủng Ngưỡng Đóng Băng Ví 40,000 Điểm, khiến tuần đầu S1 không đủ Nước Xuân (Spring Water) nâng Suối Nguồn (The Spring) và không có Hồn Đá Đỏ thức tỉnh Soulmancer.",
-              en: "Account A (8.5M) Mistake #1: Drained all Stamina on regular S0 monsters and spent Guild Honor on random shards below the 40,000 Wallet Floor, starving The Spring of Spring Water and delaying Soulmancer's awakening in S1.",
+              vi: "**Sai lầm #1 của Tài khoản A (8.5M):** Cuối S0 tiêu hết Thể lực đánh quái thường và mua mảnh tướng lẻ làm thủng Ngưỡng Đóng Băng Ví `40,000` Điểm Vinh Dự Bang.\n• **Hậu quả Tuần 1 S1:** Thiếu Nước Xuân (Spring Water) nâng Suối Nguồn (The Spring) và không có Hồn Đá Đỏ thức tỉnh Soulmancer.",
+              en: "**Account A (8.5M) Mistake #1:** Drained all Stamina on regular S0 monsters and spent Guild Honor on random shards below the `40,000` Wallet Floor.\n• **Season 1 Week 1 Fallout:** Starved The Spring of Spring Water and delayed Soulmancer's Mythic awakening in Season 1.",
             },
             {
-              vi: "Sai lầm #2 của Tài khoản A: Bước vào Season 1, thấy tướng mới Monk và Tidecaller (hệ Thiên Nhiên) ra mắt hấp dẫn nên đem 35,000 Kim Cương và 250 Mảnh Vạn Năng đi quay và nâng sao cho Tidecaller để nhét vào Đội 2.",
-              en: "Account A Mistake #2: Tempted by the new Season 1 Nature Mythics (Monk and Tidecaller), Account A burned 35,000 Diamonds and 250 Universal Shards pulling and upgrading Tidecaller for Queue 2.",
+              vi: "**Sai lầm #2 của Tài khoản A:** Bước vào Season 1, thấy tướng mới Monk và Tidecaller (hệ Thiên Nhiên) ra mắt hấp dẫn nên phá vỡ kỷ luật đơn hệ.\n• **Phân tán Tài nguyên:** Đốt `35,000` Kim Cương và `250` Mảnh Vạn Năng đi quay và nâng sao cho Tidecaller để nhét vào Đội 2.",
+              en: "**Account A Mistake #2:** Tempted by the new Season 1 Nature Mythics (Monk and Tidecaller), Account A broke single-faction discipline.\n• **Resource Dilution:** Burned `35,000` Diamonds and `250` Universal Shards pulling and upgrading Tidecaller for Queue 2.",
             },
             {
-              vi: "Hậu quả kép ở đầu Season 2 của Tài khoản A: Đội 1 Bộ Lạc dậm chân tại chỗ; khi Wukong và Beastmaster ra mắt ở đầu Season 2, tài khoản A chỉ còn 4,000 Kim Cương và 20 Mảnh Vạn Năng, đành nhìn Wukong nằm ở mốc 0 Sao suốt 2 tháng tiếp theo.",
-              en: "Account A's Season 2 Collapse: Queue 1 Horde stagnated; when Wukong and Beastmaster dropped on Day 1 of Season 2, Account A had only 4,000 Diamonds and 20 Universal Shards left, leaving Wukong unusable at 0-Star for two full months.",
+              vi: "**Hậu quả kép ở đầu Season 2 của Tài khoản A:** Đội 1 Bộ Lạc dậm chân tại chỗ khi Wukong và Beastmaster ra mắt ở đầu Season 2.\n• **Vỡ trận Meta S2:** Chỉ còn `4,000` Kim Cương và `20` Mảnh Vạn Năng, đành nhìn Wukong nằm ở mốc `0 Sao` suốt 2 tháng tiếp theo.",
+              en: "**Account A's Season 2 Collapse:** Queue 1 Horde stagnated right when Wukong and Beastmaster dropped on Day 1 of Season 2.\n• **Season 2 Meta Wipeout:** Left with only `4,000` Diamonds and `20` Universal Shards, leaving Wukong unusable at `0-Star` for two full months.",
             },
           ],
           recoverySteps: [
@@ -1236,8 +1236,8 @@ export const ARTICLE_4_3_SEASON_1_TO_4_ROADMAP: GuideArticle = {
                 en: "Season 1 Week 1: Unload 8,500 Stamina to Max The Spring (Lv.35) & S1 Tech Tree",
               },
               detail: {
-                vi: "Tài khoản B bung kho 8,500 Thể lực tích từ Ngày 45 S0 để săn Sâu Cát (Dune Devourer) và quái sa mạc, đẩy Suối Nguồn (The Spring) lên thẳng Lv.35 và dùng Nước Xuân (Spring Water) nâng kịch trần nhánh công nghệ chiến đấu S1 vĩnh viễn.",
-                en: "Account B unloads 8,500 Stamina hoarded since Day 45 S0 to hunt Dune Devourer and desert monsters, rushing The Spring to Lv.35 and using Spring Water to max out the permanent S1 Tech Tree combat branch.",
+                vi: "**Xả Thể lực Ngày 1 S1:** Tài khoản B bung kho `8,500` Thể lực tích từ `Ngày 45 S0` để săn Sâu Cát (Dune Devourer) và quái sa mạc.\n• **Tối đa Công nghệ Vĩnh viễn:** Đẩy Suối Nguồn (The Spring) lên thẳng Lv.35 và dùng Nước Xuân (Spring Water) nâng kịch trần nhánh công nghệ chiến đấu S1 vĩnh viễn.",
+                en: "**Unload S1 Day 1 Stamina:** Account B unloads `8,500` Stamina hoarded since `Day 45 S0` to hunt Dune Devourer and desert monsters.\n• **Max Permanent Tech:** Rushes The Spring to Lv.35 and uses Spring Water to max out the permanent S1 Tech Tree combat branch.",
               },
               impactBadge: {
                 vi: "Max The Spring Lv.35 & S1 Tech",
@@ -1251,8 +1251,8 @@ export const ARTICLE_4_3_SEASON_1_TO_4_ROADMAP: GuideArticle = {
                 en: "Awaken Soulmancer to Mythic Red Using 9 Soul Stones + 345–385 Hero Shards",
               },
               detail: {
-                vi: "Nhờ duy trì ví trên 40,000 Điểm Vinh Dự Bang và gom đủ 54,000 Xu Vinh Quang Hội (tương đương 360,000 Điểm Vinh Dự), Tài khoản B mua trọn 9 Hồn Đá Đỏ Bộ Lạc kết hợp 345–385 mảnh tướng để thức tỉnh Soulmancer lên phẩm chất Thần Thoại Đỏ ngay trong S1.",
-                en: "By maintaining the 40,000 Guild Honor floor and accumulating 54,000 Guild Glory Coins (or 360,000 Guild Honor), Account B purchases all 9 Horde Soul Stones plus 345–385 shards to awaken Soulmancer to Mythic Red in S1.",
+                vi: "**Kỷ luật Ví Bang Hội:** Duy trì ví trên `40,000` Điểm Vinh Dự Bang và gom đủ `54,000` Xu Vinh Quang Hội (tương đương `360,000` Điểm Vinh Dự).\n• **Thức tỉnh Đỏ S1:** Mua trọn `9 Hồn Đá Đỏ` Bộ Lạc kết hợp `345–385` mảnh tướng để thức tỉnh Soulmancer lên phẩm chất Thần Thoại Đỏ ngay trong S1.",
+                en: "**Guild Wallet Discipline:** Maintains the `40,000` Guild Honor floor and accumulates `54,000` Guild Glory Coins (or `360,000` Guild Honor).\n• **Season 1 Awakening:** Purchases all `9 Horde Soul Stones` plus `345–385` shards to awaken Soulmancer to Mythic Red in Season 1.",
               },
               impactBadge: {
                 vi: "Kích hoạt Hào quang Mythic Đội 1",
@@ -1266,8 +1266,8 @@ export const ARTICLE_4_3_SEASON_1_TO_4_ROADMAP: GuideArticle = {
                 en: "8-Week Season 1 Freeze Discipline & Castle Lv.40 Prep (5,422 Dragon Essence)",
               },
               detail: {
-                vi: "Trong suốt 8 tuần của Season 1, Tài khoản B không tiêu 1 viên Kim Cương hay 1 Mảnh Vạn Năng nào cho tướng Thiên Nhiên (Monk, Tidecaller, Ne Zha), đồng thời hoàn thiện Tech ở Lâu đài Lv.35 (Lính T10) và gom đủ 5,422 Tinh Hoa Rồng (Dragon Essence).",
-                en: "Across all 8 weeks of Season 1, Account B spends zero Diamonds and zero Universal Shards on Nature banners (Monk, Tidecaller, Ne Zha), while finishing Castle Lv.35 (T10) tech and stockpiling 5,422 Dragon Essence.",
+                vi: "**Nhịn Tướng Trái Hệ S1:** Suốt 8 tuần Season 1, Tài khoản B tiêu `0` Kim Cương và `0` Mảnh Vạn Năng cho tướng Thiên Nhiên (Monk, Tidecaller, Ne Zha).\n• **Chuẩn bị Lính T11:** Hoàn thiện Tech ở Lâu đài Lv.35 (`Lính T10`) và gom đủ 5,422 Tinh Hoa Rồng (Dragon Essence) chuẩn bị mở Viện Huy Hoàng.",
+                en: "**Skip Off-Faction Banners:** Across all 8 weeks of Season 1, Account B spends `0` Diamonds and `0` Universal Shards on Nature banners (Monk, Tidecaller, Ne Zha).\n• **Prepare for T11 Troops:** Finishes Castle Lv.35 (`T10`) tech and stockpiles 5,422 Dragon Essence for the Brilliance Institute.",
               },
               impactBadge: {
                 vi: "Tích lũy 58,000 KC + 480 Mảnh",
@@ -1281,8 +1281,8 @@ export const ARTICLE_4_3_SEASON_1_TO_4_ROADMAP: GuideArticle = {
                 en: "Season 2 Day 1: Unload 58,000 Diamonds & 480 Shards to Push Wukong to 1-White Star (560 Shards)",
               },
               detail: {
-                vi: "Giữ Lò Sưởi Cá Nhân (Personal Furnace) trên 30°C, đẩy Lâu đài Lv.40 mở Viện Huy Hoàng (Brilliance Institute) lên Lính T11, và bung 58,000 KC + 480 Mảnh Vạn Năng vào Thứ Năm tuần sự kiện để đẩy Wukong vượt 5 Sao Đỏ (400 mảnh) lên thẳng 1 Sao Trắng / Bạc (11 Sao tổng / 560 mảnh Mythic) và Beastmaster đạt 1 Sao Đỏ (6 Sao tổng / 160 mảnh Mythic), tiến thẳng tới Season 3 (mở Ô Đồ Chúa Tể #7 Legendary T1, Sách Thánh Sacred Codex Legendary T2, Artificer, Petalis, Shadow Priest) và Season 4 (Boss Sea Giant 8,200 Huy chương)!",
-                en: "Keeping the Personal Furnace above 30°C and pushing Castle Lv.40 Brilliance Institute for T11 Troops, Account B unloads 58,000 Diamonds + 480 Universal Shards on Thursday event day to push Wukong past 5-Red Stars (400 shards) to 1-White / Silver Star (11 Total Stars / 560 Mythic shards) and Beastmaster to 1-Red Star (6 Total Stars / 160 Mythic shards), setting up total dominance into Season 3 (7th Lord Gear Slot Legendary T1, Sacred Codex Legendary T2, Artificer, Petalis, Shadow Priest) and Season 4 (Sea Giant 8,200 Seasonal Medals)!",
+                vi: "**Bùng nổ Season 2:** Giữ Lò Sưởi Cá Nhân (Personal Furnace) trên 30°C, đẩy Lâu đài Lv.40 mở Viện Huy Hoàng (Brilliance Institute) lên `Lính T11`.\n• **Đột phá Wukong & Beastmaster:** Bung 58,000 KC + 480 Mảnh đẩy Wukong vượt `5 Sao Đỏ` (`400` mảnh) lên `1 Sao Trắng` (`560` mảnh Mythic) và Beastmaster đạt `1 Sao Đỏ` (`160` mảnh).\n• **Thống trị S3 & S4:** Tiến thẳng tới S3 (Ô Đồ Chúa Tể #7 Legendary T1, Sách Thánh Sacred Codex Legendary T2, Artificer, Petalis, Shadow Priest) và S4 (Boss Sea Giant 8,200 Huy chương)!",
+                en: "**Season 2 Burst:** Keeps the Personal Furnace above 30°C and pushes Castle Lv.40 Brilliance Institute to unlock `T11 Troops`.\n• **Wukong & Beastmaster Spike:** Unloads 58,000 Diamonds + 480 Universal Shards to push Wukong past `5-Red Stars` (`400` shards) to `1-White Star` (`560` shards) and Beastmaster to `1-Red Star` (`160` shards).\n• **S3 & S4 Dominance:** Sets up total dominance into S3 (7th Lord Gear Slot Legendary T1, Sacred Codex Legendary T2, Artificer, Petalis, Shadow Priest) and S4 (Sea Giant 8,200 Seasonal Medals)!",
               },
               impactBadge: {
                 vi: "Top 5 Đấu Trường Toàn Cụm Server",
@@ -1291,8 +1291,8 @@ export const ARTICLE_4_3_SEASON_1_TO_4_ROADMAP: GuideArticle = {
             },
           ],
           conclusion: {
-            vi: "Kết luận: Cùng xuất phát ở mốc 8.5M Lực chiến (Lâu đài Lv.35) vào Ngày 65, việc nhịn quay tướng trái hệ suốt 8 tuần Season 1 giúp người chơi Bộ Lạc tích lũy 58,000 Kim Cương + 480 Mảnh Vạn Năng để hóa rồng với Wukong 1 Sao Trắng (560 mảnh Mythic) ngay Ngày 1 Season 2!",
-            en: "Conclusion: Starting from the exact same 8.5M Power (Castle Lv.35) baseline on Day 65, skipping off-faction banners for 8 weeks in Season 1 lets Horde players compound 58,000 Diamonds + 480 Universal Shards to immediately field a 1-White Star Wukong (560 Mythic shards) on Day 1 of Season 2!",
+            vi: "**Kết luận:** Cùng xuất phát ở mốc 8.5M Lực chiến (Lâu đài Lv.35) vào `Ngày 65`, việc nhịn quay tướng trái hệ suốt `8 tuần` Season 1 tạo ra khác biệt quyết định.\n• **Đột phá Ngày 1 Season 2:** Giúp người chơi Bộ Lạc tích lũy 58,000 Kim Cương + 480 Mảnh Vạn Năng để hóa rồng với Wukong `1 Sao Trắng` (`560` mảnh Mythic) ngay Ngày 1 Season 2!",
+            en: "**Conclusion:** Starting from the exact same 8.5M Power (Castle Lv.35) baseline on `Day 65`, skipping off-faction banners for `8 weeks` in Season 1 is the ultimate differentiator.\n• **Season 2 Day 1 Spike:** Lets Horde players compound 58,000 Diamonds + 480 Universal Shards to immediately field a `1-White Star` Wukong (`560` Mythic shards) on Day 1 of Season 2!",
           },
         },
       ],

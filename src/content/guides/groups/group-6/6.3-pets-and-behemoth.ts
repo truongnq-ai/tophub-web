@@ -11,35 +11,35 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
     en: "Pets & Behemoth Master Guide: 3-Faction Companions & Lv.1–120 Progression Tables",
   },
   summary: {
-    vi: "Hướng dẫn toàn diện về Thú Cưng (Pets — Season 1) và Cự Thú Bang Hội / Hộ Vệ (Behemoth — Season 3): công thức chuyển đổi 36%➔104%, hệ số nhân 3 lần theo Hệ (3x Faction Bonus), chọn Pet chủ lực cho cả 3 Phe (Eggy/Sparrow, Tiggy/Howli/Flickerkit, Cactini/Bear/Candy Boo), bảng 19 mốc tiến hóa Pet Lv.1➔Mythic Lv.120 (Tab 🐣Pets), bảng 14 mốc Behemoth Lv.1➔Lv.150 (Tab 🧛‍♀️Behemoth) và lịch xả Thứ Sáu Tuần B.",
-    en: "Complete guide to Pets (Season 1) and Behemoths (Season 3): 36%➔104% stat conversion formula, 3x Faction Multiplier, selecting main Pets across all 3 Factions (Eggy/Sparrow, Tiggy/Howli/Flickerkit, Cactini/Bear/Candy Boo), 19-milestone Pet Lv.1➔Mythic Lv.120 tables (Tab 🐣Pets), 14-milestone Behemoth Lv.1➔Lv.150 tables (Tab 🧛‍♀️Behemoth), and Friday Week B dumping.",
+    vi: "Hướng dẫn toàn diện về Thú Cưng (Pets — Season 1) và Cự Thú Bang Hội / Hộ Vệ (Behemoth — Season 3): công thức chuyển đổi 36%➔104%, hệ số nhân 3 lần theo Hệ (3x Faction Bonus), chọn Pet chủ lực cho cả 3 Phe (Eggy/Sparrow, Tiggy/Howli/Flickerkit, Cactini/Bear/Candy Boo), bảng 19 mốc tiến hóa Pet Lv.1➔Mythic Lv.120 (Tab Pets), bảng 14 mốc Behemoth Lv.1➔Lv.150 (Tab Behemoth) và lịch xả Thứ Sáu Tuần B.",
+    en: "Complete guide to Pets (Season 1) and Behemoths (Season 3): 36%➔104% stat conversion formula, 3x Faction Multiplier, selecting main Pets across all 3 Factions (Eggy/Sparrow, Tiggy/Howli/Flickerkit, Cactini/Bear/Candy Boo), 19-milestone Pet Lv.1➔Mythic Lv.120 tables (Tab Pets), 14-milestone Behemoth Lv.1➔Lv.150 tables (Tab Behemoth), and Friday Week B dumping.",
   },
   tldr: {
     coreRule: {
-      vi: "Thú Cưng chuyên biệt theo Hệ (Rare Faction Pets tiến hóa lên Epic Lv.45 ➔ Legendary Lv.75 ➔ Mythic Lv.101–120) cộng chỉ số ATK/HP cho Hệ tương ứng cao gấp 3 lần so với chỉ số chung (Faction Bonus = 3 × Universal Bonus). Bắt buộc chọn đúng Pet khớp với hệ của Đội hình 1: Phe Liên Minh (League) nuôi Eggy (Trứng Tinh Anh) / Sparrow (Chim Sẻ Chiến / Biệt Kích); Phe Bộ Lạc (Horde) nuôi Tiggy (Hổ Con) / Howli (Sói Con) / Flickerkit (Mèo Lửa — Pet Đỏ S2+); Phe Thiên Nhiên (Nature) nuôi Cactini (Xương Rồng Nhỏ) / Bear (Gấu Chiến) / Candy Boo (Tinh Linh Kẹo — Pet Đỏ S2+).",
-      en: "Faction-specific Pets (Rare Faction Pets evolving into Epic Lv.45 ➔ Legendary Lv.75 ➔ Mythic Lv.101–120) grant 3x higher Hero ATK/HP to their matching faction compared to universal buffs (Faction Bonus = 3 × Universal Bonus). Always match your Queue 1 faction: League raises Eggy / Sparrow; Horde raises Tiggy / Howli / Flickerkit (S2+ Mythic); Nature raises Cactini / Bear / Candy Boo (S2+ Mythic).",
+      vi: "**Hệ Số Nhân `3x` Theo Hệ Phái (`Faction Bonus = 3 × Universal Bonus`):**\n• Thú Cưng chuyên biệt theo Hệ (`Rare Faction Pets` tiến hóa lên `Epic Lv.45` ➔ `Legendary Lv.75` ➔ `Mythic Lv.101–120`) cộng ATK/HP cho Hệ tương ứng cao gấp **3 lần** chỉ số chung.\n• Chọn Pet khớp hệ Đội 1: **Liên Minh** nuôi `Eggy` / `Sparrow`; **Bộ Lạc** nuôi `Tiggy` / `Howli` / `Flickerkit` (Pet Đỏ S2+); **Thiên Nhiên** nuôi `Cactini` / `Bear` / `Candy Boo` (Pet Đỏ S2+).",
+      en: "**The `3x` Faction Multiplier (`Faction Bonus = 3 × Universal Bonus`):**\n• Faction-specific Pets (`Rare Faction Pets` evolving into `Epic Lv.45` ➔ `Legendary Lv.75` ➔ `Mythic Lv.101–120`) grant **3x higher** Hero ATK/HP to their matching faction compared to universal buffs.\n• Always match your Queue 1 faction: **League** raises `Eggy` / `Sparrow`; **Horde** raises `Tiggy` / `Howli` / `Flickerkit` (S2+ Mythic); **Nature** raises `Cactini` / `Bear` / `Candy Boo` (S2+ Mythic).",
     },
     immediateAction: {
-      vi: "Ấp trứng liên tục 24/7 trong Chuồng Thú, phóng sinh (Release) các Pet phẩm chất Lục (Uncommon) dư thừa để lấy Thức Ăn Pet (Pet Food), nhưng KHÓA CHẶT 100% Bản sao cùng tên (Same Pet) của Pet chủ lực để dành cho các mốc đột phá phẩm chất: chạm mốc chuẩn Lv.90 (Legendary +3) cần tích lũy 596,600 Thức Ăn Pet, 0 Essence và 44 Same + 161 Any (so với Uncommon tốn 596,850 Food + 3,525 Essence); lên tới Mythic Lv.120 Kịch Trần cần tổng cộng 714,000 Thức Ăn Pet + 40,050 Pet Essence + 58 Same + 211 Any.",
-      en: "Keep egg incubators running 24/7, release surplus Uncommon pets for Pet Food, and LOCK 100% of identical copies (Same Pet) of your main faction Pet for promotion breakpoints: reaching the standard Lv.90 (Legendary +3) milestone requires 596,600 cumulative Pet Food, 0 Essence, and 44 Same + 161 Any copies (whereas Uncommon costs 596,850 Food + 3,525 Essence); reaching Max Mythic Lv.120 requires 714,000 Pet Food + 40,050 Pet Essence + 58 Same + 211 Any.",
+      vi: "**Ấp Trứng 24/7, Khóa Cứng Phôi `Same Pet` & Chạm Mốc Điểm Gãy `Lv.90` / `Lv.120`:**\n• Ấp trứng liên tục 24/7, phóng sinh (`Release`) Pet Lục (`Uncommon`) dư thừa lấy `Pet Food`, nhưng **KHÓA CHẶT 100%** bản sao cùng tên (`Same Pet`) của Pet chủ lực.\n• Mốc chuẩn `Lv.90` (`Legendary +3`) cần `596,600` Thức Ăn Pet, `0` Essence và `44` Same + `161` Any (so với Uncommon tốn `596,850` Food + `3,525` Essence).\n• Lên `Mythic Lv.120` cần `714,000` Thức Ăn Pet + `40,050` Pet Essence + `58` Same + `211` Any.",
+      en: "**Incubate 24/7, Lock `Same Pet` Copies & Push `Lv.90` / `Lv.120` Breakpoints:**\n• Keep egg incubators running 24/7, release surplus `Uncommon` pets for `Pet Food`, and **LOCK 100%** of identical copies (`Same Pet`) of your main faction Pet.\n• Reaching `Lv.90` (`Legendary +3`) requires `596,600` cumulative Pet Food, `0` Essence, and `44` Same + `161` Any copies (whereas Uncommon costs `596,850` Food + `3,525` Essence).\n• Max `Mythic Lv.120` requires `714,000` Pet Food + `40,050` Pet Essence + `58` Same + `211` Any.",
     },
     strictTaboo: {
-      vi: "Tuyệt đối KHÔNG nuôi nhầm Cactini cho đội Bộ Lạc (vì Cactini thuộc hệ Thiên Nhiên Nature!) và CẤM cho Pet ăn lẻ tẻ vào ngày thường! Giữ toàn bộ Pet Food, Pet Essence và phôi tiến hóa chờ đúng Sự kiện Pets Development (Thứ Hai – Thứ Ba Tuần A) hoặc Thứ Sáu của Tuần B (GAR Day 5 / KvK Stage 5–6 / Top Lord Stage 5) để nhận 960 điểm / 100 Pet Food, 480 điểm / 1 Pet Essence và 6,000 – 36,000 điểm mỗi lần tiến hóa Pet.",
-      en: "NEVER mistakenly raise Cactini for a Horde lineup (Cactini is a Nature pet!) and NEVER feed Pets randomly on weekdays! Hoard 100% of your Pet Food, Pet Essence, and promotion fodder for the Pets Development sub-event (Monday – Tuesday of Week A) or Friday of Week B (GAR Day 5 / KvK Stage 5–6 / Top Lord Stage 5) to score 960 pts per 100 Pet Food, 480 pts per Pet Essence, and 6,000 – 36,000 pts per Pet promotion.",
+      vi: "**Cấm Nuôi Nhầm `Cactini` Cho Bộ Lạc & Cấm Xả Lẻ Ngày Thường:**\n• Tuyệt đối **KHÔNG** nuôi nhầm `Cactini` cho đội Bộ Lạc (vì Cactini thuộc hệ Thiên Nhiên Nature!) và **CẤM** cho Pet ăn lẻ tẻ vào ngày thường.\n• Giữ toàn bộ `Pet Food`, `Pet Essence` và phôi tiến hóa chờ **Sự kiện Pets Development** (Thứ Hai – Thứ Ba Tuần A) hoặc **Thứ Sáu của Tuần B** (`GAR Day 5` / `KvK Stage 5–6` / `Top Lord Stage 5`).\n• Điểm sự kiện: nhận `960` điểm / `100` Pet Food, `480` điểm / `1` Pet Essence và `6,000` – `36,000` điểm mỗi lần tiến hóa.",
+      en: "**Never Raise `Cactini` for Horde & Never Feed Pets on Non-Scoring Days:**\n• **NEVER** mistakenly raise `Cactini` for a Horde lineup (Cactini is a Nature pet!) and **NEVER** feed Pets randomly on weekdays.\n• Hoard 100% of your `Pet Food`, `Pet Essence`, and promotion fodder for **Pets Development** (Monday – Tuesday Week A) or **Friday of Week B** (`GAR Day 5` / `KvK Stage 5–6` / `Top Lord Stage 5`).\n• Event scoring: nets `960` pts per `100` Pet Food, `480` pts per `1` Pet Essence, and `6,000` – `36,000` pts per promotion.",
     },
   },
   keyTakeaways: [
     {
-      vi: "Công thức Chuyển đổi (Pet Conversion Rate: 36.00% ở Lv.1 ➔ 60.00% ở Lv.45 Epic ➔ 84.00% ở Lv.75 Legendary ➔ 96.00% ở Lv.90 ➔ 104.00% ở Lv.100–120) & Điểm gãy 3x Faction Bonus: Lv.45 Epic (tích lũy 98,550 Pet Food, 1 same + 5 any, cộng +35.70% ATK / +52.50% HP hệ); Lv.75 Legendary (368,600 Pet Food, 5 same + 15 any, cộng +66.30% ATK / +97.50% HP hệ); Lv.90 Legendary +3 (596,600 Pet Food, 0 Essence, tích lũy 44 Same + 161 Any, cộng +81.60% ATK / +120.00% HP hệ); Mythic Lv.120 Kịch Trần (714,000 Pet Food + 40,050 Pet Essence + 58 Same + 211 Any, cộng +91.80%+ ATK / +135.00%+ HP hệ).",
-      en: "Pet Stat Conversion Formula (36.00% at Lv.1 ➔ 60.00% at Lv.45 Epic ➔ 84.00% at Lv.75 Legendary ➔ 96.00% at Lv.90 ➔ 104.00% at Lv.100–120) & 3x Faction Breakpoints: Lv.45 Epic (98,550 cumulative Pet Food, 1 same + 5 any, +35.70% ATK / +52.50% HP faction buff); Lv.75 Legendary (368,600 Pet Food, 5 same + 15 any, +66.30% ATK / +97.50% HP faction buff); Lv.90 Legendary +3 (596,600 Pet Food, 0 Essence, cumulative 44 Same + 161 Any, +81.60% ATK / +120.00% HP faction buff); Max Mythic Lv.120 (714,000 Pet Food + 40,050 Pet Essence + 58 Same + 211 Any, +91.80%+ ATK / +135.00%+ HP faction buff).",
+      vi: "**Công Thức Chuyển Đổi (`36.00%` ➔ `104.00%`) & Điểm Gãy `3x Faction Bonus`:**\n• Tỷ lệ chuyển đổi tăng từ `36.00%` ở Lv.1 ➔ `60.00%` ở Lv.45 Epic ➔ `84.00%` ở Lv.75 Legendary ➔ `96.00%` ở Lv.90 ➔ `104.00%` ở Lv.100–120.\n• Điểm gãy Mid-game: `Lv.45 Epic` (`98,550` Pet Food, `1 same + 5 any`, `+35.70%` ATK / `+52.50%` HP) và `Lv.75 Legendary` (`368,600` Pet Food, `5 same + 15 any`, `+66.30%` ATK / `+97.50%` HP).\n• Mốc `Lv.90 Legendary +3`: cần `596,600` Pet Food, `0` Essence, `44` Same + `161` Any (`+81.60%` ATK / `+120.00%` HP).\n• Kịch trần `Mythic Lv.120`: cần `714,000` Pet Food + `40,050` Essence + `58` Same + `211` Any (`+91.80%+` ATK / `+135.00%+` HP).",
+      en: "**Pet Stat Conversion Formula (`36.00%` ➔ `104.00%`) & `3x` Faction Breakpoints:**\n• Conversion scales from `36.00%` at Lv.1 ➔ `60.00%` at Lv.45 Epic ➔ `84.00%` at Lv.75 Legendary ➔ `96.00%` at Lv.90 ➔ `104.00%` at Lv.100–120.\n• Mid-game milestones: `Lv.45 Epic` (`98,550` Pet Food, `1 same + 5 any`, `+35.70%` ATK / `+52.50%` HP) and `Lv.75 Legendary` (`368,600` Pet Food, `5 same + 15 any`, `+66.30%` ATK / `+97.50%` HP).\n• `Lv.90 Legendary +3` milestone: requires `596,600` Pet Food, `0` Essence, `44` Same + `161` Any (`+81.60%` ATK / `+120.00%` HP).\n• Max `Mythic Lv.120`: requires `714,000` Pet Food + `40,050` Essence + `58` Same + `211` Any (`+91.80%+` ATK / `+135.00%+` HP).",
     },
     {
-      vi: "Hệ thống Cự Thú (Behemoth Lv.1 ➔ Lv.150 — Mở khóa Season 3, Tab 🧛‍♀️Behemoth): Thu thập Đá Ma Tinh (Magicite), Lõi Ma Thuật (Magic Core) và Ấn Giao Ước (Covenant Seals) từ Mine Vein Battle & Frostfield Battle. Mỗi 20 cấp mở rộng Trần Cấp Độ Tướng (Hero Level Cap): Lv.20 (1★ = +1 Cấp Tướng, 5,880 Magicite, 1,500 Magic Core, tích lũy 750 Ấn), Lv.40 (2★ = +2 Cấp Tướng, 3,500 Ấn), Lv.60 (3★ = +3 Cấp Tướng, 6,080 Ấn, 175.00% Conversion), Lv.80 (4★ = +4 Cấp Tướng), Lv.100 (5★ = +5 Cấp Tướng, tổng 6,346 Ấn Giao Ước), và Lv.150 Kịch Trần (+9 Cấp Tướng, tổng 4,648,680 Magicite + 69,000 Magic Core + 6,346 Ấn Giao Ước, cộng 210.00% ATK / 630.00% HP / 15.00% DR).",
-      en: "Behemoth System (Lv.1 ➔ Lv.150 — Unlocks Season 3, Tab 🧛‍♀️Behemoth): Farm Magicite, Magic Core, and Covenant Seals from Mine Vein Battle & Frostfield Battle. Every 20 levels expands Hero Level Cap: Lv.20 (1★ = +1 Hero Level, 5,880 Magicite, 1,500 Magic Core, 750 cumulative Seals), Lv.40 (2★ = +2 Hero Levels, 3,500 Seals), Lv.60 (3★ = +3 Hero Levels, 6,080 Seals, 175.00% Conversion), Lv.80 (4★ = +4 Hero Levels), Lv.100 (5★ = +5 Hero Levels, 6,346 total Covenant Seals), and Lv.150 Max Cap (+9 Hero Levels, 4,648,680 total Magicite + 69,000 Magic Core + 6,346 Covenant Seals, granting 210.00% ATK / 630.00% HP / 15.00% DR).",
+      vi: "**Hệ Thống Cự Thú (`Behemoth Lv.1 ➔ Lv.150` — Season 3, Tab Behemoth):**\n• Thu thập `Magicite`, `Magic Core` & `Covenant Seals` từ `Mine Vein Battle` & `Frostfield Battle`; mở **Hero Level Cap** mỗi 20 cấp: `Lv.20` (`1★` = `+1` Cấp, `5,880` Magicite, `1,500` Core, `750` Ấn).\n• Các mốc Sao tiếp theo: `Lv.40` (`2★` = `+2` Cấp, `3,500` Ấn), `Lv.60` (`3★` = `+3` Cấp, `6,080` Ấn, `175.00%` Conversion), `Lv.80` (`4★` = `+4`), `Lv.100` (`5★` = `+5`, tổng `6,346` Ấn).\n• Kịch trần `Lv.150` (`+9` Cấp Tướng) tốn tổng `4,648,680` Magicite + `69,000` Magic Core + `6,346` Ấn Giao Ước, cộng `210.00%` ATK / `630.00%` HP / `15.00%` DR.",
+      en: "**Behemoth System (`Lv.1 ➔ Lv.150` — Season 3, Tab Behemoth):**\n• Farm `Magicite`, `Magic Core` & `Covenant Seals` (`Mine Vein` & `Frostfield`); expands **Hero Level Cap** every 20 levels: `Lv.20` (`1★` = `+1` Cap, `5,880` Magicite, `1,500` Core, `750` Seals).\n• Next Star gates: `Lv.40` (`2★` = `+2` Cap, `3,500` Seals), `Lv.60` (`3★` = `+3` Cap, `6,080` Seals, `175.00%` Conversion), `Lv.80` (`4★` = `+4`), `Lv.100` (`5★` = `+5`, `6,346` total Seals).\n• Max Cap `Lv.150` (`+9` Hero Levels) requires `4,648,680` Magicite + `69,000` Magic Core + `6,346` Covenant Seals, granting `210.00%` ATK / `630.00%` HP / `15.00%` DR.",
     },
     {
-      vi: "Lịch xả chuẩn Double-Dip cho Pet & Behemoth: Xả Pet Food (960 điểm / 100 Food), Pet Essence (480 điểm / 1 Essence) và Tiến hóa Pet (6,000–36,000 điểm / lần) vào Thứ Sáu Tuần B (GAR Day 5 / KvK Stage 5–6 / Top Lord Stage 5) hoặc Thứ Hai–Thứ Ba Tuần A (Pets Development); xả nguyên liệu Behemoth vào Thứ Ba/Thứ Tư/Thứ Bảy Tuần B (400 điểm / 400 Magicite, 40 điểm / 1 Magic Core, 2,000 điểm / 1 Covenant Seal).",
-      en: "Double-Dip Event Schedule for Pets & Behemoth: Dump Pet Food (960 pts / 100 Food), Pet Essence (480 pts / 1 Essence), and Pet Promotions (6,000–36,000 pts each) on Friday of Week B (GAR Day 5 / KvK Stage 5–6 / Top Lord Stage 5) or Monday–Tuesday of Week A (Pets Development); dump Behemoth materials on Tuesday/Wednesday/Saturday of Week B (400 pts / 400 Magicite, 40 pts / 1 Magic Core, 2,000 pts / 1 Covenant Seal).",
+      vi: "**Lịch Xả Chuẩn Double-Dip Cho Pet & Behemoth:**\n• **Xả Pet (Tuần B):** Xả `Pet Food` (`960` điểm / `100` Food), `Pet Essence` (`480` điểm / `1` Essence) & Tiến hóa (`6,000`–`36,000`đ) vào **Thứ Sáu Tuần B** (`GAR Day 5` / `KvK Stage 5–6` / `Top Lord Stage 5`).\n• **Xả Pet (Tuần A):** Hoặc xả tại sự kiện phụ `Pets Development` vào **Thứ Hai – Thứ Ba Tuần A**.\n• **Xả Behemoth:** Bung nguyên liệu Cự Thú vào **Thứ Ba / Thứ Tư / Thứ Bảy Tuần B** (`400` điểm / `400` Magicite, `40` điểm / `1` Magic Core, `2,000` điểm / `1` Covenant Seal).",
+      en: "**Double-Dip Event Schedule for Pets & Behemoth:**\n• **Pet Dump (Week B):** Spend `Pet Food` (`960` pts / `100` Food), `Pet Essence` (`480` pts / `1` Essence) & Promotions (`6,000`–`36,000` pts) on **Friday Week B** (`GAR Day 5` / `KvK Stage 5–6` / `Top Lord Stage 5`).\n• **Pet Dump (Week A):** Alternatively spend during the `Pets Development` sub-event on **Mon–Tue Week A**.\n• **Behemoth Dump:** Spend Behemoth materials on **Tuesday / Wednesday / Saturday of Week B** (`400` pts / `400` Magicite, `40` pts / `1` Magic Core, `2,000` pts / `1` Covenant Seal).",
     },
   ],
   keywords: [
@@ -85,8 +85,8 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Khi máy chủ bước vào giai đoạn Mùa Giải, hai hệ thống đồng hành chiến đấu quan trọng nhất lần lượt mở khóa theo tiến độ Mùa: Thú Cưng (Pets) xuất hiện ở đầu Season 1 như một đơn vị thứ 7 bất tử đi cùng đội hình, còn Cự Thú (Behemoth) mở khóa ở Season 3, trở thành nguồn cung cấp chỉ số phần trăm (% Hero ATK/HP), Giảm Sát Thương (Damage Reduction %) và giới hạn cấp độ tướng (Hero Level Cap +1 ➔ +9) lớn nhất trò chơi.",
-            en: "As the server enters seasonal progression, the two most impactful combat companion systems unlock in sequence: Pets arrive at the start of Season 1 as an immortal 7th combat unit alongside your lineup, while the Behemoth unlocks in Season 3 as the largest source of percentage Hero ATK/HP, Damage Reduction %, and Hero Level Cap expansion (+1 ➔ +9) in the game.",
+            vi: "• **Thú Cưng (`Pets` — Season 1):** Xuất hiện như một đơn vị thứ 7 bất tử đi cùng đội hình, chuyển đổi trực tiếp chỉ số từ 6 tướng ra trận.\n• **Cự Thú (`Behemoth` — Season 3):** Mở khóa nguồn chỉ số phần trăm (`% Hero ATK/HP`), Giảm Sát Thương (`Damage Reduction %`) và giới hạn cấp độ tướng (**Hero Level Cap `+1 ➔ +9`**) lớn nhất trò chơi.",
+            en: "• **Pets (Season 1):** Deploy as an immortal 7th combat unit alongside your lineup, converting stats directly from your 6 active heroes.\n• **Behemoth (Season 3):** Unlocks the largest source of percentage `Hero ATK/HP`, `Damage Reduction %`, and **Hero Level Cap expansion (`+1 ➔ +9`)** in the game.",
           },
         },
       ],
@@ -98,8 +98,8 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
             en: "1.1. Pet Stat Conversion Formula (36.00% ➔ 104.00%), 3x Faction Multiplier & Fodder Retention Rules",
           },
           badge: {
-            vi: "SEASON 1 • TAB 🐣PETS",
-            en: "SEASON 1 • TAB 🐣PETS",
+            vi: "SEASON 1 • TAB PETS",
+            en: "SEASON 1 • TAB PETS",
           },
           blocks: [
             {
@@ -153,8 +153,8 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Trong trận đấu, Thú Cưng xuất chiến trực tiếp cùng Hàng đợi như một đơn vị thứ 7 bất tử (chỉ ngưng hoạt động khi cả 6 tướng đã ngã xuống). Theo dữ liệu gốc từ TopHeroes Tables (Tab 🐣Pets), sức mạnh thực chiến của Pet vận hành qua Công thức Chuyển đổi Chỉ số Trực chiến: Pet Attack = (Tổng Hero Attack của 6 tướng ÷ 6) × Pet Conversion Rate %, và Pet HP = (Tổng Hero HP của 6 tướng ÷ 6) × Pet Conversion Rate %. Tỷ lệ Chuyển đổi khởi đầu ở 36.00% (Lv.1 Rare), nhảy lên 60.00% ở Lv.45 (Epic), đạt 84.00% ở Lv.75 (Legendary), chạm 96.00% ở Lv.90 (Legendary +3) và đạt đỉnh 104.00% ở Lv.100–120 (Mythic). Luôn duy trì lồng ấp trứng hoạt động 24/7, phóng sinh (Release) các Pet phẩm chất Lục (Uncommon) dư thừa sau khi đã mở sổ sưu tập để lấy Thức Ăn Pet (Pet Food), nhưng tuyệt đối cấm phóng sinh bừa bãi Pet Xanh Lam (Rare) và Tím (Epic).",
-                en: "In battle, your Pet deploys directly alongside your march as an immortal 7th combat unit (only ceasing action when all 6 heroes fall). According to the TopHeroes Tables (Tab 🐣Pets) dataset, combat scaling follows the Pet Stat Conversion Formula: Pet Attack = (Total Hero Attack of 6 heroes ÷ 6) × Pet Conversion Rate %, and Pet HP = (Total Hero HP of 6 heroes ÷ 6) × Pet Conversion Rate %. The Conversion Rate starts at 36.00% (Lv.1 Rare), jumps to 60.00% at Lv.45 (Epic), reaches 84.00% at Lv.75 (Legendary), hits 96.00% at Lv.90 (Legendary +3), and peaks at 104.00% at Lv.100–120 (Mythic). Keep egg incubators running 24/7, release surplus Uncommon pets after unlocking their collection entry for Pet Food, and never recklessly release Rare or Epic pets.",
+                vi: "• **Đơn vị thứ 7 bất tử (Tab Pets):** Pet chỉ ngưng hoạt động khi cả 6 tướng ngã xuống; công thức chỉ số trực chiến là `Pet Attack/HP = (Tổng Hero Attack/HP của 6 tướng ÷ 6) × Pet Conversion Rate %`.\n• **Các mốc Conversion Rate:** Khởi đầu ở `36.00%` (Lv.1 Rare), tăng lên `60.00%` ở `Lv.45` (Epic), `84.00%` ở `Lv.75` (Legendary), `96.00%` ở `Lv.90` (Legendary +3) và đạt `104.00%` ở `Lv.100–120` (Mythic).\n• **Kỷ luật Chuồng Thú:** Ấp trứng 24/7, chỉ phóng sinh (`Release`) Pet Lục (`Uncommon`) dư thừa lấy `Pet Food`, và tuyệt đối giữ lại toàn bộ Pet Xanh Lam (`Rare`) & Tím (`Epic`).",
+                en: "• **Immortal 7th Combat Unit (Tab Pets):** Your Pet fights until all 6 heroes fall; combat stats follow `Pet Attack/HP = (Total Hero Attack/HP of 6 heroes ÷ 6) × Pet Conversion Rate %`.\n• **Conversion Rate Milestones:** Starts at `36.00%` (Lv.1 Rare), jumps to `60.00%` (`Lv.45` Epic), `84.00%` (`Lv.75` Leg), `96.00%` (`Lv.90` Leg +3), and peaks at `104.00%` (`Lv.100–120` Mythic).\n• **Kennel Discipline:** Run incubators 24/7, release surplus `Uncommon` pets after unlocking collection bonds for `Pet Food`, and never release `Rare` or `Epic` pets.",
               },
             },
             {
@@ -165,8 +165,8 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
                 en: "Mathematical Law: The 3x Faction Multiplier (Faction Bonus = 3 × Universal Bonus)",
               },
               content: {
-                vi: "Khác với nhóm Pet Phổ Thông (Uncommon Base Pets chỉ cộng tối đa 7.50% All Hero ATK/HP ở Lv.60 nhưng lên Lv.90 ngốn tới 596,850 Thức Ăn Pet + 3,525 Pet Essence), nhóm Pet Hệ Phái (Rare Faction Pets tiến hóa lên Epic ➔ Legendary ➔ Mythic) nhân GẤP 3 LẦN chỉ số cho tướng cùng hệ (Faction Bonus = 3 × Universal Bonus): ở Lv.45 (Epic, tích lũy 98,550 Pet Food, 1 same + 5 any) cộng 11.90% ATK / 17.50% HP chung nhưng cộng tới +35.70% Hero ATK / +52.50% Hero HP cho đúng Hệ; ở Lv.75 (Legendary, tích lũy 368,600 Pet Food, 5 same + 15 any) cộng +66.30% Hero ATK / +97.50% Hero HP hệ; ở Lv.90 (Legendary +3, tích lũy 596,600 Pet Food, 0 Essence, 44 Same + 161 Any) vọt lên +81.60% Hero ATK / +120.00% Hero HP hệ; và ở Lv.100 ➔ Mythic Lv.120 Kịch Trần (tổng 714,000 Pet Food + 40,050 Pet Essence + 58 Same + 211 Any) đạt +91.80% Hero ATK / +135.00% Hero HP hệ!",
-                en: "Unlike Uncommon Base Pets (which cap at a meager 7.50% All Hero ATK/HP at Lv.60 yet consume 596,850 Pet Food + 3,525 Pet Essence by Lv.90), Rare Faction Pets (evolving into Epic ➔ Legendary ➔ Mythic) TRIPLE their stat buff for matching-faction heroes (Faction Bonus = 3 × Universal Bonus): at Lv.45 (Epic, 98,550 cumulative Pet Food, 1 same + 5 any) they grant 11.90% ATK / 17.50% HP universally but +35.70% Hero ATK / +52.50% Hero HP to their matching faction; at Lv.75 (Legendary, 368,600 Pet Food, 5 same + 15 any) they grant +66.30% Hero ATK / +97.50% Hero HP; at Lv.90 (Legendary +3, 596,600 Pet Food, 0 Essence, 44 Same + 161 Any) they surge to +81.60% Hero ATK / +120.00% Hero HP; and at Lv.100 ➔ Max Mythic Lv.120 (714,000 Pet Food + 40,050 Pet Essence + 58 Same + 211 Any) they reach +91.80% Hero ATK / +135.00% Hero HP!",
+                vi: "• **Bẫy Uncommon Base Pets:** Trần chỉ số chỉ đạt `7.50%` All Hero ATK/HP ở Lv.60 nhưng lên `Lv.90` lại ngốn tới `596,850` Thức Ăn Pet + `3,525` Pet Essence.\n• **Ưu thế Rare Faction Pets (`3x Faction Bonus`):** Nhân gấp 3 chỉ số hệ — `Lv.45` (`98,550` Pet Food, `1 same + 5 any`) cộng `11.90%`/`17.50%` chung nhưng cộng tới `+35.70%` Hero ATK / `+52.50%` Hero HP hệ.\n• **Mốc `Lv.75` & `Lv.90`:** `Lv.75` (`368,600` Food, `5 same + 15 any`) đạt `+66.30%` ATK / `+97.50%` HP; `Lv.90` (`596,600` Food, `0` Essence, `44` Same + `161` Any) đạt `+81.60%` ATK / `+120.00%` HP.\n• **Kịch trần `Mythic Lv.120`:** Cần `714,000` Pet Food + `40,050` Essence + `58` Same + `211` Any, đẩy chỉ số hệ lên `+91.80%` ATK / `+135.00%` HP!",
+                en: "• **Uncommon Base Pet Trap:** Caps at a meager `7.50%` All Hero ATK/HP at Lv.60 yet consumes `596,850` Pet Food + `3,525` Pet Essence by `Lv.90`.\n• **Rare Faction Pet Advantage (`3x Faction Bonus`):** Triples faction buffs — at `Lv.45` (`98,550` Pet Food, `1 same + 5 any`) it grants `11.90%`/`17.50%` universally but `+35.70%` ATK / `+52.50%` HP to its faction.\n• **`Lv.75` & `Lv.90` Milestones:** `Lv.75` (`368,600` Food, `5 same + 15 any`) grants `+66.30%` ATK / `+97.50%` HP; `Lv.90` (`596,600` Food, `0` Essence, `44` Same + `161` Any) surges to `+81.60%` ATK / `+120.00%` HP.\n• **Max `Mythic Lv.120`:** Requires `714,000` Pet Food + `40,050` Essence + `58` Same + `211` Any, reaching `+91.80%` ATK / `+135.00%` HP!",
               },
             },
           ],
@@ -178,8 +178,8 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
             en: "1.2. Season 3 Behemoth System & Hero Level Cap Breakthroughs (+1 ➔ +9 Hero Level Cap)",
           },
           badge: {
-            vi: "SEASON 3 • TAB 🧛‍♀️BEHEMOTH",
-            en: "SEASON 3 • TAB 🧛‍♀️BEHEMOTH",
+            vi: "SEASON 3 • TAB BEHEMOTH",
+            en: "SEASON 3 • TAB BEHEMOTH",
           },
           blocks: [
             {
@@ -233,8 +233,8 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Khác với Thú Cưng cá nhân mở khóa từ đầu Season 1, Cự Thú (Behemoth) mở khóa ở Season 3 (Tab 🧛‍♀️Behemoth) là siêu chiến thú sở hữu 3 tầng gia tăng sức mạnh độc lập: (1) Nâng Cấp Độ (Upgrading Levels) bằng Đá Ma Tinh (Magicite — tổng 4,648,680 từ Lv.1 ➔ Lv.150) và Đột Phá Sao bằng Lõi Ma Thuật (Magic Core — 1,500 ở Lv.20, tổng 69,000 ở Lv.150); (2) Giao Ước Cự Thú (Covenant Bonus) bằng Ấn Giao Ước (Covenant Seals — tích lũy 750 Ấn ở Lv.20, 3,500 Ấn ở Lv.40, 6,080 Ấn ở Lv.60 và tổng cộng 6,346 Ấn từ Lv.1 ➔ Lv.100) giúp cộng tới 210.00% Hero ATK, 630.00% Hero HP, 15.00% Giảm Sát Thương (Hero Damage Reduction) và đặc biệt là Mở rộng Trần Cấp Độ Tướng (Hero Level Cap: Lv.20 = +1, Lv.40 = +2, Lv.60 = +3, Lv.80 = +4, Lv.100 = +5, lên tới Lv.150 = +9 Cấp Tướng); (3) Xuất Trận (Deploy Bonus) đạt Tỷ lệ Chuyển đổi 175.00% từ Lv.60+ và cộng thêm Tăng Sát Thương (Hero Damage Increase từ 3.00% ở Lv.6 lên 14.20% ở Lv.120+).",
-                en: "Unlike personal Pets unlocked in early Season 1, the Behemoth unlocks in Season 3 (Tab 🧛‍♀️Behemoth) as a colossus companion featuring 3 distinct power layers: (1) Upgrading Levels via Magicite (4,648,680 total from Lv.1 ➔ Lv.150) and Star Breakthroughs via Magic Core (1,500 at Lv.20, 69,000 total at Lv.150); (2) Covenant Bonus powered by Covenant Seals (750 cumulative Seals at Lv.20, 3,500 at Lv.40, 6,080 at Lv.60, and 6,346 total Seals from Lv.1 ➔ Lv.100), granting up to 210.00% Hero ATK, 630.00% Hero HP, 15.00% Hero Damage Reduction, and crucial Hero Level Cap expansions (Lv.20 = +1, Lv.40 = +2, Lv.60 = +3, Lv.80 = +4, Lv.100 = +5, up to Lv.150 = +9 Hero Levels); and (3) Deploy Bonus reaching a 175.00% Conversion Rate from Lv.60+ alongside +3.00% (Lv.6) to +14.20% (Lv.120+) Hero Damage Increase.",
+                vi: "• **Tầng 1 — Đột Phá Sao (Tab Behemoth):** Dùng `Magicite` (`4,648,680` ở Lv.150) & `Magic Core` (`1,500` ở Lv.20, `69,000` ở Lv.150) mở **Hero Level Cap** (`Lv.20/40/60/80/100/150` = `+1/+2/+3/+4/+5/+9`).\n• **Tầng 2 — Giao Ước (`Covenant Bonus`):** Dùng `Covenant Seals` (`750` ở Lv.20, `3,500` ở Lv.40, `6,080` ở Lv.60, tổng `6,346` ở Lv.100) cộng `210.00%` ATK, `630.00%` HP & `15.00%` `Hero Damage Reduction`.\n• **Tầng 3 — Xuất Trận (`Deploy Bonus`):** Đạt Tỷ lệ Chuyển đổi `175.00%` từ `Lv.60+` kèm Tăng Sát Thương (`Hero Damage Increase` từ `3.00%` ở Lv.6 lên `14.20%` ở Lv.120+).",
+                en: "• **Layer 1 — Star Gates (Tab Behemoth):** Uses `Magicite` (`4,648,680` at Lv.150) & `Magic Core` (`1,500` at Lv.20, `69,000` at Lv.150) to expand **Hero Level Cap** (`Lv.20/40/60/80/100/150` = `+1/+2/+3/+4/+5/+9`).\n• **Layer 2 — Covenant Bonus:** Uses `Covenant Seals` (`750` at Lv.20, `3,500` at Lv.40, `6,080` at Lv.60, `6,346` total at Lv.100) for `210.00%` ATK, `630.00%` HP & `15.00%` `Hero Damage Reduction`.\n• **Layer 3 — Deploy Bonus:** Reaches a `175.00%` Conversion Rate from `Lv.60+` alongside `+3.00%` (Lv.6) to `+14.20%` (Lv.120+) `Hero Damage Increase`.",
               },
             },
           ],
@@ -251,8 +251,8 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Áp dụng Quy tắc 1 Đội hình Tuyệt đối, người chơi F2P và Low-Spender phải dồn 100% Thức ăn Pet (Pet Food) vào duy nhất 1 con Pet Chủ Lực khớp chính xác với hệ của Đội hình 1 để kích hoạt dòng nhân 3 chỉ số (3x Faction Buff). Hãy đối chiếu kỹ biểu tượng Phe phái trong bảng dưới đây — đặc biệt lưu ý Cactini (Xương Rồng Nhỏ) thuộc hệ Thiên Nhiên (Nature), tuyệt đối không nuôi nhầm cho đội Bộ Lạc (Horde)!",
-            en: "Applying the Absolute Single-Queue Rule, F2P and Low-Spender players must funnel 100% of their Pet Food into a single Main Faction Pet that matches Queue 1's faction to activate the 3x Faction Buff. Verify the faction emblems in the matrix below — specifically note that Cactini belongs to the Nature faction and must never be mistakenly raised for a Horde lineup!",
+            vi: "Áp dụng **Quy tắc 1 Đội hình Tuyệt đối**, người chơi F2P và Low-Spender phải dồn `100%` Thức ăn Pet (`Pet Food`) vào duy nhất 1 con Pet Chủ Lực khớp hệ Đội hình 1 để kích hoạt `3x Faction Buff`.\nLưu ý sống còn: `Cactini` (Xương Rồng Nhỏ) thuộc hệ Thiên Nhiên (Nature), tuyệt đối không nuôi nhầm cho đội Bộ Lạc (Horde)!",
+            en: "Applying the **Absolute Single-Queue Rule**, F2P and Low-Spender players must funnel `100%` of their `Pet Food` into a single Main Faction Pet matching Queue 1's faction to activate the `3x Faction Buff`.\nCritical note: `Cactini` belongs to the Nature faction and must never be mistakenly raised for a Horde lineup!",
           },
         },
         {
@@ -282,8 +282,8 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
           rows: [
             [
               {
-                vi: "🛡️ PHE LIÊN MINH (League)",
-                en: "🛡️ LEAGUE FACTION",
+                vi: "PHE LIÊN MINH (League)",
+                en: "LEAGUE FACTION",
               },
               {
                 vi: "• Eggy (Trứng Tinh Anh)\n• Sparrow (Chim Sẻ Chiến / Biệt Kích)",
@@ -300,8 +300,8 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
             ],
             [
               {
-                vi: "🔥 PHE BỘ LẠC (Horde)",
-                en: "🔥 HORDE FACTION",
+                vi: "PHE BỘ LẠC (Horde)",
+                en: "HORDE FACTION",
               },
               {
                 vi: "• Tiggy (Hổ Con)\n• Howli (Sói Con)\n• Flickerkit (Mèo Lửa — Pet Đỏ S2+)",
@@ -318,8 +318,8 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
             ],
             [
               {
-                vi: "🌿 PHE THIÊN NHIÊN (Nature)",
-                en: "🌿 NATURE FACTION",
+                vi: "PHE THIÊN NHIÊN (Nature)",
+                en: "NATURE FACTION",
               },
               {
                 vi: "• Cactini (Xương Rồng Nhỏ)\n• Bear (Gấu Chiến)\n• Candy Boo (Tinh Linh Kẹo — Pet Đỏ S2+)",
@@ -344,8 +344,8 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
             en: "League ➔ Horde Pivot Strategy: Never Confuse Tiggy (Horde) with Cactini (Nature)!",
           },
           content: {
-            vi: "Nếu khởi đầu bằng Liên Minh nhưng xác định rẽ nhánh sang Bộ Lạc (Horde Pivot), hãy khóa chặt toàn bộ bản sao của Tiggy (Hổ Con) / Howli (Sói Con) (và hướng tới Flickerkit ở S2+) ngay từ ngày đầu mở Chuồng Thú ở Season 1. Tuyệt đối không nuôi nhầm Cactini vì Cactini thuộc hệ Thiên Nhiên (Nature), không cộng 3x Faction Bonus cho tướng Bộ Lạc! Chỉ nâng cầm chừng Eggy / Sparrow ở mức thấp cho Đội Liên Minh tạm thời, sau đó dồn 100% Pet Food đẩy Tiggy / Howli lên Lv.45 (Epic) ➔ Lv.75 (Legendary) ➔ Lv.90 khi Đội 1 Bộ Lạc hoàn thiện.",
-            en: "If starting with League before executing a Horde Pivot, lock every copy of Tiggy / Howli (and target Flickerkit in S2+) from Day 1 of the Season 1 Pet Kennel. Never mistakenly raise Cactini — Cactini belongs to the Nature faction and does NOT grant the 3x Faction Bonus to Horde heroes! Keep Eggy / Sparrow at minimal investment for your temporary League march, then funnel 100% of your Pet Food into pushing Tiggy / Howli to Lv.45 (Epic) ➔ Lv.75 (Legendary) ➔ Lv.90 once Queue 1 Horde is online.",
+            vi: "• **Khóa phôi từ Ngày 1:** Nếu khởi đầu bằng Liên Minh trước khi rẽ sang Bộ Lạc (**Horde Pivot**), hãy khóa chặt bản sao `Tiggy` / `Howli` (và `Flickerkit` ở S2+) ngay từ Ngày 1 mở Chuồng Thú.\n• **Tránh bẫy lệch hệ:** Tuyệt đối không nuôi nhầm `Cactini` (hệ Thiên Nhiên Nature)! Chỉ nâng cầm chừng `Eggy` / `Sparrow` rồi dồn `100%` Pet Food đẩy `Tiggy` / `Howli` lên `Lv.45` ➔ `Lv.75` ➔ `Lv.90`.",
+            en: "• **Lock Fodder from Day 1:** If starting with League before executing a **Horde Pivot**, lock every copy of `Tiggy` / `Howli` (and `Flickerkit` in S2+) from Day 1 of the Season 1 Pet Kennel.\n• **Avoid Faction Mismatch:** Never mistakenly raise `Cactini` (Nature faction)! Keep `Eggy` / `Sparrow` minimal, then funnel `100%` of Pet Food into `Tiggy` / `Howli` (`Lv.45` ➔ `Lv.75` ➔ `Lv.90`).",
           },
         },
         {
@@ -367,8 +367,8 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
                 en: "1. Lock 100% of identical copies (Same Pet) for your Queue 1 Faction Pet",
               },
               detail: {
-                vi: "Đánh dấu khóa ngay lập tức Eggy/Sparrow (Liên Minh), Tiggy/Howli/Flickerkit (Bộ Lạc) hoặc Cactini/Bear/Candy Boo (Thiên Nhiên). Quá trình tiến hóa lên Lv.90 cần tới 44 Same + 161 Any và lên Mythic Lv.120 cần 58 Same + 211 Any.",
-                en: "Immediately lock Eggy/Sparrow (League), Tiggy/Howli/Flickerkit (Horde), or Cactini/Bear/Candy Boo (Nature). Promoting to Lv.90 requires 44 Same + 161 Any copies, and reaching Mythic Lv.120 requires 58 Same + 211 Any copies.",
+                vi: "Khóa `Eggy`/`Sparrow` (Liên Minh), `Tiggy`/`Howli`/`Flickerkit` (Bộ Lạc) hoặc `Cactini`/`Bear`/`Candy Boo` (Thiên Nhiên). `Lv.90` cần `44` Same + `161` Any; `Mythic Lv.120` cần `58` Same + `211` Any.",
+                en: "Lock `Eggy`/`Sparrow` (League), `Tiggy`/`Howli`/`Flickerkit` (Horde), or `Cactini`/`Bear`/`Candy Boo` (Nature). `Lv.90` needs `44` Same + `161` Any; `Mythic Lv.120` needs `58` Same + `211` Any.",
               },
               badge: {
                 vi: "44 ➔ 58 SAME PETS",
@@ -382,8 +382,8 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
                 en: "2. Run egg incubators 24/7 and only release surplus Uncommon pets",
               },
               detail: {
-                vi: "Giữ lại toàn bộ Pet Xanh Lam (Rare) và Tím (Epic) khác hệ làm phôi lót (Any Fodder). Chỉ phóng sinh các bản sao Pet Lục (Uncommon) sau khi đã mở khóa sổ sưu tập để thu hồi Thức Ăn Pet (Pet Food).",
-                en: "Retain all off-faction Rare and Epic pets as generic promotion fodder (Any Fodder). Only release duplicate Uncommon pets after unlocking their collection entry to harvest Pet Food.",
+                vi: "Giữ lại toàn bộ Pet Xanh Lam (`Rare`) và Tím (`Epic`) khác hệ làm phôi lót (`Any Fodder`). Chỉ phóng sinh bản sao Pet Lục (`Uncommon`) sau khi mở sổ sưu tập để thu hồi `Pet Food`.",
+                en: "Retain all off-faction `Rare` and `Epic` pets as generic promotion fodder (`Any Fodder`). Only release duplicate `Uncommon` pets after unlocking their collection entry to harvest `Pet Food`.",
               },
               badge: {
                 vi: "161 ➔ 211 ANY FODDER",
@@ -397,8 +397,8 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
                 en: "3. Clear Mine Vein Battle & Frostfield Battle weekly in Season 3+",
               },
               detail: {
-                vi: "Tích lũy đồng bộ cả 3 nguyên liệu Cự Thú (Behemoth): Đá Ma Tinh (Magicite), Lõi Ma Thuật (Magic Core) để đột phá Sao ở các mốc Lv.20/40/60/80/100 (+1 ➔ +9 Hero Level Cap) và 6,346 Ấn Giao Ước (Covenant Seals).",
-                en: "Farm all 3 Behemoth materials in parallel: Magicite, Magic Core for Lv.20/40/60/80/100 star breakthroughs (+1 ➔ +9 Hero Level Cap), and all 6,346 Covenant Seals.",
+                vi: "Tích lũy đồng bộ 3 nguyên liệu Cự Thú (`Behemoth`): `Magicite`, `Magic Core` đột phá Sao ở các mốc `Lv.20/40/60/80/100` (`+1 ➔ +9` Hero Level Cap) và `6,346` Ấn Giao Ước (`Covenant Seals`).",
+                en: "Farm all 3 Behemoth materials in parallel: `Magicite`, `Magic Core` for `Lv.20/40/60/80/100` star breakthroughs (`+1 ➔ +9` Hero Level Cap), and all `6,346` `Covenant Seals`.",
               },
               badge: {
                 vi: "6,346 ẤN GIAO ƯỚC",
@@ -412,8 +412,8 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
                 en: "4. Hold Feed & Promote on weekdays — Dump strictly in Golden Event Windows",
               },
               detail: {
-                vi: "Găm toàn bộ Pet Food (960 điểm / 100 Food), Pet Essence (480 điểm / 1 Essence) và phôi tiến hóa (6,000–36,000 điểm) xả vào Thứ Hai–Thứ Ba Tuần A (Pets Development) hoặc Thứ Sáu Tuần B (GAR Day 5 / KvK Stage 5–6 / Top Lord Stage 5).",
-                en: "Hoard all Pet Food (960 pts / 100 Food), Pet Essence (480 pts / 1 Essence), and promotions (6,000–36,000 pts) for Monday–Tuesday of Week A (Pets Development) or Friday of Week B (GAR Day 5 / KvK Stage 5–6 / Top Lord Stage 5).",
+                vi: "Găm `Pet Food` (`960` điểm / `100` Food), `Pet Essence` (`480` điểm / `1` Essence) & phôi tiến hóa (`6,000`–`36,000`đ) xả vào Thứ Hai–Ba Tuần A (`Pets Development`) hoặc Thứ Sáu Tuần B (`GAR Day 5`).",
+                en: "Hoard `Pet Food` (`960` pts / `100` Food), `Pet Essence` (`480` pts / `1` Essence) & promotions (`6,000`–`36,000` pts) for Mon–Tue Week A (`Pets Development`) or Friday Week B (`GAR Day 5`).",
               },
               badge: {
                 vi: "960Đ / 100 FOOD",
@@ -436,20 +436,20 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
           ordered: true,
           items: [
             {
-              vi: "Sai lầm #1 — Dùng bản sao của Pet Chủ lực (Eggy, Tiggy, Cactini) làm phôi lót (Any) hoặc nhầm lẫn Cactini là Pet Bộ Lạc: Cactini thuộc hệ Thiên Nhiên (Nature), trong khi Tiggy / Howli / Flickerkit mới thuộc hệ Bộ Lạc (Horde). Để đẩy 1 Pet Hệ Phái lên Lv.90 cần tích lũy 44 Same + 161 Any, và lên Mythic Lv.120 cần tới 58 Same + 211 Any. Chỉ dùng Pet khác hệ làm phôi Any.",
-              en: "Pitfall #1 — Feeding copies of your Main Pet (Eggy, Tiggy, Cactini) as generic Any fodder or confusing Cactini as a Horde pet: Cactini belongs to the Nature faction, whereas Tiggy / Howli / Flickerkit belong to Horde. Promoting a Faction Pet to Lv.90 requires 44 Same + 161 Any copies, and reaching Mythic Lv.120 demands 58 Same + 211 Any copies. Only use off-faction pets as Any fodder.",
+              vi: "**Sai lầm #1 — Dùng phôi `Same` làm `Any` hoặc nhầm `Cactini` là Bộ Lạc:** `Cactini` thuộc hệ `Nature`, còn `Tiggy`/`Howli`/`Flickerkit` thuộc Bộ Lạc; cần khóa `44` Same (Lv.90) & `58` Same (Lv.120).",
+              en: "**Pitfall #1 — Feeding Main Pet copies as `Any` fodder or confusing `Cactini` as Horde:** `Cactini` belongs to `Nature`, while `Tiggy`/`Howli`/`Flickerkit` belong to Horde; lock `44` ➔ `58` Same.",
             },
             {
-              vi: "Sai lầm #2 — Chia đều Pet Food nuôi 3 con Pet cho 3 Đội hình cùng lúc ở Lv.30–Lv.40: Công thức tăng trưởng của Pet là cấp số nhân. Một con Pet Hệ Phái đạt Lv.75 (Legendary, tốn 368,600 Pet Food) mở khóa kỹ năng Huyền thoại, đạt 84.00% Conversion Rate và cộng +66.30% ATK / +97.50% HP cho hệ Đội 1, mạnh gấp 4 lần so với 3 con Pet Lv.35 cộng lại.",
-              en: "Pitfall #2 — Splitting Pet Food evenly across 3 Pets for 3 queues at Lv.30–Lv.40: Pet progression scales exponentially. A single Faction Pet reaching Lv.75 (Legendary, 368,600 cumulative Pet Food) unlocks its Legendary skill, hits 84.00% Conversion Rate, and grants +66.30% ATK / +97.50% HP to Queue 1 — outperforming three Lv.35 pets combined by 4x.",
+              vi: "**Sai lầm #2 — Chia đều `Pet Food` nuôi 3 Pet ở Lv.30–40:** Một Pet Hệ đạt `Lv.75` (`368,600` Pet Food, `84.00%` Conversion, `+66.30%` ATK / `+97.50%` HP) mạnh gấp 4 lần 3 Pet Lv.35 cộng lại.",
+              en: "**Pitfall #2 — Splitting `Pet Food` across 3 Pets at Lv.30–40:** A single Faction Pet at `Lv.75` (`368,600` Pet Food, `84.00%` Conversion, `+66.30%` ATK / `+97.50%` HP) outperforms three Lv.35 pets by 4x.",
             },
             {
-              vi: "Sai lầm #3 — Tập trung nâng Pet Phổ Thông (Uncommon Base Pet) lên cấp cao hoặc nhầm lẫn chi phí Pet Essence ở Lv.90: Uncommon Pet bị khóa trần chỉ số rất thấp (7.50% ATK/HP) nhưng lên Lv.90 lại ngốn 596,850 Thức Ăn Pet + 3,525 Pet Essence; trong khi Rare Faction Pet lên Lv.90 chỉ tốn 596,600 Thức Ăn Pet + 0 Essence (chỉ bắt đầu tốn tổng cộng 40,050 Pet Essence ở giai đoạn Lv.91 ➔ Mythic Lv.120 kèm tổng 714,000 Thức Ăn Pet).",
-              en: "Pitfall #3 — Leveling Uncommon Base Pets to high levels or miscalculating Pet Essence at Lv.90: Uncommon Pets cap at a tiny 7.50% ATK/HP yet consume 596,850 Pet Food + 3,525 Pet Essence by Lv.90; conversely, a Rare Faction Pet reaches Lv.90 for 596,600 Pet Food + 0 Essence (only consuming 40,050 total Pet Essence across Lv.91 ➔ Mythic Lv.120 alongside 714,000 total Pet Food).",
+              vi: "**Sai lầm #3 — Nâng `Uncommon Pet` cấp cao hoặc nhầm `Essence` Lv.90:** Uncommon tốn `596,850` Food + `3,525` Essence ở Lv.90 (trần `7.50%`), còn Rare Faction Pet Lv.90 tốn `596,600` Food + `0` Essence.",
+              en: "**Pitfall #3 — Leveling `Uncommon Pets` high or miscalculating Lv.90 `Essence`:** Uncommon Pets cost `596,850` Food + `3,525` Essence by Lv.90 (`7.50%` cap), vs. `596,600` Food + `0` Essence for Rare.",
             },
             {
-              vi: "Sai lầm #4 — Đốt sạch Magicite nâng Level Cự Thú (Behemoth) nhưng bỏ quên Magic Core và Ấn Giao Ước (Covenant Seals) ở Season 3: Luôn ưu tiên tích đủ Magic Core ở các mốc chẵn (Lv.20 cần 1,500 Core, Lv.40 cần 3,700 Core, Lv.60 cần 4,900 Core...) để đột phá Sao mở khóa Hero Level Cap +1 ➔ +9, đồng thời gom đủ 6,346 Ấn Giao Ước từ Mine Vein Battle & Frostfield Battle để lấy 15.00% Damage Reduction.",
-              en: "Pitfall #4 — Burning all Magicite on raw Behemoth levels while neglecting Magic Core and Covenant Seals in Season 3: Always prioritize saving Magic Core for 20-level star gates (1,500 Core at Lv.20, 3,700 at Lv.40, 4,900 at Lv.60...) to unlock +1 ➔ +9 Hero Level Cap, while farming all 6,346 Covenant Seals from Mine Vein Battle & Frostfield Battle for 15.00% Damage Reduction.",
+              vi: "**Sai lầm #4 — Đốt `Magicite` nhưng bỏ quên `Magic Core` & `Covenant Seals`:** Cần tích `Magic Core` (`1,500` ở Lv.20) mở `Hero Level Cap +1 ➔ +9` và gom `6,346` Ấn Giao Ước lấy `15.00%` Damage Reduction.",
+              en: "**Pitfall #4 — Burning `Magicite` while neglecting `Magic Core` & `Covenant Seals`:** Save `Magic Core` (`1,500` at Lv.20) for `+1 ➔ +9` Hero Level Cap and farm `6,346` Seals for `15.00%` DR.",
             },
           ],
         },
@@ -461,8 +461,8 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
             en: "3 Fatal Account-Ruining Mistakes in Pets & Season 3 Behemoth Progression",
           },
           content: {
-            vi: "(1) Nướng nhầm bản sao Cùng Tên (Same Pet: Eggy, Tiggy, Cactini) làm phôi Any thay vì khóa chặt 44 Same cho mốc Lv.90 / 58 Same cho mốc Lv.120, nuôi nhầm Cactini (Thiên Nhiên) cho đội Bộ Lạc, hoặc nâng Pet Lục (Uncommon) làm bốc hơi 596,850 Pet Food + 3,525 Essence ở Lv.90 (trong khi Rare Faction Pet lên Lv.90 chỉ tốn 596,600 Pet Food + 0 Essence); (2) Cho Pet ăn Pet Food / Pet Essence lẻ tẻ vào ngày thường ngoài khung Thứ Hai–Thứ Ba Tuần A (Pets Development) hoặc Thứ Sáu Tuần B (GAR Day 5 / KvK Stage 5–6 / Top Lord Stage 5), đánh mất 960 điểm / 100 Food và 6,000–36,000 điểm tiến hóa; (3) Bỏ bê Mine Vein Battle & Frostfield Battle ở Season 3 khiến thiếu hụt 6,346 Ấn Giao Ước (Covenant Seals) và Lõi Ma Thuật (Magic Core), làm cả 6 tướng Đội 1 bị tụt lại từ +1 đến +9 Cấp Độ Tướng (Hero Level Cap) so với đối thủ!",
-            en: "(1) Accidentally feeding identical Same-Pet copies (Eggy, Tiggy, Cactini) as generic Any fodder instead of locking 44 Same copies for Lv.90 / 58 Same copies for Lv.120, raising Cactini (Nature) for a Horde march, or leveling Uncommon base pets that waste 596,850 Pet Food + 3,525 Essence by Lv.90 (whereas a Rare Faction Pet costs 596,600 Pet Food + 0 Essence at Lv.90); (2) Feeding Pet Food / Pet Essence randomly on weekdays outside Monday–Tuesday Week A (Pets Development) or Friday Week B (GAR Day 5 / KvK Stage 5–6 / Top Lord Stage 5), forfeiting 960 pts / 100 Food and 6,000–36,000 promotion pts; (3) Neglecting Mine Vein Battle & Frostfield Battle in Season 3 and falling behind on the 6,346 Covenant Seals and Magic Core required for +1 to +9 Hero Level Cap!",
+            vi: "• **Bẫy 1 (Mất phôi Same & Lệch hệ):** Dùng nhầm `Same Pet` làm phôi Any thay vì khóa `44` Same (Lv.90) / `58` Same (Lv.120), nuôi `Cactini` (Nature) cho Bộ Lạc, hoặc nâng `Uncommon` tốn `596,850` Food + `3,525` Essence.\n• **Bẫy 2 (Xả ngoài sự kiện):** Cho Pet ăn ngoài khung Thứ Hai–Ba Tuần A (`Pets Development`) hoặc Thứ Sáu Tuần B (`GAR Day 5` / `KvK Stage 5–6`), mất `960` điểm / `100` Food & `6,000`–`36,000`đ tiến hóa.\n• **Bẫy 3 (Kẹt trần cấp tướng S3):** Bỏ bê `Mine Vein Battle` & `Frostfield Battle` ở Season 3 khiến thiếu `6,346` Ấn Giao Ước (`Covenant Seals`) và `Magic Core`, mất `+1 ➔ +9` **Hero Level Cap**!",
+            en: "• **Trap 1 (Fodder Loss & Mismatch):** Feeding `Same Pet` as Any instead of locking `44`/`58` Same (Lv.90/120), raising `Cactini` (Nature) for Horde, or wasting `596,850` Food + `3,525` Essence on `Uncommon`.\n• **Trap 2 (Off-Event Feeding):** Spending `Pet Food`/`Pet Essence` outside Mon–Tue Week A (`Pets Development`) or Friday Week B (`GAR Day 5` / `KvK Stage 5–6`), losing `960` pts/`100` Food & `6,000`–`36,000` pts.\n• **Trap 3 (S3 Hero Level Cap Stall):** Neglecting `Mine Vein Battle` & `Frostfield Battle` in Season 3 and missing `6,346` `Covenant Seals` and `Magic Core`, costing Queue 1 `+1 ➔ +9` **Hero Level Cap**!",
           },
         },
       ],
@@ -473,15 +473,15 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
       id: "sec-4-pet-and-behemoth-progression-tables",
       isPro: true,
       title: {
-        vi: "4. Phân tích Định lượng & Điểm gãy: Bảng 19 Mốc Tiến Hóa Pet Lv.1➔Lv.120 (Tab 🐣Pets), Bảng 14 Mốc Behemoth Lv.1➔Lv.150 (Tab 🧛‍♀️Behemoth) & Lịch Xả (PRO)",
-        en: "4. Quantitative Analysis: 19-Milestone Pet Lv.1➔Lv.120 Table (Tab 🐣Pets), 14-Milestone Behemoth Lv.1➔Lv.150 Table (Tab 🧛‍♀️Behemoth) & Event Dump Schedule (PRO)",
+        vi: "4. Phân tích Định lượng & Điểm gãy: Bảng 19 Mốc Tiến Hóa Pet Lv.1➔Lv.120 (Tab Pets), Bảng 14 Mốc Behemoth Lv.1➔Lv.150 (Tab Behemoth) & Lịch Xả (PRO)",
+        en: "4. Quantitative Analysis: 19-Milestone Pet Lv.1➔Lv.120 Table (Tab Pets), 14-Milestone Behemoth Lv.1➔Lv.150 Table (Tab Behemoth) & Event Dump Schedule (PRO)",
       },
       blocks: [
         {
           type: "paragraph",
           text: {
-            vi: "Dưới đây là toàn bộ dữ liệu định lượng 19 mốc đột phá phẩm chất Thú Cưng (Lv.1 ➔ Lv.90 ➔ Mythic Lv.120 từ Tab 🐣Pets) và 14 mốc điểm gãy Cự Thú (Behemoth Lv.1 ➔ Lv.150 từ Tab 🧛‍♀️Behemoth), kèm bảng đối chiếu điểm sự kiện giúp hoạch định chính xác từng đơn vị Pet Food, Pet Essence, Magicite, Magic Core và Covenant Seal trước mỗi kỳ đua Top.",
-            en: "Below is the complete quantitative dataset covering all 19 Pet promotion milestones (Lv.1 ➔ Lv.90 ➔ Mythic Lv.120 from Tab 🐣Pets) and 14 Behemoth progression breakpoints (Lv.1 ➔ Lv.150 from Tab 🧛‍♀️Behemoth), paired with the event scoring matrix to plan every unit of Pet Food, Pet Essence, Magicite, Magic Core, and Covenant Seal.",
+            vi: "Dưới đây là dữ liệu định lượng **19 mốc đột phá phẩm chất Thú Cưng** (`Lv.1 ➔ Lv.90 ➔ Mythic Lv.120` từ Tab Pets) và **14 mốc điểm gãy Cự Thú** (`Behemoth Lv.1 ➔ Lv.150` từ Tab Behemoth).\nĐi kèm là bảng đối chiếu điểm sự kiện giúp hoạch định chính xác từng đơn vị `Pet Food`, `Pet Essence`, `Magicite`, `Magic Core` và `Covenant Seal`.",
+            en: "Below is the complete quantitative dataset covering all **19 Pet promotion milestones** (`Lv.1 ➔ Lv.90 ➔ Mythic Lv.120` from Tab Pets) and **14 Behemoth progression breakpoints** (`Lv.1 ➔ Lv.150` from Tab Behemoth).\nIt is paired with the event scoring matrix to plan every unit of `Pet Food`, `Pet Essence`, `Magicite`, `Magic Core`, and `Covenant Seal`.",
           },
         },
       ],
@@ -489,12 +489,12 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
         {
           id: "sub-4-1-pet-lv1-to-lv120-master-table",
           title: {
-            vi: "4.1. Bảng 19 Mốc Chi Phí Thức Ăn Pet (Pet Food), Phôi Tiến Hóa (Same + Any) & Chỉ Số 3x Hệ Phái Từ Lv.1 ➔ Mythic Lv.120 (Tab 🐣Pets)",
-            en: "4.1. 19-Milestone Pet Food Cost, Promotion Fodder (Same + Any) & 3x Faction Stat Table Lv.1 ➔ Mythic Lv.120 (Tab 🐣Pets)",
+            vi: "4.1. Bảng 19 Mốc Chi Phí Thức Ăn Pet (Pet Food), Phôi Tiến Hóa (Same + Any) & Chỉ Số 3x Hệ Phái Từ Lv.1 ➔ Mythic Lv.120 (Tab Pets)",
+            en: "4.1. 19-Milestone Pet Food Cost, Promotion Fodder (Same + Any) & 3x Faction Stat Table Lv.1 ➔ Mythic Lv.120 (Tab Pets)",
           },
           badge: {
-            vi: "19 MỐC • TAB 🐣PETS",
-            en: "19 MILESTONES • TAB 🐣PETS",
+            vi: "19 MỐC • TAB PETS",
+            en: "19 MILESTONES • TAB PETS",
           },
           blocks: [
             {
@@ -627,7 +627,7 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
                   },
                 ],
                 [
-                  { vi: "Lv.45 🔥", en: "Lv.45 🔥" },
+                  { vi: "Lv.45 ★", en: "Lv.45 ★" },
                   { vi: "EPIC (Tím)", en: "EPIC (Purple)" },
                   { vi: "5,300", en: "5,300" },
                   { vi: "98,550", en: "98,550" },
@@ -711,7 +711,7 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
                   },
                 ],
                 [
-                  { vi: "Lv.75 ⭐", en: "Lv.75 ⭐" },
+                  { vi: "Lv.75 ★", en: "Lv.75 ★" },
                   { vi: "LEGENDARY (Vàng)", en: "LEGENDARY (Gold)" },
                   { vi: "12,800", en: "12,800" },
                   { vi: "368,600", en: "368,600" },
@@ -753,7 +753,7 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
                   },
                 ],
                 [
-                  { vi: "Lv.90 👑", en: "Lv.90 👑" },
+                  { vi: "Lv.90 ★", en: "Lv.90 ★" },
                   {
                     vi: "Legendary +3 (Mốc Chuẩn)",
                     en: "Legendary +3 (Standard Benchmark)",
@@ -833,8 +833,8 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
                 en: "Step-by-Step Pet Food Scaling & Lv.90 (596,600) vs. Mythic Lv.120 (714,000) Breakdown",
               },
               content: {
-                vi: "Chi phí Pet Food mỗi cấp tăng theo 6 nấc thang cố định: Lv.2➔Lv.6 tăng +50 Food/cấp (100 ➔ 300); Lv.7➔Lv.29 tăng +100 Food/cấp (400 ➔ 2,600); Lv.30➔Lv.39 tăng +150 Food/cấp (2,750 ➔ 4,100); Lv.40➔Lv.49 tăng +200 Food/cấp (4,300 ➔ 6,100); Lv.50➔Lv.71 tăng +250 Food/cấp (6,350 ➔ 11,600); Lv.72➔Lv.90 tăng +300 Food/cấp (11,900 ➔ 17,300). Tính từ Lv.1 đến Lv.90, Rare Faction Pet tốn đúng 596,600 Thức Ăn Pet + 0 Pet Essence + 44 Same + 161 Any (trong khi Uncommon Base Pet tốn 596,850 Pet Food + 3,525 Pet Essence). Từ Lv.91 ➔ Mythic Lv.120, Rare Faction Pet mới bắt đầu tiêu thụ thêm 40,050 Pet Essence và nâng tổng tích lũy lên 714,000 Thức Ăn Pet + 58 Same + 211 Any.",
-                en: "Per-level Pet Food cost follows 6 linear steps: Lv.2➔Lv.6 adds +50 Food/level (100 ➔ 300); Lv.7➔Lv.29 adds +100 Food/level (400 ➔ 2,600); Lv.30➔Lv.39 adds +150 Food/level (2,750 ➔ 4,100); Lv.40➔Lv.49 adds +200 Food/level (4,300 ➔ 6,100); Lv.50➔Lv.71 adds +250 Food/level (6,350 ➔ 11,600); Lv.72➔Lv.90 adds +300 Food/level (11,900 ➔ 17,300). From Lv.1 to Lv.90, a Rare Faction Pet requires 596,600 Pet Food + 0 Pet Essence + 44 Same + 161 Any (whereas an Uncommon Base Pet costs 596,850 Pet Food + 3,525 Pet Essence). Only from Lv.91 ➔ Mythic Lv.120 does a Rare Faction Pet consume 40,050 Pet Essence, bringing cumulative totals to 714,000 Pet Food + 58 Same + 211 Any.",
+                vi: "• **6 nấc thang Pet Food (1–3):** Lv.2–6 tăng `+50`/cấp (`100 ➔ 300`); Lv.7–29 tăng `+100`/cấp (`400 ➔ 2,600`); Lv.30–39 tăng `+150`/cấp (`2,750 ➔ 4,100`).\n• **6 nấc thang Pet Food (4–6):** Lv.40–49 tăng `+200`/cấp (`4,300 ➔ 6,100`); Lv.50–71 tăng `+250`/cấp (`6,350 ➔ 11,600`); Lv.72–90 tăng `+300`/cấp (`11,900 ➔ 17,300`).\n• **Mốc Lv.90:** Rare Faction Pet tốn `596,600` Food + `0` Essence + `44` Same + `161` Any (Uncommon tốn `596,850` Food + `3,525` Essence).\n• **Mốc Mythic Lv.120:** Từ Lv.91 ➔ Lv.120 tiêu thụ `40,050` Essence, nâng tổng tích lũy lên `714,000` Food + `58` Same + `211` Any.",
+                en: "• **6 Linear Pet Food Steps (1–3):** Lv.2–6 adds `+50`/lvl (`100 ➔ 300`); Lv.7–29 adds `+100`/lvl (`400 ➔ 2,600`); Lv.30–39 adds `+150`/lvl (`2,750 ➔ 4,100`).\n• **6 Linear Pet Food Steps (4–6):** Lv.40–49 adds `+200`/lvl (`4,300 ➔ 6,100`); Lv.50–71 adds `+250`/lvl (`6,350 ➔ 11,600`); Lv.72–90 adds `+300`/lvl (`11,900 ➔ 17,300`).\n• **Lv.90 Milestone:** Rare Faction Pet Lv.90 costs `596,600` Food + `0` Essence + `44` Same + `161` Any (Uncommon costs `596,850` Food + `3,525` Essence).\n• **Mythic Lv.120 Milestone:** Lv.91 ➔ Lv.120 consumes `40,050` Essence, bringing cumulative totals to `714,000` Food + `58` Same + `211` Any.",
               },
             },
           ],
@@ -842,12 +842,12 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
         {
           id: "sub-4-2-behemoth-lv1-to-lv150-master-table",
           title: {
-            vi: "4.2. Bảng 14 Mốc Điểm Gãy Cự Thú (Behemoth Lv.1 ➔ Lv.150 — Tab 🧛‍♀️Behemoth & 6,346 Ấn Giao Ước)",
-            en: "4.2. 14-Milestone Behemoth Progression Table (Lv.1 ➔ Lv.150 — Tab 🧛‍♀️Behemoth & 6,346 Covenant Seals)",
+            vi: "4.2. Bảng 14 Mốc Điểm Gãy Cự Thú (Behemoth Lv.1 ➔ Lv.150 — Tab Behemoth & 6,346 Ấn Giao Ước)",
+            en: "4.2. 14-Milestone Behemoth Progression Table (Lv.1 ➔ Lv.150 — Tab Behemoth & 6,346 Covenant Seals)",
           },
           badge: {
-            vi: "14 MỐC • TAB 🧛‍♀️BEHEMOTH",
-            en: "14 MILESTONES • TAB 🧛‍♀️BEHEMOTH",
+            vi: "14 MỐC • TAB BEHEMOTH",
+            en: "14 MILESTONES • TAB BEHEMOTH",
           },
           blocks: [
             {
@@ -922,7 +922,7 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
                   { vi: "113.50%", en: "113.50%" },
                 ],
                 [
-                  { vi: "Lv.20 🔥 (1 Sao)", en: "Lv.20 🔥 (1★)" },
+                  { vi: "Lv.20 ★ (1 Sao)", en: "Lv.20 ★ (1★)" },
                   { vi: "5,880", en: "5,880" },
                   { vi: "1,500", en: "1,500" },
                   { vi: "88 (Tích lũy: 750)", en: "88 (Cumulative: 750)" },
@@ -942,7 +942,7 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
                   { vi: "143.50%", en: "143.50%" },
                 ],
                 [
-                  { vi: "Lv.40 🔥 (2 Sao)", en: "Lv.40 🔥 (2★)" },
+                  { vi: "Lv.40 ★ (2 Sao)", en: "Lv.40 ★ (2★)" },
                   { vi: "16,440", en: "16,440" },
                   { vi: "3,700", en: "3,700" },
                   { vi: "176 (Tích lũy: 3,500)", en: "176 (Cumulative: 3,500)" },
@@ -962,7 +962,7 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
                   { vi: "173.50%", en: "173.50%" },
                 ],
                 [
-                  { vi: "Lv.60 ⭐ (3 Sao)", en: "Lv.60 ⭐ (3★)" },
+                  { vi: "Lv.60 ★ (3 Sao)", en: "Lv.60 ★ (3★)" },
                   { vi: "31,800", en: "31,800" },
                   { vi: "4,900", en: "4,900" },
                   { vi: "80 (Lv.57 — Tích lũy: 6,080)", en: "80 (Lv.57 — Cumulative: 6,080)" },
@@ -982,7 +982,7 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
                   { vi: "175.00%", en: "175.00%" },
                 ],
                 [
-                  { vi: "Lv.80 ⭐ (4 Sao)", en: "Lv.80 ⭐ (4★)" },
+                  { vi: "Lv.80 ★ (4 Sao)", en: "Lv.80 ★ (4★)" },
                   { vi: "50,880", en: "50,880" },
                   { vi: "6,200", en: "6,200" },
                   { vi: "- (Tích lũy: 6,080)", en: "- (Cumulative: 6,080)" },
@@ -1002,7 +1002,7 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
                   { vi: "175.00%", en: "175.00%" },
                 ],
                 [
-                  { vi: "Lv.100 👑 (5 Sao)", en: "Lv.100 👑 (5★)" },
+                  { vi: "Lv.100 ★ (5 Sao)", en: "Lv.100 ★ (5★)" },
                   { vi: "70,080", en: "70,080" },
                   { vi: "7,400", en: "7,400" },
                   {
@@ -1083,8 +1083,8 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
                   en: "PET KENNEL (S1+) & BEHEMOTH DEN (S3+)",
                 },
                 title: {
-                  vi: "🐣 Ấp Trứng 24/7 & Săn Mine Vein / Frostfield Hàng Tuần",
-                  en: "🐣 24/7 Egg Hatching & Weekly Mine Vein / Frostfield Farming",
+                  vi: "Ấp Trứng 24/7 & Săn Mine Vein / Frostfield Hàng Tuần",
+                  en: "24/7 Egg Hatching & Weekly Mine Vein / Frostfield Farming",
                 },
                 subtitle: {
                   vi: "Phân loại 100% Pet mới nở và tích trữ nguyên liệu chờ đúng ngày sự kiện",
@@ -1221,8 +1221,8 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
             {
               type: "table",
               caption: {
-                vi: "Bảng 4: Bảng Điểm & Lịch Xả Thức Ăn Pet & Nguyên Liệu Cự Thú (Tab 👑KvK & GAR & TOP)",
-                en: "Table 4: Pets & Behemoth Event Scoring Matrix (Tab 👑KvK & GAR & TOP)",
+                vi: "Bảng 4: Bảng Điểm & Lịch Xả Thức Ăn Pet & Nguyên Liệu Cự Thú (Tab KvK & GAR & TOP)",
+                en: "Table 4: Pets & Behemoth Event Scoring Matrix (Tab KvK & GAR & TOP)",
               },
               headers: [
                 {
@@ -1349,8 +1349,8 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
             en: "Season 3 Pure Horde Queue 1 (52M Power): Dumping 228,000 Pet Food for Tiggy Lv.90 & Breaking Through Behemoth Lv.20 (1★)",
           },
           profileSummary: {
-            vi: "Một tài khoản bước vào Season 3 vận hành Đội 1 Thuần Bộ Lạc (52M Lực chiến) đang có Tiggy ở mốc Lv.75 (Legendary, đã tích lũy 368,600 Pet Food, cộng +66.30% ATK / +97.50% HP; hoặc ở tài khoản đầu S3 đang bị dàn trải Tiggy Lv.32 + Eggy Lv.28 + Uncommon Lv.25 chỉ cộng +20.40% ATK / +30.00% HP với 60,300 Pet Food chờ lên Lv.45 Epic). Sau quá trình gom kho kỷ luật, túi đồ hiện có 228,000 Pet Food, đủ bộ phôi Same + Any (tích lũy đủ 44 Same + 161 Any cho mốc Lv.90), cùng 45,000 Magicite, 2,100 Magic Core và 800 Ấn Giao Ước (Covenant Seals) nhưng chưa nâng Cự Thú.",
-            en: "A Season 3 account running a Pure Horde Queue 1 (52M Power) has Tiggy sitting at Lv.75 (Legendary, 368,600 cumulative Pet Food invested, granting +66.30% ATK / +97.50% HP; or in an early-S3 diluted state with Tiggy Lv.32 + Eggy Lv.28 + Uncommon Lv.25 granting only +20.40% ATK / +30.00% HP with 60,300 Pet Food waiting for Lv.45 Epic). After disciplined hoarding, the inventory holds 228,000 Pet Food, sufficient Same + Any fodder (reaching 44 Same + 161 Any cumulative for Lv.90), plus 45,000 Magicite, 2,100 Magic Core, and 800 Covenant Seals with an un-upgraded Behemoth.",
+            vi: "• **Hồ sơ:** Đội 1 Thuần Bộ Lạc (`52M` Lực chiến) có `Tiggy` ở `Lv.75` (`368,600` Food, `+66.30%` ATK / `+97.50%` HP; hoặc đầu S3 dàn trải Tiggy Lv.32 + Eggy Lv.28 ở `+20.40%` / `+30.00%` với `60,300` Food).\n• **Tồn kho:** Đang găm `228,000` Pet Food, đủ phôi `Same + Any` (tích lũy `44` Same + `161` Any cho `Lv.90`), cùng `45,000` Magicite, `2,100` Magic Core và `800` Ấn Giao Ước (`Covenant Seals`).",
+            en: "• **Profile:** Pure Horde Queue 1 (`52M` Power) has `Tiggy` at `Lv.75` (`368,600` Food, `+66.30%` ATK / `+97.50%` HP; or early-S3 diluted Tiggy Lv.32 + Eggy Lv.28 at `+20.40%` / `+30.00%` with `60,300` Food).\n• **Stockpile:** Holds `228,000` Pet Food, sufficient `Same + Any` fodder (`44` Same + `161` Any cumulative for `Lv.90`), plus `45,000` Magicite, `2,100` Magic Core, and `800` `Covenant Seals`.",
           },
           metrics: [
             {
@@ -1410,12 +1410,12 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
           ],
           diagnostics: [
             {
-              vi: "Chẩn đoán 1 (Nguy cơ hao hụt phôi Same Pet & nuôi dàn trải): Nếu người chơi chia Pet Food cho Pet phụ (Eggy hoặc Uncommon) hoặc bấm nhầm bản sao Tiggy làm phôi Any, tài khoản sẽ không thể gom đủ 12 bản sao Same (3 + 4 + 5 Same từ Lv.75 lên Lv.90, tổng tích lũy 44 Same + 161 Any) để mở khóa trần cấp 105.",
-              en: "Diagnostic 1 (Same-Pet Fodder Depletion & Diluted Feeding Risk): Splitting Pet Food into secondary pets (Eggy or Uncommon) or accidentally feeding Tiggy copies as generic Any fodder prevents accumulating the 12 Same copies required between Lv.75 and Lv.90 (3 + 4 + 5 Same, totaling 44 Same + 161 Any cumulative) to unlock the Lv.105 cap.",
+              vi: "**Chẩn đoán 1 (Hao hụt phôi Same Pet):** Chia `Pet Food` cho `Eggy`/Uncommon hoặc làm mất bản sao `Tiggy` khiến thiếu `12` bản Same từ Lv.75 lên Lv.90 (tích lũy `44` Same + `161` Any) để mở trần cấp `105`.",
+              en: "**Diagnostic 1 (Same-Pet Fodder Depletion):** Splitting `Pet Food` into `Eggy`/Uncommon or feeding `Tiggy` copies as Any fodder prevents gathering the `12` Same copies needed from Lv.75 to Lv.90 (`44` Same + `161` Any).",
             },
             {
-              vi: "Chẩn đoán 2 (Nút cổ chai Cự Thú Season 3): Tài khoản đang găm 45,000 Magicite, 2,100 Magic Core và 800 Ấn Giao Ước nhưng chưa kích hoạt mốc Lv.20 (1★), khiến cả 6 tướng chủ lực Bộ Lạc mất đi +1 Trần Cấp Độ Tướng (Hero Level Cap), +36.00% ATK / +108.00% HP khi xuất trận và 3.00% Giảm Sát Thương.",
-              en: "Diagnostic 2 (Season 3 Behemoth Bottleneck): Sitting on 45,000 Magicite, 2,100 Magic Core, and 800 Covenant Seals without hitting the Lv.20 (1★) breakpoint leaves all 6 Horde main heroes without +1 Hero Level Cap, +36.00% ATK / +108.00% HP Deploy Bonus, and 3.00% Damage Reduction.",
+              vi: "**Chẩn đoán 2 (Nút cổ chai Cự Thú S3):** Găm `45,000` Magicite, `2,100` Magic Core và `800` Ấn Giao Ước nhưng chưa mở `Lv.20` (`1★`), làm 6 tướng Bộ Lạc mất `+1` **Hero Level Cap** và `3.00%` DR.",
+              en: "**Diagnostic 2 (Season 3 Behemoth Bottleneck):** Sitting on `45,000` Magicite, `2,100` Magic Core, and `800` Covenant Seals without hitting `Lv.20` (`1★`) costs all 6 Horde heroes `+1` **Hero Level Cap** and `3.00%` DR.",
             },
           ],
           recoverySteps: [
@@ -1426,8 +1426,8 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
                 en: "Freeze All Secondary Pets & Lock the Tiggy Fodder Pool (44 Same + 161 Any)",
               },
               detail: {
-                vi: "Ngưng hoàn toàn việc đút Pet Food cho Eggy và Pet Uncommon (tránh mất oan 596,850 Food + 3,525 Essence). Kiểm kê Chuồng Thú: khóa chặt toàn bộ bản sao Tiggy (Same), gom các Pet Rare/Epic khác hệ làm nguyên liệu lót (Any) chuẩn bị cho 3 lần đột phá Legendary +1 (Lv.80), Legendary +2 (Lv.85) và Legendary +3 (Lv.90).",
-                en: "Immediately halt feeding Eggy and Uncommon pets (avoiding the 596,850 Food + 3,525 Essence trap). Audit the Pet Kennel: lock all identical Tiggy (Same) copies and consolidate off-faction Rare/Epic pets as generic Any fodder for the 3 promotions at Legendary +1 (Lv.80), Legendary +2 (Lv.85), and Legendary +3 (Lv.90).",
+                vi: "• Ngưng hoàn toàn việc đút `Pet Food` cho `Eggy` và Pet `Uncommon` (tránh mất oan `596,850` Food + `3,525` Essence).\n• Khóa chặt toàn bộ bản sao `Tiggy` (`Same`), gom Pet Rare/Epic khác hệ làm phôi lót (`Any`) cho 3 lần đột phá `Legendary +1` (Lv.80), `Legendary +2` (Lv.85) và `Legendary +3` (Lv.90).",
+                en: "• Immediately halt feeding `Eggy` and `Uncommon` pets (avoiding the `596,850` Food + `3,525` Essence trap).\n• Lock all identical `Tiggy` (`Same`) copies and consolidate off-faction Rare/Epic pets as generic `Any` fodder for `Legendary +1` (Lv.80), `Legendary +2` (Lv.85), and `Legendary +3` (Lv.90).",
               },
               impactBadge: {
                 vi: "KHÓA 44 SAME + 161 ANY",
@@ -1441,8 +1441,8 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
                 en: "Tuesday / Wednesday Week B: Push Behemoth to Lv.20 Breakpoint (1★ = +1 Hero Level Cap)",
               },
               detail: {
-                vi: "Xả 5,880+ Magicite, 1,500 Magic Core và 750 Ấn Giao Ước (Covenant Seals) đưa Behemoth chạm đúng Điểm gãy Lv.20 (1 Sao). Riêng 750 Ấn Giao Ước (× 2,000 điểm) mang về ngay 1,500,000 điểm sự kiện, đồng thời mở khóa +1 Trần Cấp Độ Tướng (Hero Level Cap), +30.00% ATK / +90.00% HP / 3.00% DR từ Giao ước và +36.00% ATK / +108.00% HP / 4.60% Damage Increase khi xuất trận!",
-                en: "Spend 5,880+ Magicite, 1,500 Magic Core, and 750 Covenant Seals to bring the Behemoth to the exact Lv.20 (1★) breakpoint. The 750 Covenant Seals (× 2,000 pts) alone generate 1,500,000 event points while unlocking +1 Hero Level Cap, +30.00% ATK / +90.00% HP / 3.00% DR from Covenant, and +36.00% ATK / +108.00% HP / 4.60% Damage Increase on deployment!",
+                vi: "• Xả `5,880+` Magicite, `1,500` Magic Core và `750` Ấn Giao Ước (`Covenant Seals`) đưa Behemoth chạm đúng Điểm gãy `Lv.20` (`1★`).\n• Riêng `750` Ấn Giao Ước (`× 2,000` điểm) mang về `1,500,000` điểm sự kiện, mở khóa `+1` **Hero Level Cap**, `+30.00%` ATK / `+90.00%` HP / `3.00%` DR và `+36.00%` ATK / `+108.00%` HP xuất trận!",
+                en: "• Spend `5,880+` Magicite, `1,500` Magic Core, and `750` `Covenant Seals` to bring the Behemoth to the exact `Lv.20` (`1★`) breakpoint.\n• The `750` Covenant Seals (`× 2,000` pts) generate `1,500,000` event points while unlocking `+1` **Hero Level Cap**, `+30.00%` ATK / `+90.00%` HP / `3.00%` DR, and `+36.00%` / `+108.00%` Deploy Bonus!",
               },
               impactBadge: {
                 vi: "750 ẤN = 1,500,000 ĐIỂM + 1 CẤP TƯỚNG",
@@ -1456,8 +1456,8 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
                 en: "Friday Week B (GAR Day 5): Dump 228,000 Pet Food to Push Tiggy from Lv.75 to Lv.90 (Legendary +3)",
               },
               detail: {
-                vi: "Đúng Thứ Sáu Tuần B (GAR Ngày 5 / KvK Stage 5–6), xả toàn bộ 228,000 Pet Food (960 điểm / 100 Food = 2,188,800 điểm GAR, tốn 0 Essence) kéo Tiggy từ Lv.75 (368,600 Food) lên thẳng Lv.90 (tích lũy 596,600 Food) kèm 3 lần tiến hóa (tối đa 36,000 điểm/lần). (Với tài khoản đầu S3 đang ở Lv.32, xả 60,300 Pet Food để cán mốc Lv.45 Epic 98,550 Food và thu về tổng cộng hơn 2,150,000 điểm GAR).",
-                en: "On Friday of Week B (GAR Day 5 / KvK Stage 5–6), dump all 228,000 Pet Food (960 pts / 100 Food = 2,188,800 GAR points, costing 0 Essence) to push Tiggy from Lv.75 (368,600 Food) straight to Lv.90 (596,600 cumulative Food) alongside 3 tier promotions (up to 36,000 pts each). (For early-S3 accounts at Lv.32, spending 60,300 Pet Food hits the Lv.45 Epic 98,550 Food breakpoint and nets over 2,150,000 total GAR points).",
+                vi: "• Thứ Sáu Tuần B (`GAR Ngày 5` / `KvK Stage 5–6`), xả `228,000` Pet Food (`960` điểm / `100` Food = `2,188,800` điểm GAR, `0` Essence) kéo `Tiggy` từ `Lv.75` (`368,600` Food) lên `Lv.90` (`596,600` Food).\n• Với tài khoản đầu S3 ở Lv.32, xả `60,300` Pet Food cán mốc `Lv.45 Epic` (`98,550` Food) và thu về hơn `2,150,000` điểm GAR.",
+                en: "• On Friday Week B (`GAR Day 5` / `KvK Stage 5–6`), dump `228,000` Pet Food (`960` pts / `100` Food = `2,188,800` GAR pts, `0` Essence) to push `Tiggy` from `Lv.75` (`368,600` Food) to `Lv.90` (`596,600` Food).\n• For early-S3 accounts at Lv.32, spending `60,300` Pet Food hits `Lv.45 Epic` (`98,550` Food) and nets over `2,150,000` total GAR points.",
               },
               impactBadge: {
                 vi: "2,188,800 ĐIỂM GAR • +81.60% ATK / +120.00% HP",
@@ -1466,8 +1466,8 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
             },
           ],
           conclusion: {
-            vi: "Kết quả định lượng: Chỉ số cộng thêm từ Tiggy cho 6 tướng Bộ Lạc Đội 1 vọt lên +81.60% Hero ATK / +120.00% Hero HP (Tỷ lệ Chuyển đổi đạt 96.00%), kết hợp cùng Behemoth Lv.20 (1★) mở rộng +1 Hero Level Cap giúp tổng lực chiến thực tăng vọt +3,800,000 (từ 52.0M lên 55.8M) và gom trọn toàn bộ mốc thưởng cá nhân GAR / KvK!",
-            en: "Quantitative Result: Tiggy's 3x Horde buff for all 6 Queue 1 heroes surges to +81.60% Hero ATK / +120.00% Hero HP (at 96.00% Conversion Rate), which combined with Behemoth Lv.20 (1★) expanding +1 Hero Level Cap boosts real combat power by +3,800,000 (52.0M ➔ 55.8M) while sweeping every personal GAR / KvK milestone chest!",
+            vi: "• **Kết quả định lượng:** Chỉ số `3x` từ `Tiggy` cho 6 tướng Bộ Lạc Đội 1 vọt lên `+81.60%` Hero ATK / `+120.00%` Hero HP (`96.00%` Conversion Rate).\n• Kết hợp cùng `Behemoth Lv.20` (`1★`) mở rộng `+1` **Hero Level Cap**, tổng lực chiến thực tăng `+3,800,000` (`52.0M ➔ 55.8M`) và gom trọn toàn bộ rương mốc GAR / KvK!",
+            en: "• **Quantitative Result:** `Tiggy`'s `3x` Horde buff for all 6 Queue 1 heroes surges to `+81.60%` Hero ATK / `+120.00%` Hero HP (at `96.00%` Conversion Rate).\n• Combined with `Behemoth Lv.20` (`1★`) expanding `+1` **Hero Level Cap**, real combat power jumps `+3,800,000` (`52.0M ➔ 55.8M`) while sweeping every GAR / KvK milestone chest!",
           },
         },
         {
