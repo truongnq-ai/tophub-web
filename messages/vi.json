@@ -2,6 +2,7 @@
   "Navigation": {
     "home": "Trang Chủ",
     "guides": "Cẩm Nang",
+    "guidesNewBadge": "MỚI",
     "giftcodes": "Săn Giftcode",
     "pricing": "Bảng Giá",
     "check": "Tra Cứu Bot",
@@ -378,8 +379,8 @@
   "Guides": {
     "hubBadge": "Bách Khoa Chiến Thuật Top Heroes (S0 ➔ S4)",
     "hubTitle": "Cẩm Nang Chiến Thuật & Bảng Số Liệu Min-Max",
-    "hubDescription": "Hệ thống 8 nhóm chuyên đề và 31 cẩm nang thực chiến được chuẩn hóa từ dữ liệu máy chủ thực tế: Quy tắc 1 Hàng, Lịch Sự kiện Tuần A/B, Lộ trình Bộ Lạc và Bảng tính định lượng.",
-    "searchPlaceholder": "Tìm tướng, sự kiện, cổ ngữ, mẹo... (VD: Đấu Sĩ, 2000, Tuần A)",
+    "hubDescription": "Hệ thống 8 nhóm chuyên đề và 31 cẩm nang thực chiến được chuẩn hóa từ dữ liệu máy chủ thực tế: Quy tắc 1 Hàng, Lộ trình Sự kiện theo Tiến độ Server, Chuyển giao Bộ Lạc và Bảng tính định lượng.",
+    "searchPlaceholder": "Tìm tướng, sự kiện, cổ ngữ, mẹo... (VD: Đấu Sĩ, 2000, Thi Đấu Hội)",
     "searchNoResults": "Không tìm thấy bài viết nào khớp với từ khóa của bạn.",
     "clearSearch": "Xóa bộ lọc tìm kiếm",
     "mobileMenuBtn": "Danh Mục Cẩm Nang (8 Nhóm)",
@@ -426,8 +427,8 @@
     "toolsStripTitle": "Công Cụ & Bảng Tra Cứu Tốc Độ Cao",
     "toolEncyclopediaTitle": "Bách Khoa 45+ Tướng",
     "toolEncyclopediaDesc": "Tier List S0➔S4 & Mốc sao tối thiểu 3 Phe",
-    "toolCalendarTitle": "Lịch Chu Kỳ Tuần A/B",
-    "toolCalendarDesc": "Nhịp đập 14 ngày Đua Bang & KvK GAR",
+    "toolCalendarTitle": "Lộ Trình Sự Kiện Server",
+    "toolCalendarDesc": "Thi Đấu Hội & Đua Vũ Trang GAR/KvK",
     "toolShopsTitle": "Xếp Hạng 13 Cửa Hàng",
     "toolShopsDesc": "ROI 600% & Ngưỡng đóng băng ví hàng tuần",
     "toolMasterTablesTitle": "12 Bảng Số Liệu Gốc",
@@ -447,8 +448,8 @@
     "keyTakeawaysHideLabel": "Thu gọn định mức số liệu",
     "widgetHeroTitle": "Bách Khoa Toàn Thư 51 Anh Hùng (Tương Tác)",
     "widgetHeroSubtitle": "Lọc tức thì theo Phe phái, Phẩm cấp, Vai trò & Điểm ngọt MVS",
-    "widgetCalendarTitle": "Lịch Chu Kỳ Sự Kiện & Tra Cứu Double-Dip 300%",
-    "widgetCalendarSubtitle": "Chuyển đổi Pha 1 ⇄ Pha 2 (Tuần A / Tuần B) & Khung giờ vàng 4 tiếng",
+    "widgetCalendarTitle": "Lộ Trình Sự Kiện Theo Tiến Độ Server & Tra Cứu Double-Dip 300%",
+    "widgetCalendarSubtitle": "Chuyển đổi Pha 1 ⇄ Pha 2 (Kỳ Thi Đấu Hội / Kỳ GAR-KvK) & Khung giờ vàng 4 tiếng",
     "widgetMasterTablesTitle": "Trình Khám Phá 12 Bảng Số Liệu Gốc (Master Data Explorer)",
     "widgetMasterTablesSubtitle": "Tra cứu xuyên 12 bảng định lượng chuẩn S0 ➔ S4 không cần cuộn trang",
     "widgetTrapsTitle": "Trạm Chẩn Đoán & Cấp Cứu 10 Cạm Bẫy Phế Acc (1-Click Triage)",
@@ -460,7 +461,21 @@
     "widgetAnvilTitle": "Ma Trận Đe Rèn 3×4 (+30% Dấu Hệ) & Tra Cứu Đồ Vàng BiS 24 Tướng",
     "widgetAnvilSubtitle": "Kiểm tra trực quan 4 cột Đe Rèn (Cấm đúc Cột 4 Không Dấu Hệ) & Bộ trang bị tối ưu cho từng Anh hùng",
     "widgetShopSafetyTitle": "Bộ Chọn 13 Cửa Hàng Nhanh & Ngưỡng Đáy Ví An Toàn (Safety Floor)",
-    "widgetShopSafetySubtitle": "Tra cứu tức thì Số dư Đóng băng bắt buộc hàng tuần & Phân loại 3 cột: Nên Vét (S+/S) • Mua Khi Dư (A/B) • Cấm Mua (F)"
+    "widgetShopSafetySubtitle": "Tra cứu tức thì Số dư Đóng băng bắt buộc hàng tuần & Phân loại 3 cột: Nên Vét (S+/S) • Mua Khi Dư (A/B) • Cấm Mua (F)",
+    "commentsSectionTitle": "Thảo Luận & Kinh Nghiệm Thực Chiến",
+    "commentsLoginPrompt": "Vui lòng nhập UID để bình luận",
+    "commentsLoginSubtext": "Danh tính bình luận được hiển thị dưới Tên Nhân Vật + Máy Chủ (Bảo mật tuyệt đối UID của bạn).",
+    "commentsPlaceholder": "Chia sẻ mẹo thực chiến, đặt câu hỏi về đội hình hoặc lộ trình máy chủ của bạn...",
+    "commentsSubmitBtn": "Gửi bình luận",
+    "commentsPendingNotice": "Bình luận của bạn đang chờ Quản trị viên phê duyệt.",
+    "commentsSortNewest": "Mới nhất",
+    "commentsSortHelpful": "Hữu ích nhất",
+    "betaTopBarLabel": "Đang hoàn thiện",
+    "betaTopBarText": "Nội dung đang được xây dựng và cập nhật liên tục, có thể chưa chính xác hoàn toàn. Rất mong bạn tham khảo và cho chúng tôi ý kiến!",
+    "betaTopBarAction": "Để lại góp ý ↓",
+    "betaPreCommentTitle": "Nội dung đang xây dựng & Rất mong nhận được góp ý từ bạn!",
+    "betaPreCommentBody": "Đây là nội dung đang xây dựng, có thể chưa chính xác hoàn toàn, vui lòng tham khảo và cho chúng tôi ý kiến. Nếu có vấn đề về nội dung vui lòng để lại comment bên dưới cho đội ngũ phát triển. Cảm ơn bạn!",
+    "betaPreCommentAction": "Để lại góp ý ngay"
   }
 }
 

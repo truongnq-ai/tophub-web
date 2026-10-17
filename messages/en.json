@@ -2,6 +2,7 @@
   "Navigation": {
     "home": "Home",
     "guides": "Guides",
+    "guidesNewBadge": "NEW",
     "giftcodes": "Giftcodes",
     "pricing": "Pricing",
     "check": "Bot Status",
@@ -378,8 +379,8 @@
   "Guides": {
     "hubBadge": "Top Heroes Tactical Encyclopedia (S0 ➔ S4)",
     "hubTitle": "Strategy Guides & Min-Max Data Tables",
-    "hubDescription": "8 specialized topic groups and 31 battle-tested guides standardized from real server mechanics: 1-Queue Rule, Week A/B Event Rotation, Horde Pivot, and Quantitative Data Tables.",
-    "searchPlaceholder": "Search heroes, events, runes, tips... (e.g., Brawler, 2000, Week A)",
+    "hubDescription": "8 specialized topic groups and 31 battle-tested guides standardized from real server mechanics: 1-Queue Rule, Server-Progression Event Roadmap, Horde Pivot, and Quantitative Data Tables.",
+    "searchPlaceholder": "Search heroes, events, runes, tips... (e.g., Brawler, 2000, Guild Race)",
     "searchNoResults": "No guide articles matched your search query.",
     "clearSearch": "Clear search filter",
     "mobileMenuBtn": "Guides Directory (8 Groups)",
@@ -426,8 +427,8 @@
     "toolsStripTitle": "High-Speed Lookup Tools & Master Tables",
     "toolEncyclopediaTitle": "45+ Hero Encyclopedia",
     "toolEncyclopediaDesc": "S0➔S4 Tier List & Minimum Viable Stars",
-    "toolCalendarTitle": "Week A/B Event Cycle",
-    "toolCalendarDesc": "14-day Guild Race & KvK GAR heartbeat",
+    "toolCalendarTitle": "Server Event Roadmap",
+    "toolCalendarDesc": "Guild Race & GAR / KvK schedule",
     "toolShopsTitle": "13-Shop ROI Tier List",
     "toolShopsDesc": "600% ROI picks & Weekly Wallet Safety Floors",
     "toolMasterTablesTitle": "12 Master Data Tables",
@@ -447,8 +448,8 @@
     "keyTakeawaysHideLabel": "Hide quantitative takeaways",
     "widgetHeroTitle": "Interactive 51-Hero Tactical Encyclopedia",
     "widgetHeroSubtitle": "Instant filtering by Faction, Rarity, Role & MVS Sweet Spots",
-    "widgetCalendarTitle": "Biweekly Event Cycle & 300% Double-Dip Planner",
-    "widgetCalendarSubtitle": "Switch Phase 1 ⇄ Phase 2 (Week A / Week B) & 4-Hour Golden Windows",
+    "widgetCalendarTitle": "Server-Progression Event Roadmap & 300% Double-Dip Planner",
+    "widgetCalendarSubtitle": "Switch Phase 1 ⇄ Phase 2 (Guild Race Mode / GAR-KvK Mode) & 4-Hour Golden Windows",
     "widgetMasterTablesTitle": "12 Master Quantitative Tables Explorer",
     "widgetMasterTablesSubtitle": "Cross-table instant lookup across all 12 S0 ➔ S4 datasets without scrolling",
     "widgetTrapsTitle": "10 Account-Ruining Traps Diagnostic & Triage Station",
@@ -460,7 +461,21 @@
     "widgetAnvilTitle": "3×4 Blacksmith Anvil Matrix (+30% Faction Mark) & 24-Hero BiS Finder",
     "widgetAnvilSubtitle": "Inspect the 4 Anvil Columns (Column 4 Neutral Forbidden) & Best-in-Slot sets across 24 core heroes",
     "widgetShopSafetyTitle": "13-Shop Instant Selector & Weekly Wallet Safety Floor Explorer",
-    "widgetShopSafetySubtitle": "Instant lookup for mandatory Weekly Currency Freezes & 3-Column Triage: Must-Buy (S+/S) • Surplus (A/B) • Trap (F)"
+    "widgetShopSafetySubtitle": "Instant lookup for mandatory Weekly Currency Freezes & 3-Column Triage: Must-Buy (S+/S) • Surplus (A/B) • Trap (F)",
+    "commentsSectionTitle": "Commander Discussion & Field Notes",
+    "commentsLoginPrompt": "Please enter your Game UID to comment",
+    "commentsLoginSubtext": "Your comment is displayed under your Character Nickname + Server ID (Your UID is strictly kept private).",
+    "commentsPlaceholder": "Share battle-tested tips, ask lineup questions, or discuss your server timeline...",
+    "commentsSubmitBtn": "Post Comment",
+    "commentsPendingNotice": "Your comment is awaiting Administrator approval.",
+    "commentsSortNewest": "Newest",
+    "commentsSortHelpful": "Most Helpful",
+    "betaTopBarLabel": "Work in Progress",
+    "betaTopBarText": "This guide content is actively being built and refined, so some details may not be 100% accurate yet. Please use it as a reference and share your thoughts!",
+    "betaTopBarAction": "Leave feedback ↓",
+    "betaPreCommentTitle": "Content Under Construction & We Value Your Feedback!",
+    "betaPreCommentBody": "This content is currently under active development and may not be 100% accurate yet — please use it as a reference and share your thoughts with us. If you spot any issues with the content, please leave a comment below for our development team. Thank you!",
+    "betaPreCommentAction": "Leave feedback now"
   }
 }
 

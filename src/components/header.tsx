@@ -42,8 +42,13 @@ export function Header() {
   const { activeAccount, savedAccounts, selectAccount, logout, isLoaded } = useUidSession();
 
   const navigationItems = [
-    { name: tNav("home"), href: "/", icon: Home },
-    { name: tNav("guides"), href: "/guides", icon: BookOpen },
+    { name: tNav("home"), href: "/", icon: Home, badge: null },
+    {
+      name: tNav("guides"),
+      href: "/guides",
+      icon: BookOpen,
+      badge: tNav("guidesNewBadge"),
+    },
   ];
 
   return (
@@ -97,6 +102,11 @@ export function Header() {
                       >
                         <Icon className="h-4 w-4" />
                         <span>{item.name}</span>
+                        {item.badge && (
+                          <span className="ml-auto rounded-full bg-amber-500/20 border border-amber-500/40 px-1.5 py-0.5 font-mono text-[9px] font-bold uppercase text-amber-600 dark:text-amber-400">
+                            {item.badge}
+                          </span>
+                        )}
                       </Link>
                     );
                   })}
@@ -142,6 +152,14 @@ export function Header() {
               >
                 <Icon className="h-4 w-4" />
                 <span>{item.name}</span>
+                {item.badge && (
+                  <span
+                    data-testid="header-guides-new-badge"
+                    className="rounded-full bg-amber-500/20 border border-amber-500/40 px-1.5 py-0.5 font-mono text-[9px] font-bold uppercase leading-none text-amber-600 dark:text-amber-400"
+                  >
+                    {item.badge}
+                  </span>
+                )}
               </Link>
             );
           })}

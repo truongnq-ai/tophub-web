@@ -87,6 +87,10 @@ module.exports = {
   			'pulse-glow': {
   				'0%, 100%': { opacity: '0.6', filter: 'drop-shadow(0 0 15px rgba(245,158,11,0.35))' },
   				'50%': { opacity: '1', filter: 'drop-shadow(0 0 25px rgba(245,158,11,0.75))' }
+  			},
+  			'marquee': {
+  				'0%': { transform: 'translate3d(0%, 0, 0)' },
+  				'100%': { transform: 'translate3d(-50%, 0, 0)' }
   			}
   		},
   		animation: {
@@ -94,7 +98,8 @@ module.exports = {
   			'accordion-up': 'accordion-up 0.2s ease-out',
   			'shimmer': 'shimmer 2.5s infinite',
   			'radar': 'radar 2s cubic-bezier(0, 0, 0.2, 1) infinite',
-  			'pulse-glow': 'pulse-glow 3s ease-in-out infinite'
+  			'pulse-glow': 'pulse-glow 3s ease-in-out infinite',
+  			'marquee': 'marquee 28s linear infinite'
   		}
   	}
   },

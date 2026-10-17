@@ -1,5 +1,6 @@
 import React from "react";
 import { setRequestLocale } from "next-intl/server";
+import type { GuideLocale } from "@/content/guides/types";
 import { GuidesShell } from "@/components/guides/guides-shell";
 
 interface GuidesLayoutProps {
@@ -14,6 +15,7 @@ export default function GuidesLayout({
   params: { locale },
 }: GuidesLayoutProps) {
   setRequestLocale(locale);
+  const safeLocale: GuideLocale = locale === "en" ? "en" : "vi";
 
-  return <GuidesShell>{children}</GuidesShell>;
+  return <GuidesShell locale={safeLocale}>{children}</GuidesShell>;
 }
