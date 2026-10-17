@@ -25,13 +25,20 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { previewPlayerAction, enrollPlayerAction } from "@/actions/players";
 import { useUidSession, type SavedAccount } from "@/hooks/use-uid-session";
+import { sanitizeReturnUrl, navigateToReturnUrl } from "@/lib/return-url";
 import type { PlayerPreviewResponse } from "@/types/api";
 
 interface UidEnrollFormProps {
   initialActiveCodes?: Array<{ code: string; status: string }>;
+  returnUrl?: string | null;
+  onReturnUrlRedirect?: (url: string) => void;
 }
 
-export function UidEnrollForm({ initialActiveCodes }: UidEnrollFormProps) {
+export function UidEnrollForm({
+  initialActiveCodes,
+  returnUrl,
+  onReturnUrlRedirect,
+}: UidEnrollFormProps) {
   const t = useTranslations("Home");
   const { savedAccounts, selectAccount, saveAccount, removeSavedAccount } = useUidSession();
 
@@ -41,6 +48,34 @@ export function UidEnrollForm({ initialActiveCodes }: UidEnrollFormProps) {
   const [previewData, setPreviewData] = useState<PlayerPreviewResponse | null>(null);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
+  const [resolvedReturnUrl, setResolvedReturnUrl] = useState<string | null>(() =>
+    sanitizeReturnUrl(returnUrl)
+  );
+
+  React.useEffect(() => {
+    if (returnUrl !== undefined) {
+      setResolvedReturnUrl(sanitizeReturnUrl(returnUrl));
+      return;
+    }
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      setResolvedReturnUrl(sanitizeReturnUrl(params.get("returnUrl")));
+    }
+  }, [returnUrl]);
+
+  const triggerReturnRedirectIfNeeded = () => {
+    if (!resolvedReturnUrl) return;
+    if (onReturnUrlRedirect) {
+      onReturnUrlRedirect(resolvedReturnUrl);
+    } else {
+      navigateToReturnUrl(resolvedReturnUrl);
+    }
+  };
+
+  const handleSelectSavedAccount = async (account: SavedAccount) => {
+    await selectAccount(account);
+    triggerReturnRedirectIfNeeded();
+  };
 
   const handleCopyCode = (code: string) => {
     navigator.clipboard.writeText(code);
@@ -83,7 +118,7 @@ export function UidEnrollForm({ initialActiveCodes }: UidEnrollFormProps) {
     if (!previewData) return;
 
     if (previewData.is_enrolled) {
-      // Đã có trong bot: Lưu vào máy và vào thẳng Dashboard
+      // Đã có trong bot: Lưu vào máy và vào thẳng Dashboard (hoặc quay lại returnUrl)
       const account: SavedAccount = {
         uid: previewData.uid,
         nickname: previewData.nickname,
@@ -91,6 +126,7 @@ export function UidEnrollForm({ initialActiveCodes }: UidEnrollFormProps) {
         added_at: Date.now(),
       };
       await saveAccount(account);
+      triggerReturnRedirectIfNeeded();
     } else {
       // Chưa có bot: Gọi enroll để đăng ký và lấy token game
       try {
@@ -105,6 +141,7 @@ export function UidEnrollForm({ initialActiveCodes }: UidEnrollFormProps) {
             added_at: Date.now(),
           };
           await saveAccount(account);
+          triggerReturnRedirectIfNeeded();
         } else {
           setErrorMsg(res.error?.message || t("form.enrollFailed"));
         }
@@ -264,7 +301,7 @@ export function UidEnrollForm({ initialActiveCodes }: UidEnrollFormProps) {
                 className="border border-border/80 bg-card/70 hover:bg-card hover:border-amber-500/40 transition-all rounded-2xl p-3.5 flex items-center justify-between gap-3 shadow-sm"
               >
                 <div
-                  onClick={() => selectAccount(account)}
+                  onClick={() => handleSelectSavedAccount(account)}
                   className="flex items-center gap-3 cursor-pointer overflow-hidden flex-1"
                 >
                   <div className="h-9 w-9 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-500 flex items-center justify-center font-bold text-sm shrink-0">
@@ -281,7 +318,7 @@ export function UidEnrollForm({ initialActiveCodes }: UidEnrollFormProps) {
                 <div className="flex items-center gap-1.5 shrink-0">
                   <Button
                     size="sm"
-                    onClick={() => selectAccount(account)}
+                    onClick={() => handleSelectSavedAccount(account)}
                     className="h-8 px-3 rounded-lg text-xs font-bold bg-amber-500/20 hover:bg-amber-500 text-amber-600 dark:text-amber-400 hover:text-slate-950 transition-colors"
                   >
                     {t("savedAccounts.manageBtn")}

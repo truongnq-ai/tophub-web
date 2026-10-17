@@ -39,6 +39,7 @@ import { HordePivotStepperWidget } from "./widgets/horde-pivot-stepper-widget";
 import { BlacksmithAnvilMatrixWidget } from "./widgets/blacksmith-anvil-matrix-widget";
 import { ShopSafetyFloorWidget } from "./widgets/shop-safety-floor-widget";
 import { ProContentGate } from "./pro-content-gate";
+import { GuideCommentsSection } from "./guide-comments-section";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 
@@ -892,6 +893,12 @@ export function GuideArticleRenderer({
           <div />
         )}
       </div>
+
+      {/* Unified Guide Discussion Hub (Attached across all 31 article pages) */}
+      <GuideCommentsSection
+        pageKey={`guides:${article.categorySlug}/${article.slug}`}
+        locale={locale}
+      />
     </article>
   );
 }

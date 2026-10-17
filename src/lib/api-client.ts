@@ -19,6 +19,13 @@ import type {
   AdminRetryResponse,
   AdminWeeklyTimelineItem,
   AdminAccountCheckinHistory,
+  CommentIntentTag,
+  CommentStatus,
+  PublicCommentItem,
+  PublicCommentsListResponse,
+  AdminCommentItem,
+  AdminCommentsListResponse,
+  AdminBannedWordsResponse,
 } from "@/types/api";
 
 
@@ -318,4 +325,122 @@ export const apiClient = {
       headers: { Authorization: `Bearer ${token}` },
       body: JSON.stringify({ plan_price_id: planPriceId }),
     }),
+
+  // Guide Comments Public Endpoints
+  getPublicComments: (params: {
+    page_key: string;
+    sort?: "newest" | "most_helpful";
+    viewer_uid?: string;
+    page?: number;
+    limit?: number;
+  }) => {
+    const qs = new URLSearchParams();
+    qs.set("page_key", params.page_key);
+    if (params.sort) qs.set("sort", params.sort);
+    if (params.viewer_uid) qs.set("viewer_uid", params.viewer_uid);
+    if (params.page) qs.set("page", String(params.page));
+    if (params.limit) qs.set("limit", String(params.limit));
+    return apiFetch<PublicCommentsListResponse>(`/api/v1/comments?${qs.toString()}`, {
+      cache: "no-store",
+    });
+  },
+
+  createPublicComment: (data: {
+    page_key: string;
+    uid: string;
+    content: string;
+    intent_tag?: CommentIntentTag;
+    parent_id?: string | null;
+    reply_to_comment_id?: string | null;
+  }) =>
+    apiFetch<PublicCommentItem>("/api/v1/comments", {
+      method: "POST",
+      body: JSON.stringify(data),
+    }),
+
+  toggleCommentLike: (commentId: string, uid: string) =>
+    apiFetch<{ id: string; viewer_has_liked: boolean; helpful_count: number }>(
+      `/api/v1/comments/${encodeURIComponent(commentId)}/like`,
+      {
+        method: "POST",
+        body: JSON.stringify({ uid }),
+      }
+    ),
+
+  deleteOwnComment: (commentId: string, uid: string) =>
+    apiFetch<{ id: string; status: string }>(
+      `/api/v1/comments/${encodeURIComponent(commentId)}`,
+      {
+        method: "DELETE",
+        body: JSON.stringify({ uid }),
+      }
+    ),
+
+  // Guide Comments Admin Moderation Endpoints
+  getAdminComments: (
+    token: string,
+    query?: {
+      status?: string;
+      page_key?: string;
+      search?: string;
+      page?: number;
+      limit?: number;
+    }
+  ) => {
+    const qs = new URLSearchParams();
+    if (query?.status) qs.set("status", query.status);
+    if (query?.page_key) qs.set("page_key", query.page_key);
+    if (query?.search) qs.set("search", query.search);
+    if (query?.page) qs.set("page", String(query.page));
+    if (query?.limit) qs.set("limit", String(query.limit));
+    const suffix = qs.toString() ? `?${qs.toString()}` : "";
+    return apiFetch<AdminCommentsListResponse>(`/api/v1/admin/comments${suffix}`, {
+      headers: { Authorization: `Bearer ${token}` },
+      cache: "no-store",
+    });
+  },
+
+  updateAdminComment: (
+    token: string,
+    id: string,
+    data: { status?: CommentStatus; is_pinned?: boolean }
+  ) =>
+    apiFetch<{ id: string; status: CommentStatus; is_pinned: boolean }>(
+      `/api/v1/admin/comments/${encodeURIComponent(id)}`,
+      {
+        method: "PATCH",
+        headers: { Authorization: `Bearer ${token}` },
+        body: JSON.stringify(data),
+      }
+    ),
+
+  replyAdminComment: (
+    token: string,
+    data: {
+      page_key: string;
+      content: string;
+      parent_id?: string | null;
+      reply_to_comment_id?: string | null;
+      is_pinned?: boolean;
+    }
+  ) =>
+    apiFetch<AdminCommentItem>("/api/v1/admin/comments/reply", {
+      method: "POST",
+      headers: { Authorization: `Bearer ${token}` },
+      body: JSON.stringify(data),
+    }),
+
+  getAdminBannedWords: (token: string) =>
+    apiFetch<AdminBannedWordsResponse>("/api/v1/admin/comments/banned-words", {
+      headers: { Authorization: `Bearer ${token}` },
+      cache: "no-store",
+    }),
+
+  updateAdminBannedWords: (token: string, words: string[]) =>
+    apiFetch<{ custom_words: string[] }>("/api/v1/admin/comments/banned-words", {
+      method: "PUT",
+      headers: { Authorization: `Bearer ${token}` },
+      body: JSON.stringify({ words }),
+    }),
 };
+

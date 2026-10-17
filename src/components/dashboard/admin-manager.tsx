@@ -15,6 +15,7 @@ import {
   Database,
   Radio,
   RefreshCw,
+  MessageSquare,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -33,6 +34,7 @@ import { TabAccounts } from "./admin/tab-accounts";
 import { TabGiftcodes } from "./admin/tab-giftcodes";
 import { TabRedemptions } from "./admin/tab-redemptions";
 import { TabCheckins } from "./admin/tab-checkins";
+import { TabComments } from "./admin/tab-comments";
 
 interface AdminManagerProps {
   initialAccounts: AdminAccountItem[];
@@ -410,6 +412,14 @@ export function AdminManager({ initialAccounts, locale }: AdminManagerProps) {
                 {checkinsCount}
               </Badge>
             </TabsTrigger>
+
+            <TabsTrigger
+              value="comments"
+              className="gap-2 px-4 py-2 text-xs sm:text-sm font-bold rounded-lg data-[state=active]:bg-card data-[state=active]:text-foreground data-[state=active]:shadow-sm text-muted-foreground min-h-[40px]"
+            >
+              <MessageSquare className="h-4 w-4 text-rose-500" />
+              <span>Bình Luận Cẩm Nang</span>
+            </TabsTrigger>
           </TabsList>
         </div>
 
@@ -436,6 +446,11 @@ export function AdminManager({ initialAccounts, locale }: AdminManagerProps) {
         {/* Tab 4 Content: Checkins History */}
         <TabsContent value="checkins" className="mt-0 focus-visible:outline-none">
           <TabCheckins />
+        </TabsContent>
+
+        {/* Tab 5 Content: Guide Comments Moderation */}
+        <TabsContent value="comments" className="mt-0 focus-visible:outline-none">
+          <TabComments onStatsChange={loadStats} />
         </TabsContent>
       </Tabs>
     </div>

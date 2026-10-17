@@ -221,3 +221,74 @@ export interface AdminAccountCheckinHistory {
   };
 }
 
+export type CommentIntentTag = "DISCUSSION" | "QUESTION" | "TIP";
+export type CommentStatus = "APPROVED" | "PENDING_REVIEW" | "HIDDEN" | "DELETED";
+
+export interface PublicCommentItem {
+  id: string;
+  page_key: string;
+  author_nickname: string;
+  author_server_id: string;
+  is_admin_author: boolean;
+  is_pro_author: boolean;
+  parent_id: string | null;
+  reply_to_comment_id: string | null;
+  reply_to_nickname: string | null;
+  reply_to_server_id: string | null;
+  intent_tag: CommentIntentTag;
+  content: string;
+  status: "APPROVED" | "PENDING_REVIEW";
+  is_pinned: boolean;
+  helpful_count: number;
+  viewer_has_liked: boolean;
+  is_own_comment: boolean;
+  created_at: string;
+  replies?: PublicCommentItem[];
+}
+
+export interface PublicCommentsListResponse {
+  items: PublicCommentItem[];
+  total: number;
+  page: number;
+  limit: number;
+}
+
+export interface AdminCommentItem {
+  id: string;
+  page_key: string;
+  author_uid: string | null;
+  author_nickname: string;
+  author_server_id: string;
+  is_admin_author: boolean;
+  is_pro_author: boolean;
+  parent_id: string | null;
+  reply_to_comment_id: string | null;
+  reply_to_nickname: string | null;
+  reply_to_server_id: string | null;
+  intent_tag: CommentIntentTag;
+  content: string;
+  status: CommentStatus;
+  flagged_reason: string | null;
+  is_pinned: boolean;
+  helpful_count: number;
+  created_at: string;
+}
+
+export interface AdminCommentsListResponse {
+  items: AdminCommentItem[];
+  total: number;
+  page: number;
+  limit: number;
+  summary: {
+    pending_count: number;
+    approved_count: number;
+    hidden_count: number;
+  };
+}
+
+export interface AdminBannedWordsResponse {
+  default_words: string[];
+  custom_words: string[];
+}
+
+

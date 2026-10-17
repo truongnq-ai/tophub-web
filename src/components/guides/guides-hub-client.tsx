@@ -38,6 +38,7 @@ import type {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
+import { GuideCommentsSection } from "./guide-comments-section";
 import { cn } from "@/lib/utils";
 
 interface GuidesHubClientProps {
@@ -553,6 +554,9 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
           })}
         </div>
       </section>
+
+      {/* Unified Guide Discussion Hub (Attached to the main /guides hub page) */}
+      <GuideCommentsSection pageKey="guides:hub" locale={locale} />
     </div>
   );
 }
