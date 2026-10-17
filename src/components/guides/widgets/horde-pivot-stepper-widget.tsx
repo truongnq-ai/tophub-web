@@ -20,6 +20,7 @@ import type {
 } from "@/content/guides/types";
 import { ARTICLE_4_2_HORDE_PIVOT_ROADMAP } from "@/content/guides/groups/group-4/4.2-horde-pivot-roadmap";
 import { useUidSession } from "@/hooks/use-uid-session";
+import { RichGuideText } from "@/components/guides/blocks/rich-guide-text";
 
 export interface HordePivotStepperWidgetProps {
   article?: GuideArticle;
@@ -37,8 +38,16 @@ interface ParsedPivotStage {
   shardAndBookRule: string;
   gearAndBuildingRule: string;
   leagueRosterRole: string;
-  queue1Heroes: { name: string; faction: "league" | "horde"; note: string }[];
-  queue2Heroes: { name: string; faction: "league" | "horde"; note: string }[];
+  queue1Heroes: {
+    name: string;
+    faction: "league" | "horde";
+    note: { vi: string; en: string };
+  }[];
+  queue2Heroes: {
+    name: string;
+    faction: "league" | "horde";
+    note: { vi: string; en: string };
+  }[];
 }
 
 const STAGE_META: Record<
@@ -47,8 +56,16 @@ const STAGE_META: Record<
     dayRangeBadge: { vi: string; en: string };
     shortTitle: { vi: string; en: string };
     auraBadge: { vi: string; en: string };
-    queue1Heroes: { name: string; faction: "league" | "horde"; note: string }[];
-    queue2Heroes: { name: string; faction: "league" | "horde"; note: string }[];
+    queue1Heroes: {
+      name: string;
+      faction: "league" | "horde";
+      note: { vi: string; en: string };
+    }[];
+    queue2Heroes: {
+      name: string;
+      faction: "league" | "horde";
+      note: { vi: string; en: string };
+    }[];
   }
 > = {
   1: {
@@ -62,18 +79,37 @@ const STAGE_META: Record<
       en: "6 League (+35% Aura) • 0 Universal Shards",
     },
     queue1Heroes: [
-      { name: "Secret Keeper", faction: "league", note: "Tank (0 Shards)" },
-      { name: "Adjudicator", faction: "league", note: "Tank" },
-      { name: "Pyromancer", faction: "league", note: "Main Carry" },
-      { name: "Astrologer", faction: "league", note: "Burst (0 Books)" },
-      { name: "Bard", faction: "league", note: "Buffer" },
-      { name: "Nun", faction: "league", note: "Healer" },
+      {
+        name: "Secret Keeper",
+        faction: "league",
+        note: { vi: "Tank (0 Mảnh)", en: "Tank (0 Shards)" },
+      },
+      {
+        name: "Adjudicator",
+        faction: "league",
+        note: { vi: "Tank", en: "Tank" },
+      },
+      {
+        name: "Pyromancer",
+        faction: "league",
+        note: { vi: "Main Carry", en: "Main Carry" },
+      },
+      {
+        name: "Astrologer",
+        faction: "league",
+        note: { vi: "Burst (0 Sách)", en: "Burst (0 Books)" },
+      },
+      { name: "Bard", faction: "league", note: { vi: "Buffer", en: "Buffer" } },
+      { name: "Nun", faction: "league", note: { vi: "Healer", en: "Healer" } },
     ],
     queue2Heroes: [
       {
         name: "6 SSR Horde (Parked Lv.135–150)",
         faction: "horde",
-        note: "Chờ tiếp quản Đội 1",
+        note: {
+          vi: "Chờ tiếp quản Đội 1",
+          en: "Waiting to take over Queue 1",
+        },
       },
     ],
   },
@@ -88,16 +124,40 @@ const STAGE_META: Record<
       en: "4 League + 2 Horde (+15% Aura) • 1-Red Star (160 Shards)",
     },
     queue1Heroes: [
-      { name: "Desert Prince", faction: "horde", note: "1★ Đỏ (160 Mảnh)" },
-      { name: "Adjudicator", faction: "league", note: "Sub-Tank" },
-      { name: "Storm Maiden", faction: "horde", note: "1★ Đỏ (160 Mảnh)" },
-      { name: "Pyromancer", faction: "league", note: "Sub-Carry" },
-      { name: "Bard", faction: "league", note: "Buffer" },
-      { name: "Nun", faction: "league", note: "Healer" },
+      {
+        name: "Desert Prince",
+        faction: "horde",
+        note: { vi: "1★ Đỏ (160 Mảnh)", en: "1★ Red (160 Shards)" },
+      },
+      {
+        name: "Adjudicator",
+        faction: "league",
+        note: { vi: "Sub-Tank", en: "Sub-Tank" },
+      },
+      {
+        name: "Storm Maiden",
+        faction: "horde",
+        note: { vi: "1★ Đỏ (160 Mảnh)", en: "1★ Red (160 Shards)" },
+      },
+      {
+        name: "Pyromancer",
+        faction: "league",
+        note: { vi: "Sub-Carry", en: "Sub-Carry" },
+      },
+      { name: "Bard", faction: "league", note: { vi: "Buffer", en: "Buffer" } },
+      { name: "Nun", faction: "league", note: { vi: "Healer", en: "Healer" } },
     ],
     queue2Heroes: [
-      { name: "Secret Keeper", faction: "league", note: "Lùi xuống Đội 2" },
-      { name: "Astrologer", faction: "league", note: "Lùi xuống Đội 2" },
+      {
+        name: "Secret Keeper",
+        faction: "league",
+        note: { vi: "Lùi xuống Đội 2", en: "Moved to Queue 2" },
+      },
+      {
+        name: "Astrologer",
+        faction: "league",
+        note: { vi: "Lùi xuống Đội 2", en: "Moved to Queue 2" },
+      },
     ],
   },
   3: {
@@ -111,20 +171,74 @@ const STAGE_META: Record<
       en: "6 Horde Queue 1 (+35%) • 2.8M League Queue 2",
     },
     queue1Heroes: [
-      { name: "Desert Prince", faction: "horde", note: "1★ Trắng (560 Mảnh)" },
-      { name: "Swordmaster / Barbarian", faction: "horde", note: "Sub-Tank" },
-      { name: "Storm Maiden", faction: "horde", note: "1★ Trắng (560 Mảnh)" },
-      { name: "Wilderness Hunter", faction: "horde", note: "Buff Tốc Đánh" },
-      { name: "Witch", faction: "horde", note: "Day 41 • 1★ Đỏ (160 Mảnh)" },
-      { name: "Soulmancer / Warlock", faction: "horde", note: "Chia sẻ Sát thương" },
+      {
+        name: "Desert Prince",
+        faction: "horde",
+        note: { vi: "1★ Trắng (560 Mảnh)", en: "1★ White (560 Shards)" },
+      },
+      {
+        name: "Swordmaster / Barbarian",
+        faction: "horde",
+        note: { vi: "Sub-Tank", en: "Sub-Tank" },
+      },
+      {
+        name: "Storm Maiden",
+        faction: "horde",
+        note: { vi: "1★ Trắng (560 Mảnh)", en: "1★ White (560 Shards)" },
+      },
+      {
+        name: "Wilderness Hunter",
+        faction: "horde",
+        note: { vi: "Buff Tốc Đánh", en: "ATK Speed Buffer" },
+      },
+      {
+        name: "Witch",
+        faction: "horde",
+        note: {
+          vi: "Ngày 41 • 1★ Đỏ (160 Mảnh)",
+          en: "Day 41 • 1★ Red (160 Shards)",
+        },
+      },
+      {
+        name: "Soulmancer / Warlock",
+        faction: "horde",
+        note: { vi: "Chia sẻ Sát thương", en: "Damage Link Support" },
+      },
     ],
     queue2Heroes: [
-      { name: "Adjudicator", faction: "league", note: "Đội 2 Nguyên vẹn (2.8M)" },
-      { name: "Secret Keeper", faction: "league", note: "Đội 2 Nguyên vẹn" },
-      { name: "Pyromancer", faction: "league", note: "Đội 2 Nguyên vẹn" },
-      { name: "Astrologer", faction: "league", note: "Đội 2 Nguyên vẹn" },
-      { name: "Bard", faction: "league", note: "Đội 2 Nguyên vẹn" },
-      { name: "Nun", faction: "league", note: "Đội 2 Nguyên vẹn" },
+      {
+        name: "Adjudicator",
+        faction: "league",
+        note: {
+          vi: "Đội 2 Nguyên vẹn (2.8M)",
+          en: "Intact Queue 2 (2.8M)",
+        },
+      },
+      {
+        name: "Secret Keeper",
+        faction: "league",
+        note: { vi: "Đội 2 Nguyên vẹn", en: "Intact Queue 2" },
+      },
+      {
+        name: "Pyromancer",
+        faction: "league",
+        note: { vi: "Đội 2 Nguyên vẹn", en: "Intact Queue 2" },
+      },
+      {
+        name: "Astrologer",
+        faction: "league",
+        note: { vi: "Đội 2 Nguyên vẹn", en: "Intact Queue 2" },
+      },
+      {
+        name: "Bard",
+        faction: "league",
+        note: { vi: "Đội 2 Nguyên vẹn", en: "Intact Queue 2" },
+      },
+      {
+        name: "Nun",
+        faction: "league",
+        note: { vi: "Đội 2 Nguyên vẹn", en: "Intact Queue 2" },
+      },
     ],
   },
   4: {
@@ -138,27 +252,53 @@ const STAGE_META: Record<
       en: "5 Mythics + 1 Awakened SSR (9 vs 27 Soul Stones)",
     },
     queue1Heroes: [
-      { name: "Beastmaster", faction: "horde", note: "S2 Mythic Tank" },
-      { name: "Desert Prince", faction: "horde", note: "UW +10 ➔ +20" },
-      { name: "Wukong", faction: "horde", note: "S2 Mythic God Carry" },
-      { name: "Storm Maiden", faction: "horde", note: "UW +10 ➔ +20" },
-      { name: "Witch", faction: "horde", note: "Mythic Healer/CC" },
+      {
+        name: "Beastmaster",
+        faction: "horde",
+        note: { vi: "S2 Mythic Tank", en: "S2 Mythic Tank" },
+      },
+      {
+        name: "Desert Prince",
+        faction: "horde",
+        note: { vi: "UW +10 ➔ +20", en: "UW +10 ➔ +20" },
+      },
+      {
+        name: "Wukong",
+        faction: "horde",
+        note: { vi: "S2 Mythic God Carry", en: "S2 Mythic God Carry" },
+      },
+      {
+        name: "Storm Maiden",
+        faction: "horde",
+        note: { vi: "UW +10 ➔ +20", en: "UW +10 ➔ +20" },
+      },
+      {
+        name: "Witch",
+        faction: "horde",
+        note: { vi: "Mythic Healer/CC", en: "Mythic Healer/CC" },
+      },
       {
         name: "Soulmancer / Warlock",
         faction: "horde",
-        note: "Awakened (9 Hồn Đá Đỏ)",
+        note: {
+          vi: "Awakened (9 Hồn Đá Đỏ)",
+          en: "Awakened (9 Soul Stones)",
+        },
       },
     ],
     queue2Heroes: [
       {
         name: "Pure League Queue 2 (6 Heroes)",
         faction: "league",
-        note: "3v3 Apex Arena & Giữ Mỏ",
+        note: {
+          vi: "3v3 Apex Arena & Giữ Mỏ",
+          en: "3v3 Apex Arena & Mine Defense",
+        },
       },
       {
         name: "Pure Nature Queue 3 (Natural Drops)",
         faction: "league",
-        note: "Đội 3 Tự nhiên",
+        note: { vi: "Đội 3 Tự nhiên", en: "Natural Queue 3" },
       },
     ],
   },
@@ -359,10 +499,18 @@ export function HordePivotStepperWidget({
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-3">
             <div>
               <span className="text-xs font-semibold uppercase tracking-wider text-amber-400">
-                {currentStage.stageAndMilestone}
+                <RichGuideText
+                  text={currentStage.stageAndMilestone}
+                  variant="inline"
+                  accentColor="amber"
+                />
               </span>
               <h4 className="mt-0.5 text-base font-bold text-white">
-                {currentStage.queue1Lineup}
+                <RichGuideText
+                  text={currentStage.queue1Lineup}
+                  variant="inline"
+                  accentColor="amber"
+                />
               </h4>
             </div>
             <span className="rounded-lg border border-amber-500/30 bg-amber-500/10 px-3 py-1 font-mono text-xs font-bold text-amber-300">
@@ -400,7 +548,7 @@ export function HordePivotStepperWidget({
                       {hero.name}
                     </span>
                     <span className="rounded bg-black/30 px-1.5 py-0.5 font-mono text-[10px] text-slate-200">
-                      {hero.note}
+                      {hero.note[locale]}
                     </span>
                   </div>
                 ))}
@@ -427,15 +575,17 @@ export function HordePivotStepperWidget({
                     >
                       <span className="font-semibold">{hero.name}</span>
                       <span className="text-[11px] text-emerald-300">
-                        {hero.note}
+                        {hero.note[locale]}
                       </span>
                     </div>
                   ))}
                 </div>
               </div>
-              <p className="mt-3 border-t border-white/10 pt-2.5 text-xs leading-relaxed text-slate-300">
-                {currentStage.leagueRosterRole}
-              </p>
+              <RichGuideText
+                text={currentStage.leagueRosterRole}
+                accentColor="sky"
+                className="mt-3 border-t border-white/10 pt-2.5 text-xs leading-relaxed text-slate-300"
+              />
             </div>
           </div>
 
@@ -450,9 +600,11 @@ export function HordePivotStepperWidget({
                     : "Universal Shard & Skill Book Discipline"}
                 </span>
               </div>
-              <p className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-200">
-                {currentStage.shardAndBookRule}
-              </p>
+              <RichGuideText
+                text={currentStage.shardAndBookRule}
+                accentColor="amber"
+                className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-200"
+              />
             </div>
 
             <div className="rounded-xl border border-emerald-500/25 bg-emerald-500/[0.06] p-3.5">
@@ -471,9 +623,11 @@ export function HordePivotStepperWidget({
                   </span>
                 )}
               </div>
-              <p className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-200">
-                {currentStage.gearAndBuildingRule}
-              </p>
+              <RichGuideText
+                text={currentStage.gearAndBuildingRule}
+                accentColor="emerald"
+                className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-200"
+              />
             </div>
           </div>
 

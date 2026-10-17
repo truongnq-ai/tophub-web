@@ -1,7 +1,10 @@
 import React from "react";
 import { describe, expect, it, vi, beforeEach } from "vitest";
-import { render, screen, fireEvent } from "@testing-library/react";
-import { GuidesToc } from "../src/components/guides/guides-toc";
+import { render, screen, fireEvent, act } from "@testing-library/react";
+import {
+  GuidesToc,
+  sanitizeTocTitle,
+} from "../src/components/guides/guides-toc";
 import { ARTICLE_1_2_STRICT_ONE_QUEUE } from "../src/content/guides/groups/group-1/1.2-strict-one-queue-rule";
 import { ARTICLE_1_3_DIAMOND_SPENDING } from "../src/content/guides/groups/group-1/1.3-diamond-and-spending-guide";
 
@@ -90,4 +93,38 @@ describe("GuidesToc (Scroll-Tracking Neon Shuttle Bubble)", () => {
     expect(link1?.getAttribute("data-neon-active")).toBe("true");
     expect(link2?.getAttribute("data-neon-active")).toBe("false");
   });
+
+  it("strips raw Markdown tokens (** and `) via sanitizeTocTitle and updates activeId when receiving tophub:tab-change", () => {
+    expect(
+      sanitizeTocTitle("1. Điểm gãy **Pyromancer** đạt `560 Mảnh`")
+    ).toBe("1. Điểm gãy Pyromancer đạt 560 Mảnh");
+
+    const sec1Id = ARTICLE_1_2_STRICT_ONE_QUEUE.freeSections[0].id;
+    const sec2Id = ARTICLE_1_2_STRICT_ONE_QUEUE.freeSections[1].id;
+
+    render(
+      <div>
+        <div id={sec1Id} data-tab-hidden="true" />
+        <div id={sec2Id} data-tab-hidden="false" />
+        <GuidesToc article={ARTICLE_1_2_STRICT_ONE_QUEUE} />
+      </div>
+    );
+
+    const shuttleBtn = screen.getByRole("button", {
+      name: /Tiến độ đọc và Mục lục Neon/i,
+    });
+    fireEvent.click(shuttleBtn);
+
+    act(() => {
+      window.dispatchEvent(
+        new CustomEvent("tophub:tab-change", { detail: { tab: "data" } })
+      );
+    });
+
+    const secondSecTitle =
+      ARTICLE_1_2_STRICT_ONE_QUEUE.freeSections[1].title.vi;
+    const secondLink = screen.getByText(secondSecTitle).closest("a");
+    expect(secondLink?.getAttribute("data-neon-active")).toBe("true");
+  });
 });
+

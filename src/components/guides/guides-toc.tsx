@@ -120,7 +120,38 @@ function useArticleScrollSpy(sectionIds: string[]) {
     };
   }, [sectionIds]);
 
+  // Synchronize activeId immediately when the user switches Article View Mode Tabs
+  useEffect(() => {
+    if (typeof window === "undefined" || sectionIds.length === 0) return;
+
+    const handleTabChange = () => {
+      const syncFirstVisible = () => {
+        const currentEl = activeId ? document.getElementById(activeId) : null;
+        if (!currentEl || currentEl.closest('[data-tab-hidden="true"]')) {
+          const firstVisibleId = sectionIds.find((id) => {
+            const el = document.getElementById(id);
+            return Boolean(el && !el.closest('[data-tab-hidden="true"]'));
+          });
+          if (firstVisibleId) {
+            setActiveId(firstVisibleId);
+          }
+        }
+      };
+      syncFirstVisible();
+      requestAnimationFrame(syncFirstVisible);
+    };
+
+    window.addEventListener("tophub:tab-change", handleTabChange);
+    return () => {
+      window.removeEventListener("tophub:tab-change", handleTabChange);
+    };
+  }, [sectionIds, activeId]);
+
   return { activeId, setActiveId, progress };
+}
+
+export function sanitizeTocTitle(raw: string): string {
+  return raw.replace(/(\*\*|`)/g, "").trim();
 }
 
 function buildTocSections(
@@ -134,11 +165,11 @@ function buildTocSections(
   ];
   return raw.map((sec) => ({
     id: sec.id,
-    title: sec.title[locale],
+    title: sanitizeTocTitle(sec.title[locale]),
     isPro: sec.isPro,
     subSections: (sec.subSections ?? []).map((sub) => ({
       id: sub.id,
-      title: sub.title[locale],
+      title: sanitizeTocTitle(sub.title[locale]),
     })),
   }));
 }

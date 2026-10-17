@@ -20,6 +20,7 @@ import type {
 } from "@/content/guides/types";
 import { ARTICLE_5_2_GOLDEN_GEAR_SETS } from "@/content/guides/groups/group-5/5.2-golden-gear-sets";
 import { useUidSession } from "@/hooks/use-uid-session";
+import { RichGuideText } from "@/components/guides/blocks/rich-guide-text";
 
 export interface BlacksmithAnvilMatrixWidgetProps {
   article?: GuideArticle;
@@ -227,7 +228,9 @@ export function BlacksmithAnvilMatrixWidget({
         return false;
       if (normalizedQuery) {
         const haystack =
-          `${row.heroAndFaction} ${row.primaryBisSet} ${row.altSet} ${row.rationale}`.toLowerCase();
+          `${row.heroAndFaction} ${row.primaryBisSet} ${row.altSet} ${row.rationale}`
+            .replace(/[*`]/g, "")
+            .toLowerCase();
         if (!haystack.includes(normalizedQuery)) return false;
       }
       return true;
@@ -507,7 +510,11 @@ export function BlacksmithAnvilMatrixWidget({
             >
               <div className="flex items-start justify-between gap-2">
                 <div className="text-xs sm:text-sm font-bold text-white">
-                  {row.heroAndFaction}
+                  <RichGuideText
+                    text={row.heroAndFaction}
+                    variant="inline"
+                    accentColor="amber"
+                  />
                 </div>
                 <span className="shrink-0 rounded bg-white/10 px-2 py-0.5 font-mono text-[10px] uppercase text-slate-300">
                   {row.role === "tank" ? (
@@ -529,7 +536,14 @@ export function BlacksmithAnvilMatrixWidget({
               <div className="mt-2 rounded-lg border border-amber-500/25 bg-amber-500/10 px-2.5 py-1.5 text-xs font-semibold text-amber-200">
                 <span className="inline-flex items-center gap-1">
                   <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-amber-400" />
-                  <span>BiS #1: {row.primaryBisSet}</span>
+                  <span>
+                    BiS #1:{" "}
+                    <RichGuideText
+                      text={row.primaryBisSet}
+                      variant="inline"
+                      accentColor="amber"
+                    />
+                  </span>
                 </span>
               </div>
 
@@ -537,12 +551,18 @@ export function BlacksmithAnvilMatrixWidget({
                 <span className="font-semibold text-slate-400">
                   {locale === "vi" ? "Phương án phụ: " : "Alt Set: "}
                 </span>
-                {row.altSet}
+                <RichGuideText
+                  text={row.altSet}
+                  variant="inline"
+                  accentColor="neutral"
+                />
               </div>
 
-              <p className="mt-2 border-t border-white/10 pt-2 text-xs leading-relaxed text-slate-300">
-                {row.rationale}
-              </p>
+              <RichGuideText
+                text={row.rationale}
+                accentColor="amber"
+                className="mt-2 border-t border-white/10 pt-2 text-xs leading-relaxed text-slate-300"
+              />
             </div>
           ))}
         </div>

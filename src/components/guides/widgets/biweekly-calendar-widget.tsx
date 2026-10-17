@@ -21,6 +21,7 @@ import { ARTICLE_3_1_BIWEEKLY_ROTATION } from "@/content/guides/groups/group-3/3
 import { ARTICLE_3_3_WEEK_B_ARMS_RACE } from "@/content/guides/groups/group-3/3.3-week-b-arms-race";
 import { ARTICLE_3_4_DOUBLE_DIP_SCHEDULE } from "@/content/guides/groups/group-3/3.4-double-dip-schedule";
 import { cn } from "@/lib/utils";
+import { RichGuideText } from "@/components/guides/blocks/rich-guide-text";
 
 export type CalendarMode = "phase1" | "weekA" | "weekB" | "doubledip";
 export type DoubleDipTierFilter = "all" | "300" | "200" | "immediate";
@@ -567,6 +568,7 @@ export function BiweeklyCalendarWidget({
           item.forbidden0,
         ]
           .join(" ")
+          .replace(/[*`]/g, "")
           .toLowerCase();
         if (!haystack.includes(q)) return false;
       }
@@ -742,9 +744,11 @@ export function BiweeklyCalendarWidget({
                   <Sparkles className="h-3.5 w-3.5 shrink-0" />
                   <span>{copy.scoringLabel}</span>
                 </div>
-                <p className="text-xs text-foreground/90 leading-relaxed">
-                  {activeDayEntry.scoringDetail}
-                </p>
+                <RichGuideText
+                  text={activeDayEntry.scoringDetail}
+                  accentColor="emerald"
+                  className="text-xs text-foreground/90 leading-relaxed"
+                />
               </div>
 
               {/* Red Alert Taboo */}
@@ -753,9 +757,11 @@ export function BiweeklyCalendarWidget({
                   <ShieldAlert className="h-3.5 w-3.5 shrink-0" />
                   <span>{copy.tabooLabel}</span>
                 </div>
-                <p className="text-xs text-foreground/90 leading-relaxed">
-                  {activeDayEntry.tabooWarning}
-                </p>
+                <RichGuideText
+                  text={activeDayEntry.tabooWarning}
+                  accentColor="rose"
+                  className="text-xs text-foreground/90 leading-relaxed"
+                />
               </div>
             </div>
           </div>
@@ -828,7 +834,13 @@ export function BiweeklyCalendarWidget({
                     <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-amber-500/15 border border-amber-500/30 font-mono text-xs font-black text-amber-600 dark:text-amber-300">
                       #{item.index}
                     </span>
-                    <span>{item.itemName}</span>
+                    <span>
+                      <RichGuideText
+                        text={item.itemName}
+                        variant="inline"
+                        accentColor="amber"
+                      />
+                    </span>
                   </h4>
                   <span
                     className={cn(
@@ -848,9 +860,11 @@ export function BiweeklyCalendarWidget({
                       <Flame className="h-3.5 w-3.5 shrink-0" />
                       <span>{copy.tier300Label}</span>
                     </div>
-                    <p className="text-foreground/90 leading-relaxed">
-                      {item.tripleDip300}
-                    </p>
+                    <RichGuideText
+                      text={item.tripleDip300}
+                      accentColor="amber"
+                      className="text-foreground/90 leading-relaxed"
+                    />
                   </div>
 
                   {tierFilter !== "300" && (
@@ -858,9 +872,11 @@ export function BiweeklyCalendarWidget({
                       <div className="font-bold text-emerald-700 dark:text-emerald-300 mb-0.5">
                         {copy.tier200Label}
                       </div>
-                      <p className="text-foreground/90 leading-relaxed">
-                        {item.doubleDip200}
-                      </p>
+                      <RichGuideText
+                        text={item.doubleDip200}
+                        accentColor="emerald"
+                        className="text-foreground/90 leading-relaxed"
+                      />
                     </div>
                   )}
 
@@ -868,18 +884,22 @@ export function BiweeklyCalendarWidget({
                     <div className="font-bold text-muted-foreground mb-0.5">
                       {copy.tier100Label}
                     </div>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {item.singleDip100}
-                    </p>
+                    <RichGuideText
+                      text={item.singleDip100}
+                      accentColor="neutral"
+                      className="text-muted-foreground leading-relaxed"
+                    />
                   </div>
 
                   <div className="rounded-lg border border-rose-500/30 bg-rose-500/10 p-2.5">
                     <div className="font-bold text-rose-600 dark:text-rose-300 mb-0.5">
                       {copy.tier0Label}
                     </div>
-                    <p className="text-foreground/90 leading-relaxed">
-                      {item.forbidden0}
-                    </p>
+                    <RichGuideText
+                      text={item.forbidden0}
+                      accentColor="rose"
+                      className="text-foreground/90 leading-relaxed"
+                    />
                   </div>
                 </div>
               </div>

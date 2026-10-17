@@ -18,6 +18,7 @@ import type {
 } from "@/content/guides/types";
 import { ARTICLE_8_4_MASTER_DATA_TABLES } from "@/content/guides/groups/group-8/8.4-master-data-tables";
 import { ResponsiveDataTable } from "@/components/guides/blocks/responsive-data-table";
+import { RichGuideText } from "@/components/guides/blocks/rich-guide-text";
 import { useUidSession } from "@/hooks/use-uid-session";
 import { Link } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
@@ -393,10 +394,12 @@ export function MasterDataExplorerWidget({
     for (const tbl of allTables) {
       if (tbl.isPro && !hasProAccess) continue;
       const matchingRows = tbl.rows.filter((row) =>
-        row.some((cell) => cell.toLowerCase().includes(normalizedQuery))
+        row.some((cell) =>
+          cell.replace(/[*`]/g, "").toLowerCase().includes(normalizedQuery)
+        )
       );
       const introMatch = tbl.introParagraphs.some((p) =>
-        p.toLowerCase().includes(normalizedQuery)
+        p.replace(/[*`]/g, "").toLowerCase().includes(normalizedQuery)
       );
       if (matchingRows.length > 0 || introMatch) {
         results.push({
@@ -585,12 +588,12 @@ export function MasterDataExplorerWidget({
                     </h4>
                   </div>
                   {table.introParagraphs.map((p, idx) => (
-                    <p
+                    <RichGuideText
                       key={idx}
+                      text={p}
+                      accentColor="amber"
                       className="text-xs text-muted-foreground leading-relaxed"
-                    >
-                      {p}
-                    </p>
+                    />
                   ))}
                   <ResponsiveDataTable
                     caption={table.caption}
@@ -659,12 +662,12 @@ export function MasterDataExplorerWidget({
                 {selectedTable.introParagraphs.length > 0 && (
                   <div className="space-y-2 rounded-xl border border-amber-500/25 bg-amber-500/5 p-3.5">
                     {selectedTable.introParagraphs.map((p, idx) => (
-                      <p
+                      <RichGuideText
                         key={idx}
+                        text={p}
+                        accentColor="amber"
                         className="text-xs sm:text-sm text-foreground/90 leading-relaxed"
-                      >
-                        {p}
-                      </p>
+                      />
                     ))}
                   </div>
                 )}

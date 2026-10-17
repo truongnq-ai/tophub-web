@@ -7,7 +7,6 @@ import {
   ArrowLeft,
   ArrowRight,
   BookOpen,
-  FileText,
   Target,
   BarChart3,
   Stethoscope,
@@ -30,6 +29,7 @@ import { VisualDiagramBlock } from "./blocks/visual-diagram-block";
 import { InteractiveChecklistBlock } from "./blocks/interactive-checklist-block";
 import { CaseStudyBlock } from "./blocks/case-study-block";
 import { MediaSpotlightBlock } from "./blocks/media-spotlight-block";
+import { RichGuideText } from "./blocks/rich-guide-text";
 import { HeroEncyclopediaWidget } from "./widgets/hero-encyclopedia-widget";
 import { BiweeklyCalendarWidget } from "./widgets/biweekly-calendar-widget";
 import { MasterDataExplorerWidget } from "./widgets/master-data-explorer-widget";
@@ -168,12 +168,11 @@ function renderBlock(
   switch (block.type) {
     case "paragraph":
       return (
-        <p
+        <RichGuideText
           key={idx}
+          text={block.text[locale]}
           className="text-sm sm:text-base text-foreground/90 leading-relaxed"
-        >
-          {block.text[locale]}
-        </p>
+        />
       );
     case "list":
       if (block.ordered) {
@@ -184,7 +183,7 @@ function renderBlock(
           >
             {block.items.map((item, i) => (
               <li key={i} className="leading-relaxed">
-                {item[locale]}
+                <RichGuideText text={item[locale]} variant="inline" />
               </li>
             ))}
           </ol>
@@ -198,7 +197,9 @@ function renderBlock(
           {block.items.map((item, i) => (
             <li key={i} className="flex items-start gap-2.5 leading-relaxed">
               <span className="mt-2 h-1.5 w-1.5 rounded-full bg-amber-500 shrink-0" />
-              <span>{item[locale]}</span>
+              <div className="min-w-0 flex-1">
+                <RichGuideText text={item[locale]} />
+              </div>
             </li>
           ))}
         </ul>
@@ -220,6 +221,7 @@ function renderBlock(
           caption={block.caption?.[locale]}
           headers={block.headers.map((h) => h[locale])}
           rows={block.rows.map((r) => r.map((c) => c[locale]))}
+          footnote={block.footnote?.[locale]}
           locale={locale}
         />
       );
@@ -318,15 +320,51 @@ function renderBlock(
   }
 }
 
+export function parseSectionHeading(
+  rawTitle: string,
+  fallbackBadge: string
+): { badge: string; cleanTitle: string } {
+  const trimmed = rawTitle.trim();
+  const subMatch = trimmed.match(/^(\d+\.\d+)\.?\s+(.+)$/);
+  if (subMatch) {
+    return {
+      badge: subMatch[1],
+      cleanTitle: subMatch[2].trim(),
+    };
+  }
+  const secMatch = trimmed.match(/^(\d+)\.?\s+(.+)$/);
+  if (secMatch) {
+    const num = Number.parseInt(secMatch[1], 10);
+    const formatted =
+      Number.isFinite(num) && num < 10 ? `0${num}` : String(secMatch[1]);
+    return {
+      badge: formatted,
+      cleanTitle: secMatch[2].trim(),
+    };
+  }
+  return {
+    badge: fallbackBadge,
+    cleanTitle: trimmed,
+  };
+}
+
 function renderSection(
   section: GuideSection,
   locale: GuideLocale,
   isHidden: boolean,
-  article: GuideArticle
+  article: GuideArticle,
+  sectionNumber: number
 ) {
   const consolidatedSet = CONSOLIDATED_SUBSECTIONS_BY_SLUG[article.slug];
   const visibleSubSections =
     section.subSections?.filter((sub) => !consolidatedSet?.has(sub.id)) ?? [];
+
+  const fallbackH2Badge =
+    sectionNumber < 10 ? `0${sectionNumber}` : String(sectionNumber);
+  const { badge: h2Badge, cleanTitle: h2CleanTitle } = parseSectionHeading(
+    section.title[locale],
+    fallbackH2Badge
+  );
 
   return (
     <div
@@ -338,9 +376,17 @@ function renderSection(
         isHidden && "hidden"
       )}
     >
-      <h2 className="font-heading font-bold text-lg sm:text-xl text-foreground border-l-4 border-amber-500 pl-3.5">
-        {section.title[locale]}
-      </h2>
+      <div className="flex items-center gap-3 border-b border-border/60 pb-3">
+        <span
+          data-testid="section-index-badge"
+          className="inline-flex h-7 min-w-[28px] shrink-0 items-center justify-center rounded-lg border border-amber-500/30 bg-amber-500/10 px-2 font-mono text-xs font-bold text-amber-600 dark:text-amber-400"
+        >
+          {h2Badge}
+        </span>
+        <h2 className="font-heading font-bold text-lg sm:text-xl text-foreground leading-snug">
+          <RichGuideText text={h2CleanTitle} variant="inline" />
+        </h2>
+      </div>
       {section.blocks.length > 0 && (
         <div className="space-y-4">
           {section.blocks.map((block, idx) =>
@@ -350,32 +396,46 @@ function renderSection(
       )}
       {visibleSubSections.length > 0 && (
         <div className="space-y-5 pt-1">
-          {visibleSubSections.map((sub) => (
-            <div
-              key={sub.id}
-              id={sub.id}
-              className="scroll-mt-28 pl-4 sm:pl-5 border-l-2 border-amber-500/45 space-y-3 py-1"
-            >
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <h3 className="font-heading font-bold text-base sm:text-lg text-amber-600 dark:text-amber-400">
-                  {sub.title[locale]}
-                </h3>
-                {sub.badge && (
-                  <Badge
-                    variant="outline"
-                    className="font-mono text-[11px] border-amber-500/30 text-amber-600 dark:text-amber-400"
-                  >
-                    {sub.badge[locale]}
-                  </Badge>
-                )}
+          {visibleSubSections.map((sub, subIdx) => {
+            const fallbackH3Badge = `${sectionNumber}.${subIdx + 1}`;
+            const { badge: h3Badge, cleanTitle: h3CleanTitle } =
+              parseSectionHeading(sub.title[locale], fallbackH3Badge);
+
+            return (
+              <div
+                key={sub.id}
+                id={sub.id}
+                className="scroll-mt-28 rounded-2xl border border-border/60 bg-card/35 p-4 sm:p-5 space-y-3.5"
+              >
+                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border/50 pb-2.5">
+                  <div className="flex items-center gap-2.5 min-w-0">
+                    <span
+                      data-testid="subsection-index-badge"
+                      className="inline-flex h-6 shrink-0 items-center justify-center rounded-md border border-amber-500/25 bg-amber-500/10 px-1.5 font-mono text-[11px] font-bold text-amber-600 dark:text-amber-400"
+                    >
+                      {h3Badge}
+                    </span>
+                    <h3 className="font-heading font-bold text-base sm:text-lg text-foreground leading-snug">
+                      <RichGuideText text={h3CleanTitle} variant="inline" />
+                    </h3>
+                  </div>
+                  {sub.badge && (
+                    <Badge
+                      variant="outline"
+                      className="font-mono text-[11px] border-amber-500/30 text-amber-600 dark:text-amber-400"
+                    >
+                      {sub.badge[locale]}
+                    </Badge>
+                  )}
+                </div>
+                <div className="space-y-3.5">
+                  {sub.blocks.map((block, idx) =>
+                    renderBlock(block, locale, idx, article)
+                  )}
+                </div>
               </div>
-              <div className="space-y-3.5">
-                {sub.blocks.map((block, idx) =>
-                  renderBlock(block, locale, idx, article)
-                )}
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       )}
     </div>
@@ -565,9 +625,10 @@ export function GuideArticleRenderer({
           )}
         </div>
 
-        <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-          {article.summary[locale]}
-        </p>
+        <RichGuideText
+          text={article.summary[locale]}
+          className="text-xs sm:text-sm text-muted-foreground leading-relaxed"
+        />
 
         {/* Unified 3-Column Tactical Brief (TldrActionBox + Integrated Collapsible KeyTakeaways) */}
         {article.tldr ? (
@@ -590,7 +651,12 @@ export function GuideArticleRenderer({
                     className="flex items-start gap-2 leading-relaxed"
                   >
                     <span className="text-emerald-500 font-bold">•</span>
-                    <span>{item[locale]}</span>
+                    <div className="min-w-0 flex-1">
+                      <RichGuideText
+                        text={item[locale]}
+                        accentColor="emerald"
+                      />
+                    </div>
                   </li>
                 ))}
               </ul>
@@ -599,10 +665,11 @@ export function GuideArticleRenderer({
         )}
       </div>
 
-      {/* Sticky 3-Tab Article View Mode Bar (DEC-UX-01) */}
+      {/* Sticky 3-Tab Article View Mode Bar (DEC-UX-01 & DEC-V4-02) */}
       <div
         role="tablist"
         aria-label="Article View Mode"
+        data-testid="article-view-mode-tabs"
         className="sticky top-16 z-30 -mx-1 px-1 py-2 bg-background/90 backdrop-blur-md border-b border-border/70 flex items-center justify-between gap-2 overflow-x-auto no-scrollbar"
       >
         <div className="flex items-center gap-1.5">
@@ -612,7 +679,16 @@ export function GuideArticleRenderer({
               role="tab"
               data-testid="article-tab-core"
               aria-selected={activeTab === "core"}
-              onClick={() => setActiveTab("core")}
+              onClick={() => {
+                setActiveTab("core");
+                if (typeof window !== "undefined") {
+                  window.dispatchEvent(
+                    new CustomEvent("tophub:tab-change", {
+                      detail: { tab: "core" },
+                    })
+                  );
+                }
+              }}
               className={cn(
                 "inline-flex items-center gap-1.5 min-h-[38px] px-3 py-1.5 rounded-xl border text-xs font-heading font-bold whitespace-nowrap transition-all cursor-pointer",
                 activeTab === "core"
@@ -634,7 +710,16 @@ export function GuideArticleRenderer({
               role="tab"
               data-testid="article-tab-data"
               aria-selected={activeTab === "data"}
-              onClick={() => setActiveTab("data")}
+              onClick={() => {
+                setActiveTab("data");
+                if (typeof window !== "undefined") {
+                  window.dispatchEvent(
+                    new CustomEvent("tophub:tab-change", {
+                      detail: { tab: "data" },
+                    })
+                  );
+                }
+              }}
               className={cn(
                 "inline-flex items-center gap-1.5 min-h-[38px] px-3 py-1.5 rounded-xl border text-xs font-heading font-bold whitespace-nowrap transition-all cursor-pointer",
                 activeTab === "data"
@@ -656,7 +741,16 @@ export function GuideArticleRenderer({
               role="tab"
               data-testid="article-tab-action"
               aria-selected={activeTab === "action"}
-              onClick={() => setActiveTab("action")}
+              onClick={() => {
+                setActiveTab("action");
+                if (typeof window !== "undefined") {
+                  window.dispatchEvent(
+                    new CustomEvent("tophub:tab-change", {
+                      detail: { tab: "action" },
+                    })
+                  );
+                }
+              }}
               className={cn(
                 "inline-flex items-center gap-1.5 min-h-[38px] px-3 py-1.5 rounded-xl border text-xs font-heading font-bold whitespace-nowrap transition-all cursor-pointer",
                 activeTab === "action"
@@ -678,7 +772,16 @@ export function GuideArticleRenderer({
           role="tab"
           data-testid="article-tab-all"
           aria-selected={activeTab === "all"}
-          onClick={() => setActiveTab("all")}
+          onClick={() => {
+            setActiveTab("all");
+            if (typeof window !== "undefined") {
+              window.dispatchEvent(
+                new CustomEvent("tophub:tab-change", {
+                  detail: { tab: "all" },
+                })
+              );
+            }
+          }}
           className={cn(
             "inline-flex items-center gap-1.5 min-h-[38px] px-3 py-1.5 rounded-xl border text-xs font-heading font-bold whitespace-nowrap transition-all cursor-pointer shrink-0",
             activeTab === "all"
@@ -688,17 +791,21 @@ export function GuideArticleRenderer({
         >
           <Layers className="h-3.5 w-3.5 shrink-0" />
           <span>{t("viewModeTabAll")}</span>
+          <span className="rounded-md bg-background/80 text-foreground px-1.5 py-0.5 font-mono text-[10px]">
+            {tabCounts.all}
+          </span>
         </button>
       </div>
 
       {/* De-Boxed Free Sections */}
       <div className="divide-y divide-border/50">
-        {freeSectionsWithTab.map(({ section, tab, hasWidget }) =>
+        {freeSectionsWithTab.map(({ section, tab, hasWidget }, idx) =>
           renderSection(
             section,
             locale,
             isSectionHidden(tab, hasWidget),
-            article
+            article,
+            idx + 1
           )
         )}
       </div>
@@ -711,12 +818,13 @@ export function GuideArticleRenderer({
           className={cn(!hasVisibleProSection && "hidden")}
         >
           <ProContentGate>
-            {proSectionsWithTab.map(({ section, tab, hasWidget }) =>
+            {proSectionsWithTab.map(({ section, tab, hasWidget }, idx) =>
               renderSection(
                 section,
                 locale,
                 isSectionHidden(tab, hasWidget),
-                article
+                article,
+                freeSectionsWithTab.length + idx + 1
               )
             )}
           </ProContentGate>
@@ -741,24 +849,6 @@ export function GuideArticleRenderer({
             </span>
             <ArrowRight className="h-4 w-4" />
           </button>
-        </div>
-      )}
-
-      {/* Standardized Knowledge Sources Footer */}
-      {article.sourceFiles.length > 0 && (
-        <div className="rounded-2xl border border-border/60 bg-muted/20 px-4 py-3 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
-          <span className="inline-flex items-center gap-1.5 font-heading font-bold text-foreground">
-            <FileText className="h-3.5 w-3.5 text-amber-500" />
-            {t("sourceFilesLabel")}:
-          </span>
-          {article.sourceFiles.map((src) => (
-            <code
-              key={src}
-              className="rounded-md bg-background/80 border border-border/60 px-2 py-0.5 font-mono text-[11px]"
-            >
-              {src}
-            </code>
-          ))}
         </div>
       )}
 

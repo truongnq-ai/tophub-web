@@ -26,6 +26,7 @@ import { ARTICLE_1_4_TOP_10_TRAPS } from "@/content/guides/groups/group-1/1.4-to
 import { useUidSession } from "@/hooks/use-uid-session";
 import { Link } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
+import { RichGuideText } from "@/components/guides/blocks/rich-guide-text";
 
 export type TrapSystemGroup =
   | "all"
@@ -334,6 +335,7 @@ export function AccountTrapsTriageWidget({
         trap.stopLossAction,
       ]
         .join(" ")
+        .replace(/[*`]/g, "")
         .toLowerCase();
       return haystack.includes(normalizedQuery);
     });
@@ -527,7 +529,11 @@ export function AccountTrapsTriageWidget({
                   </div>
 
                   <h4 className="font-heading font-bold text-sm sm:text-base text-foreground leading-snug">
-                    {trap.title}
+                    <RichGuideText
+                      text={trap.title}
+                      variant="inline"
+                      accentColor="rose"
+                    />
                   </h4>
 
                   {/* Symptom Preview */}
@@ -536,12 +542,12 @@ export function AccountTrapsTriageWidget({
                       {copy.symptomHeading}
                     </p>
                     {trap.symptoms.map((symp, sIdx) => (
-                      <p
+                      <RichGuideText
                         key={sIdx}
+                        text={symp}
+                        accentColor="rose"
                         className="text-xs sm:text-sm text-foreground/90 leading-relaxed"
-                      >
-                        {symp}
-                      </p>
+                      />
                     ))}
                   </div>
 
@@ -585,9 +591,11 @@ export function AccountTrapsTriageWidget({
                         <p className="text-xs font-heading font-bold text-amber-600 dark:text-amber-400">
                           {copy.whyItRuinsHeading}
                         </p>
-                        <p className="text-xs sm:text-sm text-foreground/90 leading-relaxed">
-                          {trap.whyItRuins}
-                        </p>
+                        <RichGuideText
+                          text={trap.whyItRuins}
+                          accentColor="amber"
+                          className="text-xs sm:text-sm text-foreground/90 leading-relaxed"
+                        />
                       </div>
 
                       {trap.metaRuleContent && (
@@ -596,9 +604,11 @@ export function AccountTrapsTriageWidget({
                             <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-500" />
                             <span>{copy.metaRuleHeading}</span>
                           </p>
-                          <p className="text-xs sm:text-sm font-medium text-foreground leading-relaxed">
-                            {trap.metaRuleContent}
-                          </p>
+                          <RichGuideText
+                            text={trap.metaRuleContent}
+                            accentColor="emerald"
+                            className="text-xs sm:text-sm font-medium text-foreground leading-relaxed"
+                          />
                         </div>
                       )}
                     </div>
@@ -614,9 +624,11 @@ export function AccountTrapsTriageWidget({
                             </p>
                           </div>
 
-                          <p className="text-xs sm:text-sm text-foreground/95 leading-relaxed">
-                            {trap.stopLossAction}
-                          </p>
+                          <RichGuideText
+                            text={trap.stopLossAction}
+                            accentColor="amber"
+                            className="text-xs sm:text-sm text-foreground/95 leading-relaxed"
+                          />
 
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
                             <div className="rounded-lg border border-border/60 bg-background/80 p-2.5 space-y-1">
@@ -625,7 +637,11 @@ export function AccountTrapsTriageWidget({
                                 <span>{copy.recoveryTimeLabel}</span>
                               </span>
                               <p className="text-xs text-foreground/90 leading-snug">
-                                {trap.recoveryTime}
+                                <RichGuideText
+                                  text={trap.recoveryTime}
+                                  variant="inline"
+                                  accentColor="amber"
+                                />
                               </p>
                             </div>
 
@@ -635,7 +651,11 @@ export function AccountTrapsTriageWidget({
                                 <span>{copy.rerollThresholdLabel}</span>
                               </span>
                               <p className="text-xs text-foreground/90 leading-snug">
-                                {trap.rerollThreshold}
+                                <RichGuideText
+                                  text={trap.rerollThreshold}
+                                  variant="inline"
+                                  accentColor="rose"
+                                />
                               </p>
                             </div>
                           </div>

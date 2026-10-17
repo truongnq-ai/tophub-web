@@ -13,6 +13,7 @@ import type { GuideChecklistBlock, GuideLocale } from "@/content/guides/types";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { RichGuideText } from "./rich-guide-text";
 
 interface InteractiveChecklistBlockProps {
   block: GuideChecklistBlock;
@@ -93,13 +94,14 @@ export function InteractiveChecklistBlock({
           <div className="flex items-center gap-2">
             <Trophy className="h-4 w-4 text-emerald-500 shrink-0" />
             <h4 className="font-heading font-bold text-sm sm:text-base text-foreground">
-              {block.title[locale]}
+              <RichGuideText text={block.title[locale]} variant="inline" />
             </h4>
           </div>
           {block.description && (
-            <p className="text-xs text-muted-foreground leading-relaxed">
-              {block.description[locale]}
-            </p>
+            <RichGuideText
+              text={block.description[locale]}
+              className="text-xs text-muted-foreground leading-relaxed"
+            />
           )}
         </div>
 
@@ -156,14 +158,20 @@ export function InteractiveChecklistBlock({
         {block.items.map((item) => {
           const isChecked = checkedIds.includes(item.id);
           return (
-            <button
+            <div
               key={item.id}
-              type="button"
               role="checkbox"
+              tabIndex={0}
               aria-checked={isChecked}
               onClick={() => toggleItem(item.id)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  toggleItem(item.id);
+                }
+              }}
               className={cn(
-                "w-full text-left rounded-xl border px-3.5 py-2.5 flex items-start gap-3 transition-all min-h-[48px] cursor-pointer",
+                "w-full text-left rounded-xl border px-3.5 py-2.5 flex items-start gap-3 transition-all min-h-[48px] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/50",
                 isChecked
                   ? "border-emerald-500/50 bg-emerald-500/10"
                   : "border-border/80 bg-background/70 hover:border-amber-500/40"
@@ -186,27 +194,34 @@ export function InteractiveChecklistBlock({
                         : "text-foreground"
                     )}
                   >
-                    {item.label[locale]}
+                    <RichGuideText
+                      text={item.label[locale]}
+                      variant="inline"
+                      accentColor="emerald"
+                    />
                   </span>
                   {item.badge && (
                     <Badge
                       variant="outline"
                       className="font-mono text-[10px] border-amber-500/30 text-amber-600 dark:text-amber-400"
                     >
-                      {item.badge[locale]}
+                      <RichGuideText
+                        text={item.badge[locale]}
+                        variant="inline"
+                      />
                     </Badge>
                   )}
                 </div>
-                <p
+                <RichGuideText
+                  text={item.detail[locale]}
+                  accentColor="emerald"
                   className={cn(
                     "text-xs text-muted-foreground leading-relaxed",
                     !showDetails && "hidden"
                   )}
-                >
-                  {item.detail[locale]}
-                </p>
+                />
               </div>
-            </button>
+            </div>
           );
         })}
       </div>

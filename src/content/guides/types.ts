@@ -45,6 +45,7 @@ export interface GuideTableBlock {
   caption?: LocalizedText;
   headers: LocalizedText[];
   rows: LocalizedText[][];
+  footnote?: LocalizedText;
 }
 
 export interface GuideListBlock {

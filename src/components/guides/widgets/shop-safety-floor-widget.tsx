@@ -19,6 +19,7 @@ import type {
 } from "@/content/guides/types";
 import { ARTICLE_7_1_SHOPS_TIER_LIST } from "@/content/guides/groups/group-7/7.1-shops-tier-list";
 import { useUidSession } from "@/hooks/use-uid-session";
+import { RichGuideText } from "@/components/guides/blocks/rich-guide-text";
 
 export interface ShopSafetyFloorWidgetProps {
   article?: GuideArticle;
@@ -615,7 +616,11 @@ export function ShopSafetyFloorWidget({
                   ? "👑 Mục Tiêu Số 1 SSoT:"
                   : "👑 #1 Supreme Target:"}
               </div>
-              <p className="mt-1 leading-relaxed">{activeShop.supremeTarget}</p>
+              <RichGuideText
+                text={activeShop.supremeTarget}
+                accentColor="emerald"
+                className="mt-1 leading-relaxed"
+              />
             </div>
           )}
 
@@ -626,17 +631,35 @@ export function ShopSafetyFloorWidget({
                 className="rounded-lg border border-white/10 bg-black/25 p-2.5 text-xs"
               >
                 <div className="flex items-center justify-between gap-2 font-bold text-white">
-                  <span>{item.itemName}</span>
+                  <span>
+                    <RichGuideText
+                      text={item.itemName}
+                      variant="inline"
+                      accentColor="emerald"
+                    />
+                  </span>
                   <span className="shrink-0 rounded bg-emerald-500/20 px-1.5 py-0.5 font-mono text-[10px] text-emerald-300">
                     {item.tier}
                   </span>
                 </div>
                 <div className="mt-1 font-mono text-[11px] text-amber-300">
-                  {item.costAndCap} ➔ {item.diamondValue}
+                  <RichGuideText
+                    text={item.costAndCap}
+                    variant="inline"
+                    accentColor="amber"
+                  />{" "}
+                  ➔{" "}
+                  <RichGuideText
+                    text={item.diamondValue}
+                    variant="inline"
+                    accentColor="amber"
+                  />
                 </div>
-                <p className="mt-1 text-[11px] text-slate-300">
-                  {item.roiDirective}
-                </p>
+                <RichGuideText
+                  text={item.roiDirective}
+                  accentColor="emerald"
+                  className="mt-1 text-[11px] text-slate-300"
+                />
               </div>
             ))}
           </div>
@@ -674,17 +697,35 @@ export function ShopSafetyFloorWidget({
                 className="rounded-lg border border-white/10 bg-black/25 p-2.5 text-xs"
               >
                 <div className="flex items-center justify-between gap-2 font-bold text-white">
-                  <span>{item.itemName}</span>
+                  <span>
+                    <RichGuideText
+                      text={item.itemName}
+                      variant="inline"
+                      accentColor="amber"
+                    />
+                  </span>
                   <span className="shrink-0 rounded bg-amber-500/20 px-1.5 py-0.5 font-mono text-[10px] text-amber-300">
                     {item.tier}
                   </span>
                 </div>
                 <div className="mt-1 font-mono text-[11px] text-amber-300">
-                  {item.costAndCap} ➔ {item.diamondValue}
+                  <RichGuideText
+                    text={item.costAndCap}
+                    variant="inline"
+                    accentColor="amber"
+                  />{" "}
+                  ➔{" "}
+                  <RichGuideText
+                    text={item.diamondValue}
+                    variant="inline"
+                    accentColor="amber"
+                  />
                 </div>
-                <p className="mt-1 text-[11px] text-slate-300">
-                  {item.roiDirective}
-                </p>
+                <RichGuideText
+                  text={item.roiDirective}
+                  accentColor="amber"
+                  className="mt-1 text-[11px] text-slate-300"
+                />
               </div>
             ))}
           </div>
@@ -720,17 +761,35 @@ export function ShopSafetyFloorWidget({
                 className="rounded-lg border border-rose-500/25 bg-black/25 p-2.5 text-xs"
               >
                 <div className="flex items-center justify-between gap-2 font-bold text-rose-200">
-                  <span>{item.itemName}</span>
+                  <span>
+                    <RichGuideText
+                      text={item.itemName}
+                      variant="inline"
+                      accentColor="rose"
+                    />
+                  </span>
                   <span className="shrink-0 rounded bg-rose-500/25 px-1.5 py-0.5 font-mono text-[10px] text-rose-300">
                     {item.tier}
                   </span>
                 </div>
                 <div className="mt-1 font-mono text-[11px] text-rose-300">
-                  {item.costAndCap} • {item.diamondValue}
+                  <RichGuideText
+                    text={item.costAndCap}
+                    variant="inline"
+                    accentColor="rose"
+                  />{" "}
+                  •{" "}
+                  <RichGuideText
+                    text={item.diamondValue}
+                    variant="inline"
+                    accentColor="rose"
+                  />
                 </div>
-                <p className="mt-1 text-[11px] text-slate-300">
-                  {item.roiDirective}
-                </p>
+                <RichGuideText
+                  text={item.roiDirective}
+                  accentColor="rose"
+                  className="mt-1 text-[11px] text-slate-300"
+                />
               </div>
             ))}
           </div>

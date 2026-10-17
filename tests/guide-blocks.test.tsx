@@ -235,6 +235,8 @@ describe("Rich RPG Guide UI Blocks v2.0", () => {
     // Row 3 (index 2) has 🔥 and Mythic -> marked as breakpoint row
     expect(initialBodyRows[2].getAttribute("data-breakpoint-row")).toBe("true");
     expect(initialBodyRows[0].getAttribute("data-breakpoint-row")).toBe("false");
+    expect(container.innerHTML).not.toContain("border-l-2");
+    expect(container.innerHTML).not.toContain("border-l-4");
 
     // Searching searches across ALL 10 rows (including row 10 which was collapsed)
     const filterInput = screen.getByTestId("table-filter-input");
@@ -377,6 +379,67 @@ describe("Rich RPG Guide UI Blocks v2.0", () => {
 
     expect(screen.getByText("#1")).toBeDefined();
   });
+
+  describe("Wave 2 Clean Editorial Gaming UI (DEC-V4-02)", () => {
+    it("renders TldrActionBox as a 3-column neutral bento partition grid with zero border-l-4 and zero duplicate emojis", () => {
+      const { container } = render(
+        <TldrActionBox
+          tldr={{
+            coreRule: {
+              vi: "Dồn 100% tài nguyên cho **Pyromancer** đạt `1★ Trắng`.",
+              en: "Focus 100% resources on **Pyromancer** to `1★ White`.",
+            },
+            immediateAction: {
+              vi: "Mua hết đá hồn trong cửa hàng VIP.",
+              en: "Buy all soul stones in VIP shop.",
+            },
+            strictTaboo: {
+              vi: "Cấm nâng đều 5 tướng SSR cùng lúc.",
+              en: "Never upgrade 5 SSR heroes equally.",
+            },
+          }}
+          keyTakeaways={[
+            {
+              vi: "Mốc gãy **Pyromancer**: `560 Mảnh`",
+              en: "**Pyromancer** breakpoint: `560 Shards`",
+            },
+          ]}
+          locale="vi"
+        />
+      );
+
+      expect(container.innerHTML).not.toContain("border-l-4");
+      expect(container.innerHTML).not.toContain("border-l-2");
+      expect(container.textContent).not.toContain("🎯");
+      expect(container.textContent).not.toContain("📌");
+
+      const bentoGrid = screen.getByTestId("tldr-bento-grid");
+      expect(bentoGrid.className).toContain("md:grid-cols-3");
+      expect(bentoGrid.className).toContain("md:divide-x");
+    });
+
+    it("renders CalloutBox as a framed editorial card with top gradient glow and zero border-l-4 across all 4 variants", () => {
+      const variants = ["danger", "warning", "tip", "rule"] as const;
+      for (const variant of variants) {
+        const { container, unmount } = render(
+          <CalloutBox
+            variant={variant}
+            title={`Tiêu đề **${variant}**`}
+            content="Nội dung định lượng `40.000 Điểm`."
+            locale="vi"
+          />
+        );
+
+        expect(container.innerHTML).not.toContain("border-l-4");
+        expect(container.innerHTML).not.toContain("rounded-l-sm");
+        expect(
+          container.querySelector("[data-testid='callout-top-glow']")
+        ).not.toBeNull();
+        unmount();
+      }
+    });
+  });
 });
+
 
 

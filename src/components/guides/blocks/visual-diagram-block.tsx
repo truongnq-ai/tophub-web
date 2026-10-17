@@ -15,6 +15,7 @@ import type {
 } from "@/content/guides/types";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import { RichGuideText } from "./rich-guide-text";
 
 interface VisualDiagramBlockProps {
   block: GuideVisualDiagramBlock;
@@ -96,12 +97,13 @@ export function VisualDiagramBlock({ block, locale }: VisualDiagramBlockProps) {
           </div>
           <div>
             <h4 className="font-heading font-bold text-sm sm:text-base text-foreground">
-              {block.title[locale]}
+              <RichGuideText text={block.title[locale]} variant="inline" />
             </h4>
             {block.subtitle && (
-              <p className="text-xs text-muted-foreground">
-                {block.subtitle[locale]}
-              </p>
+              <RichGuideText
+                text={block.subtitle[locale]}
+                className="text-xs text-muted-foreground"
+              />
             )}
           </div>
         </div>
@@ -121,16 +123,23 @@ export function VisualDiagramBlock({ block, locale }: VisualDiagramBlockProps) {
           <div className="rounded-2xl border-2 border-amber-500/50 bg-gradient-to-r from-amber-500/15 via-amber-500/10 to-transparent p-3.5 text-center space-y-1">
             {block.centerNode.badge && (
               <span className="inline-block font-mono text-[11px] font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
-                {block.centerNode.badge[locale]}
+                <RichGuideText
+                  text={block.centerNode.badge[locale]}
+                  variant="inline"
+                />
               </span>
             )}
             <p className="font-heading font-black text-base sm:text-lg text-foreground">
-              {block.centerNode.title[locale]}
+              <RichGuideText
+                text={block.centerNode.title[locale]}
+                variant="inline"
+              />
             </p>
             {block.centerNode.subtitle && (
-              <p className="text-xs text-muted-foreground">
-                {block.centerNode.subtitle[locale]}
-              </p>
+              <RichGuideText
+                text={block.centerNode.subtitle[locale]}
+                className="text-xs text-muted-foreground"
+              />
             )}
           </div>
 
@@ -181,14 +190,20 @@ export function VisualDiagramBlock({ block, locale }: VisualDiagramBlockProps) {
                       ) : (
                         <XCircle className="h-4 w-4 shrink-0" />
                       )}
-                      {branch.title[locale]}
+                      <RichGuideText
+                        text={branch.title[locale]}
+                        variant="inline"
+                      />
                     </span>
                     {branch.badge && (
                       <Badge
                         variant="outline"
                         className={cn("text-[10px] font-mono", toneStyle.badge)}
                       >
-                        {branch.badge[locale]}
+                        <RichGuideText
+                          text={branch.badge[locale]}
+                          variant="inline"
+                        />
                       </Badge>
                     )}
                   </div>
@@ -199,18 +214,25 @@ export function VisualDiagramBlock({ block, locale }: VisualDiagramBlockProps) {
                         <div className="rounded-xl border border-border/70 bg-background/85 p-2.5 sm:p-3 space-y-1">
                           <div className="flex items-center justify-between gap-2">
                             <span className="font-heading font-bold text-xs sm:text-sm text-foreground">
-                              {step.title[locale]}
+                              <RichGuideText
+                                text={step.title[locale]}
+                                variant="inline"
+                              />
                             </span>
                             {step.badge && (
                               <span className="font-mono text-[10px] font-bold text-amber-600 dark:text-amber-400 shrink-0">
-                                {step.badge[locale]}
+                                <RichGuideText
+                                  text={step.badge[locale]}
+                                  variant="inline"
+                                />
                               </span>
                             )}
                           </div>
                           {step.subtitle && (
-                            <p className="text-xs text-muted-foreground leading-relaxed">
-                              {step.subtitle[locale]}
-                            </p>
+                            <RichGuideText
+                              text={step.subtitle[locale]}
+                              className="text-xs text-muted-foreground leading-relaxed"
+                            />
                           )}
                         </div>
                         {sIdx < branch.steps.length - 1 && (
@@ -227,9 +249,10 @@ export function VisualDiagramBlock({ block, locale }: VisualDiagramBlockProps) {
                   <ArrowRight
                     className={cn("h-4 w-4 shrink-0", toneStyle.text)}
                   />
-                  <span className="text-foreground/95">
-                    {branch.outcome[locale]}
-                  </span>
+                  <RichGuideText
+                    text={branch.outcome[locale]}
+                    className="text-foreground/95 flex-1 min-w-0"
+                  />
                 </div>
               </div>
             );
@@ -269,7 +292,7 @@ export function VisualDiagramBlock({ block, locale }: VisualDiagramBlockProps) {
               >
                 <div className="flex items-center justify-between gap-2">
                   <span className="font-heading font-bold text-xs sm:text-sm text-foreground">
-                    {node.title[locale]}
+                    <RichGuideText text={node.title[locale]} variant="inline" />
                   </span>
                   {node.badge && (
                     <Badge
@@ -279,7 +302,10 @@ export function VisualDiagramBlock({ block, locale }: VisualDiagramBlockProps) {
                         toneStyle.badge
                       )}
                     >
-                      {node.badge[locale]}
+                      <RichGuideText
+                        text={node.badge[locale]}
+                        variant="inline"
+                      />
                     </Badge>
                   )}
                 </div>
@@ -295,9 +321,10 @@ export function VisualDiagramBlock({ block, locale }: VisualDiagramBlockProps) {
                 )}
 
                 {node.subtitle && (
-                  <p className="text-xs text-muted-foreground leading-relaxed">
-                    {node.subtitle[locale]}
-                  </p>
+                  <RichGuideText
+                    text={node.subtitle[locale]}
+                    className="text-xs text-muted-foreground leading-relaxed"
+                  />
                 )}
                 {node.metrics && node.metrics.length > 0 && (
                   <div className="flex flex-wrap gap-1.5 pt-0.5">
@@ -307,7 +334,7 @@ export function VisualDiagramBlock({ block, locale }: VisualDiagramBlockProps) {
                         className="inline-flex items-center gap-1 rounded-md bg-background/80 border border-border/60 px-2 py-0.5 font-mono text-[11px] text-foreground/90"
                       >
                         <Sparkles className="h-2.5 w-2.5 text-amber-500" />
-                        {m[locale]}
+                        <RichGuideText text={m[locale]} variant="inline" />
                       </span>
                     ))}
                   </div>
@@ -320,9 +347,10 @@ export function VisualDiagramBlock({ block, locale }: VisualDiagramBlockProps) {
 
       {/* Footnote */}
       {block.footnote && (
-        <p className="text-xs text-muted-foreground italic border-t border-border/60 pt-2.5">
-          {block.footnote[locale]}
-        </p>
+        <RichGuideText
+          text={block.footnote[locale]}
+          className="text-xs text-muted-foreground italic border-t border-border/60 pt-2.5"
+        />
       )}
     </div>
   );

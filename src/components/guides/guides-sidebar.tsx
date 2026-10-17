@@ -47,6 +47,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { CompactUidStatusPill } from "./compact-uid-status-pill";
+import { splitArticleTitle } from "./guide-article-renderer";
 import { cn } from "@/lib/utils";
 
 const SIDEBAR_COLLAPSED_STORAGE_KEY = "tophub_guides_sidebar_collapsed";
@@ -215,11 +216,15 @@ function SidebarNavigationTree({
               {searchResults.map((article) => {
                 const href = `/guides/${article.categorySlug}/${article.slug}`;
                 const isActive = pathname === href;
+                const cleanMainTitle = splitArticleTitle(
+                  article.title[locale]
+                ).mainTitle;
                 return (
                   <Link
                     key={`${article.categorySlug}/${article.slug}`}
                     href={href}
                     onClick={handleArticleClick}
+                    title={article.title[locale]}
                     className={cn(
                       "flex items-center justify-between gap-2 rounded-xl px-2.5 py-2 text-xs transition-all min-h-[40px] border",
                       isActive
@@ -231,7 +236,7 @@ function SidebarNavigationTree({
                       <span className="font-mono text-[10px] text-amber-500 shrink-0">
                         {article.code}
                       </span>
-                      <span className="line-clamp-1">{article.title[locale]}</span>
+                      <span className="line-clamp-1">{cleanMainTitle}</span>
                     </div>
                     {renderArticleIndicator(article.badge)}
                   </Link>
@@ -309,6 +314,9 @@ function SidebarNavigationTree({
                           {category.articles.map((article) => {
                             const href = `/guides/${category.slug}/${article.slug}`;
                             const isArticleActive = pathname === href;
+                            const cleanMainTitle = splitArticleTitle(
+                              article.title[locale]
+                            ).mainTitle;
 
                             return (
                               <Link
@@ -327,7 +335,7 @@ function SidebarNavigationTree({
                                   <strong className="font-mono text-[10px] text-amber-500 mr-1.5">
                                     {article.code}
                                   </strong>
-                                  {article.title[locale]}
+                                  {cleanMainTitle}
                                 </span>
                                 {renderArticleIndicator(article.badge)}
                               </Link>

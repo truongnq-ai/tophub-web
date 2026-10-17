@@ -145,4 +145,12 @@ describe("GuidesSidebar (Phase 1 Hardened Redesign)", () => {
     });
     expect(group1AccordionBtn.getAttribute("data-state")).toBe("open");
   });
+
+  it("renders clean main titles without English parenthetical clutter in the w-64 sidebar while preserving full title tooltip", () => {
+    render(<GuidesSidebar />);
+    const articleLink = screen.getByRole("link", { name: /4\.1/i });
+    expect(articleLink.getAttribute("title")).toContain("(");
+    expect(articleLink.textContent).not.toContain("(");
+  });
 });
+

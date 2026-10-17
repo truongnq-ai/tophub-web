@@ -4,11 +4,13 @@ import React, { useMemo, useState } from "react";
 import { Search, ChevronDown, ChevronUp, Flame } from "lucide-react";
 import type { GuideLocale } from "@/content/guides/types";
 import { cn } from "@/lib/utils";
+import { RichGuideText } from "./rich-guide-text";
 
 interface ResponsiveDataTableProps {
   caption?: string;
   headers: string[];
   rows: string[][];
+  footnote?: string;
   locale?: GuideLocale;
   defaultExpanded?: boolean;
 }
@@ -42,6 +44,7 @@ export function ResponsiveDataTable({
   caption,
   headers,
   rows,
+  footnote,
   locale = "vi",
   defaultExpanded = false,
 }: ResponsiveDataTableProps) {
@@ -56,7 +59,9 @@ export function ResponsiveDataTable({
   const filteredRows = useMemo(() => {
     if (!normalizedQuery) return rows;
     return rows.filter((row) =>
-      row.some((cell) => cell.toLowerCase().includes(normalizedQuery))
+      row.some((cell) =>
+        cell.replace(/[*`]/g, "").toLowerCase().includes(normalizedQuery)
+      )
     );
   }, [rows, normalizedQuery]);
 
@@ -74,7 +79,7 @@ export function ResponsiveDataTable({
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 px-1">
           {caption ? (
             <p className="text-xs font-mono font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
-              {caption}
+              <RichGuideText text={caption} variant="inline" />
             </p>
           ) : (
             <div />
@@ -109,7 +114,7 @@ export function ResponsiveDataTable({
                       "sticky left-0 z-10 bg-muted/95 dark:bg-slate-900/95 backdrop-blur-xs"
                   )}
                 >
-                  {header}
+                  <RichGuideText text={header} variant="inline" />
                 </th>
               ))}
             </tr>
@@ -147,7 +152,7 @@ export function ResponsiveDataTable({
                             ? cn(
                                 "sticky left-0 z-10 font-semibold whitespace-nowrap backdrop-blur-xs",
                                 isBp
-                                  ? "bg-amber-50/95 dark:bg-slate-900/95 text-amber-600 dark:text-amber-300 border-l-2 border-l-amber-500"
+                                  ? "bg-amber-50/95 dark:bg-slate-900/95 text-amber-600 dark:text-amber-300 shadow-[inset_2px_0_0_0_rgba(245,158,11,0.85)]"
                                   : "bg-card/95 dark:bg-slate-950/90 text-amber-600 dark:text-amber-400"
                               )
                             : isBp
@@ -158,10 +163,10 @@ export function ResponsiveDataTable({
                         {cellIdx === 0 && isBp ? (
                           <span className="inline-flex items-center gap-1">
                             <Flame className="h-3.5 w-3.5 text-amber-500 shrink-0" />
-                            <span>{cell}</span>
+                            <RichGuideText text={cell} variant="inline" />
                           </span>
                         ) : (
-                          cell
+                          <RichGuideText text={cell} variant="inline" />
                         )}
                       </td>
                     ))}
@@ -192,6 +197,12 @@ export function ResponsiveDataTable({
           </div>
         )}
       </div>
+
+      {footnote && (
+        <p className="text-xs text-muted-foreground italic px-1">
+          <RichGuideText text={footnote} variant="inline" />
+        </p>
+      )}
     </div>
   );
 }

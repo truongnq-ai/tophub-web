@@ -5,9 +5,11 @@ import { Badge } from "@/components/ui/badge";
 import { Clock, Layers } from "lucide-react";
 import type { GuideLocale } from "@/content/guides/types";
 import { cn } from "@/lib/utils";
+import { RichGuideText } from "./rich-guide-text";
 
 export interface RoadmapStepItem {
   badge: string;
+  milestoneTag?: string;
   title: string;
   timing: string;
   description: string;
@@ -55,6 +57,8 @@ export function StepRoadmap({ steps, locale = "vi" }: StepRoadmapProps) {
 
           {steps.map((step, idx) => {
             const isSelected = selectedStep === idx;
+            const pillLabel =
+              step.badge || step.milestoneTag || `${copy.stepPrefix} ${idx + 1}`;
             return (
               <button
                 key={idx}
@@ -70,7 +74,7 @@ export function StepRoadmap({ steps, locale = "vi" }: StepRoadmapProps) {
                     : "border-border/70 bg-card/70 text-foreground/85 hover:border-amber-500/40"
                 )}
               >
-                <span>{step.badge || `${copy.stepPrefix} ${idx + 1}`}</span>
+                <RichGuideText text={pillLabel} variant="inline" />
               </button>
             );
           })}
@@ -81,6 +85,7 @@ export function StepRoadmap({ steps, locale = "vi" }: StepRoadmapProps) {
       <div className="relative pl-6 sm:pl-8 space-y-4 before:absolute before:left-2.5 sm:before:left-3.5 before:top-3 before:bottom-3 before:w-0.5 before:bg-gradient-to-b before:from-amber-500 before:via-amber-500/50 before:to-transparent">
         {steps.map((step, idx) => {
           const isHidden = selectedStep !== null && selectedStep !== idx;
+          const badgeText = step.badge || step.milestoneTag || "";
           return (
             <div
               key={idx}
@@ -96,20 +101,21 @@ export function StepRoadmap({ steps, locale = "vi" }: StepRoadmapProps) {
 
               <div className="flex flex-wrap items-center justify-between gap-2 mb-1.5">
                 <Badge className="bg-amber-500/15 text-amber-600 dark:text-amber-400 border-amber-500/30 font-mono text-xs font-bold">
-                  {step.badge}
+                  <RichGuideText text={badgeText} variant="inline" />
                 </Badge>
                 <span className="inline-flex items-center gap-1 text-xs font-mono text-muted-foreground">
                   <Clock className="h-3.5 w-3.5 text-amber-500" />
-                  {step.timing}
+                  <RichGuideText text={step.timing} variant="inline" />
                 </span>
               </div>
 
               <h4 className="font-heading font-bold text-sm sm:text-base text-foreground mb-1">
-                {step.title}
+                <RichGuideText text={step.title} variant="inline" />
               </h4>
-              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                {step.description}
-              </p>
+              <RichGuideText
+                text={step.description}
+                className="text-xs sm:text-sm text-muted-foreground leading-relaxed"
+              />
             </div>
           );
         })}

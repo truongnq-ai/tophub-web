@@ -9,10 +9,26 @@ import {
 import type { GuideCaseStudyBlock, GuideLocale } from "@/content/guides/types";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import { RichGuideText } from "./rich-guide-text";
 
 interface CaseStudyBlockProps {
   block: GuideCaseStudyBlock;
   locale: GuideLocale;
+}
+
+function formatStepNumber(
+  stepNumber: number | string,
+  locale: GuideLocale
+): string {
+  if (typeof stepNumber === "number") return String(stepNumber);
+  if (stepNumber.includes("/")) {
+    const parts = stepNumber.split("/").map((p) => p.trim());
+    return locale === "en" ? parts[1] || parts[0] : parts[0];
+  }
+  if (locale === "en") {
+    return stepNumber.replace(/^Bước\s+/i, "Step ");
+  }
+  return stepNumber;
 }
 
 export function CaseStudyBlock({ block, locale }: CaseStudyBlockProps) {
@@ -26,14 +42,15 @@ export function CaseStudyBlock({ block, locale }: CaseStudyBlockProps) {
       <div className="space-y-2">
         <Badge className="bg-amber-500 text-slate-950 font-mono text-xs font-bold px-2.5 py-0.5 inline-flex items-center gap-1.5">
           <Stethoscope className="h-3.5 w-3.5" />
-          <span>{block.badge[locale]}</span>
+          <RichGuideText text={block.badge[locale]} variant="inline" />
         </Badge>
         <h4 className="font-heading font-black text-base sm:text-lg text-foreground">
-          {block.title[locale]}
+          <RichGuideText text={block.title[locale]} variant="inline" />
         </h4>
-        <p className="text-xs sm:text-sm text-foreground/90 leading-relaxed bg-background/70 rounded-xl border border-border/70 p-3">
-          {block.profileSummary[locale]}
-        </p>
+        <RichGuideText
+          text={block.profileSummary[locale]}
+          className="text-xs sm:text-sm text-foreground/90 leading-relaxed bg-background/70 rounded-xl border border-border/70 p-3"
+        />
       </div>
 
       {/* Before / After Metrics Grid */}
@@ -45,21 +62,33 @@ export function CaseStudyBlock({ block, locale }: CaseStudyBlockProps) {
               className="rounded-xl border border-border/80 bg-background/80 p-3 space-y-1"
             >
               <span className="block text-[11px] font-mono uppercase tracking-wider text-muted-foreground">
-                {m.label[locale]}
+                <RichGuideText text={m.label[locale]} variant="inline" />
               </span>
               <div className="flex items-center gap-2 text-xs sm:text-sm font-bold">
                 <span className="text-rose-500 line-through">
-                  {m.before[locale]}
+                  <RichGuideText
+                    text={m.before[locale]}
+                    variant="inline"
+                    accentColor="rose"
+                  />
                 </span>
                 <ArrowRight className="h-3.5 w-3.5 text-amber-500 shrink-0" />
                 <span className="text-emerald-600 dark:text-emerald-400">
-                  {m.after[locale]}
+                  <RichGuideText
+                    text={m.after[locale]}
+                    variant="inline"
+                    accentColor="emerald"
+                  />
                 </span>
               </div>
               {m.delta && (
                 <span className="inline-flex items-center gap-1 text-[11px] font-mono font-bold text-amber-600 dark:text-amber-400">
                   <TrendingUp className="h-3 w-3" />
-                  {m.delta[locale]}
+                  <RichGuideText
+                    text={m.delta[locale]}
+                    variant="inline"
+                    accentColor="amber"
+                  />
                 </span>
               )}
             </div>
@@ -91,7 +120,11 @@ export function CaseStudyBlock({ block, locale }: CaseStudyBlockProps) {
                   <span className="font-mono font-bold text-rose-500 shrink-0">
                     {dIdx + 1}.
                   </span>
-                  <span>{diag[locale]}</span>
+                  <RichGuideText
+                    text={diag[locale]}
+                    accentColor="rose"
+                    className="flex-1 min-w-0"
+                  />
                 </li>
               ))}
             </ul>
@@ -122,19 +155,29 @@ export function CaseStudyBlock({ block, locale }: CaseStudyBlockProps) {
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <span className="font-heading font-bold text-xs sm:text-sm text-foreground">
                     <strong className="font-mono text-emerald-600 dark:text-emerald-400 mr-1.5">
-                      {step.stepNumber}.
+                      {formatStepNumber(step.stepNumber, locale)}.
                     </strong>
-                    {step.title[locale]}
+                    <RichGuideText
+                      text={step.title[locale]}
+                      variant="inline"
+                      accentColor="emerald"
+                    />
                   </span>
                   {step.impactBadge && (
                     <Badge className="bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30 font-mono text-[11px] font-bold">
-                      {step.impactBadge[locale]}
+                      <RichGuideText
+                        text={step.impactBadge[locale]}
+                        variant="inline"
+                        accentColor="emerald"
+                      />
                     </Badge>
                   )}
                 </div>
-                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                  {step.detail[locale]}
-                </p>
+                <RichGuideText
+                  text={step.detail[locale]}
+                  accentColor="emerald"
+                  className="text-xs sm:text-sm text-muted-foreground leading-relaxed"
+                />
               </div>
             ))}
           </div>
@@ -142,9 +185,11 @@ export function CaseStudyBlock({ block, locale }: CaseStudyBlockProps) {
       </div>
 
       {block.conclusion && (
-        <div className="rounded-xl border border-amber-500/30 bg-amber-500/10 p-3 text-xs sm:text-sm font-semibold text-foreground">
-          {block.conclusion[locale]}
-        </div>
+        <RichGuideText
+          text={block.conclusion[locale]}
+          accentColor="amber"
+          className="rounded-xl border border-amber-500/30 bg-amber-500/10 p-3 text-xs sm:text-sm font-semibold text-foreground"
+        />
       )}
     </div>
   );

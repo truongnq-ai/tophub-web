@@ -15,6 +15,7 @@ import type {
   GuideMediaSpotlightBlock,
 } from "@/content/guides/types";
 import { Badge } from "@/components/ui/badge";
+import { RichGuideText } from "./rich-guide-text";
 
 interface MediaSpotlightBlockProps {
   block: GuideMediaSpotlightBlock;
@@ -32,7 +33,7 @@ export function MediaSpotlightBlock({
           <div className="flex items-center gap-2">
             <Shield className="h-4 w-4 text-amber-500" />
             <h4 className="font-heading font-bold text-sm sm:text-base text-foreground">
-              {block.title[locale]}
+              <RichGuideText text={block.title[locale]} variant="inline" />
             </h4>
           </div>
           <Badge variant="outline" className="font-mono text-[10px]">
@@ -40,9 +41,10 @@ export function MediaSpotlightBlock({
           </Badge>
         </div>
 
-        <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-          {block.description[locale]}
-        </p>
+        <RichGuideText
+          text={block.description[locale]}
+          className="text-xs sm:text-sm text-muted-foreground leading-relaxed"
+        />
 
         {/* Visual Counter Cycle Arrow Banner */}
         <div className="rounded-xl border border-amber-500/25 bg-background/80 px-3 py-2 flex flex-wrap items-center justify-center gap-2 text-xs font-heading font-bold">
@@ -163,11 +165,15 @@ export function MediaSpotlightBlock({
             )}
           </div>
           <h4 className="font-heading font-bold text-sm sm:text-base text-foreground">
-            {block.videoTitle ?? block.title[locale]}
+            <RichGuideText
+              text={block.videoTitle ?? block.title[locale]}
+              variant="inline"
+            />
           </h4>
-          <p className="text-xs text-muted-foreground leading-relaxed">
-            {block.description[locale]}
-          </p>
+          <RichGuideText
+            text={block.description[locale]}
+            className="text-xs text-muted-foreground leading-relaxed"
+          />
         </div>
 
         <a
@@ -190,7 +196,7 @@ export function MediaSpotlightBlock({
         <div className="flex items-center gap-2">
           <Camera className="h-4 w-4 text-amber-500 shrink-0" />
           <h4 className="font-heading font-bold text-sm sm:text-base text-foreground">
-            {block.title[locale]}
+            <RichGuideText text={block.title[locale]} variant="inline" />
           </h4>
         </div>
         <Badge variant="outline" className="font-mono text-[10px]">
@@ -198,9 +204,10 @@ export function MediaSpotlightBlock({
         </Badge>
       </div>
 
-      <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-        {block.description[locale]}
-      </p>
+      <RichGuideText
+        text={block.description[locale]}
+        className="text-xs sm:text-sm text-muted-foreground leading-relaxed"
+      />
 
       {block.annotations && block.annotations.length > 0 && (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
@@ -236,16 +243,22 @@ export function MediaSpotlightBlock({
                             : "text-sky-600 dark:text-sky-400"
                       }
                     >
-                      {pin.label[locale]}
+                      <RichGuideText
+                        text={pin.label[locale]}
+                        variant="inline"
+                        accentColor={isDo ? "emerald" : isDont ? "rose" : "sky"}
+                      />
                     </span>
                   </div>
                   <span className="inline-flex h-5 min-w-[24px] items-center justify-center rounded-md bg-amber-500/20 border border-amber-500/40 px-1.5 font-mono text-[10px] font-black text-amber-600 dark:text-amber-300 shrink-0">
                     #{pIdx + 1}
                   </span>
                 </div>
-                <p className="text-xs text-foreground/90 leading-relaxed">
-                  {pin.detail[locale]}
-                </p>
+                <RichGuideText
+                  text={pin.detail[locale]}
+                  accentColor={isDo ? "emerald" : isDont ? "rose" : "sky"}
+                  className="text-xs text-foreground/90 leading-relaxed"
+                />
               </div>
             );
           })}

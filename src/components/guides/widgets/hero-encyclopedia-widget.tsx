@@ -20,6 +20,7 @@ import type {
 } from "@/content/guides/types";
 import { ARTICLE_2_1_ENCYCLOPEDIA } from "@/content/guides/groups/group-2/2.1-encyclopedia";
 import { cn } from "@/lib/utils";
+import { RichGuideText } from "@/components/guides/blocks/rich-guide-text";
 
 export type HeroFaction = "all" | "horde" | "league" | "nature";
 export type HeroRarity = "all" | "mythic" | "legendary" | "epic" | "rare";
@@ -135,7 +136,7 @@ const LABELS: Record<
     subtitle:
       "Instant filtering by Faction, Rarity, Tactical Role & S0 ➔ S4 investment benchmarks",
     searchPlaceholder:
-      "Search hero name (Wukong, Tidecaller, Paragon...), gear set (Huyết Titan), or keyword...",
+      "Search hero name (Wukong, Tidecaller, Paragon...), gear set (Blood of the Titan), or keyword...",
     resetBtn: "Reset filters",
     showingCount: (shown, total) => `Showing ${shown} / ${total} Heroes`,
     factionLabel: "Faction:",
@@ -478,6 +479,7 @@ export function HeroEncyclopediaWidget({
           hero.proMvs?.mvsMilestone ?? "",
         ]
           .join(" ")
+          .replace(/[*`]/g, "")
           .toLowerCase();
         if (!haystack.includes(q)) return false;
       }
@@ -717,33 +719,39 @@ export function HeroEncyclopediaWidget({
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
           {filteredHeroes.map((hero) => {
             const isProOpen = Boolean(expandedProIds[hero.id]);
-            const factionBorder =
+            const factionTopGlow =
               hero.faction === "horde"
-                ? "border-l-4 border-l-rose-500"
+                ? "from-rose-500 via-rose-500/40 to-transparent"
                 : hero.faction === "league"
-                ? "border-l-4 border-l-sky-500"
-                : "border-l-4 border-l-emerald-500";
+                ? "from-sky-500 via-sky-500/40 to-transparent"
+                : "from-emerald-500 via-emerald-500/40 to-transparent";
 
             return (
               <div
                 key={hero.id}
                 data-testid={`hero-card-${hero.canonicalKey.replace(/\s+/g, "-")}`}
-                className={cn(
-                  "rounded-xl border border-border/70 bg-background/75 p-4 flex flex-col justify-between gap-3 transition-colors hover:border-amber-500/40",
-                  factionBorder
-                )}
+                className="relative overflow-hidden rounded-2xl border border-border/80 bg-card/85 p-4 flex flex-col justify-between gap-3 transition-colors hover:border-amber-500/40 shadow-sm"
               >
+                <div
+                  aria-hidden="true"
+                  className={cn(
+                    "pointer-events-none absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r",
+                    factionTopGlow
+                  )}
+                />
                 <div className="space-y-2.5">
                   {/* Top Row: Name + Tier Badges */}
                   <div className="flex items-start justify-between gap-2">
                     <div>
                       <h4 className="font-heading font-extrabold text-sm sm:text-base text-foreground flex flex-wrap items-center gap-1.5">
                         <span>{hero.nameEn}</span>
-                        {hero.nameVi && hero.nameVi !== hero.nameEn && (
-                          <span className="text-xs font-medium text-muted-foreground">
-                            ({hero.nameVi})
-                          </span>
-                        )}
+                        {locale === "vi" &&
+                          hero.nameVi &&
+                          hero.nameVi !== hero.nameEn && (
+                            <span className="text-xs font-medium text-muted-foreground">
+                              ({hero.nameVi})
+                            </span>
+                          )}
                       </h4>
                       <div className="mt-1 flex flex-wrap items-center gap-1.5 text-[11px]">
                         <span className="rounded-md bg-muted px-2 py-0.5 font-mono font-bold text-foreground">
@@ -800,9 +808,11 @@ export function HeroEncyclopediaWidget({
                   )}
 
                   {/* Combat Assessment */}
-                  <p className="text-xs text-muted-foreground leading-relaxed">
-                    {hero.assessment}
-                  </p>
+                  <RichGuideText
+                    text={hero.assessment}
+                    accentColor="amber"
+                    className="text-xs text-muted-foreground leading-relaxed"
+                  />
                 </div>
 
                 {/* Expandable PRO MVS Drawer (Available for the 24 Core Combat Heroes) */}
@@ -835,7 +845,11 @@ export function HeroEncyclopediaWidget({
                             {copy.sourceLabel}
                           </span>
                           <span className="font-bold text-foreground text-right">
-                            {hero.proMvs.source}
+                            <RichGuideText
+                              text={hero.proMvs.source}
+                              variant="inline"
+                              accentColor="amber"
+                            />
                           </span>
                         </div>
                         <div className="flex justify-between gap-2">
@@ -843,7 +857,11 @@ export function HeroEncyclopediaWidget({
                             {copy.mvsLabel}
                           </span>
                           <span className="font-mono font-bold text-emerald-600 dark:text-emerald-400 text-right">
-                            {hero.proMvs.mvsMilestone}
+                            <RichGuideText
+                              text={hero.proMvs.mvsMilestone}
+                              variant="inline"
+                              accentColor="emerald"
+                            />
                           </span>
                         </div>
                         <div className="flex justify-between gap-2">
@@ -851,14 +869,22 @@ export function HeroEncyclopediaWidget({
                             {copy.sweetSpotLabel}
                           </span>
                           <span className="font-mono font-bold text-amber-600 dark:text-amber-300 text-right">
-                            {hero.proMvs.sweetSpot}
+                            <RichGuideText
+                              text={hero.proMvs.sweetSpot}
+                              variant="inline"
+                              accentColor="amber"
+                            />
                           </span>
                         </div>
                         <div className="pt-1 border-t border-border/40 text-[11px] text-muted-foreground">
                           <span className="font-bold text-foreground">
                             {copy.gearLabel}{" "}
                           </span>
-                          {hero.proMvs.gearAndAwakening}
+                          <RichGuideText
+                            text={hero.proMvs.gearAndAwakening}
+                            variant="inline"
+                            accentColor="amber"
+                          />
                         </div>
                       </div>
                     )}
