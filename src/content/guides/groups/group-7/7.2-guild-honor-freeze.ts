@@ -254,12 +254,12 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
             {
               kind: "info",
               label: {
-                vi: "Đồng bộ xả Hồn Đá Đỏ vào Thứ Năm Tuần B (GAR / KvK Day 4)",
-                en: "Synchronize Soul Stone Upgrades with Thursday Week B (GAR / KvK Day 4)",
+                vi: "Đồng bộ xả Hồn Đá Đỏ vào Thứ Năm Kỳ GAR/KvK (GAR / KvK Day 4)",
+                en: "Synchronize Soul Stone Upgrades with GAR/KvK Thursday (GAR / KvK Day 4)",
               },
               detail: {
-                vi: "Sau khi mua Hồn Đá Đỏ về túi đồ, hãy giữ nguyên chờ đến Ngày 4 (Thứ Năm — Hero Development Day) của Tuần B hoặc Sự kiện Phụ 3 Ngày Soul Stone để vừa lên bậc Thức tỉnh vừa ăn trọn mốc điểm xếp hạng.",
-                en: "After purchasing Soul Stones from the shop, hold them in your bag until Day 4 (Thursday — Hero Development Day) of Week B or the 3-Day Soul Stone side event to double-dip on Awakening stats and leaderboard milestone rewards.",
+                vi: "Sau khi mua Hồn Đá Đỏ về túi đồ, hãy giữ nguyên chờ đến Ngày 4 (Thứ Năm — Hero Development Day) Kỳ GAR/KvK hoặc Sự kiện Phụ 3 Ngày Soul Stone để vừa lên bậc Thức tỉnh vừa ăn trọn mốc điểm xếp hạng.",
+                en: "After purchasing Soul Stones from the shop, hold them in your bag until Day 4 (Thursday — Hero Development Day) of GAR/KvK or the 3-Day Soul Stone side event to double-dip on Awakening stats and leaderboard milestone rewards.",
               },
             },
             {
@@ -289,8 +289,8 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
               ordered: false,
               items: [
                 {
-                  vi: "**Nguồn thu Điểm Vinh Dự & Xu Vinh Quang:** Cày từ 9 mốc Rương Cá Nhân & Rương Bang Hội trong sự kiện Đua Bang Hội (Guild Race — Tuần A) mỗi 2 tuần, kết hợp săn Cự Thú (Behemoth).",
-                  en: "**Guild Honor & Guild Coin Income:** Earned by clearing all 9 Personal and Guild Milestone Chests in the bi-weekly Guild Race (Week A), supplemented by Behemoth raids and Guild warfare.",
+                  vi: "**Nguồn thu Điểm Vinh Dự & Xu Vinh Quang:** Cày từ 9 mốc Rương Cá Nhân & Rương Bang Hội trong sự kiện Đua Bang Hội (Guild Race — Thi Đấu Hội) mỗi 2 tuần, kết hợp săn Cự Thú (Behemoth).",
+                  en: "**Guild Honor & Guild Coin Income:** Earned by clearing all 9 Personal and Guild Milestone Chests in the Guild Race, supplemented by Behemoth raids and Guild warfare.",
                 },
                 {
                   vi: "**Quy tắc Bất khả xâm phạm:** Từ lúc mở tính năng Bang hội ở Lv.15 đến khi Lâu Đài đạt Lv.29, coi Điểm Vinh Dự Bang và Xu Vinh Quang Hội là tài sản dự trữ chiến lược bất khả xâm phạm.",
@@ -437,16 +437,16 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
                 {
                   id: "chk-7-2-thursday-event-dump",
                   label: {
-                    vi: "Chỉ bấm Thức tỉnh vào Thứ Năm Tuần B (GAR / KvK Day 4) hoặc Sự kiện Phụ Soul Stone",
-                    en: "Trigger Awakening Upgrades Only on Thursday Week B (GAR / KvK Day 4) or Soul Stone Side Events",
+                    vi: "Chỉ bấm Thức tỉnh vào Thứ Năm Kỳ GAR/KvK (GAR / KvK Day 4) hoặc Sự kiện Phụ Soul Stone",
+                    en: "Trigger Awakening Upgrades Only on GAR/KvK Thursday (GAR / KvK Day 4) or Soul Stone Side Events",
                   },
                   detail: {
-                    vi: "Mua Hồn Đá Đỏ về túi đồ ngay khi xoay trúng hệ nhưng chờ đúng Thứ Năm Tuần B (Hero Development Day) để bấm nâng bậc Thức tỉnh nhằm ăn trọn điểm sự kiện.",
-                    en: "Buy your faction's Soul Stone immediately when it rotates in, but wait until Thursday of Week B (Hero Development Day) to activate the Awakening node for maximum event points.",
+                    vi: "Mua Hồn Đá Đỏ về túi đồ ngay khi xoay trúng hệ nhưng chờ đúng Thứ Năm Kỳ GAR/KvK (Hero Development Day) để bấm nâng bậc Thức tỉnh nhằm ăn trọn điểm sự kiện.",
+                    en: "Buy your faction's Soul Stone immediately when it rotates in, but wait until GAR/KvK Thursday (Hero Development Day) to activate the Awakening node for maximum event points.",
                   },
                   badge: {
-                    vi: "THỨ NĂM TUẦN B",
-                    en: "THURSDAY WEEK B",
+                    vi: "THỨ NĂM GAR/KVK",
+                    en: "GAR/KVK THURSDAY",
                   },
                 },
               ],
@@ -614,8 +614,8 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
                     en: "Bank the Minimum 40,000 Guild Honor / 18,000 Guild Coin Reserve Floor",
                   },
                   subtitle: {
-                    vi: "Cày tối đa rương Guild Race Tuần A; khóa ví trước mọi vật phẩm phụ và Quân trang 12,000 Xu",
-                    en: "Maximize Week A Guild Race chests; lock wallet against filler items and the 12,000-Coin Troop Skin trap",
+                    vi: "Cày tối đa rương Kỳ Guild Race; khóa ví trước mọi vật phẩm phụ và Quân trang 12,000 Xu",
+                    en: "Maximize Guild Race chests; lock wallet against filler items and the 12,000-Coin Troop Skin trap",
                   },
                   tone: "gold",
                 },
@@ -1179,8 +1179,8 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
                 en: "Freeze All Guild Honor & Guild Coins from Day 15 to Day 55",
               },
               detail: {
-                vi: "Tích lũy quỹ dự phòng vượt ngưỡng `40,000`–`80,000` Điểm Vinh Dự và `18,000` Xu Vinh Quang Hội thông qua việc mở trọn 9 rương mốc cá nhân sự kiện Guild Race (Tuần A).",
-                en: "Accumulate a reserve exceeding `40,000`–`80,000` Guild Honor Points and `18,000` Guild Coins by clearing all 9 personal milestone chests in bi-weekly Guild Race (Week A).",
+                vi: "Tích lũy quỹ dự phòng vượt ngưỡng `40,000`–`80,000` Điểm Vinh Dự và `18,000` Xu Vinh Quang Hội thông qua việc mở trọn 9 rương mốc cá nhân sự kiện Guild Race (Thi Đấu Hội).",
+                en: "Accumulate a reserve exceeding `40,000`–`80,000` Guild Honor Points and `18,000` Guild Coins by clearing all 9 personal milestone chests in Guild Race.",
               },
               impactBadge: {
                 vi: "QUỸ GỐC 80,000+ ĐIỂM",
@@ -1194,8 +1194,8 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
                 en: "Funnel All 9 Soul Stones + 345–385 Shards into Primary Carry in Early Season 1",
               },
               detail: {
-                vi: "**Mua liền mạch 3 tuần:** Kết hợp mở Rương Hồn Đá Tự Chọn và xả Thứ Năm Tuần B (GAR Day 4).\n• **Chạm thẳng Bậc IV:** Đưa Soulmancer / Warlock (hoặc Pyromancer / Adjudicator / Pixie) qua Bậc II (`75–95` Mảnh) lên thẳng Bậc IV Hóa Đỏ (`130` Mảnh).",
-                en: "**Buy on 3-Week Cycle:** Unseal Soul Stone Choice Chests and upgrade on Thursday Week B (GAR Day 4).\n• **Push to Tier IV:** Advance Soulmancer / Warlock (or Pyromancer / Adjudicator / Pixie) past Tier II (`75–95` Shards) straight to Tier IV Mythic (`130` Shards).",
+                vi: "**Mua liền mạch 3 tuần:** Kết hợp mở Rương Hồn Đá Tự Chọn và xả Thứ Năm Kỳ GAR/KvK (GAR Day 4).\n• **Chạm thẳng Bậc IV:** Đưa Soulmancer / Warlock (hoặc Pyromancer / Adjudicator / Pixie) qua Bậc II (`75–95` Mảnh) lên thẳng Bậc IV Hóa Đỏ (`130` Mảnh).",
+                en: "**Buy on 3-Week Cycle:** Unseal Soul Stone Choice Chests and upgrade on GAR/KvK Thursday (GAR Day 4).\n• **Push to Tier IV:** Advance Soulmancer / Warlock (or Pyromancer / Adjudicator / Pixie) past Tier II (`75–95` Shards) straight to Tier IV Mythic (`130` Shards).",
               },
               impactBadge: {
                 vi: "HOÀN TẤT 9 VIÊN ĐẦU S1",

@@ -990,8 +990,8 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
                     en: "0% Spend — 100% Freeze starting at Week 3. Only use hero-specific shards on starter League heroes.",
                   },
                   {
-                    vi: "100% Dồn cho Tướng Đỏ Đội 1 (Desert Prince, Storm Maiden, Witch hoặc chủ lực hệ đã chọn) vào Thứ Năm Tuần B (GAR / KvK Day 4) (hoặc canh lúc có Hero Development Rush / Nhiệm vụ Vàng nâng tướng nếu máy chủ đang ở giai đoạn Thi Đấu Hội chạy nối tiếp).",
-                    en: "100% Funneled into Queue 1 Mythic heroes (Desert Prince, Storm Maiden, Witch) on Thursday of Week B (GAR / KvK Day 4) (or synced with Hero Development Rush / Golden Hero Upgrade Quests if the server is in continuous weekly Guild Race mode).",
+                    vi: "100% Dồn cho Tướng Đỏ Đội 1 (Desert Prince, Storm Maiden, Witch hoặc chủ lực hệ đã chọn) vào Thứ Năm Kỳ GAR/KvK (GAR / KvK Day 4) (hoặc canh lúc có Hero Development Rush / Nhiệm vụ Vàng nâng tướng nếu máy chủ đang ở giai đoạn Thi Đấu Hội chạy nối tiếp).",
+                    en: "100% Funneled into Queue 1 Mythic heroes (Desert Prince, Storm Maiden, Witch) on Thursday of GAR/KvK (Day 4) (or synced with Hero Development Rush / Golden Hero Upgrade Quests if the server is in continuous weekly Guild Race mode).",
                   },
                   {
                     vi: "70% Đẩy Tướng Đỏ lên 5 Sao Trắng (1,000 Mảnh/tướng Mythic; 500 Mảnh Legendary) / 30% Dành cho Thức Tỉnh Tướng Vàng (9 Hồn Đá Đỏ (Soul Stones) + 345–385 Mảnh Tướng từ mốc 1–2 Sao Trắng / 11–12 Sao).",

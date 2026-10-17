@@ -299,8 +299,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
                 en: "STAIRCASE TECH: Barracks Promote Arrow Icon",
               },
               detail: {
-                vi: "Nuôi lính bậc T(n-1) vào ngày thường (Thứ Bảy ➔ Thứ Năm), sau đó bấm Promote lên bậc cao nhất T(n) vào Thứ Sáu Tuần B để ăn điểm gấp 2–3 lần trên mỗi giờ tăng tốc.",
-                en: "Train T(n-1) troops on normal days (Saturday ➔ Thursday), then click Promote to upgrade them to T(n) on Friday of Week B for 2–3x event points per speedup hour.",
+                vi: "Nuôi lính bậc T(n-1) vào ngày thường (Thứ Bảy ➔ Thứ Năm), sau đó bấm Promote lên bậc cao nhất T(n) vào Thứ Sáu Kỳ GAR/KvK để ăn điểm gấp 2–3 lần trên mỗi giờ tăng tốc.",
+                en: "Train T(n-1) troops on normal days (Saturday ➔ Thursday), then click Promote to upgrade them to T(n) on Friday of GAR/KvK for 2–3x event points per speedup hour.",
               },
             },
           ],
@@ -570,8 +570,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
                 en: "Meta Standard Rule — Trap #7",
               },
               content: {
-                vi: "**Dồn Điểm Gãy `Lv.5` & `Lv.8`:** Ghép tập trung từng vị trí Cổ Ngữ Đội 1 chạm thẳng `Lv.5` (`+5%` Hero ATK/HP & `+30 March Size`) rồi `Lv.8` (`+5%` Soldier ATK/HP) vào đúng Thứ Ba Tuần B.",
-                en: "**Target `Lv.5` & `Lv.8` Breakpoints:** Concentrate rune merges one slot at a time for Queue 1 to hit `Lv.5` (`+5%` Hero ATK/HP & `+30 March Size`) and `Lv.8` (`+5%` Soldier ATK/HP) on Tuesday of Week B.",
+                vi: "**Dồn Điểm Gãy `Lv.5` & `Lv.8`:** Ghép tập trung từng vị trí Cổ Ngữ Đội 1 chạm thẳng `Lv.5` (`+5%` Hero ATK/HP & `+30 March Size`) rồi `Lv.8` (`+5%` Soldier ATK/HP) vào đúng Thứ Ba Kỳ GAR/KvK.",
+                en: "**Target `Lv.5` & `Lv.8` Breakpoints:** Concentrate rune merges one slot at a time for Queue 1 to hit `Lv.5` (`+5%` Hero ATK/HP & `+30 March Size`) and `Lv.8` (`+5%` Soldier ATK/HP) on Tuesday of GAR/KvK.",
               },
             },
           ],
@@ -640,8 +640,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
                 en: "Meta Standard Rule — Trap #9",
               },
               content: {
-                vi: "**Niêm phong Rương Thần Khí:** Giữ nguyên các Rương tự chọn Vũ khí Độc quyền trong túi đồ cho đến khi sở hữu Tướng Đỏ chủ lực Đội 1, và chỉ ghép mảnh vào Thứ Năm (`17:00 – 21:00`) Tuần B (`GAR`).",
-                en: "**Seal UW Choice Chests:** Keep Exclusive Weapon Choice Chests sealed in your inventory until you unlock your Queue 1 Mythic carries, and only craft/upgrade them on Thursday (`17:00 – 21:00`) of Week B (`GAR`).",
+                vi: "**Niêm phong Rương Thần Khí:** Giữ nguyên các Rương tự chọn Vũ khí Độc quyền trong túi đồ cho đến khi sở hữu Tướng Đỏ chủ lực Đội 1, và chỉ ghép mảnh vào Thứ Năm (`17:00 – 21:00`) Kỳ `GAR`.",
+                en: "**Seal UW Choice Chests:** Keep Exclusive Weapon Choice Chests sealed in your inventory until you unlock your Queue 1 Mythic carries, and only craft/upgrade them on Thursday (`17:00 – 21:00`) of `GAR`.",
               },
             },
           ],
@@ -675,8 +675,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
                 en: "Meta Standard Rule — Trap #10 (Staircase Troop Promotion)",
               },
               content: {
-                vi: "**Kỹ thuật Thăng cấp Lính Bậc Thang (`Staircase Troop Promotion`):** Trong ngày thường (Thứ Bảy ➔ Thứ Năm), chỉ huấn luyện lính bậc thấp hơn 1–2 cấp (`T(n-1)`).\n• **Bùng nổ Điểm Thứ Sáu Tuần B (`GAR/KvK`):** Bấm nút Thăng cấp (`Promote`) toàn bộ lính cũ lên bậc cao nhất (`T(n)`) kèm xả Tăng tốc Lính để ăn điểm gấp `2–3 lần` mỗi giờ tăng tốc!",
-                en: "**Execute `Staircase Troop Promotion`:** On normal days (Saturday ➔ Thursday), only train troops 1–2 tiers below your max tier (`T(n-1)`).\n• **Week B Friday (`GAR/KvK`) Spike:** Hit `Promote` to upgrade all pre-trained lower tiers into max-tier `T(n)` troops with Speedups—scoring `2–3x` more event points per speedup hour!",
+                vi: "**Kỹ thuật Thăng cấp Lính Bậc Thang (`Staircase Troop Promotion`):** Trong ngày thường (Thứ Bảy ➔ Thứ Năm), chỉ huấn luyện lính bậc thấp hơn 1–2 cấp (`T(n-1)`).\n• **Bùng nổ Điểm Thứ Sáu Kỳ `GAR/KvK`:** Bấm nút Thăng cấp (`Promote`) toàn bộ lính cũ lên bậc cao nhất (`T(n)`) kèm xả Tăng tốc Lính để ăn điểm gấp `2–3 lần` mỗi giờ tăng tốc!",
+                en: "**Execute `Staircase Troop Promotion`:** On normal days (Saturday ➔ Thursday), only train troops 1–2 tiers below your max tier (`T(n-1)`).\n• **`GAR/KvK` Friday Spike:** Hit `Promote` to upgrade all pre-trained lower tiers into max-tier `T(n)` troops with Speedups—scoring `2–3x` more event points per speedup hour!",
               },
             },
           ],
@@ -908,8 +908,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
                 en: "Moderate (Lose 50% weekly event chest rewards)",
               },
               {
-                vi: "Ngay khi hàng đợi nghiên cứu hiện tại chạy xong, chuyển 100% cả 2 hàng đợi và toàn bộ Tăng tốc Nghiên cứu (vào Thứ Ba Tuần B) dồn thẳng một mạch xuống nốt Double Rewards của nhánh Arms Race Prep.",
-                en: "As soon as current research completes, redirect 100% of your queues and Research Speedups (on Tuesday of Week B) straight down to the Double Rewards node in Arms Race Prep.",
+                vi: "Ngay khi hàng đợi nghiên cứu hiện tại chạy xong, chuyển 100% cả 2 hàng đợi và toàn bộ Tăng tốc Nghiên cứu (vào Thứ Ba Kỳ GAR/KvK) dồn thẳng một mạch xuống nốt Double Rewards của nhánh Arms Race Prep.",
+                en: "As soon as current research completes, redirect 100% of your queues and Research Speedups (on Tuesday of GAR/KvK) straight down to the Double Rewards node in Arms Race Prep.",
               },
               {
                 vi: "1 – 1.5 Chu kỳ (2 – 3 Tuần) tập trung nghiên cứu.",
@@ -934,8 +934,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
                 en: "Unequip all low-tier runes from secondary boards and merge them sequentially to push Queue 1 Hero ATK/HP and Soldier Runes to Lv.5 (+5% Hero ATK/HP & +30 March Size) and Lv.8 (+5% Soldier ATK/HP).",
               },
               {
-                vi: "1 Chu kỳ Tuần B (Thứ Ba - Ngày Cổ Ngữ) để ghép dồn lại.",
-                en: "1 Week B Cycle (Tuesday - Runes Day) to consolidate and merge.",
+                vi: "1 Chu kỳ GAR/KvK (Thứ Ba - Ngày Cổ Ngữ) để ghép dồn lại.",
+                en: "1 GAR/KvK Cycle (Tuesday - Runes Day) to consolidate and merge.",
               },
               {
                 vi: "Không cần Reroll vì Cổ Ngữ bậc thấp chính là nguyên liệu ghép lên bậc cao.",
@@ -996,12 +996,12 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
                 en: "Mild (100% Recoverable — turns into a massive point jackpot!)",
               },
               {
-                vi: "Không xóa lính cấp thấp! Hãy giữ nguyên số lính T1–T5 đó chờ đến đúng Thứ Sáu của Tuần B (Ngày Lính của GAR/KvK), sau đó bấm Thăng cấp (Promote) theo kỹ thuật Staircase Troop Promotion (Thăng cấp Lính Bậc Thang) toàn bộ lên bậc cao nhất để nổ hàng triệu điểm sự kiện!",
-                en: "Do NOT dismiss low-tier troops! Keep all T1–T5 troops intact until Friday of Week B (GAR/KvK Troop Day), then batch-promote them to max tier using Staircase Troop Promotion to score millions of event points!",
+                vi: "Không xóa lính cấp thấp! Hãy giữ nguyên số lính T1–T5 đó chờ đến đúng Thứ Sáu Kỳ GAR/KvK (Ngày Lính của GAR/KvK), sau đó bấm Thăng cấp (Promote) theo kỹ thuật Staircase Troop Promotion (Thăng cấp Lính Bậc Thang) toàn bộ lên bậc cao nhất để nổ hàng triệu điểm sự kiện!",
+                en: "Do NOT dismiss low-tier troops! Keep all T1–T5 troops intact until Friday of GAR/KvK (Troop Day), then batch-promote them to max tier using Staircase Troop Promotion to score millions of event points!",
               },
               {
-                vi: "Chuyển bại thành thắng ngay vào Thứ Sáu Tuần B kế tiếp!",
-                en: "Turns a mistake into a massive win on the very next Week B Friday!",
+                vi: "Chuyển bại thành thắng ngay vào Thứ Sáu Kỳ GAR/KvK kế tiếp!",
+                en: "Turns a mistake into a massive win on the very next GAR/KvK Friday!",
               },
               {
                 vi: "Tuyệt đối không Reroll — lượng lính cấp thấp tồn đọng chính là 'kho điểm nổ' cho kỳ GAR sắp tới!",
@@ -1047,8 +1047,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
                 en: "Checkpoint 1 — Open Event ➔ Event Calendar and inspect the Monday (09:00) event bars",
               },
               detail: {
-                vi: "**Tuần Thi Đấu Hội (Guild Race — kèm Khiêu Chiến Của Đội Quân Hắc Ám & Tập Kích Cự Ma, hoặc Tuần A):** Chỉ tiêu vừa đủ mốc rương cá nhân, chuẩn bị nghiên cứu ngắn (5–30p), lính Pre-cook và hộp quà công trình.\n• **Giữ Nguyên Liệu & Khóa Tuần B:** Giữ nguyên liệu Lord Gear cho Ngày 5–7 (Thứ Sáu ➔ Chủ Nhật); nếu tuần tới là GAR hoặc KvK (Tuần B), đóng băng mọi nâng cấp để xả theo đúng 6 ngày chủ đề cố định.",
-                en: "**Guild Race Week (with Dark Legion Challenge & Giant Raid, or Week A):** Spend only for personal milestone chests, and prep 5–30m research nodes, pre-cooked troops, and building gift boxes.\n• **Save Lord Gear & Lock Week B:** Save Lord Gear for Days 5–7; if the upcoming week is GAR or KvK (Week B), freeze upgrades to unleash across the 6 fixed theme days.",
+                vi: "**Tuần Thi Đấu Hội (Guild Race — kèm Khiêu Chiến Của Đội Quân Hắc Ám & Tập Kích Cự Ma):** Chỉ tiêu vừa đủ mốc rương cá nhân, chuẩn bị nghiên cứu ngắn (5–30p), lính Pre-cook và hộp quà công trình.\n• **Giữ Nguyên Liệu & Khóa Kỳ GAR/KvK:** Giữ nguyên liệu Lord Gear cho Ngày 5–7 (Thứ Sáu ➔ Chủ Nhật); nếu tuần tới là GAR hoặc KvK, đóng băng mọi nâng cấp để xả theo đúng 6 ngày chủ đề cố định.",
+                en: "**Guild Race Week (with Dark Legion Challenge & Giant Raid):** Spend only for personal milestone chests, and prep 5–30m research nodes, pre-cooked troops, and building gift boxes.\n• **Save Lord Gear & Lock GAR/KvK:** Save Lord Gear for Days 5–7; if the upcoming week is GAR or KvK, freeze upgrades to unleash across the 6 fixed theme days.",
               },
             },
             {

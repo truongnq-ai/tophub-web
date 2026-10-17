@@ -192,8 +192,8 @@ export const ARTICLE_7_3_EXCHANGE_AND_VIP_SHOPS: GuideArticle = {
                   en: "**Mandatory Weekly Buys (S+ Tier)**: Stamina Potion 25 (`100 Diamonds × 6` = `600/week`), 50%-Off Universal Legendary Hero Shards (`300 Diamonds`), and Skill Books (`2,000` for `2 Diamonds`).",
                 },
                 {
-                  vi: "**Nhóm Mua Có Điều Kiện (A/B Tier — Quỹ KC > 35,000–42,000 KC)**: Đá Cường Hóa giảm sâu (`1,500` viên × `4 KC`) và Lệnh Chiêu Mộ giảm giá (`150/240 KC` cho `2` vé) khi thiếu điểm rương Thứ Năm Tuần B.",
-                  en: "**Conditional Buys (A/B Tier — Reserve > 35,000–42,000)**: Deeply discounted Gear Enhance Runes (`1,500 × 4 Diamonds`) and Recruitment Tokens (`150/240 Diamonds`) when short of Thursday Week B chests.",
+                  vi: "**Nhóm Mua Có Điều Kiện (A/B Tier — Quỹ KC > 35,000–42,000 KC)**: Đá Cường Hóa giảm sâu (`1,500` viên × `4 KC`) và Lệnh Chiêu Mộ giảm giá (`150/240 KC` cho `2` vé) khi thiếu điểm rương Thứ Năm Kỳ GAR/KvK.",
+                  en: "**Conditional Buys (A/B Tier — Reserve > 35,000–42,000)**: Deeply discounted Gear Enhance Runes (`1,500 × 4 Diamonds`) and Recruitment Tokens (`150/240 Diamonds`) when short of GAR/KvK Thursday chests.",
                 },
                 {
                   vi: "**Nhóm Cấm Mua Bằng Kim Cương (F Tier)**: Rương Thịt / Gỗ / Đá / Ruby (`40–380 KC`), Vàng/Bạc Chest, Tăng tốc nguyên giá, Đá EXP Tướng và Phôi Đồ Tím.",
@@ -501,8 +501,8 @@ export const ARTICLE_7_3_EXCHANGE_AND_VIP_SHOPS: GuideArticle = {
                 en: "4. Neglecting weekly Gear Smelting Exchange DE-Dust (100 ➔ 300 ➔ 600 ➔ 1,200 ➔ 2,400), Solar Gold Ingots, low-tier Runes, or overlapping Decor sets",
               },
               {
-                vi: "Thiếu hụt trầm trọng Solar Gold Ingot để đúc 24 món đồ Vàng Dấu Hệ (+30%), thiếu DE-Dust để ghép Cổ Ngữ Lv.5–Lv.8 trong Ngày Thứ Ba Tuần B, và lãng phí Decor Tokens vào các bộ nội thất trùng lặp.",
-                en: "Starves your account of Solar Gold Ingots needed for 24 Faction-Marked (+30%) Legendary gear pieces, creates a severe DE-Dust bottleneck on Tuesday Week B Rune upgrades, and wastes Decor Tokens on redundant furniture sets.",
+                vi: "Thiếu hụt trầm trọng Solar Gold Ingot để đúc 24 món đồ Vàng Dấu Hệ (+30%), thiếu DE-Dust để ghép Cổ Ngữ Lv.5–Lv.8 trong Ngày Thứ Ba Kỳ GAR/KvK, và lãng phí Decor Tokens vào các bộ nội thất trùng lặp.",
+                en: "Starves your account of Solar Gold Ingots needed for 24 Faction-Marked (+30%) Legendary gear pieces, creates a severe DE-Dust bottleneck on GAR/KvK Tuesday Rune upgrades, and wastes Decor Tokens on redundant furniture sets.",
               },
               {
                 vi: "Vét đều đặn Solar Gold Ingot và thang bậc DE-Dust hàng tuần (100 ➔ 300 ➔ 600 ➔ 1,200 ➔ 2,400) trong Gear Smelting Exchange; chỉ đổi Rương Cổ Ngữ từ Lv.5–Lv.6+ và tập trung hoàn thiện từng Bộ Trang Trí Vàng (Legendary Decor Set) riêng biệt.",

@@ -353,8 +353,8 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
                 en: "~2,000 – 4,500 Diamonds / week",
               },
               {
-                vi: "Thể lực (Stamina) mua bằng Kim Cương trong Cửa hàng VIP có tỷ lệ quy đổi ra điểm sự kiện Thứ Tư Tuần B (GAR) (hoặc săn Boss/vệ tinh Tập Kích Cự Ma) cao gấp 4 lần giá gốc. Mảnh Vàng Vạn Năng giảm giá là khoản đầu tư bắt buộc mỗi tuần.",
-                en: "Stamina bought with Diamonds in the VIP Shop yields 4x value when converted into Wednesday Week B (GAR) points or Boss/Giant Raid satellite event rewards. Discounted Universal Shards are mandatory every week.",
+                vi: "Thể lực (Stamina) mua bằng Kim Cương trong Cửa hàng VIP có tỷ lệ quy đổi ra điểm sự kiện Thứ Tư Kỳ GAR/KvK (hoặc săn Boss/vệ tinh Tập Kích Cự Ma) cao gấp 4 lần giá gốc. Mảnh Vàng Vạn Năng giảm giá là khoản đầu tư bắt buộc mỗi tuần.",
+                en: "Stamina bought with Diamonds in the VIP Shop yields 4x value when converted into Wednesday GAR/KvK points or Boss/Giant Raid satellite event rewards. Discounted Universal Shards are mandatory every week.",
               },
             ],
             [
@@ -389,8 +389,8 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
                 en: "Varies by point gap; 8h–24h Shield on Day 6 KvK",
               },
               {
-                vi: "Đạt mốc VIP 4 và VIP 8 càng sớm càng tốt để mở khóa thêm các ô vật phẩm giảm giá trong VIP Shop và buff tốc độ xây dựng/nghiên cứu toàn cục. Vào Thứ Bảy Tuần B (Ngày Chiến sự / Kill Event), mua Khiên bằng KC rẻ hơn gấp 20 lần chi phí chữa lính chết tràn viện.",
-                en: "Reach VIP 4, VIP 6, and VIP 8 early to unlock additional discounted VIP Shop slots and global construction/research buffs. On Saturday of Week B (Kill Event), buying a Peace Shield with Diamonds is 20x cheaper than healing overflowed hospital troops.",
+                vi: "Đạt mốc VIP 4 và VIP 8 càng sớm càng tốt để mở khóa thêm các ô vật phẩm giảm giá trong VIP Shop và buff tốc độ xây dựng/nghiên cứu toàn cục. Vào Thứ Bảy Kỳ GAR/KvK (Ngày Chiến sự / Kill Event), mua Khiên bằng KC rẻ hơn gấp 20 lần chi phí chữa lính chết tràn viện.",
+                en: "Reach VIP 4, VIP 6, and VIP 8 early to unlock additional discounted VIP Shop slots and global construction/research buffs. On Saturday of GAR/KvK (Kill Event), buying a Peace Shield with Diamonds is 20x cheaper than healing overflowed hospital troops.",
               },
             ],
             [
@@ -772,8 +772,8 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
                     en: "Permanently enables running 2 parallel Tech Research trees inside the Research Cottage.",
                   },
                   {
-                    vi: "Bước ngoặt thay đổi cuộc chơi ở Mid-game. Trong khi người khác phải chọn giữa nhánh Arms Race Prep và Queue 1 Boost, bạn nâng song song cả hai và giữ 1 hàng đợi làm \"mồi\" nhiệm vụ Tuần A!",
-                    en: "A massive mid-game game-changer. While others must choose between Arms Race Prep and Queue 1 Boost, you research both simultaneously and keep 1 queue ready for Week A task baiting!",
+                    vi: "Bước ngoặt thay đổi cuộc chơi ở Mid-game. Trong khi người khác phải chọn giữa nhánh Arms Race Prep và Queue 1 Boost, bạn nâng song song cả hai và giữ 1 hàng đợi làm \"mồi\" nhiệm vụ Thi Đấu Hội!",
+                    en: "A massive mid-game game-changer. While others must choose between Arms Race Prep and Queue 1 Boost, you research both simultaneously and keep 1 queue ready for Guild Race task baiting!",
                   },
                 ],
                 [
@@ -997,8 +997,8 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
       id: "sec-5-14day-budget-case-study",
       isPro: true,
       title: {
-        vi: "5. Kịch bản Thực chiến Nâng cao: Bài Toán Cân Đối Ngân Sách Kim Cương Trong Chu Kỳ 14 Ngày (Tuần 3 ➔ Tuần 4 Pre-Season)",
-        en: "5. Advanced Case Study: 14-Day Diamond Cashflow Balancing Across Weeks 3 & 4 (Pre-Season)",
+        vi: "5. Kịch bản Thực chiến Nâng cao: Bài Toán Cân Đối Ngân Sách Kim Cương Theo Lộ Trình Sự Kiện (Tuần 3 ➔ Tuần 4 Pre-Season)",
+        en: "5. Advanced Case Study: Event-Roadmap Diamond Cashflow Balancing Across Weeks 3 & 4 (Pre-Season)",
       },
       blocks: [
         {

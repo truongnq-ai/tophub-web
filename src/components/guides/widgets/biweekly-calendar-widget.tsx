@@ -82,13 +82,13 @@ const LABELS: Record<
   }
 > = {
   vi: {
-    badge: "BỘ LẬP LỊCH TƯƠNG TÁC • CHU KỲ 14 NGÀY & DOUBLE-DIP",
-    title: "Lịch Chu Kỳ Sự Kiện & Tra Cứu Double-Dip 300%",
+    badge: "BỘ LẬP LỊCH TƯƠNG TÁC • LỘ TRÌNH TIẾN ĐỘ SERVER & DOUBLE-DIP",
+    title: "Lộ Trình Sự Kiện Theo Tiến Độ Server & Tra Cứu Double-Dip 300%",
     subtitle:
-      "Chuyển đổi Pha 1 (Server Mới) ⇄ Pha 2 (Tuần A Thi Đấu Hội / Tuần B GAR-KvK) & Khung giờ vàng 4 tiếng",
+      "Chuyển đổi Pha 1 (Server Mới) ⇄ Pha 2 (Kỳ Thi Đấu Hội / Kỳ GAR-KvK) & Khung giờ vàng 4 tiếng",
     modes: {
-      weekB: "⚔️ Tuần B: Đua Vũ Trang (GAR/KvK)",
-      weekA: "🛡️ Tuần A: Thi Đấu Hội (Guild Race)",
+      weekB: "⚔️ Kỳ Đua Vũ Trang (GAR/KvK)",
+      weekA: "🛡️ Kỳ Thi Đấu Hội (Guild Race)",
       phase1: "🌱 Pha 1: Server Mới (Pre-Season)",
       doubledip: "🔥 Tra Cứu 13 Vật Phẩm (300%)",
     },
@@ -118,7 +118,7 @@ const LABELS: Record<
     phase1Satellites: [
       "Mục Thường: Đế Quốc Hắc Ám Xâm Nhập (Dark Empire Invasion) ⇄ Khiêu Chiến Đội Quân Hắc Ám (Dark Legion Challenge)",
       "Mục Event Giá Trị: Bắt Bướm (Butterfly Catching) ⇄ Tập Kích Cự Ma + Thẻ Thông Hành Cự Ma (Giant/Troll Raid)",
-      "Sự Kiện Gacha Đi Kèm: Xúc Xắc (Dice Event) & Vòng Quay May Mắn (Lucky Wheel) — Tích Kim Cương chờ tướng Đỏ Bộ Lạc (Ngày 21+)",
+      "Chu Kỳ Gacha Độc Lập (3 Tuần/Lần Hoặc Theo Ngày Tuổi Server S0): Vòng Quay (750 KC — Liên Minh), Hero Gacha (1,000 KC — Bộ Lạc) & Xúc Xắc (800 KC — Tự Nhiên) — Tích KC chờ tướng Đỏ Đội 1 (Ngày 21+)",
     ],
     phase1StrategyTitle:
       "3. Nguyên Tắc Tích Trữ Chuyển Tiếp Lên Pha 2 (KvK / GAR):",
@@ -138,13 +138,13 @@ const LABELS: Record<
     tier0Label: "⛔ Cấm Kỵ Tuyệt Đối (0% Điểm):",
   },
   en: {
-    badge: "INTERACTIVE PLANNER • 14-DAY CYCLE & DOUBLE-DIP",
-    title: "Biweekly Event Cycle & 300% Double-Dip Planner",
+    badge: "INTERACTIVE PLANNER • SERVER-PROGRESSION ROADMAP & DOUBLE-DIP",
+    title: "Server-Progression Event Roadmap & 300% Double-Dip Planner",
     subtitle:
-      "Switch Phase 1 (New Server) ⇄ Phase 2 (Week A Guild Race / Week B GAR-KvK) & 4-Hour Golden Windows",
+      "Switch Phase 1 (New Server) ⇄ Phase 2 (Guild Race Mode / GAR-KvK Mode) & 4-Hour Golden Windows",
     modes: {
-      weekB: "⚔️ Week B: Arms Race (GAR/KvK)",
-      weekA: "🛡️ Week A: Guild Race (Dice)",
+      weekB: "⚔️ Arms Race Mode (GAR/KvK)",
+      weekA: "🛡️ Guild Race Mode (9-Slot Board)",
       phase1: "🌱 Phase 1: New Server (Pre-Season)",
       doubledip: "🔥 13-Item Double-Dip Lookup (300%)",
     },
@@ -173,7 +173,7 @@ const LABELS: Record<
     phase1Satellites: [
       "Regular Tab: Dark Empire Invasion ⇄ Dark Legion Challenge",
       "Value Event Tab: Butterfly Catching ⇄ Giant/Troll Raid + Giant Raid Pass",
-      "Paired Gacha Events: Dice Event & Lucky Wheel — Hoard Diamonds for Horde Mythic releases (Day 21+)",
+      "Independent Gacha Cycle (Every 3rd Week / S0 Server Age): Lucky Wheel (750 Diamonds — League), Hero Gacha (1,000 Diamonds — Horde) & Dice of Fate (800 Diamonds — Nature) — Hoard Diamonds for Queue 1 Mythics (Day 21+)",
     ],
     phase1StrategyTitle:
       "3. Hoarding Transition Rule Into Phase 2 (KvK / GAR):",
@@ -249,8 +249,8 @@ function buildWeekBSchedule(locale: GuideLocale): DayScheduleEntry[] {
     fullLabel: copy.dayNamesFull[6],
     guildRush:
       locale === "vi"
-        ? "Chủ Nhật (Ngày Nghỉ & Chuẩn Bị Chuyển Chu Kỳ Tuần A)"
-        : "Sunday (Rest & Transition Prep for Week A Guild Race)",
+        ? "Chủ Nhật (Ngày Nghỉ & Chuẩn Bị Chuyển Sang Kỳ Thi Đấu Hội)"
+        : "Sunday (Rest & Transition Prep for Guild Race Mode)",
     stageTitle:
       locale === "vi"
         ? "Tổng Kết GAR/KvK & Ủ Công Trình Đón Tuần Mới"
@@ -310,7 +310,7 @@ function buildWeekASchedule(locale: GuideLocale): DayScheduleEntry[] {
           "• Nhận Nhiệm vụ Độc quyền nâng cấp Thánh Vật trên bảng Guild Race kết hợp ăn trọn mốc Guild Rush Thánh Tích (Thứ 4–5) và sự kiện phụ Relic Power.",
         goldenWindow: "17:00 – 21:00 (Giao thoa Guild Race + Guild Rush Thánh Tích)",
         tabooWarning:
-          "Chỉ xả vừa đủ mảnh Thánh Vật khớp điểm nhiệm vụ đang cầm, giữ phần dư cho Ngày 1–2 Tuần B!",
+          "Chỉ xả vừa đủ mảnh Thánh Vật khớp điểm nhiệm vụ đang cầm, giữ phần dư cho Ngày 1–2 Kỳ GAR/KvK!",
       },
       {
         dayNumber: 4,
@@ -322,7 +322,7 @@ function buildWeekASchedule(locale: GuideLocale): DayScheduleEntry[] {
           "• Hoàn tất nốt mốc Thánh Tích. • Giữ lại lượt nhận nhiệm vụ tối Thứ Năm để sẵn sàng đón Nhiệm Vụ Huyền Thoại Độc Quyền mở khóa vào Ngày 5!",
         goldenWindow: "21:00 – 01:00 (Chuẩn bị bước sang Giai đoạn 2 Ngày 5–7)",
         tabooWarning:
-          "Cấm xả Đồ Chúa Tể (Lord Gear) vào Thứ Năm Tuần A — hãy đợi đúng sáng Thứ Sáu Ngày 5!",
+          "Cấm xả Đồ Chúa Tể (Lord Gear) vào Thứ Năm Kỳ Thi Đấu Hội — hãy đợi đúng sáng Thứ Sáu Ngày 5!",
       },
       {
         dayNumber: 5,
@@ -334,7 +334,7 @@ function buildWeekASchedule(locale: GuideLocale): DayScheduleEntry[] {
           "🔥 Giai Đoạn 2 (Ngày 5): Mở Khóa Nhiệm Vụ Huyền Thoại Độc Quyền (+300 ➔ +450đ)",
         scoringDetail:
           "• Xoay Ô Độc Quyền (10 phút/lần) lấy Nhiệm vụ Vàng Đồ Chúa Tể (Lord Gear) hoặc Luyện lính bậc thang. • Trùng khớp 100% với Guild Rush Quân Trang & Đồ Chúa Tể + Sự kiện phụ Lord's Set (Triple-Dip 300%)!",
-        goldenWindow: "17:00 – 21:00 & 21:00 – 01:00 (Cú nổ Triple-Dip Lord Gear Tuần A)",
+        goldenWindow: "17:00 – 21:00 & 21:00 – 01:00 (Cú nổ Triple-Dip Lord Gear Kỳ Thi Đấu Hội)",
         tabooWarning:
           "Bắt buộc phải nhận Nhiệm vụ Vàng Lord Gear trên bảng Guild Race TRƯỚC khi bấm nâng cấp Đồ Chúa Tể!",
       },
@@ -350,16 +350,16 @@ function buildWeekASchedule(locale: GuideLocale): DayScheduleEntry[] {
           "• Tiếp tục xoay 2 Ô Độc Quyền mỗi 10 phút lấy nhiệm vụ Lord Gear / Quân Trang / Tăng tốc để cán mốc Rương Cá Nhân Hạng 9 (nhận Xu Vinh Quang tối đa).",
         goldenWindow: "13:00 – 17:00 & 17:00 – 21:00 (Nước rút Rương Hạng 9)",
         tabooWarning:
-          "Khi đã đủ điểm mở Rương Hạng 9, dừng xả ngay lập tức để bảo toàn phôi Đồ Chúa Tể cho Ngày 3–4 Tuần B!",
+          "Khi đã đủ điểm mở Rương Hạng 9, dừng xả ngay lập tức để bảo toàn phôi Đồ Chúa Tể cho Ngày 3–4 Kỳ GAR/KvK!",
       },
       {
         dayNumber: 7,
         shortLabel: copy.dayNamesShort[6],
         fullLabel: copy.dayNamesFull[6],
-        guildRush: "Chủ Nhật (Ngày 7): Chốt Sổ Thi Đấu Hội & Chuẩn Bị Sang Tuần B (GAR/KvK)",
-        stageTitle: "Tổng Kết Rương Hạng 9 & Ủ Công Trình Đón Thứ Hai Tuần B",
+        guildRush: "Chủ Nhật (Ngày 7): Chốt Sổ Thi Đấu Hội & Chuẩn Bị Sang Kỳ GAR/KvK",
+        stageTitle: "Tổng Kết Rương Hạng 9 & Ủ Công Trình Đón Thứ Hai Kỳ GAR/KvK",
         scoringDetail:
-          "• Kiểm tra điểm cá nhân đã đạt mốc Rương Hạng 9 trước khi bảng đóng lúc 09:00 sáng Thứ Hai. • Bấm xây trước công trình lớn để ủ hộp quà cho Ngày 1 Tuần B.",
+          "• Kiểm tra điểm cá nhân đã đạt mốc Rương Hạng 9 trước khi bảng đóng lúc 09:00 sáng Thứ Hai. • Bấm xây trước công trình lớn để ủ hộp quà cho Ngày 1 Kỳ GAR/KvK.",
         goldenWindow: "Trước 09:00 sáng Thứ Hai (Chốt bảng Thi Đấu Hội)",
         tabooWarning:
           "Cấm quên nhận thưởng mốc cá nhân và cấm tiêu thủng sàn 12,000–18,000 Xu Vinh Quang trong Tiệm Bang!",
@@ -402,7 +402,7 @@ function buildWeekASchedule(locale: GuideLocale): DayScheduleEntry[] {
         "• Roll Exclusive Relic tasks on the Guild Race board overlapping with Wed–Thu Relic Guild Rush and Relic Power sub-event.",
       goldenWindow: "17:00 – 21:00 (Guild Race + Relic Guild Rush overlap)",
       tabooWarning:
-        "Spend only enough Relic shards to complete your active task; save the rest for Days 1–2 of Week B!",
+        "Spend only enough Relic shards to complete your active task; save the rest for Days 1–2 of GAR/KvK!",
     },
     {
       dayNumber: 4,
@@ -414,7 +414,7 @@ function buildWeekASchedule(locale: GuideLocale): DayScheduleEntry[] {
         "• Wrap up Relic milestones. • Hold remaining task attempts on Thursday night so you are ready when Exclusive Legendary Tasks unlock on Day 5!",
       goldenWindow: "21:00 – 01:00 (Prep for Stage 2 Days 5–7)",
       tabooWarning:
-        "Never spend Lord Gear on Thursday of Week A — wait until Friday morning (Day 5)!",
+        "Never spend Lord Gear on Thursday of Guild Race — wait until Friday morning (Day 5)!",
     },
     {
       dayNumber: 5,
@@ -425,7 +425,7 @@ function buildWeekASchedule(locale: GuideLocale): DayScheduleEntry[] {
         "🔥 Stage 2 (Day 5): Exclusive Legendary Tasks Unlock (+300 ➔ +450 pts)",
       scoringDetail:
         "• Refresh your 2 Exclusive Slots (every 10m) for Gold Lord Gear or Staircase Troop tasks. • 100% overlap with Guild Rush: Troop Skin & Lord Gear + Lord's Set sub-event (300% Triple-Dip)!",
-      goldenWindow: "17:00 – 21:00 & 21:00 – 01:00 (Week A Lord Gear 300% Burst)",
+      goldenWindow: "17:00 – 21:00 & 21:00 – 01:00 (Guild Race Lord Gear 300% Burst)",
       tabooWarning:
         "Always accept the Gold Lord Gear task on the Guild Race board BEFORE clicking upgrade on your Lord Gear!",
     },
@@ -439,16 +439,16 @@ function buildWeekASchedule(locale: GuideLocale): DayScheduleEntry[] {
         "• Continue refreshing the 2 Exclusive Slots every 10 minutes for Lord Gear / Troop Skin / Speedup tasks to secure the Tier 9 Personal Chest (maximum Guild Glory Coins).",
       goldenWindow: "13:00 – 17:00 & 17:00 – 21:00 (Tier 9 Chest Sprint)",
       tabooWarning:
-        "Once you hit the Tier 9 Chest threshold, stop spending immediately to save Lord Gear materials for Days 3–4 of Week B!",
+        "Once you hit the Tier 9 Chest threshold, stop spending immediately to save Lord Gear materials for Days 3–4 of GAR/KvK!",
     },
     {
       dayNumber: 7,
       shortLabel: copy.dayNamesShort[6],
       fullLabel: copy.dayNamesFull[6],
-      guildRush: "Sunday (Day 7): Guild Race Settlement & Week B GAR/KvK Prep",
-      stageTitle: "Tier 9 Chest Settlement & Pre-Cooking Buildings for Week B",
+      guildRush: "Sunday (Day 7): Guild Race Settlement & GAR/KvK Prep",
+      stageTitle: "Tier 9 Chest Settlement & Pre-Cooking Buildings for GAR/KvK",
       scoringDetail:
-        "• Verify your personal points have reached Tier 9 Chest before Monday 09:00 close. • Start long building upgrades to pre-cook gift boxes for Day 1 of Week B.",
+        "• Verify your personal points have reached Tier 9 Chest before Monday 09:00 close. • Start long building upgrades to pre-cook gift boxes for Day 1 of GAR/KvK.",
       goldenWindow: "Before Monday 09:00 Reset (Guild Race Board Closes)",
       tabooWarning:
         "Never forget to claim personal milestone chests and never spend below the 12,000–18,000 Guild Glory Coin floor!",
@@ -674,7 +674,7 @@ export function BiweeklyCalendarWidget({
         </div>
       )}
 
-      {/* Mode 2 & 3: Week A (Guild Race) & Week B (GAR/KvK) 7-Day Interactive Planner */}
+      {/* Mode 2 & 3: Guild Race Mode & GAR/KvK Mode 7-Day Interactive Planner */}
       {(activeMode === "weekA" || activeMode === "weekB") && (
         <div className="space-y-4">
           {/* 7-Day Selector Bar */}

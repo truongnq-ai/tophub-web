@@ -655,4 +655,13 @@ describe("Wave 4 — Content Restructuring, Scannability & Zero-Emoji Gate (Grou
       });
     }
   });
+
+  it("AC-W4-06: enforces zero legacy Week A / Week B or Bi-weekly Rotation terminology across all 15 Wave 4 articles & categories", () => {
+    const raw = JSON.stringify(WAVE4_CATEGORIES);
+    expect(raw).not.toMatch(
+      /Tuần\s+[AB](?![\p{L}\p{N}_])|\bWeek\s+[AB](?![\p{L}\p{N}_])|Chu\s+kỳ\s+14\s+Ngày|Nhịp\s+Đập\s+14\s+Ngày|\bBi-weekly\s+Rotation\b|\b14-Day\s+Bi-weekly\b/iu
+    );
+  });
 });
+
+

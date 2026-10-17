@@ -785,8 +785,8 @@ export const ARTICLE_4_3_SEASON_1_TO_4_ROADMAP: GuideArticle = {
                   { vi: "1,500 – 3,000 Huy chương", en: "1,500 – 3,000 Medals" },
                   { vi: "5,000 – 8,000+ Huy chương", en: "5,000 – 8,000+ Medals" },
                   {
-                    vi: "Nâng đồng loạt các Ngoại Hình Quân Lính (Troop Skins) chạm điểm gãy Lv.10 / Lv.20 vào đúng Ngày 6 (Thứ Bảy) của Tuần B hoặc Guild Rush Thứ Sáu–Thứ Bảy Tuần A.",
-                    en: "Batch-upgrade Troop Skins to the Lv.10 / Lv.20 global stat breakpoints on Saturday (Day 6 of Week B) or Friday–Saturday of Week A Guild Rush.",
+                    vi: "Nâng đồng loạt các Ngoại Hình Quân Lính (Troop Skins) chạm điểm gãy Lv.10 / Lv.20 vào đúng Ngày 6 (Thứ Bảy) Kỳ GAR/KvK hoặc Guild Rush Thứ Sáu–Thứ Bảy Kỳ Thi Đấu Hội.",
+                    en: "Batch-upgrade Troop Skins to the Lv.10 / Lv.20 global stat breakpoints on Saturday (Day 6 of GAR/KvK) or Friday–Saturday of Guild Race Guild Rush.",
                   },
                 ],
                 [
@@ -797,8 +797,8 @@ export const ARTICLE_4_3_SEASON_1_TO_4_ROADMAP: GuideArticle = {
                   { vi: "Giữ 100% từ ngày mở tính năng", en: "Hold 100% from feature unlock" },
                   { vi: "Gom toàn bộ gói sự kiện $0.99–$4.99", en: "Stack all $0.99–$4.99 event packs" },
                   {
-                    vi: "Xả tập trung vào đúng sự kiện đua Top Pet Rush / Pet Power (hoặc Ngày 5–6 Tuần B GAR/KvK) để lấy Pet phẩm chất cao cho Hệ Đội 1.",
-                    en: "Unload exclusively during the Pet Rush / Pet Power leaderboard event (or Days 5–6 of Week B GAR/KvK) to secure high-rarity Queue 1 Pets.",
+                    vi: "Xả tập trung vào đúng sự kiện đua Top Pet Rush / Pet Power (hoặc Ngày 5–6 Kỳ GAR/KvK) để lấy Pet phẩm chất cao cho Hệ Đội 1.",
+                    en: "Unload exclusively during the Pet Rush / Pet Power leaderboard event (or Days 5–6 of GAR/KvK) to secure high-rarity Queue 1 Pets.",
                   },
                 ],
                 [
@@ -1057,8 +1057,8 @@ export const ARTICLE_4_3_SEASON_1_TO_4_ROADMAP: GuideArticle = {
                     en: "5. Glory Medals Reserve at 1,500 – 8,000+ medals",
                   },
                   detail: {
-                    vi: "Nâng đồng loạt Ngoại Hình Quân Lính (Troop Skins) chạm điểm gãy Lv.10 / Lv.20 vào đúng Ngày 6 Tuần B hoặc Guild Rush.",
-                    en: "Batch-upgrade Troop Skins to Lv.10 / Lv.20 global stat breakpoints on Day 6 of Week B or Guild Rush.",
+                    vi: "Nâng đồng loạt Ngoại Hình Quân Lính (Troop Skins) chạm điểm gãy Lv.10 / Lv.20 vào đúng Ngày 6 Kỳ GAR/KvK hoặc Guild Rush.",
+                    en: "Batch-upgrade Troop Skins to Lv.10 / Lv.20 global stat breakpoints on Day 6 of GAR/KvK or Guild Rush.",
                   },
                   badge: {
                     vi: "1,500–8,000+ Medals",

@@ -20,8 +20,8 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
       en: "**Star Curve (`0★ ➔ 15★`):** Maxing 1 hero costs `1,000 Shards` for **Mythic (Red)** or `500 Shards` for **Legendary (Yellow) & Epic (Purple)**.\n• **Queue 1 Cost:** With `6,000 Shards` and `98,800 – 123,500 Skill Books`/hero (`~600,000+ Books`), every misspent item scars your account.",
     },
     immediateAction: {
-      vi: "**Khóa kho 100%:** Giữ toàn bộ **Mảnh Vạn Năng Vàng (`Universal Shards`)** và **Sách Kỹ Năng (`Skill Books`)** cho tướng **Mythic Đội 1**.\n• **Thời điểm xả kho:** Chỉ nâng vào **Thứ Năm Tuần B** (`Hero Day` — `GAR / KvK`) hoặc ghép cùng **Nhiệm vụ Vàng Thi Đấu Hội**.",
-      en: "**100% Storage Lock:** Reserve all **Universal Legendary Shards** and **Skill Books** exclusively for **Queue 1 Mythic** heroes.\n• **Burst Window:** Only spend on **Thursday of Week B** (`Hero Day` — `GAR / KvK`) or paired with **Guild Race Golden Tasks**.",
+      vi: "**Khóa kho 100%:** Giữ toàn bộ **Mảnh Vạn Năng Vàng (`Universal Shards`)** và **Sách Kỹ Năng (`Skill Books`)** cho tướng **Mythic Đội 1**.\n• **Thời điểm xả kho:** Chỉ nâng vào **Thứ Năm Kỳ GAR/KvK** (`Hero Day`) hoặc ghép cùng **Nhiệm vụ Vàng Thi Đấu Hội**.",
+      en: "**100% Storage Lock:** Reserve all **Universal Legendary Shards** and **Skill Books** exclusively for **Queue 1 Mythic** heroes.\n• **Burst Window:** Only spend on **Thursday of GAR/KvK** (`Hero Day`) or paired with **Guild Race Golden Tasks**.",
     },
     strictTaboo: {
       vi: "**Cấm đút tướng Quán Rượu:** Tuyệt đối không dùng **Mảnh Vạn Năng Vàng** cho tướng Vàng rơi miễn phí trong `Tavern`.\n• **Cấm dồn lệch sớm:** Không đẩy 1 tướng Mythic lên `2–5★ Trắng` khi các Mythic trụ cột khác của Đội 1 chưa chạm mốc `1★ Trắng` (`11★` = `560 Mảnh`).",
@@ -391,8 +391,8 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
                 en: "Forfeits Guild Arms Race (GAR) / KvK milestone points, losing thousands of Diamonds and bonus Hero Shard chests",
               },
               {
-                vi: "Tích trữ toàn bộ mảnh tướng và thẻ chiêu mộ trong kho; chỉ xả vào đúng Thứ Năm của Tuần B (Ngày 4 — Hero Day của Guild Arms Race / KvK), trùng sự kiện phụ Hero Development hoặc ghép cùng Nhiệm vụ Vàng trong Thi Đấu Hội để ăn gấp đôi/gấp ba phần thưởng (Double-Dip)",
-                en: "Hoard all hero shards and recruitment vouchers in storage; only spend on Thursday of Week B (Day 4 — Hero Day in Guild Arms Race / KvK), paired with Hero Development sub-events or Golden Tasks in Guild Race to Double-Dip milestone rewards",
+                vi: "Tích trữ toàn bộ mảnh tướng và thẻ chiêu mộ trong kho; chỉ xả vào đúng Thứ Năm Kỳ GAR/KvK (Ngày 4 — Hero Day của Guild Arms Race / KvK), trùng sự kiện phụ Hero Development hoặc ghép cùng Nhiệm vụ Vàng trong Thi Đấu Hội để ăn gấp đôi/gấp ba phần thưởng (Double-Dip)",
+                en: "Hoard all hero shards and recruitment vouchers in storage; only spend on Thursday of GAR/KvK (Day 4 — Hero Day in Guild Arms Race / KvK), paired with Hero Development sub-events or Golden Tasks in Guild Race to Double-Dip milestone rewards",
               },
             ],
             [
@@ -441,8 +441,8 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
             {
               id: "check-thursday-week-b",
               label: {
-                vi: "Đúng Thứ Năm của Tuần B (Hero Day — GAR / KvK) hoặc đã nhận Nhiệm vụ Vàng Thi Đấu Hội",
-                en: "Confirmed Thursday of Week B (Hero Day — GAR / KvK) or active Guild Race Golden Task",
+                vi: "Đúng Thứ Năm Kỳ GAR/KvK (Hero Day — GAR / KvK) hoặc đã nhận Nhiệm vụ Vàng Thi Đấu Hội",
+                en: "Confirmed Thursday of GAR/KvK (Hero Day — GAR / KvK) or active Guild Race Golden Task",
               },
               detail: {
                 vi: "Không bao giờ nâng sao lẻ tẻ vào ngày thường; luôn gom xả một lần để ăn trọn mốc thưởng Double-Dip.",

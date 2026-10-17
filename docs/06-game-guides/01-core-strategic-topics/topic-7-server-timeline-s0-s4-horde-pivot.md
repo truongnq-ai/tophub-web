@@ -216,7 +216,7 @@ Storm Maiden
 
  (Canh nâng sao vào 
 
-Thứ 5 của Tuần B - GAR
+Thứ 5 Kỳ GAR/KvK - GAR
 
  để ăn điểm sự kiện).
 
@@ -638,25 +638,25 @@ Tướng & Vật phẩm Thần Thoại bậc Endgame tối thượng.
 
 PHẦN 3: TIMELINE CHI TIẾT GIAI ĐOẠN PRE-SEASON THEO NGÀY & TUẦN (NGÀY 1 ➔ NGÀY 60+)
 
-Bảng 3.1: Lịch trình Sự kiện Xoay Vòng (Tuần A / Tuần B) & Ngày Ra Mắt Tướng Đỏ Pre-Season
+Bảng 3.1: Lịch trình Sự kiện Xoay Vòng (Thi Đấu Hội / GAR-KvK) & Ngày Ra Mắt Tướng Đỏ Pre-Season
 
 Lưu ý sống còn: Từ Tuần 3 trở đi, sự kiện tuần xoay vòng giữa 
 
-Tuần A (Thi Đấu Hội - Guild Race)
+Kỳ Thi Đấu Hội (Thi Đấu Hội - Guild Race)
 
  và 
 
-Tuần B (Đua Vũ Trang - GAR / KvK)
+Kỳ GAR/KvK (Đua Vũ Trang - GAR / KvK)
 
 . Khi mở khóa Tướng Đỏ mới ở Vòng Quay/Xúc Xắc, hãy cố gắng canh 
 
-Thứ 5 của Tuần B (GAR Day 4)
+Thứ 5 Kỳ GAR/KvK (GAR Day 4)
 
  để xả Mảnh Vạn Năng nâng sao nhằm ăn trọn điểm rương sự kiện!
 
 Tuần Server & Số Ngày
 
-Chu Kỳ Sự Kiện Tuần (Tuần A / Tuần B)
+Chu Kỳ Sự Kiện Tuần (Thi Đấu Hội / GAR-KvK)
 
 Cột Mốc Ra Mắt Tướng Đỏ (Exact Day)
 
@@ -690,7 +690,7 @@ Tuần 3 (Hiện tại)
 
 (Ngày 15 ➔ Ngày 21)
 
-TUẦN A: Thi Đấu Hội (Guild Race)
+KỲ THI ĐẤU HỘI: Thi Đấu Hội (Guild Race)
 
  + 
 
@@ -732,7 +732,7 @@ Mẹo nâng sao:
 
  Mở khóa tướng xong, đợi sang 
 
-Thứ 5 của Tuần 4 (Tuần B - GAR)
+Thứ 5 của Tuần 4 (Kỳ GAR/KvK - GAR)
 
  mới đút Mảnh Vạn Năng Cam nâng sao để nổ điểm sự kiện!
 
@@ -742,7 +742,7 @@ Tuần 4
 
 (Ngày 22 ➔ Ngày 28)
 
-TUẦN B: Cuộc Đua Vũ Trang (GAR)
+KỲ GAR/KVK: Cuộc Đua Vũ Trang (GAR)
 
  
 
@@ -794,7 +794,7 @@ Tuần 5
 
 (Ngày 29 ➔ Ngày 35)
 
-TUẦN A: Thi Đấu Hội (Guild Race)
+KỲ THI ĐẤU HỘI: Thi Đấu Hội (Guild Race)
 
  + Tranh Đoạt Cây Thế Giới (
 
@@ -824,7 +824,7 @@ Tuần 6
 
 (Ngày 36 ➔ Ngày 42)
 
-TUẦN B: Đua Vũ Trang (GAR) / Kingdom Duel (KvK Lần 1)
+KỲ GAR/KVK: Đua Vũ Trang (GAR) / Kingdom Duel (KvK Lần 1)
 
 .
 
@@ -850,7 +850,7 @@ Tuần 7
 
 (Ngày 43 ➔ Ngày 49)
 
-TUẦN A: Thi Đấu Hội (Guild Race)
+KỲ THI ĐẤU HỘI: Thi Đấu Hội (Guild Race)
 
 .
 
@@ -890,7 +890,7 @@ Tuần 8 ➔ Trước Season 1
 
 Xoay vòng 
 
-Tuần B (GAR/KvK) ⇄ Tuần A (Guild Race)
+Kỳ GAR/KvK (GAR/KvK) ⇄ Kỳ Thi Đấu Hội (Guild Race)
 
  & Sự kiện Rương Tự Chọn Tướng Đỏ.
 
@@ -946,7 +946,7 @@ Hành Động Trọng Tâm Cho Đội Bộ Lạc
 
 Tuần 1 S1
 
-Tuần A: Thi Đấu Hội
+Kỳ Thi Đấu Hội: Thi Đấu Hội
 
  + 
 
@@ -1006,7 +1006,7 @@ Tuần 2 – Tuần 4 S1
 
 Xoay vòng 
 
-Tuần B (GAR) ⇄ Tuần A (Thi Đấu Hội)
+Kỳ GAR/KvK (GAR) ⇄ Kỳ Thi Đấu Hội (Guild Race)
 
 .
 

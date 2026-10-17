@@ -374,7 +374,7 @@ Dưới đây là bản tổng hợp toàn diện cấu trúc và nội dung c�
 
 ### 1. Cấu Trúc & Nội Dung Cốt Lõi 7 Chuyên Đề Chiến Thuật (Topics 1 ➔ 7)
 
-Hệ thống chiến thuật trong sổ tay được thiết kế chuẩn hóa theo **Chu kỳ Sự kiện Xoay vòng 2 Tuần (Tuần A ⇄ Tuần B)** [1, 2] và **Lộ trình Chuyển giao từ Liên Minh sang Bộ Lạc (Horde Pivot)** từ Ngày 21 trở đi [2, 3]:
+Hệ thống chiến thuật trong sổ tay được thiết kế chuẩn hóa theo **Chu kỳ Sự kiện Xoay vòng 2 Tuần (Thi Đấu Hội ⇄ GAR/KvK)** [1, 2] và **Lộ trình Chuyển giao từ Liên Minh sang Bộ Lạc (Horde Pivot)** từ Ngày 21 trở đi [2, 3]:
 
 *   **TOPIC 1: Nguyên Tắc Cốt Lõi Về Tướng, Quy Tắc 1 Hàng & Thiên Phú Tướng Tím (Epic Traits)** [4, 5]:
     *   *Quy tắc 1 Hàng (Strict 1-Queue Rule)*: Dồn **100% Thịt, Sách kỹ năng và Trang bị Vàng** cho Đội 1 (Main Queue) [4, 6]. Đội 2 và Đội 3 ngưng đút Thịt, chỉ mặc đồ cùi bắp để đi farm tài nguyên [4, 6].
@@ -384,21 +384,21 @@ Hệ thống chiến thuật trong sổ tay được thiết kế chuẩn hóa t
     *   *Mục tiêu Công trình*: Đua **Lâu Đài (Pháo Đài)** và **Doanh Trại (Barracks)** lên cấp **25 ➔ 30** (cứ mỗi 5 cấp Doanh trại giúp lính tăng 1 Tier) [10, 13]. Từ Tuần 3–4, nâng **Doanh Trại Bộ Lạc** đuổi kịp Doanh trại Liên Minh để chuẩn bị lính Tier cao cho các Tướng Đỏ Bộ Lạc [10, 13].
     *   *Phân bổ 3 Hàng đợi Thợ*: Hàng đợi 1 cắm Lâu Đài/Sân Tập; Hàng đợi 2 cắm Doanh Trại Bộ Lạc; Hàng đợi 3 cắm Viện Nghiên Cứu/Bệnh Viện/Tượng Phe Phái [13, 14].
     *   *Phân bổ 2 Hàng đợi Nghiên cứu*: Hàng đợi 1 ưu tiên nhánh *Phát Triển* (giảm thời gian xây dựng/nghiên cứu) [11, 15]; Hàng đợi 2 ưu tiên nhánh *Tăng Cường Đội (Combat Expertise)* và *Lính (Troops)* [11, 15].
-    *   *Mẹo nhánh Kinh Tế*: Giữ nguyên các nốt ngắn (5–30 phút) ở nhánh Kinh tế để làm "mồi" hoàn thành nhanh Nhiệm vụ Vàng Nghiên cứu ở **Tuần A (Thi Đấu Hội)** hoặc rướn rương Thứ 3 ở **Tuần B (GAR)** [11, 15].
+    *   *Mẹo nhánh Kinh Tế*: Giữ nguyên các nốt ngắn (5–30 phút) ở nhánh Kinh tế để làm "mồi" hoàn thành nhanh Nhiệm vụ Vàng Nghiên cứu ở **Kỳ Thi Đấu Hội (Guild Race)** hoặc rướn rương Thứ 3 ở **Kỳ GAR/KvK (GAR)** [11, 15].
 *   **TOPIC 3: Trang Bị Tướng (Hero Gear), Trang Bị Lãnh Chúa (Lord Gear) & Vũ Khí Độc Quyền** [16, 17]:
     *   *Trang Bị Tướng (Hero Gear - Lò rèn)*: Kiếm, Giày, Mũ, Giáp **0 ĐIỂM** trong GAR và Thi Đấu Hội [16, 18] ➔ Đúc đồ Vàng và đập +10/+20 cho Đội 1 (*Pháp Sư Lửa / Thẩm Phán*) **ngay lập tức** khi đủ nguyên liệu để lấy chỉ số thực chiến [16, 18]. Phân giải đồ Tím +10 thừa để thu hồi 100% quặng cường hóa [16, 19].
     *   *3 Bộ Trang Bị Vàng*:
         1.  *Đại Đế Thần Lực (Hàng trên)*: +80% ATK, +6% Dmg Inc (Dành cho Burst DPS: *Storm Maiden, Wukong*) [20].
         2.  *Nộ Huyết (Hàng giữa)*: +160% HP, +6% Dmg Red (Dành cho Tanker/Support: *Adjudicator, Beastmaster, Nun, Soulmancer*) [20].
         3.  *Quang Vinh Kỵ Sĩ (Hàng dưới)*: +40% ATK, +80% HP, +8% Skill Dmg Amp (Dành cho AOE Skill DPS/Bruiser: *Pyromancer, Desert Prince, Witch*) [20].
-    *   *Trang Bị Lãnh Chúa (Lord Gear - Đá & Dây gai)*: **CÓ TÍNH ĐIỂM SỰ KIỆN CỰC LỚN** [16, 18] ➔ Tích trữ Đá xanh (*Refined Metal*) & Dây gai tím (*Magic Thread*) xả vào **Thứ 6 – Chủ Nhật của Tuần A** (khi nhận Nhiệm vụ Độc quyền Vàng trong Thi Đấu Hội) hoặc **Thứ 4 / Thứ 5 của Tuần B** (GAR/Top Lord/KvK) [16, 18].
+    *   *Trang Bị Lãnh Chúa (Lord Gear - Đá & Dây gai)*: **CÓ TÍNH ĐIỂM SỰ KIỆN CỰC LỚN** [16, 18] ➔ Tích trữ Đá xanh (*Refined Metal*) & Dây gai tím (*Magic Thread*) xả vào **Thứ 6 – Chủ Nhật của Kỳ Thi Đấu Hội** (khi nhận Nhiệm vụ Độc quyền Vàng trong Thi Đấu Hội) hoặc **Thứ 4 / Thứ 5 Kỳ GAR/KvK** (GAR/Top Lord/KvK) [16, 18].
     *   *Lộ trình Cường hóa*: Nâng đồng đều cả 4 món: Full +10 ➔ Full +20 ➔ Full +30 ➔ Full +40 ➔ Đột phá qua 5 Cấp Sao Đỏ (Mythic Gear 1★–5★) [21-23].
 *   **TOPIC 5: Hệ Thống Tiệm (Shops), Tiền Tệ & Quân Trang (Pro Edition)** [24, 25]:
     *   *Ngưỡng Đóng Băng & Tiến hóa*: Tích lũy tối thiểu **12.000–18.000 Xu Vinh Quang Hội (Xu xanh)** để vào Season 1 mua đủ **9 viên Đá Linh Hồn Bộ Lạc** (thức tỉnh *Soulmancer/Warlock* lên Đỏ) [24, 26, 27]. Tiệm Đấu Trường mua vét gói 50 Sao (300 KC) + vé quay + mảnh tướng Bộ Lạc [26, 28]. Tiệm Đổi Quà (mở nhờ Kỵ Sĩ 15 sao) dùng điểm mảnh dư đổi Mảnh Vạn Năng Tím cho *Đấu Sĩ Brawler* [24, 26].
-    *   *Đồng bộ với Chu kỳ 2 Tuần*: Trong **Tuần A (Thi Đấu Hội)**, giữ Sao Đấu Trường/Điểm Hội chờ xoay ra Nhiệm vụ Vàng "Chi tiêu tiền tệ" mới bấm mua [24, 29]; Trong **Tuần B (GAR)**, mua vét sáng Thứ Hai, xả vé/mảnh vào Thứ 5 (17h–21h) và xả Huân chương Quân trang vào Thứ 7 [24, 29].
-*   **TOPIC 6: Chiến Thuật Sự Kiện Theo Chu Kỳ Xoay Vòng 2 Tuần (Tuần A ⇄ Tuần B)** [1, 30]:
-    *   *Tuần A (Thi Đấu Hội - Guild Race)*: Vận hành theo cơ chế Bảng Nhiệm Vụ (Task Board) [31]. Bấm xoay 2 ô Nhiệm vụ Độc quyền miễn phí mỗi 10 phút để săn **Nhiệm Vụ Vàng (+240 đến +450 điểm)** [32]. Vào Ngày 5, 6, 7 (Thứ 6 – CN) săn Nhiệm vụ Vàng *"Trang bị Lãnh chúa"* [32]. Bắt buộc né các nhiệm vụ bẫy (*Quay 80 vé*, *Tiêu 40 mảnh Cam*) [32]. Kết hợp Mini-Event *Guild Rush* 2 ngày để ăn điểm kép [33].
-    *   *Tuần B (Cuộc Đua Vũ Trang - GAR / KvK / Top Lord)*: Vận hành theo 6 Giai đoạn cố định mỗi ngày: Thứ 2 Xây dựng (13h–17h), Thứ 3 Nghiên cứu (17h–21h), Thứ 4 Thể lực/Boss (17h–21h), Thứ 5 Tướng & Vé quay (17h–21h), Thứ 6 Lính & Pet (21h–01h), Thứ 7 Trang bị Lãnh chúa/Quân trang, Chủ Nhật Tất tay (All-in) [30, 34]. Canh trùng Sự kiện Giờ (4 tiếng/ca) để đạt hiệu ứng **Double-Dip** [34, 35].
+    *   *Đồng bộ với Chu kỳ 2 Tuần*: Trong **Kỳ Thi Đấu Hội (Guild Race)**, giữ Sao Đấu Trường/Điểm Hội chờ xoay ra Nhiệm vụ Vàng "Chi tiêu tiền tệ" mới bấm mua [24, 29]; Trong **Kỳ GAR/KvK (GAR)**, mua vét sáng Thứ Hai, xả vé/mảnh vào Thứ 5 (17h–21h) và xả Huân chương Quân trang vào Thứ 7 [24, 29].
+*   **TOPIC 6: Chiến Thuật Sự Kiện Theo Lộ Trình Sự Kiện Theo Tiến Độ Server (Thi Đấu Hội ⇄ GAR / KvK)** [1, 30]:
+    *   *Kỳ Thi Đấu Hội (Thi Đấu Hội - Guild Race)*: Vận hành theo cơ chế Bảng Nhiệm Vụ (Task Board) [31]. Bấm xoay 2 ô Nhiệm vụ Độc quyền miễn phí mỗi 10 phút để săn **Nhiệm Vụ Vàng (+240 đến +450 điểm)** [32]. Vào Ngày 5, 6, 7 (Thứ 6 – CN) săn Nhiệm vụ Vàng *"Trang bị Lãnh chúa"* [32]. Bắt buộc né các nhiệm vụ bẫy (*Quay 80 vé*, *Tiêu 40 mảnh Cam*) [32]. Kết hợp Mini-Event *Guild Rush* 2 ngày để ăn điểm kép [33].
+    *   *Kỳ GAR/KvK (Cuộc Đua Vũ Trang - GAR / KvK / Top Lord)*: Vận hành theo 6 Giai đoạn cố định mỗi ngày: Thứ 2 Xây dựng (13h–17h), Thứ 3 Nghiên cứu (17h–21h), Thứ 4 Thể lực/Boss (17h–21h), Thứ 5 Tướng & Vé quay (17h–21h), Thứ 6 Lính & Pet (21h–01h), Thứ 7 Trang bị Lãnh chúa/Quân trang, Chủ Nhật Tất tay (All-in) [30, 34]. Canh trùng Sự kiện Giờ (4 tiếng/ca) để đạt hiệu ứng **Double-Dip** [34, 35].
 *   **TOPIC 7: Bản Đồ Timeline Máy Chủ (S0 ➔ S4) & Lộ Trình Chuyển Giao Sang Bộ Lạc (Horde Pivot)** [3, 36]:
     *   *Lịch ra mắt 6 Tướng Đỏ Pre-Season (S0)*: **Ngày 21** (*Desert Prince*), **Ngày 27** (*Storm Maiden*), **Ngày 35** (*Paragon* - Bỏ qua), **Ngày 41** (*Witch*), **Ngày 46** (*Rose Princess & Bishop* - Bỏ qua) [36-38].
     *   *Lộ trình 3 Bước Chuyển Giao*:
@@ -451,14 +451,14 @@ Hệ thống chiến thuật trong sổ tay được thiết kế chuẩn hóa t
 
 Tài liệu `Lộ Trình Tối Ưu Tài Khoản Top Heroes` đóng vai trò là bảng điều khiển trung tâm quản lý tài khoản **[GAS]Max - Server 10956** (~6.08M Lực chiến) [2]:
 
-*   **Trạng thái hiện tại**: Đang ở Tuần 3 Pre-Season (Tuần A: Thi Đấu Hội) [2]. Đội 1 gồm 6 tướng Cam Liên Minh (Lv.160) [2]; Đội 2 gồm 6 tướng Cam Bộ Lạc (Lv.135–155) [2]. Kỵ Sĩ (*Knight*) đã max 15 sao [2]; Đấu Sĩ (*Brawler*) ở mốc 11 sao [2].
+*   **Trạng thái hiện tại**: Đang ở Tuần 3 Pre-Season (Kỳ Thi Đấu Hội: Thi Đấu Hội) [2]. Đội 1 gồm 6 tướng Cam Liên Minh (Lv.160) [2]; Đội 2 gồm 6 tướng Cam Bộ Lạc (Lv.135–155) [2]. Kỵ Sĩ (*Knight*) đã max 15 sao [2]; Đấu Sĩ (*Brawler*) ở mốc 11 sao [2].
 *   **Tóm tắt chỉ đạo 7 Topic**:
     *   *Topic 1*: Đẩy Đấu Sĩ lên 12 sao lấy +30% Tốc độ Nghiên cứu ngay [4]; Ngưng đút Thịt cho Đội 2 [4]; Không mở ô Thiên phú thứ 4 tốn 2.000 Kim Cương [4].
     *   *Topic 2*: Đua Pháo Đài và Doanh Trại Bộ Lạc lên mốc 25 [10].
-    *   *Topic 3*: Đúc Ủng Vàng và đập +10 bộ *Quang Vinh Kỵ Sĩ* cho Pháp Sư Lửa [16]; Tích Đá/Dây gai Lãnh chúa chờ Ngày 5–7 Tuần A hoặc Thứ 4/Thứ 5 Tuần B [16].
+    *   *Topic 3*: Đúc Ủng Vàng và đập +10 bộ *Quang Vinh Kỵ Sĩ* cho Pháp Sư Lửa [16]; Tích Đá/Dây gai Lãnh chúa chờ Ngày 5–7 Kỳ Thi Đấu Hội hoặc Thứ 4/Thứ 5 Kỳ GAR/KvK [16].
     *   *Topic 4*: Hàng đợi 1 cắm *Phát Triển*, Hàng đợi 2 cắm *Tăng Cường Đội* [11]; Dùng nhánh Kinh tế làm mồi sự kiện [11].
     *   *Topic 5*: Giữ 12.000–18.000 Xu xanh mua Đá Linh Hồn Bộ Lạc ở S1 [24]; Dùng điểm mảnh Kỵ Sĩ dư trong Tiệm Đổi Quà mua Mảnh Vạn Năng Tím [24].
-    *   *Topic 6*: Tuần A làm Nhiệm vụ Vàng trên Bảng Thi Đấu Hội [30]; Tuần B ngâm xả đúng ngày theo khung giờ Double-Dip 4 tiếng [30].
+    *   *Topic 6*: Kỳ Thi Đấu Hội làm Nhiệm vụ Vàng trên Bảng Thi Đấu Hội [30]; Kỳ GAR/KvK ngâm xả đúng ngày theo khung giờ Double-Dip 4 tiếng [30].
     *   *Topic 7*: Đón *Desert Prince* (Ngày 21) và *Storm Maiden* (Ngày 27) để ghép Đội hình Lai [36]; Đón *Witch* (Ngày 41) để chuyển hẳn 100% sang Thuần Bộ Lạc [36].
 
 ---

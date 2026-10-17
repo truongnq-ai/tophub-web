@@ -807,18 +807,18 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "event-guild-race",
     category: "events",
-    term: { vi: "Thi Đấu Hội (Guild Race — Tuần A)", en: "Guild Race (Week A)" },
-    aliases: { vi: ["Tuần A", "Đua Bang"], en: ["Guild Race", "Week A"] },
+    term: { vi: "Thi Đấu Hội (Guild Race)", en: "Guild Race" },
+    aliases: { vi: ["Kỳ Thi Đấu Hội", "Đua Bang"], en: ["Guild Race", "9-Slot Task Board"] },
     definition: {
-      vi: "Sự kiện Tuần A nơi người chơi nhận Nhiệm vụ Vàng Độc quyền để cày Điểm Vinh Dự (Guild Honor) mua Hồn Đá Đỏ.",
-      en: "Week A alliance event featuring Exclusive Gold Tasks that award Guild Honor for buying Red Soul Stones.",
+      vi: "Sự kiện Bảng Nhiệm vụ 9 Ô (có 2 Ô Độc quyền) chạy liên tiếp hàng tuần ở Server mới (Pha 1) và luân phiên theo tiến độ server (Pha 2) để cày Điểm Vinh Dự mua Hồn Đá Đỏ.",
+      en: "9-Slot Task Board alliance event (with 2 Exclusive Gold Slots) running weekly on new servers (Phase 1) and alternating in Phase 2 to farm Guild Honor for Red Soul Stones.",
     },
   },
   {
     id: "event-guild-arms-race",
     category: "events",
-    term: { vi: "Chạy Đua Vũ Trang Bang Hội (Guild Arms Race — GAR)", en: "Guild Arms Race (GAR — Week B)" },
-    aliases: { vi: ["Tuần B", "GAR"], en: ["GAR", "Week B"] },
+    term: { vi: "Chạy Đua Vũ Trang Bang Hội (Guild Arms Race — GAR)", en: "Guild Arms Race (GAR)" },
+    aliases: { vi: ["Kỳ Đua Vũ Trang", "GAR"], en: ["GAR", "6-Day Arms Race"] },
     definition: {
       vi: "Sự kiện đối kháng 6 ngày theo chủ đề (Xây dựng, Nghiên cứu, Đá Cổ Ngữ, Chiêu mộ, Luyện lính, Chiến đấu).",
       en: "6-day themed alliance competition (Construction, Research, Runes/Gear, Hero Development, Training, Combat).",
@@ -840,8 +840,8 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
     term: { vi: "Đế Quốc Hắc Ám Xâm Nhập (Dark Empire Invasion)", en: "Dark Empire Invasion" },
     aliases: { vi: ["Đế Quốc Hắc Ám"], en: ["Dark Empire"] },
     definition: {
-      vi: "Sự kiện PvE phòng thủ/phản công liên minh diễn ra định kỳ xoay tua theo lịch 2 tuần.",
-      en: "Recurring alliance defense/counterattack PvE event rotating on the bi-weekly schedule.",
+      vi: "Sự kiện PvE phòng thủ/phản công liên minh diễn ra định kỳ xoay tua cùng Khiêu Chiến Đội Quân Hắc Ám.",
+      en: "Recurring alliance defense/counterattack PvE event alternating with Dark Legion Challenge.",
     },
   },
   {
@@ -880,8 +880,8 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
     term: { vi: "Vòng Quay May Mắn (Fortune Wheel)", en: "Fortune Wheel" },
     aliases: { vi: ["Vòng Quay Tướng Đỏ"], en: ["Wheel", "Mythic Wheel"] },
     definition: {
-      vi: "Kênh tiêu Kim Cương số 1 của F2P để lấy Tướng Đỏ (Mythic) và Vũ khí Độc quyền thông qua mốc bảo hiểm số vòng.",
-      en: "#1 F2P Diamond sink for acquiring Mythic heroes and Exclusive Weapons via milestone pity chests.",
+      vi: "Sự kiện Gacha Kim Cương (750 KC/lượt, tiệm mảnh Liên Minh) xoay tua 3 tuần/lần cùng Hero Gacha và Xúc Xắc, độc lập với sự kiện trục chính.",
+      en: "Diamond Gacha event (750 Diamonds/spin, League token shop) rotating every 3rd week alongside Hero Gacha and Dice of Fate, independent of macro events.",
     },
   },
   {
@@ -890,8 +890,8 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
     term: { vi: "Xúc Xắc Định Mệnh (Dice of Fate)", en: "Dice of Fate" },
     aliases: { vi: ["Sự Kiện Xúc Xắc"], en: ["Dice Event"] },
     definition: {
-      vi: "Sự kiện luân phiên với Vòng Quay May Mắn để săn Tướng Đỏ, Vũ khí Độc quyền và Vật phẩm trang trí.",
-      en: "Event rotating with Fortune Wheel to acquire Mythic heroes, Exclusive Weapons, and Mythic Decorations.",
+      vi: "Sự kiện Gacha Kim Cương (800 KC/lượt, tiệm mảnh Tự Nhiên) xoay tua 3 tuần/lần cùng Vòng Quay và Hero Gacha (1,000 KC — Bộ Lạc), độc lập với sự kiện trục chính.",
+      en: "Diamond Gacha event (800 Diamonds/roll, Nature token shop) rotating every 3rd week alongside Fortune Wheel and Hero Gacha (1,000 Diamonds — Horde), independent of macro events.",
     },
   },
 
@@ -1078,8 +1078,8 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
     term: { vi: "Trại Huấn Luyện (Training Ground)", en: "Training Ground" },
     aliases: { vi: ["Doanh Trại"], en: ["Barracks"] },
     definition: {
-      vi: "Công trình huấn luyện và thăng cấp Lính Bậc Thang (Staircase Promotion) vào Thứ Sáu Tuần B.",
-      en: "Military building used for training troops and executing Staircase Promotions on Friday of Week B.",
+      vi: "Công trình huấn luyện và thăng cấp Lính Bậc Thang (Staircase Promotion) vào Thứ Sáu Kỳ GAR/KvK.",
+      en: "Military building used for training troops and executing Staircase Promotions on Friday of GAR/KvK.",
     },
   },
   {
@@ -1108,8 +1108,8 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
     term: { vi: "Đá Cổ Ngữ (Runes)", en: "Runes" },
     aliases: { vi: ["Cổ Ngữ"], en: ["Rune System"] },
     definition: {
-      vi: "Hệ thống 6 khe đá khảm theo quy luật hợp thành 3^(n-1), xả điểm vào Thứ Ba Tuần B (GAR).",
-      en: "6-slot socket system governed by the 3^(n-1) merge law, scored on Tuesday of Week B (GAR).",
+      vi: "Hệ thống 6 khe đá khảm theo quy luật hợp thành 3^(n-1), xả điểm vào Thứ Ba Kỳ GAR/KvK.",
+      en: "6-slot socket system governed by the 3^(n-1) merge law, scored on Tuesday of GAR/KvK.",
     },
   },
   {

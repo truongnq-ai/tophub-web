@@ -978,12 +978,12 @@ export const ARTICLE_1_2_STRICT_ONE_QUEUE: GuideArticle = {
             {
               stepNumber: "4",
               title: {
-                vi: "Bước 4 — Đột phá Điểm gãy 1 Sao Trắng (560 Mảnh Quy Đổi) vào Thứ Năm Tuần B",
-                en: "Step 4 — Break Through 1 White Star (560 Shards) on Week B Thursday",
+                vi: "Bước 4 — Đột phá Điểm gãy 1 Sao Trắng (560 Mảnh Quy Đổi) vào Thứ Năm Kỳ GAR/KvK",
+                en: "Step 4 — Break Through 1 White Star (560 Shards) on GAR/KvK Thursday",
               },
               detail: {
-                vi: "**Tích Mảnh Chờ Thứ Năm (`GAR`):** Gom toàn bộ Mảnh Vàng Vạn Năng từ `VIP Shop`, Xe Hàng và Rương `AR` trong tuần, chờ đúng Thứ Năm Tuần B (`GAR`).\n• **Đột phá `1 Sao Trắng` (`560` Mảnh):** Đẩy `Desert Prince` và `Storm Maiden` vượt `5 Sao Đỏ` (`400` Mảnh) lên `1 Sao Trắng` (`11 Sao` = `560` Mảnh), mở khóa `+30% Skill Effect` và `+180,000` Power!",
-                en: "**Hoard for Thursday (`GAR`):** Save all Universal Legendary Shards from the `VIP Shop`, Carriages, and `AR` Chests during the week until Week B Thursday (`GAR`).\n• **Break `1 White Star` (`560` Shards):** Push `Desert Prince` and `Storm Maiden` past `5 Red Stars` (`400` Shards) to `1 White Star` (`11 Stars` = `560` Shards) for `+30% Skill Effect` and `+180,000` Power!",
+                vi: "**Tích Mảnh Chờ Thứ Năm (`GAR`):** Gom toàn bộ Mảnh Vàng Vạn Năng từ `VIP Shop`, Xe Hàng và Rương `AR` trong tuần, chờ đúng Thứ Năm Kỳ `GAR`.\n• **Đột phá `1 Sao Trắng` (`560` Mảnh):** Đẩy `Desert Prince` và `Storm Maiden` vượt `5 Sao Đỏ` (`400` Mảnh) lên `1 Sao Trắng` (`11 Sao` = `560` Mảnh), mở khóa `+30% Skill Effect` và `+180,000` Power!",
+                en: "**Hoard for Thursday (`GAR`):** Save all Universal Legendary Shards from the `VIP Shop`, Carriages, and `AR` Chests during the week until `GAR` Thursday.\n• **Break `1 White Star` (`560` Shards):** Push `Desert Prince` and `Storm Maiden` past `5 Red Stars` (`400` Shards) to `1 White Star` (`11 Stars` = `560` Shards) for `+30% Skill Effect` and `+180,000` Power!",
               },
               impactBadge: {
                 vi: "+180,000 Power",

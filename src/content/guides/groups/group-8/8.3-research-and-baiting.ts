@@ -20,8 +20,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
       en: "**Ultimate Priority**: Once Research Cottage hits `Lv.20`, funnel `100%` of resources into `Arms Race Prep` / `Commendation`.\n• **Yield Breakthrough**: Unlock the 6th Chest (`Extra Rewards` / `Double Rewards`) for `+200%` GAR yields while pushing `Queue 1 Boost` / `Combat Expertise` to `100%`.",
     },
     immediateAction: {
-      vi: "**Bảo tồn Kho Mồi**: Giữ các nốt ngắn (`5–30 phút`) của nhánh `Economy` ở `~20%–25%` (`24.8%`) làm mồi ăn Nhiệm vụ Vàng Guild Race (Tuần A) và rương GAR (Tuần B).\n• **Pre-Click Snapshot**: Bật đủ 4 bước (`Brawler`/`Knight` `12★` `+30%`, `Shaman`/`Hostess` `+40%`, Dân làng `+3.20%`, `Secretary of Science`) TRƯỚC khi bấm Research!",
-      en: "**Preserve Bait Bank**: Freeze short `5–30m` `Economy` nodes at `~20%–25%` (`24.8%`) for Week A Guild Race Golden Tasks and Week B Tuesday GAR chest thresholds.\n• **Pre-Click Snapshot**: Lock all 4 buffs (`12★` `Brawler`/`Knight` `+30%`, `Shaman`/`Hostess` `+40%`, Villagers `+3.20%`, `Secretary of Science`) BEFORE tapping Research!",
+      vi: "**Bảo tồn Kho Mồi**: Giữ các nốt ngắn (`5–30 phút`) của nhánh `Economy` ở `~20%–25%` (`24.8%`) làm mồi ăn Nhiệm vụ Vàng Guild Race (Thi Đấu Hội) và rương GAR (GAR/KvK).\n• **Pre-Click Snapshot**: Bật đủ 4 bước (`Brawler`/`Knight` `12★` `+30%`, `Shaman`/`Hostess` `+40%`, Dân làng `+3.20%`, `Secretary of Science`) TRƯỚC khi bấm Research!",
+      en: "**Preserve Bait Bank**: Freeze short `5–30m` `Economy` nodes at `~20%–25%` (`24.8%`) for Guild Race Golden Tasks and GAR/KvK Tuesday GAR chest thresholds.\n• **Pre-Click Snapshot**: Lock all 4 buffs (`12★` `Brawler`/`Knight` `+30%`, `Shaman`/`Hostess` `+40%`, Villagers `+3.20%`, `Secretary of Science`) BEFORE tapping Research!",
     },
     strictTaboo: {
       vi: "**Đóng băng Nhánh Đắt**: Cấm nâng các nhánh ngốn tài nguyên như `S1 Battle`, `Peacekeeper` hay `Queue 2 & 3 Boost` trước khi xong Hộp Thứ 6 `Arms Race Prep` và `100%` `Queue 1 Boost`.\n• **Cấm dọn sạch Economy**: Tuyệt đối không bấm nâng sạch `100%` các nốt ngắn của nhánh `Economy` vào ngày thường!",
@@ -269,8 +269,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "**Kỷ luật Nghiên cứu Bi-Weekly**: Để tối đa hóa tốc độ mở khóa công nghệ mà không bị kẹt nhiệm vụ trong Tuần A (`Guild Race`) và Tuần B (`Guild Arms Race`), người chơi cần thiết lập kỷ luật vận hành.\n• **3 Trụ cột Tối ưu**: Phân luồng cố định `2 Hàng đợi Nghiên cứu`, bảo tồn kho mồi `Economy` (`~20%–25%`) và định hướng đúng nhánh quân sự theo Hệ chủ lực của Đội 1.",
-            en: "**Bi-Weekly Research Discipline**: To maximize tech progression without getting locked out of bi-weekly event tasks in Week A (`Guild Race`) and Week B (`Guild Arms Race`), enforce a strict operating protocol.\n• **3 Optimization Pillars**: Lock in fixed roles across `2 Research Queues`, preserve the `Economy` bait bank (`~20%–25%`), and align military tech with Queue 1's main faction.",
+            vi: "**Kỷ luật Nghiên cứu Bi-Weekly**: Để tối đa hóa tốc độ mở khóa công nghệ mà không bị kẹt nhiệm vụ trong Kỳ Thi Đấu Hội (`Guild Race`) và Kỳ GAR/KvK (`Guild Arms Race`), người chơi cần thiết lập kỷ luật vận hành.\n• **3 Trụ cột Tối ưu**: Phân luồng cố định `2 Hàng đợi Nghiên cứu`, bảo tồn kho mồi `Economy` (`~20%–25%`) và định hướng đúng nhánh quân sự theo Hệ chủ lực của Đội 1.",
+            en: "**Bi-Weekly Research Discipline**: To maximize tech progression without getting locked out of bi-weekly event tasks in Guild Race and GAR/KvK (`Guild Arms Race`), enforce a strict operating protocol.\n• **3 Optimization Pillars**: Lock in fixed roles across `2 Research Queues`, preserve the `Economy` bait bank (`~20%–25%`), and align military tech with Queue 1's main faction.",
           },
         },
       ],
@@ -294,8 +294,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
               ordered: false,
               items: [
                 {
-                  vi: "**Hàng Đợi Nghiên Cứu 1 (Main Queue)**: Cắm cố định vào nhánh dài hạn (`Arms Race Prep` / `Commendation` ➔ `Queue 1 Boost` / `Combat Expertise` ➔ `Soldiers` / `Season Tech`), xả tăng tốc vào Thứ Ba Tuần B.",
-                  en: "**Research Queue 1 (Main Queue)**: Dedicate to long projects (`Arms Race Prep` / `Commendation` ➔ `Queue 1 Boost` / `Combat Expertise` ➔ `Soldiers` / `Season Tech`), burning speedups on Week B Tuesday.",
+                  vi: "**Hàng Đợi Nghiên Cứu 1 (Main Queue)**: Cắm cố định vào nhánh dài hạn (`Arms Race Prep` / `Commendation` ➔ `Queue 1 Boost` / `Combat Expertise` ➔ `Soldiers` / `Season Tech`), xả tăng tốc vào Thứ Ba Kỳ GAR/KvK.",
+                  en: "**Research Queue 1 (Main Queue)**: Dedicate to long projects (`Arms Race Prep` / `Commendation` ➔ `Queue 1 Boost` / `Combat Expertise` ➔ `Soldiers` / `Season Tech`), burning speedups on GAR/KvK Tuesday.",
                 },
                 {
                   vi: "**Hàng Đợi Nghiên Cứu 2 (Speed Queue)**: Cắm vào nhánh `Development` / `Growth` (tối đa `Construction Speed`, `Research Speed`, `Tool Improvement -5%`), rồi quét các node điều kiện `Arms Race Prep` & `Heroes`.",
@@ -328,12 +328,12 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
                   en: "**Short-Node Reserve Bank**: The `Economy` branch contains dozens of low-tier research nodes (`1/5`, `2/5`) that take only `5 minutes` to `30 minutes` per upgrade.",
                 },
                 {
-                  vi: "**Ứng dụng 1 — Tuần A (Guild Race)**: Khi nhận Nhiệm vụ Vàng đếm số lần hoàn thành nghiên cứu, chỉ cần bấm liên tiếp `4–6` node ngắn của nhánh `Economy` là lấy trọn điểm với chưa tới `1 giờ` tăng tốc!",
-                  en: "**Application 1 — Week A (Guild Race)**: When holding a Golden Task counting research completions, tap `4–6` short `Economy` nodes back-to-back to claim full points using under `1 hour` of speedups!",
+                  vi: "**Ứng dụng 1 — Kỳ Thi Đấu Hội (Guild Race)**: Khi nhận Nhiệm vụ Vàng đếm số lần hoàn thành nghiên cứu, chỉ cần bấm liên tiếp `4–6` node ngắn của nhánh `Economy` là lấy trọn điểm với chưa tới `1 giờ` tăng tốc!",
+                  en: "**Application 1 — Guild Race**: When holding a Golden Task counting research completions, tap `4–6` short `Economy` nodes back-to-back to claim full points using under `1 hour` of speedups!",
                 },
                 {
-                  vi: "**Ứng dụng 2 — Tuần B (GAR Thứ Ba)**: Khi thiếu chút điểm chạm mốc rương cuối ngày mà nhánh chính kẹt dự án `48 giờ`, bấm các node `Economy` ngắn giúp rướn qua vạch đích tức thì với chi phí thấp nhất.",
-                  en: "**Application 2 — Week B (Tuesday GAR)**: When slightly short of the final daily chest while main queues are locked in `48-hour` projects, tapping short `Economy` nodes crosses the threshold instantly.",
+                  vi: "**Ứng dụng 2 — Kỳ GAR/KvK (GAR Thứ Ba)**: Khi thiếu chút điểm chạm mốc rương cuối ngày mà nhánh chính kẹt dự án `48 giờ`, bấm các node `Economy` ngắn giúp rướn qua vạch đích tức thì với chi phí thấp nhất.",
+                  en: "**Application 2 — GAR/KvK (Tuesday GAR)**: When slightly short of the final daily chest while main queues are locked in `48-hour` projects, tapping short `Economy` nodes crosses the threshold instantly.",
                 },
               ],
             },
@@ -372,8 +372,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
                 en: "Research Cottage, Pre-Click Snapshot & Tank-Baiting Discipline Checklist",
               },
               description: {
-                vi: "4 nguyên tắc kiểm tra bắt buộc trước mỗi kỳ xả Tăng tốc Nghiên cứu Thứ Ba Tuần B và trước khi xếp đội hình PvP/Boss:",
-                en: "4 mandatory verification steps before every Week B Tuesday Research Speedup dump and before setting PvP/Boss formations:",
+                vi: "4 nguyên tắc kiểm tra bắt buộc trước mỗi kỳ xả Tăng tốc Nghiên cứu Thứ Ba Kỳ GAR/KvK và trước khi xếp đội hình PvP/Boss:",
+                en: "4 mandatory verification steps before every GAR/KvK Tuesday Research Speedup dump and before setting PvP/Boss formations:",
               },
               items: [
                 {
@@ -398,8 +398,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
                     en: "Preserve the Economy branch at ~20%–25% (e.g., 24.8%) as a 5–30m Event Bait Bank",
                   },
                   detail: {
-                    vi: "Tuyệt đối không bấm các node tăng sản lượng Gỗ/Đá/Thịt ngắn hạn vào ngày thường; để dành ăn Nhiệm vụ Vàng Guild Race (Tuần A) hoặc rướn rương Thứ Ba GAR (Tuần B).",
-                    en: "Never tap short Wood/Stone/Meat yield nodes on normal days; save them for Week A Guild Race Golden Tasks or Week B Tuesday GAR chest thresholds.",
+                    vi: "Tuyệt đối không bấm các node tăng sản lượng Gỗ/Đá/Thịt ngắn hạn vào ngày thường; để dành ăn Nhiệm vụ Vàng Guild Race (Thi Đấu Hội) hoặc rướn rương Thứ Ba GAR (GAR/KvK).",
+                    en: "Never tap short Wood/Stone/Meat yield nodes on normal days; save them for Guild Race Golden Tasks or GAR/KvK Tuesday GAR chest thresholds.",
                   },
                   badge: {
                     vi: "Kho Mồi",
@@ -468,8 +468,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
           rows: [
             [
               {
-                vi: "Bấm nâng sạch 100% nhánh Economy (Kinh Tế) trong 2 tuần đầu vì thấy thời gian ngắn: Đến khi vào kỳ Guild Race (Tuần A), toàn bộ các nhánh còn lại đều mất 15–30 giờ/lần, khiến người chơi không thể hoàn thành các Nhiệm vụ Vàng yêu cầu 'Hoàn thành số lần nghiên cứu'.",
-                en: "Clearing 100% of the Economy branch in the first 2 weeks just because timers are short: Once Week A Guild Race arrives, every remaining tech node takes 15–30 hours per upgrade, making 'Complete X research upgrades' Golden Tasks impossible without burning massive speedups.",
+                vi: "Bấm nâng sạch 100% nhánh Economy (Kinh Tế) trong 2 tuần đầu vì thấy thời gian ngắn: Đến khi vào kỳ Guild Race (Thi Đấu Hội), toàn bộ các nhánh còn lại đều mất 15–30 giờ/lần, khiến người chơi không thể hoàn thành các Nhiệm vụ Vàng yêu cầu 'Hoàn thành số lần nghiên cứu'.",
+                en: "Clearing 100% of the Economy branch in the first 2 weeks just because timers are short: Once Guild Race arrives, every remaining tech node takes 15–30 hours per upgrade, making 'Complete X research upgrades' Golden Tasks impossible without burning massive speedups.",
               },
               {
                 vi: "Bảo tồn Kho Mồi Economy (~20%–25%): Khoanh vùng các node tăng sản lượng Gỗ/Đá/Thịt ở nhánh Economy, giữ nguyên ở 0/5 hoặc 1/5 và chỉ bấm khi đang cầm trên tay Nhiệm vụ Sự kiện Guild Race hoặc cần rướn mốc rương Thứ Ba GAR.",
@@ -750,7 +750,7 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
                   en: "**Step 3 — Claim Secretary of Science Title**: Once the `Capitol` opens, apply for the `Secretary of Science` kingdom title (auto-rotated every `5–10m`) and wait until the crown icon appears above your Castle.",
                 },
                 {
-                  vi: "**Bước 4 — Bấm Nút ➔ Guild Help ➔ Xả Tăng Tốc**: Có `Secretary of Science` thì bấm Research ngay (giảm `40%–60%` giờ) rồi nhường lại chức vụ; đợi đầy thanh `Guild Help` mới xả tăng tốc vào Thứ Ba Tuần B.",
+                  vi: "**Bước 4 — Bấm Nút ➔ Guild Help ➔ Xả Tăng Tốc**: Có `Secretary of Science` thì bấm Research ngay (giảm `40%–60%` giờ) rồi nhường lại chức vụ; đợi đầy thanh `Guild Help` mới xả tăng tốc vào Thứ Ba Kỳ GAR/KvK.",
                   en: "**Step 4 — Tap Research ➔ Guild Help ➔ Speedups**: Tap Research while `Secretary of Science` is active (cutting `40%–60%` time), relinquish the title, then wait for full `Guild Help` before dumping speedups on Tuesday.",
                 },
               ],
@@ -797,8 +797,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
                     en: "Never Burn Speedups Before the Guild Help Bar Is Full",
                   },
                   detail: {
-                    vi: "Luôn đợi thành viên Bang hội ấn đầy lượt trợ giúp miễn phí rồi mới xả bình Tăng tốc vào đúng khung giờ Thứ Ba Tuần B (Arms Race Day 2: Tech & Runes).",
-                    en: "Always wait for guildmates to max out your free Guild Help clicks before dumping speedups during Week B Tuesday (Arms Race Day 2: Tech & Runes).",
+                    vi: "Luôn đợi thành viên Bang hội ấn đầy lượt trợ giúp miễn phí rồi mới xả bình Tăng tốc vào đúng khung giờ Thứ Ba Kỳ GAR/KvK (Arms Race Day 2: Tech & Runes).",
+                    en: "Always wait for guildmates to max out your free Guild Help clicks before dumping speedups during GAR/KvK Tuesday (Arms Race Day 2: Tech & Runes).",
                   },
                 },
               ],
@@ -1345,8 +1345,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
               en: "**Premature Fragmentation**: Despite unlocking `Arms Race Prep` / `Commendation` at `Lv.20` while Beginner sits at `95.3%`, queues were diverted into Soldiers (`17.0%`) and Heroes (`13.6%`).\n• **Consequence**: Both `Arms Race Prep` and Queue 1 Boost (`36.6%`) remain stalled, forfeiting `+200%` GAR chest yields.",
             },
             {
-              vi: "**Nguy cơ Cạn kiệt Kho Mồi**: Nhánh Phát Triển đang ở `30.1%` và Kinh Tế (`Economy`) đang ở đúng ngưỡng vàng `24.8%`.\n• **Hệ quả**: Nếu tiếp tục bấm nâng tự do vào ngày thường, tài khoản sẽ mất sạch các node ngắn `10–20 phút` phục vụ Guild Race (Tuần A) và Thứ Ba GAR (Tuần B).",
-              en: "**Event Bait Depletion Risk**: Development sits at `30.1%` while `Economy` is right at the golden `24.8%` threshold.\n• **Consequence**: Continuing to tap `Economy` nodes on normal days wipes out the `10–20m` nodes needed for Week A Guild Race and Week B Tuesday GAR.",
+              vi: "**Nguy cơ Cạn kiệt Kho Mồi**: Nhánh Phát Triển đang ở `30.1%` và Kinh Tế (`Economy`) đang ở đúng ngưỡng vàng `24.8%`.\n• **Hệ quả**: Nếu tiếp tục bấm nâng tự do vào ngày thường, tài khoản sẽ mất sạch các node ngắn `10–20 phút` phục vụ Guild Race (Thi Đấu Hội) và Thứ Ba GAR (GAR/KvK).",
+              en: "**Event Bait Depletion Risk**: Development sits at `30.1%` while `Economy` is right at the golden `24.8%` threshold.\n• **Consequence**: Continuing to tap `Economy` nodes on normal days wipes out the `10–20m` nodes needed for Guild Race and GAR/KvK Tuesday GAR.",
             },
           ],
           metrics: [
@@ -1396,8 +1396,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
                 en: "Sitting at 24.8% (at risk of being cleared on non-event days)",
               },
               after: {
-                vi: "Đóng băng chiến thuật ở 24.8% vào ngày thường; chỉ bấm node 10–20 phút vào Thứ Ba Tuần B (17:00–21:00) & Guild Race",
-                en: "Tactically frozen at 24.8% on normal days; 10–20m nodes tapped only during Week B Tuesday (17:00–21:00) & Guild Race",
+                vi: "Đóng băng chiến thuật ở 24.8% vào ngày thường; chỉ bấm node 10–20 phút vào Thứ Ba Kỳ GAR/KvK (17:00–21:00) & Guild Race",
+                en: "Tactically frozen at 24.8% on normal days; 10–20m nodes tapped only during GAR/KvK Tuesday (17:00–21:00) & Guild Race",
               },
               delta: {
                 vi: "Hoàn thành 100% Nhiệm vụ Vàng nghiên cứu với < 1h tăng tốc",
@@ -1439,12 +1439,12 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
             {
               stepNumber: "3",
               title: {
-                vi: "Kỷ Luật Đóng Băng Chiến Thuật Nhánh Kinh Tế (24.8%) Cho Khung Giờ Vàng 17:00 – 21:00 Thứ Ba Tuần B",
-                en: "Tactical Freeze on Economy (24.8%) Reserved for Week B Tuesday 17:00 – 21:00 & Guild Race",
+                vi: "Kỷ Luật Đóng Băng Chiến Thuật Nhánh Kinh Tế (24.8%) Cho Khung Giờ Vàng 17:00 – 21:00 Thứ Ba Kỳ GAR/KvK",
+                en: "Tactical Freeze on Economy (24.8%) Reserved for GAR/KvK Tuesday 17:00 – 21:00 & Guild Race",
               },
               detail: {
-                vi: "**Khóa Chặt Ngưỡng 24.8%**: Giữ nguyên nhánh Kinh Tế (`Economy`) ở đúng mức `24.8%` vào ngày thường.\n• **Xả Đúng Giờ Vàng**: Bảo toàn các node `10–20 phút` dành riêng cho khung giờ `17:00 – 21:00` Thứ Ba Tuần B (`Arms Race Day 2`) và Nhiệm vụ Vàng đếm số lần nghiên cứu của `Guild Race` (Tuần A)!",
-                en: "**Lock the 24.8% Threshold**: Freeze the `Economy` branch strictly at `24.8%` on non-event days.\n• **Golden Window Execution**: Preserve all `10–20m` nodes exclusively for `17:00 – 21:00` on Week B Tuesday (`Arms Race Day 2`) and frequency-based Golden Tasks in Week A `Guild Race`!",
+                vi: "**Khóa Chặt Ngưỡng 24.8%**: Giữ nguyên nhánh Kinh Tế (`Economy`) ở đúng mức `24.8%` vào ngày thường.\n• **Xả Đúng Giờ Vàng**: Bảo toàn các node `10–20 phút` dành riêng cho khung giờ `17:00 – 21:00` Thứ Ba Kỳ GAR/KvK (`Arms Race Day 2`) và Nhiệm vụ Vàng đếm số lần nghiên cứu của `Guild Race` (Thi Đấu Hội)!",
+                en: "**Lock the 24.8% Threshold**: Freeze the `Economy` branch strictly at `24.8%` on non-event days.\n• **Golden Window Execution**: Preserve all `10–20m` nodes exclusively for `17:00 – 21:00` on GAR/KvK Tuesday (`Arms Race Day 2`) and frequency-based Golden Tasks in `Guild Race`!",
               },
               impactBadge: {
                 vi: "Bảo Toàn Kho Mồi 24.8%",
@@ -1453,8 +1453,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
             },
           ],
           conclusion: {
-            vi: "**Kết quả Tái cơ cấu**: Sau 2 chu kỳ Tuần A – Tuần B từ trạng thái dàn trải (Tân Thủ `95.3%`, Đội 1 `36.6%`, Phát Triển `30.1%`, Kinh Tế `24.8%`, Lính `17.0%`, Anh Hùng `13.6%`).\n• **Thành tựu Đột phá**: Mở khóa thành công Hộp Thứ 6 `Arms Race Prep` (`+200%` rương GAR), hoàn tất `100%` `Queue 1 Boost` và tiết kiệm hàng trăm giờ tăng tốc nhờ `Pre-Click Snapshot`.",
-            en: "**Restructure Outcome**: Within two Week A – Week B cycles from a fragmented state (Beginner `95.3%`, Queue 1 `36.6%`, Development `30.1%`, Economy `24.8%`, Soldiers `17.0%`, Heroes `13.6%`).\n• **Breakthrough Gains**: Unlocked the `Arms Race Prep` 6th Chest (`+200%` GAR chests), completed `100%` `Queue 1 Boost`, and saved hundreds of speedup hours via `Pre-Click Snapshot`.",
+            vi: "**Kết quả Tái cơ cấu**: Sau 2 chu kỳ Thi Đấu Hội – GAR/KvK từ trạng thái dàn trải (Tân Thủ `95.3%`, Đội 1 `36.6%`, Phát Triển `30.1%`, Kinh Tế `24.8%`, Lính `17.0%`, Anh Hùng `13.6%`).\n• **Thành tựu Đột phá**: Mở khóa thành công Hộp Thứ 6 `Arms Race Prep` (`+200%` rương GAR), hoàn tất `100%` `Queue 1 Boost` và tiết kiệm hàng trăm giờ tăng tốc nhờ `Pre-Click Snapshot`.",
+            en: "**Restructure Outcome**: Within two Guild Race – GAR/KvK cycles from a fragmented state (Beginner `95.3%`, Queue 1 `36.6%`, Development `30.1%`, Economy `24.8%`, Soldiers `17.0%`, Heroes `13.6%`).\n• **Breakthrough Gains**: Unlocked the `Arms Race Prep` 6th Chest (`+200%` GAR chests), completed `100%` `Queue 1 Boost`, and saved hundreds of speedup hours via `Pre-Click Snapshot`.",
           },
         },
       ],

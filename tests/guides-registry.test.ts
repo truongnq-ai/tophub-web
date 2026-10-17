@@ -73,14 +73,14 @@ describe("Guides Hub Registry Architecture (3 Zones - 8 Groups - 31 Pages)", () 
     const start = performance.now();
     const accentedResults = searchGuides("Đấu Sĩ", "vi");
     const unaccentedResults = searchGuides("dau si", "vi");
-    const weekAResults = searchGuides("tuan a", "vi");
+    const guildRaceResults = searchGuides("thi dau hoi", "vi");
     const runeResults = searchGuides("co ngu", "vi");
     const elapsed = performance.now() - start;
 
     expect(elapsed).toBeLessThan(50);
     expect(accentedResults.length).toBeGreaterThan(0);
     expect(unaccentedResults.length).toBe(accentedResults.length);
-    expect(weekAResults.some((a) => a.categorySlug === "events")).toBe(true);
+    expect(guildRaceResults.some((a) => a.categorySlug === "events")).toBe(true);
     expect(runeResults.some((a) => a.categorySlug === "power-systems")).toBe(true);
   });
 });

@@ -20,8 +20,8 @@ export const ARTICLE_8_4_MASTER_DATA_TABLES: GuideArticle = {
       en: "**Quantitative Breakpoints**: Maxing a Legendary/Epic hero takes `500` Shards (`1,000` for Mythic; `1★` White = `280`/`560`), `24,700` Skill Books (`Lv.10` = `8,000`), and `9` Soul Stones + `345–385` Shards.\n• **Gear & Faction Benchmarks**: A `+40` gear set takes `780,000` Ore (`4,680,000` for Queue 1's 24 pieces) and Faction Levels `1–40` cost `1,181.162M` Meat + `1,307` Shards (`+20.00%` Queue HP).",
     },
     immediateAction: {
-      vi: "**Tính Ngược Từ Điểm Gãy**: Dùng 4 Bảng Sinh tồn ở Phần I để thực hiện `Reverse Breakpoint Budgeting` trước mỗi kỳ Tuần B (`Arms Race`).\n• **Giải ngân Theo Lô**: Kiểm tra Túi đồ và chỉ xả khi đủ chạm Mốc Cộng Hưởng Kế Tiếp (`+10`/`+20`/`+30`/`+40`, Rune `Lv.5`/`Lv.8`, Skin `Lv.10`/`Lv.20`, Pet `Lv.10`/`20`/`60`/`75`/`90`, Faction `Lv.10–40`).",
-      en: "**Reverse Breakpoint Budgeting**: Use the 4 Survival Quick-Reference Tables in Part I to audit your Bag inventory before every Week B (`Arms Race`).\n• **Batch Disbursement**: Only spend materials when hitting a full Next Resonance Breakpoint (`+10`/`+20`/`+30`/`+40`, Rune `Lv.5`/`Lv.8`, Skin `Lv.10`/`Lv.20`, Pet `Lv.10`/`20`/`60`/`75`/`90`, Faction `Lv.10–40`).",
+      vi: "**Tính Ngược Từ Điểm Gãy**: Dùng 4 Bảng Sinh tồn ở Phần I để thực hiện `Reverse Breakpoint Budgeting` trước mỗi kỳ Kỳ GAR/KvK (`Arms Race`).\n• **Giải ngân Theo Lô**: Kiểm tra Túi đồ và chỉ xả khi đủ chạm Mốc Cộng Hưởng Kế Tiếp (`+10`/`+20`/`+30`/`+40`, Rune `Lv.5`/`Lv.8`, Skin `Lv.10`/`Lv.20`, Pet `Lv.10`/`20`/`60`/`75`/`90`, Faction `Lv.10–40`).",
+      en: "**Reverse Breakpoint Budgeting**: Use the 4 Survival Quick-Reference Tables in Part I to audit your Bag inventory before every GAR/KvK (`Arms Race`).\n• **Batch Disbursement**: Only spend materials when hitting a full Next Resonance Breakpoint (`+10`/`+20`/`+30`/`+40`, Rune `Lv.5`/`Lv.8`, Skin `Lv.10`/`Lv.20`, Pet `Lv.10`/`20`/`60`/`75`/`90`, Faction `Lv.10–40`).",
     },
     strictTaboo: {
       vi: "**Cấm Nâng Dở Dang**: Không dừng nâng cấp ở giữa 2 điểm gãy (như Cổ Ngữ `Lv.4` thay vì `Lv.5`, Quân Trang `Lv.16` thay vì `Lv.10`/`Lv.20`, hoặc đập đồ lệch cấp `+14`/`+17`).\n• **Bảo vệ Quỹ Thịt**: Không tiêu cạn kiệt quỹ Thịt khiến bị kẹt cứng trước bức tường `1,181.162M` Thịt của `Faction Level 1–40`!",
@@ -494,8 +494,8 @@ export const ARTICLE_8_4_MASTER_DATA_TABLES: GuideArticle = {
           ordered: true,
           items: [
             {
-              vi: "**Tính Ngược Từ Điểm Gãy (Reverse Breakpoint Budgeting)**: Trước Tuần B, đối chiếu Túi đồ với bảng số liệu (như `280`/`560` mảnh lên `1★` Trắng, hoặc `234,000` Quặng kéo 4 món `+20➔+30`) để xả đúng lô.",
-              en: "**Reverse Breakpoint Budgeting**: Before Week B, audit your Bag against the tables (e.g., `280`/`560` shards for `1★` White, or `234,000` Ore to push 4 pieces from `+20` to `+30`) to spend only in full resonance batches.",
+              vi: "**Tính Ngược Từ Điểm Gãy (Reverse Breakpoint Budgeting)**: Trước Kỳ GAR/KvK, đối chiếu Túi đồ với bảng số liệu (như `280`/`560` mảnh lên `1★` Trắng, hoặc `234,000` Quặng kéo 4 món `+20➔+30`) để xả đúng lô.",
+              en: "**Reverse Breakpoint Budgeting**: Before GAR/KvK, audit your Bag against the tables (e.g., `280`/`560` shards for `1★` White, or `234,000` Ore to push 4 pieces `+20➔+30`) to spend only in full resonance batches.",
             },
             {
               vi: "**Toán học Thức Tỉnh 3 Phe (League / Horde / Nature)**: Bảng 1.2 (`9` Hồn Đá Đỏ + `345–385` Mảnh/tướng Vàng) chứng minh đội hình `5-Mythic` Bộ Lạc chỉ tốn `9` viên, trong khi Liên Minh/Thiên Nhiên tốn tới `18–27` viên!",
@@ -522,12 +522,12 @@ export const ARTICLE_8_4_MASTER_DATA_TABLES: GuideArticle = {
                 en: "Verify Hero Shard thresholds (280 / 560 shards = 1★ White; 300 / 600 shards = 2★ White) & Skill Books (8,000 = Lv.10; 24,700 = Lv.15)",
               },
               detail: {
-                vi: "Chỉ xả Mảnh Tướng Vạn Năng khi đủ chạm mốc mở khóa kỹ năng/Thức tỉnh (1★ hoặc 2★ Trắng) vào Thứ Năm Tuần B.",
-                en: "Only spend Universal Hero Shards when you can cross a full 1★ or 2★ White breakpoint on Week B Thursday.",
+                vi: "Chỉ xả Mảnh Tướng Vạn Năng khi đủ chạm mốc mở khóa kỹ năng/Thức tỉnh (1★ hoặc 2★ Trắng) vào Thứ Năm Kỳ GAR/KvK.",
+                en: "Only spend Universal Hero Shards when you can cross a full 1★ or 2★ White breakpoint on GAR/KvK Thursday.",
               },
               badge: {
-                vi: "Thứ Năm Tuần B",
-                en: "Week B Thursday",
+                vi: "Thứ Năm Kỳ GAR/KvK",
+                en: "GAR/KvK Thursday",
               },
             },
             {
@@ -541,8 +541,8 @@ export const ARTICLE_8_4_MASTER_DATA_TABLES: GuideArticle = {
                 en: "Never leave a hero's 4 gear pieces unevenly at +14/+17; prioritize the 3 Right-Branch Lord Gear pieces (+Hero ATK / +Soldier ATK).",
               },
               badge: {
-                vi: "Thứ Tư Tuần B",
-                en: "Week B Wednesday",
+                vi: "Thứ Tư Kỳ GAR/KvK",
+                en: "GAR/KvK Wednesday",
               },
             },
             {
@@ -552,8 +552,8 @@ export const ARTICLE_8_4_MASTER_DATA_TABLES: GuideArticle = {
                 en: "Check Rune Breakpoints (Lv.5 +5% & Lv.8 +5% All), Pet Copies (Lv.10/20/60/75/90) & Troop Skins (Lv.10 = 80,400 / 40,200 / 20,100 Medals)",
               },
               detail: {
-                vi: "Đẩy Cổ Ngữ dứt điểm lên Lv.5/Lv.8 vào Thứ Ba Tuần B và nâng Quân Trang theo bậc thang Lv.10 ➔ Lv.20 để gom Owned Passive Bonus.",
-                en: "Push Runes cleanly to Lv.5/Lv.8 on Week B Tuesday and upgrade Troop Skins in a Lv.10 ➔ Lv.20 staircase to stack Owned Passive Bonuses.",
+                vi: "Đẩy Cổ Ngữ dứt điểm lên Lv.5/Lv.8 vào Thứ Ba Kỳ GAR/KvK và nâng Quân Trang theo bậc thang Lv.10 ➔ Lv.20 để gom Owned Passive Bonus.",
+                en: "Push Runes cleanly to Lv.5/Lv.8 on GAR/KvK Tuesday and upgrade Troop Skins in a Lv.10 ➔ Lv.20 staircase to stack Owned Passive Bonuses.",
               },
               badge: {
                 vi: "Thứ Ba & Thứ Sáu",
@@ -2193,11 +2193,11 @@ export const ARTICLE_8_4_MASTER_DATA_TABLES: GuideArticle = {
             en: "MULTI-RESOURCE BREAKPOINT CASE STUDY",
           },
           title: {
-            vi: "Phẫu Thuật Ngân Sách Trước Ngày Thứ Sáu & Thứ Bảy Tuần B (Arms Race): 250,000 Glory Medals + 180,000 Quặng + 150,000 Thức Ăn Pet",
+            vi: "Phẫu Thuật Ngân Sách Trước Ngày Thứ Sáu & Thứ Bảy Kỳ GAR/KvK (Arms Race): 250,000 Glory Medals + 180,000 Quặng + 150,000 Thức Ăn Pet",
             en: "Pre-Arms Race Friday & Saturday Budget Audit: 250,000 Glory Medals + 180,000 Enhancement Ore + 150,000 Pet Food",
           },
           profileSummary: {
-            vi: "**Hồ sơ Ngân sách Trước Ngày Thứ Sáu & Thứ Bảy Tuần B (`Arms Race`)**: Người chơi Mid-game nắm giữ đúng `250,000` Huân Chương (`Glory Medals`), `180,000` Quặng (`Enhancement Ore`) và `150,000` Thức Ăn Pet (`Pet Food`).\n• **Mục tiêu Giải ngân**: Dùng 12 Bảng Số Liệu Định Lượng để giải ngân đúng điểm gãy (như chi `156,000` Quặng đẩy trọn bộ `+20`), đạt hiệu suất tăng Lực chiến thực chiến cao nhất.",
+            vi: "**Hồ sơ Ngân sách Trước Thứ Sáu & Thứ Bảy Kỳ GAR/KvK (`Arms Race`)**: Người chơi Mid-game nắm giữ đúng `250,000` Huân Chương (`Glory Medals`), `180,000` Quặng (`Enhancement Ore`) và `150,000` Thức Ăn Pet (`Pet Food`).\n• **Mục tiêu Giải ngân**: Dùng 12 Bảng Số Liệu Định Lượng để giải ngân đúng điểm gãy (như chi `156,000` Quặng đẩy trọn bộ `+20`), đạt hiệu suất tăng Lực chiến thực chiến cao nhất.",
             en: "**Pre-Arms Race Friday & Saturday Budget Profile**: A mid-game commander holding `250,000` `Glory Medals`, `180,000` `Enhancement Ore`, and `150,000` `Pet Food`.\n• **Disbursement Goal**: Use the 12 Master Quantitative Tables to disburse resources exclusively on exact resonance breakpoints (such as `156,000` Ore for a full `+20` set) for maximum ROI.",
           },
           diagnostics: [
@@ -2304,8 +2304,8 @@ export const ARTICLE_8_4_MASTER_DATA_TABLES: GuideArticle = {
                 en: "Problem 3 — Allocating 150,000 Pet Food (Lookup Table 4.5 - Pets)",
               },
               detail: {
-                vi: "**Tra cứu Bảng 4.5 (`Pets`)**: Kiểm tra trước trong kho đã có đủ Phôi Pet trùng (`1 same` ở `Lv.10`, `3 any` ở `Lv.20`) hay chưa.\n• **Giải ngân `150,000` Thức ăn Pet**: Chỉ xả vào Thứ Sáu Tuần B đúng tới các mốc đột phá mở khóa Hệ số chuyển đổi (`36.00% ➔ 40.00% ➔ 44.00%`) và dòng cộng `% All Hero ATK/HP`.",
-                en: "**Consulting Table 4.5 (`Pets`)**: Verify in advance that you hold the required promotion copies (`1 same` at `Lv.10`, `3 any` at `Lv.20`).\n• **Disbursing `150,000` Pet Food**: Spend on Week B Friday strictly up to the breakthrough tiers unlocking higher Stat Conversion Rates (`36.00% ➔ 40.00% ➔ 44.00%`) and `% All Hero ATK/HP`.",
+                vi: "**Tra cứu Bảng 4.5 (`Pets`)**: Kiểm tra trước trong kho đã có đủ Phôi Pet trùng (`1 same` ở `Lv.10`, `3 any` ở `Lv.20`) hay chưa.\n• **Giải ngân `150,000` Thức ăn Pet**: Chỉ xả vào Thứ Sáu Kỳ GAR/KvK đúng tới các mốc đột phá mở khóa Hệ số chuyển đổi (`36.00% ➔ 40.00% ➔ 44.00%`) và dòng cộng `% All Hero ATK/HP`.",
+                en: "**Consulting Table 4.5 (`Pets`)**: Verify in advance that you hold the required promotion copies (`1 same` at `Lv.10`, `3 any` at `Lv.20`).\n• **Disbursing `150,000` Pet Food**: Spend on GAR/KvK Friday strictly up to the breakthrough tiers unlocking higher Stat Conversion Rates (`36.00% ➔ 40.00% ➔ 44.00%`) and `% All Hero ATK/HP`.",
               },
               impactBadge: {
                 vi: "Mở khóa Conversion 40% ➔ 44%",

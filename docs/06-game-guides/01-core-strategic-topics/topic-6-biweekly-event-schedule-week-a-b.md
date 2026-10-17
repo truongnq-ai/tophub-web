@@ -8,7 +8,7 @@ exported_at: "2026-10-14"
 ---
 
 # Lịch Trình Tích Trữ & Xả Vật Phẩm Tuần Sự Kiện Top Heroes
-Lịch Trình Tích Trữ & Xả Vật Phẩm Theo Chu Kỳ Xoay Vòng 2 Tuần (Tuần A ⇄ Tuần B)
+Lịch Trình Tích Trữ & Xả Vật Phẩm Theo Lộ Trình Sự Kiện Theo Tiến Độ Server (Thi Đấu Hội ⇄ GAR / KvK)
 
 Trong trò chơi chiến thuật 
 
@@ -16,7 +16,7 @@ Top Heroes
 
 , sự chênh lệch lực chiến và lượng Xu Vinh Quang Hội giữa người chơi không chỉ phụ thuộc vào lượng tài nguyên sở hữu mà nằm ở 
 
-việc nhận diện đúng Chu kỳ Tuần sự kiện (Tuần A hay Tuần B)
+việc nhận diện đúng Chu kỳ Tuần sự kiện (Thi Đấu Hội hay GAR/KvK)
 
  để xả tài nguyên đúng lúc.
 
@@ -30,11 +30,11 @@ Tuần thứ 3 trở đi
 
 , hệ thống sự kiện của máy chủ vận hành theo 
 
-Chu kỳ Xoay vòng 2 Tuần (Bi-weekly Rotation: Tuần A ⇄ Tuần B)
+Lộ Trình Luân Phiên (Thi Đấu Hội ⇄ Đua Vũ Trang GAR / KvK)
 
  (hoặc chu kỳ 4 tuần khi có thêm KvK: 
 
-Tuần A: Thi Đấu Hội ➔ Tuần B1: Đua Vũ Trang (GAR) ➔ Tuần A: Thi Đấu Hội ➔ Tuần B2: Chiến Tranh Vương Quốc (KvK)
+Kỳ Thi Đấu Hội: Thi Đấu Hội ➔ Kỳ GAR: Đua Vũ Trang (GAR) ➔ Kỳ Thi Đấu Hội: Thi Đấu Hội ➔ Kỳ KvK: Chiến Tranh Vương Quốc (KvK)
 
 ).
 
@@ -42,7 +42,7 @@ Tuần A: Thi Đấu Hội ➔ Tuần B1: Đua Vũ Trang (GAR) ➔ Tuần A: Thi
 --------------------------------------------------------------------------------
 
 
-1. Bảng Phân Biệt Nhanh: Tuần A (Thi Đấu Hội) vs Tuần B (GAR / KvK / Top Lord)
+1. Bảng Phân Biệt Nhanh: Kỳ Thi Đấu Hội (Guild Race) vs Kỳ Đua Vũ Trang (GAR / KvK / Top Lord)
 
 Trước khi bấm sử dụng bất kỳ vật phẩm nào trong túi đồ, hãy mở mục 
 
@@ -50,21 +50,21 @@ Lịch Event
 
  trong game để xác định tuần hiện tại thuộc 
 
-Tuần A
+Kỳ Thi Đấu Hội
 
  hay 
 
-Tuần B
+Kỳ GAR/KvK
 
 :
 
 Tiêu Chí So Sánh
 
-TUẦN A: Tuần "Thi Đấu Hội" (Guild Race) 
+KỲ THI ĐẤU HỘI: Tuần "Thi Đấu Hội" (Guild Race) 
 
 (Ví dụ: Tuần 3, Tuần 5...)
 
-TUẦN B: Tuần "Đua Vũ Trang (GAR)" / "KvK" / "Top Lord" 
+KỲ GAR/KVK: Tuần "Đua Vũ Trang (GAR)" / "KvK" / "Top Lord" 
 
 (Ví dụ: Tuần 2, Tuần 4, Tuần 6...)
 
@@ -86,7 +86,7 @@ Có ép buộc "Thứ 2 Xây dựng, Thứ 5 Tướng" không?
 
 KHÔNG!
 
- Trong Tuần A, bạn có thể xả Tăng tốc Xây dựng, Nghiên cứu hoặc Luyện lính vào 
+ Trong Kỳ Thi Đấu Hội, bạn có thể xả Tăng tốc Xây dựng, Nghiên cứu hoặc Luyện lính vào 
 
 bất kỳ ngày nào
 
@@ -216,7 +216,7 @@ Vật phẩm TUYỆT ĐỐI CẤM XẢ (Phải giữ lại)
 
 Thi Đấu Hội
 
- (vì nhiệm vụ bắt quay 80 vé / tiêu 40 mảnh Cam cho điểm cực kỳ thấp — hãy giữ sang Thứ 5 của Tuần B hoặc chờ Mini-Event 
+ (vì nhiệm vụ bắt quay 80 vé / tiêu 40 mảnh Cam cho điểm cực kỳ thấp — hãy giữ sang Thứ 5 Kỳ GAR/KvK hoặc chờ Mini-Event 
 
 Hero Development Rush
 
@@ -228,11 +228,11 @@ Không xả lệch ngày chủ đề (Ví dụ: Tuyệt đối không ghép mả
 --------------------------------------------------------------------------------
 
 
-2. Chiến Thuật Chi Tiết Cho TUẦN A: Tuần "Thi Đấu Hội" (Guild Race) & Mini-Events
+2. Chiến Thuật Chi Tiết Cho KỲ THI ĐẤU HỘI: Tuần "Thi Đấu Hội" (Guild Race) & Mini-Events
 
 Trong 
 
-Tuần A
+Kỳ Thi Đấu Hội
 
 , sự kiện chính kéo dài 7 ngày (Thứ 2 ➔ Chủ Nhật) là 
 
@@ -274,7 +274,7 @@ Danh sách Nhiệm vụ Chung ở dưới:
 
  Dùng chung cho cả Bang (làm mới mỗi 30 phút).
 
-Bí Quyết "Mỏ Vàng" Ngày 5, Ngày 6 & Ngày 7 (Thứ 6, Thứ 7, Chủ Nhật của Tuần A):
+Bí Quyết "Mỏ Vàng" Ngày 5, Ngày 6 & Ngày 7 (Thứ 6, Thứ 7, Chủ Nhật của Kỳ Thi Đấu Hội):
 
 Theo dữ liệu chuẩn từ 
 
@@ -356,13 +356,13 @@ Chiêu mộ Anh hùng 20–80 lần (Recruit Heroes)
 
 : Tốn 80 vé chiêu mộ cho lượng điểm bèo bọt. Hãy để dành vé cho 
 
-Tuần B (Thứ 5 GAR)
+Kỳ GAR/KvK (Thứ 5 GAR)
 
 .
 
 Tiêu thụ 40 Mảnh Tướng Cam (Consume Legendary Shards)
 
-: Cực kỳ lỗ điểm so với ngày Tướng của Tuần B.
+: Cực kỳ lỗ điểm so với ngày Tướng Kỳ GAR/KvK.
 
 2.2. Kết Hợp Mini-Event 2 Ngày ("Guild Rush" / Sự Kiện Đua Ngắn Hạn)
 
@@ -376,7 +376,7 @@ Guild Rush
 
 : Đua Xây dựng, Đua Nghiên cứu, Đua Huấn luyện lính, hoặc Đua Phát triển Tướng).
 
-Mẹo Double-Dip trong Tuần A:
+Mẹo Double-Dip trong Kỳ Thi Đấu Hội:
 
  Hãy nhìn tab 
 
@@ -400,11 +400,11 @@ Thi Đấu Hội
 --------------------------------------------------------------------------------
 
 
-3. Chiến Thuật Chi Tiết Cho TUẦN B: Tuần "Đua Vũ Trang (GAR)" / "KvK" / "Top Lord"
+3. Chiến Thuật Chi Tiết Cho KỲ GAR/KVK: Tuần "Đua Vũ Trang (GAR)" / "KvK" / "Top Lord"
 
 Khi bước sang 
 
-Tuần B
+Kỳ GAR/KvK
 
 , máy chủ sẽ áp dụng lịch trình 
 
@@ -416,9 +416,9 @@ Sự kiện Giờ (xoay vòng 4 tiếng/ca)
 
 . Lúc này, kỷ luật "Ngâm & Xả đúng Thứ, đúng Giờ" mới phát huy tác dụng 100%!
 
-3.1. Bảng Lịch Trình 7 Ngày Của Tuần B (GAR / KvK / Top Lord)
+3.1. Bảng Lịch Trình 7 Ngày Của Kỳ Đua Vũ Trang (GAR / KvK / Top Lord)
 
-Ngày trong Tuần B
+Ngày trong Kỳ GAR/KvK
 
 Chủ Đề Giai Đoạn (GAR / KvK)
 
@@ -746,9 +746,9 @@ Vòng 5 (Thứ 6):
 
 Tên Vật Phẩm / Tài Nguyên
 
-Xử Lý Trong TUẦN A (Thi Đấu Hội / Guild Race)
+Xử Lý Trong KỲ THI ĐẤU HỘI (Thi Đấu Hội / Guild Race)
 
-Xử Lý Trong TUẦN B (GAR / KvK / Top Lord)
+Xử Lý Trong KỲ GAR/KVK (GAR / KvK / Top Lord)
 
 Ghi Chú Cốt Lõi (Quan Trọng!)
 
@@ -816,7 +816,7 @@ XẢ TẤT TAY VÀO THỨ 5 (Vòng 4 - Khung giờ 17:00 – 21:00)
 
  (hoặc Thứ 7 nếu có Top Lord Stage 6).
 
-Giữ thẻ chiêu mộ và mảnh tướng sang Thứ 5 của Tuần B giúp bạn ăn điểm gấp 3–4 lần so với xả ở Tuần A.
+Giữ thẻ chiêu mộ và mảnh tướng sang Thứ 5 Kỳ GAR/KvK giúp bạn ăn điểm gấp 3–4 lần so với xả ở Kỳ Thi Đấu Hội.
 
 4. Mảnh Tướng Tím có Nội tại Kinh tế
 
@@ -874,7 +874,7 @@ Khi đã sở hữu Tướng Đỏ Bộ Lạc, chỉ bấm nâng sao vào
 
 Thứ 5 (17:00 – 21:00)
 
- của Tuần B.
+ Kỳ GAR/KvK.
 
 Tuyệt đối không đút thêm Mảnh Vạn Năng Cam cho tướng Cam Liên Minh khi đã bước sang Tuần 3!
 

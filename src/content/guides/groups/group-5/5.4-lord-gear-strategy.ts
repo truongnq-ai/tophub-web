@@ -24,8 +24,8 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
       en: "Execute the 4-step **Smart Staggered Upgrade** cycle:\n• **Steps 1 & 2 (Queue 1 Faction):** Push your Queue 1 **Right-side (`RIGHT`)** piece 1 sub-tier ahead first, then its **Left-side (`LEFT`)** piece.\n• **Steps 3 & 4 (Off-Faction):** Upgrade 1 off-faction **Left-side (`LEFT`)** piece to trigger `3-Piece Resonance`, then pull the last 3 pieces up for `6-Piece Resonance`.",
     },
     strictTaboo: {
-      vi: "Tuyệt đối **KHÔNG bấm nâng cấp Đồ Chúa Tể** vào ngày thường hay **Ngày 6 (Thứ Bảy)**:\n• **Bẫy Ngày 6 (Thứ Bảy):** Chỉ tính điểm Quân Trang (`Troop Skins`), hoàn toàn cho `0 điểm` Đồ Chúa Tể.\n• **Kỷ luật Double-Dip:** Tích 100% nguyên liệu xả vào **Ngày 3 & Ngày 4** Tuần B (`GAR / KvK`, cộng Ngày 5 trong `KvK`) hoặc **Ngày 5–7** Tuần A (`Guild Race`).",
-      en: "Strictly **NEVER upgrade Lord Gear** on normal weekdays or on **Day 6 (Saturday)**:\n• **Day 6 (Saturday) Trap:** Scores `Troop Skins` exclusively and awards `0 points` for Lord Gear.\n• **Double-Dip Discipline:** Hoard 100% of materials to dump on **Days 3 & 4** of Week B (`GAR / KvK`, plus Day 5 in `KvK`) or **Days 5–7** of Week A (`Guild Race`).",
+      vi: "Tuyệt đối **KHÔNG bấm nâng cấp Đồ Chúa Tể** vào ngày thường hay **Ngày 6 (Thứ Bảy)**:\n• **Bẫy Ngày 6 (Thứ Bảy):** Chỉ tính điểm Quân Trang (`Troop Skins`), hoàn toàn cho `0 điểm` Đồ Chúa Tể.\n• **Kỷ luật Double-Dip:** Tích 100% nguyên liệu xả vào **Ngày 3 & Ngày 4** Kỳ `GAR / KvK` (cộng Ngày 5 trong `KvK`) hoặc **Ngày 5–7** Kỳ Thi Đấu Hội (`Guild Race`).",
+      en: "Strictly **NEVER upgrade Lord Gear** on normal weekdays or on **Day 6 (Saturday)**:\n• **Day 6 (Saturday) Trap:** Scores `Troop Skins` exclusively and awards `0 points` for Lord Gear.\n• **Double-Dip Discipline:** Hoard 100% of materials to dump on **Days 3 & 4** of `GAR / KvK` (plus Day 5 in `KvK`) or **Days 5–7** of `Guild Race`.",
     },
   },
   keyTakeaways: [
@@ -38,8 +38,8 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
       en: "**`Season 3` Unlock Requirements:** All 6 main Lord Gear pieces must reach at least `Y1` (`T1 Legendary`) to unlock the **7th Lord Gear Slot** in `Season 3` Week 3.\n• **Sacred Codex Unlock:** All 6 main pieces must reach at least `Y2` (`T2 Legendary`) in `Season 3` Week 4.",
     },
     {
-      vi: "**Điểm sự kiện Đồ Chúa Tể:** Trong Tuần B (`GAR / KvK` Ngày 3 & 4), mỗi `100` Thép Tinh Luyện = `400 điểm` và mỗi `1` Dây Gai = `400 điểm`.\n• **Ăn kép Tuần A (`Guild Race` Ngày 5–7):** Nhận Nhiệm vụ Vàng Độc quyền (`Exclusive Gold Task`) kết hợp sự kiện phụ `Guild Rush: Troop Skin & Lord Gear`.",
-      en: "**Lord Gear Event Scoring:** During Week B (`GAR / KvK` Days 3 & 4), every `100` Refined Metal = `400 points` and every `1` Magic Thread = `400 points`.\n• **Week A (`Guild Race` Days 5–7) Double-Dip:** Stack `Exclusive Gold Task` selections with the `Guild Rush: Troop Skin & Lord Gear` milestone event.",
+      vi: "**Điểm sự kiện Đồ Chúa Tể:** Trong Kỳ `GAR / KvK` (Ngày 3 & 4), mỗi `100` Thép Tinh Luyện = `400 điểm` và mỗi `1` Dây Gai = `400 điểm`.\n• **Ăn kép Kỳ Thi Đấu Hội (`Guild Race` Ngày 5–7):** Nhận Nhiệm vụ Vàng Độc quyền (`Exclusive Gold Task`) kết hợp sự kiện phụ `Guild Rush: Troop Skin & Lord Gear`.",
+      en: "**Lord Gear Event Scoring:** During `GAR / KvK` (Days 3 & 4), every `100` Refined Metal = `400 points` and every `1` Magic Thread = `400 points`.\n• **`Guild Race` (Days 5–7) Double-Dip:** Stack `Exclusive Gold Task` selections with the `Guild Rush: Troop Skin & Lord Gear` milestone event.",
     },
   ],
   keywords: [
@@ -291,16 +291,16 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
                 en: "GOLDEN DUMP WINDOWS (DOUBLE-DIP)",
               },
               title: {
-                vi: "Tuần B Ngày 3–4 (GAR/KvK: 400 Điểm) & Tuần A Ngày 5–7 (Guild Race Double-Dip)",
-                en: "Week B Days 3–4 (GAR/KvK: 400 Pts) & Week A Days 5–7 (Guild Race Double-Dip)",
+                vi: "Kỳ GAR/KvK Ngày 3–4 (400 Điểm) & Kỳ Thi Đấu Hội Ngày 5–7 (Guild Race Double-Dip)",
+                en: "GAR/KvK Days 3–4 (400 Pts) & Guild Race Days 5–7 (Double-Dip)",
               },
               timing: {
                 vi: "Cấm tuyệt đối xả Ngày 6 (Thứ Bảy)",
                 en: "Strictly forbidden on Day 6 (Saturday)",
               },
               description: {
-                vi: "Tuần B xả vào Thứ Tư & Thứ Năm (Ngày 3–4 GAR/KvK, cộng Ngày 5 trong KvK: 100 Thép = 400 điểm, 1 Dây Gai = 400 điểm).\n• Tuần A xả vào Thứ Sáu – Chủ Nhật (Ngày 5–7 Guild Race) ăn kép Exclusive Gold Task + Guild Rush: Troop Skin & Lord Gear.",
-                en: "In Week B, dump on Wed & Thu (GAR/KvK Days 3–4, plus Day 5 in KvK: 100 Refined Metal = 400 points, 1 Magic Thread = 400 points).\n• In Week A, dump on Fri–Sun (Guild Race Days 5–7) to stack Exclusive Gold Task + Guild Rush: Troop Skin & Lord Gear.",
+                vi: "Kỳ GAR/KvK xả vào Thứ Tư & Thứ Năm (Ngày 3–4 GAR/KvK, cộng Ngày 5 trong KvK: 100 Thép = 400 điểm, 1 Dây Gai = 400 điểm).\n• Kỳ Thi Đấu Hội xả vào Thứ Sáu – Chủ Nhật (Ngày 5–7 Guild Race) ăn kép Exclusive Gold Task + Guild Rush: Troop Skin & Lord Gear.",
+                en: "In GAR/KvK, dump on Wed & Thu (GAR/KvK Days 3–4, plus Day 5 in KvK: 100 Refined Metal = 400 points, 1 Magic Thread = 400 points).\n• In Guild Race, dump on Fri–Sun (Guild Race Days 5–7) to stack Exclusive Gold Task + Guild Rush: Troop Skin & Lord Gear.",
               },
             },
           ],
@@ -314,15 +314,15 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
             en: "Lord Gear Event Scoring Matrix: GAR/KvK Days 3–4 vs Saturday Day 6 Trap (MED-5.4-02)",
           },
           description: {
-            vi: "Minh họa giao diện tính điểm sự kiện Lord's Set / Ultimate Power trong Tuần B (GAR / KvK Ngày 3 & 4: 100 Thép Tinh Luyện = 400 điểm, 1 Dây Gai = 400 điểm) và giao diện Nhiệm vụ Vàng Độc quyền (Exclusive Gold Task) trong Tuần A (Guild Race Ngày 5–7).",
-            en: "Annotated event scoring screen showing Lord's Set / Ultimate Power during Week B (GAR / KvK Days 3 & 4: 100 Refined Metal = 400 pts, 1 Magic Thread = 400 pts) alongside Week A Guild Race Days 5–7 Exclusive Gold Tasks.",
+            vi: "Minh họa giao diện tính điểm sự kiện Lord's Set / Ultimate Power trong Kỳ GAR / KvK (Ngày 3 & 4: 100 Thép Tinh Luyện = 400 điểm, 1 Dây Gai = 400 điểm) và giao diện Nhiệm vụ Vàng Độc quyền (Exclusive Gold Task) trong Kỳ Thi Đấu Hội (Guild Race Ngày 5–7).",
+            en: "Annotated event scoring screen showing Lord's Set / Ultimate Power during GAR / KvK (Days 3 & 4: 100 Refined Metal = 400 pts, 1 Magic Thread = 400 pts) alongside Guild Race Days 5–7 Exclusive Gold Tasks.",
           },
           annotations: [
             {
               kind: "do",
               label: {
-                vi: "Tuần B (GAR/KvK): Xả Ngày 3 & Ngày 4 (Thứ Tư & Thứ Năm)",
-                en: "Week B (GAR/KvK): Dump on Days 3 & 4 (Wed & Thu)",
+                vi: "Kỳ GAR/KvK: Xả Ngày 3 & Ngày 4 (Thứ Tư & Thứ Năm)",
+                en: "GAR/KvK: Dump on Days 3 & 4 (Wed & Thu)",
               },
               detail: {
                 vi: "Mỗi 100 Đá Xanh / Thép Tinh Luyện = 400 điểm và mỗi 1 Dây Gai / Chỉ Phép = 400 điểm (trong KvK có thể xả thêm vào Ngày 5).",
@@ -332,8 +332,8 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
             {
               kind: "do",
               label: {
-                vi: "Tuần A (Guild Race): Xả Ngày 5–7 (Thứ Sáu – Chủ Nhật)",
-                en: "Week A (Guild Race): Dump on Days 5–7 (Fri – Sun)",
+                vi: "Kỳ Thi Đấu Hội (Guild Race): Xả Ngày 5–7 (Thứ Sáu – Chủ Nhật)",
+                en: "Guild Race: Dump on Days 5–7 (Fri – Sun)",
               },
               detail: {
                 vi: "Nhận Nhiệm vụ Vàng Độc quyền (Exclusive Gold Task) nâng Đồ Chúa Tể kết hợp ăn mốc sự kiện phụ Guild Rush: Troop Skin & Lord Gear.",
@@ -413,12 +413,12 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
             {
               id: "lg-audit-4",
               label: {
-                vi: "4. Khóa chặt kho nguyên liệu ngoài Ngày 3–4 Tuần B và Ngày 5–7 Tuần A",
-                en: "4. Lock all materials outside Week B Days 3–4 and Week A Days 5–7",
+                vi: "4. Khóa chặt kho nguyên liệu ngoài Ngày 3–4 Kỳ GAR/KvK và Ngày 5–7 Kỳ Thi Đấu Hội",
+                en: "4. Lock all materials outside GAR/KvK Days 3–4 and Guild Race Days 5–7",
               },
               detail: {
-                vi: "Tuyệt đối không bấm nâng cấp ngày thường hoặc Ngày 6 (Thứ Bảy — chỉ tính điểm Quân Trang). Chỉ xả vào Thứ Tư/Thứ Năm Tuần B (GAR/KvK) hoặc Thứ Sáu–Chủ Nhật Tuần A (Guild Race).",
-                en: "Never upgrade on normal weekdays or Day 6 (Saturday — Troop Skins only). Dump strictly on Wed/Thu of Week B (GAR/KvK) or Fri–Sun of Week A (Guild Race).",
+                vi: "Tuyệt đối không bấm nâng cấp ngày thường hoặc Ngày 6 (Thứ Bảy — chỉ tính điểm Quân Trang). Chỉ xả vào Thứ Tư/Thứ Năm Kỳ GAR/KvK hoặc Thứ Sáu–Chủ Nhật Kỳ Thi Đấu Hội (Guild Race).",
+                en: "Never upgrade on normal weekdays or Day 6 (Saturday — Troop Skins only). Dump strictly on Wed/Thu of GAR/KvK or Fri–Sun of Guild Race.",
               },
               badge: {
                 vi: "DOUBLE-DIP",
@@ -460,8 +460,8 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
               en: "**Pitfall #1 — Pushing only 2 Queue 1 pieces to Y1–Y2 while leaving 4 off-faction pieces at G1/B1:** Forfeits 6-Piece Resonance and locks out the Season 3 7th Slot (Y1) & Sacred Codex (Y2); keep max gap to 1 sub-tier.",
             },
             {
-              vi: "**Cạm bẫy #2 — Xả Đồ Chúa Tể vào ngày thường hoặc Ngày 6 (Thứ Bảy) của GAR / KvK:** Ngày 6 chỉ tính điểm Quân Trang (0 điểm Đồ Chúa Tể); chỉ xả vào Ngày 3–4 Tuần B (GAR/KvK) hoặc Ngày 5–7 Tuần A (Guild Race).",
-              en: "**Pitfall #2 — Upgrading Lord Gear on weekdays or Day 6 (Saturday) of GAR / KvK:** Day 6 only scores Troop Skins (0 Lord Gear points); dump strictly on Week B Days 3–4 (GAR/KvK) or Week A Days 5–7 (Guild Race).",
+              vi: "**Cạm bẫy #2 — Xả Đồ Chúa Tể vào ngày thường hoặc Ngày 6 (Thứ Bảy) của GAR / KvK:** Ngày 6 chỉ tính điểm Quân Trang (0 điểm Đồ Chúa Tể); chỉ xả vào Ngày 3–4 Kỳ GAR/KvK hoặc Ngày 5–7 Kỳ Thi Đấu Hội (Guild Race).",
+              en: "**Pitfall #2 — Upgrading Lord Gear on weekdays or Day 6 (Saturday) of GAR / KvK:** Day 6 only scores Troop Skins (0 Lord Gear points); dump strictly on GAR/KvK Days 3–4 or Guild Race Days 5–7.",
             },
             {
               vi: "**Cạm bẫy #3 — Mua Thép đắt đỏ thay vì gom Bản Vẽ (1,050 Bản Vẽ B1➔P4) & nâng sai thứ tự nhánh:** Luôn ưu tiên mua Bản Vẽ/Dây Gai và nâng theo chuẩn: RIGHT Đội 1 ➔ LEFT Đội 1 ➔ LEFT Hệ Phụ ➔ RIGHT Hệ Phụ.",
@@ -477,8 +477,8 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
             en: "Red Alert: Never Dump Lord Gear on Day 6 (Saturday) of GAR / KvK!",
           },
           content: {
-            vi: "Rất nhiều người chơi nhìn thấy chữ 'Trang bị' vào **Ngày 6 (Thứ Bảy)** của `GAR / KvK` liền bấm xả sạch hàng trăm Bản Vẽ và hàng ngàn Dây Gai, nhưng Ngày 6 chỉ tính điểm **Quân Trang (`Troop Skins`)**!\n• **Kỷ luật sắt:** Khóa chặt tay và chỉ xả Đồ Chúa Tể vào **Thứ Tư – Thứ Năm** (Ngày 3–4 Tuần B `GAR / KvK`, cộng Ngày 5 trong `KvK`) hoặc **Thứ Sáu – Chủ Nhật** (Ngày 5–7 Tuần A `Guild Race`).",
-            en: "Many players see equipment themes on **Day 6 (Saturday)** of `GAR / KvK` and dump hundreds of Blueprints and thousands of Magic Threads, only to realize Day 6 scores **Troop Skins** exclusively!\n• **Iron Discipline:** Keep materials locked and only dump Lord Gear on **Wednesday–Thursday** (Week B `GAR / KvK` Days 3–4, plus Day 5 in `KvK`) or **Friday–Sunday** (Week A `Guild Race` Days 5–7).",
+            vi: "Rất nhiều người chơi nhìn thấy chữ 'Trang bị' vào **Ngày 6 (Thứ Bảy)** của `GAR / KvK` liền bấm xả sạch hàng trăm Bản Vẽ và hàng ngàn Dây Gai, nhưng Ngày 6 chỉ tính điểm **Quân Trang (`Troop Skins`)**!\n• **Kỷ luật sắt:** Khóa chặt tay và chỉ xả Đồ Chúa Tể vào **Thứ Tư – Thứ Năm** (Ngày 3–4 Kỳ `GAR / KvK`, cộng Ngày 5 trong `KvK`) hoặc **Thứ Sáu – Chủ Nhật** (Ngày 5–7 Kỳ Thi Đấu Hội `Guild Race`).",
+            en: "Many players see equipment themes on **Day 6 (Saturday)** of `GAR / KvK` and dump hundreds of Blueprints and thousands of Magic Threads, only to realize Day 6 scores **Troop Skins** exclusively!\n• **Iron Discipline:** Keep materials locked and only dump Lord Gear on **Wednesday–Thursday** (`GAR / KvK` Days 3–4, plus Day 5 in `KvK`) or **Friday–Sunday** (`Guild Race` Days 5–7).",
           },
         },
       ],
@@ -1221,8 +1221,8 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
             en: "CASE STUDY #5.4 • LORD GEAR REALLOCATION (P3 ➔ P4 ➔ Y1)",
           },
           title: {
-            vi: "Tài Khoản Mid-Game Thuần Bộ Lạc: 6 Món Đang Đồng Bộ Ở P3 (Epic 2★) Xả Kho Trong Tuần B GAR Ngày 3–4",
-            en: "Mid-Game Pure Horde Account: 6 Pieces Synced at P3 (Epic 2★) Dumping Materials on Week B GAR Days 3–4",
+            vi: "Tài Khoản Mid-Game Thuần Bộ Lạc: 6 Món Đang Đồng Bộ Ở P3 (Epic 2★) Xả Kho Trong Kỳ GAR Ngày 3–4",
+            en: "Mid-Game Pure Horde Account: 6 Pieces Synced at P3 (Epic 2★) Dumping Materials on GAR Days 3–4",
           },
           profileSummary: {
             vi: "Tài khoản Mid-game vận hành Đội 1 Thuần Bộ Lạc (`Pure Horde`) có cả 6 món Trang bị Chúa Tể đang đồng bộ ở bậc Tím 3 (`P3 — Epic 2★`).\n• **Ngân sách tích trữ sau 2 tuần:** Kho đang có `65,000` Đá Xanh / Thép Tinh Luyện, `520` Dây Gai / Chỉ Phép và `230` Bản Vẽ / Hợp Kim.",
@@ -1302,8 +1302,8 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
                 en: "Sync All 6 Slots from P3 to Complete P4 (Epic 3★) During Days 3–4 Golden Window",
               },
               detail: {
-                vi: "Đúng Thứ Tư/Thứ Năm Tuần B (`GAR / KvK` Ngày 3–4) hoặc Thứ Sáu–Chủ Nhật Tuần A (`Guild Race` Ngày 5–7), nâng cả 6 món từ `P3` lên `P4` (`Epic 3★`).\n• **Chi phí & Hoàn trả:** Tốn `61,800` Thép, `540` Dây Gai và `234` Bản Vẽ (lấy `20` Dây Gai và `4` Bản Vẽ từ rương mốc sự kiện vừa nhảy).",
-                en: "On Wed/Thu of Week B (`GAR / KvK` Days 3–4) or Fri–Sun of Week A (`Guild Race` Days 5–7), bring all 6 pieces from `P3` to `P4` (`Epic 3★`).\n• **Cost & Rebates:** Uses `61,800` Refined Metal, `540` Magic Thread, and `234` Blueprints (`20` Thread and `4` Blueprints rebated live from milestone chests).",
+                vi: "Đúng Thứ Tư/Thứ Năm Kỳ `GAR / KvK` (Ngày 3–4) hoặc Thứ Sáu–Chủ Nhật Kỳ Thi Đấu Hội (`Guild Race` Ngày 5–7), nâng cả 6 món từ `P3` lên `P4` (`Epic 3★`).\n• **Chi phí & Hoàn trả:** Tốn `61,800` Thép, `540` Dây Gai và `234` Bản Vẽ (lấy `20` Dây Gai và `4` Bản Vẽ từ rương mốc sự kiện vừa nhảy).",
+                en: "On Wed/Thu of `GAR / KvK` (Days 3–4) or Fri–Sun of `Guild Race` (Days 5–7), bring all 6 pieces from `P3` to `P4` (`Epic 3★`).\n• **Cost & Rebates:** Uses `61,800` Refined Metal, `540` Magic Thread, and `234` Blueprints (`20` Thread and `4` Blueprints rebated live from milestone chests).",
               },
               impactBadge: {
                 vi: "61,800 THÉP + 540 DÂY GAI + 234 BẢN VẼ",

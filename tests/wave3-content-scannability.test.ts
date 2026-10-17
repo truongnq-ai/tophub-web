@@ -466,4 +466,31 @@ describe("Wave 3 — Content Restructuring, Scannability & Zero-Emoji Gate (Grou
       });
     }
   });
+
+  it("AC-W3-06: eliminates legacy Week A / Week B terminology across all 16 Wave 3 articles and category metadata", () => {
+    const legacyRegex =
+      /Tuần\s+[AB](?![\p{L}\p{N}_])|\bWeek\s+[AB](?![\p{L}\p{N}_])|Chu\s+kỳ\s+14\s+Ngày|Nhịp\s+Đập\s+14\s+Ngày|\bBi-weekly\s+Rotation\b|\b14-Day\s+Bi-weekly\b/iu;
+    for (const cat of WAVE3_CATEGORIES) {
+      expect(cat.title.vi, `${cat.slug} title.vi`).not.toMatch(legacyRegex);
+      expect(cat.title.en, `${cat.slug} title.en`).not.toMatch(legacyRegex);
+      expect(cat.description.vi, `${cat.slug} description.vi`).not.toMatch(legacyRegex);
+      expect(cat.description.en, `${cat.slug} description.en`).not.toMatch(legacyRegex);
+    }
+    for (const article of WAVE3_ARTICLES) {
+      const serialized = JSON.stringify({
+        title: article.title,
+        summary: article.summary,
+        tldr: article.tldr,
+        keyTakeaways: article.keyTakeaways,
+        keywords: article.keywords,
+        freeSections: article.freeSections,
+        proSections: article.proSections,
+      });
+      expect(
+        serialized,
+        `Article ${article.code} (${article.slug}) must not contain legacy Week A/B terms`
+      ).not.toMatch(legacyRegex);
+    }
+  });
 });
+

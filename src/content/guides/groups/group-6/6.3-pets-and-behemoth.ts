@@ -11,8 +11,8 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
     en: "Pets & Behemoth Master Guide: 3-Faction Companions & Lv.1–120 Progression Tables",
   },
   summary: {
-    vi: "Hướng dẫn toàn diện về Thú Cưng (Pets — Season 1) và Cự Thú Bang Hội / Hộ Vệ (Behemoth — Season 3): công thức chuyển đổi 36%➔104%, hệ số nhân 3 lần theo Hệ (3x Faction Bonus), chọn Pet chủ lực cho cả 3 Phe (Eggy/Sparrow, Tiggy/Howli/Flickerkit, Cactini/Bear/Candy Boo), bảng 19 mốc tiến hóa Pet Lv.1➔Mythic Lv.120 (Tab Pets), bảng 14 mốc Behemoth Lv.1➔Lv.150 (Tab Behemoth) và lịch xả Thứ Sáu Tuần B.",
-    en: "Complete guide to Pets (Season 1) and Behemoths (Season 3): 36%➔104% stat conversion formula, 3x Faction Multiplier, selecting main Pets across all 3 Factions (Eggy/Sparrow, Tiggy/Howli/Flickerkit, Cactini/Bear/Candy Boo), 19-milestone Pet Lv.1➔Mythic Lv.120 tables (Tab Pets), 14-milestone Behemoth Lv.1➔Lv.150 tables (Tab Behemoth), and Friday Week B dumping.",
+    vi: "Hướng dẫn toàn diện về Thú Cưng (Pets — Season 1) và Cự Thú Bang Hội / Hộ Vệ (Behemoth — Season 3): công thức chuyển đổi 36%➔104%, hệ số nhân 3 lần theo Hệ (3x Faction Bonus), chọn Pet chủ lực cho cả 3 Phe (Eggy/Sparrow, Tiggy/Howli/Flickerkit, Cactini/Bear/Candy Boo), bảng 19 mốc tiến hóa Pet Lv.1➔Mythic Lv.120 (Tab Pets), bảng 14 mốc Behemoth Lv.1➔Lv.150 (Tab Behemoth) và lịch xả Thứ Sáu Kỳ GAR/KvK.",
+    en: "Complete guide to Pets (Season 1) and Behemoths (Season 3): 36%➔104% stat conversion formula, 3x Faction Multiplier, selecting main Pets across all 3 Factions (Eggy/Sparrow, Tiggy/Howli/Flickerkit, Cactini/Bear/Candy Boo), 19-milestone Pet Lv.1➔Mythic Lv.120 tables (Tab Pets), 14-milestone Behemoth Lv.1➔Lv.150 tables (Tab Behemoth), and GAR/KvK Friday dumping.",
   },
   tldr: {
     coreRule: {
@@ -24,8 +24,8 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
       en: "**Incubate 24/7, Lock `Same Pet` Copies & Push `Lv.90` / `Lv.120` Breakpoints:**\n• Keep egg incubators running 24/7, release surplus `Uncommon` pets for `Pet Food`, and **LOCK 100%** of identical copies (`Same Pet`) of your main faction Pet.\n• Reaching `Lv.90` (`Legendary +3`) requires `596,600` cumulative Pet Food, `0` Essence, and `44` Same + `161` Any copies (whereas Uncommon costs `596,850` Food + `3,525` Essence).\n• Max `Mythic Lv.120` requires `714,000` Pet Food + `40,050` Pet Essence + `58` Same + `211` Any.",
     },
     strictTaboo: {
-      vi: "**Cấm Nuôi Nhầm `Cactini` Cho Bộ Lạc & Cấm Xả Lẻ Ngày Thường:**\n• Tuyệt đối **KHÔNG** nuôi nhầm `Cactini` cho đội Bộ Lạc (vì Cactini thuộc hệ Thiên Nhiên Nature!) và **CẤM** cho Pet ăn lẻ tẻ vào ngày thường.\n• Giữ toàn bộ `Pet Food`, `Pet Essence` và phôi tiến hóa chờ **Sự kiện Pets Development** (Thứ Hai – Thứ Ba Tuần A) hoặc **Thứ Sáu của Tuần B** (`GAR Day 5` / `KvK Stage 5–6` / `Top Lord Stage 5`).\n• Điểm sự kiện: nhận `960` điểm / `100` Pet Food, `480` điểm / `1` Pet Essence và `6,000` – `36,000` điểm mỗi lần tiến hóa.",
-      en: "**Never Raise `Cactini` for Horde & Never Feed Pets on Non-Scoring Days:**\n• **NEVER** mistakenly raise `Cactini` for a Horde lineup (Cactini is a Nature pet!) and **NEVER** feed Pets randomly on weekdays.\n• Hoard 100% of your `Pet Food`, `Pet Essence`, and promotion fodder for **Pets Development** (Monday – Tuesday Week A) or **Friday of Week B** (`GAR Day 5` / `KvK Stage 5–6` / `Top Lord Stage 5`).\n• Event scoring: nets `960` pts per `100` Pet Food, `480` pts per `1` Pet Essence, and `6,000` – `36,000` pts per promotion.",
+      vi: "**Cấm Nuôi Nhầm `Cactini` Cho Bộ Lạc & Cấm Xả Lẻ Ngày Thường:**\n• Tuyệt đối **KHÔNG** nuôi nhầm `Cactini` cho đội Bộ Lạc (vì Cactini thuộc hệ Thiên Nhiên Nature!) và **CẤM** cho Pet ăn lẻ tẻ vào ngày thường.\n• Giữ toàn bộ `Pet Food`, `Pet Essence` và phôi tiến hóa chờ **Sự kiện Pets Development** (Thứ Hai–Ba Kỳ Thi Đấu Hội) hoặc **Thứ Sáu Kỳ GAR/KvK** (`GAR Day 5` / `KvK Stage 5–6` / `Top Lord Stage 5`).\n• Điểm sự kiện: nhận `960` điểm / `100` Pet Food, `480` điểm / `1` Pet Essence và `6,000` – `36,000` điểm mỗi lần tiến hóa.",
+      en: "**Never Raise `Cactini` for Horde & Never Feed Pets on Non-Scoring Days:**\n• **NEVER** mistakenly raise `Cactini` for a Horde lineup (Cactini is a Nature pet!) and **NEVER** feed Pets randomly on weekdays.\n• Hoard 100% of your `Pet Food`, `Pet Essence`, and promotion fodder for **Pets Development** (Guild Race Mon–Tue) or **GAR/KvK Friday** (`GAR Day 5` / `KvK Stage 5–6` / `Top Lord Stage 5`).\n• Event scoring: nets `960` pts per `100` Pet Food, `480` pts per `1` Pet Essence, and `6,000` – `36,000` pts per promotion.",
     },
   },
   keyTakeaways: [
@@ -38,8 +38,8 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
       en: "**Behemoth System (`Lv.1 ➔ Lv.150` — Season 3, Tab Behemoth):**\n• Farm `Magicite`, `Magic Core` & `Covenant Seals` (`Mine Vein` & `Frostfield`); expands **Hero Level Cap** every 20 levels: `Lv.20` (`1★` = `+1` Cap, `5,880` Magicite, `1,500` Core, `750` Seals).\n• Next Star gates: `Lv.40` (`2★` = `+2` Cap, `3,500` Seals), `Lv.60` (`3★` = `+3` Cap, `6,080` Seals, `175.00%` Conversion), `Lv.80` (`4★` = `+4`), `Lv.100` (`5★` = `+5`, `6,346` total Seals).\n• Max Cap `Lv.150` (`+9` Hero Levels) requires `4,648,680` Magicite + `69,000` Magic Core + `6,346` Covenant Seals, granting `210.00%` ATK / `630.00%` HP / `15.00%` DR.",
     },
     {
-      vi: "**Lịch Xả Chuẩn Double-Dip Cho Pet & Behemoth:**\n• **Xả Pet (Tuần B):** Xả `Pet Food` (`960` điểm / `100` Food), `Pet Essence` (`480` điểm / `1` Essence) & Tiến hóa (`6,000`–`36,000`đ) vào **Thứ Sáu Tuần B** (`GAR Day 5` / `KvK Stage 5–6` / `Top Lord Stage 5`).\n• **Xả Pet (Tuần A):** Hoặc xả tại sự kiện phụ `Pets Development` vào **Thứ Hai – Thứ Ba Tuần A**.\n• **Xả Behemoth:** Bung nguyên liệu Cự Thú vào **Thứ Ba / Thứ Tư / Thứ Bảy Tuần B** (`400` điểm / `400` Magicite, `40` điểm / `1` Magic Core, `2,000` điểm / `1` Covenant Seal).",
-      en: "**Double-Dip Event Schedule for Pets & Behemoth:**\n• **Pet Dump (Week B):** Spend `Pet Food` (`960` pts / `100` Food), `Pet Essence` (`480` pts / `1` Essence) & Promotions (`6,000`–`36,000` pts) on **Friday Week B** (`GAR Day 5` / `KvK Stage 5–6` / `Top Lord Stage 5`).\n• **Pet Dump (Week A):** Alternatively spend during the `Pets Development` sub-event on **Mon–Tue Week A**.\n• **Behemoth Dump:** Spend Behemoth materials on **Tuesday / Wednesday / Saturday of Week B** (`400` pts / `400` Magicite, `40` pts / `1` Magic Core, `2,000` pts / `1` Covenant Seal).",
+      vi: "**Lịch Xả Chuẩn Double-Dip Cho Pet & Behemoth:**\n• **Xả Pet (GAR/KvK):** Xả `Pet Food` (`960` điểm / `100` Food), `Pet Essence` (`480` điểm / `1` Essence) & Tiến hóa (`6,000`–`36,000`đ) vào **Thứ Sáu Kỳ GAR/KvK** (`GAR Day 5` / `KvK Stage 5–6` / `Top Lord Stage 5`).\n• **Xả Pet (Thi Đấu Hội):** Hoặc xả tại sự kiện phụ `Pets Development` vào **Thứ Hai–Ba Kỳ Thi Đấu Hội**.\n• **Xả Behemoth:** Bung nguyên liệu Cự Thú vào **Thứ Ba/Tư/Bảy Kỳ GAR/KvK** (`400` điểm / `400` Magicite, `40` điểm / `1` Magic Core, `2,000` điểm / `1` Covenant Seal).",
+      en: "**Double-Dip Event Schedule for Pets & Behemoth:**\n• **Pet Dump (GAR/KvK):** Spend `Pet Food` (`960` pts / `100` Food), `Pet Essence` (`480` pts / `1` Essence) & Promotions (`6,000`–`36,000` pts) on **GAR/KvK Friday** (`GAR Day 5` / `KvK Stage 5–6` / `Top Lord Stage 5`).\n• **Pet Dump (Guild Race):** Alternatively spend during the `Pets Development` sub-event on **Guild Race Mon–Tue**.\n• **Behemoth Dump:** Spend Behemoth materials on **GAR/KvK Tue / Wed / Sat** (`400` pts / `400` Magicite, `40` pts / `1` Magic Core, `2,000` pts / `1` Covenant Seal).",
     },
   ],
   keywords: [
@@ -412,8 +412,8 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
                 en: "4. Hold Feed & Promote on weekdays — Dump strictly in Golden Event Windows",
               },
               detail: {
-                vi: "Găm `Pet Food` (`960` điểm / `100` Food), `Pet Essence` (`480` điểm / `1` Essence) & phôi tiến hóa (`6,000`–`36,000`đ) xả vào Thứ Hai–Ba Tuần A (`Pets Development`) hoặc Thứ Sáu Tuần B (`GAR Day 5`).",
-                en: "Hoard `Pet Food` (`960` pts / `100` Food), `Pet Essence` (`480` pts / `1` Essence) & promotions (`6,000`–`36,000` pts) for Mon–Tue Week A (`Pets Development`) or Friday Week B (`GAR Day 5`).",
+                vi: "Găm `Pet Food` (`960` điểm / `100` Food), `Pet Essence` (`480` điểm / `1` Essence) & phôi tiến hóa (`6,000`–`36,000`đ) xả vào Thứ Hai–Ba Kỳ Thi Đấu Hội (`Pets Development`) hoặc Thứ Sáu Kỳ GAR/KvK (`GAR Day 5`).",
+                en: "Hoard `Pet Food` (`960` pts / `100` Food), `Pet Essence` (`480` pts / `1` Essence) & promotions (`6,000`–`36,000` pts) for Guild Race Mon–Tue (`Pets Development`) or GAR/KvK Friday (`GAR Day 5`).",
               },
               badge: {
                 vi: "960Đ / 100 FOOD",
@@ -461,8 +461,8 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
             en: "3 Fatal Account-Ruining Mistakes in Pets & Season 3 Behemoth Progression",
           },
           content: {
-            vi: "• **Bẫy 1 (Mất phôi Same & Lệch hệ):** Dùng nhầm `Same Pet` làm phôi Any thay vì khóa `44` Same (Lv.90) / `58` Same (Lv.120), nuôi `Cactini` (Nature) cho Bộ Lạc, hoặc nâng `Uncommon` tốn `596,850` Food + `3,525` Essence.\n• **Bẫy 2 (Xả ngoài sự kiện):** Cho Pet ăn ngoài khung Thứ Hai–Ba Tuần A (`Pets Development`) hoặc Thứ Sáu Tuần B (`GAR Day 5` / `KvK Stage 5–6`), mất `960` điểm / `100` Food & `6,000`–`36,000`đ tiến hóa.\n• **Bẫy 3 (Kẹt trần cấp tướng S3):** Bỏ bê `Mine Vein Battle` & `Frostfield Battle` ở Season 3 khiến thiếu `6,346` Ấn Giao Ước (`Covenant Seals`) và `Magic Core`, mất `+1 ➔ +9` **Hero Level Cap**!",
-            en: "• **Trap 1 (Fodder Loss & Mismatch):** Feeding `Same Pet` as Any instead of locking `44`/`58` Same (Lv.90/120), raising `Cactini` (Nature) for Horde, or wasting `596,850` Food + `3,525` Essence on `Uncommon`.\n• **Trap 2 (Off-Event Feeding):** Spending `Pet Food`/`Pet Essence` outside Mon–Tue Week A (`Pets Development`) or Friday Week B (`GAR Day 5` / `KvK Stage 5–6`), losing `960` pts/`100` Food & `6,000`–`36,000` pts.\n• **Trap 3 (S3 Hero Level Cap Stall):** Neglecting `Mine Vein Battle` & `Frostfield Battle` in Season 3 and missing `6,346` `Covenant Seals` and `Magic Core`, costing Queue 1 `+1 ➔ +9` **Hero Level Cap**!",
+            vi: "• **Bẫy 1 (Mất phôi Same & Lệch hệ):** Dùng nhầm `Same Pet` làm phôi Any thay vì khóa `44` Same (Lv.90) / `58` Same (Lv.120), nuôi `Cactini` (Nature) cho Bộ Lạc, hoặc nâng `Uncommon` tốn `596,850` Food + `3,525` Essence.\n• **Bẫy 2 (Xả ngoài sự kiện):** Cho Pet ăn ngoài khung Thứ Hai–Ba Kỳ Thi Đấu Hội (`Pets Development`) hoặc Thứ Sáu Kỳ GAR/KvK (`GAR Day 5` / `KvK Stage 5–6`), mất `960` điểm / `100` Food & `6,000`–`36,000`đ tiến hóa.\n• **Bẫy 3 (Kẹt trần cấp tướng S3):** Bỏ bê `Mine Vein Battle` & `Frostfield Battle` ở Season 3 khiến thiếu `6,346` Ấn Giao Ước (`Covenant Seals`) và `Magic Core`, mất `+1 ➔ +9` **Hero Level Cap**!",
+            en: "• **Trap 1 (Fodder Loss & Mismatch):** Feeding `Same Pet` as Any instead of locking `44`/`58` Same (Lv.90/120), raising `Cactini` (Nature) for Horde, or wasting `596,850` Food + `3,525` Essence on `Uncommon`.\n• **Trap 2 (Off-Event Feeding):** Spending `Pet Food`/`Pet Essence` outside Guild Race Mon–Tue (`Pets Development`) or GAR/KvK Friday (`GAR Day 5` / `KvK Stage 5–6`), losing `960` pts/`100` Food & `6,000`–`36,000` pts.\n• **Trap 3 (S3 Hero Level Cap Stall):** Neglecting `Mine Vein Battle` & `Frostfield Battle` in Season 3 and missing `6,346` `Covenant Seals` and `Magic Core`, costing Queue 1 `+1 ➔ +9` **Hero Level Cap**!",
           },
         },
       ],
@@ -1073,8 +1073,8 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
                 en: "Decision Flow: Kennel Fodder Filtering & Double-Dip Dump Windows (MED-6.3-03)",
               },
               subtitle: {
-                vi: "Tách biệt rõ nguồn thu hồi Pet Food, phôi khóa cứng Same Pet và lịch xả Pet (Thứ Sáu Tuần B) vs Behemoth (Thứ Ba/Tư/Bảy Tuần B)",
-                en: "Strictly separate Pet Food recycling, locked Same Pet copies, and Friday Week B Pet dumps vs. Tue/Wed/Sat Behemoth dumps",
+                vi: "Tách biệt rõ nguồn thu hồi Pet Food, phôi khóa cứng Same Pet và lịch xả Pet (Thứ Sáu Kỳ GAR/KvK) vs Behemoth (Thứ Ba/Tư/Bảy Kỳ GAR/KvK)",
+                en: "Strictly separate Pet Food recycling, locked Same Pet copies, and GAR/KvK Friday Pet dumps vs. Tue/Wed/Sat Behemoth dumps",
               },
               centerNode: {
                 id: "node-pet-behemoth-hub",
@@ -1136,8 +1136,8 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
                 },
                 {
                   title: {
-                    vi: "Nhánh 2: Cửa Sổ Xả Thú Cưng (Thứ Sáu Tuần B / Thứ Hai–Ba Tuần A)",
-                    en: "Branch 2: Pet Dump Window (Friday Week B / Mon–Tue Week A)",
+                    vi: "Nhánh 2: Cửa Sổ Xả Thú Cưng (Thứ Sáu Kỳ GAR/KvK / Thứ Hai–Ba Kỳ Thi Đấu Hội)",
+                    en: "Branch 2: Pet Dump Window (GAR/KvK Friday / Guild Race Mon–Tue)",
                   },
                   badge: {
                     vi: "GAR DAY 5 / KVK STAGE 5–6",
@@ -1152,8 +1152,8 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
                         en: "Dump 100% Pet Food (960 pts / 100 Food) & Pet Essence (480 pts / 1 Essence)",
                       },
                       subtitle: {
-                        vi: "Đợi đúng Thứ Sáu Tuần B (GAR Ngày 5 / KvK Stage 5–6 / Top Lord Stage 5) hoặc Thứ Hai–Thứ Ba Tuần A (Pets Development)",
-                        en: "Wait strictly for Friday Week B (GAR Day 5 / KvK Stage 5–6 / Top Lord Stage 5) or Mon–Tue Week A (Pets Development)",
+                        vi: "Đợi đúng Thứ Sáu Kỳ GAR/KvK (GAR Ngày 5 / KvK Stage 5–6 / Top Lord Stage 5) hoặc Thứ Hai–Ba Kỳ Thi Đấu Hội (Pets Development)",
+                        en: "Wait strictly for GAR/KvK Friday (GAR Day 5 / KvK Stage 5–6 / Top Lord Stage 5) or Guild Race Mon–Tue (Pets Development)",
                       },
                       tone: "gold",
                     },
@@ -1177,8 +1177,8 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
                 },
                 {
                   title: {
-                    vi: "Nhánh 3: Cửa Sổ Xả Cự Thú Behemoth (Thứ Ba / Tư / Bảy Tuần B)",
-                    en: "Branch 3: Behemoth Dump Window (Tue / Wed / Sat Week B)",
+                    vi: "Nhánh 3: Cửa Sổ Xả Cự Thú Behemoth (Thứ Ba/Tư/Bảy Kỳ GAR/KvK)",
+                    en: "Branch 3: Behemoth Dump Window (GAR/KvK Tue/Wed/Sat)",
                   },
                   badge: {
                     vi: "2,000Đ / 1 ẤN GIAO ƯỚC",
@@ -1230,12 +1230,12 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
                   en: "Material / Upgrade Action",
                 },
                 {
-                  vi: "Sự Kiện Phụ Pets Development (Thứ Hai – Thứ Ba Tuần A)",
-                  en: "Pets Development Sub-Event (Mon – Tue Week A)",
+                  vi: "Sự Kiện Phụ Pets Development (Thứ Hai–Ba Kỳ Thi Đấu Hội)",
+                  en: "Pets Development Sub-Event (Guild Race Mon–Tue)",
                 },
                 {
-                  vi: "GAR Ngày 5 (Thứ Sáu) & KvK Stage 5–6 (Tuần B — Đua Vũ Trang)",
-                  en: "GAR Day 5 (Friday) & KvK Stage 5–6 (Week B — Arms Race)",
+                  vi: "GAR Ngày 5 (Thứ Sáu) & KvK Stage 5–6 (Kỳ GAR/KvK — Đua Vũ Trang)",
+                  en: "GAR Day 5 (Friday) & KvK Stage 5–6 (GAR/KvK — Arms Race)",
                 },
                 {
                   vi: "Top Lord Stage 5 (Pet Enhancement)",
@@ -1334,8 +1334,8 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
       id: "sec-5-s3-tiggy-and-behemoth-lv20-case-study",
       isPro: true,
       title: {
-        vi: "5. Phân Tích Thực Chiến Nâng Cao: Đột Phá Tiggy Lv.75 ➔ Lv.90 (228,000 Pet Food) & Behemoth Lv.20 (1★ = 750 Ấn) Trong Tuần B GAR (PRO)",
-        en: "5. Advanced Tactical Case Study: Pushing Tiggy Lv.75 ➔ Lv.90 (228,000 Pet Food) & Behemoth Lv.20 (1★ = 750 Seals) in Week B GAR (PRO)",
+        vi: "5. Phân Tích Thực Chiến Nâng Cao: Đột Phá Tiggy Lv.75 ➔ Lv.90 (228,000 Pet Food) & Behemoth Lv.20 (1★ = 750 Ấn) Trong Kỳ GAR/KvK (PRO)",
+        en: "5. Advanced Tactical Case Study: Pushing Tiggy Lv.75 ➔ Lv.90 (228,000 Pet Food) & Behemoth Lv.20 (1★ = 750 Seals) in GAR/KvK (PRO)",
       },
       blocks: [
         {
@@ -1391,8 +1391,8 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
             },
             {
               label: {
-                vi: "Tổng Sức Mạnh Thực Chiến & Điểm GAR Tuần B",
-                en: "Total Real Combat Power & Week B GAR Score",
+                vi: "Tổng Sức Mạnh Thực Chiến & Điểm GAR Kỳ GAR/KvK",
+                en: "Total Real Combat Power & GAR/KvK Score",
               },
               before: {
                 vi: "52.0M Lực chiến (Kẹt trần cấp tướng & thiếu 3x Faction Buff Lv.90)",
@@ -1437,8 +1437,8 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
             {
               stepNumber: "2",
               title: {
-                vi: "Thứ Ba / Thứ Tư Tuần B: Đột Phá Cự Thú Chạm Điểm Gãy Lv.20 (1★ = +1 Hero Level Cap)",
-                en: "Tuesday / Wednesday Week B: Push Behemoth to Lv.20 Breakpoint (1★ = +1 Hero Level Cap)",
+                vi: "Thứ Ba / Thứ Tư Kỳ GAR/KvK: Đột Phá Cự Thú Chạm Điểm Gãy Lv.20 (1★ = +1 Hero Level Cap)",
+                en: "Tuesday / Wednesday GAR/KvK: Push Behemoth to Lv.20 Breakpoint (1★ = +1 Hero Level Cap)",
               },
               detail: {
                 vi: "• Xả `5,880+` Magicite, `1,500` Magic Core và `750` Ấn Giao Ước (`Covenant Seals`) đưa Behemoth chạm đúng Điểm gãy `Lv.20` (`1★`).\n• Riêng `750` Ấn Giao Ước (`× 2,000` điểm) mang về `1,500,000` điểm sự kiện, mở khóa `+1` **Hero Level Cap**, `+30.00%` ATK / `+90.00%` HP / `3.00%` DR và `+36.00%` ATK / `+108.00%` HP xuất trận!",
@@ -1452,12 +1452,12 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
             {
               stepNumber: "3",
               title: {
-                vi: "Thứ Sáu Tuần B (GAR Day 5): Xả 228,000 Pet Food Đẩy Tiggy Từ Lv.75 Lên Lv.90 (Legendary +3)",
-                en: "Friday Week B (GAR Day 5): Dump 228,000 Pet Food to Push Tiggy from Lv.75 to Lv.90 (Legendary +3)",
+                vi: "Thứ Sáu Kỳ GAR/KvK (GAR Day 5): Xả 228,000 Pet Food Đẩy Tiggy Từ Lv.75 Lên Lv.90 (Legendary +3)",
+                en: "GAR/KvK Friday (GAR Day 5): Dump 228,000 Pet Food to Push Tiggy from Lv.75 to Lv.90 (Legendary +3)",
               },
               detail: {
-                vi: "• Thứ Sáu Tuần B (`GAR Ngày 5` / `KvK Stage 5–6`), xả `228,000` Pet Food (`960` điểm / `100` Food = `2,188,800` điểm GAR, `0` Essence) kéo `Tiggy` từ `Lv.75` (`368,600` Food) lên `Lv.90` (`596,600` Food).\n• Với tài khoản đầu S3 ở Lv.32, xả `60,300` Pet Food cán mốc `Lv.45 Epic` (`98,550` Food) và thu về hơn `2,150,000` điểm GAR.",
-                en: "• On Friday Week B (`GAR Day 5` / `KvK Stage 5–6`), dump `228,000` Pet Food (`960` pts / `100` Food = `2,188,800` GAR pts, `0` Essence) to push `Tiggy` from `Lv.75` (`368,600` Food) to `Lv.90` (`596,600` Food).\n• For early-S3 accounts at Lv.32, spending `60,300` Pet Food hits `Lv.45 Epic` (`98,550` Food) and nets over `2,150,000` total GAR points.",
+                vi: "• Thứ Sáu Kỳ GAR/KvK (`GAR Ngày 5` / `KvK Stage 5–6`), xả `228,000` Pet Food (`960` điểm / `100` Food = `2,188,800` điểm GAR, `0` Essence) kéo `Tiggy` từ `Lv.75` (`368,600` Food) lên `Lv.90` (`596,600` Food).\n• Với tài khoản đầu S3 ở Lv.32, xả `60,300` Pet Food cán mốc `Lv.45 Epic` (`98,550` Food) và thu về hơn `2,150,000` điểm GAR.",
+                en: "• On GAR/KvK Friday (`GAR Day 5` / `KvK Stage 5–6`), dump `228,000` Pet Food (`960` pts / `100` Food = `2,188,800` GAR pts, `0` Essence) to push `Tiggy` from `Lv.75` (`368,600` Food) to `Lv.90` (`596,600` Food).\n• For early-S3 accounts at Lv.32, spending `60,300` Pet Food hits `Lv.45 Epic` (`98,550` Food) and nets over `2,150,000` total GAR points.",
               },
               impactBadge: {
                 vi: "2,188,800 ĐIỂM GAR • +81.60% ATK / +120.00% HP",

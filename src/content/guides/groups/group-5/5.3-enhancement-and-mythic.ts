@@ -550,8 +550,8 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
                 {
                   id: "chk-53-uw-lv10-breakpoint-lock",
                   label: {
-                    vi: "Khóa mục tiêu Vũ khí Độc quyền ở Điểm gãy Vàng Lv.10 (275 Mảnh) vào Thứ Năm Tuần B (GAR Ngày 4)",
-                    en: "Lock Exclusive Weapon upgrades to the Lv.10 Golden Breakpoint (275 Shards) on Thursday Week B (GAR Day 4)",
+                    vi: "Khóa mục tiêu Vũ khí Độc quyền ở Điểm gãy Vàng Lv.10 (275 Mảnh) vào Thứ Năm Kỳ GAR/KvK (GAR Ngày 4)",
+                    en: "Lock Exclusive Weapon upgrades to the Lv.10 Golden Breakpoint (275 Shards) on Thursday GAR/KvK (GAR Day 4)",
                   },
                   detail: {
                     vi: "Mở khóa Lv.1 (5 mảnh) cho 6 tướng Đội 1, dừng Support ở Lv.5 (75 mảnh), và ưu tiên đẩy cặp Carry + Tank chủ lực chạm Lv.10 (275 mảnh) trước khi nghĩ tới Lv.15 (605 mảnh) hay Lv.20 (1,185 mảnh).",
@@ -974,8 +974,8 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
                 },
               ],
               footnote: {
-                vi: "Mẹo sự kiện: Luôn khóa 100% Mảnh Vũ Khí Độc Quyền Vạn Năng để xả vào Ngày Thứ Năm Tuần B (GAR Ngày 4: Hero Upgrade) kết hợp sự kiện phụ Hero Development.",
-                en: "Event Tip: Always hoard 100% of Universal Exclusive Weapon Shards to dump on Thursday of Week B (GAR Day 4: Hero Upgrade) stacked with Hero Development.",
+                vi: "Mẹo sự kiện: Luôn khóa 100% Mảnh Vũ Khí Độc Quyền Vạn Năng để xả vào Ngày Thứ Năm Kỳ GAR/KvK (GAR Ngày 4: Hero Upgrade) kết hợp sự kiện phụ Hero Development.",
+                en: "Event Tip: Always hoard 100% of Universal Exclusive Weapon Shards to dump on Thursday of GAR/KvK (GAR Day 4: Hero Upgrade) stacked with Hero Development.",
               },
             },
           ],
@@ -1635,8 +1635,8 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
       id: "sec-5-castle31-850shards-600kore-case-study",
       isPro: true,
       title: {
-        vi: "5. Kịch bản Thực chiến Nâng cao: Phân Bổ 850 Mảnh Vũ Khí Độc Quyền Vạn Năng & 600,000 Quặng Cường Hóa Trong Ngày Thứ Năm Tuần B (GAR Day 4)",
-        en: "5. Advanced Tactical Case Study: Allocating 850 Universal Exclusive Weapon Shards & 600,000 Upgrade Runes on Thursday Week B (GAR Day 4)",
+        vi: "5. Kịch bản Thực chiến Nâng cao: Phân Bổ 850 Mảnh Vũ Khí Độc Quyền Vạn Năng & 600,000 Quặng Cường Hóa Trong Ngày Thứ Năm Kỳ GAR/KvK (GAR Day 4)",
+        en: "5. Advanced Tactical Case Study: Allocating 850 Universal Exclusive Weapon Shards & 600,000 Upgrade Runes on Thursday GAR/KvK (GAR Day 4)",
       },
       blocks: [
         {
@@ -1650,8 +1650,8 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
             en: "Allocating 850 Universal Exclusive Weapon Shards & 600,000 Upgrade Runes: Tunnel-Vision vs Min-Max Breakpoints",
           },
           profileSummary: {
-            vi: "• **Ngân sách tích lũy**: Tài khoản Mid-game (Lâu đài Lv.31) tích được 850 Mảnh Vũ Khí Độc Quyền Vạn Năng và 600,000 Quặng Cường Hóa để xả vào Ngày Thứ Năm Tuần B (GAR Day 4).\n• **Phương án A (Sai lầm)**: Dồn 830 mảnh vào Carry #1 từ `Lv.5` lên Lv.18, và dùng 270,000 Quặng đập riêng Kiếm + Giày của Carry lên `Lv.40` (để Mũ + Giáp ở `Lv.20`).\n• **Phương án B (Chuẩn Min-Max)**: Phân bổ chuẩn Điểm gãy Vàng `Lv.10` = 275 Mảnh kết hợp đồng bộ Bậc Thầy Cường Hóa `+30`.",
-            en: "• **Saved Budget**: A mid-game account (Castle Lv.31) saved 850 Universal Exclusive Weapon Shards and 600,000 Upgrade Runes for Thursday Week B (GAR Day 4).\n• **Option A (Flawed)**: Dumping 830 shards into Carry #1 from `Lv.5` to Lv.18, and spending 270,000 Runes pushing only Carry #1's Weapon + Boots to `Lv.40` (Helmet + Chestplate at `Lv.20`).\n• **Option B (Min-Max)**: Distributing across `Lv.10` = 275 Shards Golden Breakpoints and synchronized `+30` Enhancement Master brackets.",
+            vi: "• **Ngân sách tích lũy**: Tài khoản Mid-game (Lâu đài Lv.31) tích được 850 Mảnh Vũ Khí Độc Quyền Vạn Năng và 600,000 Quặng Cường Hóa để xả vào Ngày Thứ Năm Kỳ GAR/KvK (GAR Day 4).\n• **Phương án A (Sai lầm)**: Dồn 830 mảnh vào Carry #1 từ `Lv.5` lên Lv.18, và dùng 270,000 Quặng đập riêng Kiếm + Giày của Carry lên `Lv.40` (để Mũ + Giáp ở `Lv.20`).\n• **Phương án B (Chuẩn Min-Max)**: Phân bổ chuẩn Điểm gãy Vàng `Lv.10` = 275 Mảnh kết hợp đồng bộ Bậc Thầy Cường Hóa `+30`.",
+            en: "• **Saved Budget**: A mid-game account (Castle Lv.31) saved 850 Universal Exclusive Weapon Shards and 600,000 Upgrade Runes for Thursday GAR/KvK (GAR Day 4).\n• **Option A (Flawed)**: Dumping 830 shards into Carry #1 from `Lv.5` to Lv.18, and spending 270,000 Runes pushing only Carry #1's Weapon + Boots to `Lv.40` (Helmet + Chestplate at `Lv.20`).\n• **Option B (Min-Max)**: Distributing across `Lv.10` = 275 Shards Golden Breakpoints and synchronized `+30` Enhancement Master brackets.",
           },
           metrics: [
             {

@@ -740,8 +740,8 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
                   },
                   { vi: "+30%", en: "+30%" },
                   {
-                    vi: "Nâng tự nhiên bằng mảnh Quán Rượu vào Thứ Năm của Tuần B (GAR) để hoàn thiện bộ ba Y tế +90%.",
-                    en: "Upgrade naturally with Tavern shards on Thursday of Week B (GAR) to complete the +90% Hospital Healing trio.",
+                    vi: "Nâng tự nhiên bằng mảnh Quán Rượu vào Thứ Năm Kỳ GAR/KvK để hoàn thiện bộ ba Y tế +90%.",
+                    en: "Upgrade naturally with Tavern shards on Thursday of GAR/KvK to complete the +90% Hospital Healing trio.",
                   },
                 ],
                 [
@@ -1196,8 +1196,8 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
             en: "Economic Leverage of Early 12-Star Brawler (300 Shards) & 15-Star Knight (500 Shards) in Week 3",
           },
           profileSummary: {
-            vi: "Tài khoản ở Ngày 18 đã có **Knight** chạm mốc `15 Sao` (`500 Mảnh Tím`, mở Tiệm Đổi Quà và `+30%` Rèn lính), còn **Brawler (Đấu Sĩ)** dừng ở `10 Sao` (`200 Mảnh` — thiếu `100 Mảnh` lên `12 Sao`).\n• Người chơi phân vân có nên nhịn nâng Brawler thêm 10 ngày nữa để chờ tới Thứ Năm của Tuần B (Guild Arms Race) lấy điểm sự kiện hay không.",
-            en: "A Day 18 server account has **Knight** at `15 Stars` (`500 Epic Shards`, unlocking Exchange Shop and `+30%` Training), while **Brawler** sits at `10 Stars` (`200 Shards` — `100 Shards` short of `12 Stars`).\n• The player is debating whether to hold off upgrading Brawler for 10 more days until Thursday of Week B (Guild Arms Race) for event points.",
+            vi: "Tài khoản ở Ngày 18 đã có **Knight** chạm mốc `15 Sao` (`500 Mảnh Tím`, mở Tiệm Đổi Quà và `+30%` Rèn lính), còn **Brawler (Đấu Sĩ)** dừng ở `10 Sao` (`200 Mảnh` — thiếu `100 Mảnh` lên `12 Sao`).\n• Người chơi phân vân có nên nhịn nâng Brawler thêm 10 ngày nữa để chờ tới Thứ Năm Kỳ GAR (Guild Arms Race) lấy điểm sự kiện hay không.",
+            en: "A Day 18 server account has **Knight** at `15 Stars` (`500 Epic Shards`, unlocking Exchange Shop and `+30%` Training), while **Brawler** sits at `10 Stars` (`200 Shards` — `100 Shards` short of `12 Stars`).\n• The player is debating whether to hold off upgrading Brawler for 10 more days until Thursday of GAR (Guild Arms Race) for event points.",
           },
           metrics: [
             {

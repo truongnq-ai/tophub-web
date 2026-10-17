@@ -11,8 +11,8 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
     en: "Runes Master Guide (Lv.1–12): Choice Chest Discipline & Lv.5 / Lv.8 Breakpoints",
   },
   summary: {
-    vi: "Phân tích toàn diện 6 vị trí Cổ Ngữ (Runes), kỷ luật giữ Rương Tự Chọn chờ Lv.4–Lv.5+, bảng chi phí ghép phôi Tam Phân Lv.1–Lv.8 và bảng thông số Lv.1–Lv.12 từ TopHeroes Tables (Tab Runes), giá trị toán học tối thượng của dòng Combat Skill Level +1/+2 và lịch xả Bụi Cổ Ngữ vào Ngày 2 (Thứ Ba) Tuần B.",
-    en: "Comprehensive guide to the 6 Rune slots, Choice Chest hoarding discipline until Lv.4–Lv.5+, complete Lv.1–Lv.8 ternary synthesis & Lv.1–Lv.12 stat tables from TopHeroes Tables (Tab Runes), Combat Skill Level +1/+2 math analysis, and Day 2 (Tuesday) Week B dumping schedule.",
+    vi: "Phân tích toàn diện 6 vị trí Cổ Ngữ (Runes), kỷ luật giữ Rương Tự Chọn chờ Lv.4–Lv.5+, bảng chi phí ghép phôi Tam Phân Lv.1–Lv.8 và bảng thông số Lv.1–Lv.12 từ TopHeroes Tables (Tab Runes), giá trị toán học tối thượng của dòng Combat Skill Level +1/+2 và lịch xả Bụi Cổ Ngữ vào Ngày 2 (Thứ Ba) Kỳ GAR/KvK.",
+    en: "Comprehensive guide to the 6 Rune slots, Choice Chest hoarding discipline until Lv.4–Lv.5+, complete Lv.1–Lv.8 ternary synthesis & Lv.1–Lv.12 stat tables from TopHeroes Tables (Tab Runes), Combat Skill Level +1/+2 math analysis, and Day 2 (Tuesday) GAR/KvK dumping schedule.",
   },
   tldr: {
     coreRule: {
@@ -20,8 +20,8 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
       en: "**Always bring all 6 Rune slots evenly to the `Lv.5` breakpoint before merging any single `Lv.6` rune.**\n• **Early Tiers (`Lv.1–Lv.4`):** Runes only grant minor `Flat Stats`.\n• **`Lv.5` Breakpoint (`81` Lv.1 runes, `8,000` Dust/rune = `48,000` Dust/6 slots):** Unlocks `+5%` Hero HP/ATK & `+110` Total `March Size`.\n• **`Lv.8` Grand Breakpoint (`2,187` Lv.1 runes, `225,000` Dust/rune = `1,350,000` Dust/6 slots):** Unlocks `+5%` All Soldiers HP/ATK & `+5%` Relic HP.",
     },
     immediateAction: {
-      vi: "**Nâng cấp công trình Mỏ Cổ Ngữ (`Rune Mine`) bám sát cấp Lâu Đài vào Thứ Hai Tuần B (Ngày Xây dựng).**\n• **Tích trữ 100% nguyên liệu:** Khóa chặt Bụi Cổ Ngữ (`DE-Dust` / `Magic Stones`: `600` điểm / `2,000` Magic Stones) và Tinh Thể Bí Thuật (`Arcane Crystal`: `1,200` điểm / 1 viên).\n• **Cửa sổ xả chuẩn:** Chỉ xả vào **Ngày 2 (Thứ Ba — Tech & Runes Day)** của Tuần B (`GAR` / `KvK`) hoặc trong Tuần A (`Guild Race`) ngay sau khi nhận Nhiệm vụ Cổ Ngữ chuyên biệt.",
-      en: "**Upgrade your `Rune Mine` building to match your Castle level on Monday of Week B (Construction Day).**\n• **Stockpile 100% of materials:** Strictly lock all Rune Dust (`DE-Dust` / `Magic Stones`: `600` points per `2,000` Magic Stones) and `Arcane Crystal` (`1,200` points per crystal).\n• **Optimal dump window:** Spend exclusively on **Day 2 (Tuesday — Tech & Runes Day)** of Week B (`GAR` / `KvK`) or in Week A (`Guild Race`) right after claiming a Dedicated Rune Task.",
+      vi: "**Nâng cấp công trình Mỏ Cổ Ngữ (`Rune Mine`) bám sát cấp Lâu Đài vào Thứ Hai Kỳ GAR/KvK (Ngày Xây dựng).**\n• **Tích trữ 100% nguyên liệu:** Khóa chặt Bụi Cổ Ngữ (`DE-Dust` / `Magic Stones`: `600` điểm / `2,000` Magic Stones) và Tinh Thể Bí Thuật (`Arcane Crystal`: `1,200` điểm / 1 viên).\n• **Cửa sổ xả chuẩn:** Chỉ xả vào **Ngày 2 (Thứ Ba — Tech & Runes Day)** của Kỳ Đua Vũ Trang (`GAR` / `KvK`) hoặc trong Kỳ Thi Đấu Hội (`Guild Race`) ngay sau khi nhận Nhiệm vụ Cổ Ngữ chuyên biệt.",
+      en: "**Upgrade your `Rune Mine` building to match your Castle level on GAR/KvK Monday (Construction Day).**\n• **Stockpile 100% of materials:** Strictly lock all Rune Dust (`DE-Dust` / `Magic Stones`: `600` points per `2,000` Magic Stones) and `Arcane Crystal` (`1,200` points per crystal).\n• **Optimal dump window:** Spend exclusively on **Day 2 (Tuesday — Tech & Runes Day)** of GAR / KvK or in Guild Race right after claiming a Dedicated Rune Task.",
     },
     strictTaboo: {
       vi: "**CẤM mở Rương Cổ Ngữ Tự Chọn (`Rune Choice Chests`) ở bậc thấp `Lv.1–Lv.3`!**\n• **Mảnh ghép chốt hạ (`Finisher Piece`):** Tích trữ Rương Tự Chọn đến tầng `Lv.4–Lv.5+` để chọn đúng viên khuyết thiếu nhằm kích hoạt mốc cộng hưởng `%`.\n• **Săn dòng chỉ số hiếm:** Ưu tiên mở khóa `Combat Skill Level` `+1/+2` (Cấp Kỹ năng Chiến đấu, tương đương `3,000`–`5,000` Sách Kỹ Năng Cam miễn phí).",
@@ -38,8 +38,8 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
       en: "**Ternary Synthesis Formula (`3^(n-1)`) & Rune Dust Costs:**\n• **Early Tiers (`Lv.1–Lv.4`):** `Lv.1` (`1` base, `0` Dust) ➔ `Lv.2` (`3` base, `200` Dust = `1,200`/6 slots) ➔ `Lv.3` (`9` base, `800` Dust = `4,800`/6) ➔ `Lv.4` (`27` base, `2,600` Dust = `15,600`/6).\n• **`Lv.5 ★` Breakpoint:** `81` Lv.1 base, `8,000` Dust/rune (`48,000` Dust/6 slots) ➔ unlocks `+5%` HP/ATK & `+110` March Size.\n• **`Lv.6 ★` Breakpoint:** `243` Lv.1 base, `25,000` Dust/rune (`150,000` Dust/6 slots) ➔ reaches `+10%` HP/ATK & `+150` March Size.\n• **`Lv.7` & `Lv.8 ★` Breakpoint:** `Lv.7` (`729` base, `75,000` Dust = `450,000`/6 slots) ➔ `Lv.8 ★` (`2,187` Lv.1 base, `225,000` Dust/rune = `1,350,000` Dust/6 slots).",
     },
     {
-      vi: "**Lịch xả chuẩn Ground-Truth & Thứ tự ưu tiên 3 Phe:**\n• **Lịch xả sự kiện:** Xả Bụi Cổ Ngữ (`600` điểm / `2,000` Magic Stones) và `Arcane Crystal` (`1,200` điểm/viên) vào **Ngày 2 (Thứ Ba — Tech & Runes Day)** Tuần B (`GAR`/`KvK`) hoặc Task Cổ Ngữ Tuần A.\n• **Ưu tiên theo Hệ:** Bộ Lạc (Ô 6 `Queue Attack` & Ô 2 `Hero Attack`), Liên Minh (Ô 2 `Hero Attack` & Ô 1 `Hero HP` ➔ Ô 5 `Relic Mastery`), Thiên Nhiên (Ô 1 `Hero HP` & Ô 3 `Soldier HP`).",
-      en: "**Ground-Truth Dumping Schedule & 3-Faction Priority:**\n• **Event dump window:** Spend Rune Dust (`600` pts per `2,000` Magic Stones) and `Arcane Crystal` (`1,200` pts each) on **Day 2 (Tuesday — Tech & Runes Day)** of Week B (`GAR`/`KvK`) or Week A Rune Tasks.\n• **Faction priority:** Horde (Slot 6 `Queue Attack` & Slot 2 `Hero Attack`), League (Slot 2 `Hero Attack` & Slot 1 `Hero HP` ➔ Slot 5 `Relic Mastery`), Nature (Slot 1 `Hero HP` & Slot 3 `Soldier HP`).",
+      vi: "**Lịch xả chuẩn Ground-Truth & Thứ tự ưu tiên 3 Phe:**\n• **Lịch xả sự kiện:** Xả Bụi Cổ Ngữ (`600` điểm / `2,000` Magic Stones) và `Arcane Crystal` (`1,200` điểm/viên) vào **Ngày 2 (Thứ Ba — Tech & Runes Day)** Kỳ GAR/KvK (`GAR`/`KvK`) hoặc Task Cổ Ngữ Hội.\n• **Ưu tiên theo Hệ:** Bộ Lạc (Ô 6 `Queue Attack` & Ô 2 `Hero Attack`), Liên Minh (Ô 2 `Hero Attack` & Ô 1 `Hero HP` ➔ Ô 5 `Relic Mastery`), Thiên Nhiên (Ô 1 `Hero HP` & Ô 3 `Soldier HP`).",
+      en: "**Ground-Truth Dumping Schedule & 3-Faction Priority:**\n• **Event dump window:** Spend Rune Dust (`600` pts per `2,000` Magic Stones) and `Arcane Crystal` (`1,200` pts each) on **Day 2 (Tuesday — Tech & Runes Day)** of GAR/KvK (`GAR`/`KvK`) or Guild Race Rune Tasks.\n• **Faction priority:** Horde (Slot 6 `Queue Attack` & Slot 2 `Hero Attack`), League (Slot 2 `Hero Attack` & Slot 1 `Hero HP` ➔ Slot 5 `Relic Mastery`), Nature (Slot 1 `Hero HP` & Slot 3 `Soldier HP`).",
     },
   ],
   keywords: [
@@ -543,8 +543,8 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
                 en: "Rune Mine Optimization & The Supreme Value of Combat Skill Level +1/+2",
               },
               content: {
-                vi: "**Sản lượng Bụi Cổ Ngữ mỗi giờ phụ thuộc trực tiếp vào cấp độ Mỏ Cổ Ngữ (`Rune Mine`).**\n• **Lịch nâng mỏ:** Luôn nâng Mỏ Cổ Ngữ bám sát cấp Lâu Đài vào **Thứ Hai Tuần B** (Ngày Xây dựng).\n• **Siêu chỉ số `Combat Skill Level` `+1/+2`:** Từ `Lv.5–Lv.6+`, cộng thẳng `1–2` cấp kỹ năng vượt trần (`+15%–35%` sát thương cho `Wukong`, `Storm Maiden`, `Paragon`, `Tidecaller`).\n• **Giá trị quy đổi:** Tương đương từ `3,000` đến `5,000` Sách Kỹ Năng Cam (`Orange Skill Books`) miễn phí!",
-                en: "**Your hourly Rune Dust output scales directly with your `Rune Mine` building level.**\n• **Mine upgrade schedule:** Always upgrade the `Rune Mine` alongside your Castle on **Monday of Week B** (Construction Day).\n• **Rare `Combat Skill Level` `+1/+2` Sub-Stat:** At `Lv.5–Lv.6+`, adds `+1–2` active skill levels above cap (`+15%–35%` skill dmg for `Wukong`, `Storm Maiden`, `Paragon`, `Tidecaller`).\n• **Equivalent value:** Worth `3,000` to `5,000` free `Orange Skill Books`!",
+                vi: "**Sản lượng Bụi Cổ Ngữ mỗi giờ phụ thuộc trực tiếp vào cấp độ Mỏ Cổ Ngữ (`Rune Mine`).**\n• **Lịch nâng mỏ:** Luôn nâng Mỏ Cổ Ngữ bám sát cấp Lâu Đài vào **Thứ Hai Kỳ GAR/KvK** (Ngày Xây dựng).\n• **Siêu chỉ số `Combat Skill Level` `+1/+2`:** Từ `Lv.5–Lv.6+`, cộng thẳng `1–2` cấp kỹ năng vượt trần (`+15%–35%` sát thương cho `Wukong`, `Storm Maiden`, `Paragon`, `Tidecaller`).\n• **Giá trị quy đổi:** Tương đương từ `3,000` đến `5,000` Sách Kỹ Năng Cam (`Orange Skill Books`) miễn phí!",
+                en: "**Your hourly Rune Dust output scales directly with your `Rune Mine` building level.**\n• **Mine upgrade schedule:** Always upgrade the `Rune Mine` alongside your Castle on **GAR/KvK Monday** (Construction Day).\n• **Rare `Combat Skill Level` `+1/+2` Sub-Stat:** At `Lv.5–Lv.6+`, adds `+1–2` active skill levels above cap (`+15%–35%` skill dmg for `Wukong`, `Storm Maiden`, `Paragon`, `Tidecaller`).\n• **Equivalent value:** Worth `3,000` to `5,000` free `Orange Skill Books`!",
               },
             },
           ],
@@ -630,8 +630,8 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
             },
             {
               title: {
-                vi: "Nhánh 2: Cửa Sổ Xả Chuẩn Ground-Truth (Thứ Ba Tuần B & Task Tuần A)",
-                en: "Branch 2: Ground-Truth Dump Window (Tuesday Week B & Week A Task)",
+                vi: "Nhánh 2: Cửa Sổ Xả Chuẩn Ground-Truth (Thứ Ba Kỳ GAR/KvK & Task Thi Đấu Hội)",
+                en: "Branch 2: Ground-Truth Dump Window (GAR/KvK Tuesday & Guild Race Task)",
               },
               badge: {
                 vi: "DOUBLE-DIP",
@@ -642,8 +642,8 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
                 {
                   id: "step-rune-week-b-tuesday",
                   title: {
-                    vi: "Tuần B (GAR / KvK): Xả Duy Nhất Vào Ngày 2 (Thứ Ba — Tech & Runes Day)",
-                    en: "Week B (GAR / KvK): Dump Exclusively on Day 2 (Tuesday — Tech & Runes Day)",
+                    vi: "Kỳ Đua Vũ Trang (GAR / KvK): Xả Duy Nhất Vào Ngày 2 (Thứ Ba — Tech & Runes Day)",
+                    en: "GAR / KvK: Dump Exclusively on Day 2 (Tuesday — Tech & Runes Day)",
                   },
                   subtitle: {
                     vi: "Nhận 600 điểm / 2,000 Magic Stones (DE-Dust) và 1,200 điểm / 1 Arcane Crystal",
@@ -654,8 +654,8 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
                 {
                   id: "step-rune-week-a-task",
                   title: {
-                    vi: "Tuần A (Guild Race): Xả Khi Nhận Nhiệm Vụ Cổ Ngữ Chuyên Biệt",
-                    en: "Week A (Guild Race): Spend Only After Claiming a Dedicated Rune Task",
+                    vi: "Kỳ Thi Đấu Hội (Guild Race): Xả Khi Nhận Nhiệm Vụ Cổ Ngữ Chuyên Biệt",
+                    en: "Guild Race: Spend Only After Claiming a Dedicated Rune Task",
                   },
                   subtitle: {
                     vi: "Kết hợp ghép phôi và tiêu thụ Bụi Cổ Ngữ ngay sau khi nhận task Hội",
@@ -834,8 +834,8 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
             {
               id: "chk-rune-mine-harvest",
               label: {
-                vi: "Thu hoạch Mỏ Cổ Ngữ (Rune Mine) mỗi 12–24 giờ & nâng cấp vào Thứ Hai Tuần B",
-                en: "Harvest Rune Mine every 12–24 hours & upgrade on Monday of Week B",
+                vi: "Thu hoạch Mỏ Cổ Ngữ (Rune Mine) mỗi 12–24 giờ & nâng cấp vào Thứ Hai Kỳ GAR/KvK",
+                en: "Harvest Rune Mine every 12–24 hours & upgrade on GAR/KvK Monday",
               },
               detail: {
                 vi: "Không để kho chứa `Rune Mine` bị đầy tràn và luôn nâng cấp Mỏ Cổ Ngữ bám sát cấp Lâu Đài trong **Ngày Xây dựng**.",
@@ -879,16 +879,16 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
             {
               id: "chk-rune-tuesday-dump",
               label: {
-                vi: "Chỉ xả Bụi Cổ Ngữ (DE-Dust / Magic Stones) & Arcane Crystal vào Thứ Ba Tuần B hoặc Task Tuần A",
-                en: "Spend Rune Dust (DE-Dust / Magic Stones) & Arcane Crystals only on Tuesday Week B or Week A Task",
+                vi: "Chỉ xả Bụi Cổ Ngữ (DE-Dust / Magic Stones) & Arcane Crystal vào Thứ Ba Kỳ GAR/KvK hoặc Task Thi Đấu Hội",
+                en: "Spend Rune Dust (DE-Dust / Magic Stones) & Arcane Crystals only on GAR/KvK Tuesday or Guild Race Task",
               },
               detail: {
-                vi: "Xả đúng **Ngày 2 (Thứ Ba — Tech & Runes Day)** của Tuần B (`600` điểm / `2,000` Magic Stones; `1,200` điểm / 1 `Arcane Crystal`) hoặc sau khi nhận Nhiệm vụ Cổ Ngữ trong Tuần A.",
-                en: "Dump exclusively on **Day 2 (Tuesday — Tech & Runes Day)** of Week B (`600` pts / `2,000` Magic Stones; `1,200` pts / 1 `Arcane Crystal`) or after claiming a Dedicated Rune Task in Week A.",
+                vi: "Xả đúng **Ngày 2 (Thứ Ba — Tech & Runes Day)** Kỳ GAR/KvK (`600` điểm / `2,000` Magic Stones; `1,200` điểm / 1 `Arcane Crystal`) hoặc sau khi nhận Nhiệm vụ Cổ Ngữ trong Kỳ Thi Đấu Hội.",
+                en: "Dump exclusively on **Day 2 (Tuesday — Tech & Runes Day)** of GAR/KvK (`600` pts / `2,000` Magic Stones; `1,200` pts / 1 `Arcane Crystal`) or after claiming a Dedicated Rune Task in Guild Race.",
               },
               badge: {
-                vi: "THỨ BA TUẦN B",
-                en: "TUESDAY WEEK B",
+                vi: "THỨ BA GAR/KVK",
+                en: "GAR/KVK TUESDAY",
               },
             },
           ],
@@ -910,8 +910,8 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
             en: "Warning: 3 Fatal Mistakes That Cripple Rune Progression & Event Scoring",
           },
           content: {
-            vi: "**Tuyệt đối tránh 3 sai lầm phá hỏng tiến độ Cổ Ngữ dưới đây:**\n• **(1) Khui Rương Tự Chọn ở `Lv.1–Lv.3`:** Chỉ lấy vài điểm chỉ số phẳng vô nghĩa thay vì giữ chờ `Lv.4–Lv.5+` làm mảnh ghép chốt hạ (`Finisher Piece`).\n• **(2) Ghép dồn 1 viên `Lv.6` (`243` phôi, `25,000` Dust) hoặc `Lv.7` (`729` phôi, `75,000` Dust) sớm:** Bỏ lỡ mốc Full 6 ô `Lv.5` (`81` phôi/ô) làm mất `+10%` chỉ số và `+60–80` `March Size`.\n• **(3) Xả Bụi Cổ Ngữ (`DE-Dust` / `Magic Stones`) & `Arcane Crystal` ngày thường:** Luôn gom xả vào **Ngày 2 (Thứ Ba — Tech & Runes Day)** của Tuần B (`GAR`/`KvK`) hoặc Task Cổ Ngữ Tuần A!",
-            en: "**Strictly avoid these 3 progression-ruining Rune mistakes:**\n• **(1) Opening `Rune Choice Chests` at `Lv.1–Lv.3`:** Wastes chests on minor flat stats instead of saving them until `Lv.4–Lv.5+` as `Finisher Pieces`.\n• **(2) Rushing a single `Lv.6` (`243` copies, `25,000` Dust) or `Lv.7` (`729` copies, `75,000` Dust) early:** Delays Full 6x `Lv.5` (`81` copies each), sacrificing `+10%` stats and `+60–80` `March Size`.\n• **(3) Spending Rune Dust (`DE-Dust` / `Magic Stones`) & `Arcane Crystal` on normal days:** Always hoard for **Week B Day 2 (Tuesday — Tech & Runes Day)** or Week A Dedicated Rune Tasks!",
+            vi: "**Tuyệt đối tránh 3 sai lầm phá hỏng tiến độ Cổ Ngữ dưới đây:**\n• **(1) Khui Rương Tự Chọn ở `Lv.1–Lv.3`:** Chỉ lấy vài điểm chỉ số phẳng vô nghĩa thay vì giữ chờ `Lv.4–Lv.5+` làm mảnh ghép chốt hạ (`Finisher Piece`).\n• **(2) Ghép dồn 1 viên `Lv.6` (`243` phôi, `25,000` Dust) hoặc `Lv.7` (`729` phôi, `75,000` Dust) sớm:** Bỏ lỡ mốc Full 6 ô `Lv.5` (`81` phôi/ô) làm mất `+10%` chỉ số và `+60–80` `March Size`.\n• **(3) Xả Bụi Cổ Ngữ (`DE-Dust` / `Magic Stones`) & `Arcane Crystal` ngày thường:** Luôn gom xả vào **Ngày 2 (Thứ Ba — Tech & Runes Day)** Kỳ GAR/KvK (`GAR`/`KvK`) hoặc Task Cổ Ngữ Hội!",
+            en: "**Strictly avoid these 3 progression-ruining Rune mistakes:**\n• **(1) Opening `Rune Choice Chests` at `Lv.1–Lv.3`:** Wastes chests on minor flat stats instead of saving them until `Lv.4–Lv.5+` as `Finisher Pieces`.\n• **(2) Rushing a single `Lv.6` (`243` copies, `25,000` Dust) or `Lv.7` (`729` copies, `75,000` Dust) early:** Delays Full 6x `Lv.5` (`81` copies each), sacrificing `+10%` stats and `+60–80` `March Size`.\n• **(3) Spending Rune Dust (`DE-Dust` / `Magic Stones`) & `Arcane Crystal` on normal days:** Always hoard for **GAR/KvK Day 2 (Tuesday — Tech & Runes Day)** or Guild Race Dedicated Rune Tasks!",
           },
         },
         {
@@ -927,8 +927,8 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
               en: "**Pitfall #2 — Rushing one `Lv.6–Lv.7` rune early:** One `Lv.6` costs `243` copies (`Lv.7` costs `729`); level evenly: Full 6x `Lv.5` (`48,000` Dust) ➔ 6x `Lv.6` (`150,000` Dust) ➔ 6x `Lv.8` (`1,350,000` Dust).",
             },
             {
-              vi: "**Cạm bẫy #3 — Chia phôi cho Đội 2–3 hoặc xả sai ngày:** Dồn 100% Cổ Ngữ cấp cao nhất cho Đội 1 và chỉ xả Bụi Cổ Ngữ / `Arcane Crystal` vào **Ngày 2 (Thứ Ba)** của Tuần B hoặc khi nhận Task Cổ Ngữ Tuần A.",
-              en: "**Pitfall #3 — Splitting runes to Queues 2–3 or dumping off-schedule:** Funnel 100% of top runes into Queue 1 and spend Rune Dust / `Arcane Crystal` only on **Week B Day 2 (Tuesday)** or Week A Rune Tasks.",
+              vi: "**Cạm bẫy #3 — Chia phôi cho Đội 2–3 hoặc xả sai ngày:** Dồn 100% Cổ Ngữ cấp cao nhất cho Đội 1 và chỉ xả Bụi Cổ Ngữ / `Arcane Crystal` vào **Ngày 2 (Thứ Ba)** Kỳ GAR/KvK hoặc khi nhận Task Cổ Ngữ Hội.",
+              en: "**Pitfall #3 — Splitting runes to Queues 2–3 or dumping off-schedule:** Funnel 100% of top runes into Queue 1 and spend Rune Dust / `Arcane Crystal` only on **GAR/KvK Day 2 (Tuesday)** or Guild Race Rune Tasks.",
             },
           ],
         },
@@ -1119,8 +1119,8 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "**Tuyệt đối tuân thủ ma trận điểm số từ `TopHeroes Tables` (`Tab KvK & GAR & TOP`):**\n• **Tuần B (`GAR` / `KvK`):** Tiêu thụ Bụi Cổ Ngữ (`DE-Dust` / `Rune Dust` / `Magic Stones`) và `Arcane Crystal` tính điểm duy nhất vào **Ngày 2 (Thứ Ba — Tech & Runes Day)**.\n• **Tuần A (`Guild Race`):** Chỉ tiêu thụ ngay sau khi đã nhận Nhiệm vụ Cổ Ngữ chuyên biệt (`Dedicated Rune Task`).",
-                en: "**Strictly follow the scoring matrix from `TopHeroes Tables` (`Tab KvK & GAR & TOP`):**\n• **Week B (`GAR` / `KvK`):** Consuming Rune Dust (`DE-Dust` / `Magic Stones`) and `Arcane Crystal` scores points exclusively on **Day 2 (Tuesday — Tech & Runes Day)**.\n• **Week A (`Guild Race`):** Only spend immediately after claiming a `Dedicated Rune Task`.",
+                vi: "**Tuyệt đối tuân thủ ma trận điểm số từ `TopHeroes Tables` (`Tab KvK & GAR & TOP`):**\n• **Kỳ Đua Vũ Trang (`GAR` / `KvK`):** Tiêu thụ Bụi Cổ Ngữ (`DE-Dust` / `Rune Dust` / `Magic Stones`) và `Arcane Crystal` tính điểm duy nhất vào **Ngày 2 (Thứ Ba — Tech & Runes Day)**.\n• **Kỳ Thi Đấu Hội (`Guild Race`):** Chỉ tiêu thụ ngay sau khi đã nhận Nhiệm vụ Cổ Ngữ chuyên biệt (`Dedicated Rune Task`).",
+                en: "**Strictly follow the scoring matrix from `TopHeroes Tables` (`Tab KvK & GAR & TOP`):**\n• **GAR / KvK:** Consuming Rune Dust (`DE-Dust` / `Magic Stones`) and `Arcane Crystal` scores points exclusively on **Day 2 (Tuesday — Tech & Runes Day)**.\n• **Guild Race:** Only spend immediately after claiming a `Dedicated Rune Task`.",
               },
             },
             {
@@ -1139,8 +1139,8 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
                   en: "Points in GAR / KvK Day 2 (Tuesday — Tech & Runes Day)",
                 },
                 {
-                  vi: "Điểm Trong Tuần A (Guild Race)",
-                  en: "Points in Week A (Guild Race)",
+                  vi: "Điểm Trong Kỳ Thi Đấu Hội (Guild Race)",
+                  en: "Points in Guild Race",
                 },
                 {
                   vi: "Thời Điểm Xả Tối Ưu Nhất (Double-Dip Window)",
@@ -1162,8 +1162,8 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
                     en: "Scores when claiming a Dedicated Rune Task on the Guild board",
                   },
                   {
-                    vi: "Ngày 2 (Thứ Ba — Tech & Runes Day) của Tuần B (GAR / KvK), hoặc sau khi nhận Nhiệm vụ Cổ Ngữ trong Tuần A (Guild Race).",
-                    en: "Day 2 (Tuesday — Tech & Runes Day) of Week B (GAR / KvK), or right after claiming a Dedicated Rune Task in Week A (Guild Race).",
+                    vi: "Ngày 2 (Thứ Ba — Tech & Runes Day) của Kỳ Đua Vũ Trang (GAR / KvK), hoặc sau khi nhận Nhiệm vụ Cổ Ngữ trong Kỳ Thi Đấu Hội (Guild Race).",
+                    en: "Day 2 (Tuesday — Tech & Runes Day) of GAR / KvK, or right after claiming a Dedicated Rune Task in Guild Race.",
                   },
                 ],
                 [
@@ -1180,8 +1180,8 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
                     en: "Scores via matching Guild tasks / sub-events",
                   },
                   {
-                    vi: "Ngày 2 (Thứ Ba — Tech & Runes Day) của Tuần B (GAR / KvK).",
-                    en: "Day 2 (Tuesday — Tech & Runes Day) of Week B (GAR / KvK).",
+                    vi: "Ngày 2 (Thứ Ba — Tech & Runes Day) của Kỳ Đua Vũ Trang (GAR / KvK).",
+                    en: "Day 2 (Tuesday — Tech & Runes Day) of GAR / KvK.",
                   },
                 ],
               ],
@@ -1194,8 +1194,8 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
       id: "sec-5-castle27-32m-runes-audit-case-study",
       isPro: true,
       title: {
-        vi: "5. Hồ Sơ Thực Chiến Nâng Cao: Tái Cấu Trúc Bảng Cổ Ngữ Lệch Cấp Cho Đội 1 Bộ Lạc Trong Ngày Thứ Ba Tuần B (GAR Day 2)",
-        en: "5. Advanced Tactical Case Study: Rebalancing a Lopsided Horde Queue 1 Rune Board on Tuesday Week B (GAR Day 2)",
+        vi: "5. Hồ Sơ Thực Chiến Nâng Cao: Tái Cấu Trúc Bảng Cổ Ngữ Lệch Cấp Cho Đội 1 Bộ Lạc Trong Ngày Thứ Ba Kỳ GAR/KvK (GAR Day 2)",
+        en: "5. Advanced Tactical Case Study: Rebalancing a Lopsided Horde Queue 1 Rune Board on GAR/KvK Tuesday (GAR Day 2)",
       },
       blocks: [
         {
@@ -1205,8 +1205,8 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
             en: "HORDE QUEUE 1 RUNE BOARD AUDIT",
           },
           title: {
-            vi: "Tái Cấu Trúc Từ 1 Viên Lv.6 Lệch Cấp Sang Đồng Bộ Full 6 Ô Lv.5 Trong Ngày Thứ Ba Tuần B",
-            en: "Restructuring From a Lopsided 1x Lv.6 Board to Full 6x Lv.5 Synergy on Tuesday Week B",
+            vi: "Tái Cấu Trúc Từ 1 Viên Lv.6 Lệch Cấp Sang Đồng Bộ Full 6 Ô Lv.5 Trong Ngày Thứ Ba Kỳ GAR/KvK",
+            en: "Restructuring From a Lopsided 1x Lv.6 Board to Full 6x Lv.5 Synergy on GAR/KvK Tuesday",
           },
           profileSummary: {
             vi: "**Tài khoản Mid-game (Lâu đài `Lv.27–28`, `3.2M–4.1M` Lực chiến Đội 1 Bộ Lạc) ghép dồn Ô số 1 (`Hero HP Rune`) lên `Lv.6`.**\n• **Hiện trạng lệch cấp:** 5 ô còn lại (`Hero Attack`, `Soldier HP`, `Soldier Attack`, `Relic Mastery`, `Queue Attack`) bị kẹt ở `Lv.3–Lv.4` (đã dùng `336` phôi Lv.1, `34,400` Dust).\n• **Tài nguyên tồn kho:** Đang giữ `18` Rương Cổ Ngữ Tự Chọn và `60,000–72,000` Bụi Cổ Ngữ (`Magic Stones`).",
@@ -1263,8 +1263,8 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
                 en: "18,000 – 21,600 GAR Tuesday Day 2 points",
               },
               delta: {
-                vi: "Ăn trọn 9 rương mốc cá nhân Ngày 2 Tuần B",
-                en: "Clears all 9 personal milestone chests on Day 2 Week B",
+                vi: "Ăn trọn 9 rương mốc cá nhân Ngày 2 Kỳ GAR/KvK",
+                en: "Clears all 9 personal milestone chests on GAR/KvK Day 2",
               },
             },
           ],
@@ -1274,8 +1274,8 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
               en: "**Lopsided Synthesis Error:** Pushing Slot 1 to `Lv.6` consumed `243` Lv.1 copies and `25,000` Dust (and `Lv.7` would require `486` more Lv.1 copies).\n• **Combat penalty:** Leaving Slot 2 (`Hero Attack`) and Slot 6 (`Queue Attack`) stuck at `Lv.3–Lv.4` cost the Horde lineup `+5%` Hero Attack, `+110` March Size, and `3,845` Defense Break.",
             },
             {
-              vi: "**Kẹt phôi xác suất do chưa dùng `Finisher Piece`:** Mở Rương Ngẫu Nhiên bị lệch phôi giữa các ô.\n• **Giải pháp:** Cần bung đúng `18` Rương Cổ Ngữ Tự Chọn vào cửa sổ **Ngày 2 Thứ Ba Tuần B** để chốt hạ đồng loạt các ô còn thiếu lên `Lv.5`.",
-              en: "**RNG Bottleneck Without `Finisher Piece` Execution:** Random Chests produced uneven copies across slots.\n• **Solution:** Deploy the `18` hoarded Choice Chests during **Tuesday Week B (`GAR Day 2`)** to finish all remaining `Lv.5` slots simultaneously.",
+              vi: "**Kẹt phôi xác suất do chưa dùng `Finisher Piece`:** Mở Rương Ngẫu Nhiên bị lệch phôi giữa các ô.\n• **Giải pháp:** Cần bung đúng `18` Rương Cổ Ngữ Tự Chọn vào cửa sổ **Ngày 2 Thứ Ba Kỳ GAR/KvK** để chốt hạ đồng loạt các ô còn thiếu lên `Lv.5`.",
+              en: "**RNG Bottleneck Without `Finisher Piece` Execution:** Random Chests produced uneven copies across slots.\n• **Solution:** Deploy the `18` hoarded Choice Chests during **GAR/KvK Tuesday (`GAR Day 2`)** to finish all remaining `Lv.5` slots simultaneously.",
             },
           ],
           recoverySteps: [
@@ -1312,8 +1312,8 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
             {
               stepNumber: "3",
               title: {
-                vi: "Bung Rương Tự Chọn & Xả Bụi Cổ Ngữ Trong Ngày 2 Thứ Ba Tuần B (GAR Day 2)",
-                en: "Open Choice Chests & Dump Rune Dust on Tuesday Week B (GAR Day 2)",
+                vi: "Bung Rương Tự Chọn & Xả Bụi Cổ Ngữ Trong Ngày 2 Thứ Ba Kỳ GAR/KvK (GAR Day 2)",
+                en: "Open Choice Chests & Dump Rune Dust on GAR/KvK Tuesday (GAR Day 2)",
               },
               detail: {
                 vi: "**Bung Rương Tự Chọn bù khuyết:** Mở vừa đủ số Rương Tự Chọn để bù chính xác các phôi thiếu và xả `60,000–72,000` Bụi Cổ Ngữ (`Magic Stones`) hợp thành đồng loạt cả 6 ô đạt tối thiểu Full `Lv.5`.\n• **Thành quả kép:** Mở khóa `+5%` HP/ATK, `+110` March Size, `+3,845` Def Break (`+1,980,000` lực chiến thực) và thu về `18,000–21,600` điểm GAR Ngày 2.",
@@ -1326,8 +1326,8 @@ export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
             },
           ],
           conclusion: {
-            vi: "**Chỉ với 1 phiên tái cấu trúc vào Ngày 2 (Thứ Ba) Tuần B:** Đội hình Bộ Lạc tăng thêm `660` tổng quân lính ra trận (`+110` March Size × 6 tướng) và đục thủng các đội hình Liên Minh cao hơn `300K` lực chiến hiển thị.",
-            en: "**In a single Tuesday Week B restructuring session:** The Horde queue gains `660` total deployed troops (`+110` March Size × 6 heroes) and reliably punches through League lineups `300K` higher in displayed power.",
+            vi: "**Chỉ với 1 phiên tái cấu trúc vào Ngày 2 (Thứ Ba) Kỳ GAR/KvK:** Đội hình Bộ Lạc tăng thêm `660` tổng quân lính ra trận (`+110` March Size × 6 tướng) và đục thủng các đội hình Liên Minh cao hơn `300K` lực chiến hiển thị.",
+            en: "**In a single GAR/KvK Tuesday restructuring session:** The Horde queue gains `660` total deployed troops (`+110` March Size × 6 heroes) and reliably punches through League lineups `300K` higher in displayed power.",
           },
         },
         {

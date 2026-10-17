@@ -11,8 +11,8 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
     en: "Relics Master Guide (Relics Trio): 3-Faction BiS Loadouts & Star Progression Tables",
   },
   summary: {
-    vi: "Giải mã cơ chế 3 Ô Thánh Vật (Tấn công / Phòng thủ & Khống chế / Hỗ trợ & Hồi phục), sự khác biệt giữa Kỹ năng Kích hoạt và Chỉ số Sở hữu Toàn cục, quy luật Áp Chế Sao -50% (Star Rating Suppression), cấu hình BiS cho cả 3 Phe phái, phân định cộng hưởng +1 giây (1s) vs Sustain, bảng chi phí 20 cấp Sao từ TopHeroes Tables (Tab Relics) và lịch xả Ngày 1–2 Tuần B.",
-    en: "Complete guide to the 3 Relic slots (Offense / Defense & CC / Support & Healing), Active Combat Skills vs Owned Passive Stats, the -50% Star Rating Suppression rule, BiS Relic Loadouts for all 3 Factions, +1s duration synergy vs Sustain relics, 20-level Star upgrade cost tables from TopHeroes Tables (Tab Relics), and Day 1–2 Week B event dumping.",
+    vi: "Giải mã cơ chế 3 Ô Thánh Vật (Tấn công / Phòng thủ & Khống chế / Hỗ trợ & Hồi phục), sự khác biệt giữa Kỹ năng Kích hoạt và Chỉ số Sở hữu Toàn cục, quy luật Áp Chế Sao -50% (Star Rating Suppression), cấu hình BiS cho cả 3 Phe phái, phân định cộng hưởng +1 giây (1s) vs Sustain, bảng chi phí 20 cấp Sao từ TopHeroes Tables (Tab Relics) và lịch xả Ngày 1–2 Kỳ GAR/KvK.",
+    en: "Complete guide to the 3 Relic slots (Offense / Defense & CC / Support & Healing), Active Combat Skills vs Owned Passive Stats, the -50% Star Rating Suppression rule, BiS Relic Loadouts for all 3 Factions, +1s duration synergy vs Sustain relics, 20-level Star upgrade cost tables from TopHeroes Tables (Tab Relics), and Day 1–2 GAR/KvK event dumping.",
   },
   tldr: {
     coreRule: {
@@ -24,8 +24,8 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
       en: "**Audit Queue 1's 3 Active Relic Slots (Relics Trio) & Hit Legendary Breakpoints:**\n• Equip **3 Legendary Relics** matching your main faction's synergy set: Horde (`Dragon's Might`), League (`Arcane Vault`), or Nature (`Oath of the Sacred Forest`).\n• Push your core trio to the golden ROI breakpoints: **Tier 1 - Star 5** (`5★` = `130` shards, `+1.60%` ATK / `+3.20%` HP) and **Tier 2 - Star 3** (`330` shards, `+4.00%` / `+8.00%`).\n• Advance to **Tier 2 - Star 5** (`10★` = `490` shards, `+6.00%` ATK / `+12.00%` HP) and **Tier 3 - Star 5** (`15★` = `1,100` shards).",
     },
     strictTaboo: {
-      vi: "**Cấm Đeo Thánh Vật Tím Ở Đội 1 & Cấm Xả Sai Ngày Sự Kiện:**\n• **CẤM** đeo Thánh Vật Tím `5★` thay vì Vàng `2–3★` ở Đội 1 (Tím tính `0` Sao Vàng gây phạt `-50%`) và **CẤM** tiêu thụ `Relic Shards`, `Arcane Crystals`, `Wish Relic` ngày thường.\n• **Tuần B (GAR / KvK):** Xả vào **Ngày 1 (Thứ Hai) & Ngày 2 (Thứ Ba)** (thêm Ngày 5 Thứ Sáu riêng trong KvK, còn GAR tiêu chuẩn KHÔNG tính điểm Thánh Vật vào Ngày 5).\n• **Tuần A (Guild Race):** Chỉ xả vào sự kiện phụ 2 ngày `Guild Rush: Relic Hall & Relics` (**Thứ Tư – Thứ Năm**) kết hợp làm Nhiệm vụ Hội.",
-      en: "**Never Equip Epics in Queue 1 & Never Dump on Non-Scoring Days:**\n• **NEVER** equip a `5★` Epic over a `2–3★` Legendary in Queue 1 (Epics count as `0` Legendary Stars, triggering `-50%` penalty) or spend `Relic Shards`, `Arcane Crystals`, or `Wish Relic` on weekdays.\n• **Week B (GAR / KvK):** Dump on **Day 1 (Monday) & Day 2 (Tuesday)** (plus Day 5 Friday exclusively in KvK; standard GAR does NOT score Relics on Day 5).\n• **Week A (Guild Race):** Only spend during the 2-day `Guild Rush: Relic Hall & Relics` sub-event (**Wednesday – Thursday**) stacked with Guild Tasks.",
+      vi: "**Cấm Đeo Thánh Vật Tím Ở Đội 1 & Cấm Xả Sai Ngày Sự Kiện:**\n• **CẤM** đeo Thánh Vật Tím `5★` thay vì Vàng `2–3★` ở Đội 1 (Tím tính `0` Sao Vàng gây phạt `-50%`) và **CẤM** tiêu thụ `Relic Shards`, `Arcane Crystals`, `Wish Relic` ngày thường.\n• **Kỳ Đua Vũ Trang (GAR / KvK):** Xả vào **Ngày 1 (Thứ Hai) & Ngày 2 (Thứ Ba)** (thêm Ngày 5 Thứ Sáu riêng trong KvK, còn GAR tiêu chuẩn KHÔNG tính điểm Thánh Vật vào Ngày 5).\n• **Kỳ Thi Đấu Hội (Guild Race):** Chỉ xả vào sự kiện phụ 2 ngày `Guild Rush: Relic Hall & Relics` (**Thứ Tư – Thứ Năm**) kết hợp làm Nhiệm vụ Hội.",
+      en: "**Never Equip Epics in Queue 1 & Never Dump on Non-Scoring Days:**\n• **NEVER** equip a `5★` Epic over a `2–3★` Legendary in Queue 1 (Epics count as `0` Legendary Stars, triggering `-50%` penalty) or spend `Relic Shards`, `Arcane Crystals`, or `Wish Relic` on weekdays.\n• **GAR / KvK:** Dump on **Day 1 (Monday) & Day 2 (Tuesday)** (plus Day 5 Friday exclusively in KvK; standard GAR does NOT score Relics on Day 5).\n• **Guild Race:** Only spend during the 2-day `Guild Rush: Relic Hall & Relics` sub-event (**Wednesday – Thursday**) stacked with Guild Tasks.",
     },
   },
   keyTakeaways: [
@@ -381,8 +381,8 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
             en: "Weekly Relic Hall & Event Discipline Checklist",
           },
           description: {
-            vi: "Hoàn thành 4 bước kiểm toán định kỳ mỗi tuần để tối đa hóa Chỉ số Sở hữu Toàn cục (Owned Passive Stats) và điểm số sự kiện Tuần A / Tuần B.",
-            en: "Complete these 4 weekly audit steps to maximize global Owned Passive Stats and Week A / Week B event scoring.",
+            vi: "Hoàn thành 4 bước kiểm toán định kỳ mỗi tuần để tối đa hóa Chỉ số Sở hữu Toàn cục (Owned Passive Stats) và điểm số sự kiện Thi Đấu Hội / GAR-KvK.",
+            en: "Complete these 4 weekly audit steps to maximize global Owned Passive Stats and Guild Race / GAR-KvK event scoring.",
           },
           items: [
             {
@@ -433,12 +433,12 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
             {
               id: "relic-check-4-event-dump-window",
               label: {
-                vi: "Găm 100% Relic Shards, Arcane Crystals & Magic Stones chờ đúng lịch xả Tuần A / Tuần B",
-                en: "Hoard 100% of Relic Shards, Arcane Crystals & Magic Stones for Week A / Week B windows",
+                vi: "Găm 100% Relic Shards, Arcane Crystals & Magic Stones chờ đúng lịch xả Thi Đấu Hội / GAR-KvK",
+                en: "Hoard 100% of Relic Shards, Arcane Crystals & Magic Stones for Guild Race / GAR-KvK windows",
               },
               detail: {
-                vi: "• **Tuần B (GAR / KvK):** Xả vào Ngày 1 (Thứ Hai) & Ngày 2 (Thứ Ba) (+ Ngày 5 Thứ Sáu riêng trong KvK; lưu ý GAR tiêu chuẩn không tính điểm Thánh Vật vào Ngày 5).\n• **Tuần A:** Xả vào Thứ Tư – Thứ Năm trong sự kiện phụ `Guild Rush: Relic Hall & Relics` kết hợp Task Hội.",
-                en: "• **Week B (GAR / KvK):** Dump on Day 1 (Monday) & Day 2 (Tuesday) (+ Day 5 Friday in KvK only; standard GAR does NOT score Relics on Day 5).\n• **Week A:** Dump on Wednesday – Thursday during `Guild Rush: Relic Hall & Relics` stacked with Guild Race tasks.",
+                vi: "• **Kỳ Đua Vũ Trang (GAR / KvK):** Xả vào Ngày 1 (Thứ Hai) & Ngày 2 (Thứ Ba) (+ Ngày 5 Thứ Sáu riêng trong KvK; lưu ý GAR tiêu chuẩn không tính điểm Thánh Vật vào Ngày 5).\n• **Kỳ Thi Đấu Hội:** Xả vào Thứ Tư – Thứ Năm trong sự kiện phụ `Guild Rush: Relic Hall & Relics` kết hợp Task Hội.",
+                en: "• **GAR / KvK:** Dump on Day 1 (Monday) & Day 2 (Tuesday) (+ Day 5 Friday in KvK only; standard GAR does NOT score Relics on Day 5).\n• **Guild Race:** Dump on Wednesday – Thursday during `Guild Rush: Relic Hall & Relics` stacked with Guild Race tasks.",
               },
               badge: {
                 vi: "5,000 đ / Mảnh Vàng",
@@ -464,8 +464,8 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
             en: "Warning: 3 Fatal Relic Mistakes That Cripple Queue 1 by -50%",
           },
           content: {
-            vi: "• **Bẫy 1 (Đeo Tím `5★` ở Đội 1):** Áp Chế Sao (`-50%`) CHỈ TÍNH SAO VÀNG TRỞ LÊN, nên đeo món Tím khiến Đội 1 bị tính `0` Sao ở ô đó và bị giảm `-50%` hiệu lực!\n• **Bẫy 2 (Nhầm vai trò):** Nhầm bộ 3 kéo dài `+1s` (`Feather of the Pact`, `Dragonbone Amulet`, `Sacred Scroll`) với bộ 3 Sustain (`Duke's Signet Ring`, `Soul Guard Orb`, `Moonstone`).\n• **Bẫy 3 (Xả sai ngày):** GAR tiêu chuẩn không tính điểm Thánh Vật vào Ngày 5 — chỉ xả vào Ngày 1–2 Tuần B (thêm Ngày 5 nếu là KvK) hoặc Thứ Tư–Thứ Năm Tuần A dịp `Guild Rush`.",
-            en: "• **Trap 1 (Equipping a `5★` Epic on Queue 1):** `-50%` Star Rating Suppression ONLY counts Legendary+ stars, so an Epic contributes `0` Stars and gets all 3 Relics halved (`-50%`)!\n• **Trap 2 (Role Mismatch):** Confusing the `+1s` trio (`Feather of the Pact`, `Dragonbone Amulet`, `Sacred Scroll`) with the Sustain trio (`Duke's Signet Ring`, `Soul Guard Orb`, `Moonstone`).\n• **Trap 3 (Wrong Dump Day):** Standard GAR does NOT score Relics on Day 5—only dump on Week B Days 1–2 (plus Day 5 in KvK) or Week A Wed–Thu during `Guild Rush: Relic Hall & Relics`.",
+            vi: "• **Bẫy 1 (Đeo Tím `5★` ở Đội 1):** Áp Chế Sao (`-50%`) CHỈ TÍNH SAO VÀNG TRỞ LÊN, nên đeo món Tím khiến Đội 1 bị tính `0` Sao ở ô đó và bị giảm `-50%` hiệu lực!\n• **Bẫy 2 (Nhầm vai trò):** Nhầm bộ 3 kéo dài `+1s` (`Feather of the Pact`, `Dragonbone Amulet`, `Sacred Scroll`) với bộ 3 Sustain (`Duke's Signet Ring`, `Soul Guard Orb`, `Moonstone`).\n• **Bẫy 3 (Xả sai ngày):** GAR tiêu chuẩn không tính điểm Thánh Vật vào Ngày 5 — chỉ xả vào Ngày 1–2 Kỳ GAR/KvK (thêm Ngày 5 nếu là KvK) hoặc Thứ Tư–Năm Kỳ Thi Đấu Hội dịp `Guild Rush`.",
+            en: "• **Trap 1 (Equipping a `5★` Epic on Queue 1):** `-50%` Star Rating Suppression ONLY counts Legendary+ stars, so an Epic contributes `0` Stars and gets all 3 Relics halved (`-50%`)!\n• **Trap 2 (Role Mismatch):** Confusing the `+1s` trio (`Feather of the Pact`, `Dragonbone Amulet`, `Sacred Scroll`) with the Sustain trio (`Duke's Signet Ring`, `Soul Guard Orb`, `Moonstone`).\n• **Trap 3 (Wrong Dump Day):** Standard GAR does NOT score Relics on Day 5—only dump on GAR/KvK Days 1–2 (plus Day 5 in KvK) or Guild Race Wed–Thu during `Guild Rush: Relic Hall & Relics`.",
           },
         },
         {
@@ -481,8 +481,8 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
               en: "**Pitfall #2 — Mismatching Faction Relic Sets on Queue 1:** Always match your Queue 1 faction set (`Dragon's Might` Horde, `Arcane Vault` League, `Oath of the Sacred Forest` Nature) for 6-hero scaling.",
             },
             {
-              vi: "**Sai lầm #3 — Nâng lẻ hoặc xả nhầm Ngày 5 GAR:** Tuần B xả Ngày 1–2 (`5,000` điểm/mảnh Vàng; GAR tiêu chuẩn không tính điểm Thánh Vật vào Ngày 5, chỉ KvK có Ngày 5); Tuần A xả Thứ Tư–Năm dịp `Guild Rush`.",
-              en: "**Pitfall #3 — Upgrading Randomly or on GAR Day 5:** Week B dumps on Days 1–2 (`5,000` pts/Leg shard; standard GAR does NOT score Relics on Day 5, only KvK adds Day 5); Week A dumps Wed–Thu in `Guild Rush`.",
+              vi: "**Sai lầm #3 — Nâng lẻ hoặc xả nhầm Ngày 5 GAR:** Kỳ GAR/KvK xả Ngày 1–2 (`5,000` điểm/mảnh Vàng; GAR tiêu chuẩn không tính điểm Thánh Vật vào Ngày 5, chỉ KvK có Ngày 5); Kỳ Thi Đấu Hội xả Thứ Tư–Năm dịp `Guild Rush`.",
+              en: "**Pitfall #3 — Upgrading Randomly or on GAR Day 5:** GAR/KvK dumps on Days 1–2 (`5,000` pts/Leg shard; standard GAR does NOT score Relics on Day 5, only KvK adds Day 5); Guild Race dumps Wed–Thu in `Guild Rush`.",
             },
             {
               vi: "**Sai lầm #4 — Nhầm bộ 3 `+1s` với bộ 3 Sustain:** Nhóm kéo dài `+1s` là `Feather of the Pact`, `Dragonbone Amulet`, `Sacred Scroll`; còn `Duke's Signet Ring`, `Soul Guard Orb`, `Moonstone` là nhóm Sustain.",
@@ -505,8 +505,8 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Phần dữ liệu dưới đây tổng hợp cấu hình **3 Ô Thánh Vật chuẩn (Endgame BiS & F2P Transition)** cho cả 3 Phe phái.\nĐi kèm là bảng chi phí **20 cấp Sao (`4 Bậc × 5 Sao`)** từ `TopHeroes Tables - Max` (Tab Relics) và ma trận điểm số sự kiện Tuần A / Tuần B.",
-            en: "This quantitative reference compiles the exact **3-slot BiS and F2P transition loadouts** for all 3 Factions.\nIt also includes the complete **20-level Star progression table (`4 Tiers × 5 Stars`)** from `TopHeroes Tables - Max` (Tab Relics) and the Week A / Week B scoring matrix.",
+            vi: "Phần dữ liệu dưới đây tổng hợp cấu hình **3 Ô Thánh Vật chuẩn (Endgame BiS & F2P Transition)** cho cả 3 Phe phái.\nĐi kèm là bảng chi phí **20 cấp Sao (`4 Bậc × 5 Sao`)** từ `TopHeroes Tables - Max` (Tab Relics) và ma trận điểm số sự kiện Thi Đấu Hội / GAR-KvK.",
+            en: "This quantitative reference compiles the exact **3-slot BiS and F2P transition loadouts** for all 3 Factions.\nIt also includes the complete **20-level Star progression table (`4 Tiers × 5 Stars`)** from `TopHeroes Tables - Max` (Tab Relics) and the Guild Race / GAR-KvK scoring matrix.",
           },
         },
       ],
@@ -1028,8 +1028,8 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
         {
           id: "sub-4-3-relic-event-scoring-and-dump-windows",
           title: {
-            vi: "4.3. Lịch Xả Nguyên Liệu Thánh Vật Chuẩn Ground-Truth (Tuần B: GAR / KvK vs Tuần A: Guild Race & Guild Rush)",
-            en: "4.3. Ground-Truth Relic Event Scoring & Dump Windows (Week B: GAR / KvK vs. Week A: Guild Rush)",
+            vi: "4.3. Lịch Xả Nguyên Liệu Thánh Vật Chuẩn Ground-Truth (Kỳ GAR/KvK: GAR / KvK vs Kỳ Thi Đấu Hội: Guild Race & Guild Rush)",
+            en: "4.3. Ground-Truth Relic Event Scoring & Dump Windows (GAR/KvK: GAR / KvK vs. Guild Race: Guild Rush)",
           },
           blocks: [
             {
@@ -1041,8 +1041,8 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
                 en: "Decision Flowchart for Dumping Relic Shards, Wish Scrolls, Arcane Crystals & Magic Stones",
               },
               subtitle: {
-                vi: "Phân nhánh chính xác giữa Tuần A (Guild Rush Thứ Tư – Thứ Năm) và Tuần B (GAR / KvK Ngày 1–2 Thứ Hai – Thứ Ba)",
-                en: "Exact routing between Week A (Wednesday–Thursday Guild Rush) and Week B (Monday–Tuesday GAR / KvK Days 1–2)",
+                vi: "Phân nhánh chính xác giữa Kỳ Thi Đấu Hội (Guild Rush Thứ Tư – Thứ Năm) và Kỳ GAR/KvK (GAR / KvK Ngày 1–2 Thứ Hai – Thứ Ba)",
+                en: "Exact routing between Guild Race (Wednesday–Thursday Guild Rush) and GAR/KvK (Monday–Tuesday GAR / KvK Days 1–2)",
               },
               centerNode: {
                 id: "relic-flow-center",
@@ -1055,20 +1055,20 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
                   en: "Banked Relic Shards, Wish Scrolls, Arcane Crystals & Magic Stones",
                 },
                 subtitle: {
-                  vi: "Kiểm tra chu kỳ Tuần A / Tuần B trước khi bấm nâng cấp",
-                  en: "Verify Week A / Week B cycle before upgrading",
+                  vi: "Kiểm tra chu kỳ Thi Đấu Hội / GAR-KvK trước khi bấm nâng cấp",
+                  en: "Verify Guild Race / GAR-KvK cycle before upgrading",
                 },
                 tone: "gold",
               },
               branches: [
                 {
                   title: {
-                    vi: "Nhánh 1: Tuần A — Guild Race & Guild Rush (Thứ Tư – Thứ Năm)",
-                    en: "Branch 1: Week A — Guild Race & Guild Rush (Wednesday – Thursday)",
+                    vi: "Nhánh 1: Kỳ Thi Đấu Hội — Guild Race & Guild Rush (Thứ Tư – Thứ Năm)",
+                    en: "Branch 1: Guild Race — Guild Race & Guild Rush (Wednesday – Thursday)",
                   },
                   badge: {
-                    vi: "Tuần A • Thứ Tư – Thứ Năm",
-                    en: "Week A • Wed – Thu",
+                    vi: "Thi Đấu Hội • Thứ Tư – Thứ Năm",
+                    en: "Guild Race • Wed – Thu",
                   },
                   tone: "emerald",
                   steps: [
@@ -1091,8 +1091,8 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
                         en: "Activate new Relics (50 pts Rare / 250 pts Epic / 1,200 pts Leg) to hit milestone chests",
                       },
                       subtitle: {
-                        vi: "Giữ phần lớn mảnh Vàng chủ lực chờ Ngày 1–2 Tuần B",
-                        en: "Reserve bulk Legendary shards for Week B Days 1–2",
+                        vi: "Giữ phần lớn mảnh Vàng chủ lực chờ Ngày 1–2 Kỳ GAR/KvK",
+                        en: "Reserve bulk Legendary shards for GAR/KvK Days 1–2",
                       },
                       tone: "emerald",
                     },
@@ -1104,12 +1104,12 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
                 },
                 {
                   title: {
-                    vi: "Nhánh 2: Tuần B — GAR / KvK Ngày 1 (Thứ Hai) & Ngày 2 (Thứ Ba)",
-                    en: "Branch 2: Week B — GAR / KvK Day 1 (Monday) & Day 2 (Tuesday)",
+                    vi: "Nhánh 2: Kỳ GAR/KvK — GAR / KvK Ngày 1 (Thứ Hai) & Ngày 2 (Thứ Ba)",
+                    en: "Branch 2: GAR/KvK — GAR / KvK Day 1 (Monday) & Day 2 (Tuesday)",
                   },
                   badge: {
-                    vi: "Tuần B • Khung Giờ Vàng",
-                    en: "Week B • Prime Window",
+                    vi: "GAR/KvK • Khung Giờ Vàng",
+                    en: "GAR/KvK • Prime Window",
                   },
                   tone: "gold",
                   steps: [
@@ -1157,8 +1157,8 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
                     {
                       id: "relic-flow-step-day5-check",
                       title: {
-                        vi: "Kiểm tra sự kiện Tuần B là GAR tiêu chuẩn hay KvK liên server",
-                        en: "Check whether Week B is standard GAR or cross-server KvK",
+                        vi: "Kiểm tra sự kiện GAR/KvK là GAR tiêu chuẩn hay KvK liên server",
+                        en: "Check whether GAR/KvK is standard GAR or cross-server KvK",
                       },
                       subtitle: {
                         vi: "GAR tiêu chuẩn không tính điểm Thánh Vật vào Ngày 5; chỉ riêng KvK mới tính điểm thêm vào Ngày 5 (Thứ Sáu)",
@@ -1181,8 +1181,8 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
             {
               type: "table",
               caption: {
-                vi: "Bảng Đối Chiếu Điểm Số Sự Kiện Thánh Vật: Tuần A (Guild Rush) vs Tuần B (GAR / KvK Ngày 1–2) & Top Lord Stage 1",
-                en: "Relic Event Scoring & Dump Windows: Week A (Guild Rush) vs. Week B (GAR / KvK Days 1–2) & Top Lord Stage 1",
+                vi: "Bảng Đối Chiếu Điểm Số Sự Kiện Thánh Vật: Kỳ Thi Đấu Hội (Guild Rush) vs Kỳ GAR/KvK (GAR / KvK Ngày 1–2) & Top Lord Stage 1",
+                en: "Relic Event Scoring & Dump Windows: Guild Race (Guild Rush) vs. GAR/KvK (GAR / KvK Days 1–2) & Top Lord Stage 1",
               },
               headers: [
                 {
@@ -1190,12 +1190,12 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
                   en: "Action / Resource Consumed",
                 },
                 {
-                  vi: "Tuần A: Guild Rush: Relic Hall & Relics (Thứ Tư – Thứ Năm & Task Hội)",
-                  en: "Week A: Guild Rush: Relic Hall & Relics (Wed – Thu & Guild Tasks)",
+                  vi: "Kỳ Thi Đấu Hội: Guild Rush: Relic Hall & Relics (Thứ Tư – Thứ Năm & Task Hội)",
+                  en: "Guild Race: Guild Rush: Relic Hall & Relics (Wed – Thu & Guild Tasks)",
                 },
                 {
-                  vi: "Tuần B: GAR / KvK Ngày 1–2 (Thứ Hai – Thứ Ba; + Ngày 5 chỉ riêng KvK)",
-                  en: "Week B: GAR / KvK Days 1–2 (Mon – Tue; + Day 5 in KvK only)",
+                  vi: "Kỳ GAR/KvK: GAR / KvK Ngày 1–2 (Thứ Hai – Thứ Ba; + Ngày 5 chỉ riêng KvK)",
+                  en: "GAR/KvK: GAR / KvK Days 1–2 (Mon – Tue; + Day 5 in KvK only)",
                 },
                 {
                   vi: "Top Lord Stage 1 (Relic Upgrade)",
@@ -1378,8 +1378,8 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
             },
             {
               label: {
-                vi: "Điểm Sự Kiện GAR Ngày 1 (Thứ Hai Tuần B)",
-                en: "GAR Day 1 Event Score (Monday Week B)",
+                vi: "Điểm Sự Kiện GAR Ngày 1 (Thứ Hai Kỳ GAR/KvK)",
+                en: "GAR Day 1 Event Score (GAR/KvK Monday)",
               },
               before: {
                 vi: "0 điểm (Nâng lẻ tẻ ngày thường hoặc chờ nhầm Ngày 5)",
@@ -1424,12 +1424,12 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
             {
               stepNumber: "2",
               title: {
-                vi: "Xả 110 Mảnh Vàng Vào Sáng Thứ Hai Tuần B (GAR Ngày 1) Đẩy Tổng Sao Từ 11★ Lên 15★",
-                en: "Dump 110 Legendary Shards on Monday Week B (GAR Day 1) to Push 11★ ➔ 15★",
+                vi: "Xả 110 Mảnh Vàng Vào Sáng Thứ Hai Kỳ GAR/KvK (GAR Ngày 1) Đẩy Tổng Sao Từ 11★ Lên 15★",
+                en: "Dump 110 Legendary Shards on Monday GAR/KvK (GAR Day 1) to Push 11★ ➔ 15★",
               },
               detail: {
-                vi: "• Đợi đúng Ngày 1 (Thứ Hai) của Tuần B (nhớ quy tắc GAR tiêu chuẩn không tính điểm Thánh Vật vào Ngày 5).\n• Xả `110` Mảnh Vàng (`550,000` điểm GAR) nâng `Soul Guard Orb` lên `4★` (`100` mảnh), đưa Đội 1 từ `11★` lên `15★` Sao Vàng (vượt mốc `13★` của địch).",
-                en: "• Wait for Day 1 (Monday) of Week B (remembering standard GAR does NOT score Relics on Day 5).\n• Spend `110` Legendary Shards (`550,000` GAR pts) to raise `Soul Guard Orb` to `4★` (`100` shards), lifting Queue 1 from `11★` to `15★` Legendary Stars (past the enemy's `13★`).",
+                vi: "• Đợi đúng Ngày 1 (Thứ Hai) Kỳ GAR/KvK (nhớ quy tắc GAR tiêu chuẩn không tính điểm Thánh Vật vào Ngày 5).\n• Xả `110` Mảnh Vàng (`550,000` điểm GAR) nâng `Soul Guard Orb` lên `4★` (`100` mảnh), đưa Đội 1 từ `11★` lên `15★` Sao Vàng (vượt mốc `13★` của địch).",
+                en: "• Wait for Day 1 (Monday) of GAR/KvK (remembering standard GAR does NOT score Relics on Day 5).\n• Spend `110` Legendary Shards (`550,000` GAR pts) to raise `Soul Guard Orb` to `4★` (`100` shards), lifting Queue 1 from `11★` to `15★` Legendary Stars (past the enemy's `13★`).",
               },
               impactBadge: {
                 vi: "11★ ➔ 15★ & +550,000 đ GAR",
@@ -1453,8 +1453,8 @@ export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
             },
           ],
           conclusion: {
-            vi: "Chỉ cần thay 1 món Tím `5★` bằng Thánh Vật Vàng đúng hệ và xả `110` mảnh Vàng đúng Ngày 1–2 Tuần B, Đội 1 vừa thu về `550,000` điểm GAR vừa lật ngược cán cân **Áp Chế Sao `-50%`**.",
-            en: "Replacing one `5★` Epic with a faction Legendary Relic and dumping `110` Legendary shards on Week B Days 1–2 nets `550,000` GAR pts while flipping **`-50%` Star Rating Suppression** in your favor.",
+            vi: "Chỉ cần thay 1 món Tím `5★` bằng Thánh Vật Vàng đúng hệ và xả `110` mảnh Vàng đúng Ngày 1–2 Kỳ GAR/KvK, Đội 1 vừa thu về `550,000` điểm GAR vừa lật ngược cán cân **Áp Chế Sao `-50%`**.",
+            en: "Replacing one `5★` Epic with a faction Legendary Relic and dumping `110` Legendary shards on GAR/KvK Days 1–2 nets `550,000` GAR pts while flipping **`-50%` Star Rating Suppression** in your favor.",
           },
         },
         {

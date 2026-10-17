@@ -937,8 +937,8 @@ export const ARTICLE_2_2_META_LINEUPS: GuideArticle = {
                 en: "Days 21 & 27: Unlock Core Mythic Duo & Push to 1 White Star (560 Shards)",
               },
               detail: {
-                vi: "Dùng Kim Cương quay sự kiện lấy `Desert Prince` (Ngày 21) và `Storm Maiden` (Ngày 27) (mỗi sự kiện cho ~160–200 mảnh riêng đạt **`1 Sao Đỏ = 160 Mảnh`**).\n• Chờ **Thứ Năm Tuần B (`GAR`)** đút Mảnh Vạn Năng Vàng kéo cả hai vượt **`5 Sao Đỏ (400 Mảnh)`** lên thẳng **`1 Sao Trắng (11★ = 560 Mảnh)`**.",
-                en: "Spend Diamonds on event wheels for `Desert Prince` (Day 21) and `Storm Maiden` (Day 27) (each yields ~160–200 shards, hitting **`1 Red Star = 160 Shards`**).\n• Wait until **Thursday of Week B (`GAR`)** to invest Universal Shards, pushing both past **`5 Red Stars (400 Shards)`** to **`1 White Star (11★ = 560 Shards)`**.",
+                vi: "Dùng Kim Cương quay sự kiện lấy `Desert Prince` (Ngày 21) và `Storm Maiden` (Ngày 27) (mỗi sự kiện cho ~160–200 mảnh riêng đạt **`1 Sao Đỏ = 160 Mảnh`**).\n• Chờ **Thứ Năm Kỳ `GAR`** đút Mảnh Vạn Năng Vàng kéo cả hai vượt **`5 Sao Đỏ (400 Mảnh)`** lên thẳng **`1 Sao Trắng (11★ = 560 Mảnh)`**.",
+                en: "Spend Diamonds on event wheels for `Desert Prince` (Day 21) and `Storm Maiden` (Day 27) (each yields ~160–200 shards, hitting **`1 Red Star = 160 Shards`**).\n• Wait until **Thursday of `GAR`** to invest Universal Shards, pushing both past **`5 Red Stars (400 Shards)`** to **`1 White Star (11★ = 560 Shards)`**.",
               },
               impactBadge: {
                 vi: "1 Sao Trắng (560 Mảnh)",

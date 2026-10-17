@@ -7,25 +7,25 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
   badge: "HOT",
   readingMinutes: 12,
   title: {
-    vi: "Chiến Thuật Tuần B: Giải Phẫu 6 Ngày Chạy Đua Vũ Trang & Chiến Sự Liên Server (GAR / KvK / SvS)",
-    en: "Week B Strategy: Anatomy of the 6-Day Guild Arms Race & Server War (GAR / KvK / SvS)",
+    vi: "Chiến Thuật Đua Vũ Trang & Liên Server: Giải Phẫu Lịch 6 Ngày (GAR / KvK / 4 Quốc Gia)",
+    en: "Arms Race & Cross-Server Strategy: 6-Day Event Anatomy (GAR / KvK / 4 Nations)",
   },
   summary: {
-    vi: "Cẩm nang toàn diện 6 ngày cố định của Tuần B (Guild Arms Race / KvK / SvS): Từ mẹo giữ Hộp Quà Công Trình Thứ Hai, thả quân thu hoạch trước giờ Reset, đến kỹ thuật Thăng cấp Lính Bậc Thang Thứ Sáu và chiến thuật Khiên Thứ Bảy.",
-    en: "Complete 6-day guide for Week B (Guild Arms Race / KvK / SvS): Master Monday Unopened Building Boxes, pre-reset gathering marches, Friday Staircase Troop Promotion, and Saturday Kill Event shield tactics.",
+    vi: "Cẩm nang toàn diện 6 ngày cố định của Kỳ Đua Vũ Trang (Guild Arms Race / KvK / 4 Nations): Từ mẹo giữ Hộp Quà Công Trình Thứ Hai, thả quân thu hoạch trước giờ Reset, đến kỹ thuật Thăng cấp Lính Bậc Thang Thứ Sáu và chiến thuật Khiên Thứ Bảy.",
+    en: "Complete 6-day guide for Arms Race & Cross-Server weeks (Guild Arms Race / KvK / 4 Nations): Master Monday Unopened Building Boxes, pre-reset gathering marches, Friday Staircase Troop Promotion, and Saturday Kill Event shield tactics.",
   },
   tldr: {
     coreRule: {
-      vi: "**Kỷ Luật 6 Ngày Chủ Đề Cố Định:** Trong Tuần B (`GAR / KvK / 4 Nations / SvS`), mỗi ngày từ Thứ Hai đến Thứ Bảy đều gắn với `1 Chủ đề Cố định Toàn Máy Chủ`.\n• **Điểm nổ Double-Dip:** Chỉ xả vật phẩm đúng Thứ tương ứng và ưu tiên xả trong khung `Sự Kiện Giờ 4 Tiếng` trùng chủ đề để ăn Điểm Kép.",
-      en: "**6 Fixed Daily Theme Discipline:** During Week B (`GAR / KvK / 4 Nations / SvS`), every day from Monday to Saturday is bound to `1 Fixed Server-Wide Theme`.\n• **Double-Dip burst:** Only spend items on their matching day and unload inside the matching `4-Hour Hourly Arms Race` window.",
+      vi: "**Kỷ Luật 6 Ngày Chủ Đề Cố Định:** Trong Kỳ Đua Vũ Trang (`GAR / KvK / 4 Nations / SvS`), mỗi ngày từ Thứ Hai đến Thứ Bảy đều gắn với `1 Chủ đề Cố định Toàn Máy Chủ`.\n• **Điểm nổ Double-Dip:** Chỉ xả vật phẩm đúng Thứ tương ứng và ưu tiên xả trong khung `Sự Kiện Giờ 4 Tiếng` trùng chủ đề để ăn Điểm Kép.",
+      en: "**6 Fixed Daily Theme Discipline:** During Arms Race weeks (`GAR / KvK / 4 Nations / SvS`), every day from Monday to Saturday is bound to `1 Fixed Server-Wide Theme`.\n• **Double-Dip burst:** Only spend items on their matching day and unload inside the matching `4-Hour Hourly Arms Race` window.",
     },
     immediateAction: {
       vi: "**Nâng Tối Đa Nhánh `Arms Race Prep`:** Mở khóa ngay `Hộp Thưởng Thứ 6 (Extra Rewards)` và kỹ năng `Double Rewards` trong Nhà Nghiên Cứu (Academy).\n• **Lợi tức nhân đôi:** Chìa khóa giúp nhận gấp đôi `Kim Cương` và `Mảnh Tướng Vàng Vạn Năng` từ mọi rương mốc cá nhân suốt 6 ngày!",
       en: "**Max the `Arms Race Prep` Tech Tree:** Immediately unlock the `6th Chest (Extra Rewards)` and `Double Rewards` skill inside the Academy.\n• **2x milestone rewards:** Doubles your `Diamonds` and `Universal Legendary Shards` from every personal milestone chest across all 6 days!",
     },
     strictTaboo: {
-      vi: "**4 Điều Cấm Kỵ Tuần B:** Tuyệt đối KHÔNG khui hộp công trình vào Chủ Nhật (chờ `Thứ Hai`), KHÔNG ghép mảnh tướng đầu tuần (chờ `Thứ Năm`).\n• **Cảnh báo Ngày 6:** KHÔNG giữ `Lord Gear` sang Thứ Bảy Ngày 6 (`0 điểm` ở GAR/KvK) và KHÔNG quên bật `Khiên Hòa Bình (Peace Shield)` trước `00:00 UTC` Thứ Bảy!",
-      en: "**4 Week B Taboos:** Never unwrap building gift boxes on Sunday (wait for `Monday`), and never fuse hero shards early in the week (wait for `Thursday`).\n• **Day 6 red alerts:** Never hold `Lord Gear` for Saturday Day 6 (`ZERO points` in GAR/KvK) and never forget your `Peace Shield` before `00:00 UTC` Saturday!",
+      vi: "**4 Điều Cấm Kỵ Kỳ GAR/KvK:** Tuyệt đối KHÔNG khui hộp công trình vào Chủ Nhật (chờ `Thứ Hai`), KHÔNG ghép mảnh tướng đầu tuần (chờ `Thứ Năm`).\n• **Cảnh báo Ngày 6:** KHÔNG giữ `Lord Gear` sang Thứ Bảy Ngày 6 (`0 điểm` ở GAR/KvK) và KHÔNG quên bật `Khiên Hòa Bình (Peace Shield)` trước `00:00 UTC` Thứ Bảy!",
+      en: "**4 GAR/KvK Taboos:** Never unwrap building gift boxes on Sunday (wait for `Monday`), and never fuse hero shards early in the week (wait for `Thursday`).\n• **Day 6 red alerts:** Never hold `Lord Gear` for Saturday Day 6 (`ZERO points` in GAR/KvK) and never forget your `Peace Shield` before `00:00 UTC` Saturday!",
     },
   },
   keyTakeaways: [
@@ -72,15 +72,15 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
     {
       id: "sec-1-six-day-week-b-anatomy",
       title: {
-        vi: "1. Giải thích Cơ chế Cốt lõi: Cấu Trúc 6 Ngày Cố Định Của Chế Độ Tuần B (GAR / KvK / Top Lord)",
-        en: "1. Core Mechanics: The 6 Fixed Daily Stages of Week B (GAR / KvK / Top Lord) & Secondary Scoring",
+        vi: "1. Giải thích Cơ chế Cốt lõi: Cấu Trúc 6 Ngày Cố Định Của Kỳ Đua Vũ Trang (GAR / KvK / Top Lord)",
+        en: "1. Core Mechanics: The 6 Fixed Daily Stages of Arms Race Weeks (GAR / KvK / Top Lord) & Secondary Scoring",
       },
       blocks: [
         {
           type: "paragraph",
           text: {
-            vi: "**Nhận diện Chế độ Tuần B:** Mở `Event ➔ Lịch Event` lúc `09:00` Thứ Hai; nếu có `Guild Arms Race (GAR)`, `Kingdom Duel (KvK)` hoặc `Top Lord`, server vào `6 Ngày Chủ Đề` từ Thứ Hai đến Thứ Bảy.\n• **Trọng số thắng cuộc:** Mỗi ngày có hệ số điểm riêng, trong đó `Ngày 4 (Tướng)`, `Ngày 5 (Lính)` và `Ngày 6 (Diệt Địch)` quyết định thắng bại chung cuộc của cả tuần.",
-            en: "**Identifying Week B Mode:** Open `Event ➔ Event Calendar` at `09:00` Monday; if `Guild Arms Race (GAR)`, `Kingdom Duel (KvK)`, or `Top Lord` appears, the server enters `6 Fixed Daily Stages` (Mon–Sat).\n• **Victory weights:** Each day carries a specific weight, with `Day 4 (Heroes)`, `Day 5 (Troops)`, and `Day 6 (Kill Event)` deciding the overall weekly winner.",
+            vi: "**Nhận diện Kỳ Đua Vũ Trang:** Mở `Event ➔ Lịch Event` lúc `09:00` Thứ Hai; nếu có `Guild Arms Race (GAR)`, `Kingdom Duel (KvK)` hoặc `Top Lord`, server vào `6 Ngày Chủ Đề` từ Thứ Hai đến Thứ Bảy.\n• **Trọng số thắng cuộc:** Mỗi ngày có hệ số điểm riêng, trong đó `Ngày 4 (Tướng)`, `Ngày 5 (Lính)` và `Ngày 6 (Diệt Địch)` quyết định thắng bại chung cuộc của cả tuần.",
+            en: "**Identifying Arms Race Mode:** Open `Event ➔ Event Calendar` at `09:00` Monday; if `Guild Arms Race (GAR)`, `Kingdom Duel (KvK)`, or `Top Lord` appears, the server enters `6 Fixed Daily Stages` (Mon–Sat).\n• **Victory weights:** Each day carries a specific weight, with `Day 4 (Heroes)`, `Day 5 (Troops)`, and `Day 6 (Kill Event)` deciding the overall weekly winner.",
           },
         },
         {
@@ -137,8 +137,8 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
         {
           id: "sub-1-1-six-day-master-table",
           title: {
-            vi: "1.1. Bảng Giải Phẫu Lịch Trình 6 Ngày Chuẩn Của Tuần B (GAR / KvK / SvS) & Lịch Guild Rush 2 Ngày",
-            en: "1.1. Master 6-Day Week B Schedule (GAR / KvK / SvS) & Fixed 2-Day Guild Rush Breakdown",
+            vi: "1.1. Bảng Giải Phẫu Lịch Trình 6 Ngày Chuẩn Của Kỳ Đua Vũ Trang (GAR / KvK / SvS) & Lịch Guild Rush 2 Ngày",
+            en: "1.1. Master 6-Day Arms Race Schedule (GAR / KvK / SvS) & Fixed 2-Day Guild Rush Breakdown",
           },
           badge: {
             vi: "Bảng 6 Ngày Chuẩn",
@@ -148,8 +148,8 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
             {
               type: "table",
               caption: {
-                vi: "Bảng Giải Phẫu Lịch Trình 6 Ngày Chuẩn Của Tuần B (GAR / KvK / SvS), Vật Phẩm Cộng Điểm Phụ & Khung Giờ Vàng 4h",
-                en: "Master 6-Day Week B Schedule (GAR / KvK / SvS), Secondary Scoring Items & 4-Hour Golden Windows",
+                vi: "Bảng Giải Phẫu Lịch Trình 6 Ngày Chuẩn Của Kỳ Đua Vũ Trang (GAR / KvK / SvS), Vật Phẩm Cộng Điểm Phụ & Khung Giờ Vàng 4h",
+                en: "Master 6-Day Arms Race Schedule (GAR / KvK / SvS), Secondary Scoring Items & 4-Hour Golden Windows",
               },
               headers: [
                 {
@@ -285,8 +285,8 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
         {
           id: "sub-1-2-guild-rush-comparison",
           title: {
-            vi: "1.2. Đối Chiếu Lịch Cố Định Guild Rush 2 Ngày (Tuần A vs Tuần B)",
-            en: "1.2. Fixed 2-Day Guild Rush Schedule Comparison (Week A vs. Week B)",
+            vi: "1.2. Đối Chiếu Lịch Cố Định Guild Rush 2 Ngày (Thi Đấu Hội vs GAR/KvK)",
+            en: "1.2. Fixed 2-Day Guild Rush Schedule Comparison (Guild Race vs. GAR/KvK)",
           },
           badge: {
             vi: "Guild Rush 2 Ngày",
@@ -297,12 +297,12 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
               type: "callout",
               variant: "tip",
               title: {
-                vi: "Đối chiếu Lịch Cố Định Guild Rush 2 Ngày (Tuần A vs Tuần B)",
-                en: "Fixed 2-Day Guild Rush Schedule Comparison (Week A vs. Week B)",
+                vi: "Đối chiếu Lịch Cố Định Guild Rush 2 Ngày (Kỳ Thi Đấu Hội vs Kỳ GAR/KvK)",
+                en: "Fixed 2-Day Guild Rush Schedule Comparison (Guild Race vs. GAR/KvK)",
               },
               content: {
-                vi: "**Tuần A (Guild Race):** Thứ Hai–Thứ Ba: `Nâng cấp Thú Cưng` | Thứ Tư–Thứ Năm: `Thánh Tích (Relics)` | Thứ Sáu–Thứ Bảy: `Quân Trang & Đồ Chúa Tể (Lord Gear)` (khớp 100% Nhiệm vụ Vàng Ngày 5–7).\n• **Tuần B (KvK / GAR):** Thứ Hai–Thứ Ba: `Xây dựng & Nghiên cứu` | Thứ Tư–Thứ Năm: `Phát triển Tướng (Hero Development)` | Thứ Sáu–Thứ Bảy: `Nâng cấp Trang trí (Decor Upgrading)`.",
-                en: "**Week A (Guild Race):** Mon–Tue: `Pets Development` | Wed–Thu: `Relic Hall & Relics` | Fri–Sat: `Troop Skin & Lord Gear` (100% aligned with Days 5–7 Exclusive Gold Tasks).\n• **Week B (KvK / GAR):** Mon–Tue: `Building & Research` | Wed–Thu: `Hero Development` | Fri–Sat: `Decor Upgrading`.",
+                vi: "**Kỳ Thi Đấu Hội (Guild Race):** Thứ Hai–Thứ Ba: `Nâng cấp Thú Cưng` | Thứ Tư–Thứ Năm: `Thánh Tích (Relics)` | Thứ Sáu–Thứ Bảy: `Quân Trang & Đồ Chúa Tể (Lord Gear)` (khớp 100% Nhiệm vụ Vàng Ngày 5–7).\n• **Kỳ Đua Vũ Trang (KvK / GAR):** Thứ Hai–Thứ Ba: `Xây dựng & Nghiên cứu` | Thứ Tư–Thứ Năm: `Phát triển Tướng (Hero Development)` | Thứ Sáu–Thứ Bảy: `Nâng cấp Trang trí (Decor Upgrading)`.",
+                en: "**Guild Race Week:** Mon–Tue: `Pets Development` | Wed–Thu: `Relic Hall & Relics` | Fri–Sat: `Troop Skin & Lord Gear` (100% aligned with Days 5–7 Exclusive Gold Tasks).\n• **GAR / KvK Week:** Mon–Tue: `Building & Research` | Wed–Thu: `Hero Development` | Fri–Sat: `Decor Upgrading`.",
               },
             },
           ],
@@ -319,8 +319,8 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "**Nguyên tắc cốt lõi 3 Phe (`League`, `Horde`, `Nature`):** Mục tiêu tối thượng của F2P/Low-Spender trong Tuần B là mở trọn `6/6 Hộp Thưởng Mốc Cá Nhân` mỗi ngày.\n• **Bảo toàn kho dự trữ:** Tuyệt đối không đốt sạch kho chỉ để tranh Top 1 cá nhân với Cá Voi (`Whales`).",
-            en: "**Core Rule Across All 3 Factions (`League`, `Horde`, `Nature`):** The ultimate Week B objective for F2P/Low-Spenders is unlocking all `6/6 Personal Milestone Boxes` daily.\n• **Preserve your stockpile:** Never burn your entire vault chasing Top 1 leaderboard ranks against `Whales`.",
+            vi: "**Nguyên tắc cốt lõi 3 Phe (`League`, `Horde`, `Nature`):** Mục tiêu tối thượng của F2P/Low-Spender trong Kỳ GAR/KvK là mở trọn `6/6 Hộp Thưởng Mốc Cá Nhân` mỗi ngày.\n• **Bảo toàn kho dự trữ:** Tuyệt đối không đốt sạch kho chỉ để tranh Top 1 cá nhân với Cá Voi (`Whales`).",
+            en: "**Core Rule Across All 3 Factions (`League`, `Horde`, `Nature`):** The ultimate GAR/KvK objective for F2P/Low-Spenders is unlocking all `6/6 Personal Milestone Boxes` daily.\n• **Preserve your stockpile:** Never burn your entire vault chasing Top 1 leaderboard ranks against `Whales`.",
           },
         },
         {
@@ -442,14 +442,14 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
       id: "sec-3-week-b-common-pitfalls",
       title: {
         vi: "3. Những Cạm bẫy Phổ biến & Cách Phòng tránh (Common Pitfalls)",
-        en: "3. Common Week B Pitfalls (Lost Troops & Wasted Points)",
+        en: "3. Common GAR / KvK Pitfalls (Lost Troops & Wasted Points)",
       },
       blocks: [
         {
           type: "table",
           caption: {
-            vi: "4 Sai Lầm Phổ Biến Làm Mất Trắng Lính & Điểm Sự Kiện Tuần B (GAR / KvK)",
-            en: "4 Common Pitfalls Causing Zeroed Troops & Wasted Week B (GAR / KvK) Points",
+            vi: "4 Sai Lầm Phổ Biến Làm Mất Trắng Lính & Điểm Sự Kiện Tuần Đua Vũ Trang (GAR / KvK)",
+            en: "4 Common Pitfalls Causing Zeroed Troops & Wasted Arms Race Week (GAR / KvK) Points",
           },
           headers: [
             {
@@ -457,8 +457,8 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
               en: "Common Pitfall (Zeroed Troops & Wasted GAR/KvK Points)",
             },
             {
-              vi: "Giải pháp Tối ưu (Chuẩn Thực Chiến Tuần B)",
-              en: "Optimal Solution (Week B Combat-Proven Standard)",
+              vi: "Giải pháp Tối ưu (Chuẩn Thực Chiến GAR / KvK)",
+              en: "Optimal Solution (GAR / KvK Combat-Proven Standard)",
             },
           ],
           rows: [
@@ -488,8 +488,8 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
                 en: "Hoarding Lord Gear until Saturday (Day 6) to upgrade, or holding Relics until Friday (Day 5) during a standard GAR week.",
               },
               {
-                vi: "Nắm rõ quy tắc cộng điểm phụ: Đồ Chúa Tể (Lord Gear) KHÔNG tính điểm vào Ngày 6 GAR/KvK — bắt buộc xả vào Thứ Tư / Thứ Năm Tuần B (hoặc Thứ Sáu–Chủ Nhật Tuần A)! Tương tự, ở tuần GAR tiêu chuẩn, Thánh Tích KHÔNG tính điểm vào Ngày 5 — hãy xả Thánh Tích vào Ngày 1–2 (Thứ Hai–Thứ Ba)!",
-                en: "Memorize secondary scoring rules: Lord Gear grants ZERO points on Day 6 GAR/KvK — you must unload it on Wednesday / Thursday of Week B (or Friday–Sunday of Week A)! Similarly, in standard GAR weeks, Relics grant ZERO points on Day 5 — spend Relics on Days 1–2 (Monday–Tuesday)!",
+                vi: "Nắm rõ quy tắc cộng điểm phụ: Đồ Chúa Tể (Lord Gear) KHÔNG tính điểm vào Ngày 6 GAR/KvK — bắt buộc xả vào Thứ Tư / Thứ Năm Kỳ GAR/KvK (hoặc Thứ Sáu–Chủ Nhật Kỳ Thi Đấu Hội)! Tương tự, ở tuần GAR tiêu chuẩn, Thánh Tích KHÔNG tính điểm vào Ngày 5 — hãy xả Thánh Tích vào Ngày 1–2 (Thứ Hai–Thứ Ba)!",
+                en: "Memorize secondary scoring rules: Lord Gear grants ZERO points on Day 6 GAR/KvK — you must unload it on Wednesday / Thursday of GAR/KvK Week (or Friday–Sunday of Guild Race Week)! Similarly, in standard GAR weeks, Relics grant ZERO points on Day 5 — spend Relics on Days 1–2 (Monday–Tuesday)!",
               },
             ],
             [
@@ -541,8 +541,8 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
               mediaCode: "MED-3.3-03",
               variant: "hub_pillars",
               title: {
-                vi: "Sơ Đồ Lộ Trình 6 Bước Kỹ Thuật Cao Cấp Tuần B (GAR / KvK 6-Day Master Flow)",
-                en: "Week B 6-Day Advanced Time-Shifting & Secondary Scoring Flow (GAR / KvK)",
+                vi: "Sơ Đồ Lộ Trình 6 Bước Kỹ Thuật Cao Cấp Kỳ GAR / KvK (GAR / KvK 6-Day Master Flow)",
+                en: "GAR / KvK 6-Day Advanced Time-Shifting & Secondary Scoring Flow",
               },
               subtitle: {
                 vi: "Kết hợp 4 tuyệt kỹ chuẩn bị trước giờ Reset với Vật phẩm cộng điểm phụ và Khung Giờ Vàng 4 Tiếng",
@@ -799,8 +799,8 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Trong Tuần B, mỗi `4 tiếng` có một `Sự Kiện Giờ (Hourly Arms Race)` chạy song song. Để ăn `Double-Dip` (1 lần xả mở cả rương Ngày lẫn rương Giờ 4h), hãy tra bảng `6 ca` dưới đây:",
-                en: "Throughout Week B, a `4-Hour Hourly Arms Race` runs in parallel every `4 hours`. To capture a `Double-Dip` (1 burst unlocking both Daily and 4-Hour Hourly chests), consult the `6-shift` matrix below:",
+                vi: "Trong tuần GAR/KvK, mỗi `4 tiếng` có một `Sự Kiện Giờ (Hourly Arms Race)` chạy song song. Để ăn `Double-Dip` (1 lần xả mở cả rương Ngày lẫn rương Giờ 4h), hãy tra bảng `6 ca` dưới đây:",
+                en: "Throughout GAR/KvK Week, a `4-Hour Hourly Arms Race` runs in parallel every `4 hours`. To capture a `Double-Dip` (1 burst unlocking both Daily and 4-Hour Hourly chests), consult the `6-shift` matrix below:",
               },
             },
             {

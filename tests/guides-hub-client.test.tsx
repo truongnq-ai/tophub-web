@@ -30,8 +30,8 @@ vi.mock("next-intl", () => ({
       toolsStripTitle: "Công Cụ & Bảng Tra Cứu Tốc Độ Cao",
       toolEncyclopediaTitle: "Bách Khoa 45+ Tướng",
       toolEncyclopediaDesc: "Tier List S0➔S4",
-      toolCalendarTitle: "Lịch Chu Kỳ Tuần A/B",
-      toolCalendarDesc: "Nhịp đập 14 ngày",
+      toolCalendarTitle: "Lộ Trình Sự Kiện Server",
+      toolCalendarDesc: "Thi Đấu Hội & Đua Vũ Trang",
       toolShopsTitle: "Xếp Hạng 13 Cửa Hàng",
       toolShopsDesc: "ROI 600%",
       toolMasterTablesTitle: "12 Bảng Số Liệu Gốc",
@@ -81,7 +81,7 @@ describe("GuidesHubClient (4-Layer Smart Command Hub — Hardened)", () => {
 
     // Layer 3: 4 Interactive Tools Strip
     expect(screen.getByText("Bách Khoa 45+ Tướng")).toBeDefined();
-    expect(screen.getByText("Lịch Chu Kỳ Tuần A/B")).toBeDefined();
+    expect(screen.getByText("Lộ Trình Sự Kiện Server")).toBeDefined();
     expect(screen.getByText("Xếp Hạng 13 Cửa Hàng")).toBeDefined();
     expect(screen.getByText("12 Bảng Số Liệu Gốc")).toBeDefined();
 

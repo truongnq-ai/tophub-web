@@ -188,8 +188,8 @@ describe("Phase 3 — Interactive Widgets & GuideArticleRenderer Integration", (
     });
   });
 
-  describe("Suite 2: BiweeklyCalendarWidget (Phase 1/2 Cycle & 300% Double-Dip)", () => {
-    it("switches cleanly between Phase 1, Week A, Week B, and Double-Dip 300% modes and selects weekdays 1..7", () => {
+  describe("Suite 2: BiweeklyCalendarWidget (Server-Progression Cycle & 300% Double-Dip)", () => {
+    it("switches cleanly between Phase 1, Guild Race Mode, Arms Race Mode, and Double-Dip 300% modes and selects weekdays 1..7", () => {
       render(
         <BiweeklyCalendarWidget
           article={ARTICLE_3_1_BIWEEKLY_ROTATION}
@@ -210,11 +210,39 @@ describe("Phase 3 — Interactive Widgets & GuideArticleRenderer Integration", (
       expect(screen.getByTestId("widget-biweekly-calendar").textContent).toMatch(
         /Đế Quốc Hắc Ám|Bắt Bướm|Thi Đấu Hội/i
       );
-
-      // Switch to Week A (Guild Race)
-      fireEvent.click(screen.getByTestId("calendar-phase-weekA"));
       expect(screen.getByTestId("widget-biweekly-calendar").textContent).toMatch(
-        /Guild Rush|Xúc Xắc|Nhiệm vụ Huyền Thoại/i
+        /Hero Gacha.*3 Tuần\/Lần|3 Tuần\/Lần.*Hero Gacha/i
+      );
+
+      // Switch to Guild Race Mode
+      fireEvent.click(screen.getByTestId("calendar-phase-weekA"));
+      expect(screen.getByTestId("calendar-phase-weekA").textContent).not.toMatch(
+        /Dice|Xúc Xắc|Tuần\s+A\b/i
+      );
+      expect(screen.getByTestId("widget-biweekly-calendar").textContent).toMatch(
+        /Guild Rush|Nhiệm Vụ Huyền Thoại/i
+      );
+    });
+
+    it("renders English mode labels without legacy (Dice) or Week A/B coupling and displays the 3-week Gacha cycle in Phase 1", () => {
+      render(
+        <BiweeklyCalendarWidget
+          article={ARTICLE_3_1_BIWEEKLY_ROTATION}
+          locale="en"
+        />
+      );
+
+      const weekAButton = screen.getByTestId("calendar-phase-weekA");
+      expect(weekAButton.textContent).toBe("🛡️ Guild Race Mode (9-Slot Board)");
+      expect(weekAButton.textContent).not.toContain("(Dice)");
+      expect(weekAButton.textContent).not.toMatch(/\bWeek\s+A\b/i);
+
+      fireEvent.click(screen.getByTestId("calendar-phase-phase1"));
+      expect(screen.getByTestId("widget-biweekly-calendar").textContent).toContain(
+        "Hero Gacha (1,000 Diamonds — Horde)"
+      );
+      expect(screen.getByTestId("widget-biweekly-calendar").textContent).toContain(
+        "Every 3rd Week"
       );
     });
 

@@ -882,7 +882,7 @@ guidetopheroes.com
 
 , hệ thống sự kiện của game vận hành theo 
 
-Chu kỳ Xoay vòng 2 Tuần (Bi-weekly Rotation: Tuần A ⇄ Tuần B)
+Lộ Trình Luân Phiên (Thi Đấu Hội ⇄ Đua Vũ Trang GAR / KvK)
 
 [cite: 14, 38]:
 
@@ -902,7 +902,7 @@ Tuần này của anh (Tuần 3 Server - từ 10/12 đến 10/18, Ảnh 13[cite:
 
  Server đã chuyển sang 
 
-Tuần A — Tuần "Thi Đấu Hội" (Guild Race - Bảng Nhiệm Vụ Bang Hội)
+Kỳ Thi Đấu Hội — Tuần "Thi Đấu Hội" (Guild Race - Bảng Nhiệm Vụ Bang Hội)
 
  kéo dài từ Thứ 2 đến Chủ Nhật[cite: 13, 38]!
 
@@ -942,7 +942,7 @@ Tuần sau của anh (Tuần 4 Server):
 
  Sẽ quay trở lại 
 
-Tuần B — Cuộc Đua Vũ Trang Bang Hội (Guild Arms Race - GAR)
+Kỳ GAR/KvK — Cuộc Đua Vũ Trang Bang Hội (Guild Arms Race - GAR)
 
  (lúc đó mới xuất hiện lại lịch 6 ngày: Ngày 1 Xây dựng, Ngày 2 Công nghệ, Ngày 3 Đánh quái, Ngày 4 Tướng...).
 
@@ -1420,7 +1420,7 @@ OK, hãy review lại tất cả các file md trong notebooklm để tìm ra nh�
 
  
 
-Từ đó điều chỉnh tài liệu cho phù hợp như em nói hệ thống sự kiện của game vận hành theo Chu kỳ Xoay vòng 2 Tuần (Bi-weekly Rotation: Tuần A ⇄ Tuần B
+Từ đó điều chỉnh tài liệu cho phù hợp như em nói hệ thống sự kiện của game vận hành theo Chu kỳ Xoay vòng 2 Tuần (Server-Progression Roadmap: Thi Đấu Hội ⇄ GAR/KvK
 
  
 
@@ -1532,11 +1532,11 @@ Thứ 2 Xây dựng, Thứ 3 Nghiên cứu, Thứ 4 Thể lực, Thứ 5 Tướn
 
 [cite: 19, 21]. Thực tế, lịch này 
 
-chỉ đúng cho Tuần B (Cuộc Đua Vũ Trang - GAR / KvK / Top Lord)
+chỉ đúng cho Kỳ GAR/KvK (Cuộc Đua Vũ Trang - GAR / KvK / Top Lord)
 
 , còn 
 
-Tuần A (Thi Đấu Hội - Guild Race)
+Kỳ Thi Đấu Hội (Thi Đấu Hội - Guild Race)
 
  hiện tại của anh hoạt động theo cơ chế 
 
@@ -1722,11 +1722,11 @@ topic-2-cong-trinh-nghien-cuu
 
 . Cần sửa thành: dùng vào 
 
-Thứ 3 của Tuần B (GAR/KvK)
+Thứ 3 Kỳ GAR/KvK (GAR/KvK)
 
  HOẶC dùng để hoàn thành nhanh 
 
-Nhiệm vụ Nghiên cứu trong Tuần A (Thi Đấu Hội)
+Nhiệm vụ Nghiên cứu trong Kỳ Thi Đấu Hội (Guild Race)
 
 .
 
@@ -1750,7 +1750,7 @@ Lộ Trình Tối Ưu Tài Khoản Top Heroes
 
 [cite: 15], Topic 6 chưa cập nhật 
 
-Chu kỳ Xoay vòng 2 Tuần (Tuần A: Thi Đấu Hội ⇄ Tuần B: Đua Vũ Trang GAR)
+Chu kỳ Xoay vòng 2 Tuần (Kỳ Thi Đấu Hội: Thi Đấu Hội ⇄ Kỳ GAR/KvK: Đua Vũ Trang GAR)
 
  và chưa bổ sung mục lục cho 
 
@@ -1850,7 +1850,7 @@ Viết lại toàn diện (Major Update)
 
 Thiết lập cấu trúc 
 
-Chu kỳ Xoay vòng 2 Tuần (Bi-weekly Rotation)
+Chu kỳ Xoay vòng 2 Tuần (Server-Progression Roadmap)
 
  chuẩn 
 
@@ -1862,7 +1862,7 @@ topheroes.info
 
 • 
 
-Tuần A: Tuần Thi Đấu Hội (Guild Race)
+Kỳ Thi Đấu Hội: Tuần Thi Đấu Hội (Guild Race)
 
  (Thứ 2 ➔ CN): Chiến thuật Bảng nhiệm vụ (Task Board), mẹo săn Nhiệm vụ Độc quyền Vàng (Đặc biệt là 
 
@@ -1878,7 +1878,7 @@ Mini-Event 2 ngày (Guild Rush)
 
 • 
 
-Tuần B: Tuần Đua Vũ Trang (GAR - 6 ngày) / KvK / Top Lord
+Kỳ GAR/KvK: Tuần Đua Vũ Trang (GAR - 6 ngày) / KvK / Top Lord
 
 : Giữ bảng lịch 6 giai đoạn theo ngày & bảng khung giờ Double-Dip 4 tiếng.
 
@@ -1886,11 +1886,11 @@ Tuần B: Tuần Đua Vũ Trang (GAR - 6 ngày) / KvK / Top Lord
 
 • Bảng tra cứu vật phẩm: Phân tách rõ từng vật phẩm nên xả ở 
 
-Tuần A
+Kỳ Thi Đấu Hội
 
  hay 
 
-Tuần B
+Kỳ GAR/KvK
 
 .
 
@@ -1934,11 +1934,11 @@ Trang bị Lãnh Chúa (Lord Gear - Đá & Dây gai):
 
  Tích trữ để xả vào 
 
-Ngày 5-6-7 của Tuần A (Nhiệm vụ Độc quyền Vàng trong Thi Đấu Hội)
+Ngày 5-6-7 của Kỳ Thi Đấu Hội (Nhiệm vụ Độc quyền Vàng trong Thi Đấu Hội)
 
  hoặc 
 
-Giai đoạn tương ứng của Tuần B (Top Lord / KvK Stage 3-4)
+Giai đoạn tương ứng Kỳ GAR/KvK (Top Lord / KvK Stage 3-4)
 
 .
 
@@ -1948,7 +1948,7 @@ Giai đoạn tương ứng của Tuần B (Top Lord / KvK Stage 3-4)
 
 Vũ khí Độc quyền (Exclusive Gear):
 
- Xả vào ngày Tướng của Tuần B hoặc Guild Rush.
+ Xả vào ngày Tướng Kỳ GAR/KvK hoặc Guild Rush.
 
 4
 
@@ -2050,7 +2050,7 @@ Mục 6 (Bảng 6.1):
 
  Thay bảng fix cứng Thứ 2–Thứ 7 bằng 
 
-Ma trận Mua & Xả theo 2 Chế độ Tuần (Tuần A: Thi Đấu Hội vs Tuần B: GAR/Top Lord)
+Ma trận Mua & Xả theo 2 Chế độ Tuần (Kỳ Thi Đấu Hội: Thi Đấu Hội vs Kỳ GAR/KvK: GAR/Top Lord)
 
 .
 
@@ -2070,11 +2070,11 @@ Tăng tốc Xây dựng/Nghiên cứu
 
  linh hoạt cho cả 
 
-Tuần A
+Kỳ Thi Đấu Hội
 
  (làm Nhiệm vụ Vàng trên bảng Thi Đấu Hội + Mini-event Guild Rush) và 
 
-Tuần B
+Kỳ GAR/KvK
 
  (Ngày 1 Xây dựng & Ngày 2 Công nghệ của GAR).
 
@@ -2088,7 +2088,7 @@ Cập nhật tóm tắt chiến thuật của toàn bộ
 
 7 Topic (Topic 1 ➔ Topic 7)
 
- theo chuẩn mới (Chu kỳ sự kiện 2 tuần A/B + Lộ trình chuyển giao Bộ Lạc từ Ngày 21).
+ theo chuẩn mới (Chu kỳ sự kiện 2 Kỳ Thi Đấu Hội/B + Lộ trình chuyển giao Bộ Lạc từ Ngày 21).
 
 8
 
@@ -2124,7 +2124,7 @@ Cập nhật toàn diện file
 
 Lịch Trình Tích Trữ & Xả Vật Phẩm Tuần Sự Kiện Top Heroes
 
- (Chuẩn hóa Chu kỳ Tuần A: Thi Đấu Hội ⇄ Tuần B: GAR/Top Lord & Mini-Event Guild Rush).
+ (Chuẩn hóa Chu kỳ Kỳ Thi Đấu Hội: Thi Đấu Hội ⇄ Kỳ GAR/KvK: GAR/Top Lord & Mini-Event Guild Rush).
 
 Cập nhật toàn diện file 
 
@@ -2166,7 +2166,7 @@ Witch
 
 TOPIC 5 - Hệ Thống Tiệm, Tiền Tệ & Quân Trang (Pro Edition)
 
- (Sửa Bảng 6.1 theo Chu kỳ Tuần A/B và đồng bộ mục tiêu Bộ Lạc).
+ (Sửa Bảng 6.1 theo Chu kỳ Kỳ Thi Đấu Hội/B và đồng bộ mục tiêu Bộ Lạc).
 
 🚀 ĐỢT 3 (Đồng bộ Hạ tầng, Tướng Tím & Bảng Điều Khiển Trung Tâm):
 
@@ -2274,13 +2274,13 @@ Lịch Trình Tích Trữ & Xả Vật Phẩm Tuần Sự Kiện Top Heroes
 
 Thiết lập chuẩn cấu trúc 
 
-Chu kỳ Xoay vòng 2 Tuần (Tuần A: Thi Đấu Hội ⇄ Tuần B: Đua Vũ Trang GAR / KvK / Top Lord)
+Chu kỳ Xoay vòng 2 Tuần (Kỳ Thi Đấu Hội: Thi Đấu Hội ⇄ Kỳ GAR/KvK: Đua Vũ Trang GAR / KvK / Top Lord)
 
 [cite: 22].
 
 Bổ sung hướng dẫn chi tiết cho 
 
-Tuần A (Thi Đấu Hội)
+Kỳ Thi Đấu Hội (Guild Race)
 
 : cách xoay 2 ô Nhiệm vụ Độc quyền mỗi 10 phút, bí quyết tích nguyên liệu 
 
@@ -2306,7 +2306,7 @@ Mini-Event 2 ngày (Guild Rush)
 
 Giữ nguyên bảng lịch 7 giai đoạn & khung giờ 4 tiếng (Double-Dip) riêng cho 
 
-Tuần B (GAR / KvK / Top Lord)
+Kỳ Đua Vũ Trang (GAR / KvK / Top Lord)
 
 [cite: 20, 28].
 
@@ -2314,7 +2314,7 @@ Xây dựng
 
 Bảng Tra Cứu Nhanh (Master Cheat Sheet)
 
- phân tách rõ từng loại vật phẩm nên xử lý thế nào ở Tuần A và Tuần B[cite: 18, 28].
+ phân tách rõ từng loại vật phẩm nên xử lý thế nào ở Kỳ Thi Đấu Hội và Kỳ GAR/KvK[cite: 18, 28].
 
 Đã cập nhật toàn diện file 
 
@@ -2348,17 +2348,17 @@ Trang bị Lãnh Chúa (Lord Gear - Đá & Dây gai):
 
  Có tính điểm sự kiện cực lớn ➔ Nhịn bấm từ Thứ 2 đến Thứ 5; xả vào 
 
-Thứ 6 – Chủ Nhật (Tuần A)
+Thứ 6 – Chủ Nhật (Thi Đấu Hội)
 
  khi nhận Nhiệm vụ Độc quyền Vàng hoặc xả vào 
 
-Thứ 7 (Tuần B)
+Thứ 7 (GAR/KvK)
 
 [cite: 9, 37].
 
 Vũ khí Độc quyền (Exclusive Gear):
 
- Tích mảnh xả vào Thứ 5 của Tuần B (khung giờ 17:00 – 21:00)[cite: 18, 28].
+ Tích mảnh xả vào Thứ 5 Kỳ GAR/KvK (khung giờ 17:00 – 21:00)[cite: 18, 28].
 
 Đã xóa file trùng lặp 
 
@@ -2432,7 +2432,7 @@ Lịch trình đồng bộ hóa Tiệm với Sự kiện Tuần
 
 ) theo 
 
-Chu kỳ Tuần A / Tuần B
+Chu kỳ Thi Đấu Hội / GAR-KvK
 
  mới và đồng bộ hóa ưu tiên mua sắm sang hệ 
 
@@ -2566,7 +2566,7 @@ Storm Maiden
 
  (Ngày 27) ➔ Canh 
 
-Thứ 5 của Tuần 4 (Tuần B - GAR)
+Thứ 5 của Tuần 4 (Kỳ GAR/KvK - GAR)
 
  đút Mảnh Vạn Năng nâng sao để ăn điểm sự kiện ➔ Ghép 
 
@@ -2646,15 +2646,15 @@ Mảnh Vạn Năng Tím
 
 Sửa Bảng 3.1 (Đồng bộ hóa Tiệm với Chu kỳ Sự kiện 2 Tuần):
 
-Trong Tuần A (Thi Đấu Hội):
+Trong Kỳ Thi Đấu Hội (Guild Race):
 
  Mẹo giữ Sao Đấu Trường / Điểm Hội / Kim Cương chờ xoay ra 
 
 Nhiệm vụ Vàng chi tiêu tiền tệ
 
- mới vào Tiệm bấm mua để ăn điểm nhiệm vụ ngay lập tức; tuyệt đối cất vé quay và mảnh tướng vào túi chờ Tuần B[cite: 20].
+ mới vào Tiệm bấm mua để ăn điểm nhiệm vụ ngay lập tức; tuyệt đối cất vé quay và mảnh tướng vào túi chờ Kỳ GAR/KvK[cite: 20].
 
-Trong Tuần B (GAR / KvK / Top Lord):
+Trong Kỳ Đua Vũ Trang (GAR / KvK / Top Lord):
 
  Mua vét sáng Thứ Hai, xả toàn bộ Vé chiêu mộ & Mảnh tướng vào 
 
@@ -2690,11 +2690,11 @@ Tăng tốc Xây dựng/Nghiên cứu
 
  linh hoạt theo 
 
-Tuần A (Nhiệm vụ Vàng Thi Đấu Hội)
+Kỳ Thi Đấu Hội (Nhiệm vụ Vàng Thi Đấu Hội)
 
  và 
 
-Tuần B (Thứ 2 Xây dựng / Thứ 3 Công nghệ của GAR)
+Kỳ GAR/KvK (Thứ 2 Xây dựng / Thứ 3 Công nghệ của GAR)
 
 [cite: 20, 26, 30].
 
@@ -2770,7 +2770,7 @@ Xóa bỏ hoàn toàn câu lệnh fix cứng
 
 [cite: 28], thay bằng cơ chế linh hoạt theo 
 
-Chu kỳ 2 Tuần (Tuần A: Xả theo Nhiệm vụ Vàng bảng Thi Đấu Hội ⇄ Tuần B: Ngâm xả vào Thứ 2 Xây dựng 13h–17h & Thứ 3 Nghiên cứu 17h–21h của GAR)
+Chu kỳ 2 Tuần (Kỳ Thi Đấu Hội: Xả theo Nhiệm vụ Vàng bảng Thi Đấu Hội ⇄ Kỳ GAR/KvK: Ngâm xả vào Thứ 2 Xây dựng 13h–17h & Thứ 3 Nghiên cứu 17h–21h của GAR)
 
 [cite: 15].
 
@@ -2808,7 +2808,7 @@ Cập nhật cách dùng nhánh nghiên cứu
 
 Kinh Tế (Economy)
 
- làm "mồi" hoàn thành nhanh Nhiệm vụ Vàng nghiên cứu ở Tuần A hoặc rướn mốc rương ở Tuần B[cite: 15, 28].
+ làm "mồi" hoàn thành nhanh Nhiệm vụ Vàng nghiên cứu ở Kỳ Thi Đấu Hội hoặc rướn mốc rương ở Kỳ GAR/KvK[cite: 15, 28].
 
 Đã làm sạch & chuẩn hóa file 
 
@@ -2882,7 +2882,7 @@ Cập nhật hồ sơ tài khoản
 --------------------------------------------------------------------------------
 
 
-🎯 CHECKLIST HÀNH ĐỘNG NGAY TỐI NAY (THỨ 4 - TUẦN 3 / TUẦN A "THI ĐẤU HỘI") CHO ANH:
+🎯 CHECKLIST HÀNH ĐỘNG NGAY TỐI NAY (THỨ 4 - TUẦN 3 / KỲ THI ĐẤU HỘI "THI ĐẤU HỘI") CHO ANH:
 
 Làm ngay không mất điểm Event:
 
@@ -2960,7 +2960,7 @@ Nhiệm vụ Vàng: "Tăng LC Trang bị Lãnh chúa"
 
  Giữ nguyên trong túi, chờ sang 
 
-Thứ 5 tuần sau (Tuần 4 - Tuần B: GAR, khung giờ 17:00 – 21:00)
+Thứ 5 tuần sau (Tuần 4 - Kỳ GAR/KvK: GAR, khung giờ 17:00 – 21:00)
 
  mới xả[cite: 6, 15, 18]!
 
@@ -3052,7 +3052,7 @@ topheroes.info/event-arms-race.php
 
  để kiểm chứng lại từng dòng nguyên liệu cho 
 
-Tuần sau (Tuần 4 - Tuần B: GAR)
+Tuần sau (Tuần 4 - Kỳ GAR/KvK: GAR)
 
  của anh.
 

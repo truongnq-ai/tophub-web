@@ -89,8 +89,8 @@ const SHOP_SAFETY_FLOORS: Record<
       en: "Weekly Safety Floor: 12,000–15,000 Guild Points",
     },
     floorDetail: {
-      vi: "Giữ sàn 12,000–15,000 Guild Points để luôn mua đủ Điểm VIP (1,000 Điểm/tuần = ROI Vô Cực), Bình Thể Lực 25 (800 Điểm, cất kho xả Thứ Tư Tuần B) và Khiên Hòa Bình 8h/24h bảo vệ lính ngày Thứ Bảy KvK.",
-      en: "Maintain 12,000–15,000 Guild Points to sweep VIP Points (1,000 Points/week = Infinite ROI), Stamina Potions (800 Points for Wednesday Week B), and 8h/24h Peace Shields for Saturday KvK.",
+      vi: "Giữ sàn 12,000–15,000 Guild Points để luôn mua đủ Điểm VIP (1,000 Điểm/tuần = ROI Vô Cực), Bình Thể Lực 25 (800 Điểm, cất kho xả Thứ Tư Kỳ GAR/KvK) và Khiên Hòa Bình 8h/24h bảo vệ lính ngày Thứ Bảy KvK.",
+      en: "Maintain 12,000–15,000 Guild Points to sweep VIP Points (1,000 Points/week = Infinite ROI), Stamina Potions (800 Points for Wednesday of GAR/KvK), and 8h/24h Peace Shields for Saturday KvK.",
     },
     surplusRule: {
       vi: "Khi số dư > 15,000 Guild Points, mua thêm Tăng tốc Xây dựng / Nghiên cứu 60m (2,000 Điểm).",
@@ -796,13 +796,13 @@ export function ShopSafetyFloorWidget({
         </div>
       </div>
 
-      {/* Double-Dip Week A -> Week B Footnote */}
+      {/* Double-Dip Guild Race -> GAR/KvK Footnote */}
       <div className="mt-4 flex items-center gap-2 rounded-lg border border-white/10 bg-white/[0.02] px-3 py-2 text-[11px] text-slate-300">
         <ShieldAlert className="h-3.5 w-3.5 shrink-0 text-amber-400" />
         <span>
           {locale === "vi"
-            ? "Mẹo Double-Dip 2 Tuần: Nhận Nhiệm Vụ Vàng Tiêu Sao/Xu trong Tuần A (Guild Race) mới bấm thanh toán giỏ hàng, sau đó cất kho 100% vật phẩm chờ đúng Ngày Sự Kiện Tuần B (GAR / KvK) mới mở dùng!"
-            : "Biweekly Double-Dip Rule: Claim a Spend Currency Gold Task in Week A (Guild Race) before checking out, then hoard 100% of purchased items in inventory until the matching Week B (GAR / KvK) day!"}
+            ? "Mẹo Double-Dip Theo Lộ Trình: Nhận Nhiệm Vụ Vàng Tiêu Sao/Xu trong Kỳ Thi Đấu Hội (Guild Race) mới bấm thanh toán giỏ hàng, sau đó cất kho 100% vật phẩm chờ đúng Ngày Sự Kiện Kỳ Đua Vũ Trang (GAR / KvK) mới mở dùng!"
+            : "Event Roadmap Double-Dip Rule: Claim a Spend Currency Gold Task in Guild Race before checking out, then hoard 100% of purchased items in inventory until the matching GAR / KvK day!"}
         </span>
       </div>
     </div>

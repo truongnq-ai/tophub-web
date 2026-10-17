@@ -405,8 +405,8 @@ export const ARTICLE_7_4_TROOP_SKINS_AND_MEDALS: GuideArticle = {
             en: "Immutable Rule: The 15,000 – 30,000 Glory Medals Safety Floor",
           },
           content: {
-            vi: "**Làm mới mỗi Thứ Hai**: Ô đầu tiên của Medal Shop xoay tua ngẫu nhiên giữa Quân trang Xanh (`15,000` Shield Soldier, Cavalry) và Tím (`30,000` Bearskin Warrior).\n• **Ngưỡng đóng băng `15,000–30,000` Medals**: Luôn giữ quỹ dự phòng để mua đứt ngay Quân trang chưa sở hữu, kích hoạt vĩnh viễn Owned Bonus (`+11.49%` / `+6.45%` ATK).\n• **Không mua trùng lặp sớm**: Khi đã mở đủ bộ, dồn toàn bộ phần thặng dư trên `30,000` Medals để nâng cấp `Lv.10` / `Lv.20` vào đúng ngày sự kiện Tuần B!",
-            en: "**Monday Weekly Refresh**: The first Medal Shop slot rotates randomly between Rare (`15,000` Shield Soldier, Cavalry) and Epic (`30,000` Bearskin Warrior) skins.\n• **`15,000–30,000` Safety Floor**: Keep a frozen reserve to immediately unlock unowned skins for their permanent Owned Bonus (`+11.49%` Epic / `+6.45%` Rare ATK).\n• **No Early Duplicates**: Once all shop skins are unlocked, funnel all surplus above `30,000` Medals into `Lv.10` / `Lv.20` upgrades during Week B!",
+            vi: "**Làm mới mỗi Thứ Hai**: Ô đầu tiên của Medal Shop xoay tua ngẫu nhiên giữa Quân trang Xanh (`15,000` Shield Soldier, Cavalry) và Tím (`30,000` Bearskin Warrior).\n• **Ngưỡng đóng băng `15,000–30,000` Medals**: Luôn giữ quỹ dự phòng để mua đứt ngay Quân trang chưa sở hữu, kích hoạt vĩnh viễn Owned Bonus (`+11.49%` / `+6.45%` ATK).\n• **Không mua trùng lặp sớm**: Khi đã mở đủ bộ, dồn toàn bộ phần thặng dư trên `30,000` Medals để nâng cấp `Lv.10` / `Lv.20` vào đúng ngày sự kiện GAR/KvK!",
+            en: "**Monday Weekly Refresh**: The first Medal Shop slot rotates randomly between Rare (`15,000` Shield Soldier, Cavalry) and Epic (`30,000` Bearskin Warrior) skins.\n• **`15,000–30,000` Safety Floor**: Keep a frozen reserve to immediately unlock unowned skins for their permanent Owned Bonus (`+11.49%` Epic / `+6.45%` Rare ATK).\n• **No Early Duplicates**: Once all shop skins are unlocked, funnel all surplus above `30,000` Medals into `Lv.10` / `Lv.20` upgrades during GAR/KvK!",
           },
         },
         {
@@ -605,12 +605,12 @@ export const ARTICLE_7_4_TROOP_SKINS_AND_MEDALS: GuideArticle = {
             ],
             [
               {
-                vi: "4. Xả Huy chương nâng cấp Level Quân trang vào ngày thường (Tuần A): Có bao nhiêu Huy chương là bấm nâng cấp lẻ tẻ ngay lập tức thay vì đồng bộ với sự kiện GAR / KvK / Top Lord.",
-                en: "4. Upgrading Troop Skins on random off-event days (Week A): Spending Glory Medals impulsively whenever they trickle in instead of syncing with GAR / KvK Day 5–6 Soldier Prep / Power Spike events.",
+                vi: "4. Xả Huy chương nâng cấp Level Quân trang vào ngày thường (Thi Đấu Hội): Có bao nhiêu Huy chương là bấm nâng cấp lẻ tẻ ngay lập tức thay vì đồng bộ với sự kiện GAR / KvK / Top Lord.",
+                en: "4. Upgrading Troop Skins on random off-event days (Guild Race): Spending Glory Medals impulsively whenever they trickle in instead of syncing with GAR / KvK Day 5–6 Soldier Prep / Power Spike events.",
               },
               {
-                vi: "Tích trữ toàn bộ Huy chương vượt trên ngưỡng đóng băng 30,000 Medals và chờ đến đúng ngày tính điểm Quân Trang / Lính / Lực Chiến của Tuần B (GAR / KvK / Top Lord) mới bấm nâng cấp hàng loạt để ăn trọn rương mốc cá nhân.",
-                en: "Hoard all Glory Medals above your 30,000 safety floor and wait until the designated Soldier / Troop Skin / Power Spike scoring window in Week B (GAR / KvK / Top Lord) before executing batch upgrades to sweep personal milestone chests.",
+                vi: "Tích trữ toàn bộ Huy chương vượt trên ngưỡng đóng băng 30,000 Medals và chờ đến đúng ngày tính điểm Quân Trang / Lính / Lực Chiến của Kỳ GAR / KvK / Top Lord mới bấm nâng cấp hàng loạt để ăn trọn rương mốc cá nhân.",
+                en: "Hoard all Glory Medals above your 30,000 safety floor and wait until the designated Soldier / Troop Skin / Power Spike scoring window in GAR / KvK / Top Lord before executing batch upgrades to sweep personal milestone chests.",
               },
             ],
           ],

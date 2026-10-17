@@ -820,8 +820,8 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
                     en: "Weeks 8 – 9+ (Day 50 ➔ Day 65+ & Early S1)",
                   },
                   {
-                    vi: "Luân phiên Tuần B (GAR/KvK) ⇄ Tuần A (Guild Race)",
-                    en: "Alternating Week B (GAR/KvK) ⇄ Week A (Guild Race)",
+                    vi: "Luân phiên Kỳ Đua Vũ Trang (GAR/KvK) ⇄ Kỳ Thi Đấu Hội (Guild Race)",
+                    en: "Alternating Arms Race (GAR/KvK) ⇄ Guild Race",
                   },
                   {
                     vi: "Rương Tự Chọn Mythic S0 & Vòng Quay Đợt Thiên Nhiên",

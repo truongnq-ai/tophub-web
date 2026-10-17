@@ -75,8 +75,8 @@
 
 | Term ID | Vietnamese (`vi`) | Canonical English (`en`) |
 | :--- | :--- | :--- |
-| `event-guild-race` | Thi Đấu Hội (Guild Race — Tuần A) | Guild Race (Week A) |
-| `event-guild-arms-race` | Chạy Đua Vũ Trang Bang Hội (Guild Arms Race — GAR) | Guild Arms Race (GAR — Week B) |
+| `event-guild-race` | Thi Đấu Hội (Guild Race — Sự Kiện Bang Hội) | Guild Race |
+| `event-guild-arms-race` | Chạy Đua Vũ Trang Bang Hội (Guild Arms Race — GAR) | Guild Arms Race (GAR) |
 | `event-kvk` | Chiến Tranh Vương Quốc (Kingdom vs Kingdom — KvK) | Kingdom vs Kingdom (KvK / Four Nations League) |
 | `event-dark-empire-invasion` | Đế Quốc Hắc Ám Xâm Nhập (Dark Empire Invasion) | Dark Empire Invasion |
 | `event-dark-legion-challenge` | Khiêu Chiến Của Đội Quân Hắc Ám (Dark Legion Challenge) | Dark Legion Challenge |

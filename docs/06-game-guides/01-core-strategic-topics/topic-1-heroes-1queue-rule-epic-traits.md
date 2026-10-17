@@ -16,7 +16,7 @@ Lộ trình Chuyển giao Liên Minh ➔ Bộ Lạc từ Ngày 21
 
  và 
 
-Chu kỳ Sự kiện Xoay vòng 2 Tuần: Tuần A ⇄ Tuần B
+Chu kỳ Sự kiện Xoay vòng 2 Tuần: Thi Đấu Hội ⇄ GAR/KvK
 
 )
 
@@ -68,7 +68,7 @@ Thời điểm bấm nâng sao:
 
  Chỉ bấm ghép mảnh nâng sao Tướng Đỏ vào 
 
-Thứ 5 (Vòng 4 - Khung giờ vàng 17:00 – 21:00) của Tuần B (Tuần Đua Vũ Trang - GAR / KvK)
+Thứ 5 (Vòng 4 - Khung giờ vàng 17:00 – 21:00) Kỳ GAR/KvK (Tuần Đua Vũ Trang - GAR / KvK)
 
  hoặc khi có 
 
@@ -270,7 +270,7 @@ Mảnh Vạn Năng Tím
 
 Đấu Sĩ lên 12 sao (2 sao Bạc) NGAY LẬP TỨC
 
- (không cần chờ Tuần B vì 30% tốc độ nghiên cứu lời hơn rất nhiều)!
+ (không cần chờ Kỳ GAR/KvK vì 30% tốc độ nghiên cứu lời hơn rất nhiều)!
 
 Ưu Tiên Số 2 (Tối Thượng)
 
@@ -332,7 +332,7 @@ Bộ Lạc
 
 Tăng Tốc Độ Thu Thập Đá (Rogue) & Gỗ (Outlaw)
 
-Nâng tự nhiên bằng mảnh riêng rơi ra từ Quán Rượu (vào Thứ 5 của Tuần B - GAR).
+Nâng tự nhiên bằng mảnh riêng rơi ra từ Quán Rượu (vào Thứ 5 Kỳ GAR/KvK - GAR).
 
 Ưu Tiên Số 5
 

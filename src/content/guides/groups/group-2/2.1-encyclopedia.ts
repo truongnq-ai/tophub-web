@@ -229,8 +229,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "**Hệ Thống Liên Kết Tướng (`Hero Bonds`):** Mở khóa tướng cùng nhóm và chạm mốc Sao (`3★ Vàng`, `1★ Đỏ`, `1★ Trắng`) sẽ cộng vĩnh viễn `% ATK`, `% HP`, `% DEF` toàn tài khoản.\n• **Kỷ luật nâng sao tự nhiên:** Có hiệu lực từ băng ghế dự bị (`Active without deployment`); dùng mảnh riêng nâng sao tướng Vàng/Tím vào Thứ Năm Tuần B (`GAR`).",
-                en: "**Hero Bonds (`Active without deployment` Global Buffs):** Unlocking bond groups and hitting star milestones (`3★ Yellow`, `1★ Red`, `1★ White`) permanently adds global `% ATK`, `% HP`, and `% DEF`.\n• **Natural Star-Up Discipline:** Buffs apply account-wide from the bench; naturally star-up all Tavern Legendary/Epic heroes using specific shards on Thursday of Week B (`GAR`).",
+                vi: "**Hệ Thống Liên Kết Tướng (`Hero Bonds`):** Mở khóa tướng cùng nhóm và chạm mốc Sao (`3★ Vàng`, `1★ Đỏ`, `1★ Trắng`) sẽ cộng vĩnh viễn `% ATK`, `% HP`, `% DEF` toàn tài khoản.\n• **Kỷ luật nâng sao tự nhiên:** Có hiệu lực từ băng ghế dự bị (`Active without deployment`); dùng mảnh riêng nâng sao tướng Vàng/Tím vào Thứ Năm Kỳ `GAR/KvK`.",
+                en: "**Hero Bonds (`Active without deployment` Global Buffs):** Unlocking bond groups and hitting star milestones (`3★ Yellow`, `1★ Red`, `1★ White`) permanently adds global `% ATK`, `% HP`, and `% DEF`.\n• **Natural Star-Up Discipline:** Buffs apply account-wide from the bench; naturally star-up all Tavern Legendary/Epic heroes using specific shards on Thursday of `GAR/KvK`.",
               },
             },
             {
@@ -2008,8 +2008,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 en: "Hyper-Focus Universal Shards Across 2 GAR Cycles",
               },
               detail: {
-                vi: "**Dồn 100% Mảnh Vạn Năng Vàng** trong 2 kỳ `Guild Arms Race` (Tuần B) để kéo `Storm Maiden` từ `3★ Vàng` lên thẳng `1★ Trắng` (`11★` = `560` Mảnh).\n• Tiếp tục kéo `Desert Prince` lên `1★ Đỏ` (`160` Mảnh) ➔ `1★ Trắng` (`560` Mảnh), mặc chuẩn bộ `Kỵ Sĩ Vinh Quang` và `Huyết Titan / Nộ Huyết`.",
-                en: "**Funnel 100% of Universal Legendary Shards** across the next 2 `Guild Arms Race` (Week B) cycles to push `Storm Maiden` from `3★ Yellow` straight to `1★ White` (`11★` = `560` Shards).\n• Then push `Desert Prince` to `1★ Red` (`160` Shards) ➔ `1★ White` (`560` Shards) while equipping `Knight's Glory` and `Blood of the Titan`.",
+                vi: "**Dồn 100% Mảnh Vạn Năng Vàng** trong 2 kỳ `Guild Arms Race` (`GAR`) để kéo `Storm Maiden` từ `3★ Vàng` lên thẳng `1★ Trắng` (`11★` = `560` Mảnh).\n• Tiếp tục kéo `Desert Prince` lên `1★ Đỏ` (`160` Mảnh) ➔ `1★ Trắng` (`560` Mảnh), mặc chuẩn bộ `Kỵ Sĩ Vinh Quang` và `Huyết Titan / Nộ Huyết`.",
+                en: "**Funnel 100% of Universal Legendary Shards** across the next 2 `Guild Arms Race` (`GAR`) cycles to push `Storm Maiden` from `3★ Yellow` straight to `1★ White` (`11★` = `560` Shards).\n• Then push `Desert Prince` to `1★ Red` (`160` Shards) ➔ `1★ White` (`560` Shards) while equipping `Knight's Glory` and `Blood of the Titan`.",
               },
               impactBadge: {
                 vi: "560 Mảnh/Tướng • +30% Skill",
@@ -2023,8 +2023,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 en: "Harvest Real Combat Power Breakthrough After 28 Days",
               },
               detail: {
-                vi: "Sau **28 ngày** (2 Chu kỳ Tuần A/B), **Lực chiến thực chiến Đội 1** tăng vọt `+1.2M`.\n• Giúp tài khoản vượt thêm `+45` tầng **Tháp Thử Thách** và lọt vào `Top 30` **Đấu Trường** máy chủ.",
-                en: "After **28 days** (2 Bi-Weekly A/B Cycles), **Queue 1 Combat Power** surged by `+1.2M`.\n• Propelled the account through `+45` **Trial Tower** floors and into the `Top 30` **Server Arena**.",
+                vi: "Sau **28 ngày** (2 Chu kỳ GAR/KvK), **Lực chiến thực chiến Đội 1** tăng vọt `+1.2M`.\n• Giúp tài khoản vượt thêm `+45` tầng **Tháp Thử Thách** và lọt vào `Top 30` **Đấu Trường** máy chủ.",
+                en: "After **28 days** (2 GAR/KvK Cycles), **Queue 1 Combat Power** surged by `+1.2M`.\n• Propelled the account through `+45` **Trial Tower** floors and into the `Top 30` **Server Arena**.",
               },
               impactBadge: {
                 vi: "+1.2M Queue 1 • Top 30 Arena",

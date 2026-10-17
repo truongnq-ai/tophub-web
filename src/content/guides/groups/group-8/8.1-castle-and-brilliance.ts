@@ -896,8 +896,8 @@ export const ARTICLE_8_1_CASTLE_AND_BRILLIANCE: GuideArticle = {
                   en: "**Barracks Lv.36 ➔ Lv.40 Unlock Zero Troop Tiers**: **Tier 10 Troops** unlock at `Barracks Lv.35`; `Lv.36 ➔ Lv.40` only raises Hero Cap (`Lv.195 ➔ Lv.220`), while **Tier 11 Troops** wait for the Brilliance Institute.",
                 },
                 {
-                  vi: "**Chiến thuật Thực thi**: Từ `Lv.32–33`, ngừng nâng nhà phụ; dồn `100%` Rương Tài Nguyên và Tăng tốc đẩy thẳng `Castle Lv.35` + `Main Barracks Lv.35`, rồi thăng cấp lính bậc thang `T9 ➔ T10` vào Thứ Sáu Tuần B.",
-                  en: "**Execution Protocol**: At `Lv.32–33`, halt side buildings; funnel `100%` of Resource Chests and Speed-ups into `Castle Lv.35` + `Main Barracks Lv.35`, then execute `T9 ➔ T10` ladder promotion on Friday Week B.",
+                  vi: "**Chiến thuật Thực thi**: Từ `Lv.32–33`, ngừng nâng nhà phụ; dồn `100%` Rương Tài Nguyên và Tăng tốc đẩy thẳng `Castle Lv.35` + `Main Barracks Lv.35`, rồi thăng cấp lính bậc thang `T9 ➔ T10` vào Thứ Sáu Kỳ GAR/KvK.",
+                  en: "**Execution Protocol**: At `Lv.32–33`, halt side buildings; funnel `100%` of Resource Chests and Speed-ups into `Castle Lv.35` + `Main Barracks Lv.35`, then execute `T9 ➔ T10` ladder promotion on GAR/KvK Friday.",
                 },
               ],
             },
@@ -1188,8 +1188,8 @@ export const ARTICLE_8_1_CASTLE_AND_BRILLIANCE: GuideArticle = {
                 en: "48-Hour Lv.25 Breakthrough",
               },
               detail: {
-                vi: "Cắm Thợ 1 vào `League Barracks` (`Lv.24 ➔ Lv.25`) lấy Lính `T8`; cắm Thợ 2 hoàn tất `Research Cottage 24` + `Hospital 24`.\n• **Bấm Lâu Đài**: Đẩy thẳng `Castle Lv.24 ➔ Lv.25` (tốn `3.04M` Gỗ/Đá & `142K` Ruby) vào Thứ Hai Tuần B (`Arms Race Day 1`).",
-                en: "Lock Builder 1 on `League Barracks` (`Lv.24 ➔ Lv.25`) for `T8` Troops; use Builder 2 to finish `Research Cottage 24` + `Hospital 24`.\n• **Launch Castle**: Push `Castle Lv.24 ➔ Lv.25` (`3.04M` Timber/Stone & `142K` Rubies) on Monday Week B (`Arms Race Day 1`).",
+                vi: "Cắm Thợ 1 vào `League Barracks` (`Lv.24 ➔ Lv.25`) lấy Lính `T8`; cắm Thợ 2 hoàn tất `Research Cottage 24` + `Hospital 24`.\n• **Bấm Lâu Đài**: Đẩy thẳng `Castle Lv.24 ➔ Lv.25` (tốn `3.04M` Gỗ/Đá & `142K` Ruby) vào Thứ Hai Kỳ GAR/KvK (`Arms Race Day 1`).",
+                en: "Lock Builder 1 on `League Barracks` (`Lv.24 ➔ Lv.25`) for `T8` Troops; use Builder 2 to finish `Research Cottage 24` + `Hospital 24`.\n• **Launch Castle**: Push `Castle Lv.24 ➔ Lv.25` (`3.04M` Timber/Stone & `142K` Rubies) on Monday GAR/KvK (`Arms Race Day 1`).",
               },
             },
             {

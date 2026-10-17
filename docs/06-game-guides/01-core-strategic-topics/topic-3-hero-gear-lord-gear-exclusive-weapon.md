@@ -28,7 +28,7 @@ Lộ trình Chuyển giao Liên Minh ➔ Bộ Lạc từ Ngày 21
 
  và 
 
-Chu kỳ Sự kiện 2 Tuần: Tuần A ⇄ Tuần B
+Chu kỳ Sự kiện 2 Tuần: Thi Đấu Hội ⇄ GAR/KvK
 
 )
 
@@ -136,7 +136,7 @@ CÓ TÍNH ĐIỂM CỰC LỚN!
 
 - 
 
-Tuần A (Thi Đấu Hội):
+Kỳ Thi Đấu Hội (Guild Race):
 
  Có Nhiệm vụ Độc quyền Vàng vào Ngày 5, 6, 7.
 
@@ -144,7 +144,7 @@ Tuần A (Thi Đấu Hội):
 
 - 
 
-Tuần B (GAR):
+Kỳ GAR/KvK (GAR):
 
  Tính điểm lớn ở 
 
@@ -172,7 +172,7 @@ TUYỆT ĐỐI TÍCH TRỮ!
 
 1. 
 
-Tuần A:
+Kỳ Thi Đấu Hội:
 
  Vào 
 
@@ -188,7 +188,7 @@ Nhiệm vụ Độc quyền Vàng: "Tăng Lực Chiến Trang Bị Lãnh Chúa"
 
 2. 
 
-Tuần B (GAR / KvK / Top Lord):
+Kỳ Đua Vũ Trang (GAR / KvK / Top Lord):
 
  Xả vào 
 
@@ -220,7 +220,7 @@ Thứ 5 (Vòng 4 - Khung giờ 17:00 – 21:00)
 
  của 
 
-Tuần B (GAR / KvK)
+Kỳ Đua Vũ Trang (GAR / KvK)
 
  hoặc khi có Mini-Event 
 

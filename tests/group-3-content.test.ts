@@ -102,8 +102,21 @@ describe("Group 3 (events) Standardized v2.0 Content, UI Block Contracts & Quant
     expect(serialized).not.toContain("+360 to +540 points");
     expect(serialized).not.toContain("Bung Mảnh Tướng Đỏ & Đột Phá Đồ Vàng");
 
-    // 2. Article 3.1: 2-Phase Server Evolution, Fixed 2-Day Guild Rush & 8 Rotating Sub-Events
+    // 2. Article 3.1: 2-Phase Server Evolution, Independent 3-Week Gacha Cycle, Fixed 2-Day Guild Rush & 8 Rotating Sub-Events
     const s31 = JSON.stringify(getArticleBySlug("events", "biweekly-rotation"));
+    expect(s31).not.toContain("Đua Bang Hội + Xúc Xắc");
+    expect(s31).not.toContain("Guild Race + Dice");
+    expect(s31).not.toContain("KvK + Vòng Quay");
+    expect(s31).not.toContain("KvK + Wheel");
+    expect(s31).not.toContain("4 Nations + Wheel");
+    expect(s31).not.toContain("Tích trữ 13 Ngày, Bùng nổ đúng Ngày");
+    expect(s31).not.toContain("Hoard for 13 Days, Burst on the Right Day");
+    expect(s31).not.toContain("Dice Event (Week A) & Lucky Wheel (Week B)");
+    expect(s31).not.toContain("+ DICE +");
+    expect(s31).not.toContain("+ WHEEL +");
+    expect(s31).toContain("3 tuần/lần");
+    expect(s31).toContain("every 3rd week");
+    expect(s31).toContain("Hero Gacha");
     expect(s31).toContain("09:00");
     expect(s31).toContain("Đế Quốc Hắc Ám");
     expect(s31).toContain("Tập Kích Cự Ma");
@@ -183,4 +196,37 @@ describe("Group 3 (events) Standardized v2.0 Content, UI Block Contracts & Quant
       expect(serialized).not.toContain(term);
     }
   });
+
+  it("enforces Server-Progression Event Roadmap terminology and eliminates legacy Week A / Week B framing across Group 3", () => {
+    const category = getCategoryBySlug("events")!;
+    const rawCategory = JSON.stringify(category);
+
+    const a31 = getArticleBySlug("events", "biweekly-rotation")!;
+    const a32 = getArticleBySlug("events", "week-a-guild-race")!;
+    const a33 = getArticleBySlug("events", "week-b-arms-race")!;
+
+    expect(a31.title.vi).toBe(
+      "Lộ Trình Sự Kiện Theo Tiến Độ Server & 2 Trục Sự Kiện Cốt Lõi (Server Event Progression & Rotation)"
+    );
+    expect(a31.title.en).toBe(
+      "Server Event Progression Roadmap & Core Event Rotation"
+    );
+    expect(a32.title.vi).toBe(
+      "Chiến Thuật Thi Đấu Hội: Làm Chủ Bảng 9 Ô & Săn Nhiệm Vụ Độc Quyền Vàng (Guild Race)"
+    );
+    expect(a32.title.en).toBe(
+      "Guild Race Strategy: 9-Slot Board & Exclusive Gold Task Mastery"
+    );
+    expect(a33.title.vi).toBe(
+      "Chiến Thuật Đua Vũ Trang & Liên Server: Giải Phẫu Lịch 6 Ngày (GAR / KvK / 4 Quốc Gia)"
+    );
+    expect(a33.title.en).toBe(
+      "Arms Race & Cross-Server Strategy: 6-Day Event Anatomy (GAR / KvK / 4 Nations)"
+    );
+
+    expect(rawCategory).not.toMatch(
+      /Tuần\s+A\b|Tuần\s+B\b|\bWeek\s+A\b|\bWeek\s+B\b|Nhịp Đập 14 Ngày|14-Day Heartbeat|Chu kỳ 14 ngày|biweekly rotation/i
+    );
+  });
 });
+

@@ -16,7 +16,7 @@ Lộ trình Chuyển giao Liên Minh ➔ Bộ Lạc từ Ngày 21
 
  và 
 
-Chu kỳ Sự kiện Xoay vòng 2 Tuần: Tuần A ⇄ Tuần B
+Chu kỳ Sự kiện Xoay vòng 2 Tuần: Thi Đấu Hội ⇄ GAR/KvK
 
 )
 
@@ -658,7 +658,7 @@ Hiệp Sĩ Tráng Miệng (Dessert Knight)
 --------------------------------------------------------------------------------
 
 
-MỤC 3: LỊCH TRÌNH ĐỒNG BỘ HÓA TIỆM VỚI CHU KỲ SỰ KIỆN 2 TUẦN (TUẦN A ⇄ TUẦN B)
+MỤC 3: LỊCH TRÌNH ĐỒNG BỘ HÓA TIỆM VỚI CHU KỲ SỰ KIỆN 2 TUẦN (KỲ THI ĐẤU HỘI ⇄ KỲ GAR/KVK)
 
 Lưu ý sống còn: Hành động bấm 
 
@@ -674,7 +674,7 @@ Thi Đấu Hội
 
  của 
 
-Tuần A
+Kỳ Thi Đấu Hội
 
 ). Còn hành động 
 
@@ -682,23 +682,23 @@ Bấm Ghép Mảnh / Quay Vé / Tiêu Huân Chương
 
  thì phải tuân thủ nghiêm ngặt sự khác biệt giữa 
 
-Tuần A
+Kỳ Thi Đấu Hội
 
  và 
 
-Tuần B
+Kỳ GAR/KvK
 
  dưới đây:
 
-Bảng 3.1: Ma trận Mua Sắm & Xả Tài Nguyên Tiệm Theo Chu Kỳ Tuần A vs Tuần B
+Bảng 3.1: Ma trận Mua Sắm & Xả Tài Nguyên Tiệm Theo Chu Kỳ Kỳ Thi Đấu Hội vs Kỳ GAR/KvK
 
 Hạng Mục Thao Tác
 
-TRONG TUẦN A: Tuần "Thi Đấu Hội" (Guild Race) 
+TRONG KỲ THI ĐẤU HỘI: Tuần "Thi Đấu Hội" (Guild Race) 
 
 (Ví dụ: Tuần 3, Tuần 5...)
 
-TRONG TUẦN B: Tuần "Đua Vũ Trang (GAR)" / "KvK" / "Top Lord" 
+TRONG KỲ GAR/KVK: Tuần "Đua Vũ Trang (GAR)" / "KvK" / "Top Lord" 
 
 (Ví dụ: Tuần 4, Tuần 6...)
 
@@ -734,7 +734,7 @@ Vào Tiệm Đấu Trường mua ngay Gói 300 KC (50 Sao) + Vé chiêu mộ (50
 
 2. Sử dụng Thẻ Chiêu Mộ & Mảnh Tướng Cam đã mua từ Tiệm
 
-⛔ CẤM XẢ TRONG TUẦN A!
+⛔ CẤM XẢ TRONG KỲ THI ĐẤU HỘI!
 
 <br>
 
@@ -756,7 +756,7 @@ Thi Đấu Hội
 
  (điểm cực thấp). Hãy tích toàn bộ vé và mảnh chờ sang 
 
-Thứ 5 của Tuần B
+Thứ 5 Kỳ GAR/KvK
 
 ! 
 
@@ -776,7 +776,7 @@ Thứ 5 của Tuần B
 
 Thẻ Chiêu Mộ
 
- tích từ Tuần A + Tuần B.
+ tích từ Thi Đấu Hội + GAR/KvK.
 
 <br>
 
@@ -812,7 +812,7 @@ Double-Dip
 
 3. Sử dụng Huân Chương nâng cấp Level Quân Trang
 
-Giữ Huân chương ở ngưỡng an toàn (15k–30k). Nếu dư, chỉ đập cấp Quân trang nếu có Mini-Event 2 ngày yêu cầu, hoặc tích chờ Tuần B.
+Giữ Huân chương ở ngưỡng an toàn (15k–30k). Nếu dư, chỉ đập cấp Quân trang nếu có Mini-Event 2 ngày yêu cầu, hoặc tích chờ Kỳ GAR/KvK.
 
 XẢ VÀO THỨ 7 (Vòng 6 - Ngày Quân Trang / Tăng Cường Lực Chiến)
 

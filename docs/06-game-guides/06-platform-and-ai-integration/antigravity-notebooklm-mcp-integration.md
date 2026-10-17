@@ -48,7 +48,7 @@ Cẩm nang Top Heroes
 
 https://gemini.google.com/notebook/37823518-f354-4875-8e61-eede860cf03e
 
- hiện tại là cực kỳ tiềm năng! Trong sổ tay của anh đã có sẵn hệ thống kiến thức chuẩn hóa theo tư duy Min-Maxer (từ lộ trình chuyển giao Liên Minh sang Bộ Lạc[cite: 3], quản lý tiệm & quân trang[cite: 4, 21], ma trận công nghệ[cite: 9] cho đến lịch xoay vòng sự kiện Tuần A/Tuần B[cite: 20, 22]).
+ hiện tại là cực kỳ tiềm năng! Trong sổ tay của anh đã có sẵn hệ thống kiến thức chuẩn hóa theo tư duy Min-Maxer (từ lộ trình chuyển giao Liên Minh sang Bộ Lạc[cite: 3], quản lý tiệm & quân trang[cite: 4, 21], ma trận công nghệ[cite: 9] cho đến lịch xoay vòng sự kiện Kỳ Thi Đấu Hội/Kỳ GAR/KvK[cite: 20, 22]).
 
 Câu trả lời cho câu hỏi của anh là: 
 
@@ -316,7 +316,7 @@ Agent Manager
 
  đều hiểu rõ luật của game Top Heroes:
 
-Chỉ sử dụng dữ liệu từ bộ cẩm nang chuẩn hóa (như chiến thuật khởi đầu bằng Liên Minh 3 tuần đầu rồi chuyển giao sang Bộ Lạc từ Ngày 21–41[cite: 3], quy tắc 1 hàng[cite: 19, 21], lịch sự kiện Tuần A Thi Đấu Hội vs Tuần B Đua Vũ Trang[cite: 20]...).
+Chỉ sử dụng dữ liệu từ bộ cẩm nang chuẩn hóa (như chiến thuật khởi đầu bằng Liên Minh 3 tuần đầu rồi chuyển giao sang Bộ Lạc từ Ngày 21–41[cite: 3], quy tắc 1 hàng[cite: 19, 21], lịch sự kiện Kỳ Thi Đấu Hội Thi Đấu Hội vs Kỳ GAR/KvK Đua Vũ Trang[cite: 20]...).
 
 Hỗ trợ đa ngôn ngữ (Tiếng Việt / Tiếng Anh) dựa trên bảng thuật ngữ song ngữ Anh - Việt có sẵn trong sổ tay (ví dụ: 
 

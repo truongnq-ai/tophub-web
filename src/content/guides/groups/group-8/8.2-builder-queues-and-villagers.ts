@@ -11,8 +11,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
     en: "Builder Queue Orchestration & Villager Optimization Strategy (Lv.1–6)",
   },
   summary: {
-    vi: "Chiến thuật phân công chuyên môn hóa 2–3–4 Hàng đợi Thợ xây không một giây nhàn rỗi, thông số Ground-Truth của dàn Tướng Kinh Tế 12 Sao (+30% / +40%), bảng 14 dòng kỹ năng Dân làng (Villagers Lv.1–6) và kỹ thuật găm Hộp Quà Công Trình (Gift Box Banking) ăn trọn điểm Thứ Hai Tuần B.",
-    en: "Zero-idle orchestration for 2–3–4 Builder Queues, Ground-Truth 12-Star passive Economic Hero traits (+30% / +40%), the 14-row quantitative Villager skill table (Lv.1–6), and Sunday Unopened Gift Box Banking for Week B Arms Race Day 1.",
+    vi: "Chiến thuật phân công chuyên môn hóa 2–3–4 Hàng đợi Thợ xây không một giây nhàn rỗi, thông số Ground-Truth của dàn Tướng Kinh Tế 12 Sao (+30% / +40%), bảng 14 dòng kỹ năng Dân làng (Villagers Lv.1–6) và kỹ thuật găm Hộp Quà Công Trình (Gift Box Banking) ăn trọn điểm Thứ Hai Kỳ GAR/KvK.",
+    en: "Zero-idle orchestration for 2–3–4 Builder Queues, Ground-Truth 12-Star passive Economic Hero traits (+30% / +40%), the 14-row quantitative Villager skill table (Lv.1–6), and Sunday Unopened Gift Box Banking for GAR / KvK Day 1.",
   },
   tldr: {
     coreRule: {
@@ -24,8 +24,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
       en: "**Disable Auto-Assign** in the **Villager Management UI**, strip Villagers from Timber/Stone mills, and slot manually:\n• **Speed Tier (S+)**: **Research Cottage** (`+0.60% ➔ +3.20%` & `40s ➔ 432s`), **Guild** (`+1 ➔ +5` Help), **Castle** (`+0.60% ➔ +2.00%` & `40s ➔ 160s`).\n• **Combat Tier (S)**: **Medal Hall** (`+17.50%` HP & `+5.60%` ATK) and **Main Barracks** (`+4.40%` Speed & `+13` Training Cap).",
     },
     strictTaboo: {
-      vi: "**Tuyệt đối KHÔNG** cắn bình Tăng tốc Xây dựng sớm hoặc khui Hộp Quà công trình sai ngày:\n• **Chờ Guild Help**: Không dùng bình tăng tốc khi thanh **Trợ giúp Bang hội** (`Guild Help`) chưa đầy.\n• **Gift Box Banking**: Không chạm mở biểu tượng Hộp Quà trên mái nhà vào Thứ Bảy/Chủ Nhật — giữ nguyên để nổ điểm vào **Thứ Hai Tuần B** (`Arms Race Day 1`)!",
-      en: "**NEVER waste** Construction Speed-ups early or pop completed building Gift Boxes on the wrong day:\n• **Wait for Guild Help**: Never consume speed-ups before your `Guild Help` bar is completely full.\n• **Gift Box Banking**: Never tap the rooftop Gift Box on Saturday/Sunday—leave it untouched to detonate points on **Monday Week B** (`Arms Race Day 1`)!",
+      vi: "**Tuyệt đối KHÔNG** cắn bình Tăng tốc Xây dựng sớm hoặc khui Hộp Quà công trình sai ngày:\n• **Chờ Guild Help**: Không dùng bình tăng tốc khi thanh **Trợ giúp Bang hội** (`Guild Help`) chưa đầy.\n• **Gift Box Banking**: Không chạm mở biểu tượng Hộp Quà trên mái nhà vào Thứ Bảy/Chủ Nhật — giữ nguyên để nổ điểm vào **Thứ Hai Kỳ GAR/KvK** (`Arms Race Day 1`)!",
+      en: "**NEVER waste** Construction Speed-ups early or pop completed building Gift Boxes on the wrong day:\n• **Wait for Guild Help**: Never consume speed-ups before your `Guild Help` bar is completely full.\n• **Gift Box Banking**: Never tap the rooftop Gift Box on Saturday/Sunday—leave it untouched to detonate points on **GAR/KvK Monday** (`Arms Race Day 1`)!",
     },
   },
   keyTakeaways: [
@@ -38,8 +38,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
       en: "**14-Row Quantitative Villagers & Famous Villagers Table (`Lv.1 ➔ Lv.6` — `Tab Villagers`)**:\n• **S+ & S Tiers**: `Research Cottage` (`+0.60%➔+3.20%`, `40s➔360s/432s`), `Guild` (`+1➔+5` Help), `Castle` (`+0.60%➔+2.00%`, `40s➔160s`), `Medal Hall` (`+17.50%` HP, `+5.60%` ATK), `Barracks` (`+4.40%`, `+13`).\n• **A+/A/B Tiers**: `Faction Statue` (`+1➔+7` March Size), `Hero Statue`, `Hospital` (`+200➔+2,100` cap), Ruby/Ore/Medal Mines (`+57.50%➔+143.75%`, `+16,560s` storage), and `Queue` (`+1%➔+10%` Boss).",
     },
     {
-      vi: "**Lịch trình Nhịp Sinh Học Ngày/Đêm (`Sleep-Cycle`) & Kỹ thuật Ngâm Hộp Quà (`Gift Box Banking`)**:\n• **Nhịp Ngày/Đêm**: Ban ngày (`08:00–22:00`) bấm nhà ngắn `15m–3h` ăn tối đa `Guild Help`; ban đêm (`23:00`) bấm dự án dài `8h–48h` chạy xuyên đêm.\n• **Ngâm Hộp Quà**: Chủ Nhật giữ nguyên biểu tượng `Gift Box` trên mái nhà để khui nổ điểm vào khung giờ vàng `13:00–17:00` Thứ Hai Tuần B (`Arms Race Day 1`)!",
-      en: "**Day/Night `Sleep-Cycle` Scheduling & Unopened `Gift Box Banking`**:\n• **Day/Night Routing**: Run short `15m–3h` upgrades during daytime (`08:00–22:00`) for free `Guild Helps`; queue long `8h–48h` projects before sleep (`23:00`).\n• **Gift Box Banking**: Leave Sunday's completed building `Gift Boxes` untouched on the roof to pop them in Monday Week B's `13:00–17:00` Golden Window (`Arms Race Day 1`)!",
+      vi: "**Lịch trình Nhịp Sinh Học Ngày/Đêm (`Sleep-Cycle`) & Kỹ thuật Ngâm Hộp Quà (`Gift Box Banking`)**:\n• **Nhịp Ngày/Đêm**: Ban ngày (`08:00–22:00`) bấm nhà ngắn `15m–3h` ăn tối đa `Guild Help`; ban đêm (`23:00`) bấm dự án dài `8h–48h` chạy xuyên đêm.\n• **Ngâm Hộp Quà**: Chủ Nhật giữ nguyên biểu tượng `Gift Box` trên mái nhà để khui nổ điểm vào khung giờ vàng `13:00–17:00` Thứ Hai Kỳ GAR/KvK (`Arms Race Day 1`)!",
+      en: "**Day/Night `Sleep-Cycle` Scheduling & Unopened `Gift Box Banking`**:\n• **Day/Night Routing**: Run short `15m–3h` upgrades during daytime (`08:00–22:00`) for free `Guild Helps`; queue long `8h–48h` projects before sleep (`23:00`).\n• **Gift Box Banking**: Leave Sunday's completed building `Gift Boxes` untouched on the roof to pop them in GAR/KvK Monday's `13:00–17:00` Golden Window (`Arms Race Day 1`)!",
     },
   ],
   keywords: [
@@ -171,8 +171,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                     en: "• Queue 1 Main Faction Statue\n• Rally Hall, Lord Hall, Medal Hall\n• Enhancement Ore Mine, Magic Stone Mine, Monastery\n• Short-duration resource nodes for Legendary Tasks / Events",
                   },
                   {
-                    vi: "Luôn ưu tiên các công trình có thời gian xây ngắn hoặc trung bình để linh hoạt giải phóng hàng đợi mỗi khi bước vào Tuần A (Guild Race) hoặc Thứ Hai Tuần B (GAR).",
-                    en: "Prioritizes short-to-medium duration upgrades so the queue can be freed on demand entering Week A (Guild Race) or Monday of Week B (GAR Day 1).",
+                    vi: "Luôn ưu tiên các công trình có thời gian xây ngắn hoặc trung bình để linh hoạt giải phóng hàng đợi mỗi khi bước vào Kỳ Thi Đấu Hội (Guild Race) hoặc Thứ Hai Kỳ GAR/KvK.",
+                    en: "Prioritizes short-to-medium duration upgrades so the queue can be freed on demand entering Guild Race or Monday of GAR/KvK (GAR Day 1).",
                   },
                 ],
                 [
@@ -204,8 +204,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                 en: "3–4 Builder Queue HUD & Unopened Building Gift Box Roof Icon Anatomy",
               },
               description: {
-                vi: "Ảnh chụp màn hình toàn cảnh Làng khoanh vùng thanh 3–4 Hàng đợi Thợ xây bên góc trái (Thợ 1 khóa Lâu Đài, Thợ 2 đón đầu điều kiện, Thợ 3 công trình ngắn) và khoanh đỏ biểu tượng Hộp Quà Công Trình chưa mở (Unopened Building Gift Box) trên mái nhà chờ Thứ Hai Tuần B.",
-                en: "Annotated village overview highlighting the left-side 3–4 Builder Queue HUD (Builder 1 on Castle, Builder 2 pre-building prerequisites, Builder 3 on short support projects) and circling the Unopened Building Gift Box icon on the roof saved for Monday of Week B.",
+                vi: "Ảnh chụp màn hình toàn cảnh Làng khoanh vùng thanh 3–4 Hàng đợi Thợ xây bên góc trái (Thợ 1 khóa Lâu Đài, Thợ 2 đón đầu điều kiện, Thợ 3 công trình ngắn) và khoanh đỏ biểu tượng Hộp Quà Công Trình chưa mở (Unopened Building Gift Box) trên mái nhà chờ Thứ Hai Kỳ GAR/KvK.",
+                en: "Annotated village overview highlighting the left-side 3–4 Builder Queue HUD (Builder 1 on Castle, Builder 2 pre-building prerequisites, Builder 3 on short support projects) and circling the Unopened Building Gift Box icon on the roof saved for GAR/KvK Monday.",
               },
               annotations: [
                 {
@@ -378,8 +378,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                     en: "• Magic Stone Mine, Monastery\n• Medal Monument\n• Ruby Mine (Higher priority than Timber/Stone due to late-game Ruby starvation)",
                   },
                   {
-                    vi: "Tiếp tục dùng các công trình cấp thấp còn sót lại để rướn điểm Nhiệm vụ Vàng Guild Race (Tuần A).",
-                    en: "Continue using remaining low-level resource nodes to snipe Legendary Guild Race tasks (Week A).",
+                    vi: "Tiếp tục dùng các công trình cấp thấp còn sót lại để rướn điểm Nhiệm vụ Vàng Guild Race (Thi Đấu Hội).",
+                    en: "Continue using remaining low-level resource nodes to snipe Legendary Guild Race tasks (Guild Race).",
                   },
                 ],
               ],
@@ -457,8 +457,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                     en: "Queue Overnight Projects (8–12h+) at 23:00 & Bank Unopened Gift Boxes on Sunday",
                   },
                   detail: {
-                    vi: "Trước khi ngủ, nếu hàng đợi còn dưới `1–2 giờ`, hãy dùng ít tăng tốc dứt điểm rồi bấm nhà dài `8–12+ giờ`; vào Chủ Nhật giữ nguyên biểu tượng `Gift Box` trên mái nhà chờ Thứ Hai Tuần B.",
-                    en: "Before bed, finish any queue under `1–2 hours` and start an `8–12h+` overnight upgrade; on Sunday, leave completed `Gift Box` icons untouched on the roof for Monday Week B.",
+                    vi: "Trước khi ngủ, nếu hàng đợi còn dưới `1–2 giờ`, hãy dùng ít tăng tốc dứt điểm rồi bấm nhà dài `8–12+ giờ`; vào Chủ Nhật giữ nguyên biểu tượng `Gift Box` trên mái nhà chờ Thứ Hai Kỳ GAR/KvK.",
+                    en: "Before bed, finish any queue under `1–2 hours` and start an `8–12h+` overnight upgrade; on Sunday, leave completed `Gift Box` icons untouched on the roof for GAR/KvK Monday.",
                   },
                   badge: {
                     vi: "23:00 MỖI TỐI",
@@ -528,8 +528,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                 en: "Tapping the 'Unopened Gift Box' on completed buildings on Saturday or Sunday: Wastes tens of thousands of construction power points right before Monday's event reset.",
               },
               {
-                vi: "Kỹ thuật Găm Hộp Quà Trên Mái Nhà (Gift Box Banking): Khi công trình xây xong, điểm Lực chiến công trình chỉ được cộng vào sự kiện tại thời điểm bạn chạm tay vào Gift Box trên nóc nhà. Hãy để nguyên hộp quà đó chờ tới Thứ Hai Tuần B (Arms Race Day 1) mới bấm mở!",
-                en: "Rooftop Gift Box Banking: When a building upgrade finishes, its Building Power points are only credited at the exact moment you tap the Gift Box icon on the roof. Leave the Gift Box untouched until Monday of Week B (Arms Race Day 1) before popping it!",
+                vi: "Kỹ thuật Găm Hộp Quà Trên Mái Nhà (Gift Box Banking): Khi công trình xây xong, điểm Lực chiến công trình chỉ được cộng vào sự kiện tại thời điểm bạn chạm tay vào Gift Box trên nóc nhà. Hãy để nguyên hộp quà đó chờ tới Thứ Hai Kỳ GAR/KvK (Arms Race Day 1) mới bấm mở!",
+                en: "Rooftop Gift Box Banking: When a building upgrade finishes, its Building Power points are only credited at the exact moment you tap the Gift Box icon on the roof. Leave the Gift Box untouched until GAR/KvK Monday (Arms Race Day 1) before popping it!",
               },
             ],
           ],
@@ -991,8 +991,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                     en: "—",
                   },
                   {
-                    vi: "Cực kỳ quan trọng để đua điểm lính vào Thứ Sáu Tuần B (GAR Day 5).",
-                    en: "Crucial for maximizing troop training points on Friday of Week B (GAR Day 5).",
+                    vi: "Cực kỳ quan trọng để đua điểm lính vào Thứ Sáu Kỳ GAR/KvK (GAR Day 5).",
+                    en: "Crucial for maximizing troop training points on GAR/KvK Friday (GAR Day 5).",
                   },
                 ],
                 [
@@ -1261,8 +1261,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Để không lãng phí giây phút nào của **3–4 Hàng đợi Thợ xây** và gom trọn `100%` điểm số của Tuần A (`Guild Race`) lẫn Tuần B (`Arms Race Day 1`), hãy áp dụng sơ đồ điều phối nhịp sinh học 7 ngày dưới đây:",
-                en: "To guarantee zero wasted seconds across **3–4 Builder Queues** while capturing `100%` of points in Week A (`Guild Race`) and Week B (`Arms Race Day 1`), execute the 7-day biological & event-sync timeline below:",
+                vi: "Để không lãng phí giây phút nào của **3–4 Hàng đợi Thợ xây** và gom trọn `100%` điểm số của Kỳ Thi Đấu Hội (`Guild Race`) lẫn Kỳ GAR/KvK (`Arms Race Day 1`), hãy áp dụng sơ đồ điều phối nhịp sinh học 7 ngày dưới đây:",
+                en: "To guarantee zero wasted seconds across **3–4 Builder Queues** while capturing `100%` of points in Guild Race and GAR/KvK (`Arms Race Day 1`), execute the 7-day biological & event-sync timeline below:",
               },
             },
             {
@@ -1274,8 +1274,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                 en: "3–4 Builder Queue Day/Night Sleep-Cycle & Sunday Rooftop Gift Box Banking Timeline",
               },
               subtitle: {
-                vi: "Phối hợp Thợ 1–2 (Công trình Lớn 24h–72h) và Thợ 3 (Công trình Ngắn/Vừa) từ Thứ Ba đến Khung Giờ Vàng Thứ Hai Tuần B",
-                en: "Synchronizing Builders 1–2 (Major 24h–72h Upgrades) and Builder 3 (Short/Medium Projects) from Tuesday through Monday Week B's Golden Window",
+                vi: "Phối hợp Thợ 1–2 (Công trình Lớn 24h–72h) và Thợ 3 (Công trình Ngắn/Vừa) từ Thứ Ba đến Khung Giờ Vàng Thứ Hai Kỳ GAR/KvK",
+                en: "Synchronizing Builders 1–2 (Major 24h–72h Upgrades) and Builder 3 (Short/Medium Projects) from Tuesday through GAR/KvK Monday's Golden Window",
               },
               centerNode: {
                 id: "node-8-2-center-sleep-giftbox",
@@ -1288,8 +1288,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                   en: "DAY/NIGHT SLEEP-CYCLE & UNOPENED ROOFTOP GIFT BOX BANKING PROTOCOL",
                 },
                 subtitle: {
-                  vi: "0 phút thợ nhàn rỗi + Bảo lưu 100% điểm Lực chiến công trình sang Thứ Hai Tuần B (Arms Race Day 1)",
-                  en: "Zero idle builder minutes + 100% Building Power banked for Monday Week B (Arms Race Day 1)",
+                  vi: "0 phút thợ nhàn rỗi + Bảo lưu 100% điểm Lực chiến công trình sang Thứ Hai Kỳ GAR/KvK (Arms Race Day 1)",
+                  en: "Zero idle builder minutes + 100% Building Power banked for GAR/KvK Monday (Arms Race Day 1)",
                 },
                 tone: "gold",
               },
@@ -1394,12 +1394,12 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                 },
                 {
                   title: {
-                    vi: "Giai Đoạn 3: Thứ Hai Tuần B (Arms Race Day 1 — Khung Giờ Vàng Double-Dip)",
-                    en: "Phase 3: Monday Week B (Arms Race Day 1 — Golden Window Double-Dip)",
+                    vi: "Giai Đoạn 3: Thứ Hai Kỳ GAR/KvK (Arms Race Day 1 — Khung Giờ Vàng Double-Dip)",
+                    en: "Phase 3: GAR/KvK Monday (Arms Race Day 1 — Golden Window Double-Dip)",
                   },
                   badge: {
-                    vi: "THỨ HAI TUẦN B",
-                    en: "MONDAY WEEK B",
+                    vi: "THỨ HAI GAR/KVK",
+                    en: "GAR/KVK MONDAY",
                   },
                   tone: "emerald",
                   steps: [
@@ -1452,8 +1452,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
         {
           id: "sub-4-3-week-a-vs-week-b-speedup-protocol",
           title: {
-            vi: "4.3. Quy tắc Xả Tăng Tốc Xây Dựng Giữa Tuần A (Guild Race) vs Tuần B (GAR / KvK)",
-            en: "4.3. Construction Speed-up Burst Protocol: Week A (Guild Race) vs. Week B (GAR / KvK)",
+            vi: "4.3. Quy tắc Xả Tăng Tốc Xây Dựng Giữa Kỳ Thi Đấu Hội (Guild Race) vs Kỳ Đua Vũ Trang (GAR / KvK)",
+            en: "4.3. Construction Speed-up Burst Protocol: Guild Race vs. GAR / KvK",
           },
           blocks: [
             {
@@ -1461,12 +1461,12 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
               ordered: false,
               items: [
                 {
-                  vi: "**Tuần A (Guild Race)**: Chỉ xả Tăng tốc Xây dựng ngay sau khi vừa nhận **Nhiệm Vụ Vàng** (`Legendary Task`) yêu cầu tăng tốc/lực chiến công trình; ưu tiên ghép vào Thứ Sáu–Chủ Nhật nếu trùng `Guild Rush`.",
-                  en: "**Week A (Guild Race)**: Only spend Construction Speed-ups right after accepting a **Legendary Task** requiring build speed-ups or power; stack them on Friday–Sunday when `Guild Rush` or `Ultimate Power` overlaps.",
+                  vi: "**Kỳ Thi Đấu Hội (Guild Race)**: Chỉ xả Tăng tốc Xây dựng ngay sau khi vừa nhận **Nhiệm Vụ Vàng** (`Legendary Task`) yêu cầu tăng tốc/lực chiến công trình; ưu tiên ghép vào Thứ Sáu–Chủ Nhật nếu trùng `Guild Rush`.",
+                  en: "**Guild Race**: Only spend Construction Speed-ups right after accepting a **Legendary Task** requiring build speed-ups or power; stack them on Friday–Sunday when `Guild Rush` or `Ultimate Power` overlaps.",
                 },
                 {
-                  vi: "**Tuần B (GAR / KvK / Top Lord)**: Đóng băng `100%` bình Tăng tốc Xây dựng từ Thứ Ba đến Chủ Nhật; chỉ xả vào **Thứ Hai** (`GAR Day 1`) đúng Khung giờ Vàng (`13:00–17:00`) để mở trọn 6 rương (`Extra Rewards`).",
-                  en: "**Week B (GAR / KvK / Top Lord)**: Freeze `100%` of Construction Speed-ups from Tuesday to Sunday; burst exclusively on **Monday** (`GAR Day 1`) inside the `13:00–17:00` Golden Window to clear all 6 chests.",
+                  vi: "**Kỳ GAR / KvK / Top Lord**: Đóng băng `100%` bình Tăng tốc Xây dựng từ Thứ Ba đến Chủ Nhật; chỉ xả vào **Thứ Hai** (`GAR Day 1`) đúng Khung giờ Vàng (`13:00–17:00`) để mở trọn 6 rương (`Extra Rewards`).",
+                  en: "**GAR / KvK / Top Lord**: Freeze `100%` of Construction Speed-ups from Tuesday to Sunday; burst exclusively on **Monday** (`GAR Day 1`) inside the `13:00–17:00` Golden Window to clear all 6 chests.",
                 },
               ],
             },
@@ -1510,8 +1510,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
             en: "Friday Prerequisite Pre-Cooking & Sunday Rooftop Gift Box Banking for a Castle Lv.27 Account",
           },
           profileSummary: {
-            vi: "Tài khoản sở hữu **3 Hàng đợi Thợ xây** ở tối Thứ Sáu Tuần A (`Castle Lv.27`) chuẩn bị bùng nổ điểm tối đa cho **Thứ Hai Tuần B** (`Arms Race Day 1`) chỉ với `50%` lượng bình tăng tốc thông thường.",
-            en: "A **3-Builder-Queue** account on Friday evening of Week A (`Castle Lv.27`) preparing to maximize construction points on **Monday Week B** (`Arms Race Day 1`) using only `50%` of the normal speed-up budget.",
+            vi: "Tài khoản sở hữu **3 Hàng đợi Thợ xây** ở tối Thứ Sáu Kỳ Thi Đấu Hội (`Castle Lv.27`) chuẩn bị bùng nổ điểm tối đa cho **Thứ Hai Kỳ GAR/KvK** (`Arms Race Day 1`) chỉ với `50%` lượng bình tăng tốc thông thường.",
+            en: "A **3-Builder-Queue** account on Friday evening of Guild Race (`Castle Lv.27`) preparing to maximize construction points on **GAR/KvK Monday** (`Arms Race Day 1`) using only `50%` of the normal speed-up budget.",
           },
           metrics: [
             {
@@ -1583,8 +1583,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
             {
               stepNumber: "1",
               title: {
-                vi: "Chiều Thứ Sáu Tuần A: Thiết lập Hàng đợi Đón đầu (Pre-Cooking Construction)",
-                en: "Friday Afternoon (Week A): Initiate Prerequisite Pre-Cooking",
+                vi: "Chiều Thứ Sáu Kỳ Thi Đấu Hội: Thiết lập Hàng đợi Đón đầu (Pre-Cooking Construction)",
+                en: "Friday Afternoon (Guild Race): Initiate Prerequisite Pre-Cooking",
               },
               detail: {
                 vi: "Kiểm tra điều kiện của `Castle Lv.28`: Dùng Thợ 1 nâng `Guild` (`Lv.26 ➔ 27`, `~36h`) và Thợ 2 nâng `Training Ground` (`Lv.26 ➔ 27`, `~38h`), xin đầy `Guild Help` để tự chạy xuyên Thứ Bảy.",
@@ -1613,8 +1613,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
             {
               stepNumber: "3",
               title: {
-                vi: "Thứ Hai Tuần B (Khung Giờ Vàng): Khui Hộp Quà & Bùng Nổ 6 Rương Arms Race",
-                en: "Monday Week B (Golden Window): Pop Gift Boxes & Clear All 6 Arms Race Chests",
+                vi: "Thứ Hai Kỳ GAR/KvK (Khung Giờ Vàng): Khui Hộp Quà & Bùng Nổ 6 Rương Arms Race",
+                en: "GAR/KvK Monday (Golden Window): Pop Gift Boxes & Clear All 6 Arms Race Chests",
               },
               detail: {
                 vi: "Đúng giờ mở vòng Công trình Thứ Hai: Bấm khui toàn bộ `Gift Box` đã ngâm, dùng Tăng tốc Xây dựng kết thúc `Castle Lv.28` và bấm tiếp `Research Cottage Lv.28` + `Hospital Lv.28`.\n• **Kết quả**: Hoàn thành trọn **6 rương Arms Race** (gồm Hộp Thứ 6 `Extra Rewards`) chỉ với `50%` lượng bình tăng tốc thông thường!",

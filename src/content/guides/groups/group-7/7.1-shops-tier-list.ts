@@ -20,12 +20,12 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
       en: "**Diamond Equivalent ROI Rule:** Every currency across the `13` in-game shops has only `1–2` supreme items delivering `300%`–`600%` Diamond Equivalent ROI.\n• **13-Shop Ecosystem:** Across Arena Shop, Guild Points, Medal Shop, VIP Shop, Exchange Shop, Wheel, Dice of Fate, and Kingdom Emblem, never waste currency on farmable Meat, Wood, Stone, or Rubies.",
     },
     immediateAction: {
-      vi: "**Thiết lập Ngưỡng Đóng Băng Ví (Weekly Safety Floor):** Khóa số dư trước `07:00` sáng Thứ Hai: `1,900`–`2,000` Sao (Arena Shop) và `12,000`–`15,000` Điểm (Guild Points).\n• **Dự phòng Hồn Đá & Tuần A:** Khóa `40,000` Điểm Vinh Dự / `6,000` Xu Vinh Quang mỗi viên Soul Stone; trong Tuần A (Guild Race), chờ nhận Nhiệm vụ Vàng 'Chi tiêu Điểm Tiệm' mới thanh toán.",
-      en: "**Lock Weekly Wallet Safety Floors:** Before Monday `07:00` reset, keep at least `1,900`–`2,000` Arena Stars (Arena Shop) and `12,000`–`15,000` Guild Contribution Points (Guild Points).\n• **Soul Stone & Week A Sync:** Reserve `40,000` Guild Honor / `6,000` Guild Coins per Soul Stone; during Week A (Guild Race), claim a Gold 'Spend Shop Currency' task before checking out.",
+      vi: "**Thiết lập Ngưỡng Đóng Băng Ví (Weekly Safety Floor):** Khóa số dư trước `07:00` sáng Thứ Hai: `1,900`–`2,000` Sao (Arena Shop) và `12,000`–`15,000` Điểm (Guild Points).\n• **Dự phòng Hồn Đá & Kỳ Thi Đấu Hội:** Khóa `40,000` Điểm Vinh Dự / `6,000` Xu Vinh Quang mỗi viên Soul Stone; trong Kỳ Thi Đấu Hội (Guild Race), chờ nhận Nhiệm vụ Vàng 'Chi tiêu Điểm Tiệm' mới thanh toán.",
+      en: "**Lock Weekly Wallet Safety Floors:** Before Monday `07:00` reset, keep at least `1,900`–`2,000` Arena Stars (Arena Shop) and `12,000`–`15,000` Guild Contribution Points (Guild Points).\n• **Soul Stone & Guild Race Sync:** Reserve `40,000` Guild Honor / `6,000` Guild Coins per Soul Stone; during Guild Race, claim a Gold 'Spend Shop Currency' task before checking out.",
     },
     strictTaboo: {
-      vi: "**Cấm mua vật phẩm bẫy F-Tier:** CẤM mua Guardian Skin giá `12,000` Sao tại Arena Shop khi Đội 1 chưa tối đa sao, và CẤM mua Vé Chiêu Mộ giá gốc `300` Sao.\n• **Không nhầm mốc Sao & Xả sớm:** Phân biệt mốc `12` Sao (Trait 3 `+30%`) với mốc `15` Sao (`500` hoặc `1,000` Mảnh mở Exchange Shop); cấm xả ngay Vé/Mảnh (`1,500` Sao/5 mảnh) trong Tuần A.",
-      en: "**Zero F-Tier Trap Purchases:** NEVER buy the `12,000`-Star Guardian Skin in Arena Shop before maxing Queue 1 stars, and NEVER buy full-price `300`-Star Tokens.\n• **Star Milestones & Week A Hold:** Never confuse `12`-Star Trait 3 (`+30%`) with the `15`-Star Exchange Shop unlock (`500` or `1,000` Shards); never consume `1,500`-Star shards in Week A.",
+      vi: "**Cấm mua vật phẩm bẫy F-Tier:** CẤM mua Guardian Skin giá `12,000` Sao tại Arena Shop khi Đội 1 chưa tối đa sao, và CẤM mua Vé Chiêu Mộ giá gốc `300` Sao.\n• **Không nhầm mốc Sao & Xả sớm:** Phân biệt mốc `12` Sao (Trait 3 `+30%`) với mốc `15` Sao (`500` hoặc `1,000` Mảnh mở Exchange Shop); cấm xả ngay Vé/Mảnh (`1,500` Sao/5 mảnh) trong Kỳ Thi Đấu Hội.",
+      en: "**Zero F-Tier Trap Purchases:** NEVER buy the `12,000`-Star Guardian Skin in Arena Shop before maxing Queue 1 stars, and NEVER buy full-price `300`-Star Tokens.\n• **Star Milestones & Guild Race Hold:** Never confuse `12`-Star Trait 3 (`+30%`) with the `15`-Star Exchange Shop unlock (`500` or `1,000` Shards); never consume `1,500`-Star shards in Guild Race.",
     },
   },
   keyTakeaways: [
@@ -42,8 +42,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
       en: "**Guild Points & Exchange Shop Governance:** Maintain a `12,000`–`15,000` Guild Points floor while buying `1,000` VIP Points, Stamina (`800` Points), and 8h/24h Shields weekly.\n• **12-Star vs 15-Star Milestone:** Economy Epics stop at `12` Stars (2 White Stars) for Trait 3 (`+30%`), while maxing one hero to `15` Stars (`500` or `1,000` Shards) unlocks Exchange Shop.",
     },
     {
-      vi: "**Đồng bộ Chu kỳ Đôi (Tuần A ⇄ Tuần B):** Trong Tuần A (Guild Race), đóng băng giỏ hàng đầu tuần chờ nhận Nhiệm vụ Vàng 'Chi tiêu Điểm Tiệm' mới thanh toán.\n• **Tích kho Double-Dip:** Cất kho `100%` Vé Chiêu Mộ và Mảnh Tướng mua được trong Tuần A chờ Thứ Năm Tuần B (Arms Race Day 4) mới xả để nhân đôi điểm.",
-      en: "**Bi-Weekly Cycle Sync (Week A ⇄ Week B):** In Week A (Guild Race), freeze Monday shop checkouts until claiming a Gold 'Spend Shop Currency' task first.\n• **Thursday Double-Dip Hoard:** Lock `100%` of purchased Recruitment Tokens and Hero Shards in inventory until Thursday Week B (Arms Race Day 4) to score.",
+      vi: "**Đồng bộ Lộ Trình (Thi Đấu Hội ⇄ GAR/KvK):** Trong Kỳ Thi Đấu Hội (Guild Race), đóng băng giỏ hàng đầu tuần chờ nhận Nhiệm vụ Vàng 'Chi tiêu Điểm Tiệm' mới thanh toán.\n• **Tích kho Double-Dip:** Cất kho `100%` Vé Chiêu Mộ và Mảnh Tướng mua được trong Kỳ Thi Đấu Hội chờ Thứ Năm Kỳ GAR/KvK (Arms Race Day 4) mới xả để nhân đôi điểm.",
+      en: "**Event Roadmap Sync (Guild Race ⇄ GAR/KvK):** In Guild Race, freeze Monday shop checkouts until claiming a Gold 'Spend Shop Currency' task first.\n• **Thursday Double-Dip Hoard:** Lock `100%` of purchased Recruitment Tokens and Hero Shards in inventory until GAR/KvK Thursday (Arms Race Day 4) to score.",
     },
   ],
   keywords: [
@@ -469,8 +469,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
               type: "checklist",
               checklistId: "checklist-7-1-weekly-shop-routine",
               title: {
-                vi: "Checklist Kỷ Luật Đồng Bộ Mua Sắm Hàng Tuần (Tuần A Guild Race ⇄ Tuần B GAR / KvK)",
-                en: "Weekly Shop Synchronization & Safety Floor Checklist (Week A Guild Race ⇄ Week B GAR / KvK)",
+                vi: "Checklist Kỷ Luật Đồng Bộ Mua Sắm Hàng Tuần (Kỳ Guild Race ⇄ Kỳ GAR/KvK / KvK)",
+                en: "Weekly Shop Synchronization & Safety Floor Checklist (Guild Race ⇄ GAR / KvK)",
               },
               description: {
                 vi: "Thực hiện đầy đủ 4 bước kiểm tra dưới đây trước và sau 07:00 sáng Thứ Hai hàng tuần để tối đa hóa ROI và điểm sự kiện:",
@@ -495,27 +495,27 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                 {
                   id: "chk-7-1-week-a-guild-race-hold",
                   label: {
-                    vi: "Trong Tuần A (Guild Race): Đóng băng giỏ hàng đầu tuần chờ nhận Nhiệm vụ Vàng 'Chi tiêu Điểm Tiệm'",
-                    en: "During Week A (Guild Race): Hold Monday Checkouts Until Claiming a Gold 'Spend Shop Currency' Task",
+                    vi: "Trong Kỳ Thi Đấu Hội (Guild Race): Đóng băng giỏ hàng đầu tuần chờ nhận Nhiệm vụ Vàng 'Chi tiêu Điểm Tiệm'",
+                    en: "During Guild Race: Hold Monday Checkouts Until Claiming a Gold 'Spend Shop Currency' Task",
                   },
                   detail: {
                     vi: "Chờ bảng nhiệm vụ Guild Race xoay ra Nhiệm vụ Độc quyền Vàng yêu cầu tiêu Arena Stars hoặc Guild Points, bấm Nhận nhiệm vụ rồi mới thanh toán giỏ hàng trong 5 giây.",
                     en: "Wait for the Guild Race board to roll a Gold task requiring Arena Stars or Guild Points spending, claim the task first, then check out your weekly cart in 5 seconds.",
                   },
                   badge: {
-                    vi: "TUẦN A GUILD RACE",
-                    en: "WEEK A GUILD RACE",
+                    vi: "KỲ GUILD RACE",
+                    en: "GUILD RACE WEEK",
                   },
                 },
                 {
                   id: "chk-7-1-inventory-hoard-thursday",
                   label: {
-                    vi: "Cất kho 100% Lệnh Chiêu Mộ & Mảnh Tướng (1,500 Sao) mua trong Tuần A chờ Thứ Năm Tuần B",
-                    en: "Hoard 100% of Recruitment Tokens & Hero Shards (1,500 Stars) Bought in Week A Until Thursday Week B",
+                    vi: "Cất kho 100% Lệnh Chiêu Mộ & Mảnh Tướng (1,500 Sao) mua trong Kỳ Thi Đấu Hội chờ Thứ Năm Kỳ GAR/KvK",
+                    en: "Hoard 100% of Recruitment Tokens & Hero Shards (1,500 Stars) Bought in Guild Race Until GAR/KvK Thursday",
                   },
                   detail: {
-                    vi: "Tách biệt hành động Mua (ăn điểm nhiệm vụ Tuần A) và hành động Sử dụng/Ghép tướng (xả vào Thứ Năm Tuần B — Arms Race Day 4 để ăn Double-Dip).",
-                    en: "Separate Purchasing (scores Week A Guild Race tasks) from Consuming/Summoning (dump on Thursday Week B — Arms Race Day 4 for Double-Dip rewards).",
+                    vi: "Tách biệt hành động Mua (ăn điểm nhiệm vụ Hội) và hành động Sử dụng/Ghép tướng (xả vào Thứ Năm Kỳ GAR/KvK — Arms Race Day 4 để ăn Double-Dip).",
+                    en: "Separate Purchasing (scores Guild Race tasks) from Consuming/Summoning (dump on Thursday GAR/KvK — Arms Race Day 4 for Double-Dip rewards).",
                   },
                   badge: {
                     vi: "DOUBLE-DIP THỨ NĂM",
@@ -618,16 +618,16 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
             ],
             [
               {
-                vi: "4. Mua Vé Chiêu Mộ giá gốc 300 Sao, mảnh lẻ giá đắt 800 Sao hoặc bấm dùng ngay vật phẩm vừa mua trong Tuần A",
-                en: "4. Buying full-price 300-Star Tokens, overpriced 800-Star single shards, or immediately consuming Week A shop purchases",
+                vi: "4. Mua Vé Chiêu Mộ giá gốc 300 Sao, mảnh lẻ giá đắt 800 Sao hoặc bấm dùng ngay vật phẩm vừa mua trong Kỳ Thi Đấu Hội",
+                en: "4. Buying full-price 300-Star Tokens, overpriced 800-Star single shards, or immediately consuming Guild Race shop purchases",
               },
               {
-                vi: "Chịu lỗ 50%–83% tỷ giá Kim Cương so với gói giảm giá 50 Sao (ROI 600% / 300%) và mất trắng hàng chục ngàn điểm sự kiện Thứ Năm Tuần B (Arms Race Day 4).",
-                en: "Suffers a 50%–83% Diamond ROI loss compared to 50-Star packs (600% / 300% ROI) and forfeits tens of thousands of Thursday Week B (Arms Race Day 4) event points.",
+                vi: "Chịu lỗ 50%–83% tỷ giá Kim Cương so với gói giảm giá 50 Sao (ROI 600% / 300%) và mất trắng hàng chục ngàn điểm sự kiện Thứ Năm Kỳ GAR/KvK (Arms Race Day 4).",
+                en: "Suffers a 50%–83% Diamond ROI loss compared to 50-Star packs (600% / 300% ROI) and forfeits tens of thousands of GAR/KvK Thursday (Arms Race Day 4) event points.",
               },
               {
-                vi: "Chỉ mua gói 50 Sao (ROI 600% & 300%) và 5 mảnh 1,500 Sao; chờ nhận Nhiệm vụ Vàng mới thanh toán trong Tuần A và cất kho 100% chờ Thứ Năm Tuần B xả ăn Double-Dip.",
-                en: "Only buy the 50-Star packs (600% & 300% ROI) and 1,500-Star 5x faction shards; claim a Gold task before checking out in Week A and hoard 100% of items until Thursday Week B.",
+                vi: "Chỉ mua gói 50 Sao (ROI 600% & 300%) và 5 mảnh 1,500 Sao; chờ nhận Nhiệm vụ Vàng mới thanh toán trong Kỳ Thi Đấu Hội và cất kho 100% chờ Thứ Năm Kỳ GAR/KvK xả ăn Double-Dip.",
+                en: "Only buy the 50-Star packs (600% & 300% ROI) and 1,500-Star 5x faction shards; claim a Gold task before checking out in Guild Race and hoard 100% of items until GAR/KvK Thursday.",
               },
             ],
           ],
@@ -784,8 +784,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                   { vi: "400 Điểm × 2 (800 Guild Points)", en: "400 Points × 2 (800 Guild Points)" },
                   { vi: "200 Kim Cương + Quà săn Boss", en: "200 Diamonds + Boss/Rally drops" },
                   {
-                    vi: "Tích trữ trong túi đồ để xả toàn bộ vào Thứ Tư Tuần B (Arms Race Day 3).",
-                    en: "Hoard in inventory to dump exclusively on Wednesday Week B (Arms Race Day 3).",
+                    vi: "Tích trữ trong túi đồ để xả toàn bộ vào Thứ Tư Kỳ GAR/KvK (Arms Race Day 3).",
+                    en: "Hoard in inventory to dump exclusively on GAR/KvK Wednesday (Arms Race Day 3).",
                   },
                 ],
                 [
@@ -861,8 +861,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
         {
           id: "sub-4-2-weekly-shop-decision-flowchart",
           title: {
-            vi: "4.2. Sơ Đồ Luồng Quyết Định Chi Tiêu Cửa Hàng Hàng Tuần (Tuần A Guild Race vs Tuần B GAR / KvK)",
-            en: "4.2. Weekly Shop Spending Decision Flowchart (Week A Guild Race vs Week B GAR / KvK)",
+            vi: "4.2. Sơ Đồ Luồng Quyết Định Chi Tiêu Cửa Hàng Hàng Tuần (Kỳ Guild Race vs Kỳ GAR/KvK / KvK)",
+            en: "4.2. Weekly Shop Spending Decision Flowchart (Guild Race vs GAR / KvK)",
           },
           blocks: [
             {
@@ -874,8 +874,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                 en: "Monday 07:00 Shop Checkout & Weekly Safety Floor Decision Flowchart",
               },
               subtitle: {
-                vi: "Phân luồng thanh toán theo Chu kỳ Tuần A (Guild Race) và Tuần B (GAR / KvK) trên toàn bộ 13 Cửa hàng",
-                en: "Checkout branching across Week A (Guild Race) and Week B (GAR / KvK) for all 13 In-Game Shops",
+                vi: "Phân luồng thanh toán theo Chu kỳ Kỳ Thi Đấu Hội (Guild Race) và Kỳ Đua Vũ Trang (GAR / KvK) trên toàn bộ 13 Cửa hàng",
+                en: "Checkout branching across Guild Race and GAR / KvK for all 13 In-Game Shops",
               },
               centerNode: {
                 id: "node-7-1-monday-reset",
@@ -888,16 +888,16 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                   en: "Weekly Reset Across All 13 Shops (Arena Shop, Guild Points, Guild Honor, VIP Shop, Exchange Shop, Medal Shop)",
                 },
                 subtitle: {
-                  vi: "Kiểm tra Chu kỳ Tuần hiện tại (Tuần A hay Tuần B) trước khi bấm mua bất kỳ món hàng nào",
-                  en: "Check the active Bi-Weekly Cycle (Week A or Week B) before purchasing any item",
+                  vi: "Kiểm tra Chu kỳ Tuần hiện tại (Thi Đấu Hội hay GAR/KvK) trước khi bấm mua bất kỳ món hàng nào",
+                  en: "Check the active Bi-Weekly Cycle (Guild Race or GAR/KvK) before purchasing any item",
                 },
                 tone: "gold",
               },
               branches: [
                 {
                   title: {
-                    vi: "Nhánh 1: Kiểm Tra Chu Kỳ Tuần (Tuần A Thi Đấu Hội vs Tuần B Đua Vũ Trang)",
-                    en: "Branch 1: Bi-Weekly Cycle Gate (Week A Guild Race vs Week B Arms Race)",
+                    vi: "Nhánh 1: Kiểm Tra Chu Kỳ Tuần (Kỳ Thi Đấu Hội vs Kỳ Đua Vũ Trang)",
+                    en: "Branch 1: Bi-Weekly Cycle Gate (Guild Race vs GAR / KvK)",
                   },
                   badge: {
                     vi: "ĐỒNG BỘ SỰ KIỆN",
@@ -908,8 +908,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                     {
                       id: "step-7-1-week-a-hold",
                       title: {
-                        vi: "Tuần A (Guild Race): Đóng Băng Giỏ Hàng Chờ Nhiệm Vụ Vàng 'Chi Tiêu Điểm Tiệm'",
-                        en: "Week A (Guild Race): Freeze Cart Until Claiming a Gold 'Spend Shop Currency' Task",
+                        vi: "Kỳ Thi Đấu Hội (Guild Race): Đóng Băng Giỏ Hàng Chờ Nhiệm Vụ Vàng 'Chi Tiêu Điểm Tiệm'",
+                        en: "Guild Race: Freeze Cart Until Claiming a Gold 'Spend Shop Currency' Task",
                       },
                       subtitle: {
                         vi: "Nhận nhiệm vụ Vàng trên bảng Guild Race rồi mới thanh toán Arena Shop (1,900 Sao) và Guild Points (12,000–15,000 sàn)",
@@ -920,25 +920,25 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                     {
                       id: "step-7-1-week-b-instant",
                       title: {
-                        vi: "Tuần B (GAR / KvK): Thanh Toán Ngay Các Gói Giảm Giá S+ Sau 07:00 Sáng Thứ Hai",
-                        en: "Week B (GAR / KvK): Immediately Purchase S+ Discount Packs After Monday 07:00 Reset",
+                        vi: "Kỳ Đua Vũ Trang (GAR / KvK): Thanh Toán Ngay Các Gói Giảm Giá S+ Sau 07:00 Sáng Thứ Hai",
+                        en: "GAR / KvK: Immediately Purchase S+ Discount Packs After Monday 07:00 Reset",
                       },
                       subtitle: {
-                        vi: "Tuần B tính điểm khi sử dụng vật phẩm đúng ngày chuyên đề (Thứ Tư xả Thể lực, Thứ Năm xả Mảnh Tướng & Vé Quay)",
-                        en: "Week B scores when consuming items on themed days (Wednesday for Stamina, Thursday for Hero Shards & Tokens)",
+                        vi: "Kỳ GAR/KvK tính điểm khi sử dụng vật phẩm đúng ngày chuyên đề (Thứ Tư xả Thể lực, Thứ Năm xả Mảnh Tướng & Vé Quay)",
+                        en: "GAR/KvK scores when consuming items on themed days (Wednesday for Stamina, Thursday for Hero Shards & Tokens)",
                       },
                       tone: "emerald",
                     },
                   ],
                   outcome: {
-                    vi: "Ăn trọn điểm Nhiệm vụ Vàng Tuần A mà không lãng phí 1 đồng tiền tệ nào",
-                    en: "Secures full Week A Gold Task points with zero wasted shop currency",
+                    vi: "Ăn trọn điểm Nhiệm vụ Vàng Hội mà không lãng phí 1 đồng tiền tệ nào",
+                    en: "Secures full Guild Race Gold Task points with zero wasted shop currency",
                   },
                 },
                 {
                   title: {
-                    vi: "Nhánh 2: Thực Thi Mua Sắm Theo Cấp Bậc & Khóa Kho Chờ Thứ Năm Tuần B",
-                    en: "Branch 2: Tiered Purchase Execution & Inventory Lock for Thursday Week B",
+                    vi: "Nhánh 2: Thực Thi Mua Sắm Theo Cấp Bậc & Khóa Kho Chờ Thứ Năm Kỳ GAR/KvK",
+                    en: "Branch 2: Tiered Purchase Execution & Inventory Lock for GAR/KvK Thursday",
                   },
                   badge: {
                     vi: "ROI 600% ➔ 100%",
@@ -965,8 +965,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                         en: "Step 2: Verify Safety Floors (1,900–2,000 Stars | 12,000–15,000 Points) & Buy 5x Main-Faction Shards (1,500 Stars)",
                       },
                       subtitle: {
-                        vi: "Mua Soulmancer, Warlock, Pyromancer, Adjudicator hoặc Pixie và CẤT KHO 100% chờ Thứ Năm Tuần B xả ăn Double-Dip",
-                        en: "Buy Soulmancer, Warlock, Pyromancer, Adjudicator, or Pixie and LOCK 100% in inventory until Thursday Week B Double-Dip",
+                        vi: "Mua Soulmancer, Warlock, Pyromancer, Adjudicator hoặc Pixie và CẤT KHO 100% chờ Thứ Năm Kỳ GAR/KvK xả ăn Double-Dip",
+                        en: "Buy Soulmancer, Warlock, Pyromancer, Adjudicator, or Pixie and LOCK 100% in inventory until GAR/KvK Thursday Double-Dip",
                       },
                       tone: "gold",
                     },
@@ -990,7 +990,7 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
       id: "pro-execution-playbook",
       isPro: true,
       title: {
-        vi: "5. Kịch bản Thực chiến Nâng cao: Phác Đồ Tái Cấu Trúc Dòng Tiền Cửa Hàng Chu Kỳ 14 Ngày (Lâu Đài Lv.27)",
+        vi: "5. Kịch bản Thực chiến Nâng cao: Phác Đồ Tái Cấu Trúc Dòng Tiền Cửa Hàng Lộ Trình Sự Kiện (Lâu Đài Lv.27)",
         en: "5. Advanced Execution Playbook: 14-Day Shop Cashflow Restructuring Case Study (Castle Lv.27)",
       },
       blocks: [
@@ -1029,7 +1029,7 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
             },
             {
               label: {
-                vi: "Thu hoạch Kim Cương & Mảnh Tướng Vàng Hệ Chính (Chu kỳ 14 Ngày)",
+                vi: "Thu hoạch Kim Cương & Mảnh Tướng Vàng Hệ Chính (Lộ Trình Sự Kiện)",
                 en: "Diamonds & Main-Faction Legendary Shards Harvested (14-Day Cycle)",
               },
               before: {
@@ -1070,8 +1070,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
               en: "**Diagnostic #1 — Sunday Safety Floor Breach**: Zeroing out Arena Stars and Guild Points on Sunday left the account without `1,900`–`2,000` Stars on Monday for `600%`/`300%` ROI packs and 5x shards (`1,500` Stars).\n• **Lv.30 Fallout**: Risked delaying Soul Stone unlocks (`40,000` Guild Honor or `6,000` Guild Coins) upon reaching Castle Lv.30.",
             },
             {
-              vi: "**Chẩn đoán #2 — Lệch pha Sự kiện & Exchange Shop**: Mua đồ Thứ Hai Tuần A trước khi nhận Nhiệm vụ Vàng Guild Race và ghép mảnh tướng ngay lập tức thay vì chờ Thứ Năm Tuần B.\n• **Chậm mở tiệm**: Chưa dồn mảnh đẩy 1 tướng chạm mốc 15 Sao (`500` hoặc `1,000` Mảnh) để mở khóa Hero Shard Exchange Shop.",
-              en: "**Diagnostic #2 — Event Desynchronization & Exchange Shop Delay**: Checked out on Monday Week A before claiming Gold Guild Race tasks and consumed shards immediately instead of waiting for Thursday Week B.\n• **Delayed Unlock**: Failed to funnel shards into a single 15-Star hero (`500` or `1,000` Shards) to unlock the Hero Shard Exchange Shop.",
+              vi: "**Chẩn đoán #2 — Lệch pha Sự kiện & Exchange Shop**: Mua đồ Thứ Hai Kỳ Thi Đấu Hội trước khi nhận Nhiệm vụ Vàng Guild Race và ghép mảnh tướng ngay lập tức thay vì chờ Thứ Năm Kỳ GAR/KvK.\n• **Chậm mở tiệm**: Chưa dồn mảnh đẩy 1 tướng chạm mốc 15 Sao (`500` hoặc `1,000` Mảnh) để mở khóa Hero Shard Exchange Shop.",
+              en: "**Diagnostic #2 — Event Desynchronization & Exchange Shop Delay**: Checked out on Guild Race Monday before claiming Gold Guild Race tasks and consumed shards immediately instead of waiting for GAR/KvK Thursday.\n• **Delayed Unlock**: Failed to funnel shards into a single 15-Star hero (`500` or `1,000` Shards) to unlock the Hero Shard Exchange Shop.",
             },
           ],
           recoverySteps: [
@@ -1108,12 +1108,12 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
             {
               stepNumber: "3",
               title: {
-                vi: "Đồng bộ Guild Points, Chiến Trường (Orichalcum) & Xả Kho Thứ Năm Tuần B",
-                en: "Synchronize Guild Points, Battlefield (Orichalcum) & Thursday Week B Dumping",
+                vi: "Đồng bộ Guild Points, Chiến Trường (Orichalcum) & Xả Kho Thứ Năm Kỳ GAR/KvK",
+                en: "Synchronize Guild Points, Battlefield (Orichalcum) & GAR/KvK Thursday Dumping",
               },
               detail: {
-                vi: "**Đồng bộ Guild Points**: Giữ `22,000` Điểm ở Tuần A chờ 2 Nhiệm vụ Vàng rồi chi `1,000` (VIP) + `800` (Thể lực) + `2,500` (Khiên) + `2,000` (Dịch chuyển) + `4,000` (Tăng tốc), giữ sàn `12,000`–`15,000` Điểm.\n• **Chiến Trường & Xả Kho**: Gom Orichalcum tại tiệm Chiến Trường, khóa quỹ `40,000` Guild Honor / `6,000` Guild Coins cho Soul Stone, và xả Mảnh Tướng vào Thứ Năm Tuần B.",
-                en: "**Guild Points Sync**: Hold `22,000` Points in Week A for 2 Gold tasks, then spend `1,000` (VIP) + `800` (Stamina) + `2,500` (Shield) + `2,000` (Relocate) + `4,000` (Speed-ups), keeping `12,000`–`15,000` Points.\n• **Battlefield & Shard Dump**: Sweep Orichalcum in Battlefield shops, lock `40,000` Guild Honor / `6,000` Guild Coins for Soul Stones, and dump Hero Shards on Thursday Week B.",
+                vi: "**Đồng bộ Guild Points**: Giữ `22,000` Điểm ở Kỳ Thi Đấu Hội chờ 2 Nhiệm vụ Vàng rồi chi `1,000` (VIP) + `800` (Thể lực) + `2,500` (Khiên) + `2,000` (Dịch chuyển) + `4,000` (Tăng tốc), giữ sàn `12,000`–`15,000` Điểm.\n• **Chiến Trường & Xả Kho**: Gom Orichalcum tại tiệm Chiến Trường, khóa quỹ `40,000` Guild Honor / `6,000` Guild Coins cho Soul Stone, và xả Mảnh Tướng vào Thứ Năm Kỳ GAR/KvK.",
+                en: "**Guild Points Sync**: Hold `22,000` Points in Guild Race for 2 Gold tasks, then spend `1,000` (VIP) + `800` (Stamina) + `2,500` (Shield) + `2,000` (Relocate) + `4,000` (Speed-ups), keeping `12,000`–`15,000` Points.\n• **Battlefield & Shard Dump**: Sweep Orichalcum in Battlefield shops, lock `40,000` Guild Honor / `6,000` Guild Coins for Soul Stones, and dump Hero Shards on GAR/KvK Thursday.",
               },
               impactBadge: {
                 vi: "+1,200 KC & +2,000 VIP",
@@ -1122,8 +1122,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
             },
           ],
           conclusion: {
-            vi: "**Thành quả sau 14 ngày (Tuần A + Tuần B)**: Thu về `1,200` Kim Cương trực tiếp, `10` Mảnh Tướng Vàng Hệ Chính, `2,000` Điểm VIP miễn phí và hoàn thành gọn 2 Nhiệm vụ Vàng Guild Race.\n• **Kỷ luật toàn diện**: Thiết lập nền tảng quỹ bền vững cho cả 13 cửa hàng (Arena Shop, Guild Points, Medal Shop, VIP Shop, Exchange Shop, Wheel, Dice of Fate, Kingdom Emblem).",
-            en: "**14-Day Cycle Outcome (Week A + Week B)**: Nets `1,200` direct Diamonds, `10` Main-Faction Legendary Hero Shards, `2,000` free VIP Points, and effortlessly clears 2 Gold Guild Race tasks.\n• **System-Wide Stability**: Locks in sustainable reserves across all 13 shops (Arena Shop, Guild Points, Medal Shop, VIP Shop, Exchange Shop, Wheel, Dice of Fate, Kingdom Emblem).",
+            vi: "**Thành quả theo Lộ Trình (Thi Đấu Hội + GAR/KvK)**: Thu về `1,200` Kim Cương trực tiếp, `10` Mảnh Tướng Vàng Hệ Chính, `2,000` Điểm VIP miễn phí và hoàn thành gọn 2 Nhiệm vụ Vàng Guild Race.\n• **Kỷ luật toàn diện**: Thiết lập nền tảng quỹ bền vững cho cả 13 cửa hàng (Arena Shop, Guild Points, Medal Shop, VIP Shop, Exchange Shop, Wheel, Dice of Fate, Kingdom Emblem).",
+            en: "**Event Roadmap Outcome (Guild Race + GAR/KvK)**: Nets `1,200` direct Diamonds, `10` Main-Faction Legendary Hero Shards, `2,000` free VIP Points, and effortlessly clears 2 Gold Guild Race tasks.\n• **System-Wide Stability**: Locks in sustainable reserves across all 13 shops (Arena Shop, Guild Points, Medal Shop, VIP Shop, Exchange Shop, Wheel, Dice of Fate, Kingdom Emblem).",
           },
         },
         {

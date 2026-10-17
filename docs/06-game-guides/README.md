@@ -42,7 +42,7 @@ uv tool upgrade notebooklm-mcp-cli
 | [topic-2-and-4-buildings-and-research-tech.md](01-core-strategic-topics/topic-2-and-4-buildings-and-research-tech.md) | **TOPIC 2 & 4** | Chiến lược nâng cấp Hạ tầng Công trình (3 hàng đợi thợ) & Nghiên cứu Công nghệ (2 hàng đợi) |
 | [topic-3-hero-gear-lord-gear-exclusive-weapon.md](01-core-strategic-topics/topic-3-hero-gear-lord-gear-exclusive-weapon.md) | **TOPIC 3** | Bách khoa Trang bị Tướng (3 bộ Vàng, lộ trình +10 ➔ +40 & 5 Sao Đỏ), Trang bị Lãnh chúa & Vũ khí Độc quyền |
 | [topic-5-shops-currencies-military-gear.md](01-core-strategic-topics/topic-5-shops-currencies-military-gear.md) | **TOPIC 5** | Hệ thống Tiệm (Shops), Tiền tệ, Ngưỡng đóng băng Xu Vinh Quang Hội & Quân trang (Pro Edition) |
-| [topic-6-biweekly-event-schedule-week-a-b.md](01-core-strategic-topics/topic-6-biweekly-event-schedule-week-a-b.md) | **TOPIC 6** | Chiến thuật Sự kiện theo Chu kỳ Xoay vòng 2 Tuần (Tuần A: Thi Đấu Hội ⇄ Tuần B: Đua Vũ Trang GAR / KvK) |
+| [topic-6-biweekly-event-schedule-week-a-b.md](01-core-strategic-topics/topic-6-biweekly-event-schedule-week-a-b.md) | **TOPIC 6** | Chiến thuật Sự kiện theo Chu kỳ Xoay vòng 2 Tuần (Kỳ Thi Đấu Hội: Thi Đấu Hội ⇄ Kỳ GAR/KvK: Đua Vũ Trang GAR / KvK) |
 | [topic-7-server-timeline-s0-s4-horde-pivot.md](01-core-strategic-topics/topic-7-server-timeline-s0-s4-horde-pivot.md) | **TOPIC 7** | Bản đồ Timeline Máy chủ (Pre-Season ➔ Season 4) & Lộ trình Chuyển giao Liên Minh sang Bộ Lạc (Horde Pivot) |
 
 ### 02. Bách Khoa Toàn Thư Tướng & Đội Hình (`02-heroes-and-lineups/`)
@@ -97,6 +97,22 @@ uv tool upgrade notebooklm-mcp-cli
 | [web-companion-product-brainstorm.md](06-platform-and-ai-integration/web-companion-product-brainstorm.md) | Bản thảo luận ý tưởng sản phẩm Web Companion Top Heroes, phân luồng F2P/Spender & mô hình Freemium 1–2$/tháng |
 | [giftcode-bot-creation-full-log.md](06-platform-and-ai-integration/giftcode-bot-creation-full-log.md) | Toàn bộ nhật ký thiết kế & xây dựng hệ thống Bot săn và tự động nhập Giftcode (95 KB) |
 | [antigravity-notebooklm-mcp-integration.md](06-platform-and-ai-integration/antigravity-notebooklm-mcp-integration.md) | Giải pháp kiến trúc kết nối Antigravity IDE với NotebookLM qua MCP Server & Bulk Export |
+
+### 07. Bộ Tài Liệu Markdown Chuẩn Hóa Cho Web Guides Hub (`07-standardized-web-guides/`)
+
+> 🌟 **Single Source of Truth cho Giai đoạn II (`Track 4 — Guides Hub`):** Toàn bộ 31 file Markdown trong phân khu này đã được chuẩn hóa 100% phi cá nhân hóa, phân tầng `Free 70% ➔ PRO 30%`, bao phủ đủ 3 Phe phái (`Liên Minh` / `Bộ Lạc` / `Thiên Nhiên`) và tích hợp khung đặc tả Media 4 tầng để ánh xạ trực tiếp lên 27 trang Web `/[locale]/guides`.
+
+| Phân nhóm / Tài liệu | Phạm vi File | Nội dung cốt lõi |
+| :--- | :---: | :--- |
+| [README.md](07-standardized-web-guides/README.md) | **Master Index** | Ma trận ánh xạ 31 file Markdown chuẩn hóa ➔ 27 Web Routes (`registry.ts`) & Hướng dẫn chạy Quality Gate CLI |
+| `group-1-getting-started/` | `1.1 ➔ 1.4` (4 files) | Tổng quan 7 trụ cột, Quy tắc 1 Đội hình Tuyệt đối, Tier List tiêu Kim Cương & Gói nạp ROI, 10 Cạm bẫy Phế Acc |
+| `group-2-heroes-and-meta/` | `2.1 ➔ 2.5` (5 files) | Bách khoa 45+ Tướng, Đội hình Meta 3 Phe, Sơ đồ 6 Ô & Khắc chế, Chi phí Mảnh/Hồn Đá, Trait 3 Kinh tế Tướng Tím |
+| `group-3-events-double-dip/` | `3.1 ➔ 3.4` (4 files) | Lộ trình Sự kiện Kỳ Thi Đấu Hội/B, Mẹo săn Nhiệm vụ Vàng `Guild Race`, Giải phẫu 6 ngày `Arms Race / KvK`, Ma trận `Double-Dip` |
+| `group-4-server-roadmap/` | `4.1 ➔ 4.3` (3 files) | Lịch ra mắt Mythic Ngày 1–65 (Wheel/Dice), Phác đồ Chuyển giao Bộ Lạc (`Horde Pivot`), Lộ trình Season 1 ➔ Season 4 |
+| `group-5-gear-and-weapons/` | `5.1 ➔ 5.4` (4 files) | Tổng quan 3 hệ thống Trang bị, Phối 3 Bộ Đồ Vàng + Dấu Hệ +30%, Bậc thầy Cường hóa +10/+20/+30/+40 & UW, Chiến thuật Đồ Chúa Tể |
+| `group-6-runes-relics-pets/` | `6.1 ➔ 6.3` (3 files) | Cổ Ngữ Lv.1–6 (`Combat Skill Level`), Bộ 3 Thánh Vật chuẩn 3 Phe, Thú Cưng Lv.1–90 & Cự Thú Bang Hội |
+| `group-7-shops-and-economy/` | `7.1 ➔ 7.4` (4 files) | Tier List 12+ Cửa hàng, Chiến lược Đóng băng 40,000 Điểm Vinh Dự Bang, Tối ưu VIP/Wheel/Dice Shop, Ngoại hình Quân lính (`Troop Skins`) |
+| `group-8-infrastructure/` | `8.1 ➔ 8.4` (4 files) | Đường găng Lâu đài Lv.1–40 & Lính T10, Phân công Thợ xây & Dân làng, Cây Khoa học & Kỹ thuật Baiting, Kho Bảng biểu Tổng hợp (`TopHeroes Tables`) |
 
 ---
 

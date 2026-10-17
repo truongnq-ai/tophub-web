@@ -127,8 +127,8 @@ export const ARTICLE_5_1_GEAR_OVERVIEW: GuideArticle = {
                 en: "Exclusive Weapon Shards (275 / 1,185 Shards) & Lord Gear Refined Metal: Lock for Double-Dip",
               },
               detail: {
-                vi: "Xả Mảnh Vũ Khí Độc Quyền vào Thứ Năm Tuần B (GAR Ngày 4 + Hero Development), và xả Nguyên liệu Đồ Chúa Tể vào Ngày 3–4 Tuần B (GAR/KvK) hoặc Ngày 5–7 Tuần A (Guild Race).",
-                en: "Dump Exclusive Weapon Shards on Thursday of Week B (GAR Day 4 + Hero Development), and dump Lord Gear materials on Days 3–4 of Week B (GAR/KvK) or Days 5–7 of Week A (Guild Race).",
+                vi: "Xả Mảnh Vũ Khí Độc Quyền vào Thứ Năm Kỳ GAR/KvK (GAR Ngày 4 + Hero Development), và xả Nguyên liệu Đồ Chúa Tể vào Ngày 3–4 Kỳ GAR/KvK hoặc Ngày 5–7 Kỳ Thi Đấu Hội (Guild Race).",
+                en: "Dump Exclusive Weapon Shards on Thursday of GAR/KvK (GAR Day 4 + Hero Development), and dump Lord Gear materials on Days 3–4 of GAR/KvK or Days 5–7 of Guild Race.",
               },
             },
           ],
@@ -267,12 +267,12 @@ export const ARTICLE_5_1_GEAR_OVERVIEW: GuideArticle = {
                     en: "0 POINTS when forging Golden Gear (Gold Ingots) and enhancing (Lv.0 ➔ Lv.40 with Upgrade Runes). Only Gear Promotion Stones (1★–5★ Star Promotion after Lv.40) grant massive event points!",
                   },
                   {
-                    vi: "CÓ TÍNH ĐIỂM trong Ngày Phát Triển Anh Hùng (Thứ Năm Tuần B — GAR/KvK Ngày 4) và sự kiện phụ Hero Development.",
-                    en: "SCORES HIGH POINTS on Hero Development Day (Thursday of Week B — GAR/KvK Day 4) and Hero Development side events.",
+                    vi: "CÓ TÍNH ĐIỂM trong Ngày Phát Triển Anh Hùng (Thứ Năm Kỳ GAR/KvK — Ngày 4) và sự kiện phụ Hero Development.",
+                    en: "SCORES HIGH POINTS on Hero Development Day (Thursday of GAR/KvK — Day 4) and Hero Development side events.",
                   },
                   {
-                    vi: "TÍNH ĐIỂM CỰC LỚN trong cả Tuần A (Nhiệm vụ Vàng Guild Race Ngày 5–7 & Guild Rush) và Tuần B (GAR Ngày 3 & 4 / KvK Ngày 3–5).",
-                    en: "SCORES MASSIVE POINTS in both Week A (Guild Race Days 5–7 Gold Tasks & Guild Rush) and Week B (GAR Days 3–4 / KvK Days 3–5).",
+                    vi: "TÍNH ĐIỂM CỰC LỚN trong cả Kỳ Thi Đấu Hội (Nhiệm vụ Vàng Guild Race Ngày 5–7 & Guild Rush) và Kỳ GAR/KvK (GAR Ngày 3 & 4 / KvK Ngày 3–5).",
+                    en: "SCORES MASSIVE POINTS in both Guild Race (Days 5–7 Gold Tasks & Guild Rush) and GAR/KvK (GAR Days 3–4 / KvK Days 3–5).",
                   },
                 ],
                 [
@@ -285,8 +285,8 @@ export const ARTICLE_5_1_GEAR_OVERVIEW: GuideArticle = {
                     en: "Forge Golden Gear and enhance immediately at +10/+20/+30/+40 resonance milestones to push stages; strictly hoard Promotion Stones (1★–5★) for events.",
                   },
                   {
-                    vi: "Tích trữ 100% và xả đồng loạt vào Thứ Năm Tuần B hoặc khi trùng sự kiện Hero Development.",
-                    en: "Hoard 100% and dump in bursts on Thursday of Week B or during active Hero Development events.",
+                    vi: "Tích trữ 100% và xả đồng loạt vào Thứ Năm Kỳ GAR/KvK hoặc khi trùng sự kiện Hero Development.",
+                    en: "Hoard 100% and dump in bursts on Thursday of GAR/KvK or during active Hero Development events.",
                   },
                   {
                     vi: "Tích trữ nghiêm ngặt 100% — Tuyệt đối chỉ bấm nâng cấp khi trùng ngày sự kiện ăn điểm kép (Double-Dip).",
@@ -656,8 +656,8 @@ export const ARTICLE_5_1_GEAR_OVERVIEW: GuideArticle = {
               mediaCode: "MED-5.1-03",
               variant: "decision_flow",
               title: {
-                vi: "Sơ Đồ Phân Luồng Ngân Sách & Lịch Xả 3 Hệ Thống Trang Bị Theo Chu Kỳ Tuần A / Tuần B",
-                en: "3-System Equipment Budget Routing & Week A / Week B Event Dump Flowchart",
+                vi: "Sơ Đồ Phân Luồng Ngân Sách & Lịch Xả 3 Hệ Thống Trang Bị Theo Chế Độ Sự Kiện Server",
+                en: "3-System Equipment Budget Routing & Server Event Mode Dump Flowchart",
               },
               subtitle: {
                 vi: "Phân tách rạch ròi nhóm nguyên liệu 0 điểm sự kiện (Rèn & Đập ngay) với nhóm nguyên liệu Điểm Cực Lớn (Khóa kho chờ Double-Dip)",
@@ -727,8 +727,8 @@ export const ARTICLE_5_1_GEAR_OVERVIEW: GuideArticle = {
                     en: "2. Exclusive Weapon (Queue 1 — 6 Weapons)",
                   },
                   badge: {
-                    vi: "Thứ Năm Tuần B (GAR Ngày 4)",
-                    en: "Thursday Week B (GAR Day 4)",
+                    vi: "Thứ Năm Kỳ GAR/KvK (Ngày 4)",
+                    en: "Thursday GAR/KvK (Day 4)",
                   },
                   tone: "gold",
                   steps: [
@@ -739,15 +739,15 @@ export const ARTICLE_5_1_GEAR_OVERVIEW: GuideArticle = {
                         en: "Exclusive Weapon Shards, Choice Chests & Meteoric Iron Cores (920 Cores)",
                       },
                       subtitle: {
-                        vi: "TÍCH TRỮ 100% ➔ Xả đồng loạt vào Thứ Năm Tuần B (GAR Ngày 4: Hero Upgrade) kết hợp sự kiện phụ Hero Development (mốc vàng Lv.10 = 275 Mảnh/tướng, tối đa Lv.20 = 1,185 Mảnh)",
-                        en: "HOARD 100% ➔ Dump in bursts on Thursday of Week B (GAR Day 4: Hero Upgrade) paired with Hero Development (targeting Lv.10 = 275 Shards/hero, max Lv.20 = 1,185 Shards)",
+                        vi: "TÍCH TRỮ 100% ➔ Xả đồng loạt vào Thứ Năm Kỳ GAR/KvK (Ngày 4: Hero Upgrade) kết hợp sự kiện phụ Hero Development (mốc vàng Lv.10 = 275 Mảnh/tướng, tối đa Lv.20 = 1,185 Mảnh)",
+                        en: "HOARD 100% ➔ Dump in bursts on Thursday of GAR/KvK (Day 4: Hero Upgrade) paired with Hero Development (targeting Lv.10 = 275 Shards/hero, max Lv.20 = 1,185 Shards)",
                       },
                       tone: "gold",
                     },
                   ],
                   outcome: {
-                    vi: "Mở khóa đột phá kỹ năng Lv.10 (1,650 mảnh/6 tướng) và ăn Double-Dip rương mốc Thứ Năm Tuần B.",
-                    en: "Unlocks Lv.10 skill breakpoints (1,650 shards across 6 heroes) while double-dipping Thursday Week B milestone chests.",
+                    vi: "Mở khóa đột phá kỹ năng Lv.10 (1,650 mảnh/6 tướng) và ăn Double-Dip rương mốc Thứ Năm Kỳ GAR/KvK.",
+                    en: "Unlocks Lv.10 skill breakpoints (1,650 shards across 6 heroes) while double-dipping Thursday GAR/KvK milestone chests.",
                   },
                 },
                 {
@@ -756,16 +756,16 @@ export const ARTICLE_5_1_GEAR_OVERVIEW: GuideArticle = {
                     en: "3. Lord Gear (6 Global Profile Slots)",
                   },
                   badge: {
-                    vi: "Tuần A Ngày 5–7 | Tuần B Ngày 3–4",
-                    en: "Week A Days 5–7 | Week B Days 3–4",
+                    vi: "Thi Đấu Hội Ngày 5–7 | GAR/KvK Ngày 3–4",
+                    en: "Guild Race Days 5–7 | GAR/KvK Days 3–4",
                   },
                   tone: "emerald",
                   steps: [
                     {
                       id: "step-lord-gear-week-a",
                       title: {
-                        vi: "Nếu Server đang ở Tuần A (Guild Race — Thi Đấu Hội)",
-                        en: "If Server is in Week A (Guild Race)",
+                        vi: "Nếu Server đang ở Kỳ Thi Đấu Hội (Guild Race)",
+                        en: "If Server is in Guild Race Mode",
                       },
                       subtitle: {
                         vi: "Xả Thép Tinh Luyện, Dây Gai, Bản Vẽ, Máu Rồng vào Ngày 5–7 (Thứ Sáu – Chủ Nhật) ăn Double-Dip Nhiệm vụ Vàng Độc quyền + Guild Rush",
@@ -776,8 +776,8 @@ export const ARTICLE_5_1_GEAR_OVERVIEW: GuideArticle = {
                     {
                       id: "step-lord-gear-week-b",
                       title: {
-                        vi: "Nếu Server đang ở Tuần B (GAR / KvK)",
-                        en: "If Server is in Week B (GAR / KvK)",
+                        vi: "Nếu Server đang ở Kỳ Đua Vũ Trang (GAR / KvK)",
+                        en: "If Server is in Arms Race Mode (GAR / KvK)",
                       },
                       subtitle: {
                         vi: "Xả vào Thứ Tư & Thứ Năm (GAR Ngày 3–4 / KvK Ngày 3–5: 100 Thép = 400 điểm, 1 Dây Gai = 400 điểm; tuyệt đối cấm xả Thứ Bảy Ngày 6)",
@@ -897,8 +897,8 @@ export const ARTICLE_5_1_GEAR_OVERVIEW: GuideArticle = {
                     en: "1,650 Shards (6 heroes at Lv.10) or 7,110 Shards (Full Lv.20 across 6 heroes)",
                   },
                   {
-                    vi: "Xả vào Thứ Năm Tuần B (GAR Ngày 4: Hero Upgrade) kết hợp sự kiện phụ Hero Development.",
-                    en: "Dump on Thursday of Week B (GAR Day 4: Hero Upgrade) paired with the Hero Development side event.",
+                    vi: "Xả vào Thứ Năm Kỳ GAR/KvK (GAR Ngày 4: Hero Upgrade) kết hợp sự kiện phụ Hero Development.",
+                    en: "Dump on Thursday of GAR/KvK (GAR Day 4: Hero Upgrade) paired with the Hero Development side event.",
                   },
                 ],
                 [
@@ -919,8 +919,8 @@ export const ARTICLE_5_1_GEAR_OVERVIEW: GuideArticle = {
                     en: "5,752,800 Refined Metal + 59,730 Magic Thread + 12,180 Blueprints + 606 Dragon Blood (6 pieces)",
                   },
                   {
-                    vi: "Cộng điểm cực lớn! Tuần B (GAR / KvK): Xả Ngày 3 & 4 (100 Thép = 400 điểm, 1 Dây Gai = 400 điểm). Tuần A (Guild Race): Xả Ngày 5–7 cùng Nhiệm vụ Vàng & Guild Rush.",
-                    en: "Massive event points! Week B (GAR / KvK): Dump on Days 3 & 4 (100 Metal = 400 pts, 1 Thread = 400 pts). Week A (Guild Race): Dump on Days 5–7 with Gold Tasks & Guild Rush.",
+                    vi: "Cộng điểm cực lớn! Kỳ GAR/KvK: Xả Ngày 3 & 4 (100 Thép = 400 điểm, 1 Dây Gai = 400 điểm). Kỳ Thi Đấu Hội (Guild Race): Xả Ngày 5–7 cùng Nhiệm vụ Vàng & Guild Rush.",
+                    en: "Massive event points! GAR/KvK: Dump on Days 3 & 4 (100 Metal = 400 pts, 1 Thread = 400 pts). Guild Race: Dump on Days 5–7 with Gold Tasks & Guild Rush.",
                   },
                 ],
               ],

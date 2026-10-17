@@ -16,7 +16,7 @@ LỘ TRÌNH TỐI ƯU TÀI KHOẢN TOP HEROES (MASTER DASHBOARD - 7 TOPICS)
 
 , đã đồng bộ hóa 100% theo 
 
-Chu kỳ Sự kiện Xoay vòng 2 Tuần: Tuần A ⇄ Tuần B
+Chu kỳ Sự kiện Xoay vòng 2 Tuần: Thi Đấu Hội ⇄ GAR/KvK
 
  và 
 
@@ -62,7 +62,7 @@ Tuần thứ 3 của Pre-Season (Khoảng Ngày 18)
 
  — Đang trong 
 
-Tuần A: Tuần "Thi Đấu Hội" (Guild Race)
+Kỳ Thi Đấu Hội: Tuần "Thi Đấu Hội" (Guild Race)
 
 , chuẩn bị đón Tướng Đỏ đầu tiên (
 
@@ -292,7 +292,7 @@ CÓ
 
  tính điểm sự kiện cực lớn ➔ Nhịn bấm từ Thứ 2 đến Thứ 5. Trong 
 
-Tuần A (Thi Đấu Hội)
+Kỳ Thi Đấu Hội (Guild Race)
 
 , chờ 
 
@@ -304,7 +304,7 @@ Nhiệm vụ Độc quyền Vàng: "Tăng LC Trang bị Lãnh chúa"
 
  mới bấm Cường hóa! Trong 
 
-Tuần B
+Kỳ GAR/KvK
 
 , xả vào ngày Trang bị của 
 
@@ -316,7 +316,7 @@ Vũ khí Độc quyền (Exclusive Gear):
 
  Xả mảnh vào 
 
-Thứ 5 (17:00 – 21:00) của Tuần B (GAR)
+Thứ 5 (17:00 – 21:00) Kỳ GAR/KvK (GAR)
 
 .
 
@@ -364,7 +364,7 @@ Nhiệm vụ Vàng Nghiên cứu
 
  trong 
 
-Tuần A (Thi Đấu Hội)
+Kỳ Thi Đấu Hội (Guild Race)
 
  hoặc rướn mốc rương vào 
 
@@ -372,7 +372,7 @@ Thứ 3 (17:00 – 21:00)
 
  của 
 
-Tuần B (GAR)
+Kỳ GAR/KvK (GAR)
 
 .
 
@@ -408,11 +408,11 @@ Quân Trang Vạn Năng 12.000 xu
 
 !
 
-Đồng bộ Tiệm với Chu kỳ Tuần A / Tuần B:
+Đồng bộ Tiệm với Chu kỳ Thi Đấu Hội / GAR-KvK:
 
  Trong 
 
-Tuần A (Thi Đấu Hội)
+Kỳ Thi Đấu Hội (Guild Race)
 
 , giữ Sao Đấu Trường / Điểm Hội chờ xoay ra 
 
@@ -420,7 +420,7 @@ Nhiệm vụ Vàng chi tiêu tiền tệ
 
  mới vào Tiệm mua gói 50 Sao, gói 300 KC, Khiên, VIP; cất toàn bộ Thẻ Chiêu Mộ và Mảnh tướng đã mua vào túi chờ 
 
-Thứ 5 của Tuần B
+Thứ 5 Kỳ GAR/KvK
 
  mới xả!
 
@@ -434,9 +434,9 @@ TOPIC 5 - Hệ Thống Tiệm, Tiền Tệ & Quân Trang (Pro Edition)
 
 .
 
-6. TOPIC 6: Chiến Thuật Sự Kiện Theo Chu Kỳ Xoay Vòng 2 Tuần (Tuần A ⇄ Tuần B) (Đã chuẩn hóa)
+6. TOPIC 6: Chiến Thuật Sự Kiện Theo Lộ Trình Sự Kiện Theo Tiến Độ Server (Thi Đấu Hội ⇄ GAR / KvK) (Đã chuẩn hóa)
 
-Tuần A — Tuần "Thi Đấu Hội" (Guild Race) (Như Tuần 3, Tuần 5...):
+Kỳ Thi Đấu Hội — Tuần "Thi Đấu Hội" (Guild Race) (Như Tuần 3, Tuần 5...):
 
 Xoay 2 ô Nhiệm vụ Độc quyền miễn phí mỗi 10 phút, chỉ nhận 
 
@@ -458,7 +458,7 @@ Công nghệ
 
 .
 
-Cấm kỵ ở Tuần A:
+Cấm kỵ ở Kỳ Thi Đấu Hội:
 
  Không nhận nhiệm vụ 
 
@@ -470,7 +470,7 @@ Tiêu 40 mảnh Cam
 
 !
 
-Tuần B — Tuần "Đua Vũ Trang (GAR)" / "KvK" / "Top Lord" (Như Tuần 4, Tuần 6...):
+Kỳ GAR/KvK — Tuần "Đua Vũ Trang (GAR)" / "KvK" / "Top Lord" (Như Tuần 4, Tuần 6...):
 
 Xả theo đúng 6 giai đoạn cố định kết hợp khung giờ 
 

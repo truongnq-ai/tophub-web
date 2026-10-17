@@ -7,21 +7,21 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
   badge: "HOT",
   readingMinutes: 11,
   title: {
-    vi: "Nhịp Đập 14 Ngày: Chu Kỳ Luân Phiên Tuần A & Tuần B (Bi-weekly Rotation)",
-    en: "The 14-Day Heartbeat: Bi-weekly Rotation (Week A & Week B)",
+    vi: "Lộ Trình Sự Kiện Theo Tiến Độ Server & 2 Trục Sự Kiện Cốt Lõi (Server Event Progression & Rotation)",
+    en: "Server Event Progression Roadmap & Core Event Rotation",
   },
   summary: {
-    vi: "Giải mã nhịp đập 14 ngày của Top Heroes: Phân biệt chính xác Tuần A (Đua Bang Hội + Xúc Xắc) và Tuần B (Chạy Đua Vũ Trang / KvK + Vòng Quay), cùng nguyên tắc sống còn 'Tích trữ 13 Ngày, Bùng nổ đúng Ngày'.",
-    en: "Decode Top Heroes' 14-day heartbeat: Distinguish Week A (Guild Race + Dice) from Week B (Guild Arms Race / KvK + Wheel), and master the 'Hoard for 13 Days, Burst on the Right Day' discipline.",
+    vi: "Giải mã lộ trình sự kiện theo tiến độ Server của Top Heroes: Từ chuỗi Thi Đấu Hội liên tiếp ở Server mới đến 2 Trục Sự Kiện Cốt Lõi — Kỳ Thi Đấu Hội (Bảng Nhiệm Vụ 9 Ô) ⇄ Kỳ Đua Vũ Trang (6 Ngày Chủ Đề GAR / KvK), lịch Gacha xoay tua 3 tuần/lần độc lập và quy tắc kiểm tra Lịch Event 09:00 Thứ Hai.",
+    en: "Decode Top Heroes' server-progression event roadmap: From continuous Guild Race on new servers to the 2 Core Event Archetypes — Guild Race Week (9-Slot Task Board) ⇄ Arms Race Week (6-Stage GAR / KvK), independent 3-week Gacha rotation, and the Monday 09:00 Event Calendar check.",
   },
   tldr: {
     coreRule: {
-      vi: "**Lịch sự kiện Top Heroes tiến hóa động qua 2 Pha theo tuổi máy chủ (`09:00` Thứ Hai làm chuẩn):**\n• **Pha 1 (Đầu Pre-Season, Bang Hạng `D ➔ C ➔ B`):** **Thi Đấu Hội (Guild Race)** chạy nối tiếp hàng tuần (`09:00` Thứ Hai ➔ `09:00` Thứ Hai).\n• **Sự kiện vệ tinh Pha 1:** Xoay vòng giữa **Đế Quốc Hắc Ám Xâm Nhập** ⇄ **Khiêu Chiến Của Đội Quân Hắc Ám** và **Bắt Bướm** ⇄ **Tập Kích Cự Ma**.\n• **Pha 2 (Liên Bang / Liên Server):** Vận hành chu kỳ `14 ngày` luân phiên giữa **Tuần A (Thi Đấu Hội)** ⇄ **Tuần B (Đua Vũ Trang GAR / KvK)**.",
-      en: "**Top Heroes' event schedule evolves dynamically across 2 Phases by server age (`09:00` Monday reset):**\n• **Phase 1 (Early Pre-Season, Guild Rank `D ➔ C ➔ B`):** **Guild Race** runs back-to-back weekly (`09:00` Monday ➔ `09:00` Monday).\n• **Phase 1 Satellites:** Alternates between **Dark Empire Invasion** ⇄ **Dark Legion Challenge** and **Butterfly Catching** ⇄ **Giant/Troll Raid**.\n• **Phase 2 (Inter-Guild / Cross-Server):** Shifts into the `14-day` Bi-Weekly Rotation between **Week A (Guild Race)** ⇄ **Week B (GAR / KvK)**.",
+      vi: "**Lộ trình sự kiện Top Heroes mở khóa động theo tiến độ tuổi máy chủ (`09:00` Thứ Hai làm chuẩn):**\n• **Pha 1 (Đầu Pre-Season, Bang Hạng `D ➔ C ➔ B`):** **Thi Đấu Hội (Guild Race)** chạy nối tiếp hàng tuần (`09:00` Thứ Hai ➔ `09:00` Thứ Hai).\n• **Sự kiện vệ tinh Pha 1:** Xoay vòng giữa **Đế Quốc Hắc Ám Xâm Nhập** ⇄ **Khiêu Chiến Của Đội Quân Hắc Ám** và **Bắt Bướm** ⇄ **Tập Kích Cự Ma**.\n• **Pha 2 (Liên Bang / Liên Server):** Xoay tua giữa 2 trục sự kiện cốt lõi: **Tuần Thi Đấu Hội (Guild Race)** ⇄ **Tuần Đua Vũ Trang (GAR / KvK)**.",
+      en: "**Top Heroes' event schedule unlocks dynamically by server progression (`09:00` Monday reset):**\n• **Phase 1 (Early Pre-Season, Guild Rank `D ➔ C ➔ B`):** **Guild Race** runs back-to-back weekly (`09:00` Monday ➔ `09:00` Monday).\n• **Phase 1 Satellites:** Alternates between **Dark Empire Invasion** ⇄ **Dark Legion Challenge** and **Butterfly Catching** ⇄ **Giant/Troll Raid**.\n• **Phase 2 (Inter-Guild / Cross-Server):** Alternates between the 2 core event archetypes: **Guild Race Week** ⇄ **Arms Race Week (GAR / KvK)**.",
     },
     immediateAction: {
-      vi: "**Kiểm tra Lịch Event mỗi Chủ Nhật / sáng Thứ Hai (`09:00`) trước khi xả bất kỳ tài nguyên nào:**\n• **Thao tác 5 giây:** Mở **Event ➔ Lịch Event** và bấm trực tiếp vào thanh sự kiện bắt đầu ở cột Thứ Hai (`09:00`).\n• **Xác định Chế độ Tuần:** Nhận diện tuần tới là **Chế độ Tuần A** (Thi Đấu Hội — Bảng `9 Ô`) hay **Chế độ Tuần B** (GAR / KvK — `6 Ngày Chủ Đề`).",
-      en: "**Inspect the Event Calendar every Sunday / Monday morning (`09:00`) before spending a single item:**\n• **5-Second Check:** Open **Event ➔ Event Calendar** and tap directly on the event bars starting in the Monday (`09:00`) column.\n• **Verify Weekly Mode:** Confirm whether your server enters **Week A Mode** (Guild Race — `9-Slot Board`) or **Week B Mode** (GAR / KvK — `6 Daily Stages`).",
+      vi: "**Kiểm tra Lịch Event mỗi Chủ Nhật / sáng Thứ Hai (`09:00`) trước khi xả bất kỳ tài nguyên nào:**\n• **Thao tác 5 giây:** Mở **Event ➔ Lịch Event** và bấm trực tiếp vào thanh sự kiện bắt đầu ở cột Thứ Hai (`09:00`).\n• **Xác định Chế độ Tuần:** Nhận diện tuần tới là **Kỳ Thi Đấu Hội** (Guild Race — Bảng `9 Ô`) hay **Kỳ Đua Vũ Trang** (GAR / KvK — `6 Ngày Chủ Đề`).",
+      en: "**Inspect the Event Calendar every Sunday / Monday morning (`09:00`) before spending a single item:**\n• **5-Second Check:** Open **Event ➔ Event Calendar** and tap directly on the event bars starting in the Monday (`09:00`) column.\n• **Verify Weekly Mode:** Confirm whether your server enters **Guild Race Mode** (`9-Slot Board`) or **Arms Race Mode** (GAR / KvK — `6 Daily Stages`).",
     },
     strictTaboo: {
       vi: "**Cấm xả ngẫu hứng ngoài sự kiện và cấm đóng băng máy móc ở giai đoạn đầu Pre-Season:**\n• **Cấm xả tự do:** Không đập Mảnh Tướng Vàng, Thẻ Chiêu Mộ, Sách Kỹ Năng hay **Lord Gear** ngoài Nhiệm vụ Vàng hoặc ngày chủ đề.\n• **Không nhịn trắng máy móc ở Pha 1:** Khi Thi Đấu Hội chạy nối tiếp hàng tuần, hãy xả Tăng tốc và **Lord Gear** (Ngày `5–7`) khớp Nhiệm vụ Vàng để lấy trọn Rương mốc.",
@@ -30,8 +30,8 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
   },
   keyTakeaways: [
     {
-      vi: "**Tiến hóa Lịch Máy Chủ 2 Pha:** Pha 1 đầu Pre-Season chạy **Thi Đấu Hội (Guild Race)** nối sóng mỗi tuần (`09:00` Thứ Hai ➔ `09:00` Thứ Hai).\n• **Vệ tinh & Pha 2:** Xoay vòng **Đế Quốc Hắc Ám** ⇄ **Khiêu Chiến Của Đội Quân Hắc Ám**, **Bắt Bướm** ⇄ **Tập Kích Cự Ma** trước khi vào chu kỳ `14 ngày` (Tuần A ⇄ Tuần B).",
-      en: "**2-Phase Server Schedule Evolution:** Phase 1 early Pre-Season runs **Guild Race** consecutively every week (`09:00` Monday ➔ `09:00` Monday).\n• **Satellites & Phase 2:** Rotates **Dark Empire Invasion** ⇄ **Dark Legion Challenge** and **Butterfly Catching** ⇄ **Giant/Troll Raid** before entering the `14-day` Week A ⇄ Week B loop.",
+      vi: "**Tiến hóa Lịch Máy Chủ 2 Pha:** Pha 1 đầu Pre-Season chạy **Thi Đấu Hội (Guild Race)** nối sóng mỗi tuần (`09:00` Thứ Hai ➔ `09:00` Thứ Hai).\n• **Vệ tinh & Pha 2:** Xoay vòng **Đế Quốc Hắc Ám** ⇄ **Khiêu Chiến Của Đội Quân Hắc Ám**, **Bắt Bướm** ⇄ **Tập Kích Cự Ma** trước khi mở khóa trục **GAR / KvK**.",
+      en: "**2-Phase Server Schedule Evolution:** Phase 1 early Pre-Season runs **Guild Race** consecutively every week (`09:00` Monday ➔ `09:00` Monday).\n• **Satellites & Phase 2:** Rotates **Dark Empire Invasion** ⇄ **Dark Legion Challenge** and **Butterfly Catching** ⇄ **Giant/Troll Raid** before unlocking the **GAR / KvK** axis.",
     },
     {
       vi: "**Hai Tầng Giá Trị Tài Nguyên:** Mỗi vật phẩm mang **Tầng 1 (Lực chiến nội tại)** + **Tầng 2 (Thặng dư sự kiện)**.\n• **Đòn bẩy F2P & Low-Spender (`$0.99–$9.99`):** Đọc Lịch Event sáng Thứ Hai giúp thu về lượng Kim Cương, Mảnh Vàng và Điểm Vinh Dự gấp `2.5x–3x` so với xả tự do.",
@@ -42,15 +42,15 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
       en: "**3-Faction Sync & Wallet Freeze Floor:** Always maintain at least `40,000` Guild Honor Points or `12,000–18,000` Guild Glory Coins.\n• **Awakening Budget:** Horde needs `9 Red Soul Stones` (`360,000` Honor / `54,000` Glory Coins), while Nature needs `18 Red Soul Stones` (`720,000` Honor / `108,000` Glory Coins) for Pixie & Sage.",
     },
     {
-      vi: "**Cảnh Báo Điểm Phụ Tuần B & 8 Sự Kiện Phụ:** Đồ Chúa Tể (**Lord Gear**) chỉ tính điểm vào Ngày `3–4` Tuần B (hoặc Ngày `5–7` Tuần A) và bằng `0 điểm` vào Ngày 6 GAR/KvK.\n• **Quy tắc Thánh Tích (Relics):** Tính điểm vào Ngày `1–2` của GAR/KvK nhưng hoàn toàn KHÔNG tính điểm (`0 điểm`) vào Ngày 5 của GAR tiêu chuẩn.",
-      en: "**Week B Secondary Scoring & 8 Sub-Events Alert:** **Lord Gear** scores ONLY on Days `3–4` of Week B (or Days `5–7` of Week A) and grants `0 points` on Day 6 of GAR/KvK.\n• **Relics Scoring Rule:** Relics score on Days `1–2` of GAR/KvK but grant `0 points` on Day 5 of standard GAR.",
+      vi: "**Cảnh Báo Điểm Phụ GAR/KvK & 8 Sự Kiện Phụ:** Đồ Chúa Tể (**Lord Gear**) chỉ tính điểm vào Ngày `3–4` Kỳ GAR/KvK (hoặc Ngày `5–7` Kỳ Thi Đấu Hội) và bằng `0 điểm` vào Ngày 6 GAR/KvK.\n• **Quy tắc Thánh Tích (Relics):** Tính điểm vào Ngày `1–2` của GAR/KvK nhưng hoàn toàn KHÔNG tính điểm (`0 điểm`) vào Ngày 5 của GAR tiêu chuẩn.",
+      en: "**GAR/KvK Secondary Scoring & 8 Sub-Events Alert:** **Lord Gear** scores ONLY on Days `3–4` of GAR/KvK Week (or Days `5–7` of Guild Race Week) and grants `0 points` on Day 6 of GAR/KvK.\n• **Relics Scoring Rule:** Relics score on Days `1–2` of GAR/KvK but grant `0 points` on Day 5 of standard GAR.",
     },
   ],
   keywords: [
-    "biweekly rotation",
-    "lịch sự kiện 14 ngày",
-    "tuần a tuần b",
-    "week a week b",
+    "lộ trình sự kiện theo tiến độ server",
+    "server event progression",
+    "tuần thi đấu hội",
+    "tuần đua vũ trang",
     "thi đấu hội",
     "guild race",
     "guild arms race",
@@ -74,8 +74,8 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
     {
       id: "sec-1-two-phase-server-evolution",
       title: {
-        vi: "1. Giải thích Cơ chế Cốt lõi: 2 Pha Vận Hành Của Lịch Sự Kiện Theo Tuổi Máy Chủ",
-        en: "1. Core Mechanics: The 2-Phase Server Event Evolution (Pre-Season Continuous vs. Mature Bi-Weekly Rotation)",
+        vi: "1. Giải thích Cơ chế Cốt lõi: 2 Pha Vận Hành Của Lịch Sự Kiện Theo Tiến Độ Tuổi Máy Chủ",
+        en: "1. Core Mechanics: The 2-Phase Server Event Progression (Pre-Season Continuous vs. Mature Core Event Rotation)",
       },
       blocks: [
         {
@@ -90,12 +90,12 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
           mediaCode: "MED-3.1-01",
           tier: "tier2_annotated_ui",
           title: {
-            vi: "Bộ Biểu Tượng Nhận Diện Nhanh 4 Sự Kiện Trụ Cột Trong Vòng Lặp 14 Ngày",
-            en: "Quick-Recognition Icon Suite: The 4 Pillar Events of the 14-Day Loop",
+            vi: "Bộ Biểu Tượng Nhận Diện Nhanh 4 Sự Kiện Trụ Cột Theo Tiến Độ Server",
+            en: "Quick-Recognition Icon Suite: The 4 Pillar Events of Server Progression",
           },
           description: {
-            vi: "Bộ biểu tượng nhận diện nhanh 4 sự kiện trụ cột quyết định nhịp đập tài nguyên: Guild Race (Thi Đấu Hội), Guild Arms Race (GAR / KvK), Lucky Wheel (Vòng Quay) và Dice Event (Xúc Xắc) (/images/guides/events/biweekly-icons.webp).",
-            en: "Quick-identification visual icons for the 4 pillar events governing your resource rhythm: Guild Race, Guild Arms Race (GAR / KvK), Lucky Wheel, and Dice Event (/images/guides/events/biweekly-icons.webp).",
+            vi: "Bộ biểu tượng nhận diện nhanh các sự kiện trụ cột quyết định nhịp đập tài nguyên: Thi Đấu Hội (Guild Race), Đua Vũ Trang (GAR / KvK) và cụm Gacha 3 tuần/lần (Lucky Wheel • Hero Gacha • Dice of Fate) (/images/guides/events/biweekly-icons.webp).",
+            en: "Quick-identification visual icons for the pillar events governing your resource rhythm: Guild Race, Guild Arms Race (GAR / KvK), and the 3-week Gacha cycle (Lucky Wheel • Hero Gacha • Dice of Fate) (/images/guides/events/biweekly-icons.webp).",
           },
           imageSrc: "/images/guides/events/biweekly-icons.webp",
           annotations: [
@@ -106,8 +106,8 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
                 en: "Guild Race (9-Slot Board + 2 Exclusive Slots)",
               },
               detail: {
-                vi: "Chạy nối tiếp hàng tuần ở đầu Pre-Season (09:00 Thứ Hai ➔ 09:00 Thứ Hai) hoặc ở Chế độ Tuần A. Phải bấm 'Nhận (Accept)' nhiệm vụ Vàng trước khi hành động để kiếm Điểm Vinh Dự Bang đổi Hồn Đá Đỏ.",
-                en: "Runs consecutively every week in early Pre-Season (Monday 09:00 ➔ Monday 09:00) or during Week A Mode. You must tap 'Accept' on Golden Tasks before acting to farm Guild Honor for Red Soul Stones.",
+                vi: "Chạy nối tiếp hàng tuần ở đầu Pre-Season (09:00 Thứ Hai ➔ 09:00 Thứ Hai) hoặc ở Kỳ Thi Đấu Hội. Phải bấm 'Nhận (Accept)' nhiệm vụ Vàng trước khi hành động để kiếm Điểm Vinh Dự Bang đổi Hồn Đá Đỏ.",
+                en: "Runs consecutively every week in early Pre-Season (Monday 09:00 ➔ Monday 09:00) or during Guild Race Week. You must tap 'Accept' on Golden Tasks before acting to farm Guild Honor for Red Soul Stones.",
               },
             },
             {
@@ -117,30 +117,30 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
                 en: "Guild Arms Race & Kingdom Duel (GAR / KvK — 6 Daily Stages)",
               },
               detail: {
-                vi: "Mở khóa ở Chế độ Tuần B (GAR ở Tuần B1 ⇄ KvK / 4 Nations ở Tuần B2). Tự động ghi nhận điểm theo 6 Ngày Chủ Đề cố định toàn máy chủ từ Thứ Hai đến Thứ Bảy.",
-                en: "Unlocks in Week B Mode (GAR in Week B1 ⇄ KvK / 4 Nations in Week B2). Automatically scores actions matching the 6 fixed server-wide daily themes from Monday to Saturday.",
+                vi: "Mở khóa ở Kỳ Đua Vũ Trang (GAR Liên Bang ⇄ KvK / 4 Nations Liên Server). Tự động ghi nhận điểm theo 6 Ngày Chủ Đề cố định toàn máy chủ từ Thứ Hai đến Thứ Bảy.",
+                en: "Unlocks in Arms Race Mode (Inter-Guild GAR ⇄ Cross-Server KvK / 4 Nations). Automatically scores actions matching the 6 fixed server-wide daily themes from Monday to Saturday.",
               },
             },
             {
               kind: "info",
               label: {
-                vi: "Xúc Xắc (Dice Event) & Vòng Quay (Lucky Wheel)",
-                en: "Dice Event (Week A) & Lucky Wheel (Week B)",
+                vi: "Chu Kỳ Gacha Xoay Tua 3 Tuần/Lần (Lucky Wheel • Hero Gacha • Dice of Fate)",
+                en: "3-Week Rotating Gacha Cycle (Lucky Wheel • Hero Gacha • Dice of Fate)",
               },
               detail: {
-                vi: "Hai sự kiện gacha lấy Tướng Đỏ (Mythic) và Vũ Khí Độc Quyền (UW) đi kèm lịch tuần: gom Kim Cương từ rương mốc cá nhân để chỉ xả vào đúng kỳ xuất hiện tướng thuộc Phe chủ lực Đội 1.",
-                en: "The two Mythic Hero and Exclusive Weapon (UW) gacha events paired with the weekly cycle: hoard Diamonds from milestone chests and pull only when your Queue 1 main faction Mythics appear.",
+                vi: "Vòng Quay (750 KC — Liên Minh), Hero Gacha (1,000 KC — Bộ Lạc) và Xúc Xắc (800 KC — Tự Nhiên) xoay tua 3 tuần/lần (hoặc theo Ngày tuổi Server ở S0), độc lập với lịch Thi Đấu Hội / GAR: chỉ xả KC khi mở tướng thuộc Phe Đội 1.",
+                en: "Lucky Wheel (750 Diamonds — League), Hero Gacha (1,000 Diamonds — Horde), and Dice of Fate (800 Diamonds — Nature) rotate every 3rd week (or by Server Age in S0), independent of Guild Race / GAR: pull only when your Queue 1 faction appears.",
               },
             },
             {
               kind: "dont",
               label: {
-                vi: "Cấm Xả Lệch Pha Giữa Bảng Nhiệm Vụ (Tuần A) Và Ngày Chủ Đề (Tuần B)",
-                en: "Never Desync Spending Between Task Boards (Week A) and Daily Themes (Week B)",
+                vi: "Cấm Xả Lệch Pha Giữa Bảng Nhiệm Vụ (Thi Đấu Hội) Và Ngày Chủ Đề (GAR / KvK)",
+                en: "Never Desync Spending Between Task Boards (Guild Race) and Daily Themes (GAR / KvK)",
               },
               detail: {
-                vi: "Tuyệt đối không đốt Vé Chiêu Mộ và Mảnh Tướng Vàng cho nhiệm vụ bảng chung Thi Đấu Hội (Tuần A), khiến kho dự trữ trống rỗng khi bước vào Thứ Năm Tuần B (GAR / KvK Day 4).",
-                en: "Never burn Recruit Tokens or Universal Legendary Shards on shared Guild Race board tasks (Week A), which leaves your inventory empty when Thursday of Week B (GAR / KvK Day 4) arrives.",
+                vi: "Tuyệt đối không đốt Vé Chiêu Mộ và Mảnh Tướng Vàng cho nhiệm vụ bảng chung Thi Đấu Hội (Guild Race), khiến kho dự trữ trống rỗng khi bước vào Thứ Năm của Kỳ GAR / KvK (Day 4).",
+                en: "Never burn Recruit Tokens or Universal Legendary Shards on shared Guild Race board tasks, which leaves your inventory empty when Thursday of GAR / KvK Week (Day 4) arrives.",
               },
             },
           ],
@@ -188,19 +188,19 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
         {
           id: "sub-1-2-phase-2-biweekly-rotation",
           title: {
-            vi: "1.2. Pha 2 — Giai Đoạn Trưởng Thành & Liên Server (Chu Kỳ Luân Phiên 14 Ngày / 28 Ngày: Tuần A ⇄ Tuần B)",
-            en: "1.2. Phase 2 — Mature & Cross-Server Era (14-Day / 28-Day Bi-Weekly Rotation: Week A ⇄ Week B)",
+            vi: "1.2. Pha 2 — Giai Đoạn Trưởng Thành & Liên Server (2 Trục Sự Kiện Cốt Lõi: Kỳ Thi Đấu Hội ⇄ Kỳ GAR / KvK)",
+            en: "1.2. Phase 2 — Mature & Cross-Server Era (2 Core Event Archetypes: Guild Race Week ⇄ GAR / KvK Week)",
           },
           badge: {
-            vi: "Pha 2 • Chu Kỳ 14 Ngày",
-            en: "Phase 2 • 14-Day Cycle",
+            vi: "Pha 2 • 2 Trục Cốt Lõi",
+            en: "Phase 2 • Core Rotation",
           },
           blocks: [
             {
               type: "paragraph",
               text: {
-                vi: "**Kích hoạt Vòng lặp Luân phiên 14 Ngày:** Khi máy chủ đủ tuổi mở khóa **Chạy Đua Vũ Trang (GAR)** và **Chiến Tranh Vương Quốc (KvK / 4 Nations)**.\n• **Hai Chế độ Tuần:** Toàn bộ nền kinh tế bước vào vòng lặp luân phiên chuẩn xác giữa **Chế độ Tuần A** và **Chế độ Tuần B**:",
-                en: "**Activating the 14-Day Bi-Weekly Loop:** Once the server reaches the age threshold to unlock **Guild Arms Race (GAR)** and **Kingdom Duel (KvK / 4 Nations)**.\n• **Two Weekly Modes:** The server economy enters a strict alternating rotation between **Week A Mode** and **Week B Mode**:",
+                vi: "**Kích hoạt Luân phiên Sự kiện Trưởng thành:** Khi máy chủ đủ tuổi mở khóa **Chạy Đua Vũ Trang (GAR)** và **Chiến Tranh Vương Quốc (KvK / 4 Nations)**.\n• **Hai Chế độ Tuần:** Toàn bộ nền kinh tế bước vào vòng xoay luân phiên giữa **Kỳ Thi Đấu Hội** và **Kỳ Đua Vũ Trang (GAR / KvK)**:",
+                en: "**Activating the Mature Event Rotation:** Once the server reaches the age threshold to unlock **Guild Arms Race (GAR)** and **Kingdom Duel (KvK / 4 Nations)**.\n• **Two Weekly Modes:** The server economy enters an alternating rotation between **Guild Race Mode** and **Arms Race Mode (GAR / KvK)**:",
               },
             },
             {
@@ -208,12 +208,12 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
               ordered: true,
               items: [
                 {
-                  vi: "**Chế độ Tuần A (Thi Đấu Hội / Guild Race + Dice):** Chạy `09:00` Thứ Hai ➔ `09:00` Thứ Hai; chủ động bấm `Accept` nhiệm vụ (ưu tiên `2 Ô Độc quyền`) để lấy Rương mốc cá nhân và Điểm Vinh Dự mua Hồn Đá Đỏ.",
-                  en: "**Week A Mode (Guild Race + Dice Event):** Runs `09:00` Mon ➔ `09:00` Mon; tap `Accept` on board tasks (prioritizing `2 Exclusive slots`) before acting to claim Personal Chests and Guild Honor for Soul Stones.",
+                  vi: "**Kỳ Thi Đấu Hội (Guild Race — Bảng 9 Ô):** Chạy `09:00` Thứ Hai ➔ `09:00` Thứ Hai; chủ động bấm `Accept` nhiệm vụ (ưu tiên `2 Ô Độc quyền`) để lấy Rương mốc cá nhân và Điểm Vinh Dự mua Hồn Đá Đỏ.",
+                  en: "**Guild Race Mode (9-Slot Task Board):** Runs `09:00` Mon ➔ `09:00` Mon; tap `Accept` on board tasks (prioritizing `2 Exclusive slots`) before acting to claim Personal Chests and Guild Honor for Soul Stones.",
                 },
                 {
-                  vi: "**Chế độ Tuần B (GAR / KvK / 4 Nations + Wheel):** Xoay vòng giữa **GAR** (Tuần B1) và **KvK** (Tuần B2) theo `6 Ngày Chủ Đề` cố định (T2 Xây dựng, T3 Nghiên cứu, T4 Thể lực/Mỏ, T5 Tướng, T6 Lính, T7 Diệt Địch).",
-                  en: "**Week B Mode (GAR / KvK / 4 Nations + Wheel):** Alternates **GAR** (Week B1) and **KvK** (Week B2) across `6 Fixed Daily Themes` (Mon Build, Tue Tech, Wed Stamina/Mines, Thu Heroes, Fri Troops, Sat Kill Event).",
+                  vi: "**Kỳ Đua Vũ Trang (GAR / KvK — 6 Ngày):** Luân phiên **GAR** (Liên Bang) và **KvK / 4 Nations** (Liên Server) theo `6 Ngày Chủ Đề` cố định (T2 Xây, T3 Nghiên cứu, T4 Thể lực/Mỏ, T5 Tướng, T6 Lính, T7 Diệt Địch).",
+                  en: "**Arms Race Mode (GAR / KvK — 6 Stages):** Alternates **GAR** (Inter-Guild) and **KvK / 4 Nations** (Cross-Server) across `6 Fixed Themes` (Mon Build, Tue Tech, Wed Stamina/Mines, Thu Heroes, Fri Troops, Sat Kill).",
                 },
               ],
             },
@@ -233,8 +233,8 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
             {
               type: "table",
               caption: {
-                vi: "Bảng đối chiếu & nhận diện nhanh Chế độ Tuần A (Thi Đấu Hội) và Chế độ Tuần B (GAR / KvK) qua Lịch Event trong 5 giây",
-                en: "5-second quick-identification & comparison matrix between Week A Mode (Guild Race) and Week B Mode (GAR / KvK) via the in-game Event Calendar",
+                vi: "Bảng đối chiếu & nhận diện nhanh Kỳ Thi Đấu Hội (Guild Race) và Kỳ Đua Vũ Trang (GAR / KvK) qua Lịch Event trong 5 giây",
+                en: "5-second quick-identification & comparison matrix between Guild Race Mode and Arms Race Mode (GAR / KvK) via the in-game Event Calendar",
               },
               headers: [
                 {
@@ -242,12 +242,12 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
                   en: "Comparison Criterion",
                 },
                 {
-                  vi: "CHẾ ĐỘ TUẦN A (Thi Đấu Hội / Guild Race — Chạy liên tiếp ở đầu Pre-Season hoặc luân phiên ở Tuần A)",
-                  en: "WEEK A MODE (Guild Race — Continuous in early Pre-Season or alternating in Week A)",
+                  vi: "KỲ THI ĐẤU HỘI (Guild Race — Chạy liên tiếp ở đầu Pre-Season hoặc luân phiên ở giai đoạn trưởng thành)",
+                  en: "GUILD RACE MODE (Guild Race — Continuous in early Pre-Season or alternating on mature servers)",
                 },
                 {
-                  vi: "CHẾ ĐỘ TUẦN B (Chạy Đua Vũ Trang GAR / KvK / 4 Nations — Khi trên Lịch Event xuất hiện Đua 6 Giai Đoạn)",
-                  en: "WEEK B MODE (Guild Arms Race GAR / KvK / 4 Nations — When 6-Stage Arms Race appears on Calendar)",
+                  vi: "KỲ ĐUA VŨ TRANG (Chạy Đua Vũ Trang GAR / KvK / 4 Nations — Khi trên Lịch Event xuất hiện Đua 6 Giai Đoạn)",
+                  en: "ARMS RACE MODE (Guild Arms Race GAR / KvK / 4 Nations — When 6-Stage Arms Race appears on Calendar)",
                 },
               ],
               rows: [
@@ -296,11 +296,11 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
                 [
                   {
                     vi: "Chiến thuật Xả khi Thi Đấu Hội chạy nối tiếp vs Luân phiên",
-                    en: "Spending Tactics: Continuous Pre-Season vs. Bi-Weekly Rotation",
+                    en: "Spending Tactics: Continuous Pre-Season vs. Core Rotation",
                   },
                   {
-                    vi: "• Nếu tuần sau vẫn là Thi Đấu Hội nối tiếp: Không nhịn trắng! Xả Tăng tốc, Lord Gear (Ngày 5–7), Điểm Shop khớp với Nhiệm vụ Vàng để lấy full rương mốc cá nhân mỗi tuần. • Nếu tuần sau là GAR / KvK: Chỉ xả cầm chừng lấy mốc rương Thi Đấu Hội, dồn kho lớn sang Tuần B.",
-                    en: "• If next week is another consecutive Guild Race: Do NOT freeze completely! Spend Speedups, Lord Gear (Days 5–7), and Shop Currency matched with Golden Tasks to clear all personal chests weekly. • If next week is GAR / KvK: Spend minimally to hit Guild Race milestones and hoard your main stockpile for Week B.",
+                    vi: "• Nếu tuần sau vẫn là Thi Đấu Hội nối tiếp: Không nhịn trắng! Xả Tăng tốc, Lord Gear (Ngày 5–7), Điểm Shop khớp với Nhiệm vụ Vàng để lấy full rương mốc cá nhân mỗi tuần. • Nếu tuần sau là GAR / KvK: Chỉ xả cầm chừng lấy mốc rương Thi Đấu Hội, dồn kho lớn sang Kỳ GAR / KvK.",
+                    en: "• If next week is another consecutive Guild Race: Do NOT freeze completely! Spend Speedups, Lord Gear (Days 5–7), and Shop Currency matched with Golden Tasks to clear all personal chests weekly. • If next week is GAR / KvK: Spend minimally to hit Guild Race milestones and hoard your main stockpile for GAR / KvK Week.",
                   },
                   {
                     vi: "Bung kho theo đúng 6 ngày chủ đề: Đặc biệt dồn Mảnh Tướng, Vé Chiêu Mộ, Hồn Đá Đỏ, Sách Kỹ Năng vào Thứ Năm (Ngày 4) và Lính Bậc Thang vào Thứ Sáu (Ngày 5).",
@@ -362,8 +362,8 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
             en: "Annotated In-Game Event Calendar UI: Monday 09:00 Column & 3-Day Sub-Event Countdown",
           },
           description: {
-            vi: "Ảnh chụp giao diện Lịch Sự Kiện (Event ➔ Lịch Event) in-game có khoanh vùng đỏ cách phân biệt Chế độ Tuần A và Chế độ Tuần B tại cột Thứ Hai (09:00) cùng thời gian đếm ngược của Sự kiện Phụ 2–3 Ngày.",
-            en: "Annotated in-game Event Calendar (Event ➔ Event Calendar) screenshot highlighting how to distinguish Week A Mode from Week B Mode at the Monday (09:00) column alongside the 2–3 day Sub-Event countdown.",
+            vi: "Ảnh chụp giao diện Lịch Sự Kiện (Event ➔ Lịch Event) in-game có khoanh vùng đỏ cách phân biệt Kỳ Thi Đấu Hội và Kỳ Đua Vũ Trang (GAR / KvK) tại cột Thứ Hai (09:00) cùng thời gian đếm ngược của Sự kiện Phụ 2–3 Ngày.",
+            en: "Annotated in-game Event Calendar (Event ➔ Event Calendar) screenshot highlighting how to distinguish Guild Race Mode from Arms Race Mode (GAR / KvK) at the Monday (09:00) column alongside the 2–3 day Sub-Event countdown.",
           },
           imageSrc: "/images/guides/events/event-calendar-annotated.webp",
           annotations: [
@@ -420,12 +420,12 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
               steps: [
                 {
                   badge: {
-                    vi: "CHẾ ĐỘ TUẦN A • NGÀY 1–4",
-                    en: "WEEK A MODE • DAYS 1–4",
+                    vi: "KỲ THI ĐẤU HỘI • NGÀY 1–4",
+                    en: "GUILD RACE • DAYS 1–4",
                   },
                   title: {
-                    vi: "Thứ Hai ➔ Thứ Năm Tuần A: Xoay Nhiệm Vụ Vàng Cơ Bản + Guild Rush Thú Cưng & Thánh Tích",
-                    en: "Week A Mon ➔ Thu: Roll Base Golden Tasks + Pet & Relic Guild Rush",
+                    vi: "Thứ Hai ➔ Thứ Năm (Thi Đấu Hội): Xoay Nhiệm Vụ Vàng Cơ Bản + Guild Rush Thú Cưng & Thánh Tích",
+                    en: "Guild Race Mon ➔ Thu: Roll Base Golden Tasks + Pet & Relic Guild Rush",
                   },
                   timing: {
                     vi: "Thứ Hai – Thứ Ba (Pets Dev) & Thứ Tư – Thứ Năm (Relic Hall & Relics)",
@@ -438,56 +438,56 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
                 },
                 {
                   badge: {
-                    vi: "CHẾ ĐỘ TUẦN A • NGÀY 5–7",
-                    en: "WEEK A MODE • DAYS 5–7",
+                    vi: "KỲ THI ĐẤU HỘI • NGÀY 5–7",
+                    en: "GUILD RACE • DAYS 5–7",
                   },
                   title: {
-                    vi: "Thứ Sáu ➔ Chủ Nhật Tuần A: Săn Nhiệm Vụ Độc Quyền Vàng Siêu Cấp + Đồ Chúa Tể & Quy Tắc Tướng",
-                    en: "Week A Fri ➔ Sun: Hunt Super Exclusive Golden Tasks + Lord Gear & Hero Rule",
+                    vi: "Thứ Sáu ➔ Chủ Nhật (Thi Đấu Hội): Săn Nhiệm Vụ Độc Quyền Vàng Siêu Cấp + Đồ Chúa Tể & Quy Tắc Tướng",
+                    en: "Guild Race Fri ➔ Sun: Hunt Super Exclusive Golden Tasks + Lord Gear & Hero Rule",
                   },
                   timing: {
                     vi: "Thứ Sáu – Chủ Nhật (Mở khóa NV Độc Quyền Vàng Lord Gear + Guild Rush Quân Trang & Đồ Chúa Tể)",
                     en: "Fri – Sun (Unlocks Exclusive Golden Lord Gear Tasks + Troop Skin & Lord Gear Guild Rush)",
                   },
                   description: {
-                    vi: "**Bung kho Ngày `5–7`:** Xả nguyên liệu **Lord Gear** và Tăng tốc Công trình/Khoa học khi bắt được Nhiệm vụ Độc quyền Vàng cuối tuần.\n• **Quy tắc Tướng:** Nếu tuần sau là GAR/KvK ➔ giữ `100%` Vé & Mảnh chờ Thứ Năm Tuần B; nếu S0 nối tiếp Thi Đấu Hội ➔ chỉ nâng khi có **Hero Development** hoặc NV Vàng.",
-                    en: "**Days `5–7` Weekend Burst:** Unleash **Lord Gear** materials and Building/Research Speedups when landing weekend Exclusive Golden Tasks.\n• **Hero Rule:** If next week is GAR/KvK ➔ hold `100%` of Tokens & Shards for Week B Thursday; if S0 continues Guild Race ➔ upgrade only during **Hero Development** or Golden Tasks.",
+                    vi: "**Bung kho Ngày `5–7`:** Xả nguyên liệu **Lord Gear** và Tăng tốc Công trình/Khoa học khi bắt được Nhiệm vụ Độc quyền Vàng cuối tuần.\n• **Quy tắc Tướng:** Nếu tuần sau là GAR/KvK ➔ giữ `100%` Vé & Mảnh chờ Thứ Năm GAR/KvK; nếu S0 nối tiếp Thi Đấu Hội ➔ chỉ nâng khi có **Hero Development** hoặc NV Vàng.",
+                    en: "**Days `5–7` Weekend Burst:** Unleash **Lord Gear** materials and Building/Research Speedups when landing weekend Exclusive Golden Tasks.\n• **Hero Rule:** If next week is GAR/KvK ➔ hold `100%` of Tokens & Shards for GAR/KvK Thursday; if S0 continues Guild Race ➔ upgrade only during **Hero Development** or Golden Tasks.",
                   },
                 },
                 {
                   badge: {
-                    vi: "CHẾ ĐỘ TUẦN B • NGÀY 1–3",
-                    en: "WEEK B MODE • DAYS 1–3",
+                    vi: "KỲ GAR / KVK • NGÀY 1–3",
+                    en: "GAR / KVK • DAYS 1–3",
                   },
                   title: {
-                    vi: "Thứ Hai ➔ Thứ Tư Tuần B (GAR / KvK Ngày 1–3): Xây Dựng, Nghiên Cứu/Runes & Thể Lực/Mỏ",
-                    en: "Week B Mon ➔ Wed (GAR / KvK Days 1–3): Construction, Research/Runes & Stamina/Gathering",
+                    vi: "Thứ Hai ➔ Thứ Tư (GAR / KvK Ngày 1–3): Xây Dựng, Nghiên Cứu/Runes & Thể Lực/Mỏ",
+                    en: "GAR / KvK Mon ➔ Wed (Days 1–3): Construction, Research/Runes & Stamina/Gathering",
                   },
                   timing: {
                     vi: "Thứ Hai (Day 1 Xây dựng 13:00–17:00) • Thứ Ba (Day 2 Nghiên cứu 17:00–21:00) • Thứ Tư (Day 3 Thể lực/Mỏ)",
                     en: "Monday (Day 1 Build 13:00–17:00) • Tuesday (Day 2 Research 17:00–21:00) • Wednesday (Day 3 Stamina/Mines)",
                   },
                   description: {
-                    vi: "**Đồng bộ 3 ngày đầu Tuần B (GAR / KvK Ngày `1–3`):**\n• **Thứ Hai (Day 1):** Khui hộp nhà + Tăng tốc Xây dựng, Đá Rồng + phụ: **Thánh Tích (Relics)** & **Behemoth**.\n• **Thứ Ba (Day 2):** Tăng tốc Nghiên cứu + **Cổ Ngữ (Runes)** + phụ: Thánh Tích & Behemoth.\n• **Thứ Tư (Day 3):** Thể lực + Bounty + Thu hoạch Mỏ + phụ: **Đồ Chúa Tể (Lord Gear)** (& Behemoth nếu là KvK).",
-                    en: "**Synchronize the first 3 days of Week B (GAR / KvK Days `1–3`):**\n• **Monday (Day 1):** Unwrap building boxes + Construction Speedups, Dragon Essence + secondary: **Relics** & **Behemoth**.\n• **Tuesday (Day 2):** Research Speedups + **Runes** + secondary: Relics & Behemoth.\n• **Wednesday (Day 3):** Stamina + Bounties + Pre-marched Mines + secondary: **Lord Gear** (& Behemoth in KvK).",
+                    vi: "**Đồng bộ 3 ngày đầu Kỳ GAR / KvK (Ngày `1–3`):**\n• **Thứ Hai (Day 1):** Khui hộp nhà + Tăng tốc Xây dựng, Đá Rồng + phụ: **Thánh Tích (Relics)** & **Behemoth**.\n• **Thứ Ba (Day 2):** Tăng tốc Nghiên cứu + **Cổ Ngữ (Runes)** + phụ: Thánh Tích & Behemoth.\n• **Thứ Tư (Day 3):** Thể lực + Bounty + Thu hoạch Mỏ + phụ: **Đồ Chúa Tể (Lord Gear)** (& Behemoth nếu là KvK).",
+                    en: "**Synchronize the first 3 days of GAR / KvK Week (Days `1–3`):**\n• **Monday (Day 1):** Unwrap building boxes + Construction Speedups, Dragon Essence + secondary: **Relics** & **Behemoth**.\n• **Tuesday (Day 2):** Research Speedups + **Runes** + secondary: Relics & Behemoth.\n• **Wednesday (Day 3):** Stamina + Bounties + Pre-marched Mines + secondary: **Lord Gear** (& Behemoth in KvK).",
                   },
                 },
                 {
                   badge: {
-                    vi: "CHẾ ĐỘ TUẦN B • NGÀY 4–6",
-                    en: "WEEK B MODE • DAYS 4–6",
+                    vi: "KỲ GAR / KVK • NGÀY 4–6",
+                    en: "GAR / KVK • DAYS 4–6",
                   },
                   title: {
-                    vi: "Thứ Năm ➔ Thứ Bảy Tuần B (GAR / KvK Ngày 4–6): Đại Lễ Bùng Nổ Tướng, Lính Bậc Thang & Chiến Sự KE",
-                    en: "Week B Thu ➔ Sat (GAR / KvK Days 4–6): Grand Hero Burst, Staircase Troops & Kill Event",
+                    vi: "Thứ Năm ➔ Thứ Bảy (GAR / KvK Ngày 4–6): Đại Lễ Bùng Nổ Tướng, Lính Bậc Thang & Chiến Sự KE",
+                    en: "GAR / KvK Thu ➔ Sat (Days 4–6): Grand Hero Burst, Staircase Troops & Kill Event",
                   },
                   timing: {
                     vi: "Thứ Năm (Day 4 Tướng) • Thứ Sáu (Day 5 Lính) • Thứ Bảy (Day 6 Chiến sự KE)",
                     en: "Thursday (Day 4 Heroes) • Friday (Day 5 Troops) • Saturday (Day 6 Kill Event)",
                   },
                   description: {
-                    vi: "**Cao trào 3 ngày cuối Tuần B (GAR / KvK Ngày `4–6`):**\n• **Thứ Năm (Day 4):** Bùng nổ Tướng (Vé Chiêu Mộ, Mảnh Tướng, Hồn Đá Đỏ `120,000đ`, Sách, UW `6,000đ`, Lõi Sắt `6,000đ`) + **Lord Gear**!\n• **Thứ Sáu (Day 5):** Thăng cấp **Lính Bậc Thang** + Thú Cưng (Pets), Heroic Spirit & Behemoth.\n• **Thứ Bảy (Day 6):** Khiên KvK / Đánh KE + Quân Trang, Trang Trí, Pet & Behemoth (**Lord Gear** = `0đ` Ngày 6!).",
-                    en: "**Climax across the final 3 days of Week B (GAR / KvK Days `4–6`):**\n• **Thursday (Day 4):** Grand Hero Burst (Recruit Tokens, Shards, Red Soul Stones `120,000 pts`, Books, UW `6,000 pts`, Iron Core `6,000 pts`) + **Lord Gear**!\n• **Friday (Day 5):** **Staircase Troop Promotion** + Pets, Heroic Spirit & Behemoth.\n• **Saturday (Day 6):** KvK Shield / KE Combat + Troop Skins, Decorations, Pets & Behemoth (**Lord Gear** = `0 pts` on Day 6!).",
+                    vi: "**Cao trào 3 ngày cuối Kỳ GAR / KvK (Ngày `4–6`):**\n• **Thứ Năm (Day 4):** Bùng nổ Tướng (Vé Chiêu Mộ, Mảnh Tướng, Hồn Đá Đỏ `120,000đ`, Sách, UW `6,000đ`, Lõi Sắt `6,000đ`) + **Lord Gear**!\n• **Thứ Sáu (Day 5):** Thăng cấp **Lính Bậc Thang** + Thú Cưng (Pets), Heroic Spirit & Behemoth.\n• **Thứ Bảy (Day 6):** Khiên KvK / Đánh KE + Quân Trang, Trang Trí, Pet & Behemoth (**Lord Gear** = `0đ` Ngày 6!).",
+                    en: "**Climax across the final 3 days of GAR / KvK Week (Days `4–6`):**\n• **Thursday (Day 4):** Grand Hero Burst (Recruit Tokens, Shards, Red Soul Stones `120,000 pts`, Books, UW `6,000 pts`, Iron Core `6,000 pts`) + **Lord Gear**!\n• **Friday (Day 5):** **Staircase Troop Promotion** + Pets, Heroic Spirit & Behemoth.\n• **Saturday (Day 6):** KvK Shield / KE Combat + Troop Skins, Decorations, Pets & Behemoth (**Lord Gear** = `0 pts` on Day 6!).",
                   },
                 },
               ],
@@ -509,16 +509,16 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
               type: "list",
               items: [
                 {
-                  vi: "**Phe Liên Minh (League):** Dùng rương mốc **Thi Đấu Hội** gom Kim Cương mỗi tuần và chỉ xả vào **Lucky Wheel / Dice** đúng kỳ xuất hiện `Paragon`, `Rose Princess` hoặc `Bishop`.",
-                  en: "**League Faction:** Use weekly **Guild Race** milestone chests to stockpile Diamonds, then spend on **Lucky Wheel / Dice** strictly when `Paragon`, `Rose Princess`, or `Bishop` appears.",
+                  vi: "**Phe Liên Minh (League):** Dùng rương mốc **Thi Đấu Hội** gom Kim Cương mỗi tuần và chỉ xả vào **Lucky Wheel / Hero Gacha / Dice** đúng kỳ xuất hiện `Paragon`, `Rose Princess` hoặc `Bishop`.",
+                  en: "**League Faction:** Use weekly **Guild Race** milestone chests to stockpile Diamonds, then spend on **Lucky Wheel / Hero Gacha / Dice** strictly when `Paragon`, `Rose Princess`, or `Bishop` appears.",
                 },
                 {
                   vi: "**Phe Bộ Lạc (Horde):** Đón `Desert Prince`, `Storm Maiden`, `Witch` (Ngày `21–41`); giữ sàn ví `40,000` Điểm Vinh Dự để gom `9 Hồn Đá Đỏ` (`360,000` Điểm / `54,000` Xu) thức tỉnh `Soulmancer` hoặc `Warlock`.",
                   en: "**Horde Faction:** Target `Desert Prince`, `Storm Maiden`, `Witch` (Days `21–41`); keep the `40,000` Guild Honor floor to buy `9 Red Soul Stones` (`360,000` Honor / `54,000` Glory Coins) for `Soulmancer` or `Warlock`.",
                 },
                 {
-                  vi: "**Phe Thiên Nhiên (Nature):** Kết hợp `Tidecaller`, `Monk`, `Ne Zha` với `Pixie` & `Sage` thức tỉnh (tốn `18 Hồn Đá Đỏ` = `720,000` Điểm Vinh Dự / `108,000` Xu Vinh Quang); chỉ xả mảnh vào Thứ Năm Tuần B.",
-                  en: "**Nature Faction:** Pair `Tidecaller`, `Monk`, `Ne Zha` with Awakened `Pixie` & `Sage` (requiring `18 Red Soul Stones` = `720,000` Guild Honor / `108,000` Glory Coins); burst shards strictly on Week B Thursdays.",
+                  vi: "**Phe Thiên Nhiên (Nature):** Kết hợp `Tidecaller`, `Monk`, `Ne Zha` với `Pixie` & `Sage` thức tỉnh (tốn `18 Hồn Đá Đỏ` = `720,000` Điểm Vinh Dự / `108,000` Xu Vinh Quang); chỉ xả mảnh vào Thứ Năm GAR/KvK.",
+                  en: "**Nature Faction:** Pair `Tidecaller`, `Monk`, `Ne Zha` with Awakened `Pixie` & `Sage` (requiring `18 Red Soul Stones` = `720,000` Guild Honor / `108,000` Glory Coins); burst shards strictly on GAR/KvK Thursdays.",
                 },
               ],
             },
@@ -610,12 +610,12 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
                 {
                   id: "new-hero-pull-hoard-discipline",
                   label: {
-                    vi: "Khi quay ra tướng mới trong Wheel hoặc Dice: Canh đúng Thứ Năm Tuần B hoặc Hero Rush",
-                    en: "After pulling a new hero on Wheel or Dice: Wait for Week B Thursday or Hero Rush",
+                    vi: "Khi quay ra tướng mới trong Wheel hoặc Dice: Canh đúng Thứ Năm GAR/KvK hoặc Hero Rush",
+                    en: "After pulling a new hero on Wheel or Dice: Wait for GAR/KvK Thursday or Hero Rush",
                   },
                   detail: {
-                    vi: "**Nếu tuần kế tiếp là GAR / KvK:** Giữ nguyên mảnh tướng mới trong túi đồ chờ đúng **Thứ Năm Tuần B (Day 4)** mới bấm nâng sao.\n• **Nếu đầu Pre-Season chạy Thi Đấu Hội nối tiếp:** Canh sự kiện phụ **Hero Development** hoặc **Nhiệm vụ Vàng Tăng Lực Chiến** để nâng sao đưa vào Đội 1.",
-                    en: "**If next week is GAR / KvK:** Keep newly pulled hero shards untouched in your bag until **Week B Thursday (Day 4)** before starring up.\n• **If early Pre-Season runs consecutive Guild Races:** Wait for a **Hero Development** sub-event or a **Golden Power Task** before upgrading for Queue 1.",
+                    vi: "**Nếu tuần kế tiếp là GAR / KvK:** Giữ nguyên mảnh tướng mới trong túi đồ chờ đúng **Thứ Năm GAR/KvK (Day 4)** mới bấm nâng sao.\n• **Nếu đầu Pre-Season chạy Thi Đấu Hội nối tiếp:** Canh sự kiện phụ **Hero Development** hoặc **Nhiệm vụ Vàng Tăng Lực Chiến** để nâng sao đưa vào Đội 1.",
+                    en: "**If next week is GAR / KvK:** Keep newly pulled hero shards untouched in your bag until **GAR/KvK Thursday (Day 4)** before starring up.\n• **If early Pre-Season runs consecutive Guild Races:** Wait for a **Hero Development** sub-event or a **Golden Power Task** before upgrading for Queue 1.",
                   },
                   badge: {
                     vi: "Kỷ Luật Mảnh Tướng",
@@ -632,14 +632,14 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
       id: "sec-3-biweekly-common-pitfalls",
       title: {
         vi: "3. Những Cạm bẫy Phổ biến & Cách Phòng tránh (Common Pitfalls)",
-        en: "3. Common Bi-Weekly Cycle Pitfalls & Tactical Fixes",
+        en: "3. Common Event Progression Pitfalls & Tactical Fixes",
       },
       blocks: [
         {
           type: "table",
           caption: {
-            vi: "5 sai lầm phổ biến phá hỏng chu kỳ tài nguyên 14 ngày và giải pháp chuẩn thực chiến theo Lịch Event trong game",
-            en: "5 common pitfalls that wreck the 14-day resource cycle and battle-tested fixes aligned with the in-game Event Calendar",
+            vi: "5 sai lầm phổ biến phá hỏng lộ trình tài nguyên sự kiện và giải pháp chuẩn thực chiến theo Lịch Event trong game",
+            en: "5 common pitfalls that wreck the event resource cycle and battle-tested fixes aligned with the in-game Event Calendar",
           },
           headers: [
             {
@@ -654,8 +654,8 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
           rows: [
             [
               {
-                vi: "Áp dụng máy móc lý thuyết 'Tuần B nghỉ Thi Đấu Hội' ở máy chủ mới nên nhịn trắng không làm nhiệm vụ, hoặc ngược lại xả sạch tài nguyên không thèm nhìn Lịch Event.",
-                en: "Blindly applying the 'Week B has no Guild Race' theory on a brand-new server and freezing all progress, or conversely impulse-dumping everything without checking the Event Calendar.",
+                vi: "Áp dụng máy móc lý thuyết 'Cách tuần nghỉ Thi Đấu Hội' ở máy chủ mới nên nhịn trắng không làm nhiệm vụ, hoặc ngược lại xả sạch tài nguyên không thèm nhìn Lịch Event.",
+                en: "Blindly applying the 'Alternating weeks have no Guild Race' theory on a brand-new server and freezing all progress, or conversely impulse-dumping everything without checking the Event Calendar.",
               },
               {
                 vi: "Luôn lấy bảng Lịch Event trong game làm chuẩn! Ở các tuần đầu Pre-Season, Thi Đấu Hội chạy nối tiếp mỗi tuần (09:00 Thứ Hai ➔ 09:00 Thứ Hai). Hãy xả Tăng tốc/Đồ Chúa tể khớp với Nhiệm vụ Vàng để lấy trọn Rương mốc cá nhân hàng tuần, chỉ găm kho lớn khi thấy lịch tuần sau báo mở GAR / KvK.",
@@ -668,8 +668,8 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
                 en: "Dumping Recruit Tokens and Universal Legendary Shards into shared Guild Race board tasks just because a task asks for 40–80 pulls or 40 Legendary Shards.",
               },
               {
-                vi: "Từ chối hoặc Làm mới (Refresh) ngay lập tức! Tỷ lệ điểm/tài nguyên của nhiệm vụ Chiêu mộ/Mảnh tướng trong Thi Đấu Hội cực kỳ thấp. Hãy giữ Vé Chiêu Mộ và Mảnh Tướng cho Thứ Năm Tuần B (GAR / KvK Day 4) hoặc sự kiện phụ Hero Development Rush.",
-                en: "Skip or Refresh immediately! The point-per-resource ROI of Recruitment and Hero Shard tasks in Guild Race is abysmal. Save 100% of your Recruit Tokens and Hero Shards for Week B Thursday (GAR / KvK Day 4) or the Hero Development Rush sub-event.",
+                vi: "Từ chối hoặc Làm mới (Refresh) ngay lập tức! Tỷ lệ điểm/tài nguyên của nhiệm vụ Chiêu mộ/Mảnh tướng trong Thi Đấu Hội cực kỳ thấp. Hãy giữ Vé Chiêu Mộ và Mảnh Tướng cho Thứ Năm Kỳ GAR / KvK (Day 4) hoặc sự kiện phụ Hero Development Rush.",
+                en: "Skip or Refresh immediately! The point-per-resource ROI of Recruitment and Hero Shard tasks in Guild Race is abysmal. Save 100% of your Recruit Tokens and Hero Shards for GAR / KvK Thursday (Day 4) or the Hero Development Rush sub-event.",
               },
             ],
             [
@@ -684,22 +684,22 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
             ],
             [
               {
-                vi: "Nâng cấp Trang bị Chúa Tể (Lord Gear) ngay đầu tuần hoặc chờ nhầm sang Thứ Bảy (Ngày 6) của Tuần B (GAR / KvK).",
-                en: "Upgrading Lord Gear at the start of the week or mistakenly saving Lord Gear for Saturday (Day 6) of Week B (GAR / KvK).",
+                vi: "Nâng cấp Trang bị Chúa Tể (Lord Gear) ngay đầu tuần hoặc chờ nhầm sang Thứ Bảy (Ngày 6) của Kỳ GAR / KvK.",
+                en: "Upgrading Lord Gear at the start of the week or mistakenly saving Lord Gear for Saturday (Day 6) of GAR / KvK Week.",
               },
               {
-                vi: "CẢNH BÁO ĐỎ: Đồ Chúa Tể (Lord Gear) KHÔNG tính điểm vào Ngày 6 (Thứ Bảy) của GAR / KvK! Hãy chỉ xả Đồ Chúa Tể vào Thứ Tư (Ngày 3) & Thứ Năm (Ngày 4) của Tuần B (hoặc Ngày 5 trong KvK), hoặc vào Thứ Sáu – Chủ Nhật (Ngày 5–7) của tuần Thi Đấu Hội (trùng khớp 100% với Nhiệm vụ Vàng Độc quyền Guild Race và Guild Rush Thứ Sáu–Thứ Bảy).",
-                en: "RED ALERT: Lord Gear scores ZERO points on Day 6 (Saturday) of GAR / KvK! Spend Lord Gear strictly on Wednesday (Day 3) & Thursday (Day 4) of Week B (or Day 5 in KvK), or on Friday – Sunday (Days 5–7) of a Guild Race week (matching 100% with Exclusive Golden Guild Race tasks and the Fri–Sat Guild Rush).",
+                vi: "CẢNH BÁO ĐỎ: Đồ Chúa Tể (Lord Gear) KHÔNG tính điểm vào Ngày 6 (Thứ Bảy) của GAR / KvK! Hãy chỉ xả Đồ Chúa Tể vào Thứ Tư (Ngày 3) & Thứ Năm (Ngày 4) của Kỳ GAR / KvK (hoặc Ngày 5 trong KvK), hoặc vào Thứ Sáu – Chủ Nhật (Ngày 5–7) của Kỳ Thi Đấu Hội (trùng khớp 100% với Nhiệm vụ Vàng Độc quyền Guild Race và Guild Rush Thứ Sáu–Thứ Bảy).",
+                en: "RED ALERT: Lord Gear scores ZERO points on Day 6 (Saturday) of GAR / KvK! Spend Lord Gear strictly on Wednesday (Day 3) & Thursday (Day 4) of GAR / KvK Week (or Day 5 in KvK), or on Friday – Sunday (Days 5–7) of a Guild Race week (matching 100% with Exclusive Golden Guild Race tasks and the Fri–Sat Guild Rush).",
               },
             ],
             [
               {
-                vi: "Cắn Tăng tốc Xây dựng / Nghiên cứu vào Tuần B nhưng không nhìn đồng hồ Sự kiện Giờ (Hourly Arms Race).",
-                en: "Burning Construction or Research Speedups in Week B without checking the 4-hour Hourly Arms Race clock.",
+                vi: "Cắn Tăng tốc Xây dựng / Nghiên cứu vào Kỳ GAR / KvK nhưng không nhìn đồng hồ Sự kiện Giờ (Hourly Arms Race).",
+                en: "Burning Construction or Research Speedups in GAR / KvK Week without checking the 4-hour Hourly Arms Race clock.",
               },
               {
-                vi: "Canh đúng khung giờ giao thoa 4 tiếng! Trong Tuần B (GAR / KvK), chỉ xả Tăng tốc Xây dựng vào khung 13:00–17:00 Thứ Hai và Tăng tốc Nghiên cứu vào khung 17:00–21:00 Thứ Ba (theo giờ sự kiện chuẩn) để ăn trọn cả 2 bảng thưởng.",
-                en: "Time your burst inside the 4-hour Golden Window! During Week B (GAR / KvK), spend Construction Speedups strictly during the 13:00–17:00 Monday window and Research Speedups during the 17:00–21:00 Tuesday window (standard event time) to double-dip both reward tracks.",
+                vi: "Canh đúng khung giờ giao thoa 4 tiếng! Trong Kỳ GAR / KvK, chỉ xả Tăng tốc Xây dựng vào khung 13:00–17:00 Thứ Hai và Tăng tốc Nghiên cứu vào khung 17:00–21:00 Thứ Ba (theo giờ sự kiện chuẩn) để ăn trọn cả 2 bảng thưởng.",
+                en: "Time your burst inside the 4-hour Golden Window! During GAR / KvK Week, spend Construction Speedups strictly during the 13:00–17:00 Monday window and Research Speedups during the 17:00–21:00 Tuesday window (standard event time) to double-dip both reward tracks.",
               },
             ],
           ],
@@ -712,15 +712,15 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
       id: "sec-4-guild-rush-and-8-subevents",
       isPro: true,
       title: {
-        vi: "4. Phân tích Định lượng & Điểm gãy: Đồng Bộ Hóa Vòng Lặp 14 Ngày Với Lịch Guild Rush 2 Ngày & Chuỗi Sự Kiện Phụ",
-        en: "4. Quantitative Analysis: Synchronizing the 14-Day Cycle with Fixed 2-Day Guild Rush & 8 Rotating Sub-Events",
+        vi: "4. Phân tích Định lượng & Điểm gãy: Đồng Bộ Hóa 2 Trục Sự Kiện Với Lịch Guild Rush 2 Ngày & Chuỗi Sự Kiện Phụ",
+        en: "4. Quantitative Analysis: Synchronizing Core Event Rotation with Fixed 2-Day Guild Rush & 8 Rotating Sub-Events",
       },
       blocks: [
         {
           type: "paragraph",
           text: {
-            vi: "**Ba lớp lịch vận hành song song:** Ngoài trục chính `14 ngày` (Tuần A Guild Race ⇄ Tuần B GAR/KvK), máy chủ còn chạy **Guild Rush 2 Ngày** (Thứ Hai ➔ Thứ Bảy) và chuỗi **8 Sự Kiện Phụ 2–3 Ngày**.\n• **Chìa khóa Double-Dip / Triple-Dip:** Khớp pha chính xác giữa 3 lớp lịch này giúp nhân hiệu suất xả tài nguyên lên `200%–300%`.",
-            en: "**Three parallel schedule layers:** Alongside the `14-day` backbone (Week A Guild Race ⇄ Week B GAR/KvK), servers run a **Fixed 2-Day Guild Rush** (Mon ➔ Sat) and **8 Rotating 2–3 Day Sub-Events**.\n• **Double-Dip / Triple-Dip Key:** Phase-locking all 3 calendar layers multiplies your resource rebate efficiency to `200%–300%`.",
+            vi: "**Ba lớp lịch vận hành song song:** Ngoài 2 trục chính (**Kỳ Thi Đấu Hội** ⇄ **Kỳ GAR/KvK**), máy chủ còn chạy **Guild Rush 2 Ngày** (Thứ Hai ➔ Thứ Bảy) và chuỗi **8 Sự Kiện Phụ 2–3 Ngày**.\n• **Chìa khóa Double-Dip / Triple-Dip:** Khớp pha chính xác giữa 3 lớp lịch này giúp nhân hiệu suất xả tài nguyên lên `200%–300%`.",
+            en: "**Three parallel schedule layers:** Alongside the 2 core archetypes (**Guild Race Week** ⇄ **GAR/KvK Week**), servers run a **Fixed 2-Day Guild Rush** (Mon ➔ Sat) and **8 Rotating 2–3 Day Sub-Events**.\n• **Double-Dip / Triple-Dip Key:** Phase-locking all 3 calendar layers multiplies your resource rebate efficiency to `200%–300%`.",
           },
         },
       ],
@@ -728,8 +728,8 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
         {
           id: "sub-4-1-guild-rush-and-secondary-scoring",
           title: {
-            vi: "4.1. Lịch Cố Định Sự Kiện Phụ Guild Rush 2 Ngày (Tuần A vs Tuần B) & Vật Phẩm Cộng Điểm Phụ 6 Ngày Tuần B",
-            en: "4.1. Fixed 2-Day Auxiliary Guild Rush Schedule (Week A vs. Week B) & 6-Day Week B Secondary Scoring",
+            vi: "4.1. Lịch Cố Định Sự Kiện Phụ Guild Rush 2 Ngày (Thi Đấu Hội vs GAR/KvK) & Vật Phẩm Cộng Điểm Phụ 6 Ngày GAR/KvK",
+            en: "4.1. Fixed 2-Day Auxiliary Guild Rush Schedule (Guild Race vs. GAR/KvK) & 6-Day GAR/KvK Secondary Scoring",
           },
           badge: {
             vi: "Guild Rush & Điểm Phụ",
@@ -741,28 +741,28 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
               ordered: true,
               items: [
                 {
-                  vi: "**Guild Rush 2 Ngày — Tuần A (Guild Race):** T2–T3 Nâng cấp Thú Cưng (`Pets`) | T4–T5 Thánh Tích (`Relics`) | T6–T7 Quân Trang & Đồ Chúa Tể (`Lord Gear` — khớp `100%` với NV Vàng Độc quyền Ngày `5–7`!).",
-                  en: "**Fixed 2-Day Guild Rush — Week A (Guild Race):** Mon–Tue `Pets Development` | Wed–Thu `Relic Hall & Relics` | Fri–Sat `Troop Skin & Lord Gear` (`100%` overlap with Days `5–7` Exclusive Golden Tasks!).",
+                  vi: "**Guild Rush 2 Ngày — Kỳ Thi Đấu Hội (Guild Race):** T2–T3 Nâng cấp Thú Cưng (`Pets`) | T4–T5 Thánh Tích (`Relics`) | T6–T7 Quân Trang & Đồ Chúa Tể (`Lord Gear` — khớp `100%` với NV Vàng Độc quyền Ngày `5–7`!).",
+                  en: "**Fixed 2-Day Guild Rush — Guild Race Week:** Mon–Tue `Pets Development` | Wed–Thu `Relic Hall & Relics` | Fri–Sat `Troop Skin & Lord Gear` (`100%` overlap with Days `5–7` Exclusive Golden Tasks!).",
                 },
                 {
-                  vi: "**Guild Rush 2 Ngày — Tuần B (GAR / KvK):** T2–T3 Xây dựng & Nghiên cứu (khớp Ngày `1–2`) | T4–T5 Phát triển Tướng (khớp Ngày `4` Đột phá Tướng) | T6–T7 Nâng cấp Trang trí (khớp Ngày `6` GAR / KvK).",
-                  en: "**Fixed 2-Day Guild Rush — Week B (GAR / KvK):** Mon–Tue `Building & Research` (matches Days `1–2`) | Wed–Thu `Hero Development` (matches Day `4` Hero Burst) | Fri–Sat `Decor Upgrading` (matches Day `6`).",
+                  vi: "**Guild Rush 2 Ngày — Kỳ Đua Vũ Trang (GAR / KvK):** T2–T3 Xây dựng & Nghiên cứu (khớp Ngày `1–2`) | T4–T5 Phát triển Tướng (khớp Ngày `4` Đột phá Tướng) | T6–T7 Nâng cấp Trang trí (khớp Ngày `6` GAR / KvK).",
+                  en: "**Fixed 2-Day Guild Rush — GAR / KvK Week:** Mon–Tue `Building & Research` (matches Days `1–2`) | Wed–Thu `Hero Development` (matches Day `4` Hero Burst) | Fri–Sat `Decor Upgrading` (matches Day `6`).",
                 },
                 {
-                  vi: "**Điểm Phụ Ngày 1 & Ngày 2 Tuần B (T2 Xây dựng & T3 Nghiên cứu / Runes):** Ngoài Tăng tốc và Đá Rồng, cả 2 ngày đều cộng điểm phụ cho **Thánh Tích (Relics)** và **Cự Thú (Behemoth)**.",
-                  en: "**Week B Secondary Scoring — Days 1 & 2 (Mon Construction & Tue Research / Runes):** Beyond Speedups and Dragon Essence, both days award secondary points for **Relics** and **Behemoth**.",
+                  vi: "**Điểm Phụ Ngày 1 & Ngày 2 GAR/KvK (T2 Xây dựng & T3 Nghiên cứu / Runes):** Ngoài Tăng tốc và Đá Rồng, cả 2 ngày đều cộng điểm phụ cho **Thánh Tích (Relics)** và **Cự Thú (Behemoth)**.",
+                  en: "**GAR/KvK Secondary Scoring — Days 1 & 2 (Mon Construction & Tue Research / Runes):** Beyond Speedups and Dragon Essence, both days award secondary points for **Relics** and **Behemoth**.",
                 },
                 {
-                  vi: "**Điểm Phụ Ngày 3 & Ngày 4 Tuần B (T4 Thể lực & T5 Tướng / Hồn Đá Đỏ `120,000đ` / UW `6,000đ`):** Cả 2 ngày đều cộng điểm phụ cho **Đồ Chúa Tể (Lord Gear)** (Ngày 3 KvK tính thêm Behemoth, GAR Ngày 3 thì không).",
-                  en: "**Week B Secondary Scoring — Days 3 & 4 (Wed Stamina & Thu Heroes / Soul Stone `120,000 pts` / UW `6,000 pts`):** Both days score **Lord Gear** (KvK Day 3 also scores Behemoth; standard GAR Day 3 does not).",
+                  vi: "**Điểm Phụ Ngày 3 & Ngày 4 GAR/KvK (T4 Thể lực & T5 Tướng / Hồn Đá Đỏ `120,000đ` / UW `6,000đ`):** Cả 2 ngày đều cộng điểm phụ cho **Đồ Chúa Tể (Lord Gear)** (Ngày 3 KvK tính thêm Behemoth, GAR Ngày 3 thì không).",
+                  en: "**GAR/KvK Secondary Scoring — Days 3 & 4 (Wed Stamina & Thu Heroes / Soul Stone `120,000 pts` / UW `6,000 pts`):** Both days score **Lord Gear** (KvK Day 3 also scores Behemoth; standard GAR Day 3 does not).",
                 },
                 {
-                  vi: "**Điểm Phụ Ngày 5 Tuần B (Thứ Sáu — Lính Bậc Thang):** Cộng điểm **Pets**, `Heroic Spirit` & **Behemoth**; lưu ý **GAR Ngày 5 KHÔNG tính điểm Relics** (chỉ KvK Ngày 5 mới tính thêm Relics & Lord Gear).",
-                  en: "**Week B Secondary Scoring — Day 5 (Friday — Staircase Troops):** Scores **Pets**, `Heroic Spirit` & **Behemoth**; note that **standard GAR Day 5 scores `0 pts` for Relics** (only KvK Day 5 adds Relics & Lord Gear).",
+                  vi: "**Điểm Phụ Ngày 5 GAR/KvK (Thứ Sáu — Lính Bậc Thang):** Cộng điểm **Pets**, `Heroic Spirit` & **Behemoth**; lưu ý **GAR Ngày 5 KHÔNG tính điểm Relics** (chỉ KvK Ngày 5 mới tính thêm Relics & Lord Gear).",
+                  en: "**GAR/KvK Secondary Scoring — Day 5 (Friday — Staircase Troops):** Scores **Pets**, `Heroic Spirit` & **Behemoth**; note that **standard GAR Day 5 scores `0 pts` for Relics** (only KvK Day 5 adds Relics & Lord Gear).",
                 },
                 {
-                  vi: "**Điểm Phụ Ngày 6 Tuần B (Thứ Bảy — Chiến Sự KE):** Cộng điểm **Quân Trang (Glory Medals)**, **Trang Trí (Decor Tokens)**, **Pets** & **Behemoth**; cảnh báo **Lord Gear hoàn toàn KHÔNG tính điểm (`0đ`) vào Ngày 6**!",
-                  en: "**Week B Secondary Scoring — Day 6 (Saturday — Kill Event):** Scores **Troop Skins (Glory Medals)**, **Decorations (Decor Tokens)**, **Pets** & **Behemoth**; warning: **Lord Gear grants `0 pts` on Day 6**!",
+                  vi: "**Điểm Phụ Ngày 6 GAR/KvK (Thứ Bảy — Chiến Sự KE):** Cộng điểm **Quân Trang (Glory Medals)**, **Trang Trí (Decor Tokens)**, **Pets** & **Behemoth**; cảnh báo **Lord Gear hoàn toàn KHÔNG tính điểm (`0đ`) vào Ngày 6**!",
+                  en: "**GAR/KvK Secondary Scoring — Day 6 (Saturday — Kill Event):** Scores **Troop Skins (Glory Medals)**, **Decorations (Decor Tokens)**, **Pets** & **Behemoth**; warning: **Lord Gear grants `0 pts` on Day 6**!",
                 },
               ],
             },
@@ -770,12 +770,12 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
               type: "callout",
               variant: "danger",
               title: {
-                vi: "Cảnh Báo Đỏ: 2 Điểm Mù Tính Điểm Phụ Phổ Biến Nhất Tuần B (Lord Gear Ngày 6 & Relics GAR Ngày 5)",
-                en: "Red Alert: The 2 Biggest Week B Secondary Scoring Blindspots (Day 6 Lord Gear & GAR Day 5 Relics)",
+                vi: "Cảnh Báo Đỏ: 2 Điểm Mù Tính Điểm Phụ Phổ Biến Nhất GAR/KvK (Lord Gear Ngày 6 & Relics GAR Ngày 5)",
+                en: "Red Alert: The 2 Biggest GAR/KvK Secondary Scoring Blindspots (Day 6 Lord Gear & GAR Day 5 Relics)",
               },
               content: {
-                vi: "**Hai điểm mù làm mất trắng điểm sự kiện Tuần B:**\n• **Điểm mù #1 (Lord Gear Ngày 6):** Đồ Chúa Tể hoàn toàn KHÔNG tính điểm (`0đ`) vào Ngày 6 (Thứ Bảy) của cả GAR lẫn KvK ➔ Xả sạch vào Thứ Tư / Thứ Năm Tuần B (hoặc Ngày `5–7` Tuần A).\n• **Điểm mù #2 (Relics GAR Ngày 5):** Thánh Tích KHÔNG tính điểm vào Ngày 5 của GAR tiêu chuẩn (chỉ KvK Ngày 5 mới tính) ➔ Ở tuần GAR chuẩn, luôn xả Thánh Tích vào Ngày `1–2`.",
-                en: "**The two biggest secondary scoring blindspots in Week B:**\n• **Blindspot #1 (Day 6 Lord Gear):** **Lord Gear** scores `0 points` on Day 6 (Saturday) in both GAR and KvK ➔ Always spend it on Wed / Thu of Week B (or Days `5–7` of Week A).\n• **Blindspot #2 (GAR Day 5 Relics):** **Relics** score `0 points` on Day 5 of standard GAR (only KvK Day 5 adds Relic Shards) ➔ In standard GAR weeks, always spend Relics on Days `1–2`.",
+                vi: "**Hai điểm mù làm mất trắng điểm sự kiện GAR/KvK:**\n• **Điểm mù #1 (Lord Gear Ngày 6):** Đồ Chúa Tể hoàn toàn KHÔNG tính điểm (`0đ`) vào Ngày 6 (Thứ Bảy) của cả GAR lẫn KvK ➔ Xả sạch vào Thứ Tư / Thứ Năm GAR/KvK (hoặc Ngày `5–7` Kỳ Thi Đấu Hội).\n• **Điểm mù #2 (Relics GAR Ngày 5):** Thánh Tích KHÔNG tính điểm vào Ngày 5 của GAR tiêu chuẩn (chỉ KvK Ngày 5 mới tính) ➔ Ở tuần GAR chuẩn, luôn xả Thánh Tích vào Ngày `1–2`.",
+                en: "**The two biggest secondary scoring blindspots in GAR/KvK Week:**\n• **Blindspot #1 (Day 6 Lord Gear):** **Lord Gear** scores `0 points` on Day 6 (Saturday) in both GAR and KvK ➔ Always spend it on Wed / Thu of GAR/KvK (or Days `5–7` of Guild Race).\n• **Blindspot #2 (GAR Day 5 Relics):** **Relics** score `0 points` on Day 5 of standard GAR (only KvK Day 5 adds Relic Shards) ➔ In standard GAR weeks, always spend Relics on Days `1–2`.",
               },
             },
           ],
@@ -783,8 +783,8 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
         {
           id: "sub-4-2-synchronization-diagram",
           title: {
-            vi: "4.2. Sơ Đồ Luồng Đồng Bộ Chu Kỳ 14 Ngày & Chuỗi Sự Kiện Phụ",
-            en: "4.2. 14-Day Cycle & 8 Rotating Sub-Events Synchronization Flowchart",
+            vi: "4.2. Sơ Đồ Luồng Đồng Bộ 2 Trục Sự Kiện & Chuỗi Sự Kiện Phụ",
+            en: "4.2. Core Event Rotation & 8 Rotating Sub-Events Synchronization Flowchart",
           },
           badge: {
             vi: "Sơ Đồ Đồng Bộ",
@@ -796,22 +796,22 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
               mediaCode: "MED-3.1-03",
               variant: "timeline_phases",
               title: {
-                vi: "Sơ Đồ Luồng Đồng Bộ Vòng Lặp 14 Ngày (Tuần A ⇄ Tuần B), Guild Rush 2 Ngày & 8 Sự Kiện Phụ",
-                en: "14-Day Cycle (Week A ⇄ Week B), 2-Day Guild Rush & 8 Sub-Events Synchronization Diagram",
+                vi: "Sơ Đồ Luồng Đồng Bộ 2 Trục Sự Kiện (Thi Đấu Hội ⇄ GAR/KvK), Guild Rush 2 Ngày & 8 Sự Kiện Phụ",
+                en: "Core Event Rotation (Guild Race ⇄ GAR/KvK), 2-Day Guild Rush & 8 Sub-Events Synchronization Diagram",
               },
               subtitle: {
-                vi: "Khớp nối 3 lớp lịch sự kiện để đạt hiệu suất 200% Double-Dip ở Tuần A và 300% Triple-Dip ở Tuần B",
-                en: "Phase-locking all 3 event schedule layers to unlock 200% Double-Dip in Week A and 300% Triple-Dip in Week B",
+                vi: "Khớp nối 3 lớp lịch sự kiện để đạt hiệu suất 200% Double-Dip ở Kỳ Thi Đấu Hội và 300% Triple-Dip ở Kỳ GAR/KvK",
+                en: "Phase-locking all 3 event schedule layers to unlock 200% Double-Dip in Guild Race Week and 300% Triple-Dip in GAR/KvK Week",
               },
               branches: [
                 {
                   title: {
-                    vi: "TUẦN A: ĐUA BANG HỘI (GUILD RACE) + DICE + GUILD RUSH",
-                    en: "WEEK A: GUILD RACE + DICE + 2-DAY GUILD RUSH",
+                    vi: "TRỤC 1: KỲ THI ĐẤU HỘI (GUILD RACE — BẢNG 9 Ô) + GUILD RUSH 2 NGÀY",
+                    en: "AXIS 1: GUILD RACE WEEK (9-SLOT TASK BOARD) + 2-DAY GUILD RUSH",
                   },
                   badge: {
-                    vi: "Pha Tuần A",
-                    en: "Week A Phase",
+                    vi: "Kỳ Thi Đấu Hội",
+                    en: "Guild Race Week",
                   },
                   tone: "gold",
                   steps: [
@@ -847,8 +847,8 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
                     },
                   ],
                   outcome: {
-                    vi: "Tối đa Điểm Vinh Dự Bang mua Hồn Đá Đỏ + Chuyển Pha sang Tuần B",
-                    en: "Maximize Guild Honor for Red Soul Stones + Transition to Week B",
+                    vi: "Tối đa Điểm Vinh Dự Bang mua Hồn Đá Đỏ + Chuyển Pha sang Kỳ GAR/KvK",
+                    en: "Maximize Guild Honor for Red Soul Stones + Transition to GAR/KvK Week",
                   },
                 },
                 {
@@ -873,8 +873,8 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
                         en: "1. Ultimate Power ➔ 2. Lord's Set (Lord Gear)",
                       },
                       subtitle: {
-                        vi: "Tăng Lực chiến tổng hợp (dừng ở Rương mốc 3/3) & Đá Xanh/Dây Gai/Bản Vẽ/Máu Rồng (kẹp Ngày 5–7 Tuần A hoặc Ngày 3–4 Tuần B).",
-                        en: "Total Power gain (stop at Milestone 3/3) & Refined Metal/Magic Thread/Orichalcum/Dragon Blood (sync Week A Days 5–7 or Week B Days 3–4).",
+                        vi: "Tăng Lực chiến tổng hợp (dừng ở Rương mốc 3/3) & Đá Xanh/Dây Gai/Bản Vẽ/Máu Rồng (kẹp Ngày 5–7 Kỳ Thi Đấu Hội hoặc Ngày 3–4 Kỳ GAR/KvK).",
+                        en: "Total Power gain (stop at Milestone 3/3) & Refined Metal/Magic Thread/Orichalcum/Dragon Blood (sync Guild Race Days 5–7 or GAR/KvK Days 3–4).",
                       },
                     },
                     {
@@ -888,8 +888,8 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
                         en: "3. Hero Development ➔ 4. Rush Top ➔ 6. Soul Stone",
                       },
                       subtitle: {
-                        vi: "Mảnh Tướng (điểm gãy 160 / 560 mảnh), Tăng tốc & Đá Rồng (giữ 30–50h dự phòng) và Thức tỉnh 9 Hồn Đá Đỏ (120,000đ/viên ở Thứ Năm Tuần B).",
-                        en: "Hero Shards (160 / 560 shard breakpoints), Speedups & Dragon Essence (keep 30–50h reserve), and 9 Red Soul Stones (120,000 pts/stone on Week B Thursday).",
+                        vi: "Mảnh Tướng (điểm gãy 160 / 560 mảnh), Tăng tốc & Đá Rồng (giữ 30–50h dự phòng) và Thức tỉnh 9 Hồn Đá Đỏ (120,000đ/viên ở Thứ Năm GAR/KvK).",
+                        en: "Hero Shards (160 / 560 shard breakpoints), Speedups & Dragon Essence (keep 30–50h reserve), and 9 Red Soul Stones (120,000 pts/stone on GAR/KvK Thursday).",
                       },
                     },
                     {
@@ -903,24 +903,24 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
                         en: "5. Decorations ➔ 7. Pet Power ➔ 8. Relic Power",
                       },
                       subtitle: {
-                        vi: "Trang trí Lâu đài (kẹp Thứ Bảy Ngày 6), Thức ăn Pet (Lv.15/30/45/60 vào Ngày 5–6) và Thánh Tích (kẹp Ngày 1–2 Tuần B hoặc T4–T5 Tuần A).",
-                        en: "Castle Decorations (sync Saturday Day 6), Pet Food (Lv.15/30/45/60 on Days 5–6), and Relics (sync Week B Days 1–2 or Week A Wed–Thu).",
+                        vi: "Trang trí Lâu đài (kẹp Thứ Bảy Ngày 6), Thức ăn Pet (Lv.15/30/45/60 vào Ngày 5–6) và Thánh Tích (kẹp Ngày 1–2 GAR/KvK hoặc T4–T5 Thi Đấu Hội).",
+                        en: "Castle Decorations (sync Saturday Day 6), Pet Food (Lv.15/30/45/60 on Days 5–6), and Relics (sync GAR/KvK Days 1–2 or Guild Race Wed–Thu).",
                       },
                     },
                   ],
                   outcome: {
-                    vi: "Giao thoa Điểm Kép (200% Tuần A) & Điểm Ba (300% Tuần B)",
-                    en: "Unlocks Double-Dip (200% Week A) & Triple-Dip (300% Week B)",
+                    vi: "Giao thoa Điểm Kép (200% Thi Đấu Hội) & Điểm Ba (300% GAR/KvK)",
+                    en: "Unlocks Double-Dip (200% Guild Race) & Triple-Dip (300% GAR/KvK)",
                   },
                 },
                 {
                   title: {
-                    vi: "TUẦN B: CHẠY ĐUA VŨ TRANG (GAR / KvK) + WHEEL + GUILD RUSH",
-                    en: "WEEK B: GUILD ARMS RACE (GAR / KvK) + WHEEL + GUILD RUSH",
+                    vi: "TRỤC 2: KỲ ĐUA VŨ TRANG (GAR / KvK — 6 NGÀY) + GUILD RUSH 2 NGÀY",
+                    en: "AXIS 2: ARMS RACE WEEK (GAR / KvK — 6 STAGES) + 2-DAY GUILD RUSH",
                   },
                   badge: {
-                    vi: "Pha Tuần B",
-                    en: "Week B Phase",
+                    vi: "Kỳ GAR / KvK",
+                    en: "GAR / KvK Week",
                   },
                   tone: "gold",
                   steps: [
@@ -971,8 +971,8 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
                     },
                   ],
                   outcome: {
-                    vi: "Mở trọn 6/6 Rương GAR/KvK (Nhân đôi Arms Race Prep) ➔ Lặp lại Tuần A",
-                    en: "Clear 6/6 GAR/KvK Chests (2x via Arms Race Prep) ➔ Loop to Week A",
+                    vi: "Mở trọn 6/6 Rương GAR/KvK (Nhân đôi Arms Race Prep) ➔ Lặp lại Kỳ Thi Đấu Hội",
+                    en: "Clear 6/6 GAR/KvK Chests (2x via Arms Race Prep) ➔ Loop to Guild Race Week",
                   },
                 },
               ],
@@ -997,8 +997,8 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
             {
               type: "table",
               caption: {
-                vi: "Ma trận định lượng 8 Sự kiện phụ xoay tua 2–3 ngày (Mini-Rush Rotation), chiến thuật khớp pha Tuần A / Tuần B và điểm gãy dừng xả tối ưu (ROI Cap)",
-                en: "Quantitative matrix of the 8 rotating 2–3 day Sub-Events (Mini-Rush Rotation), Week A / Week B phase-locking tactics, and optimal ROI stopping breakpoints",
+                vi: "Ma trận định lượng 8 Sự kiện phụ xoay tua 2–3 ngày (Mini-Rush Rotation), chiến thuật khớp pha Kỳ Thi Đấu Hội / Kỳ GAR/KvK và điểm gãy dừng xả tối ưu (ROI Cap)",
+                en: "Quantitative matrix of the 8 rotating 2–3 day Sub-Events (Mini-Rush Rotation), Guild Race / GAR/KvK phase-locking tactics, and optimal ROI stopping breakpoints",
               },
               headers: [
                 {
@@ -1014,12 +1014,12 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
                   en: "Primary Scoring Source",
                 },
                 {
-                  vi: "Chiến Thuật Khớp Pha Khi Rơi Vào TUẦN A (Guild Race)",
-                  en: "Phase-Locking Tactics in WEEK A (Guild Race)",
+                  vi: "Chiến Thuật Khớp Pha Khi Rơi Vào KỲ THI ĐẤU HỘI (Guild Race)",
+                  en: "Phase-Locking Tactics in GUILD RACE WEEK",
                 },
                 {
-                  vi: "Chiến Thuật Khớp Pha Khi Rơi Vào TUẦN B (GAR / KvK)",
-                  en: "Phase-Locking Tactics in WEEK B (GAR / KvK)",
+                  vi: "Chiến Thuật Khớp Pha Khi Rơi Vào KỲ ĐUA VŨ TRANG (GAR / KvK)",
+                  en: "Phase-Locking Tactics in ARMS RACE WEEK (GAR / KvK)",
                 },
                 {
                   vi: "Điểm Gãy Dừng Xả (ROI Cap)",
@@ -1093,8 +1093,8 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
                     en: "Using Hero Shards, Red Soul Stones (120,000 pts), Skill Books, UW Shards (6,000 pts), Meteorite Iron Core (6,000 pts)",
                   },
                   {
-                    vi: "Chỉ xả vừa đủ 3 mốc rương cơ bản nếu dư tài nguyên; giữ phần lớn chờ Thứ Năm Tuần B.",
-                    en: "Only spend enough to clear the 3 base milestone chests if you have surplus; hoard the bulk for Week B Thursday.",
+                    vi: "Chỉ xả vừa đủ 3 mốc rương cơ bản nếu dư tài nguyên; giữ phần lớn chờ Thứ Năm Kỳ GAR / KvK.",
+                    en: "Only spend enough to clear the 3 base milestone chests if you have surplus; hoard the bulk for GAR / KvK Thursday.",
                   },
                   {
                     vi: "Điểm Nổ Tối Thượng (300% ROI): Trùng với Thứ Năm (GAR/KvK Day 4) + Guild Rush: Phát triển Tướng (T4–T5) ➔ Xả 100% kho!",
@@ -1197,8 +1197,8 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
                     en: "Consuming Pet Food, Pet Essence, and Pet Evolution materials",
                   },
                   {
-                    vi: "Khớp với Guild Rush: Nâng cấp Thú Cưng (Thứ Hai–Thứ Ba Tuần A) vừa đủ lấy rương mốc.",
-                    en: "Sync with Pets Development Guild Rush (Monday–Tuesday of Week A) just enough to clear milestone chests.",
+                    vi: "Khớp với Guild Rush: Nâng cấp Thú Cưng (Thứ Hai–Thứ Ba Kỳ Thi Đấu Hội) vừa đủ lấy rương mốc.",
+                    en: "Sync with Pets Development Guild Rush (Monday–Tuesday of Guild Race Week) just enough to clear milestone chests.",
                   },
                   {
                     vi: "Điểm Nổ Tối Thượng: Trùng với Thứ Sáu (GAR/KvK Day 5) hoặc Thứ Bảy (Day 6) ➔ Xả toàn bộ Thức ăn Pet Đội 1.",
@@ -1223,8 +1223,8 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
                     en: "Using Wish Relic, Relic Shards, Arcane Crystals, and Magic Stones",
                   },
                   {
-                    vi: "Khớp với Guild Rush: Thánh Tích (Thứ Tư–Thứ Năm Tuần A); ngoài khung này đóng băng 100% Sảnh Thánh Tích.",
-                    en: "Sync with Relic Hall & Relics Guild Rush (Wednesday–Thursday of Week A); freeze the Relic Hall 100% outside this window.",
+                    vi: "Khớp với Guild Rush: Thánh Tích (Thứ Tư–Thứ Năm Kỳ Thi Đấu Hội); ngoài khung này đóng băng 100% Sảnh Thánh Tích.",
+                    en: "Sync with Relic Hall & Relics Guild Rush (Wednesday–Thursday of Guild Race Week); freeze the Relic Hall 100% outside this window.",
                   },
                   {
                     vi: "Xả vào Ngày 1 (Thứ Hai) & Ngày 2 (Thứ Ba) của GAR / KvK (hoặc thêm Ngày 5 nếu là KvK; lưu ý GAR Ngày 5 KHÔNG tính điểm Thánh Tích!).",
@@ -1242,15 +1242,15 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
               mediaCode: "MED-3.1-04",
               tier: "tier4_youtube_ref",
               title: {
-                vi: "Video Tham Chiếu Quốc Tế: Giải Mã Lịch Xoay Tua 2 Tuần & Kỷ Luật Tích Trữ Tài Nguyên F2P",
-                en: "International Video Reference: Bi-Weekly Event Rotation & F2P Resource Hoarding Masterclass",
+                vi: "Video Tham Chiếu Quốc Tế: Giải Mã Lịch Luân Phiên Sự Kiện & Kỷ Luật Tích Trữ Tài Nguyên F2P",
+                en: "International Video Reference: Core Event Rotation & F2P Resource Hoarding Masterclass",
               },
               description: {
-                vi: "Thẻ Video tham chiếu quốc tế từ kênh RedBaron Gaming / OGFlux phân tích lịch xoay tua sự kiện 2 tuần (Tuần A Guild Race ⇄ Tuần B GAR/KvK), lịch cố định Guild Rush 2 ngày và chiến thuật tiết kiệm tài nguyên cho F2P.",
-                en: "International reference breakdown from RedBaron Gaming / OGFlux analyzing the 14-day bi-weekly event rotation (Week A Guild Race ⇄ Week B GAR/KvK), fixed 2-day Guild Rush overlaps, and F2P resource hoarding tactics.",
+                vi: "Thẻ Video tham chiếu quốc tế từ kênh RedBaron Gaming / OGFlux phân tích lịch luân phiên 2 trục sự kiện (Kỳ Thi Đấu Hội ⇄ Kỳ GAR/KvK), lịch cố định Guild Rush 2 ngày và chiến thuật tiết kiệm tài nguyên cho F2P.",
+                en: "International reference breakdown from RedBaron Gaming / OGFlux analyzing the core event rotation (Guild Race Week ⇄ GAR/KvK Week), fixed 2-day Guild Rush overlaps, and F2P resource hoarding tactics.",
               },
               videoChannel: "RedBaron Gaming / OGFlux",
-              videoTitle: "Bi-Weekly Event Rotation & F2P Resource Hoarding Masterclass",
+              videoTitle: "Core Event Rotation & F2P Resource Hoarding Masterclass",
             },
           ],
         },
@@ -1260,7 +1260,7 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
       id: "sec-5-castle-27-phase-desync-case-study",
       isPro: true,
       title: {
-        vi: "5. Kịch bản Thực chiến Nâng cao: Tài Khoản Lâu Đài Lv.27 (5.8M) Bị 'Lệch Pha Tài Nguyên' Giữa Tuần A và Tuần B",
+        vi: "5. Kịch bản Thực chiến Nâng cao: Tài Khoản Lâu Đài Lv.27 (5.8M) Bị 'Lệch Pha Tài Nguyên' Giữa Thi Đấu Hội và GAR/KvK",
         en: "5. Advanced Tactical Case Study: Re-aligning a Phase-Desynced Castle Lv.27 (5.8M Power) Account",
       },
       blocks: [
@@ -1271,8 +1271,8 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
             en: "Week 4 Case Study • Castle Lv.27 (5.8M)",
           },
           title: {
-            vi: "Phẫu Thuật Tài Khoản Lâu Đài Lv.27 (5.8M Lực Chiến) Thoát Khỏi Bẫy 'Lệch Pha Tài Nguyên' Giữa Tuần A và Tuần B",
-            en: "Re-aligning a Phase-Desynced Castle Lv.27 (5.8M Power) Account Between Week A and Week B",
+            vi: "Phẫu Thuật Tài Khoản Lâu Đài Lv.27 (5.8M Lực Chiến) Thoát Khỏi Bẫy 'Lệch Pha Tài Nguyên' Giữa Kỳ Thi Đấu Hội và Kỳ GAR/KvK",
+            en: "Re-aligning a Phase-Desynced Castle Lv.27 (5.8M Power) Account Between Guild Race and GAR/KvK",
           },
           profileSummary: {
             vi: "Một người chơi ở giai đoạn Tuần thứ 4 của máy chủ (Lâu đài Lv.27, 5.8M Lực chiến) sở hữu lượng tài nguyên tích lũy khá tốt nhưng luôn đứng ngoài Top 50 sự kiện và thiếu trầm trọng Điểm Vinh Dự Bang để mua Hồn Đá Đỏ.",
@@ -1281,8 +1281,8 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
           metrics: [
             {
               label: {
-                vi: "Điểm Thi Đấu Hội (Guild Race — Tuần A)",
-                en: "Guild Race Score (Week A)",
+                vi: "Điểm Thi Đấu Hội (Guild Race — Bảng 9 Ô)",
+                en: "Guild Race Score (9-Slot Board)",
               },
               before: {
                 vi: "2,100 điểm (Nhận nhầm NV Chiêu mộ & Mảnh tướng điểm thấp)",
@@ -1299,12 +1299,12 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
             },
             {
               label: {
-                vi: "Mốc Rương Ngày 4 Chạy Đua Vũ Trang (GAR Day 4 — Tuần B)",
-                en: "GAR Day 4 Personal Milestone Chests (Week B Thursday)",
+                vi: "Mốc Rương Ngày 4 Chạy Đua Vũ Trang (GAR Day 4 — Thứ Năm)",
+                en: "GAR Day 4 Personal Milestone Chests (GAR Thursday)",
               },
               before: {
-                vi: "Kẹt ở Rương 4/6 (Trống kho vì đã đốt 180 Vé & 200 Mảnh ở Tuần A)",
-                en: "Stuck at Chest 4/6 (Empty inventory after burning 180 Tokens & 200 Shards in Week A)",
+                vi: "Kẹt ở Rương 4/6 (Trống kho vì đã đốt 180 Vé & 200 Mảnh ở Kỳ Thi Đấu Hội)",
+                en: "Stuck at Chest 4/6 (Empty inventory after burning 180 Tokens & 200 Shards in Guild Race)",
               },
               after: {
                 vi: "Mở trọn vẹn 6/6 Hộp Thưởng Cá Nhân (Nhân đôi từ Arms Race Prep)",
@@ -1317,8 +1317,8 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
             },
             {
               label: {
-                vi: "Tài Nguyên Thặng Dư Thu Về Sau 1 Chu Kỳ 14 Ngày",
-                en: "Net Surplus Rebate Harvested After One 14-Day Cycle",
+                vi: "Tài Nguyên Thặng Dư Thu Về Sau 2 Kỳ Sự Kiện Liên Tiếp",
+                en: "Net Surplus Rebate Harvested Across 2 Consecutive Event Weeks",
               },
               before: {
                 vi: "0 Kim Cương mốc cuối & hụt ngân sách Hồn Đá Đỏ",
@@ -1336,20 +1336,20 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
           ],
           diagnostics: [
             {
-              vi: "**Nguyên nhân gốc rễ do lệch pha chu kỳ:** Vào Thứ Tư Tuần A (Guild Race), người chơi thấy nhiệm vụ bảng chung yêu cầu `Chiêu mộ 60 lần` và `Dùng 40 Mảnh Tướng Cam`.\n• **Hành động sai lầm:** Đốt sạch `180 Vé Chiêu Mộ` và `200 Mảnh Vàng Vạn Năng` ngay giữa Tuần A với tỷ lệ điểm cực thấp.",
-              en: "**Root Cause — Cycle Phase Desynchronization:** On Wednesday of Week A (Guild Race), the player saw shared board tasks asking to `Recruit 60 times` and `Use 40 Legendary Shards`.\n• **Costly Mistake:** Burned `180 Recruit Tokens` and `200 Universal Legendary Shards` mid-Week A for abysmal point returns.",
+              vi: "**Nguyên nhân gốc rễ do lệch pha chu kỳ:** Vào Thứ Tư Kỳ Thi Đấu Hội (Guild Race), người chơi thấy nhiệm vụ bảng chung yêu cầu `Chiêu mộ 60 lần` và `Dùng 40 Mảnh Tướng Cam`.\n• **Hành động sai lầm:** Đốt sạch `180 Vé Chiêu Mộ` và `200 Mảnh Vàng Vạn Năng` ngay giữa Kỳ Thi Đấu Hội với tỷ lệ điểm cực thấp.",
+              en: "**Root Cause — Cycle Phase Desynchronization:** On Wednesday of Guild Race Week, the player saw shared board tasks asking to `Recruit 60 times` and `Use 40 Legendary Shards`.\n• **Costly Mistake:** Burned `180 Recruit Tokens` and `200 Universal Legendary Shards` mid-Guild Race for abysmal point returns.",
             },
             {
-              vi: "**Hậu quả dây chuyền sang Tuần B:** Đến Thứ Năm tuần kế tiếp (**Tuần B — GAR Day 4: Hero Development**), kho dự trữ hoàn toàn trống rỗng.\n• **Thiệt hại kép:** Không mở nổi mốc rương thứ `5` và `6` của GAR, mất trắng phần thưởng nhân đôi từ nhánh khoa học **Arms Race Prep**.",
-              en: "**Cascading Failure into Week B:** By Thursday of the following week (**Week B — GAR Day 4: Hero Development**), their inventory was completely empty.\n• **Double Penalty:** Failed to unlock the `5th` and `6th` GAR milestone chests, forfeiting the doubled rewards from **Arms Race Prep** tech.",
+              vi: "**Hậu quả dây chuyền sang Kỳ GAR/KvK:** Đến Thứ Năm tuần kế tiếp (**Kỳ GAR — Day 4: Hero Development**), kho dự trữ hoàn toàn trống rỗng.\n• **Thiệt hại kép:** Không mở nổi mốc rương thứ `5` và `6` của GAR, mất trắng phần thưởng nhân đôi từ nhánh khoa học **Arms Race Prep**.",
+              en: "**Cascading Failure into GAR/KvK Week:** By Thursday of the following week (**GAR Week — Day 4: Hero Development**), their inventory was completely empty.\n• **Double Penalty:** Failed to unlock the `5th` and `6th` GAR milestone chests, forfeiting the doubled rewards from **Arms Race Prep** tech.",
             },
           ],
           recoverySteps: [
             {
               stepNumber: "01",
               title: {
-                vi: "Thiết lập 'Tuần Đóng Băng Tướng' trong suốt 7 ngày của Tuần A (Guild Race)",
-                en: "Establish a 'Hero Freeze Week' Across All 7 Days of Week A (Guild Race)",
+                vi: "Thiết lập 'Tuần Đóng Băng Tướng' trong suốt 7 ngày của Kỳ Thi Đấu Hội (Guild Race)",
+                en: "Establish a 'Hero Freeze Week' Across All 7 Days of Guild Race Week",
               },
               detail: {
                 vi: "**Khóa chặt `100%` Vé Chiêu Mộ & Mảnh Tướng suốt 7 ngày Guild Race:** Dồn toàn bộ `8–10 lượt` nhiệm vụ mỗi ngày vào nhóm hiệu suất cao.\n• **Danh mục ưu tiên:** Tăng tốc Xây dựng/Nghiên cứu/Lính, Tiêu Sao Đấu Trường/Điểm Bang, Săn Boss/Bounty (Ngày `1–4`) và **Lord Gear** (Ngày `5–7`).",
@@ -1363,12 +1363,12 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
             {
               stepNumber: "02",
               title: {
-                vi: "Thiết lập 'Điểm Nổ Thứ Năm' trong khung 17:00 – 21:00 Thứ Năm Tuần B (GAR Day 4)",
-                en: "Execute the 'Thursday Burst Window' at 17:00 – 21:00 on Week B Thursday (GAR Day 4)",
+                vi: "Thiết lập 'Điểm Nổ Thứ Năm' trong khung 17:00 – 21:00 Thứ Năm Kỳ GAR (GAR Day 4)",
+                en: "Execute the 'Thursday Burst Window' at 17:00 – 21:00 on GAR Thursday (GAR Day 4)",
               },
               detail: {
-                vi: "**Dồn toàn lực cho khung `17:00 – 21:00` Thứ Năm Tuần B:** Xả toàn bộ `220+ Vé Chiêu Mộ` và `180+ Mảnh Tướng` tích lũy suốt `13 ngày`.\n• **Bùng nổ Triple-Dip:** Ăn trọn giao thoa giữa **GAR Day 4**, **Hourly Hero Development** và **Guild Rush: Phát triển Tướng**.",
-                en: "**Concentrate everything into the `17:00 – 21:00` Week B Thursday window:** Unleash all `220+ Recruit Tokens` and `180+ Hero Shards` hoarded over `13 days`.\n• **Triple-Dip Burst:** Simultaneously clear **GAR Day 4**, **Hourly Hero Development**, and **Hero Development Guild Rush**.",
+                vi: "**Dồn toàn lực cho khung `17:00 – 21:00` Thứ Năm Kỳ GAR:** Xả toàn bộ `220+ Vé Chiêu Mộ` và `180+ Mảnh Tướng` tích lũy xuyên kỳ.\n• **Bùng nổ Triple-Dip:** Ăn trọn giao thoa giữa **GAR Day 4**, **Hourly Hero Development** và **Guild Rush: Phát triển Tướng**.",
+                en: "**Concentrate everything into the `17:00 – 21:00` GAR Thursday window:** Unleash all `220+ Recruit Tokens` and `180+ Hero Shards` hoarded across the cycle.\n• **Triple-Dip Burst:** Simultaneously clear **GAR Day 4**, **Hourly Hero Development**, and **Hero Development Guild Rush**.",
               },
               impactBadge: {
                 vi: "Mở 6/6 Rương GAR • +3,200 KC & +15 Mảnh",
@@ -1377,8 +1377,8 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
             },
           ],
           conclusion: {
-            vi: "**Kết quả Định lượng sau 1 Chu kỳ (`14 Ngày`):** Điểm **Guild Race (Tuần A)** tăng vọt từ `2,100` lên `3,850` điểm (`+83%` Điểm Vinh Dự Bang nhờ chỉ săn Nhiệm vụ Vàng `300–450 điểm`).\n• **Thặng dư Tuần B:** Ngày 4 GAR mở trọn `6/6` Hộp Thưởng Cá Nhân (nhân đôi nhờ **Arms Race Prep**), thu thêm `+3,200 Kim Cương`, `+15 Mảnh Vàng` và `+40 giờ` Tăng tốc miễn phí.",
-            en: "**Quantitative Outcome After 1 Cycle (`14 Days`):** **Guild Race (Week A)** score jumped from `2,100` to `3,850` points (`+83%` Guild Honor by hunting `300–450 pt` Golden Tasks).\n• **Week B Surplus:** GAR Day 4 unlocked all `6/6` Personal Chests (doubled via **Arms Race Prep**), banking `+3,200 Diamonds`, `+15 Universal Shards`, and `+40h` free Speedups.",
+            vi: "**Kết quả Định lượng sau 2 Kỳ Sự Kiện Liên Tiếp:** Điểm **Guild Race (Thi Đấu Hội)** tăng vọt từ `2,100` lên `3,850` điểm (`+83%` Điểm Vinh Dự Bang nhờ chỉ săn Nhiệm vụ Vàng `300–450 điểm`).\n• **Thặng dư Kỳ GAR:** Ngày 4 GAR mở trọn `6/6` Hộp Thưởng Cá Nhân (nhân đôi nhờ **Arms Race Prep**), thu thêm `+3,200 Kim Cương`, `+15 Mảnh Vàng` và `+40 giờ` Tăng tốc miễn phí.",
+            en: "**Quantitative Outcome Across 2 Consecutive Event Weeks:** **Guild Race** score jumped from `2,100` to `3,850` points (`+83%` Guild Honor by hunting `300–450 pt` Golden Tasks).\n• **GAR Week Surplus:** GAR Day 4 unlocked all `6/6` Personal Chests (doubled via **Arms Race Prep**), banking `+3,200 Diamonds`, `+15 Universal Shards`, and `+40h` free Speedups.",
           },
         },
       ],

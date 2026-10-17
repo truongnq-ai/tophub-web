@@ -14,8 +14,8 @@ export const GROUP_3_EVENTS_AND_CALENDAR_CATEGORY: GuideCategory = {
     en: "Event Schedule & Double-Dip Windows",
   },
   description: {
-    vi: "2 Pha tiến hóa lịch máy chủ, Chu kỳ 14 ngày Tuần A (Thi Đấu Hội & Pre-cooking 10 phút) ⇄ Tuần B (6 ngày GAR/KvK & Lính Bậc Thang), Lịch Guild Rush 2 ngày và Ma trận Double-Dip / Triple-Dip 300% cho 13 nhóm vật phẩm.",
-    en: "2-Phase server calendar evolution, 14-day Week A (Guild Race & 10-min Pre-cooking) ⇄ Week B (6-day GAR/KvK & Staircase Promotion) rotation, Fixed 2-Day Guild Rush, and the 300% Triple-Dip Matrix for 13 item categories.",
+    vi: "Lộ trình mở khóa sự kiện theo tiến độ Server (Khởi đầu Lãnh Chúa Mạnh Nhất ➔ Thi Đấu Hội liên tiếp kèm Sự kiện Vệ tinh ➔ Luân phiên Thi Đấu Hội & 6 Ngày Đua Vũ Trang GAR/KvK), Lịch Guild Rush 2 ngày và Ma trận Double-Dip / Triple-Dip 300% cho 13 nhóm vật phẩm.",
+    en: "Server-progression event roadmap (Beginner Strongest Lord ➔ Consecutive Guild Race with rotating satellite events ➔ Mature Server rotation between Guild Race & 6-Day GAR/KvK), 2-Day Guild Rush schedules, and the 300% Triple-Dip Matrix for 13 item categories.",
   },
   articles: [
     ARTICLE_3_1_BIWEEKLY_ROTATION,

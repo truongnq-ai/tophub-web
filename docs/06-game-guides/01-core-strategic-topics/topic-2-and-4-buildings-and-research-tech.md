@@ -16,7 +16,7 @@ Lộ trình Chuyển giao Liên Minh ➔ Bộ Lạc từ Ngày 21–41
 
  và 
 
-Chu kỳ Sự kiện Xoay vòng 2 Tuần: Tuần A ⇄ Tuần B
+Chu kỳ Sự kiện Xoay vòng 2 Tuần: Thi Đấu Hội ⇄ GAR/KvK
 
 )
 
@@ -52,7 +52,7 @@ Kỵ Sĩ (Knight - 12 sao)
 
 Thời điểm xả Tăng tốc theo Chu kỳ 2 Tuần:
 
-Trong Tuần A (Tuần "Thi Đấu Hội" / Guild Race):
+Trong Kỳ Thi Đấu Hội (Tuần "Thi Đấu Hội" / Guild Race):
 
  Xả Tăng tốc Xây dựng / Nghiên cứu vào 
 
@@ -76,7 +76,7 @@ Guild Rush
 
  nếu có).
 
-Trong Tuần B (Tuần "Đua Vũ Trang - GAR" / "KvK" / "Top Lord"):
+Trong Kỳ GAR/KvK (Tuần "Đua Vũ Trang - GAR" / "KvK" / "Top Lord"):
 
  Ngâm các công trình/nghiên cứu lớn để thu hoạch và xả Tăng tốc Xây dựng vào 
 
@@ -336,11 +336,11 @@ Tượng Bộ Lạc
 
  và các công trình thời gian ngắn để ăn điểm 
 
-Nhiệm vụ Vàng Thi Đấu Hội (Tuần A)
+Nhiệm vụ Vàng Thi Đấu Hội (Thi Đấu Hội)
 
  hoặc 
 
-GAR Thứ 2 (Tuần B)
+GAR Thứ 2 (GAR/KvK)
 
 .
 
@@ -406,7 +406,7 @@ Kinh Tế (Economy):
 
 1. 
 
-Tuần A:
+Kỳ Thi Đấu Hội:
 
  Khi nhận Nhiệm vụ Vàng 
 
@@ -422,7 +422,7 @@ Thi Đấu Hội
 
 2. 
 
-Tuần B:
+Kỳ GAR/KvK:
 
  Vào 
 
