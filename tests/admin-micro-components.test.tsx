@@ -4,6 +4,7 @@ import React from "react";
 import { AccountAvatar } from "../src/components/dashboard/admin/account-avatar";
 import { ServerTag } from "../src/components/dashboard/admin/server-tag";
 import { AdminTooltip } from "../src/components/dashboard/admin/admin-tooltip";
+import { formatServerCode, compareServerIds } from "../src/lib/utils";
 
 describe("Admin Micro-Components", () => {
   describe("AccountAvatar", () => {
@@ -29,10 +30,48 @@ describe("Admin Micro-Components", () => {
     });
   });
 
+  describe("formatServerCode & compareServerIds utilities", () => {
+    it("should normalize numeric and S-prefixed server IDs idempotently without duplicating S", () => {
+      expect(formatServerCode("S10957")).toBe("S10957");
+      expect(formatServerCode("s10957")).toBe("S10957");
+      expect(formatServerCode("SS10957")).toBe("S10957");
+      expect(formatServerCode("1024")).toBe("S1024");
+      expect(formatServerCode("Server 1024")).toBe("S1024");
+      expect(formatServerCode("Server #1028")).toBe("S1028");
+      expect(formatServerCode("Server #S10957")).toBe("S10957");
+    });
+
+    it("should preserve special identifiers like ADMIN and Global and fallback to S? on empty values", () => {
+      expect(formatServerCode("ADMIN")).toBe("ADMIN");
+      expect(formatServerCode(" admin ")).toBe("ADMIN");
+      expect(formatServerCode("Global")).toBe("Global");
+      expect(formatServerCode("")).toBe("S?");
+      expect(formatServerCode("   ")).toBe("S?");
+      expect(formatServerCode("?")).toBe("S?");
+      expect(formatServerCode("S?")).toBe("S?");
+      expect(formatServerCode(undefined)).toBe("S?");
+      expect(formatServerCode(null)).toBe("S?");
+    });
+
+    it("should sort server IDs numerically so S999 comes before S10957", () => {
+      const list = ["S10957", "999", "S1024"];
+      expect(list.sort(compareServerIds)).toEqual(["999", "S1024", "S10957"]);
+    });
+  });
+
   describe("ServerTag", () => {
-    it("should render server tag format [S1024]", () => {
+    it("should render server tag format [S1024] when given numeric '1024'", () => {
       render(<ServerTag serverId="1024" />);
       expect(screen.getByText("[S1024]")).toBeDefined();
+    });
+
+    it("should render [S10957] without duplicate S when given 'S10957' or 'SS10957'", () => {
+      const { rerender } = render(<ServerTag serverId="S10957" />);
+      expect(screen.getByText("[S10957]")).toBeDefined();
+      expect(screen.queryByText("[SS10957]")).toBeNull();
+
+      rerender(<ServerTag serverId="SS10957" />);
+      expect(screen.getByText("[S10957]")).toBeDefined();
     });
 
     it("should render [S?] when serverId is empty or undefined", () => {

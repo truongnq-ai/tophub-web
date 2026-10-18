@@ -32,7 +32,7 @@ import {
 import { LocaleSwitcher } from "@/components/locale-switcher";
 import { ThemeSwitcher } from "@/components/theme-switcher";
 import { useUidSession } from "@/hooks/use-uid-session";
-import { cn } from "@/lib/utils";
+import { cn, formatServerCode } from "@/lib/utils";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -186,7 +186,7 @@ export function Header() {
                       {activeAccount.nickname}
                     </span>
                     <span className="text-[10px] text-amber-600 dark:text-amber-400 font-mono leading-none">
-                      S{activeAccount.server_id}
+                      {formatServerCode(activeAccount.server_id)}
                     </span>
                   </div>
                   <ChevronDown className="h-3.5 w-3.5 text-muted-foreground ml-0.5" />
@@ -199,7 +199,7 @@ export function Header() {
                       {activeAccount.nickname}
                     </p>
                     <p className="text-xs text-muted-foreground font-mono">
-                      UID: {activeAccount.uid} (Server {activeAccount.server_id})
+                      UID: {activeAccount.uid} (Server {formatServerCode(activeAccount.server_id)})
                     </p>
                     <div className="pt-1.5">
                       <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-emerald-500 dark:text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/25">
@@ -233,7 +233,7 @@ export function Header() {
                             <span className="font-medium truncate">{acc.nickname}</span>
                           </div>
                           <span className="text-[10px] text-muted-foreground font-mono ml-2 shrink-0">
-                            S{acc.server_id}
+                            {formatServerCode(acc.server_id)}
                           </span>
                         </DropdownMenuItem>
                       ))}

@@ -34,7 +34,7 @@ describe("Admin TabComments Moderation Component", () => {
             page_key: "guides:heroes/encyclopedia",
             author_uid: "2446869146316",
             author_nickname: "SuspectUser",
-            author_server_id: "1024",
+            author_server_id: "S10957",
             is_admin_author: false,
             is_pro_author: false,
             parent_id: null,
@@ -88,6 +88,8 @@ describe("Admin TabComments Moderation Component", () => {
       })
     );
     expect(screen.getByText("UID: 2446869146316")).toBeTruthy();
+    expect(screen.getByText("S10957")).toBeTruthy();
+    expect(screen.queryByText("SS10957")).toBeNull();
     expect(screen.getByText(/Chứa từ khóa hạn chế: "lừa đảo"/)).toBeTruthy();
 
     // Approve comment

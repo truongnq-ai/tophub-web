@@ -24,8 +24,8 @@ describe("AccountCard Component", () => {
     cancel: "Hủy bỏ",
   };
 
-  it("should render nickname and server correctly", () => {
-    render(
+  it("should render nickname and normalized server code correctly without duplicate S", () => {
+    const { rerender } = render(
       <AccountCard
         account={mockAccount}
         onToggle={vi.fn()}
@@ -34,7 +34,18 @@ describe("AccountCard Component", () => {
       />
     );
     expect(screen.getByText("DragonSlayer")).toBeDefined();
-    expect(screen.getByText(/Server 1024/i)).toBeDefined();
+    expect(screen.getByText("S1024")).toBeDefined();
+
+    rerender(
+      <AccountCard
+        account={{ ...mockAccount, server_id: "S10957" }}
+        onToggle={vi.fn()}
+        onUnlink={vi.fn()}
+        labels={mockLabels}
+      />
+    );
+    expect(screen.getByText("S10957")).toBeDefined();
+    expect(screen.queryByText("SS10957")).toBeNull();
   });
 
   it("should call onToggle callback when switch is toggled", async () => {

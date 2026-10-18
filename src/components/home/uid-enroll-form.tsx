@@ -26,6 +26,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { previewPlayerAction, enrollPlayerAction } from "@/actions/players";
 import { useUidSession, type SavedAccount } from "@/hooks/use-uid-session";
 import { sanitizeReturnUrl, navigateToReturnUrl } from "@/lib/return-url";
+import { formatServerCode } from "@/lib/utils";
 import type { PlayerPreviewResponse } from "@/types/api";
 
 interface UidEnrollFormProps {
@@ -249,7 +250,7 @@ export function UidEnrollForm({
                   <div className="flex items-center gap-3 text-xs text-muted-foreground font-mono mt-0.5">
                     <span>UID: {previewData.uid}</span>
                     <span>•</span>
-                    <span>Server: {previewData.server_id}</span>
+                    <span>Server: {formatServerCode(previewData.server_id)}</span>
                   </div>
                 </div>
               </div>
@@ -310,7 +311,7 @@ export function UidEnrollForm({
                   <div className="overflow-hidden">
                     <p className="text-sm font-bold text-foreground truncate">{account.nickname}</p>
                     <p className="text-[11px] text-muted-foreground font-mono truncate">
-                      S{account.server_id} • UID: {account.uid}
+                      {formatServerCode(account.server_id)} • UID: {account.uid}
                     </p>
                   </div>
                 </div>

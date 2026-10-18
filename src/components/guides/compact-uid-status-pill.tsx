@@ -5,7 +5,7 @@ import { ArrowUpRight, Crown, Sparkles } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { useUidSession } from "@/hooks/use-uid-session";
-import { cn } from "@/lib/utils";
+import { cn, formatServerCode } from "@/lib/utils";
 
 interface CompactUidStatusPillProps {
   className?: string;
@@ -40,7 +40,7 @@ export function CompactUidStatusPill({
             {activeAccount.nickname}
           </span>
           <span className="font-mono text-[11px] text-muted-foreground shrink-0">
-            • S{activeAccount.server_id}
+            • {formatServerCode(activeAccount.server_id)}
           </span>
         </div>
 

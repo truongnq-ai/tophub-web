@@ -27,6 +27,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { AdminPagination } from "./pagination";
+import { formatServerCode } from "@/lib/utils";
 
 interface TabCommentsProps {
   onStatsChange?: () => void;
@@ -324,7 +325,7 @@ export function TabComments({ onStatsChange }: TabCommentsProps) {
                       {item.author_nickname}
                     </span>
                     <Badge variant="outline" className="font-mono text-[10px]">
-                      S{item.author_server_id}
+                      {item.is_admin_author ? "ADMIN" : formatServerCode(item.author_server_id)}
                     </Badge>
                     {item.author_uid && (
                       <Badge

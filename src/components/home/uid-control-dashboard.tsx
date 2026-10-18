@@ -32,6 +32,7 @@ import {
   updatePlayerSettingsAction,
 } from "@/actions/players";
 import type { PlayerStatusResponse } from "@/types/api";
+import { formatServerCode } from "@/lib/utils";
 
 interface UidControlDashboardProps {
   account: SavedAccount;
@@ -182,7 +183,7 @@ export function UidControlDashboard({ account, initialActiveCodes }: UidControlD
                   <span>•</span>
                   <span className="flex items-center gap-1">
                     <Server className="h-3.5 w-3.5 text-amber-500" />
-                    Server {account.server_id}
+                    Server {formatServerCode(account.server_id)}
                   </span>
                 </div>
               </div>

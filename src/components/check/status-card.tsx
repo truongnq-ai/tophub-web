@@ -20,6 +20,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { PlayerStatusResponse } from "@/types/api";
+import { formatServerCode } from "@/lib/utils";
 
 interface StatusCardProps {
   data: PlayerStatusResponse;
@@ -74,7 +75,7 @@ export function StatusCard({ data, locale }: StatusCardProps) {
                 <span>•</span>
                 <span className="flex items-center gap-1">
                   <Server className="h-3.5 w-3.5 text-amber-500" />
-                  {t("server")} {data.server_id}
+                  {t("server")} {formatServerCode(data.server_id)}
                 </span>
               </div>
             </div>

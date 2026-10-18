@@ -32,6 +32,7 @@ import {
   checkPublicPaymentStatusAction,
 } from "@/actions/billing";
 import type { CheckoutResponse, PlayerPreviewResponse } from "@/types/api";
+import { formatServerCode } from "@/lib/utils";
 
 interface PayOsModalProps {
   open: boolean;
@@ -332,7 +333,7 @@ export function PayOsModal({
                     <Server className="h-4 w-4 text-indigo-400" />
                     <div>
                       <div className="text-[10px] text-muted-foreground">{labels.serverLabel || "Máy chủ"}</div>
-                      <div className="font-bold text-slate-100">Server {previewData.server_id}</div>
+                      <div className="font-bold text-slate-100">Server {formatServerCode(previewData.server_id)}</div>
                     </div>
                   </div>
                 </div>
@@ -390,7 +391,7 @@ export function PayOsModal({
                     <div className="flex items-center gap-2">
                       <User className="h-3.5 w-3.5 text-purple-400" />
                       <span className="font-bold text-purple-200">{previewData.nickname}</span>
-                      <span className="text-slate-400">(Server {previewData.server_id})</span>
+                      <span className="text-slate-400">(Server {formatServerCode(previewData.server_id)})</span>
                     </div>
                     <button
                       type="button"

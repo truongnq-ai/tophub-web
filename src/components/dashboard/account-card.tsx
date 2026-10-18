@@ -17,6 +17,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import type { GameAccountItem } from "@/types/api";
+import { formatServerCode } from "@/lib/utils";
 
 interface AccountCardProps {
   account: GameAccountItem;
@@ -67,7 +68,7 @@ export function AccountCard({ account, onToggle, onUnlink, labels }: AccountCard
               <div className="flex items-center gap-2 mt-1 text-xs text-muted-foreground">
                 <span className="flex items-center gap-1 font-semibold text-slate-300">
                   <Server className="h-3 w-3 text-purple-400" />
-                  {account.server_id}
+                  {formatServerCode(account.server_id)}
                 </span>
                 <span>•</span>
                 <span className="font-mono text-muted-foreground select-all">

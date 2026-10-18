@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { linkAccountAction } from "@/actions/accounts";
+import { formatServerCode } from "@/lib/utils";
 
 interface AddAccountDialogProps {
   labels: {
@@ -61,7 +62,7 @@ export function AddAccountDialog({ labels }: AddAccountDialogProps) {
       if (res.success && res.data) {
         const msg = labels.addSuccess
           .replace("{nickname}", res.data.nickname || uid)
-          .replace("{server}", res.data.server_id || "Global");
+          .replace("{server}", res.data.server_id ? formatServerCode(res.data.server_id) : "Global");
 
         setSuccessMsg(msg);
         setTimeout(() => {
