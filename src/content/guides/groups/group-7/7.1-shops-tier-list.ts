@@ -20,8 +20,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
       en: "**Diamond Equivalent ROI Rule:** Every currency across the `13` in-game shops has only `1–2` supreme items delivering `300%`–`600%` Diamond Equivalent ROI.\n• **13-Shop Ecosystem:** Across Arena Shop, Guild Points, Medal Shop, VIP Shop, Exchange Shop, Wheel, Dice of Fate, and Kingdom Emblem, never waste currency on farmable Meat, Wood, Stone, or Rubies.",
     },
     immediateAction: {
-      vi: "**Thiết lập Ngưỡng Đóng Băng Ví (Weekly Safety Floor):** Khóa số dư trước `07:00` sáng Thứ Hai: `1,900`–`2,000` Sao (Arena Shop) và `12,000`–`15,000` Điểm (Guild Points).\n• **Dự phòng Hồn Đá & Kỳ Thi Đấu Hội:** Khóa `40,000` Điểm Vinh Dự / `6,000` Xu Vinh Quang mỗi viên Soul Stone; trong Kỳ Thi Đấu Hội (Guild Race), chờ nhận Nhiệm vụ Vàng 'Chi tiêu Điểm Tiệm' mới thanh toán.",
-      en: "**Lock Weekly Wallet Safety Floors:** Before Monday `07:00` reset, keep at least `1,900`–`2,000` Arena Stars (Arena Shop) and `12,000`–`15,000` Guild Contribution Points (Guild Points).\n• **Soul Stone & Guild Race Sync:** Reserve `40,000` Guild Honor / `6,000` Guild Coins per Soul Stone; during Guild Race, claim a Gold 'Spend Shop Currency' task before checking out.",
+      vi: "**Thiết lập Ngưỡng Đóng Băng Ví (Weekly Safety Floor):** Khóa số dư trước `00:00 UTC` (`07:00` sáng Giờ VN) Thứ Hai: `1,900`–`2,000` Sao (Arena Shop) và `12,000`–`15,000` Điểm (Guild Points).\n• **Dự phòng Hồn Đá & Kỳ Thi Đấu Hội:** Khóa `40,000` Điểm Vinh Dự / `6,000` Xu Vinh Quang mỗi viên Soul Stone; trong Kỳ Thi Đấu Hội (Guild Race), chờ nhận Nhiệm vụ Vàng 'Chi tiêu Điểm Tiệm' mới thanh toán.",
+      en: "**Lock Weekly Wallet Safety Floors:** Before Monday `00:00 UTC` reset, keep at least `1,900`–`2,000` Arena Stars (Arena Shop) and `12,000`–`15,000` Guild Contribution Points (Guild Points).\n• **Soul Stone & Guild Race Sync:** Reserve `40,000` Guild Honor / `6,000` Guild Coins per Soul Stone; during Guild Race, claim a Gold 'Spend Shop Currency' task before checking out.",
     },
     strictTaboo: {
       vi: "**Cấm mua vật phẩm bẫy F-Tier:** CẤM mua Guardian Skin giá `12,000` Sao tại Arena Shop khi Đội 1 chưa tối đa sao, và CẤM mua Vé Chiêu Mộ giá gốc `300` Sao.\n• **Không nhầm mốc Sao & Xả sớm:** Phân biệt mốc `12` Sao (Trait 3 `+30%`) với mốc `15` Sao (`500` hoặc `1,000` Mảnh mở Exchange Shop); cấm xả ngay Vé/Mảnh (`1,500` Sao/5 mảnh) trong Kỳ Thi Đấu Hội.",
@@ -34,8 +34,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
       en: "**3 Architectural Shop Tiers:** Categorizes all `13` shops into Static, Dynamic Evolving (Lv.30 / Season 1+), and Cross-Server Event storefronts.\n• **Static & Dynamic Shops:** Arena Shop, Guild Points, and Medal Shop keep fixed catalogs; Guild Honor, VIP Shop, and Exchange Shop unlock Soul Stones at `40,000` Honor or `6,000` Coins.\n• **Event & Cross-Server Shops:** Combat Valor, 4 Nations, Wheel, Dice of Fate, and Kingdom Emblem supply Orichalcum, Dragon Blood, and Exclusive Gear Shards.",
     },
     {
-      vi: "**Kỷ luật Ngưỡng Đóng Băng Ví (Safety Floor):** Luôn khóa tối thiểu `1,900`–`2,000` Sao tại Arena Shop trước `07:00` sáng Thứ Hai để vét trọn combo S+.\n• **Combo 1,900 Sao/tuần:** Mua Gói `300` KC (`50` Sao, ROI `600%`), Vé (`50` Sao, ROI `300%`), Gói `300` KC (`300` Sao) và `5` Mảnh (`1,500` Sao: Soulmancer, Warlock, Pyromancer, Adjudicator, Pixie).",
-      en: "**Weekly Safety Floor & ROI Discipline:** Always lock at least `1,900`–`2,000` Arena Stars in Arena Shop before Monday `07:00` reset to sweep the S+ bundle.\n• **1,900-Star Bundle:** Buy `300` Diamonds (`50` Stars, `600%` ROI), Token (`50` Stars, `300%` ROI), `300` Diamonds (`300` Stars), and `5` Shards (`1,500` Stars: Soulmancer, Warlock, Pyromancer, Adjudicator, Pixie).",
+      vi: "**Kỷ luật Ngưỡng Đóng Băng Ví (Safety Floor):** Luôn khóa tối thiểu `1,900`–`2,000` Sao tại Arena Shop trước `00:00 UTC` (`07:00` sáng Giờ VN) Thứ Hai để vét trọn combo S+.\n• **Combo 1,900 Sao/tuần:** Mua Gói `300` KC (`50` Sao, ROI `600%`), Vé (`50` Sao, ROI `300%`), Gói `300` KC (`300` Sao) và `5` Mảnh (`1,500` Sao: Soulmancer, Warlock, Pyromancer, Adjudicator, Pixie).",
+      en: "**Weekly Safety Floor & ROI Discipline:** Always lock at least `1,900`–`2,000` Arena Stars in Arena Shop before Monday `00:00 UTC` reset to sweep the S+ bundle.\n• **1,900-Star Bundle:** Buy `300` Diamonds (`50` Stars, `600%` ROI), Token (`50` Stars, `300%` ROI), `300` Diamonds (`300` Stars), and `5` Shards (`1,500` Stars: Soulmancer, Warlock, Pyromancer, Adjudicator, Pixie).",
     },
     {
       vi: "**Quản trị Guild Points & Exchange Shop:** Duy trì sàn `12,000`–`15,000` Guild Points, mỗi tuần mua `1,000` Điểm VIP, Bình Thể Lực (`800` Điểm) và Khiên Hòa Bình 8h/24h.\n• **Phân biệt mốc 12 Sao vs 15 Sao:** Tướng Tím Kinh tế dừng ở `12` Sao (2 Sao Trắng) mở Trait 3 (`+30%`), còn đẩy 1 tướng chạm `15` Sao (`500` hoặc `1,000` Mảnh) mới mở Exchange Shop.",
@@ -140,8 +140,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                     en: "Lock Weekly Safety Floors: 1,900–2,000 Arena Stars, 12,000–15,000 Guild Points & 40,000 Guild Honor / 6,000 Guild Coins",
                   },
                   detail: {
-                    vi: "Đảm bảo 07:00 sáng Thứ Hai luôn đủ 1,900 Sao Đấu Trường để vét 2 gói 50 Sao (ROI 600% & 300%), gói 300 KC và 5 mảnh Tướng Vàng Hệ Chính (1,500 Sao cho Soulmancer, Warlock, Pyromancer, Adjudicator hoặc Pixie), đồng thời sẵn sàng mua ngay Soul Stone (40,000 Điểm Vinh Dự hoặc 6,000 Xu Vinh Quang).",
-                    en: "Guarantees you have 1,900 Arena Stars every Monday at 07:00 to sweep both 50-Star packs (600% & 300% ROI), the 300-Diamond pack, and 5 Main-Faction Legendary Shards (1,500 Stars for Soulmancer, Warlock, Pyromancer, Adjudicator, or Pixie), while keeping 40,000 Guild Honor or 6,000 Guild Coins ready for Soul Stones.",
+                    vi: "Đảm bảo 00:00 UTC (07:00 sáng Giờ VN) Thứ Hai luôn đủ 1,900 Sao Đấu Trường để vét 2 gói 50 Sao (ROI 600% & 300%), gói 300 KC và 5 mảnh Tướng Vàng Hệ Chính (1,500 Sao cho Soulmancer, Warlock, Pyromancer, Adjudicator hoặc Pixie), đồng thời sẵn sàng mua ngay Soul Stone (40,000 Điểm Vinh Dự hoặc 6,000 Xu Vinh Quang).",
+                    en: "Guarantees you have 1,900 Arena Stars every Monday at 00:00 UTC to sweep both 50-Star packs (600% & 300% ROI), the 300-Diamond pack, and 5 Main-Faction Legendary Shards (1,500 Stars for Soulmancer, Warlock, Pyromancer, Adjudicator, or Pixie), while keeping 40,000 Guild Honor or 6,000 Guild Coins ready for Soul Stones.",
                   },
                 },
                 {
@@ -197,7 +197,7 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                   { vi: "Cửa hàng Đấu Trường (Arena Shop)", en: "Arena Shop" },
                   { vi: "Sao Đấu Trường (Arena Stars)", en: "Arena Stars" },
                   { vi: "Tĩnh (Static)", en: "Static" },
-                  { vi: "7 ngày (07:00 Thứ Hai)", en: "Weekly (Monday 07:00)" },
+                  { vi: "7 ngày (00:00 UTC / 07:00 VN Thứ Hai)", en: "Weekly (Monday 00:00 UTC)" },
                   {
                     vi: "Gói 300 KC siêu rẻ (50 Sao, ROI 600%), Vé Chiêu Mộ (50 Sao, ROI 300%), 5 Mảnh Tướng Vàng Hệ Chính (1,500 Sao: Soulmancer, Warlock, Pyromancer, Adjudicator, Pixie)",
                     en: "300 Diamonds Super Pack (50 Stars, 600% ROI), Recruitment Token (50 Stars, 300% ROI), 5x Main-Faction Legendary Shards (1,500 Stars: Soulmancer, Warlock, Pyromancer, Adjudicator, Pixie)",
@@ -241,7 +241,7 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                   { vi: "Cửa hàng Vinh Dự Bang / Xu Vinh Quang (Guild Honor / Guild Coin Shop)", en: "Guild Honor / Guild Coin Shop" },
                   { vi: "Điểm Vinh Dự (Guild Honor) / Xu Vinh Quang Hội (Guild Coins)", en: "Guild Honor / Guild Coins" },
                   { vi: "Động (Evolving Lv.30 & S1+)", en: "Dynamic Evolving (Lv.30 & S1+)" },
-                  { vi: "7 ngày (07:00 Thứ Hai)", en: "Weekly (Monday 07:00)" },
+                  { vi: "7 ngày (00:00 UTC / 07:00 VN Thứ Hai)", en: "Weekly (Monday 00:00 UTC)" },
                   {
                     vi: "Hồn Đá Đỏ (Soul Stone): 40,000 Điểm Vinh Dự/viên (360,000 Điểm/9 viên ở Lv.30) & 6,000 Xu Vinh Quang/viên (54,000 Xu/9 viên xoay tua 3 tuần S1: League ➔ Horde ➔ Nature)",
                     en: "Soul Stone: 40,000 Guild Honor/stone (360,000 Honor/9 stones at Lv.30) & 6,000 Guild Coins/stone (54,000 Coins/9 stones on 3-week S1 rotation: League ➔ Horde ➔ Nature)",
@@ -252,7 +252,7 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                   { vi: "Cửa hàng VIP & Kim Cương (VIP Shop)", en: "VIP Shop" },
                   { vi: "Kim Cương (Diamonds)", en: "Diamonds" },
                   { vi: "Động (Theo cấp VIP & Castle)", en: "Dynamic (Scales with VIP & Castle)" },
-                  { vi: "7 ngày (07:00 Thứ Hai)", en: "Weekly (Monday 07:00)" },
+                  { vi: "7 ngày (00:00 UTC / 07:00 VN Thứ Hai)", en: "Weekly (Monday 00:00 UTC)" },
                   {
                     vi: "Mảnh Vàng Vạn Năng, Bình Thể Lực, Sách Kỹ Năng & Đá Cường Hóa giảm giá sâu",
                     en: "Deeply discounted Universal Legendary Shards, Stamina Potions, Skill Books & Gear Enhance Runes",
@@ -263,7 +263,7 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                   { vi: "Cửa hàng Đổi Điểm / Mảnh Dư (Exchange Shop)", en: "Exchange Shop" },
                   { vi: "Điểm Chiêu Mộ & Mảnh Tướng 15 Sao dư", en: "Tavern Recruitment Points & Excess 15-Star Hero Shards" },
                   { vi: "Động (Mở khi có tướng tối đa 15 Sao)", en: "Dynamic (Unlocks at 15-Star Max Hero)" },
-                  { vi: "7 ngày (07:00 Thứ Hai)", en: "Weekly (Monday 07:00)" },
+                  { vi: "7 ngày (00:00 UTC / 07:00 VN Thứ Hai)", en: "Weekly (Monday 00:00 UTC)" },
                   {
                     vi: "Mảnh Vạn Năng Tím (đẩy tướng kinh tế lên 12 Sao mở Trait 3 +30%), Mảnh Vạn Năng Vàng (mở tiệm khi có tướng 15 Sao = 500 hoặc 1,000 Mảnh)",
                     en: "Universal Epic Shards (push economy heroes to 12 Stars for Trait 3 +30%), Universal Legendary Shards (shop unlocks at 15-Star max = 500 or 1,000 Shards)",
@@ -390,8 +390,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                 en: "Arena Shop Safety Floor Rule: Always Lock 1,900 – 2,000 Arena Stars",
               },
               content: {
-                vi: "**Khóa Sàn `1,900` – `2,000` Sao Đấu Trường:** Luôn giữ tối thiểu `1,900`–`2,000` Sao trước `07:00` sáng Thứ Hai để vừa mở Arena Shop là đủ thanh toán ngay combo chuẩn.\n• **Công thức `1,900` Sao:** `50` Sao (`300` KC) + `50` Sao (1 Vé) + `300` Sao (`300` KC) + `1,500` Sao (5 mảnh Soulmancer / Warlock / Pyromancer / Adjudicator / Pixie) = `1,900` Arena Stars!",
-                en: "**Lock `1,900` – `2,000` Arena Stars:** Preserve at least `1,900`–`2,000` Arena Stars before Monday `07:00` server reset to immediately purchase the full weekly core bundle.\n• **The `1,900`-Star Formula:** `50` Stars (`300` Diamonds) + `50` Stars (Token) + `300` Stars (`300` Diamonds) + `1,500` Stars (5 shards: Soulmancer/Warlock/Pyromancer/Adjudicator/Pixie) = `1,900` Stars!",
+                vi: "**Khóa Sàn `1,900` – `2,000` Sao Đấu Trường:** Luôn giữ tối thiểu `1,900`–`2,000` Sao trước `00:00 UTC` (`07:00` sáng Giờ VN) Thứ Hai để vừa mở Arena Shop là đủ thanh toán ngay combo chuẩn.\n• **Công thức `1,900` Sao:** `50` Sao (`300` KC) + `50` Sao (1 Vé) + `300` Sao (`300` KC) + `1,500` Sao (5 mảnh Soulmancer / Warlock / Pyromancer / Adjudicator / Pixie) = `1,900` Arena Stars!",
+                en: "**Lock `1,900` – `2,000` Arena Stars:** Preserve at least `1,900`–`2,000` Arena Stars before Monday `00:00 UTC` server reset to immediately purchase the full weekly core bundle.\n• **The `1,900`-Star Formula:** `50` Stars (`300` Diamonds) + `50` Stars (Token) + `300` Stars (`300` Diamonds) + `1,500` Stars (5 shards: Soulmancer/Warlock/Pyromancer/Adjudicator/Pixie) = `1,900` Stars!",
               },
             },
             {
@@ -473,15 +473,15 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                 en: "Weekly Shop Synchronization & Safety Floor Checklist (Guild Race ⇄ GAR / KvK)",
               },
               description: {
-                vi: "Thực hiện đầy đủ 4 bước kiểm tra dưới đây trước và sau 07:00 sáng Thứ Hai hàng tuần để tối đa hóa ROI và điểm sự kiện:",
-                en: "Complete all 4 weekly checks below around Monday 07:00 server reset to maximize Diamond ROI and event scoring:",
+                vi: "Thực hiện đầy đủ 4 bước kiểm tra dưới đây trước và sau 00:00 UTC (07:00 sáng Giờ VN) Thứ Hai hàng tuần để tối đa hóa ROI và điểm sự kiện:",
+                en: "Complete all 4 weekly checks below around Monday 00:00 UTC server reset to maximize Diamond ROI and event scoring:",
               },
               items: [
                 {
                   id: "chk-7-1-safety-floor-lock",
                   label: {
-                    vi: "Kiểm tra Ngưỡng Đóng Băng Ví trước 07:00 sáng Thứ Hai (1,900–2,000 Arena Stars, 12,000–15,000 Guild Points, 40,000 Guild Honor / 6,000 Guild Coins)",
-                    en: "Verify Weekly Safety Floors Before Monday 07:00 Reset (1,900–2,000 Arena Stars, 12,000–15,000 Guild Points, 40,000 Guild Honor / 6,000 Guild Coins)",
+                    vi: "Kiểm tra Ngưỡng Đóng Băng Ví trước 00:00 UTC (07:00 sáng Giờ VN) Thứ Hai (1,900–2,000 Arena Stars, 12,000–15,000 Guild Points, 40,000 Guild Honor / 6,000 Guild Coins)",
+                    en: "Verify Weekly Safety Floors Before Monday 00:00 UTC Reset (1,900–2,000 Arena Stars, 12,000–15,000 Guild Points, 40,000 Guild Honor / 6,000 Guild Coins)",
                   },
                   detail: {
                     vi: "Tuyệt đối không tiêu lẹm vào phần quỹ gốc 1,900–2,000 Sao Đấu Trường, 12,000–15,000 Điểm Cống Hiến Bang và 40,000 Điểm Vinh Dự / 6,000 Xu Vinh Quang vào tối Chủ Nhật.",
@@ -580,12 +580,12 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                 en: "1. Buying the 12,000-Star Guardian Skin in Arena Shop & zeroing out Arena Stars on Sunday night",
               },
               {
-                vi: "Đốt mất 12,000 Arena Stars (tương đương 40 mảnh Tướng Vàng Hệ Chính = 8 tuần mua mảnh 1,500 Sao), sáng Thứ Hai không đủ 1,900 Sao mua Soulmancer, Warlock, Pyromancer, Adjudicator hoặc Pixie.",
-                en: "Burns 12,000 Arena Stars (equivalent to 40 Main-Faction Legendary Shards = 8 weeks of 1,500-Star purchases), leaving you short of the 1,900 Stars needed on Monday morning for Soulmancer, Warlock, Pyromancer, Adjudicator, or Pixie.",
+                vi: "Đốt mất 12,000 Arena Stars (tương đương 40 mảnh Tướng Vàng Hệ Chính = 8 tuần mua mảnh 1,500 Sao), đầu tuần mới (sau 00:00 UTC / 07:00 sáng Giờ VN Thứ Hai) không đủ 1,900 Sao mua Soulmancer, Warlock, Pyromancer, Adjudicator hoặc Pixie.",
+                en: "Burns 12,000 Arena Stars (equivalent to 40 Main-Faction Legendary Shards = 8 weeks of 1,500-Star purchases), leaving you short of the 1,900 Stars needed after the Monday 00:00 UTC reset for Soulmancer, Warlock, Pyromancer, Adjudicator, or Pixie.",
               },
               {
-                vi: "Bỏ qua hoàn toàn Guardian Skin 12,000 Sao; khóa cứng Ngưỡng Đóng Băng 1,900–2,000 Arena Stars trước 07:00 sáng Thứ Hai và chỉ tiêu phần thặng dư vượt trên 2,000 Sao.",
-                en: "Skip the 12,000-Star Guardian Skin completely; lock a strict 1,900–2,000 Arena Stars Safety Floor before Monday 07:00 and only spend surplus above 2,000 Stars.",
+                vi: "Bỏ qua hoàn toàn Guardian Skin 12,000 Sao; khóa cứng Ngưỡng Đóng Băng 1,900–2,000 Arena Stars trước 00:00 UTC Thứ Hai (07:00 sáng Giờ VN) và chỉ tiêu phần thặng dư vượt trên 2,000 Sao.",
+                en: "Skip the 12,000-Star Guardian Skin completely; lock a strict 1,900–2,000 Arena Stars Safety Floor before Monday 00:00 UTC and only spend surplus above 2,000 Stars.",
               },
             ],
             [
@@ -870,8 +870,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
               mediaCode: "MED-7.1-03",
               variant: "decision_flow",
               title: {
-                vi: "Sơ Đồ Luồng Quyết Định Thanh Toán Giỏ Hàng & Kiểm Soát Ngưỡng Đóng Băng Ví (07:00 Thứ Hai)",
-                en: "Monday 07:00 Shop Checkout & Weekly Safety Floor Decision Flowchart",
+                vi: "Sơ Đồ Luồng Quyết Định Thanh Toán Giỏ Hàng & Kiểm Soát Ngưỡng Đóng Băng Ví (00:00 UTC / 07:00 Giờ VN Thứ Hai)",
+                en: "Monday 00:00 UTC Shop Checkout & Weekly Safety Floor Decision Flowchart",
               },
               subtitle: {
                 vi: "Phân luồng thanh toán theo Chu kỳ Kỳ Thi Đấu Hội (Guild Race) và Kỳ Đua Vũ Trang (GAR / KvK) trên toàn bộ 13 Cửa hàng",
@@ -880,8 +880,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
               centerNode: {
                 id: "node-7-1-monday-reset",
                 badge: {
-                  vi: "07:00 SÁNG THỨ HAI",
-                  en: "MONDAY 07:00 RESET",
+                  vi: "00:00 UTC (07:00 SÁNG GIỜ VN) THỨ HAI",
+                  en: "MONDAY 00:00 UTC RESET",
                 },
                 title: {
                   vi: "Làm Mới 13 Cửa Hàng (Arena Shop, Guild Points, Guild Honor, VIP Shop, Exchange Shop, Medal Shop)",
@@ -920,8 +920,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                     {
                       id: "step-7-1-week-b-instant",
                       title: {
-                        vi: "Kỳ Đua Vũ Trang (GAR / KvK): Thanh Toán Ngay Các Gói Giảm Giá S+ Sau 07:00 Sáng Thứ Hai",
-                        en: "GAR / KvK: Immediately Purchase S+ Discount Packs After Monday 07:00 Reset",
+                        vi: "Kỳ Đua Vũ Trang (GAR / KvK): Thanh Toán Ngay Các Gói Giảm Giá S+ Sau 00:00 UTC (07:00 Sáng Giờ VN) Thứ Hai",
+                        en: "GAR / KvK: Immediately Purchase S+ Discount Packs After Monday 00:00 UTC Reset",
                       },
                       subtitle: {
                         vi: "Kỳ GAR/KvK tính điểm khi sử dụng vật phẩm đúng ngày chuyên đề (Thứ Tư xả Thể lực, Thứ Năm xả Mảnh Tướng & Vé Quay)",
@@ -1005,8 +1005,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
             en: "Restructuring a Cash-Starved Castle Lv.27 Account into Full Weekly Safety Floor Compliance",
           },
           profileSummary: {
-            vi: "**Hồ sơ tài khoản (Castle Lv.27)**: Đang chuyển Đạo 1 sang Bộ Lạc (Soulmancer, Warlock) hoặc Liên Minh (Pyromancer, Adjudicator) / Thiên Nhiên (Pixie), thu `2,450` Arena Stars và `22,000` Guild Points/tuần.\n• **Điểm nghẽn**: Tiêu sạch điểm vào Chủ Nhật mua Tăng tốc và Rương Thịt khiến sáng Thứ Hai chỉ còn `200` Sao, thiếu `1,500` Sao mua 5 mảnh tướng chủ lực.",
-            en: "**Account Profile (Castle Lv.27)**: Queue 1 transitioning to Horde (Soulmancer, Warlock) or League (Pyromancer, Adjudicator) / Nature (Pixie), earning `2,450` Arena Stars and `22,000` Guild Points/week.\n• **Bottleneck**: Zeroed out balances every Sunday on Speed-ups and Meat Chests, leaving only `200` Stars on Monday morning and missing `1,500`-Star 5x main-faction shard rotations.",
+            vi: "**Hồ sơ tài khoản (Castle Lv.27)**: Đang chuyển Đạo 1 sang Bộ Lạc (Soulmancer, Warlock) hoặc Liên Minh (Pyromancer, Adjudicator) / Thiên Nhiên (Pixie), thu `2,450` Arena Stars và `22,000` Guild Points/tuần.\n• **Điểm nghẽn**: Tiêu sạch điểm vào Chủ Nhật mua Tăng tốc và Rương Thịt khiến sau khi làm mới `00:00 UTC (07:00 sáng Giờ VN)` Thứ Hai chỉ còn `200` Sao, thiếu `1,500` Sao mua 5 mảnh tướng chủ lực.",
+            en: "**Account Profile (Castle Lv.27)**: Queue 1 transitioning to Horde (Soulmancer, Warlock) or League (Pyromancer, Adjudicator) / Nature (Pixie), earning `2,450` Arena Stars and `22,000` Guild Points/week.\n• **Bottleneck**: Zeroed out balances every Sunday on Speed-ups and Meat Chests, leaving only `200` Stars after the Monday `00:00 UTC` reset and missing `1,500`-Star 5x main-faction shard rotations.",
           },
           metrics: [
             {
@@ -1015,8 +1015,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                 en: "Arena Shop Monday Opening Balance (Safety Floor)",
               },
               before: {
-                vi: "200 Sao sáng Thứ Hai (không đủ 1,500 Sao mua 5 mảnh tướng)",
-                en: "200 Stars on Monday morning (short of 1,500 Stars for 5x shards)",
+                vi: "200 Sao lúc 00:00 UTC (07:00 sáng Giờ VN) Thứ Hai (không đủ 1,500 Sao mua 5 mảnh tướng)",
+                en: "200 Stars at Monday 00:00 UTC reset (short of 1,500 Stars for 5x shards)",
               },
               after: {
                 vi: "2,350 Sao vốn lưu động (vượt sàn chuẩn 1,900–2,000 Sao)",
@@ -1066,8 +1066,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
           ],
           diagnostics: [
             {
-              vi: "**Chẩn đoán #1 — Thủng Ngưỡng Đóng Băng Ví**: Tiêu sạch Arena Stars và Guild Points vào Chủ Nhật khiến sáng Thứ Hai thiếu `1,900`–`2,000` Sao mua gói ROI `600%`/`300%` và 5 mảnh tướng (`1,500` Sao).\n• **Hệ lụy Lv.30**: Nguy cơ trễ tiến độ gom `40,000` Điểm Vinh Dự hoặc `6,000` Xu Vinh Quang Hội để mua Soul Stone khi lên Castle Lv.30.",
-              en: "**Diagnostic #1 — Sunday Safety Floor Breach**: Zeroing out Arena Stars and Guild Points on Sunday left the account without `1,900`–`2,000` Stars on Monday for `600%`/`300%` ROI packs and 5x shards (`1,500` Stars).\n• **Lv.30 Fallout**: Risked delaying Soul Stone unlocks (`40,000` Guild Honor or `6,000` Guild Coins) upon reaching Castle Lv.30.",
+              vi: "**Chẩn đoán #1 — Thủng Ngưỡng Đóng Băng Ví**: Tiêu sạch Arena Stars và Guild Points vào Chủ Nhật khiến lúc `00:00 UTC (07:00 Giờ VN)` Thứ Hai thiếu `1,900`–`2,000` Sao mua gói ROI `600%`/`300%` và 5 mảnh (`1,500` Sao).\n• **Hệ lụy Lv.30**: Nguy cơ trễ tiến độ gom `40,000` Điểm Vinh Dự hoặc `6,000` Xu Vinh Quang Hội để mua Soul Stone khi lên Castle Lv.30.",
+              en: "**Diagnostic #1 — Sunday Safety Floor Breach**: Zeroing out Arena Stars and Guild Points on Sunday left the account short of `1,900`–`2,000` Stars at Monday `00:00 UTC` for `600%`/`300%` ROI packs & 5x shards (`1,500`).\n• **Lv.30 Fallout**: Risked delaying Soul Stone unlocks (`40,000` Guild Honor or `6,000` Guild Coins) upon reaching Castle Lv.30.",
             },
             {
               vi: "**Chẩn đoán #2 — Lệch pha Sự kiện & Exchange Shop**: Mua đồ Thứ Hai Kỳ Thi Đấu Hội trước khi nhận Nhiệm vụ Vàng Guild Race và ghép mảnh tướng ngay lập tức thay vì chờ Thứ Năm Kỳ GAR/KvK.\n• **Chậm mở tiệm**: Chưa dồn mảnh đẩy 1 tướng chạm mốc 15 Sao (`500` hoặc `1,000` Mảnh) để mở khóa Hero Shard Exchange Shop.",

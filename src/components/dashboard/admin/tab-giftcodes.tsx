@@ -48,6 +48,8 @@ import { AccountAvatar } from "./account-avatar";
 import { ServerTag } from "./server-tag";
 import { AdminPagination } from "./pagination";
 import { AdminEmptyState } from "./empty-state";
+import { formatServerCode } from "@/lib/utils";
+import { formatLocalizedDate, formatLocalizedTimeWithTz } from "@/lib/timezone";
 
 export function TabGiftcodes() {
   const { toast } = useToast();
@@ -409,7 +411,7 @@ export function TabGiftcodes() {
           id: "fallback-rec-1",
           uid: "1000000000001",
           nickname: "DragonSlayer",
-          server_id: "1024",
+          server_id: "S1024",
           status: "SUCCESS",
           redeemed_at: new Date().toISOString(),
         },
@@ -417,7 +419,7 @@ export function TabGiftcodes() {
           id: "fallback-rec-2",
           uid: "2446869146317",
           nickname: "ShadowNinja",
-          server_id: "1024",
+          server_id: "S1024",
           status: "SUCCESS",
           redeemed_at: new Date().toISOString(),
         },
@@ -426,11 +428,13 @@ export function TabGiftcodes() {
   }, [selectedCodeForReceivers, receiversData]);
 
   const filteredReceivers = useMemo(() => {
+    const q = receiverSearch.toLowerCase();
     return currentReceivers.filter((r) => {
       const matchesSearch =
-        r.uid.includes(receiverSearch) ||
-        r.nickname.toLowerCase().includes(receiverSearch.toLowerCase()) ||
-        r.server_id.includes(receiverSearch);
+        r.uid.toLowerCase().includes(q) ||
+        r.nickname.toLowerCase().includes(q) ||
+        r.server_id.toLowerCase().includes(q) ||
+        formatServerCode(r.server_id).toLowerCase().includes(q);
 
       const matchesStatus =
         receiverStatusFilter === "ALL" || r.status === receiverStatusFilter;
@@ -609,7 +613,7 @@ export function TabGiftcodes() {
                           </div>
                           <div className="text-[10px] text-muted-foreground mt-0.5">
                             Phát hiện:{" "}
-                            {new Date(item.discovered_at).toLocaleDateString("vi-VN")}
+                            {formatLocalizedDate(item.discovered_at, "vi")}
                           </div>
                         </td>
 
@@ -647,7 +651,7 @@ export function TabGiftcodes() {
 
                         <td className="px-4 py-3.5 font-mono text-xs text-muted-foreground">
                           {item.valid_to
-                            ? new Date(item.valid_to).toLocaleDateString("vi-VN")
+                            ? formatLocalizedDate(item.valid_to, "vi")
                             : "Không giới hạn"}
                         </td>
 
@@ -1071,11 +1075,11 @@ export function TabGiftcodes() {
                         )}
                       </td>
                       <td className="px-3 py-2.5 text-right font-mono text-[11px] text-muted-foreground">
-                        {new Date(rec.redeemed_at).toLocaleTimeString("vi-VN", {
+                        {formatLocalizedTimeWithTz(rec.redeemed_at, "vi", {
                           hour: "2-digit",
                           minute: "2-digit",
                         })}{" "}
-                        {new Date(rec.redeemed_at).toLocaleDateString("vi-VN")}
+                        {formatLocalizedDate(rec.redeemed_at, "vi")}
                       </td>
                     </tr>
                   ))

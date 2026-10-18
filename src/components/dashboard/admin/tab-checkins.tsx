@@ -30,6 +30,8 @@ import { ServerTag } from "./server-tag";
 import { AdminPagination } from "./pagination";
 import { AdminEmptyState } from "./empty-state";
 import { WeeklyCheckinTimeline } from "./weekly-checkin-timeline";
+import { formatServerCode } from "@/lib/utils";
+import { formatLocalizedDate, formatLocalizedTimeWithTz } from "@/lib/timezone";
 
 export function TabCheckins() {
   const { toast } = useToast();
@@ -285,12 +287,14 @@ export function TabCheckins() {
   };
 
   const filteredCheckins = useMemo(() => {
+    const q = search.toLowerCase();
     return checkins.filter((c) => {
       const matchesSearch =
         !search ||
-        c.uid.toLowerCase().includes(search.toLowerCase()) ||
-        c.nickname.toLowerCase().includes(search.toLowerCase()) ||
-        c.server_id.toLowerCase().includes(search.toLowerCase());
+        c.uid.toLowerCase().includes(q) ||
+        c.nickname.toLowerCase().includes(q) ||
+        c.server_id.toLowerCase().includes(q) ||
+        formatServerCode(c.server_id).toLowerCase().includes(q);
 
       const matchesStatus =
         filterStatus === "ALL" || c.status === filterStatus;
@@ -600,12 +604,8 @@ export function TabCheckins() {
                       </td>
 
                       <td className="px-4 py-3.5 font-mono text-xs text-muted-foreground">
-                        {new Date(item.created_at).toLocaleTimeString("vi-VN", {
-                          hour: "2-digit",
-                          minute: "2-digit",
-                          second: "2-digit",
-                        })}{" "}
-                        {new Date(item.created_at).toLocaleDateString("vi-VN")}
+                        {formatLocalizedTimeWithTz(item.created_at, "vi")}{" "}
+                        {formatLocalizedDate(item.created_at, "vi")}
                       </td>
 
                       <td className="px-4 py-3.5 text-right">

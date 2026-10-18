@@ -42,8 +42,8 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
       en: "**Group A2 Economic Exception (`12★ = 300 Shards`):** Epic Economy Hero Shards (`Knight`, `Brawler`, `Ranger`) below `12★ (2 White Stars = 300 Shards)` must be upgraded immediately.\n• **Unlock economy engine:** Permanently activates `Trait 3 (+25% to +30% Research / Troop Training speed)`.",
     },
     {
-      vi: "**Cú Nổ `Triple-Dip 300%` Chiều Thứ Năm Kỳ GAR/KvK:** Xả trong 15 phút (`17:15–17:30`) với `365 Mảnh Vàng`, `9 Hồn Đá Đỏ (1 + 2 + 2 + 4 = 9)`, `6,000 Sách`, `240 Vé` và `Lord Gear`.\n• **Hoàn vốn khổng lồ:** Thu về `9,800` Kim Cương, `42 Mảnh Vàng`, `1,200 Sách` và `65h Tăng tốc` (tương đương gói `~$49.99` miễn phí).",
-      en: "**Thursday `300% Triple-Dip` Burst (GAR/KvK):** Unload in 15 minutes (`17:15–17:30`) with `365 Universal Shards`, `9 Soul Stones (1 + 2 + 2 + 4 = 9)`, `6,000 Skill Books`, `240 Tokens`, and `Lord Gear`.\n• **Massive rebate:** Returns `9,800` Diamonds, `42 Universal Shards`, `1,200 Skill Books`, and `65h Speedups` (worth `~$49.99` free).",
+      vi: "**Cú Nổ `Triple-Dip 300%` Chiều Thứ Năm Kỳ GAR/KvK:** Xả trong 15 phút (`10:15–10:30 UTC / 17:15–17:30 Giờ VN`) với `365 Mảnh Vàng`, `9 Hồn Đá Đỏ (1 + 2 + 2 + 4 = 9)`, `6,000 Sách`, `240 Vé` và `Lord Gear`.\n• **Hoàn vốn khổng lồ:** Thu về `9,800` Kim Cương, `42 Mảnh Vàng`, `1,200 Sách` và `65h Tăng tốc` (tương đương gói `~$49.99` miễn phí).",
+      en: "**Thursday `300% Triple-Dip` Burst (GAR/KvK):** Unload in 15 minutes (`10:15–10:30 UTC`) with `365 Universal Shards`, `9 Soul Stones (1 + 2 + 2 + 4 = 9)`, `6,000 Skill Books`, `240 Tokens`, and `Lord Gear`.\n• **Massive rebate:** Returns `9,800` Diamonds, `42 Universal Shards`, `1,200 Skill Books`, and `65h Speedups` (worth `~$49.99` free).",
     },
   ],
   keywords: [
@@ -84,8 +84,8 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "**Kiến trúc 3 Lớp Chồng Xếp:** Trong Top Heroes, hệ thống sự kiện được thiết kế theo `3 Lớp Chồng Xếp Nhau` — hãy kiểm tra trực tiếp tại `Event ➔ Lịch Event` (cột `09:00` Thứ Hai).\n• **Đòn bẩy F2P:** Hiểu rõ cách 3 lớp này giao thoa giúp biến `1 đơn vị tài nguyên` thành `2–3 lần phần thưởng hoàn lại`.",
-            en: "**3 Overlapping Event Layers:** In Top Heroes, events are engineered around `3 Overlapping Event Layers` — always verify directly via `Event ➔ Event Calendar` (Monday `09:00` column).\n• **F2P leverage:** Mastering how these 3 layers intersect turns `1 unit of resource` into `2–3x rebate rewards`.",
+            vi: "**Kiến trúc 3 Lớp Chồng Xếp:** Trong Top Heroes, hệ thống sự kiện được thiết kế theo `3 Lớp Chồng Xếp Nhau` — hãy kiểm tra trực tiếp tại `Event ➔ Lịch Event` (cột `02:00 UTC / 09:00 Giờ VN` Thứ Hai).\n• **Đòn bẩy F2P:** Hiểu rõ cách 3 lớp này giao thoa giúp biến `1 đơn vị tài nguyên` thành `2–3 lần phần thưởng hoàn lại`.",
+            en: "**3 Overlapping Event Layers:** In Top Heroes, events are engineered around `3 Overlapping Event Layers` — always verify directly via `Event ➔ Event Calendar` (Monday `02:00 UTC` column).\n• **F2P leverage:** Mastering how these 3 layers intersect turns `1 unit of resource` into `2–3x rebate rewards`.",
           },
         },
       ],
@@ -148,7 +148,7 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
                   en: "**[200% Double-Dip] — Two Birds with One Stone:** Timing your spend when `Layer 1 + Layer 2` (or `Layer 1 + Layer 3`) align (e.g., Guild Race Gold `Lord Gear` task + `Guild Rush`) so 1 upgrade scores on both boards!",
                 },
                 {
-                  vi: "**[300% Triple-Dip ★] — Điểm Nổ Tối Thượng:** Canh `Giờ Vàng 4h (Lớp 3)` trong `Ngày Chủ Đề GAR/KvK (Lớp 1)` trùng `Guild Rush (Lớp 2)` (như `17:00–21:00` Thứ Năm GAR/KvK) để 1 vật phẩm nổ điểm cả 3 sự kiện!",
+                  vi: "**[300% Triple-Dip ★] — Điểm Nổ Tối Thượng:** Canh `Giờ Vàng 4h (Lớp 3)` trong `Ngày GAR/KvK (Lớp 1)` trùng `Guild Rush (Lớp 2)` (như `10:00–14:00 UTC / 17:00–21:00 Giờ VN` Thứ Năm) để nổ điểm cả 3 sự kiện!",
                   en: "**[300% Triple-Dip ★] — Ultimate Burst Window:** Unload inside the `4-Hour Golden Window (Layer 3)` on the matching `GAR/KvK Theme Day (Layer 1)` + `Guild Rush (Layer 2)` to score across 3 events simultaneously!",
                 },
               ],
@@ -214,8 +214,8 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
                 en: "[Group B] — Universal Shards, Soul Stones (120,000 pts), Skill Books, Recruit Tokens, UW Shards & Iron Cores (6,000 pts)",
               },
               detail: {
-                vi: "Tuyệt đối cấm xả tự do ngày thường! Khóa chặt 100% chờ khung Giờ Vàng 17:00–21:00 Thứ Năm Kỳ GAR/KvK để ăn trọn cú nổ Triple-Dip 300%.",
-                en: "Strictly forbidden to spend on regular days! Lock 100% in your bag until Thursday 17:00–21:00 of GAR/KvK Week to trigger the 300% Triple-Dip burst.",
+                vi: "Tuyệt đối cấm xả tự do ngày thường! Khóa chặt 100% chờ khung Giờ Vàng 10:00–14:00 UTC (17:00–21:00 Giờ VN) Thứ Năm Kỳ GAR/KvK để ăn trọn cú nổ Triple-Dip 300%.",
+                en: "Strictly forbidden to spend on regular days! Lock 100% in your bag until Thursday 10:00–14:00 UTC of GAR/KvK Week to trigger the 300% Triple-Dip burst.",
               },
             },
             {
@@ -586,8 +586,8 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
                         en: "All 3 Layers Intersect (GAR/KvK + Guild Rush/Sub-Event + 4-Hour Golden Window)",
                       },
                       subtitle: {
-                        vi: "Ví dụ: 17:00–21:00 Thứ Năm Kỳ GAR/KvK (GAR/KvK Day 4 + Guild Rush Phát triển Tướng / Soul Stone + Ca Giờ Bồi Dưỡng Anh Hùng) ➔ Xả tất tay 80%–100% Kho Dự Trữ!",
-                        en: "Example: Thursday 17:00–21:00 of GAR/KvK Week (GAR/KvK Day 4 + Guild Rush Hero Dev / Soul Stone + Hourly Hero Dev) ➔ Unload 80%–100% of your stockpile!",
+                        vi: "Ví dụ: 10:00–14:00 UTC (17:00–21:00 Giờ VN) Thứ Năm Kỳ GAR/KvK (GAR/KvK Day 4 + Guild Rush Phát triển Tướng / Soul Stone + Ca Giờ Bồi Dưỡng Anh Hùng) ➔ Xả tất tay 80%–100% Kho Dự Trữ!",
+                        en: "Example: Thursday 10:00–14:00 UTC of GAR/KvK Week (GAR/KvK Day 4 + Guild Rush Hero Dev / Soul Stone + Hourly Hero Dev) ➔ Unload 80%–100% of your stockpile!",
                       },
                       tone: "gold",
                     },
@@ -648,8 +648,8 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
                 },
               ],
               footnote: {
-                vi: "Mẹo tra cứu nhanh: Luôn mở Event ➔ Lịch Event (cột 09:00 Thứ Hai) kết hợp đồng hồ Sự kiện Giờ 4 tiếng trước khi mở khóa bất kỳ vật phẩm Nhóm B nào.",
-                en: "Quick lookup tip: Always check Event ➔ Event Calendar (Monday 09:00 column) alongside the 4-Hour Hourly Event timer before unlocking any Group B resource.",
+                vi: "Mẹo tra cứu nhanh: Luôn mở Event ➔ Lịch Event (cột 02:00 UTC / 09:00 Giờ VN Thứ Hai) kết hợp đồng hồ Sự kiện Giờ 4 tiếng trước khi mở khóa bất kỳ vật phẩm Nhóm B nào.",
+                en: "Quick lookup tip: Always check Event ➔ Event Calendar (Monday 02:00 UTC column) alongside the 4-Hour Hourly Event timer before unlocking any Group B resource.",
               },
             },
           ],
@@ -705,12 +705,12 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
                     en: "Universal & Specific Legendary/Mythic Hero Shards",
                   },
                   {
-                    vi: "Thứ Năm Kỳ GAR/KvK (17:00–21:00): Trùng GAR/KvK Day 4 + Ca Giờ Bồi Dưỡng Anh Hùng + Guild Rush: Phát triển Tướng (T4–T5).",
-                    en: "Thursday GAR/KvK (17:00–21:00): Overlaps GAR/KvK Day 4 + Hourly Hero Development + Guild Rush: Hero Development (Wed–Thu).",
+                    vi: "Thứ Năm Kỳ GAR/KvK (10:00–14:00 UTC / 17:00–21:00 Giờ VN): Trùng GAR/KvK Day 4 + Ca Giờ Bồi Dưỡng Anh Hùng + Guild Rush: Phát triển Tướng (T4–T5).",
+                    en: "Thursday GAR/KvK (10:00–14:00 UTC): Overlaps GAR/KvK Day 4 + Hourly Hero Development + Guild Rush: Hero Development (Wed–Thu).",
                   },
                   {
-                    vi: "Thứ Năm Kỳ GAR/KvK (17:00–21:00): Trùng GAR/KvK Day 4 + Ca Giờ Bồi Dưỡng Anh Hùng.",
-                    en: "Thursday GAR/KvK (17:00–21:00): Overlaps GAR/KvK Day 4 + Hourly Hero Development.",
+                    vi: "Thứ Năm Kỳ GAR/KvK (10:00–14:00 UTC / 17:00–21:00 Giờ VN): Trùng GAR/KvK Day 4 + Ca Giờ Bồi Dưỡng Anh Hùng.",
+                    en: "Thursday GAR/KvK (10:00–14:00 UTC): Overlaps GAR/KvK Day 4 + Hourly Hero Development.",
                   },
                   {
                     vi: "Khi chạy sự kiện phụ 3 ngày Hero Development rơi vào Kỳ Thi Đấu Hội (chỉ xả đủ mốc rương nếu cần).",
@@ -728,8 +728,8 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
                     en: "Soul Stones (120,000 pts/stone — Cost: 40,000 Guild Honor or 6,000 Guild Glory Coins)",
                   },
                   {
-                    vi: "Thứ Năm Kỳ GAR/KvK (17:00–21:00): Trùng GAR/KvK Day 4 (120,000đ/viên) + Guild Rush: Phát triển Tướng + Sự kiện phụ Soul Stone.",
-                    en: "Thursday GAR/KvK (17:00–21:00): Overlaps GAR/KvK Day 4 (120,000 pts/stone) + Guild Rush: Hero Development + Soul Stone sub-event.",
+                    vi: "Thứ Năm Kỳ GAR/KvK (10:00–14:00 UTC / 17:00–21:00 Giờ VN): Trùng GAR/KvK Day 4 (120,000đ/viên) + Guild Rush: Phát triển Tướng + Sự kiện phụ Soul Stone.",
+                    en: "Thursday GAR/KvK (10:00–14:00 UTC): Overlaps GAR/KvK Day 4 (120,000 pts/stone) + Guild Rush: Hero Development + Soul Stone sub-event.",
                   },
                   {
                     vi: "Thứ Năm Kỳ GAR/KvK: Trùng GAR/KvK Day 4 + Ca Giờ Bồi Dưỡng Anh Hùng.",
@@ -751,8 +751,8 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
                     en: "Skill Books, UW Shards (6,000 pts) & Meteorite Iron Cores (6,000 pts)",
                   },
                   {
-                    vi: "Thứ Năm Kỳ GAR/KvK (17:00–21:00): Trùng GAR/KvK Day 4 + Guild Rush: Phát triển Tướng (T4–T5) + Ca Giờ Bồi Dưỡng Anh Hùng.",
-                    en: "Thursday GAR/KvK (17:00–21:00): Overlaps GAR/KvK Day 4 + Guild Rush: Hero Development (Wed–Thu) + Hourly Hero Development.",
+                    vi: "Thứ Năm Kỳ GAR/KvK (10:00–14:00 UTC / 17:00–21:00 Giờ VN): Trùng GAR/KvK Day 4 + Guild Rush: Phát triển Tướng (T4–T5) + Ca Giờ Bồi Dưỡng Anh Hùng.",
+                    en: "Thursday GAR/KvK (10:00–14:00 UTC): Overlaps GAR/KvK Day 4 + Guild Rush: Hero Development (Wed–Thu) + Hourly Hero Development.",
                   },
                   {
                     vi: "Khi Guild Rush: Phát triển Tướng giao thoa với Ca Giờ Bồi Dưỡng Anh Hùng.",
@@ -774,8 +774,8 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
                     en: "Tavern Recruitment Tokens",
                   },
                   {
-                    vi: "Thứ Năm Kỳ GAR/KvK (17:00–21:00): Trùng GAR/KvK Day 4 + Ca Giờ Bồi Dưỡng Anh Hùng + Guild Rush: Phát triển Tướng.",
-                    en: "Thursday GAR/KvK (17:00–21:00): Overlaps GAR/KvK Day 4 + Hourly Hero Development + Guild Rush: Hero Development.",
+                    vi: "Thứ Năm Kỳ GAR/KvK (10:00–14:00 UTC / 17:00–21:00 Giờ VN): Trùng GAR/KvK Day 4 + Ca Giờ Bồi Dưỡng Anh Hùng + Guild Rush: Phát triển Tướng.",
+                    en: "Thursday GAR/KvK (10:00–14:00 UTC): Overlaps GAR/KvK Day 4 + Hourly Hero Development + Guild Rush: Hero Development.",
                   },
                   {
                     vi: "Thứ Năm Kỳ GAR/KvK: Xả trong ngày GAR/KvK Day 4 để vừa lấy điểm rương vừa gom Điểm Đổi Tướng.",
@@ -889,8 +889,8 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
                     en: "Rune Dust & Rune Chests",
                   },
                   {
-                    vi: "Thứ Ba Kỳ GAR/KvK (17:00–21:00): Trùng GAR/KvK Day 2 (Tech & Runes) + Sự kiện phụ có tính điểm Cổ Ngữ + Đạt mốc Rune Lv.5 / Lv.8!",
-                    en: "Tuesday GAR/KvK (17:00–21:00): Overlaps GAR/KvK Day 2 (Tech & Runes) + Rune-scoring sub-event + hitting Rune Lv.5 / Lv.8 breakpoints!",
+                    vi: "Thứ Ba Kỳ GAR/KvK (10:00–14:00 UTC / 17:00–21:00 Giờ VN): Trùng GAR/KvK Day 2 (Tech & Runes) + Sự kiện phụ có tính điểm Cổ Ngữ + Đạt mốc Rune Lv.5 / Lv.8!",
+                    en: "Tuesday GAR/KvK (10:00–14:00 UTC): Overlaps GAR/KvK Day 2 (Tech & Runes) + Rune-scoring sub-event + hitting Rune Lv.5 / Lv.8 breakpoints!",
                   },
                   {
                     vi: "Thứ Ba Kỳ GAR/KvK: Xả toàn bộ Bụi Cổ Ngữ và ghép phôi trong ngày GAR/KvK Day 2.",
@@ -912,16 +912,16 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
                     en: "Construction Speedups & Building Dragon Essence",
                   },
                   {
-                    vi: "Thứ Hai Kỳ GAR/KvK (13:00–17:00): Khui hộp công trình xây sẵn + Xả Tăng tốc & Đá Rồng khi trùng GAR/KvK Day 1 + Ca Giờ Xây Lãnh Thổ + Guild Rush: Xây dựng & Nghiên cứu (T2–T3).",
-                    en: "Monday GAR/KvK (13:00–17:00): Pop pre-built gift boxes + spend Construction Speedups & Dragon Essence overlapping GAR/KvK Day 1 + Hourly Territory Construction + Guild Rush: Building & Research (Mon–Tue).",
+                    vi: "Thứ Hai Kỳ GAR/KvK (06:00–10:00 UTC / 13:00–17:00 Giờ VN): Khui hộp công trình xây sẵn + Xả Tăng tốc & Đá Rồng khi trùng GAR/KvK Day 1 + Ca Giờ Xây Lãnh Thổ + Guild Rush: Xây dựng & Nghiên cứu (T2–T3).",
+                    en: "Monday GAR/KvK (06:00–10:00 UTC): Pop pre-built gift boxes + spend Construction Speedups & Dragon Essence overlapping GAR/KvK Day 1 + Hourly Territory Construction + Guild Rush: Building & Research (Mon–Tue).",
                   },
                   {
                     vi: "Kỳ Thi Đấu Hội: Nhận Nhiệm vụ Vàng Xây dựng trên bảng Guild Race + Trùng sự kiện phụ 2–3 ngày Rush Top / Ultimate Power.",
                     en: "Guild Race Week: Accept Gold Construction Tasks on the Guild Race board + overlap with 2–3 day Rush Top / Ultimate Power sub-events.",
                   },
                   {
-                    vi: "Thứ Hai Kỳ GAR/KvK (13:00–17:00) hoặc khi nhận Nhiệm vụ Độc quyền Vàng Công trình ở Ngày 5–7 Kỳ Thi Đấu Hội.",
-                    en: "Monday GAR/KvK (13:00–17:00) or when accepting Exclusive Gold Building Tasks on Days 5–7 of Guild Race Week.",
+                    vi: "Thứ Hai Kỳ GAR/KvK (06:00–10:00 UTC / 13:00–17:00 Giờ VN) hoặc khi nhận Nhiệm vụ Độc quyền Vàng Công trình ở Ngày 5–7 Kỳ Thi Đấu Hội.",
+                    en: "Monday GAR/KvK (06:00–10:00 UTC) or when accepting Exclusive Gold Building Tasks on Days 5–7 of Guild Race Week.",
                   },
                   {
                     vi: "Cấm cắn Tăng tốc khi chưa xin đủ Trợ giúp Bang (Guild Help) và chưa bật buff Chức vụ Vương quốc!",
@@ -935,16 +935,16 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
                     en: "Research & Universal Speedups",
                   },
                   {
-                    vi: "Thứ Ba Kỳ GAR/KvK (17:00–21:00): Trùng GAR/KvK Day 2 + Ca Giờ Nghiên Cứu Công Nghệ + Guild Rush: Xây dựng & Nghiên cứu (T2–T3).",
-                    en: "Tuesday GAR/KvK (17:00–21:00): Overlaps GAR/KvK Day 2 + Hourly Tech Research + Guild Rush: Building & Research (Mon–Tue).",
+                    vi: "Thứ Ba Kỳ GAR/KvK (10:00–14:00 UTC / 17:00–21:00 Giờ VN): Trùng GAR/KvK Day 2 + Ca Giờ Nghiên Cứu Công Nghệ + Guild Rush: Xây dựng & Nghiên cứu (T2–T3).",
+                    en: "Tuesday GAR/KvK (10:00–14:00 UTC): Overlaps GAR/KvK Day 2 + Hourly Tech Research + Guild Rush: Building & Research (Mon–Tue).",
                   },
                   {
                     vi: "Kỳ Thi Đấu Hội: Nhận Nhiệm vụ Vàng Nghiên cứu trên bảng Guild Race + Trùng sự kiện phụ 2–3 ngày Rush Top.",
                     en: "Guild Race Week: Accept Gold Research Tasks on the Guild Race board + overlap with the 2–3 day Rush Top sub-event.",
                   },
                   {
-                    vi: "Thứ Ba Kỳ GAR/KvK (17:00–21:00) hoặc dùng các nốt nghiên cứu ngắn (5–30 phút) nhánh Kinh tế làm mồi trả nhiệm vụ Vàng.",
-                    en: "Tuesday GAR/KvK (17:00–21:00) or completing short (5–30 min) Economy tech nodes to finish Gold Tasks.",
+                    vi: "Thứ Ba Kỳ GAR/KvK (10:00–14:00 UTC / 17:00–21:00 Giờ VN) hoặc dùng các nốt nghiên cứu ngắn (5–30 phút) nhánh Kinh tế làm mồi trả nhiệm vụ Vàng.",
+                    en: "Tuesday GAR/KvK (10:00–14:00 UTC) or completing short (5–30 min) Economy tech nodes to finish Gold Tasks.",
                   },
                   {
                     vi: "Cấm cắn Tăng tốc Nghiên cứu khi chưa kích hoạt Trait 3 (+25%–30% Tốc độ Tech) của Tướng Tím Kinh tế!",
@@ -958,16 +958,16 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
                     en: "Troop Training Speedups",
                   },
                   {
-                    vi: "Thứ Sáu Kỳ GAR/KvK (21:00–01:00): Áp dụng Thăng cấp Bậc Thang (T4 ➔ T5 ➔ T6+) khi trùng GAR/KvK Day 5 + Ca Giờ Mở Rộng Quân Đội + Sự kiện phụ Ultimate Power / Rush Top.",
-                    en: "Friday GAR/KvK (21:00–01:00): Execute Staircase Troop Promotion (T4 ➔ T5 ➔ T6+) overlapping GAR/KvK Day 5 + Hourly Army Expansion + Ultimate Power / Rush Top sub-event.",
+                    vi: "Thứ Sáu Kỳ GAR/KvK (14:00–18:00 UTC / 21:00–01:00 Giờ VN): Áp dụng Thăng cấp Bậc Thang (T4 ➔ T5 ➔ T6+) khi trùng GAR/KvK Day 5 + Ca Giờ Mở Rộng Quân Đội + Sự kiện phụ Ultimate Power / Rush Top.",
+                    en: "Friday GAR/KvK (14:00–18:00 UTC): Execute Staircase Troop Promotion (T4 ➔ T5 ➔ T6+) overlapping GAR/KvK Day 5 + Hourly Army Expansion + Ultimate Power / Rush Top sub-event.",
                   },
                   {
                     vi: "Kỳ Thi Đấu Hội: Nhận Nhiệm vụ Vàng Luyện lính trên bảng Guild Race + Thu hoạch mẻ lính Pre-cook + Xả Tăng tốc trùng Rush Top.",
                     en: "Guild Race Week: Accept Gold Troop Training Tasks on the Guild Race board + harvest pre-cooked troops + spend Speedups overlapping Rush Top.",
                   },
                   {
-                    vi: "Thứ Sáu Kỳ GAR/KvK (21:00–01:00) hoặc khung giờ Mở Rộng Quân Đội hàng ngày để lấy rương mốc Giờ.",
-                    en: "Friday GAR/KvK (21:00–01:00) or daily Army Expansion hourly windows to claim hourly milestone chests.",
+                    vi: "Thứ Sáu Kỳ GAR/KvK (14:00–18:00 UTC / 21:00–01:00 Giờ VN) hoặc khung giờ Mở Rộng Quân Đội hàng ngày để lấy rương mốc Giờ.",
+                    en: "Friday GAR/KvK (14:00–18:00 UTC) or daily Army Expansion hourly windows to claim hourly milestone chests.",
                   },
                   {
                     vi: "Cấm xả Tăng tốc để huấn luyện mới lính cấp thấp thay vì dùng cơ chế Thăng cấp (Promote) bậc thang!",
@@ -1035,8 +1035,8 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
             en: "TACTICAL CASE STUDY — 300% TRIPLE-DIP",
           },
           title: {
-            vi: "Lâu Đài Lv.29 (Gói Tháng $4.99): Thực Thi Cú Nổ 15 Phút Khung 17:15–17:30 Thứ Năm Kỳ GAR/KvK Thu Về Gói Hoàn Lại Tương Đương ~$49.99",
-            en: "Castle Lv.29 ($4.99 Monthly Pass): 15-Minute Thursday 17:15–17:30 GAR/KvK Triple-Dip Burst Yielding ~$49.99 in Free Rebate Rewards",
+            vi: "Lâu Đài Lv.29 (Gói Tháng $4.99): Thực Thi Cú Nổ 15 Phút Khung 10:15–10:30 UTC (17:15–17:30 Giờ VN) Thứ Năm Kỳ GAR/KvK Thu Về Gói Hoàn Lại Tương Đương ~$49.99",
+            en: "Castle Lv.29 ($4.99 Monthly Pass): 15-Minute Thursday 10:15–10:30 UTC GAR/KvK Triple-Dip Burst Yielding ~$49.99 in Free Rebate Rewards",
           },
           profileSummary: {
             vi: "Một tài khoản **Lâu đài Lv.29** (Đội 1 Liên Minh / Bộ Lạc, ngân sách gói Tháng `$4.99`) đã kiên trì đóng băng túi đồ suốt các ngày thường.\n• **Kho Hồn Đá Đỏ:** Có `365 Mảnh Vàng` và `9 viên Hồn Đá Đỏ` (đổi giá `40,000` Điểm Vinh Dự hoặc `6,000` Xu Vinh Quang / viên, giữ nguyên Ngưỡng Đóng Băng Ví `40,000` Điểm Vinh Dự / `12,000–18,000` Xu Vinh Quang).\n• **Kho bổ trợ:** Sẵn sàng `6,000 Sách Kỹ Năng Cam`, `240 Thẻ Chiêu Mộ` và nguyên liệu Đồ Chúa Tể (`Lord Gear`).",
@@ -1053,8 +1053,8 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
                 en: "0 Diamonds (Player A spending piecemeal on Tuesday Guild Race — 0%)",
               },
               after: {
-                vi: "9,800 Kim Cương (Người chơi B nổ Triple-Dip 17:15 Thứ Năm Kỳ GAR/KvK)",
-                en: "9,800 Diamonds (Player B executing 17:15 Thursday GAR/KvK Triple-Dip)",
+                vi: "9,800 Kim Cương (Người chơi B nổ Triple-Dip 10:15 UTC / 17:15 Giờ VN Thứ Năm Kỳ GAR/KvK)",
+                en: "9,800 Diamonds (Player B executing 10:15 UTC Thursday GAR/KvK Triple-Dip)",
               },
               delta: {
                 vi: "+9,800 Kim Cương miễn phí",
@@ -1108,8 +1108,8 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
               en: "**Layer 2 (`Guild Rush & Sub-Event`):** Day 2 of `Guild Rush: Hero Development (Wed–Thu)` combined with the `Soul Stone Rush` sub-event.",
             },
             {
-              vi: "**Lớp 3 (`4-Hour Hourly Window`):** Khung giờ vàng `17:00 – 21:00` của `Hourly Arms Race` (ca `Bồi Dưỡng Anh Hùng / Hero Development`).",
-              en: "**Layer 3 (`4-Hour Hourly Window`):** The `17:00 – 21:00` golden shift of `Hourly Arms Race` (`Hero Development` theme).",
+              vi: "**Lớp 3 (`4-Hour Hourly Window`):** Khung giờ vàng `10:00 – 14:00 UTC (17:00 – 21:00 Giờ VN)` của `Hourly Arms Race` (ca `Bồi Dưỡng Anh Hùng / Hero Development`).",
+              en: "**Layer 3 (`4-Hour Hourly Window`):** The `10:00 – 14:00 UTC` golden shift of `Hourly Arms Race` (`Hero Development` theme).",
             },
           ],
           recoverySteps: [
@@ -1131,12 +1131,12 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
             {
               stepNumber: "02",
               title: {
-                vi: "Thực Thi Cú Nổ Triple-Dip Trong 15 Phút (17:15 – 17:30 Thứ Năm Kỳ GAR/KvK)",
-                en: "Execute the 15-Minute Triple-Dip Burst (Thursday 17:15 – 17:30 GAR/KvK)",
+                vi: "Thực Thi Cú Nổ Triple-Dip Trong 15 Phút (10:15 – 10:30 UTC / 17:15 – 17:30 Giờ VN Thứ Năm Kỳ GAR/KvK)",
+                en: "Execute the 15-Minute Triple-Dip Burst (Thursday 10:15 – 10:30 UTC GAR/KvK)",
               },
               detail: {
-                vi: "Đúng `17:15 Thứ Năm` khi cả 3 lớp sự kiện giao thoa, mở khóa trọn vẹn **4 Bậc Thức Tỉnh** (`Awakening Tier 1 ➔ Tier 4`: tốn `1 + 2 + 2 + 4 = 9 Hồn Đá Đỏ` + `345–385 Mảnh Tướng`) cho tướng Vàng chủ lực Đội 1.\n• **Xả đồng bộ phụ liệu:** Đồng thời xả `240 Thẻ Chiêu Mộ`, `6,000 Sách Kỹ Năng` và nâng cấp Đồ Chúa Tể (`Lord Gear`).",
-                en: "At `17:15 Thursday` when all 3 event layers align, unlock all **4 Awakening Tiers** (`Tier 1 ➔ Tier 4`: costing `1 + 2 + 2 + 4 = 9 Soul Stones` + `345–385 Hero Shards`) on Queue 1's core Legendary carry.\n• **Synchronized material dump:** Simultaneously spend `240 Recruit Tokens`, `6,000 Skill Books`, and upgrade `Lord Gear`.",
+                vi: "Đúng `10:15 UTC (17:15 Giờ VN) Thứ Năm` khi 3 lớp sự kiện giao thoa, mở khóa **4 Bậc Thức Tỉnh** (`Awakening Tier 1 ➔ Tier 4`: tốn `1 + 2 + 2 + 4 = 9 Hồn Đá Đỏ` + `345–385 Mảnh`) cho tướng Vàng chủ lực Đội 1.\n• **Xả đồng bộ phụ liệu:** Đồng thời xả `240 Thẻ Chiêu Mộ`, `6,000 Sách Kỹ Năng` và nâng cấp Đồ Chúa Tể (`Lord Gear`).",
+                en: "At `10:15 UTC Thursday` when all 3 event layers align, unlock all **4 Awakening Tiers** (`Tier 1 ➔ Tier 4`: costing `1 + 2 + 2 + 4 = 9 Soul Stones` + `345–385 Hero Shards`) on Queue 1's core Legendary carry.\n• **Synchronized material dump:** Simultaneously spend `240 Recruit Tokens`, `6,000 Skill Books`, and upgrade `Lord Gear`.",
               },
               impactBadge: {
                 vi: "1 + 2 + 2 + 4 = 9 HỒN ĐÁ",
@@ -1150,8 +1150,8 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
                 en: "Claim 3 Simultaneous Event Boards & Double Milestone Chests",
               },
               detail: {
-                vi: "Ăn trọn lớp vĩ mô và trung gian: `(1) 6/6 Rương Cá Nhân + 3 Rương Nhân Đôi (Double Rewards)` của KvK Stage 4; và `(2) 3/3 Rương Mốc + Top 5 Bảng Xếp Hạng` của sự kiện phụ Soul Stone / Hero Rush.\n• **Chốt hạ lớp vi mô:** Ăn tiếp `(3) 3/3 Rương Mốc + Top 1 Bảng Xếp Hạng` Ca Giờ `17:00–21:00`.",
-                en: "Sweep the macro and mid-tier tracks: `(1) 6/6 Personal Chests + 3 Double Rewards Chests` in KvK Stage 4; and `(2) 3/3 Milestone Chests + Top 5 Leaderboard` in the Soul Stone / Hero Rush sub-event.\n• **Close out the micro track:** Claim `(3) 3/3 Milestone Chests + Top 1 Leaderboard` in the `17:00–21:00` Hourly Arms Race shift.",
+                vi: "Ăn trọn lớp vĩ mô và trung gian: `(1) 6/6 Rương Cá Nhân + 3 Rương Nhân Đôi (Double Rewards)` của KvK Stage 4; và `(2) 3/3 Rương Mốc + Top 5 Bảng Xếp Hạng` của sự kiện phụ Soul Stone / Hero Rush.\n• **Chốt hạ lớp vi mô:** Ăn tiếp `(3) 3/3 Rương Mốc + Top 1 Bảng Xếp Hạng` Ca Giờ `10:00–14:00 UTC (17:00–21:00 Giờ VN)`.",
+                en: "Sweep the macro and mid-tier tracks: `(1) 6/6 Personal Chests + 3 Double Rewards Chests` in KvK Stage 4; and `(2) 3/3 Milestone Chests + Top 5 Leaderboard` in the Soul Stone / Hero Rush sub-event.\n• **Close out the micro track:** Claim `(3) 3/3 Milestone Chests + Top 1 Leaderboard` in the `10:00–14:00 UTC` Hourly Arms Race shift.",
               },
               impactBadge: {
                 vi: "HOÀN LẠI ~$49.99 MIỄN PHÍ",

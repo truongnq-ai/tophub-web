@@ -24,8 +24,8 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
       en: "**Join a `Top 1–3` Server Guild immediately upon reaching `Castle Lv.7`.**\n• **Roster & Hoarding:** Start with an easily farmable League lineup and freeze 100% of `Universal Legendary Hero Shards` and `Diamonds` for the Mythic Hero wave on `Day 21`.",
     },
     strictTaboo: {
-      vi: "**Tuyệt đối không đốt `Kim Cương` vào Quán Rượu (`Tavern`) và không chia tài nguyên cho Đội 2 / Đội 3.**\n• **Kỷ luật Lịch Event (`09:00` Thứ Hai):** Luôn mở Lịch kiểm tra chế độ tuần (Chế độ 1: Thi Đấu Hội nối tiếp hàng tuần ở đầu Pre-Season hay Chế độ 2: Đua Vũ Trang `GAR / KvK` 6 ngày) trước khi xả vật phẩm.",
-      en: "**Never spend `Diamonds` in the `Tavern` and never split scarce resources into Queue 2 or Queue 3.**\n• **Monday `09:00` Calendar Check:** Never dump upgrade items blindly without checking your server's active weekly mode (Mode 1: continuous weekly `Guild Race` vs. Mode 2: 6-day `GAR / KvK` rotation).",
+      vi: "**Tuyệt đối không đốt `Kim Cương` vào Quán Rượu (`Tavern`) và không chia tài nguyên cho Đội 2 / Đội 3.**\n• **Kỷ luật Lịch Event (`02:00 UTC` / `09:00 Giờ VN` Thứ Hai):** Luôn mở Lịch kiểm tra chế độ tuần (Chế độ 1: Thi Đấu Hội nối tiếp đầu Pre-Season hay Chế độ 2: `GAR / KvK` 6 ngày) trước khi xả vật phẩm.",
+      en: "**Never spend `Diamonds` in the `Tavern` and never split scarce resources into Queue 2 or Queue 3.**\n• **Monday `02:00 UTC` Calendar Check:** Never dump upgrade items blindly without checking your server's active weekly mode (Mode 1: continuous weekly `Guild Race` vs. Mode 2: 6-day `GAR / KvK` rotation).",
     },
   },
   keyTakeaways: [
@@ -42,8 +42,8 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
       en: "**Master the `15-Star` (3-Color) System:** The first optimal ROI breakpoint for every Mythic hero is `1 White Star` (`11 Stars` = `560` Mythic / `280` Legendary Shards).\n• **Epic Economy Engine:** Push `Brawler` and `Knight` to `2 White Stars` (`12 Stars` = `300` Shards) to unlock `+30%` Research & Training speed.",
     },
     {
-      vi: "**Quy tắc Nhìn Lịch Event `5 Giây` (`09:00` Thứ Hai):** Kiểm tra lịch tuần trước khi xả Mảnh Vạn Năng hoặc Tăng tốc.\n• **Phân tách 2 Chế độ:** Phân biệt tuần chạy Thi Đấu Hội nối tiếp (kèm Tập Kích Cự Ma & Khiêu Chiến Của Đội Quân Hắc Ám) với tuần mở Đua Vũ Trang `GAR / KvK` 6 ngày.",
-      en: "**The Monday `09:00` 5-Second Calendar Check:** Inspect the weekly schedule before spending Universal Shards or Speedups.\n• **Two Active Modes:** Distinguish continuous weekly `Guild Race` cycles (paired with `Giant Raid` & `Dark Army Challenge`) from 6-day `GAR / KvK` war weeks.",
+      vi: "**Quy tắc Nhìn Lịch Event `5 Giây` (`02:00 UTC` / `09:00 Giờ VN` Thứ Hai):** Kiểm tra lịch tuần trước khi xả Mảnh Vạn Năng hoặc Tăng tốc.\n• **Phân tách 2 Chế độ:** Phân biệt tuần chạy Thi Đấu Hội nối tiếp (kèm Tập Kích Cự Ma & Khiêu Chiến Của Đội Quân Hắc Ám) với tuần mở Đua Vũ Trang `GAR / KvK` 6 ngày.",
+      en: "**The Monday `02:00 UTC` 5-Second Calendar Check:** Inspect the weekly schedule before spending Universal Shards or Speedups.\n• **Two Active Modes:** Distinguish continuous weekly `Guild Race` cycles (paired with `Giant Raid` & `Dark Army Challenge`) from 6-day `GAR / KvK` war weeks.",
     },
   ],
   keywords: [
@@ -215,12 +215,12 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
                 en: "6. Dynamic Server Calendar & Double-Dip",
               },
               subtitle: {
-                vi: "Đọc Lịch Event 09:00 Thứ Hai: từ Thi Đấu Hội chạy nối tiếp hàng tuần (kèm Tập Kích Cự Ma / Khiêu Chiến Của Đội Quân Hắc Ám) sang luân phiên GAR / KvK 6 ngày.",
-                en: "Read the Monday 09:00 Event Calendar: transition from continuous weekly Guild Race (with Giant Raid / Dark Army Challenge) to 6-day GAR / KvK rotation.",
+                vi: "Đọc Lịch Event 02:00 UTC Thứ Hai (09:00 Giờ VN): từ Thi Đấu Hội chạy nối tiếp hàng tuần (kèm Tập Kích Cự Ma / Khiêu Chiến Của Đội Quân Hắc Ám) sang luân phiên GAR / KvK 6 ngày.",
+                en: "Read the Monday 02:00 UTC Event Calendar: transition from continuous weekly Guild Race (with Giant Raid / Dark Army Challenge) to 6-day GAR / KvK rotation.",
               },
               metrics: [
                 { vi: "Đòn bẩy x2–x3 tốc độ", en: "x2–x3 Speed Leverage" },
-                { vi: "Check Lịch 09:00 Thứ Hai", en: "Monday 09:00 Calendar Check" },
+                { vi: "Check Lịch 02:00 UTC (09:00 VN) Thứ Hai", en: "Monday 02:00 UTC Calendar Check" },
               ],
               tone: "rose",
             },
@@ -340,8 +340,8 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
                     en: "Dynamic Server Calendar & Double-Dip",
                   },
                   {
-                    vi: "Đọc Lịch Event (09:00 Thứ Hai) để điều phối tài nguyên theo đúng pha máy chủ: từ giai đoạn Thi Đấu Hội chạy nối tiếp hàng tuần (09:00 Thứ Hai ➔ 09:00 Thứ Hai ở đầu Pre-Season, leo hạng Bang D ➔ S kèm sự kiện vệ tinh Tập Kích Cự Ma / Khiêu Chiến Của Đội Quân Hắc Ám) sang chu kỳ luân phiên Thi Đấu Hội ⇄ GAR / KvK 6 ngày kết hợp Sự kiện Phụ (Double-Dip).",
-                    en: "Read the Monday 09:00 Event Calendar to sync spending with your server's active phase: from continuous weekly Guild Race (running Monday 09:00 ➔ Monday 09:00 in early Pre-Season while climbing Guild Rank D ➔ S alongside Giant Raid & Dark Legion Challenge) to the 6-day alternating Guild Race ⇄ GAR / KvK rotation with sub-event Double-Dipping.",
+                    vi: "Đọc Lịch Event (02:00 UTC / 09:00 Giờ VN Thứ Hai) để điều phối tài nguyên theo đúng pha máy chủ: từ giai đoạn Thi Đấu Hội chạy nối tiếp hàng tuần (02:00 UTC Thứ Hai ➔ 02:00 UTC Thứ Hai / 09:00 Giờ VN ở đầu Pre-Season, leo hạng Bang D ➔ S kèm sự kiện vệ tinh Tập Kích Cự Ma / Khiêu Chiến Của Đội Quân Hắc Ám) sang chu kỳ luân phiên Thi Đấu Hội ⇄ GAR / KvK 6 ngày kết hợp Sự kiện Phụ (Double-Dip).",
+                    en: "Read the Monday 02:00 UTC Event Calendar to sync spending with your server's active phase: from continuous weekly Guild Race (running Monday 02:00 UTC ➔ Monday 02:00 UTC in early Pre-Season while climbing Guild Rank D ➔ S alongside Giant Raid & Dark Legion Challenge) to the 6-day alternating Guild Race ⇄ GAR / KvK rotation with sub-event Double-Dipping.",
                   },
                   { vi: "Đòn bẩy x2–x3 tốc độ", en: "x2–x3 Speed Multiplier" },
                 ],
@@ -704,8 +704,8 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
                   { vi: "Giai đoạn 1: S0 Pre-Season", en: "Stage 1: S0 Pre-Season" },
                   { vi: "Ngày 1 – Ngày 65", en: "Day 1 – Day 65" },
                   {
-                    vi: "Lâu đài Lv.1 ➔ Lv.30, Quán Rượu, Thánh vật cơ bản, Lò Rèn Trang bị Vàng, Lịch Sự kiện Động: Thi Đấu Hội chạy nối tiếp hàng tuần (09:00 Thứ Hai ➔ 09:00 Thứ Hai, leo hạng Bang D ➔ C ➔ B ➔ A ➔ S kèm Tập Kích Cự Ma / Khiêu Chiến Của Đội Quân Hắc Ám) trước khi chuyển sang luân phiên Thi Đấu Hội ⇄ GAR / KvK.",
-                    en: "Castle Lv.1 ➔ Lv.30, Tavern, basic Relics, Legendary Gear Blacksmith, Dynamic Event Schedule: continuous weekly Guild Race (from Monday 09:00 ➔ Monday 09:00 climbing Guild Rank D ➔ C ➔ B ➔ A ➔ S alongside Giant Raid & Dark Legion Challenge) before transitioning into alternating Guild Race ⇄ GAR / KvK.",
+                    vi: "Lâu đài Lv.1 ➔ Lv.30, Quán Rượu, Thánh vật cơ bản, Lò Rèn Trang bị Vàng, Lịch Sự kiện Động: Thi Đấu Hội chạy nối tiếp hàng tuần (02:00 UTC Thứ Hai ➔ 02:00 UTC Thứ Hai / 09:00 Giờ VN, leo hạng Bang D ➔ C ➔ B ➔ A ➔ S kèm Tập Kích Cự Ma / Khiêu Chiến Của Đội Quân Hắc Ám) trước khi chuyển sang luân phiên Thi Đấu Hội ⇄ GAR / KvK.",
+                    en: "Castle Lv.1 ➔ Lv.30, Tavern, basic Relics, Legendary Gear Blacksmith, Dynamic Event Schedule: continuous weekly Guild Race (from Monday 02:00 UTC ➔ Monday 02:00 UTC climbing Guild Rank D ➔ C ➔ B ➔ A ➔ S alongside Giant Raid & Dark Legion Challenge) before transitioning into alternating Guild Race ⇄ GAR / KvK.",
                   },
                   {
                     vi: "Ra mắt Desert Prince (Ngày 21), Storm Maiden (Ngày 27), Paragon (Ngày 35), Witch (Ngày 41), Rose Princess (Ngày 46). Chuyển giao Liên Minh ➔ Bộ Lạc.",
@@ -1162,8 +1162,8 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
               en: "**Risk 2 (Idle Epic Shards):** Letting excess `15-Star Knight` (`500 Shards`) shards sit idle instead of trading them in the `Exchange Shop` to finish `Brawler` (`300 Shards` = `+30% Research`).",
             },
             {
-              vi: "**Nguy cơ 3 (Lệch Lịch Event):** Không kiểm tra Lịch Event lúc `09:00` Thứ Hai để biết Tuần 4 chạy Thi Đấu Hội nối sóng (kèm Tập Kích Cự Ma & Khiêu Chiến Của Đội Quân Hắc Ám) hay mở `GAR / KvK`.",
-              en: "**Risk 3 (Calendar Desync):** Failing to check the Monday `09:00` Event Calendar to verify whether Week 4 continues back-to-back `Guild Race` (`Giant Raid` & `Dark Army`) or opens `GAR / KvK`.",
+              vi: "**Nguy cơ 3 (Lệch Lịch Event):** Không kiểm tra Lịch Event lúc `02:00 UTC` Thứ Hai (`09:00 Giờ VN`) để biết Tuần 4 chạy Thi Đấu Hội nối sóng (kèm Tập Kích Cự Ma & Khiêu Chiến Của Đội Quân Hắc Ám) hay mở `GAR / KvK`.",
+              en: "**Risk 3 (Calendar Desync):** Failing to check the Monday `02:00 UTC` Event Calendar to verify whether Week 4 continues back-to-back `Guild Race` (`Giant Raid` & `Dark Army`) or opens `GAR / KvK`.",
             },
           ],
           recoverySteps: [
@@ -1215,16 +1215,16 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
             {
               stepNumber: "4",
               title: {
-                vi: "Quy tắc \"Nhìn Lịch Event 5 Giây (09:00 Thứ Hai)\" Trước Khi Đập Mảnh",
-                en: "The \"Monday 09:00 5-Second Event Calendar Check\" Before Spending Shards",
+                vi: "Quy tắc \"Nhìn Lịch Event 5 Giây (02:00 UTC / 09:00 VN Thứ Hai)\" Trước Khi Đập Mảnh",
+                en: "The \"Monday 02:00 UTC 5-Second Event Calendar Check\" Before Spending Shards",
               },
               detail: {
-                vi: "**Khi mở khóa `Desert Prince` vào `Ngày 21`, hãy mở ngay `Event ➔ Lịch Event` kiểm tra thanh sự kiện bắt đầu lúc `09:00` Thứ Hai Tuần 4:**\n• **Trường hợp A (Tuần 4 chạy Thi Đấu Hội nối sóng kèm Khiêu Chiến Của Đội Quân Hắc Ám & Tập Kích Cự Ma):** Canh Nhiệm vụ Vàng nâng Tướng để đút Mảnh đẩy `Desert Prince` lên thẳng `1 Sao Đỏ` (`160 Mảnh`) ngay.\n• **Trường hợp B (Tuần 4 mở `GAR / KvK` 6 ngày):** Chỉ mở khóa tướng ở Ngày 21 và giữ 100% Mảnh Vạn Năng chờ đúng Thứ Năm Tuần 4 (`Ngày 4 GAR/KvK`, khung `17:00 – 21:00`) mới nâng sao ăn trọn `Double-Dip`!",
-                en: "**Upon unlocking `Desert Prince` on `Day 21`, immediately open `Event ➔ Event Calendar` and inspect Monday `09:00` of Week 4:**\n• **Case A (Week 4 continues back-to-back `Guild Race` with `Dark Army Challenge` & `Giant Raid`):** Claim a Golden Hero Upgrade Task and immediately push `Desert Prince` to `1 Red Star` (`160 Shards`).\n• **Case B (Week 4 opens 6-day `GAR / KvK`):** Unlock base `Desert Prince` on Day 21 and hold 100% of Universal Shards until Thursday of Week 4 (`Day 4 GAR/KvK`, `17:00 – 21:00`) for full `Double-Dip` points!",
+                vi: "**Khi mở khóa `Desert Prince` vào `Ngày 21`, hãy mở ngay `Event ➔ Lịch Event` kiểm tra thanh sự kiện bắt đầu lúc `02:00 UTC` Thứ Hai (`09:00 sáng Giờ VN`) Tuần 4:**\n• **Trường hợp A (Tuần 4 chạy Thi Đấu Hội nối sóng kèm Khiêu Chiến Của Đội Quân Hắc Ám & Tập Kích Cự Ma):** Canh Nhiệm vụ Vàng nâng Tướng để đút Mảnh đẩy `Desert Prince` lên thẳng `1 Sao Đỏ` (`160 Mảnh`) ngay.\n• **Trường hợp B (Tuần 4 mở `GAR / KvK` 6 ngày):** Chỉ mở khóa tướng ở Ngày 21, giữ 100% Mảnh Vạn Năng chờ Thứ Năm Tuần 4 (`Ngày 4 GAR/KvK`, `10:00 – 14:00 UTC` / `17:00 – 21:00 Giờ VN`) nâng sao ăn `Double-Dip`!",
+                en: "**Upon unlocking `Desert Prince` on `Day 21`, immediately open `Event ➔ Event Calendar` and inspect Monday `02:00 UTC` of Week 4:**\n• **Case A (Week 4 continues back-to-back `Guild Race` with `Dark Army Challenge` & `Giant Raid`):** Claim a Golden Hero Upgrade Task and immediately push `Desert Prince` to `1 Red Star` (`160 Shards`).\n• **Case B (Week 4 opens 6-day `GAR / KvK`):** Unlock base `Desert Prince` on Day 21 and hold 100% of Universal Shards until Thursday of Week 4 (`Day 4 GAR/KvK`, `10:00 – 14:00 UTC`) for full `Double-Dip` points!",
               },
               impactBadge: {
-                vi: "09:00 Thứ Hai • Tối ưu Double-Dip",
-                en: "Monday 09:00 • Double-Dip Sync",
+                vi: "02:00 UTC (09:00 VN) Thứ Hai • Double-Dip",
+                en: "Monday 02:00 UTC • Double-Dip Sync",
               },
             },
           ],

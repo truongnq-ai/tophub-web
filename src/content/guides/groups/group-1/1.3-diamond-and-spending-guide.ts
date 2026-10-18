@@ -95,8 +95,8 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
           ordered: false,
           items: [
             {
-              vi: "**Trục Sự kiện Hàng tuần:** Mở rương mốc cá nhân & bang từ `Thi Đấu Hội` (`09:00` Thứ Hai ➔ `09:00` Thứ Hai), `GAR` (`KvK`) và sự kiện vệ tinh (`Tập Kích Cự Ma`, `Khiêu Chiến Của Đội Quân Hắc Ám`).",
-              en: "**Weekly Event Axis:** Claim personal & guild chests from `Guild Race` (`09:00` Mon ➔ `09:00` Mon), `GAR` (`KvK`), and satellite events (`Giant Raid`, `Dark Legion Challenge`).",
+              vi: "**Trục Sự kiện Hàng tuần:** Mở rương mốc cá nhân & bang từ `Thi Đấu Hội` (`02:00 UTC` / `09:00 Giờ VN` Thứ Hai), `GAR` (`KvK`) và sự kiện vệ tinh (`Tập Kích Cự Ma`, `Khiêu Chiến Của Đội Quân Hắc Ám`).",
+              en: "**Weekly Event Axis:** Claim personal & guild chests from `Guild Race` (`02:00 UTC` Mon ➔ `02:00 UTC` Mon), `GAR` (`KvK`), and satellite events (`Giant Raid`, `Dark Legion Challenge`).",
             },
             {
               vi: "**Thưởng Xếp hạng Đấu Trường (Arena):** Nhận Kim Cương đều đặn từ phần thưởng tổng kết xếp hạng `Arena` hàng ngày và cuối mùa giải.",
@@ -558,8 +558,8 @@ export const ARTICLE_1_3_DIAMOND_SPENDING: GuideArticle = {
             ],
             [
               {
-                vi: "Tiêu Kim Cương mua đồ VIP Shop ngay vào sáng Thứ Hai của tuần có Thi Đấu Hội (Guild Race) mà không kiểm tra bảng Nhiệm vụ.",
-                en: "Spending Diamonds in the VIP Shop first thing Monday morning during a Guild Race week without checking the task board first.",
+                vi: "Tiêu Kim Cương mua đồ VIP Shop ngay đầu tuần mới (sau 00:00 UTC / 07:00 sáng Giờ VN Thứ Hai) của tuần có Thi Đấu Hội (Guild Race) mà không kiểm tra bảng Nhiệm vụ.",
+                en: "Spending Diamonds in the VIP Shop right after the Monday 00:00 UTC reset during a Guild Race week without checking the task board first.",
               },
               {
                 vi: "Trong mọi tuần có Thi Đấu Hội (Guild Race), hãy mở bảng nhiệm vụ xoay tìm \"Nhiệm vụ Vàng: Chi tiêu Kim Cương\" hoặc \"Mua gói trong Cửa hàng\" trước, bấm nhận nhiệm vụ rồi mới vào VIP Shop mua đồ để ăn trọn điểm Vinh Dự Bang!",

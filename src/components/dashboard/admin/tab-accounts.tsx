@@ -24,6 +24,7 @@ import { Switch } from "@/components/ui/switch";
 import { useToast } from "@/hooks/use-toast";
 import { getAdminAccountsAction } from "@/actions/admin";
 import type { AdminAccountItem, AdminAccountsSummary } from "@/types/api";
+import { formatServerCode, compareServerIds } from "@/lib/utils";
 import { extractPaginatedResult } from "./types";
 import { AccountAvatar } from "./account-avatar";
 import { ServerTag } from "./server-tag";
@@ -32,6 +33,7 @@ import { AdminPagination } from "./pagination";
 import { AdminEmptyState } from "./empty-state";
 import { AccountRedemptionsDialog } from "./account-redemptions-dialog";
 import { AccountCheckinsDialog } from "./account-checkins-dialog";
+import { formatLocalizedDate } from "@/lib/timezone";
 
 interface TabAccountsProps {
   accounts: AdminAccountItem[];
@@ -169,7 +171,7 @@ export function TabAccounts({
         ...accounts.map((a) => a.server_id).filter(Boolean),
         ...items.map((a) => a.server_id).filter(Boolean),
       ])
-    ).sort();
+    ).sort(compareServerIds);
   }, [summary, accounts, items]);
 
   const handleCopyUid = (uid: string) => {
@@ -219,18 +221,23 @@ export function TabAccounts({
   };
 
   const filteredAccounts = useMemo(() => {
+    const q = search.toLowerCase();
     const list = items.filter((acc) => {
       const matchesSearch =
-        acc.uid.toLowerCase().includes(search.toLowerCase()) ||
-        acc.nickname.toLowerCase().includes(search.toLowerCase()) ||
-        acc.server_id.toLowerCase().includes(search.toLowerCase());
+        acc.uid.toLowerCase().includes(q) ||
+        acc.nickname.toLowerCase().includes(q) ||
+        acc.server_id.toLowerCase().includes(q) ||
+        formatServerCode(acc.server_id).toLowerCase().includes(q);
 
       const matchesPlan =
         filterPlan === "ALL" ||
         (filterPlan === "PRO" && acc.active_plan === "PRO") ||
         (filterPlan === "FREE" && acc.active_plan !== "PRO");
 
-      const matchesServer = filterServer === "ALL" || acc.server_id === filterServer;
+      const matchesServer =
+        filterServer === "ALL" ||
+        acc.server_id === filterServer ||
+        formatServerCode(acc.server_id) === formatServerCode(filterServer);
 
       const matchesToken =
         filterToken === "ALL" ||
@@ -250,7 +257,7 @@ export function TabAccounts({
       } else if (sortBy === "NAME") {
         return (a.nickname || "").localeCompare(b.nickname || "");
       } else if (sortBy === "SERVER") {
-        return (a.server_id || "").localeCompare(b.server_id || "");
+        return compareServerIds(a.server_id, b.server_id);
       }
       return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
     });
@@ -371,7 +378,7 @@ export function TabAccounts({
                 <option value="ALL">Mọi máy chủ</option>
                 {uniqueServers.map((s) => (
                   <option key={s} value={s}>
-                    S{s}
+                    {formatServerCode(s)}
                   </option>
                 ))}
               </select>
@@ -518,7 +525,7 @@ export function TabAccounts({
                                 </Badge>
                               ) : null}
                               <div className="text-[10px] text-muted-foreground font-mono">
-                                HSD: {new Date(acc.ends_at).toLocaleDateString("vi-VN")}
+                                HSD: {formatLocalizedDate(acc.ends_at, "vi")}
                               </div>
                             </div>
                           )}
@@ -595,7 +602,7 @@ export function TabAccounts({
                       </td>
 
                       <td className="px-4 py-3.5 text-[11px] text-muted-foreground font-mono">
-                        {new Date(acc.created_at).toLocaleDateString("vi-VN")}
+                        {formatLocalizedDate(acc.created_at, "vi")}
                       </td>
 
                       <td className="px-4 py-3.5 text-right">

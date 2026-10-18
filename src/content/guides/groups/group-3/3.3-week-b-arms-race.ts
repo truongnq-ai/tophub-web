@@ -24,7 +24,7 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
       en: "**Max the `Arms Race Prep` Tech Tree:** Immediately unlock the `6th Chest (Extra Rewards)` and `Double Rewards` skill inside the Academy.\n• **2x milestone rewards:** Doubles your `Diamonds` and `Universal Legendary Shards` from every personal milestone chest across all 6 days!",
     },
     strictTaboo: {
-      vi: "**4 Điều Cấm Kỵ Kỳ GAR/KvK:** Tuyệt đối KHÔNG khui hộp công trình vào Chủ Nhật (chờ `Thứ Hai`), KHÔNG ghép mảnh tướng đầu tuần (chờ `Thứ Năm`).\n• **Cảnh báo Ngày 6:** KHÔNG giữ `Lord Gear` sang Thứ Bảy Ngày 6 (`0 điểm` ở GAR/KvK) và KHÔNG quên bật `Khiên Hòa Bình (Peace Shield)` trước `00:00 UTC` Thứ Bảy!",
+      vi: "**4 Điều Cấm Kỵ Kỳ GAR/KvK:** Tuyệt đối KHÔNG khui hộp công trình vào Chủ Nhật (chờ `Thứ Hai`), KHÔNG ghép mảnh tướng đầu tuần (chờ `Thứ Năm`).\n• **Cảnh báo Ngày 6:** KHÔNG giữ `Lord Gear` sang Thứ Bảy Ngày 6 (`0 điểm` ở GAR/KvK) và KHÔNG quên bật `Khiên Hòa Bình (Peace Shield)` trước `00:00 UTC` (`07:00 Giờ VN`) Thứ Bảy!",
       en: "**4 GAR/KvK Taboos:** Never unwrap building gift boxes on Sunday (wait for `Monday`), and never fuse hero shards early in the week (wait for `Thursday`).\n• **Day 6 red alerts:** Never hold `Lord Gear` for Saturday Day 6 (`ZERO points` in GAR/KvK) and never forget your `Peace Shield` before `00:00 UTC` Saturday!",
     },
   },
@@ -38,12 +38,12 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
       en: "**Secondary Scoring Rules:** Days 1–2 score `Relics` & `Behemoth`; Days 3–4 score `Lord Gear`; Day 4 scores `120,000` pts/Soul Stone, `6,000` pts/UW Shard, and `6,000` pts/Iron Core.\n• **Weekend:** Day 5 scores `Pets`, `Spirit Shards` & `Behemoth`; Day 6 scores `Glory Medals`, `Decor Tokens`, `Pets` & `Behemoth` (`Lord Gear` = `0 pts` Day 6).",
     },
     {
-      vi: "**4 Tuyệt Kỹ Gian Lận Thời Gian (`Time-Shifting`):** Giữ Hộp Quà Công Trình cho `13:00` Thứ Hai và thả quân `Pre-Marching` về thành lúc `00:05–00:30 UTC` Thứ Tư.\n• **Đột phá điểm cuối tuần:** Thăng cấp Lính Bậc Thang (`Staircase` T4➔T5➔T6+) lúc `21:00` Thứ Sáu (`2.5–3x` điểm) và đánh `Pháo Đài` Thứ Bảy (`×3` điểm diệt lính, `+50,000`/`+10,000`đ).",
-      en: "**4 Legal `Time-Shifting` Mechanics:** Hold Unopened Building Gift Boxes for `13:00` Monday and time `Pre-Marching` gatherers to return at `00:05–00:30 UTC` Wednesday.\n• **Weekend multipliers:** Execute `Staircase` Troop Promotion (T4➔T5➔T6+) at `21:00` Friday (`2.5–3x` efficiency) and Saturday `Fort Contest` (`×3` kill points, `+50,000`/`+10,000` pts).",
+      vi: "**4 Tuyệt Kỹ Gian Lận Thời Gian (`Time-Shifting`):** Giữ Hộp Quà Công Trình cho `06:00 UTC` (`13:00 Giờ VN`) Thứ Hai và thả quân `Pre-Marching` về thành lúc `00:05–00:30 UTC` (`07:05–07:30 Giờ VN`) Thứ Tư.\n• **Đột phá điểm cuối tuần:** Thăng cấp Lính Bậc Thang (`Staircase` T4➔T5➔T6+) lúc `14:00 UTC` (`21:00 Giờ VN`) Thứ Sáu (`2.5–3x` điểm) và đánh `Pháo Đài` Thứ Bảy (`×3` điểm diệt lính, `+50,000`/`+10,000`đ).",
+      en: "**4 Legal `Time-Shifting` Mechanics:** Hold Unopened Building Gift Boxes for `06:00 UTC` Monday and time `Pre-Marching` gatherers to return at `00:05–00:30 UTC` Wednesday.\n• **Weekend multipliers:** Execute `Staircase` Troop Promotion (T4➔T5➔T6+) at `14:00 UTC` Friday (`2.5–3x` efficiency) and Saturday `Fort Contest` (`×3` kill points, `+50,000`/`+10,000` pts).",
     },
     {
-      vi: "**Khung Giờ Vàng 4 Tiếng (`Hourly Arms Race`):** Canh chuẩn `13:00–17:00` Thứ Hai (Xây Lãnh Thổ) và `17:00–21:00` Thứ Ba (Nghiên Cứu Công Nghệ).\n• **Giữa & cuối tuần:** Xả vào `17:00–21:00` Thứ Tư (Loại Trừ Mối Nguy), `17:00–21:00` Thứ Năm (Bồi Dưỡng Anh Hùng) và `21:00–01:00` Thứ Sáu (Mở Rộng Quân Đội).",
-      en: "**4-Hour Golden Windows (`Hourly Arms Race`):** Align bursts with `13:00–17:00` Monday (Territory Construction) and `17:00–21:00` Tuesday (Tech Research).\n• **Midweek & weekend:** Unload during `17:00–21:00` Wednesday (Eliminate Threat), `17:00–21:00` Thursday (Hero Upgrade), and `21:00–01:00` Friday (Army Expansion).",
+      vi: "**Khung Giờ Vàng 4 Tiếng (`Hourly Arms Race`):** Canh chuẩn `06:00–10:00 UTC` (`13:00–17:00 Giờ VN`) Thứ Hai (Xây Lãnh Thổ) và `10:00–14:00 UTC` (`17:00–21:00 Giờ VN`) Thứ Ba (Nghiên Cứu Công Nghệ).\n• **Giữa & cuối tuần:** Xả vào `10:00–14:00 UTC` (`17:00–21:00 Giờ VN`) Thứ Tư (Mối Nguy) & Thứ Năm (Anh Hùng), và `14:00–18:00 UTC` (`21:00–01:00 Giờ VN`) Thứ Sáu (Mở Rộng Quân Đội).",
+      en: "**4-Hour Golden Windows (`Hourly Arms Race`):** Align bursts with `06:00–10:00 UTC` Monday (Territory Construction) and `10:00–14:00 UTC` Tuesday (Tech Research).\n• **Midweek & weekend:** Unload during `10:00–14:00 UTC` Wednesday (Eliminate Threat), `10:00–14:00 UTC` Thursday (Hero Upgrade), and `14:00–18:00 UTC` Friday (Army Expansion).",
     },
   ],
   keywords: [
@@ -79,8 +79,8 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "**Nhận diện Kỳ Đua Vũ Trang:** Mở `Event ➔ Lịch Event` lúc `09:00` Thứ Hai; nếu có `Guild Arms Race (GAR)`, `Kingdom Duel (KvK)` hoặc `Top Lord`, server vào `6 Ngày Chủ Đề` từ Thứ Hai đến Thứ Bảy.\n• **Trọng số thắng cuộc:** Mỗi ngày có hệ số điểm riêng, trong đó `Ngày 4 (Tướng)`, `Ngày 5 (Lính)` và `Ngày 6 (Diệt Địch)` quyết định thắng bại chung cuộc của cả tuần.",
-            en: "**Identifying Arms Race Mode:** Open `Event ➔ Event Calendar` at `09:00` Monday; if `Guild Arms Race (GAR)`, `Kingdom Duel (KvK)`, or `Top Lord` appears, the server enters `6 Fixed Daily Stages` (Mon–Sat).\n• **Victory weights:** Each day carries a specific weight, with `Day 4 (Heroes)`, `Day 5 (Troops)`, and `Day 6 (Kill Event)` deciding the overall weekly winner.",
+            vi: "**Nhận diện Kỳ Đua Vũ Trang:** Mở `Event ➔ Lịch Event` lúc `02:00 UTC` (`09:00 Giờ VN`) Thứ Hai; nếu có `Guild Arms Race (GAR)`, `Kingdom Duel (KvK)` hoặc `Top Lord`, server vào `6 Ngày Chủ Đề` từ Thứ Hai đến Thứ Bảy.\n• **Trọng số thắng cuộc:** Mỗi ngày có hệ số điểm riêng, trong đó `Ngày 4 (Tướng)`, `Ngày 5 (Lính)` và `Ngày 6 (Diệt Địch)` quyết định thắng bại chung cuộc của cả tuần.",
+            en: "**Identifying Arms Race Mode:** Open `Event ➔ Event Calendar` at `02:00 UTC` Monday; if `Guild Arms Race (GAR)`, `Kingdom Duel (KvK)`, or `Top Lord` appears, the server enters `6 Fixed Daily Stages` (Mon–Sat).\n• **Victory weights:** Each day carries a specific weight, with `Day 4 (Heroes)`, `Day 5 (Troops)`, and `Day 6 (Kill Event)` deciding the overall weekly winner.",
           },
         },
         {
@@ -104,8 +104,8 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
                 en: "Days 1–2 (Monday & Tuesday): Construction, Research + Relics & Behemoth",
               },
               detail: {
-                vi: "Khui Hộp Quà Công Trình lúc 13:00–17:00 Thứ Hai; xả Tăng tốc Nghiên cứu & Cổ Ngữ lúc 17:00–21:00 Thứ Ba, kết hợp xả nguyên liệu Thánh Tích (Relics) và Behemoth.",
-                en: "Unwrap Building Gift Boxes during 13:00–17:00 Monday; spend Research Speedups & Runes during 17:00–21:00 Tuesday alongside Relics and Behemoth materials.",
+                vi: "Khui Hộp Quà Công Trình lúc 06:00–10:00 UTC (13:00–17:00 Giờ VN) Thứ Hai; xả Tăng tốc Nghiên cứu & Cổ Ngữ lúc 10:00–14:00 UTC (17:00–21:00 Giờ VN) Thứ Ba, kết hợp xả nguyên liệu Thánh Tích (Relics) và Behemoth.",
+                en: "Unwrap Building Gift Boxes during 06:00–10:00 UTC Monday; spend Research Speedups & Runes during 10:00–14:00 UTC Tuesday alongside Relics and Behemoth materials.",
               },
             },
             {
@@ -115,8 +115,8 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
                 en: "Days 3–4 (Wednesday & Thursday): Stamina/Gathering, Hero Burst + Lord Gear",
               },
               detail: {
-                vi: "Xả Thể lực, Mảnh Tướng Vàng/Đỏ, Hồn Đá Đỏ (120,000đ/viên), Sách Kỹ Năng, Mảnh UW (6,000đ), Lõi Sắt (6,000đ) và Đồ Chúa Tể (Lord Gear) trong khung 17:00–21:00.",
-                en: "Unload Stamina, Legendary/Mythic Shards, Red Soul Stones (120,000 pts/stone), Skill Books, UW Shards (6,000 pts), Meteorite Iron Cores (6,000 pts), and Lord Gear during 17:00–21:00.",
+                vi: "Xả Thể lực, Mảnh Tướng Vàng/Đỏ, Hồn Đá Đỏ (120,000đ/viên), Sách Kỹ Năng, Mảnh UW (6,000đ), Lõi Sắt (6,000đ) và Đồ Chúa Tể (Lord Gear) trong khung 10:00–14:00 UTC (17:00–21:00 Giờ VN).",
+                en: "Unload Stamina, Legendary/Mythic Shards, Red Soul Stones (120,000 pts/stone), Skill Books, UW Shards (6,000 pts), Meteorite Iron Cores (6,000 pts), and Lord Gear during 10:00–14:00 UTC.",
               },
             },
             {
@@ -165,8 +165,8 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
                   en: "Primary Scoring Actions & Items + Secondary Scoring Items",
                 },
                 {
-                  vi: "Khung Giờ Vàng Giao Thoa (Hourly Event 4h — Giờ Chuẩn)",
-                  en: "Golden Overlap Window (4h Hourly Event — Server Time)",
+                  vi: "Khung Giờ Vàng Giao Thoa (Hourly Event 4h — UTC & Giờ VN)",
+                  en: "Golden Overlap Window (4h Hourly Event — UTC Server Time)",
                 },
               ],
               rows: [
@@ -184,8 +184,8 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
                     en: "• Primary: Unwrap completed building gift boxes, use Construction Speedups, spend Dragon Essence. • Secondary: Relics (Wish Relic, Relic Shards, Arcane Crystals, Magic Stones) + Behemoth (Magicite, Magic Core, Scroll Seal).",
                   },
                   {
-                    vi: "13:00 – 17:00 (Ca Xây Lãnh Thổ)",
-                    en: "13:00 – 17:00 (Territory Construction Shift)",
+                    vi: "06:00 – 10:00 UTC (13:00 – 17:00 Giờ VN — Ca Xây Lãnh Thổ)",
+                    en: "06:00 – 10:00 UTC (Territory Construction Shift)",
                   },
                 ],
                 [
@@ -202,8 +202,8 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
                     en: "• Primary: Complete tech research nodes, use Research Speedups, fuse Runes, spend Dragon Essence. • Secondary: Relics (Wish Relic, Relic Shards, Arcane Crystals, Magic Stones) + Behemoth (Magicite, Magic Core, Scroll Seal).",
                   },
                   {
-                    vi: "17:00 – 21:00 (Ca Nghiên Cứu Công Nghệ)",
-                    en: "17:00 – 21:00 (Tech Research Shift)",
+                    vi: "10:00 – 14:00 UTC (17:00 – 21:00 Giờ VN — Ca Nghiên Cứu Công Nghệ)",
+                    en: "10:00 – 14:00 UTC (Tech Research Shift)",
                   },
                 ],
                 [
@@ -220,8 +220,8 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
                     en: "• Primary: Gather Wood/Stone/Ruby nodes, spend Stamina on World Map Monsters/Boss Rallies, complete Bounty Scrolls. • Secondary: Lord Gear (Refined Metal, Magic Thread, Orichalcum, Dragon Blood) (+ Behemoth in KvK / Top Lord Stage 3; note that standard GAR Day 3 Wednesday does NOT score Behemoth).",
                   },
                   {
-                    vi: "17:00 – 21:00 (Ca Loại Trừ Mối Nguy)",
-                    en: "17:00 – 21:00 (Eliminate Threat Shift)",
+                    vi: "10:00 – 14:00 UTC (17:00 – 21:00 Giờ VN — Ca Loại Trừ Mối Nguy)",
+                    en: "10:00 – 14:00 UTC (Eliminate Threat Shift)",
                   },
                 ],
                 [
@@ -238,8 +238,8 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
                     en: "• Primary: Spend Tavern Recruitment Tokens, Legendary/Mythic Hero Shards, Red Soul Stones (120,000 pts/stone), Skill Books, UW Shards (6,000 pts/shard), Meteorite Iron Cores (6,000 pts/core). • Secondary: Lord Gear (Refined Metal, Magic Thread, Orichalcum, Dragon Blood).",
                   },
                   {
-                    vi: "17:00 – 21:00 (Ca Bồi Dưỡng Anh Hùng)",
-                    en: "17:00 – 21:00 (Hero Upgrade Shift)",
+                    vi: "10:00 – 14:00 UTC (17:00 – 21:00 Giờ VN — Ca Bồi Dưỡng Anh Hùng)",
+                    en: "10:00 – 14:00 UTC (Hero Upgrade Shift)",
                   },
                 ],
                 [
@@ -256,8 +256,8 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
                     en: "• Primary: Train & Staircase-Promote Troops, use Troop Training Speedups. • Secondary: Pets (Pet Food, Pet Essence) + Heroic Spirit Shards + Behemoth (Note: KvK Day 5 also scores Relic Shards & Lord Gear, whereas standard GAR Day 5 does NOT score Relics — keep Relics for Days 1–2 in GAR, or Days 1–2/5 in KvK!).",
                   },
                   {
-                    vi: "21:00 – 01:00 (Ca Mở Rộng Quân Đội)",
-                    en: "21:00 – 01:00 (Army Expansion Shift)",
+                    vi: "14:00 – 18:00 UTC (21:00 – 01:00 Giờ VN — Ca Mở Rộng Quân Đội)",
+                    en: "14:00 – 18:00 UTC (Army Expansion Shift)",
                   },
                 ],
                 [
@@ -274,8 +274,8 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
                     en: "• Primary: Kill/wound enemy troops in PvP, use Healing Speedups. • Secondary: Troop Skins (Glory Medals) + Decorations (Decor Tokens) + Pets + Behemoth (WARNING: Lord Gear grants ZERO points on Day 6 GAR/KvK!).",
                   },
                   {
-                    vi: "09:00 – 13:00 (Tướng) & 17:00 – 21:00 (Lính)",
-                    en: "09:00 – 13:00 (Heroes) & 17:00 – 21:00 (Troops)",
+                    vi: "02:00 – 06:00 UTC (09:00 – 13:00 VN — Tướng) & 10:00 – 14:00 UTC (17:00 – 21:00 VN — Lính)",
+                    en: "02:00 – 06:00 UTC (Heroes) & 10:00 – 14:00 UTC (Troops)",
                   },
                 ],
               ],
@@ -336,8 +336,8 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
                 en: "Territory Construction + Unload Relics & Behemoth",
               },
               timing: {
-                vi: "Khung Giờ Vàng: 13:00 – 17:00 Thứ Hai",
-                en: "Golden Window: 13:00 – 17:00 Monday",
+                vi: "Khung Giờ Vàng: 06:00 – 10:00 UTC (13:00 – 17:00 Giờ VN) Thứ Hai",
+                en: "Golden Window: 06:00 – 10:00 UTC Monday",
               },
               description: {
                 vi: "**Chờ đủ trợ giúp:** Kiểm tra công trình đã nhận tối đa lượt `Trợ Giúp Bang Hội (Guild Help)` trước khi bấm bình Tăng tốc Xây dựng.\n• **Ưu tiên công trình & Điểm phụ:** Đẩy `Lâu Đài (Castle)` và `Doanh Trại Đội 1` để mở bậc lính cao cho Thứ Sáu, kết hợp xả `Thánh Tích (Wish Relic, Relic Shards, Arcane Crystals, Magic Stones)` và `Behemoth`.",
@@ -354,8 +354,8 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
                 en: "Tech Research & Runes + Remaining Relics & Behemoth",
               },
               timing: {
-                vi: "Khung Giờ Vàng: 17:00 – 21:00 Thứ Ba",
-                en: "Golden Window: 17:00 – 21:00 Tuesday",
+                vi: "Khung Giờ Vàng: 10:00 – 14:00 UTC (17:00 – 21:00 Giờ VN) Thứ Ba",
+                en: "Golden Window: 10:00 – 14:00 UTC Tuesday",
               },
               description: {
                 vi: "**Kích hoạt nội tại Tướng Tím:** Đảm bảo `Knight / Brawler` (mở `Trait 3` ở mốc `12★ / 2 Sao Trắng = 300 Mảnh`) đang kích hoạt giảm thời gian nghiên cứu.\n• **Xả đồng loạt:** Đem toàn bộ `Bụi Cổ Ngữ (Rune Dust)`, `Rương Cổ Ngữ` cùng nguyên liệu `Thánh Tích / Behemoth` còn lại ra nâng vào Thứ Ba để lấy trọn 6 rương Ngày 2.",
@@ -372,8 +372,8 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
                 en: "Resource Gathering, World Map Bosses & Early Lord Gear Upgrades",
               },
               timing: {
-                vi: "Khung Giờ Vàng: 17:00 – 21:00 Thứ Tư",
-                en: "Golden Window: 17:00 – 21:00 Wednesday",
+                vi: "Khung Giờ Vàng: 10:00 – 14:00 UTC (17:00 – 21:00 Giờ VN) Thứ Tư",
+                en: "Golden Window: 10:00 – 14:00 UTC Wednesday",
               },
               description: {
                 vi: "**Tự động Rally:** Bật `Auto-Join Rally` trong Bang hội để nhận đủ `50 rương Boss` mỗi ngày.\n• **Xả Thể lực & Đồ Chúa Tể:** Chỉ uống `Bình Thể Lực (Thịt Nướng)` dự trữ vào Thứ Tư để càn quét Boss, hoàn thành `Cuộn Tiền Thưởng (Bounty)` và nâng `Đồ Chúa Tể (Lord Gear)` (kèm `Behemoth` nếu là tuần KvK).",
@@ -390,8 +390,8 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
                 en: "Grand Hero Breakthrough Day Across All 3 Factions & Lord Gear",
               },
               timing: {
-                vi: "Khung Giờ Vàng: 17:00 – 21:00 Thứ Năm",
-                en: "Golden Window: 17:00 – 21:00 Thursday",
+                vi: "Khung Giờ Vàng: 10:00 – 14:00 UTC (17:00 – 21:00 Giờ VN) Thứ Năm",
+                en: "Golden Window: 10:00 – 14:00 UTC Thursday",
               },
               description: {
                 vi: "**Kho vũ khí xả toàn lực:** Xả Thẻ Chiêu Mộ, Mảnh Tướng Vàng/Đỏ, `Hồn Đá Đỏ (120,000đ/viên)`, Sách Kỹ Năng, `Mảnh UW (6,000đ)`, `Lõi Sắt (6,000đ)` và `Lord Gear`.\n• **Kỷ luật Hồn Đá Đỏ:** Mua từ Tiệm Bang giá `40,000` Điểm Vinh Dự/viên hoặc `6,000` Xu Vinh Quang/viên (giữ Ngưỡng Ví `40,000` Điểm Vinh Dự / `12,000–18,000` Xu Vinh Quang).\n• **Mục tiêu Horde & League:** `Horde` (Desert Prince, Storm Maiden, Witch, Wukong, Beastmaster + Soulmancer/Warlock) | `League` (Paragon, Rose Princess, Bishop + Pyromancer/Adjudicator/Nun).\n• **Mục tiêu Nature:** Đập mảnh nâng sao cho `Tidecaller`, `Monk`, `Ne Zha` (cùng `Petalis` ở S3) và thức tỉnh `Pixie`, `Sage`.",
@@ -408,12 +408,12 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
                 en: "Staircase Troop Promotion, Pets & Heroic Spirit Shards",
               },
               timing: {
-                vi: "Khung Giờ Vàng: 21:00 – 01:00 Thứ Sáu",
-                en: "Golden Window: 21:00 – 01:00 Friday",
+                vi: "Khung Giờ Vàng: 14:00 – 18:00 UTC (21:00 – 01:00 Giờ VN) Thứ Sáu",
+                en: "Golden Window: 14:00 – 18:00 UTC Friday",
               },
               description: {
-                vi: "**Cấm luyện mới từ T1 bằng Tăng tốc:** Áp dụng kỹ thuật `Thăng cấp Bậc Thang (Staircase Promotion)` ở Phần II để nhân `2.5–3x` hiệu suất điểm.\n• **Vật phẩm điểm phụ:** Kết hợp xả `Thức ăn Pet (Pet Food, Pet Essence)`, `Heroic Spirit Shards` và `Behemoth` trong khung `21:00–01:00`.",
-                en: "**Never train from T1 with speedups:** Execute the `Staircase Promotion` technique in Part II to multiply your point efficiency by `2.5–3x`.\n• **Secondary items:** Simultaneously unload `Pet Food`, `Pet Essence`, `Heroic Spirit Shards`, and `Behemoth` during the `21:00–01:00` window.",
+                vi: "**Cấm luyện mới từ T1 bằng Tăng tốc:** Áp dụng kỹ thuật `Thăng cấp Bậc Thang (Staircase Promotion)` ở Phần II để nhân `2.5–3x` hiệu suất điểm.\n• **Vật phẩm điểm phụ:** Kết hợp xả `Thức ăn Pet (Pet Food, Pet Essence)`, `Heroic Spirit Shards` và `Behemoth` trong khung `14:00–18:00 UTC` (`21:00–01:00 Giờ VN`).",
+                en: "**Never train from T1 with speedups:** Execute the `Staircase Promotion` technique in Part II to multiply your point efficiency by `2.5–3x`.\n• **Secondary items:** Simultaneously unload `Pet Food`, `Pet Essence`, `Heroic Spirit Shards`, and `Behemoth` during the `14:00–18:00 UTC` window.",
               },
             },
             {
@@ -426,11 +426,11 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
                 en: "Kill Event (Combat Day) + Peace Shield & Troop Skins / Decorations",
               },
               timing: {
-                vi: "Trước 00:00 UTC Thứ Bảy & Ca 09:00–13:00 / 17:00–21:00",
-                en: "Before 00:00 UTC Saturday & 09:00–13:00 / 17:00–21:00 Shifts",
+                vi: "Trước 00:00 UTC (07:00 VN) Thứ Bảy & Ca 02:00–06:00 / 10:00–14:00 UTC (09:00–13:00 / 17:00–21:00 VN)",
+                en: "Before 00:00 UTC Saturday & 02:00–06:00 / 10:00–14:00 UTC Shifts",
               },
               description: {
-                vi: "**Bảo toàn lực lượng:** Mua sẵn `Khiên Hòa Bình 24 Giờ (24h Peace Shield)` trong Tiệm Bang hoặc bằng Kim Cương và bật trước `00:00 UTC` Thứ Bảy.\n• **Lấy rương an toàn:** Mở khóa toàn bộ rương mốc cá nhân bằng `Quân Trang (Glory Medals)`, `Trang Trí (Decor Tokens)`, `Thú Cưng (Pets)` và `Behemoth`.",
+                vi: "**Bảo toàn lực lượng:** Mua sẵn `Khiên Hòa Bình 24 Giờ (24h Peace Shield)` trong Tiệm Bang hoặc bằng Kim Cương và bật trước `00:00 UTC` (`07:00 Giờ VN`) Thứ Bảy.\n• **Lấy rương an toàn:** Mở khóa toàn bộ rương mốc cá nhân bằng `Quân Trang (Glory Medals)`, `Trang Trí (Decor Tokens)`, `Thú Cưng (Pets)` và `Behemoth`.",
                 en: "**Preserve your troops:** Purchase a `24h Peace Shield` from the Guild Shop or with Diamonds and activate it before Saturday `00:00 UTC` Reset.\n• **Safe chest clearing:** Unlock all personal milestone chests using `Troop Skins (Glory Medals)`, `Decorations (Decor Tokens)`, `Pets`, and `Behemoth`.",
               },
             },
@@ -468,8 +468,8 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
                 en: "Tapping to unwrap Building Gift Boxes immediately upon completion on Saturday or Sunday.",
               },
               {
-                vi: "Giữ nguyên Hộp Quà có dải ruy-băng đỏ trên bản đồ thành phố! Chờ đúng Thứ Hai (khung 13:00–17:00) mới bấm khui hộp để ăn hàng trăm ngàn điểm Xây dựng miễn phí với 0 giây Tăng tốc.",
-                en: "Leave the red-ribbon Gift Boxes untouched on your city map! Wait until Monday (13:00–17:00 window) to unwrap them all at once for hundreds of thousands of free Construction points using 0 seconds of Speedups.",
+                vi: "Giữ nguyên Hộp Quà có dải ruy-băng đỏ trên bản đồ thành phố! Chờ đúng Thứ Hai (khung 06:00–10:00 UTC / 13:00–17:00 Giờ VN) mới bấm khui hộp để ăn hàng trăm ngàn điểm Xây dựng miễn phí với 0 giây Tăng tốc.",
+                en: "Leave the red-ribbon Gift Boxes untouched on your city map! Wait until Monday (06:00–10:00 UTC window) to unwrap them all at once for hundreds of thousands of free Construction points using 0 seconds of Speedups.",
               },
             ],
             [
@@ -478,7 +478,7 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
                 en: "Forgetting to recall gathering marches or failing to activate a Peace Shield on Friday night before Saturday Reset (Kill Event).",
               },
               {
-                vi: "Đặt báo thức cố định trước 00:00 UTC Thứ Bảy: Thu hồi toàn bộ đội hình đang đào mỏ về thành, bật Khiên 8h/24h hoặc gửi quân đồn trú (Reinforce) vào lâu đài của đồng đội đang bật khiên.",
+                vi: "Đặt báo thức cố định trước 00:00 UTC (07:00 Giờ VN) Thứ Bảy: Thu hồi toàn bộ đội hình đang đào mỏ về thành, bật Khiên 8h/24h hoặc gửi quân đồn trú (Reinforce) vào lâu đài của đồng đội đang bật khiên.",
                 en: "Set a fixed alarm before 00:00 UTC Saturday: Recall all gathering queues back to base, activate an 8h/24h Peace Shield, or send troops to garrison (Reinforce) inside a shielded guildmate's castle.",
               },
             ],
@@ -565,8 +565,8 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
                   },
                   metrics: [
                     {
-                      vi: "Giờ Vàng: 13:00 – 17:00",
-                      en: "Golden Window: 13:00 – 17:00",
+                      vi: "Giờ Vàng: 06:00 – 10:00 UTC (13:00 – 17:00 VN)",
+                      en: "Golden Window: 06:00 – 10:00 UTC",
                     },
                     {
                       vi: "Guild Rush: Xây dựng & Nghiên cứu",
@@ -591,8 +591,8 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
                   },
                   metrics: [
                     {
-                      vi: "Giờ Vàng: 17:00 – 21:00",
-                      en: "Golden Window: 17:00 – 21:00",
+                      vi: "Giờ Vàng: 10:00 – 14:00 UTC (17:00 – 21:00 VN)",
+                      en: "Golden Window: 10:00 – 14:00 UTC",
                     },
                     {
                       vi: "Kích hoạt Knight/Brawler Trait 3",
@@ -617,12 +617,12 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
                   },
                   metrics: [
                     {
-                      vi: "Về thành: 00:05–00:30 UTC",
+                      vi: "Về thành: 00:05–00:30 UTC (07:05–07:30 VN)",
                       en: "Arrival: 00:05–00:30 UTC",
                     },
                     {
-                      vi: "Giờ Vàng: 17:00 – 21:00",
-                      en: "Golden Window: 17:00 – 21:00",
+                      vi: "Giờ Vàng: 10:00 – 14:00 UTC (17:00 – 21:00 VN)",
+                      en: "Golden Window: 10:00 – 14:00 UTC",
                     },
                   ],
                   tone: "emerald",
@@ -647,8 +647,8 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
                       en: "Soul Stone: 120,000 pts/stone",
                     },
                     {
-                      vi: "Giờ Vàng: 17:00 – 21:00",
-                      en: "Golden Window: 17:00 – 21:00",
+                      vi: "Giờ Vàng: 10:00 – 14:00 UTC (17:00 – 21:00 VN)",
+                      en: "Golden Window: 10:00 – 14:00 UTC",
                     },
                   ],
                   tone: "gold",
@@ -669,8 +669,8 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
                   },
                   metrics: [
                     {
-                      vi: "Giờ Vàng: 21:00 – 01:00",
-                      en: "Golden Window: 21:00 – 01:00",
+                      vi: "Giờ Vàng: 14:00 – 18:00 UTC (21:00 – 01:00 VN)",
+                      en: "Golden Window: 14:00 – 18:00 UTC",
                     },
                     {
                       vi: "GAR Ngày 5 KHÔNG tính Relics",
@@ -707,7 +707,7 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
                 },
               ],
               footnote: {
-                vi: "Lưu ý sống còn: Luôn bật Khiên Hòa Bình trước 00:00 UTC Thứ Bảy và chỉ xả tài nguyên trong khung Giờ Vàng 4h tương ứng.",
+                vi: "Lưu ý sống còn: Luôn bật Khiên Hòa Bình trước 00:00 UTC (07:00 Giờ VN) Thứ Bảy và chỉ xả tài nguyên trong khung Giờ Vàng 4h tương ứng.",
                 en: "Critical note: Always activate your Peace Shield before 00:00 UTC Saturday and only burst resources inside the matching 4h Golden Window.",
               },
             },
@@ -727,8 +727,8 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
                 {
                   kind: "do",
                   label: {
-                    vi: "(1) Giữ Hộp Quà Công Trình Có Ruy-Băng Đỏ Đến 13:00 Thứ Hai",
-                    en: "(1) Keep Red-Ribbon Building Gift Boxes Untouched Until 13:00 Monday",
+                    vi: "(1) Giữ Hộp Quà Công Trình Có Ruy-Băng Đỏ Đến 06:00 UTC (13:00 Giờ VN) Thứ Hai",
+                    en: "(1) Keep Red-Ribbon Building Gift Boxes Untouched Until 06:00 UTC Monday",
                   },
                   detail: {
                     vi: "Khi công trình xây xong về 00:00:00, điểm chưa được cộng cho tới khi bấm mở hộp. Vào thẳng menu công trình khác để chuyển thợ xây mà không làm vỡ hộp quà cũ.",
@@ -738,8 +738,8 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
                 {
                   kind: "do",
                   label: {
-                    vi: "(2) Bấm Mũi Tên Xanh Hướng Lên (Promote) Lúc 21:00 Thứ Sáu",
-                    en: "(2) Tap the Green Upward Arrow (Promote) at 21:00 Friday",
+                    vi: "(2) Bấm Mũi Tên Xanh Hướng Lên (Promote) Lúc 14:00 UTC (21:00 Giờ VN) Thứ Sáu",
+                    en: "(2) Tap the Green Upward Arrow (Promote) at 14:00 UTC Friday",
                   },
                   detail: {
                     vi: "Thăng cấp hàng chục ngàn lính T(N-1) lên T(N) chỉ tốn thời gian chênh lệch nhưng nổ điểm sự kiện gấp 2.5–3 lần trên mỗi giờ Tăng tốc.",
@@ -766,16 +766,16 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
               ordered: true,
               items: [
                 {
-                  vi: "**Tuyệt kỹ Ngày 1 (Thứ Hai) — Hộp Quà Công Trình:** Giữ nguyên công trình xây xong ở dạng Hộp Quà (chuyển thợ xây qua menu nhà khác); đúng `13:00` Thứ Hai khui 4–6 hộp kèm xả `Relics & Behemoth` mở ngay 4/6 rương!",
-                  en: "**Day 1 (Monday) — Unopened Building Gift Box:** Leave completed structures wrapped as Gift Boxes (reassign builders via another building's menu); at `13:00` Monday, unwrap 4–6 boxes with `Relics & Behemoth`!",
+                  vi: "**Tuyệt kỹ Ngày 1 (Thứ Hai) — Hộp Quà Công Trình:** Giữ công trình xây xong ở dạng Hộp Quà (chuyển thợ xây qua nhà khác); đúng `06:00 UTC` (`13:00 Giờ VN`) Thứ Hai khui 4–6 hộp kèm xả `Relics & Behemoth` mở 4/6 rương!",
+                  en: "**Day 1 (Monday) — Unopened Building Gift Box:** Leave completed structures wrapped as Gift Boxes (reassign builders via another building's menu); at `06:00 UTC` Monday, unwrap 4–6 boxes with `Relics & Behemoth`!",
                 },
                 {
-                  vi: "**Tuyệt kỹ Ngày 3 (Thứ Tư) — Pre-Marching Mỏ:** Thả 3–4 đội đào mỏ Lv.6–8 từ tối Thứ Ba sao cho đầy tải về thành lúc `00:05 – 00:30 UTC` Thứ Tư (ăn ngay 30–50% điểm Ngày 3, bù phần còn lại bằng `Lord Gear`).",
+                  vi: "**Tuyệt kỹ Ngày 3 (Thứ Tư) — Pre-Marching Mỏ:** Thả 3–4 đội đào mỏ Lv.6–8 từ tối Thứ Ba sao cho về thành lúc `00:05 – 00:30 UTC` (`07:05 – 07:30 Giờ VN`) Thứ Tư (ăn 30–50% điểm Ngày 3, bù phần còn lại bằng `Lord Gear`).",
                   en: "**Day 3 (Wednesday) — Pre-Marching Gatherers:** Send 3–4 queues to Lv.6–8 resource nodes Tuesday night timed to return at `00:05 – 00:30 UTC` Wednesday (banks 30–50% of Day 3 points; top off with `Lord Gear`).",
                 },
                 {
-                  vi: "**Tuyệt kỹ Ngày 5 (Thứ Sáu) — Lính Bậc Thang (`Staircase`):** Luyện sẵn lính T(N-1), `Pre-cooking` đêm Thứ Năm và bấm `Promote` lên T(N) lúc `21:00–01:00` Thứ Sáu kèm xả `Pets & Behemoth` (nhân `2.5–3x` điểm)!",
-                  en: "**Day 5 (Friday) — `Staircase` Troop Promotion:** Pre-train T(N-1) troops all week, `Pre-cooking` a batch Thursday night, and tap `Promote` to T(N) during `21:00–01:00` Friday with `Pets & Behemoth` (`2.5–3x` pts)!",
+                  vi: "**Tuyệt kỹ Ngày 5 (Thứ Sáu) — Lính Bậc Thang (`Staircase`):** Luyện sẵn lính T(N-1), `Pre-cooking` đêm T5 và `Promote` lên T(N) lúc `14:00–18:00 UTC` (`21:00–01:00 Giờ VN`) Thứ Sáu kèm xả `Pets & Behemoth` (`2.5–3x`đ)!",
+                  en: "**Day 5 (Friday) — `Staircase` Troop Promotion:** Pre-train T(N-1) troops all week, `Pre-cooking` a batch Thursday night, and tap `Promote` to T(N) during `14:00–18:00 UTC` Friday with `Pets & Behemoth` (`2.5–3x` pts)!",
                 },
                 {
                   vi: "**Tuyệt kỹ Ngày 6 (Thứ Bảy) & Điểm KvK:** Cướp Xe Hàng (`40,000`đ/chuyến) và đánh `Pháo Đài` (`×3` điểm diệt lính, công thắng `+50,000`đ, thua `+10,000`đ), hoặc bật Khiên 24h xả `Glory Medals, Decor Tokens & Pets`.",
@@ -811,8 +811,8 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
               },
               headers: [
                 {
-                  vi: "Khung Giờ Hệ Thống (4 Tiếng/Ca)",
-                  en: "System Shift Window (4 Hours/Shift)",
+                  vi: "Khung Giờ Hệ Thống (4 Tiếng/Ca — UTC & Giờ VN)",
+                  en: "System Shift Window (4 Hours/Shift — UTC)",
                 },
                 {
                   vi: "Thứ Hai (Day 1) & Thứ Bảy (Day 6)",
@@ -838,8 +838,8 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
               rows: [
                 [
                   {
-                    vi: "09:00 – 13:00",
-                    en: "09:00 – 13:00",
+                    vi: "02:00 – 06:00 UTC (09:00 – 13:00 VN)",
+                    en: "02:00 – 06:00 UTC",
                   },
                   {
                     vi: "[★] Bồi Dưỡng Anh Hùng",
@@ -864,8 +864,8 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "13:00 – 17:00",
-                    en: "13:00 – 17:00",
+                    vi: "06:00 – 10:00 UTC (13:00 – 17:00 VN)",
+                    en: "06:00 – 10:00 UTC",
                   },
                   {
                     vi: "[★ XÂY LÃNH THỔ (Giờ Vàng Thứ Hai)]",
@@ -890,8 +890,8 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "17:00 – 21:00",
-                    en: "17:00 – 21:00",
+                    vi: "10:00 – 14:00 UTC (17:00 – 21:00 VN)",
+                    en: "10:00 – 14:00 UTC",
                   },
                   {
                     vi: "[★ MỞ RỘNG QUÂN ĐỘI (Giờ Vàng Thứ Bảy)]",
@@ -916,8 +916,8 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "21:00 – 01:00",
-                    en: "21:00 – 01:00",
+                    vi: "14:00 – 18:00 UTC (21:00 – 01:00 VN)",
+                    en: "14:00 – 18:00 UTC",
                   },
                   {
                     vi: "Nghiên Cứu Công Nghệ",
@@ -942,8 +942,8 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "01:00 – 05:00",
-                    en: "01:00 – 05:00",
+                    vi: "18:00 – 22:00 UTC (01:00 – 05:00 VN)",
+                    en: "18:00 – 22:00 UTC",
                   },
                   {
                     vi: "Loại Trừ Mối Nguy",
@@ -968,8 +968,8 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "05:00 – 09:00",
-                    en: "05:00 – 09:00",
+                    vi: "22:00 – 02:00 UTC (05:00 – 09:00 VN)",
+                    en: "22:00 – 02:00 UTC",
                   },
                   {
                     vi: "Bồi Dưỡng Anh Hùng",
@@ -1106,27 +1106,27 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
             {
               stepNumber: "01",
               title: {
-                vi: "Thứ Năm (Ngày 4 — Khung Giờ Vàng 17:00 – 21:00): Cú Nổ Triple-Dip Anh Hùng",
-                en: "Thursday (Day 4 — 17:00 – 21:00 Golden Window): Triple-Dip Hero Burst",
+                vi: "Thứ Năm (Ngày 4 — Khung Giờ Vàng 10:00 – 14:00 UTC / 17:00 – 21:00 Giờ VN): Cú Nổ Triple-Dip Anh Hùng",
+                en: "Thursday (Day 4 — 10:00 – 14:00 UTC Golden Window): Triple-Dip Hero Burst",
               },
               detail: {
-                vi: "**Xả đồng loạt lúc 17:05:** Quay `250 Thẻ Chiêu Mộ`, tiêu `300 Mảnh Vàng` đẩy `Witch` và `Storm Maiden` lên Sao Trắng tiếp theo, dùng `4 Hồn Đá Đỏ` mở Bậc 3 Thức Tỉnh cho `Soulmancer`, và đập `4,500 Sách Kỹ Năng`.\n• **Hiệu quả:** Mở 100% rương cá nhân `KvK Stage 4`, lấy `Top 2` Bảng Xếp Hạng Sự Kiện Giờ (`17:00–21:00`) và hoàn thành mốc cuối của `Guild Rush: Hero Development`!",
-                en: "**Simultaneous burst at 17:05:** Execute `250 Recruit pulls`, spend `300 Universal Shards` on `Witch` and `Storm Maiden`, use `4 Red Soul Stones` for `Soulmancer` Awakening Tier 3, and spend `4,500 Skill Books`.\n• **Result:** Unlocks 100% of `KvK Stage 4` personal chests, claims `Top 2` on the `17:00–21:00` Hourly Leaderboard, and clears the final `Guild Rush: Hero Development` milestone!",
+                vi: "**Xả lúc 10:05 UTC (17:05 Giờ VN):** Quay `250 Thẻ Chiêu Mộ`, tiêu `300 Mảnh Vàng` nâng `Witch` & `Storm Maiden` lên Sao Trắng mới, dùng `4 Hồn Đá Đỏ` mở Bậc 3 Thức Tỉnh `Soulmancer` và đập `4,500 Sách Kỹ Năng`.\n• **Hiệu quả:** Mở 100% rương cá nhân `KvK Stage 4`, lấy `Top 2` Bảng Xếp Hạng Sự Kiện Giờ (`10:00–14:00 UTC` / `17:00–21:00 Giờ VN`) và hoàn thành mốc cuối của `Guild Rush: Hero Development`!",
+                en: "**Simultaneous burst at 10:05 UTC:** Execute `250 Recruit pulls`, spend `300 Universal Shards` on `Witch` and `Storm Maiden`, use `4 Red Soul Stones` for `Soulmancer` Awakening Tier 3, and spend `4,500 Skill Books`.\n• **Result:** Unlocks 100% of `KvK Stage 4` personal chests, claims `Top 2` on the `10:00–14:00 UTC` Hourly Leaderboard, and clears the final `Guild Rush: Hero Development` milestone!",
               },
               impactBadge: {
-                vi: "Top 2 Ca Giờ 17:00–21:00",
-                en: "Top 2 Hourly (17:00–21:00)",
+                vi: "Top 2 Ca Giờ 10:00–14:00 UTC (17:00–21:00 VN)",
+                en: "Top 2 Hourly (10:00–14:00 UTC)",
               },
             },
             {
               stepNumber: "02",
               title: {
-                vi: "Thứ Sáu (Ngày 5 — Khung Giờ Vàng 21:00 – 01:00): Thăng Cấp Bậc Thang 35,000 Lính T7 ➔ T8",
-                en: "Friday (Day 5 — 21:00 – 01:00 Golden Window): Staircase Promoting 35,000 T7 ➔ T8 Troops",
+                vi: "Thứ Sáu (Ngày 5 — Khung Giờ Vàng 14:00 – 18:00 UTC / 21:00 – 01:00 Giờ VN): Thăng Cấp Bậc Thang 35,000 Lính T7 ➔ T8",
+                en: "Friday (Day 5 — 14:00 – 18:00 UTC Golden Window): Staircase Promoting 35,000 T7 ➔ T8 Troops",
               },
               detail: {
-                vi: "**Kích hoạt Buff & Promote lúc 21:10:** Bật nội tại Tướng Tím `Knight (+30% tốc độ luyện lính)` và xin danh hiệu Vương quốc tăng tốc huấn luyện.\n• **Thăng cấp Bậc Thang:** Bấm `Promote` toàn bộ `35,000` Lính `T7 ➔ T8`, kết hợp xả `180 giờ` Tăng tốc Luyện lính và `45,000 Thức ăn Pet` cho `Hổ Chiến (Fierce Tiger)`.",
-                en: "**Buffs & Promote at 21:10:** Activate Epic hero `Knight (+30% troop training speed)` and request the Kingdom training speed title.\n• **Staircase execution:** Tap `Promote` on all `35,000` pre-trained `T7 ➔ T8` troops while spending `180 hours` of Troop Training Speedups and `45,000 Pet Food` on `Fierce Tiger`.",
+                vi: "**Kích hoạt Buff & Promote lúc 14:10 UTC (21:10 Giờ VN):** Bật nội tại Tướng Tím `Knight (+30% tốc độ luyện lính)` và xin danh hiệu Vương quốc tăng tốc huấn luyện.\n• **Thăng cấp Bậc Thang:** Bấm `Promote` toàn bộ `35,000` Lính `T7 ➔ T8`, kết hợp xả `180 giờ` Tăng tốc Luyện lính và `45,000 Thức ăn Pet` cho `Hổ Chiến (Fierce Tiger)`.",
+                en: "**Buffs & Promote at 14:10 UTC:** Activate Epic hero `Knight (+30% troop training speed)` and request the Kingdom training speed title.\n• **Staircase execution:** Tap `Promote` on all `35,000` pre-trained `T7 ➔ T8` troops while spending `180 hours` of Troop Training Speedups and `45,000 Pet Food` on `Fierce Tiger`.",
               },
               impactBadge: {
                 vi: "2.8x Điểm / Giờ Tăng Tốc",

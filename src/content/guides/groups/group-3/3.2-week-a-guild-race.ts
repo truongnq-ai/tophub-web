@@ -86,8 +86,8 @@ export const ARTICLE_3_2_WEEK_A_GUILD_RACE: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "**Thi Đấu Hội (Guild Race)** kéo dài trọn `7 ngày` (từ `09:00` sáng Thứ Hai tuần này đến `09:00` sáng Thứ Hai tuần kế tiếp).\n• **Hai chế độ vận hành:** Tùy độ tuổi máy chủ, sự kiện chạy theo 2 giai đoạn nhưng luôn giữ nguyên quy tắc tính điểm:",
-            en: "**Guild Race** is a full `7-day` guild event running from Monday `09:00 AM` to the following Monday `09:00 AM` server time.\n• **Two operating phases:** Depending on server age, it runs in two phases under one immutable scoring rule:",
+            vi: "**Thi Đấu Hội (Guild Race)** kéo dài trọn `7 ngày` (từ `02:00 UTC` / `09:00` sáng Thứ Hai Giờ VN tuần này đến `02:00 UTC` / `09:00` sáng Thứ Hai tuần kế tiếp).\n• **Hai chế độ vận hành:** Tùy độ tuổi máy chủ, sự kiện chạy theo 2 giai đoạn nhưng luôn giữ nguyên quy tắc tính điểm:",
+            en: "**Guild Race** is a full `7-day` guild event running from Monday `02:00 UTC` to the following Monday `02:00 UTC` server time.\n• **Two operating phases:** Depending on server age, it runs in two phases under one immutable scoring rule:",
           },
         },
         {
@@ -528,11 +528,11 @@ export const ARTICLE_3_2_WEEK_A_GUILD_RACE: GuideArticle = {
                     en: "Sync with Guild Race's Fixed 2-Day Guild Rush (Lock Lord Gear Until Day 5)",
                   },
                   detail: {
-                    vi: "**Thứ Hai–Thứ Ba (Thú Cưng):** Chỉ nâng cầm chừng lấy mốc cơ bản, giữ `Pet Food` & `Pet Essence` cho Ngày 5–6 Kỳ GAR/KvK.\n• **Thứ Tư–Thứ Năm (Thánh Tích):** Găm `Wish Relic`, `Relic Shards`, `Arcane Crystals`, `Magic Stones` sang Ngày 1–2 Kỳ GAR/KvK.\n• **Thứ Sáu–Thứ Bảy (Quân Trang & Đồ Chúa Tể):** Khóa chặt Kho `Lord Gear` từ Thứ Hai đến Thứ Năm, chờ đúng `00:00 UTC` Thứ Sáu (Ngày 5) mới xoay 2 ô Độc quyền săn nhiệm vụ Vàng `Lord Gear (+300 ➔ +450 điểm)`!",
+                    vi: "**Thứ Hai–Thứ Ba (Thú Cưng):** Chỉ nâng cầm chừng lấy mốc cơ bản, giữ `Pet Food` & `Pet Essence` cho Ngày 5–6 Kỳ GAR/KvK.\n• **Thứ Tư–Thứ Năm (Thánh Tích):** Găm `Wish Relic`, `Relic Shards`, `Arcane Crystals`, `Magic Stones` sang Ngày 1–2 Kỳ GAR/KvK.\n• **Thứ Sáu–Thứ Bảy (Quân Trang & Đồ Chúa Tể):** Khóa Kho `Lord Gear` từ T2–T5, chờ đúng `00:00 UTC` (`07:00 Giờ VN`) Thứ Sáu (Ngày 5) mới xoay 2 ô Độc quyền săn nhiệm vụ Vàng `Lord Gear (+300 ➔ +450 điểm)`!",
                     en: "**Mon–Tue (Pets Development):** Tap lightly for base milestones, saving `Pet Food` & `Pet Essence` for GAR/KvK Days 5–6.\n• **Wed–Thu (Relic Hall & Relics):** Save `Wish Relic`, `Relic Shards`, `Arcane Crystals`, and `Magic Stones` for GAR/KvK Days 1–2.\n• **Fri–Sat (Troop Skin & Lord Gear):** Lock all `Lord Gear` materials from Mon–Thu and wait until `00:00 UTC` Friday (Day 5) to roll Exclusive Gold `Lord Gear tasks (+300 ➔ +450 pts)`!",
                   },
                   badge: {
-                    vi: "Thứ Sáu 00:00 UTC",
+                    vi: "Thứ Sáu 00:00 UTC (07:00 VN)",
                     en: "Friday 00:00 UTC",
                   },
                 },

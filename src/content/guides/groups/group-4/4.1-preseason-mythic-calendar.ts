@@ -20,8 +20,8 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
       en: "**Mythic Hero release dates are strictly programmed by Server Age in days.**\n• **Diamond Reserve Discipline:** Knowing exact drop dates lets F2P/Low-Spender players save `30,000 – 50,000` Diamonds to unlock core Mythics on Day 1.",
     },
     immediateAction: {
-      vi: "**Kiểm tra tuổi Server qua Thành tựu Đăng nhập hoặc Event ➔ Lịch Event (cột `09:00` Thứ Hai).**\n• **Khóa Kho 20 Ngày Đầu:** Đóng băng `100%` Kim Cương và Mảnh Vạn Năng để đón sóng Bộ Lạc từ `Ngày 21` (Desert Prince) ➔ `Ngày 27` (Storm Maiden).",
-      en: "**Check your Server Age via Login Achievements or the Weekly Event Schedule (Monday `09:00` column).**\n• **20-Day Resource Lock:** Freeze `100%` of Diamonds and Universal Shards to greet the Horde wave on `Day 21` (Desert Prince) ➔ `Day 27` (Storm Maiden).",
+      vi: "**Kiểm tra tuổi Server qua Thành tựu Đăng nhập hoặc Event ➔ Lịch Event (cột `02:00 UTC / 09:00 Giờ VN` Thứ Hai).**\n• **Khóa Kho 20 Ngày Đầu:** Đóng băng `100%` Kim Cương và Mảnh Vạn Năng để đón sóng Bộ Lạc từ `Ngày 21` (Desert Prince) ➔ `Ngày 27` (Storm Maiden).",
+      en: "**Check your Server Age via Login Achievements or the Weekly Event Schedule (Monday `02:00 UTC` column).**\n• **20-Day Resource Lock:** Freeze `100%` of Diamonds and Universal Shards to greet the Horde wave on `Day 21` (Desert Prince) ➔ `Day 27` (Storm Maiden).",
     },
     strictTaboo: {
       vi: "**Tuyệt đối KHÔNG xả Kim Cương vào Vòng Quay (Lucky Wheel) hoặc Xúc Xắc (Treasure Dice) trái Hệ Đội 1.**\n• **Kỷ Luật Lượt Quay & Xu Lẻ:** Chỉ quay lượt miễn phí ở banner trái hệ và KHÔNG tiêu Xu lẻ vì Xu Wheel/Dice được bảo lưu xuyên kỳ (`150–300` Xu).",
@@ -175,8 +175,8 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
                   en: "**Login Achievements (Consecutive Login Days):** If you created your character on Day 1 of server launch, the `Consecutive Login Days` counter in Achievements equals the exact Server Age.",
                 },
                 {
-                  vi: "**Chu kỳ Sự kiện Tuần (cột `09:00` Thứ Hai):** Tuần 1–2 (`Ngày 1–14`) chạy Strongest Lord; Tuần 3 (`Ngày 15–21`) mở Thi Đấu Hội & đón Desert Prince (`Ngày 21`); Tuần 4+ luân phiên Thi Đấu Hội ⇄ GAR / KvK.",
-                  en: "**Weekly Event Schedule (Monday `09:00` column):** Weeks 1–2 (`Days 1–14`) run Strongest Lord; Week 3 (`Days 15–21`) opens Guild Race & drops Desert Prince (`Day 21`); Week 4+ alternates Guild Race ⇄ GAR / KvK.",
+                  vi: "**Chu kỳ Sự kiện Tuần (`02:00 UTC / 09:00 Giờ VN` Thứ Hai):** Tuần 1–2 (`Ngày 1–14`) chạy Strongest Lord; Tuần 3 (`Ngày 15–21`) mở Thi Đấu Hội & đón Desert Prince (`Ngày 21`); Tuần 4+ luân phiên Thi Đấu Hội ⇄ GAR / KvK.",
+                  en: "**Weekly Event Schedule (Monday `02:00 UTC` column):** Weeks 1–2 (`Days 1–14`) run Strongest Lord; Week 3 (`Days 15–21`) opens Guild Race & drops Desert Prince (`Day 21`); Week 4+ alternates Guild Race ⇄ GAR / KvK.",
                 },
                 {
                   vi: "**Nhà Tượng Đài (Kingdom Chronicle):** Từng chương nhiệm vụ toàn máy chủ hiển thị bộ đếm ngược chính xác đến ngày mở Di Tích (`Ruins Lv.1–5`) và Chiến tranh Ngai Vàng (`First Throne War` ở Tuần 5 — `Ngày 35`).",
@@ -500,23 +500,23 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
                 en: "Weekly S0 Diamond & Star-Up Discipline Checklist",
               },
               description: {
-                vi: "Đánh dấu từng bước mỗi đầu tuần (09:00 Thứ Hai) và cuối tuần khi mở khóa Tướng Đỏ mới để không thất thoát mảnh và điểm sự kiện:",
-                en: "Check off each step every Monday at 09:00 and on weekends after unlocking a new Mythic hero to prevent shard and event point leakage:",
+                vi: "Đánh dấu từng bước mỗi đầu tuần (02:00 UTC / 09:00 Giờ VN Thứ Hai) và cuối tuần khi mở khóa Tướng Đỏ mới để không thất thoát mảnh và điểm sự kiện:",
+                en: "Check off each step every Monday at 02:00 UTC and on weekends after unlocking a new Mythic hero to prevent shard and event point leakage:",
               },
               items: [
                 {
                   id: "check-monday-calendar",
                   label: {
-                    vi: "Kiểm tra Event ➔ Lịch Event (cột 09:00 Thứ Hai) đầu mỗi tuần",
-                    en: "Check Event ➔ Weekly Event Schedule (Monday 09:00 column) every week",
+                    vi: "Kiểm tra Event ➔ Lịch Event (cột 02:00 UTC / 09:00 Giờ VN Thứ Hai) đầu mỗi tuần",
+                    en: "Check Event ➔ Weekly Event Schedule (Monday 02:00 UTC column) every week",
                   },
                   detail: {
                     vi: "Xác định chính xác tuần tới là Thi Đấu Hội (Guild Race) chạy nối sóng (kèm Khiêu Chiến Của Đội Quân Hắc Ám & Tập Kích Cự Ma) hay chuyển sang Guild Arms Race (GAR) / Kingdom Duel (KvK).",
                     en: "Verify whether the upcoming week runs back-to-back Guild Race (with Dark Empire Challenge & Troll Raid) or rotates to Guild Arms Race (GAR) / Kingdom Duel (KvK).",
                   },
                   badge: {
-                    vi: "09:00 Thứ Hai",
-                    en: "Monday 09:00",
+                    vi: "02:00 UTC / 09:00 VN Thứ Hai",
+                    en: "Monday 02:00 UTC",
                   },
                 },
                 {
@@ -984,8 +984,8 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
                     },
                   ],
                   outcome: {
-                    vi: "Mở khóa tướng chủ lực đúng tiến độ và kiểm tra Lịch Event (09:00 Thứ Hai) để nâng Sao.",
-                    en: "Unlocks core Mythic on schedule and aligns star-ups with Monday 09:00 Weekly Event Schedule.",
+                    vi: "Mở khóa tướng chủ lực đúng tiến độ và kiểm tra Lịch Event (02:00 UTC / 09:00 Giờ VN Thứ Hai) để nâng Sao.",
+                    en: "Unlocks core Mythic on schedule and aligns star-ups with Monday 02:00 UTC Weekly Event Schedule.",
                   },
                 },
                 {
@@ -1165,12 +1165,12 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
             {
               stepNumber: "Bước 3",
               title: {
-                vi: "Tuần 4 (Kiểm Tra Lịch Event 09:00 Thứ Hai): Đẩy Desert Prince Lên 1 Sao Đỏ (160 Mảnh Mythic)",
-                en: "Week 4 (Check Monday 09:00 Schedule): Push Desert Prince to 1-Red Star (160 Mythic Shards)",
+                vi: "Tuần 4 (Kiểm Tra Lịch Event 02:00 UTC / 09:00 Giờ VN Thứ Hai): Đẩy Desert Prince Lên 1 Sao Đỏ (160 Mảnh Mythic)",
+                en: "Week 4 (Check Monday 02:00 UTC Schedule): Push Desert Prince to 1-Red Star (160 Mythic Shards)",
               },
               detail: {
-                vi: "**Đẩy Desert Prince lên mốc sàn thực chiến `1★ Đỏ` (`160` mảnh Mythic / `80` mảnh Legendary):**\n• **Lộ trình Sao:** Làm bàn đạp tiến tới `5★ Đỏ` (`400` mảnh Mythic) và `1★ Trắng/Bạc` (`560` mảnh Mythic).\n• **Đồng bộ sự kiện:** Canh Nhiệm vụ Vàng / `Hero Development Rush` (nếu là Thi Đấu Hội) hoặc chờ Thứ Năm `GAR Day 4` (`17:00–21:00`).",
-                en: "**Push Desert Prince to the usable floor of `1★ Red` (`160` Mythic shards / `80` Legendary shards):**\n• **Star Roadmap:** Sets up future pushes to `5★ Red` (`400` Mythic shards) and `1★ White/Silver` (`560` Mythic shards).\n• **Event Sync:** Align with a Gold Task / `Hero Development Rush` (if Guild Race) or wait for Thursday `GAR Day 4` (`17:00–21:00`).",
+                vi: "**Đẩy Desert Prince lên mốc sàn thực chiến `1★ Đỏ` (`160` mảnh Mythic / `80` mảnh Legendary):**\n• **Lộ trình Sao:** Làm bàn đạp tiến tới `5★ Đỏ` (`400` mảnh Mythic) và `1★ Trắng/Bạc` (`560` mảnh Mythic).\n• **Đồng bộ sự kiện:** Canh Nhiệm vụ Vàng / `Hero Development Rush` (nếu là Thi Đấu Hội) hoặc chờ Thứ Năm `GAR Day 4` (`10:00–14:00 UTC / 17:00–21:00 Giờ VN`).",
+                en: "**Push Desert Prince to the usable floor of `1★ Red` (`160` Mythic shards / `80` Legendary shards):**\n• **Star Roadmap:** Sets up future pushes to `5★ Red` (`400` Mythic shards) and `1★ White/Silver` (`560` Mythic shards).\n• **Event Sync:** Align with a Gold Task / `Hero Development Rush` (if Guild Race) or wait for Thursday `GAR Day 4` (`10:00–14:00 UTC`).",
               },
               impactBadge: {
                 vi: "1 Sao Đỏ (160 Mảnh)",

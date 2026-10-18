@@ -47,7 +47,7 @@ describe("GuideCommentsSection Unified Component", () => {
             id: "cmt-root-1",
             page_key: "guides:heroes/encyclopedia",
             author_nickname: "DragonSlayer",
-            author_server_id: "1024",
+            author_server_id: "S1024",
             is_admin_author: false,
             is_pro_author: true,
             parent_id: null,
@@ -94,7 +94,7 @@ describe("GuideCommentsSection Unified Component", () => {
     mockActiveAccount = {
       uid: "2446869146316",
       nickname: "CyberViking",
-      server_id: "1028",
+      server_id: "S1028",
       active_plan: "PRO",
     };
 
@@ -104,7 +104,7 @@ describe("GuideCommentsSection Unified Component", () => {
         id: "cmt-pending-new",
         page_key: "guides:heroes/encyclopedia",
         author_nickname: "CyberViking",
-        author_server_id: "1028",
+        author_server_id: "S1028",
         is_admin_author: false,
         is_pro_author: true,
         parent_id: null,
@@ -132,7 +132,9 @@ describe("GuideCommentsSection Unified Component", () => {
 
     await screen.findByText("DragonSlayer");
     expect(screen.getByText("CyberViking")).toBeTruthy();
-    expect(screen.getByText("Server #1028")).toBeTruthy();
+    expect(screen.getByText("Server S1028")).toBeTruthy();
+    expect(screen.getByText("S1024")).toBeTruthy();
+    expect(screen.queryByText("SS1024")).toBeNull();
     // Strictly never render the raw UID anywhere in the DOM!
     expect(container.textContent).not.toContain("2446869146316");
 
@@ -160,13 +162,13 @@ describe("GuideCommentsSection Unified Component", () => {
         id: "cmt-reply-1",
         page_key: "guides:heroes/encyclopedia",
         author_nickname: "CyberViking",
-        author_server_id: "1028",
+        author_server_id: "S1028",
         is_admin_author: false,
         is_pro_author: true,
         parent_id: "cmt-root-1",
         reply_to_comment_id: "cmt-root-1",
         reply_to_nickname: "DragonSlayer",
-        reply_to_server_id: "1024",
+        reply_to_server_id: "S1024",
         intent_tag: "DISCUSSION",
         content: "Chuẩn luôn bác ơi!",
         status: "APPROVED",
@@ -188,6 +190,7 @@ describe("GuideCommentsSection Unified Component", () => {
     await waitFor(() => {
       expect(screen.getByText("Chuẩn luôn bác ơi!")).toBeTruthy();
       expect(screen.getByText(/@DragonSlayer \(S1024\)/)).toBeTruthy();
+      expect(screen.queryByText(/SS1024/)).toBeNull();
     });
   });
 });

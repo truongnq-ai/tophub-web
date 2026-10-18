@@ -1396,8 +1396,8 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
                 en: "Sitting at 24.8% (at risk of being cleared on non-event days)",
               },
               after: {
-                vi: "Đóng băng chiến thuật ở 24.8% vào ngày thường; chỉ bấm node 10–20 phút vào Thứ Ba Kỳ GAR/KvK (17:00–21:00) & Guild Race",
-                en: "Tactically frozen at 24.8% on normal days; 10–20m nodes tapped only during GAR/KvK Tuesday (17:00–21:00) & Guild Race",
+                vi: "Đóng băng chiến thuật ở 24.8% vào ngày thường; chỉ bấm node 10–20 phút vào Thứ Ba Kỳ GAR/KvK (10:00–14:00 UTC / 17:00–21:00 Giờ VN) & Guild Race",
+                en: "Tactically frozen at 24.8% on normal days; 10–20m nodes tapped only during GAR/KvK Tuesday (10:00–14:00 UTC) & Guild Race",
               },
               delta: {
                 vi: "Hoàn thành 100% Nhiệm vụ Vàng nghiên cứu với < 1h tăng tốc",
@@ -1439,12 +1439,12 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
             {
               stepNumber: "3",
               title: {
-                vi: "Kỷ Luật Đóng Băng Chiến Thuật Nhánh Kinh Tế (24.8%) Cho Khung Giờ Vàng 17:00 – 21:00 Thứ Ba Kỳ GAR/KvK",
-                en: "Tactical Freeze on Economy (24.8%) Reserved for GAR/KvK Tuesday 17:00 – 21:00 & Guild Race",
+                vi: "Kỷ Luật Đóng Băng Chiến Thuật Nhánh Kinh Tế (24.8%) Cho Khung Giờ Vàng 10:00 – 14:00 UTC (17:00 – 21:00 Giờ VN) Thứ Ba Kỳ GAR/KvK",
+                en: "Tactical Freeze on Economy (24.8%) Reserved for GAR/KvK Tuesday 10:00 – 14:00 UTC & Guild Race",
               },
               detail: {
-                vi: "**Khóa Chặt Ngưỡng 24.8%**: Giữ nguyên nhánh Kinh Tế (`Economy`) ở đúng mức `24.8%` vào ngày thường.\n• **Xả Đúng Giờ Vàng**: Bảo toàn các node `10–20 phút` dành riêng cho khung giờ `17:00 – 21:00` Thứ Ba Kỳ GAR/KvK (`Arms Race Day 2`) và Nhiệm vụ Vàng đếm số lần nghiên cứu của `Guild Race` (Thi Đấu Hội)!",
-                en: "**Lock the 24.8% Threshold**: Freeze the `Economy` branch strictly at `24.8%` on non-event days.\n• **Golden Window Execution**: Preserve all `10–20m` nodes exclusively for `17:00 – 21:00` on GAR/KvK Tuesday (`Arms Race Day 2`) and frequency-based Golden Tasks in `Guild Race`!",
+                vi: "**Khóa Chặt Ngưỡng 24.8%**: Giữ nguyên nhánh Kinh Tế (`Economy`) ở đúng mức `24.8%` vào ngày thường.\n• **Xả Đúng Giờ Vàng**: Bảo toàn các node `10–20 phút` cho khung `10:00 – 14:00 UTC (17:00 – 21:00 Giờ VN)` Thứ Ba Kỳ GAR/KvK (`Arms Race Day 2`) và Nhiệm vụ Vàng đếm số lần nghiên cứu của `Guild Race`!",
+                en: "**Lock the 24.8% Threshold**: Freeze the `Economy` branch strictly at `24.8%` on non-event days.\n• **Golden Window Execution**: Preserve all `10–20m` nodes exclusively for `10:00 – 14:00 UTC` on GAR/KvK Tuesday (`Arms Race Day 2`) and frequency-based Golden Tasks in `Guild Race`!",
               },
               impactBadge: {
                 vi: "Bảo Toàn Kho Mồi 24.8%",

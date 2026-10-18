@@ -263,6 +263,44 @@ describe("Phase 3 — Interactive Widgets & GuideArticleRenderer Integration", (
         /300%|Đá Linh Hồn|Mảnh Tướng/i
       );
     });
+
+    it("renders the SSR-safe UTC & Local Timezone converter bar and follows Decision 2A (UTC + VN in vi, clean UTC in en)", () => {
+      const { unmount } = render(
+        <BiweeklyCalendarWidget
+          article={ARTICLE_3_1_BIWEEKLY_ROTATION}
+          locale="vi"
+        />
+      );
+
+      const tzBarVi = screen.getByTestId("calendar-timezone-bar");
+      expect(tzBarVi.textContent).toContain("00:00 UTC");
+      expect(tzBarVi.textContent).toContain("02:00 UTC");
+
+      // Switch to Guild Race Mode and select Day 7 (Sunday) -> should show 02:00 UTC Thứ Hai (09:00 sáng Giờ VN)
+      fireEvent.click(screen.getByTestId("calendar-phase-weekA"));
+      fireEvent.click(screen.getByTestId("calendar-day-pill-7"));
+      const dayPanelVi = screen.getByTestId("calendar-active-day-panel");
+      expect(dayPanelVi.textContent).toContain("02:00 UTC");
+      expect(dayPanelVi.textContent).toMatch(/09:00.*VN/);
+
+      unmount();
+
+      render(
+        <BiweeklyCalendarWidget
+          article={ARTICLE_3_1_BIWEEKLY_ROTATION}
+          locale="en"
+        />
+      );
+      const tzBarEn = screen.getByTestId("calendar-timezone-bar");
+      expect(tzBarEn.textContent).toContain("00:00 UTC");
+      expect(tzBarEn.textContent).toContain("02:00 UTC");
+
+      fireEvent.click(screen.getByTestId("calendar-phase-weekA"));
+      fireEvent.click(screen.getByTestId("calendar-day-pill-7"));
+      const dayPanelEn = screen.getByTestId("calendar-active-day-panel");
+      expect(dayPanelEn.textContent).toContain("Monday 02:00 UTC");
+      expect(dayPanelEn.textContent).not.toMatch(/09:00|VN/);
+    });
   });
 
   describe("Suite 3: MasterDataExplorerWidget (12 SSoT Tables Explorer)", () => {

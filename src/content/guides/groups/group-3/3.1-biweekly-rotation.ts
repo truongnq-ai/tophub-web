@@ -11,17 +11,17 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
     en: "Server Event Progression Roadmap & Core Event Rotation",
   },
   summary: {
-    vi: "Giải mã lộ trình sự kiện theo tiến độ Server của Top Heroes: Từ chuỗi Thi Đấu Hội liên tiếp ở Server mới đến 2 Trục Sự Kiện Cốt Lõi — Kỳ Thi Đấu Hội (Bảng Nhiệm Vụ 9 Ô) ⇄ Kỳ Đua Vũ Trang (6 Ngày Chủ Đề GAR / KvK), lịch Gacha xoay tua 3 tuần/lần độc lập và quy tắc kiểm tra Lịch Event 09:00 Thứ Hai.",
-    en: "Decode Top Heroes' server-progression event roadmap: From continuous Guild Race on new servers to the 2 Core Event Archetypes — Guild Race Week (9-Slot Task Board) ⇄ Arms Race Week (6-Stage GAR / KvK), independent 3-week Gacha rotation, and the Monday 09:00 Event Calendar check.",
+    vi: "Giải mã lộ trình sự kiện theo tiến độ Server của Top Heroes: Từ chuỗi Thi Đấu Hội liên tiếp ở Server mới đến 2 Trục Sự Kiện Cốt Lõi — Kỳ Thi Đấu Hội (Bảng Nhiệm Vụ 9 Ô) ⇄ Kỳ Đua Vũ Trang (6 Ngày Chủ Đề GAR / KvK), lịch Gacha xoay tua 3 tuần/lần độc lập và quy tắc kiểm tra Lịch Event 02:00 UTC (09:00 Giờ VN) Thứ Hai.",
+    en: "Decode Top Heroes' server-progression event roadmap: From continuous Guild Race on new servers to the 2 Core Event Archetypes — Guild Race Week (9-Slot Task Board) ⇄ Arms Race Week (6-Stage GAR / KvK), independent 3-week Gacha rotation, and the Monday 02:00 UTC Event Calendar check.",
   },
   tldr: {
     coreRule: {
-      vi: "**Lộ trình sự kiện Top Heroes mở khóa động theo tiến độ tuổi máy chủ (`09:00` Thứ Hai làm chuẩn):**\n• **Pha 1 (Đầu Pre-Season, Bang Hạng `D ➔ C ➔ B`):** **Thi Đấu Hội (Guild Race)** chạy nối tiếp hàng tuần (`09:00` Thứ Hai ➔ `09:00` Thứ Hai).\n• **Sự kiện vệ tinh Pha 1:** Xoay vòng giữa **Đế Quốc Hắc Ám Xâm Nhập** ⇄ **Khiêu Chiến Của Đội Quân Hắc Ám** và **Bắt Bướm** ⇄ **Tập Kích Cự Ma**.\n• **Pha 2 (Liên Bang / Liên Server):** Xoay tua giữa 2 trục sự kiện cốt lõi: **Tuần Thi Đấu Hội (Guild Race)** ⇄ **Tuần Đua Vũ Trang (GAR / KvK)**.",
-      en: "**Top Heroes' event schedule unlocks dynamically by server progression (`09:00` Monday reset):**\n• **Phase 1 (Early Pre-Season, Guild Rank `D ➔ C ➔ B`):** **Guild Race** runs back-to-back weekly (`09:00` Monday ➔ `09:00` Monday).\n• **Phase 1 Satellites:** Alternates between **Dark Empire Invasion** ⇄ **Dark Legion Challenge** and **Butterfly Catching** ⇄ **Giant/Troll Raid**.\n• **Phase 2 (Inter-Guild / Cross-Server):** Alternates between the 2 core event archetypes: **Guild Race Week** ⇄ **Arms Race Week (GAR / KvK)**.",
+      vi: "**Lộ trình sự kiện Top Heroes mở khóa động theo tiến độ tuổi máy chủ (`02:00 UTC` / `09:00 Giờ VN` Thứ Hai làm chuẩn):**\n• **Pha 1 (Đầu Pre-Season, Bang Hạng `D ➔ C ➔ B`):** **Thi Đấu Hội (Guild Race)** chạy nối tiếp hàng tuần (`02:00 UTC` Thứ Hai ➔ `02:00 UTC` Thứ Hai, tức `09:00 Giờ VN`).\n• **Sự kiện vệ tinh Pha 1:** Xoay vòng giữa **Đế Quốc Hắc Ám Xâm Nhập** ⇄ **Khiêu Chiến Của Đội Quân Hắc Ám** và **Bắt Bướm** ⇄ **Tập Kích Cự Ma**.\n• **Pha 2 (Liên Bang / Liên Server):** Xoay tua giữa 2 trục sự kiện cốt lõi: **Tuần Thi Đấu Hội (Guild Race)** ⇄ **Tuần Đua Vũ Trang (GAR / KvK)**.",
+      en: "**Top Heroes' event schedule unlocks dynamically by server progression (`02:00 UTC` Monday reset):**\n• **Phase 1 (Early Pre-Season, Guild Rank `D ➔ C ➔ B`):** **Guild Race** runs back-to-back weekly (`02:00 UTC` Monday ➔ `02:00 UTC` Monday).\n• **Phase 1 Satellites:** Alternates between **Dark Empire Invasion** ⇄ **Dark Legion Challenge** and **Butterfly Catching** ⇄ **Giant/Troll Raid**.\n• **Phase 2 (Inter-Guild / Cross-Server):** Alternates between the 2 core event archetypes: **Guild Race Week** ⇄ **Arms Race Week (GAR / KvK)**.",
     },
     immediateAction: {
-      vi: "**Kiểm tra Lịch Event mỗi Chủ Nhật / sáng Thứ Hai (`09:00`) trước khi xả bất kỳ tài nguyên nào:**\n• **Thao tác 5 giây:** Mở **Event ➔ Lịch Event** và bấm trực tiếp vào thanh sự kiện bắt đầu ở cột Thứ Hai (`09:00`).\n• **Xác định Chế độ Tuần:** Nhận diện tuần tới là **Kỳ Thi Đấu Hội** (Guild Race — Bảng `9 Ô`) hay **Kỳ Đua Vũ Trang** (GAR / KvK — `6 Ngày Chủ Đề`).",
-      en: "**Inspect the Event Calendar every Sunday / Monday morning (`09:00`) before spending a single item:**\n• **5-Second Check:** Open **Event ➔ Event Calendar** and tap directly on the event bars starting in the Monday (`09:00`) column.\n• **Verify Weekly Mode:** Confirm whether your server enters **Guild Race Mode** (`9-Slot Board`) or **Arms Race Mode** (GAR / KvK — `6 Daily Stages`).",
+      vi: "**Kiểm tra Lịch Event mỗi Chủ Nhật / sáng Thứ Hai (`02:00 UTC` / `09:00 Giờ VN`) trước khi xả bất kỳ tài nguyên nào:**\n• **Thao tác 5 giây:** Mở **Event ➔ Lịch Event** và bấm trực tiếp vào thanh sự kiện bắt đầu ở cột Thứ Hai (`02:00 UTC` / `09:00 Giờ VN`).\n• **Xác định Chế độ Tuần:** Nhận diện tuần tới là **Kỳ Thi Đấu Hội** (Guild Race — Bảng `9 Ô`) hay **Kỳ Đua Vũ Trang** (GAR / KvK — `6 Ngày Chủ Đề`).",
+      en: "**Inspect the Event Calendar every Sunday / Monday (`02:00 UTC`) before spending a single item:**\n• **5-Second Check:** Open **Event ➔ Event Calendar** and tap directly on the event bars starting in the Monday (`02:00 UTC`) column.\n• **Verify Weekly Mode:** Confirm whether your server enters **Guild Race Mode** (`9-Slot Board`) or **Arms Race Mode** (GAR / KvK — `6 Daily Stages`).",
     },
     strictTaboo: {
       vi: "**Cấm xả ngẫu hứng ngoài sự kiện và cấm đóng băng máy móc ở giai đoạn đầu Pre-Season:**\n• **Cấm xả tự do:** Không đập Mảnh Tướng Vàng, Thẻ Chiêu Mộ, Sách Kỹ Năng hay **Lord Gear** ngoài Nhiệm vụ Vàng hoặc ngày chủ đề.\n• **Không nhịn trắng máy móc ở Pha 1:** Khi Thi Đấu Hội chạy nối tiếp hàng tuần, hãy xả Tăng tốc và **Lord Gear** (Ngày `5–7`) khớp Nhiệm vụ Vàng để lấy trọn Rương mốc.",
@@ -30,8 +30,8 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
   },
   keyTakeaways: [
     {
-      vi: "**Tiến hóa Lịch Máy Chủ 2 Pha:** Pha 1 đầu Pre-Season chạy **Thi Đấu Hội (Guild Race)** nối sóng mỗi tuần (`09:00` Thứ Hai ➔ `09:00` Thứ Hai).\n• **Vệ tinh & Pha 2:** Xoay vòng **Đế Quốc Hắc Ám** ⇄ **Khiêu Chiến Của Đội Quân Hắc Ám**, **Bắt Bướm** ⇄ **Tập Kích Cự Ma** trước khi mở khóa trục **GAR / KvK**.",
-      en: "**2-Phase Server Schedule Evolution:** Phase 1 early Pre-Season runs **Guild Race** consecutively every week (`09:00` Monday ➔ `09:00` Monday).\n• **Satellites & Phase 2:** Rotates **Dark Empire Invasion** ⇄ **Dark Legion Challenge** and **Butterfly Catching** ⇄ **Giant/Troll Raid** before unlocking the **GAR / KvK** axis.",
+      vi: "**Tiến hóa Lịch Máy Chủ 2 Pha:** Pha 1 đầu Pre-Season chạy **Thi Đấu Hội (Guild Race)** nối sóng mỗi tuần (`02:00 UTC` Thứ Hai ➔ `02:00 UTC` Thứ Hai, tức `09:00 Giờ VN`).\n• **Vệ tinh & Pha 2:** Xoay vòng **Đế Quốc Hắc Ám** ⇄ **Khiêu Chiến Của Đội Quân Hắc Ám**, **Bắt Bướm** ⇄ **Tập Kích Cự Ma** trước khi mở khóa trục **GAR / KvK**.",
+      en: "**2-Phase Server Schedule Evolution:** Phase 1 early Pre-Season runs **Guild Race** consecutively every week (`02:00 UTC` Monday ➔ `02:00 UTC` Monday).\n• **Satellites & Phase 2:** Rotates **Dark Empire Invasion** ⇄ **Dark Legion Challenge** and **Butterfly Catching** ⇄ **Giant/Troll Raid** before unlocking the **GAR / KvK** axis.",
     },
     {
       vi: "**Hai Tầng Giá Trị Tài Nguyên:** Mỗi vật phẩm mang **Tầng 1 (Lực chiến nội tại)** + **Tầng 2 (Thặng dư sự kiện)**.\n• **Đòn bẩy F2P & Low-Spender (`$0.99–$9.99`):** Đọc Lịch Event sáng Thứ Hai giúp thu về lượng Kim Cương, Mảnh Vàng và Điểm Vinh Dự gấp `2.5x–3x` so với xả tự do.",
@@ -106,8 +106,8 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
                 en: "Guild Race (9-Slot Board + 2 Exclusive Slots)",
               },
               detail: {
-                vi: "Chạy nối tiếp hàng tuần ở đầu Pre-Season (09:00 Thứ Hai ➔ 09:00 Thứ Hai) hoặc ở Kỳ Thi Đấu Hội. Phải bấm 'Nhận (Accept)' nhiệm vụ Vàng trước khi hành động để kiếm Điểm Vinh Dự Bang đổi Hồn Đá Đỏ.",
-                en: "Runs consecutively every week in early Pre-Season (Monday 09:00 ➔ Monday 09:00) or during Guild Race Week. You must tap 'Accept' on Golden Tasks before acting to farm Guild Honor for Red Soul Stones.",
+                vi: "Chạy nối tiếp hàng tuần ở đầu Pre-Season (02:00 UTC Thứ Hai ➔ 02:00 UTC Thứ Hai, tức 09:00 Giờ VN) hoặc ở Kỳ Thi Đấu Hội. Phải bấm 'Nhận (Accept)' nhiệm vụ Vàng trước khi hành động để kiếm Điểm Vinh Dự Bang đổi Hồn Đá Đỏ.",
+                en: "Runs consecutively every week in early Pre-Season (Monday 02:00 UTC ➔ Monday 02:00 UTC) or during Guild Race Week. You must tap 'Accept' on Golden Tasks before acting to farm Guild Honor for Red Soul Stones.",
               },
             },
             {
@@ -174,8 +174,8 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
               ordered: true,
               items: [
                 {
-                  vi: "**Trục Chính Cố Định (Mục Thường):** **Thi Đấu Hội (Guild Race — `9 Ô` + `2 Ô Độc Quyền`)** chạy liên tiếp mỗi tuần (`09:00` Thứ Hai ➔ `09:00` Thứ Hai) giúp Bang leo `Hạng D ➔ S` và thu Mảnh Vàng, Điểm Vinh Dự.",
-                  en: "**Weekly Fixed Backbone (Regular Tab):** **Guild Race (`9-Slot Board` + `2 Exclusive Slots`)** runs weekly (`09:00` Mon ➔ `09:00` Mon) so Guilds climb `Rank D ➔ S` and farm Universal Shards & Guild Honor.",
+                  vi: "**Trục Chính Cố Định (Mục Thường):** **Thi Đấu Hội (Guild Race — `9 Ô` + `2 Ô Độc Quyền`)** chạy mỗi tuần (`02:00 UTC` / `09:00 Giờ VN` Thứ Hai) giúp Bang leo `Hạng D ➔ S` và thu Mảnh Vàng, Điểm Vinh Dự.",
+                  en: "**Weekly Fixed Backbone (Regular Tab):** **Guild Race (`9-Slot Board` + `2 Exclusive Slots`)** runs weekly (`02:00 UTC` Mon ➔ `02:00 UTC` Mon) so Guilds climb `Rank D ➔ S` and farm Universal Shards & Guild Honor.",
                 },
                 {
                   vi: "**Luân Phiên Vệ Tinh Tuần 1 ⇄ Tuần 2:** Xoay vòng **Đế Quốc Hắc Ám Xâm Nhập** ⇄ **Khiêu Chiến Của Đội Quân Hắc Ám** và **Bắt Bướm** ⇄ **Tập Kích Cự Ma** cùng lịch Tướng Đỏ (`Ngày 21–41`).",
@@ -208,8 +208,8 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
               ordered: true,
               items: [
                 {
-                  vi: "**Kỳ Thi Đấu Hội (Guild Race — Bảng 9 Ô):** Chạy `09:00` Thứ Hai ➔ `09:00` Thứ Hai; chủ động bấm `Accept` nhiệm vụ (ưu tiên `2 Ô Độc quyền`) để lấy Rương mốc cá nhân và Điểm Vinh Dự mua Hồn Đá Đỏ.",
-                  en: "**Guild Race Mode (9-Slot Task Board):** Runs `09:00` Mon ➔ `09:00` Mon; tap `Accept` on board tasks (prioritizing `2 Exclusive slots`) before acting to claim Personal Chests and Guild Honor for Soul Stones.",
+                  vi: "**Kỳ Thi Đấu Hội (Guild Race — Bảng 9 Ô):** Mở `02:00 UTC` (`09:00 Giờ VN`) Thứ Hai; chủ động bấm `Accept` nhiệm vụ (ưu tiên `2 Ô Độc quyền`) để lấy Rương mốc cá nhân và Điểm Vinh Dự mua Hồn Đá Đỏ.",
+                  en: "**Guild Race Mode (9-Slot Task Board):** Runs `02:00 UTC` Mon ➔ `02:00 UTC` Mon; tap `Accept` on board tasks (prioritizing `2 Exclusive slots`) before acting to claim Personal Chests and Guild Honor for Soul Stones.",
                 },
                 {
                   vi: "**Kỳ Đua Vũ Trang (GAR / KvK — 6 Ngày):** Luân phiên **GAR** (Liên Bang) và **KvK / 4 Nations** (Liên Server) theo `6 Ngày Chủ Đề` cố định (T2 Xây, T3 Nghiên cứu, T4 Thể lực/Mỏ, T5 Tướng, T6 Lính, T7 Diệt Địch).",
@@ -257,12 +257,12 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
                     en: "How to Check on Event Calendar",
                   },
                   {
-                    vi: "Bấm vào thanh sự kiện cột Thứ Hai (09:00) thấy Thi Đấu Hội (đi kèm Đế Quốc Hắc Ám / Khiêu Chiến Của Đội Quân Hắc Ám & Bắt Bướm / Tập Kích Cự Ma).",
-                    en: "Tap the Monday (09:00) event bar to see Guild Race (paired with Dark Empire Invasion / Dark Legion Challenge & Butterfly Catching / Giant Raid).",
+                    vi: "Bấm vào thanh sự kiện cột Thứ Hai (02:00 UTC / 09:00 Giờ VN) thấy Thi Đấu Hội (đi kèm Đế Quốc Hắc Ám / Khiêu Chiến Của Đội Quân Hắc Ám & Bắt Bướm / Tập Kích Cự Ma).",
+                    en: "Tap the Monday (02:00 UTC) event bar to see Guild Race (paired with Dark Empire Invasion / Dark Legion Challenge & Butterfly Catching / Giant Raid).",
                   },
                   {
-                    vi: "Bấm vào thanh sự kiện cột Thứ Hai (09:00) thấy Đua Vũ Trang Bang Hội (GAR) hoặc Chiến Tranh Vương Quốc (KvK).",
-                    en: "Tap the Monday (09:00) event bar to see Guild Arms Race (GAR) or Kingdom Duel (KvK).",
+                    vi: "Bấm vào thanh sự kiện cột Thứ Hai (02:00 UTC / 09:00 Giờ VN) thấy Đua Vũ Trang Bang Hội (GAR) hoặc Chiến Tranh Vương Quốc (KvK).",
+                    en: "Tap the Monday (02:00 UTC) event bar to see Guild Arms Race (GAR) or Kingdom Duel (KvK).",
                   },
                 ],
                 [
@@ -358,30 +358,30 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
           mediaCode: "MED-3.1-02",
           tier: "tier2_annotated_ui",
           title: {
-            vi: "Giao Diện Lịch Sự Kiện (Event Calendar) Khoanh Đỏ Cột Thứ Hai 09:00 & Đếm Ngược Sự Kiện Phụ",
-            en: "Annotated In-Game Event Calendar UI: Monday 09:00 Column & 3-Day Sub-Event Countdown",
+            vi: "Giao Diện Lịch Sự Kiện (Event Calendar) Khoanh Đỏ Cột Thứ Hai 02:00 UTC (09:00 Giờ VN) & Đếm Ngược Sự Kiện Phụ",
+            en: "Annotated In-Game Event Calendar UI: Monday 02:00 UTC Column & 3-Day Sub-Event Countdown",
           },
           description: {
-            vi: "Ảnh chụp giao diện Lịch Sự Kiện (Event ➔ Lịch Event) in-game có khoanh vùng đỏ cách phân biệt Kỳ Thi Đấu Hội và Kỳ Đua Vũ Trang (GAR / KvK) tại cột Thứ Hai (09:00) cùng thời gian đếm ngược của Sự kiện Phụ 2–3 Ngày.",
-            en: "Annotated in-game Event Calendar (Event ➔ Event Calendar) screenshot highlighting how to distinguish Guild Race Mode from Arms Race Mode (GAR / KvK) at the Monday (09:00) column alongside the 2–3 day Sub-Event countdown.",
+            vi: "Ảnh chụp giao diện Lịch Sự Kiện (Event ➔ Lịch Event) in-game có khoanh vùng đỏ cách phân biệt Kỳ Thi Đấu Hội và Kỳ Đua Vũ Trang (GAR / KvK) tại cột Thứ Hai (02:00 UTC / 09:00 Giờ VN) cùng thời gian đếm ngược của Sự kiện Phụ 2–3 Ngày.",
+            en: "Annotated in-game Event Calendar (Event ➔ Event Calendar) screenshot highlighting how to distinguish Guild Race Mode from Arms Race Mode (GAR / KvK) at the Monday (02:00 UTC) column alongside the 2–3 day Sub-Event countdown.",
           },
           imageSrc: "/images/guides/events/event-calendar-annotated.webp",
           annotations: [
             {
               kind: "do",
               label: {
-                vi: "Bấm Trực Tiếp Vào Thanh Sự Kiện Cột Thứ Hai (09:00)",
-                en: "Tap Directly on the Monday (09:00) Column Event Bars",
+                vi: "Bấm Trực Tiếp Vào Thanh Sự Kiện Cột Thứ Hai (02:00 UTC / 09:00 Giờ VN)",
+                en: "Tap Directly on the Monday (02:00 UTC) Column Event Bars",
               },
               detail: {
                 vi: "Xác định ngay từ Chủ Nhật/sáng Thứ Hai xem tuần tới là Thi Đấu Hội nối sóng (kèm Đế Quốc Hắc Ám / Khiêu Chiến Của Đội Quân Hắc Ám & Bắt Bướm / Tập Kích Cự Ma) hay chuyển sang Đua Vũ Trang GAR / KvK 6 ngày.",
-                en: "Verify every Sunday/Monday morning whether the upcoming week continues with Guild Race (plus Dark Empire / Dark Legion & Butterfly Catching / Giant Raid) or switches to 6-day GAR / KvK.",
+                en: "Verify every Sunday/Monday whether the upcoming week continues with Guild Race (plus Dark Empire / Dark Legion & Butterfly Catching / Giant Raid) or switches to 6-day GAR / KvK.",
               },
             },
             {
               kind: "info",
               label: {
-                vi: "Theo Dõi Đồng Hồ Đếm Ngược Guild Rush 2 Ngày (00:00 UTC)",
+                vi: "Theo Dõi Đồng Hồ Đếm Ngược Guild Rush 2 Ngày (00:00 UTC / 07:00 Giờ VN)",
                 en: "Track the 2-Day Auxiliary Guild Rush Timer (00:00 UTC Reset)",
               },
               detail: {
@@ -407,8 +407,8 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
         {
           id: "sub-2-1-monday-dispatch-roadmap",
           title: {
-            vi: "2.1. Quy Tắc Điều Phối Theo Lịch Event In-Game (09:00 Thứ Hai Hàng Tuần)",
-            en: "2.1. In-Game Event Calendar Dispatch Roadmap (Every Monday at 09:00)",
+            vi: "2.1. Quy Tắc Điều Phối Theo Lịch Event In-Game (02:00 UTC / 09:00 Giờ VN Thứ Hai Hàng Tuần)",
+            en: "2.1. In-Game Event Calendar Dispatch Roadmap (Every Monday at 02:00 UTC)",
           },
           badge: {
             vi: "Lộ Trình Điều Phối",
@@ -464,8 +464,8 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
                     en: "GAR / KvK Mon ➔ Wed (Days 1–3): Construction, Research/Runes & Stamina/Gathering",
                   },
                   timing: {
-                    vi: "Thứ Hai (Day 1 Xây dựng 13:00–17:00) • Thứ Ba (Day 2 Nghiên cứu 17:00–21:00) • Thứ Tư (Day 3 Thể lực/Mỏ)",
-                    en: "Monday (Day 1 Build 13:00–17:00) • Tuesday (Day 2 Research 17:00–21:00) • Wednesday (Day 3 Stamina/Mines)",
+                    vi: "Thứ Hai (Day 1 Xây dựng 06:00–10:00 UTC / 13:00–17:00 VN) • Thứ Ba (Day 2 Nghiên cứu 10:00–14:00 UTC / 17:00–21:00 VN) • Thứ Tư (Day 3 Thể lực/Mỏ)",
+                    en: "Monday (Day 1 Build 06:00–10:00 UTC) • Tuesday (Day 2 Research 10:00–14:00 UTC) • Wednesday (Day 3 Stamina/Mines)",
                   },
                   description: {
                     vi: "**Đồng bộ 3 ngày đầu Kỳ GAR / KvK (Ngày `1–3`):**\n• **Thứ Hai (Day 1):** Khui hộp nhà + Tăng tốc Xây dựng, Đá Rồng + phụ: **Thánh Tích (Relics)** & **Behemoth**.\n• **Thứ Ba (Day 2):** Tăng tốc Nghiên cứu + **Cổ Ngữ (Runes)** + phụ: Thánh Tích & Behemoth.\n• **Thứ Tư (Day 3):** Thể lực + Bounty + Thu hoạch Mỏ + phụ: **Đồ Chúa Tể (Lord Gear)** (& Behemoth nếu là KvK).",
@@ -550,22 +550,22 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
                 {
                   id: "monday-0900-calendar-check",
                   label: {
-                    vi: "Chủ Nhật / Sáng Thứ Hai (09:00 Giờ Lịch Game): Kiểm tra cột Thứ Hai trên Lịch Event",
-                    en: "Sunday / Monday Morning (09:00 Game Calendar Time): Inspect the Monday column on Event Calendar",
+                    vi: "Chủ Nhật / Sáng Thứ Hai (02:00 UTC / 09:00 Giờ VN): Kiểm tra cột Thứ Hai trên Lịch Event",
+                    en: "Sunday / Monday (02:00 UTC): Inspect the Monday column on Event Calendar",
                   },
                   detail: {
                     vi: "Mở Event ➔ Lịch Event và bấm trực tiếp vào các thanh màu ở cột Thứ Hai tiếp theo để xem tuần tới là Thi Đấu Hội nối sóng (kèm Khiêu Chiến Của Đội Quân Hắc Ám / Tập Kích Cự Ma) hay chuyển sang GAR / KvK 6 ngày.",
                     en: "Open Event ➔ Event Calendar and tap the colored bars in the upcoming Monday column to verify whether next week is a consecutive Guild Race (with Dark Legion / Giant Raid) or switches to 6-day GAR / KvK.",
                   },
                   badge: {
-                    vi: "09:00 Thứ Hai",
-                    en: "Monday 09:00",
+                    vi: "02:00 UTC (09:00 VN) Thứ Hai",
+                    en: "Monday 02:00 UTC",
                   },
                 },
                 {
                   id: "utc-0000-guild-rush-check",
                   label: {
-                    vi: "00:00 UTC (Giờ Reset Ngày): Kiểm tra chủ đề Sự kiện Phụ Guild Rush 2 Ngày",
+                    vi: "00:00 UTC (07:00 Giờ VN — Giờ Reset Ngày): Kiểm tra chủ đề Sự kiện Phụ Guild Rush 2 Ngày",
                     en: "00:00 UTC (Daily Reset): Check the active 2-Day Auxiliary Guild Rush theme",
                   },
                   detail: {
@@ -573,7 +573,7 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
                     en: "Check the event panel at daily reset to see which 2-Day Guild Rush theme is active (Mon–Tue, Wed–Thu, or Fri–Sat) for Double-Dip stacking.",
                   },
                   badge: {
-                    vi: "00:00 UTC Reset",
+                    vi: "00:00 UTC (07:00 VN) Reset",
                     en: "00:00 UTC Reset",
                   },
                 },
@@ -584,8 +584,8 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
                     en: "Before upgrading Buildings / Tech: Verify active Golden Task or Daily Theme",
                   },
                   detail: {
-                    vi: "Kiểm tra xem đang ở tuần Thi Đấu Hội (đã bấm nhận Nhiệm vụ Vàng trên bảng chưa?) hay tuần GAR / KvK (có đúng Thứ Hai Xây dựng 13:00–17:00 / Thứ Ba Nghiên cứu 17:00–21:00 không?).",
-                    en: "Verify whether you are in a Guild Race week (have you accepted a matching Golden Task on the board?) or a GAR / KvK week (is it Monday Construction 13:00–17:00 or Tuesday Research 17:00–21:00?).",
+                    vi: "Kiểm tra tuần Thi Đấu Hội (đã nhận Nhiệm vụ Vàng trên bảng chưa?) hay tuần GAR / KvK (đúng Thứ Hai Xây dựng 06:00–10:00 UTC / 13:00–17:00 Giờ VN hoặc Thứ Ba Nghiên cứu 10:00–14:00 UTC / 17:00–21:00 Giờ VN chưa?).",
+                    en: "Verify whether you are in a Guild Race week (have you accepted a matching Golden Task on the board?) or a GAR / KvK week (is it Monday Construction 06:00–10:00 UTC or Tuesday Research 10:00–14:00 UTC?).",
                   },
                   badge: {
                     vi: "Kiểm Soát Tăng Tốc",
@@ -658,8 +658,8 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
                 en: "Blindly applying the 'Alternating weeks have no Guild Race' theory on a brand-new server and freezing all progress, or conversely impulse-dumping everything without checking the Event Calendar.",
               },
               {
-                vi: "Luôn lấy bảng Lịch Event trong game làm chuẩn! Ở các tuần đầu Pre-Season, Thi Đấu Hội chạy nối tiếp mỗi tuần (09:00 Thứ Hai ➔ 09:00 Thứ Hai). Hãy xả Tăng tốc/Đồ Chúa tể khớp với Nhiệm vụ Vàng để lấy trọn Rương mốc cá nhân hàng tuần, chỉ găm kho lớn khi thấy lịch tuần sau báo mở GAR / KvK.",
-                en: "Always treat the in-game Event Calendar as your single source of truth! During early Pre-Season weeks, Guild Race runs consecutively every week (Monday 09:00 ➔ Monday 09:00). Spend Speedups and Lord Gear matched with Golden Tasks to claim full weekly personal milestone chests, and only deep-hoard when next week's calendar shows GAR / KvK.",
+                vi: "Luôn lấy bảng Lịch Event trong game làm chuẩn! Ở các tuần đầu Pre-Season, Thi Đấu Hội chạy nối tiếp mỗi tuần (02:00 UTC Thứ Hai ➔ 02:00 UTC Thứ Hai, tức 09:00 Giờ VN). Hãy xả Tăng tốc/Đồ Chúa tể khớp với Nhiệm vụ Vàng để lấy trọn Rương mốc cá nhân hàng tuần, chỉ găm kho lớn khi thấy lịch tuần sau báo mở GAR / KvK.",
+                en: "Always treat the in-game Event Calendar as your single source of truth! During early Pre-Season weeks, Guild Race runs consecutively every week (Monday 02:00 UTC ➔ Monday 02:00 UTC). Spend Speedups and Lord Gear matched with Golden Tasks to claim full weekly personal milestone chests, and only deep-hoard when next week's calendar shows GAR / KvK.",
               },
             ],
             [
@@ -698,8 +698,8 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
                 en: "Burning Construction or Research Speedups in GAR / KvK Week without checking the 4-hour Hourly Arms Race clock.",
               },
               {
-                vi: "Canh đúng khung giờ giao thoa 4 tiếng! Trong Kỳ GAR / KvK, chỉ xả Tăng tốc Xây dựng vào khung 13:00–17:00 Thứ Hai và Tăng tốc Nghiên cứu vào khung 17:00–21:00 Thứ Ba (theo giờ sự kiện chuẩn) để ăn trọn cả 2 bảng thưởng.",
-                en: "Time your burst inside the 4-hour Golden Window! During GAR / KvK Week, spend Construction Speedups strictly during the 13:00–17:00 Monday window and Research Speedups during the 17:00–21:00 Tuesday window (standard event time) to double-dip both reward tracks.",
+                vi: "Canh đúng khung giờ giao thoa 4 tiếng! Trong Kỳ GAR / KvK, chỉ xả Tăng tốc Xây dựng vào khung 06:00–10:00 UTC (13:00–17:00 Giờ VN) Thứ Hai và Tăng tốc Nghiên cứu vào khung 10:00–14:00 UTC (17:00–21:00 Giờ VN) Thứ Ba để ăn trọn cả 2 bảng thưởng.",
+                en: "Time your burst inside the 4-hour Golden Window! During GAR / KvK Week, spend Construction Speedups strictly during the 06:00–10:00 UTC Monday window and Research Speedups during the 10:00–14:00 UTC Tuesday window to double-dip both reward tracks.",
               },
             ],
           ],
@@ -931,8 +931,8 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
                         en: "Days 1–2 (Mon & Tue)",
                       },
                       title: {
-                        vi: "Xây Dựng (13:00–17:00) & Nghiên Cứu/Rune (17:00–21:00)",
-                        en: "Construction (13:00–17:00) & Research/Runes (17:00–21:00)",
+                        vi: "Xây Dựng (06:00–10:00 UTC / 13:00–17:00 VN) & Nghiên Cứu/Rune (10:00–14:00 UTC / 17:00–21:00 VN)",
+                        en: "Construction (06:00–10:00 UTC) & Research/Runes (10:00–14:00 UTC)",
                       },
                       subtitle: {
                         vi: "Cộng điểm phụ Thánh Tích (Relics) & Behemoth cả 2 ngày; trùng khớp 100% với Guild Rush T2–T3: Xây dựng & Nghiên cứu.",
@@ -977,8 +977,8 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
                 },
               ],
               footnote: {
-                vi: "Quy tắc Vàng: Luôn đối chiếu lịch mở sự kiện thực tế trên bảng Event ➔ Lịch Event lúc 09:00 sáng Thứ Hai để khớp pha chính xác.",
-                en: "Golden Rule: Always cross-check the live in-game schedule via Event ➔ Event Calendar at 09:00 Monday to lock in exact phase synchronization.",
+                vi: "Quy tắc Vàng: Luôn đối chiếu lịch mở sự kiện thực tế trên bảng Event ➔ Lịch Event lúc 02:00 UTC (09:00 sáng Giờ VN) Thứ Hai để khớp pha chính xác.",
+                en: "Golden Rule: Always cross-check the live in-game schedule via Event ➔ Event Calendar at 02:00 UTC Monday to lock in exact phase synchronization.",
               },
             },
           ],
@@ -1123,8 +1123,8 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
                     en: "Pair 100% with Golden Speedup Tasks on the Guild Race task board.",
                   },
                   {
-                    vi: "Kẹp vào khung giờ vàng 4 tiếng của Ngày 1 (Thứ Hai 13:00–17:00), Ngày 2 (Thứ Ba 17:00–21:00 — trùng Guild Rush Xây dựng & Nghiên cứu) hoặc Ngày 5 (Thứ Sáu).",
-                    en: "Stack inside the 4-hour Golden Window on Day 1 (Mon 13:00–17:00), Day 2 (Tue 17:00–21:00 — matching Building & Research Guild Rush), or Day 5 (Fri).",
+                    vi: "Kẹp vào khung giờ vàng 4 tiếng của Ngày 1 (Thứ Hai 06:00–10:00 UTC / 13:00–17:00 Giờ VN), Ngày 2 (Thứ Ba 10:00–14:00 UTC / 17:00–21:00 Giờ VN — trùng Guild Rush Xây dựng & Nghiên cứu) hoặc Ngày 5 (Thứ Sáu).",
+                    en: "Stack inside the 4-hour Golden Window on Day 1 (Mon 06:00–10:00 UTC), Day 2 (Tue 10:00–14:00 UTC — matching Building & Research Guild Rush), or Day 5 (Fri).",
                   },
                   {
                     vi: "Giữ lại tối thiểu 30–50 giờ Tăng tốc dự phòng cho chu kỳ kế tiếp.",
@@ -1363,12 +1363,12 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
             {
               stepNumber: "02",
               title: {
-                vi: "Thiết lập 'Điểm Nổ Thứ Năm' trong khung 17:00 – 21:00 Thứ Năm Kỳ GAR (GAR Day 4)",
-                en: "Execute the 'Thursday Burst Window' at 17:00 – 21:00 on GAR Thursday (GAR Day 4)",
+                vi: "Thiết lập 'Điểm Nổ Thứ Năm' trong khung 10:00 – 14:00 UTC (17:00 – 21:00 Giờ VN) Thứ Năm Kỳ GAR (GAR Day 4)",
+                en: "Execute the 'Thursday Burst Window' at 10:00 – 14:00 UTC on GAR Thursday (GAR Day 4)",
               },
               detail: {
-                vi: "**Dồn toàn lực cho khung `17:00 – 21:00` Thứ Năm Kỳ GAR:** Xả toàn bộ `220+ Vé Chiêu Mộ` và `180+ Mảnh Tướng` tích lũy xuyên kỳ.\n• **Bùng nổ Triple-Dip:** Ăn trọn giao thoa giữa **GAR Day 4**, **Hourly Hero Development** và **Guild Rush: Phát triển Tướng**.",
-                en: "**Concentrate everything into the `17:00 – 21:00` GAR Thursday window:** Unleash all `220+ Recruit Tokens` and `180+ Hero Shards` hoarded across the cycle.\n• **Triple-Dip Burst:** Simultaneously clear **GAR Day 4**, **Hourly Hero Development**, and **Hero Development Guild Rush**.",
+                vi: "**Dồn toàn lực cho khung `10:00 – 14:00 UTC` (`17:00 – 21:00 Giờ VN`) Thứ Năm Kỳ GAR:** Xả toàn bộ `220+ Vé Chiêu Mộ` và `180+ Mảnh Tướng` tích lũy xuyên kỳ.\n• **Bùng nổ Triple-Dip:** Ăn trọn giao thoa giữa **GAR Day 4**, **Hourly Hero Development** và **Guild Rush: Phát triển Tướng**.",
+                en: "**Concentrate everything into the `10:00 – 14:00 UTC` GAR Thursday window:** Unleash all `220+ Recruit Tokens` and `180+ Hero Shards` hoarded across the cycle.\n• **Triple-Dip Burst:** Simultaneously clear **GAR Day 4**, **Hourly Hero Development**, and **Hero Development Guild Rush**.",
               },
               impactBadge: {
                 vi: "Mở 6/6 Rương GAR • +3,200 KC & +15 Mảnh",

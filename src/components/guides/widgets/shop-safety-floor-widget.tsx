@@ -70,8 +70,8 @@ const SHOP_SAFETY_FLOORS: Record<
       en: "Weekly Safety Floor: 1,900–2,000 Arena Stars",
     },
     floorDetail: {
-      vi: "Khóa cứng 1,900–2,000 Arena Stars trước 07:00 sáng Thứ Hai để vét ngay gói 300 KC (50 Sao, ROI 600%), Vé Chiêu Mộ (50 Sao, ROI 300%), gói 300 KC định mức (300 Sao) và 5 Mảnh Tướng Vàng Hệ Chính (1,500 Sao: Soulmancer, Warlock, Pyromancer, Adjudicator, Pixie).",
-      en: "Lock 1,900–2,000 Arena Stars before Monday 07:00 to immediately sweep the 300-Diamond Super Pack (50 Stars, 600% ROI), Recruitment Token (50 Stars, 300% ROI), standard 300-Diamond pack (300 Stars), and 5x Main-Faction Legendary Shards (1,500 Stars: Soulmancer, Warlock, Pyromancer, Adjudicator, Pixie).",
+      vi: "Khóa cứng 1,900–2,000 Arena Stars trước 00:00 UTC Thứ Hai (07:00 sáng Giờ VN) để vét ngay gói 300 KC (50 Sao, ROI 600%), Vé Chiêu Mộ (50 Sao, ROI 300%), gói 300 KC định mức (300 Sao) và 5 Mảnh Tướng Vàng Hệ Chính (1,500 Sao: Soulmancer, Warlock, Pyromancer, Adjudicator, Pixie).",
+      en: "Lock 1,900–2,000 Arena Stars before Monday 00:00 UTC to immediately sweep the 300-Diamond Super Pack (50 Stars, 600% ROI), Recruitment Token (50 Stars, 300% ROI), standard 300-Diamond pack (300 Stars), and 5x Main-Faction Legendary Shards (1,500 Stars: Soulmancer, Warlock, Pyromancer, Adjudicator, Pixie).",
     },
     surplusRule: {
       vi: "Chỉ dùng phần thặng dư vượt trên 2,000 Sao để mua Rương Trang Trí Tím Tự Chọn (2,500 Sao) khi thiếu đúng 1 mảnh kích Set.",

@@ -1,15 +1,18 @@
 "use client";
 
 import React, { useState } from "react";
+import { useLocale } from "next-intl";
 import { Check, Copy, Sparkles, Clock } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { formatLocalizedDate } from "@/lib/timezone";
 import { cn } from "@/lib/utils";
 import type { GiftCodeItem } from "@/types/api";
 
 interface GiftcodeCardProps {
   item: GiftCodeItem;
+  locale?: string;
   labels?: {
     active?: string;
     expired?: string;
@@ -20,8 +23,18 @@ interface GiftcodeCardProps {
   };
 }
 
-export function GiftcodeCard({ item, labels }: GiftcodeCardProps) {
+function useSafeLocale(explicitLocale?: string): string {
+  try {
+    const intlLocale = useLocale();
+    return explicitLocale || intlLocale || "vi";
+  } catch {
+    return explicitLocale || "vi";
+  }
+}
+
+export function GiftcodeCard({ item, locale, labels }: GiftcodeCardProps) {
   const [copied, setCopied] = useState(false);
+  const activeLocale = useSafeLocale(locale);
 
   const handleCopy = async () => {
     try {
@@ -34,14 +47,14 @@ export function GiftcodeCard({ item, labels }: GiftcodeCardProps) {
   };
 
   const isActive = item.status === "ACTIVE" || item.status === "VALID";
-  const formattedDate = new Date(item.discovered_at).toLocaleDateString("vi-VN", {
+  const formattedDate = formatLocalizedDate(item.discovered_at, activeLocale, {
     year: "numeric",
     month: "2-digit",
     day: "2-digit",
   });
   const expiryDate =
     item.valid_to || item.expires_at
-      ? new Date(item.valid_to || item.expires_at!).toLocaleDateString("vi-VN", {
+      ? formatLocalizedDate(item.valid_to || item.expires_at!, activeLocale, {
           year: "numeric",
           month: "2-digit",
           day: "2-digit",

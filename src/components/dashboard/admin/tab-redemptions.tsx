@@ -32,6 +32,8 @@ import { AccountAvatar } from "./account-avatar";
 import { ServerTag } from "./server-tag";
 import { AdminPagination } from "./pagination";
 import { AdminEmptyState } from "./empty-state";
+import { formatServerCode } from "@/lib/utils";
+import { formatLocalizedDate, formatLocalizedTimeWithTz } from "@/lib/timezone";
 
 export function TabRedemptions() {
   const { toast } = useToast();
@@ -233,12 +235,14 @@ export function TabRedemptions() {
   };
 
   const filteredRedemptions = useMemo(() => {
+    const q = search.toLowerCase();
     return redemptions.filter((r) => {
       const matchesSearch =
-        r.uid.toLowerCase().includes(search.toLowerCase()) ||
-        r.nickname.toLowerCase().includes(search.toLowerCase()) ||
-        r.gift_code.toLowerCase().includes(search.toLowerCase()) ||
-        r.server_id.toLowerCase().includes(search.toLowerCase());
+        r.uid.toLowerCase().includes(q) ||
+        r.nickname.toLowerCase().includes(q) ||
+        r.gift_code.toLowerCase().includes(q) ||
+        r.server_id.toLowerCase().includes(q) ||
+        formatServerCode(r.server_id).toLowerCase().includes(q);
 
       const matchesStatus =
         filterStatus === "ALL" || r.status === filterStatus;
@@ -510,12 +514,8 @@ export function TabRedemptions() {
                       </td>
 
                       <td className="px-4 py-3.5 font-mono text-xs text-muted-foreground">
-                        {new Date(item.created_at).toLocaleTimeString("vi-VN", {
-                          hour: "2-digit",
-                          minute: "2-digit",
-                          second: "2-digit",
-                        })}{" "}
-                        {new Date(item.created_at).toLocaleDateString("vi-VN")}
+                        {formatLocalizedTimeWithTz(item.created_at, "vi")}{" "}
+                        {formatLocalizedDate(item.created_at, "vi")}
                       </td>
 
                       <td className="px-4 py-3.5 text-right">

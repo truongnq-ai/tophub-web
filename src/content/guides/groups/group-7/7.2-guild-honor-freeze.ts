@@ -385,15 +385,15 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
                 en: "Weekly Guild Honor & Soul Stone Execution Checklist",
               },
               description: {
-                vi: "Kiểm tra đủ 4 nguyên tắc dưới đây vào mỗi sáng Thứ Hai trước khi tiêu bất kỳ Điểm Vinh Dự hay Xu Vinh Quang Hội nào:",
-                en: "Verify all 4 discipline rules below every Monday morning before spending any Guild Honor Points or Guild Coins:",
+                vi: "Kiểm tra đủ 4 nguyên tắc dưới đây vào mỗi đầu tuần mới (sau 00:00 UTC / 07:00 sáng Giờ VN Thứ Hai) trước khi tiêu bất kỳ Điểm Vinh Dự hay Xu Vinh Quang Hội nào:",
+                en: "Verify all 4 discipline rules below every Monday (after the 00:00 UTC reset) before spending any Guild Honor Points or Guild Coins:",
               },
               items: [
                 {
                   id: "chk-7-2-monday-reserve-floor",
                   label: {
-                    vi: "Kiểm tra số dư trước 07:00 Thứ Hai: Giữ vững Ngưỡng Đóng Băng 40,000 Điểm / 18,000 Xu",
-                    en: "Verify Balance Before Monday 07:00 Reset: Maintain the 40,000 Honor / 18,000 Coin Floor",
+                    vi: "Kiểm tra số dư trước 00:00 UTC Thứ Hai (07:00 sáng Giờ VN): Giữ vững Ngưỡng Đóng Băng 40,000 Điểm / 18,000 Xu",
+                    en: "Verify Balance Before Monday 00:00 UTC Reset: Maintain the 40,000 Honor / 18,000 Coin Floor",
                   },
                   detail: {
                     vi: "Đảm bảo số dư luôn nằm trên Ngưỡng Đóng Băng Cứng (40,000 Điểm Vinh Dự chuẩn Lv.30 hoặc 12,000–18,000 Xu Vinh Quang Hội chuẩn xoay tua S1) trước khi mua bất kỳ vật phẩm phụ nào.",
@@ -576,14 +576,14 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
             en: "Guild Honor Freeze Threshold & 3-Faction Soul Stone Rotation Decision Flowchart",
           },
           subtitle: {
-            vi: "Quy trình kiểm tra số dư 07:00 Sáng Thứ Hai và phân bổ ngân sách giữa Hồn Đá Đỏ (360,000 vs 720,000 vs 1,080,000), Mảnh VK Độc Quyền và Mảnh Vàng Vạn Năng",
-            en: "Monday 07:00 AM balance audit workflow allocating budget across Soul Stones (360,000 vs 720,000 vs 1,080,000), Exclusive Weapon Shards, and Universal Hero Shards",
+            vi: "Quy trình kiểm tra số dư 00:00 UTC (07:00 Sáng Giờ VN) Thứ Hai và phân bổ ngân sách giữa Hồn Đá Đỏ (360,000 vs 720,000 vs 1,080,000), Mảnh VK Độc Quyền và Mảnh Vàng Vạn Năng",
+            en: "Monday 00:00 UTC balance audit workflow allocating budget across Soul Stones (360,000 vs 720,000 vs 1,080,000), Exclusive Weapon Shards, and Universal Hero Shards",
           },
           centerNode: {
             id: "node-7-2-monday-audit",
             badge: {
-              vi: "KIỂM TRA 07:00 THỨ HAI",
-              en: "MONDAY 07:00 AUDIT",
+              vi: "KIỂM TRA 00:00 UTC / 07:00 VN THỨ HAI",
+              en: "MONDAY 00:00 UTC AUDIT",
             },
             title: {
               vi: "Kiểm Tra Số Dư Điểm Vinh Dự Bang / Xu Vinh Quang Hội Đầu Tuần",

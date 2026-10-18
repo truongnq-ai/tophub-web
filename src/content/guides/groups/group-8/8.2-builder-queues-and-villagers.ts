@@ -38,8 +38,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
       en: "**14-Row Quantitative Villagers & Famous Villagers Table (`Lv.1 ➔ Lv.6` — `Tab Villagers`)**:\n• **S+ & S Tiers**: `Research Cottage` (`+0.60%➔+3.20%`, `40s➔360s/432s`), `Guild` (`+1➔+5` Help), `Castle` (`+0.60%➔+2.00%`, `40s➔160s`), `Medal Hall` (`+17.50%` HP, `+5.60%` ATK), `Barracks` (`+4.40%`, `+13`).\n• **A+/A/B Tiers**: `Faction Statue` (`+1➔+7` March Size), `Hero Statue`, `Hospital` (`+200➔+2,100` cap), Ruby/Ore/Medal Mines (`+57.50%➔+143.75%`, `+16,560s` storage), and `Queue` (`+1%➔+10%` Boss).",
     },
     {
-      vi: "**Lịch trình Nhịp Sinh Học Ngày/Đêm (`Sleep-Cycle`) & Kỹ thuật Ngâm Hộp Quà (`Gift Box Banking`)**:\n• **Nhịp Ngày/Đêm**: Ban ngày (`08:00–22:00`) bấm nhà ngắn `15m–3h` ăn tối đa `Guild Help`; ban đêm (`23:00`) bấm dự án dài `8h–48h` chạy xuyên đêm.\n• **Ngâm Hộp Quà**: Chủ Nhật giữ nguyên biểu tượng `Gift Box` trên mái nhà để khui nổ điểm vào khung giờ vàng `13:00–17:00` Thứ Hai Kỳ GAR/KvK (`Arms Race Day 1`)!",
-      en: "**Day/Night `Sleep-Cycle` Scheduling & Unopened `Gift Box Banking`**:\n• **Day/Night Routing**: Run short `15m–3h` upgrades during daytime (`08:00–22:00`) for free `Guild Helps`; queue long `8h–48h` projects before sleep (`23:00`).\n• **Gift Box Banking**: Leave Sunday's completed building `Gift Boxes` untouched on the roof to pop them in GAR/KvK Monday's `13:00–17:00` Golden Window (`Arms Race Day 1`)!",
+      vi: "**Lịch trình Nhịp Sinh Học Ngày/Đêm (`Sleep-Cycle`) & Kỹ thuật Ngâm Hộp Quà (`Gift Box Banking`)**:\n• **Nhịp Ngày/Đêm**: Ban ngày (`08:00–22:00 giờ địa phương`) bấm nhà ngắn `15m–3h` ăn tối đa `Guild Help`; ban đêm (`23:00 giờ địa phương`) bấm dự án dài `8h–48h` chạy xuyên đêm.\n• **Ngâm Hộp Quà**: Chủ Nhật giữ nguyên biểu tượng `Gift Box` trên mái nhà để khui nổ điểm vào khung giờ vàng `06:00–10:00 UTC (13:00–17:00 Giờ VN)` Thứ Hai Kỳ GAR/KvK (`Arms Race Day 1`)!",
+      en: "**Day/Night `Sleep-Cycle` Scheduling & Unopened `Gift Box Banking`**:\n• **Day/Night Routing**: Run short `15m–3h` upgrades during daytime (`08:00–22:00 local time`) for free `Guild Helps`; queue long `8h–48h` projects before sleep (`23:00 local time`).\n• **Gift Box Banking**: Leave Sunday's completed building `Gift Boxes` untouched on the roof to pop them in GAR/KvK Monday's `06:00–10:00 UTC` Golden Window (`Arms Race Day 1`)!",
     },
   ],
   keywords: [
@@ -453,16 +453,16 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                 {
                   id: "chk-8-2-4",
                   label: {
-                    vi: "Thiết lập Dự án Xuyên Đêm (8–12+ giờ) lúc 23:00 & Găm Hộp Quà (Gift Box) Chủ Nhật",
-                    en: "Queue Overnight Projects (8–12h+) at 23:00 & Bank Unopened Gift Boxes on Sunday",
+                    vi: "Thiết lập Dự án Xuyên Đêm (8–12+ giờ) lúc 23:00 giờ địa phương & Găm Hộp Quà (Gift Box) Chủ Nhật",
+                    en: "Queue Overnight Projects (8–12h+) at 23:00 local time & Bank Unopened Gift Boxes on Sunday",
                   },
                   detail: {
                     vi: "Trước khi ngủ, nếu hàng đợi còn dưới `1–2 giờ`, hãy dùng ít tăng tốc dứt điểm rồi bấm nhà dài `8–12+ giờ`; vào Chủ Nhật giữ nguyên biểu tượng `Gift Box` trên mái nhà chờ Thứ Hai Kỳ GAR/KvK.",
                     en: "Before bed, finish any queue under `1–2 hours` and start an `8–12h+` overnight upgrade; on Sunday, leave completed `Gift Box` icons untouched on the roof for GAR/KvK Monday.",
                   },
                   badge: {
-                    vi: "23:00 MỖI TỐI",
-                    en: "NIGHTLY 23:00 SYNC",
+                    vi: "23:00 GIỜ ĐỊA PHƯƠNG",
+                    en: "NIGHTLY 23:00 LOCAL TIME",
                   },
                 },
               ],
@@ -518,8 +518,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                 en: "Starting a 20-minute upgrade right before an 8-hour sleep: Leaves the Builder Queue completely idle for 7 hours and 40 minutes every night (wasting over 50 hours of builder labor per queue every single week!).",
               },
               {
-                vi: "Quy tắc Phân Luồng Ngày – Đêm (Sleep-Cycle Routing): Ban ngày (khi online liên tục 08:00–22:00) chỉ bấm các công trình ngắn 15 phút – 3 giờ để ăn tối đa Guild Help; ban đêm (23:00) bắt buộc bấm các công trình dài 8 – 48 giờ chạy xuyên đêm.",
-                en: "Day–Night Sleep-Cycle Routing: During active daytime hours (08:00–22:00), run short 15-minute to 3-hour upgrades to farm maximum Guild Helps; before sleep (23:00), strictly queue long 8-to-48-hour projects.",
+                vi: "Quy tắc Phân Luồng Ngày – Đêm (Sleep-Cycle Routing): Ban ngày (khi online liên tục 08:00–22:00 giờ địa phương) chỉ bấm các công trình ngắn 15 phút – 3 giờ để ăn tối đa Guild Help; ban đêm (23:00 giờ địa phương) bắt buộc bấm các công trình dài 8 – 48 giờ chạy xuyên đêm.",
+                en: "Day–Night Sleep-Cycle Routing: During active daytime hours (08:00–22:00 local time), run short 15-minute to 3-hour upgrades to farm maximum Guild Helps; before sleep (23:00 local time), strictly queue long 8-to-48-hour projects.",
               },
             ],
             [
@@ -1308,8 +1308,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                     {
                       id: "step-8-2-b1-1",
                       badge: {
-                        vi: "BAN NGÀY (08:00–22:00)",
-                        en: "DAYTIME (08:00–22:00)",
+                        vi: "BAN NGÀY (08:00–22:00 GIỜ ĐỊA PHƯƠNG)",
+                        en: "DAYTIME (08:00–22:00 LOCAL TIME)",
                       },
                       title: {
                         vi: "Thợ 3 chạy công trình ngắn 15 phút – 3 giờ ăn tối đa Guild Help",
@@ -1324,16 +1324,16 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                     {
                       id: "step-8-2-b1-2",
                       badge: {
-                        vi: "BAN ĐÊM (23:00) & THỢ 1–2",
-                        en: "NIGHT (23:00) & BUILDERS 1–2",
+                        vi: "BAN ĐÊM (23:00 GIỜ ĐỊA PHƯƠNG) & THỢ 1–2",
+                        en: "NIGHT (23:00 LOCAL TIME) & BUILDERS 1–2",
                       },
                       title: {
                         vi: "Bấm dự án 8h–12h+ chạy xuyên đêm & Canh Thợ 1–2 xong vào Chủ Nhật",
                         en: "Queue 8h–12h+ Overnight Projects & Time Builders 1–2 to Finish Sunday",
                       },
                       subtitle: {
-                        vi: "Trước khi ngủ (23:00) bắt buộc đặt công trình 8–12+ giờ; đồng thời canh Thợ 1 & Thợ 2 bấm Lâu Đài / Doanh Trại lớn (24h–72h) sao cho chạy hết đếm ngược vào Chủ Nhật.",
-                        en: "Before sleep (23:00), always queue 8–12h+ upgrades; simultaneously time Builder 1 & Builder 2's major 24h–72h Castle/Barracks upgrades to complete on Sunday.",
+                        vi: "Trước khi ngủ (23:00 giờ địa phương) bắt buộc đặt công trình 8–12+ giờ; đồng thời canh Thợ 1 & Thợ 2 bấm Lâu Đài / Doanh Trại lớn (24h–72h) sao cho chạy hết đếm ngược vào Chủ Nhật.",
+                        en: "Before sleep (23:00 local time), always queue 8–12h+ upgrades; simultaneously time Builder 1 & Builder 2's major 24h–72h Castle/Barracks upgrades to complete on Sunday.",
                       },
                       tone: "emerald",
                     },
@@ -1414,8 +1414,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                         en: "Tap All Banked Rooftop Gift Boxes Once Territory / Construction Opens",
                       },
                       subtitle: {
-                        vi: "Đúng khung giờ vàng (13:00–17:00), khui toàn bộ Gift Box trên mái nhà để ăn nổ hàng chục ngàn điểm Lực chiến công trình tức thì mà không tốn 1 phút tăng tốc nào!",
-                        en: "During the 13:00–17:00 Golden Window, pop all banked rooftop Gift Boxes for an instant tens-of-thousands Building Power surge with zero speed-ups spent!",
+                        vi: "Đúng khung giờ vàng (06:00–10:00 UTC / 13:00–17:00 Giờ VN), khui toàn bộ Gift Box trên mái nhà để ăn nổ hàng chục ngàn điểm Lực chiến công trình tức thì mà không tốn 1 phút tăng tốc nào!",
+                        en: "During the 06:00–10:00 UTC Golden Window, pop all banked rooftop Gift Boxes for an instant tens-of-thousands Building Power surge with zero speed-ups spent!",
                       },
                       tone: "emerald",
                     },
@@ -1465,8 +1465,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                   en: "**Guild Race**: Only spend Construction Speed-ups right after accepting a **Legendary Task** requiring build speed-ups or power; stack them on Friday–Sunday when `Guild Rush` or `Ultimate Power` overlaps.",
                 },
                 {
-                  vi: "**Kỳ GAR / KvK / Top Lord**: Đóng băng `100%` bình Tăng tốc Xây dựng từ Thứ Ba đến Chủ Nhật; chỉ xả vào **Thứ Hai** (`GAR Day 1`) đúng Khung giờ Vàng (`13:00–17:00`) để mở trọn 6 rương (`Extra Rewards`).",
-                  en: "**GAR / KvK / Top Lord**: Freeze `100%` of Construction Speed-ups from Tuesday to Sunday; burst exclusively on **Monday** (`GAR Day 1`) inside the `13:00–17:00` Golden Window to clear all 6 chests.",
+                  vi: "**Kỳ GAR / KvK / Top Lord**: Đóng băng `100%` Tăng tốc Xây dựng từ T3–CN; chỉ xả vào **Thứ Hai** (`GAR Day 1`) đúng Khung giờ Vàng (`06:00–10:00 UTC / 13:00–17:00 Giờ VN`) để mở trọn 6 rương (`Extra Rewards`).",
+                  en: "**GAR / KvK / Top Lord**: Freeze `100%` of Construction Speed-ups from Tuesday to Sunday; burst exclusively on **Monday** (`GAR Day 1`) inside the `06:00–10:00 UTC` Golden Window to clear all 6 chests.",
                 },
               ],
             },

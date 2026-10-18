@@ -324,4 +324,102 @@ describe("Wave 5 — Multi-Language Glossary (DEC-V4-03) & 100% Bilingual Purity
       expect(JSON.stringify(enMessages)).not.toMatch(VI_DIACRITIC_REGEX);
     });
   });
+
+  describe("Suite 5: UTC & Timezone Standardization Purity (Decisions 1A, 2A, 3A)", () => {
+    it("enforces clean UTC in .en (0 legacy UTC+7 event times or VN labels) and UTC + (Giờ VN) in .vi across all 31 articles", () => {
+      const enViolations: string[] = [];
+      const viViolations: string[] = [];
+
+      const LEGACY_VN_CLOCK_IN_EN =
+        /\b(01:00|05:00|07:00|09:00|13:00|17:00|17:05|17:15|17:30|21:00|21:10)\b/;
+      const VN_LABEL_IN_EN =
+        /\b(Giờ VN|VN Time|UTC\+7|GMT\+7)\b|\(\d{2}:\d{2}[^)]*VN\)/i;
+      const UNACCOMPANIED_VN_CLOCK_IN_VI =
+        /\b(01:00|05:00|07:00|09:00|13:00|17:00|17:05|17:15|17:30|21:00|21:10)\b/;
+      const UTC_CLOCK_IN_VI =
+        /\b(00:00|00:05|00:30|02:00|06:00|10:00|10:05|10:15|10:30|14:00|14:10|18:00|22:00)\s*UTC\b/;
+
+      function walkBilingual(node: unknown, path: string, articleCode: string): void {
+        if (!node || typeof node !== "object") return;
+        if (Array.isArray(node)) {
+          node.forEach((item, index) =>
+            walkBilingual(item, `${path}[${index}]`, articleCode)
+          );
+          return;
+        }
+        const record = node as Record<string, unknown>;
+        if (typeof record.vi === "string" && typeof record.en === "string") {
+          const viText = record.vi;
+          const enText = record.en;
+
+          // Check .en for legacy VN event clock hours
+          if (LEGACY_VN_CLOCK_IN_EN.test(enText)) {
+            enViolations.push(`${path}.en (legacy VN hour) => ${enText}`);
+          }
+          if (VN_LABEL_IN_EN.test(enText)) {
+            enViolations.push(`${path}.en (VN label in EN) => ${enText}`);
+          }
+
+          // Check .vi: if it has a VN event clock hour, it must also contain "UTC"
+          if (UNACCOMPANIED_VN_CLOCK_IN_VI.test(viText) && !/\bUTC\b/.test(viText)) {
+            viViolations.push(`${path}.vi (missing UTC primary) => ${viText}`);
+          }
+          // Check .vi: if it has a UTC clock hour, it must also reference VN time
+          if (
+            UTC_CLOCK_IN_VI.test(viText) &&
+            !/(01:00|05:00|07:00|07:05|09:00|13:00|17:00|17:05|17:15|17:30|21:00|21:10|VN)/.test(
+              viText
+            )
+          ) {
+            viViolations.push(`${path}.vi (UTC missing VN parenthetical) => ${viText}`);
+          }
+
+          // Check 8.2 personal sleep-cycle hours (08:00 / 22:00 / 23:00)
+          if (articleCode === "8.2" && /\b(08:00|23:00)\b/.test(enText)) {
+            if (!/local time/i.test(enText)) {
+              enViolations.push(
+                `${path}.en (8.2 sleep-cycle missing 'local time') => ${enText}`
+              );
+            }
+          }
+          if (articleCode === "8.2" && /\b(08:00|23:00)\b/.test(viText)) {
+            if (!/giờ địa phương/i.test(viText)) {
+              viViolations.push(
+                `${path}.vi (8.2 sleep-cycle missing 'giờ địa phương') => ${viText}`
+              );
+            }
+          }
+          return;
+        }
+
+        for (const [key, value] of Object.entries(record)) {
+          walkBilingual(value, `${path}.${key}`, articleCode);
+        }
+      }
+
+      for (const article of getAllArticles()) {
+        walkBilingual(article, `Article[${article.code}]`, article.code);
+      }
+
+      expect(
+        enViolations,
+        `EN Timezone Violations:\n${enViolations.join("\n")}`
+      ).toEqual([]);
+      expect(
+        viViolations,
+        `VI Timezone Violations:\n${viViolations.join("\n")}`
+      ).toEqual([]);
+    });
+
+    it("preserves protected non-clock patterns (00:00 ➔ 00:03 AI targeting window in 8.3, 00:00:00 building timer in 3.3, 02:15 – 08:40 video timestamp in 1.1)", () => {
+      const articles = getAllArticles();
+      const a11 = JSON.stringify(articles.find((a) => a.code === "1.1"));
+      const a33 = JSON.stringify(articles.find((a) => a.code === "3.3"));
+      const a83 = JSON.stringify(articles.find((a) => a.code === "8.3"));
+
+      expect(a11).toContain("02:15 – 08:40");
+      expect(a33).toContain("00:00:00");
+      expect(a83).toContain("00:00 ➔ 00:03");
+    });
+  });
 });

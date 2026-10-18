@@ -42,8 +42,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
       en: "**Epic Economy Trio Traits:** Push `Brawler` (`+30%` Tech Research), `Knight` (`+30%` Soldier Training), and `Ranger` (`+30%` Ruby Gathering) to `2 White Stars` (`300` Shards) ➔ `5 White Stars` (`500` Shards).\n• **`Trait 3 Max Lv.30` Rule:** Stop `Trait 1` at `Lv.15`, never unlock Slot 4 for `2,000` Diamonds; `+40%` Construction Rate belongs to `Bard`.",
     },
     {
-      vi: "**Kỹ thuật Thăng cấp Lính Bậc Thang (`Staircase`):** Đẻ lính bậc thấp ngày thường rồi bấm `Promote` hàng loạt vào Thứ Sáu `GAR/KvK`.\n• **Kiểm toán Tối Chủ Nhật:** Đọc Lịch Event sáng Thứ Hai (`09:00`) và giữ nguyên Hộp Quà Mở Công Trình (`Unopened Building Gift Box`).",
-      en: "**`Staircase` Troop Promotion:** Pre-train lower-tier troops on weekdays and batch-`Promote` on Friday of `GAR/KvK`.\n• **Sunday Evening Audit:** Check the Monday `09:00` Event Calendar and leave `Unopened Building Gift Box` rewards untouched until reset.",
+      vi: "**Kỹ thuật Thăng cấp Lính Bậc Thang (`Staircase`):** Đẻ lính bậc thấp ngày thường rồi bấm `Promote` hàng loạt vào Thứ Sáu `GAR/KvK`.\n• **Kiểm toán Tối Chủ Nhật:** Đọc Lịch Event Thứ Hai lúc `02:00 UTC` (`09:00` sáng Giờ VN) và giữ nguyên Hộp Quà Mở Công Trình (`Unopened Building Gift Box`).",
+      en: "**`Staircase` Troop Promotion:** Pre-train lower-tier troops on weekdays and batch-`Promote` on Friday of `GAR/KvK`.\n• **Sunday Evening Audit:** Check the Monday `02:00 UTC` Event Calendar and leave `Unopened Building Gift Box` rewards untouched until reset.",
     },
   ],
   keywords: [
@@ -156,8 +156,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
                 en: "Shops & Events Traps",
               },
               subtitle: {
-                vi: "Tiêu sạch Guild Honor / Xu Vinh Quang trước Lv.30 và xả tài nguyên trái Lịch Event Thứ Hai (09:00).",
-                en: "Spending Guild Honor / Glory Coins before Lv.30 and dumping resources off the Monday 09:00 Event Calendar.",
+                vi: "Tiêu sạch Guild Honor / Xu Vinh Quang trước Lv.30 và xả tài nguyên trái Lịch Event Thứ Hai (02:00 UTC / 09:00 Giờ VN).",
+                en: "Spending Guild Honor / Glory Coins before Lv.30 and dumping resources off the Monday 02:00 UTC Event Calendar.",
               },
               metrics: [
                 {
@@ -421,7 +421,7 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
           badge: { vi: "Cạm bẫy #4", en: "Trap #4" },
           title: {
             vi: "Cạm bẫy #4: Xả Tài Nguyên Trái Ngày Sự Kiện Hoặc Nhịn Mù Quáng Không Nhìn Lịch Event (Bỏ Lỡ Cơ Chế Double-Dip)",
-            en: "Trap #4: Dumping Resources Off-Schedule or Blindly Hoarding Without Checking the Monday 09:00 Event Calendar",
+            en: "Trap #4: Dumping Resources Off-Schedule or Blindly Hoarding Without Checking the Monday 02:00 UTC Event Calendar",
           },
           blocks: [
             {
@@ -432,8 +432,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
                   en: "**Symptom 1:** Impulsively spending Hero Shards, Skill Books, `Lord Gear` materials, Pet Food, or Speedups on random weekdays without an event target.",
                 },
                 {
-                  vi: "**Biểu hiện sai lầm 2:** Ở máy chủ mới (`Pre-Season`), máy móc nhịn trắng tài nguyên chờ `GAR` mà không mở Lịch Event (`09:00` Thứ Hai) kiểm tra xem `Thi Đấu Hội` có chạy nối tiếp không.",
-                  en: "**Symptom 2:** On a young `Pre-Season` server, blindly skipping an entire week waiting for `GAR` without checking the Monday `09:00` Event Calendar for continuous `Guild Race`.",
+                  vi: "**Biểu hiện sai lầm 2:** Ở máy chủ mới (`Pre-Season`), máy móc nhịn trắng tài nguyên chờ `GAR` mà không mở Lịch Event (`02:00 UTC` / `09:00 Giờ VN` Thứ Hai) kiểm tra xem `Thi Đấu Hội` có chạy nối tiếp không.",
+                  en: "**Symptom 2:** On a young `Pre-Season` server, blindly skipping an entire week waiting for `GAR` without checking the Monday `02:00 UTC` Event Calendar for continuous `Guild Race`.",
                 },
                 {
                   vi: "**Tại sao gây phế acc:** Phase 1 chạy `Thi Đấu Hội` nối tiếp kèm `Khiêu Chiến Của Đội Quân Hắc Ám` & `Tập Kích Cự Ma`; Phase 2 luân phiên `GAR/KvK` — xả đúng lịch `Double-Dip` lời gấp `250%–300%` quà!",
@@ -449,8 +449,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
                 en: "Meta Standard Rule — Trap #4",
               },
               content: {
-                vi: "**Chỉ nâng `Hero Gear` vào ngày thường** (vì không tính điểm sự kiện).\n• **Kiểm tra Lịch Event `09:00` Thứ Hai:** Mọi tài nguyên khác (Mảnh tướng, Vé quay, `Lord Gear`, Cổ Ngữ, Pet, Thánh vật, Tăng tốc) chỉ tiêu đủ rương cá nhân tuần `Thi Đấu Hội` và xả đúng ngày `GAR / KvK`!",
-                en: "**Only upgrade `Hero Gear` on regular days** (since it grants zero event points).\n• **Inspect Monday `09:00` Calendar:** For all other items (Shards, Vouchers, `Lord Gear`, Runes, Pets, Relics, Speedups), spend only for personal chests in `Guild Race` and dump reserves on `GAR / KvK` days!",
+                vi: "**Chỉ nâng `Hero Gear` vào ngày thường** (vì không tính điểm sự kiện).\n• **Kiểm tra Lịch Event `02:00 UTC` (`09:00 Giờ VN`) Thứ Hai:** Các tài nguyên khác (Mảnh tướng, Vé, `Lord Gear`, Cổ Ngữ, Pet, Thánh vật, Tăng tốc) chỉ tiêu đủ rương `Thi Đấu Hội` và xả đúng ngày `GAR / KvK`!",
+                en: "**Only upgrade `Hero Gear` on regular days** (since it grants zero event points).\n• **Inspect Monday `02:00 UTC` Calendar:** For all other items (Shards, Vouchers, `Lord Gear`, Runes, Pets, Relics, Speedups), spend only for personal chests in `Guild Race` and dump reserves on `GAR / KvK` days!",
               },
             },
           ],
@@ -640,8 +640,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
                 en: "Meta Standard Rule — Trap #9",
               },
               content: {
-                vi: "**Niêm phong Rương Thần Khí:** Giữ nguyên các Rương tự chọn Vũ khí Độc quyền trong túi đồ cho đến khi sở hữu Tướng Đỏ chủ lực Đội 1, và chỉ ghép mảnh vào Thứ Năm (`17:00 – 21:00`) Kỳ `GAR`.",
-                en: "**Seal UW Choice Chests:** Keep Exclusive Weapon Choice Chests sealed in your inventory until you unlock your Queue 1 Mythic carries, and only craft/upgrade them on Thursday (`17:00 – 21:00`) of `GAR`.",
+                vi: "**Niêm phong Rương Thần Khí:** Giữ nguyên các Rương tự chọn Vũ khí Độc quyền trong túi đồ cho đến khi sở hữu Tướng Đỏ chủ lực Đội 1, và chỉ ghép mảnh vào Thứ Năm (`10:00 – 14:00 UTC` / `17:00 – 21:00 Giờ VN`) Kỳ `GAR`.",
+                en: "**Seal UW Choice Chests:** Keep Exclusive Weapon Choice Chests sealed in your inventory until you unlock your Queue 1 Mythic carries, and only craft/upgrade them on Thursday (`10:00 – 14:00 UTC`) of `GAR`.",
               },
             },
           ],
@@ -737,8 +737,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
                 en: "Inventory always empty; Guild Honor below 5,000; upgrading Lord Gear on Monday or Tuesday.",
               },
               {
-                vi: "Túi đồ luôn điều phối theo Lịch Event Thứ Hai (09:00); đóng băng 40,000 Điểm Vinh Dự (hoặc 12,000–18,000 Xu Vinh Quang) chờ mua 9 Hồn Đá Đỏ (40,000 Điểm Vinh Dự / viên = 360,000 hoặc 6,000 Xu Vinh Quang / viên = 54,000 ở S1) + 345–385 Mảnh Tướng ở Lv.30.",
-                en: "Inventory dispatched strictly by the Monday 09:00 Event Calendar; 40,000 Guild Honor (or 12,000–18,000 Glory Coins) frozen for 9 Soul Stones (40,000 Guild Honor/stone = 360,000 or 6,000 Glory Coins/stone = 54,000 in S1) + 345–385 Hero Shards at Castle Lv.30.",
+                vi: "Túi đồ luôn điều phối theo Lịch Event Thứ Hai (02:00 UTC / 09:00 Giờ VN); đóng băng 40,000 Điểm Vinh Dự (hoặc 12,000–18,000 Xu Vinh Quang) chờ mua 9 Hồn Đá Đỏ (40,000 Điểm Vinh Dự / viên = 360,000 hoặc 6,000 Xu Vinh Quang / viên = 54,000 ở S1) + 345–385 Mảnh Tướng ở Lv.30.",
+                en: "Inventory dispatched strictly by the Monday 02:00 UTC Event Calendar; 40,000 Guild Honor (or 12,000–18,000 Glory Coins) frozen for 9 Soul Stones (40,000 Guild Honor/stone = 360,000 or 6,000 Glory Coins/stone = 54,000 in S1) + 345–385 Hero Shards at Castle Lv.30.",
               },
             ],
           ],
@@ -864,8 +864,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
                 en: "Moderate (Lost opportunity rewards for that cycle)",
               },
               {
-                vi: "Thiết lập ngay quy tắc 'Đọc Lịch Event 5 Giây lúc 09:00 Thứ Hai & Khóa Túi Đồ'. Từ thời điểm này, chỉ tiêu vừa đủ mốc rương cá nhân trong tuần Thi Đấu Hội (kèm Khiêu Chiến Của Đội Quân Hắc Ám / Tập Kích Cự Ma) và găm tồn kho xả vào đúng ngày chủ đề GAR / KvK.",
-                en: "Enforce the '5-Second Monday 09:00 Event Calendar Check & Inventory Lock' rule. Spend only enough for personal milestone chests during continuous Guild Race weeks and unleash surplus reserves on matching GAR / KvK theme days.",
+                vi: "Thiết lập ngay quy tắc 'Đọc Lịch Event 5 Giây lúc 02:00 UTC (09:00 Giờ VN) Thứ Hai & Khóa Túi Đồ'. Từ thời điểm này, chỉ tiêu vừa đủ mốc rương cá nhân trong tuần Thi Đấu Hội (kèm Khiêu Chiến Của Đội Quân Hắc Ám / Tập Kích Cự Ma) và găm tồn kho xả vào đúng ngày chủ đề GAR / KvK.",
+                en: "Enforce the '5-Second Monday 02:00 UTC Event Calendar Check & Inventory Lock' rule. Spend only enough for personal milestone chests during continuous Guild Race weeks and unleash surplus reserves on matching GAR / KvK theme days.",
               },
               {
                 vi: "1 Chu kỳ (2 Tuần) là quỹ tài nguyên dự trữ sẽ đầy trở lại như bình thường.",
@@ -1023,28 +1023,28 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "**Quy Trình Kiểm Toán Tối Chủ Nhật:** Để đảm bảo tài khoản vận hành ở hiệu suất 100% Min-Max trước tuần sự kiện mới (`09:00` sáng Thứ Hai giờ game), hãy thực hiện Quy trình Kiểm toán 5 Điểm:",
-            en: "**Sunday Evening Audit Routine:** To guarantee your account operates at 100% Min-Max efficiency before the weekly reset at Monday `09:00` server time, complete this 5-Point Audit Checklist:",
+            vi: "**Quy Trình Kiểm Toán Tối Chủ Nhật:** Để đảm bảo tài khoản vận hành ở hiệu suất 100% Min-Max trước tuần sự kiện mới (`02:00 UTC` / `09:00` sáng Thứ Hai Giờ VN), hãy thực hiện Quy trình Kiểm toán 5 Điểm:",
+            en: "**Sunday Evening Audit Routine:** To guarantee your account operates at 100% Min-Max efficiency before the weekly reset at Monday `02:00 UTC` server time, complete this 5-Point Audit Checklist:",
           },
         },
         {
           type: "checklist",
           checklistId: "sunday-15min-audit-v2",
           title: {
-            vi: "Checklist 5 Điểm Kiểm Toán Tối Chủ Nhật & Sáng Thứ Hai (09:00)",
-            en: "The 5-Point Sunday Evening & Monday 09:00 Audit Checklist",
+            vi: "Checklist 5 Điểm Kiểm Toán Tối Chủ Nhật & Sáng Thứ Hai (02:00 UTC / 09:00 Giờ VN)",
+            en: "The 5-Point Sunday Evening & Monday 02:00 UTC Audit Checklist",
           },
           description: {
-            vi: "Đánh dấu từng bước kiểm toán trước giờ khởi chạy sự kiện tuần mới (09:00 sáng Thứ Hai). Trạng thái được lưu tự động trên trình duyệt.",
-            en: "Check off each audit step before the weekly event reset (Monday 09:00). Progress is saved automatically in your browser.",
+            vi: "Đánh dấu từng bước kiểm toán trước giờ khởi chạy sự kiện tuần mới (02:00 UTC / 09:00 sáng Thứ Hai Giờ VN). Trạng thái được lưu tự động trên trình duyệt.",
+            en: "Check off each audit step before the weekly event reset (Monday 02:00 UTC). Progress is saved automatically in your browser.",
           },
           items: [
             {
               id: "audit-1-monday-0900-calendar",
-              badge: { vi: "09:00 Thứ Hai", en: "Monday 09:00" },
+              badge: { vi: "02:00 UTC (09:00 VN) Thứ Hai", en: "Monday 02:00 UTC" },
               label: {
-                vi: "Kiểm điểm 1 — Mở Event ➔ Lịch Event bấm kiểm tra các thanh sự kiện Thứ Hai (09:00)",
-                en: "Checkpoint 1 — Open Event ➔ Event Calendar and inspect the Monday (09:00) event bars",
+                vi: "Kiểm điểm 1 — Mở Event ➔ Lịch Event bấm kiểm tra các thanh sự kiện Thứ Hai (02:00 UTC / 09:00 Giờ VN)",
+                en: "Checkpoint 1 — Open Event ➔ Event Calendar and inspect the Monday (02:00 UTC) event bars",
               },
               detail: {
                 vi: "**Tuần Thi Đấu Hội (Guild Race — kèm Khiêu Chiến Của Đội Quân Hắc Ám & Tập Kích Cự Ma):** Chỉ tiêu vừa đủ mốc rương cá nhân, chuẩn bị nghiên cứu ngắn (5–30p), lính Pre-cook và hộp quà công trình.\n• **Giữ Nguyên Liệu & Khóa Kỳ GAR/KvK:** Giữ nguyên liệu Lord Gear cho Ngày 5–7 (Thứ Sáu ➔ Chủ Nhật); nếu tuần tới là GAR hoặc KvK, đóng băng mọi nâng cấp để xả theo đúng 6 ngày chủ đề cố định.",
@@ -1095,8 +1095,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
                 en: "Checkpoint 5 — Prep 'Pre-Cooking Queues' & Leave Building Gift Boxes Unopened",
               },
               detail: {
-                vi: "**Nấu Trước Công Trình:** Bấm xây các công trình lớn từ trước để hoàn thành, nhưng TUYỆT ĐỐI KHÔNG BẤM VÀO HỘP QUÀ MỞ CÔNG TRÌNH (Unopened Building Gift Box) trên màn hình làng.\n• **Khui Hộp Đúng Nhịp:** Chờ qua Thứ Hai (khi đã nhận Nhiệm vụ Vàng Công trình trên bảng Thi Đấu Hội hoặc vào khung giờ vàng `13:00–17:00` Thứ Hai của GAR/KvK) mới bấm khui hộp ăn điểm trong 10 giây!",
-                en: "**Pre-Cook Buildings:** Start major building upgrades in advance so the timer finishes, but NEVER TAP THE UNOPENED BUILDING GIFT BOX (Unopened Building Gift Box) on your village screen.\n• **Pop on Monday Window:** Wait until Monday (after claiming a Golden Building Task in Guild Race or during the `13:00–17:00` Monday GAR/KvK window) before popping the box for instant points in 10 seconds!",
+                vi: "**Nấu Trước Công Trình:** Bấm xây các công trình lớn từ trước để hoàn thành, nhưng TUYỆT ĐỐI KHÔNG BẤM VÀO HỘP QUÀ MỞ CÔNG TRÌNH (Unopened Building Gift Box) trên màn hình làng.\n• **Khui Hộp Đúng Nhịp:** Chờ Thứ Hai (sau khi nhận Nhiệm vụ Vàng Công trình bảng Thi Đấu Hội hoặc khung `06:00–10:00 UTC` / `13:00–17:00 Giờ VN` Thứ Hai GAR/KvK) mới khui hộp ăn điểm trong 10 giây!",
+                en: "**Pre-Cook Buildings:** Start major building upgrades in advance so the timer finishes, but NEVER TAP THE UNOPENED BUILDING GIFT BOX (Unopened Building Gift Box) on your village screen.\n• **Pop on Monday Window:** Wait until Monday (after claiming a Golden Building Task in Guild Race or during the `06:00–10:00 UTC` Monday GAR/KvK window) before popping the box for instant points in 10 seconds!",
               },
             },
           ],

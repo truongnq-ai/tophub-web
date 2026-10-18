@@ -476,8 +476,8 @@ export const ARTICLE_7_4_TROOP_SKINS_AND_MEDALS: GuideArticle = {
                 en: "Maintain the 15,000 – 30,000 Glory Medals Safety Floor in the Medal Shop",
               },
               detail: {
-                vi: "Luôn giữ sẵn quỹ dự phòng 15,000 – 30,000 Medals mỗi sáng Thứ Hai để mua mở khóa ngay lập tức mọi Skin Xanh (Shield Soldier, Cavalry) và Tím (Bearskin Warrior) chưa sở hữu.",
-                en: "Keep 15,000 – 30,000 Medals reserved every Monday morning to instantly unlock any unowned Rare (Shield Soldier, Cavalry) or Epic (Bearskin Warrior) skin on rotation.",
+                vi: "Luôn giữ sẵn quỹ dự phòng 15,000 – 30,000 Medals trước kỳ làm mới 00:00 UTC Thứ Hai (07:00 sáng Giờ VN) để mua mở khóa ngay lập tức mọi Skin Xanh (Shield Soldier, Cavalry) và Tím (Bearskin Warrior) chưa sở hữu.",
+                en: "Keep 15,000 – 30,000 Medals reserved before every Monday 00:00 UTC reset to instantly unlock any unowned Rare (Shield Soldier, Cavalry) or Epic (Bearskin Warrior) skin on rotation.",
               },
               badge: {
                 vi: "QUY TẮC SỐ 1",

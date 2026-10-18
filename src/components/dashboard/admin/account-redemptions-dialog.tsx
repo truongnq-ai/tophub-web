@@ -32,6 +32,7 @@ import { extractPaginatedResult } from "./types";
 import { AccountAvatar } from "./account-avatar";
 import { ServerTag } from "./server-tag";
 import { AdminPagination } from "./pagination";
+import { formatLocalizedDateTime } from "@/lib/timezone";
 
 interface AccountRedemptionsDialogProps {
   open: boolean;
@@ -388,11 +389,7 @@ export function AccountRedemptionsDialog({
                     <div className="text-[11px] text-muted-foreground font-mono flex items-center gap-1 justify-end">
                       <Clock className="h-3 w-3" />
                       <span>
-                        {new Date(item.created_at).toLocaleDateString("vi-VN")}{" "}
-                        {new Date(item.created_at).toLocaleTimeString("vi-VN", {
-                          hour: "2-digit",
-                          minute: "2-digit",
-                        })}
+                        {formatLocalizedDateTime(item.created_at, "vi")}
                       </span>
                     </div>
                   </div>

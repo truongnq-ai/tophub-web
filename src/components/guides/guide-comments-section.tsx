@@ -33,7 +33,8 @@ import type {
 import type { GuideLocale } from "@/content/guides/types";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { formatLocalizedDate } from "@/lib/timezone";
+import { cn, formatServerCode } from "@/lib/utils";
 import { GuidesFeedbackNotice } from "./guides-feedback-notice";
 
 interface GuideCommentsSectionProps {
@@ -465,7 +466,7 @@ export function GuideCommentsSection({
                 variant="outline"
                 className="font-mono text-[11px] border-emerald-500/30 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400"
               >
-                Server #{activeAccount.server_id}
+                Server {formatServerCode(activeAccount.server_id)}
               </Badge>
               {activeAccount.active_plan === "PRO" && (
                 <Badge className="bg-amber-500/20 text-amber-600 dark:text-amber-400 border border-amber-500/30 text-[10px]">
@@ -604,7 +605,7 @@ export function GuideCommentsSection({
                         variant="outline"
                         className="font-mono text-[10px] px-1.5 py-0 border-border/80 text-muted-foreground"
                       >
-                        S{rootComment.author_server_id}
+                        {formatServerCode(rootComment.author_server_id)}
                       </Badge>
                     )}
 
@@ -632,9 +633,7 @@ export function GuideCommentsSection({
 
                   <span className="text-[11px] font-mono text-muted-foreground flex items-center gap-1">
                     <Clock className="h-3 w-3" />
-                    {new Date(rootComment.created_at).toLocaleDateString(
-                      safeLocale === "vi" ? "vi-VN" : "en-US"
-                    )}
+                    {formatLocalizedDate(rootComment.created_at, safeLocale)}
                   </span>
                 </div>
 
@@ -723,7 +722,7 @@ export function GuideCommentsSection({
                                   variant="outline"
                                   className="font-mono text-[10px] px-1.5 py-0 border-border/80 text-muted-foreground"
                                 >
-                                  S{reply.author_server_id}
+                                  {formatServerCode(reply.author_server_id)}
                                 </Badge>
                               )}
                               {isReplyPending && (
@@ -734,9 +733,7 @@ export function GuideCommentsSection({
                             </div>
 
                             <span className="text-[10px] font-mono text-muted-foreground">
-                              {new Date(reply.created_at).toLocaleDateString(
-                                safeLocale === "vi" ? "vi-VN" : "en-US"
-                              )}
+                              {formatLocalizedDate(reply.created_at, safeLocale)}
                             </span>
                           </div>
 
@@ -745,8 +742,8 @@ export function GuideCommentsSection({
                               <span className="inline-flex items-center font-heading font-bold text-amber-600 dark:text-amber-400 mr-1.5">
                                 @{reply.reply_to_nickname}
                                 {reply.reply_to_server_id &&
-                                reply.reply_to_server_id !== "ADMIN"
-                                  ? ` (S${reply.reply_to_server_id})`
+                                reply.reply_to_server_id.toUpperCase() !== "ADMIN"
+                                  ? ` (${formatServerCode(reply.reply_to_server_id)})`
                                   : ""}
                               </span>
                             )}
@@ -817,8 +814,11 @@ export function GuideCommentsSection({
                   >
                     <div className="flex items-center justify-between text-xs">
                       <span className="font-heading font-bold text-amber-600 dark:text-amber-400">
-                        {labels.replyingToPrefix} @{replyTarget.replyToNickname} (S
-                        {replyTarget.replyToServerId})
+                        {labels.replyingToPrefix} @{replyTarget.replyToNickname}
+                        {replyTarget.replyToServerId &&
+                        replyTarget.replyToServerId.toUpperCase() !== "ADMIN"
+                          ? ` (${formatServerCode(replyTarget.replyToServerId)})`
+                          : ""}
                       </span>
                       <button
                         type="button"

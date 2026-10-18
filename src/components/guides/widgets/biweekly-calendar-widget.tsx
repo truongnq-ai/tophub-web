@@ -21,6 +21,13 @@ import { ARTICLE_3_1_BIWEEKLY_ROTATION } from "@/content/guides/groups/group-3/3
 import { ARTICLE_3_3_WEEK_B_ARMS_RACE } from "@/content/guides/groups/group-3/3.3-week-b-arms-race";
 import { ARTICLE_3_4_DOUBLE_DIP_SCHEDULE } from "@/content/guides/groups/group-3/3.4-double-dip-schedule";
 import { cn } from "@/lib/utils";
+import {
+  getCurrentUtcDayIndex,
+  getBrowserTimeZoneInfo,
+  convertUtcHourMinuteToLocal,
+  convertUtcRangeToLocal,
+  formatUtcClock,
+} from "@/lib/timezone";
 import { RichGuideText } from "@/components/guides/blocks/rich-guide-text";
 
 export type CalendarMode = "phase1" | "weekA" | "weekB" | "doubledip";
@@ -85,7 +92,7 @@ const LABELS: Record<
     badge: "BỘ LẬP LỊCH TƯƠNG TÁC • LỘ TRÌNH TIẾN ĐỘ SERVER & DOUBLE-DIP",
     title: "Lộ Trình Sự Kiện Theo Tiến Độ Server & Tra Cứu Double-Dip 300%",
     subtitle:
-      "Chuyển đổi Pha 1 (Server Mới) ⇄ Pha 2 (Kỳ Thi Đấu Hội / Kỳ GAR-KvK) & Khung giờ vàng 4 tiếng",
+      "Chuyển đổi Pha 1 (Server Mới) ⇄ Pha 2 (Kỳ Thi Đấu Hội / Kỳ GAR-KvK) & Khung giờ vàng 4 tiếng (UTC / Giờ Địa Phương)",
     modes: {
       weekB: "⚔️ Kỳ Đua Vũ Trang (GAR/KvK)",
       weekA: "🛡️ Kỳ Thi Đấu Hội (Guild Race)",
@@ -141,7 +148,7 @@ const LABELS: Record<
     badge: "INTERACTIVE PLANNER • SERVER-PROGRESSION ROADMAP & DOUBLE-DIP",
     title: "Server-Progression Event Roadmap & 300% Double-Dip Planner",
     subtitle:
-      "Switch Phase 1 (New Server) ⇄ Phase 2 (Guild Race Mode / GAR-KvK Mode) & 4-Hour Golden Windows",
+      "Switch Phase 1 (New Server) ⇄ Phase 2 (Guild Race Mode / GAR-KvK Mode) & 4-Hour Golden Windows (UTC / Local Time)",
     modes: {
       weekB: "⚔️ Arms Race Mode (GAR/KvK)",
       weekA: "🛡️ Guild Race Mode (9-Slot Board)",
@@ -207,19 +214,19 @@ function buildWeekBSchedule(locale: GuideLocale): DayScheduleEntry[] {
   const rows = table?.rows ?? [];
 
   const taboosVi = [
-    "Cấm bấm nhận công trình hoàn tất trước 13:00 Thứ Hai; cấm xả Đồ Chúa Tể hay Mảnh Tướng vào Ngày 1.",
-    "Cấm mở Rương Cổ Ngữ Tự Chọn ở Lv.1–Lv.3; cấm ghép Cổ Ngữ ngoài khung 17:00–21:00 Thứ Ba.",
+    "Cấm bấm nhận công trình hoàn tất trước 06:00 UTC Thứ Hai (13:00 Giờ VN); cấm xả Đồ Chúa Tể hay Mảnh Tướng vào Ngày 1.",
+    "Cấm mở Rương Cổ Ngữ Tự Chọn ở Lv.1–Lv.3; cấm ghép Cổ Ngữ ngoài khung 10:00–14:00 UTC Thứ Ba (17:00–21:00 Giờ VN).",
     "GAR tiêu chuẩn Ngày 3 Thứ Tư KHÔNG tính điểm Behemoth (chỉ KvK / Top Lord mới tính). Cấm xả Mảnh Tướng Vàng trước Thứ Năm!",
-    "Sau khi xả xong Đại Lễ Tướng 17:00–21:00, khóa sổ ngay lập tức — không xả lố sang Thứ Sáu!",
+    "Sau khi xả xong Đại Lễ Tướng 10:00–14:00 UTC (17:00–21:00 Giờ VN), khóa sổ ngay lập tức — không xả lố sang Thứ Sáu!",
     "CẢNH BÁO ĐỎ: Ở GAR tiêu chuẩn Ngày 5 (Thứ Sáu), Thánh Vật (Relics) được 0 điểm! Chỉ xả Thú Cưng, Mảnh Anh Linh & Tăng tốc Luyện lính.",
     "CẢNH BÁO ĐỎ: Đồ Chúa Tể (Lord Gear) được 0 điểm vào Ngày 6 (Thứ Bảy)! Ngày 6 chỉ cộng điểm phụ cho Quân Trang (Glory Medals), Trang Trí, Pet & Behemoth.",
   ];
 
   const taboosEn = [
-    "Never unwrap completed building boxes before Monday 13:00; never spend Lord Gear or Hero Shards on Day 1.",
-    "Never open Choice Rune Chests at Lv.1–Lv.3; never fuse Runes outside Tuesday 17:00–21:00.",
+    "Never unwrap completed building boxes before Monday 06:00 UTC; never spend Lord Gear or Hero Shards on Day 1.",
+    "Never open Choice Rune Chests at Lv.1–Lv.3; never fuse Runes outside Tuesday 10:00–14:00 UTC.",
     "Standard GAR Day 3 Wednesday grants ZERO points for Behemoth (only KvK / Top Lord scores it). Hold Hero Shards until Thursday!",
-    "Once the 17:00–21:00 Hero Burst window ends, lock your vault immediately — do not overspend into Friday!",
+    "Once the 10:00–14:00 UTC Hero Burst window ends, lock your vault immediately — do not overspend into Friday!",
     "RED ALERT: In standard GAR Day 5 (Friday), Relics grant ZERO points! Only spend Pets, Heroic Spirit Shards & Troop Training Speedups.",
     "RED ALERT: Lord Gear grants ZERO points on Day 6 (Saturday)! Day 6 secondary scoring only applies to Troop Skins (Glory Medals), Decor, Pets & Behemoth.",
   ];
@@ -237,7 +244,11 @@ function buildWeekBSchedule(locale: GuideLocale): DayScheduleEntry[] {
       guildRush: r ? r[0][locale] : copy.dayNamesFull[i],
       stageTitle: r ? r[1][locale] : "",
       scoringDetail: r ? r[2][locale] : "",
-      goldenWindow: r ? r[3][locale] : "17:00 – 21:00",
+      goldenWindow: r
+        ? r[3][locale]
+        : locale === "vi"
+          ? "10:00 – 14:00 UTC (17:00 – 21:00 Giờ VN)"
+          : "10:00 – 14:00 UTC",
       tabooWarning: locale === "vi" ? taboosVi[i] : taboosEn[i],
     });
   }
@@ -257,12 +268,12 @@ function buildWeekBSchedule(locale: GuideLocale): DayScheduleEntry[] {
         : "GAR/KvK Settlement & Pre-Building for Next Cycle",
     scoringDetail:
       locale === "vi"
-        ? "• Nhận thưởng tổng kết tuần GAR/KvK. • Bấm xây trước các công trình lớn để ủ hộp quà công trình và giữ toàn bộ Vé Nhiệm Vụ chuẩn bị cho 09:00 sáng Thứ Hai."
-        : "• Claim weekly GAR/KvK settlement rewards. • Start long construction timers to pre-cook building boxes and hold Task Attempts for Monday 09:00.",
+        ? "• Nhận thưởng tổng kết tuần GAR/KvK. • Bấm xây trước các công trình lớn để ủ hộp quà công trình và giữ toàn bộ Vé Nhiệm Vụ chuẩn bị cho 02:00 UTC Thứ Hai (09:00 sáng Giờ VN)."
+        : "• Claim weekly GAR/KvK settlement rewards. • Start long construction timers to pre-cook building boxes and hold Task Attempts for Monday 02:00 UTC.",
     goldenWindow:
       locale === "vi"
-        ? "Đóng băng kho đồ — Chuẩn bị cho 09:00 Thứ Hai"
-        : "Freeze Inventory — Prepare for Monday 09:00 Reset",
+        ? "Đóng băng kho đồ — Chuẩn bị cho 02:00 UTC Thứ Hai (09:00 Giờ VN)"
+        : "Freeze Inventory — Prepare for Monday 02:00 UTC Reset",
     tabooWarning:
       locale === "vi"
         ? "Tuyệt đối không xả bất kỳ vật phẩm tích trữ nào vào Chủ Nhật khi bảng điểm GAR/KvK đã đóng!"
@@ -284,7 +295,8 @@ function buildWeekASchedule(locale: GuideLocale): DayScheduleEntry[] {
         stageTitle: "Giai Đoạn 1 (Ngày 1–4): Mở Bảng 9 Ô Thi Đấu Hội & Giao Thoa Pet",
         scoringDetail:
           "• Chốt 2 Ô Nhiệm Vụ Độc Quyền (làm mới mỗi 10 phút). • Ưu tiên nhận Nhiệm vụ Vàng Thức ăn Thú Cưng kết hợp lấy mốc Guild Rush Thú Cưng + Sự kiện phụ Pet Power.",
-        goldenWindow: "13:00 – 17:00 & 17:00 – 21:00 (Làm mới Ô Độc Quyền mỗi 10 phút)",
+        goldenWindow:
+          "06:00 – 10:00 UTC & 10:00 – 14:00 UTC (13:00–17:00 & 17:00–21:00 Giờ VN — Làm mới Ô Độc Quyền mỗi 10 phút)",
         tabooWarning:
           "Cấm mua thêm lượt nhiệm vụ bằng Kim Cương ở Ngày 1–4 và cấm xả Đồ Chúa Tể trước Thứ Sáu!",
       },
@@ -296,7 +308,8 @@ function buildWeekASchedule(locale: GuideLocale): DayScheduleEntry[] {
         stageTitle: "Giai Đoạn 1 (Ngày 2): Chốt Sổ Mốc Guild Rush Thú Cưng",
         scoringDetail:
           "• Hoàn tất các nhiệm vụ Thú Cưng, Thu thập mỏ hoặc Đánh quái trên bảng 9 ô Thi Đấu Hội trước khi Guild Rush Pet kết thúc.",
-        goldenWindow: "17:00 – 21:00 (Hoàn tất rương mốc Guild Rush Pet)",
+        goldenWindow:
+          "10:00 – 14:00 UTC (17:00 – 21:00 Giờ VN — Hoàn tất rương mốc Guild Rush Pet)",
         tabooWarning:
           "Cấm nhận nhiệm vụ tiêu 20–40 Mảnh Tướng Vàng hoặc quay 50–80 Vé Chiêu Mộ trên bảng chung!",
       },
@@ -308,7 +321,8 @@ function buildWeekASchedule(locale: GuideLocale): DayScheduleEntry[] {
         stageTitle: "Giai Đoạn 1 (Ngày 3): Giao Thoa Nhiệm Vụ Thánh Vật (Relics)",
         scoringDetail:
           "• Nhận Nhiệm vụ Độc quyền nâng cấp Thánh Vật trên bảng Guild Race kết hợp ăn trọn mốc Guild Rush Thánh Tích (Thứ 4–5) và sự kiện phụ Relic Power.",
-        goldenWindow: "17:00 – 21:00 (Giao thoa Guild Race + Guild Rush Thánh Tích)",
+        goldenWindow:
+          "10:00 – 14:00 UTC (17:00 – 21:00 Giờ VN — Giao thoa Guild Race + Guild Rush Thánh Tích)",
         tabooWarning:
           "Chỉ xả vừa đủ mảnh Thánh Vật khớp điểm nhiệm vụ đang cầm, giữ phần dư cho Ngày 1–2 Kỳ GAR/KvK!",
       },
@@ -319,10 +333,11 @@ function buildWeekASchedule(locale: GuideLocale): DayScheduleEntry[] {
         guildRush: "Guild Rush 2 Ngày (Thứ 4–5): Thánh Tích (Relic Hall & Relics)",
         stageTitle: "Giai Đoạn 1 (Ngày 4): Đêm Trước Giờ Mở Khóa Nhiệm Vụ Huyền Thoại",
         scoringDetail:
-          "• Hoàn tất nốt mốc Thánh Tích. • Giữ lại lượt nhận nhiệm vụ tối Thứ Năm để sẵn sàng đón Nhiệm Vụ Huyền Thoại Độc Quyền mở khóa vào Ngày 5!",
-        goldenWindow: "21:00 – 01:00 (Chuẩn bị bước sang Giai đoạn 2 Ngày 5–7)",
+          "• Hoàn tất nốt mốc Thánh Tích. • Giữ lại lượt nhận nhiệm vụ tối Thứ Năm để sẵn sàng đón Nhiệm Vụ Huyền Thoại Độc Quyền mở khóa vào 00:00 UTC Thứ Sáu (07:00 sáng Giờ VN — Ngày 5)!",
+        goldenWindow:
+          "14:00 – 18:00 UTC (21:00 – 01:00 Giờ VN — Chuẩn bị bước sang Giai đoạn 2 Ngày 5–7)",
         tabooWarning:
-          "Cấm xả Đồ Chúa Tể (Lord Gear) vào Thứ Năm Kỳ Thi Đấu Hội — hãy đợi đúng sáng Thứ Sáu Ngày 5!",
+          "Cấm xả Đồ Chúa Tể (Lord Gear) vào Thứ Năm Kỳ Thi Đấu Hội — hãy đợi đúng 00:00 UTC Thứ Sáu (07:00 sáng Giờ VN — Ngày 5)!",
       },
       {
         dayNumber: 5,
@@ -334,7 +349,8 @@ function buildWeekASchedule(locale: GuideLocale): DayScheduleEntry[] {
           "🔥 Giai Đoạn 2 (Ngày 5): Mở Khóa Nhiệm Vụ Huyền Thoại Độc Quyền (+300 ➔ +450đ)",
         scoringDetail:
           "• Xoay Ô Độc Quyền (10 phút/lần) lấy Nhiệm vụ Vàng Đồ Chúa Tể (Lord Gear) hoặc Luyện lính bậc thang. • Trùng khớp 100% với Guild Rush Quân Trang & Đồ Chúa Tể + Sự kiện phụ Lord's Set (Triple-Dip 300%)!",
-        goldenWindow: "17:00 – 21:00 & 21:00 – 01:00 (Cú nổ Triple-Dip Lord Gear Kỳ Thi Đấu Hội)",
+        goldenWindow:
+          "10:00 – 14:00 UTC & 14:00 – 18:00 UTC (17:00–21:00 & 21:00–01:00 Giờ VN — Cú nổ Triple-Dip Lord Gear)",
         tabooWarning:
           "Bắt buộc phải nhận Nhiệm vụ Vàng Lord Gear trên bảng Guild Race TRƯỚC khi bấm nâng cấp Đồ Chúa Tể!",
       },
@@ -348,7 +364,8 @@ function buildWeekASchedule(locale: GuideLocale): DayScheduleEntry[] {
           "🔥 Giai Đoạn 2 (Ngày 6): Đua Nước Rút Rương Cá Nhân Hạng 9 (Tier 9 Chest)",
         scoringDetail:
           "• Tiếp tục xoay 2 Ô Độc Quyền mỗi 10 phút lấy nhiệm vụ Lord Gear / Quân Trang / Tăng tốc để cán mốc Rương Cá Nhân Hạng 9 (nhận Xu Vinh Quang tối đa).",
-        goldenWindow: "13:00 – 17:00 & 17:00 – 21:00 (Nước rút Rương Hạng 9)",
+        goldenWindow:
+          "06:00 – 10:00 UTC & 10:00 – 14:00 UTC (13:00–17:00 & 17:00–21:00 Giờ VN — Nước rút Rương Hạng 9)",
         tabooWarning:
           "Khi đã đủ điểm mở Rương Hạng 9, dừng xả ngay lập tức để bảo toàn phôi Đồ Chúa Tể cho Ngày 3–4 Kỳ GAR/KvK!",
       },
@@ -359,8 +376,9 @@ function buildWeekASchedule(locale: GuideLocale): DayScheduleEntry[] {
         guildRush: "Chủ Nhật (Ngày 7): Chốt Sổ Thi Đấu Hội & Chuẩn Bị Sang Kỳ GAR/KvK",
         stageTitle: "Tổng Kết Rương Hạng 9 & Ủ Công Trình Đón Thứ Hai Kỳ GAR/KvK",
         scoringDetail:
-          "• Kiểm tra điểm cá nhân đã đạt mốc Rương Hạng 9 trước khi bảng đóng lúc 09:00 sáng Thứ Hai. • Bấm xây trước công trình lớn để ủ hộp quà cho Ngày 1 Kỳ GAR/KvK.",
-        goldenWindow: "Trước 09:00 sáng Thứ Hai (Chốt bảng Thi Đấu Hội)",
+          "• Kiểm tra điểm cá nhân đã đạt mốc Rương Hạng 9 trước khi bảng đóng lúc 02:00 UTC Thứ Hai (09:00 sáng Giờ VN). • Bấm xây trước công trình lớn để ủ hộp quà cho Ngày 1 Kỳ GAR/KvK.",
+        goldenWindow:
+          "Trước 02:00 UTC Thứ Hai (09:00 sáng Giờ VN — Chốt bảng Thi Đấu Hội)",
         tabooWarning:
           "Cấm quên nhận thưởng mốc cá nhân và cấm tiêu thủng sàn 12,000–18,000 Xu Vinh Quang trong Tiệm Bang!",
       },
@@ -376,7 +394,7 @@ function buildWeekASchedule(locale: GuideLocale): DayScheduleEntry[] {
       stageTitle: "Stage 1 (Days 1–4): 9-Slot Guild Race Board & Pet Overlap",
       scoringDetail:
         "• Lock onto the 2 Exclusive Task Slots (10-min refresh). • Prioritize Gold Pet Food tasks overlapping with Guild Rush: Pets Development + Pet Power sub-event.",
-      goldenWindow: "13:00 – 17:00 & 17:00 – 21:00 (Refresh Exclusive Slots every 10m)",
+      goldenWindow: "06:00 – 10:00 UTC & 10:00 – 14:00 UTC (Refresh Exclusive Slots every 10m)",
       tabooWarning:
         "Never buy extra task attempts with Diamonds on Days 1–4 and never spend Lord Gear before Friday!",
     },
@@ -388,7 +406,7 @@ function buildWeekASchedule(locale: GuideLocale): DayScheduleEntry[] {
       stageTitle: "Stage 1 (Day 2): Complete Guild Rush Pet Milestones",
       scoringDetail:
         "• Finish Pet, Gathering, or Monster tasks on the 9-slot Guild Race board before Pets Guild Rush ends.",
-      goldenWindow: "17:00 – 21:00 (Claim Pets Guild Rush milestone chests)",
+      goldenWindow: "10:00 – 14:00 UTC (Claim Pets Guild Rush milestone chests)",
       tabooWarning:
         "Never accept 20–40 Legendary Shard or 50–80 Recruit Token tasks on the shared board!",
     },
@@ -400,7 +418,7 @@ function buildWeekASchedule(locale: GuideLocale): DayScheduleEntry[] {
       stageTitle: "Stage 1 (Day 3): Relic Upgrade Task Overlap",
       scoringDetail:
         "• Roll Exclusive Relic tasks on the Guild Race board overlapping with Wed–Thu Relic Guild Rush and Relic Power sub-event.",
-      goldenWindow: "17:00 – 21:00 (Guild Race + Relic Guild Rush overlap)",
+      goldenWindow: "10:00 – 14:00 UTC (Guild Race + Relic Guild Rush overlap)",
       tabooWarning:
         "Spend only enough Relic shards to complete your active task; save the rest for Days 1–2 of GAR/KvK!",
     },
@@ -411,10 +429,10 @@ function buildWeekASchedule(locale: GuideLocale): DayScheduleEntry[] {
       guildRush: "2-Day Guild Rush (Wed–Thu): Relic Hall & Relics",
       stageTitle: "Stage 1 (Day 4): Eve of Exclusive Legendary Task Unlock",
       scoringDetail:
-        "• Wrap up Relic milestones. • Hold remaining task attempts on Thursday night so you are ready when Exclusive Legendary Tasks unlock on Day 5!",
-      goldenWindow: "21:00 – 01:00 (Prep for Stage 2 Days 5–7)",
+        "• Wrap up Relic milestones. • Hold remaining task attempts before Friday 00:00 UTC so you are ready when Exclusive Legendary Tasks unlock on Day 5!",
+      goldenWindow: "14:00 – 18:00 UTC (Prep for Stage 2 Days 5–7)",
       tabooWarning:
-        "Never spend Lord Gear on Thursday of Guild Race — wait until Friday morning (Day 5)!",
+        "Never spend Lord Gear on Thursday of Guild Race — wait until Friday 00:00 UTC (Day 5)!",
     },
     {
       dayNumber: 5,
@@ -425,7 +443,7 @@ function buildWeekASchedule(locale: GuideLocale): DayScheduleEntry[] {
         "🔥 Stage 2 (Day 5): Exclusive Legendary Tasks Unlock (+300 ➔ +450 pts)",
       scoringDetail:
         "• Refresh your 2 Exclusive Slots (every 10m) for Gold Lord Gear or Staircase Troop tasks. • 100% overlap with Guild Rush: Troop Skin & Lord Gear + Lord's Set sub-event (300% Triple-Dip)!",
-      goldenWindow: "17:00 – 21:00 & 21:00 – 01:00 (Guild Race Lord Gear 300% Burst)",
+      goldenWindow: "10:00 – 14:00 UTC & 14:00 – 18:00 UTC (Guild Race Lord Gear 300% Burst)",
       tabooWarning:
         "Always accept the Gold Lord Gear task on the Guild Race board BEFORE clicking upgrade on your Lord Gear!",
     },
@@ -437,7 +455,7 @@ function buildWeekASchedule(locale: GuideLocale): DayScheduleEntry[] {
       stageTitle: "🔥 Stage 2 (Day 6): Final Sprint to Tier 9 Personal Chest",
       scoringDetail:
         "• Continue refreshing the 2 Exclusive Slots every 10 minutes for Lord Gear / Troop Skin / Speedup tasks to secure the Tier 9 Personal Chest (maximum Guild Glory Coins).",
-      goldenWindow: "13:00 – 17:00 & 17:00 – 21:00 (Tier 9 Chest Sprint)",
+      goldenWindow: "06:00 – 10:00 UTC & 10:00 – 14:00 UTC (Tier 9 Chest Sprint)",
       tabooWarning:
         "Once you hit the Tier 9 Chest threshold, stop spending immediately to save Lord Gear materials for Days 3–4 of GAR/KvK!",
     },
@@ -448,8 +466,8 @@ function buildWeekASchedule(locale: GuideLocale): DayScheduleEntry[] {
       guildRush: "Sunday (Day 7): Guild Race Settlement & GAR/KvK Prep",
       stageTitle: "Tier 9 Chest Settlement & Pre-Cooking Buildings for GAR/KvK",
       scoringDetail:
-        "• Verify your personal points have reached Tier 9 Chest before Monday 09:00 close. • Start long building upgrades to pre-cook gift boxes for Day 1 of GAR/KvK.",
-      goldenWindow: "Before Monday 09:00 Reset (Guild Race Board Closes)",
+        "• Verify your personal points have reached Tier 9 Chest before Monday 02:00 UTC close. • Start long building upgrades to pre-cook gift boxes for Day 1 of GAR/KvK.",
+      goldenWindow: "Before Monday 02:00 UTC Reset (Guild Race Board Closes)",
       tabooWarning:
         "Never forget to claim personal milestone chests and never spend below the 12,000–18,000 Guild Glory Coin floor!",
     },
@@ -487,6 +505,9 @@ function extractDoubleDipItems(locale: GuideLocale): DoubleDipItemRecord[] {
     });
 }
 
+const CLOCK_REFRESH_INTERVAL_MS = 60000;
+const VN_OFFSET_MINUTES = 420;
+
 export function BiweeklyCalendarWidget({
   article,
   locale = "vi",
@@ -500,15 +521,42 @@ export function BiweeklyCalendarWidget({
   const [activeMode, setActiveMode] = useState<CalendarMode>(initialMode);
   const [selectedDay, setSelectedDay] = useState<1 | 2 | 3 | 4 | 5 | 6 | 7>(1);
   const [todayDay, setTodayDay] = useState<number | null>(null);
+  const [mounted, setMounted] = useState(false);
+  const [now, setNow] = useState<Date>(() => new Date());
   const [tierFilter, setTierFilter] = useState<DoubleDipTierFilter>("all");
   const [searchQuery, setSearchQuery] = useState("");
 
-  // GAP-P3-06: SSR-Safe Today detection inside useEffect after hydration
+  // SSR-Safe UTC Today detection and live clock inside useEffect after hydration
   useEffect(() => {
-    const jsDay = new Date().getDay(); // 0 = Sun, 1 = Mon ... 6 = Sat
-    const isoDay = (jsDay === 0 ? 7 : jsDay) as 1 | 2 | 3 | 4 | 5 | 6 | 7;
-    setTodayDay(isoDay);
+    const updateClock = () => {
+      const current = new Date();
+      setNow(current);
+      const isoDay = (getCurrentUtcDayIndex(current) + 1) as
+        | 1
+        | 2
+        | 3
+        | 4
+        | 5
+        | 6
+        | 7;
+      setTodayDay(isoDay);
+    };
+    updateClock();
+    setMounted(true);
+    const timer = window.setInterval(updateClock, CLOCK_REFRESH_INTERVAL_MS);
+    return () => window.clearInterval(timer);
   }, []);
+
+  const tzInfo = useMemo(() => {
+    if (!mounted) {
+      return {
+        timeZone: locale === "vi" ? "Asia/Ho_Chi_Minh" : "UTC",
+        offsetMinutes: locale === "vi" ? VN_OFFSET_MINUTES : 0,
+        offsetLabel: locale === "vi" ? "UTC+7" : "UTC+0",
+      };
+    }
+    return getBrowserTimeZoneInfo(now);
+  }, [mounted, now, locale]);
 
   // GAP-P3-09: Sync with GuidesToc CustomEvent
   useEffect(() => {
@@ -579,6 +627,38 @@ export function BiweeklyCalendarWidget({
   // KeepARTICLE_3_1_BIWEEKLY_ROTATION referenced for SSoT traceability
   const _ssot31Slug = ARTICLE_3_1_BIWEEKLY_ROTATION.slug;
 
+  const localDailyReset = convertUtcHourMinuteToLocal(
+    0,
+    0,
+    tzInfo.offsetMinutes
+  );
+  const localCalendarReset = convertUtcHourMinuteToLocal(
+    2,
+    0,
+    tzInfo.offsetMinutes
+  );
+  const localWindow1 = convertUtcRangeToLocal(
+    6,
+    0,
+    10,
+    0,
+    tzInfo.offsetMinutes
+  );
+  const localWindow2 = convertUtcRangeToLocal(
+    10,
+    0,
+    14,
+    0,
+    tzInfo.offsetMinutes
+  );
+  const localWindow3 = convertUtcRangeToLocal(
+    14,
+    0,
+    18,
+    0,
+    tzInfo.offsetMinutes
+  );
+
   return (
     <div
       ref={containerRef}
@@ -598,6 +678,64 @@ export function BiweeklyCalendarWidget({
         <p className="text-xs sm:text-sm text-muted-foreground">
           {copy.subtitle}
         </p>
+      </div>
+
+      {/* SSR-Safe Server Time (UTC) & Browser Local Timezone Reference Bar */}
+      <div
+        data-testid="calendar-timezone-bar"
+        className="rounded-xl border border-amber-500/30 bg-amber-500/5 px-3.5 py-2.5 text-xs space-y-2"
+      >
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <div className="flex items-center gap-2 font-mono font-bold text-amber-700 dark:text-amber-300">
+            <Clock className="h-3.5 w-3.5 shrink-0 text-amber-500" />
+            <span>
+              {locale === "vi"
+                ? "Chuẩn Giờ Server (UTC) & Quy Đổi Giờ Thiết Bị:"
+                : "Server Time (UTC) & Your Local Timezone Reference:"}
+            </span>
+          </div>
+          <div className="flex flex-wrap items-center gap-1.5 font-mono text-[11px]">
+            {mounted && (
+              <span className="rounded bg-amber-500/15 border border-amber-500/30 px-2 py-0.5 font-bold text-amber-700 dark:text-amber-300">
+                {locale === "vi" ? "Giờ Server:" : "Server:"} {formatUtcClock(now)}
+              </span>
+            )}
+            <span className="rounded bg-background/80 border border-border/70 px-2 py-0.5 font-semibold text-foreground/90">
+              {tzInfo.timeZone} ({tzInfo.offsetLabel})
+            </span>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-[11px] font-mono text-muted-foreground">
+          <div className="rounded-lg border border-border/50 bg-background/60 px-2.5 py-1.5">
+            <span className="font-bold text-foreground">00:00 UTC</span>{" "}
+            <span>
+              ({locale === "vi" ? "Reset Ngày/Shop" : "Daily/Shop Reset"}) ➔{" "}
+              <strong className="text-amber-600 dark:text-amber-400">
+                {localDailyReset} ({tzInfo.offsetLabel})
+              </strong>
+            </span>
+          </div>
+          <div className="rounded-lg border border-border/50 bg-background/60 px-2.5 py-1.5">
+            <span className="font-bold text-foreground">02:00 UTC</span>{" "}
+            <span>
+              ({locale === "vi" ? "Mở Lịch Event T2" : "Mon Event Start"}) ➔{" "}
+              <strong className="text-amber-600 dark:text-amber-400">
+                {localCalendarReset} ({tzInfo.offsetLabel})
+              </strong>
+            </span>
+          </div>
+          <div className="rounded-lg border border-border/50 bg-background/60 px-2.5 py-1.5">
+            <span className="font-bold text-foreground">
+              06:00 / 10:00 / 14:00 UTC
+            </span>{" "}
+            <span>
+              ({locale === "vi" ? "Ca 4h" : "4h Shifts"}) ➔{" "}
+              <strong className="text-amber-600 dark:text-amber-400">
+                {localWindow1} • {localWindow2} • {localWindow3}
+              </strong>
+            </span>
+          </div>
+        </div>
       </div>
 
       {/* Mode Switcher Tabs (Touch Target >= 44px) */}

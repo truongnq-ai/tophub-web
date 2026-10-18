@@ -26,6 +26,7 @@ import { getAdminAccountCheckinsAction, retryAdminCheckinAction } from "@/action
 import type { AdminAccountItem, AdminAccountCheckinHistory, AdminAccountCheckinDay } from "@/types/api";
 import { AccountAvatar } from "./account-avatar";
 import { ServerTag } from "./server-tag";
+import { formatLocalizedTimeWithTz } from "@/lib/timezone";
 
 interface AccountCheckinsDialogProps {
   open: boolean;
@@ -121,7 +122,7 @@ export function AccountCheckinsDialog({
         return (
           <Badge className="bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/30 gap-1 text-[10px] font-bold">
             <XCircle className="h-3 w-3" />
-            THẤT BÀI
+            THẤT BẠI
           </Badge>
         );
       case "UNCHECKED":
@@ -174,7 +175,7 @@ export function AccountCheckinsDialog({
                 {day.checked_at ? (
                   <span className="text-[11px] text-muted-foreground font-mono flex items-center gap-1">
                     <Clock className="h-3 w-3 opacity-70" />
-                    {new Date(day.checked_at).toLocaleTimeString("vi-VN", {
+                    {formatLocalizedTimeWithTz(day.checked_at, "vi", {
                       hour: "2-digit",
                       minute: "2-digit",
                     })}
