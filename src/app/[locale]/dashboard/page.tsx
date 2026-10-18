@@ -8,9 +8,15 @@ import { authOptions } from "@/auth";
 import { createBackendToken } from "@/lib/auth-token";
 import { apiClient } from "@/lib/api-client";
 import { AdminManager } from "@/components/dashboard/admin-manager";
+import { extractPaginatedResult } from "@/components/dashboard/admin/types";
 import { UserStatusCard } from "@/components/dashboard/user-status-card";
 import { AccountsManager } from "@/components/dashboard/accounts-manager";
-import type { UserProfileResponse, GameAccountItem } from "@/types/api";
+import type {
+  UserProfileResponse,
+  GameAccountItem,
+  AdminAccountItem,
+  AdminAccountsSummary,
+} from "@/types/api";
 
 interface DashboardPageProps {
   params: {
@@ -36,11 +42,18 @@ export default async function DashboardPage({ params: { locale } }: DashboardPag
 
   // 1. If Admin is logged in, show Admin Manager
   if (adminToken) {
-    const adminRes = await apiClient.getAdminAccounts(adminToken);
+    const adminRes = await apiClient.getAdminAccounts(adminToken, { page: 1, limit: 20 });
     if (adminRes.success && adminRes.data) {
+      const norm = extractPaginatedResult<AdminAccountItem, AdminAccountsSummary>(
+        adminRes.data
+      );
       return (
         <div className="container mx-auto px-4 py-8 sm:py-12 max-w-6xl">
-          <AdminManager initialAccounts={adminRes.data} locale={locale} />
+          <AdminManager
+            initialAccounts={norm.items}
+            initialAccountsSummary={norm.summary}
+            locale={locale}
+          />
         </div>
       );
     }

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useRef } from "react";
 import {
   CalendarCheck,
   Search,
@@ -22,7 +22,8 @@ import {
   retryAdminCheckinAction,
   retryAllAdminCheckinsAction,
 } from "@/actions/admin";
-import type { AdminCheckin } from "./types";
+import type { AdminCheckinsSummary } from "@/types/api";
+import { extractPaginatedResult, type AdminCheckin } from "./types";
 import { MOCK_CHECKINS } from "./mock-data";
 import { AccountAvatar } from "./account-avatar";
 import { ServerTag } from "./server-tag";
@@ -35,6 +36,7 @@ export function TabCheckins() {
   const [checkins, setCheckins] = useState<AdminCheckin[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState("");
   const [filterStatus, setFilterStatus] = useState<
     "ALL" | "SUCCESS" | "ALREADY_CHECKED" | "PENDING" | "FAILED"
   >("ALL");
@@ -42,39 +44,89 @@ export function TabCheckins() {
   const [retryingId, setRetryingId] = useState<string | null>(null);
   const [isRetryingAll, setIsRetryingAll] = useState(false);
 
-  // Pagination state
+  // Pagination & Server summary state
   const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize, setPageSize] = useState(10);
+  const [pageSize, setPageSize] = useState(20);
+  const [totalItems, setTotalItems] = useState(0);
+  const [totalPages, setTotalPages] = useState(1);
+  const [isServerPaginated, setIsServerPaginated] = useState(false);
+  const [summary, setSummary] = useState<AdminCheckinsSummary | null>(null);
+  const requestIdRef = useRef(0);
 
-  // Fetch checkins on mount
+  // Debounce search input (300ms)
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearch(search.trim());
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [search]);
+
+  // Fetch checkins on query change
   React.useEffect(() => {
     let active = true;
+    const reqId = ++requestIdRef.current;
+
     async function fetchCheckins() {
       try {
         setIsLoading(true);
-        const res = await getAdminCheckinsAction();
-        if (active && res.success && res.data) {
-          setCheckins(res.data);
-        } else if (active && !res.success) {
-          setCheckins(MOCK_CHECKINS);
+        const res = await getAdminCheckinsAction({
+          page: currentPage,
+          limit: pageSize,
+          status: filterStatus !== "ALL" ? filterStatus : undefined,
+          game_day: filterDay !== "ALL" ? filterDay : undefined,
+          search: debouncedSearch || undefined,
+        });
+
+        if (!active || reqId !== requestIdRef.current) return;
+
+        if (res && res.success && res.data) {
+          const norm = extractPaginatedResult<AdminCheckin, AdminCheckinsSummary>(
+            res.data
+          );
+          if (norm.isServerPaginated || checkins.length === 0 || norm.items.length > 0) {
+            setCheckins(norm.items);
+            setTotalItems(norm.total);
+            setTotalPages(norm.total_pages);
+            setIsServerPaginated(norm.isServerPaginated);
+            if (norm.summary) {
+              setSummary(norm.summary);
+            }
+          }
+        } else if (active && (!res || !res.success)) {
+          if (checkins.length === 0) {
+            setCheckins(MOCK_CHECKINS);
+            setTotalItems(MOCK_CHECKINS.length);
+            setTotalPages(Math.max(1, Math.ceil(MOCK_CHECKINS.length / pageSize)));
+            setIsServerPaginated(false);
+          }
         }
       } catch {
-        if (active) setCheckins(MOCK_CHECKINS);
+        if (active && reqId === requestIdRef.current && checkins.length === 0) {
+          setCheckins(MOCK_CHECKINS);
+          setTotalItems(MOCK_CHECKINS.length);
+          setTotalPages(Math.max(1, Math.ceil(MOCK_CHECKINS.length / pageSize)));
+          setIsServerPaginated(false);
+        }
       } finally {
-        if (active) setIsLoading(false);
+        if (active && reqId === requestIdRef.current) {
+          setIsLoading(false);
+        }
       }
     }
     fetchCheckins();
     return () => {
       active = false;
     };
-  }, []);
+  }, [currentPage, pageSize, filterStatus, filterDay, debouncedSearch]);
 
   const uniqueDays = useMemo(() => {
+    if (summary?.distinct_days && summary.distinct_days.length > 0) {
+      return summary.distinct_days;
+    }
     return Array.from(new Set(checkins.map((c) => c.game_day).filter(Boolean))).sort(
       (a, b) => b.localeCompare(a)
     );
-  }, [checkins]);
+  }, [checkins, summary]);
 
   const handleRetrySingle = async (item: AdminCheckin) => {
     setRetryingId(item.id);
@@ -97,6 +149,23 @@ export function TabCheckins() {
             : c
         )
       );
+
+      if (isSuccess && summary) {
+        setSummary((prev) =>
+          prev
+            ? {
+                ...prev,
+                failed_count: Math.max(0, prev.failed_count - 1),
+                success_count:
+                  newStatus === "SUCCESS" ? prev.success_count + 1 : prev.success_count,
+                already_checked_count:
+                  newStatus === "ALREADY_CHECKED"
+                    ? prev.already_checked_count + 1
+                    : prev.already_checked_count,
+              }
+            : prev
+        );
+      }
 
       const isAlready = newStatus === "ALREADY_CHECKED";
       toast({
@@ -132,9 +201,27 @@ export function TabCheckins() {
     }
   };
 
+  const failedCount = isServerPaginated && summary
+    ? summary.failed_count
+    : checkins.filter((c) => c.status === "FAILED").length;
+  const pendingCount = isServerPaginated && summary
+    ? summary.pending_count
+    : checkins.filter((c) => c.status === "PENDING").length;
+  const alreadyCheckedCount = isServerPaginated && summary
+    ? summary.already_checked_count
+    : checkins.filter((c) => c.status === "ALREADY_CHECKED").length;
+  const successCount = isServerPaginated && summary
+    ? summary.success_count + summary.already_checked_count
+    : checkins.filter((c) => c.status === "SUCCESS" || c.status === "ALREADY_CHECKED").length;
+  const totalCheckinsCount = isServerPaginated && summary
+    ? summary.total_checkins
+    : checkins.length;
+  const checkinRate =
+    totalCheckinsCount > 0 ? Math.round((successCount / totalCheckinsCount) * 100) : 0;
+
   const handleRetryAll = async () => {
     const failedCheckins = checkins.filter((c) => c.status === "FAILED");
-    if (failedCheckins.length === 0) {
+    if (failedCount === 0 && failedCheckins.length === 0) {
       toast({
         title: "Không có lượt lỗi",
         description: "Toàn bộ tài khoản đã hoàn thành điểm danh hoặc tự điểm danh trong ngày.",
@@ -145,7 +232,7 @@ export function TabCheckins() {
     setIsRetryingAll(true);
     try {
       const res = await retryAllAdminCheckinsAction(filterDay !== "ALL" ? filterDay : undefined);
-      const count = res.success && res.data ? res.data.retried_count : failedCheckins.length;
+      const count = res.success && res.data ? res.data.retried_count : (failedCount || failedCheckins.length);
 
       setCheckins((prev) =>
         prev.map((c) =>
@@ -158,6 +245,18 @@ export function TabCheckins() {
             : c
         )
       );
+
+      if (summary) {
+        setSummary((prev) =>
+          prev
+            ? {
+                ...prev,
+                success_count: prev.success_count + prev.failed_count,
+                failed_count: 0,
+              }
+            : prev
+        );
+      }
 
       toast({
         title: "Đã điểm danh lại hàng loạt",
@@ -178,7 +277,7 @@ export function TabCheckins() {
       );
       toast({
         title: "Đã điểm danh lại hàng loạt",
-        description: `Đã hoàn tất điểm danh bù cho ${failedCheckins.length} tài khoản bị lỗi.`,
+        description: `Đã hoàn tất điểm danh bù cho ${failedCount || failedCheckins.length} tài khoản bị lỗi.`,
       });
     } finally {
       setIsRetryingAll(false);
@@ -188,6 +287,7 @@ export function TabCheckins() {
   const filteredCheckins = useMemo(() => {
     return checkins.filter((c) => {
       const matchesSearch =
+        !search ||
         c.uid.toLowerCase().includes(search.toLowerCase()) ||
         c.nickname.toLowerCase().includes(search.toLowerCase()) ||
         c.server_id.toLowerCase().includes(search.toLowerCase());
@@ -201,18 +301,21 @@ export function TabCheckins() {
     });
   }, [checkins, search, filterStatus, filterDay]);
 
-  // Paginated items
-  const totalPages = Math.ceil(filteredCheckins.length / pageSize);
+  // Paginated items (no double-slicing when server-paginated)
+  const effectiveTotalItems = isServerPaginated
+    ? totalItems
+    : filteredCheckins.length;
+  const effectiveTotalPages = isServerPaginated
+    ? totalPages
+    : Math.max(1, Math.ceil(filteredCheckins.length / pageSize));
+
   const paginatedCheckins = useMemo(() => {
+    if (isServerPaginated) {
+      return filteredCheckins;
+    }
     const start = (currentPage - 1) * pageSize;
     return filteredCheckins.slice(start, start + pageSize);
-  }, [filteredCheckins, currentPage, pageSize]);
-
-  const failedCount = checkins.filter((c) => c.status === "FAILED").length;
-  const pendingCount = checkins.filter((c) => c.status === "PENDING").length;
-  const alreadyCheckedCount = checkins.filter((c) => c.status === "ALREADY_CHECKED").length;
-  const successCount = checkins.filter((c) => c.status === "SUCCESS" || c.status === "ALREADY_CHECKED").length;
-  const checkinRate = checkins.length > 0 ? Math.round((successCount / checkins.length) * 100) : 0;
+  }, [filteredCheckins, isServerPaginated, currentPage, pageSize]);
 
   return (
     <div className="space-y-4">
@@ -234,7 +337,7 @@ export function TabCheckins() {
                 Lịch Sử Điểm Danh Hàng Ngày
               </CardTitle>
               <Badge variant="secondary" className="font-mono text-xs font-bold">
-                {filteredCheckins.length}/{checkins.length}
+                {effectiveTotalItems}/{totalCheckinsCount}
               </Badge>
               {failedCount > 0 && (
                 <Badge className="bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20 text-[10px] font-semibold">
@@ -388,7 +491,7 @@ export function TabCheckins() {
               <span>Tiến độ điểm danh:</span>
             </span>
             <span className="font-mono text-emerald-600 dark:text-emerald-400 font-bold">
-              {checkinRate}% hoàn thành ({successCount}/{checkins.length})
+              {checkinRate}% hoàn thành ({successCount}/{totalCheckinsCount})
             </span>
           </div>
 
@@ -555,6 +658,7 @@ export function TabCheckins() {
                       description="Không có bản ghi điểm danh nào khớp với tiêu chí tìm kiếm hoặc ngày được chọn."
                       onClearFilters={() => {
                         setSearch("");
+                        setDebouncedSearch("");
                         setFilterStatus("ALL");
                         setFilterDay("ALL");
                         setCurrentPage(1);
@@ -570,8 +674,8 @@ export function TabCheckins() {
         {/* Reusable Pagination */}
         <AdminPagination
           currentPage={currentPage}
-          totalPages={totalPages}
-          totalItems={filteredCheckins.length}
+          totalPages={effectiveTotalPages}
+          totalItems={effectiveTotalItems}
           pageSize={pageSize}
           onPageChange={setCurrentPage}
           onPageSizeChange={(size) => {

@@ -313,6 +313,99 @@ describe("Admin Account Actions and Weekly Timeline", () => {
       expect(screen.queryByText("HERO_SUCCESS")).toBeNull();
       expect(screen.getByText("HERO_FAILED")).toBeDefined();
     });
+
+    it("should support server-paginated response with summary badge counts and page navigation", async () => {
+      mockGetAdminAccountRedemptionsAction
+        .mockResolvedValueOnce({
+          success: true,
+          data: {
+            items: [
+              {
+                id: "red-page1-1",
+                account_id: "acc-test-1",
+                uid: "1000000000001",
+                nickname: "HeroCommander",
+                server_id: "1024",
+                gift_code: "PAGE1_CODE",
+                status: "SUCCESS",
+                api_message: "OK",
+                created_at: new Date().toISOString(),
+              },
+            ],
+            total: 45,
+            page: 1,
+            limit: 20,
+            total_pages: 3,
+            summary: {
+              total_redemptions: 45,
+              failed_count: 3,
+              distinct_codes: ["PAGE1_CODE"],
+              success_count: 40,
+              already_redeemed_count: 2,
+              expired_count: 0,
+            },
+          },
+        })
+        .mockResolvedValueOnce({
+          success: true,
+          data: {
+            items: [
+              {
+                id: "red-page2-1",
+                account_id: "acc-test-1",
+                uid: "1000000000001",
+                nickname: "HeroCommander",
+                server_id: "1024",
+                gift_code: "PAGE2_CODE",
+                status: "SUCCESS",
+                api_message: "OK",
+                created_at: new Date().toISOString(),
+              },
+            ],
+            total: 45,
+            page: 2,
+            limit: 20,
+            total_pages: 3,
+            summary: {
+              total_redemptions: 45,
+              failed_count: 3,
+              distinct_codes: ["PAGE1_CODE", "PAGE2_CODE"],
+              success_count: 40,
+              already_redeemed_count: 2,
+              expired_count: 0,
+            },
+          },
+        });
+
+      render(
+        <AccountRedemptionsDialog
+          open={true}
+          onOpenChange={vi.fn()}
+          account={mockAccount}
+        />
+      );
+
+      // Verify summary count badge: 40 + 2 = 42 / 45
+      await waitFor(() => {
+        expect(screen.getByText("42/45 Mã Thành Công")).toBeDefined();
+        expect(screen.getByText("PAGE1_CODE")).toBeDefined();
+      });
+
+      // Navigate to page 2 via AdminPagination
+      const nextPageBtn = screen.getByTitle("Trang sau");
+      fireEvent.click(nextPageBtn);
+
+      await waitFor(() => {
+        expect(mockGetAdminAccountRedemptionsAction).toHaveBeenCalledWith(
+          "acc-test-1",
+          expect.objectContaining({
+            page: 2,
+            limit: 20,
+          })
+        );
+        expect(screen.getByText("PAGE2_CODE")).toBeDefined();
+      });
+    });
   });
 
   describe("AccountCheckinsDialog Component", () => {

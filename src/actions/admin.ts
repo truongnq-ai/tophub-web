@@ -13,6 +13,11 @@ import type {
   AdminRetryResponse,
   AdminWeeklyTimelineItem,
   AdminAccountCheckinHistory,
+  AdminAccountsListResponse,
+  AdminGiftcodesListResponse,
+  AdminGiftcodeReceiversListResponse,
+  AdminRedemptionsListResponse,
+  AdminCheckinsListResponse,
 } from "@/types/api";
 
 const ADMIN_COOKIE_NAME = "tophub_admin_token";
@@ -71,10 +76,18 @@ export async function adminLogoutAction(): Promise<{ success: boolean }> {
   return { success: true };
 }
 
-export async function getAdminAccountsAction(): Promise<ApiResponse<AdminAccountItem[]>> {
-  const auth = getAdminTokenOrUnauthorized<AdminAccountItem[]>();
+export async function getAdminAccountsAction(query?: {
+  page?: number;
+  limit?: number;
+  search?: string;
+  plan?: string;
+  server_id?: string;
+  token_status?: string;
+  sort_by?: string;
+}): Promise<ApiResponse<AdminAccountsListResponse | AdminAccountItem[]>> {
+  const auth = getAdminTokenOrUnauthorized<AdminAccountsListResponse | AdminAccountItem[]>();
   if ("errorResponse" in auth) return auth.errorResponse;
-  return apiClient.getAdminAccounts(auth.token);
+  return apiClient.getAdminAccounts(auth.token, query);
 }
 
 export async function updateAdminAccountAction(
@@ -91,8 +104,8 @@ export async function getAdminGiftcodesAction(query?: {
   search?: string;
   page?: number;
   limit?: number;
-}): Promise<ApiResponse<AdminGiftCodeItem[]>> {
-  const auth = getAdminTokenOrUnauthorized<AdminGiftCodeItem[]>();
+}): Promise<ApiResponse<AdminGiftcodesListResponse | AdminGiftCodeItem[]>> {
+  const auth = getAdminTokenOrUnauthorized<AdminGiftcodesListResponse | AdminGiftCodeItem[]>();
   if ("errorResponse" in auth) return auth.errorResponse;
   return apiClient.getAdminGiftcodes(auth.token, query);
 }
@@ -127,11 +140,12 @@ export async function updateAdminGiftcodeAction(
 }
 
 export async function getAdminGiftcodeReceiversAction(
-  code: string
-): Promise<ApiResponse<AdminGiftcodeReceiverItem[]>> {
-  const auth = getAdminTokenOrUnauthorized<AdminGiftcodeReceiverItem[]>();
+  code: string,
+  query?: { page?: number; limit?: number; search?: string; status?: string }
+): Promise<ApiResponse<AdminGiftcodeReceiversListResponse | AdminGiftcodeReceiverItem[]>> {
+  const auth = getAdminTokenOrUnauthorized<AdminGiftcodeReceiversListResponse | AdminGiftcodeReceiverItem[]>();
   if ("errorResponse" in auth) return auth.errorResponse;
-  return apiClient.getAdminGiftcodeReceivers(auth.token, code);
+  return apiClient.getAdminGiftcodeReceivers(auth.token, code, query);
 }
 
 export async function getAdminRedemptionsAction(query?: {
@@ -140,8 +154,8 @@ export async function getAdminRedemptionsAction(query?: {
   search?: string;
   page?: number;
   limit?: number;
-}): Promise<ApiResponse<AdminRedemptionItem[]>> {
-  const auth = getAdminTokenOrUnauthorized<AdminRedemptionItem[]>();
+}): Promise<ApiResponse<AdminRedemptionsListResponse | AdminRedemptionItem[]>> {
+  const auth = getAdminTokenOrUnauthorized<AdminRedemptionsListResponse | AdminRedemptionItem[]>();
   if ("errorResponse" in auth) return auth.errorResponse;
   return apiClient.getAdminRedemptions(auth.token, query);
 }
@@ -168,8 +182,8 @@ export async function getAdminCheckinsAction(query?: {
   search?: string;
   page?: number;
   limit?: number;
-}): Promise<ApiResponse<AdminCheckinItem[]>> {
-  const auth = getAdminTokenOrUnauthorized<AdminCheckinItem[]>();
+}): Promise<ApiResponse<AdminCheckinsListResponse | AdminCheckinItem[]>> {
+  const auth = getAdminTokenOrUnauthorized<AdminCheckinsListResponse | AdminCheckinItem[]>();
   if ("errorResponse" in auth) return auth.errorResponse;
   return apiClient.getAdminCheckins(auth.token, query);
 }
@@ -192,9 +206,9 @@ export async function retryAllAdminCheckinsAction(
 
 export async function getAdminAccountRedemptionsAction(
   accountId: string,
-  query?: { status?: string; code?: string; page?: number; limit?: number }
-): Promise<ApiResponse<AdminRedemptionItem[]>> {
-  const auth = getAdminTokenOrUnauthorized<AdminRedemptionItem[]>();
+  query?: { status?: string; code?: string; search?: string; page?: number; limit?: number }
+): Promise<ApiResponse<AdminRedemptionsListResponse | AdminRedemptionItem[]>> {
+  const auth = getAdminTokenOrUnauthorized<AdminRedemptionsListResponse | AdminRedemptionItem[]>();
   if ("errorResponse" in auth) return auth.errorResponse;
   return apiClient.getAdminAccountRedemptions(auth.token, accountId, query);
 }
@@ -213,4 +227,3 @@ export async function getAdminWeeklyTimelineAction(): Promise<ApiResponse<AdminW
   if ("errorResponse" in auth) return auth.errorResponse;
   return apiClient.getAdminWeeklyTimeline(auth.token);
 }
-

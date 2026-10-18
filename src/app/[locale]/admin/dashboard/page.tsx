@@ -5,6 +5,8 @@ import { cookies } from "next/headers";
 import { setRequestLocale } from "next-intl/server";
 import { apiClient } from "@/lib/api-client";
 import { AdminManager } from "@/components/dashboard/admin-manager";
+import { extractPaginatedResult } from "@/components/dashboard/admin/types";
+import type { AdminAccountsSummary } from "@/types/api";
 
 interface AdminDashboardPageProps {
   params: {
@@ -89,12 +91,17 @@ export default async function AdminDashboardPage({ params: { locale } }: AdminDa
   const adminToken = cookieStore.get("tophub_admin_token")?.value;
 
   let accounts = MOCK_FALLBACK_ACCOUNTS;
+  let accountsSummary: AdminAccountsSummary | undefined = undefined;
 
   if (adminToken) {
     try {
-      const res = await apiClient.getAdminAccounts(adminToken);
-      if (res.success && res.data && res.data.length > 0) {
-        accounts = res.data;
+      const res = await apiClient.getAdminAccounts(adminToken, { page: 1, limit: 20 });
+      if (res.success && res.data) {
+        const normalized = extractPaginatedResult(res.data, 1, 20);
+        if (normalized.items.length > 0) {
+          accounts = normalized.items;
+        }
+        accountsSummary = normalized.summary;
       }
     } catch {
       // Backend offline fallback
@@ -105,7 +112,11 @@ export default async function AdminDashboardPage({ params: { locale } }: AdminDa
 
   return (
     <div className="container mx-auto px-4 py-8 sm:py-12 max-w-6xl">
-      <AdminManager initialAccounts={accounts} locale={locale} />
+      <AdminManager
+        initialAccounts={accounts}
+        initialAccountsSummary={accountsSummary}
+        locale={locale}
+      />
     </div>
   );
 }

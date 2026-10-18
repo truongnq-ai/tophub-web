@@ -431,5 +431,111 @@ describe("AdminManager Component", () => {
 
     expect(mockUpdateAdminGiftcodeAction).toHaveBeenCalled();
   });
+
+  it("should display global database summary counts in Top HUD cards and support server-side pagination without double-slicing", async () => {
+    mockGetAdminAccountsAction.mockResolvedValue({
+      success: true,
+      data: {
+        items: mockAccounts,
+        total: 150,
+        page: 2,
+        limit: 20,
+        total_pages: 8,
+        summary: {
+          total_accounts: 150,
+          pro_count: 85,
+          active_bots_count: 142,
+          servers: ["1024", "1028", "1099"],
+        },
+      },
+    });
+    mockGetAdminGiftcodesAction.mockResolvedValue({
+      success: true,
+      data: {
+        items: MOCK_GIFT_CODES,
+        total: 35,
+        page: 1,
+        limit: 20,
+        total_pages: 2,
+        summary: {
+          total_codes: 35,
+          active_codes_count: 12,
+        },
+      },
+    });
+    mockGetAdminRedemptionsAction.mockResolvedValue({
+      success: true,
+      data: {
+        items: MOCK_REDEMPTIONS,
+        total: 500,
+        page: 1,
+        limit: 20,
+        total_pages: 25,
+        summary: {
+          total_redemptions: 500,
+          failed_count: 7,
+          distinct_codes: ["HERO2026", "SPRING888"],
+        },
+      },
+    });
+    mockGetAdminCheckinsAction.mockResolvedValue({
+      success: true,
+      data: {
+        items: MOCK_CHECKINS,
+        total: 300,
+        page: 1,
+        limit: 20,
+        total_pages: 15,
+        summary: {
+          total_checkins: 300,
+          failed_count: 4,
+          pending_count: 2,
+          already_checked_count: 50,
+          success_count: 244,
+          distinct_days: ["2026-10-12", "2026-10-11"],
+        },
+      },
+    });
+
+    await act(async () => {
+      render(
+        <AdminManager
+          initialAccounts={mockAccounts}
+          initialAccountsSummary={{
+            total_accounts: 150,
+            pro_count: 85,
+            active_bots_count: 142,
+            servers: ["1024", "1028", "1099"],
+          }}
+          locale="vi"
+        />
+      );
+    });
+
+    // Global DB summary metrics in top HUD cards and tab badges:
+    // Total accounts = 150, PRO = 85, Active bots = 142, Active codes = 12 (35 tổng), Failed redemptions = 7 lỗi, Total checkins = 300
+    expect(screen.getAllByText("150").length).toBeGreaterThan(0);
+    expect(screen.getByText(/85 Pro/i)).toBeDefined();
+    expect(screen.getByText("142")).toBeDefined();
+    expect(screen.getByText("12")).toBeDefined();
+    expect(screen.getByText("35 tổng")).toBeDefined();
+    expect(screen.getByText("7 lỗi")).toBeDefined();
+    expect(screen.getByText("300")).toBeDefined();
+
+    // Navigate to page 2 in TabAccounts and verify items are not double-sliced to empty
+    const nextPageBtns = screen.getAllByTitle("Trang sau");
+    await act(async () => {
+      fireEvent.click(nextPageBtns[0]);
+    });
+
+    expect(mockGetAdminAccountsAction).toHaveBeenCalledWith(
+      expect.objectContaining({
+        page: 2,
+        limit: 20,
+      })
+    );
+    expect(screen.getByText("DragonSlayer")).toBeDefined();
+    expect(screen.getByText("ShadowNinja")).toBeDefined();
+  });
 });
 

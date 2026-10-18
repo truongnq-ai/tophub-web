@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import {
   MessageSquare,
   CheckCircle2,
@@ -26,6 +26,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { AdminPagination } from "./pagination";
 
 interface TabCommentsProps {
   onStatsChange?: () => void;
@@ -35,12 +36,20 @@ export function TabComments({ onStatsChange }: TabCommentsProps) {
   const [comments, setComments] = useState<AdminCommentItem[]>([]);
   const [statusFilter, setStatusFilter] = useState<string>("ALL");
   const [searchQuery, setSearchQuery] = useState<string>("");
+  const [debouncedSearch, setDebouncedSearch] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [summary, setSummary] = useState({
     pending_count: 0,
     approved_count: 0,
     hidden_count: 0,
   });
+
+  // Pagination state (standardized default 20)
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [pageSize, setPageSize] = useState<number>(20);
+  const [totalItems, setTotalItems] = useState<number>(0);
+  const [totalPages, setTotalPages] = useState<number>(1);
+  const requestIdRef = useRef(0);
 
   // Admin Reply State
   const [replyingComment, setReplyingComment] = useState<AdminCommentItem | null>(null);
@@ -53,17 +62,35 @@ export function TabComments({ onStatsChange }: TabCommentsProps) {
   const [newBannedWord, setNewBannedWord] = useState("");
   const [showWordsPanel, setShowWordsPanel] = useState(false);
 
+  // Debounce searchQuery (300ms)
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearch(searchQuery.trim());
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [searchQuery]);
+
   const loadComments = useCallback(async () => {
+    const reqId = ++requestIdRef.current;
     try {
       setIsLoading(true);
       const res = await getAdminCommentsAction({
         status: statusFilter,
-        search: searchQuery || undefined,
-        page: 1,
-        limit: 50,
+        search: debouncedSearch || undefined,
+        page: currentPage,
+        limit: pageSize,
       });
+      if (reqId !== requestIdRef.current) return;
       if (res && res.success && res.data) {
-        setComments(res.data.items ?? []);
+        const items = res.data.items ?? [];
+        const total = typeof res.data.total === "number" ? res.data.total : items.length;
+        const computedTotalPages =
+          typeof res.data.total_pages === "number"
+            ? res.data.total_pages
+            : Math.max(1, Math.ceil(total / pageSize));
+        setComments(items);
+        setTotalItems(total);
+        setTotalPages(computedTotalPages);
         if (res.data.summary) {
           setSummary(res.data.summary);
         }
@@ -71,9 +98,11 @@ export function TabComments({ onStatsChange }: TabCommentsProps) {
     } catch {
       // Fallback
     } finally {
-      setIsLoading(false);
+      if (reqId === requestIdRef.current) {
+        setIsLoading(false);
+      }
     }
-  }, [statusFilter, searchQuery]);
+  }, [statusFilter, debouncedSearch, currentPage, pageSize]);
 
   const loadBannedWords = useCallback(async () => {
     try {
@@ -89,8 +118,11 @@ export function TabComments({ onStatsChange }: TabCommentsProps) {
 
   useEffect(() => {
     loadComments();
+  }, [loadComments]);
+
+  useEffect(() => {
     loadBannedWords();
-  }, [loadComments, loadBannedWords]);
+  }, [loadBannedWords]);
 
   const handleStatusChange = async (id: string, status: CommentStatus) => {
     const res = await updateAdminCommentAction(id, { status });
@@ -183,7 +215,10 @@ export function TabComments({ onStatsChange }: TabCommentsProps) {
                   type="button"
                   size="sm"
                   variant={statusFilter === tab.id ? "default" : "outline"}
-                  onClick={() => setStatusFilter(tab.id)}
+                  onClick={() => {
+                    setStatusFilter(tab.id);
+                    setCurrentPage(1);
+                  }}
                   className="text-xs font-bold rounded-lg h-8"
                 >
                   {tab.label}
@@ -219,7 +254,10 @@ export function TabComments({ onStatsChange }: TabCommentsProps) {
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={(e) => {
+                setSearchQuery(e.target.value);
+                setCurrentPage(1);
+              }}
               placeholder="Tìm theo nội dung, tên nhân vật, UID hoặc mã trang cẩm nang..."
               className="pl-9 h-9 text-xs"
             />
@@ -405,6 +443,21 @@ export function TabComments({ onStatsChange }: TabCommentsProps) {
           ))
         )}
       </div>
+
+      {/* Reusable Pagination */}
+      <Card className="border border-border/60 bg-card/80 rounded-xl overflow-hidden">
+        <AdminPagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          totalItems={totalItems}
+          pageSize={pageSize}
+          onPageChange={setCurrentPage}
+          onPageSizeChange={(size) => {
+            setPageSize(size);
+            setCurrentPage(1);
+          }}
+        />
+      </Card>
     </div>
   );
 }

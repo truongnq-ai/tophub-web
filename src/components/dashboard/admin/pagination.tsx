@@ -20,7 +20,7 @@ export function AdminPagination({
   pageSize,
   onPageChange,
   onPageSizeChange,
-  pageSizeOptions = [10, 25, 50],
+  pageSizeOptions = [20, 50, 100],
   className = "",
 }: AdminPaginationProps) {
   if (totalItems === 0) return null;

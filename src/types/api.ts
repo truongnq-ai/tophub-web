@@ -274,11 +274,57 @@ export interface AdminCommentItem {
   created_at: string;
 }
 
+export interface PaginatedAdminResponse<T, TSummary = undefined> {
+  items: T[];
+  total: number;
+  page: number;
+  limit: number;
+  total_pages: number;
+  summary?: TSummary;
+}
+
+export interface AdminAccountsSummary {
+  total_accounts: number;
+  pro_count: number;
+  active_bots_count: number;
+  servers: string[];
+}
+
+export interface AdminGiftcodesSummary {
+  total_codes: number;
+  active_codes_count: number;
+}
+
+export interface AdminRedemptionsSummary {
+  total_redemptions: number;
+  success_count?: number;
+  already_redeemed_count?: number;
+  expired_count?: number;
+  failed_count: number;
+  distinct_codes: string[];
+}
+
+export interface AdminCheckinsSummary {
+  total_checkins: number;
+  failed_count: number;
+  pending_count: number;
+  already_checked_count: number;
+  success_count: number;
+  distinct_days: string[];
+}
+
+export type AdminAccountsListResponse = PaginatedAdminResponse<AdminAccountItem, AdminAccountsSummary>;
+export type AdminGiftcodesListResponse = PaginatedAdminResponse<AdminGiftCodeItem, AdminGiftcodesSummary>;
+export type AdminGiftcodeReceiversListResponse = PaginatedAdminResponse<AdminGiftcodeReceiverItem>;
+export type AdminRedemptionsListResponse = PaginatedAdminResponse<AdminRedemptionItem, AdminRedemptionsSummary>;
+export type AdminCheckinsListResponse = PaginatedAdminResponse<AdminCheckinItem, AdminCheckinsSummary>;
+
 export interface AdminCommentsListResponse {
   items: AdminCommentItem[];
   total: number;
   page: number;
   limit: number;
+  total_pages?: number;
   summary: {
     pending_count: number;
     approved_count: number;
@@ -290,5 +336,3 @@ export interface AdminBannedWordsResponse {
   default_words: string[];
   custom_words: string[];
 }
-
-

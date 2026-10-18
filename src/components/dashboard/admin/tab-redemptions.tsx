@@ -22,7 +22,11 @@ import {
   retryAdminRedemptionAction,
   retryAllAdminRedemptionsAction,
 } from "@/actions/admin";
-import type { AdminRedemption } from "./types";
+import {
+  extractPaginatedResult,
+  type AdminRedemption,
+  type AdminRedemptionsSummary,
+} from "./types";
 import { MOCK_REDEMPTIONS } from "./mock-data";
 import { AccountAvatar } from "./account-avatar";
 import { ServerTag } from "./server-tag";
@@ -32,8 +36,12 @@ import { AdminEmptyState } from "./empty-state";
 export function TabRedemptions() {
   const { toast } = useToast();
   const [redemptions, setRedemptions] = useState<AdminRedemption[]>([]);
+  const [summary, setSummary] = useState<AdminRedemptionsSummary | undefined>(undefined);
+  const [totalItems, setTotalItems] = useState(0);
+  const [isServerPaginated, setIsServerPaginated] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState("");
   const [filterStatus, setFilterStatus] = useState<"ALL" | "SUCCESS" | "ALREADY_REDEEMED" | "EXPIRED" | "FAILED">("ALL");
   const [filterCode, setFilterCode] = useState<string>("ALL");
   const [retryingId, setRetryingId] = useState<string | null>(null);
@@ -41,36 +49,70 @@ export function TabRedemptions() {
 
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize, setPageSize] = useState(10);
+  const [pageSize, setPageSize] = useState(20);
 
-  // Fetch redemptions on mount
+  const requestIdRef = React.useRef(0);
+
+  // Debounce search (300ms)
   React.useEffect(() => {
-    let active = true;
-    async function fetchRedemptions() {
-      try {
-        setIsLoading(true);
-        const res = await getAdminRedemptionsAction();
-        if (active && res.success && res.data) {
-          setRedemptions(res.data);
-        } else if (active && !res.success) {
-          setRedemptions(MOCK_REDEMPTIONS);
+    const timer = setTimeout(() => {
+      setDebouncedSearch(search.trim());
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [search]);
+
+  // Fetch redemptions when pagination/search/filter changes
+  const fetchRedemptions = React.useCallback(async () => {
+    const reqId = ++requestIdRef.current;
+    try {
+      setIsLoading(true);
+      const res = await getAdminRedemptionsAction({
+        page: currentPage,
+        limit: pageSize,
+        status: filterStatus !== "ALL" ? filterStatus : undefined,
+        code: filterCode !== "ALL" ? filterCode : undefined,
+        search: debouncedSearch || undefined,
+      });
+      if (reqId !== requestIdRef.current) return;
+      if (res.success && res.data) {
+        const norm = extractPaginatedResult(res.data, currentPage, pageSize);
+        setRedemptions(norm.items);
+        setTotalItems(norm.total);
+        setIsServerPaginated(norm.isServerPaginated);
+        if (norm.summary) {
+          setSummary(norm.summary);
         }
-      } catch {
-        if (active) setRedemptions(MOCK_REDEMPTIONS);
-      } finally {
-        if (active) setIsLoading(false);
+      } else if (!res.success) {
+        setRedemptions(MOCK_REDEMPTIONS);
+        setTotalItems(MOCK_REDEMPTIONS.length);
+        setIsServerPaginated(false);
+      }
+    } catch {
+      if (reqId === requestIdRef.current) {
+        setRedemptions(MOCK_REDEMPTIONS);
+        setTotalItems(MOCK_REDEMPTIONS.length);
+        setIsServerPaginated(false);
+      }
+    } finally {
+      if (reqId === requestIdRef.current) {
+        setIsLoading(false);
       }
     }
+  }, [currentPage, pageSize, filterStatus, filterCode, debouncedSearch]);
+
+  React.useEffect(() => {
     fetchRedemptions();
-    return () => {
-      active = false;
-    };
-  }, []);
+  }, [fetchRedemptions]);
 
   // Unique codes for the code filter
   const uniqueCodes = useMemo(() => {
-    return Array.from(new Set(redemptions.map((r) => r.gift_code).filter(Boolean)));
-  }, [redemptions]);
+    return Array.from(
+      new Set([
+        ...(summary?.distinct_codes || []),
+        ...redemptions.map((r) => r.gift_code).filter(Boolean),
+      ])
+    );
+  }, [summary, redemptions]);
 
   const handleRetrySingle = async (item: AdminRedemption) => {
     setRetryingId(item.id);
@@ -131,9 +173,12 @@ export function TabRedemptions() {
     }
   };
 
+  const failedCount =
+    summary?.failed_count ?? redemptions.filter((r) => r.status === "FAILED").length;
+
   const handleRetryAllFailed = async () => {
     const failedItems = redemptions.filter((r) => r.status === "FAILED");
-    if (failedItems.length === 0) {
+    if (failedCount === 0 && failedItems.length === 0) {
       toast({
         title: "Không có mã lỗi",
         description: "Tất cả các lượt đổi giftcode hiện tại đều đã thành công.",
@@ -144,7 +189,7 @@ export function TabRedemptions() {
     setIsRetryingAll(true);
     try {
       const res = await retryAllAdminRedemptionsAction(filterCode !== "ALL" ? filterCode : undefined);
-      const count = res.success && res.data ? res.data.retried_count : failedItems.length;
+      const count = res.success && res.data ? res.data.retried_count : Math.max(failedCount, failedItems.length);
 
       setRedemptions((prev) =>
         prev.map((r) =>
@@ -158,6 +203,7 @@ export function TabRedemptions() {
             : r
         )
       );
+      setSummary((prev) => (prev ? { ...prev, failed_count: 0 } : prev));
 
       toast({
         title: "Đã kích hoạt lại toàn bộ mã lỗi",
@@ -179,7 +225,7 @@ export function TabRedemptions() {
       );
       toast({
         title: "Đã kích hoạt lại toàn bộ mã lỗi",
-        description: `Đã gửi lệnh xử lý lại ${failedItems.length} lượt đổi quà bị thất bại tới hệ thống bot.`,
+        description: `Đã gửi lệnh xử lý lại ${Math.max(failedCount, failedItems.length)} lượt đổi quà bị thất bại tới hệ thống bot.`,
       });
     } finally {
       setIsRetryingAll(false);
@@ -204,14 +250,19 @@ export function TabRedemptions() {
     });
   }, [redemptions, search, filterStatus, filterCode]);
 
-  // Paginated items
-  const totalPages = Math.ceil(filteredRedemptions.length / pageSize);
+  // Paginated items (avoid double-slicing when server already paginated)
+  const isPendingClientFilter = search.trim() !== debouncedSearch;
+  const effectiveTotalItems =
+    isServerPaginated && !isPendingClientFilter ? totalItems : filteredRedemptions.length;
+  const totalPages = Math.max(1, Math.ceil(effectiveTotalItems / pageSize));
   const paginatedRedemptions = useMemo(() => {
+    if (isServerPaginated) return filteredRedemptions;
     const start = (currentPage - 1) * pageSize;
     return filteredRedemptions.slice(start, start + pageSize);
-  }, [filteredRedemptions, currentPage, pageSize]);
+  }, [filteredRedemptions, isServerPaginated, currentPage, pageSize]);
 
-  const failedCount = redemptions.filter((r) => r.status === "FAILED").length;
+  const totalRedemptionsInDb =
+    summary?.total_redemptions ?? Math.max(effectiveTotalItems, redemptions.length);
 
   return (
     <Card className="border border-border/60 bg-card/80 backdrop-blur-md rounded-2xl overflow-hidden shadow-lg">
@@ -223,7 +274,7 @@ export function TabRedemptions() {
                 Lịch Sử Đổi Giftcode
               </CardTitle>
               <Badge variant="secondary" className="font-mono text-xs font-bold">
-                {filteredRedemptions.length}/{redemptions.length}
+                {effectiveTotalItems}/{totalRedemptionsInDb}
               </Badge>
               {failedCount > 0 && (
                 <Badge className="bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20 text-[10px] font-semibold">
@@ -533,7 +584,7 @@ export function TabRedemptions() {
         <AdminPagination
           currentPage={currentPage}
           totalPages={totalPages}
-          totalItems={filteredRedemptions.length}
+          totalItems={effectiveTotalItems}
           pageSize={pageSize}
           onPageChange={setCurrentPage}
           onPageSizeChange={(size) => {

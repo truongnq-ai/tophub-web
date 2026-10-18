@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import {
   Gift,
   Search,
@@ -21,12 +21,17 @@ import {
 } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { getAdminAccountRedemptionsAction } from "@/actions/admin";
-import type { AdminAccountItem, AdminRedemptionItem } from "@/types/api";
+import type {
+  AdminAccountItem,
+  AdminRedemptionItem,
+  AdminRedemptionsSummary,
+} from "@/types/api";
+import { extractPaginatedResult } from "./types";
 import { AccountAvatar } from "./account-avatar";
 import { ServerTag } from "./server-tag";
+import { AdminPagination } from "./pagination";
 
 interface AccountRedemptionsDialogProps {
   open: boolean;
@@ -43,31 +48,94 @@ export function AccountRedemptionsDialog({
   const [redemptions, setRedemptions] = useState<AdminRedemptionItem[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [search, setSearch] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState("");
   const [filterStatus, setFilterStatus] = useState<
     "ALL" | "SUCCESS" | "ALREADY_REDEEMED" | "EXPIRED" | "FAILED"
   >("ALL");
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
 
+  // Pagination & Server summary state
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(20);
+  const [totalItems, setTotalItems] = useState(0);
+  const [totalPages, setTotalPages] = useState(1);
+  const [isServerPaginated, setIsServerPaginated] = useState(false);
+  const [summary, setSummary] = useState<AdminRedemptionsSummary | null>(null);
+  const requestIdRef = useRef(0);
+
+  // Debounce search input (300ms)
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearch(search.trim());
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [search]);
+
+  // Reset state when dialog closes or account changes
   useEffect(() => {
     if (!open || !account) {
       setRedemptions([]);
       setSearch("");
+      setDebouncedSearch("");
       setFilterStatus("ALL");
+      setCurrentPage(1);
+      setTotalItems(0);
+      setTotalPages(1);
+      setIsServerPaginated(false);
+      setSummary(null);
+    }
+  }, [open, account]);
+
+  useEffect(() => {
+    if (!open || !account) {
       return;
     }
 
     let active = true;
+    const reqId = ++requestIdRef.current;
+
     async function loadRedemptions() {
       setIsLoading(true);
       try {
-        const res = await getAdminAccountRedemptionsAction(account!.id);
-        if (active && res.success && res.data) {
-          setRedemptions(res.data);
+        const isDefaultQuery =
+          currentPage === 1 &&
+          pageSize === 20 &&
+          filterStatus === "ALL" &&
+          !debouncedSearch;
+
+        const res = isDefaultQuery
+          ? await getAdminAccountRedemptionsAction(account!.id)
+          : await getAdminAccountRedemptionsAction(account!.id, {
+              page: currentPage,
+              limit: pageSize,
+              status: filterStatus !== "ALL" ? filterStatus : undefined,
+              search: debouncedSearch || undefined,
+            });
+
+        if (!active || reqId !== requestIdRef.current) return;
+
+        if (res && res.success && res.data) {
+          const norm = extractPaginatedResult<
+            AdminRedemptionItem,
+            AdminRedemptionsSummary
+          >(res.data);
+
+          if (norm.isServerPaginated || isDefaultQuery || norm.items.length > 0) {
+            setRedemptions(norm.items);
+            setTotalItems(norm.total);
+            setTotalPages(norm.total_pages);
+            setIsServerPaginated(norm.isServerPaginated);
+            if (norm.summary) {
+              setSummary(norm.summary);
+            }
+          }
         }
       } catch (err) {
         console.error("Failed to load account redemptions:", err);
       } finally {
-        if (active) setIsLoading(false);
+        if (active && reqId === requestIdRef.current) {
+          setIsLoading(false);
+        }
       }
     }
 
@@ -75,7 +143,7 @@ export function AccountRedemptionsDialog({
     return () => {
       active = false;
     };
-  }, [open, account]);
+  }, [open, account, currentPage, pageSize, filterStatus, debouncedSearch]);
 
   const handleCopyCode = (code: string) => {
     navigator.clipboard.writeText(code);
@@ -97,13 +165,59 @@ export function AccountRedemptionsDialog({
     });
   }, [redemptions, search, filterStatus]);
 
-  const successCount = useMemo(
-    () =>
-      redemptions.filter(
-        (r) => r.status === "SUCCESS" || r.status === "ALREADY_REDEEMED"
-      ).length,
-    [redemptions]
-  );
+  const displayRedemptions = useMemo(() => {
+    if (isServerPaginated) {
+      return filteredRedemptions;
+    }
+    const start = (currentPage - 1) * pageSize;
+    return filteredRedemptions.slice(start, start + pageSize);
+  }, [filteredRedemptions, isServerPaginated, currentPage, pageSize]);
+
+  const effectiveTotalItems = isServerPaginated
+    ? totalItems
+    : filteredRedemptions.length;
+  const effectiveTotalPages = isServerPaginated
+    ? totalPages
+    : Math.max(1, Math.ceil(filteredRedemptions.length / pageSize));
+
+  const successCount = useMemo(() => {
+    if (isServerPaginated && summary?.success_count !== undefined) {
+      return summary.success_count + (summary.already_redeemed_count ?? 0);
+    }
+    return redemptions.filter(
+      (r) => r.status === "SUCCESS" || r.status === "ALREADY_REDEEMED"
+    ).length;
+  }, [redemptions, isServerPaginated, summary]);
+
+  const totalAccountRedemptions = useMemo(() => {
+    if (isServerPaginated && summary) {
+      return summary.total_redemptions;
+    }
+    return redemptions.length;
+  }, [redemptions.length, isServerPaginated, summary]);
+
+  const getTabStatusCount = (
+    statusId: "SUCCESS" | "ALREADY_REDEEMED" | "EXPIRED" | "FAILED"
+  ) => {
+    if (isServerPaginated && summary) {
+      if (statusId === "SUCCESS" && summary.success_count !== undefined) {
+        return summary.success_count;
+      }
+      if (
+        statusId === "ALREADY_REDEEMED" &&
+        summary.already_redeemed_count !== undefined
+      ) {
+        return summary.already_redeemed_count;
+      }
+      if (statusId === "EXPIRED" && summary.expired_count !== undefined) {
+        return summary.expired_count;
+      }
+      if (statusId === "FAILED") {
+        return summary.failed_count;
+      }
+    }
+    return redemptions.filter((r) => r.status === statusId).length;
+  };
 
   const getStatusBadge = (status: string) => {
     switch (status) {
@@ -175,7 +289,7 @@ export function AccountRedemptionsDialog({
               variant="secondary"
               className="font-mono text-xs font-bold shrink-0"
             >
-              {successCount}/{redemptions.length} Mã Thành Công
+              {successCount}/{totalAccountRedemptions} Mã Thành Công
             </Badge>
           </div>
 
@@ -194,7 +308,10 @@ export function AccountRedemptionsDialog({
                 <button
                   key={tab.id}
                   type="button"
-                  onClick={() => setFilterStatus(tab.id)}
+                  onClick={() => {
+                    setFilterStatus(tab.id);
+                    setCurrentPage(1);
+                  }}
                   className={`px-2.5 py-1 rounded-lg text-xs font-medium transition-colors ${
                     filterStatus === tab.id
                       ? "bg-primary text-primary-foreground font-bold shadow-xs"
@@ -204,12 +321,7 @@ export function AccountRedemptionsDialog({
                   {tab.label}
                   {tab.id !== "ALL" && (
                     <span className="ml-1 opacity-70 text-[10px]">
-                      (
-                      {
-                        redemptions.filter((r) => r.status === tab.id)
-                          .length
-                      }
-                      )
+                      ({getTabStatusCount(tab.id)})
                     </span>
                   )}
                 </button>
@@ -221,7 +333,10 @@ export function AccountRedemptionsDialog({
               <Input
                 type="text"
                 value={search}
-                onChange={(e) => setSearch(e.target.value)}
+                onChange={(e) => {
+                  setSearch(e.target.value);
+                  setCurrentPage(1);
+                }}
                 placeholder="Tìm mã..."
                 className="h-8 pl-8 text-xs bg-muted/30 rounded-lg"
               />
@@ -231,14 +346,14 @@ export function AccountRedemptionsDialog({
 
         {/* List Content */}
         <div className="flex-1 overflow-y-auto py-2 pr-1 space-y-2 max-h-[50vh]">
-          {isLoading ? (
+          {isLoading && redemptions.length === 0 ? (
             <div className="py-12 flex flex-col items-center justify-center gap-2 text-muted-foreground">
               <Loader2 className="h-6 w-6 animate-spin text-primary" />
               <span className="text-xs">Đang tải lịch sử giftcode...</span>
             </div>
-          ) : filteredRedemptions.length > 0 ? (
+          ) : displayRedemptions.length > 0 ? (
             <div className="divide-y divide-border/30 rounded-xl border border-border/40 overflow-hidden bg-muted/10">
-              {filteredRedemptions.map((item) => (
+              {displayRedemptions.map((item) => (
                 <div
                   key={item.id}
                   className="p-3 hover:bg-muted/30 transition-colors flex items-center justify-between gap-3 text-xs"
@@ -295,6 +410,19 @@ export function AccountRedemptionsDialog({
             </div>
           )}
         </div>
+
+        {/* Reusable Pagination */}
+        <AdminPagination
+          currentPage={currentPage}
+          totalPages={effectiveTotalPages}
+          totalItems={effectiveTotalItems}
+          pageSize={pageSize}
+          onPageChange={setCurrentPage}
+          onPageSizeChange={(size) => {
+            setPageSize(size);
+            setCurrentPage(1);
+          }}
+        />
       </DialogContent>
     </Dialog>
   );

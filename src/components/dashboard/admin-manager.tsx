@@ -29,7 +29,8 @@ import {
   getAdminRedemptionsAction,
   getAdminCheckinsAction,
 } from "@/actions/admin";
-import type { AdminAccountItem } from "@/types/api";
+import type { AdminAccountItem, AdminAccountsSummary } from "@/types/api";
+import { extractPaginatedResult } from "./admin/types";
 import { TabAccounts } from "./admin/tab-accounts";
 import { TabGiftcodes } from "./admin/tab-giftcodes";
 import { TabRedemptions } from "./admin/tab-redemptions";
@@ -38,12 +39,20 @@ import { TabComments } from "./admin/tab-comments";
 
 interface AdminManagerProps {
   initialAccounts: AdminAccountItem[];
+  initialAccountsSummary?: AdminAccountsSummary;
   locale: string;
 }
 
-export function AdminManager({ initialAccounts, locale }: AdminManagerProps) {
+export function AdminManager({
+  initialAccounts,
+  initialAccountsSummary,
+  locale,
+}: AdminManagerProps) {
   const router = useRouter();
   const [accounts, setAccounts] = useState<AdminAccountItem[]>(initialAccounts);
+  const [accountsSummary, setAccountsSummary] = useState<AdminAccountsSummary | undefined>(
+    initialAccountsSummary
+  );
   const [updatingId, setUpdatingId] = useState<string | null>(null);
   const [isLoggingOut, setIsLoggingOut] = useState(false);
   const [activeTab, setActiveTab] = useState("accounts");
@@ -57,24 +66,56 @@ export function AdminManager({ initialAccounts, locale }: AdminManagerProps) {
   const loadStats = React.useCallback(async () => {
     try {
       setIsRefreshingStats(true);
-      const [gcRes, redRes, chkRes] = await Promise.allSettled([
-        getAdminGiftcodesAction(),
-        getAdminRedemptionsAction(),
-        getAdminCheckinsAction(),
+      const [accRes, gcRes, redRes, chkRes] = await Promise.allSettled([
+        typeof getAdminAccountsAction === "function"
+          ? getAdminAccountsAction({ page: 1, limit: 1 })
+          : Promise.resolve({ success: false } as const),
+        typeof getAdminGiftcodesAction === "function"
+          ? getAdminGiftcodesAction({ page: 1, limit: 1 })
+          : Promise.resolve({ success: false } as const),
+        typeof getAdminRedemptionsAction === "function"
+          ? getAdminRedemptionsAction({ page: 1, limit: 1 })
+          : Promise.resolve({ success: false } as const),
+        typeof getAdminCheckinsAction === "function"
+          ? getAdminCheckinsAction({ page: 1, limit: 1 })
+          : Promise.resolve({ success: false } as const),
       ]);
 
-      if (gcRes.status === "fulfilled" && gcRes.value.success && gcRes.value.data) {
-        setGiftCodesCount(gcRes.value.data.length);
-        setActiveCodesCount(gcRes.value.data.filter((c) => c.status === "VALID").length);
+      if (accRes.status === "fulfilled" && accRes.value?.success && accRes.value.data) {
+        const normAcc = extractPaginatedResult(accRes.value.data, 1, 1);
+        if (normAcc.summary) {
+          setAccountsSummary(normAcc.summary);
+        } else if (normAcc.items.length > 0) {
+          setAccountsSummary({
+            total_accounts: normAcc.total,
+            pro_count: normAcc.items.filter((a) => a.active_plan === "PRO").length,
+            active_bots_count: normAcc.items.filter((a) => a.auto_redeem || a.auto_checkin).length,
+            servers: Array.from(new Set(normAcc.items.map((a) => a.server_id).filter(Boolean))),
+          });
+        }
       }
 
-      if (redRes.status === "fulfilled" && redRes.value.success && redRes.value.data) {
-        setRedemptionsCount(redRes.value.data.length);
-        setFailedRedemptionsCount(redRes.value.data.filter((r) => r.status === "FAILED").length);
+      if (gcRes.status === "fulfilled" && gcRes.value?.success && gcRes.value.data) {
+        const normGc = extractPaginatedResult(gcRes.value.data, 1, 1);
+        setGiftCodesCount(normGc.summary?.total_codes ?? normGc.total);
+        setActiveCodesCount(
+          normGc.summary?.active_codes_count ??
+            normGc.items.filter((c) => c.status === "VALID").length
+        );
       }
 
-      if (chkRes.status === "fulfilled" && chkRes.value.success && chkRes.value.data) {
-        setCheckinsCount(chkRes.value.data.length);
+      if (redRes.status === "fulfilled" && redRes.value?.success && redRes.value.data) {
+        const normRed = extractPaginatedResult(redRes.value.data, 1, 1);
+        setRedemptionsCount(normRed.summary?.total_redemptions ?? normRed.total);
+        setFailedRedemptionsCount(
+          normRed.summary?.failed_count ??
+            normRed.items.filter((r) => r.status === "FAILED").length
+        );
+      }
+
+      if (chkRes.status === "fulfilled" && chkRes.value?.success && chkRes.value.data) {
+        const normChk = extractPaginatedResult(chkRes.value.data, 1, 1);
+        setCheckinsCount(normChk.summary?.total_checkins ?? normChk.total);
       }
     } catch {
       // Fallback
@@ -100,9 +141,16 @@ export function AdminManager({ initialAccounts, locale }: AdminManagerProps) {
 
   const handleRefreshAccounts = async () => {
     try {
-      const res = await getAdminAccountsAction();
-      if (res.success && res.data) {
-        setAccounts(res.data);
+      if (typeof getAdminAccountsAction !== "function") return;
+      const res = await getAdminAccountsAction({ page: 1, limit: 20 });
+      if (res?.success && res.data) {
+        const norm = extractPaginatedResult(res.data, 1, 20);
+        if (norm.items.length > 0 || norm.isServerPaginated) {
+          setAccounts(norm.items);
+        }
+        if (norm.summary) {
+          setAccountsSummary(norm.summary);
+        }
       }
     } catch {
       // Fallback
@@ -138,10 +186,16 @@ export function AdminManager({ initialAccounts, locale }: AdminManagerProps) {
     }
   };
 
-  const proCount = accounts.filter((a) => a.active_plan === "PRO").length;
-  const activeBotsCount = accounts.filter((a) => a.auto_redeem || a.auto_checkin).length;
-  const activePercent = accounts.length > 0 ? Math.round((activeBotsCount / accounts.length) * 100) : 0;
-  const proPercent = accounts.length > 0 ? Math.round((proCount / accounts.length) * 100) : 0;
+  const totalAccountsCount = accountsSummary?.total_accounts ?? accounts.length;
+  const proCount =
+    accountsSummary?.pro_count ?? accounts.filter((a) => a.active_plan === "PRO").length;
+  const activeBotsCount =
+    accountsSummary?.active_bots_count ??
+    accounts.filter((a) => a.auto_redeem || a.auto_checkin).length;
+  const activePercent =
+    totalAccountsCount > 0 ? Math.round((activeBotsCount / totalAccountsCount) * 100) : 0;
+  const proPercent =
+    totalAccountsCount > 0 ? Math.round((proCount / totalAccountsCount) * 100) : 0;
 
   return (
     <div className="space-y-6 sm:space-y-8">
@@ -232,13 +286,13 @@ export function AdminManager({ initialAccounts, locale }: AdminManagerProps) {
               </div>
               <div className="min-w-0 flex-1">
                 <div className="text-xs text-muted-foreground font-medium truncate">Tổng Tài Khoản</div>
-                <div className="text-2xl font-black text-foreground font-mono leading-tight">{accounts.length}</div>
+                <div className="text-2xl font-black text-foreground font-mono leading-tight">{totalAccountsCount}</div>
               </div>
             </div>
             {/* Sub-bar */}
             <div className="space-y-1">
               <div className="flex justify-between text-[10px] text-muted-foreground font-mono">
-                <span>{accounts.length - proCount} Free</span>
+                <span>{Math.max(0, totalAccountsCount - proCount)} Free</span>
                 <span className="font-bold text-amber-500">{proCount} Pro</span>
               </div>
               <div className="h-1.5 w-full bg-muted/60 rounded-full overflow-hidden flex">
@@ -365,7 +419,7 @@ export function AdminManager({ initialAccounts, locale }: AdminManagerProps) {
                 variant="outline"
                 className="ml-1 text-[10px] px-1.5 py-0 font-mono border-border/80"
               >
-                {accounts.length}
+                {totalAccountsCount}
               </Badge>
             </TabsTrigger>
 
@@ -427,9 +481,11 @@ export function AdminManager({ initialAccounts, locale }: AdminManagerProps) {
         <TabsContent value="accounts" className="mt-0 focus-visible:outline-none">
           <TabAccounts
             accounts={accounts}
+            initialSummary={accountsSummary}
             onToggle={handleToggle}
             updatingId={updatingId}
             onRefresh={handleRefreshAccounts}
+            onSummaryChange={setAccountsSummary}
           />
         </TabsContent>
 

@@ -22,7 +22,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
 import { useToast } from "@/hooks/use-toast";
-import type { AdminAccountItem } from "@/types/api";
+import { getAdminAccountsAction } from "@/actions/admin";
+import type { AdminAccountItem, AdminAccountsSummary } from "@/types/api";
+import { extractPaginatedResult } from "./types";
 import { AccountAvatar } from "./account-avatar";
 import { ServerTag } from "./server-tag";
 import { AdminTooltip } from "./admin-tooltip";
@@ -33,6 +35,7 @@ import { AccountCheckinsDialog } from "./account-checkins-dialog";
 
 interface TabAccountsProps {
   accounts: AdminAccountItem[];
+  initialSummary?: AdminAccountsSummary;
   onToggle: (
     accountId: string,
     key: "auto_redeem" | "auto_checkin",
@@ -40,16 +43,26 @@ interface TabAccountsProps {
   ) => Promise<void>;
   updatingId: string | null;
   onRefresh?: () => void;
+  onSummaryChange?: (summary: AdminAccountsSummary) => void;
 }
 
 export function TabAccounts({
   accounts,
+  initialSummary,
   onToggle,
   updatingId,
   onRefresh,
+  onSummaryChange,
 }: TabAccountsProps) {
   const { toast } = useToast();
+  const [items, setItems] = useState<AdminAccountItem[]>(accounts);
+  const [summary, setSummary] = useState<AdminAccountsSummary | undefined>(initialSummary);
+  const [totalItems, setTotalItems] = useState<number>(
+    initialSummary?.total_accounts ?? accounts.length
+  );
+  const [isServerPaginated, setIsServerPaginated] = useState<boolean>(Boolean(initialSummary));
   const [search, setSearch] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState("");
   const [filterPlan, setFilterPlan] = useState<"ALL" | "PRO" | "FREE">("ALL");
   const [filterServer, setFilterServer] = useState<string>("ALL");
   const [filterToken, setFilterToken] = useState<string>("ALL");
@@ -59,7 +72,88 @@ export function TabAccounts({
 
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize, setPageSize] = useState(10);
+  const [pageSize, setPageSize] = useState(20);
+
+  const isFirstRenderRef = React.useRef(true);
+  const requestIdRef = React.useRef(0);
+
+  // Sync items with parent accounts prop (e.g., optimistic toggle updates)
+  React.useEffect(() => {
+    setItems((prev) => {
+      if (!isServerPaginated && prev.length === accounts.length) {
+        return accounts;
+      }
+      const map = new Map(accounts.map((a) => [a.id, a]));
+      return prev.map((item) => map.get(item.id) ?? item);
+    });
+  }, [accounts, isServerPaginated]);
+
+  React.useEffect(() => {
+    if (initialSummary) {
+      setSummary(initialSummary);
+    }
+  }, [initialSummary]);
+
+  // Debounce search input (300ms)
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearch(search.trim());
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [search]);
+
+  const fetchServerAccounts = React.useCallback(async () => {
+    if (typeof getAdminAccountsAction !== "function") return;
+    const reqId = ++requestIdRef.current;
+    try {
+      const res = await getAdminAccountsAction({
+        page: currentPage,
+        limit: pageSize,
+        search: debouncedSearch || undefined,
+        plan: filterPlan !== "ALL" ? filterPlan : undefined,
+        server_id: filterServer !== "ALL" ? filterServer : undefined,
+        token_status: filterToken !== "ALL" ? filterToken : undefined,
+        sort_by: sortBy !== "DEFAULT" ? sortBy : undefined,
+      });
+      if (reqId !== requestIdRef.current) return;
+      if (res?.success && res.data) {
+        const norm = extractPaginatedResult(res.data, currentPage, pageSize);
+        // Guard against legacy test mocks returning default [] when initialAccounts was provided
+        if (!norm.isServerPaginated && norm.items.length === 0 && accounts.length > 0) {
+          return;
+        }
+        setItems(norm.items);
+        setTotalItems(norm.total);
+        setIsServerPaginated(norm.isServerPaginated);
+        if (norm.summary) {
+          setSummary(norm.summary);
+          onSummaryChange?.(norm.summary);
+        }
+      }
+    } catch {
+      // Keep existing items in memory on error
+    }
+  }, [
+    currentPage,
+    pageSize,
+    debouncedSearch,
+    filterPlan,
+    filterServer,
+    filterToken,
+    sortBy,
+    accounts.length,
+    onSummaryChange,
+  ]);
+
+  React.useEffect(() => {
+    if (isFirstRenderRef.current) {
+      isFirstRenderRef.current = false;
+      if (accounts.length > 0) {
+        return;
+      }
+    }
+    fetchServerAccounts();
+  }, [fetchServerAccounts, accounts.length]);
 
   // Dialog states for Actions
   const [selectedAccountForRedemptions, setSelectedAccountForRedemptions] = useState<AdminAccountItem | null>(null);
@@ -69,8 +163,14 @@ export function TabAccounts({
 
   // Extract unique server IDs for dropdown
   const uniqueServers = useMemo(() => {
-    return Array.from(new Set(accounts.map((a) => a.server_id).filter(Boolean))).sort();
-  }, [accounts]);
+    return Array.from(
+      new Set([
+        ...(summary?.servers || []),
+        ...accounts.map((a) => a.server_id).filter(Boolean),
+        ...items.map((a) => a.server_id).filter(Boolean),
+      ])
+    ).sort();
+  }, [summary, accounts, items]);
 
   const handleCopyUid = (uid: string) => {
     navigator.clipboard.writeText(uid);
@@ -83,11 +183,11 @@ export function TabAccounts({
   };
 
   const handleCopyAllUids = () => {
-    const uids = accounts.map((a) => a.uid).join("\n");
+    const uids = items.map((a) => a.uid).join("\n");
     navigator.clipboard.writeText(uids);
     toast({
       title: "Đã sao chép toàn bộ UID",
-      description: `Đã sao chép ${accounts.length} UID vào clipboard`,
+      description: `Đã sao chép ${items.length} UID vào clipboard`,
     });
   };
 
@@ -96,6 +196,7 @@ export function TabAccounts({
     if (onRefresh) {
       await onRefresh();
     }
+    await fetchServerAccounts();
     setTimeout(() => {
       setIsRefreshing(false);
       toast({
@@ -105,8 +206,20 @@ export function TabAccounts({
     }, 600);
   };
 
+  const handleLocalToggle = async (
+    accountId: string,
+    key: "auto_redeem" | "auto_checkin",
+    currentVal: boolean
+  ) => {
+    const newVal = !currentVal;
+    setItems((prev) =>
+      prev.map((acc) => (acc.id === accountId ? { ...acc, [key]: newVal } : acc))
+    );
+    await onToggle(accountId, key, currentVal);
+  };
+
   const filteredAccounts = useMemo(() => {
-    const list = accounts.filter((acc) => {
+    const list = items.filter((acc) => {
       const matchesSearch =
         acc.uid.toLowerCase().includes(search.toLowerCase()) ||
         acc.nickname.toLowerCase().includes(search.toLowerCase()) ||
@@ -141,14 +254,20 @@ export function TabAccounts({
       }
       return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
     });
-  }, [accounts, search, filterPlan, filterServer, filterToken, sortBy]);
+  }, [items, search, filterPlan, filterServer, filterToken, sortBy]);
 
-  // Paginated items
-  const totalPages = Math.ceil(filteredAccounts.length / pageSize);
+  // Paginated items (avoid double-slicing when server already paginated)
+  const isPendingClientFilter = search.trim() !== debouncedSearch;
+  const effectiveTotalItems =
+    isServerPaginated && !isPendingClientFilter ? totalItems : filteredAccounts.length;
+  const totalPages = Math.max(1, Math.ceil(effectiveTotalItems / pageSize));
   const paginatedAccounts = useMemo(() => {
+    if (isServerPaginated) return filteredAccounts;
     const start = (currentPage - 1) * pageSize;
     return filteredAccounts.slice(start, start + pageSize);
-  }, [filteredAccounts, currentPage, pageSize]);
+  }, [filteredAccounts, isServerPaginated, currentPage, pageSize]);
+
+  const totalAccountsInDb = summary?.total_accounts ?? Math.max(effectiveTotalItems, accounts.length);
 
   // Calculate PRO expiration countdown
   const getDaysRemaining = (endsAt: string | null) => {
@@ -168,7 +287,7 @@ export function TabAccounts({
                 Danh Sách Tài Khoản Game
               </CardTitle>
               <Badge variant="secondary" className="font-mono text-xs font-bold">
-                {filteredAccounts.length}/{accounts.length}
+                {effectiveTotalItems}/{totalAccountsInDb}
               </Badge>
             </div>
             <CardDescription className="text-xs text-muted-foreground mt-0.5">
@@ -276,7 +395,10 @@ export function TabAccounts({
             {/* Sort Dropdown */}
             <select
               value={sortBy}
-              onChange={(e) => setSortBy(e.target.value as any)}
+              onChange={(e) => {
+                setSortBy(e.target.value as any);
+                setCurrentPage(1);
+              }}
               aria-label="Sắp xếp danh sách"
               className="h-9 px-2 rounded-lg bg-background border border-border/60 text-foreground text-xs focus:outline-none focus:ring-1 focus:ring-primary/30 cursor-pointer"
             >
@@ -408,7 +530,7 @@ export function TabAccounts({
                           <Switch
                             checked={acc.auto_redeem}
                             onCheckedChange={() =>
-                              onToggle(acc.id, "auto_redeem", acc.auto_redeem)
+                              handleLocalToggle(acc.id, "auto_redeem", acc.auto_redeem)
                             }
                             disabled={updatingId === `${acc.id}-auto_redeem`}
                             className={acc.auto_redeem ? "data-[state=checked]:bg-emerald-500" : ""}
@@ -430,7 +552,7 @@ export function TabAccounts({
                           <Switch
                             checked={acc.auto_checkin}
                             onCheckedChange={() =>
-                              onToggle(acc.id, "auto_checkin", acc.auto_checkin)
+                              handleLocalToggle(acc.id, "auto_checkin", acc.auto_checkin)
                             }
                             disabled={updatingId === `${acc.id}-auto_checkin`}
                             className={acc.auto_checkin ? "data-[state=checked]:bg-emerald-500" : ""}
@@ -538,7 +660,7 @@ export function TabAccounts({
         <AdminPagination
           currentPage={currentPage}
           totalPages={totalPages}
-          totalItems={filteredAccounts.length}
+          totalItems={effectiveTotalItems}
           pageSize={pageSize}
           onPageChange={setCurrentPage}
           onPageSizeChange={(size) => {

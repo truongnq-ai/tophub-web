@@ -50,9 +50,10 @@ describe("Admin TabComments Moderation Component", () => {
             created_at: "2026-10-17T12:00:00.000Z",
           },
         ],
-        total: 1,
+        total: 45,
         page: 1,
-        limit: 50,
+        limit: 20,
+        total_pages: 3,
         summary: {
           pending_count: 1,
           approved_count: 5,
@@ -79,6 +80,13 @@ describe("Admin TabComments Moderation Component", () => {
     render(<TabComments />);
 
     await screen.findByText("SuspectUser");
+    expect(getAdminCommentsMock).toHaveBeenCalledWith(
+      expect.objectContaining({
+        status: "ALL",
+        page: 1,
+        limit: 20,
+      })
+    );
     expect(screen.getByText("UID: 2446869146316")).toBeTruthy();
     expect(screen.getByText(/Chứa từ khóa hạn chế: "lừa đảo"/)).toBeTruthy();
 
@@ -118,6 +126,23 @@ describe("Admin TabComments Moderation Component", () => {
       expect(updateAdminCommentMock).toHaveBeenCalledWith("cmt-flagged-1", {
         status: "DELETED",
       });
+    });
+  });
+
+  it("renders AdminPagination and fetches next page on page change", async () => {
+    render(<TabComments />);
+    await screen.findByText("SuspectUser");
+
+    const nextPageBtn = screen.getByTitle("Trang sau");
+    fireEvent.click(nextPageBtn);
+
+    await waitFor(() => {
+      expect(getAdminCommentsMock).toHaveBeenCalledWith(
+        expect.objectContaining({
+          page: 2,
+          limit: 20,
+        })
+      );
     });
   });
 });

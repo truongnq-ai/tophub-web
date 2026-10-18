@@ -37,7 +37,12 @@ import {
   createAdminGiftcodeAction,
   getAdminGiftcodeReceiversAction,
 } from "@/actions/admin";
-import type { AdminGiftCode, GiftCodeReceiver } from "./types";
+import {
+  extractPaginatedResult,
+  type AdminGiftCode,
+  type AdminGiftcodesSummary,
+  type GiftCodeReceiver,
+} from "./types";
 import { MOCK_GIFT_CODES, MOCK_RECEIVERS_MAP } from "./mock-data";
 import { AccountAvatar } from "./account-avatar";
 import { ServerTag } from "./server-tag";
@@ -47,8 +52,12 @@ import { AdminEmptyState } from "./empty-state";
 export function TabGiftcodes() {
   const { toast } = useToast();
   const [giftCodes, setGiftCodes] = useState<AdminGiftCode[]>([]);
+  const [summary, setSummary] = useState<AdminGiftcodesSummary | undefined>(undefined);
+  const [totalCodes, setTotalCodes] = useState(0);
+  const [isServerPaginated, setIsServerPaginated] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState("");
   const [filterStatus, setFilterStatus] = useState<
     "ALL" | "VALID" | "EXPIRED" | "PENDING_VALIDATION"
   >("ALL");
@@ -56,7 +65,17 @@ export function TabGiftcodes() {
 
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize, setPageSize] = useState(10);
+  const [pageSize, setPageSize] = useState(20);
+
+  const requestIdRef = React.useRef(0);
+
+  // Debounce search (300ms)
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearch(search.trim());
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [search]);
 
   // Add Dialog State
   const [isAddOpen, setIsAddOpen] = useState(false);
@@ -86,36 +105,67 @@ export function TabGiftcodes() {
   const [selectedCodeForReceivers, setSelectedCodeForReceivers] =
     useState<AdminGiftCode | null>(null);
   const [receiverSearch, setReceiverSearch] = useState("");
+  const [debouncedReceiverSearch, setDebouncedReceiverSearch] = useState("");
   const [receiverStatusFilter, setReceiverStatusFilter] = useState<"ALL" | "SUCCESS" | "FAILED">("ALL");
+  const [receiverPage, setReceiverPage] = useState(1);
+  const [receiverPageSize, setReceiverPageSize] = useState(20);
+  const [receiverTotalItems, setReceiverTotalItems] = useState(0);
+  const [receiverIsServerPaginated, setReceiverIsServerPaginated] = useState(false);
   const [receiversData, setReceiversData] = useState<Record<string, GiftCodeReceiver[]>>({});
   const [receiversLoading, setReceiversLoading] = useState(false);
+  const receiverRequestIdRef = React.useRef(0);
+
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedReceiverSearch(receiverSearch.trim());
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [receiverSearch]);
 
   // Testing Code Loading Map
   const [checkingCodeId, setCheckingCodeId] = useState<string | null>(null);
 
-  // Fetch giftcodes on mount
-  React.useEffect(() => {
-    let active = true;
-    async function fetchCodes() {
-      try {
-        setIsLoading(true);
-        const res = await getAdminGiftcodesAction();
-        if (active && res.success && res.data) {
-          setGiftCodes(res.data);
-        } else if (active && !res.success) {
-          setGiftCodes(MOCK_GIFT_CODES);
+  // Fetch giftcodes when pagination/search/filter changes
+  const fetchCodes = React.useCallback(async () => {
+    const reqId = ++requestIdRef.current;
+    try {
+      setIsLoading(true);
+      const res = await getAdminGiftcodesAction({
+        page: currentPage,
+        limit: pageSize,
+        status: filterStatus !== "ALL" ? filterStatus : undefined,
+        search: debouncedSearch || undefined,
+      });
+      if (reqId !== requestIdRef.current) return;
+      if (res.success && res.data) {
+        const norm = extractPaginatedResult(res.data, currentPage, pageSize);
+        setGiftCodes(norm.items);
+        setTotalCodes(norm.total);
+        setIsServerPaginated(norm.isServerPaginated);
+        if (norm.summary) {
+          setSummary(norm.summary);
         }
-      } catch {
-        if (active) setGiftCodes(MOCK_GIFT_CODES);
-      } finally {
-        if (active) setIsLoading(false);
+      } else if (!res.success) {
+        setGiftCodes(MOCK_GIFT_CODES);
+        setTotalCodes(MOCK_GIFT_CODES.length);
+        setIsServerPaginated(false);
+      }
+    } catch {
+      if (reqId === requestIdRef.current) {
+        setGiftCodes(MOCK_GIFT_CODES);
+        setTotalCodes(MOCK_GIFT_CODES.length);
+        setIsServerPaginated(false);
+      }
+    } finally {
+      if (reqId === requestIdRef.current) {
+        setIsLoading(false);
       }
     }
+  }, [currentPage, pageSize, filterStatus, debouncedSearch]);
+
+  React.useEffect(() => {
     fetchCodes();
-    return () => {
-      active = false;
-    };
-  }, []);
+  }, [fetchCodes]);
 
   const handleCopyCode = (code: string) => {
     navigator.clipboard.writeText(code);
@@ -176,6 +226,15 @@ export function TabGiftcodes() {
 
       if (res.success && res.data) {
         setGiftCodes((prev) => [res.data!, ...prev]);
+        setTotalCodes((prev) => prev + 1);
+        setSummary((prev) =>
+          prev
+            ? {
+                total_codes: prev.total_codes + 1,
+                active_codes_count: prev.active_codes_count + 1,
+              }
+            : prev
+        );
         toast({
           title: "Thêm Giftcode thành công",
           description: `Mã ${codeClean} đã được thêm vào hệ thống và kích hoạt cho toàn bộ bot.`,
@@ -199,6 +258,7 @@ export function TabGiftcodes() {
         };
 
         setGiftCodes((prev) => [createdItem, ...prev]);
+        setTotalCodes((prev) => prev + 1);
         toast({
           title: "Thêm Giftcode thành công",
           description: `Mã ${codeClean} đã được thêm vào hệ thống.`,
@@ -220,29 +280,82 @@ export function TabGiftcodes() {
     }
   };
 
-  const handleOpenReceivers = async (item: AdminGiftCode) => {
-    setSelectedCodeForReceivers(item);
-    if (!receiversData[item.code]) {
+  const fetchReceiversForCode = React.useCallback(
+    async (
+      code: string,
+      page: number,
+      limit: number,
+      searchQuery: string,
+      statusQuery: "ALL" | "SUCCESS" | "FAILED"
+    ) => {
+      const reqId = ++receiverRequestIdRef.current;
       setReceiversLoading(true);
       try {
-        const res = await getAdminGiftcodeReceiversAction(item.code);
-        if (res.success && res.data && res.data.length > 0) {
-          setReceiversData((prev) => ({ ...prev, [item.code]: res.data! }));
+        const res = await getAdminGiftcodeReceiversAction(code, {
+          page,
+          limit,
+          search: searchQuery || undefined,
+          status: statusQuery !== "ALL" ? statusQuery : undefined,
+        });
+        if (reqId !== receiverRequestIdRef.current) return;
+        if (res.success && res.data) {
+          const norm = extractPaginatedResult(res.data, page, limit);
+          if (norm.items.length > 0 || norm.isServerPaginated) {
+            setReceiversData((prev) => ({ ...prev, [code]: norm.items }));
+            setReceiverTotalItems(norm.total);
+            setReceiverIsServerPaginated(norm.isServerPaginated);
+          } else {
+            const fallback = MOCK_RECEIVERS_MAP[code] || [];
+            setReceiversData((prev) => ({ ...prev, [code]: fallback }));
+            setReceiverTotalItems(fallback.length);
+            setReceiverIsServerPaginated(false);
+          }
         } else {
-          setReceiversData((prev) => ({
-            ...prev,
-            [item.code]: MOCK_RECEIVERS_MAP[item.code] || [],
-          }));
+          const fallback = MOCK_RECEIVERS_MAP[code] || [];
+          setReceiversData((prev) => ({ ...prev, [code]: fallback }));
+          setReceiverTotalItems(fallback.length);
+          setReceiverIsServerPaginated(false);
         }
       } catch {
-        setReceiversData((prev) => ({
-          ...prev,
-          [item.code]: MOCK_RECEIVERS_MAP[item.code] || [],
-        }));
+        if (reqId === receiverRequestIdRef.current) {
+          const fallback = MOCK_RECEIVERS_MAP[code] || [];
+          setReceiversData((prev) => ({ ...prev, [code]: fallback }));
+          setReceiverTotalItems(fallback.length);
+          setReceiverIsServerPaginated(false);
+        }
       } finally {
-        setReceiversLoading(false);
+        if (reqId === receiverRequestIdRef.current) {
+          setReceiversLoading(false);
+        }
       }
-    }
+    },
+    []
+  );
+
+  React.useEffect(() => {
+    if (!selectedCodeForReceivers) return;
+    fetchReceiversForCode(
+      selectedCodeForReceivers.code,
+      receiverPage,
+      receiverPageSize,
+      debouncedReceiverSearch,
+      receiverStatusFilter
+    );
+  }, [
+    selectedCodeForReceivers,
+    receiverPage,
+    receiverPageSize,
+    debouncedReceiverSearch,
+    receiverStatusFilter,
+    fetchReceiversForCode,
+  ]);
+
+  const handleOpenReceivers = (item: AdminGiftCode) => {
+    setReceiverPage(1);
+    setReceiverSearch("");
+    setDebouncedReceiverSearch("");
+    setReceiverStatusFilter("ALL");
+    setSelectedCodeForReceivers(item);
   };
 
   const handleCheckCode = (item: AdminGiftCode) => {
@@ -273,17 +386,24 @@ export function TabGiftcodes() {
     });
   }, [giftCodes, search, filterStatus]);
 
-  // Paginated codes
-  const totalPages = Math.ceil(filteredCodes.length / pageSize);
+  // Paginated codes (avoid double-slicing when server already paginated)
+  const isPendingClientFilter = search.trim() !== debouncedSearch;
+  const effectiveTotalCodes =
+    isServerPaginated && !isPendingClientFilter ? totalCodes : filteredCodes.length;
+  const totalPages = Math.max(1, Math.ceil(effectiveTotalCodes / pageSize));
   const paginatedCodes = useMemo(() => {
+    if (isServerPaginated) return filteredCodes;
     const start = (currentPage - 1) * pageSize;
     return filteredCodes.slice(start, start + pageSize);
-  }, [filteredCodes, currentPage, pageSize]);
+  }, [filteredCodes, isServerPaginated, currentPage, pageSize]);
+
+  const totalCodesInDb = summary?.total_codes ?? Math.max(effectiveTotalCodes, giftCodes.length);
 
   const currentReceivers: GiftCodeReceiver[] = useMemo(() => {
     if (!selectedCodeForReceivers) return [];
+    const fromState = receiversData[selectedCodeForReceivers.code];
+    if (fromState !== undefined) return fromState;
     return (
-      receiversData[selectedCodeForReceivers.code] ||
       MOCK_RECEIVERS_MAP[selectedCodeForReceivers.code] || [
         {
           id: "fallback-rec-1",
@@ -319,6 +439,17 @@ export function TabGiftcodes() {
     });
   }, [currentReceivers, receiverSearch, receiverStatusFilter]);
 
+  const effectiveReceiverTotal =
+    receiverIsServerPaginated && receiverSearch.trim() === debouncedReceiverSearch
+      ? receiverTotalItems
+      : filteredReceivers.length;
+  const receiverTotalPages = Math.max(1, Math.ceil(effectiveReceiverTotal / receiverPageSize));
+  const paginatedReceivers = useMemo(() => {
+    if (receiverIsServerPaginated) return filteredReceivers;
+    const start = (receiverPage - 1) * receiverPageSize;
+    return filteredReceivers.slice(start, start + receiverPageSize);
+  }, [filteredReceivers, receiverIsServerPaginated, receiverPage, receiverPageSize]);
+
   return (
     <>
       <Card className="border border-border/60 bg-card/80 backdrop-blur-md rounded-2xl overflow-hidden shadow-lg">
@@ -330,7 +461,7 @@ export function TabGiftcodes() {
                   Kho Quản Lý Giftcode
                 </CardTitle>
                 <Badge variant="secondary" className="font-mono text-xs font-bold">
-                  {filteredCodes.length}/{giftCodes.length}
+                  {effectiveTotalCodes}/{totalCodesInDb}
                 </Badge>
               </div>
               <CardDescription className="text-xs text-muted-foreground mt-0.5">
@@ -629,7 +760,7 @@ export function TabGiftcodes() {
           <AdminPagination
             currentPage={currentPage}
             totalPages={totalPages}
-            totalItems={filteredCodes.length}
+            totalItems={effectiveTotalCodes}
             pageSize={pageSize}
             onPageChange={setCurrentPage}
             onPageSizeChange={(size) => {
@@ -817,7 +948,9 @@ export function TabGiftcodes() {
           if (!open) {
             setSelectedCodeForReceivers(null);
             setReceiverSearch("");
+            setDebouncedReceiverSearch("");
             setReceiverStatusFilter("ALL");
+            setReceiverPage(1);
           }
         }}
       >
@@ -830,7 +963,7 @@ export function TabGiftcodes() {
                 {selectedCodeForReceivers?.code}
               </Badge>
               <Badge variant="secondary" className="text-[10px] font-mono font-bold ml-auto">
-                {filteredReceivers.length}/{currentReceivers.length} tài khoản
+                {effectiveReceiverTotal}/{Math.max(effectiveReceiverTotal, currentReceivers.length)} tài khoản
               </Badge>
             </DialogTitle>
             <DialogDescription className="text-xs text-muted-foreground">
@@ -846,7 +979,10 @@ export function TabGiftcodes() {
                 type="text"
                 placeholder="Lọc theo UID, nickname, máy chủ..."
                 value={receiverSearch}
-                onChange={(e) => setReceiverSearch(e.target.value)}
+                onChange={(e) => {
+                  setReceiverSearch(e.target.value);
+                  setReceiverPage(1);
+                }}
                 className="h-8 text-xs pl-8 bg-background border-border/60"
               />
             </div>
@@ -854,7 +990,10 @@ export function TabGiftcodes() {
             <div className="inline-flex rounded-lg border border-border/60 p-0.5 bg-muted/50 text-[11px]">
               <button
                 type="button"
-                onClick={() => setReceiverStatusFilter("ALL")}
+                onClick={() => {
+                  setReceiverStatusFilter("ALL");
+                  setReceiverPage(1);
+                }}
                 className={`px-2 py-0.5 rounded font-semibold transition-all ${
                   receiverStatusFilter === "ALL" ? "bg-primary text-white shadow-xs" : "text-muted-foreground"
                 }`}
@@ -863,7 +1002,10 @@ export function TabGiftcodes() {
               </button>
               <button
                 type="button"
-                onClick={() => setReceiverStatusFilter("SUCCESS")}
+                onClick={() => {
+                  setReceiverStatusFilter("SUCCESS");
+                  setReceiverPage(1);
+                }}
                 className={`px-2 py-0.5 rounded font-semibold transition-all ${
                   receiverStatusFilter === "SUCCESS" ? "bg-emerald-600 text-white shadow-xs" : "text-muted-foreground"
                 }`}
@@ -872,7 +1014,10 @@ export function TabGiftcodes() {
               </button>
               <button
                 type="button"
-                onClick={() => setReceiverStatusFilter("FAILED")}
+                onClick={() => {
+                  setReceiverStatusFilter("FAILED");
+                  setReceiverPage(1);
+                }}
                 className={`px-2 py-0.5 rounded font-semibold transition-all ${
                   receiverStatusFilter === "FAILED" ? "bg-rose-600 text-white shadow-xs" : "text-muted-foreground"
                 }`}
@@ -893,8 +1038,8 @@ export function TabGiftcodes() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-border/30">
-                {filteredReceivers.length > 0 ? (
-                  filteredReceivers.map((rec, idx) => (
+                {paginatedReceivers.length > 0 ? (
+                  paginatedReceivers.map((rec, idx) => (
                     <tr key={rec.account_id || rec.id || `${rec.uid}-${idx}`} className="hover:bg-muted/30">
                       <td className="px-3 py-2.5">
                         <div className="flex items-center gap-2.5">
@@ -953,6 +1098,19 @@ export function TabGiftcodes() {
               </tbody>
             </table>
           </div>
+
+          <AdminPagination
+            currentPage={receiverPage}
+            totalPages={receiverTotalPages}
+            totalItems={effectiveReceiverTotal}
+            pageSize={receiverPageSize}
+            onPageChange={setReceiverPage}
+            onPageSizeChange={(size) => {
+              setReceiverPageSize(size);
+              setReceiverPage(1);
+            }}
+            className="px-0 py-2 border-t-0"
+          />
 
           <DialogFooter className="mt-2">
             <Button

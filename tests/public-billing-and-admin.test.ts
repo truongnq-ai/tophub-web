@@ -1,5 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { apiClient } from "@/lib/api-client";
+import { extractPaginatedResult } from "@/components/dashboard/admin/types";
 import { previewPlayerAction, createPublicCheckoutAction } from "@/actions/billing";
 
 describe("Public Billing & Player Actions", () => {
@@ -117,7 +118,7 @@ describe("Public Billing & Player Actions", () => {
 
     const res = await apiClient.getAdminAccounts("test-token");
     expect(res.success).toBe(true);
-    expect(res.data?.length).toBe(1);
+    expect(extractPaginatedResult(res.data).items.length).toBe(1);
     expect(mockFetch).toHaveBeenCalledWith(
       expect.stringContaining("/api/v1/admin/accounts"),
       expect.objectContaining({
@@ -150,7 +151,7 @@ describe("Public Billing & Player Actions", () => {
 
     const res = await apiClient.getAdminGiftcodes("test-token", { search: "HERO", status: "VALID" });
     expect(res.success).toBe(true);
-    expect(res.data?.[0].code).toBe("HERO2026");
+    expect(extractPaginatedResult(res.data).items[0].code).toBe("HERO2026");
     expect(mockFetch).toHaveBeenCalledWith(
       expect.stringContaining("/api/v1/admin/giftcodes?status=VALID&search=HERO"),
       expect.objectContaining({
@@ -212,7 +213,7 @@ describe("Public Billing & Player Actions", () => {
 
     const res = await apiClient.getAdminGiftcodeReceivers("test-token", "HERO2026");
     expect(res.success).toBe(true);
-    expect(res.data?.[0].nickname).toBe("DragonSlayer");
+    expect(extractPaginatedResult(res.data).items[0].nickname).toBe("DragonSlayer");
     expect(mockFetch).toHaveBeenCalledWith(
       expect.stringContaining("/api/v1/admin/giftcodes/HERO2026/receivers"),
       expect.objectContaining({
@@ -258,7 +259,7 @@ describe("Public Billing & Player Actions", () => {
 
     const listRes = await apiClient.getAdminRedemptions("test-token", { status: "FAILED" });
     expect(listRes.success).toBe(true);
-    expect(listRes.data?.[0].id).toBe("red-1");
+    expect(extractPaginatedResult(listRes.data).items[0].id).toBe("red-1");
 
     const retryRes = await apiClient.retryAdminRedemption("test-token", "red-1");
     expect(retryRes.success).toBe(true);
@@ -304,7 +305,7 @@ describe("Public Billing & Player Actions", () => {
 
     const listRes = await apiClient.getAdminCheckins("test-token", { game_day: "2026-10-12" });
     expect(listRes.success).toBe(true);
-    expect(listRes.data?.[0].id).toBe("chk-1");
+    expect(extractPaginatedResult(listRes.data).items[0].id).toBe("chk-1");
 
     const retryRes = await apiClient.retryAdminCheckin("test-token", "chk-1");
     expect(retryRes.success).toBe(true);
@@ -313,5 +314,73 @@ describe("Public Billing & Player Actions", () => {
     const retryAllRes = await apiClient.retryAllAdminCheckins("test-token");
     expect(retryAllRes.success).toBe(true);
     expect(retryAllRes.data?.retried_count).toBe(3);
+  });
+
+  it("should serialize pagination, search, filter, and sort query params across all Admin list endpoints", async () => {
+    const mockFetch = vi.fn().mockResolvedValue({
+      json: async () => ({
+        success: true,
+        data: {
+          items: [],
+          total: 125,
+          page: 2,
+          limit: 50,
+          total_pages: 3,
+          summary: {
+            total_accounts: 125,
+            pro_count: 60,
+            active_bots_count: 110,
+            servers: ["1024", "1025"],
+          },
+        },
+      }),
+    });
+    vi.stubGlobal("fetch", mockFetch);
+
+    // 1. getAdminAccounts with full query params
+    const accRes = await apiClient.getAdminAccounts("test-token", {
+      page: 2,
+      limit: 50,
+      plan: "PRO",
+      server_id: "1024",
+      token_status: "VALID",
+      search: "Dragon",
+      sort_by: "plan_pro",
+    });
+    expect(accRes.success).toBe(true);
+    expect(mockFetch).toHaveBeenCalledWith(
+      expect.stringContaining(
+        "/api/v1/admin/accounts?page=2&limit=50&search=Dragon&plan=PRO&server_id=1024&token_status=VALID&sort_by=plan_pro"
+      ),
+      expect.any(Object)
+    );
+
+    // 2. getAdminGiftcodeReceivers with pagination & filter params
+    await apiClient.getAdminGiftcodeReceivers("test-token", "HERO 2026", {
+      page: 3,
+      limit: 20,
+      status: "SUCCESS",
+      search: "Slayer",
+    });
+    expect(mockFetch).toHaveBeenCalledWith(
+      expect.stringContaining(
+        "/api/v1/admin/giftcodes/HERO%202026/receivers?page=3&limit=20&search=Slayer&status=SUCCESS"
+      ),
+      expect.any(Object)
+    );
+
+    // 3. getAdminAccountRedemptions with pagination & filter params
+    await apiClient.getAdminAccountRedemptions("test-token", "acc-99", {
+      page: 2,
+      limit: 20,
+      status: "FAILED",
+      search: "VIP",
+    });
+    expect(mockFetch).toHaveBeenCalledWith(
+      expect.stringContaining(
+        "/api/v1/admin/redemptions?account_id=acc-99&status=FAILED&search=VIP&page=2&limit=20"
+      ),
+      expect.any(Object)
+    );
   });
 });

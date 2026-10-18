@@ -19,6 +19,11 @@ import type {
   AdminRetryResponse,
   AdminWeeklyTimelineItem,
   AdminAccountCheckinHistory,
+  AdminAccountsListResponse,
+  AdminGiftcodesListResponse,
+  AdminGiftcodeReceiversListResponse,
+  AdminRedemptionsListResponse,
+  AdminCheckinsListResponse,
   CommentIntentTag,
   CommentStatus,
   PublicCommentItem,
@@ -108,11 +113,35 @@ export const apiClient = {
       body: JSON.stringify({ username, password }),
     }),
 
-  getAdminAccounts: (token: string) =>
-    apiFetch<AdminAccountItem[]>("/api/v1/admin/accounts", {
-      headers: { Authorization: `Bearer ${token}` },
-      cache: "no-store",
-    }),
+  getAdminAccounts: (
+    token: string,
+    query?: {
+      page?: number;
+      limit?: number;
+      search?: string;
+      plan?: string;
+      server_id?: string;
+      token_status?: string;
+      sort_by?: string;
+    }
+  ) => {
+    const params = new URLSearchParams();
+    if (query?.page) params.set("page", String(query.page));
+    if (query?.limit) params.set("limit", String(query.limit));
+    if (query?.search) params.set("search", query.search);
+    if (query?.plan) params.set("plan", query.plan);
+    if (query?.server_id) params.set("server_id", query.server_id);
+    if (query?.token_status) params.set("token_status", query.token_status);
+    if (query?.sort_by) params.set("sort_by", query.sort_by);
+    const qs = params.toString() ? `?${params.toString()}` : "";
+    return apiFetch<AdminAccountsListResponse | AdminAccountItem[]>(
+      `/api/v1/admin/accounts${qs}`,
+      {
+        headers: { Authorization: `Bearer ${token}` },
+        cache: "no-store",
+      }
+    );
+  },
 
   updateAdminAccount: (
     token: string,
@@ -135,7 +164,7 @@ export const apiClient = {
     if (query?.page) params.set("page", String(query.page));
     if (query?.limit) params.set("limit", String(query.limit));
     const qs = params.toString() ? `?${params.toString()}` : "";
-    return apiFetch<AdminGiftCodeItem[]>(`/api/v1/admin/giftcodes${qs}`, {
+    return apiFetch<AdminGiftcodesListResponse | AdminGiftCodeItem[]>(`/api/v1/admin/giftcodes${qs}`, {
       headers: { Authorization: `Bearer ${token}` },
       cache: "no-store",
     });
@@ -176,14 +205,25 @@ export const apiClient = {
       body: JSON.stringify(data),
     }),
 
-  getAdminGiftcodeReceivers: (token: string, code: string) =>
-    apiFetch<AdminGiftcodeReceiverItem[]>(
-      `/api/v1/admin/giftcodes/${encodeURIComponent(code)}/receivers`,
+  getAdminGiftcodeReceivers: (
+    token: string,
+    code: string,
+    query?: { page?: number; limit?: number; search?: string; status?: string }
+  ) => {
+    const params = new URLSearchParams();
+    if (query?.page) params.set("page", String(query.page));
+    if (query?.limit) params.set("limit", String(query.limit));
+    if (query?.search) params.set("search", query.search);
+    if (query?.status) params.set("status", query.status);
+    const qs = params.toString() ? `?${params.toString()}` : "";
+    return apiFetch<AdminGiftcodeReceiversListResponse | AdminGiftcodeReceiverItem[]>(
+      `/api/v1/admin/giftcodes/${encodeURIComponent(code)}/receivers${qs}`,
       {
         headers: { Authorization: `Bearer ${token}` },
         cache: "no-store",
       }
-    ),
+    );
+  },
 
   getAdminRedemptions: (
     token: string,
@@ -196,7 +236,7 @@ export const apiClient = {
     if (query?.page) params.set("page", String(query.page));
     if (query?.limit) params.set("limit", String(query.limit));
     const qs = params.toString() ? `?${params.toString()}` : "";
-    return apiFetch<AdminRedemptionItem[]>(`/api/v1/admin/redemptions${qs}`, {
+    return apiFetch<AdminRedemptionsListResponse | AdminRedemptionItem[]>(`/api/v1/admin/redemptions${qs}`, {
       headers: { Authorization: `Bearer ${token}` },
       cache: "no-store",
     });
@@ -229,7 +269,7 @@ export const apiClient = {
     if (query?.page) params.set("page", String(query.page));
     if (query?.limit) params.set("limit", String(query.limit));
     const qs = params.toString() ? `?${params.toString()}` : "";
-    return apiFetch<AdminCheckinItem[]>(`/api/v1/admin/checkins${qs}`, {
+    return apiFetch<AdminCheckinsListResponse | AdminCheckinItem[]>(`/api/v1/admin/checkins${qs}`, {
       headers: { Authorization: `Bearer ${token}` },
       cache: "no-store",
     });
@@ -251,18 +291,22 @@ export const apiClient = {
   getAdminAccountRedemptions: (
     token: string,
     accountId: string,
-    query?: { status?: string; code?: string; page?: number; limit?: number }
+    query?: { status?: string; code?: string; search?: string; page?: number; limit?: number }
   ) => {
     const params = new URLSearchParams();
     params.set("account_id", accountId);
     if (query?.status) params.set("status", query.status);
     if (query?.code) params.set("code", query.code);
+    if (query?.search) params.set("search", query.search);
     if (query?.page) params.set("page", String(query.page));
     if (query?.limit) params.set("limit", String(query.limit));
-    return apiFetch<AdminRedemptionItem[]>(`/api/v1/admin/redemptions?${params.toString()}`, {
-      headers: { Authorization: `Bearer ${token}` },
-      cache: "no-store",
-    });
+    return apiFetch<AdminRedemptionsListResponse | AdminRedemptionItem[]>(
+      `/api/v1/admin/redemptions?${params.toString()}`,
+      {
+        headers: { Authorization: `Bearer ${token}` },
+        cache: "no-store",
+      }
+    );
   },
 
   getAdminAccountCheckins: (
