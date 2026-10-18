@@ -18,7 +18,7 @@ export function Footer() {
               <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-tr from-amber-500 to-amber-600 text-slate-950 font-bold shadow-sm shadow-amber-500/20 group-hover:scale-105 transition-transform">
                 <Shield className="h-4 w-4 fill-current" />
               </div>
-              <span className="font-heading font-black text-lg text-foreground tracking-wide group-hover:text-amber-500 transition-colors">
+              <span className="font-heading font-black text-lg text-foreground tracking-tight group-hover:text-amber-500 transition-colors">
                 {tFooter("title")}
               </span>
             </Link>

@@ -159,12 +159,12 @@ export function UidEnrollForm({
     <div className="space-y-12 max-w-3xl mx-auto py-6">
       {/* Hero Title */}
       <div className="text-center space-y-4">
-        <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/40 bg-amber-500/10 px-4 py-1.5 text-xs font-bold text-amber-600 dark:text-amber-400 shadow-sm shadow-amber-500/10">
+        <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/40 bg-amber-500/10 px-4 py-1.5 text-xs sm:text-[13px] font-heading font-extrabold text-amber-600 dark:text-amber-400 shadow-sm shadow-amber-500/10">
           <Shield className="h-4 w-4 fill-current text-amber-500" />
           <span>{t("hero.badge")}</span>
         </div>
 
-        <h1 className="text-3xl sm:text-5xl font-heading font-black tracking-wide text-foreground leading-[1.15]">
+        <h1 className="text-3xl sm:text-5xl font-heading font-black tracking-tight text-foreground leading-[1.2]">
           {t("hero.title")}
         </h1>
 
@@ -191,7 +191,7 @@ export function UidEnrollForm({
                   setPreviewData(null);
                   setErrorMsg(null);
                 }}
-                className="pl-10 h-12 rounded-xl bg-background/80 font-mono text-base tracking-wider border-input focus-visible:ring-amber-500/30 focus-visible:border-amber-500"
+                className="pl-10 h-12 rounded-xl bg-background/80 font-mono text-base tracking-wider placeholder:font-sans placeholder:tracking-normal placeholder:font-normal border-input focus-visible:ring-amber-500/30 focus-visible:border-amber-500"
                 maxLength={20}
               />
             </div>
@@ -346,7 +346,7 @@ export function UidEnrollForm({
             <Gift className="h-4 w-4 text-amber-500" />
             {t("activeCodes.title")} · {activeCodesList.length}
           </h2>
-          <span className="text-[11px] text-emerald-500 dark:text-emerald-400 font-mono font-bold flex items-center gap-1.5">
+          <span className="text-xs text-emerald-600 dark:text-emerald-400 font-sans font-semibold flex items-center gap-1.5">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
@@ -387,12 +387,12 @@ export function UidEnrollForm({
         <div className="grid grid-cols-2 gap-4">
           <div className="card-rpg p-5 rounded-2xl space-y-1">
             <p className="text-xs text-muted-foreground">{t("stats.codesClaimed")}</p>
-            <p className="font-heading text-2xl sm:text-4xl font-black text-amber-500 dark:text-amber-400 tracking-wide">11,480+</p>
+            <p className="font-heading text-2xl sm:text-4xl font-black text-amber-500 dark:text-amber-400 tracking-tight">11,480+</p>
             <p className="text-[11px] text-muted-foreground">{t("stats.codesClaimedSub")}</p>
           </div>
           <div className="card-rpg p-5 rounded-2xl space-y-1">
             <p className="text-xs text-muted-foreground">{t("stats.activeAccounts")}</p>
-            <p className="font-heading text-2xl sm:text-4xl font-black text-amber-500 dark:text-amber-400 tracking-wide">850+</p>
+            <p className="font-heading text-2xl sm:text-4xl font-black text-amber-500 dark:text-amber-400 tracking-tight">850+</p>
             <p className="text-[11px] text-muted-foreground">{t("stats.activeAccountsSub")}</p>
           </div>
         </div>

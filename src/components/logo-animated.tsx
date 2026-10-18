@@ -25,7 +25,7 @@ export function LogoAnimated({ invert = false }: LogoAnimatedProps) {
       </motion.div>
       <div className="space-y-0.5">
         <motion.p
-          className={`text-2xl font-black font-heading tracking-wide ${textClass}`}
+          className={`text-2xl font-black font-heading tracking-tight ${textClass}`}
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -33,7 +33,7 @@ export function LogoAnimated({ invert = false }: LogoAnimatedProps) {
           TopHub
         </motion.p>
         <motion.p
-          className={`text-xs font-bold font-mono uppercase tracking-wider ${textMutedClass}`}
+          className={`text-xs font-extrabold font-heading uppercase tracking-wider ${textMutedClass}`}
           initial={{ opacity: 0, y: 5 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}

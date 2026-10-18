@@ -9,25 +9,24 @@ import { authOptions } from "@/auth";
 import { Providers } from "@/components/providers";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
-import { Chakra_Petch, Be_Vietnam_Pro, JetBrains_Mono } from "next/font/google";
+import { Nunito, Be_Vietnam_Pro, JetBrains_Mono } from "next/font/google";
 import "../../styles/global.css";
 
-const chakraPetch = Chakra_Petch({
+const nunito = Nunito({
   subsets: ["latin", "vietnamese"],
-  weight: ["400", "500", "600", "700"],
   variable: "--font-heading",
   display: "swap",
 });
 
 const beVietnamPro = Be_Vietnam_Pro({
   subsets: ["latin", "vietnamese"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
   variable: "--font-sans",
   display: "swap",
 });
 
 const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
+  subsets: ["latin", "vietnamese"],
   variable: "--font-mono",
   display: "swap",
 });
@@ -75,7 +74,7 @@ export default async function LocaleLayout({
         <title>{t("title")}</title>
         <meta name="description" content={t("metaDescription")} />
       </head>
-      <body className={`${chakraPetch.variable} ${beVietnamPro.variable} ${jetbrainsMono.variable} font-sans min-h-screen bg-background text-foreground antialiased selection:bg-primary/25 selection:text-primary`}>
+      <body className={`${nunito.variable} ${beVietnamPro.variable} ${jetbrainsMono.variable} font-sans min-h-screen bg-background text-foreground antialiased selection:bg-primary/25 selection:text-primary`}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Providers session={session}>
             <div className="flex min-h-screen flex-col">

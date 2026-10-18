@@ -81,7 +81,7 @@ export function CheckClient({ locale }: CheckClientProps) {
               placeholder={t("placeholder")}
               value={uid}
               onChange={(e) => setUid(e.target.value.replace(/\D/g, ""))}
-              className="bg-transparent border-0 pl-10 pr-4 font-mono text-sm focus-visible:ring-0 focus-visible:ring-offset-0 text-foreground placeholder:text-muted-foreground"
+              className="bg-transparent border-0 pl-10 pr-4 font-mono text-sm placeholder:font-sans placeholder:tracking-normal placeholder:font-normal focus-visible:ring-0 focus-visible:ring-offset-0 text-foreground placeholder:text-muted-foreground"
               maxLength={20}
             />
           </div>

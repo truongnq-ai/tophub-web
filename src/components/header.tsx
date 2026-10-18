@@ -76,8 +76,8 @@ export function Header() {
                       <Shield className="h-5 w-5 fill-current" />
                     </div>
                     <div className="flex flex-col">
-                      <span className="font-heading font-black text-xl tracking-wide text-foreground">TopHub</span>
-                      <span className="text-[10px] text-amber-500 dark:text-amber-400 font-mono font-bold uppercase tracking-wider">Top Heroes Companion</span>
+                      <span className="font-heading font-black text-xl tracking-tight text-foreground">TopHub</span>
+                      <span className="text-[10px] text-amber-500 dark:text-amber-400 font-heading font-extrabold uppercase tracking-wider">Top Heroes Companion</span>
                     </div>
                   </SheetTitle>
                 </SheetHeader>
@@ -121,10 +121,10 @@ export function Header() {
               <Shield className="h-5 w-5 fill-current" />
             </div>
             <div className="flex flex-col">
-              <span className="font-heading font-black text-xl sm:text-2xl leading-none tracking-wide text-foreground group-hover:text-amber-500 dark:group-hover:text-amber-400 transition-colors">
+              <span className="font-heading font-black text-xl sm:text-2xl leading-none tracking-tight text-foreground group-hover:text-amber-500 dark:group-hover:text-amber-400 transition-colors">
                 TopHub
               </span>
-              <span className="text-[10px] text-amber-600/90 dark:text-amber-400/90 font-mono font-bold uppercase tracking-widest mt-1">
+              <span className="text-[10px] text-amber-600/90 dark:text-amber-400/90 font-heading font-extrabold uppercase tracking-widest mt-1">
                 Top Heroes Companion
               </span>
             </div>

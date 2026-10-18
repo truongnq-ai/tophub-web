@@ -79,7 +79,7 @@
 @layer components {
   /* Tactile Gold RPG Action Button */
   .btn-tactile-gold {
-    @apply relative font-bold text-slate-950 bg-gradient-to-b from-amber-400 via-amber-500 to-amber-600 
+    @apply relative font-heading font-extrabold text-slate-950 bg-gradient-to-b from-amber-400 via-amber-500 to-amber-600 
            hover:from-amber-300 hover:via-amber-400 hover:to-amber-500
            border-t border-amber-200/50
            shadow-[0_3px_0_#b45309,0_8px_18px_-2px_rgba(245,158,11,0.4)]
@@ -89,7 +89,7 @@
 
   /* Tactile Emerald Quest Button */
   .btn-tactile-emerald {
-    @apply relative font-bold text-white bg-gradient-to-b from-emerald-400 via-emerald-500 to-emerald-600 
+    @apply relative font-heading font-extrabold text-white bg-gradient-to-b from-emerald-400 via-emerald-500 to-emerald-600 
            hover:from-emerald-300 hover:via-emerald-400 hover:to-emerald-500
            border-t border-emerald-200/40
            shadow-[0_3px_0_#047857,0_8px_18px_-2px_rgba(16,185,129,0.35)]

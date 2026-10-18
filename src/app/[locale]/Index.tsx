@@ -29,7 +29,7 @@ export default function LandingPage({ initialActiveCodes }: LandingPageProps) {
         {!isLoaded ? (
           <div className="flex flex-col items-center justify-center py-24 text-muted-foreground gap-3">
             <Loader2 className="h-7 w-7 animate-spin text-amber-500" />
-            <span className="text-xs font-mono">{t("loadingAccount")}</span>
+            <span className="text-xs font-medium">{t("loadingAccount")}</span>
           </div>
         ) : activeAccount ? (
           <UidControlDashboard account={activeAccount} initialActiveCodes={initialActiveCodes} />

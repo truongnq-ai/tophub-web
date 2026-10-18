@@ -119,7 +119,7 @@ export function AddAccountDialog({ labels }: AddAccountDialogProps) {
                 placeholder={labels.uidPlaceholder}
                 value={uid}
                 onChange={handleInputChange}
-                className="font-mono text-sm tracking-wider min-h-[44px] rounded-xl bg-slate-900/60 border-white/10 focus:border-purple-500 focus:ring-purple-500/30"
+                className="font-mono text-sm tracking-wider placeholder:font-sans placeholder:tracking-normal placeholder:font-normal min-h-[44px] rounded-xl bg-slate-900/60 border-white/10 focus:border-purple-500 focus:ring-purple-500/30"
                 disabled={loading}
                 autoFocus
               />

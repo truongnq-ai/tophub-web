@@ -141,11 +141,11 @@ export default async function GiftcodesPage({ params: { locale } }: GiftcodesPag
 
       {/* Hero Header */}
       <div className="text-center space-y-4 max-w-3xl mx-auto">
-        <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/40 bg-amber-500/10 px-4 py-1.5 text-xs font-bold text-amber-600 dark:text-amber-400 shadow-sm shadow-amber-500/10">
+        <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/40 bg-amber-500/10 px-4 py-1.5 text-xs sm:text-[13px] font-heading font-extrabold text-amber-600 dark:text-amber-400 shadow-sm shadow-amber-500/10">
           <Gift className="h-4 w-4 text-amber-500" />
           <span>{t("badgeHero")}</span>
         </div>
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-black tracking-wide text-foreground">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-black tracking-tight leading-[1.2] text-foreground">
           {t("title")}
         </h1>
         <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
