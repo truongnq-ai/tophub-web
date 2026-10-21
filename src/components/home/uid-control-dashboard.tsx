@@ -69,10 +69,19 @@ export function UidControlDashboard({ account, initialActiveCodes }: UidControlD
       const res = await getPlayerStatusAction(account.uid);
       if (res.success && res.data) {
         setStatusData(res.data);
-        if (res.data.active_plan && res.data.active_plan !== account.active_plan) {
+        const nextPlan = res.data.active_plan || account.active_plan;
+        const nextNickname = res.data.nickname?.trim() || account.nickname;
+        const nextServerId = res.data.server_id || account.server_id;
+        if (
+          nextPlan !== account.active_plan ||
+          nextNickname !== account.nickname ||
+          nextServerId !== account.server_id
+        ) {
           await saveAccount({
             ...account,
-            active_plan: res.data.active_plan,
+            active_plan: nextPlan,
+            nickname: nextNickname,
+            server_id: nextServerId,
           });
         }
       }
@@ -152,6 +161,9 @@ export function UidControlDashboard({ account, initialActiveCodes }: UidControlD
     }
   };
 
+  const displayNickname = statusData?.nickname?.trim() || account.nickname;
+  const displayServerId = statusData?.server_id || account.server_id;
+
   return (
     <div className="space-y-6 max-w-4xl mx-auto py-6 animate-in fade-in-50 duration-500">
       {/* Account Info Header Card */}
@@ -160,12 +172,12 @@ export function UidControlDashboard({ account, initialActiveCodes }: UidControlD
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="flex items-center gap-4">
               <div className="h-14 w-14 rounded-2xl bg-gradient-to-tr from-amber-500 via-amber-400 to-yellow-300 text-slate-950 flex items-center justify-center font-bold text-2xl font-heading shadow-lg shadow-amber-500/20 border border-amber-300/30 shrink-0">
-                {account.nickname ? account.nickname.charAt(0).toUpperCase() : "U"}
+                {displayNickname ? displayNickname.charAt(0).toUpperCase() : "U"}
               </div>
               <div>
                 <div className="flex flex-wrap items-center gap-2.5">
                   <CardTitle className="text-2xl font-black text-foreground font-heading">
-                    {account.nickname}
+                    {displayNickname}
                   </CardTitle>
                   <Badge className="bg-emerald-500/15 text-emerald-500 dark:text-emerald-400 border-emerald-500/30 text-xs font-bold flex items-center gap-1.5 py-0.5 px-2.5">
                     <span className="relative flex h-2 w-2">
@@ -183,7 +195,7 @@ export function UidControlDashboard({ account, initialActiveCodes }: UidControlD
                   <span>•</span>
                   <span className="flex items-center gap-1">
                     <Server className="h-3.5 w-3.5 text-amber-500" />
-                    Server {formatServerCode(account.server_id)}
+                    Server {formatServerCode(displayServerId)}
                   </span>
                 </div>
               </div>
