@@ -27,6 +27,28 @@ import { useUidSession } from "@/hooks/use-uid-session";
 import { Link } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 import { RichGuideText } from "@/components/guides/blocks/rich-guide-text";
+import { getAssetById } from "@/content/guides/asset-registry";
+import { GameAssetFrame } from "@/components/guides/media/game-asset-frame";
+
+const TRAP_ICON_ASSET_ID_BY_NUMBER: Record<number, string> = {
+  1: "item-universal-shard",
+  2: "item-soul-stone",
+  3: "gear-set-knights-glory",
+  4: "event-guild-arms-race",
+  5: "hero-brawler",
+  6: "system-research-cottage",
+  7: "system-runes",
+  8: "system-brilliance-institute",
+  9: "gear-exclusive-weapon",
+  10: "meta-staircase-promotion",
+};
+
+const TRAP_GROUP_ICON_ASSET_ID: Partial<Record<TrapSystemGroup, string>> = {
+  heroes_skills: "item-universal-shard",
+  shops_events: "item-soul-stone",
+  gear_runes: "gear-set-knights-glory",
+  infra_tech: "system-research-cottage",
+};
 
 export type TrapSystemGroup =
   | "all"
@@ -460,13 +482,26 @@ export function AccountTrapsTriageWidget({
                 data-testid={`trap-group-filter-${grp}`}
                 onClick={() => setGroupFilter(grp)}
                 className={cn(
-                  "min-h-[44px] px-3.5 py-2 rounded-xl border text-xs font-heading font-bold transition-all cursor-pointer",
+                  "min-h-[44px] px-3.5 py-2 rounded-xl border text-xs font-heading font-bold transition-all cursor-pointer inline-flex items-center gap-2",
                   isActive
                     ? "border-rose-500 bg-rose-500/15 text-rose-700 dark:text-rose-300 shadow-xs"
                     : "border-border/70 bg-background/70 text-muted-foreground hover:text-foreground hover:border-rose-500/40"
                 )}
               >
-                {copy.groups[grp]}
+                {(() => {
+                  const grpAssetId = TRAP_GROUP_ICON_ASSET_ID[grp];
+                  const grpAsset = grpAssetId ? getAssetById(grpAssetId) : undefined;
+                  return grpAsset ? (
+                    <GameAssetFrame
+                      src={grpAsset.iconPath}
+                      alt=""
+                      size="sm"
+                      rarity={grpAsset.rarity}
+                      faction={grpAsset.faction}
+                    />
+                  ) : null;
+                })()}
+                <span>{copy.groups[grp]}</span>
               </button>
             );
           })}
@@ -528,13 +563,36 @@ export function AccountTrapsTriageWidget({
                     </span>
                   </div>
 
-                  <h4 className="font-heading font-bold text-sm sm:text-base text-foreground leading-snug">
+                  <div className="flex items-start gap-3">
+                    {(() => {
+                      const assetId = TRAP_ICON_ASSET_ID_BY_NUMBER[trap.trapNumber];
+                      const trapAsset = assetId ? getAssetById(assetId) : undefined;
+                      if (!trapAsset) return null;
+                      return (
+                        <div
+                          data-testid={`trap-item-icon-${trap.trapNumber}`}
+                          className="shrink-0 pt-0.5"
+                        >
+                          <GameAssetFrame
+                            src={trapAsset.iconPath}
+                            alt={locale === "vi" ? trapAsset.inGameNameVi : trapAsset.inGameNameEn}
+                            size="md"
+                            rarity={trapAsset.rarity}
+                            faction={trapAsset.faction}
+                            showFactionBadge={trapAsset.faction !== "neutral"}
+                            className="h-11 w-11"
+                          />
+                        </div>
+                      );
+                    })()}
+                    <h4 className="font-heading font-bold text-sm sm:text-base text-foreground leading-snug flex-1">
                     <RichGuideText
                       text={trap.title}
                       variant="inline"
                       accentColor="rose"
                     />
-                  </h4>
+                    </h4>
+                  </div>
 
                   {/* Symptom Preview */}
                   <div className="rounded-xl border border-border/60 bg-muted/30 p-3 space-y-1.5">

@@ -21,6 +21,35 @@ import type {
 import { ARTICLE_4_2_HORDE_PIVOT_ROADMAP } from "@/content/guides/groups/group-4/4.2-horde-pivot-roadmap";
 import { useUidSession } from "@/hooks/use-uid-session";
 import { RichGuideText } from "@/components/guides/blocks/rich-guide-text";
+import {
+  getAssetById,
+  getHeroVisualProfile,
+  resolveSlotHeroProfiles,
+} from "@/content/guides/asset-registry";
+import type { HeroVisualProfile } from "@/content/guides/types";
+import { GameAssetFrame } from "@/components/guides/media/game-asset-frame";
+
+function resolvePivotHeroProfiles(rawName: string): readonly HeroVisualProfile[] {
+  const direct = resolveSlotHeroProfiles(rawName);
+  if (direct.length > 0) return direct;
+  const lower = rawName.toLowerCase();
+  if (lower.includes("6 ssr horde")) {
+    return ["hero-swordmaster", "hero-wilderness-hunter", "hero-soulmancer"]
+      .map((id) => getHeroVisualProfile(id))
+      .filter((p): p is HeroVisualProfile => Boolean(p));
+  }
+  if (lower.includes("pure league")) {
+    return ["hero-adjudicator", "hero-pyromancer", "hero-nun"]
+      .map((id) => getHeroVisualProfile(id))
+      .filter((p): p is HeroVisualProfile => Boolean(p));
+  }
+  if (lower.includes("pure nature")) {
+    return ["hero-monk", "hero-pixie", "hero-forest-maiden"]
+      .map((id) => getHeroVisualProfile(id))
+      .filter((p): p is HeroVisualProfile => Boolean(p));
+  }
+  return [];
+}
 
 export interface HordePivotStepperWidgetProps {
   article?: GuideArticle;
@@ -420,7 +449,19 @@ export function HordePivotStepperWidget({
         >
           <div className="flex items-center justify-between gap-4 font-bold text-emerald-300">
             <span className="inline-flex items-center gap-1.5">
-              <Gem className="h-3.5 w-3.5 text-emerald-400" />
+              {(() => {
+                const stoneAsset = getAssetById("item-soul-stone");
+                return stoneAsset ? (
+                  <GameAssetFrame
+                    src={stoneAsset.iconPath}
+                    alt=""
+                    size="sm"
+                    rarity={stoneAsset.rarity}
+                  />
+                ) : (
+                  <Gem className="h-3.5 w-3.5 text-emerald-400" />
+                );
+              })()}
               {locale === "vi"
                 ? "Kinh Tế Hồn Đá Đỏ (Soul Stones):"
                 : "Soul Stone Economy:"}
@@ -534,7 +575,7 @@ export function HordePivotStepperWidget({
                 </span>
               </div>
               <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-                {currentStage.queue1Heroes.map((hero) => (
+                {currentStage.queue1Heroes.map((hero, idx) => (
                   <div
                     key={hero.name}
                     className={`flex items-center justify-between rounded-lg border px-2.5 py-2 text-xs ${
@@ -543,9 +584,28 @@ export function HordePivotStepperWidget({
                         : "border-blue-500/35 bg-blue-500/10 text-blue-100"
                     }`}
                   >
-                    <span className="font-bold">
+                    <span className="inline-flex items-center gap-2 font-bold">
+                      <span
+                        data-testid={`pivot-q1-avatars-${idx}`}
+                        className="inline-flex items-center -space-x-1.5 shrink-0"
+                      >
+                        {resolvePivotHeroProfiles(hero.name).map((prof) => (
+                          <GameAssetFrame
+                            key={prof.id}
+                            src={prof.avatarPath}
+                            alt={locale === "vi" ? prof.inGameNameVi : prof.inGameNameEn}
+                            size="md"
+                            rarity={prof.rarity}
+                            faction={prof.faction}
+                            showFactionBadge={true}
+                            className="h-12 w-12"
+                          />
+                        ))}
+                      </span>
+                      <span>
                       {hero.faction === "horde" ? "🔴 " : "🔵 "}
-                      {hero.name}
+                        {hero.name}
+                      </span>
                     </span>
                     <span className="rounded bg-black/30 px-1.5 py-0.5 font-mono text-[10px] text-slate-200">
                       {hero.note[locale]}
@@ -568,12 +628,30 @@ export function HordePivotStepperWidget({
                   <ArrowRight className="h-3.5 w-3.5 text-slate-400" />
                 </div>
                 <div className="space-y-1.5">
-                  {currentStage.queue2Heroes.map((hero) => (
+                  {currentStage.queue2Heroes.map((hero, idx) => (
                     <div
                       key={hero.name}
                       className="flex items-center justify-between rounded-lg border border-white/10 bg-black/30 px-2.5 py-1.5 text-xs text-slate-200"
                     >
-                      <span className="font-semibold">{hero.name}</span>
+                      <span className="inline-flex items-center gap-2 font-semibold">
+                        <span
+                          data-testid={`pivot-q2-avatars-${idx}`}
+                          className="inline-flex items-center -space-x-1.5 shrink-0"
+                        >
+                          {resolvePivotHeroProfiles(hero.name).map((prof) => (
+                            <GameAssetFrame
+                              key={prof.id}
+                              src={prof.avatarPath}
+                              alt={locale === "vi" ? prof.inGameNameVi : prof.inGameNameEn}
+                              size="sm"
+                              rarity={prof.rarity}
+                              faction={prof.faction}
+                              showFactionBadge={true}
+                            />
+                          ))}
+                        </span>
+                        <span>{hero.name}</span>
+                      </span>
                       <span className="text-[11px] text-emerald-300">
                         {hero.note[locale]}
                       </span>
@@ -593,7 +671,19 @@ export function HordePivotStepperWidget({
           <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
             <div className="rounded-xl border border-amber-500/25 bg-amber-500/[0.06] p-3.5">
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-300">
-                <Sparkles className="h-4 w-4 text-amber-400" />
+                {(() => {
+                  const shardAsset = getAssetById("item-universal-shard");
+                  return shardAsset ? (
+                    <GameAssetFrame
+                      src={shardAsset.iconPath}
+                      alt=""
+                      size="sm"
+                      rarity={shardAsset.rarity}
+                    />
+                  ) : (
+                    <Sparkles className="h-4 w-4 text-amber-400" />
+                  );
+                })()}
                 <span>
                   {locale === "vi"
                     ? "Kỷ Luật Mảnh Vạn Năng & Sách Kỹ Năng"
@@ -610,7 +700,21 @@ export function HordePivotStepperWidget({
             <div className="rounded-xl border border-emerald-500/25 bg-emerald-500/[0.06] p-3.5">
               <div className="flex items-center justify-between gap-2">
                 <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-300">
-                  <Shield className="h-4 w-4 text-emerald-400" />
+                  {(() => {
+                    const gearAsset = getAssetById("gear-set-blood-of-the-titan");
+                    return gearAsset ? (
+                      <GameAssetFrame
+                        src={gearAsset.iconPath}
+                        alt=""
+                        size="sm"
+                        rarity={gearAsset.rarity}
+                        faction={gearAsset.faction}
+                        showFactionBadge={true}
+                      />
+                    ) : (
+                      <Shield className="h-4 w-4 text-emerald-400" />
+                    );
+                  })()}
                   <span>
                     {locale === "vi"
                       ? "Đồ Vàng (+10/+20/+30), Công Trình & Hồn Đá Đỏ"

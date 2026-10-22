@@ -183,7 +183,7 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
             vi: "Bộ icon phân loại các nhóm vật phẩm cốt lõi trong túi đồ (Universal Shard, Soul Stone, Skill Book, Lord Gear Blueprint, Rune Dust, Pet Food, Relic Scroll, Dragon Essence) theo quy tắc Đập Ngay (Nhóm A) và Găm Chờ Giao Thoa (Nhóm B).",
             en: "Visual classification of core inventory assets (Universal Shard, Soul Stone, Skill Book, Lord Gear Blueprint, Rune Dust, Pet Food, Relic Scroll, Dragon Essence) mapped to Group A (Spend Immediately) vs. Group B (Hoard for 200%–300% Overlap).",
           },
-          imageSrc: "/images/guides/events/double-dip-items.webp",
+
           annotations: [
             {
               kind: "do",
@@ -247,7 +247,7 @@ export const ARTICLE_3_4_DOUBLE_DIP_SCHEDULE: GuideArticle = {
             vi: "Ảnh chụp màn hình Túi Đồ (Inventory Bag) chia làm 2 nửa rõ rệt: Khung Xanh Lá (Đập Ngay) cho Quặng Đồ Tướng và Khung Đỏ (Khóa Chờ Thứ Năm/Thứ Sáu Kỳ GAR/KvK) cho Mảnh Vàng, Hồn Đá Đỏ, Rương Cổ Ngữ.",
             en: "Annotated Inventory Bag screenshot divided into two clear zones: Green Frame (Spend Immediately) for Hero Gear Ore and Red Frame (Lock for Thu/Fri GAR/KvK) for Universal Shards, Soul Stones, and Rune Chests.",
           },
-          imageSrc: "/images/guides/events/inventory-bag-split-zones.webp",
+
           annotations: [
             {
               kind: "do",

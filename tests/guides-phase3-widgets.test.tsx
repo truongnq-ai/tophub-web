@@ -11,6 +11,20 @@ import { HeroEncyclopediaWidget } from "../src/components/guides/widgets/hero-en
 import { BiweeklyCalendarWidget } from "../src/components/guides/widgets/biweekly-calendar-widget";
 import { MasterDataExplorerWidget } from "../src/components/guides/widgets/master-data-explorer-widget";
 import { GuideArticleRenderer } from "../src/components/guides/guide-article-renderer";
+import fs from "fs";
+import path from "path";
+import { ARTICLE_1_1_OVERVIEW } from "../src/content/guides/groups/group-1/1.1-overview";
+import { ARTICLE_1_2_STRICT_ONE_QUEUE } from "../src/content/guides/groups/group-1/1.2-strict-one-queue-rule";
+import { ARTICLE_1_3_DIAMOND_SPENDING } from "../src/content/guides/groups/group-1/1.3-diamond-and-spending-guide";
+import { ARTICLE_1_4_TOP_10_TRAPS } from "../src/content/guides/groups/group-1/1.4-top-10-account-traps";
+import { ARTICLE_3_2_WEEK_A_GUILD_RACE } from "../src/content/guides/groups/group-3/3.2-week-a-guild-race";
+import { ARTICLE_3_3_WEEK_B_ARMS_RACE } from "../src/content/guides/groups/group-3/3.3-week-b-arms-race";
+import { ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR } from "../src/content/guides/groups/group-4/4.1-preseason-mythic-calendar";
+import { ARTICLE_4_2_HORDE_PIVOT_ROADMAP } from "../src/content/guides/groups/group-4/4.2-horde-pivot-roadmap";
+import { ARTICLE_4_3_SEASON_1_TO_4_ROADMAP } from "../src/content/guides/groups/group-4/4.3-season-1-to-4-roadmap";
+import { AccountTrapsTriageWidget } from "../src/components/guides/widgets/account-traps-triage-widget";
+import { HordePivotStepperWidget } from "../src/components/guides/widgets/horde-pivot-stepper-widget";
+import { MEDIA_SHOWCASE_BY_CODE } from "../src/content/guides/asset-registry";
 
 vi.mock("next-intl", () => ({
   useLocale: () => "vi",
@@ -386,6 +400,176 @@ describe("Phase 3 — Interactive Widgets & GuideArticleRenderer Integration", (
       // Total rendered ResponsiveDataTable instances in the entire article DOM should be at most 2 (1 active inside Explorer + 1 in sec-3 pitfalls), NOT 12+1!
       const renderedTables = screen.getAllByTestId("block-table");
       expect(renderedTables.length).toBeLessThanOrEqual(2);
+    });
+  });
+
+  describe("Suite 5: Phase 3 Visual Media & Widget Upgrades — Groups 1, 3, 4 (11 Articles & 3 Widgets)", () => {
+    const PHASE3_ARTICLES = [
+      ARTICLE_1_1_OVERVIEW,
+      ARTICLE_1_2_STRICT_ONE_QUEUE,
+      ARTICLE_1_3_DIAMOND_SPENDING,
+      ARTICLE_1_4_TOP_10_TRAPS,
+      ARTICLE_3_1_BIWEEKLY_ROTATION,
+      ARTICLE_3_2_WEEK_A_GUILD_RACE,
+      ARTICLE_3_3_WEEK_B_ARMS_RACE,
+      ARTICLE_3_4_DOUBLE_DIP_SCHEDULE,
+      ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR,
+      ARTICLE_4_2_HORDE_PIVOT_ROADMAP,
+      ARTICLE_4_3_SEASON_1_TO_4_ROADMAP,
+    ];
+
+    it("renders GameAssetFrame icons for all 10 Traps in AccountTrapsTriageWidget and passes Strict Locale Gate", () => {
+      const { container, unmount } = render(
+        <AccountTrapsTriageWidget
+          article={ARTICLE_1_4_TOP_10_TRAPS}
+          locale="en"
+          forceUnlockPro={true}
+        />
+      );
+
+      for (let i = 1; i <= 10; i++) {
+        const iconWrapper = screen.getByTestId(`trap-item-icon-${i}`);
+        const img = iconWrapper.querySelector("img");
+        expect(img).not.toBeNull();
+        expect(img?.getAttribute("src")).toMatch(/^\/images\/.+\.webp$/);
+        expect(img?.getAttribute("loading")).toBe("lazy");
+        expect(img?.getAttribute("decoding")).toBe("async");
+      }
+
+      // Expand Trap #1 and verify zero Vietnamese diacritics in EN
+      fireEvent.click(screen.getByTestId("trap-diagnose-btn-1"));
+      const viDiacriticRegex =
+        /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i;
+      expect(viDiacriticRegex.test(container.textContent ?? "")).toBe(false);
+      unmount();
+    });
+
+    it("renders GameAssetFrame icons for all 7 daily stages and all 13 Double-Dip items in BiweeklyCalendarWidget", () => {
+      const { container, unmount } = render(
+        <BiweeklyCalendarWidget
+          article={ARTICLE_3_1_BIWEEKLY_ROTATION}
+          locale="en"
+        />
+      );
+
+      // Verify 7 daily stage icons in Week B (GAR/KvK)
+      for (let day = 1; day <= 7; day++) {
+        const dayIcon = screen.getByTestId(`calendar-day-icon-${day}`);
+        const img = dayIcon.querySelector("img");
+        expect(img).not.toBeNull();
+        expect(img?.getAttribute("src")).toMatch(/^\/images\/.+\.webp$/);
+      }
+
+      // Switch to Week A (Guild Race) and verify 7 daily stage icons
+      fireEvent.click(screen.getByTestId("calendar-phase-weekA"));
+      for (let day = 1; day <= 7; day++) {
+        const dayIcon = screen.getByTestId(`calendar-day-icon-${day}`);
+        expect(dayIcon.querySelector("img")).not.toBeNull();
+      }
+
+      // Switch to Double-Dip 300% mode and verify all 13 item icons
+      fireEvent.click(screen.getByTestId("calendar-phase-doubledip"));
+      for (let idx = 1; idx <= 13; idx++) {
+        const ddIcon = screen.getByTestId(`doubledip-item-icon-${idx}`);
+        const img = ddIcon.querySelector("img");
+        expect(img).not.toBeNull();
+        expect(img?.getAttribute("src")).toMatch(/^\/images\/.+\.webp$/);
+      }
+
+      const viDiacriticRegex =
+        /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i;
+      expect(viDiacriticRegex.test(container.textContent ?? "")).toBe(false);
+      unmount();
+    });
+
+    it("renders Hero Avatar strips with Faction Badges in Queue 1 and Queue 2 across all 4 stages of HordePivotStepperWidget", () => {
+      const { unmount } = render(
+        <HordePivotStepperWidget
+          article={ARTICLE_4_2_HORDE_PIVOT_ROADMAP}
+          locale="vi"
+          forceUnlockPro={true}
+        />
+      );
+
+      for (const stageNum of [1, 2, 3, 4] as const) {
+        fireEvent.click(screen.getByTestId(`pivot-stage-btn-${stageNum}`));
+
+        // Every stage has 6 Queue 1 slots
+        for (let slot = 0; slot < 6; slot++) {
+          const q1Avatars = screen.getByTestId(`pivot-q1-avatars-${slot}`);
+          const imgs = q1Avatars.querySelectorAll("img");
+          expect(imgs.length).toBeGreaterThanOrEqual(2); // Hero avatar + Faction badge
+        }
+
+        // Queue 2 has at least 1 slot with resolved hero avatars
+        const q2Avatars0 = screen.getByTestId("pivot-q2-avatars-0");
+        expect(q2Avatars0.querySelectorAll("img").length).toBeGreaterThanOrEqual(2);
+      }
+
+      unmount();
+    });
+
+    it("verifies all 11 Group 1, 3, 4 articles have zero legacy /images/guides/ paths, valid showcase decks, and pass GAP-01..04", () => {
+      const publicDir = path.resolve(__dirname, "../public");
+      const rawJson = JSON.stringify(PHASE3_ARTICLES);
+      expect(rawJson).not.toContain("/images/guides/");
+
+      const expectedCodes = [
+        "MED-1.1-02", "MED-1.1-03", "MED-1.1-05",
+        "MED-1.2-02", "MED-1.2-04", "MED-1.2-05",
+        "MED-1.3-02", "MED-1.3-04",
+        "MED-1.4-02", "MED-1.4-03", "MED-1.4-05",
+        "MED-3.1-01", "MED-3.1-02", "MED-3.1-04",
+        "MED-3.2-01", "MED-3.2-02", "MED-3.2-04",
+        "MED-3.3-01", "MED-3.3-02", "MED-3.3-04",
+        "MED-3.4-01", "MED-3.4-02", "MED-3.4-04",
+        "MED-4.1-01", "MED-4.1-03", "MED-4.1-04",
+        "MED-4.2-02", "MED-4.2-03", "MED-4.2-04",
+        "MED-4.3-02", "MED-4.3-03", "MED-4.3-04",
+      ];
+
+      for (const code of expectedCodes) {
+        const deck = MEDIA_SHOWCASE_BY_CODE[code];
+        expect(deck).toBeDefined();
+        expect(deck.length).toBe(6);
+        for (const item of deck) {
+          const diskPath = path.join(publicDir, item.iconPath.replace(/^\//, ""));
+          expect(fs.existsSync(diskPath)).toBe(true);
+        }
+      }
+
+      for (const article of PHASE3_ARTICLES) {
+        const { container, unmount } = render(
+          <GuideArticleRenderer article={article} locale="en" />
+        );
+
+        // GAP-02: Semantic <code> tags preserved
+        expect(container.querySelectorAll("code").length).toBeGreaterThan(0);
+
+        // GAP-03: Zero border-l-2, border-l-4, rounded-l-sm
+        const html = container.innerHTML;
+        expect(html).not.toMatch(/\bborder-l-[24]\b/);
+        expect(html).not.toMatch(/\brounded-l-sm\b/);
+
+        // GAP-04: All <img> lazy & existing on disk
+        const imgs = Array.from(container.querySelectorAll("img"));
+        expect(imgs.length).toBeGreaterThan(0);
+        for (const img of imgs) {
+          const src = img.getAttribute("src") ?? "";
+          expect(src.startsWith("/images/")).toBe(true);
+          expect(img.getAttribute("loading")).toBe("lazy");
+          expect(img.getAttribute("decoding")).toBe("async");
+          const diskPath = path.join(publicDir, src.replace(/^\//, ""));
+          expect(fs.existsSync(diskPath)).toBe(true);
+        }
+
+        unmount();
+      }
+    });
+  });
+  describe("Suite 4 Tail", () => {
+    it("noop", () => {
+      expect(true).toBe(true);
     });
   });
 });

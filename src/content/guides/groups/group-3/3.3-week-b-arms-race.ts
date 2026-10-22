@@ -92,10 +92,10 @@ export const ARTICLE_3_3_WEEK_B_ARMS_RACE: GuideArticle = {
             en: "The 6 Fixed Stage Icons of Guild Arms Race / KvK & Secondary Scoring Rules",
           },
           description: {
-            vi: "Bộ icon 6 Giai đoạn của Guild Arms Race / KvK từ Thứ Hai đến Thứ Bảy: Xây dựng, Nghiên cứu, Thể lực/Quái, Tướng, Lính/Pet và Khiên Chiến sự (/images/guides/events/arms-race-6days.webp).",
-            en: "The 6 daily stage icons of Guild Arms Race / KvK from Monday to Saturday: Construction, Research, Stamina/Monsters, Heroes, Troops/Pets, and Kill Event Shield (/images/guides/events/arms-race-6days.webp).",
+            vi: "Bộ icon 6 Giai đoạn của Guild Arms Race / KvK từ Thứ Hai đến Thứ Bảy: Xây dựng, Nghiên cứu, Thể lực/Quái, Tướng, Lính/Pet và Khiên Chiến sự.",
+            en: "The 6 daily stage icons of Guild Arms Race / KvK from Monday to Saturday: Construction, Research, Stamina/Monsters, Heroes, Troops/Pets, and Kill Event Shield.",
           },
-          imageSrc: "/images/guides/events/arms-race-6days.webp",
+
           annotations: [
             {
               kind: "do",

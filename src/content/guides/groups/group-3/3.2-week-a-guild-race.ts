@@ -119,7 +119,7 @@ export const ARTICLE_3_2_WEEK_A_GUILD_RACE: GuideArticle = {
             vi: "Nhận diện 3 biểu tượng kinh tế quyết định tốc độ thức tỉnh Đội 1 trong Thi Đấu Hội (Guild Race): Xu Xanh Điểm Vinh Dự Bang, Hồn Đá Đỏ (Soul Stone) và Huy hiệu Nhiệm Vụ Vàng (+210 ➔ +450 điểm).",
             en: "Identify the 3 economic icons governing Queue 1 awakening speed in Guild Race: Guild Honor Coin, Mythic Soul Stone, and the Gold Legendary Task Badge (+210 ➔ +450 points).",
           },
-          imageSrc: "/images/guides/events/guild-race-badges.webp",
+
           annotations: [
             {
               kind: "do",
@@ -269,7 +269,7 @@ export const ARTICLE_3_2_WEEK_A_GUILD_RACE: GuideArticle = {
             vi: "Ảnh chụp màn hình giao diện Bảng Nhiệm Vụ Đua Bang Hội (Guild Race Board): Khoanh khung vàng 2 Ô Nhiệm Vụ Độc Quyền ở trên cùng, mũi tên chỉ nút Làm mới 10 phút và gạch chéo đỏ nhiệm vụ bẫy Chiêu mộ 80 vé.",
             en: "Annotated screenshot of the Guild Race Task Board: Gold frame highlighting the top 2 Personal Exclusive Task slots, arrow pointing to the 10-min free refresh button, and red cross over the 80 Recruit Tokens trap task.",
           },
-          imageSrc: "/images/guides/events/guild-race-board-annotated.webp",
+
           annotations: [
             {
               kind: "do",
