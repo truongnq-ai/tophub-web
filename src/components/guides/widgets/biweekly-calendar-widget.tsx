@@ -29,6 +29,44 @@ import {
   formatUtcClock,
 } from "@/lib/timezone";
 import { RichGuideText } from "@/components/guides/blocks/rich-guide-text";
+import { getAssetById } from "@/content/guides/asset-registry";
+import { GameAssetFrame } from "@/components/guides/media/game-asset-frame";
+
+const WEEK_B_DAY_ASSET_ID: Record<number, string> = {
+  1: "item-dragon-essence",
+  2: "system-runes",
+  3: "item-stamina",
+  4: "item-universal-shard",
+  5: "meta-staircase-promotion",
+  6: "event-kvk",
+  7: "event-guild-arms-race",
+};
+
+const WEEK_A_DAY_ASSET_ID: Record<number, string> = {
+  1: "system-pets-behemoth",
+  2: "system-pets-behemoth",
+  3: "system-relics",
+  4: "system-relics",
+  5: "system-lord-gear",
+  6: "system-lord-gear",
+  7: "item-guild-honor",
+};
+
+const DOUBLE_DIP_ITEM_ASSET_ID: Record<string, string> = {
+  "1": "item-universal-shard",
+  "2": "item-soul-stone",
+  "3": "item-skill-book",
+  "4": "item-recruit-token",
+  "5": "gear-set-knights-glory",
+  "6": "system-lord-gear",
+  "7": "system-relics",
+  "8": "system-pets-behemoth",
+  "9": "system-runes",
+  "10": "item-dragon-essence",
+  "11": "item-speedup",
+  "12": "meta-staircase-promotion",
+  "13": "item-glory-medal",
+};
 
 export type CalendarMode = "phase1" | "weekA" | "weekB" | "doubledip";
 export type DoubleDipTierFilter = "all" | "300" | "200" | "immediate";
@@ -837,7 +875,26 @@ export function BiweeklyCalendarWidget({
                   )}
                 >
                   <div className="flex items-center justify-between gap-1 w-full">
-                    <span className="font-mono text-xs font-black">
+                    <span className="inline-flex items-center gap-1.5 font-mono text-xs font-black">
+                      {(() => {
+                        const dayAssetId =
+                          activeMode === "weekA"
+                            ? WEEK_A_DAY_ASSET_ID[day.dayNumber]
+                            : WEEK_B_DAY_ASSET_ID[day.dayNumber];
+                        const dayAsset = dayAssetId ? getAssetById(dayAssetId) : undefined;
+                        if (!dayAsset) return null;
+                        return (
+                          <span data-testid={`calendar-day-icon-${day.dayNumber}`} className="inline-flex shrink-0">
+                            <GameAssetFrame
+                              src={dayAsset.iconPath}
+                              alt={locale === "vi" ? dayAsset.inGameNameVi : dayAsset.inGameNameEn}
+                              size="sm"
+                              rarity={dayAsset.rarity}
+                              faction={dayAsset.faction}
+                            />
+                          </span>
+                        );
+                      })()}
                       {day.shortLabel}
                     </span>
                     {isToday && (
@@ -864,7 +921,25 @@ export function BiweeklyCalendarWidget({
                 <div className="text-xs font-mono font-bold text-amber-600 dark:text-amber-400">
                   {activeDayEntry.fullLabel} • {activeDayEntry.guildRush}
                 </div>
-                <h4 className="font-heading font-black text-base sm:text-lg text-foreground mt-0.5">
+                <h4 className="font-heading font-black text-base sm:text-lg text-foreground mt-1 flex items-center gap-2.5">
+                  {(() => {
+                    const activeAssetId =
+                      activeMode === "weekA"
+                        ? WEEK_A_DAY_ASSET_ID[activeDayEntry.dayNumber]
+                        : WEEK_B_DAY_ASSET_ID[activeDayEntry.dayNumber];
+                    const activeAsset = activeAssetId ? getAssetById(activeAssetId) : undefined;
+                    if (!activeAsset) return null;
+                    return (
+                      <GameAssetFrame
+                        src={activeAsset.iconPath}
+                        alt={locale === "vi" ? activeAsset.inGameNameVi : activeAsset.inGameNameEn}
+                        size="md"
+                        rarity={activeAsset.rarity}
+                        faction={activeAsset.faction}
+                        className="h-11 w-11"
+                      />
+                    );
+                  })()}
                   {activeDayEntry.stageTitle}
                 </h4>
               </div>
@@ -968,7 +1043,28 @@ export function BiweeklyCalendarWidget({
                 className="rounded-xl border border-border/70 bg-background/80 p-4 space-y-2.5"
               >
                 <div className="flex items-start justify-between gap-2">
-                  <h4 className="font-heading font-extrabold text-sm text-foreground flex items-center gap-2">
+                  <h4 className="font-heading font-extrabold text-sm text-foreground flex items-center gap-2.5">
+                    {(() => {
+                      const ddAssetId = DOUBLE_DIP_ITEM_ASSET_ID[item.index];
+                      const ddAsset = ddAssetId ? getAssetById(ddAssetId) : undefined;
+                      if (!ddAsset) return null;
+                      return (
+                        <span
+                          data-testid={`doubledip-item-icon-${item.index}`}
+                          className="inline-flex shrink-0"
+                        >
+                          <GameAssetFrame
+                            src={ddAsset.iconPath}
+                            alt={locale === "vi" ? ddAsset.inGameNameVi : ddAsset.inGameNameEn}
+                            size="md"
+                            rarity={ddAsset.rarity}
+                            faction={ddAsset.faction}
+                            showFactionBadge={ddAsset.faction !== "neutral"}
+                            className="h-11 w-11"
+                          />
+                        </span>
+                      );
+                    })()}
                     <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-amber-500/15 border border-amber-500/30 font-mono text-xs font-black text-amber-600 dark:text-amber-300">
                       #{item.index}
                     </span>

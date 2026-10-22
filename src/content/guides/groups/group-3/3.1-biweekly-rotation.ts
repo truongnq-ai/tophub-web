@@ -94,10 +94,10 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
             en: "Quick-Recognition Icon Suite: The 4 Pillar Events of Server Progression",
           },
           description: {
-            vi: "Bộ biểu tượng nhận diện nhanh các sự kiện trụ cột quyết định nhịp đập tài nguyên: Thi Đấu Hội (Guild Race), Đua Vũ Trang (GAR / KvK) và cụm Gacha 3 tuần/lần (Lucky Wheel • Hero Gacha • Dice of Fate) (/images/guides/events/biweekly-icons.webp).",
-            en: "Quick-identification visual icons for the pillar events governing your resource rhythm: Guild Race, Guild Arms Race (GAR / KvK), and the 3-week Gacha cycle (Lucky Wheel • Hero Gacha • Dice of Fate) (/images/guides/events/biweekly-icons.webp).",
+            vi: "Bộ biểu tượng nhận diện nhanh các sự kiện trụ cột quyết định nhịp đập tài nguyên: Thi Đấu Hội (Guild Race), Đua Vũ Trang (GAR / KvK) và cụm Gacha 3 tuần/lần (Lucky Wheel • Hero Gacha • Dice of Fate).",
+            en: "Quick-identification visual icons for the pillar events governing your resource rhythm: Guild Race, Guild Arms Race (GAR / KvK), and the 3-week Gacha cycle (Lucky Wheel • Hero Gacha • Dice of Fate).",
           },
-          imageSrc: "/images/guides/events/biweekly-icons.webp",
+
           annotations: [
             {
               kind: "do",
@@ -365,7 +365,7 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
             vi: "Ảnh chụp giao diện Lịch Sự Kiện (Event ➔ Lịch Event) in-game có khoanh vùng đỏ cách phân biệt Kỳ Thi Đấu Hội và Kỳ Đua Vũ Trang (GAR / KvK) tại cột Thứ Hai (02:00 UTC / 09:00 Giờ VN) cùng thời gian đếm ngược của Sự kiện Phụ 2–3 Ngày.",
             en: "Annotated in-game Event Calendar (Event ➔ Event Calendar) screenshot highlighting how to distinguish Guild Race Mode from Arms Race Mode (GAR / KvK) at the Monday (02:00 UTC) column alongside the 2–3 day Sub-Event countdown.",
           },
-          imageSrc: "/images/guides/events/event-calendar-annotated.webp",
+
           annotations: [
             {
               kind: "do",

@@ -507,8 +507,8 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
             en: "3-Faction Counter Loop (+20% DMG) & Faction Aura Milestones",
           },
           description: {
-            vi: "Bộ biểu tượng 3 Phe phái chuẩn hóa (/images/guides/factions/league-emblem.webp, horde-emblem.webp, nature-emblem.webp) kèm mũi tên khắc chế +20% DMG Dealt / -20% DMG Taken và mốc Hào quang 4/5/6 tướng (+15% / +25% / +35% ATK & HP).",
-            en: "Standardized 3-Faction emblem set (/images/guides/factions/league-emblem.webp, horde-emblem.webp, nature-emblem.webp) showing the +20% DMG Dealt / -20% DMG Taken counter loop and 4/5/6-hero Faction Aura milestones (+15% / +25% / +35% ATK & HP).",
+            vi: "Bộ biểu tượng 3 Phe phái chuẩn hóa (League, Horde, Nature) kèm mũi tên khắc chế +20% DMG Dealt / -20% DMG Taken và mốc Hào quang 4/5/6 tướng (+15% / +25% / +35% ATK & HP).",
+            en: "Standardized 3-Faction emblem set (League, Horde, Nature) showing the +20% DMG Dealt / -20% DMG Taken counter loop and 4/5/6-hero Faction Aura milestones (+15% / +25% / +35% ATK & HP).",
           },
         },
       ],

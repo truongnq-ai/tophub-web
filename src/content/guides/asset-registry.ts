@@ -30,6 +30,46 @@ export const GAME_ASSET_REGISTRY: Readonly<Record<string, GameAssetEntry>> = {
     "nameVi": "Cự Thú Hộ Vệ (Guardian Behemoth)",
     "rarity": "mythic"
   },
+  "building-furnace-s2": {
+    "aliases": [
+      "building-furnace-s2",
+      "Lò Sưởi Bang",
+      "Guild Furnace"
+    ],
+    "category": "buildings-decor",
+    "descEn": "Season 2 thermal core protecting guild territory from sub-zero freeze penalties.",
+    "descVi": "Công trình trung tâm Mùa 2 giúp sưởi ấm lãnh thổ bang và chống đóng băng.",
+    "faction": "horde",
+    "gameId": null,
+    "glossaryId": null,
+    "iconPath": "/images/events/seasons/icon_guild_furnace.webp",
+    "id": "building-furnace-s2",
+    "inGameNameEn": "Guild Furnace",
+    "inGameNameVi": "Lò Sưởi Bang",
+    "nameEn": "Guild Furnace (S2)",
+    "nameVi": "Lò Sưởi Bang Hội (S2 Guild Furnace)",
+    "rarity": "epic"
+  },
+  "building-spring-s1": {
+    "aliases": [
+      "building-spring-s1",
+      "Suối Mùa Xuân",
+      "Spring of Nature"
+    ],
+    "category": "buildings-decor",
+    "descEn": "Season 1 seasonal structure generating Sacred Water and Blight resistance.",
+    "descVi": "Công trình mùa giải S1 sản sinh Nước Thánh và kháng hiệu ứng Khô Héo.",
+    "faction": "nature",
+    "gameId": null,
+    "glossaryId": null,
+    "iconPath": "/images/events/seasons/icon_guild_spring.webp",
+    "id": "building-spring-s1",
+    "inGameNameEn": "Spring of Nature",
+    "inGameNameVi": "Suối Mùa Xuân",
+    "nameEn": "Spring of Nature (S1)",
+    "nameVi": "Suối Nguồn Mùa Xuân (S1 Spring)",
+    "rarity": "epic"
+  },
   "event-dark-empire-invasion": {
     "aliases": [
       "event-dark-empire-invasion",
@@ -1715,6 +1755,28 @@ export const GAME_ASSET_REGISTRY: Readonly<Record<string, GameAssetEntry>> = {
     "nameVi": "Bản Vẽ / Hợp Kim (Blueprints / Orichalcum)",
     "rarity": "rare"
   },
+  "item-decor-token": {
+    "aliases": [
+      "item-decor-token",
+      "Xu Trang Trí",
+      "Decor Tokens",
+      "Rương Trang Trí",
+      "Castle Decor"
+    ],
+    "category": "items",
+    "descEn": "Currency used to upgrade Castle Decorations for permanent account-wide stat boosts.",
+    "descVi": "Tiền tệ nâng cấp vật phẩm Trang Trí Lâu Đài cộng chỉ số vĩnh viễn toàn tài khoản.",
+    "faction": "neutral",
+    "gameId": 10030,
+    "glossaryId": null,
+    "iconPath": "/images/items/currencies/icon_10030.webp",
+    "id": "item-decor-token",
+    "inGameNameEn": "Decor Tokens",
+    "inGameNameVi": "Xu Trang Trí",
+    "nameEn": "Decor Tokens",
+    "nameVi": "Xu Trang Trí (Decor Tokens)",
+    "rarity": "epic"
+  },
   "item-diamond": {
     "aliases": [
       "item-diamond",
@@ -1808,6 +1870,26 @@ export const GAME_ASSET_REGISTRY: Readonly<Record<string, GameAssetEntry>> = {
     "nameVi": "Huy Chương Vinh Quang (Glory Medal)",
     "rarity": "rare"
   },
+  "item-golden-root-s1": {
+    "aliases": [
+      "item-golden-root-s1",
+      "Rễ Cây Vàng",
+      "Golden Root"
+    ],
+    "category": "items",
+    "descEn": "Core Season 1 resource used to upgrade seasonal structures and the World Tree.",
+    "descVi": "Tài nguyên cốt lõi Mùa 1 dùng nâng cấp công trình mùa giải và Cây Thế Giới.",
+    "faction": "nature",
+    "gameId": 30527,
+    "glossaryId": null,
+    "iconPath": "/images/events/seasons/icon_30527.webp",
+    "id": "item-golden-root-s1",
+    "inGameNameEn": "Golden Root",
+    "inGameNameVi": "Rễ Cây Vàng",
+    "nameEn": "Golden Root (S1)",
+    "nameVi": "Rễ Cây Vàng S1 (Golden Root)",
+    "rarity": "legendary"
+  },
   "item-guild-coins": {
     "aliases": [
       "item-guild-coins",
@@ -1880,6 +1962,26 @@ export const GAME_ASSET_REGISTRY: Readonly<Record<string, GameAssetEntry>> = {
     "nameVi": "Dây Gai / Chỉ Phép (Magic Thread)",
     "rarity": "rare"
   },
+  "item-obsidian-s2": {
+    "aliases": [
+      "item-obsidian-s2",
+      "Hắc Diện Thạch",
+      "Obsidian"
+    ],
+    "category": "items",
+    "descEn": "Thermal mineral in Season 2 used to fuel the Furnace and research frost resistance.",
+    "descVi": "Khoáng thạch nhiệt năng Mùa 2 dùng duy trì Lò Sưởi và rèn công nghệ chống rét.",
+    "faction": "horde",
+    "gameId": 30604,
+    "glossaryId": null,
+    "iconPath": "/images/events/seasons/icon_30604.webp",
+    "id": "item-obsidian-s2",
+    "inGameNameEn": "Obsidian",
+    "inGameNameVi": "Hắc Diện Thạch",
+    "nameEn": "Obsidian (S2)",
+    "nameVi": "Hắc Diện Thạch S2 (Obsidian)",
+    "rarity": "legendary"
+  },
   "item-promotion-stone": {
     "aliases": [
       "item-promotion-stone",
@@ -1904,6 +2006,28 @@ export const GAME_ASSET_REGISTRY: Readonly<Record<string, GameAssetEntry>> = {
     "nameVi": "Đá Thăng Cấp Trang Bị (Promotion Stone)",
     "rarity": "rare"
   },
+  "item-recruit-token": {
+    "aliases": [
+      "item-recruit-token",
+      "Vé Chiêu Mộ",
+      "Recruit Tokens",
+      "Recruit Token",
+      "Tavern Voucher"
+    ],
+    "category": "items",
+    "descEn": "Tavern recruitment vouchers hoarded for Day 4 Hero Burst in GAR and KvK.",
+    "descVi": "Vé quay Tướng tại Quán Rượu, tích trữ xả vào Ngày 4 Đua Vũ Trang (GAR/KvK).",
+    "faction": "neutral",
+    "gameId": null,
+    "glossaryId": null,
+    "iconPath": "/images/ui/rarities/icon_recruit.webp",
+    "id": "item-recruit-token",
+    "inGameNameEn": "Recruit Tokens",
+    "inGameNameVi": "Vé Chiêu Mộ",
+    "nameEn": "Recruit Tokens",
+    "nameVi": "Vé Chiêu Mộ (Recruit Tokens)",
+    "rarity": "legendary"
+  },
   "item-refined-metal": {
     "aliases": [
       "item-refined-metal",
@@ -1927,6 +2051,26 @@ export const GAME_ASSET_REGISTRY: Readonly<Record<string, GameAssetEntry>> = {
     "nameEn": "Refined Metal",
     "nameVi": "Đá Xanh / Thép Tinh Luyện (Refined Metal)",
     "rarity": "rare"
+  },
+  "item-shining-crystal-s3": {
+    "aliases": [
+      "item-shining-crystal-s3",
+      "Pha Lê Ánh Sáng",
+      "Shining Crystal"
+    ],
+    "category": "items",
+    "descEn": "Season 3 energy crystal used to activate seasonal tech and Starlight spires.",
+    "descVi": "Tinh thể năng lượng Mùa 3 dùng kích hoạt kỹ năng mùa giải và tháp ánh sáng.",
+    "faction": "league",
+    "gameId": 30721,
+    "glossaryId": null,
+    "iconPath": "/images/events/seasons/icon_30721.webp",
+    "id": "item-shining-crystal-s3",
+    "inGameNameEn": "Shining Crystal",
+    "inGameNameVi": "Pha Lê Ánh Sáng",
+    "nameEn": "Shining Crystal (S3)",
+    "nameVi": "Pha Lê Ánh Sáng S3 (Shining Crystal)",
+    "rarity": "legendary"
   },
   "item-skill-book": {
     "aliases": [
@@ -1977,6 +2121,28 @@ export const GAME_ASSET_REGISTRY: Readonly<Record<string, GameAssetEntry>> = {
     "nameEn": "Red Soul Stone",
     "nameVi": "Hồn Đá Đỏ (Red Soul Stone)",
     "rarity": "mythic"
+  },
+  "item-speedup": {
+    "aliases": [
+      "item-speedup",
+      "Tăng Tốc",
+      "Speedups",
+      "Speedup",
+      "Tăng tốc"
+    ],
+    "category": "items",
+    "descEn": "Time-reduction consumables for Construction, Research, Troop Training, and Healing.",
+    "descVi": "Vật phẩm rút ngắn thời gian Xây dựng, Nghiên cứu, Luyện lính và Trị thương.",
+    "faction": "neutral",
+    "gameId": null,
+    "glossaryId": null,
+    "iconPath": "/images/ui/rarities/icon_speedUp.webp",
+    "id": "item-speedup",
+    "inGameNameEn": "Speedups",
+    "inGameNameVi": "Tăng Tốc",
+    "nameEn": "Speedups",
+    "nameVi": "Tăng Tốc (Speedups)",
+    "rarity": "rare"
   },
   "item-stamina": {
     "aliases": [
@@ -2471,6 +2637,90 @@ export const GAME_ASSET_REGISTRY: Readonly<Record<string, GameAssetEntry>> = {
     "nameEn": "Support / Healer",
     "nameVi": "Hỗ Trợ / Hồi Máu (Support / Healer)",
     "rarity": "rare"
+  },
+  "season-s1": {
+    "aliases": [
+      "season-s1",
+      "Season 1",
+      "Mùa Giải S1",
+      "Mùa 1"
+    ],
+    "category": "events-seasons",
+    "descEn": "First major season introducing the Spring of Nature, World Tree, and Tidecaller meta.",
+    "descVi": "Mùa giải đầu tiên với Suối Mùa Xuân, Cây Thế Giới và bộ ba Thiên Nhiên Thủy Triều.",
+    "faction": "nature",
+    "gameId": null,
+    "glossaryId": null,
+    "iconPath": "/images/events/seasons/icon_castleS1.webp",
+    "id": "season-s1",
+    "inGameNameEn": "Season 1",
+    "inGameNameVi": "Mùa Giải S1",
+    "nameEn": "Season 1: Blighted Spring",
+    "nameVi": "Mùa Giải S1: Mùa Xuân Khô Héo (Blighted Spring)",
+    "rarity": "mythic"
+  },
+  "season-s2": {
+    "aliases": [
+      "season-s2",
+      "Season 2",
+      "Mùa Giải S2",
+      "Mùa 2"
+    ],
+    "category": "events-seasons",
+    "descEn": "Frozen tundra season featuring the Guild Furnace and the arrival of Wukong and Beastmaster.",
+    "descVi": "Mùa giải Băng Giá với Lò Sưởi Bang Hội và sự xuất hiện của Tôn Ngộ Không, Beastmaster.",
+    "faction": "horde",
+    "gameId": null,
+    "glossaryId": null,
+    "iconPath": "/images/events/seasons/icon_castleS2.webp",
+    "id": "season-s2",
+    "inGameNameEn": "Season 2",
+    "inGameNameVi": "Mùa Giải S2",
+    "nameEn": "Season 2: Frozen Epoch",
+    "nameVi": "Mùa Giải S2: Kỷ Nguyên Băng Giá (Frozen Epoch)",
+    "rarity": "mythic"
+  },
+  "season-s3": {
+    "aliases": [
+      "season-s3",
+      "Season 3",
+      "Mùa Giải S3",
+      "Mùa 3"
+    ],
+    "category": "events-seasons",
+    "descEn": "Season 3 expanding Awakening tiers, Shining Crystal tech, and cross-server warfare.",
+    "descVi": "Mùa giải S3 mở rộng giới hạn Thức Tỉnh, Pha Lê Ánh Sáng và chiến trường liên máy chủ.",
+    "faction": "league",
+    "gameId": null,
+    "glossaryId": null,
+    "iconPath": "/images/events/seasons/icon_castleS3.webp",
+    "id": "season-s3",
+    "inGameNameEn": "Season 3",
+    "inGameNameVi": "Mùa Giải S3",
+    "nameEn": "Season 3: Starlight Crusade",
+    "nameVi": "Mùa Giải S3: Thánh Chiến Tinh Quang (Starlight Crusade)",
+    "rarity": "mythic"
+  },
+  "season-s4": {
+    "aliases": [
+      "season-s4",
+      "Season 4",
+      "Mùa Giải S4",
+      "Mùa 4"
+    ],
+    "category": "events-seasons",
+    "descEn": "Season 4 endgame featuring full 3-queue 3v3 formations and multi-cluster Apex tournaments.",
+    "descVi": "Mùa giải S4 hội tụ 3 Đội hình 3v3 hoàn chỉnh và đấu trường Đỉnh Cao liên cụm.",
+    "faction": "neutral",
+    "gameId": null,
+    "glossaryId": null,
+    "iconPath": "/images/events/seasons/icon_castleS4.webp",
+    "id": "season-s4",
+    "inGameNameEn": "Season 4",
+    "inGameNameVi": "Mùa Giải S4",
+    "nameEn": "Season 4: Apex Sovereign",
+    "nameVi": "Mùa Giải S4: Đỉnh Cao Vương Giả (Apex Sovereign)",
+    "rarity": "mythic"
   },
   "system-brilliance-institute": {
     "aliases": [
@@ -3727,234 +3977,8 @@ export const HERO_VISUAL_PROFILES: Readonly<Record<string, HeroVisualProfile>> =
 export const MEDIA_SHOWCASE_BY_CODE: Readonly<Record<string, readonly MediaShowcaseItem[]>> = {
   "MED-1.1-02": [
     {
-      "assetId": "system-research-cottage",
-      "badgeText": "RESEARCH",
-      "faction": "neutral",
-      "iconPath": "/images/tech/research/bg_ScienceHome_Purple.webp",
-      "labelEn": "Research Cottage",
-      "labelVi": "Viện Nghiên Cứu (Research Cottage)",
-      "rarity": "epic"
-    },
-    {
-      "assetId": "system-brilliance-institute",
-      "badgeText": "BRILLIANCE",
-      "faction": "neutral",
-      "iconPath": "/images/tech/brilliance/bg_Radiance.webp",
-      "labelEn": "Brilliance Institute",
-      "labelVi": "Viện Huy Hoàng (Brilliance Institute)",
-      "rarity": "epic"
-    },
-    {
-      "assetId": "system-training-ground",
-      "badgeText": "BARRACKS",
-      "faction": "neutral",
-      "iconPath": "/images/buildings/blueprints/paper_bingying_buzu.webp",
-      "labelEn": "Training Ground",
-      "labelVi": "Trại Huấn Luyện (Training Ground)",
-      "rarity": "epic"
-    },
-    {
-      "assetId": "system-sacred-codex",
-      "badgeText": "CODEX",
-      "faction": "neutral",
-      "iconPath": "/images/items/consumables/icon_lord_7.webp",
-      "labelEn": "Sacred Codex",
-      "labelVi": "Thánh Điển (Sacred Codex)",
-      "rarity": "epic"
-    }
-  ],
-  "MED-1.1-03": [
-    {
-      "assetId": "faction-horde",
-      "badgeText": "HORDE",
-      "faction": "horde",
-      "iconPath": "/images/factions/race_horde.webp",
-      "labelEn": "Horde Faction",
-      "labelVi": "Bộ Lạc (Horde)",
-      "rarity": "mythic"
-    },
-    {
-      "assetId": "faction-league",
-      "badgeText": "LEAGUE",
-      "faction": "league",
-      "iconPath": "/images/factions/race_alliance.webp",
-      "labelEn": "League Faction",
-      "labelVi": "Liên Minh (League)",
-      "rarity": "mythic"
-    },
-    {
-      "assetId": "faction-nature",
-      "badgeText": "NATURE",
-      "faction": "nature",
-      "iconPath": "/images/factions/race_nature.webp",
-      "labelEn": "Nature Faction",
-      "labelVi": "Thiên Nhiên (Nature)",
-      "rarity": "mythic"
-    },
-    {
-      "assetId": "hero-wukong",
-      "badgeText": "UR CARRY",
-      "faction": "horde",
-      "iconPath": "/images/heroes/avatars/Head_10047.webp",
-      "labelEn": "Wukong",
-      "labelVi": "Tôn Ngộ Không",
-      "rarity": "mythic"
-    },
-    {
-      "assetId": "hero-paragon",
-      "badgeText": "UR CARRY",
-      "faction": "league",
-      "iconPath": "/images/heroes/avatars/Head_10033.webp",
-      "labelEn": "Paragon",
-      "labelVi": "Thiện Xạ",
-      "rarity": "mythic"
-    },
-    {
-      "assetId": "hero-tidecaller",
-      "badgeText": "UR CARRY",
-      "faction": "nature",
-      "iconPath": "/images/heroes/avatars/Head_10044.webp",
-      "labelEn": "Tidecaller",
-      "labelVi": "Triệu Hồi Thủy Triều",
-      "rarity": "mythic"
-    }
-  ],
-  "MED-1.1-05": [
-    {
-      "assetId": "faction-horde",
-      "badgeText": "HORDE",
-      "faction": "horde",
-      "iconPath": "/images/factions/race_horde.webp",
-      "labelEn": "Horde Faction",
-      "labelVi": "Bộ Lạc (Horde)",
-      "rarity": "mythic"
-    },
-    {
-      "assetId": "faction-league",
-      "badgeText": "LEAGUE",
-      "faction": "league",
-      "iconPath": "/images/factions/race_alliance.webp",
-      "labelEn": "League Faction",
-      "labelVi": "Liên Minh (League)",
-      "rarity": "mythic"
-    },
-    {
-      "assetId": "faction-nature",
-      "badgeText": "NATURE",
-      "faction": "nature",
-      "iconPath": "/images/factions/race_nature.webp",
-      "labelEn": "Nature Faction",
-      "labelVi": "Thiên Nhiên (Nature)",
-      "rarity": "mythic"
-    },
-    {
-      "assetId": "hero-wukong",
-      "badgeText": "UR CARRY",
-      "faction": "horde",
-      "iconPath": "/images/heroes/avatars/Head_10047.webp",
-      "labelEn": "Wukong",
-      "labelVi": "Tôn Ngộ Không",
-      "rarity": "mythic"
-    },
-    {
-      "assetId": "hero-paragon",
-      "badgeText": "UR CARRY",
-      "faction": "league",
-      "iconPath": "/images/heroes/avatars/Head_10033.webp",
-      "labelEn": "Paragon",
-      "labelVi": "Thiện Xạ",
-      "rarity": "mythic"
-    },
-    {
-      "assetId": "hero-tidecaller",
-      "badgeText": "UR CARRY",
-      "faction": "nature",
-      "iconPath": "/images/heroes/avatars/Head_10044.webp",
-      "labelEn": "Tidecaller",
-      "labelVi": "Triệu Hồi Thủy Triều",
-      "rarity": "mythic"
-    }
-  ],
-  "MED-1.2-02": [
-    {
-      "assetId": "gear-set-blood-of-the-titan",
-      "badgeText": "HORDE SET",
-      "faction": "horde",
-      "iconPath": "/images/items/consumables/icon_30222.webp",
-      "labelEn": "Blood of the Titan (Fury of Blood)",
-      "labelVi": "Huyết Titan / Nộ Huyết (Blood of the Titan)",
-      "rarity": "mythic"
-    },
-    {
-      "assetId": "gear-set-knights-glory",
-      "badgeText": "LEAGUE SET",
-      "faction": "league",
-      "iconPath": "/images/equipment/hero-gear/icon_40005.webp",
-      "labelEn": "Knight's Glory",
-      "labelVi": "Kỵ Sĩ Vinh Quang (Knight's Glory)",
-      "rarity": "mythic"
-    },
-    {
-      "assetId": "gear-set-glory-of-the-sage",
-      "badgeText": "NATURE SET",
-      "faction": "nature",
-      "iconPath": "/images/equipment/hero-gear/icon_40009.webp",
-      "labelEn": "Glory of the Sage",
-      "labelVi": "Hiền Triết Quang Vinh (Glory of the Sage)",
-      "rarity": "mythic"
-    },
-    {
-      "assetId": "system-lord-gear",
-      "badgeText": "LORD GEAR",
-      "faction": "neutral",
-      "iconPath": "/images/items/consumables/icon_lord_1.webp",
-      "labelEn": "Lord Gear (Military Gear)",
-      "labelVi": "Trang Bị Chúa Tể (Lord Gear / Military Gear)",
-      "rarity": "epic"
-    }
-  ],
-  "MED-1.2-04": [
-    {
-      "assetId": "gear-set-blood-of-the-titan",
-      "badgeText": "HORDE SET",
-      "faction": "horde",
-      "iconPath": "/images/items/consumables/icon_30222.webp",
-      "labelEn": "Blood of the Titan (Fury of Blood)",
-      "labelVi": "Huyết Titan / Nộ Huyết (Blood of the Titan)",
-      "rarity": "mythic"
-    },
-    {
-      "assetId": "gear-set-knights-glory",
-      "badgeText": "LEAGUE SET",
-      "faction": "league",
-      "iconPath": "/images/equipment/hero-gear/icon_40005.webp",
-      "labelEn": "Knight's Glory",
-      "labelVi": "Kỵ Sĩ Vinh Quang (Knight's Glory)",
-      "rarity": "mythic"
-    },
-    {
-      "assetId": "gear-set-glory-of-the-sage",
-      "badgeText": "NATURE SET",
-      "faction": "nature",
-      "iconPath": "/images/equipment/hero-gear/icon_40009.webp",
-      "labelEn": "Glory of the Sage",
-      "labelVi": "Hiền Triết Quang Vinh (Glory of the Sage)",
-      "rarity": "mythic"
-    },
-    {
-      "assetId": "system-lord-gear",
-      "badgeText": "LORD GEAR",
-      "faction": "neutral",
-      "iconPath": "/images/items/consumables/icon_lord_1.webp",
-      "labelEn": "Lord Gear (Military Gear)",
-      "labelVi": "Trang Bị Chúa Tể (Lord Gear / Military Gear)",
-      "rarity": "epic"
-    }
-  ],
-  "MED-1.2-05": [
-    {
       "assetId": "item-universal-shard",
-      "badgeText": "560 SHARDS",
+      "badgeText": "TIER S HOARD",
       "faction": "neutral",
       "iconPath": "/images/items/shards/icon_30175.webp",
       "labelEn": "Universal Legendary Hero Shard",
@@ -3963,7 +3987,7 @@ export const MEDIA_SHOWCASE_BY_CODE: Readonly<Record<string, readonly MediaShowc
     },
     {
       "assetId": "item-soul-stone",
-      "badgeText": "9 SOUL STONES",
+      "badgeText": "360K HONOR",
       "faction": "neutral",
       "iconPath": "/images/items/shards/icon_30231.webp",
       "labelEn": "Red Soul Stone",
@@ -3971,8 +3995,17 @@ export const MEDIA_SHOWCASE_BY_CODE: Readonly<Record<string, readonly MediaShowc
       "rarity": "mythic"
     },
     {
+      "assetId": "item-diamond",
+      "badgeText": "GACHA ONLY",
+      "faction": "neutral",
+      "iconPath": "/images/items/currencies/icon_10002.webp",
+      "labelEn": "Diamonds",
+      "labelVi": "Kim Cương (Diamonds)",
+      "rarity": "legendary"
+    },
+    {
       "assetId": "item-skill-book",
-      "badgeText": "SKILL BOOKS",
+      "badgeText": "CARRY ONLY",
       "faction": "neutral",
       "iconPath": "/images/items/chests/icon_30032.webp",
       "labelEn": "Skill Book",
@@ -3980,57 +4013,447 @@ export const MEDIA_SHOWCASE_BY_CODE: Readonly<Record<string, readonly MediaShowc
       "rarity": "legendary"
     },
     {
+      "assetId": "item-recruit-token",
+      "badgeText": "GAR DAY 4",
+      "faction": "neutral",
+      "iconPath": "/images/ui/rarities/icon_recruit.webp",
+      "labelEn": "Recruit Tokens",
+      "labelVi": "Vé Chiêu Mộ (Recruit Tokens)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "item-speedup",
+      "badgeText": "DOUBLE-DIP",
+      "faction": "neutral",
+      "iconPath": "/images/ui/rarities/icon_speedUp.webp",
+      "labelEn": "Speedups",
+      "labelVi": "Tăng Tốc (Speedups)",
+      "rarity": "rare"
+    }
+  ],
+  "MED-1.1-03": [
+    {
+      "assetId": "faction-league",
+      "badgeText": "DAYS 1-20 S0",
+      "faction": "league",
+      "iconPath": "/images/factions/race_alliance.webp",
+      "labelEn": "League Faction",
+      "labelVi": "Phe Liên Minh (League)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "faction-horde",
+      "badgeText": "DAY 21+ PIVOT",
+      "faction": "horde",
+      "iconPath": "/images/factions/race_horde.webp",
+      "labelEn": "Horde Faction",
+      "labelVi": "Phe Bộ Lạc (Horde)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "faction-nature",
+      "badgeText": "S1 COUNTER",
+      "faction": "nature",
+      "iconPath": "/images/factions/race_nature.webp",
+      "labelEn": "Nature Faction",
+      "labelVi": "Phe Thiên Nhiên (Nature)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "hero-pyromancer",
+      "badgeText": "STARTER CARRY",
+      "faction": "league",
+      "iconPath": "/images/heroes/avatars/Head_10025.webp",
+      "labelEn": "Pyromancer",
+      "labelVi": "Pháp Sư Lửa (Pyromancer)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "hero-desert-prince",
+      "badgeText": "HORDE CORE",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10039.webp",
+      "labelEn": "Desert Prince",
+      "labelVi": "Hoàng Tử Sa Mạc (Desert Prince)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "hero-wukong",
+      "badgeText": "S2 GOD CARRY",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10047.webp",
+      "labelEn": "Wukong",
+      "labelVi": "Tôn Ngộ Không (Wukong)",
+      "rarity": "mythic"
+    }
+  ],
+  "MED-1.1-05": [
+    {
+      "assetId": "event-guild-arms-race",
+      "badgeText": "GAR PREP",
+      "faction": "neutral",
+      "iconPath": "/images/events/entry-icons/Activity_101.webp",
+      "labelEn": "Guild Arms Race (GAR)",
+      "labelVi": "Chạy Đua Vũ Trang Bang Hội (Guild Arms Race — GAR)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "event-kvk",
+      "badgeText": "KVK WAR",
+      "faction": "neutral",
+      "iconPath": "/images/events/banners/ActivityBG_KingdomMigration_Boss.webp",
+      "labelEn": "Kingdom vs Kingdom (KvK / Four Nations League)",
+      "labelVi": "Chiến Tranh Vương Quốc (Kingdom vs Kingdom — KvK)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "meta-double-dip",
+      "badgeText": "300% BURST",
+      "faction": "neutral",
+      "iconPath": "/images/items/shards/icon_30231.webp",
+      "labelEn": "Double-Dip / Triple-Dip",
+      "labelVi": "Ăn Kép Sự Kiện (Double-Dip / Triple-Dip)",
+      "rarity": "rare"
+    },
+    {
+      "assetId": "item-guild-honor",
+      "badgeText": "HONOR FLOOR",
+      "faction": "neutral",
+      "iconPath": "/images/items/currencies/icon_10018.webp",
+      "labelEn": "Guild Honor",
+      "labelVi": "Điểm Vinh Dự Bang Hội (Guild Honor)",
+      "rarity": "rare"
+    },
+    {
+      "assetId": "item-soul-stone",
+      "badgeText": "9 STONES = 1 UR",
+      "faction": "neutral",
+      "iconPath": "/images/items/shards/icon_30231.webp",
+      "labelEn": "Red Soul Stone",
+      "labelVi": "Hồn Đá Đỏ (Red Soul Stone)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "meta-horde-pivot",
+      "badgeText": "ZERO-LOSS",
+      "faction": "horde",
+      "iconPath": "/images/factions/race_horde.webp",
+      "labelEn": "Horde Pivot",
+      "labelVi": "Xoay Trục Bộ Lạc (Horde Pivot)",
+      "rarity": "mythic"
+    }
+  ],
+  "MED-1.2-02": [
+    {
+      "assetId": "hero-secret-keeper",
+      "badgeText": "SLOT 1 TANK",
+      "faction": "league",
+      "iconPath": "/images/heroes/avatars/Head_10018.webp",
+      "labelEn": "Secret Keeper",
+      "labelVi": "Người Giữ Bí Mật (Secret Keeper)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "hero-adjudicator",
+      "badgeText": "SLOT 2 TANK",
+      "faction": "league",
+      "iconPath": "/images/heroes/avatars/Head_10031.webp",
+      "labelEn": "Adjudicator",
+      "labelVi": "Thẩm Phán (Adjudicator)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "hero-pyromancer",
+      "badgeText": "SLOT 3 CARRY",
+      "faction": "league",
+      "iconPath": "/images/heroes/avatars/Head_10025.webp",
+      "labelEn": "Pyromancer",
+      "labelVi": "Pháp Sư Lửa (Pyromancer)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "hero-astrologer",
+      "badgeText": "0 BOOKS/SHARDS",
+      "faction": "league",
+      "iconPath": "/images/heroes/avatars/Head_10024.webp",
+      "labelEn": "Astrologer",
+      "labelVi": "Chiêm Tinh Gia (Astrologer)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "hero-bard",
+      "badgeText": "SLOT 5 BUFFER",
+      "faction": "league",
+      "iconPath": "/images/heroes/avatars/Head_10030.webp",
+      "labelEn": "Bard",
+      "labelVi": "Nhà Thơ (Bard)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "hero-nun",
+      "badgeText": "SLOT 6 HEALER",
+      "faction": "league",
+      "iconPath": "/images/heroes/avatars/Head_10027.webp",
+      "labelEn": "Nun",
+      "labelVi": "Nữ Tu (Nun)",
+      "rarity": "legendary"
+    }
+  ],
+  "MED-1.2-04": [
+    {
+      "assetId": "item-stamina",
+      "badgeText": "DAILY RADAR",
+      "faction": "neutral",
+      "iconPath": "/images/items/currencies/icon_10007.webp",
+      "labelEn": "Stamina",
+      "labelVi": "Thể Lực (Stamina)",
+      "rarity": "rare"
+    },
+    {
+      "assetId": "item-diamond",
+      "badgeText": "VIP POINTS",
+      "faction": "neutral",
+      "iconPath": "/images/items/currencies/icon_10002.webp",
+      "labelEn": "Diamonds",
+      "labelVi": "Kim Cương (Diamonds)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "item-guild-honor",
+      "badgeText": "360K FLOOR",
+      "faction": "neutral",
+      "iconPath": "/images/items/currencies/icon_10018.webp",
+      "labelEn": "Guild Honor",
+      "labelVi": "Điểm Vinh Dự Bang Hội (Guild Honor)",
+      "rarity": "rare"
+    },
+    {
+      "assetId": "item-guild-coins",
+      "badgeText": "54K FLOOR",
+      "faction": "neutral",
+      "iconPath": "/images/items/currencies/icon_10006.webp",
+      "labelEn": "Guild Coins",
+      "labelVi": "Xu Vinh Quang Bang Hội (Guild Coins)",
+      "rarity": "rare"
+    },
+    {
+      "assetId": "item-recruit-token",
+      "badgeText": "SAVE FOR THU",
+      "faction": "neutral",
+      "iconPath": "/images/ui/rarities/icon_recruit.webp",
+      "labelEn": "Recruit Tokens",
+      "labelVi": "Vé Chiêu Mộ (Recruit Tokens)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "item-universal-shard",
+      "badgeText": "LOCK IN VAULT",
+      "faction": "neutral",
+      "iconPath": "/images/items/shards/icon_30175.webp",
+      "labelEn": "Universal Legendary Hero Shard",
+      "labelVi": "Mảnh Tướng Vàng Vạn Năng (Universal Legendary Hero Shard)",
+      "rarity": "legendary"
+    }
+  ],
+  "MED-1.2-05": [
+    {
+      "assetId": "system-research-cottage",
+      "badgeText": "ARMS RACE PREP",
+      "faction": "neutral",
+      "iconPath": "/images/tech/research/bg_ScienceHome_Purple.webp",
+      "labelEn": "Research Cottage",
+      "labelVi": "Viện Nghiên Cứu (Research Cottage)",
+      "rarity": "epic"
+    },
+    {
+      "assetId": "system-training-ground",
+      "badgeText": "STAIRCASE T10",
+      "faction": "neutral",
+      "iconPath": "/images/buildings/blueprints/paper_bingying_buzu.webp",
+      "labelEn": "Training Ground",
+      "labelVi": "Trại Huấn Luyện (Training Ground)",
+      "rarity": "epic"
+    },
+    {
+      "assetId": "system-brilliance-institute",
+      "badgeText": "CASTLE LV.30+",
+      "faction": "neutral",
+      "iconPath": "/images/tech/brilliance/bg_Radiance.webp",
+      "labelEn": "Brilliance Institute",
+      "labelVi": "Viện Huy Hoàng (Brilliance Institute)",
+      "rarity": "epic"
+    },
+    {
+      "assetId": "item-speedup",
+      "badgeText": "RUSH CASTLE",
+      "faction": "neutral",
+      "iconPath": "/images/ui/rarities/icon_speedUp.webp",
+      "labelEn": "Speedups",
+      "labelVi": "Tăng Tốc (Speedups)",
+      "rarity": "rare"
+    },
+    {
+      "assetId": "item-dragon-essence",
+      "badgeText": "MON BUILD",
+      "faction": "neutral",
+      "iconPath": "/images/tech/research/icon_30417.webp",
+      "labelEn": "Dragon Essence (DE-Dust)",
+      "labelVi": "Tinh Hoa Rồng (Dragon Essence — DE-Dust)",
+      "rarity": "rare"
+    },
+    {
+      "assetId": "hero-bard",
+      "badgeText": "+40% BUILD",
+      "faction": "league",
+      "iconPath": "/images/heroes/avatars/Head_10030.webp",
+      "labelEn": "Bard",
+      "labelVi": "Nhà Thơ (Bard)",
+      "rarity": "legendary"
+    }
+  ],
+  "MED-1.3-02": [
+    {
+      "assetId": "event-fortune-wheel",
+      "badgeText": "LEAGUE WHEEL",
+      "faction": "neutral",
+      "iconPath": "/images/items/chests/icon_30059.webp",
+      "labelEn": "Fortune Wheel",
+      "labelVi": "Vòng Quay May Mắn (Fortune Wheel)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "event-dice-of-fate",
+      "badgeText": "NATURE DICE",
+      "faction": "neutral",
+      "iconPath": "/images/items/chests/icon_chest_Monopoly_DragonTraining.webp",
+      "labelEn": "Dice of Fate",
+      "labelVi": "Xúc Xắc Định Mệnh (Dice of Fate)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "hero-desert-prince",
+      "badgeText": "DAY 21 GACHA",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10039.webp",
+      "labelEn": "Desert Prince",
+      "labelVi": "Hoàng Tử Sa Mạc (Desert Prince)",
+      "rarity": "mythic"
+    },
+    {
       "assetId": "hero-storm-maiden",
-      "badgeText": "FIRST MYTHIC",
+      "badgeText": "DAY 21 GACHA",
       "faction": "horde",
       "iconPath": "/images/heroes/avatars/Head_10041.webp",
       "labelEn": "Storm Maiden",
       "labelVi": "Nữ Thần Bão Tố (Storm Maiden)",
       "rarity": "mythic"
-    }
-  ],
-  "MED-1.3-02": [
-    {
-      "assetId": "event-guild-arms-race",
-      "badgeText": "GAR EVENT",
-      "faction": "neutral",
-      "iconPath": "/images/events/entry-icons/Activity_101.webp",
-      "labelEn": "Guild Arms Race (GAR)",
-      "labelVi": "Chạy Đua Vũ Trang Bang Hội (Guild Arms Race — GAR)",
-      "rarity": "legendary"
     },
     {
-      "assetId": "event-kvk",
-      "badgeText": "KVK WAR",
-      "faction": "neutral",
-      "iconPath": "/images/events/banners/ActivityBG_KingdomMigration_Boss.webp",
-      "labelEn": "Kingdom vs Kingdom (KvK / Four Nations League)",
-      "labelVi": "Chiến Tranh Vương Quốc (Kingdom vs Kingdom — KvK)",
-      "rarity": "legendary"
+      "assetId": "hero-witch",
+      "badgeText": "DAY 41 GACHA",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10045.webp",
+      "labelEn": "Witch",
+      "labelVi": "Phù Thủy (Witch)",
+      "rarity": "mythic"
     },
     {
-      "assetId": "event-fortune-wheel",
-      "badgeText": "WHEEL",
+      "assetId": "item-diamond",
+      "badgeText": "30K+ BUFFER",
       "faction": "neutral",
-      "iconPath": "/images/items/chests/icon_30059.webp",
-      "labelEn": "Fortune Wheel",
-      "labelVi": "Vòng Quay May Mắn (Fortune Wheel)",
-      "rarity": "legendary"
-    },
-    {
-      "assetId": "event-dice-of-fate",
-      "badgeText": "DICE EVENT",
-      "faction": "neutral",
-      "iconPath": "/images/items/chests/icon_chest_Monopoly_DragonTraining.webp",
-      "labelEn": "Dice of Fate",
-      "labelVi": "Xúc Xắc Định Mệnh (Dice of Fate)",
+      "iconPath": "/images/items/currencies/icon_10002.webp",
+      "labelEn": "Diamonds",
+      "labelVi": "Kim Cương (Diamonds)",
       "rarity": "legendary"
     }
   ],
   "MED-1.3-04": [
     {
+      "assetId": "item-diamond",
+      "badgeText": "VIP 4 / VIP 8",
+      "faction": "neutral",
+      "iconPath": "/images/items/currencies/icon_10002.webp",
+      "labelEn": "Diamonds",
+      "labelVi": "Kim Cương (Diamonds)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "item-universal-shard",
+      "badgeText": "WEEKLY VIP",
+      "faction": "neutral",
+      "iconPath": "/images/items/shards/icon_30175.webp",
+      "labelEn": "Universal Legendary Hero Shard",
+      "labelVi": "Mảnh Tướng Vàng Vạn Năng (Universal Legendary Hero Shard)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "item-speedup",
+      "badgeText": "DISCOUNT ONLY",
+      "faction": "neutral",
+      "iconPath": "/images/ui/rarities/icon_speedUp.webp",
+      "labelEn": "Speedups",
+      "labelVi": "Tăng Tốc (Speedups)",
+      "rarity": "rare"
+    },
+    {
+      "assetId": "item-stamina",
+      "badgeText": "EVENT RALLY",
+      "faction": "neutral",
+      "iconPath": "/images/items/currencies/icon_10007.webp",
+      "labelEn": "Stamina",
+      "labelVi": "Thể Lực (Stamina)",
+      "rarity": "rare"
+    },
+    {
+      "assetId": "item-recruit-token",
+      "badgeText": "NEVER 300 KC",
+      "faction": "neutral",
+      "iconPath": "/images/ui/rarities/icon_recruit.webp",
+      "labelEn": "Recruit Tokens",
+      "labelVi": "Vé Chiêu Mộ (Recruit Tokens)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "hero-brawler",
+      "badgeText": "NEVER 2,000 KC",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10016.webp",
+      "labelEn": "Brawler",
+      "labelVi": "Đấu Sĩ (Brawler)",
+      "rarity": "epic"
+    }
+  ],
+  "MED-1.4-02": [
+    {
+      "assetId": "item-universal-shard",
+      "badgeText": "TRAP #1 SHARD",
+      "faction": "neutral",
+      "iconPath": "/images/items/shards/icon_30175.webp",
+      "labelEn": "Universal Legendary Hero Shard",
+      "labelVi": "Mảnh Tướng Vàng Vạn Năng (Universal Legendary Hero Shard)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "item-soul-stone",
+      "badgeText": "TRAP #2 STONE",
+      "faction": "neutral",
+      "iconPath": "/images/items/shards/icon_30231.webp",
+      "labelEn": "Red Soul Stone",
+      "labelVi": "Hồn Đá Đỏ (Red Soul Stone)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "gear-set-knights-glory",
+      "badgeText": "TRAP #3 GEAR",
+      "faction": "league",
+      "iconPath": "/images/equipment/hero-gear/icon_40005.webp",
+      "labelEn": "Knight's Glory",
+      "labelVi": "Kỵ Sĩ Vinh Quang (Knight's Glory)",
+      "rarity": "mythic"
+    },
+    {
       "assetId": "event-guild-arms-race",
-      "badgeText": "GAR EVENT",
+      "badgeText": "TRAP #4 GAR",
       "faction": "neutral",
       "iconPath": "/images/events/entry-icons/Activity_101.webp",
       "labelEn": "Guild Arms Race (GAR)",
@@ -4038,163 +4461,134 @@ export const MEDIA_SHOWCASE_BY_CODE: Readonly<Record<string, readonly MediaShowc
       "rarity": "legendary"
     },
     {
-      "assetId": "event-kvk",
-      "badgeText": "KVK WAR",
-      "faction": "neutral",
-      "iconPath": "/images/events/banners/ActivityBG_KingdomMigration_Boss.webp",
-      "labelEn": "Kingdom vs Kingdom (KvK / Four Nations League)",
-      "labelVi": "Chiến Tranh Vương Quốc (Kingdom vs Kingdom — KvK)",
-      "rarity": "legendary"
-    },
-    {
-      "assetId": "event-fortune-wheel",
-      "badgeText": "WHEEL",
-      "faction": "neutral",
-      "iconPath": "/images/items/chests/icon_30059.webp",
-      "labelEn": "Fortune Wheel",
-      "labelVi": "Vòng Quay May Mắn (Fortune Wheel)",
-      "rarity": "legendary"
-    },
-    {
-      "assetId": "event-dice-of-fate",
-      "badgeText": "DICE EVENT",
-      "faction": "neutral",
-      "iconPath": "/images/items/chests/icon_chest_Monopoly_DragonTraining.webp",
-      "labelEn": "Dice of Fate",
-      "labelVi": "Xúc Xắc Định Mệnh (Dice of Fate)",
-      "rarity": "legendary"
-    }
-  ],
-  "MED-1.4-02": [
-    {
-      "assetId": "faction-horde",
-      "badgeText": "HORDE",
+      "assetId": "hero-brawler",
+      "badgeText": "TRAP #5 2K KC",
       "faction": "horde",
-      "iconPath": "/images/factions/race_horde.webp",
-      "labelEn": "Horde Faction",
-      "labelVi": "Bộ Lạc (Horde)",
-      "rarity": "mythic"
+      "iconPath": "/images/heroes/avatars/Head_10016.webp",
+      "labelEn": "Brawler",
+      "labelVi": "Đấu Sĩ (Brawler)",
+      "rarity": "epic"
     },
     {
-      "assetId": "faction-league",
-      "badgeText": "LEAGUE",
-      "faction": "league",
-      "iconPath": "/images/factions/race_alliance.webp",
-      "labelEn": "League Faction",
-      "labelVi": "Liên Minh (League)",
-      "rarity": "mythic"
-    },
-    {
-      "assetId": "faction-nature",
-      "badgeText": "NATURE",
-      "faction": "nature",
-      "iconPath": "/images/factions/race_nature.webp",
-      "labelEn": "Nature Faction",
-      "labelVi": "Thiên Nhiên (Nature)",
-      "rarity": "mythic"
-    },
-    {
-      "assetId": "hero-wukong",
-      "badgeText": "UR CARRY",
-      "faction": "horde",
-      "iconPath": "/images/heroes/avatars/Head_10047.webp",
-      "labelEn": "Wukong",
-      "labelVi": "Tôn Ngộ Không",
-      "rarity": "mythic"
-    },
-    {
-      "assetId": "hero-paragon",
-      "badgeText": "UR CARRY",
-      "faction": "league",
-      "iconPath": "/images/heroes/avatars/Head_10033.webp",
-      "labelEn": "Paragon",
-      "labelVi": "Thiện Xạ",
-      "rarity": "mythic"
-    },
-    {
-      "assetId": "hero-tidecaller",
-      "badgeText": "UR CARRY",
-      "faction": "nature",
-      "iconPath": "/images/heroes/avatars/Head_10044.webp",
-      "labelEn": "Tidecaller",
-      "labelVi": "Triệu Hồi Thủy Triều",
-      "rarity": "mythic"
+      "assetId": "meta-staircase-promotion",
+      "badgeText": "TRAP #10 TROOP",
+      "faction": "neutral",
+      "iconPath": "/images/troops/faction-units/race1_108.webp",
+      "labelEn": "Staircase Troop Promotion",
+      "labelVi": "Thăng Cấp Lính Bậc Thang (Staircase Promotion)",
+      "rarity": "rare"
     }
   ],
   "MED-1.4-03": [
     {
-      "assetId": "hero-pyromancer",
-      "badgeText": "STARTER CARRY",
-      "faction": "league",
-      "iconPath": "/images/heroes/avatars/Head_10025.webp",
-      "labelEn": "Pyromancer",
-      "labelVi": "Pháp Sư Lửa (Pyromancer)",
-      "rarity": "legendary"
-    },
-    {
-      "assetId": "hero-wukong",
-      "badgeText": "HORDE META",
+      "assetId": "gear-set-blood-of-the-titan",
+      "badgeText": "HORDE FACTION MARK",
       "faction": "horde",
-      "iconPath": "/images/heroes/avatars/Head_10047.webp",
-      "labelEn": "Wukong",
-      "labelVi": "Tôn Ngộ Không (Wukong)",
+      "iconPath": "/images/items/consumables/icon_30222.webp",
+      "labelEn": "Blood of the Titan (Fury of Blood)",
+      "labelVi": "Huyết Titan / Nộ Huyết (Blood of the Titan)",
       "rarity": "mythic"
     },
     {
-      "assetId": "hero-tidecaller",
-      "badgeText": "NATURE META",
+      "assetId": "gear-set-knights-glory",
+      "badgeText": "LEAGUE FACTION MARK",
+      "faction": "league",
+      "iconPath": "/images/equipment/hero-gear/icon_40005.webp",
+      "labelEn": "Knight's Glory",
+      "labelVi": "Kỵ Sĩ Vinh Quang (Knight's Glory)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "gear-set-glory-of-the-sage",
+      "badgeText": "NATURE FACTION MARK",
       "faction": "nature",
-      "iconPath": "/images/heroes/avatars/Head_10044.webp",
-      "labelEn": "Tidecaller",
-      "labelVi": "Thuật Sĩ Thủy Triều (Tidecaller)",
+      "iconPath": "/images/equipment/hero-gear/icon_40009.webp",
+      "labelEn": "Glory of the Sage",
+      "labelVi": "Hiền Triết Quang Vinh (Glory of the Sage)",
       "rarity": "mythic"
     },
     {
-      "assetId": "item-universal-shard",
-      "badgeText": "CORE RESOURCE",
+      "assetId": "system-lord-gear",
+      "badgeText": "+10/+20/+30 SYNC",
       "faction": "neutral",
-      "iconPath": "/images/items/shards/icon_30175.webp",
-      "labelEn": "Universal Legendary Hero Shard",
-      "labelVi": "Mảnh Tướng Vàng Vạn Năng (Universal Legendary Hero Shard)",
-      "rarity": "legendary"
+      "iconPath": "/images/items/consumables/icon_lord_1.webp",
+      "labelEn": "Lord Gear (Military Gear)",
+      "labelVi": "Trang Bị Chúa Tể (Lord Gear / Military Gear)",
+      "rarity": "epic"
+    },
+    {
+      "assetId": "gear-exclusive-weapon",
+      "badgeText": "UW BREAKPOINT",
+      "faction": "neutral",
+      "iconPath": "/images/equipment/exclusive-weapons/equipment_Exclusive006.webp",
+      "labelEn": "Exclusive Weapon",
+      "labelVi": "Vũ Khí Độc Quyền (Exclusive Weapon)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "system-runes",
+      "badgeText": "HOLD TIL LV.4+",
+      "faction": "neutral",
+      "iconPath": "/images/equipment/runes/icon_runes_101.webp",
+      "labelEn": "Runes",
+      "labelVi": "Đá Cổ Ngữ (Runes)",
+      "rarity": "epic"
     }
   ],
   "MED-1.4-05": [
     {
-      "assetId": "hero-pyromancer",
-      "badgeText": "STARTER CARRY",
-      "faction": "league",
-      "iconPath": "/images/heroes/avatars/Head_10025.webp",
-      "labelEn": "Pyromancer",
-      "labelVi": "Pháp Sư Lửa (Pyromancer)",
-      "rarity": "legendary"
+      "assetId": "system-research-cottage",
+      "badgeText": "TRAP #6 TECH",
+      "faction": "neutral",
+      "iconPath": "/images/tech/research/bg_ScienceHome_Purple.webp",
+      "labelEn": "Research Cottage",
+      "labelVi": "Viện Nghiên Cứu (Research Cottage)",
+      "rarity": "epic"
     },
     {
-      "assetId": "hero-wukong",
-      "badgeText": "HORDE META",
-      "faction": "horde",
-      "iconPath": "/images/heroes/avatars/Head_10047.webp",
-      "labelEn": "Wukong",
-      "labelVi": "Tôn Ngộ Không (Wukong)",
-      "rarity": "mythic"
+      "assetId": "system-runes",
+      "badgeText": "TRAP #7 RUNES",
+      "faction": "neutral",
+      "iconPath": "/images/equipment/runes/icon_runes_101.webp",
+      "labelEn": "Runes",
+      "labelVi": "Đá Cổ Ngữ (Runes)",
+      "rarity": "epic"
     },
     {
-      "assetId": "hero-tidecaller",
-      "badgeText": "NATURE META",
-      "faction": "nature",
-      "iconPath": "/images/heroes/avatars/Head_10044.webp",
-      "labelEn": "Tidecaller",
-      "labelVi": "Thuật Sĩ Thủy Triều (Tidecaller)",
+      "assetId": "system-brilliance-institute",
+      "badgeText": "TRAP #8 CASTLE",
+      "faction": "neutral",
+      "iconPath": "/images/tech/brilliance/bg_Radiance.webp",
+      "labelEn": "Brilliance Institute",
+      "labelVi": "Viện Huy Hoàng (Brilliance Institute)",
+      "rarity": "epic"
+    },
+    {
+      "assetId": "gear-exclusive-weapon",
+      "badgeText": "TRAP #9 UW",
+      "faction": "neutral",
+      "iconPath": "/images/equipment/exclusive-weapons/equipment_Exclusive006.webp",
+      "labelEn": "Exclusive Weapon",
+      "labelVi": "Vũ Khí Độc Quyền (Exclusive Weapon)",
       "rarity": "mythic"
     },
     {
       "assetId": "item-universal-shard",
-      "badgeText": "CORE RESOURCE",
+      "badgeText": "STOP-LOSS NOW",
       "faction": "neutral",
       "iconPath": "/images/items/shards/icon_30175.webp",
       "labelEn": "Universal Legendary Hero Shard",
       "labelVi": "Mảnh Tướng Vàng Vạn Năng (Universal Legendary Hero Shard)",
       "rarity": "legendary"
+    },
+    {
+      "assetId": "meta-horde-pivot",
+      "badgeText": "RECOVERY PATH",
+      "faction": "horde",
+      "iconPath": "/images/factions/race_horde.webp",
+      "labelEn": "Horde Pivot",
+      "labelVi": "Xoay Trục Bộ Lạc (Horde Pivot)",
+      "rarity": "mythic"
     }
   ],
   "MED-2.1-01": [
@@ -5039,46 +5433,8 @@ export const MEDIA_SHOWCASE_BY_CODE: Readonly<Record<string, readonly MediaShowc
   ],
   "MED-3.1-01": [
     {
-      "assetId": "system-research-cottage",
-      "badgeText": "RESEARCH",
-      "faction": "neutral",
-      "iconPath": "/images/tech/research/bg_ScienceHome_Purple.webp",
-      "labelEn": "Research Cottage",
-      "labelVi": "Viện Nghiên Cứu (Research Cottage)",
-      "rarity": "epic"
-    },
-    {
-      "assetId": "system-brilliance-institute",
-      "badgeText": "BRILLIANCE",
-      "faction": "neutral",
-      "iconPath": "/images/tech/brilliance/bg_Radiance.webp",
-      "labelEn": "Brilliance Institute",
-      "labelVi": "Viện Huy Hoàng (Brilliance Institute)",
-      "rarity": "epic"
-    },
-    {
-      "assetId": "system-training-ground",
-      "badgeText": "BARRACKS",
-      "faction": "neutral",
-      "iconPath": "/images/buildings/blueprints/paper_bingying_buzu.webp",
-      "labelEn": "Training Ground",
-      "labelVi": "Trại Huấn Luyện (Training Ground)",
-      "rarity": "epic"
-    },
-    {
-      "assetId": "system-sacred-codex",
-      "badgeText": "CODEX",
-      "faction": "neutral",
-      "iconPath": "/images/items/consumables/icon_lord_7.webp",
-      "labelEn": "Sacred Codex",
-      "labelVi": "Thánh Điển (Sacred Codex)",
-      "rarity": "epic"
-    }
-  ],
-  "MED-3.1-02": [
-    {
       "assetId": "event-guild-arms-race",
-      "badgeText": "GAR EVENT",
+      "badgeText": "GAR 6-DAY",
       "faction": "neutral",
       "iconPath": "/images/events/entry-icons/Activity_101.webp",
       "labelEn": "Guild Arms Race (GAR)",
@@ -5087,7 +5443,7 @@ export const MEDIA_SHOWCASE_BY_CODE: Readonly<Record<string, readonly MediaShowc
     },
     {
       "assetId": "event-kvk",
-      "badgeText": "KVK WAR",
+      "badgeText": "KVK CROSS-SVR",
       "faction": "neutral",
       "iconPath": "/images/events/banners/ActivityBG_KingdomMigration_Boss.webp",
       "labelEn": "Kingdom vs Kingdom (KvK / Four Nations League)",
@@ -5095,8 +5451,55 @@ export const MEDIA_SHOWCASE_BY_CODE: Readonly<Record<string, readonly MediaShowc
       "rarity": "legendary"
     },
     {
+      "assetId": "item-guild-coins",
+      "badgeText": "GUILD RACE",
+      "faction": "neutral",
+      "iconPath": "/images/items/currencies/icon_10006.webp",
+      "labelEn": "Guild Coins",
+      "labelVi": "Xu Vinh Quang Bang Hội (Guild Coins)",
+      "rarity": "rare"
+    },
+    {
+      "assetId": "item-guild-honor",
+      "badgeText": "GUILD RUSH",
+      "faction": "neutral",
+      "iconPath": "/images/items/currencies/icon_10018.webp",
+      "labelEn": "Guild Honor",
+      "labelVi": "Điểm Vinh Dự Bang Hội (Guild Honor)",
+      "rarity": "rare"
+    },
+    {
       "assetId": "event-fortune-wheel",
-      "badgeText": "WHEEL",
+      "badgeText": "3-WEEK GACHA",
+      "faction": "neutral",
+      "iconPath": "/images/items/chests/icon_30059.webp",
+      "labelEn": "Fortune Wheel",
+      "labelVi": "Vòng Quay May Mắn (Fortune Wheel)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "meta-double-dip",
+      "badgeText": "300% OVERLAP",
+      "faction": "neutral",
+      "iconPath": "/images/items/shards/icon_30231.webp",
+      "labelEn": "Double-Dip / Triple-Dip",
+      "labelVi": "Ăn Kép Sự Kiện (Double-Dip / Triple-Dip)",
+      "rarity": "rare"
+    }
+  ],
+  "MED-3.1-02": [
+    {
+      "assetId": "item-guild-coins",
+      "badgeText": "PHASE 1 WEEKLY",
+      "faction": "neutral",
+      "iconPath": "/images/items/currencies/icon_10006.webp",
+      "labelEn": "Guild Coins",
+      "labelVi": "Xu Vinh Quang Bang Hội (Guild Coins)",
+      "rarity": "rare"
+    },
+    {
+      "assetId": "event-fortune-wheel",
+      "badgeText": "750 KC WHEEL",
       "faction": "neutral",
       "iconPath": "/images/items/chests/icon_30059.webp",
       "labelEn": "Fortune Wheel",
@@ -5105,18 +5508,45 @@ export const MEDIA_SHOWCASE_BY_CODE: Readonly<Record<string, readonly MediaShowc
     },
     {
       "assetId": "event-dice-of-fate",
-      "badgeText": "DICE EVENT",
+      "badgeText": "800 KC DICE",
       "faction": "neutral",
       "iconPath": "/images/items/chests/icon_chest_Monopoly_DragonTraining.webp",
       "labelEn": "Dice of Fate",
       "labelVi": "Xúc Xắc Định Mệnh (Dice of Fate)",
       "rarity": "legendary"
+    },
+    {
+      "assetId": "item-diamond",
+      "badgeText": "1,000 KC GACHA",
+      "faction": "neutral",
+      "iconPath": "/images/items/currencies/icon_10002.webp",
+      "labelEn": "Diamonds",
+      "labelVi": "Kim Cương (Diamonds)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "item-universal-shard",
+      "badgeText": "HOARD PHASE 1",
+      "faction": "neutral",
+      "iconPath": "/images/items/shards/icon_30175.webp",
+      "labelEn": "Universal Legendary Hero Shard",
+      "labelVi": "Mảnh Tướng Vàng Vạn Năng (Universal Legendary Hero Shard)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "item-soul-stone",
+      "badgeText": "UNLOCK LV.30",
+      "faction": "neutral",
+      "iconPath": "/images/items/shards/icon_30231.webp",
+      "labelEn": "Red Soul Stone",
+      "labelVi": "Hồn Đá Đỏ (Red Soul Stone)",
+      "rarity": "mythic"
     }
   ],
   "MED-3.1-04": [
     {
       "assetId": "event-guild-arms-race",
-      "badgeText": "GAR EVENT",
+      "badgeText": "02:00 UTC MON",
       "faction": "neutral",
       "iconPath": "/images/events/entry-icons/Activity_101.webp",
       "labelEn": "Guild Arms Race (GAR)",
@@ -5124,37 +5554,26 @@ export const MEDIA_SHOWCASE_BY_CODE: Readonly<Record<string, readonly MediaShowc
       "rarity": "legendary"
     },
     {
-      "assetId": "event-kvk",
-      "badgeText": "KVK WAR",
+      "assetId": "item-dragon-essence",
+      "badgeText": "06:00 UTC SHIFT",
       "faction": "neutral",
-      "iconPath": "/images/events/banners/ActivityBG_KingdomMigration_Boss.webp",
-      "labelEn": "Kingdom vs Kingdom (KvK / Four Nations League)",
-      "labelVi": "Chiến Tranh Vương Quốc (Kingdom vs Kingdom — KvK)",
-      "rarity": "legendary"
+      "iconPath": "/images/tech/research/icon_30417.webp",
+      "labelEn": "Dragon Essence (DE-Dust)",
+      "labelVi": "Tinh Hoa Rồng (Dragon Essence — DE-Dust)",
+      "rarity": "rare"
     },
     {
-      "assetId": "event-fortune-wheel",
-      "badgeText": "WHEEL",
+      "assetId": "system-runes",
+      "badgeText": "10:00 UTC PEAK",
       "faction": "neutral",
-      "iconPath": "/images/items/chests/icon_30059.webp",
-      "labelEn": "Fortune Wheel",
-      "labelVi": "Vòng Quay May Mắn (Fortune Wheel)",
-      "rarity": "legendary"
+      "iconPath": "/images/equipment/runes/icon_runes_101.webp",
+      "labelEn": "Runes",
+      "labelVi": "Đá Cổ Ngữ (Runes)",
+      "rarity": "epic"
     },
-    {
-      "assetId": "event-dice-of-fate",
-      "badgeText": "DICE EVENT",
-      "faction": "neutral",
-      "iconPath": "/images/items/chests/icon_chest_Monopoly_DragonTraining.webp",
-      "labelEn": "Dice of Fate",
-      "labelVi": "Xúc Xắc Định Mệnh (Dice of Fate)",
-      "rarity": "legendary"
-    }
-  ],
-  "MED-3.2-01": [
     {
       "assetId": "item-universal-shard",
-      "badgeText": "560 SHARDS",
+      "badgeText": "14:00 UTC SHIFT",
       "faction": "neutral",
       "iconPath": "/images/items/shards/icon_30175.webp",
       "labelEn": "Universal Legendary Hero Shard",
@@ -5162,84 +5581,158 @@ export const MEDIA_SHOWCASE_BY_CODE: Readonly<Record<string, readonly MediaShowc
       "rarity": "legendary"
     },
     {
+      "assetId": "meta-double-dip",
+      "badgeText": "+20% OVERLAP",
+      "faction": "neutral",
+      "iconPath": "/images/items/shards/icon_30231.webp",
+      "labelEn": "Double-Dip / Triple-Dip",
+      "labelVi": "Ăn Kép Sự Kiện (Double-Dip / Triple-Dip)",
+      "rarity": "rare"
+    },
+    {
+      "assetId": "item-guild-honor",
+      "badgeText": "CHEST 9 MAX",
+      "faction": "neutral",
+      "iconPath": "/images/items/currencies/icon_10018.webp",
+      "labelEn": "Guild Honor",
+      "labelVi": "Điểm Vinh Dự Bang Hội (Guild Honor)",
+      "rarity": "rare"
+    }
+  ],
+  "MED-3.2-01": [
+    {
+      "assetId": "item-guild-coins",
+      "badgeText": "9-SLOT BOARD",
+      "faction": "neutral",
+      "iconPath": "/images/items/currencies/icon_10006.webp",
+      "labelEn": "Guild Coins",
+      "labelVi": "Xu Vinh Quang Bang Hội (Guild Coins)",
+      "rarity": "rare"
+    },
+    {
+      "assetId": "system-pets-behemoth",
+      "badgeText": "MON-TUE PETS",
+      "faction": "neutral",
+      "iconPath": "/images/pets/avatars/Head_pet_1001.webp",
+      "labelEn": "Pets & Behemoth",
+      "labelVi": "Thú Cưng & Cự Thú (Pets & Behemoth)",
+      "rarity": "epic"
+    },
+    {
+      "assetId": "system-relics",
+      "badgeText": "WED-THU RELIC",
+      "faction": "neutral",
+      "iconPath": "/images/relics/illustrations/Artifact_30001.webp",
+      "labelEn": "Relics",
+      "labelVi": "Thánh Vật (Relics)",
+      "rarity": "epic"
+    },
+    {
+      "assetId": "system-lord-gear",
+      "badgeText": "FRI-SAT LORD",
+      "faction": "neutral",
+      "iconPath": "/images/items/consumables/icon_lord_1.webp",
+      "labelEn": "Lord Gear (Military Gear)",
+      "labelVi": "Trang Bị Chúa Tể (Lord Gear / Military Gear)",
+      "rarity": "epic"
+    },
+    {
+      "assetId": "item-guild-honor",
+      "badgeText": "TIER 9 CHEST",
+      "faction": "neutral",
+      "iconPath": "/images/items/currencies/icon_10018.webp",
+      "labelEn": "Guild Honor",
+      "labelVi": "Điểm Vinh Dự Bang Hội (Guild Honor)",
+      "rarity": "rare"
+    },
+    {
       "assetId": "item-soul-stone",
-      "badgeText": "9 SOUL STONES",
+      "badgeText": "54K COINS",
       "faction": "neutral",
       "iconPath": "/images/items/shards/icon_30231.webp",
       "labelEn": "Red Soul Stone",
       "labelVi": "Hồn Đá Đỏ (Red Soul Stone)",
-      "rarity": "mythic"
-    },
-    {
-      "assetId": "item-skill-book",
-      "badgeText": "SKILL BOOKS",
-      "faction": "neutral",
-      "iconPath": "/images/items/chests/icon_30032.webp",
-      "labelEn": "Skill Book",
-      "labelVi": "Sách Kỹ Năng (Skill Book)",
-      "rarity": "legendary"
-    },
-    {
-      "assetId": "hero-storm-maiden",
-      "badgeText": "FIRST MYTHIC",
-      "faction": "horde",
-      "iconPath": "/images/heroes/avatars/Head_10041.webp",
-      "labelEn": "Storm Maiden",
-      "labelVi": "Nữ Thần Bão Tố (Storm Maiden)",
       "rarity": "mythic"
     }
   ],
   "MED-3.2-02": [
     {
-      "assetId": "item-diamond",
-      "badgeText": "DIAMOND",
+      "assetId": "system-lord-gear",
+      "badgeText": "DAY 5 UNLOCK",
       "faction": "neutral",
-      "iconPath": "/images/items/currencies/icon_10002.webp",
-      "labelEn": "Diamonds",
-      "labelVi": "Kim Cương (Diamonds)",
-      "rarity": "legendary"
+      "iconPath": "/images/items/consumables/icon_lord_1.webp",
+      "labelEn": "Lord Gear (Military Gear)",
+      "labelVi": "Trang Bị Chúa Tể (Lord Gear / Military Gear)",
+      "rarity": "epic"
     },
     {
-      "assetId": "item-universal-shard",
-      "badgeText": "SSR SHARD",
+      "assetId": "item-glory-medal",
+      "badgeText": "TROOP SKIN",
       "faction": "neutral",
-      "iconPath": "/images/items/shards/icon_30175.webp",
-      "labelEn": "Universal Legendary Hero Shard",
-      "labelVi": "Mảnh Tướng Vàng Vạn Năng (Universal Legendary Hero Shard)",
-      "rarity": "legendary"
-    },
-    {
-      "assetId": "item-guild-honor",
-      "badgeText": "GUILD HONOR",
-      "faction": "neutral",
-      "iconPath": "/images/items/currencies/icon_10018.webp",
-      "labelEn": "Guild Honor",
-      "labelVi": "Điểm Vinh Dự Bang Hội (Guild Honor)",
+      "iconPath": "/images/items/consumables/icon_12210200.webp",
+      "labelEn": "Glory Medal",
+      "labelVi": "Huy Chương Vinh Quang (Glory Medal)",
       "rarity": "rare"
     },
     {
-      "assetId": "hero-pyromancer",
-      "badgeText": "CORE CARRY",
-      "faction": "league",
-      "iconPath": "/images/heroes/avatars/Head_10025.webp",
-      "labelEn": "Pyromancer",
-      "labelVi": "Pháp Sư Lửa (Pyromancer)",
-      "rarity": "legendary"
+      "assetId": "meta-staircase-promotion",
+      "badgeText": "GOLD TROOP TASK",
+      "faction": "neutral",
+      "iconPath": "/images/troops/faction-units/race1_108.webp",
+      "labelEn": "Staircase Troop Promotion",
+      "labelVi": "Thăng Cấp Lính Bậc Thang (Staircase Promotion)",
+      "rarity": "rare"
+    },
+    {
+      "assetId": "item-speedup",
+      "badgeText": "GOLD SPEED TASK",
+      "faction": "neutral",
+      "iconPath": "/images/ui/rarities/icon_speedUp.webp",
+      "labelEn": "Speedups",
+      "labelVi": "Tăng Tốc (Speedups)",
+      "rarity": "rare"
+    },
+    {
+      "assetId": "item-guild-coins",
+      "badgeText": "+300 TO +450 PT",
+      "faction": "neutral",
+      "iconPath": "/images/items/currencies/icon_10006.webp",
+      "labelEn": "Guild Coins",
+      "labelVi": "Xu Vinh Quang Bang Hội (Guild Coins)",
+      "rarity": "rare"
+    },
+    {
+      "assetId": "meta-double-dip",
+      "badgeText": "FRI-SAT 300%",
+      "faction": "neutral",
+      "iconPath": "/images/items/shards/icon_30231.webp",
+      "labelEn": "Double-Dip / Triple-Dip",
+      "labelVi": "Ăn Kép Sự Kiện (Double-Dip / Triple-Dip)",
+      "rarity": "rare"
     }
   ],
   "MED-3.2-04": [
     {
-      "assetId": "item-diamond",
-      "badgeText": "DIAMOND",
+      "assetId": "item-guild-coins",
+      "badgeText": "18K FLOOR",
       "faction": "neutral",
-      "iconPath": "/images/items/currencies/icon_10002.webp",
-      "labelEn": "Diamonds",
-      "labelVi": "Kim Cương (Diamonds)",
-      "rarity": "legendary"
+      "iconPath": "/images/items/currencies/icon_10006.webp",
+      "labelEn": "Guild Coins",
+      "labelVi": "Xu Vinh Quang Bang Hội (Guild Coins)",
+      "rarity": "rare"
+    },
+    {
+      "assetId": "item-soul-stone",
+      "badgeText": "6,000 COINS",
+      "faction": "neutral",
+      "iconPath": "/images/items/shards/icon_30231.webp",
+      "labelEn": "Red Soul Stone",
+      "labelVi": "Hồn Đá Đỏ (Red Soul Stone)",
+      "rarity": "mythic"
     },
     {
       "assetId": "item-universal-shard",
-      "badgeText": "SSR SHARD",
+      "badgeText": "NEVER SHARED",
       "faction": "neutral",
       "iconPath": "/images/items/shards/icon_30175.webp",
       "labelEn": "Universal Legendary Hero Shard",
@@ -5247,66 +5740,93 @@ export const MEDIA_SHOWCASE_BY_CODE: Readonly<Record<string, readonly MediaShowc
       "rarity": "legendary"
     },
     {
-      "assetId": "item-guild-honor",
-      "badgeText": "GUILD HONOR",
+      "assetId": "item-recruit-token",
+      "badgeText": "NEVER SHARED",
       "faction": "neutral",
-      "iconPath": "/images/items/currencies/icon_10018.webp",
-      "labelEn": "Guild Honor",
-      "labelVi": "Điểm Vinh Dự Bang Hội (Guild Honor)",
-      "rarity": "rare"
+      "iconPath": "/images/ui/rarities/icon_recruit.webp",
+      "labelEn": "Recruit Tokens",
+      "labelVi": "Vé Chiêu Mộ (Recruit Tokens)",
+      "rarity": "legendary"
     },
     {
-      "assetId": "hero-pyromancer",
-      "badgeText": "CORE CARRY",
-      "faction": "league",
-      "iconPath": "/images/heroes/avatars/Head_10025.webp",
-      "labelEn": "Pyromancer",
-      "labelVi": "Pháp Sư Lửa (Pyromancer)",
+      "assetId": "item-diamond",
+      "badgeText": "NO DAY 1-4 BUY",
+      "faction": "neutral",
+      "iconPath": "/images/items/currencies/icon_10002.webp",
+      "labelEn": "Diamonds",
+      "labelVi": "Kim Cương (Diamonds)",
       "rarity": "legendary"
+    },
+    {
+      "assetId": "system-lord-gear",
+      "badgeText": "HOLD TIL FRI",
+      "faction": "neutral",
+      "iconPath": "/images/items/consumables/icon_lord_1.webp",
+      "labelEn": "Lord Gear (Military Gear)",
+      "labelVi": "Trang Bị Chúa Tể (Lord Gear / Military Gear)",
+      "rarity": "epic"
     }
   ],
   "MED-3.3-01": [
     {
-      "assetId": "system-research-cottage",
-      "badgeText": "RESEARCH",
+      "assetId": "item-dragon-essence",
+      "badgeText": "DAY 1 BUILD",
       "faction": "neutral",
-      "iconPath": "/images/tech/research/bg_ScienceHome_Purple.webp",
-      "labelEn": "Research Cottage",
-      "labelVi": "Viện Nghiên Cứu (Research Cottage)",
+      "iconPath": "/images/tech/research/icon_30417.webp",
+      "labelEn": "Dragon Essence (DE-Dust)",
+      "labelVi": "Tinh Hoa Rồng (Dragon Essence — DE-Dust)",
+      "rarity": "rare"
+    },
+    {
+      "assetId": "system-runes",
+      "badgeText": "DAY 2 TECH/RUNE",
+      "faction": "neutral",
+      "iconPath": "/images/equipment/runes/icon_runes_101.webp",
+      "labelEn": "Runes",
+      "labelVi": "Đá Cổ Ngữ (Runes)",
       "rarity": "epic"
     },
     {
-      "assetId": "system-brilliance-institute",
-      "badgeText": "BRILLIANCE",
+      "assetId": "item-stamina",
+      "badgeText": "DAY 3 STAMINA",
       "faction": "neutral",
-      "iconPath": "/images/tech/brilliance/bg_Radiance.webp",
-      "labelEn": "Brilliance Institute",
-      "labelVi": "Viện Huy Hoàng (Brilliance Institute)",
-      "rarity": "epic"
+      "iconPath": "/images/items/currencies/icon_10007.webp",
+      "labelEn": "Stamina",
+      "labelVi": "Thể Lực (Stamina)",
+      "rarity": "rare"
     },
     {
-      "assetId": "system-training-ground",
-      "badgeText": "BARRACKS",
+      "assetId": "item-universal-shard",
+      "badgeText": "DAY 4 HERO",
       "faction": "neutral",
-      "iconPath": "/images/buildings/blueprints/paper_bingying_buzu.webp",
-      "labelEn": "Training Ground",
-      "labelVi": "Trại Huấn Luyện (Training Ground)",
-      "rarity": "epic"
+      "iconPath": "/images/items/shards/icon_30175.webp",
+      "labelEn": "Universal Legendary Hero Shard",
+      "labelVi": "Mảnh Tướng Vàng Vạn Năng (Universal Legendary Hero Shard)",
+      "rarity": "legendary"
     },
     {
-      "assetId": "system-sacred-codex",
-      "badgeText": "CODEX",
+      "assetId": "meta-staircase-promotion",
+      "badgeText": "DAY 5 TROOP/PET",
       "faction": "neutral",
-      "iconPath": "/images/items/consumables/icon_lord_7.webp",
-      "labelEn": "Sacred Codex",
-      "labelVi": "Thánh Điển (Sacred Codex)",
-      "rarity": "epic"
+      "iconPath": "/images/troops/faction-units/race1_108.webp",
+      "labelEn": "Staircase Troop Promotion",
+      "labelVi": "Thăng Cấp Lính Bậc Thang (Staircase Promotion)",
+      "rarity": "rare"
+    },
+    {
+      "assetId": "event-kvk",
+      "badgeText": "DAY 6 WAR/SKIN",
+      "faction": "neutral",
+      "iconPath": "/images/events/banners/ActivityBG_KingdomMigration_Boss.webp",
+      "labelEn": "Kingdom vs Kingdom (KvK / Four Nations League)",
+      "labelVi": "Chiến Tranh Vương Quốc (Kingdom vs Kingdom — KvK)",
+      "rarity": "legendary"
     }
   ],
   "MED-3.3-02": [
     {
       "assetId": "system-research-cottage",
-      "badgeText": "RESEARCH",
+      "badgeText": "ARMS RACE PREP",
       "faction": "neutral",
       "iconPath": "/images/tech/research/bg_ScienceHome_Purple.webp",
       "labelEn": "Research Cottage",
@@ -5314,37 +5834,8 @@ export const MEDIA_SHOWCASE_BY_CODE: Readonly<Record<string, readonly MediaShowc
       "rarity": "epic"
     },
     {
-      "assetId": "system-brilliance-institute",
-      "badgeText": "BRILLIANCE",
-      "faction": "neutral",
-      "iconPath": "/images/tech/brilliance/bg_Radiance.webp",
-      "labelEn": "Brilliance Institute",
-      "labelVi": "Viện Huy Hoàng (Brilliance Institute)",
-      "rarity": "epic"
-    },
-    {
-      "assetId": "system-training-ground",
-      "badgeText": "BARRACKS",
-      "faction": "neutral",
-      "iconPath": "/images/buildings/blueprints/paper_bingying_buzu.webp",
-      "labelEn": "Training Ground",
-      "labelVi": "Trại Huấn Luyện (Training Ground)",
-      "rarity": "epic"
-    },
-    {
-      "assetId": "system-sacred-codex",
-      "badgeText": "CODEX",
-      "faction": "neutral",
-      "iconPath": "/images/items/consumables/icon_lord_7.webp",
-      "labelEn": "Sacred Codex",
-      "labelVi": "Thánh Điển (Sacred Codex)",
-      "rarity": "epic"
-    }
-  ],
-  "MED-3.3-04": [
-    {
       "assetId": "event-guild-arms-race",
-      "badgeText": "GAR EVENT",
+      "badgeText": "9 CHESTS = 2X",
       "faction": "neutral",
       "iconPath": "/images/events/entry-icons/Activity_101.webp",
       "labelEn": "Guild Arms Race (GAR)",
@@ -5352,93 +5843,8 @@ export const MEDIA_SHOWCASE_BY_CODE: Readonly<Record<string, readonly MediaShowc
       "rarity": "legendary"
     },
     {
-      "assetId": "event-kvk",
-      "badgeText": "KVK WAR",
-      "faction": "neutral",
-      "iconPath": "/images/events/banners/ActivityBG_KingdomMigration_Boss.webp",
-      "labelEn": "Kingdom vs Kingdom (KvK / Four Nations League)",
-      "labelVi": "Chiến Tranh Vương Quốc (Kingdom vs Kingdom — KvK)",
-      "rarity": "legendary"
-    },
-    {
-      "assetId": "event-fortune-wheel",
-      "badgeText": "WHEEL",
-      "faction": "neutral",
-      "iconPath": "/images/items/chests/icon_30059.webp",
-      "labelEn": "Fortune Wheel",
-      "labelVi": "Vòng Quay May Mắn (Fortune Wheel)",
-      "rarity": "legendary"
-    },
-    {
-      "assetId": "event-dice-of-fate",
-      "badgeText": "DICE EVENT",
-      "faction": "neutral",
-      "iconPath": "/images/items/chests/icon_chest_Monopoly_DragonTraining.webp",
-      "labelEn": "Dice of Fate",
-      "labelVi": "Xúc Xắc Định Mệnh (Dice of Fate)",
-      "rarity": "legendary"
-    }
-  ],
-  "MED-3.4-01": [
-    {
-      "assetId": "gear-set-blood-of-the-titan",
-      "badgeText": "HORDE SET",
-      "faction": "horde",
-      "iconPath": "/images/items/consumables/icon_30222.webp",
-      "labelEn": "Blood of the Titan (Fury of Blood)",
-      "labelVi": "Huyết Titan / Nộ Huyết (Blood of the Titan)",
-      "rarity": "mythic"
-    },
-    {
-      "assetId": "gear-set-knights-glory",
-      "badgeText": "LEAGUE SET",
-      "faction": "league",
-      "iconPath": "/images/equipment/hero-gear/icon_40005.webp",
-      "labelEn": "Knight's Glory",
-      "labelVi": "Kỵ Sĩ Vinh Quang (Knight's Glory)",
-      "rarity": "mythic"
-    },
-    {
-      "assetId": "gear-set-glory-of-the-sage",
-      "badgeText": "NATURE SET",
-      "faction": "nature",
-      "iconPath": "/images/equipment/hero-gear/icon_40009.webp",
-      "labelEn": "Glory of the Sage",
-      "labelVi": "Hiền Triết Quang Vinh (Glory of the Sage)",
-      "rarity": "mythic"
-    },
-    {
-      "assetId": "system-lord-gear",
-      "badgeText": "LORD GEAR",
-      "faction": "neutral",
-      "iconPath": "/images/items/consumables/icon_lord_1.webp",
-      "labelEn": "Lord Gear (Military Gear)",
-      "labelVi": "Trang Bị Chúa Tể (Lord Gear / Military Gear)",
-      "rarity": "epic"
-    }
-  ],
-  "MED-3.4-02": [
-    {
-      "assetId": "item-diamond",
-      "badgeText": "DIAMOND",
-      "faction": "neutral",
-      "iconPath": "/images/items/currencies/icon_10002.webp",
-      "labelEn": "Diamonds",
-      "labelVi": "Kim Cương (Diamonds)",
-      "rarity": "legendary"
-    },
-    {
-      "assetId": "item-universal-shard",
-      "badgeText": "SSR SHARD",
-      "faction": "neutral",
-      "iconPath": "/images/items/shards/icon_30175.webp",
-      "labelEn": "Universal Legendary Hero Shard",
-      "labelVi": "Mảnh Tướng Vàng Vạn Năng (Universal Legendary Hero Shard)",
-      "rarity": "legendary"
-    },
-    {
       "assetId": "item-guild-honor",
-      "badgeText": "GUILD HONOR",
+      "badgeText": "HONOR MEDALS",
       "faction": "neutral",
       "iconPath": "/images/items/currencies/icon_10018.webp",
       "labelEn": "Guild Honor",
@@ -5446,227 +5852,93 @@ export const MEDIA_SHOWCASE_BY_CODE: Readonly<Record<string, readonly MediaShowc
       "rarity": "rare"
     },
     {
-      "assetId": "hero-pyromancer",
-      "badgeText": "CORE CARRY",
-      "faction": "league",
-      "iconPath": "/images/heroes/avatars/Head_10025.webp",
-      "labelEn": "Pyromancer",
-      "labelVi": "Pháp Sư Lửa (Pyromancer)",
-      "rarity": "legendary"
-    }
-  ],
-  "MED-3.4-04": [
-    {
-      "assetId": "event-guild-arms-race",
-      "badgeText": "GAR EVENT",
+      "assetId": "item-soul-stone",
+      "badgeText": "40K HONOR STONE",
       "faction": "neutral",
-      "iconPath": "/images/events/entry-icons/Activity_101.webp",
-      "labelEn": "Guild Arms Race (GAR)",
-      "labelVi": "Chạy Đua Vũ Trang Bang Hội (Guild Arms Race — GAR)",
+      "iconPath": "/images/items/shards/icon_30231.webp",
+      "labelEn": "Red Soul Stone",
+      "labelVi": "Hồn Đá Đỏ (Red Soul Stone)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "item-universal-shard",
+      "badgeText": "DOUBLE REWARDS",
+      "faction": "neutral",
+      "iconPath": "/images/items/shards/icon_30175.webp",
+      "labelEn": "Universal Legendary Hero Shard",
+      "labelVi": "Mảnh Tướng Vàng Vạn Năng (Universal Legendary Hero Shard)",
       "rarity": "legendary"
     },
     {
-      "assetId": "event-kvk",
-      "badgeText": "KVK WAR",
+      "assetId": "meta-double-dip",
+      "badgeText": "10:00-14:00 UTC",
       "faction": "neutral",
-      "iconPath": "/images/events/banners/ActivityBG_KingdomMigration_Boss.webp",
-      "labelEn": "Kingdom vs Kingdom (KvK / Four Nations League)",
-      "labelVi": "Chiến Tranh Vương Quốc (Kingdom vs Kingdom — KvK)",
-      "rarity": "legendary"
-    },
-    {
-      "assetId": "event-fortune-wheel",
-      "badgeText": "WHEEL",
-      "faction": "neutral",
-      "iconPath": "/images/items/chests/icon_30059.webp",
-      "labelEn": "Fortune Wheel",
-      "labelVi": "Vòng Quay May Mắn (Fortune Wheel)",
-      "rarity": "legendary"
-    },
-    {
-      "assetId": "event-dice-of-fate",
-      "badgeText": "DICE EVENT",
-      "faction": "neutral",
-      "iconPath": "/images/items/chests/icon_chest_Monopoly_DragonTraining.webp",
-      "labelEn": "Dice of Fate",
-      "labelVi": "Xúc Xắc Định Mệnh (Dice of Fate)",
-      "rarity": "legendary"
+      "iconPath": "/images/items/shards/icon_30231.webp",
+      "labelEn": "Double-Dip / Triple-Dip",
+      "labelVi": "Ăn Kép Sự Kiện (Double-Dip / Triple-Dip)",
+      "rarity": "rare"
     }
   ],
-  "MED-4.1-01": [
+  "MED-3.3-04": [
     {
-      "assetId": "faction-horde",
-      "badgeText": "HORDE",
-      "faction": "horde",
-      "iconPath": "/images/factions/race_horde.webp",
-      "labelEn": "Horde Faction",
-      "labelVi": "Bộ Lạc (Horde)",
+      "assetId": "system-relics",
+      "badgeText": "0 PT ON FRI GAR",
+      "faction": "neutral",
+      "iconPath": "/images/relics/illustrations/Artifact_30001.webp",
+      "labelEn": "Relics",
+      "labelVi": "Thánh Vật (Relics)",
+      "rarity": "epic"
+    },
+    {
+      "assetId": "system-lord-gear",
+      "badgeText": "0 PT ON SAT GAR",
+      "faction": "neutral",
+      "iconPath": "/images/items/consumables/icon_lord_1.webp",
+      "labelEn": "Lord Gear (Military Gear)",
+      "labelVi": "Trang Bị Chúa Tể (Lord Gear / Military Gear)",
+      "rarity": "epic"
+    },
+    {
+      "assetId": "behemoth-bear",
+      "badgeText": "0 PT ON WED GAR",
+      "faction": "neutral",
+      "iconPath": "/images/behemoths/SacredBeast_001.webp",
+      "labelEn": "Guardian Behemoth",
+      "labelVi": "Cự Thú Hộ Vệ (Guardian Behemoth)",
       "rarity": "mythic"
     },
     {
-      "assetId": "faction-league",
-      "badgeText": "LEAGUE",
-      "faction": "league",
-      "iconPath": "/images/factions/race_alliance.webp",
-      "labelEn": "League Faction",
-      "labelVi": "Liên Minh (League)",
-      "rarity": "mythic"
+      "assetId": "item-glory-medal",
+      "badgeText": "SAT KVK/GAR",
+      "faction": "neutral",
+      "iconPath": "/images/items/consumables/icon_12210200.webp",
+      "labelEn": "Glory Medal",
+      "labelVi": "Huy Chương Vinh Quang (Glory Medal)",
+      "rarity": "rare"
     },
     {
-      "assetId": "faction-nature",
-      "badgeText": "NATURE",
-      "faction": "nature",
-      "iconPath": "/images/factions/race_nature.webp",
-      "labelEn": "Nature Faction",
-      "labelVi": "Thiên Nhiên (Nature)",
-      "rarity": "mythic"
+      "assetId": "item-decor-token",
+      "badgeText": "MON/SAT SCORE",
+      "faction": "neutral",
+      "iconPath": "/images/items/currencies/icon_10030.webp",
+      "labelEn": "Decor Tokens",
+      "labelVi": "Xu Trang Trí (Decor Tokens)",
+      "rarity": "epic"
     },
     {
-      "assetId": "hero-wukong",
-      "badgeText": "UR CARRY",
-      "faction": "horde",
-      "iconPath": "/images/heroes/avatars/Head_10047.webp",
-      "labelEn": "Wukong",
-      "labelVi": "Tôn Ngộ Không",
-      "rarity": "mythic"
-    },
-    {
-      "assetId": "hero-paragon",
-      "badgeText": "UR CARRY",
-      "faction": "league",
-      "iconPath": "/images/heroes/avatars/Head_10033.webp",
-      "labelEn": "Paragon",
-      "labelVi": "Thiện Xạ",
-      "rarity": "mythic"
-    },
-    {
-      "assetId": "hero-tidecaller",
-      "badgeText": "UR CARRY",
-      "faction": "nature",
-      "iconPath": "/images/heroes/avatars/Head_10044.webp",
-      "labelEn": "Tidecaller",
-      "labelVi": "Triệu Hồi Thủy Triều",
-      "rarity": "mythic"
+      "assetId": "meta-staircase-promotion",
+      "badgeText": "T7->T8->T9->T10",
+      "faction": "neutral",
+      "iconPath": "/images/troops/faction-units/race1_108.webp",
+      "labelEn": "Staircase Troop Promotion",
+      "labelVi": "Thăng Cấp Lính Bậc Thang (Staircase Promotion)",
+      "rarity": "rare"
     }
   ],
-  "MED-4.1-03": [
-    {
-      "assetId": "system-research-cottage",
-      "badgeText": "RESEARCH",
-      "faction": "neutral",
-      "iconPath": "/images/tech/research/bg_ScienceHome_Purple.webp",
-      "labelEn": "Research Cottage",
-      "labelVi": "Viện Nghiên Cứu (Research Cottage)",
-      "rarity": "epic"
-    },
-    {
-      "assetId": "system-brilliance-institute",
-      "badgeText": "BRILLIANCE",
-      "faction": "neutral",
-      "iconPath": "/images/tech/brilliance/bg_Radiance.webp",
-      "labelEn": "Brilliance Institute",
-      "labelVi": "Viện Huy Hoàng (Brilliance Institute)",
-      "rarity": "epic"
-    },
-    {
-      "assetId": "system-training-ground",
-      "badgeText": "BARRACKS",
-      "faction": "neutral",
-      "iconPath": "/images/buildings/blueprints/paper_bingying_buzu.webp",
-      "labelEn": "Training Ground",
-      "labelVi": "Trại Huấn Luyện (Training Ground)",
-      "rarity": "epic"
-    },
-    {
-      "assetId": "system-sacred-codex",
-      "badgeText": "CODEX",
-      "faction": "neutral",
-      "iconPath": "/images/items/consumables/icon_lord_7.webp",
-      "labelEn": "Sacred Codex",
-      "labelVi": "Thánh Điển (Sacred Codex)",
-      "rarity": "epic"
-    }
-  ],
-  "MED-4.1-04": [
-    {
-      "assetId": "system-research-cottage",
-      "badgeText": "RESEARCH",
-      "faction": "neutral",
-      "iconPath": "/images/tech/research/bg_ScienceHome_Purple.webp",
-      "labelEn": "Research Cottage",
-      "labelVi": "Viện Nghiên Cứu (Research Cottage)",
-      "rarity": "epic"
-    },
-    {
-      "assetId": "system-brilliance-institute",
-      "badgeText": "BRILLIANCE",
-      "faction": "neutral",
-      "iconPath": "/images/tech/brilliance/bg_Radiance.webp",
-      "labelEn": "Brilliance Institute",
-      "labelVi": "Viện Huy Hoàng (Brilliance Institute)",
-      "rarity": "epic"
-    },
-    {
-      "assetId": "system-training-ground",
-      "badgeText": "BARRACKS",
-      "faction": "neutral",
-      "iconPath": "/images/buildings/blueprints/paper_bingying_buzu.webp",
-      "labelEn": "Training Ground",
-      "labelVi": "Trại Huấn Luyện (Training Ground)",
-      "rarity": "epic"
-    },
-    {
-      "assetId": "system-sacred-codex",
-      "badgeText": "CODEX",
-      "faction": "neutral",
-      "iconPath": "/images/items/consumables/icon_lord_7.webp",
-      "labelEn": "Sacred Codex",
-      "labelVi": "Thánh Điển (Sacred Codex)",
-      "rarity": "epic"
-    }
-  ],
-  "MED-4.2-02": [
-    {
-      "assetId": "system-research-cottage",
-      "badgeText": "RESEARCH",
-      "faction": "neutral",
-      "iconPath": "/images/tech/research/bg_ScienceHome_Purple.webp",
-      "labelEn": "Research Cottage",
-      "labelVi": "Viện Nghiên Cứu (Research Cottage)",
-      "rarity": "epic"
-    },
-    {
-      "assetId": "system-brilliance-institute",
-      "badgeText": "BRILLIANCE",
-      "faction": "neutral",
-      "iconPath": "/images/tech/brilliance/bg_Radiance.webp",
-      "labelEn": "Brilliance Institute",
-      "labelVi": "Viện Huy Hoàng (Brilliance Institute)",
-      "rarity": "epic"
-    },
-    {
-      "assetId": "system-training-ground",
-      "badgeText": "BARRACKS",
-      "faction": "neutral",
-      "iconPath": "/images/buildings/blueprints/paper_bingying_buzu.webp",
-      "labelEn": "Training Ground",
-      "labelVi": "Trại Huấn Luyện (Training Ground)",
-      "rarity": "epic"
-    },
-    {
-      "assetId": "system-sacred-codex",
-      "badgeText": "CODEX",
-      "faction": "neutral",
-      "iconPath": "/images/items/consumables/icon_lord_7.webp",
-      "labelEn": "Sacred Codex",
-      "labelVi": "Thánh Điển (Sacred Codex)",
-      "rarity": "epic"
-    }
-  ],
-  "MED-4.2-03": [
+  "MED-3.4-01": [
     {
       "assetId": "gear-set-blood-of-the-titan",
-      "badgeText": "HORDE SET",
+      "badgeText": "GROUP A SPEND",
       "faction": "horde",
       "iconPath": "/images/items/consumables/icon_30222.webp",
       "labelEn": "Blood of the Titan (Fury of Blood)",
@@ -5674,37 +5946,8 @@ export const MEDIA_SHOWCASE_BY_CODE: Readonly<Record<string, readonly MediaShowc
       "rarity": "mythic"
     },
     {
-      "assetId": "gear-set-knights-glory",
-      "badgeText": "LEAGUE SET",
-      "faction": "league",
-      "iconPath": "/images/equipment/hero-gear/icon_40005.webp",
-      "labelEn": "Knight's Glory",
-      "labelVi": "Kỵ Sĩ Vinh Quang (Knight's Glory)",
-      "rarity": "mythic"
-    },
-    {
-      "assetId": "gear-set-glory-of-the-sage",
-      "badgeText": "NATURE SET",
-      "faction": "nature",
-      "iconPath": "/images/equipment/hero-gear/icon_40009.webp",
-      "labelEn": "Glory of the Sage",
-      "labelVi": "Hiền Triết Quang Vinh (Glory of the Sage)",
-      "rarity": "mythic"
-    },
-    {
-      "assetId": "system-lord-gear",
-      "badgeText": "LORD GEAR",
-      "faction": "neutral",
-      "iconPath": "/images/items/consumables/icon_lord_1.webp",
-      "labelEn": "Lord Gear (Military Gear)",
-      "labelVi": "Trang Bị Chúa Tể (Lord Gear / Military Gear)",
-      "rarity": "epic"
-    }
-  ],
-  "MED-4.2-04": [
-    {
       "assetId": "item-universal-shard",
-      "badgeText": "560 SHARDS",
+      "badgeText": "GROUP B HOARD",
       "faction": "neutral",
       "iconPath": "/images/items/shards/icon_30175.webp",
       "labelEn": "Universal Legendary Hero Shard",
@@ -5713,7 +5956,110 @@ export const MEDIA_SHOWCASE_BY_CODE: Readonly<Record<string, readonly MediaShowc
     },
     {
       "assetId": "item-soul-stone",
-      "badgeText": "9 SOUL STONES",
+      "badgeText": "120K PT STONE",
+      "faction": "neutral",
+      "iconPath": "/images/items/shards/icon_30231.webp",
+      "labelEn": "Red Soul Stone",
+      "labelVi": "Hồn Đá Đỏ (Red Soul Stone)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "system-lord-gear",
+      "badgeText": "300% TRIPLE-DIP",
+      "faction": "neutral",
+      "iconPath": "/images/items/consumables/icon_lord_1.webp",
+      "labelEn": "Lord Gear (Military Gear)",
+      "labelVi": "Trang Bị Chúa Tể (Lord Gear / Military Gear)",
+      "rarity": "epic"
+    },
+    {
+      "assetId": "system-relics",
+      "badgeText": "GAR D1-2 / GR D3-4",
+      "faction": "neutral",
+      "iconPath": "/images/relics/illustrations/Artifact_30001.webp",
+      "labelEn": "Relics",
+      "labelVi": "Thánh Vật (Relics)",
+      "rarity": "epic"
+    },
+    {
+      "assetId": "system-pets-behemoth",
+      "badgeText": "GAR D5-6 / GR D1-2",
+      "faction": "neutral",
+      "iconPath": "/images/pets/avatars/Head_pet_1001.webp",
+      "labelEn": "Pets & Behemoth",
+      "labelVi": "Thú Cưng & Cự Thú (Pets & Behemoth)",
+      "rarity": "epic"
+    }
+  ],
+  "MED-3.4-02": [
+    {
+      "assetId": "gear-set-knights-glory",
+      "badgeText": "GROUP A SPEND",
+      "faction": "league",
+      "iconPath": "/images/equipment/hero-gear/icon_40005.webp",
+      "labelEn": "Knight's Glory",
+      "labelVi": "Kỵ Sĩ Vinh Quang (Knight's Glory)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "item-promotion-stone",
+      "badgeText": "GROUP A SPEND",
+      "faction": "neutral",
+      "iconPath": "/images/items/materials/icon_30382.webp",
+      "labelEn": "Promotion Stone",
+      "labelVi": "Đá Thăng Cấp Trang Bị (Promotion Stone)",
+      "rarity": "rare"
+    },
+    {
+      "assetId": "item-universal-shard",
+      "badgeText": "GROUP B HOARD",
+      "faction": "neutral",
+      "iconPath": "/images/items/shards/icon_30175.webp",
+      "labelEn": "Universal Legendary Hero Shard",
+      "labelVi": "Mảnh Tướng Vàng Vạn Năng (Universal Legendary Hero Shard)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "item-soul-stone",
+      "badgeText": "GROUP B HOARD",
+      "faction": "neutral",
+      "iconPath": "/images/items/shards/icon_30231.webp",
+      "labelEn": "Red Soul Stone",
+      "labelVi": "Hồn Đá Đỏ (Red Soul Stone)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "item-recruit-token",
+      "badgeText": "GROUP B HOARD",
+      "faction": "neutral",
+      "iconPath": "/images/ui/rarities/icon_recruit.webp",
+      "labelEn": "Recruit Tokens",
+      "labelVi": "Vé Chiêu Mộ (Recruit Tokens)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "item-speedup",
+      "badgeText": "GROUP B HOARD",
+      "faction": "neutral",
+      "iconPath": "/images/ui/rarities/icon_speedUp.webp",
+      "labelEn": "Speedups",
+      "labelVi": "Tăng Tốc (Speedups)",
+      "rarity": "rare"
+    }
+  ],
+  "MED-3.4-04": [
+    {
+      "assetId": "item-universal-shard",
+      "badgeText": "#1 SHARDS THU",
+      "faction": "neutral",
+      "iconPath": "/images/items/shards/icon_30175.webp",
+      "labelEn": "Universal Legendary Hero Shard",
+      "labelVi": "Mảnh Tướng Vàng Vạn Năng (Universal Legendary Hero Shard)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "item-soul-stone",
+      "badgeText": "#2 SOUL STONE",
       "faction": "neutral",
       "iconPath": "/images/items/shards/icon_30231.webp",
       "labelEn": "Red Soul Stone",
@@ -5722,7 +6068,7 @@ export const MEDIA_SHOWCASE_BY_CODE: Readonly<Record<string, readonly MediaShowc
     },
     {
       "assetId": "item-skill-book",
-      "badgeText": "SKILL BOOKS",
+      "badgeText": "#3 SKILL BOOKS",
       "faction": "neutral",
       "iconPath": "/images/items/chests/icon_30032.webp",
       "labelEn": "Skill Book",
@@ -5730,104 +6076,512 @@ export const MEDIA_SHOWCASE_BY_CODE: Readonly<Record<string, readonly MediaShowc
       "rarity": "legendary"
     },
     {
+      "assetId": "system-lord-gear",
+      "badgeText": "#6 LORD GEAR",
+      "faction": "neutral",
+      "iconPath": "/images/items/consumables/icon_lord_1.webp",
+      "labelEn": "Lord Gear (Military Gear)",
+      "labelVi": "Trang Bị Chúa Tể (Lord Gear / Military Gear)",
+      "rarity": "epic"
+    },
+    {
+      "assetId": "system-runes",
+      "badgeText": "#9 RUNES TUE",
+      "faction": "neutral",
+      "iconPath": "/images/equipment/runes/icon_runes_101.webp",
+      "labelEn": "Runes",
+      "labelVi": "Đá Cổ Ngữ (Runes)",
+      "rarity": "epic"
+    },
+    {
+      "assetId": "item-dragon-essence",
+      "badgeText": "#10 ESSENCE MON",
+      "faction": "neutral",
+      "iconPath": "/images/tech/research/icon_30417.webp",
+      "labelEn": "Dragon Essence (DE-Dust)",
+      "labelVi": "Tinh Hoa Rồng (Dragon Essence — DE-Dust)",
+      "rarity": "rare"
+    }
+  ],
+  "MED-4.1-01": [
+    {
+      "assetId": "hero-pyromancer",
+      "badgeText": "DAY 1 STARTER",
+      "faction": "league",
+      "iconPath": "/images/heroes/avatars/Head_10025.webp",
+      "labelEn": "Pyromancer",
+      "labelVi": "Pháp Sư Lửa (Pyromancer)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "hero-adjudicator",
+      "badgeText": "DAY 7 TANK",
+      "faction": "league",
+      "iconPath": "/images/heroes/avatars/Head_10031.webp",
+      "labelEn": "Adjudicator",
+      "labelVi": "Thẩm Phán (Adjudicator)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "hero-desert-prince",
+      "badgeText": "DAY 21 MYTHIC #1",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10039.webp",
+      "labelEn": "Desert Prince",
+      "labelVi": "Hoàng Tử Sa Mạc (Desert Prince)",
+      "rarity": "mythic"
+    },
+    {
       "assetId": "hero-storm-maiden",
-      "badgeText": "FIRST MYTHIC",
+      "badgeText": "DAY 21 MYTHIC #2",
       "faction": "horde",
       "iconPath": "/images/heroes/avatars/Head_10041.webp",
       "labelEn": "Storm Maiden",
       "labelVi": "Nữ Thần Bão Tố (Storm Maiden)",
       "rarity": "mythic"
+    },
+    {
+      "assetId": "hero-witch",
+      "badgeText": "DAY 41 MYTHIC #3",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10045.webp",
+      "labelEn": "Witch",
+      "labelVi": "Phù Thủy (Witch)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "hero-rose-princess",
+      "badgeText": "PRE-S1 LEAGUE",
+      "faction": "league",
+      "iconPath": "/images/heroes/avatars/Head_10043.webp",
+      "labelEn": "Rose Princess",
+      "labelVi": "Công Chúa Rose (Rose Princess)",
+      "rarity": "mythic"
+    }
+  ],
+  "MED-4.1-03": [
+    {
+      "assetId": "event-fortune-wheel",
+      "badgeText": "LEAGUE 750 KC",
+      "faction": "neutral",
+      "iconPath": "/images/items/chests/icon_30059.webp",
+      "labelEn": "Fortune Wheel",
+      "labelVi": "Vòng Quay May Mắn (Fortune Wheel)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "item-diamond",
+      "badgeText": "HORDE 1,000 KC",
+      "faction": "neutral",
+      "iconPath": "/images/items/currencies/icon_10002.webp",
+      "labelEn": "Diamonds",
+      "labelVi": "Kim Cương (Diamonds)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "event-dice-of-fate",
+      "badgeText": "NATURE 800 KC",
+      "faction": "neutral",
+      "iconPath": "/images/items/chests/icon_chest_Monopoly_DragonTraining.webp",
+      "labelEn": "Dice of Fate",
+      "labelVi": "Xúc Xắc Định Mệnh (Dice of Fate)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "hero-desert-prince",
+      "badgeText": "160 SHARDS = 1★R",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10039.webp",
+      "labelEn": "Desert Prince",
+      "labelVi": "Hoàng Tử Sa Mạc (Desert Prince)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "hero-storm-maiden",
+      "badgeText": "560 SHARDS = 1★W",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10041.webp",
+      "labelEn": "Storm Maiden",
+      "labelVi": "Nữ Thần Bão Tố (Storm Maiden)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "gear-exclusive-weapon",
+      "badgeText": "UW +5 / +10",
+      "faction": "neutral",
+      "iconPath": "/images/equipment/exclusive-weapons/equipment_Exclusive006.webp",
+      "labelEn": "Exclusive Weapon",
+      "labelVi": "Vũ Khí Độc Quyền (Exclusive Weapon)",
+      "rarity": "mythic"
+    }
+  ],
+  "MED-4.1-04": [
+    {
+      "assetId": "item-universal-shard",
+      "badgeText": "0 ON LEAGUE",
+      "faction": "neutral",
+      "iconPath": "/images/items/shards/icon_30175.webp",
+      "labelEn": "Universal Legendary Hero Shard",
+      "labelVi": "Mảnh Tướng Vàng Vạn Năng (Universal Legendary Hero Shard)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "item-soul-stone",
+      "badgeText": "SAVE 9 STONES",
+      "faction": "neutral",
+      "iconPath": "/images/items/shards/icon_30231.webp",
+      "labelEn": "Red Soul Stone",
+      "labelVi": "Hồn Đá Đỏ (Red Soul Stone)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "item-guild-honor",
+      "badgeText": "360K HONOR",
+      "faction": "neutral",
+      "iconPath": "/images/items/currencies/icon_10018.webp",
+      "labelEn": "Guild Honor",
+      "labelVi": "Điểm Vinh Dự Bang Hội (Guild Honor)",
+      "rarity": "rare"
+    },
+    {
+      "assetId": "item-guild-coins",
+      "badgeText": "54K COINS",
+      "faction": "neutral",
+      "iconPath": "/images/items/currencies/icon_10006.webp",
+      "labelEn": "Guild Coins",
+      "labelVi": "Xu Vinh Quang Bang Hội (Guild Coins)",
+      "rarity": "rare"
+    },
+    {
+      "assetId": "hero-soulmancer",
+      "badgeText": "AWAKEN AT S1",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10038.webp",
+      "labelEn": "Soulmancer",
+      "labelVi": "Thuật Sĩ Linh Hồn (Soulmancer)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "meta-horde-pivot",
+      "badgeText": "DAY 21 PIVOT",
+      "faction": "horde",
+      "iconPath": "/images/factions/race_horde.webp",
+      "labelEn": "Horde Pivot",
+      "labelVi": "Xoay Trục Bộ Lạc (Horde Pivot)",
+      "rarity": "mythic"
+    }
+  ],
+  "MED-4.2-02": [
+    {
+      "assetId": "item-soul-stone",
+      "badgeText": "9 VS 27 (-67%)",
+      "faction": "neutral",
+      "iconPath": "/images/items/shards/icon_30231.webp",
+      "labelEn": "Red Soul Stone",
+      "labelVi": "Hồn Đá Đỏ (Red Soul Stone)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "hero-soulmancer",
+      "badgeText": "1 HORDE AWAKEN",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10038.webp",
+      "labelEn": "Soulmancer",
+      "labelVi": "Thuật Sĩ Linh Hồn (Soulmancer)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "hero-pyromancer",
+      "badgeText": "LEAGUE = 27 STONES",
+      "faction": "league",
+      "iconPath": "/images/heroes/avatars/Head_10025.webp",
+      "labelEn": "Pyromancer",
+      "labelVi": "Pháp Sư Lửa (Pyromancer)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "gear-set-blood-of-the-titan",
+      "badgeText": "CRAFT FOR Q1",
+      "faction": "horde",
+      "iconPath": "/images/items/consumables/icon_30222.webp",
+      "labelEn": "Blood of the Titan (Fury of Blood)",
+      "labelVi": "Huyết Titan / Nộ Huyết (Blood of the Titan)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "gear-set-knights-glory",
+      "badgeText": "INHERIT TO Q2",
+      "faction": "league",
+      "iconPath": "/images/equipment/hero-gear/icon_40005.webp",
+      "labelEn": "Knight's Glory",
+      "labelVi": "Kỵ Sĩ Vinh Quang (Knight's Glory)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "meta-strict-one-queue",
+      "badgeText": "ZERO-LOSS Q2",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10047.webp",
+      "labelEn": "Strict One-Queue Rule",
+      "labelVi": "Kỷ Luật Độc Tôn Đội 1 (Strict One-Queue Rule)",
+      "rarity": "mythic"
+    }
+  ],
+  "MED-4.2-03": [
+    {
+      "assetId": "hero-secret-keeper",
+      "badgeText": "S1: 6 LEAGUE",
+      "faction": "league",
+      "iconPath": "/images/heroes/avatars/Head_10018.webp",
+      "labelEn": "Secret Keeper",
+      "labelVi": "Người Giữ Bí Mật (Secret Keeper)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "hero-desert-prince",
+      "badgeText": "S2: 4L+2H BRIDGE",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10039.webp",
+      "labelEn": "Desert Prince",
+      "labelVi": "Hoàng Tử Sa Mạc (Desert Prince)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "hero-storm-maiden",
+      "badgeText": "S2: 1★ RED MVS",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10041.webp",
+      "labelEn": "Storm Maiden",
+      "labelVi": "Nữ Thần Bão Tố (Storm Maiden)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "hero-witch",
+      "badgeText": "S3: 6 HORDE Q1",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10045.webp",
+      "labelEn": "Witch",
+      "labelVi": "Phù Thủy (Witch)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "hero-wukong",
+      "badgeText": "S4: 5 UR + 1 SSR",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10047.webp",
+      "labelEn": "Wukong",
+      "labelVi": "Tôn Ngộ Không (Wukong)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "hero-soulmancer",
+      "badgeText": "9 SOUL STONES",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10038.webp",
+      "labelEn": "Soulmancer",
+      "labelVi": "Thuật Sĩ Linh Hồn (Soulmancer)",
+      "rarity": "legendary"
+    }
+  ],
+  "MED-4.2-04": [
+    {
+      "assetId": "hero-beastmaster",
+      "badgeText": "Q1 SLOT 1",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10048.webp",
+      "labelEn": "Beastmaster",
+      "labelVi": "Thú Tướng (Beastmaster)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "hero-desert-prince",
+      "badgeText": "Q1 SLOT 2",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10039.webp",
+      "labelEn": "Desert Prince",
+      "labelVi": "Hoàng Tử Sa Mạc (Desert Prince)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "hero-wukong",
+      "badgeText": "Q1 SLOT 3",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10047.webp",
+      "labelEn": "Wukong",
+      "labelVi": "Tôn Ngộ Không (Wukong)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "hero-storm-maiden",
+      "badgeText": "Q1 SLOT 4",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10041.webp",
+      "labelEn": "Storm Maiden",
+      "labelVi": "Nữ Thần Bão Tố (Storm Maiden)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "hero-witch",
+      "badgeText": "Q1 SLOT 5",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10045.webp",
+      "labelEn": "Witch",
+      "labelVi": "Phù Thủy (Witch)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "hero-soulmancer",
+      "badgeText": "Q1 SLOT 6",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10038.webp",
+      "labelEn": "Soulmancer",
+      "labelVi": "Thuật Sĩ Linh Hồn (Soulmancer)",
+      "rarity": "legendary"
     }
   ],
   "MED-4.3-02": [
     {
-      "assetId": "system-research-cottage",
-      "badgeText": "RESEARCH",
-      "faction": "neutral",
-      "iconPath": "/images/tech/research/bg_ScienceHome_Purple.webp",
-      "labelEn": "Research Cottage",
-      "labelVi": "Viện Nghiên Cứu (Research Cottage)",
-      "rarity": "epic"
+      "assetId": "season-s1",
+      "badgeText": "S1: TIDECALLER",
+      "faction": "nature",
+      "iconPath": "/images/events/seasons/icon_castleS1.webp",
+      "labelEn": "Season 1: Blighted Spring",
+      "labelVi": "Mùa Giải S1: Mùa Xuân Khô Héo (Blighted Spring)",
+      "rarity": "mythic"
     },
     {
-      "assetId": "system-brilliance-institute",
-      "badgeText": "BRILLIANCE",
-      "faction": "neutral",
-      "iconPath": "/images/tech/brilliance/bg_Radiance.webp",
-      "labelEn": "Brilliance Institute",
-      "labelVi": "Viện Huy Hoàng (Brilliance Institute)",
-      "rarity": "epic"
+      "assetId": "hero-tidecaller",
+      "badgeText": "NATURE S1 META",
+      "faction": "nature",
+      "iconPath": "/images/heroes/avatars/Head_10044.webp",
+      "labelEn": "Tidecaller",
+      "labelVi": "Thuật Sĩ Thủy Triều (Tidecaller)",
+      "rarity": "mythic"
     },
     {
-      "assetId": "system-training-ground",
-      "badgeText": "BARRACKS",
-      "faction": "neutral",
-      "iconPath": "/images/buildings/blueprints/paper_bingying_buzu.webp",
-      "labelEn": "Training Ground",
-      "labelVi": "Trại Huấn Luyện (Training Ground)",
-      "rarity": "epic"
+      "assetId": "season-s2",
+      "badgeText": "S2: WUKONG ERA",
+      "faction": "horde",
+      "iconPath": "/images/events/seasons/icon_castleS2.webp",
+      "labelEn": "Season 2: Frozen Epoch",
+      "labelVi": "Mùa Giải S2: Kỷ Nguyên Băng Giá (Frozen Epoch)",
+      "rarity": "mythic"
     },
     {
-      "assetId": "system-sacred-codex",
-      "badgeText": "CODEX",
-      "faction": "neutral",
-      "iconPath": "/images/items/consumables/icon_lord_7.webp",
-      "labelEn": "Sacred Codex",
-      "labelVi": "Thánh Điển (Sacred Codex)",
-      "rarity": "epic"
+      "assetId": "hero-wukong",
+      "badgeText": "COUNTER NATURE",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10047.webp",
+      "labelEn": "Wukong",
+      "labelVi": "Tôn Ngộ Không (Wukong)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "hero-beastmaster",
+      "badgeText": "S2 UR TANK",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10048.webp",
+      "labelEn": "Beastmaster",
+      "labelVi": "Thú Tướng (Beastmaster)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "hero-petalis",
+      "badgeText": "S3 NATURE UR",
+      "faction": "nature",
+      "iconPath": "/images/heroes/avatars/Head_10051.webp",
+      "labelEn": "Petalis",
+      "labelVi": "Tiên Hoa Petalis (Petalis)",
+      "rarity": "mythic"
     }
   ],
   "MED-4.3-03": [
     {
-      "assetId": "system-research-cottage",
-      "badgeText": "RESEARCH",
+      "assetId": "season-s1",
+      "badgeText": "S1 SPRING",
+      "faction": "nature",
+      "iconPath": "/images/events/seasons/icon_castleS1.webp",
+      "labelEn": "Season 1: Blighted Spring",
+      "labelVi": "Mùa Giải S1: Mùa Xuân Khô Héo (Blighted Spring)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "season-s2",
+      "badgeText": "S2 FROZEN",
+      "faction": "horde",
+      "iconPath": "/images/events/seasons/icon_castleS2.webp",
+      "labelEn": "Season 2: Frozen Epoch",
+      "labelVi": "Mùa Giải S2: Kỷ Nguyên Băng Giá (Frozen Epoch)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "season-s3",
+      "badgeText": "S3 STARLIGHT",
+      "faction": "league",
+      "iconPath": "/images/events/seasons/icon_castleS3.webp",
+      "labelEn": "Season 3: Starlight Crusade",
+      "labelVi": "Mùa Giải S3: Thánh Chiến Tinh Quang (Starlight Crusade)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "season-s4",
+      "badgeText": "S4 SOVEREIGN",
       "faction": "neutral",
-      "iconPath": "/images/tech/research/bg_ScienceHome_Purple.webp",
-      "labelEn": "Research Cottage",
-      "labelVi": "Viện Nghiên Cứu (Research Cottage)",
+      "iconPath": "/images/events/seasons/icon_castleS4.webp",
+      "labelEn": "Season 4: Apex Sovereign",
+      "labelVi": "Mùa Giải S4: Đỉnh Cao Vương Giả (Apex Sovereign)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "building-spring-s1",
+      "badgeText": "S1 SPRING TECH",
+      "faction": "nature",
+      "iconPath": "/images/events/seasons/icon_guild_spring.webp",
+      "labelEn": "Spring of Nature (S1)",
+      "labelVi": "Suối Nguồn Mùa Xuân (S1 Spring)",
       "rarity": "epic"
     },
     {
-      "assetId": "system-brilliance-institute",
-      "badgeText": "BRILLIANCE",
-      "faction": "neutral",
-      "iconPath": "/images/tech/brilliance/bg_Radiance.webp",
-      "labelEn": "Brilliance Institute",
-      "labelVi": "Viện Huy Hoàng (Brilliance Institute)",
-      "rarity": "epic"
-    },
-    {
-      "assetId": "system-training-ground",
-      "badgeText": "BARRACKS",
-      "faction": "neutral",
-      "iconPath": "/images/buildings/blueprints/paper_bingying_buzu.webp",
-      "labelEn": "Training Ground",
-      "labelVi": "Trại Huấn Luyện (Training Ground)",
-      "rarity": "epic"
-    },
-    {
-      "assetId": "system-sacred-codex",
-      "badgeText": "CODEX",
-      "faction": "neutral",
-      "iconPath": "/images/items/consumables/icon_lord_7.webp",
-      "labelEn": "Sacred Codex",
-      "labelVi": "Thánh Điển (Sacred Codex)",
+      "assetId": "building-furnace-s2",
+      "badgeText": "S2 FURNACE",
+      "faction": "horde",
+      "iconPath": "/images/events/seasons/icon_guild_furnace.webp",
+      "labelEn": "Guild Furnace (S2)",
+      "labelVi": "Lò Sưởi Bang Hội (S2 Guild Furnace)",
       "rarity": "epic"
     }
   ],
   "MED-4.3-04": [
     {
-      "assetId": "system-research-cottage",
-      "badgeText": "RESEARCH",
-      "faction": "neutral",
-      "iconPath": "/images/tech/research/bg_ScienceHome_Purple.webp",
-      "labelEn": "Research Cottage",
-      "labelVi": "Viện Nghiên Cứu (Research Cottage)",
-      "rarity": "epic"
+      "assetId": "item-golden-root-s1",
+      "badgeText": "S1 GOLDEN ROOT",
+      "faction": "nature",
+      "iconPath": "/images/events/seasons/icon_30527.webp",
+      "labelEn": "Golden Root (S1)",
+      "labelVi": "Rễ Cây Vàng S1 (Golden Root)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "item-obsidian-s2",
+      "badgeText": "S2 OBSIDIAN",
+      "faction": "horde",
+      "iconPath": "/images/events/seasons/icon_30604.webp",
+      "labelEn": "Obsidian (S2)",
+      "labelVi": "Hắc Diện Thạch S2 (Obsidian)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "item-shining-crystal-s3",
+      "badgeText": "S3 CRYSTAL",
+      "faction": "league",
+      "iconPath": "/images/events/seasons/icon_30721.webp",
+      "labelEn": "Shining Crystal (S3)",
+      "labelVi": "Pha Lê Ánh Sáng S3 (Shining Crystal)",
+      "rarity": "legendary"
     },
     {
       "assetId": "system-brilliance-institute",
-      "badgeText": "BRILLIANCE",
+      "badgeText": "BRILLIANCE TECH",
       "faction": "neutral",
       "iconPath": "/images/tech/brilliance/bg_Radiance.webp",
       "labelEn": "Brilliance Institute",
@@ -5835,22 +6589,22 @@ export const MEDIA_SHOWCASE_BY_CODE: Readonly<Record<string, readonly MediaShowc
       "rarity": "epic"
     },
     {
-      "assetId": "system-training-ground",
-      "badgeText": "BARRACKS",
-      "faction": "neutral",
-      "iconPath": "/images/buildings/blueprints/paper_bingying_buzu.webp",
-      "labelEn": "Training Ground",
-      "labelVi": "Trại Huấn Luyện (Training Ground)",
-      "rarity": "epic"
-    },
-    {
       "assetId": "system-sacred-codex",
-      "badgeText": "CODEX",
+      "badgeText": "3V3 CODEX",
       "faction": "neutral",
       "iconPath": "/images/items/consumables/icon_lord_7.webp",
       "labelEn": "Sacred Codex",
       "labelVi": "Thánh Điển (Sacred Codex)",
       "rarity": "epic"
+    },
+    {
+      "assetId": "event-kvk",
+      "badgeText": "CROSS-SVR WAR",
+      "faction": "neutral",
+      "iconPath": "/images/events/banners/ActivityBG_KingdomMigration_Boss.webp",
+      "labelEn": "Kingdom vs Kingdom (KvK / Four Nations League)",
+      "labelVi": "Chiến Tranh Vương Quốc (Kingdom vs Kingdom — KvK)",
+      "rarity": "legendary"
     }
   ],
   "MED-5.1-01": [
@@ -7715,6 +8469,8 @@ const RAW_ALIAS_LOOKUP: Readonly<Record<string, string>> = {
   "buff / healer": "role-support-healer",
   "buff thuần hệ": "faction-aura",
   "buffer": "role-support-healer",
+  "building-furnace-s2": "building-furnace-s2",
+  "building-spring-s1": "building-spring-s1",
   "bán tank": "role-bruiser",
   "bản vẽ": "item-blueprints-orichalcum",
   "bản vẽ / hợp kim": "item-blueprints-orichalcum",
@@ -7729,6 +8485,7 @@ const RAW_ALIAS_LOOKUP: Readonly<Record<string, string>> = {
   "bộ trưởng (minister)": "hero-minister",
   "bụi rồng": "item-dragon-essence",
   "carry chính": "role-hyper-carry",
+  "castle decor": "item-decor-token",
   "chiêm tinh gia": "hero-astrologer",
   "chiêm tinh gia (astrologer)": "hero-astrologer",
   "chiến binh man rợ": "hero-barbarian",
@@ -7765,6 +8522,7 @@ const RAW_ALIAS_LOOKUP: Readonly<Record<string, string>> = {
   "day 41 horde transition": "meta-horde-pivot",
   "de": "item-dragon-essence",
   "de-dust": "item-dragon-essence",
+  "decor tokens": "item-decor-token",
   "defense baiting & garrison trap": "meta-defense-baiting",
   "desert prince": "hero-desert-prince",
   "diamond": "item-diamond",
@@ -7838,6 +8596,7 @@ const RAW_ALIAS_LOOKUP: Readonly<Record<string, string>> = {
   "gold hero": "rarity-legendary",
   "gold shard": "item-universal-shard",
   "gold stars": "tier-yellow-stars",
+  "golden root": "item-golden-root-s1",
   "green faction": "faction-nature",
   "grunt": "hero-grunt",
   "guard": "hero-guardsman",
@@ -7846,6 +8605,7 @@ const RAW_ALIAS_LOOKUP: Readonly<Record<string, string>> = {
   "guild arms race (gar)": "event-guild-arms-race",
   "guild boss": "event-giant-raid",
   "guild coins": "item-guild-coins",
+  "guild furnace": "building-furnace-s2",
   "guild honor": "item-guild-honor",
   "guild honor freeze": "meta-guild-honor-freeze",
   "guild honor points": "item-guild-honor",
@@ -7937,6 +8697,7 @@ const RAW_ALIAS_LOOKUP: Readonly<Record<string, string>> = {
   "hào quang hệ phái (faction aura)": "faction-aura",
   "hòa thượng / tu sĩ": "hero-monk",
   "hòa thượng / tu sĩ (monk)": "hero-monk",
+  "hắc diện thạch": "item-obsidian-s2",
   "hệ lam": "faction-league",
   "hệ lục": "faction-nature",
   "hệ đỏ": "faction-horde",
@@ -7948,17 +8709,23 @@ const RAW_ALIAS_LOOKUP: Readonly<Record<string, string>> = {
   "hợp kim": "item-blueprints-orichalcum",
   "inventor": "hero-inventor",
   "item-blueprints-orichalcum": "item-blueprints-orichalcum",
+  "item-decor-token": "item-decor-token",
   "item-diamond": "item-diamond",
   "item-dragon-blood": "item-dragon-blood",
   "item-dragon-essence": "item-dragon-essence",
   "item-glory-medal": "item-glory-medal",
+  "item-golden-root-s1": "item-golden-root-s1",
   "item-guild-coins": "item-guild-coins",
   "item-guild-honor": "item-guild-honor",
   "item-magic-thread": "item-magic-thread",
+  "item-obsidian-s2": "item-obsidian-s2",
   "item-promotion-stone": "item-promotion-stone",
+  "item-recruit-token": "item-recruit-token",
   "item-refined-metal": "item-refined-metal",
+  "item-shining-crystal-s3": "item-shining-crystal-s3",
   "item-skill-book": "item-skill-book",
   "item-soul-stone": "item-soul-stone",
+  "item-speedup": "item-speedup",
   "item-stamina": "item-stamina",
   "item-universal-shard": "item-universal-shard",
   "khiên xanh": "faction-league",
@@ -8005,6 +8772,7 @@ const RAW_ALIAS_LOOKUP: Readonly<Record<string, string>> = {
   "lá xanh": "faction-nature",
   "lính đánh thuê": "hero-grunt",
   "lính đánh thuê (grunt)": "hero-grunt",
+  "lò sưởi bang": "building-furnace-s2",
   "magic thread": "item-magic-thread",
   "main carry": "role-hyper-carry",
   "main tank": "role-main-tank",
@@ -8030,6 +8798,14 @@ const RAW_ALIAS_LOOKUP: Readonly<Record<string, string>> = {
   "mythic wheel": "event-fortune-wheel",
   "máu rồng": "item-dragon-blood",
   "máu titan": "gear-set-blood-of-the-titan",
+  "mùa 1": "season-s1",
+  "mùa 2": "season-s2",
+  "mùa 3": "season-s3",
+  "mùa 4": "season-s4",
+  "mùa giải s1": "season-s1",
+  "mùa giải s2": "season-s2",
+  "mùa giải s3": "season-s3",
+  "mùa giải s4": "season-s4",
   "mảnh": "item-universal-shard",
   "mảnh tướng": "item-universal-shard",
   "mảnh tướng vàng vạn năng": "item-universal-shard",
@@ -8074,6 +8850,7 @@ const RAW_ALIAS_LOOKUP: Readonly<Record<string, string>> = {
   "nữ tu (nun)": "hero-nun",
   "nữ tư tế": "hero-priestess",
   "nữ tư tế (priestess)": "hero-priestess",
+  "obsidian": "item-obsidian-s2",
   "one-queue discipline": "meta-strict-one-queue",
   "orange skill book": "item-skill-book",
   "orichalcum": "item-blueprints-orichalcum",
@@ -8082,6 +8859,7 @@ const RAW_ALIAS_LOOKUP: Readonly<Record<string, string>> = {
   "pathfinder": "hero-pathfinder",
   "petalis": "hero-petalis",
   "pets & behemoth": "system-pets-behemoth",
+  "pha lê ánh sáng": "item-shining-crystal-s3",
   "phe bộ lạc": "faction-horde",
   "phe bộ lạc (horde)": "faction-horde",
   "phe liên minh": "faction-league",
@@ -8132,6 +8910,8 @@ const RAW_ALIAS_LOOKUP: Readonly<Record<string, string>> = {
   "rarity-legendary": "rarity-legendary",
   "rarity-mythic": "rarity-mythic",
   "rarity-rare": "rarity-rare",
+  "recruit token": "item-recruit-token",
+  "recruit tokens": "item-recruit-token",
   "red faction": "faction-horde",
   "red hero": "rarity-mythic",
   "red soul stone": "item-soul-stone",
@@ -8149,6 +8929,8 @@ const RAW_ALIAS_LOOKUP: Readonly<Record<string, string>> = {
   "rose princess": "hero-rose-princess",
   "rune system": "system-runes",
   "runes": "system-runes",
+  "rương trang trí": "item-decor-token",
+  "rễ cây vàng": "item-golden-root-s1",
   "sacred codex": "system-sacred-codex",
   "sage": "hero-sage",
   "sage thức tỉnh": "hero-sage",
@@ -8160,10 +8942,19 @@ const RAW_ALIAS_LOOKUP: Readonly<Record<string, string>> = {
   "sao đỏ": "tier-red-stars",
   "sao đỏ (red stars 6★–10★)": "tier-red-stars",
   "scout": "hero-scout",
+  "season 1": "season-s1",
+  "season 2": "season-s2",
+  "season 3": "season-s3",
+  "season 4": "season-s4",
+  "season-s1": "season-s1",
+  "season-s2": "season-s2",
+  "season-s3": "season-s3",
+  "season-s4": "season-s4",
   "secret keeper": "hero-secret-keeper",
   "shadow priest": "hero-shadow-priest",
   "shaman": "hero-shaman",
   "shards": "item-universal-shard",
+  "shining crystal": "item-shining-crystal-s3",
   "silver stars": "tier-white-stars",
   "single-queue focus": "meta-strict-one-queue",
   "skill book": "item-skill-book",
@@ -8174,6 +8965,9 @@ const RAW_ALIAS_LOOKUP: Readonly<Record<string, string>> = {
   "soul stone": "item-soul-stone",
   "soul stones": "item-soul-stone",
   "soulmancer": "hero-soulmancer",
+  "speedup": "item-speedup",
+  "speedups": "item-speedup",
+  "spring of nature": "building-spring-s1",
   "staircase method": "meta-staircase-promotion",
   "staircase troop promotion": "meta-staircase-promotion",
   "stamina": "item-stamina",
@@ -8183,6 +8977,7 @@ const RAW_ALIAS_LOOKUP: Readonly<Record<string, string>> = {
   "strict one-queue rule": "meta-strict-one-queue",
   "sub-tank": "role-bruiser",
   "support / healer": "role-support-healer",
+  "suối mùa xuân": "building-spring-s1",
   "swordmaster": "hero-swordmaster",
   "system-brilliance-institute": "system-brilliance-institute",
   "system-lord-gear": "system-lord-gear",
@@ -8202,6 +8997,7 @@ const RAW_ALIAS_LOOKUP: Readonly<Record<string, string>> = {
   "sự kiện xúc xắc": "event-dice-of-fate",
   "tam giác khắc chế": "faction-counter-bonus",
   "tanker chính": "role-main-tank",
+  "tavern voucher": "item-recruit-token",
   "tech academy": "system-research-cottage",
   "thi đấu hội": "event-guild-race",
   "thi đấu hội (guild race)": "event-guild-race",
@@ -8270,6 +9066,7 @@ const RAW_ALIAS_LOOKUP: Readonly<Record<string, string>> = {
   "tuyến đầu": "pos-frontline",
   "tôn ngộ không": "hero-wukong",
   "tôn ngộ không (wukong)": "hero-wukong",
+  "tăng tốc": "item-speedup",
   "tướng huyền thoại": "rarity-legendary",
   "tướng thần thoại": "rarity-mythic",
   "tướng tân thủ": "rarity-rare",
@@ -8294,6 +9091,7 @@ const RAW_ALIAS_LOOKUP: Readonly<Record<string, string>> = {
   "viện nghiên cứu": "system-research-cottage",
   "viện nghiên cứu (research cottage)": "system-research-cottage",
   "vkđq": "gear-exclusive-weapon",
+  "vé chiêu mộ": "item-recruit-token",
   "vòng quay may mắn": "event-fortune-wheel",
   "vòng quay may mắn (fortune wheel)": "event-fortune-wheel",
   "vòng quay tướng đỏ": "event-fortune-wheel",
@@ -8319,6 +9117,7 @@ const RAW_ALIAS_LOOKUP: Readonly<Record<string, string>> = {
   "wukong": "hero-wukong",
   "xoay trục bộ lạc": "meta-horde-pivot",
   "xoay trục bộ lạc (horde pivot)": "meta-horde-pivot",
+  "xu trang trí": "item-decor-token",
   "xu vinh quang": "item-guild-coins",
   "xu vinh quang bang hội": "item-guild-coins",
   "xu vinh quang bang hội (guild coins)": "item-guild-coins",
