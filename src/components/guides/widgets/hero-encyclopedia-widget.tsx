@@ -4,14 +4,13 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import {
   Search,
   X,
-  Shield,
-  Swords,
   Sparkles,
   Coins,
   ChevronDown,
   ChevronUp,
   Crown,
   RotateCcw,
+  Eye,
 } from "lucide-react";
 import type {
   GuideArticle,
@@ -19,6 +18,12 @@ import type {
   GuideTableBlock,
 } from "@/content/guides/types";
 import { ARTICLE_2_1_ENCYCLOPEDIA } from "@/content/guides/groups/group-2/2.1-encyclopedia";
+import {
+  getAssetById,
+  getHeroVisualProfile,
+  resolveGearSetAssetsFromText,
+} from "@/content/guides/asset-registry";
+import { GameAssetFrame } from "@/components/guides/media/game-asset-frame";
 import { cn } from "@/lib/utils";
 import { RichGuideText } from "@/components/guides/blocks/rich-guide-text";
 
@@ -55,6 +60,12 @@ interface HeroEncyclopediaWidgetProps {
   locale?: GuideLocale;
 }
 
+const FACTION_CREST_PATHS: Record<Exclude<HeroFaction, "all">, string> = {
+  horde: "/images/factions/race_horde.webp",
+  league: "/images/factions/race_alliance.webp",
+  nature: "/images/factions/race_nature.webp",
+};
+
 const LABELS: Record<
   GuideLocale,
   {
@@ -75,12 +86,17 @@ const LABELS: Record<
     slotPrefix: string;
     tierS0Prefix: string;
     tierSeasonPrefix: string;
+    portraitBtnOpen: string;
+    portraitBtnClose: string;
+    portraitCaption: string;
     proMvsToggleOpen: string;
     proMvsToggleClose: string;
+    exclusiveWeaponLabel: string;
     sourceLabel: string;
     mvsLabel: string;
     sweetSpotLabel: string;
     gearLabel: string;
+    soulStoneChipLabel: string;
     emptyState: string;
   }
 > = {
@@ -96,9 +112,9 @@ const LABELS: Record<
     factionLabel: "Phe phái:",
     factions: {
       all: "Tất cả Phe",
-      horde: "🔴 Bộ Lạc",
-      league: "🔵 Liên Minh",
-      nature: "🟢 Thiên Nhiên",
+      horde: "Bộ Lạc",
+      league: "Liên Minh",
+      nature: "Thiên Nhiên",
     },
     rarityLabel: "Phẩm cấp:",
     rarities: {
@@ -121,12 +137,17 @@ const LABELS: Record<
     slotPrefix: "Vị trí:",
     tierS0Prefix: "S0:",
     tierSeasonPrefix: "S1–S4:",
+    portraitBtnOpen: "Chân dung",
+    portraitBtnClose: "Ẩn ảnh",
+    portraitCaption: "Chân dung Chiến thuật (Lihui Artwork)",
     proMvsToggleOpen: "Xem Định Mức PRO (MVS, Điểm Ngọt & Đồ Vàng)",
     proMvsToggleClose: "Thu gọn Định Mức PRO",
+    exclusiveWeaponLabel: "Vũ Khí Độc Quyền:",
     sourceLabel: "Nguồn sở hữu:",
     mvsLabel: "Mốc dùng được (MVS):",
     sweetSpotLabel: "Điểm ngọt ROI:",
     gearLabel: "Bộ Đồ Vàng & Thức tỉnh:",
+    soulStoneChipLabel: "Hồn Đá Đỏ (Awakening)",
     emptyState:
       "Không tìm thấy Anh hùng nào khớp với bộ lọc hiện tại. Hãy thử xóa từ khóa hoặc đặt lại bộ lọc.",
   },
@@ -142,9 +163,9 @@ const LABELS: Record<
     factionLabel: "Faction:",
     factions: {
       all: "All Factions",
-      horde: "🔴 Horde",
-      league: "🔵 League",
-      nature: "🟢 Nature",
+      horde: "Horde",
+      league: "League",
+      nature: "Nature",
     },
     rarityLabel: "Rarity:",
     rarities: {
@@ -167,12 +188,17 @@ const LABELS: Record<
     slotPrefix: "Slot:",
     tierS0Prefix: "S0:",
     tierSeasonPrefix: "S1–S4:",
+    portraitBtnOpen: "Portrait",
+    portraitBtnClose: "Hide Art",
+    portraitCaption: "Standing Tactical Portrait (Lihui Artwork)",
     proMvsToggleOpen: "View PRO Metrics (MVS, Sweet Spot & Golden Gear)",
     proMvsToggleClose: "Hide PRO Metrics",
+    exclusiveWeaponLabel: "Exclusive Weapon:",
     sourceLabel: "Acquisition:",
     mvsLabel: "Min Viable Stars (MVS):",
     sweetSpotLabel: "ROI Sweet Spot:",
     gearLabel: "Golden Gear & Awakening:",
+    soulStoneChipLabel: "Red Soul Stone (Awakening)",
     emptyState:
       "No heroes match your current filters. Try clearing the search query or resetting filters.",
   },
@@ -365,6 +391,9 @@ export function HeroEncyclopediaWidget({
   const [expandedProIds, setExpandedProIds] = useState<Record<string, boolean>>(
     {}
   );
+  const [expandedPortraitIds, setExpandedPortraitIds] = useState<
+    Record<string, boolean>
+  >({});
 
   const allHeroes = useMemo(
     () => extractHeroesFromArticle21(sourceArticle, locale),
@@ -414,7 +443,6 @@ export function HeroEncyclopediaWidget({
       }
     };
 
-    // Initial hash check
     const initialHash = window.location.hash.replace(/^#/, "");
     if (initialHash) {
       applyTargetId(initialHash, false);
@@ -503,6 +531,13 @@ export function HeroEncyclopediaWidget({
   const toggleProDrawer = (id: string) => {
     setExpandedProIds((prev) => ({ ...prev, [id]: !prev[id] }));
   };
+
+  const togglePortraitPreview = (id: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setExpandedPortraitIds((prev) => ({ ...prev, [id]: !prev[id] }));
+  };
+
+  const soulStoneAsset = getAssetById("item-soul-stone");
 
   return (
     <div
@@ -598,7 +633,7 @@ export function HeroEncyclopediaWidget({
 
       {/* Multi-Dimensional Filter Pills (Touch Target >= 44px) */}
       <div className="space-y-3">
-        {/* 1. Faction Filter */}
+        {/* 1. Faction Filter with Real Faction Crests */}
         <div className="flex flex-wrap items-center gap-2">
           <span className="text-xs font-bold text-muted-foreground min-w-[70px]">
             {copy.factionLabel}
@@ -606,6 +641,8 @@ export function HeroEncyclopediaWidget({
           {(["all", "horde", "league", "nature"] as HeroFaction[]).map(
             (fac) => {
               const isActive = factionFilter === fac;
+              const crestPath =
+                fac !== "all" ? FACTION_CREST_PATHS[fac] : undefined;
               return (
                 <button
                   key={fac}
@@ -614,7 +651,7 @@ export function HeroEncyclopediaWidget({
                   aria-pressed={isActive}
                   onClick={() => setFactionFilter(fac)}
                   className={cn(
-                    "inline-flex items-center gap-1.5 min-h-[44px] px-3.5 rounded-xl border text-xs font-bold transition-all cursor-pointer",
+                    "inline-flex items-center gap-2 min-h-[44px] px-3.5 rounded-xl border text-xs font-bold transition-all cursor-pointer",
                     isActive
                       ? fac === "horde"
                         ? "border-rose-500 bg-rose-500/15 text-rose-600 dark:text-rose-300 shadow-sm"
@@ -626,6 +663,15 @@ export function HeroEncyclopediaWidget({
                       : "border-border/60 bg-background/60 text-muted-foreground hover:text-foreground hover:bg-muted/40"
                   )}
                 >
+                  {crestPath && (
+                    <img
+                      src={crestPath}
+                      alt={copy.factions[fac]}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-5 w-5 rounded-full object-contain shrink-0"
+                    />
+                  )}
                   <span>{copy.factions[fac]}</span>
                   <span className="rounded-md bg-background/70 px-1.5 py-0.5 font-mono text-[10px]">
                     {factionCounts[fac]}
@@ -718,7 +764,31 @@ export function HeroEncyclopediaWidget({
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
           {filteredHeroes.map((hero) => {
+            const slug = hero.canonicalKey.replace(/\s+/g, "-");
             const isProOpen = Boolean(expandedProIds[hero.id]);
+            const isPortraitOpen = Boolean(expandedPortraitIds[hero.id]);
+            const heroProfile =
+              getHeroVisualProfile(hero.nameEn) ??
+              getHeroVisualProfile(hero.canonicalKey);
+            const avatarPath =
+              heroProfile?.avatarPath ?? "/images/heroes/avatars/Head_10025.webp";
+            const portraitPath = heroProfile?.portraitPath ?? avatarPath;
+            const exclusiveWeaponPath =
+              heroProfile?.exclusiveWeaponPath ??
+              "/images/equipment/exclusive-weapons/equipment_Exclusive006.webp";
+            const exclusiveWeaponName =
+              locale === "vi"
+                ? heroProfile?.exclusiveWeaponNameVi ??
+                  `${copy.exclusiveWeaponLabel} ${hero.nameEn}`
+                : heroProfile?.exclusiveWeaponNameEn ??
+                  `${hero.nameEn} Exclusive Gear`;
+            const gearSetAssets = hero.proMvs
+              ? resolveGearSetAssetsFromText(
+                  hero.proMvs.gearAndAwakening,
+                  hero.faction
+                )
+              : [];
+
             const factionTopGlow =
               hero.faction === "horde"
                 ? "from-rose-500 via-rose-500/40 to-transparent"
@@ -729,7 +799,7 @@ export function HeroEncyclopediaWidget({
             return (
               <div
                 key={hero.id}
-                data-testid={`hero-card-${hero.canonicalKey.replace(/\s+/g, "-")}`}
+                data-testid={`hero-card-${slug}`}
                 className="relative overflow-hidden rounded-2xl border border-border/80 bg-card/85 p-4 flex flex-col justify-between gap-3 transition-colors hover:border-amber-500/40 shadow-sm"
               >
                 <div
@@ -740,34 +810,43 @@ export function HeroEncyclopediaWidget({
                   )}
                 />
                 <div className="space-y-2.5">
-                  {/* Top Row: Name + Tier Badges */}
-                  <div className="flex items-start justify-between gap-2">
-                    <div>
-                      <h4 className="font-heading font-extrabold text-sm sm:text-base text-foreground flex flex-wrap items-center gap-1.5">
-                        <span>{hero.nameEn}</span>
-                        {locale === "vi" &&
-                          hero.nameVi &&
-                          hero.nameVi !== hero.nameEn && (
-                            <span className="text-xs font-medium text-muted-foreground">
-                              ({hero.nameVi})
-                            </span>
-                          )}
-                      </h4>
-                      <div className="mt-1 flex flex-wrap items-center gap-1.5 text-[11px]">
-                        <span className="rounded-md bg-muted px-2 py-0.5 font-mono font-bold text-foreground">
-                          {hero.rarityBadge}
-                        </span>
-                        <span className="rounded-md bg-muted/60 px-2 py-0.5 text-muted-foreground font-medium">
-                          {hero.roleDisplay}
-                        </span>
-                        <span className="text-muted-foreground">
-                          • {copy.slotPrefix} {hero.slotDisplay}
-                        </span>
+                  {/* Top Row: 56x56 GameAssetFrame Avatar + Name + Portrait Toggle + Tier Badges */}
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex items-start gap-3 min-w-0">
+                      <GameAssetFrame
+                        src={avatarPath}
+                        alt={hero.nameEn}
+                        rarity={hero.rarity}
+                        faction={hero.faction}
+                        size="lg"
+                      />
+                      <div className="min-w-0">
+                        <h4 className="font-heading font-extrabold text-sm sm:text-base text-foreground flex flex-wrap items-center gap-1.5">
+                          <span>{hero.nameEn}</span>
+                          {locale === "vi" &&
+                            hero.nameVi &&
+                            hero.nameVi !== hero.nameEn && (
+                              <span className="text-xs font-medium text-muted-foreground">
+                                ({hero.nameVi})
+                              </span>
+                            )}
+                        </h4>
+                        <div className="mt-1 flex flex-wrap items-center gap-1.5 text-[11px]">
+                          <span className="rounded-md bg-muted px-2 py-0.5 font-mono font-bold text-foreground">
+                            {hero.rarityBadge}
+                          </span>
+                          <span className="rounded-md bg-muted/60 px-2 py-0.5 text-muted-foreground font-medium">
+                            {hero.roleDisplay}
+                          </span>
+                          <span className="text-muted-foreground">
+                            • {copy.slotPrefix} {hero.slotDisplay}
+                          </span>
+                        </div>
                       </div>
                     </div>
 
-                    {/* Tier S0 -> S1-S4 Pill */}
-                    <div className="flex flex-col items-end gap-1 shrink-0">
+                    {/* Right Column: Tier S0 -> S1-S4 Pill + Standing Lihui Portrait Toggle */}
+                    <div className="flex flex-col items-end gap-1.5 shrink-0">
                       {hero.tierSeason && (
                         <span
                           className={cn(
@@ -787,15 +866,61 @@ export function HeroEncyclopediaWidget({
                           {copy.tierS0Prefix} {hero.tierS0}
                         </span>
                       )}
+                      <button
+                        type="button"
+                        data-testid={`hero-portrait-toggle-${slug}`}
+                        onClick={(e) => togglePortraitPreview(hero.id, e)}
+                        className={cn(
+                          "inline-flex items-center gap-1 rounded-lg border px-2 py-1 text-[10px] font-mono font-bold transition-colors cursor-pointer",
+                          isPortraitOpen
+                            ? "border-amber-500/60 bg-amber-500/20 text-amber-600 dark:text-amber-300"
+                            : "border-border/70 bg-background/70 text-muted-foreground hover:text-foreground"
+                        )}
+                      >
+                        <Eye className="h-3 w-3 shrink-0" />
+                        <span>
+                          {isPortraitOpen
+                            ? copy.portraitBtnClose
+                            : copy.portraitBtnOpen}
+                        </span>
+                      </button>
                     </div>
                   </div>
+
+                  {/* Standing Lihui Portrait Preview Panel */}
+                  {isPortraitOpen && (
+                    <div
+                      data-testid={`hero-portrait-preview-${slug}`}
+                      className="relative overflow-hidden rounded-xl border border-amber-500/35 bg-slate-950/90 p-3 flex flex-col items-center gap-2"
+                    >
+                      <img
+                        src={portraitPath}
+                        alt={`${hero.nameEn} Standing Portrait`}
+                        loading="lazy"
+                        decoding="async"
+                        className="max-h-52 w-auto object-contain drop-shadow-[0_8px_20px_rgba(245,158,11,0.22)]"
+                      />
+                      <span className="text-[11px] font-mono text-amber-300/90">
+                        {copy.portraitCaption} • {hero.nameEn}
+                      </span>
+                    </div>
+                  )}
 
                   {/* Special Trait Badges */}
                   {(hero.isAwakenable || hero.isEconomy) && (
                     <div className="flex flex-wrap items-center gap-1.5">
                       {hero.isAwakenable && (
                         <span className="inline-flex items-center gap-1 rounded-md border border-rose-500/30 bg-rose-500/10 px-2 py-0.5 text-[11px] font-bold text-rose-600 dark:text-rose-300">
-                          {copy.awakenBadge}
+                          {soulStoneAsset && (
+                            <img
+                              src={soulStoneAsset.iconPath}
+                              alt=""
+                              loading="lazy"
+                              decoding="async"
+                              className="h-3.5 w-3.5 object-contain shrink-0"
+                            />
+                          )}
+                          <span>{copy.awakenBadge}</span>
                         </span>
                       )}
                       {hero.isEconomy && (
@@ -810,6 +935,7 @@ export function HeroEncyclopediaWidget({
                   {/* Combat Assessment */}
                   <RichGuideText
                     text={hero.assessment}
+                    locale={locale}
                     accentColor="amber"
                     className="text-xs text-muted-foreground leading-relaxed"
                   />
@@ -839,7 +965,29 @@ export function HeroEncyclopediaWidget({
                     </button>
 
                     {isProOpen && (
-                      <div className="mt-2 rounded-lg bg-muted/40 p-3 space-y-1.5 text-xs">
+                      <div className="mt-2 rounded-xl bg-muted/40 p-3 space-y-2 text-xs">
+                        {/* Visual Exclusive Weapon Banner */}
+                        <div
+                          data-testid={`hero-pro-uw-${slug}`}
+                          className="flex items-center gap-2.5 rounded-lg border border-amber-500/30 bg-amber-500/10 p-2"
+                        >
+                          <GameAssetFrame
+                            src={exclusiveWeaponPath}
+                            alt={exclusiveWeaponName}
+                            rarity="mythic"
+                            faction={hero.faction}
+                            size="sm"
+                          />
+                          <div className="min-w-0">
+                            <span className="block text-[10px] font-mono uppercase tracking-wider text-amber-600 dark:text-amber-400 font-bold">
+                              {copy.exclusiveWeaponLabel}
+                            </span>
+                            <span className="font-heading font-bold text-foreground truncate block">
+                              {exclusiveWeaponName}
+                            </span>
+                          </div>
+                        </div>
+
                         <div className="flex justify-between gap-2">
                           <span className="text-muted-foreground font-medium">
                             {copy.sourceLabel}
@@ -847,44 +995,102 @@ export function HeroEncyclopediaWidget({
                           <span className="font-bold text-foreground text-right">
                             <RichGuideText
                               text={hero.proMvs.source}
+                              locale={locale}
                               variant="inline"
                               accentColor="amber"
                             />
                           </span>
                         </div>
                         <div className="flex justify-between gap-2">
-                          <span className="text-muted-foreground font-medium">
-                            {copy.mvsLabel}
+                          <span className="inline-flex items-center gap-1 text-muted-foreground font-medium">
+                            <img
+                              src="/images/items/shards/icon_30176.webp"
+                              alt=""
+                              loading="lazy"
+                              decoding="async"
+                              className="h-3.5 w-3.5 object-contain shrink-0"
+                            />
+                            <span>{copy.mvsLabel}</span>
                           </span>
                           <span className="font-mono font-bold text-emerald-600 dark:text-emerald-400 text-right">
                             <RichGuideText
                               text={hero.proMvs.mvsMilestone}
+                              locale={locale}
                               variant="inline"
                               accentColor="emerald"
                             />
                           </span>
                         </div>
                         <div className="flex justify-between gap-2">
-                          <span className="text-muted-foreground font-medium">
-                            {copy.sweetSpotLabel}
+                          <span className="inline-flex items-center gap-1 text-muted-foreground font-medium">
+                            <img
+                              src="/images/items/shards/icon_30176.webp"
+                              alt=""
+                              loading="lazy"
+                              decoding="async"
+                              className="h-3.5 w-3.5 object-contain shrink-0"
+                            />
+                            <span>{copy.sweetSpotLabel}</span>
                           </span>
                           <span className="font-mono font-bold text-amber-600 dark:text-amber-300 text-right">
                             <RichGuideText
                               text={hero.proMvs.sweetSpot}
+                              locale={locale}
                               variant="inline"
                               accentColor="amber"
                             />
                           </span>
                         </div>
-                        <div className="pt-1 border-t border-border/40 text-[11px] text-muted-foreground">
-                          <span className="font-bold text-foreground">
-                            {copy.gearLabel}{" "}
-                          </span>
-                          <RichGuideText
-                            text={hero.proMvs.gearAndAwakening}
-                            variant="inline"
-                            accentColor="amber"
-                          />
+
+                        {/* Visual Golden Gear Set + Awakening Soul Stone Strip */}
+                        <div
+                          data-testid={`hero-pro-gear-${slug}`}
+                          className="pt-2 border-t border-border/40 space-y-1.5 text-[11px] text-muted-foreground"
+                        >
+                          <div className="flex flex-wrap items-center gap-1.5">
+                            {gearSetAssets.map((gearSet) => (
+                              <span
+                                key={gearSet.id}
+                                className="inline-flex items-center gap-1.5 rounded-lg border border-amber-500/35 bg-background/80 px-2 py-1 text-[11px] font-semibold text-foreground"
+                              >
+                                <img
+                                  src={gearSet.iconPath}
+                                  alt=""
+                                  loading="lazy"
+                                  decoding="async"
+                                  className="h-4 w-4 rounded-sm object-contain shrink-0"
+                                />
+                                <span>
+                                  {locale === "vi"
+                                    ? gearSet.inGameNameVi
+                                    : gearSet.inGameNameEn}
+                                </span>
+                              </span>
+                            ))}
+                            {soulStoneAsset && (
+                              <span className="inline-flex items-center gap-1.5 rounded-lg border border-rose-500/35 bg-rose-500/10 px-2 py-1 text-[11px] font-semibold text-rose-600 dark:text-rose-300">
+                                <img
+                                  src={soulStoneAsset.iconPath}
+                                  alt=""
+                                  loading="lazy"
+                                  decoding="async"
+                                  className="h-4 w-4 rounded-sm object-contain shrink-0"
+                                />
+                                <span>{copy.soulStoneChipLabel}</span>
+                              </span>
+                            )}
+                          </div>
+                          <div>
+                            <span className="font-bold text-foreground">
+                              {copy.gearLabel}{" "}
+                            </span>
+                            <RichGuideText
+                              text={hero.proMvs.gearAndAwakening}
+                              locale={locale}
+                              variant="inline"
+                              accentColor="amber"
+                            />
+                          </div>
                         </div>
                       </div>
                     )}

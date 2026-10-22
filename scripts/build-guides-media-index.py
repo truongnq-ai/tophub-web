@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Deterministic Tier-1 Visual Asset Registry Compiler for Guides Hub v4.0 (Phase 1).
+Deterministic Tier-1 Visual Asset Registry Compiler for Guides Hub v4.0 (Phase 1 & Phase 2).
 Reads:
   - public/images/manifest.json
   - src/content/guides/glossary.ts
@@ -310,13 +310,24 @@ def infer_rarity_from_term(term_id: str, glossary_cat: str) -> str:
 def build_exclusive_weapons_by_hero(manifest: Dict[str, Any]) -> Dict[int, Dict[str, Any]]:
     by_hero: Dict[int, Dict[str, Any]] = {}
     for asset in manifest.get("assets", []):
-        if asset.get("group") == "equipment" and asset.get("subgroup") == "exclusive-weapons":
+        if asset.get("group") == "equipment" and (
+            asset.get("category") == "equipment/exclusive-weapons"
+            or asset.get("subgroup") == "exclusive-weapons"
+        ):
             gid = asset.get("game_id")
-            web_path = "/" + asset["path"]
+            web_path = "/" + asset["path"].lstrip("/")
             if gid == 11025:
-                by_hero[10025] = {"path": web_path, "vi": asset.get("name_vi"), "en": asset.get("name_en")}
+                by_hero[10025] = {
+                    "path": web_path,
+                    "vi": "Hơi Thở Rồng (Dragon Breath)",
+                    "en": "Dragon Breath",
+                }
             elif isinstance(gid, int) and 10001 <= gid <= 10054:
-                by_hero[gid] = {"path": web_path, "vi": asset.get("name_vi"), "en": asset.get("name_en")}
+                by_hero[gid] = {
+                    "path": web_path,
+                    "vi": asset.get("name_vi"),
+                    "en": asset.get("name_en"),
+                }
     return by_hero
 
 
@@ -368,6 +379,133 @@ def select_showcase_for_spotlight(
             "labelEn": l_en,
             "badgeText": badge,
         }
+
+    # Explicit bespoke Group 2 Showcase Decks (Phase 2)
+    group2_bespoke: Dict[str, List[Dict[str, Any]]] = {
+        "MED-2.1-01": [
+            make_item("faction-horde", "HORDE", "Bộ Lạc (Horde)", "Horde Faction"),
+            make_item("faction-league", "LEAGUE", "Liên Minh (League)", "League Faction"),
+            make_item("faction-nature", "NATURE", "Thiên Nhiên (Nature)", "Nature Faction"),
+            make_item("hero-wukong", "UR CARRY", "Tôn Ngộ Không", "Wukong"),
+            make_item("hero-paragon", "UR CARRY", "Thiện Xạ", "Paragon"),
+            make_item("hero-tidecaller", "UR CARRY", "Thuật Sĩ Thủy Triều", "Tidecaller"),
+        ],
+        "MED-2.1-02": [
+            make_item("tier-yellow-stars", "1-5 STARS"),
+            make_item("tier-red-stars", "1★ RED MVS"),
+            make_item("tier-white-stars", "1★ WHITE ROI"),
+            make_item("item-universal-shard", "560 / 280"),
+            make_item("item-soul-stone", "9 SOUL STONES"),
+            make_item("gear-exclusive-weapon", "UW +10 / +20"),
+        ],
+        "MED-2.1-04": [
+            make_item("hero-wukong", "S+ HORDE"),
+            make_item("hero-desert-prince", "S+ BRUISER"),
+            make_item("hero-storm-maiden", "S+ AOE"),
+            make_item("hero-tidecaller", "S+ NATURE"),
+            make_item("hero-paragon", "S+ LEAGUE"),
+            make_item("hero-rose-princess", "S+ TANK"),
+        ],
+        "MED-2.2-01": [
+            make_item("hero-adjudicator", "SLOT 1 TANK"),
+            make_item("hero-rose-princess", "SLOT 2 MYTHIC"),
+            make_item("hero-pyromancer", "SLOT 3 SAFE"),
+            make_item("hero-paragon", "SLOT 4 CARRY"),
+            make_item("hero-nun", "SLOT 5 HEAL"),
+            make_item("hero-bard", "SLOT 6 BUFF"),
+        ],
+        "MED-2.2-02": [
+            make_item("hero-beastmaster", "SLOT 1 TANK"),
+            make_item("hero-desert-prince", "SLOT 2 BRUISER"),
+            make_item("hero-wukong", "SLOT 3 CARRY"),
+            make_item("hero-storm-maiden", "SLOT 4 AOE"),
+            make_item("hero-witch", "SLOT 5 HEAL"),
+            make_item("hero-soulmancer", "SLOT 6 AWAKEN"),
+        ],
+        "MED-2.2-04": [
+            make_item("hero-monk", "SLOT 1 TANK"),
+            make_item("hero-ne-zha", "SLOT 2 BRUISER"),
+            make_item("hero-tidecaller", "SLOT 3 CARRY"),
+            make_item("hero-pixie", "SLOT 4 BURST"),
+            make_item("hero-forest-maiden", "SLOT 5 ENERGY"),
+            make_item("hero-petalis", "SLOT 6 SHIELD"),
+        ],
+        "MED-2.3-01": [
+            make_item("faction-horde", "+20% VS LEAGUE", "Bộ Lạc (Horde)", "Horde Faction"),
+            make_item("faction-league", "+20% VS NATURE", "Liên Minh (League)", "League Faction"),
+            make_item("faction-nature", "+20% VS HORDE", "Thiên Nhiên (Nature)", "Nature Faction"),
+            make_item("hero-wukong", "HORDE CORE"),
+            make_item("hero-paragon", "LEAGUE CORE"),
+            make_item("hero-tidecaller", "NATURE CORE"),
+        ],
+        "MED-2.3-02": [
+            make_item("hero-adjudicator", "FRONTLINE 1"),
+            make_item("hero-desert-prince", "FRONTLINE 2"),
+            make_item("hero-pyromancer", "SAFE ZONE 3"),
+            make_item("hero-wukong", "SAFE ZONE 4"),
+            make_item("hero-nun", "BACKLINE 5"),
+            make_item("hero-witch", "BACKLINE 6"),
+        ],
+        "MED-2.3-04": [
+            make_item("hero-rose-princess", "SWAP SLOT 1⇄2"),
+            make_item("hero-adjudicator", "SWAP SLOT 2⇄1"),
+            make_item("hero-wukong", "ANTI-DIVE TRAP"),
+            make_item("hero-tidecaller", "SAFE SLOT 3"),
+            make_item("hero-storm-maiden", "COLUMN DODGE"),
+            make_item("hero-paragon", "WEAK-WING FOCUS"),
+        ],
+        "MED-2.4-01": [
+            make_item("item-universal-shard", "560 MYTHIC"),
+            make_item("tier-yellow-stars", "60 / 30 SHARDS"),
+            make_item("tier-red-stars", "1★ RED MVS"),
+            make_item("tier-white-stars", "1★ WHITE ROI"),
+            make_item("hero-storm-maiden", "DAY 21 MYTHIC"),
+            make_item("hero-wukong", "S2 HYPER-CARRY"),
+        ],
+        "MED-2.4-02": [
+            make_item("item-soul-stone", "9 SOUL STONES"),
+            make_item("item-guild-honor", "360K HONOR"),
+            make_item("item-guild-coins", "54K COINS"),
+            make_item("hero-pyromancer", "AWAKEN #1"),
+            make_item("hero-adjudicator", "AWAKEN #2"),
+            make_item("hero-soulmancer", "HORDE AWAKEN"),
+        ],
+        "MED-2.4-04": [
+            make_item("item-skill-book", "SKILL BOOKS"),
+            make_item("gear-exclusive-weapon", "UW BREAKPOINT"),
+            make_item("item-universal-shard", "ZERO WASTE"),
+            make_item("hero-wukong", "MAX BOOKS #1"),
+            make_item("hero-tidecaller", "MAX BOOKS #2"),
+            make_item("hero-paragon", "MAX BOOKS #3"),
+        ],
+        "MED-2.5-01": [
+            make_item("hero-brawler", "+30% RESEARCH"),
+            make_item("hero-knight", "+30% TRAINING"),
+            make_item("hero-ranger", "+30% RUBY"),
+            make_item("hero-minister", "+30% HEALING"),
+            make_item("hero-priestess", "+30% HEALING"),
+            make_item("hero-dancer", "+30% HEALING"),
+        ],
+        "MED-2.5-02": [
+            make_item("hero-brawler", "TRAIT 3 LV.30"),
+            make_item("hero-knight", "TRAIT 3 LV.30"),
+            make_item("hero-rogue", "+30% STONE"),
+            make_item("hero-outlaw", "+30% TIMBER"),
+            make_item("item-diamond", "2,000 TRAP"),
+            make_item("tier-white-stars", "12★ = 300"),
+        ],
+        "MED-2.5-04": [
+            make_item("hero-bard", "+40% BUILD"),
+            make_item("hero-shaman", "+40% RESEARCH"),
+            make_item("hero-hostess", "+40% TRAINING"),
+            make_item("hero-stonemason", "+40% STONE"),
+            make_item("item-universal-shard", "EXCHANGE SHOP"),
+            make_item("tier-white-stars", "15★ = 500"),
+        ],
+    }
+
+    if code in group2_bespoke:
+        return group2_bespoke[code]
 
     if sp["tier"] == "tier1_faction_loop" or "faction" in text or "phe" in text or code in ("MED-1.1-03", "MED-2.3-01", "MED-2.3-02", "MED-2.3-03"):
         return [
@@ -500,6 +638,7 @@ def main() -> None:
             if ew.get("vi"):
                 profile_obj["exclusiveWeaponNameVi"] = ew["vi"]
             if ew.get("en"):
+                assert_no_vi_diacritics(ew["en"], f"Hero[{tid}].exclusiveWeaponNameEn")
                 profile_obj["exclusiveWeaponNameEn"] = ew["en"]
 
         hero_profiles[tid] = profile_obj
@@ -541,6 +680,10 @@ def main() -> None:
         }
         if ew:
             profile_obj["exclusiveWeaponPath"] = ew["path"]
+            if ew.get("vi"):
+                profile_obj["exclusiveWeaponNameVi"] = ew["vi"]
+            if ew.get("en"):
+                profile_obj["exclusiveWeaponNameEn"] = ew["en"]
         hero_profiles[extra_id] = profile_obj
 
     # 2. Build all 111 Glossary Terms into GAME_ASSET_REGISTRY
@@ -680,13 +823,29 @@ def main() -> None:
         "exclusive gear": "gear-exclusive-weapon",
         "blood of the titan": "gear-set-blood-of-the-titan",
         "máu titan": "gear-set-blood-of-the-titan",
+        "huyết titan": "gear-set-blood-of-the-titan",
+        "nộ huyết": "gear-set-blood-of-the-titan",
         "knight's glory": "gear-set-knights-glory",
         "kỵ sĩ vinh quang": "gear-set-knights-glory",
+        "vinh quang kỵ sĩ": "gear-set-knights-glory",
         "glory of the sage": "gear-set-glory-of-the-sage",
         "vinh quang hiền triết": "gear-set-glory-of-the-sage",
+        "hiền triết quang vinh": "gear-set-glory-of-the-sage",
         "gar": "event-guild-arms-race",
         "kvk": "event-kvk",
         "gar / kvk": "event-guild-arms-race",
+        "pyro": "hero-pyromancer",
+        "awakened pyro": "hero-pyromancer",
+        "pyromancer đỏ": "hero-pyromancer",
+        "pyromancer thức tỉnh": "hero-pyromancer",
+        "awakened sage": "hero-sage",
+        "sage đỏ": "hero-sage",
+        "sage thức tỉnh": "hero-sage",
+        "adjudicator (awakened)": "hero-adjudicator",
+        "nun (awakened)": "hero-nun",
+        "pixie (awakened)": "hero-pixie",
+        "forest maiden (awakened)": "hero-forest-maiden",
+        "warlock (awakened)": "hero-warlock",
     }
     alias_map.update(explicit_aliases)
 
@@ -739,6 +898,81 @@ def main() -> None:
         "  return undefined;",
         "}",
         "",
+        "export function resolveSlotHeroProfiles(rawSlotText: string): readonly HeroVisualProfile[] {",
+        "  if (!rawSlotText) return [];",
+        "  const withoutParens = rawSlotText.replace(/\\([^)]*\\)/g, ' ');",
+        "  const parts = withoutParens.split('/').map((s) => s.trim()).filter(Boolean);",
+        "  const results: HeroVisualProfile[] = [];",
+        "  const seen = new Set<string>();",
+        "  for (const part of parts) {",
+        "    const cleanedPart = part.replace(/\\b(awakened|thức tỉnh|đỏ)\\b/gi, '').trim();",
+        "    const prof = getHeroVisualProfile(part) ?? getHeroVisualProfile(cleanedPart);",
+        "    if (prof && !seen.has(prof.id)) {",
+        "      seen.add(prof.id);",
+        "      results.push(prof);",
+        "    }",
+        "  }",
+        "  if (results.length === 0) {",
+        "    const fallback = getHeroVisualProfile(rawSlotText);",
+        "    if (fallback) results.push(fallback);",
+        "  }",
+        "  return results;",
+        "}",
+        "",
+        "export function extractHeroProfilesFromText(rawText: string, maxCount = 4): readonly HeroVisualProfile[] {",
+        "  if (!rawText) return [];",
+        "  const lower = rawText.toLowerCase();",
+        "  const matches: Array<{ index: number; profile: HeroVisualProfile }> = [];",
+        "  for (const prof of Object.values(HERO_VISUAL_PROFILES)) {",
+        "    const enName = prof.inGameNameEn.toLowerCase();",
+        "    const viName = prof.inGameNameVi.toLowerCase();",
+        "    const idxEn = enName.length >= 3 ? lower.indexOf(enName) : -1;",
+        "    const idxVi = viName.length >= 3 ? lower.indexOf(viName) : -1;",
+        "    const bestIdx = idxEn !== -1 && idxVi !== -1 ? Math.min(idxEn, idxVi) : Math.max(idxEn, idxVi);",
+        "    if (bestIdx !== -1) {",
+        "      matches.push({ index: bestIdx, profile: prof });",
+        "    }",
+        "  }",
+        "  matches.sort((a, b) => a.index - b.index);",
+        "  const unique: HeroVisualProfile[] = [];",
+        "  const seen = new Set<string>();",
+        "  for (const m of matches) {",
+        "    if (!seen.has(m.profile.id)) {",
+        "      seen.add(m.profile.id);",
+        "      unique.push(m.profile);",
+        "      if (unique.length >= maxCount) break;",
+        "    }",
+        "  }",
+        "  return unique;",
+        "}",
+        "",
+        "export function resolveGearSetAssetsFromText(",
+        "  rawText: string,",
+        "  fallbackFaction?: 'league' | 'horde' | 'nature'",
+        "): readonly GameAssetEntry[] {",
+        "  const lower = (rawText || '').toLowerCase();",
+        "  const sets: GameAssetEntry[] = [];",
+        "  const pushSet = (id: string) => {",
+        "    const entry = GAME_ASSET_REGISTRY[id];",
+        "    if (entry && !sets.some((s) => s.id === entry.id)) sets.push(entry);",
+        "  };",
+        "  if (/titan|nộ huyết|fury of blood/.test(lower)) {",
+        "    pushSet('gear-set-blood-of-the-titan');",
+        "  }",
+        "  if (/knight|kỵ sĩ vinh quang|vinh quang kỵ sĩ/.test(lower)) {",
+        "    pushSet('gear-set-knights-glory');",
+        "  }",
+        "  if (/sage|hiền triết|hiền nhân/.test(lower)) {",
+        "    pushSet('gear-set-glory-of-the-sage');",
+        "  }",
+        "  if (sets.length === 0 && fallbackFaction) {",
+        "    if (fallbackFaction === 'horde') pushSet('gear-set-blood-of-the-titan');",
+        "    else if (fallbackFaction === 'league') pushSet('gear-set-knights-glory');",
+        "    else if (fallbackFaction === 'nature') pushSet('gear-set-glory-of-the-sage');",
+        "  }",
+        "  return sets;",
+        "}",
+        "",
         "export function resolveEntityFromCodeToken(tokenText: string): GameAssetEntry | undefined {",
         "  if (!tokenText || tokenText.length < 2) return undefined;",
         "  const norm = normalizeLookupKey(tokenText);",
@@ -769,7 +1003,11 @@ def main() -> None:
         "",
         "export function resolveEntityFromTableCell(cellText: string): GameAssetEntry | undefined {",
         "  if (!cellText) return undefined;",
-        "  const cleaned = cellText.replace(/\\*\\*/g, '').replace(/`/g, '').trim();",
+        "  const cleaned = cellText",
+        "    .replace(/\\*\\*/g, '')",
+        "    .replace(/`/g, '')",
+        "    .replace(/^(?:[#]?\\d+[.)]?\\s*)/, '')",
+        "    .trim();",
         "  return resolveEntityFromCodeToken(cleaned);",
         "}",
         "",

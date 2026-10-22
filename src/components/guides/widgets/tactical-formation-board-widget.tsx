@@ -6,7 +6,6 @@ import {
   Swords,
   Sparkles,
   ArrowRightLeft,
-  Flame,
   Crown,
   Lock,
   Crosshair,
@@ -17,8 +16,15 @@ import type {
   GuideLocale,
   GuideTableBlock,
 } from "@/content/guides/types";
-import { ARTICLE_2_2_META_LINEUPS } from "@/content/guides/groups/group-2/2.2-meta-lineups";
 import { ARTICLE_2_3_FORMATION_COUNTERS } from "@/content/guides/groups/group-2/2.3-formation-and-counters";
+import {
+  extractHeroProfilesFromText,
+  HERO_VISUAL_PROFILES,
+  resolveGearSetAssetsFromText,
+  resolveSlotHeroProfiles,
+} from "@/content/guides/asset-registry";
+import { GameAssetFrame } from "@/components/guides/media/game-asset-frame";
+import { RichGuideText } from "@/components/guides/blocks/rich-guide-text";
 import { useUidSession } from "@/hooks/use-uid-session";
 import { Link } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
@@ -72,14 +78,20 @@ export interface TacticalFormationBoardWidgetProps {
   forceUnlockPro?: boolean;
 }
 
+const FACTION_CREST_PATHS: Record<"league" | "horde" | "nature", string> = {
+  league: "/images/factions/race_alliance.webp",
+  horde: "/images/factions/race_horde.webp",
+  nature: "/images/factions/race_nature.webp",
+};
+
 const LINEUP_PRESETS: FormationLineupPreset[] = [
   {
     id: "league-starter",
     tocSubSectionId: "sub-1-1-league-starter-transition",
     faction: "league",
     shortLabel: {
-      vi: "🔵 Liên Minh Khởi Đầu (Ngày 1–20)",
-      en: "🔵 League Starter (Days 1–20)",
+      vi: "Liên Minh Khởi Đầu (Ngày 1–20)",
+      en: "League Starter (Days 1–20)",
     },
     fullTitle: {
       vi: "Đội Hình Khởi Đầu & Chuyển Tiếp Liên Minh (6 SSR Tavern/Early)",
@@ -211,8 +223,8 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
     tocSubSectionId: "sub-1-2-league-endgame-pure",
     faction: "league",
     shortLabel: {
-      vi: "🔵 Liên Minh Endgame (3 Mythic)",
-      en: "🔵 League Endgame (3 Mythics)",
+      vi: "Liên Minh Endgame (3 Mythic)",
+      en: "League Endgame (3 Mythics)",
     },
     fullTitle: {
       vi: "Đội Hình Thuần Liên Minh Cuối Game (Rose Princess + Paragon + Artificer)",
@@ -338,8 +350,8 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
     tocSubSectionId: "sub-2-1-horde-hybrid-and-early",
     faction: "horde",
     shortLabel: {
-      vi: "🔴 Cầu Nối Lai 4-2 (Ngày 21–40)",
-      en: "🔴 4-2 Hybrid Bridge (Days 21–40)",
+      vi: "Cầu Nối Lai 4-2 (Ngày 21–40)",
+      en: "4-2 Hybrid Bridge (Days 21–40)",
     },
     fullTitle: {
       vi: "Đội Hình Cầu Nối Lai 4 Liên Minh + 2 Bộ Lạc (Zero-Loss Bridge)",
@@ -465,8 +477,8 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
     tocSubSectionId: "sub-2-2-horde-endgame-5mythic",
     faction: "horde",
     shortLabel: {
-      vi: "🔴 Bộ Lạc Đỉnh Cao (5 Mythic — Khuyên Dùng #1)",
-      en: "🔴 Horde Endgame (5 Mythics — #1 F2P Pick)",
+      vi: "Bộ Lạc Đỉnh Cao (5 Mythic — Khuyên Dùng #1)",
+      en: "Horde Endgame (5 Mythics — #1 F2P Pick)",
     },
     fullTitle: {
       vi: "Đội Hình Thuần Bộ Lạc 5 Mythic + 1 Awakened (Lộ Trình Vua F2P/Low-Spender)",
@@ -592,8 +604,8 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
     tocSubSectionId: "sub-3-1-nature-transition",
     faction: "nature",
     shortLabel: {
-      vi: "🟢 Thiên Nhiên Chuyển Tiếp (S0–S1)",
-      en: "🟢 Nature Transition (S0–S1)",
+      vi: "Thiên Nhiên Chuyển Tiếp (S0–S1)",
+      en: "Nature Transition (S0–S1)",
     },
     fullTitle: {
       vi: "Đội Hình Thiên Nhiên Khởi Đầu & Chuyển Tiếp (Pixie + Forest Maiden)",
@@ -719,8 +731,8 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
     tocSubSectionId: "sub-3-2-nature-endgame-pure",
     faction: "nature",
     shortLabel: {
-      vi: "🟢 Thiên Nhiên Đỉnh Cao (Tidecaller + Ne Zha)",
-      en: "🟢 Nature Endgame (Tidecaller + Ne Zha)",
+      vi: "Thiên Nhiên Đỉnh Cao (Tidecaller + Ne Zha)",
+      en: "Nature Endgame (Tidecaller + Ne Zha)",
     },
     fullTitle: {
       vi: "Đội Hình Thuần Thiên Nhiên Endgame (Động Cơ Vĩnh Cửu Tidecaller + Monk + Ne Zha)",
@@ -862,10 +874,13 @@ const LABELS: Record<
     };
     slotPrefix: string;
     selectedSlotHeading: string;
+    exclusiveWeaponChip: string;
+    gearSetChip: string;
     auraHeading: string;
     soulStoneHeading: string;
     counterHeading: string;
     swapsIntro: string;
+    swapVisualHeading: string;
     threatLabel: string;
     executionLabel: string;
     impactLabel: string;
@@ -894,11 +909,14 @@ const LABELS: Record<
     },
     slotPrefix: "Ô",
     selectedSlotHeading: "🎯 Phân tích Vị trí & Thuật toán Tìm Mục tiêu (Targeting AI):",
+    exclusiveWeaponChip: "Vũ Khí Độc Quyền",
+    gearSetChip: "Bộ Đồ Vàng Chuẩn",
     auraHeading: "✨ Hào Quang Đồng Hệ:",
     soulStoneHeading: "💎 Ngân Sách Hồn Đá Đỏ:",
     counterHeading: "🔄 Tam Giác Khắc Chế (±20%):",
     swapsIntro:
       "Trong Đấu Trường (Arena) & 3v3, chỉ cần đổi vị trí giữa Ô 3–4 và Ô 5–6 hoặc đảo cột Trái ⇄ Phải, bạn có thể lật kèo đối thủ cao hơn 10%–18% Lực chiến:",
+    swapVisualHeading: "Sơ đồ Tướng Tham Gia Đảo Ô Khắc Chế:",
     threatLabel: "🚨 Mối Đe Dọa Từ Đội Hình Địch:",
     executionLabel: "♟️ Thao Tác Đảo Ô Khắc Chế (Positional Swap):",
     impactLabel: "💥 Kết Quả Tác Động Thực Chiến:",
@@ -927,11 +945,14 @@ const LABELS: Record<
     },
     slotPrefix: "Slot",
     selectedSlotHeading: "🎯 Slot Targeting Physics & Positioning Rationale:",
+    exclusiveWeaponChip: "Exclusive Weapon",
+    gearSetChip: "BiS Golden Gear Set",
     auraHeading: "✨ Faction Aura:",
     soulStoneHeading: "💎 Soul Stone Budget:",
     counterHeading: "🔄 Counter Triangle (±20%):",
     swapsIntro:
       "In Arena & 3v3 PvP, swapping heroes between Slots 3–4 and Slots 5–6 or mirroring Left ⇄ Right columns lets you defeat opponents with 10%–18% higher Combat Power:",
+    swapVisualHeading: "Key Heroes Involved in Positional Counter-Swap:",
     threatLabel: "🚨 Enemy Formation Threat:",
     executionLabel: "♟️ Positional Swap Execution:",
     impactLabel: "💥 Combat Impact Mechanism:",
@@ -1078,11 +1099,38 @@ export function TacticalFormationBoardWidget({
     [activeLineup, selectedSlotNumber]
   );
 
+  const activeSlotProfiles = useMemo(
+    () => resolveSlotHeroProfiles(activeSlotEntry.heroName.en),
+    [activeSlotEntry]
+  );
+
+  const activeSlotGearSets = useMemo(
+    () =>
+      resolveGearSetAssetsFromText(
+        activeSlotEntry.slotReason[locale],
+        activeLineup.faction
+      ),
+    [activeSlotEntry, locale, activeLineup.faction]
+  );
+
   const activeSwap = useMemo(
     () =>
       arenaSwaps.find((s) => s.index === selectedSwapIdx) ?? arenaSwaps[0],
     [arenaSwaps, selectedSwapIdx]
   );
+
+  const activeSwapHeroProfiles = useMemo(() => {
+    if (!activeSwap) return [];
+    const combined = `${activeSwap.swapExecution} ${activeSwap.enemyThreat} ${activeSwap.scenarioTitle}`;
+    const extracted = extractHeroProfilesFromText(combined, 4);
+    if (extracted.length >= 2) return extracted;
+    const fallbacks = [
+      HERO_VISUAL_PROFILES["hero-wukong"],
+      HERO_VISUAL_PROFILES["hero-pyromancer"],
+      HERO_VISUAL_PROFILES["hero-adjudicator"],
+    ].filter(Boolean);
+    return fallbacks;
+  }, [activeSwap]);
 
   const rowsGrouped: Array<{
     zone: "frontline" | "midline_safe" | "backline_dive";
@@ -1184,10 +1232,11 @@ export function TacticalFormationBoardWidget({
 
       {mode === "board" ? (
         <div className="space-y-4">
-          {/* 6 Meta Lineup Selector Pills */}
+          {/* 6 Meta Lineup Selector Pills with Real Faction Crests */}
           <div className="flex flex-wrap items-center gap-2">
             {LINEUP_PRESETS.map((preset) => {
               const isSelected = preset.id === activeLineup.id;
+              const crestPath = FACTION_CREST_PATHS[preset.faction];
               return (
                 <button
                   key={preset.id}
@@ -1195,7 +1244,7 @@ export function TacticalFormationBoardWidget({
                   data-testid={`formation-lineup-pill-${preset.id}`}
                   onClick={() => setSelectedLineupId(preset.id)}
                   className={cn(
-                    "min-h-[44px] px-3.5 py-2 rounded-xl border text-xs font-heading font-bold transition-all cursor-pointer",
+                    "inline-flex items-center gap-2 min-h-[44px] px-3.5 py-2 rounded-xl border text-xs font-heading font-bold transition-all cursor-pointer",
                     isSelected
                       ? preset.faction === "horde"
                         ? "border-rose-500 bg-rose-500/15 text-rose-700 dark:text-rose-300 shadow-xs"
@@ -1205,7 +1254,14 @@ export function TacticalFormationBoardWidget({
                       : "border-border/70 bg-background/70 text-muted-foreground hover:text-foreground"
                   )}
                 >
-                  {preset.shortLabel[locale]}
+                  <img
+                    src={crestPath}
+                    alt={preset.faction}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-5 w-5 rounded-full object-contain shrink-0"
+                  />
+                  <span>{preset.shortLabel[locale]}</span>
                 </button>
               );
             })}
@@ -1214,8 +1270,15 @@ export function TacticalFormationBoardWidget({
           {/* Active Lineup Summary & Aura Bar */}
           <div className="rounded-xl border border-border/70 bg-muted/30 p-3.5 space-y-2.5">
             <div className="flex flex-wrap items-center justify-between gap-2">
-              <h4 className="font-heading font-bold text-sm sm:text-base text-foreground">
-                {activeLineup.fullTitle[locale]}
+              <h4 className="font-heading font-bold text-sm sm:text-base text-foreground flex items-center gap-2">
+                <img
+                  src={FACTION_CREST_PATHS[activeLineup.faction]}
+                  alt={activeLineup.faction}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-5 w-5 rounded-full object-contain shrink-0"
+                />
+                <span>{activeLineup.fullTitle[locale]}</span>
               </h4>
               <span className="font-mono text-xs text-amber-600 dark:text-amber-400 font-semibold">
                 {activeLineup.stageTiming[locale]}
@@ -1290,6 +1353,12 @@ export function TacticalFormationBoardWidget({
                   {rowGroup.slots.map((slot) => {
                     const isSlotActive =
                       slot.slotNumber === activeSlotEntry.slotNumber;
+                    const slotProfiles = resolveSlotHeroProfiles(
+                      slot.heroName.en
+                    );
+                    const primaryWeaponPath =
+                      slotProfiles[0]?.exclusiveWeaponPath;
+
                     return (
                       <button
                         key={slot.slotNumber}
@@ -1297,7 +1366,7 @@ export function TacticalFormationBoardWidget({
                         data-testid={`formation-slot-${slot.slotNumber}`}
                         onClick={() => setSelectedSlotNumber(slot.slotNumber)}
                         className={cn(
-                          "text-left rounded-xl border p-3.5 transition-all cursor-pointer space-y-2 min-h-[104px]",
+                          "text-left rounded-xl border p-3.5 transition-all cursor-pointer space-y-2.5 min-h-[112px]",
                           isSlotActive
                             ? "border-amber-500 bg-amber-500/15 shadow-sm ring-1 ring-amber-500/40"
                             : "border-border/75 bg-card/90 hover:border-amber-500/45"
@@ -1310,23 +1379,74 @@ export function TacticalFormationBoardWidget({
                           </span>
                           <span
                             className={cn(
-                              "rounded-md px-2 py-0.5 text-[11px] font-mono font-bold",
+                              "inline-flex items-center gap-1 rounded-md px-2 py-0.5 text-[11px] font-mono font-bold",
                               slot.rarity === "mythic"
                                 ? "bg-rose-500/15 text-rose-600 dark:text-rose-300 border border-rose-500/30"
                                 : "bg-amber-500/15 text-amber-600 dark:text-amber-300 border border-amber-500/30"
                             )}
                           >
-                            {slot.mvsSweetSpot[locale]}
+                            {primaryWeaponPath && (
+                              <img
+                                src={primaryWeaponPath}
+                                alt=""
+                                loading="lazy"
+                                decoding="async"
+                                className="h-3.5 w-3.5 rounded-xs object-contain shrink-0"
+                              />
+                            )}
+                            <span>{slot.mvsSweetSpot[locale]}</span>
                           </span>
                         </div>
 
-                        <div className="space-y-0.5">
-                          <p className="font-heading font-bold text-sm sm:text-base text-foreground">
-                            {slot.heroName[locale]}
-                          </p>
-                          <p className="text-xs font-medium text-amber-600 dark:text-amber-400">
-                            {slot.roleBadge[locale]}
-                          </p>
+                        {/* Visual Hero Avatar(s) + Name + Role Badge */}
+                        <div className="flex items-center gap-3">
+                          <div
+                            data-testid={`formation-slot-avatars-${slot.slotNumber}`}
+                            className="flex items-center -space-x-2.5 shrink-0"
+                          >
+                            {slotProfiles.length <= 1 ? (
+                              <GameAssetFrame
+                                src={
+                                  slotProfiles[0]?.avatarPath ??
+                                  "/images/heroes/avatars/Head_10025.webp"
+                                }
+                                alt={slot.heroName.en}
+                                rarity={slot.rarity}
+                                faction={
+                                  slotProfiles[0]?.faction ??
+                                  activeLineup.faction
+                                }
+                                size="lg"
+                              />
+                            ) : (
+                              slotProfiles.slice(0, 2).map((prof, pIdx) => (
+                                <div
+                                  key={prof.id}
+                                  className={cn(
+                                    "rounded-xl ring-2 ring-slate-950",
+                                    pIdx === 0 ? "z-10" : "z-0 opacity-95"
+                                  )}
+                                >
+                                  <GameAssetFrame
+                                    src={prof.avatarPath}
+                                    alt={prof.nameEn}
+                                    rarity={prof.rarity}
+                                    faction={prof.faction}
+                                    size="md"
+                                  />
+                                </div>
+                              ))
+                            )}
+                          </div>
+
+                          <div className="space-y-0.5 min-w-0">
+                            <p className="font-heading font-bold text-sm sm:text-base text-foreground truncate">
+                              {slot.heroName[locale]}
+                            </p>
+                            <p className="text-xs font-medium text-amber-600 dark:text-amber-400">
+                              {slot.roleBadge[locale]}
+                            </p>
+                          </div>
                         </div>
                       </button>
                     );
@@ -1336,21 +1456,86 @@ export function TacticalFormationBoardWidget({
             ))}
           </div>
 
-          {/* Active Slot Targeting Inspector */}
+          {/* Active Slot Targeting Inspector with Visual Loadout Strip */}
           <div
             data-testid="formation-slot-inspector"
-            className="rounded-xl border border-amber-500/40 bg-amber-500/10 p-4 space-y-1.5"
+            className="rounded-xl border border-amber-500/40 bg-amber-500/10 p-4 space-y-3"
           >
-            <div className="flex items-center justify-between gap-2">
+            <div className="flex flex-wrap items-center justify-between gap-2">
               <p className="text-xs font-heading font-bold text-amber-700 dark:text-amber-300">
                 {copy.selectedSlotHeading} {copy.slotPrefix}{" "}
                 {activeSlotEntry.slotNumber} (
                 {activeSlotEntry.heroName[locale]})
               </p>
             </div>
-            <p className="text-xs sm:text-sm text-foreground/95 leading-relaxed">
-              {activeSlotEntry.slotReason[locale]}
-            </p>
+
+            {/* Visual Loadout Strip: Hero Avatars + Exclusive Weapon + BiS Gear Set */}
+            <div
+              data-testid="formation-inspector-loadout"
+              className="flex flex-wrap items-center gap-2"
+            >
+              {activeSlotProfiles.map((prof) => (
+                <React.Fragment key={prof.id}>
+                  <span className="inline-flex items-center gap-2 rounded-xl border border-amber-500/35 bg-background/85 px-2.5 py-1.5 text-xs font-bold text-foreground">
+                    <GameAssetFrame
+                      src={prof.avatarPath}
+                      alt={prof.nameEn}
+                      rarity={prof.rarity}
+                      faction={prof.faction}
+                      size="sm"
+                    />
+                    <span>
+                      {locale === "vi" ? prof.nameVi : prof.nameEn}
+                    </span>
+                  </span>
+                  {prof.exclusiveWeaponPath && (
+                    <span className="inline-flex items-center gap-1.5 rounded-xl border border-rose-500/35 bg-rose-500/10 px-2.5 py-1.5 text-xs font-bold text-rose-600 dark:text-rose-300">
+                      <img
+                        src={prof.exclusiveWeaponPath}
+                        alt={copy.exclusiveWeaponChip}
+                        loading="lazy"
+                        decoding="async"
+                        className="h-5 w-5 rounded-sm object-contain shrink-0"
+                      />
+                      <span>
+                        {locale === "vi"
+                          ? prof.exclusiveWeaponNameVi ??
+                            copy.exclusiveWeaponChip
+                          : prof.exclusiveWeaponNameEn ??
+                            copy.exclusiveWeaponChip}
+                      </span>
+                    </span>
+                  )}
+                </React.Fragment>
+              ))}
+
+              {activeSlotGearSets.map((gear) => (
+                <span
+                  key={gear.id}
+                  className="inline-flex items-center gap-1.5 rounded-xl border border-emerald-500/35 bg-emerald-500/10 px-2.5 py-1.5 text-xs font-bold text-emerald-700 dark:text-emerald-300"
+                >
+                  <img
+                    src={gear.iconPath}
+                    alt={copy.gearSetChip}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-5 w-5 rounded-sm object-contain shrink-0"
+                  />
+                  <span>
+                    {locale === "vi" ? gear.inGameNameVi : gear.inGameNameEn}
+                  </span>
+                </span>
+              ))}
+            </div>
+
+            <div className="text-xs sm:text-sm text-foreground/95 leading-relaxed">
+              <RichGuideText
+                text={activeSlotEntry.slotReason[locale]}
+                locale={locale}
+                variant="inline"
+                accentColor="amber"
+              />
+            </div>
           </div>
         </div>
       ) : (
@@ -1404,14 +1589,57 @@ export function TacticalFormationBoardWidget({
                 </div>
               </div>
 
+              {/* Visual Swap Hero Avatars Diagram Row */}
+              <div
+                data-testid="arena-swap-visual-row"
+                className="rounded-xl border border-amber-500/30 bg-amber-500/[0.06] p-3 space-y-2"
+              >
+                <span className="block text-[11px] font-mono font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
+                  {copy.swapVisualHeading}
+                </span>
+                <div className="flex flex-wrap items-center gap-2.5">
+                  {activeSwapHeroProfiles.map((prof, idx) => (
+                    <React.Fragment key={prof.id}>
+                      <div className="inline-flex items-center gap-2 rounded-xl border border-border/80 bg-card/95 px-2.5 py-1.5">
+                        <GameAssetFrame
+                          src={prof.avatarPath}
+                          alt={prof.nameEn}
+                          rarity={prof.rarity}
+                          faction={prof.faction}
+                          size="md"
+                        />
+                        <div className="text-xs">
+                          <p className="font-heading font-bold text-foreground">
+                            {locale === "vi" ? prof.inGameNameVi : prof.inGameNameEn}
+                          </p>
+                          <p className="font-mono text-[10px] text-muted-foreground uppercase">
+                            {prof.faction}
+                          </p>
+                        </div>
+                      </div>
+                      {idx < activeSwapHeroProfiles.length - 1 && (
+                        <span className="inline-flex items-center justify-center h-7 w-7 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-500 font-mono text-xs font-black">
+                          ⇄
+                        </span>
+                      )}
+                    </React.Fragment>
+                  ))}
+                </div>
+              </div>
+
               <div className="rounded-xl border border-rose-500/30 bg-rose-500/5 p-3.5 space-y-1">
                 <p className="text-xs font-heading font-bold text-rose-600 dark:text-rose-400 flex items-center gap-1.5">
                   <AlertTriangle className="h-3.5 w-3.5" />
                   <span>{copy.threatLabel}</span>
                 </p>
-                <p className="text-xs sm:text-sm text-foreground/90 leading-relaxed">
-                  {activeSwap.enemyThreat}
-                </p>
+                <div className="text-xs sm:text-sm text-foreground/90 leading-relaxed">
+                  <RichGuideText
+                    text={activeSwap.enemyThreat}
+                    locale={locale}
+                    variant="inline"
+                    accentColor="rose"
+                  />
+                </div>
               </div>
 
               {hasProAccess ? (
@@ -1421,9 +1649,14 @@ export function TacticalFormationBoardWidget({
                       <Crown className="h-3.5 w-3.5 text-amber-500" />
                       <span>{copy.executionLabel}</span>
                     </p>
-                    <p className="text-xs sm:text-sm text-foreground/95 leading-relaxed">
-                      {activeSwap.swapExecution}
-                    </p>
+                    <div className="text-xs sm:text-sm text-foreground/95 leading-relaxed">
+                      <RichGuideText
+                        text={activeSwap.swapExecution}
+                        locale={locale}
+                        variant="inline"
+                        accentColor="amber"
+                      />
+                    </div>
                   </div>
 
                   <div className="rounded-xl border border-emerald-500/35 bg-emerald-500/10 p-3.5 space-y-1.5">
@@ -1431,9 +1664,14 @@ export function TacticalFormationBoardWidget({
                       <Sparkles className="h-3.5 w-3.5 text-emerald-500" />
                       <span>{copy.impactLabel}</span>
                     </p>
-                    <p className="text-xs sm:text-sm text-foreground/95 leading-relaxed">
-                      {activeSwap.combatImpact}
-                    </p>
+                    <div className="text-xs sm:text-sm text-foreground/95 leading-relaxed">
+                      <RichGuideText
+                        text={activeSwap.combatImpact}
+                        locale={locale}
+                        variant="inline"
+                        accentColor="emerald"
+                      />
+                    </div>
                   </div>
                 </div>
               ) : (
