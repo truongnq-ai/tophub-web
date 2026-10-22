@@ -2,13 +2,18 @@
 
 import React, { useState } from "react";
 import { Shield, Sparkles } from "lucide-react";
-import type { AssetFaction, AssetRarity } from "@/content/guides/types";
+import type {
+  AssetFaction,
+  AssetRarity,
+  GameAssetEntry,
+} from "@/content/guides/types";
 import { cn } from "@/lib/utils";
 
 export type GameAssetFrameSize = "xs" | "sm" | "md" | "lg" | "xl";
 
 export interface GameAssetFrameProps {
-  readonly src: string;
+  readonly src?: string;
+  readonly asset?: GameAssetEntry;
   readonly alt?: string;
   readonly size?: GameAssetFrameSize;
   readonly rarity?: AssetRarity;
@@ -94,6 +99,7 @@ const FACTION_CREST_PATHS: Record<Exclude<AssetFaction, "neutral">, string> = {
 
 export function GameAssetFrame({
   src,
+  asset,
   alt = "",
   size = "md",
   rarity = "common",
@@ -105,17 +111,24 @@ export function GameAssetFrame({
   const [hasError, setHasError] = useState(false);
   const [crestError, setCrestError] = useState(false);
 
+  const resolvedSrc = src ?? asset?.iconPath ?? "";
+  const resolvedAlt = alt || asset?.inGameNameEn || asset?.nameEn || "";
+  const resolvedRarity = asset?.rarity ?? rarity;
+  const resolvedFaction = asset?.faction ?? faction;
+
   const cfg = SIZE_CONFIG[size];
-  const rarityClass = RARITY_FRAME_CLASSES[rarity];
+  const rarityClass = RARITY_FRAME_CLASSES[resolvedRarity];
   const factionCrest =
-    faction && faction !== "neutral" ? FACTION_CREST_PATHS[faction] : undefined;
+    resolvedFaction && resolvedFaction !== "neutral"
+      ? FACTION_CREST_PATHS[resolvedFaction]
+      : undefined;
   const shouldRenderBadge =
     showFactionBadge && size !== "xs" && Boolean(factionCrest) && !crestError;
 
   return (
     <span
       data-testid="game-asset-frame"
-      data-rarity={rarity}
+      data-rarity={resolvedRarity}
       data-size={size}
       className={cn(
         "relative inline-flex items-center justify-center select-none",
@@ -125,13 +138,13 @@ export function GameAssetFrame({
         className
       )}
     >
-      {hasError || !src ? (
+      {hasError || !resolvedSrc ? (
         <span
           data-testid="asset-frame-fallback"
           aria-hidden="true"
           className="inline-flex items-center justify-center w-full h-full"
         >
-          {rarity === "mythic" || rarity === "legendary" ? (
+          {resolvedRarity === "mythic" || resolvedRarity === "legendary" ? (
             <Sparkles className={cfg.iconClass} />
           ) : (
             <Shield className={cfg.iconClass} />
@@ -139,9 +152,9 @@ export function GameAssetFrame({
         </span>
       ) : (
         <img
-          src={src}
-          alt={alt}
-          aria-hidden={alt === "" ? "true" : undefined}
+          src={resolvedSrc}
+          alt={resolvedAlt}
+          aria-hidden={resolvedAlt === "" ? "true" : undefined}
           loading="lazy"
           decoding="async"
           width={cfg.px}

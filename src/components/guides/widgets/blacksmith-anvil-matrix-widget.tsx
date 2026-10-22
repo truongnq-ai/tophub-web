@@ -21,6 +21,12 @@ import type {
 import { ARTICLE_5_2_GOLDEN_GEAR_SETS } from "@/content/guides/groups/group-5/5.2-golden-gear-sets";
 import { useUidSession } from "@/hooks/use-uid-session";
 import { RichGuideText } from "@/components/guides/blocks/rich-guide-text";
+import { GameAssetFrame } from "@/components/guides/media/game-asset-frame";
+import {
+  extractHeroProfilesFromText,
+  getAssetById,
+  resolveGearSetAssetsFromText,
+} from "@/content/guides/asset-registry";
 
 export interface BlacksmithAnvilMatrixWidgetProps {
   article?: GuideArticle;
@@ -58,6 +64,33 @@ const CONSOLIDATED_IDS = [
   "sub-4-2-carry-dps-bis-table",
   "sub-4-3-support-healer-control-bis-table",
 ] as const;
+
+const ANVIL_SET_SLOT_ICONS: Record<AnvilSetId, readonly string[]> = {
+  knights_glory: [
+    "gear-slot-weapon-knight",
+    "gear-slot-helmet-knight",
+    "gear-slot-armor-knight",
+    "gear-slot-boots-knight",
+  ],
+  titan_blood: [
+    "gear-slot-weapon-titan",
+    "gear-slot-helmet-titan",
+    "gear-slot-armor-titan",
+    "gear-slot-boots-titan",
+  ],
+  sage_glory: [
+    "gear-slot-weapon-sage",
+    "gear-slot-helmet-sage",
+    "gear-slot-armor-sage",
+    "gear-slot-boots-sage",
+  ],
+};
+
+const FACTION_MARK_BADGE: Record<"league" | "horde" | "nature", string> = {
+  league: "/images/factions/race_alliance.webp",
+  horde: "/images/factions/race_horde.webp",
+  nature: "/images/factions/race_nature.webp",
+};
 
 const ANVIL_ROWS: AnvilRowMeta[] = [
   {
@@ -265,10 +298,14 @@ export function BlacksmithAnvilMatrixWidget({
             </span>
           </div>
           <h3 className="text-lg sm:text-xl font-bold text-white">
-            {t("widgetAnvilTitle")}
+            {locale === "vi"
+              ? t("widgetAnvilTitle")
+              : "3×4 Blacksmith Anvil Matrix & 24-Hero BiS Gear Explorer"}
           </h3>
           <p className="text-xs sm:text-sm text-slate-300">
-            {t("widgetAnvilSubtitle")}
+            {locale === "vi"
+              ? t("widgetAnvilSubtitle")
+              : "Decode the 3 Golden Gear Sets, enforce the Column 4 Unmarked Forge Taboo, and filter Best-in-Slot sets across 24 core heroes."}
           </p>
         </div>
 
@@ -295,99 +332,182 @@ export function BlacksmithAnvilMatrixWidget({
 
       {/* 3x4 Blacksmith Anvil Matrix */}
       <div className="mt-5 space-y-3">
-        {ANVIL_ROWS.map((row) => (
-          <div
-            key={row.id}
-            data-testid={`anvil-row-${row.id}`}
-            className="rounded-xl border border-white/10 bg-[#0B0E14]/90 p-3.5 sm:p-4"
-          >
-            <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-              <div>
-                <span className="rounded bg-amber-500/15 px-2 py-0.5 font-mono text-[11px] font-bold text-amber-300">
-                  {row.rowLabel[locale]}
-                </span>
-                <h4 className="mt-1 text-sm sm:text-base font-bold text-white">
-                  {row.setName[locale]}
-                </h4>
-                <p className="mt-0.5 text-xs text-slate-300">
-                  {row.archetype[locale]}
-                </p>
+        {ANVIL_ROWS.map((row) => {
+          const primarySlotAsset = getAssetById(ANVIL_SET_SLOT_ICONS[row.id][0]);
+          return (
+            <div
+              key={row.id}
+              data-testid={`anvil-row-${row.id}`}
+              className="rounded-xl border border-white/10 bg-[#0B0E14]/90 p-3.5 sm:p-4"
+            >
+              <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <span className="rounded bg-amber-500/15 px-2 py-0.5 font-mono text-[11px] font-bold text-amber-300">
+                    {row.rowLabel[locale]}
+                  </span>
+                  <h4 className="mt-1 text-sm sm:text-base font-bold text-white">
+                    {row.setName[locale]}
+                  </h4>
+                  <p className="mt-0.5 text-xs text-slate-300">
+                    {row.archetype[locale]}
+                  </p>
+                  <div
+                    data-testid={`anvil-set-icons-${row.id}`}
+                    className="mt-2 flex items-center gap-1.5"
+                  >
+                    {ANVIL_SET_SLOT_ICONS[row.id].map((assetId) => {
+                      const slotAsset = getAssetById(assetId);
+                      if (!slotAsset) return null;
+                      return (
+                        <GameAssetFrame
+                          key={assetId}
+                          asset={slotAsset}
+                          size="sm"
+                          showFactionBadge={false}
+                        />
+                      );
+                    })}
+                  </div>
+                </div>
+                <div className="flex flex-wrap gap-1.5 text-[11px]">
+                  <span className="rounded-lg border border-amber-500/30 bg-amber-500/10 px-2.5 py-1 font-mono font-semibold text-amber-200">
+                    {row.twoPieceBonus[locale]}
+                  </span>
+                  <span className="rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-1 font-mono font-semibold text-emerald-200">
+                    {row.fourPieceBonus[locale]}
+                  </span>
+                </div>
               </div>
-              <div className="flex flex-wrap gap-1.5 text-[11px]">
-                <span className="rounded-lg border border-amber-500/30 bg-amber-500/10 px-2.5 py-1 font-mono font-semibold text-amber-200">
-                  {row.twoPieceBonus[locale]}
-                </span>
-                <span className="rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-1 font-mono font-semibold text-emerald-200">
-                  {row.fourPieceBonus[locale]}
-                </span>
+
+              {/* 4 Blacksmith Columns */}
+              <div className="mt-3 grid grid-cols-2 gap-2 lg:grid-cols-4">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setRoleFilter(row.linkedRole);
+                    setFactionFilter("league");
+                  }}
+                  className="min-h-11 flex items-center justify-between rounded-lg border border-blue-500/35 bg-blue-500/10 px-3 py-2 text-left text-xs text-blue-100 transition hover:bg-blue-500/20"
+                >
+                  <span className="inline-flex items-center gap-2 font-bold">
+                    <span
+                      data-testid={`anvil-col-icon-${row.id}-league`}
+                      className="relative inline-flex shrink-0 items-center"
+                    >
+                      {primarySlotAsset && (
+                        <GameAssetFrame
+                          asset={primarySlotAsset}
+                          size="xs"
+                          showFactionBadge={false}
+                        />
+                      )}
+                      <img
+                        src={FACTION_MARK_BADGE.league}
+                        alt="League Faction Mark"
+                        loading="lazy"
+                        decoding="async"
+                        className="-ml-1.5 h-3.5 w-3.5 rounded-full border border-slate-900 bg-slate-950 object-contain"
+                      />
+                    </span>
+                    <span>
+                      {locale === "vi" ? "Cột 1: 🔵 Liên Minh" : "Col 1: 🔵 League"}
+                    </span>
+                  </span>
+                  <span className="rounded bg-emerald-500/20 px-1.5 py-0.5 font-mono text-[11px] font-bold text-emerald-300">
+                    +30% Stats
+                  </span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    setRoleFilter(row.linkedRole);
+                    setFactionFilter("horde");
+                  }}
+                  className="min-h-11 flex items-center justify-between rounded-lg border border-rose-500/35 bg-rose-500/10 px-3 py-2 text-left text-xs text-rose-100 transition hover:bg-rose-500/20"
+                >
+                  <span className="inline-flex items-center gap-2 font-bold">
+                    <span
+                      data-testid={`anvil-col-icon-${row.id}-horde`}
+                      className="relative inline-flex shrink-0 items-center"
+                    >
+                      {primarySlotAsset && (
+                        <GameAssetFrame
+                          asset={primarySlotAsset}
+                          size="xs"
+                          showFactionBadge={false}
+                        />
+                      )}
+                      <img
+                        src={FACTION_MARK_BADGE.horde}
+                        alt="Horde Faction Mark"
+                        loading="lazy"
+                        decoding="async"
+                        className="-ml-1.5 h-3.5 w-3.5 rounded-full border border-slate-900 bg-slate-950 object-contain"
+                      />
+                    </span>
+                    <span>
+                      {locale === "vi" ? "Cột 2: 🔴 Bộ Lạc" : "Col 2: 🔴 Horde"}
+                    </span>
+                  </span>
+                  <span className="rounded bg-emerald-500/20 px-1.5 py-0.5 font-mono text-[11px] font-bold text-emerald-300">
+                    +30% Stats
+                  </span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    setRoleFilter(row.linkedRole);
+                    setFactionFilter("nature");
+                  }}
+                  className="min-h-11 flex items-center justify-between rounded-lg border border-emerald-500/35 bg-emerald-500/10 px-3 py-2 text-left text-xs text-emerald-100 transition hover:bg-emerald-500/20"
+                >
+                  <span className="inline-flex items-center gap-2 font-bold">
+                    <span
+                      data-testid={`anvil-col-icon-${row.id}-nature`}
+                      className="relative inline-flex shrink-0 items-center"
+                    >
+                      {primarySlotAsset && (
+                        <GameAssetFrame
+                          asset={primarySlotAsset}
+                          size="xs"
+                          showFactionBadge={false}
+                        />
+                      )}
+                      <img
+                        src={FACTION_MARK_BADGE.nature}
+                        alt="Nature Faction Mark"
+                        loading="lazy"
+                        decoding="async"
+                        className="-ml-1.5 h-3.5 w-3.5 rounded-full border border-slate-900 bg-slate-950 object-contain"
+                      />
+                    </span>
+                    <span>
+                      {locale === "vi"
+                        ? "Cột 3: 🟢 Thiên Nhiên"
+                        : "Col 3: 🟢 Nature"}
+                    </span>
+                  </span>
+                  <span className="rounded bg-emerald-500/20 px-1.5 py-0.5 font-mono text-[11px] font-bold text-emerald-300">
+                    +30% Stats
+                  </span>
+                </button>
+
+                <div className="min-h-11 flex items-center justify-between rounded-lg border border-rose-500/40 bg-rose-950/40 px-3 py-2 text-xs text-rose-300 opacity-85">
+                  <span className="font-bold line-through">
+                    {locale === "vi"
+                      ? "Cột 4: ⚪ Không Hệ"
+                      : "Col 4: ⚪ Unmarked"}
+                  </span>
+                  <span className="rounded bg-rose-500/30 px-1.5 py-0.5 font-mono text-[10px] font-bold uppercase text-rose-200">
+                    {locale === "vi" ? "❌ CẤM ĐÚC" : "❌ FORBIDDEN"}
+                  </span>
+                </div>
               </div>
             </div>
-
-            {/* 4 Blacksmith Columns */}
-            <div className="mt-3 grid grid-cols-2 gap-2 lg:grid-cols-4">
-              <button
-                type="button"
-                onClick={() => {
-                  setRoleFilter(row.linkedRole);
-                  setFactionFilter("league");
-                }}
-                className="min-h-11 flex items-center justify-between rounded-lg border border-blue-500/35 bg-blue-500/10 px-3 py-2 text-left text-xs text-blue-100 transition hover:bg-blue-500/20"
-              >
-                <span className="font-bold">
-                  {locale === "vi" ? "Cột 1: 🔵 Liên Minh" : "Col 1: 🔵 League"}
-                </span>
-                <span className="rounded bg-emerald-500/20 px-1.5 py-0.5 font-mono text-[11px] font-bold text-emerald-300">
-                  +30% Stats
-                </span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => {
-                  setRoleFilter(row.linkedRole);
-                  setFactionFilter("horde");
-                }}
-                className="min-h-11 flex items-center justify-between rounded-lg border border-rose-500/35 bg-rose-500/10 px-3 py-2 text-left text-xs text-rose-100 transition hover:bg-rose-500/20"
-              >
-                <span className="font-bold">
-                  {locale === "vi" ? "Cột 2: 🔴 Bộ Lạc" : "Col 2: 🔴 Horde"}
-                </span>
-                <span className="rounded bg-emerald-500/20 px-1.5 py-0.5 font-mono text-[11px] font-bold text-emerald-300">
-                  +30% Stats
-                </span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => {
-                  setRoleFilter(row.linkedRole);
-                  setFactionFilter("nature");
-                }}
-                className="min-h-11 flex items-center justify-between rounded-lg border border-emerald-500/35 bg-emerald-500/10 px-3 py-2 text-left text-xs text-emerald-100 transition hover:bg-emerald-500/20"
-              >
-                <span className="font-bold">
-                  {locale === "vi"
-                    ? "Cột 3: 🟢 Thiên Nhiên"
-                    : "Col 3: 🟢 Nature"}
-                </span>
-                <span className="rounded bg-emerald-500/20 px-1.5 py-0.5 font-mono text-[11px] font-bold text-emerald-300">
-                  +30% Stats
-                </span>
-              </button>
-
-              <div className="min-h-11 flex items-center justify-between rounded-lg border border-rose-500/40 bg-rose-950/40 px-3 py-2 text-xs text-rose-300 opacity-85">
-                <span className="font-bold line-through">
-                  {locale === "vi"
-                    ? "Cột 4: ⚪ Không Hệ"
-                    : "Col 4: ⚪ Unmarked"}
-                </span>
-                <span className="rounded bg-rose-500/30 px-1.5 py-0.5 font-mono text-[10px] font-bold uppercase text-rose-200">
-                  {locale === "vi" ? "❌ CẤM ĐÚC" : "❌ FORBIDDEN"}
-                </span>
-              </div>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       {/* 24-Hero BiS Gear Explorer */}
@@ -502,69 +622,99 @@ export function BlacksmithAnvilMatrixWidget({
 
         {/* Hero BiS Cards */}
         <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
-          {filteredHeroRows.map((row) => (
-            <div
-              key={row.index}
-              data-testid={`bis-hero-row-${row.index}`}
-              className="rounded-xl border border-white/10 bg-white/[0.02] p-3.5 transition hover:border-amber-500/30"
-            >
-              <div className="flex items-start justify-between gap-2">
-                <div className="text-xs sm:text-sm font-bold text-white">
+          {filteredHeroRows.map((row) => {
+            const heroProfile = extractHeroProfilesFromText(row.heroAndFaction, 1)[0];
+            const heroAsset = heroProfile ? getAssetById(heroProfile.id) : undefined;
+            const bisSetAsset =
+              resolveGearSetAssetsFromText(row.primaryBisSet, row.faction)[0] ??
+              getAssetById("gear-set-knights-glory");
+
+            return (
+              <div
+                key={row.index}
+                data-testid={`bis-hero-row-${row.index}`}
+                className="rounded-xl border border-white/10 bg-white/[0.02] p-3.5 transition hover:border-amber-500/30"
+              >
+                <div className="flex items-start justify-between gap-2">
+                  <div className="flex items-center gap-2.5">
+                    {heroAsset && (
+                      <span
+                        data-testid={`bis-hero-avatar-${row.index}`}
+                        className="shrink-0"
+                      >
+                        <GameAssetFrame asset={heroAsset} size="sm" />
+                      </span>
+                    )}
+                    <div className="text-xs sm:text-sm font-bold text-white">
+                      <RichGuideText
+                        text={row.heroAndFaction}
+                        variant="inline"
+                        accentColor="amber"
+                      />
+                    </div>
+                  </div>
+                  <span className="shrink-0 rounded bg-white/10 px-2 py-0.5 font-mono text-[10px] uppercase text-slate-300">
+                    {row.role === "tank" ? (
+                      <span className="inline-flex items-center gap-1 text-amber-300">
+                        <Shield className="h-3 w-3" /> Tank
+                      </span>
+                    ) : row.role === "carry" ? (
+                      <span className="inline-flex items-center gap-1 text-rose-300">
+                        <Swords className="h-3 w-3" /> Carry
+                      </span>
+                    ) : (
+                      <span className="inline-flex items-center gap-1 text-emerald-300">
+                        <Zap className="h-3 w-3" /> Support
+                      </span>
+                    )}
+                  </span>
+                </div>
+
+                <div className="mt-2 rounded-lg border border-amber-500/25 bg-amber-500/10 px-2.5 py-1.5 text-xs font-semibold text-amber-200">
+                  <span className="inline-flex items-center gap-1.5">
+                    {bisSetAsset && (
+                      <span
+                        data-testid={`bis-set-icon-${row.index}`}
+                        className="shrink-0"
+                      >
+                        <GameAssetFrame
+                          asset={bisSetAsset}
+                          size="xs"
+                          showFactionBadge={false}
+                        />
+                      </span>
+                    )}
+                    <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-amber-400" />
+                    <span>
+                      BiS #1:{" "}
+                      <RichGuideText
+                        text={row.primaryBisSet}
+                        variant="inline"
+                        accentColor="amber"
+                      />
+                    </span>
+                  </span>
+                </div>
+
+                <div className="mt-1.5 text-[11px] text-slate-300">
+                  <span className="font-semibold text-slate-400">
+                    {locale === "vi" ? "Phương án phụ: " : "Alt Set: "}
+                  </span>
                   <RichGuideText
-                    text={row.heroAndFaction}
+                    text={row.altSet}
                     variant="inline"
-                    accentColor="amber"
+                    accentColor="neutral"
                   />
                 </div>
-                <span className="shrink-0 rounded bg-white/10 px-2 py-0.5 font-mono text-[10px] uppercase text-slate-300">
-                  {row.role === "tank" ? (
-                    <span className="inline-flex items-center gap-1 text-amber-300">
-                      <Shield className="h-3 w-3" /> Tank
-                    </span>
-                  ) : row.role === "carry" ? (
-                    <span className="inline-flex items-center gap-1 text-rose-300">
-                      <Swords className="h-3 w-3" /> Carry
-                    </span>
-                  ) : (
-                    <span className="inline-flex items-center gap-1 text-emerald-300">
-                      <Zap className="h-3 w-3" /> Support
-                    </span>
-                  )}
-                </span>
-              </div>
 
-              <div className="mt-2 rounded-lg border border-amber-500/25 bg-amber-500/10 px-2.5 py-1.5 text-xs font-semibold text-amber-200">
-                <span className="inline-flex items-center gap-1">
-                  <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-amber-400" />
-                  <span>
-                    BiS #1:{" "}
-                    <RichGuideText
-                      text={row.primaryBisSet}
-                      variant="inline"
-                      accentColor="amber"
-                    />
-                  </span>
-                </span>
-              </div>
-
-              <div className="mt-1.5 text-[11px] text-slate-300">
-                <span className="font-semibold text-slate-400">
-                  {locale === "vi" ? "Phương án phụ: " : "Alt Set: "}
-                </span>
                 <RichGuideText
-                  text={row.altSet}
-                  variant="inline"
-                  accentColor="neutral"
+                  text={row.rationale}
+                  accentColor="amber"
+                  className="mt-2 border-t border-white/10 pt-2 text-xs leading-relaxed text-slate-300"
                 />
               </div>
-
-              <RichGuideText
-                text={row.rationale}
-                accentColor="amber"
-                className="mt-2 border-t border-white/10 pt-2 text-xs leading-relaxed text-slate-300"
-              />
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </div>

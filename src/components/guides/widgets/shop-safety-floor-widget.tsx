@@ -9,10 +9,10 @@ import {
   Lock,
   ShieldAlert,
   ShoppingBag,
-  Sparkles,
   TrendingUp,
 } from "lucide-react";
 import type {
+  GameAssetEntry,
   GuideArticle,
   GuideLocale,
   GuideTableBlock,
@@ -20,6 +20,11 @@ import type {
 import { ARTICLE_7_1_SHOPS_TIER_LIST } from "@/content/guides/groups/group-7/7.1-shops-tier-list";
 import { useUidSession } from "@/hooks/use-uid-session";
 import { RichGuideText } from "@/components/guides/blocks/rich-guide-text";
+import { GameAssetFrame } from "@/components/guides/media/game-asset-frame";
+import {
+  getAssetById,
+  resolveEntityFromTableCell,
+} from "@/content/guides/asset-registry";
 
 export interface ShopSafetyFloorWidgetProps {
   article?: GuideArticle;
@@ -53,6 +58,55 @@ const CONSOLIDATED_IDS = [
   "sub-1-2-thirteen-shops-master-map",
   "sub-4-1-diamond-equivalent-roi-matrix",
 ] as const;
+
+const SHOP_CURRENCY_ICON_BY_NUMBER: Record<number, string> = {
+  1: "shop-arena-star",
+  2: "shop-guild-point",
+  3: "shop-valor-coin",
+  4: "shop-clash-coin",
+  5: "item-guild-honor",
+  6: "item-diamond",
+  7: "item-universal-shard",
+  8: "event-fortune-wheel",
+  9: "event-dice-of-fate",
+  10: "item-glory-medal",
+  11: "item-kingdom-emblem",
+  12: "item-invasion-coin",
+  13: "item-decor-token",
+};
+
+function resolveShopItemAsset(
+  itemName: string,
+  bucket: "must_sweep" | "surplus" | "forbidden"
+): GameAssetEntry | undefined {
+  const direct = resolveEntityFromTableCell(itemName);
+  if (direct) return direct;
+  const lower = itemName.toLowerCase();
+  if (/diamond|kim cương|kc\b/.test(lower)) return getAssetById("item-diamond");
+  if (/soul stone|hồn đá/.test(lower)) return getAssetById("item-soul-stone");
+  if (/vip/.test(lower)) return getAssetById("item-vip-points");
+  if (/stamina|thể lực/.test(lower)) return getAssetById("item-stamina-potion");
+  if (/shield|khiên/.test(lower)) return getAssetById("item-peace-shield");
+  if (/skin|quân trang|trang phục/.test(lower))
+    return getAssetById("troop-skin-samurai");
+  if (/orichalcum|bản vẽ/.test(lower))
+    return getAssetById("item-lord-orichalcum");
+  if (/dragon blood|máu rồng/.test(lower))
+    return getAssetById("item-lord-dragon-blood");
+  if (/promotion|đá thăng cấp/.test(lower))
+    return getAssetById("item-promotion-stone");
+  if (/exclusive|vũ khí độc quyền/.test(lower))
+    return getAssetById("gear-exclusive-weapon");
+  if (/relic|thánh vật/.test(lower)) return getAssetById("relic-eternal-wings");
+  if (/pet|thú cưng/.test(lower)) return getAssetById("item-pet-essence");
+  if (/decor|trang trí/.test(lower)) return getAssetById("item-decor-token");
+  if (/speed|tăng tốc/.test(lower)) return getAssetById("item-speedup");
+  if (/book|sách/.test(lower)) return getAssetById("item-skill-book");
+  if (/shard|mảnh/.test(lower)) return getAssetById("item-universal-shard");
+  if (bucket === "must_sweep") return getAssetById("item-universal-shard");
+  if (bucket === "surplus") return getAssetById("item-speedup");
+  return getAssetById("item-stamina");
+}
 
 const SHOP_SAFETY_FLOORS: Record<
   number,
@@ -249,7 +303,7 @@ const SHOP_SAFETY_FLOORS: Record<
       en: "After unlocking core Troop Skins, spend surplus on 60m Speed-ups.",
     },
     forbiddenTrap: {
-      vi: "Cấm mua lặp lại mảnh Skin đã满 hoặc đổi tài nguyên thô!",
+      vi: "Cấm mua lặp lại mảnh Skin đã tối đa hoặc đổi tài nguyên thô!",
       en: "Never over-buy maxed skin fragments or raw resources!",
     },
     roiKeywords: ["Medal Shop", "Mọi Cửa Hàng", "All Shops"],
@@ -433,6 +487,9 @@ export function ShopSafetyFloorWidget({
     shops.find((s) => s.shopNumber === activeShopNumber) ?? shops[0];
   const activeFloorMeta =
     SHOP_SAFETY_FLOORS[activeShopNumber] ?? SHOP_SAFETY_FLOORS[1];
+  const activeCurrencyAsset = getAssetById(
+    SHOP_CURRENCY_ICON_BY_NUMBER[activeShopNumber] ?? "shop-arena-star"
+  );
 
   const matchingRoiItems = useMemo(() => {
     const keywords = activeFloorMeta.roiKeywords;
@@ -450,6 +507,15 @@ export function ShopSafetyFloorWidget({
   const forbiddenItems = matchingRoiItems.filter(
     (i) => i.bucket === "forbidden"
   );
+
+  const widgetTitleText =
+    locale === "vi"
+      ? t("widgetShopSafetyTitle")
+      : "13 In-Game Shops • Safety Floors & Diamond Equivalent ROI";
+  const widgetSubtitleText =
+    locale === "vi"
+      ? t("widgetShopSafetySubtitle")
+      : "Interactive Safety Floor calculator and 3-bucket priority board (Must-Sweep, Surplus Only, Forbidden Traps) across all 13 Top Heroes shops.";
 
   return (
     <div
@@ -479,10 +545,10 @@ export function ShopSafetyFloorWidget({
             </span>
           </div>
           <h3 className="text-lg sm:text-xl font-bold text-white">
-            {t("widgetShopSafetyTitle")}
+            {widgetTitleText}
           </h3>
           <p className="text-xs sm:text-sm text-slate-300">
-            {t("widgetShopSafetySubtitle")}
+            {widgetSubtitleText}
           </p>
         </div>
 
@@ -518,12 +584,15 @@ export function ShopSafetyFloorWidget({
       {/* 13 Shop Selector Pills */}
       <div
         role="tablist"
-        aria-label={t("widgetShopSafetyTitle")}
+        aria-label={widgetTitleText}
         className="mt-4 flex flex-wrap gap-2"
       >
         {visibleShops.map((shop) => {
           const isActive = shop.shopNumber === activeShopNumber;
           const shortName = shop.shopName.split("(")[0].trim();
+          const currencyAsset = getAssetById(
+            SHOP_CURRENCY_ICON_BY_NUMBER[shop.shopNumber] ?? "shop-arena-star"
+          );
           return (
             <button
               key={shop.shopNumber}
@@ -538,6 +607,18 @@ export function ShopSafetyFloorWidget({
                   : "border-white/10 bg-white/[0.03] text-slate-300 hover:border-white/20 hover:bg-white/[0.07]"
               }`}
             >
+              {currencyAsset && (
+                <span
+                  data-testid={`shop-pill-icon-${shop.shopNumber}`}
+                  className="shrink-0"
+                >
+                  <GameAssetFrame
+                    asset={currencyAsset}
+                    size="xs"
+                    showFactionBadge={false}
+                  />
+                </span>
+              )}
               <span
                 className={`flex h-5 w-5 items-center justify-center rounded-full font-mono text-[10px] ${
                   isActive
@@ -569,7 +650,19 @@ export function ShopSafetyFloorWidget({
                 {activeShop.shopName}
               </h4>
             </div>
-            <span className="inline-flex items-center gap-1.5 rounded-lg border border-amber-400/40 bg-black/40 px-3 py-1.5 font-mono text-xs font-bold text-amber-300">
+            <span className="inline-flex items-center gap-2 rounded-lg border border-amber-400/40 bg-black/40 px-3 py-1.5 font-mono text-xs font-bold text-amber-300">
+              {activeCurrencyAsset && (
+                <span
+                  data-testid="shop-floor-currency-icon"
+                  className="shrink-0"
+                >
+                  <GameAssetFrame
+                    asset={activeCurrencyAsset}
+                    size="xs"
+                    showFactionBadge={false}
+                  />
+                </span>
+              )}
               <Coins className="h-3.5 w-3.5 text-amber-400" />
               {activeFloorMeta.floorBadge[locale]}
             </span>
@@ -625,43 +718,58 @@ export function ShopSafetyFloorWidget({
           )}
 
           <div className="mt-2.5 space-y-2">
-            {mustSweepItems.map((item, idx) => (
-              <div
-                key={idx}
-                className="rounded-lg border border-white/10 bg-black/25 p-2.5 text-xs"
-              >
-                <div className="flex items-center justify-between gap-2 font-bold text-white">
-                  <span>
+            {mustSweepItems.map((item, idx) => {
+              const itemAsset = resolveShopItemAsset(
+                item.itemName,
+                "must_sweep"
+              );
+              return (
+                <div
+                  key={idx}
+                  className="rounded-lg border border-white/10 bg-black/25 p-2.5 text-xs"
+                >
+                  <div className="flex items-center justify-between gap-2 font-bold text-white">
+                    <span className="inline-flex items-center gap-2">
+                      {itemAsset && (
+                        <GameAssetFrame
+                          asset={itemAsset}
+                          size="xs"
+                          showFactionBadge={false}
+                        />
+                      )}
+                      <span>
+                        <RichGuideText
+                          text={item.itemName}
+                          variant="inline"
+                          accentColor="emerald"
+                        />
+                      </span>
+                    </span>
+                    <span className="shrink-0 rounded bg-emerald-500/20 px-1.5 py-0.5 font-mono text-[10px] text-emerald-300">
+                      {item.tier}
+                    </span>
+                  </div>
+                  <div className="mt-1 font-mono text-[11px] text-amber-300">
                     <RichGuideText
-                      text={item.itemName}
+                      text={item.costAndCap}
                       variant="inline"
-                      accentColor="emerald"
+                      accentColor="amber"
+                    />{" "}
+                    ➔{" "}
+                    <RichGuideText
+                      text={item.diamondValue}
+                      variant="inline"
+                      accentColor="amber"
                     />
-                  </span>
-                  <span className="shrink-0 rounded bg-emerald-500/20 px-1.5 py-0.5 font-mono text-[10px] text-emerald-300">
-                    {item.tier}
-                  </span>
-                </div>
-                <div className="mt-1 font-mono text-[11px] text-amber-300">
+                  </div>
                   <RichGuideText
-                    text={item.costAndCap}
-                    variant="inline"
-                    accentColor="amber"
-                  />{" "}
-                  ➔{" "}
-                  <RichGuideText
-                    text={item.diamondValue}
-                    variant="inline"
-                    accentColor="amber"
+                    text={item.roiDirective}
+                    accentColor="emerald"
+                    className="mt-1 text-[11px] text-slate-300"
                   />
                 </div>
-                <RichGuideText
-                  text={item.roiDirective}
-                  accentColor="emerald"
-                  className="mt-1 text-[11px] text-slate-300"
-                />
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
@@ -691,43 +799,55 @@ export function ShopSafetyFloorWidget({
           </div>
 
           <div className="mt-2.5 space-y-2">
-            {surplusItems.map((item, idx) => (
-              <div
-                key={idx}
-                className="rounded-lg border border-white/10 bg-black/25 p-2.5 text-xs"
-              >
-                <div className="flex items-center justify-between gap-2 font-bold text-white">
-                  <span>
+            {surplusItems.map((item, idx) => {
+              const itemAsset = resolveShopItemAsset(item.itemName, "surplus");
+              return (
+                <div
+                  key={idx}
+                  className="rounded-lg border border-white/10 bg-black/25 p-2.5 text-xs"
+                >
+                  <div className="flex items-center justify-between gap-2 font-bold text-white">
+                    <span className="inline-flex items-center gap-2">
+                      {itemAsset && (
+                        <GameAssetFrame
+                          asset={itemAsset}
+                          size="xs"
+                          showFactionBadge={false}
+                        />
+                      )}
+                      <span>
+                        <RichGuideText
+                          text={item.itemName}
+                          variant="inline"
+                          accentColor="amber"
+                        />
+                      </span>
+                    </span>
+                    <span className="shrink-0 rounded bg-amber-500/20 px-1.5 py-0.5 font-mono text-[10px] text-amber-300">
+                      {item.tier}
+                    </span>
+                  </div>
+                  <div className="mt-1 font-mono text-[11px] text-amber-300">
                     <RichGuideText
-                      text={item.itemName}
+                      text={item.costAndCap}
+                      variant="inline"
+                      accentColor="amber"
+                    />{" "}
+                    ➔{" "}
+                    <RichGuideText
+                      text={item.diamondValue}
                       variant="inline"
                       accentColor="amber"
                     />
-                  </span>
-                  <span className="shrink-0 rounded bg-amber-500/20 px-1.5 py-0.5 font-mono text-[10px] text-amber-300">
-                    {item.tier}
-                  </span>
-                </div>
-                <div className="mt-1 font-mono text-[11px] text-amber-300">
+                  </div>
                   <RichGuideText
-                    text={item.costAndCap}
-                    variant="inline"
+                    text={item.roiDirective}
                     accentColor="amber"
-                  />{" "}
-                  ➔{" "}
-                  <RichGuideText
-                    text={item.diamondValue}
-                    variant="inline"
-                    accentColor="amber"
+                    className="mt-1 text-[11px] text-slate-300"
                   />
                 </div>
-                <RichGuideText
-                  text={item.roiDirective}
-                  accentColor="amber"
-                  className="mt-1 text-[11px] text-slate-300"
-                />
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
@@ -755,43 +875,58 @@ export function ShopSafetyFloorWidget({
           </div>
 
           <div className="mt-2.5 space-y-2">
-            {forbiddenItems.map((item, idx) => (
-              <div
-                key={idx}
-                className="rounded-lg border border-rose-500/25 bg-black/25 p-2.5 text-xs"
-              >
-                <div className="flex items-center justify-between gap-2 font-bold text-rose-200">
-                  <span>
+            {forbiddenItems.map((item, idx) => {
+              const itemAsset = resolveShopItemAsset(
+                item.itemName,
+                "forbidden"
+              );
+              return (
+                <div
+                  key={idx}
+                  className="rounded-lg border border-rose-500/25 bg-black/25 p-2.5 text-xs"
+                >
+                  <div className="flex items-center justify-between gap-2 font-bold text-rose-200">
+                    <span className="inline-flex items-center gap-2">
+                      {itemAsset && (
+                        <GameAssetFrame
+                          asset={itemAsset}
+                          size="xs"
+                          showFactionBadge={false}
+                        />
+                      )}
+                      <span>
+                        <RichGuideText
+                          text={item.itemName}
+                          variant="inline"
+                          accentColor="rose"
+                        />
+                      </span>
+                    </span>
+                    <span className="shrink-0 rounded bg-rose-500/25 px-1.5 py-0.5 font-mono text-[10px] text-rose-300">
+                      {item.tier}
+                    </span>
+                  </div>
+                  <div className="mt-1 font-mono text-[11px] text-rose-300">
                     <RichGuideText
-                      text={item.itemName}
+                      text={item.costAndCap}
+                      variant="inline"
+                      accentColor="rose"
+                    />{" "}
+                    •{" "}
+                    <RichGuideText
+                      text={item.diamondValue}
                       variant="inline"
                       accentColor="rose"
                     />
-                  </span>
-                  <span className="shrink-0 rounded bg-rose-500/25 px-1.5 py-0.5 font-mono text-[10px] text-rose-300">
-                    {item.tier}
-                  </span>
-                </div>
-                <div className="mt-1 font-mono text-[11px] text-rose-300">
+                  </div>
                   <RichGuideText
-                    text={item.costAndCap}
-                    variant="inline"
+                    text={item.roiDirective}
                     accentColor="rose"
-                  />{" "}
-                  •{" "}
-                  <RichGuideText
-                    text={item.diamondValue}
-                    variant="inline"
-                    accentColor="rose"
+                    className="mt-1 text-[11px] text-slate-300"
                   />
                 </div>
-                <RichGuideText
-                  text={item.roiDirective}
-                  accentColor="rose"
-                  className="mt-1 text-[11px] text-slate-300"
-                />
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

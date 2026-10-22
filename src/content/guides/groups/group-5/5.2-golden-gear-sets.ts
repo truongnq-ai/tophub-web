@@ -103,7 +103,7 @@ export const ARTICLE_5_2_GOLDEN_GEAR_SETS: GuideArticle = {
             vi: "Bộ icon chuẩn hóa của 3 Bộ Trang bị Huyền Thoại Vàng trong Lò Rèn (Blood of the Titan / Fury of Blood, Glory of the Sage / Glory of the Knight, Knight's Glory / Berserker's Wrath / Fury of the Champion) cùng 3 huy hiệu Dấu Hệ góc trái (+30% chỉ số cho Liên Minh, Bộ Lạc, Thiên Nhiên).",
             en: "Standardized icon strip of the 3 Legendary Golden Gear sets at the Blacksmith (Blood of the Titan / Fury of Blood, Glory of the Sage / Glory of the Knight, Knight's Glory / Berserker's Wrath / Fury of the Champion) alongside the 3 top-left Faction Mark emblems (+30% stats for League, Horde, and Nature).",
           },
-          imageSrc: "/images/guides/gear/set-titan-blood.webp",
+          imageSrc: "/images/items/consumables/icon_30222.webp",
           annotations: [
             {
               kind: "do",
@@ -223,7 +223,7 @@ export const ARTICLE_5_2_GOLDEN_GEAR_SETS: GuideArticle = {
             vi: "Ảnh chụp giao diện Lò Rèn (Blacksmith) chú thích rõ 3 Hàng Ngang (3 Bộ Set) × 4 Cột Dọc: Cột 1 Liên Minh (+30%), Cột 2 Bộ Lạc (+30%), Cột 3 Thiên Nhiên (+30%), và cảnh báo cấm đúc ở Cột 4 Không Hệ.",
             en: "Annotated Blacksmith UI screenshot highlighting the 3 Horizontal Rows (3 Gear Sets) × 4 Vertical Columns: Column 1 League (+30%), Column 2 Horde (+30%), Column 3 Nature (+30%), and a strict ban over Column 4 Unmarked Gear.",
           },
-          imageSrc: "/images/guides/factions/mark-league-horde-nature.webp",
+          imageSrc: "/images/factions/race_horde.webp",
           annotations: [
             {
               kind: "do",

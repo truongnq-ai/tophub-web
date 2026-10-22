@@ -24,7 +24,23 @@ import { ARTICLE_4_2_HORDE_PIVOT_ROADMAP } from "../src/content/guides/groups/gr
 import { ARTICLE_4_3_SEASON_1_TO_4_ROADMAP } from "../src/content/guides/groups/group-4/4.3-season-1-to-4-roadmap";
 import { AccountTrapsTriageWidget } from "../src/components/guides/widgets/account-traps-triage-widget";
 import { HordePivotStepperWidget } from "../src/components/guides/widgets/horde-pivot-stepper-widget";
+import { BlacksmithAnvilMatrixWidget } from "../src/components/guides/widgets/blacksmith-anvil-matrix-widget";
+import { ShopSafetyFloorWidget } from "../src/components/guides/widgets/shop-safety-floor-widget";
 import { MEDIA_SHOWCASE_BY_CODE } from "../src/content/guides/asset-registry";
+import { ARTICLE_5_1_GEAR_OVERVIEW } from "../src/content/guides/groups/group-5/5.1-gear-overview";
+import { ARTICLE_5_2_GOLDEN_GEAR_SETS } from "../src/content/guides/groups/group-5/5.2-golden-gear-sets";
+import { ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC } from "../src/content/guides/groups/group-5/5.3-enhancement-and-mythic";
+import { ARTICLE_5_4_LORD_GEAR_STRATEGY } from "../src/content/guides/groups/group-5/5.4-lord-gear-strategy";
+import { ARTICLE_6_1_RUNES_GUIDE } from "../src/content/guides/groups/group-6/6.1-runes-guide";
+import { ARTICLE_6_2_RELICS_GUIDE } from "../src/content/guides/groups/group-6/6.2-relics-guide";
+import { ARTICLE_6_3_PETS_AND_BEHEMOTH } from "../src/content/guides/groups/group-6/6.3-pets-and-behemoth";
+import { ARTICLE_7_1_SHOPS_TIER_LIST } from "../src/content/guides/groups/group-7/7.1-shops-tier-list";
+import { ARTICLE_7_2_GUILD_HONOR_FREEZE } from "../src/content/guides/groups/group-7/7.2-guild-honor-freeze";
+import { ARTICLE_7_3_EXCHANGE_AND_VIP_SHOPS } from "../src/content/guides/groups/group-7/7.3-exchange-and-vip-shops";
+import { ARTICLE_7_4_TROOP_SKINS_AND_MEDALS } from "../src/content/guides/groups/group-7/7.4-troop-skins-and-medals";
+import { ARTICLE_8_1_CASTLE_AND_BRILLIANCE } from "../src/content/guides/groups/group-8/8.1-castle-and-brilliance";
+import { ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS } from "../src/content/guides/groups/group-8/8.2-builder-queues-and-villagers";
+import { ARTICLE_8_3_RESEARCH_AND_BAITING } from "../src/content/guides/groups/group-8/8.3-research-and-baiting";
 
 vi.mock("next-intl", () => ({
   useLocale: () => "vi",
@@ -567,6 +583,241 @@ describe("Phase 3 — Interactive Widgets & GuideArticleRenderer Integration", (
       }
     });
   });
+
+  describe("Suite 6: Phase 4 Visual Media & Widget Upgrades — Groups 5, 6, 7, 8 (15 Articles & 3 Widgets)", () => {
+    const PHASE4_ARTICLES = [
+      ARTICLE_5_1_GEAR_OVERVIEW,
+      ARTICLE_5_2_GOLDEN_GEAR_SETS,
+      ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC,
+      ARTICLE_5_4_LORD_GEAR_STRATEGY,
+      ARTICLE_6_1_RUNES_GUIDE,
+      ARTICLE_6_2_RELICS_GUIDE,
+      ARTICLE_6_3_PETS_AND_BEHEMOTH,
+      ARTICLE_7_1_SHOPS_TIER_LIST,
+      ARTICLE_7_2_GUILD_HONOR_FREEZE,
+      ARTICLE_7_3_EXCHANGE_AND_VIP_SHOPS,
+      ARTICLE_7_4_TROOP_SKINS_AND_MEDALS,
+      ARTICLE_8_1_CASTLE_AND_BRILLIANCE,
+      ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS,
+      ARTICLE_8_3_RESEARCH_AND_BAITING,
+      ARTICLE_8_4_MASTER_DATA_TABLES,
+    ];
+
+    it("renders 3x4 Golden Gear set slot icons + Faction Mark badges and 24 Hero Avatars + BiS Set icons in BlacksmithAnvilMatrixWidget", () => {
+      const publicDir = path.resolve(__dirname, "../public");
+      const { container, unmount } = render(
+        <BlacksmithAnvilMatrixWidget
+          article={ARTICLE_5_2_GOLDEN_GEAR_SETS}
+          locale="en"
+          forceUnlockPro={true}
+        />
+      );
+
+      for (const setId of ["knights_glory", "titan_blood", "sage_glory"] as const) {
+        const slotStrip = screen.getByTestId(`anvil-set-icons-${setId}`);
+        const slotImgs = Array.from(slotStrip.querySelectorAll("img"));
+        expect(slotImgs.length).toBe(4);
+        for (const img of slotImgs) {
+          const src = img.getAttribute("src") ?? "";
+          expect(src).toMatch(/^\/images\/equipment\/hero-gear\/icon_400\d\d\.webp$/);
+          expect(fs.existsSync(path.join(publicDir, src.replace(/^\//, "")))).toBe(true);
+        }
+
+        for (const fac of ["league", "horde", "nature"] as const) {
+          const colIcon = screen.getByTestId(`anvil-col-icon-${setId}-${fac}`);
+          const imgs = colIcon.querySelectorAll("img");
+          expect(imgs.length).toBeGreaterThanOrEqual(2); // Gear icon + Faction badge
+        }
+      }
+
+      // All 24 Hero BiS cards must render both Hero Avatar and BiS Set Icon
+      for (let idx = 0; idx < 24; idx++) {
+        const heroAvatar = screen.getByTestId(`bis-hero-avatar-${idx}`);
+        const avatarImg = heroAvatar.querySelector("img");
+        expect(avatarImg).not.toBeNull();
+        expect(avatarImg?.getAttribute("src")).toMatch(/^\/images\/heroes\/avatars\/Head_\d+\.webp$/);
+
+        const setIcon = screen.getByTestId(`bis-set-icon-${idx}`);
+        const setImg = setIcon.querySelector("img");
+        expect(setImg).not.toBeNull();
+        expect(setImg?.getAttribute("src")).toMatch(/^\/images\/.+\.webp$/);
+      }
+
+      const viDiacriticRegex =
+        /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i;
+      expect(viDiacriticRegex.test(container.textContent ?? "")).toBe(false);
+      expect(container.innerHTML).not.toMatch(/\bborder-l-[24]\b/);
+      expect(container.innerHTML).not.toMatch(/\brounded-l-sm\b/);
+      unmount();
+    });
+
+    it("renders 13 Shop Currency icons, Safety Floor Banner icon, and 3-Bucket Item icons in ShopSafetyFloorWidget", () => {
+      const publicDir = path.resolve(__dirname, "../public");
+      const { container, unmount } = render(
+        <ShopSafetyFloorWidget
+          article={ARTICLE_7_1_SHOPS_TIER_LIST}
+          locale="en"
+          forceUnlockPro={true}
+        />
+      );
+
+      for (let shopNum = 1; shopNum <= 13; shopNum++) {
+        const pillIcon = screen.getByTestId(`shop-pill-icon-${shopNum}`);
+        const img = pillIcon.querySelector("img");
+        expect(img).not.toBeNull();
+        const src = img?.getAttribute("src") ?? "";
+        expect(src).toMatch(/^\/images\/.+\.webp$/);
+        expect(fs.existsSync(path.join(publicDir, src.replace(/^\//, "")))).toBe(true);
+      }
+
+      const bannerIcon = screen.getByTestId("shop-floor-currency-icon");
+      expect(bannerIcon.querySelector("img")).not.toBeNull();
+
+      // Verify item icons across all 3 buckets on initial Arena Shop (#1)
+      expect(
+        screen
+          .getByTestId("shop-bucket-must-sweep")
+          .querySelectorAll("[data-testid='game-asset-frame'] img").length
+      ).toBeGreaterThan(0);
+      expect(
+        screen
+          .getByTestId("shop-bucket-surplus")
+          .querySelectorAll("[data-testid='game-asset-frame'] img").length
+      ).toBeGreaterThan(0);
+      expect(
+        screen
+          .getByTestId("shop-bucket-forbidden")
+          .querySelectorAll("[data-testid='game-asset-frame'] img").length
+      ).toBeGreaterThan(0);
+
+      const viDiacriticRegex =
+        /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i;
+      expect(viDiacriticRegex.test(container.textContent ?? "")).toBe(false);
+      expect(container.innerHTML).not.toMatch(/\bborder-l-[24]\b/);
+      expect(container.innerHTML).not.toMatch(/\brounded-l-sm\b/);
+      unmount();
+    });
+
+    it("renders representative icons on all 12 Master Table tabs, active table header, and Column 1 thumbnails in MasterDataExplorerWidget", () => {
+      const publicDir = path.resolve(__dirname, "../public");
+      const { container, unmount } = render(
+        <MasterDataExplorerWidget
+          article={ARTICLE_8_4_MASTER_DATA_TABLES}
+          locale="en"
+          forceUnlockPro={true}
+        />
+      );
+
+      const tableCodes = [
+        "1.1", "1.2", "1.3", "1.4", "3.1",
+        "4.1", "4.2", "4.3", "4.4", "4.5", "4.6", "4.7",
+      ];
+      for (const code of tableCodes) {
+        const pillIcon = screen.getByTestId(`master-pill-icon-${code}`);
+        const img = pillIcon.querySelector("img");
+        expect(img).not.toBeNull();
+        const src = img?.getAttribute("src") ?? "";
+        expect(src).toMatch(/^\/images\/.+\.webp$/);
+        expect(fs.existsSync(path.join(publicDir, src.replace(/^\//, "")))).toBe(true);
+      }
+
+      const activeHeaderIcon = screen.getByTestId("master-active-table-icon");
+      expect(activeHeaderIcon.querySelector("img")).not.toBeNull();
+
+      // Column 1 of the active table must display GameAssetFrame thumbnails
+      const col1Imgs = container.querySelectorAll(
+        "tbody tr td:first-child [data-testid='game-asset-frame'] img"
+      );
+      expect(col1Imgs.length).toBeGreaterThan(0);
+
+      const viDiacriticRegex =
+        /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i;
+      expect(viDiacriticRegex.test(container.textContent ?? "")).toBe(false);
+      expect(container.innerHTML).not.toMatch(/\bborder-l-[24]\b/);
+      expect(container.innerHTML).not.toMatch(/\brounded-l-sm\b/);
+      unmount();
+    });
+
+    it("verifies all 15 Group 5, 6, 7, 8 articles have zero legacy /images/guides/ paths, 6-item bespoke showcase decks for all 59 MED-* codes, and pass GAP-01..04", () => {
+      const publicDir = path.resolve(__dirname, "../public");
+      const rawJson = JSON.stringify(PHASE4_ARTICLES);
+      expect(rawJson).not.toContain("/images/guides/");
+
+      const expectedPhase4Codes = [
+        "MED-5.1-01", "MED-5.1-02", "MED-5.1-03", "MED-5.1-04",
+        "MED-5.2-01", "MED-5.2-02", "MED-5.2-03", "MED-5.2-04",
+        "MED-5.3-01", "MED-5.3-02", "MED-5.3-03", "MED-5.3-04",
+        "MED-5.4-01", "MED-5.4-02", "MED-5.4-03",
+        "MED-6.1-01", "MED-6.1-02", "MED-6.1-03", "MED-6.1-04",
+        "MED-6.2-01", "MED-6.2-02", "MED-6.2-03", "MED-6.2-04",
+        "MED-6.3-01", "MED-6.3-02", "MED-6.3-03", "MED-6.3-04",
+        "MED-7.1-01", "MED-7.1-02", "MED-7.1-03", "MED-7.1-04",
+        "MED-7.2-01", "MED-7.2-02", "MED-7.2-03", "MED-7.2-04",
+        "MED-7.3-01", "MED-7.3-02", "MED-7.3-03", "MED-7.3-04",
+        "MED-7.4-01", "MED-7.4-02", "MED-7.4-03", "MED-7.4-04",
+        "MED-8.1-01", "MED-8.1-02", "MED-8.1-03", "MED-8.1-04",
+        "MED-8.2-01", "MED-8.2-02", "MED-8.2-03", "MED-8.2-04",
+        "MED-8.3-01", "MED-8.3-02", "MED-8.3-03", "MED-8.3-04",
+        "MED-8.4-01", "MED-8.4-02", "MED-8.4-03", "MED-8.4-04",
+      ];
+
+      const viDiacriticRegex =
+        /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i;
+
+      for (const code of expectedPhase4Codes) {
+        const deck = MEDIA_SHOWCASE_BY_CODE[code];
+        expect(deck, `Missing showcase deck for ${code}`).toBeDefined();
+        expect(deck.length, `Showcase deck ${code} must have 6 items`).toBe(6);
+        for (const item of deck) {
+          const diskPath = path.join(publicDir, item.iconPath.replace(/^\//, ""));
+          expect(fs.existsSync(diskPath), `Missing file for ${code}: ${item.iconPath}`).toBe(true);
+          expect(viDiacriticRegex.test(item.labelEn)).toBe(false);
+        }
+      }
+
+      for (const article of PHASE4_ARTICLES) {
+        const { container, unmount } = render(
+          <GuideArticleRenderer article={article} locale="en" />
+        );
+
+        // GAP-01: Zero Vietnamese diacritics in media showcase decks, tables, and diagrams in locale="en"
+        const localizedMediaNodes = Array.from(
+          container.querySelectorAll(
+            "[data-testid='visual-showcase-deck'], [data-testid='block-table'], [data-testid='block-visual-diagram']"
+          )
+        );
+        for (const node of localizedMediaNodes) {
+          expect(
+            viDiacriticRegex.test(node.textContent ?? ""),
+            `Article ${article.code} leaked VI diacritics in locale="en"`
+          ).toBe(false);
+        }
+
+        // GAP-02: Semantic <code> tags preserved
+        expect(container.querySelectorAll("code").length).toBeGreaterThan(0);
+
+        // GAP-03: Zero border-l-2, border-l-4, rounded-l-sm
+        const html = container.innerHTML;
+        expect(html).not.toMatch(/\bborder-l-[24]\b/);
+        expect(html).not.toMatch(/\brounded-l-sm\b/);
+
+        // GAP-04: All <img> lazy & existing on disk
+        const imgs = Array.from(container.querySelectorAll("img"));
+        expect(imgs.length).toBeGreaterThan(0);
+        for (const img of imgs) {
+          const src = img.getAttribute("src") ?? "";
+          expect(src.startsWith("/images/")).toBe(true);
+          expect(img.getAttribute("loading")).toBe("lazy");
+          expect(img.getAttribute("decoding")).toBe("async");
+          const diskPath = path.join(publicDir, src.replace(/^\//, ""));
+          expect(fs.existsSync(diskPath)).toBe(true);
+        }
+
+        unmount();
+      }
+    });
+  });
+
   describe("Suite 4 Tail", () => {
     it("noop", () => {
       expect(true).toBe(true);

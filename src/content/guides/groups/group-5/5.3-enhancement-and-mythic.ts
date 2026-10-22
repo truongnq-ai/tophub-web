@@ -229,8 +229,8 @@ export const ARTICLE_5_3_ENHANCEMENT_AND_MYTHIC: GuideArticle = {
             en: "Enhancement Master Badge & Legendary / 5-Star Mythic Promotion Stone Assets",
           },
           description: {
-            vi: "Nhận diện chuẩn bộ 3 tài nguyên cốt lõi của lộ trình Cường hóa và Đột phá Sao: Huy hiệu Bậc Thầy Cường Hóa (/images/guides/gear/enhancement-master-badge.webp), Đá Thăng Cấp Huyền Thoại (/images/guides/gear/legendary-promotion-stone.webp — Đá Vàng dùng cho 1★–4★) và Đá Thăng Cấp Thần Thoại (/images/guides/gear/mythic-promotion-stone.webp — Đá Đỏ dùng cho 5★ Mythic).",
-            en: "Visual identification of the 3 core progression assets: Enhancement Master Badge (/images/guides/gear/enhancement-master-badge.webp), Legendary Promotion Stone (/images/guides/gear/legendary-promotion-stone.webp — Golden Stone for 1★–4★), and Mythic Promotion Stone (/images/guides/gear/mythic-promotion-stone.webp — Red Stone for 5★ Mythic evolution).",
+            vi: "Nhận diện chuẩn bộ 3 tài nguyên cốt lõi của lộ trình Cường hóa và Đột phá Sao: Huy hiệu Bậc Thầy Cường Hóa (Enhancement Master Badge), Đá Thăng Cấp Huyền Thoại (Legendary Promotion Stone — Đá Vàng dùng cho 1★–4★) và Đá Thăng Cấp Thần Thoại (Mythic Promotion Stone — Đá Đỏ dùng cho 5★ Mythic).",
+            en: "Visual identification of the 3 core progression assets: Enhancement Master Badge, Legendary Promotion Stone (Golden Stone for 1★–4★), and Mythic Promotion Stone (Red Stone for 5★ Mythic evolution).",
           },
           annotations: [
             {
