@@ -24,13 +24,13 @@ export function VisualShowcaseDeck({
     <div
       data-testid="visual-showcase-deck"
       className={cn(
-        "rounded-xl border border-amber-500/25 bg-background/75 p-3",
+        "min-w-0 overflow-hidden rounded-xl border border-amber-500/25 bg-background/75 p-3",
         className
       )}
     >
       <div
         className={cn(
-          "grid gap-2.5",
+          "grid min-w-0 gap-2.5",
           compact
             ? "grid-cols-2 sm:grid-cols-4"
             : items.length <= 3
@@ -47,7 +47,7 @@ export function VisualShowcaseDeck({
             <figure
               key={`${item.assetId}-${idx}`}
               data-testid={`showcase-card-${idx}`}
-              className="group relative flex flex-col items-center justify-between rounded-xl border border-border/75 bg-card/90 p-2.5 text-center transition-colors hover:border-amber-500/45"
+              className="group relative flex min-w-0 flex-col items-center justify-between rounded-xl border border-border/75 bg-card/90 p-2.5 text-center transition-colors hover:border-amber-500/45"
             >
               {item.badgeText ? (
                 <span className="mb-1.5 inline-flex items-center rounded-md border border-amber-500/35 bg-amber-500/15 px-1.5 py-0.5 font-mono text-[10px] font-bold text-amber-600 dark:text-amber-300">

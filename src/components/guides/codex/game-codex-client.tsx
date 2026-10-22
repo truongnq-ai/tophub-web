@@ -226,7 +226,7 @@ export function GameCodexClient({
   };
 
   return (
-    <div data-testid="game-codex-client" className="space-y-6">
+    <div data-testid="game-codex-client" className="min-w-0 overflow-hidden space-y-6">
       {/* LAYER 1: Hero Header & Bilingual Instant Search */}
       <section className="card-rpg rounded-3xl p-5 sm:p-7 space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-2">
@@ -372,7 +372,7 @@ export function GameCodexClient({
                   data-testid={`codex-cat-tab-${catId}`}
                   onClick={() => handleCategoryChange(catId)}
                   className={cn(
-                    "inline-flex items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs font-heading font-bold transition-all min-h-[36px]",
+                    "inline-flex items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs font-heading font-bold transition-all min-h-[40px] sm:min-h-[36px]",
                     isSelected
                       ? "border-amber-500 bg-amber-500 text-slate-950 shadow-xs"
                       : "border-border/70 bg-background/60 text-foreground/85 hover:border-amber-500/40 hover:text-amber-500"

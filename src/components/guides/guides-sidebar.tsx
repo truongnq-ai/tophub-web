@@ -472,7 +472,7 @@ export function GuidesSidebar() {
           </SheetTrigger>
           <SheetContent
             side="left"
-            className="w-[320px] sm:w-[360px] overflow-y-auto bg-card/95 backdrop-blur-2xl p-5"
+            className="w-[min(320px,calc(100vw-2rem))] sm:w-[360px] overflow-y-auto bg-card/95 backdrop-blur-2xl p-5"
           >
             <SheetHeader className="pb-4 border-b border-border/60">
               <SheetTitle className="flex items-center gap-2 text-left font-heading text-base">

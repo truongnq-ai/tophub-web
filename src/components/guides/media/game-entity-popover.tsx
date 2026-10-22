@@ -53,7 +53,7 @@ export function GameEntityPopover({ entity, locale }: GameEntityPopoverProps) {
     <span
       role="tooltip"
       data-testid="game-entity-popover"
-      className="pointer-events-none absolute bottom-full left-1/2 z-50 mb-2 w-64 -translate-x-1/2 rounded-xl border border-amber-500/40 bg-slate-950/95 p-3 text-left font-sans text-xs text-slate-100 shadow-xl backdrop-blur-md"
+      className="pointer-events-none absolute bottom-full left-1/2 z-50 mb-2 w-[min(16rem,calc(100vw-2rem))] max-w-[calc(100vw-2rem)] -translate-x-1/2 rounded-xl border border-amber-500/40 bg-slate-950/95 p-3 text-left font-sans text-xs text-slate-100 shadow-xl backdrop-blur-md"
     >
       <span className="flex items-start gap-2.5">
         <GameAssetFrame
