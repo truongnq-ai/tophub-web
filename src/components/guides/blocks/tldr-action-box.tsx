@@ -85,6 +85,7 @@ export function TldrActionBox({
           <RichGuideText
             text={tldr.coreRule[locale]}
             variant="structured-brief"
+            locale={locale}
             accentColor="amber"
             className="text-xs sm:text-sm leading-relaxed text-foreground/95"
           />
@@ -102,6 +103,7 @@ export function TldrActionBox({
           <RichGuideText
             text={tldr.immediateAction[locale]}
             variant="structured-brief"
+            locale={locale}
             accentColor="emerald"
             className="text-xs sm:text-sm leading-relaxed text-foreground/95"
           />
@@ -119,6 +121,7 @@ export function TldrActionBox({
           <RichGuideText
             text={tldr.strictTaboo[locale]}
             variant="structured-brief"
+            locale={locale}
             accentColor="rose"
             className="text-xs sm:text-sm leading-relaxed text-foreground/95"
           />
@@ -162,6 +165,7 @@ export function TldrActionBox({
                   </span>
                   <RichGuideText
                     text={item[locale]}
+                    locale={locale}
                     accentColor="emerald"
                     className="flex-1 min-w-0"
                   />
@@ -174,4 +178,3 @@ export function TldrActionBox({
     </div>
   );
 }
-

@@ -263,3 +263,87 @@ export interface GuideZone {
   categories: GuideCategory[];
 }
 
+
+// ============================================================================
+// GUIDES HUB v4.0 — VISUAL MEDIA & ASSET REGISTRY CONTRACTS (ZERO `any`)
+// ============================================================================
+
+export type AssetRarity =
+  | "mythic"
+  | "legendary"
+  | "epic"
+  | "rare"
+  | "uncommon"
+  | "common";
+
+export type AssetFaction = "horde" | "league" | "nature" | "neutral";
+
+export type CodexCategoryId =
+  | "heroes"
+  | "items"
+  | "equipment"
+  | "relics"
+  | "pets-behemoths"
+  | "buildings-decor"
+  | "skills-tech"
+  | "troops"
+  | "events-seasons"
+  | "monsters"
+  | "cosmetics"
+  | "shop-vip";
+
+export interface GameAssetEntry {
+  readonly id: string;
+  readonly gameId: number | null;
+  readonly glossaryId: string | null;
+  readonly category: CodexCategoryId;
+  readonly iconPath: string;
+  readonly portraitPath?: string;
+  readonly rarity: AssetRarity;
+  readonly faction?: AssetFaction;
+  readonly nameVi: string;
+  readonly nameEn: string;
+  readonly inGameNameVi?: string;
+  readonly inGameNameEn?: string;
+  readonly descVi?: string;
+  readonly descEn?: string;
+  readonly aliases: readonly string[];
+}
+
+export interface HeroVisualProfile {
+  readonly id: string;
+  readonly gameId: number;
+  readonly glossaryId: string | null;
+  readonly faction: Exclude<AssetFaction, "neutral">;
+  readonly rarity: Exclude<AssetRarity, "uncommon" | "common">;
+  readonly nameVi: string;
+  readonly nameEn: string;
+  readonly inGameNameVi: string;
+  readonly inGameNameEn: string;
+  readonly avatarPath: string;
+  readonly portraitPath?: string;
+  readonly exclusiveWeaponPath?: string;
+  readonly exclusiveWeaponNameVi?: string;
+  readonly exclusiveWeaponNameEn?: string;
+  readonly isAwakenable?: boolean;
+  readonly isEconomyPassive?: boolean;
+}
+
+export interface MediaShowcaseItem {
+  readonly assetId: string;
+  readonly iconPath: string;
+  readonly rarity: AssetRarity;
+  readonly faction?: AssetFaction;
+  readonly labelVi: string;
+  readonly labelEn: string;
+  readonly badgeText?: string;
+}
+
+export interface DiagramNodeLookupInput {
+  readonly titleVi?: string;
+  readonly titleEn?: string;
+  readonly subtitleVi?: string;
+  readonly subtitleEn?: string;
+  readonly nodeId?: string;
+  readonly mediaCode?: string;
+}

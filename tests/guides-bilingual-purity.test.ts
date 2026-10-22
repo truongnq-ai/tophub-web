@@ -168,7 +168,7 @@ describe("Wave 5 — Multi-Language Glossary (DEC-V4-03) & 100% Bilingual Purity
       const leaks: string[] = [];
       for (const zone of GUIDE_ZONES) {
         collectVietnameseLeaksInEn(
-          { title: zone.title, description: zone.description },
+          { title: zone.title },
           `Zone[${zone.id}]`,
           leaks
         );
@@ -178,7 +178,6 @@ describe("Wave 5 — Multi-Language Glossary (DEC-V4-03) & 100% Bilingual Purity
           {
             title: cat.title,
             description: cat.description,
-            heroHighlight: cat.heroHighlight,
           },
           `Category[${cat.slug}]`,
           leaks
@@ -199,11 +198,11 @@ describe("Wave 5 — Multi-Language Glossary (DEC-V4-03) & 100% Bilingual Purity
         // GAP-W5-11: Verify .vi core prose fields remain valid Vietnamese and were not overwritten with English
         expect(VI_DIACRITIC_REGEX.test(article.title.vi)).toBe(true);
         expect(VI_DIACRITIC_REGEX.test(article.summary.vi)).toBe(true);
-        expect(VI_DIACRITIC_REGEX.test(article.tldr.coreRule.vi)).toBe(true);
-        expect(VI_DIACRITIC_REGEX.test(article.tldr.immediateAction.vi)).toBe(
+        expect(VI_DIACRITIC_REGEX.test(article.tldr?.coreRule.vi ?? "")).toBe(true);
+        expect(VI_DIACRITIC_REGEX.test(article.tldr?.immediateAction.vi ?? "")).toBe(
           true
         );
-        expect(VI_DIACRITIC_REGEX.test(article.tldr.strictTaboo.vi)).toBe(true);
+        expect(VI_DIACRITIC_REGEX.test(article.tldr?.strictTaboo.vi ?? "")).toBe(true);
         for (const kt of article.keyTakeaways) {
           expect(VI_DIACRITIC_REGEX.test(kt.vi)).toBe(true);
         }
@@ -217,7 +216,6 @@ describe("Wave 5 — Multi-Language Glossary (DEC-V4-03) & 100% Bilingual Purity
         React.createElement(HeroEncyclopediaWidget, {
           article: ARTICLE_2_1_ENCYCLOPEDIA,
           locale: "en",
-          forceUnlockPro: true,
         })
       );
       const input = container.querySelector("input");
@@ -252,18 +250,13 @@ describe("Wave 5 — Multi-Language Glossary (DEC-V4-03) & 100% Bilingual Purity
       const widgets = [
         React.createElement(BiweeklyCalendarWidget, {
           key: "cal",
-          article31: ARTICLE_3_1_BIWEEKLY_ROTATION,
-          article32: ARTICLE_3_2_WEEK_A_GUILD_RACE,
-          article33: ARTICLE_3_3_WEEK_B_ARMS_RACE,
-          article34: ARTICLE_3_4_DOUBLE_DIP_SCHEDULE,
+          article: ARTICLE_3_1_BIWEEKLY_ROTATION,
           locale: "en",
-          forceUnlockPro: true,
         }),
         React.createElement(MasterDataExplorerWidget, {
           key: "mde",
           article: ARTICLE_8_4_MASTER_DATA_TABLES,
           locale: "en",
-          forceUnlockPro: true,
         }),
         React.createElement(AccountTrapsTriageWidget, {
           key: "traps",
@@ -273,8 +266,7 @@ describe("Wave 5 — Multi-Language Glossary (DEC-V4-03) & 100% Bilingual Purity
         }),
         React.createElement(TacticalFormationBoardWidget, {
           key: "board",
-          article22: ARTICLE_2_2_META_LINEUPS,
-          article23: ARTICLE_2_3_FORMATION_COUNTERS,
+          article: ARTICLE_2_2_META_LINEUPS,
           locale: "en",
           forceUnlockPro: true,
         }),
