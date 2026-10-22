@@ -10,6 +10,9 @@ import {
   Clock,
   ArrowRight,
 } from "lucide-react";
+import { GameAssetFrame } from "@/components/guides/media/game-asset-frame";
+import { VisualShowcaseDeck } from "@/components/guides/media/visual-showcase-deck";
+import { getMediaShowcaseItems } from "@/content/guides/asset-registry";
 import type {
   GuideLocale,
   GuideMediaSpotlightBlock,
@@ -33,7 +36,11 @@ export function MediaSpotlightBlock({
           <div className="flex items-center gap-2">
             <Shield className="h-4 w-4 text-amber-500" />
             <h4 className="font-heading font-bold text-sm sm:text-base text-foreground">
-              <RichGuideText text={block.title[locale]} variant="inline" />
+              <RichGuideText
+                text={block.title[locale]}
+                variant="inline"
+                locale={locale}
+              />
             </h4>
           </div>
           <Badge variant="outline" className="font-mono text-[10px]">
@@ -43,37 +50,77 @@ export function MediaSpotlightBlock({
 
         <RichGuideText
           text={block.description[locale]}
+          locale={locale}
           className="text-xs sm:text-sm text-muted-foreground leading-relaxed"
         />
 
         {/* Visual Counter Cycle Arrow Banner */}
         <div className="rounded-xl border border-amber-500/25 bg-background/80 px-3 py-2 flex flex-wrap items-center justify-center gap-2 text-xs font-heading font-bold">
-          <span className="text-rose-600 dark:text-rose-400">
-            🔴 {locale === "en" ? "Horde" : "Bộ Lạc"}
+          <span className="inline-flex items-center gap-1.5 text-rose-600 dark:text-rose-400">
+            <GameAssetFrame
+              src="/images/factions/race_horde.webp"
+              rarity="mythic"
+              size="xs"
+              showFactionBadge={false}
+              alt=""
+            />
+            <span>🔴 {locale === "en" ? "Horde" : "Bộ Lạc"}</span>
           </span>
           <ArrowRight className="h-3.5 w-3.5 text-amber-500" />
-          <span className="text-sky-600 dark:text-sky-400">
-            🔵 {locale === "en" ? "League" : "Liên Minh"}
+          <span className="inline-flex items-center gap-1.5 text-sky-600 dark:text-sky-400">
+            <GameAssetFrame
+              src="/images/factions/race_alliance.webp"
+              rarity="mythic"
+              size="xs"
+              showFactionBadge={false}
+              alt=""
+            />
+            <span>🔵 {locale === "en" ? "League" : "Liên Minh"}</span>
           </span>
           <ArrowRight className="h-3.5 w-3.5 text-amber-500" />
-          <span className="text-emerald-600 dark:text-emerald-400">
-            🟢 {locale === "en" ? "Nature" : "Thiên Nhiên"}
+          <span className="inline-flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400">
+            <GameAssetFrame
+              src="/images/factions/race_nature.webp"
+              rarity="mythic"
+              size="xs"
+              showFactionBadge={false}
+              alt=""
+            />
+            <span>🟢 {locale === "en" ? "Nature" : "Thiên Nhiên"}</span>
           </span>
           <ArrowRight className="h-3.5 w-3.5 text-amber-500" />
-          <span className="text-rose-600 dark:text-rose-400">
-            🔴 {locale === "en" ? "Horde" : "Bộ Lạc"}
+          <span className="inline-flex items-center gap-1.5 text-rose-600 dark:text-rose-400">
+            <span>🔴 {locale === "en" ? "Horde" : "Bộ Lạc"}</span>
           </span>
           <Badge className="ml-1 bg-amber-500/15 text-amber-600 dark:text-amber-300 border-amber-500/30 font-mono text-[10px]">
             +20% DMG / -20% Taken
           </Badge>
         </div>
 
-        {/* 3-Faction Counter Cycle Strip */}
+        {/* 3-Faction Counter Cycle Strip with Real Faction Crests & Flagship Carries */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-          <div className="rounded-xl border border-rose-500/40 bg-rose-500/10 p-3.5 space-y-1">
-            <span className="font-heading font-black text-sm text-rose-600 dark:text-rose-400">
-              🔴 {locale === "en" ? "Horde" : "Bộ Lạc (Horde)"}
-            </span>
+          <div className="rounded-xl border border-rose-500/40 bg-rose-500/10 p-3.5 space-y-2">
+            <div className="flex items-center justify-between gap-2">
+              <div className="flex items-center gap-2">
+                <GameAssetFrame
+                  src="/images/factions/race_horde.webp"
+                  rarity="mythic"
+                  size="sm"
+                  showFactionBadge={false}
+                  alt=""
+                />
+                <span className="font-heading font-black text-sm text-rose-600 dark:text-rose-400">
+                  🔴 {locale === "en" ? "Horde" : "Bộ Lạc (Horde)"}
+                </span>
+              </div>
+              <GameAssetFrame
+                src="/images/heroes/avatars/Head_10047.webp"
+                rarity="mythic"
+                faction="horde"
+                size="sm"
+                alt=""
+              />
+            </div>
             <p className="text-xs text-foreground/90 font-medium">
               {locale === "en"
                 ? "Counters League (+20% DMG Dealt / -20% DMG Taken)"
@@ -81,10 +128,28 @@ export function MediaSpotlightBlock({
             </p>
           </div>
 
-          <div className="rounded-xl border border-sky-500/40 bg-sky-500/10 p-3.5 space-y-1">
-            <span className="font-heading font-black text-sm text-sky-600 dark:text-sky-400">
-              🔵 {locale === "en" ? "League" : "Liên Minh (League)"}
-            </span>
+          <div className="rounded-xl border border-sky-500/40 bg-sky-500/10 p-3.5 space-y-2">
+            <div className="flex items-center justify-between gap-2">
+              <div className="flex items-center gap-2">
+                <GameAssetFrame
+                  src="/images/factions/race_alliance.webp"
+                  rarity="mythic"
+                  size="sm"
+                  showFactionBadge={false}
+                  alt=""
+                />
+                <span className="font-heading font-black text-sm text-sky-600 dark:text-sky-400">
+                  🔵 {locale === "en" ? "League" : "Liên Minh (League)"}
+                </span>
+              </div>
+              <GameAssetFrame
+                src="/images/heroes/avatars/Head_10033.webp"
+                rarity="mythic"
+                faction="league"
+                size="sm"
+                alt=""
+              />
+            </div>
             <p className="text-xs text-foreground/90 font-medium">
               {locale === "en"
                 ? "Counters Nature (+20% DMG Dealt / -20% DMG Taken)"
@@ -92,10 +157,28 @@ export function MediaSpotlightBlock({
             </p>
           </div>
 
-          <div className="rounded-xl border border-emerald-500/40 bg-emerald-500/10 p-3.5 space-y-1">
-            <span className="font-heading font-black text-sm text-emerald-600 dark:text-emerald-400">
-              🟢 {locale === "en" ? "Nature" : "Thiên Nhiên (Nature)"}
-            </span>
+          <div className="rounded-xl border border-emerald-500/40 bg-emerald-500/10 p-3.5 space-y-2">
+            <div className="flex items-center justify-between gap-2">
+              <div className="flex items-center gap-2">
+                <GameAssetFrame
+                  src="/images/factions/race_nature.webp"
+                  rarity="mythic"
+                  size="sm"
+                  showFactionBadge={false}
+                  alt=""
+                />
+                <span className="font-heading font-black text-sm text-emerald-600 dark:text-emerald-400">
+                  🟢 {locale === "en" ? "Nature" : "Thiên Nhiên (Nature)"}
+                </span>
+              </div>
+              <GameAssetFrame
+                src="/images/heroes/avatars/Head_10044.webp"
+                rarity="mythic"
+                faction="nature"
+                size="sm"
+                alt=""
+              />
+            </div>
             <p className="text-xs text-foreground/90 font-medium">
               {locale === "en"
                 ? "Counters Horde (+20% DMG Dealt / -20% DMG Taken)"
@@ -143,37 +226,59 @@ export function MediaSpotlightBlock({
       block.videoUrl && block.videoUrl.startsWith("https://")
         ? block.videoUrl
         : fallbackSearchUrl;
+    const previewItems = getMediaShowcaseItems(
+      block.mediaCode,
+      block.title
+    ).slice(0, 2);
 
     return (
       <div className="rounded-2xl border border-rose-500/30 bg-gradient-to-r from-rose-500/10 via-card to-card p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div className="space-y-1.5">
-          <div className="flex flex-wrap items-center gap-2">
-            <Badge className="bg-rose-500/15 text-rose-600 dark:text-rose-400 border-rose-500/30 font-mono text-[10px]">
-              <PlayCircle className="h-3 w-3 mr-1" />
-              {block.mediaCode} • YouTube Reference
-            </Badge>
-            {block.videoChannel && (
-              <span className="text-xs font-mono font-bold text-amber-600 dark:text-amber-400">
-                {block.videoChannel}
-              </span>
-            )}
-            {block.videoTimestamp && (
-              <span className="inline-flex items-center gap-1 rounded-md bg-background/80 border border-border/70 px-2 py-0.5 font-mono text-[11px] text-muted-foreground">
-                <Clock className="h-3 w-3 text-amber-500" />
-                {block.videoTimestamp}
-              </span>
-            )}
-          </div>
-          <h4 className="font-heading font-bold text-sm sm:text-base text-foreground">
+        <div className="flex items-start gap-3 min-w-0 flex-1">
+          {previewItems.length > 0 && (
+            <div className="hidden sm:flex items-center gap-1.5 shrink-0 pt-0.5">
+              {previewItems.map((item, idx) => (
+                <GameAssetFrame
+                  key={`${item.assetId}-${idx}`}
+                  src={item.iconPath}
+                  rarity={item.rarity}
+                  faction={item.faction}
+                  size="md"
+                  alt=""
+                />
+              ))}
+            </div>
+          )}
+          <div className="space-y-1.5 min-w-0 flex-1">
+            <div className="flex flex-wrap items-center gap-2">
+              <Badge className="bg-rose-500/15 text-rose-600 dark:text-rose-400 border-rose-500/30 font-mono text-[10px]">
+                <PlayCircle className="h-3 w-3 mr-1" />
+                {block.mediaCode} • YouTube Reference
+              </Badge>
+              {block.videoChannel && (
+                <span className="text-xs font-mono font-bold text-amber-600 dark:text-amber-400">
+                  {block.videoChannel}
+                </span>
+              )}
+              {block.videoTimestamp && (
+                <span className="inline-flex items-center gap-1 rounded-md bg-background/80 border border-border/70 px-2 py-0.5 font-mono text-[11px] text-muted-foreground">
+                  <Clock className="h-3 w-3 text-amber-500" />
+                  {block.videoTimestamp}
+                </span>
+              )}
+            </div>
+            <h4 className="font-heading font-bold text-sm sm:text-base text-foreground">
+              <RichGuideText
+                text={block.videoTitle ?? block.title[locale]}
+                variant="inline"
+                locale={locale}
+              />
+            </h4>
             <RichGuideText
-              text={block.videoTitle ?? block.title[locale]}
-              variant="inline"
+              text={block.description[locale]}
+              locale={locale}
+              className="text-xs text-muted-foreground leading-relaxed"
             />
-          </h4>
-          <RichGuideText
-            text={block.description[locale]}
-            className="text-xs text-muted-foreground leading-relaxed"
-          />
+          </div>
         </div>
 
         <a
@@ -190,13 +295,23 @@ export function MediaSpotlightBlock({
   }
 
   // Default: tier2_annotated_ui
+  const showcaseItems = getMediaShowcaseItems(
+    block.mediaCode,
+    block.title,
+    block.annotations
+  );
+
   return (
     <div className="rounded-2xl border border-border/80 bg-card/75 p-4 sm:p-5 space-y-3.5">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div className="flex items-center gap-2">
           <Camera className="h-4 w-4 text-amber-500 shrink-0" />
           <h4 className="font-heading font-bold text-sm sm:text-base text-foreground">
-            <RichGuideText text={block.title[locale]} variant="inline" />
+            <RichGuideText
+              text={block.title[locale]}
+              variant="inline"
+              locale={locale}
+            />
           </h4>
         </div>
         <Badge variant="outline" className="font-mono text-[10px]">
@@ -206,8 +321,11 @@ export function MediaSpotlightBlock({
 
       <RichGuideText
         text={block.description[locale]}
+        locale={locale}
         className="text-xs sm:text-sm text-muted-foreground leading-relaxed"
       />
+
+      <VisualShowcaseDeck items={showcaseItems} locale={locale} />
 
       {block.annotations && block.annotations.length > 0 && (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
@@ -246,6 +364,7 @@ export function MediaSpotlightBlock({
                       <RichGuideText
                         text={pin.label[locale]}
                         variant="inline"
+                        locale={locale}
                         accentColor={isDo ? "emerald" : isDont ? "rose" : "sky"}
                       />
                     </span>
@@ -256,6 +375,7 @@ export function MediaSpotlightBlock({
                 </div>
                 <RichGuideText
                   text={pin.detail[locale]}
+                  locale={locale}
                   accentColor={isDo ? "emerald" : isDont ? "rose" : "sky"}
                   className="text-xs text-foreground/90 leading-relaxed"
                 />
@@ -267,4 +387,3 @@ export function MediaSpotlightBlock({
     </div>
   );
 }
-

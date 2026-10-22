@@ -8,6 +8,8 @@ import {
   Sparkles,
   BarChart3,
 } from "lucide-react";
+import { GameAssetFrame } from "@/components/guides/media/game-asset-frame";
+import { resolveEntityFromDiagramNode } from "@/content/guides/asset-registry";
 import type {
   GuideLocale,
   GuideVisualDiagramBlock,
@@ -83,6 +85,17 @@ export function VisualDiagramBlock({ block, locale }: VisualDiagramBlockProps) {
     Boolean(block.branches && block.branches.length > 0) ||
     Boolean(block.nodes && block.nodes.length > 0);
 
+  const centerAsset = block.centerNode
+    ? resolveEntityFromDiagramNode({
+        titleVi: block.centerNode.title.vi,
+        titleEn: block.centerNode.title.en,
+        subtitleVi: block.centerNode.subtitle?.vi,
+        subtitleEn: block.centerNode.subtitle?.en,
+        nodeId: block.centerNode.id,
+        mediaCode: block.mediaCode,
+      })
+    : undefined;
+
   return (
     <div className="rounded-2xl border border-amber-500/30 bg-card/80 p-4 sm:p-5 space-y-3.5 shadow-sm">
       {/* Diagram Header */}
@@ -97,11 +110,16 @@ export function VisualDiagramBlock({ block, locale }: VisualDiagramBlockProps) {
           </div>
           <div>
             <h4 className="font-heading font-bold text-sm sm:text-base text-foreground">
-              <RichGuideText text={block.title[locale]} variant="inline" />
+              <RichGuideText
+                text={block.title[locale]}
+                variant="inline"
+                locale={locale}
+              />
             </h4>
             {block.subtitle && (
               <RichGuideText
                 text={block.subtitle[locale]}
+                locale={locale}
                 className="text-xs text-muted-foreground"
               />
             )}
@@ -120,24 +138,38 @@ export function VisualDiagramBlock({ block, locale }: VisualDiagramBlockProps) {
       {/* Center / Root Node (if present) */}
       {block.centerNode && (
         <div className="space-y-2">
-          <div className="rounded-2xl border-2 border-amber-500/50 bg-gradient-to-r from-amber-500/15 via-amber-500/10 to-transparent p-3.5 text-center space-y-1">
+          <div className="rounded-2xl border-2 border-amber-500/50 bg-gradient-to-r from-amber-500/15 via-amber-500/10 to-transparent p-3.5 text-center space-y-1.5">
             {block.centerNode.badge && (
               <span className="inline-block font-mono text-[11px] font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
                 <RichGuideText
                   text={block.centerNode.badge[locale]}
                   variant="inline"
+                  locale={locale}
                 />
               </span>
             )}
-            <p className="font-heading font-black text-base sm:text-lg text-foreground">
-              <RichGuideText
-                text={block.centerNode.title[locale]}
-                variant="inline"
-              />
-            </p>
+            <div className="flex items-center justify-center gap-2.5">
+              {centerAsset && (
+                <GameAssetFrame
+                  src={centerAsset.iconPath}
+                  rarity={centerAsset.rarity}
+                  faction={centerAsset.faction}
+                  size="md"
+                  alt=""
+                />
+              )}
+              <p className="font-heading font-black text-base sm:text-lg text-foreground">
+                <RichGuideText
+                  text={block.centerNode.title[locale]}
+                  variant="inline"
+                  locale={locale}
+                />
+              </p>
+            </div>
             {block.centerNode.subtitle && (
               <RichGuideText
                 text={block.centerNode.subtitle[locale]}
+                locale={locale}
                 className="text-xs text-muted-foreground"
               />
             )}
@@ -193,6 +225,7 @@ export function VisualDiagramBlock({ block, locale }: VisualDiagramBlockProps) {
                       <RichGuideText
                         text={branch.title[locale]}
                         variant="inline"
+                        locale={locale}
                       />
                     </span>
                     {branch.badge && (
@@ -203,45 +236,70 @@ export function VisualDiagramBlock({ block, locale }: VisualDiagramBlockProps) {
                         <RichGuideText
                           text={branch.badge[locale]}
                           variant="inline"
+                          locale={locale}
                         />
                       </Badge>
                     )}
                   </div>
 
                   <div className="space-y-1.5">
-                    {branch.steps.map((step, sIdx) => (
-                      <React.Fragment key={step.id}>
-                        <div className="rounded-xl border border-border/70 bg-background/85 p-2.5 sm:p-3 space-y-1">
-                          <div className="flex items-center justify-between gap-2">
-                            <span className="font-heading font-bold text-xs sm:text-sm text-foreground">
+                    {branch.steps.map((step, sIdx) => {
+                      const stepAsset = resolveEntityFromDiagramNode({
+                        titleVi: step.title.vi,
+                        titleEn: step.title.en,
+                        subtitleVi: step.subtitle?.vi,
+                        subtitleEn: step.subtitle?.en,
+                        nodeId: step.id,
+                        mediaCode: block.mediaCode,
+                      });
+                      return (
+                        <React.Fragment key={step.id}>
+                          <div className="rounded-xl border border-border/70 bg-background/85 p-2.5 sm:p-3 space-y-1">
+                            <div className="flex items-center justify-between gap-2">
+                              <div className="flex items-center gap-2 min-w-0">
+                                {stepAsset && (
+                                  <GameAssetFrame
+                                    src={stepAsset.iconPath}
+                                    rarity={stepAsset.rarity}
+                                    faction={stepAsset.faction}
+                                    size="md"
+                                    alt=""
+                                  />
+                                )}
+                                <span className="font-heading font-bold text-xs sm:text-sm text-foreground">
+                                  <RichGuideText
+                                    text={step.title[locale]}
+                                    variant="inline"
+                                    locale={locale}
+                                  />
+                                </span>
+                              </div>
+                              {step.badge && (
+                                <span className="font-mono text-[10px] font-bold text-amber-600 dark:text-amber-400 shrink-0">
+                                  <RichGuideText
+                                    text={step.badge[locale]}
+                                    variant="inline"
+                                    locale={locale}
+                                  />
+                                </span>
+                              )}
+                            </div>
+                            {step.subtitle && (
                               <RichGuideText
-                                text={step.title[locale]}
-                                variant="inline"
+                                text={step.subtitle[locale]}
+                                locale={locale}
+                                className="text-xs text-muted-foreground leading-relaxed"
                               />
-                            </span>
-                            {step.badge && (
-                              <span className="font-mono text-[10px] font-bold text-amber-600 dark:text-amber-400 shrink-0">
-                                <RichGuideText
-                                  text={step.badge[locale]}
-                                  variant="inline"
-                                />
-                              </span>
                             )}
                           </div>
-                          {step.subtitle && (
-                            <RichGuideText
-                              text={step.subtitle[locale]}
-                              className="text-xs text-muted-foreground leading-relaxed"
-                            />
+                          {sIdx < branch.steps.length - 1 && (
+                            <div className="flex justify-center text-muted-foreground/60">
+                              <ArrowDown className="h-3.5 w-3.5" />
+                            </div>
                           )}
-                        </div>
-                        {sIdx < branch.steps.length - 1 && (
-                          <div className="flex justify-center text-muted-foreground/60">
-                            <ArrowDown className="h-3.5 w-3.5" />
-                          </div>
-                        )}
-                      </React.Fragment>
-                    ))}
+                        </React.Fragment>
+                      );
+                    })}
                   </div>
                 </div>
 
@@ -251,6 +309,7 @@ export function VisualDiagramBlock({ block, locale }: VisualDiagramBlockProps) {
                   />
                   <RichGuideText
                     text={branch.outcome[locale]}
+                    locale={locale}
                     className="text-foreground/95 flex-1 min-w-0"
                   />
                 </div>
@@ -281,6 +340,14 @@ export function VisualDiagramBlock({ block, locale }: VisualDiagramBlockProps) {
                     node.metrics?.[0]?.[locale]
                   )
                 : null;
+            const nodeAsset = resolveEntityFromDiagramNode({
+              titleVi: node.title.vi,
+              titleEn: node.title.en,
+              subtitleVi: node.subtitle?.vi,
+              subtitleEn: node.subtitle?.en,
+              nodeId: node.id,
+              mediaCode: block.mediaCode,
+            });
 
             return (
               <div
@@ -291,9 +358,24 @@ export function VisualDiagramBlock({ block, locale }: VisualDiagramBlockProps) {
                 )}
               >
                 <div className="flex items-center justify-between gap-2">
-                  <span className="font-heading font-bold text-xs sm:text-sm text-foreground">
-                    <RichGuideText text={node.title[locale]} variant="inline" />
-                  </span>
+                  <div className="flex items-center gap-2.5 min-w-0">
+                    {nodeAsset && (
+                      <GameAssetFrame
+                        src={nodeAsset.iconPath}
+                        rarity={nodeAsset.rarity}
+                        faction={nodeAsset.faction}
+                        size="md"
+                        alt=""
+                      />
+                    )}
+                    <span className="font-heading font-bold text-xs sm:text-sm text-foreground">
+                      <RichGuideText
+                        text={node.title[locale]}
+                        variant="inline"
+                        locale={locale}
+                      />
+                    </span>
+                  </div>
                   {node.badge && (
                     <Badge
                       variant="outline"
@@ -305,6 +387,7 @@ export function VisualDiagramBlock({ block, locale }: VisualDiagramBlockProps) {
                       <RichGuideText
                         text={node.badge[locale]}
                         variant="inline"
+                        locale={locale}
                       />
                     </Badge>
                   )}
@@ -314,7 +397,10 @@ export function VisualDiagramBlock({ block, locale }: VisualDiagramBlockProps) {
                   <div className="h-2 w-full rounded-full bg-background/80 border border-border/60 overflow-hidden">
                     <div
                       data-testid="diagram-metric-bar"
-                      className={cn("h-full rounded-full transition-all", toneStyle.bar)}
+                      className={cn(
+                        "h-full rounded-full transition-all",
+                        toneStyle.bar
+                      )}
                       style={{ width: `${pct}%` }}
                     />
                   </div>
@@ -323,6 +409,7 @@ export function VisualDiagramBlock({ block, locale }: VisualDiagramBlockProps) {
                 {node.subtitle && (
                   <RichGuideText
                     text={node.subtitle[locale]}
+                    locale={locale}
                     className="text-xs text-muted-foreground leading-relaxed"
                   />
                 )}
@@ -334,7 +421,11 @@ export function VisualDiagramBlock({ block, locale }: VisualDiagramBlockProps) {
                         className="inline-flex items-center gap-1 rounded-md bg-background/80 border border-border/60 px-2 py-0.5 font-mono text-[11px] text-foreground/90"
                       >
                         <Sparkles className="h-2.5 w-2.5 text-amber-500" />
-                        <RichGuideText text={m[locale]} variant="inline" />
+                        <RichGuideText
+                          text={m[locale]}
+                          variant="inline"
+                          locale={locale}
+                        />
                       </span>
                     ))}
                   </div>
@@ -349,10 +440,10 @@ export function VisualDiagramBlock({ block, locale }: VisualDiagramBlockProps) {
       {block.footnote && (
         <RichGuideText
           text={block.footnote[locale]}
+          locale={locale}
           className="text-xs text-muted-foreground italic border-t border-border/60 pt-2.5"
         />
       )}
     </div>
   );
 }
-

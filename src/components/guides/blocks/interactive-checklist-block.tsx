@@ -94,12 +94,17 @@ export function InteractiveChecklistBlock({
           <div className="flex items-center gap-2">
             <Trophy className="h-4 w-4 text-emerald-500 shrink-0" />
             <h4 className="font-heading font-bold text-sm sm:text-base text-foreground">
-              <RichGuideText text={block.title[locale]} variant="inline" />
+              <RichGuideText
+                text={block.title[locale]}
+                variant="inline"
+                locale={locale}
+              />
             </h4>
           </div>
           {block.description && (
             <RichGuideText
               text={block.description[locale]}
+              locale={locale}
               className="text-xs text-muted-foreground leading-relaxed"
             />
           )}
@@ -197,6 +202,7 @@ export function InteractiveChecklistBlock({
                     <RichGuideText
                       text={item.label[locale]}
                       variant="inline"
+                      locale={locale}
                       accentColor="emerald"
                     />
                   </span>
@@ -208,12 +214,14 @@ export function InteractiveChecklistBlock({
                       <RichGuideText
                         text={item.badge[locale]}
                         variant="inline"
+                        locale={locale}
                       />
                     </Badge>
                   )}
                 </div>
                 <RichGuideText
                   text={item.detail[locale]}
+                  locale={locale}
                   accentColor="emerald"
                   className={cn(
                     "text-xs text-muted-foreground leading-relaxed",
@@ -228,4 +236,3 @@ export function InteractiveChecklistBlock({
     </div>
   );
 }
-

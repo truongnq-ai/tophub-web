@@ -172,6 +172,7 @@ function renderBlock(
         <RichGuideText
           key={idx}
           text={block.text[locale]}
+          locale={locale}
           className="text-sm sm:text-base text-foreground/90 leading-relaxed"
         />
       );
@@ -184,7 +185,11 @@ function renderBlock(
           >
             {block.items.map((item, i) => (
               <li key={i} className="leading-relaxed">
-                <RichGuideText text={item[locale]} variant="inline" />
+                <RichGuideText
+                  text={item[locale]}
+                  variant="inline"
+                  locale={locale}
+                />
               </li>
             ))}
           </ol>
@@ -199,7 +204,7 @@ function renderBlock(
             <li key={i} className="flex items-start gap-2.5 leading-relaxed">
               <span className="mt-2 h-1.5 w-1.5 rounded-full bg-amber-500 shrink-0" />
               <div className="min-w-0 flex-1">
-                <RichGuideText text={item[locale]} />
+                <RichGuideText text={item[locale]} locale={locale} />
               </div>
             </li>
           ))}
@@ -385,7 +390,12 @@ function renderSection(
           {h2Badge}
         </span>
         <h2 className="font-heading font-bold text-lg sm:text-xl text-foreground leading-snug">
-          <RichGuideText text={h2CleanTitle} variant="inline" />
+          <RichGuideText
+            text={h2CleanTitle}
+            variant="inline"
+            locale={locale}
+            disableEntityChips
+          />
         </h2>
       </div>
       {section.blocks.length > 0 && (
@@ -417,7 +427,12 @@ function renderSection(
                       {h3Badge}
                     </span>
                     <h3 className="font-heading font-bold text-base sm:text-lg text-foreground leading-snug">
-                      <RichGuideText text={h3CleanTitle} variant="inline" />
+                      <RichGuideText
+                        text={h3CleanTitle}
+                        variant="inline"
+                        locale={locale}
+                        disableEntityChips
+                      />
                     </h3>
                   </div>
                   {sub.badge && (
@@ -628,6 +643,7 @@ export function GuideArticleRenderer({
 
         <RichGuideText
           text={article.summary[locale]}
+          locale={locale}
           className="text-xs sm:text-sm text-muted-foreground leading-relaxed"
         />
 
@@ -655,6 +671,7 @@ export function GuideArticleRenderer({
                     <div className="min-w-0 flex-1">
                       <RichGuideText
                         text={item[locale]}
+                        locale={locale}
                         accentColor="emerald"
                       />
                     </div>
@@ -902,5 +919,3 @@ export function GuideArticleRenderer({
     </article>
   );
 }
-
-

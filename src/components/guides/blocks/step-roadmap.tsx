@@ -74,7 +74,12 @@ export function StepRoadmap({ steps, locale = "vi" }: StepRoadmapProps) {
                     : "border-border/70 bg-card/70 text-foreground/85 hover:border-amber-500/40"
                 )}
               >
-                <RichGuideText text={pillLabel} variant="inline" />
+                <RichGuideText
+                  text={pillLabel}
+                  variant="inline"
+                  locale={locale}
+                  disableEntityChips
+                />
               </button>
             );
           })}
@@ -101,19 +106,33 @@ export function StepRoadmap({ steps, locale = "vi" }: StepRoadmapProps) {
 
               <div className="flex flex-wrap items-center justify-between gap-2 mb-1.5">
                 <Badge className="bg-amber-500/15 text-amber-600 dark:text-amber-400 border-amber-500/30 font-mono text-xs font-bold">
-                  <RichGuideText text={badgeText} variant="inline" />
+                  <RichGuideText
+                    text={badgeText}
+                    variant="inline"
+                    locale={locale}
+                    disableEntityChips
+                  />
                 </Badge>
                 <span className="inline-flex items-center gap-1 text-xs font-mono text-muted-foreground">
                   <Clock className="h-3.5 w-3.5 text-amber-500" />
-                  <RichGuideText text={step.timing} variant="inline" />
+                  <RichGuideText
+                    text={step.timing}
+                    variant="inline"
+                    locale={locale}
+                  />
                 </span>
               </div>
 
               <h4 className="font-heading font-bold text-sm sm:text-base text-foreground mb-1">
-                <RichGuideText text={step.title} variant="inline" />
+                <RichGuideText
+                  text={step.title}
+                  variant="inline"
+                  locale={locale}
+                />
               </h4>
               <RichGuideText
                 text={step.description}
+                locale={locale}
                 className="text-xs sm:text-sm text-muted-foreground leading-relaxed"
               />
             </div>
@@ -123,4 +142,3 @@ export function StepRoadmap({ steps, locale = "vi" }: StepRoadmapProps) {
     </div>
   );
 }
-

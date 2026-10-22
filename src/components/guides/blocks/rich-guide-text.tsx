@@ -1,5 +1,8 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
+import { GameInlineChip } from "@/components/guides/media/game-inline-chip";
+import { resolveEntityFromCodeToken } from "@/content/guides/asset-registry";
+import type { GuideLocale } from "@/content/guides/types";
 import { cn } from "@/lib/utils";
 
 export type RichGuideTextVariant = "default" | "inline" | "structured-brief";
@@ -16,8 +19,19 @@ export interface RichGuideTextProps {
   variant?: RichGuideTextVariant;
   inline?: boolean;
   accentColor?: RichGuideTextAccent;
+  locale?: GuideLocale;
+  disableEntityChips?: boolean;
   className?: string;
 }
+
+export interface InlineParseOptions {
+  readonly locale?: GuideLocale;
+  readonly seenEntityIds?: Set<string>;
+  readonly disableEntityChips?: boolean;
+}
+
+const VI_DIACRITIC_REGEX =
+  /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỠỲÝỴỶỸĐ]/;
 
 const ACCENT_STYLES: Record<
   RichGuideTextAccent,
@@ -122,7 +136,8 @@ function parseProgressionArrows(
 export function parseInlineTokens(
   input: string,
   accentColor: RichGuideTextAccent = "amber",
-  keyPrefix = "in"
+  keyPrefix = "in",
+  options?: InlineParseOptions
 ): React.ReactNode[] {
   if (!input) return [];
 
@@ -168,7 +183,12 @@ export function parseInlineTokens(
           key={`${keyPrefix}-b-${idx}`}
           className="font-semibold text-foreground"
         >
-          {parseInlineTokens(innerBold, accentColor, `${keyPrefix}-b-${idx}`)}
+          {parseInlineTokens(
+            innerBold,
+            accentColor,
+            `${keyPrefix}-b-${idx}`,
+            options
+          )}
         </strong>
       );
 
@@ -187,21 +207,49 @@ export function parseInlineTokens(
 
       const cleanCodeText = codeMatch[1].replace(/\*\*/g, "");
       const idx = tokenCounter++;
-      nodes.push(
-        <code
-          key={`${keyPrefix}-c-${idx}`}
-          className={cn(
-            "mx-0.5 inline-flex items-center rounded-md border px-1.5 py-0.5 font-mono text-[0.82em] font-semibold transition-colors",
-            ACCENT_STYLES[accentColor].code
-          )}
-        >
-          {parseProgressionArrows(
-            cleanCodeText,
-            accentColor,
-            `${keyPrefix}-c-${idx}`
-          )}
-        </code>
-      );
+      const matchedEntity = options?.disableEntityChips
+        ? undefined
+        : resolveEntityFromCodeToken(cleanCodeText);
+
+      if (matchedEntity) {
+        const isFirstOccurrence =
+          !options?.seenEntityIds || !options.seenEntityIds.has(matchedEntity.id);
+        if (isFirstOccurrence && options?.seenEntityIds) {
+          options.seenEntityIds.add(matchedEntity.id);
+        }
+
+        nodes.push(
+          <GameInlineChip
+            key={`${keyPrefix}-c-${idx}`}
+            entity={matchedEntity}
+            locale={options?.locale ?? "vi"}
+            codeClassName={ACCENT_STYLES[accentColor].code}
+            showIcon={isFirstOccurrence}
+          >
+            {parseProgressionArrows(
+              cleanCodeText,
+              accentColor,
+              `${keyPrefix}-c-${idx}`
+            )}
+          </GameInlineChip>
+        );
+      } else {
+        nodes.push(
+          <code
+            key={`${keyPrefix}-c-${idx}`}
+            className={cn(
+              "mx-0.5 inline-flex items-center rounded-md border px-1.5 py-0.5 font-mono text-[0.82em] font-semibold transition-colors",
+              ACCENT_STYLES[accentColor].code
+            )}
+          >
+            {parseProgressionArrows(
+              cleanCodeText,
+              accentColor,
+              `${keyPrefix}-c-${idx}`
+            )}
+          </code>
+        );
+      }
 
       remaining = remaining.slice(codeMatch.index + codeMatch[0].length);
     }
@@ -364,17 +412,26 @@ export function RichGuideText({
   variant = "default",
   inline = false,
   accentColor = "amber",
+  locale,
+  disableEntityChips = false,
   className,
 }: RichGuideTextProps) {
   if (!text) return null;
 
+  const resolvedLocale: GuideLocale =
+    locale ?? (VI_DIACRITIC_REGEX.test(text) ? "vi" : "en");
   const effectiveVariant: RichGuideTextVariant = inline ? "inline" : variant;
   const accentStyle = ACCENT_STYLES[accentColor];
 
   if (effectiveVariant === "inline") {
+    const inlineOptions: InlineParseOptions = {
+      locale: resolvedLocale,
+      seenEntityIds: new Set<string>(),
+      disableEntityChips,
+    };
     return (
       <span className={className}>
-        {parseInlineTokens(text, accentColor, "inline")}
+        {parseInlineTokens(text, accentColor, "inline", inlineOptions)}
       </span>
     );
   }
@@ -387,6 +444,12 @@ export function RichGuideText({
   if (rawLines.length === 0) return null;
 
   if (effectiveVariant === "structured-brief") {
+    const briefOptions: InlineParseOptions = {
+      locale: resolvedLocale,
+      seenEntityIds: new Set<string>(),
+      disableEntityChips,
+    };
+
     // Multiline structured brief: if first line is non-bullet and subsequent lines exist
     if (rawLines.length > 1) {
       const firstIsBullet =
@@ -408,7 +471,7 @@ export function RichGuideText({
         return (
           <div className={cn("space-y-1.5", className)}>
             <p className="font-semibold text-foreground leading-snug mb-2">
-              {parseInlineTokens(leadLine, accentColor, "sb-lead")}
+              {parseInlineTokens(leadLine, accentColor, "sb-lead", briefOptions)}
             </p>
             {restItems.length > 0 && (
               <ul className="space-y-1.5 text-xs sm:text-[13px] text-muted-foreground">
@@ -428,7 +491,8 @@ export function RichGuideText({
                       {parseInlineTokens(
                         item,
                         accentColor,
-                        `sb-ml-item-${idx}`
+                        `sb-ml-item-${idx}`,
+                        briefOptions
                       )}
                     </span>
                   </li>
@@ -449,7 +513,12 @@ export function RichGuideText({
           return (
             <div className={cn("space-y-1.5", className)}>
               <p className="font-semibold text-foreground leading-snug mb-2">
-                {parseInlineTokens(leadSentence, accentColor, "sb-s-lead")}
+                {parseInlineTokens(
+                  leadSentence,
+                  accentColor,
+                  "sb-s-lead",
+                  briefOptions
+                )}
               </p>
               <ul className="space-y-1.5 text-xs sm:text-[13px] text-muted-foreground">
                 {restSentences.map((sentence, idx) => (
@@ -468,7 +537,8 @@ export function RichGuideText({
                       {parseInlineTokens(
                         sentence,
                         accentColor,
-                        `sb-s-item-${idx}`
+                        `sb-s-item-${idx}`,
+                        briefOptions
                       )}
                     </span>
                   </li>
@@ -482,7 +552,12 @@ export function RichGuideText({
       return (
         <div className={cn("leading-relaxed", className)}>
           <p className="leading-relaxed">
-            {parseInlineTokens(singleLine, accentColor, "sb-single")}
+            {parseInlineTokens(
+              singleLine,
+              accentColor,
+              "sb-single",
+              briefOptions
+            )}
           </p>
         </div>
       );
@@ -493,10 +568,20 @@ export function RichGuideText({
   const groups = groupLinesIntoBlocks(rawLines);
 
   if (groups.length === 1 && groups[0].kind === "paragraph") {
+    const singleParagraphOptions: InlineParseOptions = {
+      locale: resolvedLocale,
+      seenEntityIds: new Set<string>(),
+      disableEntityChips,
+    };
     return (
       <div className={cn("leading-relaxed", className)}>
         <p className="leading-relaxed">
-          {parseInlineTokens(groups[0].lines[0], accentColor, "def-p-0")}
+          {parseInlineTokens(
+            groups[0].lines[0],
+            accentColor,
+            "def-p-0",
+            singleParagraphOptions
+          )}
         </p>
       </div>
     );
@@ -508,27 +593,35 @@ export function RichGuideText({
         if (group.kind === "ul") {
           return (
             <ul key={gIdx} className="my-2 space-y-1.5 text-left">
-              {group.items.map((item, iIdx) => (
-                <li
-                  key={iIdx}
-                  className="flex items-start gap-2 leading-relaxed"
-                >
-                  <span
-                    className={cn(
-                      "mt-2 h-1.5 w-1.5 shrink-0 rounded-full",
-                      accentStyle.bullet
-                    )}
-                    aria-hidden="true"
-                  />
-                  <span className="min-w-0 flex-1">
-                    {parseInlineTokens(
-                      item,
-                      accentColor,
-                      `ul-${gIdx}-${iIdx}`
-                    )}
-                  </span>
-                </li>
-              ))}
+              {group.items.map((item, iIdx) => {
+                const itemOptions: InlineParseOptions = {
+                  locale: resolvedLocale,
+                  seenEntityIds: new Set<string>(),
+                  disableEntityChips,
+                };
+                return (
+                  <li
+                    key={iIdx}
+                    className="flex items-start gap-2 leading-relaxed"
+                  >
+                    <span
+                      className={cn(
+                        "mt-2 h-1.5 w-1.5 shrink-0 rounded-full",
+                        accentStyle.bullet
+                      )}
+                      aria-hidden="true"
+                    />
+                    <span className="min-w-0 flex-1">
+                      {parseInlineTokens(
+                        item,
+                        accentColor,
+                        `ul-${gIdx}-${iIdx}`,
+                        itemOptions
+                      )}
+                    </span>
+                  </li>
+                );
+              })}
             </ul>
           );
         }
@@ -536,35 +629,53 @@ export function RichGuideText({
         if (group.kind === "ol") {
           return (
             <ol key={gIdx} className="my-2 space-y-2 text-left">
-              {group.items.map((item, iIdx) => (
-                <li
-                  key={iIdx}
-                  className="flex items-start gap-2.5 leading-relaxed"
-                >
-                  <span
-                    className={cn(
-                      "mt-0.5 inline-flex h-5 min-w-5 shrink-0 items-center justify-center rounded border px-1 font-mono text-[11px] font-bold",
-                      accentStyle.stepBadge
-                    )}
+              {group.items.map((item, iIdx) => {
+                const itemOptions: InlineParseOptions = {
+                  locale: resolvedLocale,
+                  seenEntityIds: new Set<string>(),
+                  disableEntityChips,
+                };
+                return (
+                  <li
+                    key={iIdx}
+                    className="flex items-start gap-2.5 leading-relaxed"
                   >
-                    {String(item.stepNum || iIdx + 1).padStart(2, "0")}
-                  </span>
-                  <span className="min-w-0 flex-1">
-                    {parseInlineTokens(
-                      item.content,
-                      accentColor,
-                      `ol-${gIdx}-${iIdx}`
-                    )}
-                  </span>
-                </li>
-              ))}
+                    <span
+                      className={cn(
+                        "mt-0.5 inline-flex h-5 min-w-5 shrink-0 items-center justify-center rounded border px-1 font-mono text-[11px] font-bold",
+                        accentStyle.stepBadge
+                      )}
+                    >
+                      {String(item.stepNum || iIdx + 1).padStart(2, "0")}
+                    </span>
+                    <span className="min-w-0 flex-1">
+                      {parseInlineTokens(
+                        item.content,
+                        accentColor,
+                        `ol-${gIdx}-${iIdx}`,
+                        itemOptions
+                      )}
+                    </span>
+                  </li>
+                );
+              })}
             </ol>
           );
         }
 
+        const paragraphOptions: InlineParseOptions = {
+          locale: resolvedLocale,
+          seenEntityIds: new Set<string>(),
+          disableEntityChips,
+        };
         return (
           <p key={gIdx} className="leading-relaxed">
-            {parseInlineTokens(group.lines[0], accentColor, `p-${gIdx}`)}
+            {parseInlineTokens(
+              group.lines[0],
+              accentColor,
+              `p-${gIdx}`,
+              paragraphOptions
+            )}
           </p>
         );
       })}

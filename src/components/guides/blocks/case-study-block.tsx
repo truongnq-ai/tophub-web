@@ -42,13 +42,22 @@ export function CaseStudyBlock({ block, locale }: CaseStudyBlockProps) {
       <div className="space-y-2">
         <Badge className="bg-amber-500 text-slate-950 font-mono text-xs font-bold px-2.5 py-0.5 inline-flex items-center gap-1.5">
           <Stethoscope className="h-3.5 w-3.5" />
-          <RichGuideText text={block.badge[locale]} variant="inline" />
+          <RichGuideText
+            text={block.badge[locale]}
+            variant="inline"
+            locale={locale}
+          />
         </Badge>
         <h4 className="font-heading font-black text-base sm:text-lg text-foreground">
-          <RichGuideText text={block.title[locale]} variant="inline" />
+          <RichGuideText
+            text={block.title[locale]}
+            variant="inline"
+            locale={locale}
+          />
         </h4>
         <RichGuideText
           text={block.profileSummary[locale]}
+          locale={locale}
           className="text-xs sm:text-sm text-foreground/90 leading-relaxed bg-background/70 rounded-xl border border-border/70 p-3"
         />
       </div>
@@ -62,13 +71,18 @@ export function CaseStudyBlock({ block, locale }: CaseStudyBlockProps) {
               className="rounded-xl border border-border/80 bg-background/80 p-3 space-y-1"
             >
               <span className="block text-[11px] font-mono uppercase tracking-wider text-muted-foreground">
-                <RichGuideText text={m.label[locale]} variant="inline" />
+                <RichGuideText
+                  text={m.label[locale]}
+                  variant="inline"
+                  locale={locale}
+                />
               </span>
               <div className="flex items-center gap-2 text-xs sm:text-sm font-bold">
                 <span className="text-rose-500 line-through">
                   <RichGuideText
                     text={m.before[locale]}
                     variant="inline"
+                    locale={locale}
                     accentColor="rose"
                   />
                 </span>
@@ -77,6 +91,7 @@ export function CaseStudyBlock({ block, locale }: CaseStudyBlockProps) {
                   <RichGuideText
                     text={m.after[locale]}
                     variant="inline"
+                    locale={locale}
                     accentColor="emerald"
                   />
                 </span>
@@ -87,6 +102,7 @@ export function CaseStudyBlock({ block, locale }: CaseStudyBlockProps) {
                   <RichGuideText
                     text={m.delta[locale]}
                     variant="inline"
+                    locale={locale}
                     accentColor="amber"
                   />
                 </span>
@@ -122,6 +138,7 @@ export function CaseStudyBlock({ block, locale }: CaseStudyBlockProps) {
                   </span>
                   <RichGuideText
                     text={diag[locale]}
+                    locale={locale}
                     accentColor="rose"
                     className="flex-1 min-w-0"
                   />
@@ -160,6 +177,7 @@ export function CaseStudyBlock({ block, locale }: CaseStudyBlockProps) {
                     <RichGuideText
                       text={step.title[locale]}
                       variant="inline"
+                      locale={locale}
                       accentColor="emerald"
                     />
                   </span>
@@ -168,6 +186,7 @@ export function CaseStudyBlock({ block, locale }: CaseStudyBlockProps) {
                       <RichGuideText
                         text={step.impactBadge[locale]}
                         variant="inline"
+                        locale={locale}
                         accentColor="emerald"
                       />
                     </Badge>
@@ -175,6 +194,7 @@ export function CaseStudyBlock({ block, locale }: CaseStudyBlockProps) {
                 </div>
                 <RichGuideText
                   text={step.detail[locale]}
+                  locale={locale}
                   accentColor="emerald"
                   className="text-xs sm:text-sm text-muted-foreground leading-relaxed"
                 />
@@ -187,6 +207,7 @@ export function CaseStudyBlock({ block, locale }: CaseStudyBlockProps) {
       {block.conclusion && (
         <RichGuideText
           text={block.conclusion[locale]}
+          locale={locale}
           accentColor="amber"
           className="rounded-xl border border-amber-500/30 bg-amber-500/10 p-3 text-xs sm:text-sm font-semibold text-foreground"
         />
@@ -194,4 +215,3 @@ export function CaseStudyBlock({ block, locale }: CaseStudyBlockProps) {
     </div>
   );
 }
-

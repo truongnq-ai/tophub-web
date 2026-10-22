@@ -115,6 +115,7 @@ export function CalloutBox({
             <RichGuideText
               text={title}
               variant="inline"
+              locale={locale}
               accentColor={style.accentColor}
             />
           </h4>
@@ -122,6 +123,7 @@ export function CalloutBox({
         <RichGuideText
           text={content}
           variant="structured-brief"
+          locale={locale}
           accentColor={style.accentColor}
           className="text-foreground/90 leading-relaxed text-xs sm:text-sm"
         />
@@ -129,4 +131,3 @@ export function CalloutBox({
     </div>
   );
 }
-
