@@ -17,6 +17,7 @@ import {
   Crown,
   PanelLeftClose,
   PanelLeftOpen,
+  Database,
 } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/routing";
@@ -107,9 +108,14 @@ function SidebarNavigationTree({
 
   const [searchQuery, setSearchQuery] = useState("");
 
+  const isCodexRoute = useMemo(() => {
+    const segments = pathname.split("/").filter(Boolean);
+    return segments[0] === "guides" && segments[1] === "codex";
+  }, [pathname]);
+
   const activeCategorySlug = useMemo(() => {
     const segments = pathname.split("/").filter(Boolean);
-    if (segments[0] === "guides" && segments[1]) {
+    if (segments[0] === "guides" && segments[1] && segments[1] !== "codex") {
       return segments[1];
     }
     return "getting-started";
@@ -193,6 +199,27 @@ function SidebarNavigationTree({
       >
         <BookOpen className="h-4 w-4 text-amber-500 shrink-0" />
         <span>{t("backToHub")}</span>
+      </Link>
+
+      {/* Tier-2 Game Codex & Item Compendium Link (GAP-05 / GAP-P5-06) */}
+      <Link
+        href="/guides/codex"
+        data-testid="sidebar-codex-link"
+        onClick={onNavigate}
+        className={cn(
+          "flex items-center justify-between gap-2 px-3 py-2 rounded-xl text-xs font-bold transition-all min-h-[40px] border",
+          isCodexRoute
+            ? "bg-amber-500/15 text-amber-600 dark:text-amber-400 border-amber-500/35 shadow-sm"
+            : "border-border/60 bg-card/40 text-muted-foreground hover:text-foreground hover:bg-muted/50"
+        )}
+      >
+        <span className="flex items-center gap-2.5 min-w-0">
+          <Database className="h-4 w-4 text-amber-500 shrink-0" />
+          <span className="truncate">{t("sidebarCodexLink")}</span>
+        </span>
+        <span className="rounded-md bg-amber-500/15 border border-amber-500/30 px-1.5 py-0.5 font-mono text-[10px] font-bold text-amber-500 shrink-0">
+          3.4K+
+        </span>
       </Link>
 
       {/* Instant Search Results View */}
@@ -493,6 +520,20 @@ export function GuidesSidebar() {
                 )}
               >
                 <BookOpen className="h-4 w-4" />
+              </Link>
+
+              <Link
+                href="/guides/codex"
+                data-testid="sidebar-rail-codex-link"
+                title={t("sidebarCodexLink")}
+                className={cn(
+                  "flex h-10 w-10 items-center justify-center rounded-xl border transition-colors",
+                  pathname.startsWith("/guides/codex")
+                    ? "border-amber-500/40 bg-amber-500/15 text-amber-500"
+                    : "border-transparent text-muted-foreground hover:bg-muted/60 hover:text-foreground"
+                )}
+              >
+                <Database className="h-4 w-4" />
               </Link>
 
               <div className="h-px w-8 bg-border/70 my-0.5" />

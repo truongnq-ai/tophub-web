@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import {
   Sprout,
   ShieldAlert,
@@ -21,6 +21,7 @@ import {
   ChevronDown,
   ChevronUp,
   Table2,
+  Database,
 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
@@ -30,6 +31,8 @@ import {
   searchGuides,
 } from "@/content/guides/registry";
 import type {
+  CodexEntityRecord,
+  CodexSearchIndexItem,
   GuideArticle,
   GuideCategoryIconName,
   GuideLocale,
@@ -38,6 +41,13 @@ import type {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
+import { GameAssetFrame } from "./media/game-asset-frame";
+import {
+  CODEX_CATEGORY_LABELS,
+  fetchCodexSearchIndex,
+  filterCodexEntities,
+  getInitialCodexSeedRecords,
+} from "./codex/codex-utils";
 import { GuideCommentsSection } from "./guide-comments-section";
 import { cn } from "@/lib/utils";
 
@@ -135,12 +145,22 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
   const quickTools = useMemo(
     () => [
       {
+        code: "CODEX",
+        href: "/guides/codex",
+        icon: Database,
+        title: t("toolCodexTitle"),
+        desc: t("toolCodexDesc"),
+        accent: "text-purple-500 bg-purple-500/10 border-purple-500/25",
+        testId: "hub-tool-codex",
+      },
+      {
         code: "2.1",
         href: "/guides/heroes/encyclopedia",
         icon: ShieldAlert,
         title: t("toolEncyclopediaTitle"),
         desc: t("toolEncyclopediaDesc"),
         accent: "text-rose-500 bg-rose-500/10 border-rose-500/25",
+        testId: "hub-tool-2.1",
       },
       {
         code: "3.1",
@@ -149,6 +169,7 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
         title: t("toolCalendarTitle"),
         desc: t("toolCalendarDesc"),
         accent: "text-amber-500 bg-amber-500/10 border-amber-500/25",
+        testId: "hub-tool-3.1",
       },
       {
         code: "7.1",
@@ -157,6 +178,7 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
         title: t("toolShopsTitle"),
         desc: t("toolShopsDesc"),
         accent: "text-emerald-500 bg-emerald-500/10 border-emerald-500/25",
+        testId: "hub-tool-7.1",
       },
       {
         code: "8.4",
@@ -165,15 +187,60 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
         title: t("toolMasterTablesTitle"),
         desc: t("toolMasterTablesDesc"),
         accent: "text-sky-500 bg-sky-500/10 border-sky-500/25",
+        testId: "hub-tool-8.4",
       },
     ],
     [t]
   );
 
+  const [codexPool, setCodexPool] = useState<
+    readonly (CodexEntityRecord | CodexSearchIndexItem)[]
+  >(() => getInitialCodexSeedRecords());
+
+  useEffect(() => {
+    if (searchQuery.trim().length < 2) return;
+    if (
+      typeof navigator !== "undefined" &&
+      /jsdom/i.test(navigator.userAgent || "") &&
+      !(
+        typeof window !== "undefined" &&
+        window.fetch &&
+        "mock" in (window.fetch as unknown as Record<string, unknown>)
+      )
+    ) {
+      return;
+    }
+
+    const controller = new AbortController();
+    let mounted = true;
+    fetchCodexSearchIndex(controller.signal)
+      .then((payload) => {
+        if (mounted && payload.items.length > 0) {
+          setCodexPool(payload.items);
+        }
+      })
+      .catch(() => undefined);
+
+    return () => {
+      mounted = false;
+      controller.abort();
+    };
+  }, [searchQuery]);
+
   const searchResults = useMemo(() => {
     if (searchQuery.trim().length < 2) return null;
     return searchGuides(searchQuery, locale);
   }, [searchQuery, locale]);
+
+  const codexSearchResults = useMemo(() => {
+    if (searchQuery.trim().length < 2) return [];
+    return filterCodexEntities(codexPool, {
+      category: "all",
+      rarity: "all",
+      faction: "all",
+      query: searchQuery,
+    }).slice(0, 6);
+  }, [codexPool, searchQuery]);
 
   const renderStageCards = (articles: GuideArticle[]) => (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
@@ -290,12 +357,14 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
           </div>
         </div>
 
-        {/* Instant Search Results Panel inside Hero */}
+        {/* Instant Search Results Panel inside Hero (Unified: (1) Articles & (2) Game Codex Entities) */}
         {searchResults !== null && (
-          <div className="rounded-2xl border border-amber-500/30 bg-background/80 p-4 space-y-3">
+          <div className="rounded-2xl border border-amber-500/30 bg-background/80 p-4 space-y-4">
             <div className="flex items-center justify-between">
               <span className="text-xs font-mono font-bold text-amber-600 dark:text-amber-400">
-                {t("searchResultsCount", { count: searchResults.length })}
+                {t("searchResultsCount", {
+                  count: searchResults.length + codexSearchResults.length,
+                })}
               </span>
               <button
                 type="button"
@@ -306,36 +375,109 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
               </button>
             </div>
 
-            {searchResults.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
-                {searchResults.map((art) => (
-                  <Link
-                    key={`${art.categorySlug}/${art.slug}`}
-                    href={`/guides/${art.categorySlug}/${art.slug}`}
-                    className="group flex items-center justify-between gap-2 rounded-xl border border-border/70 bg-card/70 hover:border-amber-500/50 p-3 text-xs transition-all"
-                  >
-                    <div className="min-w-0 space-y-0.5">
-                      <div className="flex items-center gap-1.5">
-                        <span className="font-mono text-[11px] font-bold text-amber-500 shrink-0">
-                          #{art.code}
-                        </span>
-                        <span className="font-heading font-bold text-foreground group-hover:text-amber-500 line-clamp-1">
-                          {art.title[locale]}
-                        </span>
-                      </div>
-                      <p className="text-[11px] text-muted-foreground line-clamp-1">
-                        {art.summary[locale]}
-                      </p>
-                    </div>
-                    <ArrowRight className="h-3.5 w-3.5 text-muted-foreground group-hover:text-amber-500 shrink-0" />
-                  </Link>
-                ))}
+            {/* Section (1): Matching Guide Articles */}
+            <div
+              data-testid="hub-search-articles-section"
+              className="space-y-2"
+            >
+              <div className="text-[11px] font-mono font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
+                <BookOpen className="h-3.5 w-3.5 text-amber-500" />
+                <span>{t("hubSearchArticlesHeading")}</span>
               </div>
-            ) : (
-              <p className="text-xs text-muted-foreground py-2">
-                {t("searchNoResults")}
-              </p>
-            )}
+
+              {searchResults.length > 0 ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
+                  {searchResults.map((art) => (
+                    <Link
+                      key={`${art.categorySlug}/${art.slug}`}
+                      href={`/guides/${art.categorySlug}/${art.slug}`}
+                      className="group flex items-center justify-between gap-2 rounded-xl border border-border/70 bg-card/70 hover:border-amber-500/50 p-3 text-xs transition-all"
+                    >
+                      <div className="min-w-0 space-y-0.5">
+                        <div className="flex items-center gap-1.5">
+                          <span className="font-mono text-[11px] font-bold text-amber-500 shrink-0">
+                            #{art.code}
+                          </span>
+                          <span className="font-heading font-bold text-foreground group-hover:text-amber-500 line-clamp-1">
+                            {art.title[locale]}
+                          </span>
+                        </div>
+                        <p className="text-[11px] text-muted-foreground line-clamp-1">
+                          {art.summary[locale]}
+                        </p>
+                      </div>
+                      <ArrowRight className="h-3.5 w-3.5 text-muted-foreground group-hover:text-amber-500 shrink-0" />
+                    </Link>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-xs text-muted-foreground py-1">
+                  {t("searchNoResults")}
+                </p>
+              )}
+            </div>
+
+            {/* Section (2): Matching Game Codex Entities with .webp Thumbnails */}
+            <div
+              data-testid="hub-search-codex-section"
+              className="space-y-2 pt-2 border-t border-border/60"
+            >
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
+                  <Database className="h-3.5 w-3.5 text-amber-500" />
+                  <span>{t("hubSearchCodexHeading")}</span>
+                </span>
+                <Link
+                  href={`/guides/codex?q=${encodeURIComponent(
+                    searchQuery.trim()
+                  )}`}
+                  className="text-[11px] font-mono font-bold text-amber-500 hover:underline"
+                >
+                  {t("hubSearchOpenCodexBtn")}
+                </Link>
+              </div>
+
+              {codexSearchResults.length > 0 && (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+                  {codexSearchResults.map((entity) => {
+                    const displayName =
+                      locale === "vi" ? entity.nameVi : entity.nameEn;
+                    const displayDesc =
+                      locale === "vi" ? entity.descVi : entity.descEn;
+                    return (
+                      <Link
+                        key={entity.id}
+                        href={`/guides/codex?q=${encodeURIComponent(
+                          displayName
+                        )}`}
+                        className="group flex items-center gap-2.5 rounded-xl border border-border/70 bg-card/70 hover:border-amber-500/50 p-2.5 text-xs transition-all"
+                      >
+                        <GameAssetFrame
+                          src={entity.path}
+                          alt={displayName}
+                          size="md"
+                          rarity={entity.rarity}
+                          faction={entity.faction}
+                        />
+                        <div className="min-w-0 flex-1 space-y-0.5">
+                          <div className="flex items-center justify-between gap-1">
+                            <span className="font-heading font-bold text-foreground group-hover:text-amber-500 truncate">
+                              {displayName}
+                            </span>
+                            <span className="text-[10px] font-mono text-amber-500 shrink-0">
+                              {CODEX_CATEGORY_LABELS[entity.category][locale]}
+                            </span>
+                          </div>
+                          <p className="text-[11px] text-muted-foreground line-clamp-1">
+                            {displayDesc}
+                          </p>
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
           </div>
         )}
       </section>
@@ -405,13 +547,14 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
           <span>{t("toolsStripTitle")}</span>
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3.5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 gap-3.5">
           {quickTools.map((tool) => {
             const Icon = tool.icon;
             return (
               <Link
                 key={tool.code}
                 href={tool.href}
+                data-testid={tool.testId}
                 className="group rounded-2xl border border-border/80 bg-card/70 hover:border-amber-500/50 p-4 flex items-start gap-3.5 transition-all shadow-sm"
               >
                 <div

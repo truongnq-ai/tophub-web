@@ -1,0 +1,344 @@
+import fs from "node:fs";
+import path from "node:path";
+import zlib from "node:zlib";
+import React from "react";
+import { describe, expect, it, vi } from "vitest";
+import { fireEvent, render, screen } from "@testing-library/react";
+import viMessages from "../messages/vi.json";
+import enMessages from "../messages/en.json";
+import type {
+  CodexCategoryId,
+  CodexCategoryShardPayload,
+  CodexSearchIndexPayload,
+} from "@/content/guides/types";
+import {
+  CODEX_CATEGORY_IDS,
+  CODEX_PAGE_SIZE,
+  filterCodexEntities,
+  getInitialCodexSeedRecords,
+  normalizeSearchQuery,
+  paginateCodexEntities,
+  parseCodexUrlParams,
+} from "@/components/guides/codex/codex-utils";
+import { GameCodexClient } from "@/components/guides/codex/game-codex-client";
+import { CodexEntityDrawer } from "@/components/guides/codex/codex-entity-drawer";
+
+let mockActiveLocale: "vi" | "en" = "vi";
+
+vi.mock("next-intl", () => ({
+  useLocale: () => mockActiveLocale,
+  useTranslations: (namespace?: string) => (key: string, values?: Record<string, unknown>) => {
+    const dict = (mockActiveLocale === "en"
+      ? enMessages
+      : viMessages) as unknown as Record<string, Record<string, string>>;
+    const ns = namespace ? dict[namespace] : dict.Guides;
+    let template = ns?.[key] ?? key;
+    if (values) {
+      for (const [k, v] of Object.entries(values)) {
+        template = template.replace(`{${k}}`, String(v));
+      }
+    }
+    return template;
+  },
+}));
+
+vi.mock("@/i18n/routing", () => ({
+  Link: ({
+    href,
+    children,
+    ...rest
+  }: {
+    href: string;
+    children: React.ReactNode;
+    [key: string]: unknown;
+  }) => (
+    <a href={href} {...rest}>
+      {children}
+    </a>
+  ),
+  usePathname: () => "/guides/codex",
+  useRouter: () => ({
+    push: vi.fn(),
+    replace: vi.fn(),
+  }),
+}));
+
+const PUBLIC_DIR = path.resolve(process.cwd(), "public");
+const CODEX_DIR = path.resolve(PUBLIC_DIR, "data", "codex");
+
+const EXPECTED_CATEGORIES: readonly CodexCategoryId[] = [
+  "heroes",
+  "items",
+  "equipment",
+  "relics",
+  "pets-behemoths",
+  "buildings-decor",
+  "skills-tech",
+  "troops",
+  "events-seasons",
+  "monsters",
+  "cosmetics",
+  "shop-vip",
+] as const;
+
+const VI_DIACRITIC_REGEX =
+  /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ]/;
+
+const RAW_SPRITE_NAME_REGEX = /^(?:icon|Head|Activity)\s+\d+$/i;
+
+describe("Phase 5 — Suite 1: Game Codex Data Shards & Search Index (Task P5.1)", () => {
+  it("generates search-index.json with gzip size < 45 KB and totalEntities >= 3387 (GAP-P5-01, GAP-P5-10)", () => {
+    const searchIndexPath = path.resolve(CODEX_DIR, "search-index.json");
+    expect(fs.existsSync(searchIndexPath)).toBe(true);
+
+    const rawBytes = fs.readFileSync(searchIndexPath);
+    const gzippedBytes = zlib.gzipSync(rawBytes);
+    const gzipSizeKb = gzippedBytes.byteLength / 1024;
+
+    expect(gzipSizeKb).toBeLessThan(45);
+
+    const payload = JSON.parse(
+      rawBytes.toString("utf-8")
+    ) as CodexSearchIndexPayload;
+
+    expect(payload.totalEntities).toBeGreaterThanOrEqual(3387);
+    expect(payload.items.length).toBeGreaterThanOrEqual(500);
+    expect(payload.items.length).toBeLessThanOrEqual(1350);
+
+    for (const cat of EXPECTED_CATEGORIES) {
+      expect(payload.categoryCounts[cat]).toBeGreaterThan(0);
+    }
+
+    for (const item of payload.items) {
+      expect(item.id.length).toBeGreaterThan(0);
+      expect(item.path.startsWith("/images/")).toBe(true);
+      expect(item.path.endsWith(".webp")).toBe(true);
+      expect(item.nameVi.trim().length).toBeGreaterThan(0);
+      expect(item.nameEn.trim().length).toBeGreaterThan(0);
+      expect(item.descVi.trim().length).toBeGreaterThan(0);
+      expect(item.descEn.trim().length).toBeGreaterThan(0);
+      expect(RAW_SPRITE_NAME_REGEX.test(item.nameVi)).toBe(false);
+      expect(RAW_SPRITE_NAME_REGEX.test(item.nameEn)).toBe(false);
+      expect(VI_DIACRITIC_REGEX.test(item.nameEn)).toBe(false);
+      expect(VI_DIACRITIC_REGEX.test(item.descEn)).toBe(false);
+      if (item.communityNameEn) {
+        expect(VI_DIACRITIC_REGEX.test(item.communityNameEn)).toBe(false);
+      }
+      expect(item.relatedArticleSlugs.length).toBeGreaterThan(0);
+    }
+  });
+
+  it("generates all 12 category JSON shards with 100% existing .webp paths, normalized names, and non-empty bilingual descriptions (GAP-P5-02, GAP-P5-03)", () => {
+    let totalAcrossShards = 0;
+
+    for (const cat of EXPECTED_CATEGORIES) {
+      const shardPath = path.resolve(CODEX_DIR, `${cat}.json`);
+      expect(fs.existsSync(shardPath)).toBe(true);
+
+      const shard = JSON.parse(
+        fs.readFileSync(shardPath, "utf-8")
+      ) as CodexCategoryShardPayload;
+
+      expect(shard.category).toBe(cat);
+      expect(shard.total).toBe(shard.items.length);
+      expect(shard.items.length).toBeGreaterThan(0);
+      totalAcrossShards += shard.items.length;
+
+      for (const record of shard.items) {
+        expect(record.category).toBe(cat);
+        expect(record.path.includes("bg_Radiance_plate")).toBe(false);
+        expect(record.path.includes("bg_SecretTreasureExchange")).toBe(false);
+
+        const diskImgPath = path.resolve(
+          PUBLIC_DIR,
+          record.path.replace(/^\//, "")
+        );
+        expect(fs.existsSync(diskImgPath)).toBe(true);
+
+        if (record.portraitPath) {
+          const diskPortraitPath = path.resolve(
+            PUBLIC_DIR,
+            record.portraitPath.replace(/^\//, "")
+          );
+          expect(fs.existsSync(diskPortraitPath)).toBe(true);
+        }
+
+        expect(RAW_SPRITE_NAME_REGEX.test(record.nameVi)).toBe(false);
+        expect(RAW_SPRITE_NAME_REGEX.test(record.nameEn)).toBe(false);
+
+        expect(record.descVi.trim().length).toBeGreaterThan(0);
+        expect(record.descEn.trim().length).toBeGreaterThan(0);
+
+        expect(VI_DIACRITIC_REGEX.test(record.nameEn)).toBe(false);
+        expect(VI_DIACRITIC_REGEX.test(record.descEn)).toBe(false);
+        if (record.communityNameEn) {
+          expect(VI_DIACRITIC_REGEX.test(record.communityNameEn)).toBe(false);
+        }
+
+        expect(record.relatedArticleSlugs.length).toBeGreaterThan(0);
+      }
+    }
+
+    expect(totalAcrossShards).toBeGreaterThanOrEqual(3387);
+  });
+});
+
+describe("Phase 5 — Suite 2: Codex Utilities, Security & Whitelist Validation (GAP-06)", () => {
+  it("normalizes Vietnamese diacritics, caps query length at 100 chars, and never crashes on regex characters", () => {
+    expect(normalizeSearchQuery("  Tôn Ngộ Không (Đấu Chiến)  ")).toBe(
+      "ton ngo khong (dau chien)"
+    );
+    expect(() => normalizeSearchQuery("[*(?\\+^$")).not.toThrow();
+    const longQuery = "a".repeat(250);
+    expect(normalizeSearchQuery(longQuery).length).toBe(100);
+  });
+
+  it("validates URL parameters strictly against Whitelist Enums and rejects malicious/unknown values", () => {
+    expect(CODEX_CATEGORY_IDS.length).toBe(12);
+    const valid = parseCodexUrlParams({
+      cat: "equipment",
+      rarity: "mythic",
+      faction: "horde",
+      q: "Titan",
+      page: "3",
+    });
+    expect(valid.category).toBe("equipment");
+    expect(valid.rarity).toBe("mythic");
+    expect(valid.faction).toBe("horde");
+    expect(valid.query).toBe("Titan");
+    expect(valid.page).toBe(3);
+
+    const malicious = parseCodexUrlParams({
+      cat: "<script>alert(1)</script>",
+      rarity: "ultra-god",
+      faction: "unknown",
+      page: "-999",
+    });
+    expect(malicious.category).toBe("all");
+    expect(malicious.rarity).toBe("all");
+    expect(malicious.faction).toBe("all");
+    expect(malicious.page).toBe(1);
+  });
+
+  it("matches bilingual queries (diacritic-insensitive Vietnamese & English) and paginates at 48 items/page", () => {
+    const seeds = getInitialCodexSeedRecords();
+    expect(seeds.length).toBeGreaterThanOrEqual(111);
+
+    const wukongVi = filterCodexEntities(seeds, {
+      category: "all",
+      rarity: "all",
+      faction: "all",
+      query: "ngo khong",
+    });
+    expect(wukongVi.some((e) => e.glossaryId === "hero-wukong" || e.gameId === 10047)).toBe(
+      true
+    );
+
+    const soulStoneEn = filterCodexEntities(seeds, {
+      category: "all",
+      rarity: "all",
+      faction: "all",
+      query: "Soul Stone",
+    });
+    expect(soulStoneEn.some((e) => e.glossaryId === "item-soul-stone")).toBe(true);
+
+    const page1 = paginateCodexEntities(seeds, 1, CODEX_PAGE_SIZE);
+    expect(page1.items.length).toBeLessThanOrEqual(48);
+    expect(page1.totalPages).toBeGreaterThanOrEqual(3);
+  });
+});
+
+describe("Phase 5 — Suite 3: GameCodexClient & CodexEntityDrawer Interactive Flow (Task P5.2)", () => {
+  it("renders 12 category filter pills, filters by search input, and opens/closes CodexEntityDrawer on card click & Escape", () => {
+    mockActiveLocale = "vi";
+    render(<GameCodexClient locale="vi" />);
+
+    expect(screen.getByTestId("game-codex-client")).toBeDefined();
+    expect(screen.getByTestId("codex-search-input")).toBeDefined();
+
+    // Verify <= 48 cards rendered on initial page
+    const cards = screen.getAllByTestId("codex-entity-card");
+    expect(cards.length).toBeGreaterThan(0);
+    expect(cards.length).toBeLessThanOrEqual(48);
+
+    // Click first entity card to open CodexEntityDrawer
+    fireEvent.click(cards[0]);
+    const dialog = screen.getByRole("dialog");
+    expect(dialog).toBeDefined();
+    expect(screen.getByTestId("codex-drawer-related-guides")).toBeDefined();
+
+    // Press Escape to close drawer (GAP-P5-13)
+    fireEvent.keyDown(window, { key: "Escape" });
+    expect(screen.queryByRole("dialog")).toBeNull();
+  });
+});
+
+describe("Phase 5 — Suite 4: Strict Locale Gate (GAP-01) & De-Boxing CSS Guard (GAP-03)", () => {
+  it("renders zero Vietnamese diacritics in locale='en' and zero border-l-2/4 classes", () => {
+    mockActiveLocale = "en";
+    const seeds = getInitialCodexSeedRecords();
+    const { container } = render(
+      <div>
+        <GameCodexClient locale="en" />
+        <CodexEntityDrawer
+          entity={seeds[0]}
+          locale="en"
+          onClose={() => undefined}
+        />
+      </div>
+    );
+
+    const text = container.textContent ?? "";
+    expect(VI_DIACRITIC_REGEX.test(text)).toBe(false);
+
+    const html = container.innerHTML;
+    expect(html.includes("border-l-2")).toBe(false);
+    expect(html.includes("border-l-4")).toBe(false);
+    expect(html.includes("rounded-l-sm")).toBe(false);
+  });
+});
+
+
+import { GuidesHubClient } from "@/components/guides/guides-hub-client";
+import { GuidesSidebar } from "@/components/guides/guides-sidebar";
+
+describe("Phase 5 — Suite 5: GuidesHubClient 3A Integration & Unified Search (Task P5.3)", () => {
+  it("renders the /guides/codex shortcut card on Interactive Tools Strip and shows both Articles & Codex Entities on Instant Search", () => {
+    mockActiveLocale = "vi";
+    render(<GuidesHubClient locale="vi" />);
+
+    const codexTool = screen.getByTestId("hub-tool-codex");
+    expect(codexTool).toBeDefined();
+    expect(codexTool.getAttribute("href")).toBe("/guides/codex");
+
+    // Click #9HồnĐáĐỏ hot tag to trigger Instant Search
+    fireEvent.click(screen.getByRole("button", { name: /#9HồnĐáĐỏ/i }));
+
+    expect(screen.getByTestId("hub-search-articles-section")).toBeDefined();
+    expect(screen.getByTestId("hub-search-codex-section")).toBeDefined();
+  });
+
+  it("maintains strict locale gate (0 Vietnamese diacritics) in GuidesHubClient when searching in locale='en'", () => {
+    mockActiveLocale = "en";
+    const { container } = render(<GuidesHubClient locale="en" />);
+    fireEvent.click(screen.getByRole("button", { name: /#9SoulStones/i }));
+
+    const text = container.textContent ?? "";
+    expect(VI_DIACRITIC_REGEX.test(text)).toBe(false);
+  });
+});
+
+describe("Phase 5 — Suite 6: GuidesSidebar Codex Link & isCodexRoute State (GAP-05, GAP-P5-06)", () => {
+  it("highlights sidebar-codex-link when pathname is /guides/codex and keeps Getting Started accordion open", () => {
+    mockActiveLocale = "vi";
+    render(<GuidesSidebar />);
+
+    const codexLink = screen.getByTestId("sidebar-codex-link");
+    expect(codexLink).toBeDefined();
+    expect(codexLink.getAttribute("href")).toBe("/guides/codex");
+    expect(codexLink.className.includes("amber-500")).toBe(true);
+
+    // First article in getting-started ("1.1") should remain visible in the open Accordion
+    expect(screen.getByText("1.1")).toBeDefined();
+  });
+});

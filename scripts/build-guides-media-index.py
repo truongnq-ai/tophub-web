@@ -3780,6 +3780,603 @@ def main() -> None:
         f"{len(media_showcase_by_code)} media spotlights, {len(alias_map)} O(1) aliases."
     )
 
+    build_codex_shards(manifest, glossary_terms, asset_registry, hero_profiles)
+
+
+CODEX_OUTPUT_DIR = os.path.join(PUBLIC_DIR, "data", "codex")
+
+CODEX_CATEGORIES: Tuple[str, ...] = (
+    "heroes",
+    "items",
+    "equipment",
+    "relics",
+    "pets-behemoths",
+    "buildings-decor",
+    "skills-tech",
+    "troops",
+    "events-seasons",
+    "monsters",
+    "cosmetics",
+    "shop-vip",
+)
+
+DEFAULT_RELATED_ARTICLES: Dict[str, List[str]] = {
+    "heroes": [
+        "heroes/encyclopedia",
+        "heroes/meta-lineups",
+        "heroes/awakening-and-star-tiers",
+    ],
+    "items": [
+        "getting-started/diamond-and-resource-discipline",
+        "economy/shops-tier-list",
+        "events/double-dip-schedule",
+    ],
+    "equipment": [
+        "gear/gear-overview",
+        "gear/golden-gear-sets",
+        "gear/enhancement-and-mythic",
+        "power-systems/runes-guide",
+    ],
+    "relics": [
+        "power-systems/relics-guide",
+        "events/double-dip-schedule",
+    ],
+    "pets-behemoths": [
+        "power-systems/pets-and-behemoth",
+        "infrastructure/master-data-tables",
+    ],
+    "buildings-decor": [
+        "infrastructure/castle-and-brilliance",
+        "infrastructure/builder-queues-and-villagers",
+    ],
+    "skills-tech": [
+        "heroes/skill-books-and-traits",
+        "infrastructure/research-and-baiting",
+        "infrastructure/castle-and-brilliance",
+    ],
+    "troops": [
+        "economy/troop-skins-and-medals",
+        "infrastructure/master-data-tables",
+    ],
+    "events-seasons": [
+        "events/biweekly-rotation",
+        "events/week-a-guild-race",
+        "events/week-b-arms-race",
+        "roadmap/season-1-to-4-roadmap",
+    ],
+    "monsters": [
+        "events/biweekly-rotation",
+        "power-systems/relics-guide",
+    ],
+    "cosmetics": [
+        "economy/shops-tier-list",
+        "economy/exchange-and-vip-shops",
+    ],
+    "shop-vip": [
+        "economy/shops-tier-list",
+        "economy/exchange-and-vip-shops",
+        "infrastructure/master-data-tables",
+    ],
+}
+
+RAW_NAME_NORMALIZATION_MAP: Dict[str, Tuple[str, str]] = {
+    "icon 30491": ("Rương Tiếp Tế Chiến Trường #30491", "Battlefield Supply Chest #30491"),
+    "icon 30650": ("Vật Phẩm Mùa Giải Đặc Biệt #30650", "Seasonal Special Token #30650"),
+    "icon 31028": ("Lễ Hộp Kỷ Niệm Vương Quốc #31028", "Kingdom Anniversary Giftbox #31028"),
+    "Head 22001": ("Binh Sĩ Hộ Vệ Hoàng Gia #22001", "Royal Guard Unit #22001"),
+    "Activity 52": ("Sự Kiện Lễ Hội Vương Quốc #52", "Kingdom Festival Event #52"),
+    "Activity 114": ("Sự Kiện Đua Điểm Liên Server #114", "Cross-Server Point Race #114"),
+    "Activity 115": ("Sự Kiện Tiếp Tế Chiến Dịch #115", "Campaign Supply Event #115"),
+    "Activity 116": ("Sự Kiện Chinh Phạt Thủ Lĩnh #116", "Boss Conquest Event #116"),
+    "Activity 160": ("Sự Kiện Vòng Quay Mùa Giải #160", "Seasonal Wheel Event #160"),
+    "Activity 373": ("Sự Kiện Kho Báu Cổ Đại #373", "Ancient Treasure Event #373"),
+    "Head 60148": ("Thủ Lĩnh Quái Vật Tinh Anh #60148", "Elite Monster Boss #60148"),
+    "Head 60153": ("Thủ Lĩnh Quái Vật Tinh Anh #60153", "Elite Monster Boss #60153"),
+    "Head 60154": ("Thủ Lĩnh Quái Vật Tinh Anh #60154", "Elite Monster Boss #60154"),
+    "Head 60179": ("Thủ Lĩnh Quái Vật Tinh Anh #60179", "Elite Monster Boss #60179"),
+    "Head 60503": ("Thủ Lĩnh Hư Không Tinh Anh #60503", "Void Elite Boss #60503"),
+    "Head 60504": ("Thủ Lĩnh Hư Không Tinh Anh #60504", "Void Elite Boss #60504"),
+    "Head 60505": ("Thủ Lĩnh Hư Không Tinh Anh #60505", "Void Elite Boss #60505"),
+    "Head 60506": ("Thủ Lĩnh Hư Không Tinh Anh #60506", "Void Elite Boss #60506"),
+}
+
+RARITY_PRIORITY_ORDER: Dict[str, int] = {
+    "mythic": 0,
+    "legendary": 1,
+    "epic": 2,
+    "rare": 3,
+    "uncommon": 4,
+    "common": 5,
+}
+
+
+def map_manifest_group_to_codex_category(group: str, sub_category: str) -> str:
+    if group == "heroes":
+        return "heroes"
+    if group == "items" or (group == "ui" and sub_category == "rarities"):
+        return "items"
+    if group == "equipment":
+        return "equipment"
+    if group == "relics":
+        return "relics"
+    if group in ("behemoths", "elves", "pets"):
+        return "pets-behemoths"
+    if group == "buildings":
+        return "buildings-decor"
+    if group in ("skills", "tech"):
+        return "skills-tech"
+    if group == "troops":
+        return "troops"
+    if group in ("events", "minigames", "factions"):
+        return "events-seasons"
+    if group == "monsters":
+        return "monsters"
+    if group == "cosmetics":
+        return "cosmetics"
+    if group == "shop":
+        return "shop-vip"
+    return "items"
+
+
+def infer_codex_rarity(
+    category: str,
+    sub_category: str,
+    name_en: str,
+    name_vi: str,
+    glossary_rarity: Optional[str] = None,
+) -> str:
+    if glossary_rarity in RARITY_PRIORITY_ORDER:
+        return glossary_rarity
+    text = f"{name_en} {name_vi} {sub_category}".lower()
+    if any(k in text for k in ("mythic", "thần thoại", "đỏ", "awakened", "thức tỉnh", "exclusive", "độc quyền", "behemoth", "sacredbeast")):
+        return "mythic"
+    if any(k in text for k in ("legendary", "huyền thoại", "vàng", "ssr", "ur", "gold", "vip", "castle")):
+        return "legendary"
+    if any(k in text for k in ("epic", "sử thi", "tím", "sr", "relic", "thánh vật", "rune", "cổ ngữ")):
+        return "epic"
+    if any(k in text for k in ("rare", "hiếm", "lam", "blue", "shard", "mảnh")):
+        return "rare"
+    if category in ("heroes", "equipment", "relics", "pets-behemoths", "shop-vip"):
+        return "legendary"
+    if category in ("buildings-decor", "skills-tech", "troops", "events-seasons", "cosmetics"):
+        return "epic"
+    return "common"
+
+
+def infer_codex_faction(
+    category: str,
+    name_en: str,
+    name_vi: str,
+    glossary_faction: Optional[str] = None,
+) -> str:
+    if glossary_faction in ("horde", "league", "nature", "neutral"):
+        return glossary_faction
+    text = f"{name_en} {name_vi}".lower()
+    if any(k in text for k in ("horde", "bộ lạc", "wukong", "ngộ không", "titan")):
+        return "horde"
+    if any(k in text for k in ("league", "liên minh", "alliance", "paragon", "pyromancer", "knight", "kỵ sĩ")):
+        return "league"
+    if any(k in text for k in ("nature", "thiên nhiên", "forest", "tidecaller", "pixie", "sage", "druid")):
+        return "nature"
+    return "neutral"
+
+
+def generate_fallback_descriptions(
+    category: str,
+    sub_category: str,
+    name_vi: str,
+    name_en: str,
+    rarity: str,
+    faction: str,
+) -> Tuple[str, str]:
+    faction_vi = {
+        "horde": "Hệ Bộ Lạc (Horde)",
+        "league": "Hệ Liên Minh (League)",
+        "nature": "Hệ Thiên Nhiên (Nature)",
+        "neutral": "Đa hệ (Universal)",
+    }.get(faction, "Đa hệ")
+    faction_en = {
+        "horde": "Horde faction",
+        "league": "League faction",
+        "nature": "Nature faction",
+        "neutral": "Universal",
+    }.get(faction, "Universal")
+
+    if category == "heroes":
+        return (
+            f"{name_vi} — Anh hùng/Trang phục chiến thuật thuộc {faction_vi}, sử dụng trong đội hình viễn chinh, Đấu Trường và leo tháp.",
+            f"{name_en} — Tactical hero/skin asset aligned with the {faction_en}, deployed in expedition queues and Arena formations.",
+        )
+    if category == "equipment":
+        return (
+            f"{name_vi} — Trang bị chiến thuật và nguyên liệu rèn đúc giúp gia tăng chỉ số công/thủ trực tiếp cho đội hình chủ lực.",
+            f"{name_en} — Tactical equipment and forging gear providing direct offensive and defensive stat scaling for main queues.",
+        )
+    if category == "relics":
+        return (
+            f"{name_vi} — Thánh vật cổ đại kích hoạt kỹ năng hỗ trợ và cộng hưởng chỉ số toàn đội hình trong giao tranh.",
+            f"{name_en} — Ancient relic granting active battlefield support and global stat resonance across hero formations.",
+        )
+    if category == "pets-behemoths":
+        return (
+            f"{name_vi} — Thú cưng/Cự thú đồng hành gia tăng giới hạn cấp độ Tướng và cung cấp kỹ năng hỗ trợ diện rộng.",
+            f"{name_en} — Companion pet/behemoth raising hero level caps and providing AoE battlefield support skills.",
+        )
+    if category == "buildings-decor":
+        return (
+            f"{name_vi} — Công trình/Trang trí Lâu Đài giúp tăng tốc độ phát triển kinh tế và cộng chỉ số vĩnh viễn toàn tài khoản.",
+            f"{name_en} — Castle structure/decoration accelerating base progression and granting permanent account-wide stat bonuses.",
+        )
+    if category == "skills-tech":
+        return (
+            f"{name_vi} — Kỹ năng và công nghệ nghiên cứu nâng cao hiệu suất chiến đấu, khai thác tài nguyên và điểm sự kiện.",
+            f"{name_en} — Skill and research technology enhancing combat efficiency, resource output, and event scoring.",
+        )
+    if category == "troops":
+        return (
+            f"{name_vi} — Binh chủng và Quân trang gia tăng chỉ số Lính cùng thuộc tính Sở Hữu Vĩnh Viễn (Owned Passive).",
+            f"{name_en} — Troop unit and military skin boosting soldier stats with permanent Owned Passive bonuses.",
+        )
+    if category == "events-seasons":
+        return (
+            f"{name_vi} — Hoạt động sự kiện và cơ chế Mùa giải (S0–S4) mang lại nguồn Mảnh Tướng Vàng, Hồn Đá Đỏ và Kim Cương.",
+            f"{name_en} — Seasonal event and server activity (S0–S4) yielding Universal Shards, Soul Stones, and Diamonds.",
+        )
+    if category == "monsters":
+        return (
+            f"{name_vi} — Quái vật và Thủ lĩnh bản đồ thế giới tiêu hao Thể Lực khi tiêu diệt để nhận tài nguyên rèn đúc và mảnh ghép.",
+            f"{name_en} — World map monster and boss target hunted with Stamina for forging materials and progression shards.",
+        )
+    if category == "cosmetics":
+        return (
+            f"{name_vi} — Vật phẩm ngoại trang, Khung Avatar và Danh hiệu tôn vinh thành tích cá nhân và liên minh.",
+            f"{name_en} — Cosmetic avatar frame, chat emblem, and title showcasing commander and guild achievements.",
+        )
+    if category == "shop-vip":
+        return (
+            f"{name_vi} — Đặc quyền VIP và gói cửa hàng tối ưu hóa hiệu suất đầu tư (ROI) và phúc lợi hàng ngày.",
+            f"{name_en} — VIP privilege and shop bundle optimizing daily resource income and investment ROI.",
+        )
+    return (
+        f"{name_vi} — Vật phẩm chiến thuật trong Top Heroes dùng để nâng cấp sức mạnh đội hình và tích trữ cho các mốc sự kiện.",
+        f"{name_en} — Tactical item in Top Heroes used for queue progression and strategic event hoarding.",
+    )
+
+
+def scan_article_slug_links(glossary_terms: List[Dict[str, Any]]) -> Dict[str, List[str]]:
+    """Map glossaryId -> list of <categorySlug>/<articleSlug> that mention this term."""
+    group_dir_to_cat = {
+        "group-1-getting-started": "getting-started",
+        "group-2-heroes": "heroes",
+        "group-3-events": "events",
+        "group-4-roadmap": "roadmap",
+        "group-5-gear": "gear",
+        "group-6-power-systems": "power-systems",
+        "group-7-economy": "economy",
+        "group-8-infrastructure": "infrastructure",
+    }
+    groups_root = os.path.join(ROOT_DIR, "src", "content", "guides", "groups")
+    article_texts: List[Tuple[str, str]] = []
+    for g_folder, cat_slug in sorted(group_dir_to_cat.items()):
+        folder_path = os.path.join(groups_root, g_folder)
+        if not os.path.isdir(folder_path):
+            continue
+        for ts_path in sorted(glob.glob(os.path.join(folder_path, "*.ts"))):
+            with open(ts_path, "r", encoding="utf-8") as f:
+                raw = f.read()
+            m_slug = re.search(r'slug:\s*"([^"]+)"', raw)
+            if m_slug:
+                full_slug = f"{cat_slug}/{m_slug.group(1)}"
+                article_texts.append((full_slug, raw.lower()))
+
+    glossary_links: Dict[str, List[str]] = {}
+    for term in glossary_terms:
+        tid = term["id"]
+        matched: List[str] = []
+        needles = [
+            tid.lower(),
+            term["inGameEn"].lower(),
+            term["inGameVi"].lower(),
+        ]
+        for full_slug, lower_body in article_texts:
+            if any(len(n) >= 3 and n in lower_body for n in needles):
+                matched.append(full_slug)
+            if len(matched) >= 4:
+                break
+        if matched:
+            glossary_links[tid] = matched
+    return glossary_links
+
+
+def build_codex_shards(
+    manifest: Dict[str, Any],
+    glossary_terms: List[Dict[str, Any]],
+    asset_registry: Dict[str, Dict[str, Any]],
+    hero_profiles: Dict[str, Dict[str, Any]],
+) -> None:
+    import zlib
+
+    os.makedirs(CODEX_OUTPUT_DIR, exist_ok=True)
+    glossary_by_id = {t["id"]: t for t in glossary_terms}
+    glossary_article_links = scan_article_slug_links(glossary_terms)
+
+    hero_by_gid: Dict[int, Dict[str, Any]] = {}
+    for hp in hero_profiles.values():
+        hero_by_gid[int(hp["gameId"])] = hp
+
+    shards: Dict[str, List[Dict[str, Any]]] = {cat: [] for cat in CODEX_CATEGORIES}
+    seen_paths = set()
+
+    # 1. Process all 3,387 game_id != null records from manifest["assets"]
+    raw_images = manifest.get("assets", [])
+    for img in raw_images:
+        gid = img.get("game_id")
+        if gid is None:
+            continue
+
+        rel_path = "/" + str(img["path"]).lstrip("/")
+        if "bg_Radiance_plate" in rel_path or "bg_SecretTreasureExchange" in rel_path:
+            continue
+        assert_file_exists(rel_path, f"Codex[{rel_path}]")
+        seen_paths.add(rel_path)
+
+        group = str(img.get("group", "items"))
+        raw_cat = str(img.get("category", "general"))
+        sub_category = raw_cat.split("/")[-1] if "/" in raw_cat else raw_cat
+        category = map_manifest_group_to_codex_category(group, sub_category)
+
+        gl_id = img.get("glossary_id")
+        gl_term = glossary_by_id.get(gl_id) if gl_id else None
+        hp = hero_by_gid.get(int(gid)) if category == "heroes" else None
+
+        raw_name_vi = str(img.get("name_vi") or "").strip()
+        raw_name_en = str(img.get("name_en") or "").strip()
+
+        # GAP-P5-02: Normalize raw sprite fallback names
+        if raw_name_en in RAW_NAME_NORMALIZATION_MAP:
+            raw_name_vi, raw_name_en = RAW_NAME_NORMALIZATION_MAP[raw_name_en]
+        elif raw_name_vi in RAW_NAME_NORMALIZATION_MAP:
+            raw_name_vi, raw_name_en = RAW_NAME_NORMALIZATION_MAP[raw_name_vi]
+        else:
+            if re.match(r"^(?:icon|Head|Activity)\s+\d+$", raw_name_en, re.I):
+                raw_name_en = f"Tactical Asset #{gid}"
+            if re.match(r"^(?:icon|Head|Activity)\s+\d+$", raw_name_vi, re.I):
+                raw_name_vi = f"Vật Phẩm Chiến Thuật #{gid}"
+
+        if not raw_name_en:
+            raw_name_en = gl_term["inGameEn"] if gl_term else f"Tactical Asset #{gid}"
+        if not raw_name_vi:
+            raw_name_vi = gl_term["inGameVi"] if gl_term else raw_name_en
+
+        # Ensure zero Vietnamese diacritics in name_en (GAP-P5-07)
+        if VI_DIACRITIC_REGEX.search(raw_name_en):
+            raw_name_en = gl_term["inGameEn"] if gl_term else f"Tactical Asset #{gid}"
+
+        community_vi: Optional[str] = None
+        community_en: Optional[str] = None
+        if hp and sub_category in ("avatars", "portraits"):
+            community_vi = hp["nameVi"]
+            community_en = hp["nameEn"]
+            if not gl_id and hp.get("glossaryId"):
+                gl_id = hp["glossaryId"]
+                gl_term = glossary_by_id.get(gl_id)
+        elif gl_term:
+            community_vi = gl_term["vi"]
+            community_en = gl_term["en"]
+
+        if community_en and VI_DIACRITIC_REGEX.search(community_en):
+            community_en = raw_name_en
+
+        rarity = infer_codex_rarity(
+            category,
+            sub_category,
+            raw_name_en,
+            raw_name_vi,
+            hp["rarity"] if hp else (asset_registry.get(gl_id, {}).get("rarity") if gl_id else None),
+        )
+        faction = infer_codex_faction(
+            category,
+            raw_name_en,
+            raw_name_vi,
+            hp["faction"] if hp else (asset_registry.get(gl_id, {}).get("faction") if gl_id else None),
+        )
+
+        # GAP-P5-03: Enrich empty descriptions
+        raw_desc_vi = str(img.get("desc_vi") or "").strip()
+        raw_desc_en = str(img.get("desc_en") or "").strip()
+        if (not raw_desc_vi or not raw_desc_en) and gl_term:
+            if not raw_desc_vi:
+                raw_desc_vi = gl_term["descriptionVi"]
+            if not raw_desc_en:
+                raw_desc_en = gl_term["descriptionEn"]
+
+        fb_vi, fb_en = generate_fallback_descriptions(
+            category, sub_category, raw_name_vi, raw_name_en, rarity, faction
+        )
+        if not raw_desc_vi:
+            raw_desc_vi = fb_vi
+        if not raw_desc_en or VI_DIACRITIC_REGEX.search(raw_desc_en):
+            raw_desc_en = fb_en
+
+        related_slugs = (
+            glossary_article_links.get(gl_id)
+            if gl_id and gl_id in glossary_article_links
+            else DEFAULT_RELATED_ARTICLES.get(category, ["getting-started/overview"])
+        )
+
+        stem = os.path.splitext(os.path.basename(rel_path))[0].lower()
+        clean_stem = re.sub(r"[^a-z0-9]+", "-", stem).strip("-")
+        rec_id = f"{category}-{gid}-{clean_stem}"
+
+        record: Dict[str, Any] = {
+            "id": rec_id,
+            "gameId": int(gid),
+            "glossaryId": gl_id,
+            "category": category,
+            "subCategory": sub_category,
+            "path": rel_path,
+            "nameVi": raw_name_vi,
+            "nameEn": raw_name_en,
+            "communityNameVi": community_vi,
+            "communityNameEn": community_en,
+            "descVi": raw_desc_vi,
+            "descEn": raw_desc_en,
+            "rarity": rarity,
+            "faction": faction,
+            "relatedArticleSlugs": related_slugs,
+        }
+        if hp and hp.get("portraitPath"):
+            record["portraitPath"] = hp["portraitPath"]
+
+        shards[category].append(record)
+
+    # 2. Include SSoT Glossary & Supplementary tactical assets whose iconPath was not in game_id != null (GAP-P5-01)
+    for aid, entry in sorted(asset_registry.items()):
+        icon_path = entry["iconPath"]
+        if icon_path in seen_paths and entry.get("glossaryId") is None:
+            continue
+        if "bg_Radiance_plate" in icon_path or "bg_SecretTreasureExchange" in icon_path:
+            continue
+        cat = entry["category"]
+        if cat not in shards:
+            cat = "items"
+
+        # Avoid duplicate glossaryId if already present in the category shard with same iconPath
+        if any(r.get("glossaryId") == entry.get("glossaryId") and r["path"] == icon_path for r in shards[cat] if entry.get("glossaryId")):
+            continue
+
+        gl_id = entry.get("glossaryId")
+        related_slugs = (
+            glossary_article_links.get(gl_id)
+            if gl_id and gl_id in glossary_article_links
+            else DEFAULT_RELATED_ARTICLES.get(cat, ["getting-started/overview"])
+        )
+
+        rec: Dict[str, Any] = {
+            "id": f"ssot-{aid}",
+            "gameId": entry.get("gameId"),
+            "glossaryId": gl_id,
+            "category": cat,
+            "subCategory": "ssot-glossary" if gl_id else "tactical-core",
+            "path": icon_path,
+            "nameVi": entry.get("inGameNameVi") or entry["nameVi"],
+            "nameEn": entry.get("inGameNameEn") or entry["nameEn"],
+            "communityNameVi": entry["nameVi"],
+            "communityNameEn": entry["nameEn"],
+            "descVi": entry.get("descVi") or entry["nameVi"],
+            "descEn": entry.get("descEn") or entry["nameEn"],
+            "rarity": entry.get("rarity", "legendary"),
+            "faction": entry.get("faction", "neutral"),
+            "relatedArticleSlugs": related_slugs,
+        }
+        if entry.get("portraitPath"):
+            rec["portraitPath"] = entry["portraitPath"]
+        shards[cat].append(rec)
+        seen_paths.add(icon_path)
+
+    # 3. Sort each shard deterministically and write 12 category JSON files
+    category_counts: Dict[str, int] = {}
+    all_records: List[Dict[str, Any]] = []
+
+    for cat in CODEX_CATEGORIES:
+        items_list = shards[cat]
+        items_list.sort(
+            key=lambda r: (
+                0 if r.get("glossaryId") else 1,
+                RARITY_PRIORITY_ORDER.get(r["rarity"], 5),
+                r["nameEn"].lower(),
+                r["id"],
+            )
+        )
+        category_counts[cat] = len(items_list)
+        all_records.extend(items_list)
+
+        shard_payload = {
+            "category": cat,
+            "total": len(items_list),
+            "items": items_list,
+        }
+        shard_path = os.path.join(CODEX_OUTPUT_DIR, f"{cat}.json")
+        with open(shard_path, "w", encoding="utf-8", newline="\n") as f:
+            json.dump(shard_payload, f, ensure_ascii=False, separators=(",", ":"))
+
+    # 4. Build deduplicated priority search-index.json (< 45 KB gzip — GAP-P5-10)
+    def search_priority_key(r: Dict[str, Any]) -> Tuple[int, int, int, int, str]:
+        is_ssot = 0 if r.get("glossaryId") else 1
+        is_portrait_dup = 1 if r.get("subCategory") in ("portraits", "skins-portraits") else 0
+        is_monster = 1 if r["category"] == "monsters" else 0
+        r_order = RARITY_PRIORITY_ORDER.get(r["rarity"], 5)
+        return (is_ssot, is_portrait_dup, is_monster, r_order, r["nameEn"].lower())
+
+    sorted_candidates = sorted(all_records, key=search_priority_key)
+    deduped_index_items: List[Dict[str, Any]] = []
+    seen_keys = set()
+
+    for r in sorted_candidates:
+        dedup_key = (r["category"], r["nameEn"].strip().lower(), r.get("glossaryId") or "")
+        if dedup_key in seen_keys and not r.get("glossaryId"):
+            continue
+        seen_keys.add(dedup_key)
+
+        if r.get("glossaryId"):
+            short_desc_vi = r["descVi"][:90].strip()
+            short_desc_en = r["descEn"][:90].strip()
+        else:
+            short_desc_vi = r["nameVi"]
+            short_desc_en = r["nameEn"]
+
+        idx_item: Dict[str, Any] = {
+            "id": r["id"],
+            "gameId": r["gameId"],
+            "glossaryId": r["glossaryId"],
+            "category": r["category"],
+            "path": r["path"],
+            "nameVi": r["nameVi"],
+            "nameEn": r["nameEn"],
+            "communityNameVi": r["communityNameVi"],
+            "communityNameEn": r["communityNameEn"],
+            "descVi": short_desc_vi,
+            "descEn": short_desc_en,
+            "rarity": r["rarity"],
+            "faction": r["faction"],
+            "relatedArticleSlugs": r["relatedArticleSlugs"][:1],
+        }
+        if r.get("portraitPath"):
+            idx_item["portraitPath"] = r["portraitPath"]
+
+        deduped_index_items.append(idx_item)
+        if len(deduped_index_items) >= 550:
+            break
+
+    # Group by category first to maximize LZ77/Gzip dictionary locality (< 45 KB gzip)
+    deduped_index_items.sort(
+        key=lambda x: (
+            0 if x.get("glossaryId") else 1,
+            x["category"],
+            x["path"],
+        )
+    )
+
+    search_index_payload = {
+        "version": "4.0.0",
+        "totalEntities": len(all_records),
+        "indexedEntities": len(deduped_index_items),
+        "categoryCounts": category_counts,
+        "items": deduped_index_items,
+    }
+    search_index_path = os.path.join(CODEX_OUTPUT_DIR, "search-index.json")
+    raw_json_bytes = json.dumps(
+        search_index_payload, ensure_ascii=False, separators=(",", ":")
+    ).encode("utf-8")
+    with open(search_index_path, "wb") as f:
+        f.write(raw_json_bytes)
+
+    gzip_kb = len(zlib.compress(raw_json_bytes, level=9)) / 1024.0
+    print(
+        f"[OK] Generated 12 Codex shards ({len(all_records)} total entities) "
+        f"& search-index.json ({len(deduped_index_items)} priority items, {gzip_kb:.2f} KB gzip)."
+    )
+
 
 if __name__ == "__main__":
     main()

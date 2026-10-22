@@ -475,7 +475,13 @@
     "betaTopBarAction": "Leave feedback ↓",
     "betaPreCommentTitle": "Content Under Construction & We Value Your Feedback!",
     "betaPreCommentBody": "This content is currently under active development and may not be 100% accurate yet — please use it as a reference and share your thoughts with us. If you spot any issues with the content, please leave a comment below for our development team. Thank you!",
-    "betaPreCommentAction": "Leave feedback now"
+    "betaPreCommentAction": "Leave feedback now",
+    "toolCodexTitle": "Game Codex (3,400+ Assets)",
+    "toolCodexDesc": "Bilingual compendium of Heroes, Gear, Runes & Relics",
+    "sidebarCodexLink": "Game Codex & Item Compendium",
+    "hubSearchArticlesHeading": "Matching Strategy Guides",
+    "hubSearchCodexHeading": "Matching Game Codex Entities",
+    "hubSearchOpenCodexBtn": "Open full Game Codex →"
   }
 }
 

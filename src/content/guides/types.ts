@@ -347,3 +347,63 @@ export interface DiagramNodeLookupInput {
   readonly nodeId?: string;
   readonly mediaCode?: string;
 }
+
+
+export interface CodexEntityRecord {
+  readonly id: string;
+  readonly gameId: number | null;
+  readonly glossaryId: string | null;
+  readonly category: CodexCategoryId;
+  readonly subCategory: string;
+  readonly path: string;
+  readonly portraitPath?: string;
+  readonly nameVi: string;
+  readonly nameEn: string;
+  readonly communityNameVi: string | null;
+  readonly communityNameEn: string | null;
+  readonly descVi: string;
+  readonly descEn: string;
+  readonly rarity: AssetRarity;
+  readonly faction: AssetFaction;
+  readonly relatedArticleSlugs: readonly string[];
+}
+
+export interface CodexSearchIndexItem {
+  readonly id: string;
+  readonly gameId: number | null;
+  readonly glossaryId: string | null;
+  readonly category: CodexCategoryId;
+  readonly path: string;
+  readonly portraitPath?: string;
+  readonly nameVi: string;
+  readonly nameEn: string;
+  readonly communityNameVi: string | null;
+  readonly communityNameEn: string | null;
+  readonly descVi: string;
+  readonly descEn: string;
+  readonly rarity: AssetRarity;
+  readonly faction: AssetFaction;
+  readonly relatedArticleSlugs: readonly string[];
+}
+
+export interface CodexCategoryShardPayload {
+  readonly category: CodexCategoryId;
+  readonly total: number;
+  readonly items: readonly CodexEntityRecord[];
+}
+
+export interface CodexSearchIndexPayload {
+  readonly version: string;
+  readonly totalEntities: number;
+  readonly indexedEntities: number;
+  readonly categoryCounts: Readonly<Record<CodexCategoryId, number>>;
+  readonly items: readonly CodexSearchIndexItem[];
+}
+
+export interface CodexFilterState {
+  readonly category: CodexCategoryId | "all";
+  readonly rarity: AssetRarity | "all";
+  readonly faction: AssetFaction | "all";
+  readonly query: string;
+  readonly page: number;
+}
