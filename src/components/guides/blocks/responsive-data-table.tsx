@@ -138,6 +138,10 @@ export function ResponsiveDataTable({
             ) : (
               visibleRows.map((row, rowIdx) => {
                 const isBp = isBreakpointRow(row);
+                const col0Asset = row[0]
+                  ? resolveEntityFromTableCell(row[0])
+                  : undefined;
+
                 return (
                   <tr
                     key={rowIdx}
@@ -152,8 +156,10 @@ export function ResponsiveDataTable({
                     {row.map((cell, cellIdx) => {
                       const rowAsset =
                         cellIdx === 0
-                          ? resolveEntityFromTableCell(cell)
-                          : undefined;
+                          ? col0Asset
+                          : cellIdx === 1 && !col0Asset
+                            ? resolveEntityFromTableCell(cell)
+                            : undefined;
 
                       return (
                         <td
@@ -172,9 +178,10 @@ export function ResponsiveDataTable({
                                 : "text-foreground/90"
                           )}
                         >
-                          {cellIdx === 0 && (isBp || rowAsset) ? (
+                          {(cellIdx === 0 && (isBp || rowAsset)) ||
+                          (cellIdx === 1 && rowAsset) ? (
                             <span className="inline-flex items-center gap-1.5">
-                              {isBp && (
+                              {cellIdx === 0 && isBp && (
                                 <Flame className="h-3.5 w-3.5 text-amber-500 shrink-0" />
                               )}
                               {rowAsset && (

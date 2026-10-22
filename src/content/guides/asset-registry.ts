@@ -2794,6 +2794,9 @@ export const GAME_ASSET_REGISTRY: Readonly<Record<string, GameAssetEntry>> = {
 export const HERO_VISUAL_PROFILES: Readonly<Record<string, HeroVisualProfile>> = {
   "hero-adjudicator": {
     "avatarPath": "/images/heroes/avatars/Head_10031.webp",
+    "exclusiveWeaponNameEn": "Judgment",
+    "exclusiveWeaponNameVi": "Xét Xử",
+    "exclusiveWeaponPath": "/images/equipment/exclusive-weapons/equipment_Exclusive002.webp",
     "faction": "league",
     "gameId": 10031,
     "glossaryId": "hero-adjudicator",
@@ -2824,6 +2827,9 @@ export const HERO_VISUAL_PROFILES: Readonly<Record<string, HeroVisualProfile>> =
   },
   "hero-artificer": {
     "avatarPath": "/images/heroes/avatars/Head_10050.webp",
+    "exclusiveWeaponNameEn": "Spark of Thought",
+    "exclusiveWeaponNameVi": "Hỏa Thần Tư",
+    "exclusiveWeaponPath": "/images/equipment/exclusive-weapons/equipment_Exclusive031.webp",
     "faction": "league",
     "gameId": 10050,
     "glossaryId": "hero-artificer",
@@ -2839,6 +2845,9 @@ export const HERO_VISUAL_PROFILES: Readonly<Record<string, HeroVisualProfile>> =
   },
   "hero-astrologer": {
     "avatarPath": "/images/heroes/avatars/Head_10024.webp",
+    "exclusiveWeaponNameEn": "Starry Orb",
+    "exclusiveWeaponNameVi": "Tinh Hà",
+    "exclusiveWeaponPath": "/images/equipment/exclusive-weapons/equipment_Exclusive005.webp",
     "faction": "league",
     "gameId": 10024,
     "glossaryId": "hero-astrologer",
@@ -2854,6 +2863,9 @@ export const HERO_VISUAL_PROFILES: Readonly<Record<string, HeroVisualProfile>> =
   },
   "hero-barbarian": {
     "avatarPath": "/images/heroes/avatars/Head_10017.webp",
+    "exclusiveWeaponNameEn": "Star Breaker",
+    "exclusiveWeaponNameVi": "Phá Sao",
+    "exclusiveWeaponPath": "/images/equipment/exclusive-weapons/equipment_Exclusive017.webp",
     "faction": "horde",
     "gameId": 10017,
     "glossaryId": "hero-barbarian",
@@ -2869,6 +2881,9 @@ export const HERO_VISUAL_PROFILES: Readonly<Record<string, HeroVisualProfile>> =
   },
   "hero-bard": {
     "avatarPath": "/images/heroes/avatars/Head_10030.webp",
+    "exclusiveWeaponNameEn": "Heartbringer Harp",
+    "exclusiveWeaponNameVi": "Cupid",
+    "exclusiveWeaponPath": "/images/equipment/exclusive-weapons/equipment_Exclusive012.webp",
     "faction": "league",
     "gameId": 10030,
     "glossaryId": "hero-bard",
@@ -2884,6 +2899,9 @@ export const HERO_VISUAL_PROFILES: Readonly<Record<string, HeroVisualProfile>> =
   },
   "hero-beastmaster": {
     "avatarPath": "/images/heroes/avatars/Head_10048.webp",
+    "exclusiveWeaponNameEn": "Tender Spirit",
+    "exclusiveWeaponNameVi": "Tinh Linh",
+    "exclusiveWeaponPath": "/images/equipment/exclusive-weapons/equipment_Exclusive018.webp",
     "faction": "horde",
     "gameId": 10048,
     "glossaryId": "hero-beastmaster",
@@ -2899,6 +2917,9 @@ export const HERO_VISUAL_PROFILES: Readonly<Record<string, HeroVisualProfile>> =
   },
   "hero-bishop": {
     "avatarPath": "/images/heroes/avatars/Head_10046.webp",
+    "exclusiveWeaponNameEn": "Libram of Light",
+    "exclusiveWeaponNameVi": "Thánh Ước Ánh Sáng",
+    "exclusiveWeaponPath": "/images/equipment/exclusive-weapons/equipment_Exclusive011.webp",
     "faction": "league",
     "gameId": 10046,
     "glossaryId": "hero-bishop",
@@ -2974,6 +2995,9 @@ export const HERO_VISUAL_PROFILES: Readonly<Record<string, HeroVisualProfile>> =
   },
   "hero-desert-prince": {
     "avatarPath": "/images/heroes/avatars/Head_10039.webp",
+    "exclusiveWeaponNameEn": "Golden Emperor",
+    "exclusiveWeaponNameVi": "Đế Vương Hoàng Kim",
+    "exclusiveWeaponPath": "/images/equipment/exclusive-weapons/equipment_Exclusive013.webp",
     "faction": "horde",
     "gameId": 10039,
     "glossaryId": "hero-desert-prince",
@@ -2989,6 +3013,9 @@ export const HERO_VISUAL_PROFILES: Readonly<Record<string, HeroVisualProfile>> =
   },
   "hero-druid": {
     "avatarPath": "/images/heroes/avatars/Head_10008.webp",
+    "exclusiveWeaponNameEn": "Everlasting Spring",
+    "exclusiveWeaponNameVi": "Xuân Vĩnh Cửu",
+    "exclusiveWeaponPath": "/images/equipment/exclusive-weapons/equipment_Exclusive023.webp",
     "faction": "nature",
     "gameId": 10008,
     "glossaryId": "hero-druid",
@@ -3004,6 +3031,9 @@ export const HERO_VISUAL_PROFILES: Readonly<Record<string, HeroVisualProfile>> =
   },
   "hero-forest-maiden": {
     "avatarPath": "/images/heroes/avatars/Head_10036.webp",
+    "exclusiveWeaponNameEn": "Noah Bell",
+    "exclusiveWeaponNameVi": "Chuông Noah",
+    "exclusiveWeaponPath": "/images/equipment/exclusive-weapons/equipment_Exclusive020.webp",
     "faction": "nature",
     "gameId": 10036,
     "glossaryId": "hero-forest-maiden",
@@ -3064,6 +3094,9 @@ export const HERO_VISUAL_PROFILES: Readonly<Record<string, HeroVisualProfile>> =
   },
   "hero-hostess": {
     "avatarPath": "/images/heroes/avatars/Head_10032.webp",
+    "exclusiveWeaponNameEn": "Hero Whisper",
+    "exclusiveWeaponNameVi": "Lời Thì Thầm Hào Hùng",
+    "exclusiveWeaponPath": "/images/equipment/exclusive-weapons/equipment_Exclusive027.webp",
     "faction": "league",
     "gameId": 10032,
     "glossaryId": "hero-hostess",
@@ -3124,6 +3157,9 @@ export const HERO_VISUAL_PROFILES: Readonly<Record<string, HeroVisualProfile>> =
   },
   "hero-monk": {
     "avatarPath": "/images/heroes/avatars/Head_10042.webp",
+    "exclusiveWeaponNameEn": "Azure Dragon Stick",
+    "exclusiveWeaponNameVi": "Trượng Thanh Long",
+    "exclusiveWeaponPath": "/images/equipment/exclusive-weapons/equipment_Exclusive021.webp",
     "faction": "nature",
     "gameId": 10042,
     "glossaryId": "hero-monk",
@@ -3139,6 +3175,9 @@ export const HERO_VISUAL_PROFILES: Readonly<Record<string, HeroVisualProfile>> =
   },
   "hero-ne-zha": {
     "avatarPath": "/images/heroes/avatars/Head_10049.webp",
+    "exclusiveWeaponNameEn": "Fire-Tipped Spear",
+    "exclusiveWeaponNameVi": "Hỏa Tiêm Thương",
+    "exclusiveWeaponPath": "/images/equipment/exclusive-weapons/equipment_Exclusive030.webp",
     "faction": "nature",
     "gameId": 10049,
     "glossaryId": "hero-ne-zha",
@@ -3154,6 +3193,9 @@ export const HERO_VISUAL_PROFILES: Readonly<Record<string, HeroVisualProfile>> =
   },
   "hero-nun": {
     "avatarPath": "/images/heroes/avatars/Head_10027.webp",
+    "exclusiveWeaponNameEn": "Blessing",
+    "exclusiveWeaponNameVi": "Ban Ơn",
+    "exclusiveWeaponPath": "/images/equipment/exclusive-weapons/equipment_Exclusive007.webp",
     "faction": "league",
     "gameId": 10027,
     "glossaryId": "hero-nun",
@@ -3184,6 +3226,9 @@ export const HERO_VISUAL_PROFILES: Readonly<Record<string, HeroVisualProfile>> =
   },
   "hero-paragon": {
     "avatarPath": "/images/heroes/avatars/Head_10033.webp",
+    "exclusiveWeaponNameEn": "Everlasting Justice",
+    "exclusiveWeaponNameVi": "Chính Nghĩa Bất Bại",
+    "exclusiveWeaponPath": "/images/equipment/exclusive-weapons/equipment_Exclusive008.webp",
     "faction": "league",
     "gameId": 10033,
     "glossaryId": "hero-paragon",
@@ -3214,6 +3259,9 @@ export const HERO_VISUAL_PROFILES: Readonly<Record<string, HeroVisualProfile>> =
   },
   "hero-petalis": {
     "avatarPath": "/images/heroes/avatars/Head_10051.webp",
+    "exclusiveWeaponNameEn": "Fox Spirit",
+    "exclusiveWeaponNameVi": "Hồ Linh",
+    "exclusiveWeaponPath": "/images/equipment/exclusive-weapons/equipment_Exclusive032.webp",
     "faction": "nature",
     "gameId": 10051,
     "glossaryId": "hero-petalis",
@@ -3229,6 +3277,9 @@ export const HERO_VISUAL_PROFILES: Readonly<Record<string, HeroVisualProfile>> =
   },
   "hero-pixie": {
     "avatarPath": "/images/heroes/avatars/Head_10037.webp",
+    "exclusiveWeaponNameEn": "Golden Apple",
+    "exclusiveWeaponNameVi": "Táo Vàng",
+    "exclusiveWeaponPath": "/images/equipment/exclusive-weapons/equipment_Exclusive022.webp",
     "faction": "nature",
     "gameId": 10037,
     "glossaryId": "hero-pixie",
@@ -3259,6 +3310,9 @@ export const HERO_VISUAL_PROFILES: Readonly<Record<string, HeroVisualProfile>> =
   },
   "hero-pyromancer": {
     "avatarPath": "/images/heroes/avatars/Head_10025.webp",
+    "exclusiveWeaponNameEn": "Dragon Breath",
+    "exclusiveWeaponNameVi": "Hơi Thở Rồng (Dragon Breath)",
+    "exclusiveWeaponPath": "/images/equipment/exclusive-weapons/equipment_Exclusive001.webp",
     "faction": "league",
     "gameId": 10025,
     "glossaryId": "hero-pyromancer",
@@ -3304,6 +3358,9 @@ export const HERO_VISUAL_PROFILES: Readonly<Record<string, HeroVisualProfile>> =
   },
   "hero-rose-princess": {
     "avatarPath": "/images/heroes/avatars/Head_10043.webp",
+    "exclusiveWeaponNameEn": "Royalthorn Blade",
+    "exclusiveWeaponNameVi": "Thời Đại Anh Hùng",
+    "exclusiveWeaponPath": "/images/equipment/exclusive-weapons/equipment_Exclusive009.webp",
     "faction": "league",
     "gameId": 10043,
     "glossaryId": "hero-rose-princess",
@@ -3319,6 +3376,9 @@ export const HERO_VISUAL_PROFILES: Readonly<Record<string, HeroVisualProfile>> =
   },
   "hero-sage": {
     "avatarPath": "/images/heroes/avatars/Head_10035.webp",
+    "exclusiveWeaponNameEn": "Primal Spirit",
+    "exclusiveWeaponNameVi": "Nguyên Linh",
+    "exclusiveWeaponPath": "/images/equipment/exclusive-weapons/equipment_Exclusive019.webp",
     "faction": "nature",
     "gameId": 10035,
     "glossaryId": "hero-sage",
@@ -3334,6 +3394,9 @@ export const HERO_VISUAL_PROFILES: Readonly<Record<string, HeroVisualProfile>> =
   },
   "hero-scout": {
     "avatarPath": "/images/heroes/avatars/Head_10054.webp",
+    "exclusiveWeaponNameEn": "Pujji Shooter",
+    "exclusiveWeaponNameVi": "Ná Bắn Nấm",
+    "exclusiveWeaponPath": "/images/equipment/exclusive-weapons/equipment_Exclusive038.webp",
     "faction": "nature",
     "gameId": 10054,
     "glossaryId": "hero-scout",
@@ -3349,6 +3412,9 @@ export const HERO_VISUAL_PROFILES: Readonly<Record<string, HeroVisualProfile>> =
   },
   "hero-secret-keeper": {
     "avatarPath": "/images/heroes/avatars/Head_10018.webp",
+    "exclusiveWeaponNameEn": "Absolute Zero",
+    "exclusiveWeaponNameVi": "0 Độ Tuyệt Đối",
+    "exclusiveWeaponPath": "/images/equipment/exclusive-weapons/equipment_Exclusive010.webp",
     "faction": "league",
     "gameId": 10018,
     "glossaryId": "hero-secret-keeper",
@@ -3364,6 +3430,9 @@ export const HERO_VISUAL_PROFILES: Readonly<Record<string, HeroVisualProfile>> =
   },
   "hero-shadow-priest": {
     "avatarPath": "/images/heroes/avatars/Head_10052.webp",
+    "exclusiveWeaponNameEn": "Shadow Orb",
+    "exclusiveWeaponNameVi": "Ngọc Oan Hồn",
+    "exclusiveWeaponPath": "/images/equipment/exclusive-weapons/equipment_Exclusive036.webp",
     "faction": "horde",
     "gameId": 10052,
     "glossaryId": "hero-shadow-priest",
@@ -3379,6 +3448,9 @@ export const HERO_VISUAL_PROFILES: Readonly<Record<string, HeroVisualProfile>> =
   },
   "hero-shaman": {
     "avatarPath": "/images/heroes/avatars/Head_10034.webp",
+    "exclusiveWeaponNameEn": "Echo of the Mountains",
+    "exclusiveWeaponNameVi": "Tiếng Vọng Núi Rừng",
+    "exclusiveWeaponPath": "/images/equipment/exclusive-weapons/equipment_Exclusive028.webp",
     "faction": "horde",
     "gameId": 10034,
     "glossaryId": "hero-shaman",
@@ -3394,6 +3466,9 @@ export const HERO_VISUAL_PROFILES: Readonly<Record<string, HeroVisualProfile>> =
   },
   "hero-soulmancer": {
     "avatarPath": "/images/heroes/avatars/Head_10038.webp",
+    "exclusiveWeaponNameEn": "Ascendant",
+    "exclusiveWeaponNameVi": "Thoát Vượt",
+    "exclusiveWeaponPath": "/images/equipment/exclusive-weapons/equipment_Exclusive014.webp",
     "faction": "horde",
     "gameId": 10038,
     "glossaryId": "hero-soulmancer",
@@ -3424,6 +3499,9 @@ export const HERO_VISUAL_PROFILES: Readonly<Record<string, HeroVisualProfile>> =
   },
   "hero-storm-maiden": {
     "avatarPath": "/images/heroes/avatars/Head_10041.webp",
+    "exclusiveWeaponNameEn": "Stormbringer",
+    "exclusiveWeaponNameVi": "Thiên Lôi",
+    "exclusiveWeaponPath": "/images/equipment/exclusive-weapons/equipment_Exclusive015.webp",
     "faction": "horde",
     "gameId": 10041,
     "glossaryId": "hero-storm-maiden",
@@ -3439,6 +3517,9 @@ export const HERO_VISUAL_PROFILES: Readonly<Record<string, HeroVisualProfile>> =
   },
   "hero-storm-oracle": {
     "avatarPath": "/images/heroes/avatars/Head_10053.webp",
+    "exclusiveWeaponNameEn": "Lilia Oath",
+    "exclusiveWeaponNameVi": "Lời Thề Hoa Linh Lan",
+    "exclusiveWeaponPath": "/images/equipment/exclusive-weapons/equipment_Exclusive037.webp",
     "faction": "nature",
     "gameId": 10053,
     "glossaryId": null,
@@ -3454,6 +3535,9 @@ export const HERO_VISUAL_PROFILES: Readonly<Record<string, HeroVisualProfile>> =
   },
   "hero-swordmaster": {
     "avatarPath": "/images/heroes/avatars/Head_10020.webp",
+    "exclusiveWeaponNameEn": "Crimson Storm",
+    "exclusiveWeaponNameVi": "Gió Bão Rực Đỏ",
+    "exclusiveWeaponPath": "/images/equipment/exclusive-weapons/equipment_Exclusive026.webp",
     "faction": "horde",
     "gameId": 10020,
     "glossaryId": "hero-swordmaster",
@@ -3469,6 +3553,9 @@ export const HERO_VISUAL_PROFILES: Readonly<Record<string, HeroVisualProfile>> =
   },
   "hero-tidecaller": {
     "avatarPath": "/images/heroes/avatars/Head_10044.webp",
+    "exclusiveWeaponNameEn": "Divine Trident",
+    "exclusiveWeaponNameVi": "Đinh Ba Thần",
+    "exclusiveWeaponPath": "/images/equipment/exclusive-weapons/equipment_Exclusive024.webp",
     "faction": "nature",
     "gameId": 10044,
     "glossaryId": "hero-tidecaller",
@@ -3484,6 +3571,9 @@ export const HERO_VISUAL_PROFILES: Readonly<Record<string, HeroVisualProfile>> =
   },
   "hero-treeguard": {
     "avatarPath": "/images/heroes/avatars/Head_10019.webp",
+    "exclusiveWeaponNameEn": "Heart of the Earth",
+    "exclusiveWeaponNameVi": "Trái Tim Đất Mẹ",
+    "exclusiveWeaponPath": "/images/equipment/exclusive-weapons/equipment_Exclusive029.webp",
     "faction": "nature",
     "gameId": 10019,
     "glossaryId": "hero-treeguard",
@@ -3514,6 +3604,9 @@ export const HERO_VISUAL_PROFILES: Readonly<Record<string, HeroVisualProfile>> =
   },
   "hero-warlock": {
     "avatarPath": "/images/heroes/avatars/Head_10028.webp",
+    "exclusiveWeaponNameEn": "Cursed Scythe",
+    "exclusiveWeaponNameVi": "Lưỡi Hái Nguyền Rủa",
+    "exclusiveWeaponPath": "/images/equipment/exclusive-weapons/equipment_Exclusive025.webp",
     "faction": "horde",
     "gameId": 10028,
     "glossaryId": "hero-warlock",
@@ -3544,6 +3637,9 @@ export const HERO_VISUAL_PROFILES: Readonly<Record<string, HeroVisualProfile>> =
   },
   "hero-wilderness-hunter": {
     "avatarPath": "/images/heroes/avatars/Head_10023.webp",
+    "exclusiveWeaponNameEn": "Giant Slayer",
+    "exclusiveWeaponNameVi": "Sát Thủ Khổng Lồ",
+    "exclusiveWeaponPath": "/images/equipment/exclusive-weapons/equipment_Exclusive003.webp",
     "faction": "horde",
     "gameId": 10023,
     "glossaryId": "hero-wilderness-hunter",
@@ -3559,6 +3655,9 @@ export const HERO_VISUAL_PROFILES: Readonly<Record<string, HeroVisualProfile>> =
   },
   "hero-windwalker": {
     "avatarPath": "/images/heroes/avatars/Head_10040.webp",
+    "exclusiveWeaponNameEn": "Hurricane",
+    "exclusiveWeaponNameVi": "Cuồng Phong",
+    "exclusiveWeaponPath": "/images/equipment/exclusive-weapons/equipment_Exclusive004.webp",
     "faction": "nature",
     "gameId": 10040,
     "glossaryId": "hero-windwalker",
@@ -3574,6 +3673,9 @@ export const HERO_VISUAL_PROFILES: Readonly<Record<string, HeroVisualProfile>> =
   },
   "hero-witch": {
     "avatarPath": "/images/heroes/avatars/Head_10045.webp",
+    "exclusiveWeaponNameEn": "Codex of Shadows",
+    "exclusiveWeaponNameVi": "Pháp Điển Hắc Ám",
+    "exclusiveWeaponPath": "/images/equipment/exclusive-weapons/equipment_Exclusive016.webp",
     "faction": "horde",
     "gameId": 10045,
     "glossaryId": "hero-witch",
@@ -3604,6 +3706,9 @@ export const HERO_VISUAL_PROFILES: Readonly<Record<string, HeroVisualProfile>> =
   },
   "hero-wukong": {
     "avatarPath": "/images/heroes/avatars/Head_10047.webp",
+    "exclusiveWeaponNameEn": "Ruyi Jingu Bang",
+    "exclusiveWeaponNameVi": "Gậy Vàng Như Ý",
+    "exclusiveWeaponPath": "/images/equipment/exclusive-weapons/equipment_Exclusive006.webp",
     "faction": "horde",
     "gameId": 10047,
     "glossaryId": "hero-wukong",
@@ -4144,14 +4249,41 @@ export const MEDIA_SHOWCASE_BY_CODE: Readonly<Record<string, readonly MediaShowc
       "faction": "nature",
       "iconPath": "/images/heroes/avatars/Head_10044.webp",
       "labelEn": "Tidecaller",
-      "labelVi": "Triệu Hồi Thủy Triều",
+      "labelVi": "Thuật Sĩ Thủy Triều",
       "rarity": "mythic"
     }
   ],
   "MED-2.1-02": [
     {
+      "assetId": "tier-yellow-stars",
+      "badgeText": "1-5 STARS",
+      "faction": "neutral",
+      "iconPath": "/images/items/shards/icon_30176.webp",
+      "labelEn": "Yellow Stars (1★–5★)",
+      "labelVi": "Sao Vàng (Yellow Stars 1★–5★)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "tier-red-stars",
+      "badgeText": "1★ RED MVS",
+      "faction": "neutral",
+      "iconPath": "/images/items/shards/icon_30176.webp",
+      "labelEn": "Red Stars (1★–5★ Red / 6★–10★)",
+      "labelVi": "Sao Đỏ (Red Stars 6★–10★)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "tier-white-stars",
+      "badgeText": "1★ WHITE ROI",
+      "faction": "neutral",
+      "iconPath": "/images/items/shards/icon_30176.webp",
+      "labelEn": "White / Silver Stars (1★–5★ White / 11★–15★)",
+      "labelVi": "Sao Trắng / Bạc (White Stars 11★–15★)",
+      "rarity": "legendary"
+    },
+    {
       "assetId": "item-universal-shard",
-      "badgeText": "560 SHARDS",
+      "badgeText": "560 / 280",
       "faction": "neutral",
       "iconPath": "/images/items/shards/icon_30175.webp",
       "labelEn": "Universal Legendary Hero Shard",
@@ -4168,169 +4300,19 @@ export const MEDIA_SHOWCASE_BY_CODE: Readonly<Record<string, readonly MediaShowc
       "rarity": "mythic"
     },
     {
-      "assetId": "item-skill-book",
-      "badgeText": "SKILL BOOKS",
+      "assetId": "gear-exclusive-weapon",
+      "badgeText": "UW +10 / +20",
       "faction": "neutral",
-      "iconPath": "/images/items/chests/icon_30032.webp",
-      "labelEn": "Skill Book",
-      "labelVi": "Sách Kỹ Năng (Skill Book)",
-      "rarity": "legendary"
-    },
-    {
-      "assetId": "hero-storm-maiden",
-      "badgeText": "FIRST MYTHIC",
-      "faction": "horde",
-      "iconPath": "/images/heroes/avatars/Head_10041.webp",
-      "labelEn": "Storm Maiden",
-      "labelVi": "Nữ Thần Bão Tố (Storm Maiden)",
+      "iconPath": "/images/equipment/exclusive-weapons/equipment_Exclusive006.webp",
+      "labelEn": "Exclusive Weapon",
+      "labelVi": "Vũ Khí Độc Quyền (Exclusive Weapon)",
       "rarity": "mythic"
     }
   ],
   "MED-2.1-04": [
     {
-      "assetId": "event-guild-arms-race",
-      "badgeText": "GAR EVENT",
-      "faction": "neutral",
-      "iconPath": "/images/events/entry-icons/Activity_101.webp",
-      "labelEn": "Guild Arms Race (GAR)",
-      "labelVi": "Chạy Đua Vũ Trang Bang Hội (Guild Arms Race — GAR)",
-      "rarity": "legendary"
-    },
-    {
-      "assetId": "event-kvk",
-      "badgeText": "KVK WAR",
-      "faction": "neutral",
-      "iconPath": "/images/events/banners/ActivityBG_KingdomMigration_Boss.webp",
-      "labelEn": "Kingdom vs Kingdom (KvK / Four Nations League)",
-      "labelVi": "Chiến Tranh Vương Quốc (Kingdom vs Kingdom — KvK)",
-      "rarity": "legendary"
-    },
-    {
-      "assetId": "event-fortune-wheel",
-      "badgeText": "WHEEL",
-      "faction": "neutral",
-      "iconPath": "/images/items/chests/icon_30059.webp",
-      "labelEn": "Fortune Wheel",
-      "labelVi": "Vòng Quay May Mắn (Fortune Wheel)",
-      "rarity": "legendary"
-    },
-    {
-      "assetId": "event-dice-of-fate",
-      "badgeText": "DICE EVENT",
-      "faction": "neutral",
-      "iconPath": "/images/items/chests/icon_chest_Monopoly_DragonTraining.webp",
-      "labelEn": "Dice of Fate",
-      "labelVi": "Xúc Xắc Định Mệnh (Dice of Fate)",
-      "rarity": "legendary"
-    }
-  ],
-  "MED-2.2-01": [
-    {
-      "assetId": "faction-horde",
-      "badgeText": "HORDE",
-      "faction": "horde",
-      "iconPath": "/images/factions/race_horde.webp",
-      "labelEn": "Horde Faction",
-      "labelVi": "Bộ Lạc (Horde)",
-      "rarity": "mythic"
-    },
-    {
-      "assetId": "faction-league",
-      "badgeText": "LEAGUE",
-      "faction": "league",
-      "iconPath": "/images/factions/race_alliance.webp",
-      "labelEn": "League Faction",
-      "labelVi": "Liên Minh (League)",
-      "rarity": "mythic"
-    },
-    {
-      "assetId": "faction-nature",
-      "badgeText": "NATURE",
-      "faction": "nature",
-      "iconPath": "/images/factions/race_nature.webp",
-      "labelEn": "Nature Faction",
-      "labelVi": "Thiên Nhiên (Nature)",
-      "rarity": "mythic"
-    },
-    {
       "assetId": "hero-wukong",
-      "badgeText": "UR CARRY",
-      "faction": "horde",
-      "iconPath": "/images/heroes/avatars/Head_10047.webp",
-      "labelEn": "Wukong",
-      "labelVi": "Tôn Ngộ Không",
-      "rarity": "mythic"
-    },
-    {
-      "assetId": "hero-paragon",
-      "badgeText": "UR CARRY",
-      "faction": "league",
-      "iconPath": "/images/heroes/avatars/Head_10033.webp",
-      "labelEn": "Paragon",
-      "labelVi": "Thiện Xạ",
-      "rarity": "mythic"
-    },
-    {
-      "assetId": "hero-tidecaller",
-      "badgeText": "UR CARRY",
-      "faction": "nature",
-      "iconPath": "/images/heroes/avatars/Head_10044.webp",
-      "labelEn": "Tidecaller",
-      "labelVi": "Triệu Hồi Thủy Triều",
-      "rarity": "mythic"
-    }
-  ],
-  "MED-2.2-02": [
-    {
-      "assetId": "gear-set-blood-of-the-titan",
-      "badgeText": "HORDE SET",
-      "faction": "horde",
-      "iconPath": "/images/items/consumables/icon_30222.webp",
-      "labelEn": "Blood of the Titan (Fury of Blood)",
-      "labelVi": "Huyết Titan / Nộ Huyết (Blood of the Titan)",
-      "rarity": "mythic"
-    },
-    {
-      "assetId": "gear-set-knights-glory",
-      "badgeText": "LEAGUE SET",
-      "faction": "league",
-      "iconPath": "/images/equipment/hero-gear/icon_40005.webp",
-      "labelEn": "Knight's Glory",
-      "labelVi": "Kỵ Sĩ Vinh Quang (Knight's Glory)",
-      "rarity": "mythic"
-    },
-    {
-      "assetId": "gear-set-glory-of-the-sage",
-      "badgeText": "NATURE SET",
-      "faction": "nature",
-      "iconPath": "/images/equipment/hero-gear/icon_40009.webp",
-      "labelEn": "Glory of the Sage",
-      "labelVi": "Hiền Triết Quang Vinh (Glory of the Sage)",
-      "rarity": "mythic"
-    },
-    {
-      "assetId": "system-lord-gear",
-      "badgeText": "LORD GEAR",
-      "faction": "neutral",
-      "iconPath": "/images/items/consumables/icon_lord_1.webp",
-      "labelEn": "Lord Gear (Military Gear)",
-      "labelVi": "Trang Bị Chúa Tể (Lord Gear / Military Gear)",
-      "rarity": "epic"
-    }
-  ],
-  "MED-2.2-04": [
-    {
-      "assetId": "hero-pyromancer",
-      "badgeText": "STARTER CARRY",
-      "faction": "league",
-      "iconPath": "/images/heroes/avatars/Head_10025.webp",
-      "labelEn": "Pyromancer",
-      "labelVi": "Pháp Sư Lửa (Pyromancer)",
-      "rarity": "legendary"
-    },
-    {
-      "assetId": "hero-wukong",
-      "badgeText": "HORDE META",
+      "badgeText": "S+ HORDE",
       "faction": "horde",
       "iconPath": "/images/heroes/avatars/Head_10047.webp",
       "labelEn": "Wukong",
@@ -4338,8 +4320,26 @@ export const MEDIA_SHOWCASE_BY_CODE: Readonly<Record<string, readonly MediaShowc
       "rarity": "mythic"
     },
     {
+      "assetId": "hero-desert-prince",
+      "badgeText": "S+ BRUISER",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10039.webp",
+      "labelEn": "Desert Prince",
+      "labelVi": "Hoàng Tử Sa Mạc (Desert Prince)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "hero-storm-maiden",
+      "badgeText": "S+ AOE",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10041.webp",
+      "labelEn": "Storm Maiden",
+      "labelVi": "Nữ Thần Bão Tố (Storm Maiden)",
+      "rarity": "mythic"
+    },
+    {
       "assetId": "hero-tidecaller",
-      "badgeText": "NATURE META",
+      "badgeText": "S+ NATURE",
       "faction": "nature",
       "iconPath": "/images/heroes/avatars/Head_10044.webp",
       "labelEn": "Tidecaller",
@@ -4347,19 +4347,196 @@ export const MEDIA_SHOWCASE_BY_CODE: Readonly<Record<string, readonly MediaShowc
       "rarity": "mythic"
     },
     {
-      "assetId": "item-universal-shard",
-      "badgeText": "CORE RESOURCE",
-      "faction": "neutral",
-      "iconPath": "/images/items/shards/icon_30175.webp",
-      "labelEn": "Universal Legendary Hero Shard",
-      "labelVi": "Mảnh Tướng Vàng Vạn Năng (Universal Legendary Hero Shard)",
+      "assetId": "hero-paragon",
+      "badgeText": "S+ LEAGUE",
+      "faction": "league",
+      "iconPath": "/images/heroes/avatars/Head_10033.webp",
+      "labelEn": "Paragon",
+      "labelVi": "Thiện Xạ (Paragon)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "hero-rose-princess",
+      "badgeText": "S+ TANK",
+      "faction": "league",
+      "iconPath": "/images/heroes/avatars/Head_10043.webp",
+      "labelEn": "Rose Princess",
+      "labelVi": "Công Chúa Rose (Rose Princess)",
+      "rarity": "mythic"
+    }
+  ],
+  "MED-2.2-01": [
+    {
+      "assetId": "hero-adjudicator",
+      "badgeText": "SLOT 1 TANK",
+      "faction": "league",
+      "iconPath": "/images/heroes/avatars/Head_10031.webp",
+      "labelEn": "Adjudicator",
+      "labelVi": "Thẩm Phán (Adjudicator)",
       "rarity": "legendary"
+    },
+    {
+      "assetId": "hero-rose-princess",
+      "badgeText": "SLOT 2 MYTHIC",
+      "faction": "league",
+      "iconPath": "/images/heroes/avatars/Head_10043.webp",
+      "labelEn": "Rose Princess",
+      "labelVi": "Công Chúa Rose (Rose Princess)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "hero-pyromancer",
+      "badgeText": "SLOT 3 SAFE",
+      "faction": "league",
+      "iconPath": "/images/heroes/avatars/Head_10025.webp",
+      "labelEn": "Pyromancer",
+      "labelVi": "Pháp Sư Lửa (Pyromancer)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "hero-paragon",
+      "badgeText": "SLOT 4 CARRY",
+      "faction": "league",
+      "iconPath": "/images/heroes/avatars/Head_10033.webp",
+      "labelEn": "Paragon",
+      "labelVi": "Thiện Xạ (Paragon)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "hero-nun",
+      "badgeText": "SLOT 5 HEAL",
+      "faction": "league",
+      "iconPath": "/images/heroes/avatars/Head_10027.webp",
+      "labelEn": "Nun",
+      "labelVi": "Nữ Tu (Nun)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "hero-bard",
+      "badgeText": "SLOT 6 BUFF",
+      "faction": "league",
+      "iconPath": "/images/heroes/avatars/Head_10030.webp",
+      "labelEn": "Bard",
+      "labelVi": "Nhà Thơ (Bard)",
+      "rarity": "legendary"
+    }
+  ],
+  "MED-2.2-02": [
+    {
+      "assetId": "hero-beastmaster",
+      "badgeText": "SLOT 1 TANK",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10048.webp",
+      "labelEn": "Beastmaster",
+      "labelVi": "Thú Tướng (Beastmaster)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "hero-desert-prince",
+      "badgeText": "SLOT 2 BRUISER",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10039.webp",
+      "labelEn": "Desert Prince",
+      "labelVi": "Hoàng Tử Sa Mạc (Desert Prince)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "hero-wukong",
+      "badgeText": "SLOT 3 CARRY",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10047.webp",
+      "labelEn": "Wukong",
+      "labelVi": "Tôn Ngộ Không (Wukong)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "hero-storm-maiden",
+      "badgeText": "SLOT 4 AOE",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10041.webp",
+      "labelEn": "Storm Maiden",
+      "labelVi": "Nữ Thần Bão Tố (Storm Maiden)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "hero-witch",
+      "badgeText": "SLOT 5 HEAL",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10045.webp",
+      "labelEn": "Witch",
+      "labelVi": "Phù Thủy (Witch)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "hero-soulmancer",
+      "badgeText": "SLOT 6 AWAKEN",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10038.webp",
+      "labelEn": "Soulmancer",
+      "labelVi": "Thuật Sĩ Linh Hồn (Soulmancer)",
+      "rarity": "legendary"
+    }
+  ],
+  "MED-2.2-04": [
+    {
+      "assetId": "hero-monk",
+      "badgeText": "SLOT 1 TANK",
+      "faction": "nature",
+      "iconPath": "/images/heroes/avatars/Head_10042.webp",
+      "labelEn": "Monk",
+      "labelVi": "Hòa Thượng / Tu Sĩ (Monk)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "hero-ne-zha",
+      "badgeText": "SLOT 2 BRUISER",
+      "faction": "nature",
+      "iconPath": "/images/heroes/avatars/Head_10049.webp",
+      "labelEn": "Ne Zha",
+      "labelVi": "Na Tra (Ne Zha)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "hero-tidecaller",
+      "badgeText": "SLOT 3 CARRY",
+      "faction": "nature",
+      "iconPath": "/images/heroes/avatars/Head_10044.webp",
+      "labelEn": "Tidecaller",
+      "labelVi": "Thuật Sĩ Thủy Triều (Tidecaller)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "hero-pixie",
+      "badgeText": "SLOT 4 BURST",
+      "faction": "nature",
+      "iconPath": "/images/heroes/avatars/Head_10037.webp",
+      "labelEn": "Pixie",
+      "labelVi": "Tiên Nhỏ (Pixie)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "hero-forest-maiden",
+      "badgeText": "SLOT 5 ENERGY",
+      "faction": "nature",
+      "iconPath": "/images/heroes/avatars/Head_10036.webp",
+      "labelEn": "Forest Maiden",
+      "labelVi": "Thiếu Nữ Rừng Xanh (Forest Maiden)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "hero-petalis",
+      "badgeText": "SLOT 6 SHIELD",
+      "faction": "nature",
+      "iconPath": "/images/heroes/avatars/Head_10051.webp",
+      "labelEn": "Petalis",
+      "labelVi": "Tiên Hoa Petalis (Petalis)",
+      "rarity": "mythic"
     }
   ],
   "MED-2.3-01": [
     {
       "assetId": "faction-horde",
-      "badgeText": "HORDE",
+      "badgeText": "+20% VS LEAGUE",
       "faction": "horde",
       "iconPath": "/images/factions/race_horde.webp",
       "labelEn": "Horde Faction",
@@ -4368,7 +4545,7 @@ export const MEDIA_SHOWCASE_BY_CODE: Readonly<Record<string, readonly MediaShowc
     },
     {
       "assetId": "faction-league",
-      "badgeText": "LEAGUE",
+      "badgeText": "+20% VS NATURE",
       "faction": "league",
       "iconPath": "/images/factions/race_alliance.webp",
       "labelEn": "League Faction",
@@ -4377,7 +4554,7 @@ export const MEDIA_SHOWCASE_BY_CODE: Readonly<Record<string, readonly MediaShowc
     },
     {
       "assetId": "faction-nature",
-      "badgeText": "NATURE",
+      "badgeText": "+20% VS HORDE",
       "faction": "nature",
       "iconPath": "/images/factions/race_nature.webp",
       "labelEn": "Nature Faction",
@@ -4386,92 +4563,54 @@ export const MEDIA_SHOWCASE_BY_CODE: Readonly<Record<string, readonly MediaShowc
     },
     {
       "assetId": "hero-wukong",
-      "badgeText": "UR CARRY",
+      "badgeText": "HORDE CORE",
       "faction": "horde",
       "iconPath": "/images/heroes/avatars/Head_10047.webp",
       "labelEn": "Wukong",
-      "labelVi": "Tôn Ngộ Không",
+      "labelVi": "Tôn Ngộ Không (Wukong)",
       "rarity": "mythic"
     },
     {
       "assetId": "hero-paragon",
-      "badgeText": "UR CARRY",
+      "badgeText": "LEAGUE CORE",
       "faction": "league",
       "iconPath": "/images/heroes/avatars/Head_10033.webp",
       "labelEn": "Paragon",
-      "labelVi": "Thiện Xạ",
+      "labelVi": "Thiện Xạ (Paragon)",
       "rarity": "mythic"
     },
     {
       "assetId": "hero-tidecaller",
-      "badgeText": "UR CARRY",
+      "badgeText": "NATURE CORE",
       "faction": "nature",
       "iconPath": "/images/heroes/avatars/Head_10044.webp",
       "labelEn": "Tidecaller",
-      "labelVi": "Triệu Hồi Thủy Triều",
+      "labelVi": "Thuật Sĩ Thủy Triều (Tidecaller)",
       "rarity": "mythic"
     }
   ],
   "MED-2.3-02": [
     {
-      "assetId": "faction-horde",
-      "badgeText": "HORDE",
-      "faction": "horde",
-      "iconPath": "/images/factions/race_horde.webp",
-      "labelEn": "Horde Faction",
-      "labelVi": "Bộ Lạc (Horde)",
-      "rarity": "mythic"
-    },
-    {
-      "assetId": "faction-league",
-      "badgeText": "LEAGUE",
+      "assetId": "hero-adjudicator",
+      "badgeText": "FRONTLINE 1",
       "faction": "league",
-      "iconPath": "/images/factions/race_alliance.webp",
-      "labelEn": "League Faction",
-      "labelVi": "Liên Minh (League)",
-      "rarity": "mythic"
+      "iconPath": "/images/heroes/avatars/Head_10031.webp",
+      "labelEn": "Adjudicator",
+      "labelVi": "Thẩm Phán (Adjudicator)",
+      "rarity": "legendary"
     },
     {
-      "assetId": "faction-nature",
-      "badgeText": "NATURE",
-      "faction": "nature",
-      "iconPath": "/images/factions/race_nature.webp",
-      "labelEn": "Nature Faction",
-      "labelVi": "Thiên Nhiên (Nature)",
-      "rarity": "mythic"
-    },
-    {
-      "assetId": "hero-wukong",
-      "badgeText": "UR CARRY",
+      "assetId": "hero-desert-prince",
+      "badgeText": "FRONTLINE 2",
       "faction": "horde",
-      "iconPath": "/images/heroes/avatars/Head_10047.webp",
-      "labelEn": "Wukong",
-      "labelVi": "Tôn Ngộ Không",
+      "iconPath": "/images/heroes/avatars/Head_10039.webp",
+      "labelEn": "Desert Prince",
+      "labelVi": "Hoàng Tử Sa Mạc (Desert Prince)",
       "rarity": "mythic"
     },
-    {
-      "assetId": "hero-paragon",
-      "badgeText": "UR CARRY",
-      "faction": "league",
-      "iconPath": "/images/heroes/avatars/Head_10033.webp",
-      "labelEn": "Paragon",
-      "labelVi": "Thiện Xạ",
-      "rarity": "mythic"
-    },
-    {
-      "assetId": "hero-tidecaller",
-      "badgeText": "UR CARRY",
-      "faction": "nature",
-      "iconPath": "/images/heroes/avatars/Head_10044.webp",
-      "labelEn": "Tidecaller",
-      "labelVi": "Triệu Hồi Thủy Triều",
-      "rarity": "mythic"
-    }
-  ],
-  "MED-2.3-04": [
     {
       "assetId": "hero-pyromancer",
-      "badgeText": "STARTER CARRY",
+      "badgeText": "SAFE ZONE 3",
       "faction": "league",
       "iconPath": "/images/heroes/avatars/Head_10025.webp",
       "labelEn": "Pyromancer",
@@ -4480,7 +4619,54 @@ export const MEDIA_SHOWCASE_BY_CODE: Readonly<Record<string, readonly MediaShowc
     },
     {
       "assetId": "hero-wukong",
-      "badgeText": "HORDE META",
+      "badgeText": "SAFE ZONE 4",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10047.webp",
+      "labelEn": "Wukong",
+      "labelVi": "Tôn Ngộ Không (Wukong)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "hero-nun",
+      "badgeText": "BACKLINE 5",
+      "faction": "league",
+      "iconPath": "/images/heroes/avatars/Head_10027.webp",
+      "labelEn": "Nun",
+      "labelVi": "Nữ Tu (Nun)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "hero-witch",
+      "badgeText": "BACKLINE 6",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10045.webp",
+      "labelEn": "Witch",
+      "labelVi": "Phù Thủy (Witch)",
+      "rarity": "mythic"
+    }
+  ],
+  "MED-2.3-04": [
+    {
+      "assetId": "hero-rose-princess",
+      "badgeText": "SWAP SLOT 1⇄2",
+      "faction": "league",
+      "iconPath": "/images/heroes/avatars/Head_10043.webp",
+      "labelEn": "Rose Princess",
+      "labelVi": "Công Chúa Rose (Rose Princess)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "hero-adjudicator",
+      "badgeText": "SWAP SLOT 2⇄1",
+      "faction": "league",
+      "iconPath": "/images/heroes/avatars/Head_10031.webp",
+      "labelEn": "Adjudicator",
+      "labelVi": "Thẩm Phán (Adjudicator)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "hero-wukong",
+      "badgeText": "ANTI-DIVE TRAP",
       "faction": "horde",
       "iconPath": "/images/heroes/avatars/Head_10047.webp",
       "labelEn": "Wukong",
@@ -4489,7 +4675,7 @@ export const MEDIA_SHOWCASE_BY_CODE: Readonly<Record<string, readonly MediaShowc
     },
     {
       "assetId": "hero-tidecaller",
-      "badgeText": "NATURE META",
+      "badgeText": "SAFE SLOT 3",
       "faction": "nature",
       "iconPath": "/images/heroes/avatars/Head_10044.webp",
       "labelEn": "Tidecaller",
@@ -4497,19 +4683,28 @@ export const MEDIA_SHOWCASE_BY_CODE: Readonly<Record<string, readonly MediaShowc
       "rarity": "mythic"
     },
     {
-      "assetId": "item-universal-shard",
-      "badgeText": "CORE RESOURCE",
-      "faction": "neutral",
-      "iconPath": "/images/items/shards/icon_30175.webp",
-      "labelEn": "Universal Legendary Hero Shard",
-      "labelVi": "Mảnh Tướng Vàng Vạn Năng (Universal Legendary Hero Shard)",
-      "rarity": "legendary"
+      "assetId": "hero-storm-maiden",
+      "badgeText": "COLUMN DODGE",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10041.webp",
+      "labelEn": "Storm Maiden",
+      "labelVi": "Nữ Thần Bão Tố (Storm Maiden)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "hero-paragon",
+      "badgeText": "WEAK-WING FOCUS",
+      "faction": "league",
+      "iconPath": "/images/heroes/avatars/Head_10033.webp",
+      "labelEn": "Paragon",
+      "labelVi": "Thiện Xạ (Paragon)",
+      "rarity": "mythic"
     }
   ],
   "MED-2.4-01": [
     {
       "assetId": "item-universal-shard",
-      "badgeText": "560 SHARDS",
+      "badgeText": "560 MYTHIC",
       "faction": "neutral",
       "iconPath": "/images/items/shards/icon_30175.webp",
       "labelEn": "Universal Legendary Hero Shard",
@@ -4517,44 +4712,53 @@ export const MEDIA_SHOWCASE_BY_CODE: Readonly<Record<string, readonly MediaShowc
       "rarity": "legendary"
     },
     {
-      "assetId": "item-soul-stone",
-      "badgeText": "9 SOUL STONES",
+      "assetId": "tier-yellow-stars",
+      "badgeText": "60 / 30 SHARDS",
       "faction": "neutral",
-      "iconPath": "/images/items/shards/icon_30231.webp",
-      "labelEn": "Red Soul Stone",
-      "labelVi": "Hồn Đá Đỏ (Red Soul Stone)",
+      "iconPath": "/images/items/shards/icon_30176.webp",
+      "labelEn": "Yellow Stars (1★–5★)",
+      "labelVi": "Sao Vàng (Yellow Stars 1★–5★)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "tier-red-stars",
+      "badgeText": "1★ RED MVS",
+      "faction": "neutral",
+      "iconPath": "/images/items/shards/icon_30176.webp",
+      "labelEn": "Red Stars (1★–5★ Red / 6★–10★)",
+      "labelVi": "Sao Đỏ (Red Stars 6★–10★)",
       "rarity": "mythic"
     },
     {
-      "assetId": "item-skill-book",
-      "badgeText": "SKILL BOOKS",
+      "assetId": "tier-white-stars",
+      "badgeText": "1★ WHITE ROI",
       "faction": "neutral",
-      "iconPath": "/images/items/chests/icon_30032.webp",
-      "labelEn": "Skill Book",
-      "labelVi": "Sách Kỹ Năng (Skill Book)",
+      "iconPath": "/images/items/shards/icon_30176.webp",
+      "labelEn": "White / Silver Stars (1★–5★ White / 11★–15★)",
+      "labelVi": "Sao Trắng / Bạc (White Stars 11★–15★)",
       "rarity": "legendary"
     },
     {
       "assetId": "hero-storm-maiden",
-      "badgeText": "FIRST MYTHIC",
+      "badgeText": "DAY 21 MYTHIC",
       "faction": "horde",
       "iconPath": "/images/heroes/avatars/Head_10041.webp",
       "labelEn": "Storm Maiden",
       "labelVi": "Nữ Thần Bão Tố (Storm Maiden)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "hero-wukong",
+      "badgeText": "S2 HYPER-CARRY",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10047.webp",
+      "labelEn": "Wukong",
+      "labelVi": "Tôn Ngộ Không (Wukong)",
       "rarity": "mythic"
     }
   ],
   "MED-2.4-02": [
     {
-      "assetId": "item-universal-shard",
-      "badgeText": "560 SHARDS",
-      "faction": "neutral",
-      "iconPath": "/images/items/shards/icon_30175.webp",
-      "labelEn": "Universal Legendary Hero Shard",
-      "labelVi": "Mảnh Tướng Vàng Vạn Năng (Universal Legendary Hero Shard)",
-      "rarity": "legendary"
-    },
-    {
       "assetId": "item-soul-stone",
       "badgeText": "9 SOUL STONES",
       "faction": "neutral",
@@ -4562,124 +4766,10 @@ export const MEDIA_SHOWCASE_BY_CODE: Readonly<Record<string, readonly MediaShowc
       "labelEn": "Red Soul Stone",
       "labelVi": "Hồn Đá Đỏ (Red Soul Stone)",
       "rarity": "mythic"
-    },
-    {
-      "assetId": "item-skill-book",
-      "badgeText": "SKILL BOOKS",
-      "faction": "neutral",
-      "iconPath": "/images/items/chests/icon_30032.webp",
-      "labelEn": "Skill Book",
-      "labelVi": "Sách Kỹ Năng (Skill Book)",
-      "rarity": "legendary"
-    },
-    {
-      "assetId": "hero-storm-maiden",
-      "badgeText": "FIRST MYTHIC",
-      "faction": "horde",
-      "iconPath": "/images/heroes/avatars/Head_10041.webp",
-      "labelEn": "Storm Maiden",
-      "labelVi": "Nữ Thần Bão Tố (Storm Maiden)",
-      "rarity": "mythic"
-    }
-  ],
-  "MED-2.4-04": [
-    {
-      "assetId": "item-universal-shard",
-      "badgeText": "560 SHARDS",
-      "faction": "neutral",
-      "iconPath": "/images/items/shards/icon_30175.webp",
-      "labelEn": "Universal Legendary Hero Shard",
-      "labelVi": "Mảnh Tướng Vàng Vạn Năng (Universal Legendary Hero Shard)",
-      "rarity": "legendary"
-    },
-    {
-      "assetId": "item-soul-stone",
-      "badgeText": "9 SOUL STONES",
-      "faction": "neutral",
-      "iconPath": "/images/items/shards/icon_30231.webp",
-      "labelEn": "Red Soul Stone",
-      "labelVi": "Hồn Đá Đỏ (Red Soul Stone)",
-      "rarity": "mythic"
-    },
-    {
-      "assetId": "item-skill-book",
-      "badgeText": "SKILL BOOKS",
-      "faction": "neutral",
-      "iconPath": "/images/items/chests/icon_30032.webp",
-      "labelEn": "Skill Book",
-      "labelVi": "Sách Kỹ Năng (Skill Book)",
-      "rarity": "legendary"
-    },
-    {
-      "assetId": "hero-storm-maiden",
-      "badgeText": "FIRST MYTHIC",
-      "faction": "horde",
-      "iconPath": "/images/heroes/avatars/Head_10041.webp",
-      "labelEn": "Storm Maiden",
-      "labelVi": "Nữ Thần Bão Tố (Storm Maiden)",
-      "rarity": "mythic"
-    }
-  ],
-  "MED-2.5-01": [
-    {
-      "assetId": "item-universal-shard",
-      "badgeText": "560 SHARDS",
-      "faction": "neutral",
-      "iconPath": "/images/items/shards/icon_30175.webp",
-      "labelEn": "Universal Legendary Hero Shard",
-      "labelVi": "Mảnh Tướng Vàng Vạn Năng (Universal Legendary Hero Shard)",
-      "rarity": "legendary"
-    },
-    {
-      "assetId": "item-soul-stone",
-      "badgeText": "9 SOUL STONES",
-      "faction": "neutral",
-      "iconPath": "/images/items/shards/icon_30231.webp",
-      "labelEn": "Red Soul Stone",
-      "labelVi": "Hồn Đá Đỏ (Red Soul Stone)",
-      "rarity": "mythic"
-    },
-    {
-      "assetId": "item-skill-book",
-      "badgeText": "SKILL BOOKS",
-      "faction": "neutral",
-      "iconPath": "/images/items/chests/icon_30032.webp",
-      "labelEn": "Skill Book",
-      "labelVi": "Sách Kỹ Năng (Skill Book)",
-      "rarity": "legendary"
-    },
-    {
-      "assetId": "hero-storm-maiden",
-      "badgeText": "FIRST MYTHIC",
-      "faction": "horde",
-      "iconPath": "/images/heroes/avatars/Head_10041.webp",
-      "labelEn": "Storm Maiden",
-      "labelVi": "Nữ Thần Bão Tố (Storm Maiden)",
-      "rarity": "mythic"
-    }
-  ],
-  "MED-2.5-02": [
-    {
-      "assetId": "item-diamond",
-      "badgeText": "DIAMOND",
-      "faction": "neutral",
-      "iconPath": "/images/items/currencies/icon_10002.webp",
-      "labelEn": "Diamonds",
-      "labelVi": "Kim Cương (Diamonds)",
-      "rarity": "legendary"
-    },
-    {
-      "assetId": "item-universal-shard",
-      "badgeText": "SSR SHARD",
-      "faction": "neutral",
-      "iconPath": "/images/items/shards/icon_30175.webp",
-      "labelEn": "Universal Legendary Hero Shard",
-      "labelVi": "Mảnh Tướng Vàng Vạn Năng (Universal Legendary Hero Shard)",
-      "rarity": "legendary"
     },
     {
       "assetId": "item-guild-honor",
-      "badgeText": "GUILD HONOR",
+      "badgeText": "360K HONOR",
       "faction": "neutral",
       "iconPath": "/images/items/currencies/icon_10018.webp",
       "labelEn": "Guild Honor",
@@ -4687,34 +4777,43 @@ export const MEDIA_SHOWCASE_BY_CODE: Readonly<Record<string, readonly MediaShowc
       "rarity": "rare"
     },
     {
+      "assetId": "item-guild-coins",
+      "badgeText": "54K COINS",
+      "faction": "neutral",
+      "iconPath": "/images/items/currencies/icon_10006.webp",
+      "labelEn": "Guild Coins",
+      "labelVi": "Xu Vinh Quang Bang Hội (Guild Coins)",
+      "rarity": "rare"
+    },
+    {
       "assetId": "hero-pyromancer",
-      "badgeText": "CORE CARRY",
+      "badgeText": "AWAKEN #1",
       "faction": "league",
       "iconPath": "/images/heroes/avatars/Head_10025.webp",
       "labelEn": "Pyromancer",
       "labelVi": "Pháp Sư Lửa (Pyromancer)",
       "rarity": "legendary"
-    }
-  ],
-  "MED-2.5-04": [
+    },
     {
-      "assetId": "item-universal-shard",
-      "badgeText": "560 SHARDS",
-      "faction": "neutral",
-      "iconPath": "/images/items/shards/icon_30175.webp",
-      "labelEn": "Universal Legendary Hero Shard",
-      "labelVi": "Mảnh Tướng Vàng Vạn Năng (Universal Legendary Hero Shard)",
+      "assetId": "hero-adjudicator",
+      "badgeText": "AWAKEN #2",
+      "faction": "league",
+      "iconPath": "/images/heroes/avatars/Head_10031.webp",
+      "labelEn": "Adjudicator",
+      "labelVi": "Thẩm Phán (Adjudicator)",
       "rarity": "legendary"
     },
     {
-      "assetId": "item-soul-stone",
-      "badgeText": "9 SOUL STONES",
-      "faction": "neutral",
-      "iconPath": "/images/items/shards/icon_30231.webp",
-      "labelEn": "Red Soul Stone",
-      "labelVi": "Hồn Đá Đỏ (Red Soul Stone)",
-      "rarity": "mythic"
-    },
+      "assetId": "hero-soulmancer",
+      "badgeText": "HORDE AWAKEN",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10038.webp",
+      "labelEn": "Soulmancer",
+      "labelVi": "Thuật Sĩ Linh Hồn (Soulmancer)",
+      "rarity": "legendary"
+    }
+  ],
+  "MED-2.4-04": [
     {
       "assetId": "item-skill-book",
       "badgeText": "SKILL BOOKS",
@@ -4725,13 +4824,217 @@ export const MEDIA_SHOWCASE_BY_CODE: Readonly<Record<string, readonly MediaShowc
       "rarity": "legendary"
     },
     {
-      "assetId": "hero-storm-maiden",
-      "badgeText": "FIRST MYTHIC",
-      "faction": "horde",
-      "iconPath": "/images/heroes/avatars/Head_10041.webp",
-      "labelEn": "Storm Maiden",
-      "labelVi": "Nữ Thần Bão Tố (Storm Maiden)",
+      "assetId": "gear-exclusive-weapon",
+      "badgeText": "UW BREAKPOINT",
+      "faction": "neutral",
+      "iconPath": "/images/equipment/exclusive-weapons/equipment_Exclusive006.webp",
+      "labelEn": "Exclusive Weapon",
+      "labelVi": "Vũ Khí Độc Quyền (Exclusive Weapon)",
       "rarity": "mythic"
+    },
+    {
+      "assetId": "item-universal-shard",
+      "badgeText": "ZERO WASTE",
+      "faction": "neutral",
+      "iconPath": "/images/items/shards/icon_30175.webp",
+      "labelEn": "Universal Legendary Hero Shard",
+      "labelVi": "Mảnh Tướng Vàng Vạn Năng (Universal Legendary Hero Shard)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "hero-wukong",
+      "badgeText": "MAX BOOKS #1",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10047.webp",
+      "labelEn": "Wukong",
+      "labelVi": "Tôn Ngộ Không (Wukong)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "hero-tidecaller",
+      "badgeText": "MAX BOOKS #2",
+      "faction": "nature",
+      "iconPath": "/images/heroes/avatars/Head_10044.webp",
+      "labelEn": "Tidecaller",
+      "labelVi": "Thuật Sĩ Thủy Triều (Tidecaller)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "hero-paragon",
+      "badgeText": "MAX BOOKS #3",
+      "faction": "league",
+      "iconPath": "/images/heroes/avatars/Head_10033.webp",
+      "labelEn": "Paragon",
+      "labelVi": "Thiện Xạ (Paragon)",
+      "rarity": "mythic"
+    }
+  ],
+  "MED-2.5-01": [
+    {
+      "assetId": "hero-brawler",
+      "badgeText": "+30% RESEARCH",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10016.webp",
+      "labelEn": "Brawler",
+      "labelVi": "Đấu Sĩ (Brawler)",
+      "rarity": "epic"
+    },
+    {
+      "assetId": "hero-knight",
+      "badgeText": "+30% TRAINING",
+      "faction": "league",
+      "iconPath": "/images/heroes/avatars/Head_10004.webp",
+      "labelEn": "Knight",
+      "labelVi": "Kỵ Sĩ (Knight)",
+      "rarity": "epic"
+    },
+    {
+      "assetId": "hero-ranger",
+      "badgeText": "+30% RUBY",
+      "faction": "league",
+      "iconPath": "/images/heroes/avatars/Head_10014.webp",
+      "labelEn": "Ranger",
+      "labelVi": "Cung Thủ / Thợ Săn (Ranger)",
+      "rarity": "epic"
+    },
+    {
+      "assetId": "hero-minister",
+      "badgeText": "+30% HEALING",
+      "faction": "league",
+      "iconPath": "/images/heroes/avatars/Head_10003.webp",
+      "labelEn": "Minister",
+      "labelVi": "Bộ Trưởng (Minister)",
+      "rarity": "epic"
+    },
+    {
+      "assetId": "hero-priestess",
+      "badgeText": "+30% HEALING",
+      "faction": "nature",
+      "iconPath": "/images/heroes/avatars/Head_10013.webp",
+      "labelEn": "Priestess",
+      "labelVi": "Nữ Tư Tế (Priestess)",
+      "rarity": "epic"
+    },
+    {
+      "assetId": "hero-dancer",
+      "badgeText": "+30% HEALING",
+      "faction": "nature",
+      "iconPath": "/images/heroes/avatars/Head_10005.webp",
+      "labelEn": "Dancer",
+      "labelVi": "Vũ Công (Dancer)",
+      "rarity": "epic"
+    }
+  ],
+  "MED-2.5-02": [
+    {
+      "assetId": "hero-brawler",
+      "badgeText": "TRAIT 3 LV.30",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10016.webp",
+      "labelEn": "Brawler",
+      "labelVi": "Đấu Sĩ (Brawler)",
+      "rarity": "epic"
+    },
+    {
+      "assetId": "hero-knight",
+      "badgeText": "TRAIT 3 LV.30",
+      "faction": "league",
+      "iconPath": "/images/heroes/avatars/Head_10004.webp",
+      "labelEn": "Knight",
+      "labelVi": "Kỵ Sĩ (Knight)",
+      "rarity": "epic"
+    },
+    {
+      "assetId": "hero-rogue",
+      "badgeText": "+30% STONE",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10011.webp",
+      "labelEn": "Rogue",
+      "labelVi": "Đạo Tặc / Sát Thủ (Rogue)",
+      "rarity": "epic"
+    },
+    {
+      "assetId": "hero-outlaw",
+      "badgeText": "+30% TIMBER",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10015.webp",
+      "labelEn": "Outlaw",
+      "labelVi": "Kẻ Ngoài Vòng Pháp Luật (Outlaw)",
+      "rarity": "epic"
+    },
+    {
+      "assetId": "item-diamond",
+      "badgeText": "2,000 TRAP",
+      "faction": "neutral",
+      "iconPath": "/images/items/currencies/icon_10002.webp",
+      "labelEn": "Diamonds",
+      "labelVi": "Kim Cương (Diamonds)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "tier-white-stars",
+      "badgeText": "12★ = 300",
+      "faction": "neutral",
+      "iconPath": "/images/items/shards/icon_30176.webp",
+      "labelEn": "White / Silver Stars (1★–5★ White / 11★–15★)",
+      "labelVi": "Sao Trắng / Bạc (White Stars 11★–15★)",
+      "rarity": "legendary"
+    }
+  ],
+  "MED-2.5-04": [
+    {
+      "assetId": "hero-bard",
+      "badgeText": "+40% BUILD",
+      "faction": "league",
+      "iconPath": "/images/heroes/avatars/Head_10030.webp",
+      "labelEn": "Bard",
+      "labelVi": "Nhà Thơ (Bard)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "hero-shaman",
+      "badgeText": "+40% RESEARCH",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10034.webp",
+      "labelEn": "Shaman",
+      "labelVi": "Pháp Sư Bộ Lạc (Shaman)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "hero-hostess",
+      "badgeText": "+40% TRAINING",
+      "faction": "league",
+      "iconPath": "/images/heroes/avatars/Head_10032.webp",
+      "labelEn": "Hostess",
+      "labelVi": "Nữ Chủ Quán (Hostess)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "hero-stonemason",
+      "badgeText": "+40% STONE",
+      "faction": "nature",
+      "iconPath": "/images/heroes/avatars/Head_10026.webp",
+      "labelEn": "Stonemason",
+      "labelVi": "Thợ Đá (Stonemason)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "item-universal-shard",
+      "badgeText": "EXCHANGE SHOP",
+      "faction": "neutral",
+      "iconPath": "/images/items/shards/icon_30175.webp",
+      "labelEn": "Universal Legendary Hero Shard",
+      "labelVi": "Mảnh Tướng Vàng Vạn Năng (Universal Legendary Hero Shard)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "tier-white-stars",
+      "badgeText": "15★ = 500",
+      "faction": "neutral",
+      "iconPath": "/images/items/shards/icon_30176.webp",
+      "labelEn": "White / Silver Stars (1★–5★ White / 11★–15★)",
+      "labelVi": "Sao Trắng / Bạc (White Stars 11★–15★)",
+      "rarity": "legendary"
     }
   ],
   "MED-3.1-01": [
@@ -7378,10 +7681,13 @@ const RAW_ALIAS_LOOKUP: Readonly<Record<string, string>> = {
   "9 red soul stones": "item-soul-stone",
   "9-slot task board": "event-guild-race",
   "adjudicator": "hero-adjudicator",
+  "adjudicator (awakened)": "hero-adjudicator",
   "archer": "hero-archer",
   "artificer": "hero-artificer",
   "astrologer": "hero-astrologer",
   "awaken to mythic": "tier-awakening",
+  "awakened pyro": "hero-pyromancer",
+  "awakened sage": "hero-sage",
   "back row": "pos-backline",
   "backline": "pos-backline",
   "backline (slots 5 & 6)": "pos-backline",
@@ -7499,6 +7805,7 @@ const RAW_ALIAS_LOOKUP: Readonly<Record<string, string>> = {
   "faction-league": "faction-league",
   "faction-nature": "faction-nature",
   "forest maiden": "hero-forest-maiden",
+  "forest maiden (awakened)": "hero-forest-maiden",
   "forest scout": "hero-scout",
   "fortune wheel": "event-fortune-wheel",
   "four nations league": "event-kvk",
@@ -7752,6 +8059,7 @@ const RAW_ALIAS_LOOKUP: Readonly<Record<string, string>> = {
   "nhà thơ": "hero-bard",
   "nhà thơ (bard)": "hero-bard",
   "nun": "hero-nun",
+  "nun (awakened)": "hero-nun",
   "nuôi duy nhất đội 1": "meta-strict-one-queue",
   "nâng cấp lệch pha thông minh": "meta-smart-staggered-upgrade",
   "nâng cấp lệch pha thông minh (smart staggered upgrade)": "meta-smart-staggered-upgrade",
@@ -7797,6 +8105,7 @@ const RAW_ALIAS_LOOKUP: Readonly<Record<string, string>> = {
   "phẩm đỏ": "rarity-mythic",
   "phụ tank": "role-bruiser",
   "pixie": "hero-pixie",
+  "pixie (awakened)": "hero-pixie",
   "pos-backline": "pos-backline",
   "pos-frontline": "pos-frontline",
   "pos-midline": "pos-midline",
@@ -7808,7 +8117,10 @@ const RAW_ALIAS_LOOKUP: Readonly<Record<string, string>> = {
   "promotion stones": "item-promotion-stone",
   "pure faction bonus": "faction-aura",
   "purple hero": "rarity-epic",
+  "pyro": "hero-pyromancer",
   "pyromancer": "hero-pyromancer",
+  "pyromancer thức tỉnh": "hero-pyromancer",
+  "pyromancer đỏ": "hero-pyromancer",
   "queue hiding": "meta-defense-baiting",
   "quân trang": "system-troop-skins",
   "quân trang (troop skins)": "system-troop-skins",
@@ -7839,6 +8151,8 @@ const RAW_ALIAS_LOOKUP: Readonly<Record<string, string>> = {
   "runes": "system-runes",
   "sacred codex": "system-sacred-codex",
   "sage": "hero-sage",
+  "sage thức tỉnh": "hero-sage",
+  "sage đỏ": "hero-sage",
   "sao trắng / bạc": "tier-white-stars",
   "sao trắng / bạc (white stars 11★–15★)": "tier-white-stars",
   "sao vàng": "tier-yellow-stars",
@@ -7974,6 +8288,7 @@ const RAW_ALIAS_LOOKUP: Readonly<Record<string, string>> = {
   "universal shard": "item-universal-shard",
   "universal shards": "item-universal-shard",
   "vinh quang hiền triết": "gear-set-glory-of-the-sage",
+  "vinh quang kỵ sĩ": "gear-set-knights-glory",
   "viện huy hoàng": "system-brilliance-institute",
   "viện huy hoàng (brilliance institute)": "system-brilliance-institute",
   "viện nghiên cứu": "system-research-cottage",
@@ -7992,6 +8307,7 @@ const RAW_ALIAS_LOOKUP: Readonly<Record<string, string>> = {
   "wall trap": "meta-defense-baiting",
   "wanderer": "hero-wanderer",
   "warlock": "hero-warlock",
+  "warlock (awakened)": "hero-warlock",
   "watcher": "hero-watcher",
   "wheel": "event-fortune-wheel",
   "white / silver stars": "tier-white-stars",
@@ -8082,6 +8398,81 @@ export function getHeroVisualProfile(idOrName: string): HeroVisualProfile | unde
   return undefined;
 }
 
+export function resolveSlotHeroProfiles(rawSlotText: string): readonly HeroVisualProfile[] {
+  if (!rawSlotText) return [];
+  const withoutParens = rawSlotText.replace(/\([^)]*\)/g, ' ');
+  const parts = withoutParens.split('/').map((s) => s.trim()).filter(Boolean);
+  const results: HeroVisualProfile[] = [];
+  const seen = new Set<string>();
+  for (const part of parts) {
+    const cleanedPart = part.replace(/\b(awakened|thức tỉnh|đỏ)\b/gi, '').trim();
+    const prof = getHeroVisualProfile(part) ?? getHeroVisualProfile(cleanedPart);
+    if (prof && !seen.has(prof.id)) {
+      seen.add(prof.id);
+      results.push(prof);
+    }
+  }
+  if (results.length === 0) {
+    const fallback = getHeroVisualProfile(rawSlotText);
+    if (fallback) results.push(fallback);
+  }
+  return results;
+}
+
+export function extractHeroProfilesFromText(rawText: string, maxCount = 4): readonly HeroVisualProfile[] {
+  if (!rawText) return [];
+  const lower = rawText.toLowerCase();
+  const matches: Array<{ index: number; profile: HeroVisualProfile }> = [];
+  for (const prof of Object.values(HERO_VISUAL_PROFILES)) {
+    const enName = prof.inGameNameEn.toLowerCase();
+    const viName = prof.inGameNameVi.toLowerCase();
+    const idxEn = enName.length >= 3 ? lower.indexOf(enName) : -1;
+    const idxVi = viName.length >= 3 ? lower.indexOf(viName) : -1;
+    const bestIdx = idxEn !== -1 && idxVi !== -1 ? Math.min(idxEn, idxVi) : Math.max(idxEn, idxVi);
+    if (bestIdx !== -1) {
+      matches.push({ index: bestIdx, profile: prof });
+    }
+  }
+  matches.sort((a, b) => a.index - b.index);
+  const unique: HeroVisualProfile[] = [];
+  const seen = new Set<string>();
+  for (const m of matches) {
+    if (!seen.has(m.profile.id)) {
+      seen.add(m.profile.id);
+      unique.push(m.profile);
+      if (unique.length >= maxCount) break;
+    }
+  }
+  return unique;
+}
+
+export function resolveGearSetAssetsFromText(
+  rawText: string,
+  fallbackFaction?: 'league' | 'horde' | 'nature'
+): readonly GameAssetEntry[] {
+  const lower = (rawText || '').toLowerCase();
+  const sets: GameAssetEntry[] = [];
+  const pushSet = (id: string) => {
+    const entry = GAME_ASSET_REGISTRY[id];
+    if (entry && !sets.some((s) => s.id === entry.id)) sets.push(entry);
+  };
+  if (/titan|nộ huyết|fury of blood/.test(lower)) {
+    pushSet('gear-set-blood-of-the-titan');
+  }
+  if (/knight|kỵ sĩ vinh quang|vinh quang kỵ sĩ/.test(lower)) {
+    pushSet('gear-set-knights-glory');
+  }
+  if (/sage|hiền triết|hiền nhân/.test(lower)) {
+    pushSet('gear-set-glory-of-the-sage');
+  }
+  if (sets.length === 0 && fallbackFaction) {
+    if (fallbackFaction === 'horde') pushSet('gear-set-blood-of-the-titan');
+    else if (fallbackFaction === 'league') pushSet('gear-set-knights-glory');
+    else if (fallbackFaction === 'nature') pushSet('gear-set-glory-of-the-sage');
+  }
+  return sets;
+}
+
 export function resolveEntityFromCodeToken(tokenText: string): GameAssetEntry | undefined {
   if (!tokenText || tokenText.length < 2) return undefined;
   const norm = normalizeLookupKey(tokenText);
@@ -8112,7 +8503,11 @@ export function resolveEntityFromCodeToken(tokenText: string): GameAssetEntry | 
 
 export function resolveEntityFromTableCell(cellText: string): GameAssetEntry | undefined {
   if (!cellText) return undefined;
-  const cleaned = cellText.replace(/\*\*/g, '').replace(/`/g, '').trim();
+  const cleaned = cellText
+    .replace(/\*\*/g, '')
+    .replace(/`/g, '')
+    .replace(/^(?:[#]?\d+[.)]?\s*)/, '')
+    .trim();
   return resolveEntityFromCodeToken(cleaned);
 }
 
