@@ -205,6 +205,7 @@ function SidebarNavigationTree({
       <Link
         href="/guides/codex"
         data-testid="sidebar-codex-link"
+        aria-current={isCodexRoute ? "page" : undefined}
         onClick={onNavigate}
         className={cn(
           "flex items-center justify-between gap-2 px-3 py-2 rounded-xl text-xs font-bold transition-all min-h-[40px] border",
