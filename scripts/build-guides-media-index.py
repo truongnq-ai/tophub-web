@@ -3804,10 +3804,10 @@ DEFAULT_RELATED_ARTICLES: Dict[str, List[str]] = {
     "heroes": [
         "heroes/encyclopedia",
         "heroes/meta-lineups",
-        "heroes/awakening-and-star-tiers",
+        "heroes/shards-and-skill-books",
     ],
     "items": [
-        "getting-started/diamond-and-resource-discipline",
+        "getting-started/diamond-and-spending-guide",
         "economy/shops-tier-list",
         "events/double-dip-schedule",
     ],
@@ -3830,7 +3830,7 @@ DEFAULT_RELATED_ARTICLES: Dict[str, List[str]] = {
         "infrastructure/builder-queues-and-villagers",
     ],
     "skills-tech": [
-        "heroes/skill-books-and-traits",
+        "heroes/shards-and-skill-books",
         "infrastructure/research-and-baiting",
         "infrastructure/castle-and-brilliance",
     ],
