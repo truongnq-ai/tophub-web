@@ -389,7 +389,7 @@ export function GuidesToc({ article }: GuidesTocProps) {
       {isOpen && (
         <aside
           aria-label={t("onThisPage")}
-          className="fixed right-16 sm:right-20 top-20 z-50 w-[290px] sm:w-[340px] max-h-[calc(100vh-6rem)] flex flex-col rounded-2xl border border-amber-500/40 bg-card/95 dark:bg-slate-950/95 backdrop-blur-2xl shadow-[0_0_35px_rgba(245,158,11,0.22)] overflow-hidden animate-in fade-in zoom-in-95 duration-150"
+          className="fixed right-14 sm:right-20 top-20 z-50 w-[min(290px,calc(100vw-4.25rem))] sm:w-[340px] max-h-[calc(100vh-6rem)] flex flex-col rounded-2xl border border-amber-500/40 bg-card/95 dark:bg-slate-950/95 backdrop-blur-2xl shadow-[0_0_35px_rgba(245,158,11,0.22)] overflow-hidden animate-in fade-in zoom-in-95 duration-150"
         >
           {/* Reading Progress Header */}
           <div className="p-3.5 border-b border-border/60 space-y-2 shrink-0">

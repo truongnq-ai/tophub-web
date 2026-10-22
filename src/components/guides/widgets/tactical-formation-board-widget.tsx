@@ -1257,7 +1257,7 @@ export function TacticalFormationBoardWidget({
                   <img
                     src={crestPath}
                     alt={preset.faction}
-                    loading="lazy"
+                    width={20} height={20} loading="lazy"
                     decoding="async"
                     className="h-5 w-5 rounded-full object-contain shrink-0"
                   />
@@ -1274,7 +1274,7 @@ export function TacticalFormationBoardWidget({
                 <img
                   src={FACTION_CREST_PATHS[activeLineup.faction]}
                   alt={activeLineup.faction}
-                  loading="lazy"
+                  width={20} height={20} loading="lazy"
                   decoding="async"
                   className="h-5 w-5 rounded-full object-contain shrink-0"
                 />
@@ -1389,7 +1389,7 @@ export function TacticalFormationBoardWidget({
                               <img
                                 src={primaryWeaponPath}
                                 alt=""
-                                loading="lazy"
+                                width={14} height={14} loading="lazy"
                                 decoding="async"
                                 className="h-3.5 w-3.5 rounded-xs object-contain shrink-0"
                               />
@@ -1493,7 +1493,7 @@ export function TacticalFormationBoardWidget({
                       <img
                         src={prof.exclusiveWeaponPath}
                         alt={copy.exclusiveWeaponChip}
-                        loading="lazy"
+                        width={20} height={20} loading="lazy"
                         decoding="async"
                         className="h-5 w-5 rounded-sm object-contain shrink-0"
                       />
@@ -1517,7 +1517,7 @@ export function TacticalFormationBoardWidget({
                   <img
                     src={gear.iconPath}
                     alt={copy.gearSetChip}
-                    loading="lazy"
+                    width={20} height={20} loading="lazy"
                     decoding="async"
                     className="h-5 w-5 rounded-sm object-contain shrink-0"
                   />

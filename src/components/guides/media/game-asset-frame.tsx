@@ -78,17 +78,17 @@ const SIZE_CONFIG: Record<
 
 const RARITY_FRAME_CLASSES: Record<AssetRarity, string> = {
   mythic:
-    "border border-rose-500/65 bg-gradient-to-br from-rose-950/80 via-slate-900/90 to-rose-900/50 text-rose-400 shadow-xs",
+    "border border-rose-500/65 dark:border-rose-400/60 bg-gradient-to-br from-rose-500/25 via-amber-500/12 to-slate-900/10 dark:from-rose-950/85 dark:via-slate-900/90 dark:to-rose-900/55 text-rose-500 dark:text-rose-400 ring-1 ring-inset ring-black/10 dark:ring-white/15 shadow-xs",
   legendary:
-    "border border-amber-500/65 bg-gradient-to-br from-amber-950/80 via-slate-900/90 to-amber-900/50 text-amber-400 shadow-xs",
+    "border border-amber-500/65 dark:border-amber-400/60 bg-gradient-to-br from-amber-500/25 via-yellow-500/12 to-slate-900/10 dark:from-amber-950/85 dark:via-slate-900/90 dark:to-amber-900/55 text-amber-500 dark:text-amber-400 ring-1 ring-inset ring-black/10 dark:ring-white/15 shadow-xs",
   epic:
-    "border border-purple-500/60 bg-gradient-to-br from-purple-950/80 via-slate-900/90 to-purple-900/50 text-purple-400",
+    "border border-purple-500/60 dark:border-purple-400/60 bg-gradient-to-br from-purple-500/25 via-fuchsia-500/12 to-slate-900/10 dark:from-purple-950/85 dark:via-slate-900/90 dark:to-purple-900/55 text-purple-500 dark:text-purple-400 ring-1 ring-inset ring-black/10 dark:ring-white/15",
   rare:
-    "border border-sky-500/60 bg-gradient-to-br from-sky-950/80 via-slate-900/90 to-sky-900/50 text-sky-400",
+    "border border-sky-500/60 dark:border-sky-400/60 bg-gradient-to-br from-sky-500/25 via-cyan-500/12 to-slate-900/10 dark:from-sky-950/85 dark:via-slate-900/90 dark:to-sky-900/55 text-sky-500 dark:text-sky-400 ring-1 ring-inset ring-black/10 dark:ring-white/15",
   uncommon:
-    "border border-emerald-500/55 bg-gradient-to-br from-emerald-950/80 via-slate-900/90 to-emerald-900/50 text-emerald-400",
+    "border border-emerald-500/55 dark:border-emerald-400/60 bg-gradient-to-br from-emerald-500/25 via-teal-500/12 to-slate-900/10 dark:from-emerald-950/85 dark:via-slate-900/90 dark:to-emerald-900/55 text-emerald-500 dark:text-emerald-400 ring-1 ring-inset ring-black/10 dark:ring-white/15",
   common:
-    "border border-border/80 bg-slate-900/80 text-muted-foreground",
+    "border border-border/80 bg-gradient-to-br from-slate-500/20 via-slate-400/10 to-slate-900/10 dark:from-slate-800/80 dark:via-slate-900/90 dark:to-slate-950/95 text-muted-foreground ring-1 ring-inset ring-black/10 dark:ring-white/15",
 };
 
 const FACTION_CREST_PATHS: Record<Exclude<AssetFaction, "neutral">, string> = {
@@ -138,11 +138,20 @@ export function GameAssetFrame({
         className
       )}
     >
+      <span
+        aria-hidden="true"
+        data-alpha-backdrop=""
+        className={cn(
+          "pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(15,23,42,0.08)_0%,transparent_72%)] dark:bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.12)_0%,transparent_72%)]",
+          cfg.radiusClass
+        )}
+      />
+
       {hasError || !resolvedSrc ? (
         <span
           data-testid="asset-frame-fallback"
           aria-hidden="true"
-          className="inline-flex items-center justify-center w-full h-full"
+          className="relative z-[1] inline-flex items-center justify-center w-full h-full"
         >
           {resolvedRarity === "mythic" || resolvedRarity === "legendary" ? (
             <Sparkles className={cfg.iconClass} />
@@ -161,7 +170,7 @@ export function GameAssetFrame({
           height={cfg.px}
           onError={() => setHasError(true)}
           className={cn(
-            "h-full w-full object-contain",
+            "relative z-[1] h-full w-full object-contain",
             cfg.radiusClass,
             imgClassName
           )}

@@ -520,7 +520,7 @@ export function ShopSafetyFloorWidget({
   return (
     <div
       data-testid="widget-shop-safety-floor"
-      className="my-6 rounded-2xl border border-amber-500/30 bg-gradient-to-b from-[#141824]/95 via-[#0F131D]/95 to-[#0B0E14]/95 p-4 sm:p-6 shadow-[0_14px_36px_rgba(0,0,0,0.45)]"
+      className="my-6 rounded-2xl border border-amber-500/30 bg-card/95 dark:bg-gradient-to-b dark:from-[#141824]/95 dark:via-[#0F131D]/95 dark:to-[#0B0E14]/95 p-4 sm:p-6 shadow-[0_14px_36px_rgba(0,0,0,0.45)]"
     >
       {/* Consolidated SSoT Anchor Stubs */}
       {CONSOLIDATED_IDS.map((id) => (
@@ -534,9 +534,9 @@ export function ShopSafetyFloorWidget({
       ))}
 
       {/* Header */}
-      <div className="flex flex-col gap-3 border-b border-white/10 pb-4 sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex flex-col gap-3 border-b border-border/75 dark:border-white/10 pb-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="space-y-1">
-          <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-amber-300">
+          <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-amber-700 dark:text-amber-300">
             <ShoppingBag className="h-3.5 w-3.5 text-amber-400" />
             <span>
               {locale === "vi"
@@ -544,10 +544,10 @@ export function ShopSafetyFloorWidget({
                 : "13 In-Game Shops • Safety Floors & Diamond ROI"}
             </span>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-white">
+          <h3 className="text-lg sm:text-xl font-bold text-foreground dark:text-white">
             {widgetTitleText}
           </h3>
-          <p className="text-xs sm:text-sm text-slate-300">
+          <p className="text-xs sm:text-sm text-muted-foreground dark:text-slate-300">
             {widgetSubtitleText}
           </p>
         </div>
@@ -571,8 +571,8 @@ export function ShopSafetyFloorWidget({
               onClick={() => setArchFilter(tab.id)}
               className={`min-h-11 rounded-lg border px-2.5 py-1.5 text-xs font-bold transition ${
                 archFilter === tab.id
-                  ? "border-amber-400/60 bg-amber-500/20 text-amber-200"
-                  : "border-white/10 bg-white/[0.03] text-slate-300 hover:bg-white/[0.07]"
+                  ? "border-amber-400/60 bg-amber-500/20 text-amber-800 dark:text-amber-200"
+                  : "border-border/75 dark:border-white/10 bg-muted/30 dark:bg-white/[0.03] text-muted-foreground dark:text-slate-300 hover:bg-muted/60 dark:hover:bg-white/[0.07]"
               }`}
             >
               {tab.label[locale]}
@@ -603,8 +603,8 @@ export function ShopSafetyFloorWidget({
               onClick={() => setActiveShopNumber(shop.shopNumber)}
               className={`min-h-11 inline-flex items-center gap-2 rounded-xl border px-3 py-2 text-xs font-bold transition ${
                 isActive
-                  ? "border-amber-400/60 bg-amber-500/20 text-white shadow-[0_0_16px_rgba(245,158,11,0.2)]"
-                  : "border-white/10 bg-white/[0.03] text-slate-300 hover:border-white/20 hover:bg-white/[0.07]"
+                  ? "border-amber-400/60 bg-amber-500/20 text-foreground dark:text-white shadow-[0_0_16px_rgba(245,158,11,0.2)]"
+                  : "border-border/75 dark:border-white/10 bg-muted/30 dark:bg-white/[0.03] text-muted-foreground dark:text-slate-300 hover:border-amber-500/35 dark:hover:border-white/20 hover:bg-muted/60 dark:hover:bg-white/[0.07]"
               }`}
             >
               {currencyAsset && (
@@ -623,7 +623,7 @@ export function ShopSafetyFloorWidget({
                 className={`flex h-5 w-5 items-center justify-center rounded-full font-mono text-[10px] ${
                   isActive
                     ? "bg-amber-400 text-slate-950"
-                    : "bg-white/10 text-slate-300"
+                    : "bg-muted/70 dark:bg-white/10 text-muted-foreground dark:text-slate-300"
                 }`}
               >
                 {shop.shopNumber}
@@ -642,15 +642,15 @@ export function ShopSafetyFloorWidget({
         >
           <div className="flex flex-wrap items-center justify-between gap-2">
             <div>
-              <span className="text-xs font-semibold uppercase tracking-wider text-amber-300">
+              <span className="text-xs font-semibold uppercase tracking-wider text-amber-700 dark:text-amber-300">
                 #{activeShop.shopNumber} • {activeShop.architectureTier} •{" "}
                 {activeShop.resetCycle}
               </span>
-              <h4 className="mt-0.5 text-base font-bold text-white">
+              <h4 className="mt-0.5 text-base font-bold text-foreground dark:text-white">
                 {activeShop.shopName}
               </h4>
             </div>
-            <span className="inline-flex items-center gap-2 rounded-lg border border-amber-400/40 bg-black/40 px-3 py-1.5 font-mono text-xs font-bold text-amber-300">
+            <span className="inline-flex items-center gap-2 rounded-lg border border-amber-400/40 bg-background/85 dark:bg-black/40 px-3 py-1.5 font-mono text-xs font-bold text-amber-700 dark:text-amber-300">
               {activeCurrencyAsset && (
                 <span
                   data-testid="shop-floor-currency-icon"
@@ -668,17 +668,17 @@ export function ShopSafetyFloorWidget({
             </span>
           </div>
 
-          <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-slate-200">
+          <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-foreground/90 dark:text-slate-200">
             {activeFloorMeta.floorDetail[locale]}
           </p>
 
-          <div className="mt-2.5 flex flex-wrap items-center gap-2 text-[11px] text-slate-300">
-            <span className="rounded bg-white/10 px-2 py-0.5 font-semibold text-amber-200">
+          <div className="mt-2.5 flex flex-wrap items-center gap-2 text-[11px] text-muted-foreground dark:text-slate-300">
+            <span className="rounded bg-muted/70 dark:bg-white/10 px-2 py-0.5 font-semibold text-amber-800 dark:text-amber-200">
               {locale === "vi" ? "Tiền tệ: " : "Currency: "}
               {activeShop.currencySource}
             </span>
             {!hasProAccess && (
-              <span className="inline-flex items-center gap-1 rounded bg-amber-500/20 px-2 py-0.5 text-[10px] font-bold text-amber-300">
+              <span className="inline-flex items-center gap-1 rounded bg-amber-500/20 px-2 py-0.5 text-[10px] font-bold text-amber-700 dark:text-amber-300">
                 <Lock className="h-3 w-3" /> PRO ROI
               </span>
             )}
@@ -693,7 +693,7 @@ export function ShopSafetyFloorWidget({
           data-testid="shop-bucket-must-sweep"
           className="rounded-xl border border-emerald-500/30 bg-emerald-500/[0.06] p-4"
         >
-          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-300">
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-300">
             <CheckCircle2 className="h-4 w-4 text-emerald-400" />
             <span>
               {locale === "vi"
@@ -703,8 +703,8 @@ export function ShopSafetyFloorWidget({
           </div>
 
           {activeShop && (
-            <div className="mt-2.5 rounded-lg border border-emerald-500/25 bg-black/30 p-2.5 text-xs text-emerald-100">
-              <div className="font-bold text-emerald-300">
+            <div className="mt-2.5 rounded-lg border border-emerald-500/25 bg-background/80 dark:bg-black/30 p-2.5 text-xs text-emerald-900 dark:text-emerald-100">
+              <div className="font-bold text-emerald-700 dark:text-emerald-300">
                 {locale === "vi"
                   ? "👑 Mục Tiêu Số 1 SSoT:"
                   : "👑 #1 Supreme Target:"}
@@ -726,9 +726,9 @@ export function ShopSafetyFloorWidget({
               return (
                 <div
                   key={idx}
-                  className="rounded-lg border border-white/10 bg-black/25 p-2.5 text-xs"
+                  className="rounded-lg border border-border/75 dark:border-white/10 bg-background/75 dark:bg-black/25 p-2.5 text-xs"
                 >
-                  <div className="flex items-center justify-between gap-2 font-bold text-white">
+                  <div className="flex items-center justify-between gap-2 font-bold text-foreground dark:text-white">
                     <span className="inline-flex items-center gap-2">
                       {itemAsset && (
                         <GameAssetFrame
@@ -745,11 +745,11 @@ export function ShopSafetyFloorWidget({
                         />
                       </span>
                     </span>
-                    <span className="shrink-0 rounded bg-emerald-500/20 px-1.5 py-0.5 font-mono text-[10px] text-emerald-300">
+                    <span className="shrink-0 rounded bg-emerald-500/20 px-1.5 py-0.5 font-mono text-[10px] text-emerald-700 dark:text-emerald-300">
                       {item.tier}
                     </span>
                   </div>
-                  <div className="mt-1 font-mono text-[11px] text-amber-300">
+                  <div className="mt-1 font-mono text-[11px] text-amber-700 dark:text-amber-300">
                     <RichGuideText
                       text={item.costAndCap}
                       variant="inline"
@@ -765,7 +765,7 @@ export function ShopSafetyFloorWidget({
                   <RichGuideText
                     text={item.roiDirective}
                     accentColor="emerald"
-                    className="mt-1 text-[11px] text-slate-300"
+                    className="mt-1 text-[11px] text-muted-foreground dark:text-slate-300"
                   />
                 </div>
               );
@@ -778,7 +778,7 @@ export function ShopSafetyFloorWidget({
           data-testid="shop-bucket-surplus"
           className="rounded-xl border border-amber-500/30 bg-amber-500/[0.06] p-4"
         >
-          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-300">
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-700 dark:text-amber-300">
             <TrendingUp className="h-4 w-4 text-amber-400" />
             <span>
               {locale === "vi"
@@ -787,8 +787,8 @@ export function ShopSafetyFloorWidget({
             </span>
           </div>
 
-          <div className="mt-2.5 rounded-lg border border-amber-500/25 bg-black/30 p-2.5 text-xs text-amber-100">
-            <div className="font-bold text-amber-300">
+          <div className="mt-2.5 rounded-lg border border-amber-500/25 bg-background/80 dark:bg-black/30 p-2.5 text-xs text-amber-900 dark:text-amber-100">
+            <div className="font-bold text-amber-700 dark:text-amber-300">
               {locale === "vi"
                 ? "⚖️ Quy Tắc Chi Tiêu Thặng Dư:"
                 : "⚖️ Surplus Spending Rule:"}
@@ -804,9 +804,9 @@ export function ShopSafetyFloorWidget({
               return (
                 <div
                   key={idx}
-                  className="rounded-lg border border-white/10 bg-black/25 p-2.5 text-xs"
+                  className="rounded-lg border border-border/75 dark:border-white/10 bg-background/75 dark:bg-black/25 p-2.5 text-xs"
                 >
-                  <div className="flex items-center justify-between gap-2 font-bold text-white">
+                  <div className="flex items-center justify-between gap-2 font-bold text-foreground dark:text-white">
                     <span className="inline-flex items-center gap-2">
                       {itemAsset && (
                         <GameAssetFrame
@@ -823,11 +823,11 @@ export function ShopSafetyFloorWidget({
                         />
                       </span>
                     </span>
-                    <span className="shrink-0 rounded bg-amber-500/20 px-1.5 py-0.5 font-mono text-[10px] text-amber-300">
+                    <span className="shrink-0 rounded bg-amber-500/20 px-1.5 py-0.5 font-mono text-[10px] text-amber-700 dark:text-amber-300">
                       {item.tier}
                     </span>
                   </div>
-                  <div className="mt-1 font-mono text-[11px] text-amber-300">
+                  <div className="mt-1 font-mono text-[11px] text-amber-700 dark:text-amber-300">
                     <RichGuideText
                       text={item.costAndCap}
                       variant="inline"
@@ -843,7 +843,7 @@ export function ShopSafetyFloorWidget({
                   <RichGuideText
                     text={item.roiDirective}
                     accentColor="amber"
-                    className="mt-1 text-[11px] text-slate-300"
+                    className="mt-1 text-[11px] text-muted-foreground dark:text-slate-300"
                   />
                 </div>
               );
@@ -856,7 +856,7 @@ export function ShopSafetyFloorWidget({
           data-testid="shop-bucket-forbidden"
           className="rounded-xl border border-rose-500/35 bg-rose-500/[0.07] p-4"
         >
-          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-rose-300">
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-rose-700 dark:text-rose-300">
             <AlertOctagon className="h-4 w-4 text-rose-400" />
             <span>
               {locale === "vi"
@@ -865,8 +865,8 @@ export function ShopSafetyFloorWidget({
             </span>
           </div>
 
-          <div className="mt-2.5 rounded-lg border border-rose-500/30 bg-black/30 p-2.5 text-xs text-rose-100">
-            <div className="font-bold text-rose-300">
+          <div className="mt-2.5 rounded-lg border border-rose-500/30 bg-background/80 dark:bg-black/30 p-2.5 text-xs text-rose-900 dark:text-rose-100">
+            <div className="font-bold text-rose-700 dark:text-rose-300">
               {locale === "vi" ? "🚫 Cạm Bẫy Đốt Ví:" : "🚫 Currency Trap:"}
             </div>
             <p className="mt-1 leading-relaxed">
@@ -883,9 +883,9 @@ export function ShopSafetyFloorWidget({
               return (
                 <div
                   key={idx}
-                  className="rounded-lg border border-rose-500/25 bg-black/25 p-2.5 text-xs"
+                  className="rounded-lg border border-rose-500/25 bg-background/75 dark:bg-black/25 p-2.5 text-xs"
                 >
-                  <div className="flex items-center justify-between gap-2 font-bold text-rose-200">
+                  <div className="flex items-center justify-between gap-2 font-bold text-rose-800 dark:text-rose-200">
                     <span className="inline-flex items-center gap-2">
                       {itemAsset && (
                         <GameAssetFrame
@@ -902,11 +902,11 @@ export function ShopSafetyFloorWidget({
                         />
                       </span>
                     </span>
-                    <span className="shrink-0 rounded bg-rose-500/25 px-1.5 py-0.5 font-mono text-[10px] text-rose-300">
+                    <span className="shrink-0 rounded bg-rose-500/25 px-1.5 py-0.5 font-mono text-[10px] text-rose-700 dark:text-rose-300">
                       {item.tier}
                     </span>
                   </div>
-                  <div className="mt-1 font-mono text-[11px] text-rose-300">
+                  <div className="mt-1 font-mono text-[11px] text-rose-700 dark:text-rose-300">
                     <RichGuideText
                       text={item.costAndCap}
                       variant="inline"
@@ -922,7 +922,7 @@ export function ShopSafetyFloorWidget({
                   <RichGuideText
                     text={item.roiDirective}
                     accentColor="rose"
-                    className="mt-1 text-[11px] text-slate-300"
+                    className="mt-1 text-[11px] text-muted-foreground dark:text-slate-300"
                   />
                 </div>
               );
@@ -932,7 +932,7 @@ export function ShopSafetyFloorWidget({
       </div>
 
       {/* Double-Dip Guild Race -> GAR/KvK Footnote */}
-      <div className="mt-4 flex items-center gap-2 rounded-lg border border-white/10 bg-white/[0.02] px-3 py-2 text-[11px] text-slate-300">
+      <div className="mt-4 flex items-center gap-2 rounded-lg border border-border/75 dark:border-white/10 bg-muted/25 dark:bg-white/[0.02] px-3 py-2 text-[11px] text-muted-foreground dark:text-slate-300">
         <ShieldAlert className="h-3.5 w-3.5 shrink-0 text-amber-400" />
         <span>
           {locale === "vi"

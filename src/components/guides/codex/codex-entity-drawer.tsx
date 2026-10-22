@@ -127,7 +127,7 @@ export function CodexEntityDrawer({
             data-testid="codex-drawer-close-btn"
             onClick={onClose}
             aria-label={isVi ? "Đóng chi tiết" : "Close details"}
-            className="h-9 w-9 shrink-0 rounded-xl border-border/80"
+            className="h-11 w-11 shrink-0 rounded-xl border-border/80"
           >
             <X className="h-4 w-4" />
           </Button>
@@ -139,6 +139,8 @@ export function CodexEntityDrawer({
             <img
               src={entity.portraitPath}
               alt={primaryName}
+              width={180}
+              height={208}
               loading="lazy"
               decoding="async"
               className="max-h-52 w-auto object-contain rounded-xl"

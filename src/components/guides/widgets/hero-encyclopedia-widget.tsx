@@ -667,7 +667,7 @@ export function HeroEncyclopediaWidget({
                     <img
                       src={crestPath}
                       alt={copy.factions[fac]}
-                      loading="lazy"
+                      width={20} height={20} loading="lazy"
                       decoding="async"
                       className="h-5 w-5 rounded-full object-contain shrink-0"
                     />
@@ -896,7 +896,7 @@ export function HeroEncyclopediaWidget({
                       <img
                         src={portraitPath}
                         alt={`${hero.nameEn} Standing Portrait`}
-                        loading="lazy"
+                        width={180} height={208} loading="lazy"
                         decoding="async"
                         className="max-h-52 w-auto object-contain drop-shadow-[0_8px_20px_rgba(245,158,11,0.22)]"
                       />
@@ -915,7 +915,7 @@ export function HeroEncyclopediaWidget({
                             <img
                               src={soulStoneAsset.iconPath}
                               alt=""
-                              loading="lazy"
+                              width={14} height={14} loading="lazy"
                               decoding="async"
                               className="h-3.5 w-3.5 object-contain shrink-0"
                             />
@@ -1006,7 +1006,7 @@ export function HeroEncyclopediaWidget({
                             <img
                               src="/images/items/shards/icon_30176.webp"
                               alt=""
-                              loading="lazy"
+                              width={14} height={14} loading="lazy"
                               decoding="async"
                               className="h-3.5 w-3.5 object-contain shrink-0"
                             />
@@ -1026,7 +1026,7 @@ export function HeroEncyclopediaWidget({
                             <img
                               src="/images/items/shards/icon_30176.webp"
                               alt=""
-                              loading="lazy"
+                              width={14} height={14} loading="lazy"
                               decoding="async"
                               className="h-3.5 w-3.5 object-contain shrink-0"
                             />
@@ -1056,7 +1056,7 @@ export function HeroEncyclopediaWidget({
                                 <img
                                   src={gearSet.iconPath}
                                   alt=""
-                                  loading="lazy"
+                                  width={16} height={16} loading="lazy"
                                   decoding="async"
                                   className="h-4 w-4 rounded-sm object-contain shrink-0"
                                 />
@@ -1072,7 +1072,7 @@ export function HeroEncyclopediaWidget({
                                 <img
                                   src={soulStoneAsset.iconPath}
                                   alt=""
-                                  loading="lazy"
+                                  width={16} height={16} loading="lazy"
                                   decoding="async"
                                   className="h-4 w-4 rounded-sm object-contain shrink-0"
                                 />

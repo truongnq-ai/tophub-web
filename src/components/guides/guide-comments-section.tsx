@@ -695,7 +695,7 @@ export function GuideCommentsSection({
 
                 {/* Level 1 Replies List (Strictly 1 Level Max) */}
                 {rootComment.replies && rootComment.replies.length > 0 && (
-                  <div className="mt-3 pl-4 sm:pl-6 border-l-2 border-amber-500/25 space-y-3 pt-2">
+                  <div className="mt-3 ml-3 sm:ml-5 rounded-2xl border border-amber-500/25 bg-muted/20 p-3 space-y-3">
                     {rootComment.replies.map((reply) => {
                       const isReplyPending = reply.status === "PENDING_REVIEW";
                       return (
@@ -810,7 +810,7 @@ export function GuideCommentsSection({
                 {isReplyingWithinThisThread && replyTarget && (
                   <form
                     onSubmit={handleCreateReply}
-                    className="mt-3 pl-4 sm:pl-6 border-l-2 border-amber-500/50 space-y-2.5 pt-2"
+                    className="mt-3 ml-3 sm:ml-5 rounded-2xl border border-amber-500/45 bg-amber-500/[0.04] p-3.5 space-y-2.5"
                   >
                     <div className="flex items-center justify-between text-xs">
                       <span className="font-heading font-bold text-amber-600 dark:text-amber-400">

@@ -111,9 +111,10 @@ export function ResponsiveDataTable({
                 <th
                   key={idx}
                   className={cn(
-                    "px-3.5 py-2.5 font-heading font-bold text-foreground whitespace-nowrap",
-                    idx === 0 &&
-                      "sticky left-0 z-10 bg-muted/95 dark:bg-slate-900/95 backdrop-blur-xs"
+                    "px-3.5 py-2.5 font-heading font-bold text-foreground",
+                    idx === 0
+                      ? "sticky left-0 z-10 min-w-[136px] max-w-[172px] sm:max-w-[260px] whitespace-normal sm:whitespace-nowrap bg-muted/95 dark:bg-slate-900/95 backdrop-blur-xs"
+                      : "whitespace-nowrap"
                   )}
                 >
                   <RichGuideText
@@ -168,7 +169,7 @@ export function ResponsiveDataTable({
                             "px-3.5 py-2.5 leading-relaxed",
                             cellIdx === 0
                               ? cn(
-                                  "sticky left-0 z-10 font-semibold whitespace-nowrap backdrop-blur-xs",
+                                  "sticky left-0 z-10 font-semibold min-w-[136px] max-w-[172px] sm:max-w-[260px] whitespace-normal sm:whitespace-nowrap backdrop-blur-xs",
                                   isBp
                                     ? "bg-amber-50/95 dark:bg-slate-900/95 text-amber-600 dark:text-amber-300 shadow-[inset_2px_0_0_0_rgba(245,158,11,0.85)]"
                                     : "bg-card/95 dark:bg-slate-950/90 text-amber-600 dark:text-amber-400"
@@ -180,7 +181,7 @@ export function ResponsiveDataTable({
                         >
                           {(cellIdx === 0 && (isBp || rowAsset)) ||
                           (cellIdx === 1 && rowAsset) ? (
-                            <span className="inline-flex items-center gap-1.5">
+                            <span className="inline-flex items-center gap-2 min-w-0">
                               {cellIdx === 0 && isBp && (
                                 <Flame className="h-3.5 w-3.5 text-amber-500 shrink-0" />
                               )}
@@ -193,11 +194,13 @@ export function ResponsiveDataTable({
                                   alt=""
                                 />
                               )}
-                              <RichGuideText
-                                text={cell}
-                                variant="inline"
-                                locale={locale}
-                              />
+                              <span className="min-w-0 line-clamp-2 sm:line-clamp-none">
+                                <RichGuideText
+                                  text={cell}
+                                  variant="inline"
+                                  locale={locale}
+                                />
+                              </span>
                             </span>
                           ) : (
                             <RichGuideText

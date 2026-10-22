@@ -413,7 +413,7 @@ export function HordePivotStepperWidget({
   return (
     <div
       data-testid="widget-horde-pivot-stepper"
-      className="my-6 rounded-2xl border border-amber-500/30 bg-gradient-to-b from-[#131722]/95 via-[#0F131D]/95 to-[#0B0E14]/95 p-4 sm:p-6 shadow-[0_14px_36px_rgba(0,0,0,0.45)]"
+      className="my-6 rounded-2xl border border-amber-500/30 bg-card/95 dark:bg-gradient-to-b dark:from-[#131722]/95 dark:via-[#0F131D]/95 dark:to-[#0B0E14]/95 p-4 sm:p-6 shadow-[0_14px_36px_rgba(0,0,0,0.45)]"
     >
       {/* Consolidated SSoT Anchor Stub */}
       <span
@@ -424,9 +424,9 @@ export function HordePivotStepperWidget({
       />
 
       {/* Header + 9 vs 27 Soul Stones Savings Meter */}
-      <div className="flex flex-col gap-4 border-b border-white/10 pb-4 lg:flex-row lg:items-center lg:justify-between">
+      <div className="flex flex-col gap-4 border-b border-border/75 dark:border-white/10 pb-4 lg:flex-row lg:items-center lg:justify-between">
         <div className="space-y-1">
-          <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-amber-300">
+          <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-amber-700 dark:text-amber-300">
             <Flame className="h-3.5 w-3.5 text-amber-400" />
             <span>
               {locale === "vi"
@@ -434,10 +434,10 @@ export function HordePivotStepperWidget({
                 : "Zero-Loss Pivot Protocol • Day 1 ➔ S3"}
             </span>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-white">
+          <h3 className="text-lg sm:text-xl font-bold text-foreground dark:text-white">
             {t("widgetPivotTitle")}
           </h3>
-          <p className="text-xs sm:text-sm text-slate-300">
+          <p className="text-xs sm:text-sm text-muted-foreground dark:text-slate-300">
             {t("widgetPivotSubtitle")}
           </p>
         </div>
@@ -447,7 +447,7 @@ export function HordePivotStepperWidget({
           data-testid="pivot-soulstone-meter"
           className="rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-3.5 py-2.5 text-xs"
         >
-          <div className="flex items-center justify-between gap-4 font-bold text-emerald-300">
+          <div className="flex items-center justify-between gap-4 font-bold text-emerald-700 dark:text-emerald-300">
             <span className="inline-flex items-center gap-1.5">
               {(() => {
                 const stoneAsset = getAssetById("item-soul-stone");
@@ -466,18 +466,18 @@ export function HordePivotStepperWidget({
                 ? "Kinh Tế Hồn Đá Đỏ (Soul Stones):"
                 : "Soul Stone Economy:"}
             </span>
-            <span className="font-mono text-emerald-200">
+            <span className="font-mono text-emerald-800 dark:text-emerald-200">
               9 vs 27 (-67% Cost)
             </span>
           </div>
-          <div className="mt-1.5 flex items-center gap-2 text-[11px] text-slate-300">
-            <span className="rounded bg-rose-500/20 px-1.5 py-0.5 font-semibold text-rose-200">
+          <div className="mt-1.5 flex items-center gap-2 text-[11px] text-muted-foreground dark:text-slate-300">
+            <span className="rounded bg-rose-500/20 px-1.5 py-0.5 font-semibold text-rose-800 dark:text-rose-200">
               {locale === "vi"
                 ? "Horde: 9 Hồn Đá Đỏ (1 SSR)"
                 : "Horde: 9 Soul Stones (1 SSR)"}
             </span>
             <span>vs</span>
-            <span className="rounded bg-blue-500/20 px-1.5 py-0.5 text-blue-200 line-through opacity-80">
+            <span className="rounded bg-blue-500/20 px-1.5 py-0.5 text-blue-800 dark:text-blue-200 line-through opacity-80">
               {locale === "vi"
                 ? "League: 27 Hồn Đá Đỏ (3 SSR)"
                 : "League: 27 Soul Stones (3 SSR)"}
@@ -504,19 +504,19 @@ export function HordePivotStepperWidget({
               onClick={() => setActiveStageNumber(stage.stageNumber)}
               className={`min-h-11 flex flex-col justify-between rounded-xl border p-3 text-left transition-all ${
                 isActive
-                  ? "border-amber-400/60 bg-amber-500/15 text-white shadow-[0_0_20px_rgba(245,158,11,0.2)]"
-                  : "border-white/10 bg-white/[0.03] text-slate-300 hover:border-white/20 hover:bg-white/[0.06]"
+                  ? "border-amber-400/60 bg-amber-500/15 text-foreground dark:text-white shadow-[0_0_20px_rgba(245,158,11,0.2)]"
+                  : "border-border/75 dark:border-white/10 bg-muted/30 dark:bg-white/[0.03] text-muted-foreground dark:text-slate-300 hover:border-amber-500/35 dark:hover:border-white/20 hover:bg-muted/60 dark:hover:bg-white/[0.06]"
               }`}
             >
               <div className="flex items-center justify-between gap-2">
-                <span className="rounded-md bg-black/40 px-2 py-0.5 font-mono text-[11px] font-bold text-amber-300">
+                <span className="rounded-md bg-background/85 dark:bg-black/40 px-2 py-0.5 font-mono text-[11px] font-bold text-amber-700 dark:text-amber-300">
                   {stage.dayRangeBadge[locale]}
                 </span>
                 <span
                   className={`flex h-5 w-5 items-center justify-center rounded-full text-[11px] font-bold ${
                     isActive
                       ? "bg-amber-400 text-slate-950"
-                      : "bg-white/10 text-slate-400"
+                      : "bg-muted/70 dark:bg-white/10 text-muted-foreground dark:text-slate-400"
                   }`}
                 >
                   {stage.stageNumber}
@@ -534,10 +534,10 @@ export function HordePivotStepperWidget({
       {currentStage && (
         <div
           data-testid="pivot-active-stage-panel"
-          className="mt-5 space-y-4 rounded-xl border border-white/10 bg-[#0B0E14]/90 p-4 sm:p-5"
+          className="mt-5 space-y-4 rounded-xl border border-border/75 dark:border-white/10 bg-muted/35 dark:bg-[#0B0E14]/90 p-4 sm:p-5"
         >
           {/* Stage Banner */}
-          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-3">
+          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border/75 dark:border-white/10 pb-3">
             <div>
               <span className="text-xs font-semibold uppercase tracking-wider text-amber-400">
                 <RichGuideText
@@ -546,7 +546,7 @@ export function HordePivotStepperWidget({
                   accentColor="amber"
                 />
               </span>
-              <h4 className="mt-0.5 text-base font-bold text-white">
+              <h4 className="mt-0.5 text-base font-bold text-foreground dark:text-white">
                 <RichGuideText
                   text={currentStage.queue1Lineup}
                   variant="inline"
@@ -554,7 +554,7 @@ export function HordePivotStepperWidget({
                 />
               </h4>
             </div>
-            <span className="rounded-lg border border-amber-500/30 bg-amber-500/10 px-3 py-1 font-mono text-xs font-bold text-amber-300">
+            <span className="rounded-lg border border-amber-500/30 bg-amber-500/10 px-3 py-1 font-mono text-xs font-bold text-amber-700 dark:text-amber-300">
               {currentStage.auraBadge[locale]}
             </span>
           </div>
@@ -562,15 +562,15 @@ export function HordePivotStepperWidget({
           {/* Visual Queue 1 -> Queue 2 Flow */}
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-12">
             {/* Queue 1 Active Roster */}
-            <div className="lg:col-span-7 rounded-xl border border-white/10 bg-white/[0.02] p-3.5">
+            <div className="lg:col-span-7 rounded-xl border border-border/75 dark:border-white/10 bg-muted/25 dark:bg-white/[0.02] p-3.5">
               <div className="mb-2.5 flex items-center justify-between">
-                <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-amber-300">
+                <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-amber-700 dark:text-amber-300">
                   <Swords className="h-3.5 w-3.5" />
                   {locale === "vi"
                     ? "Đội 1 Chủ Lực (Queue 1 Main)"
                     : "Queue 1 Main Lineup"}
                 </span>
-                <span className="text-[11px] text-slate-400">
+                <span className="text-[11px] text-muted-foreground dark:text-slate-400">
                   {locale === "vi" ? "6 Vị Trí Ra Trận" : "6 Active Slots"}
                 </span>
               </div>
@@ -580,8 +580,8 @@ export function HordePivotStepperWidget({
                     key={hero.name}
                     className={`flex items-center justify-between rounded-lg border px-2.5 py-2 text-xs ${
                       hero.faction === "horde"
-                        ? "border-rose-500/35 bg-rose-500/10 text-rose-100"
-                        : "border-blue-500/35 bg-blue-500/10 text-blue-100"
+                        ? "border-rose-500/35 bg-rose-500/10 text-rose-900 dark:text-rose-100"
+                        : "border-blue-500/35 bg-blue-500/10 text-blue-900 dark:text-blue-100"
                     }`}
                   >
                     <span className="inline-flex items-center gap-2 font-bold">
@@ -607,7 +607,7 @@ export function HordePivotStepperWidget({
                         {hero.name}
                       </span>
                     </span>
-                    <span className="rounded bg-black/30 px-1.5 py-0.5 font-mono text-[10px] text-slate-200">
+                    <span className="rounded bg-background/80 dark:bg-black/30 px-1.5 py-0.5 font-mono text-[10px] text-foreground/90 dark:text-slate-200">
                       {hero.note[locale]}
                     </span>
                   </div>
@@ -616,22 +616,22 @@ export function HordePivotStepperWidget({
             </div>
 
             {/* Queue 2 Zero-Loss Inheritance */}
-            <div className="lg:col-span-5 rounded-xl border border-white/10 bg-white/[0.02] p-3.5 flex flex-col justify-between">
+            <div className="lg:col-span-5 rounded-xl border border-border/75 dark:border-white/10 bg-muted/25 dark:bg-white/[0.02] p-3.5 flex flex-col justify-between">
               <div>
                 <div className="mb-2.5 flex items-center justify-between">
-                  <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-blue-300">
+                  <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-blue-700 dark:text-blue-300">
                     <Layers className="h-3.5 w-3.5" />
                     {locale === "vi"
                       ? "Đội 2 Kế Thừa (Zero-Loss Queue 2)"
                       : "Queue 2 Inheritance (Zero-Loss)"}
                   </span>
-                  <ArrowRight className="h-3.5 w-3.5 text-slate-400" />
+                  <ArrowRight className="h-3.5 w-3.5 text-muted-foreground dark:text-slate-400" />
                 </div>
                 <div className="space-y-1.5">
                   {currentStage.queue2Heroes.map((hero, idx) => (
                     <div
                       key={hero.name}
-                      className="flex items-center justify-between rounded-lg border border-white/10 bg-black/30 px-2.5 py-1.5 text-xs text-slate-200"
+                      className="flex items-center justify-between rounded-lg border border-border/75 dark:border-white/10 bg-background/80 dark:bg-black/30 px-2.5 py-1.5 text-xs text-foreground/90 dark:text-slate-200"
                     >
                       <span className="inline-flex items-center gap-2 font-semibold">
                         <span
@@ -652,7 +652,7 @@ export function HordePivotStepperWidget({
                         </span>
                         <span>{hero.name}</span>
                       </span>
-                      <span className="text-[11px] text-emerald-300">
+                      <span className="text-[11px] text-emerald-700 dark:text-emerald-300">
                         {hero.note[locale]}
                       </span>
                     </div>
@@ -662,7 +662,7 @@ export function HordePivotStepperWidget({
               <RichGuideText
                 text={currentStage.leagueRosterRole}
                 accentColor="sky"
-                className="mt-3 border-t border-white/10 pt-2.5 text-xs leading-relaxed text-slate-300"
+                className="mt-3 border-t border-border/75 dark:border-white/10 pt-2.5 text-xs leading-relaxed text-muted-foreground dark:text-slate-300"
               />
             </div>
           </div>
@@ -670,7 +670,7 @@ export function HordePivotStepperWidget({
           {/* Zero-Loss Resource Discipline Cards (Shards/Books + Gear/Soul Stones) */}
           <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
             <div className="rounded-xl border border-amber-500/25 bg-amber-500/[0.06] p-3.5">
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-300">
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-700 dark:text-amber-300">
                 {(() => {
                   const shardAsset = getAssetById("item-universal-shard");
                   return shardAsset ? (
@@ -693,13 +693,13 @@ export function HordePivotStepperWidget({
               <RichGuideText
                 text={currentStage.shardAndBookRule}
                 accentColor="amber"
-                className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-200"
+                className="mt-2 text-xs sm:text-sm leading-relaxed text-foreground/90 dark:text-slate-200"
               />
             </div>
 
             <div className="rounded-xl border border-emerald-500/25 bg-emerald-500/[0.06] p-3.5">
               <div className="flex items-center justify-between gap-2">
-                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-300">
+                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-300">
                   {(() => {
                     const gearAsset = getAssetById("gear-set-blood-of-the-titan");
                     return gearAsset ? (
@@ -722,7 +722,7 @@ export function HordePivotStepperWidget({
                   </span>
                 </div>
                 {!hasProAccess && (
-                  <span className="inline-flex items-center gap-1 rounded bg-amber-500/20 px-1.5 py-0.5 text-[10px] font-bold text-amber-300">
+                  <span className="inline-flex items-center gap-1 rounded bg-amber-500/20 px-1.5 py-0.5 text-[10px] font-bold text-amber-700 dark:text-amber-300">
                     <Lock className="h-2.5 w-2.5" /> PRO
                   </span>
                 )}
@@ -730,13 +730,13 @@ export function HordePivotStepperWidget({
               <RichGuideText
                 text={currentStage.gearAndBuildingRule}
                 accentColor="emerald"
-                className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-200"
+                className="mt-2 text-xs sm:text-sm leading-relaxed text-foreground/90 dark:text-slate-200"
               />
             </div>
           </div>
 
           {/* Mythic Star Conversion Footnote */}
-          <div className="flex items-center gap-2 rounded-lg border border-white/10 bg-white/[0.02] px-3 py-2 text-[11px] text-slate-300">
+          <div className="flex items-center gap-2 rounded-lg border border-border/75 dark:border-white/10 bg-muted/25 dark:bg-white/[0.02] px-3 py-2 text-[11px] text-muted-foreground dark:text-slate-300">
             <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-emerald-400" />
             <span>
               {locale === "vi"
