@@ -342,7 +342,7 @@ describe("Phase 4 — Category Micro-UX Widgets & GuideArticleRenderer Integrati
       );
 
       expect(screen.getByTestId("widget-shop-safety-floor")).toBeDefined();
-      expect(screen.getAllByTestId(/^shop-pill-/).length).toBe(13);
+      expect(screen.getAllByTestId(/^shop-pill-\d+$/).length).toBe(13);
 
       // Default Shop #1: Arena Shop (1,900-2,000 Arena Stars floor, 600% ROI 50-Star pack, Forbidden 12,000-Star Guardian Skin)
       expect(screen.getByTestId("shop-safety-floor-banner").textContent).toMatch(

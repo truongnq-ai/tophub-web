@@ -19,6 +19,8 @@ import type {
 import { ARTICLE_8_4_MASTER_DATA_TABLES } from "@/content/guides/groups/group-8/8.4-master-data-tables";
 import { ResponsiveDataTable } from "@/components/guides/blocks/responsive-data-table";
 import { RichGuideText } from "@/components/guides/blocks/rich-guide-text";
+import { GameAssetFrame } from "@/components/guides/media/game-asset-frame";
+import { getAssetById } from "@/content/guides/asset-registry";
 import { useUidSession } from "@/hooks/use-uid-session";
 import { Link } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
@@ -111,6 +113,21 @@ const LABELS: Record<
     proUpgradeBtn: "Upgrade to PRO Now",
     proCheckUidBtn: "Link UID on Home Page",
   },
+};
+
+const MASTER_TABLE_ICON_BY_CODE: Record<string, string> = {
+  "1.1": "item-universal-shard",
+  "1.2": "item-soul-stone",
+  "1.3": "item-upgrade-rune",
+  "1.4": "troop-rank-4",
+  "3.1": "building-castle",
+  "4.1": "item-stamina",
+  "4.2": "gear-exclusive-weapon",
+  "4.3": "gear-lord-sword",
+  "4.4": "rune-slot-6",
+  "4.5": "pet-flickerkit",
+  "4.6": "troop-skin-samurai",
+  "4.7": "item-vip-points",
 };
 
 const SHORT_NAMES: Record<
@@ -381,6 +398,13 @@ export function MasterDataExplorerWidget({
     );
   }, [visibleTablesForGroup, activeTableId, allTables]);
 
+  const activeTableAsset = selectedTable
+    ? getAssetById(
+        MASTER_TABLE_ICON_BY_CODE[selectedTable.shortCode] ??
+          "item-universal-shard"
+      )
+    : undefined;
+
   const normalizedQuery = globalSearch.trim().toLowerCase();
 
   // Cross-Table Instant Search Results (< 20ms)
@@ -521,6 +545,9 @@ export function MasterDataExplorerWidget({
       <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 snap-x">
         {visibleTablesForGroup.map((tbl) => {
           const isSelected = !normalizedQuery && selectedTable?.id === tbl.id;
+          const pillAsset = getAssetById(
+            MASTER_TABLE_ICON_BY_CODE[tbl.shortCode] ?? "item-universal-shard"
+          );
           return (
             <button
               key={tbl.id}
@@ -538,6 +565,18 @@ export function MasterDataExplorerWidget({
                   : "border-border/60 bg-background/75 text-muted-foreground hover:text-foreground hover:bg-muted/40"
               )}
             >
+              {pillAsset && (
+                <span
+                  data-testid={`master-pill-icon-${tbl.shortCode}`}
+                  className="shrink-0"
+                >
+                  <GameAssetFrame
+                    asset={pillAsset}
+                    size="xs"
+                    showFactionBadge={false}
+                  />
+                </span>
+              )}
               {tbl.isPro && (
                 <Crown className="h-3.5 w-3.5 text-amber-500 shrink-0" />
               )}
@@ -612,7 +651,19 @@ export function MasterDataExplorerWidget({
         selectedTable && (
           <div className="rounded-2xl border border-border/80 bg-background/80 p-4 sm:p-5 space-y-4">
             <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-border/50">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2.5">
+                {activeTableAsset && (
+                  <span
+                    data-testid="master-active-table-icon"
+                    className="shrink-0"
+                  >
+                    <GameAssetFrame
+                      asset={activeTableAsset}
+                      size="sm"
+                      showFactionBadge={false}
+                    />
+                  </span>
+                )}
                 {selectedTable.isPro ? (
                   <span className="inline-flex items-center gap-1 rounded-lg bg-amber-500/15 border border-amber-500/35 px-2.5 py-1 font-mono text-xs font-extrabold text-amber-600 dark:text-amber-300">
                     <Crown className="h-3.5 w-3.5 text-amber-500" />
