@@ -36,6 +36,11 @@ vi.mock("next-intl", () => ({
       toolShopsDesc: "ROI 600%",
       toolMasterTablesTitle: "12 Bảng Số Liệu Gốc",
       toolMasterTablesDesc: "Điểm gãy Mảnh, Sách",
+      toolCodexTitle: "Kho Đồ Giám (3,400+ Vật Phẩm)",
+      toolCodexDesc: "Từ điển Anh – Việt Tướng, Đồ Vàng, Cổ Ngữ & Thánh Vật",
+      hubSearchArticlesHeading: "Bài Viết Cẩm Nang Khớp Từ Khóa",
+      hubSearchCodexHeading: "Thực Thể & Vật Phẩm Trong Kho Đồ Giám",
+      hubSearchOpenCodexBtn: "Mở Kho Đồ Giám đầy đủ →",
       categoriesGridTitle: "8 Nhóm Chuyên Đề Chiến Thuật (S0 ➔ S4)",
       hideMoreArticlesBtn: "Thu gọn danh sách bài",
     };
