@@ -11,12 +11,14 @@ const mockGetAdminAccountRedemptionsAction = vi.fn();
 const mockGetAdminAccountCheckinsAction = vi.fn();
 const mockGetAdminWeeklyTimelineAction = vi.fn();
 const mockRetryAdminCheckinAction = vi.fn();
+const mockGetAdminAccountPaymentsAction = vi.fn();
 
 vi.mock("@/actions/admin", () => ({
   getAdminAccountRedemptionsAction: (...args: any[]) => mockGetAdminAccountRedemptionsAction(...args),
   getAdminAccountCheckinsAction: (...args: any[]) => mockGetAdminAccountCheckinsAction(...args),
   getAdminWeeklyTimelineAction: (...args: any[]) => mockGetAdminWeeklyTimelineAction(...args),
   retryAdminCheckinAction: (...args: any[]) => mockRetryAdminCheckinAction(...args),
+  getAdminAccountPaymentsAction: (...args: any[]) => mockGetAdminAccountPaymentsAction(...args),
 }));
 
 const mockToast = vi.fn();
@@ -238,6 +240,142 @@ describe("Admin Account Actions and Weekly Timeline", () => {
       await waitFor(() => {
         expect(mockGetAdminAccountRedemptionsAction).toHaveBeenCalledWith("acc-test-1");
       });
+    });
+
+    it("should render Funtap Payment History button and open AccountPaymentsDialog with KPIs, partial history notice, and orders", async () => {
+      mockGetAdminAccountPaymentsAction.mockResolvedValueOnce({
+        success: true,
+        data: {
+          account: {
+            id: "acc-test-1",
+            uid: "1000000000001",
+            nickname: "DragonLord",
+            server_id: "1024",
+          },
+          items: [
+            {
+              id: "H17928975151436-H17928975150814",
+              txn_no: "H17928975151436",
+              order_no: "H17928975150814",
+              description: "Gói 1199000 Khối Vàng",
+              amount: 1199000,
+              currency: "VND",
+              method: "QR_9PAY",
+              acquirer: "qr_9pay",
+              status: 3,
+              is_success: true,
+              created_at: "2026-10-25 10:05:15",
+              completed_at: "2026-10-25 10:05:34",
+              duration_seconds: 19,
+            },
+          ],
+          total: 1,
+          page: 1,
+          limit: 20,
+          total_pages: 1,
+          summary: {
+            total_orders: 300,
+            fetched_orders: 250,
+            success_orders: 250,
+            total_amount_vnd: 1199000,
+            average_amount_vnd: 1199000,
+            max_order_amount_vnd: 1199000,
+            max_order_description: "Gói 1199000 Khối Vàng",
+            first_payment_at: "2026-10-25 10:05:34",
+            last_payment_at: "2026-10-25 10:05:34",
+            spender_tier: "DOLPHIN",
+            is_partial_history: true,
+            methods_breakdown: [{ method: "QR_9PAY", count: 1, amount_vnd: 1199000 }],
+          },
+          fetched_at: "2026-10-25T10:06:00.000Z",
+        },
+      });
+
+      render(
+        <TabAccounts
+          accounts={[mockAccount]}
+          onToggle={vi.fn()}
+          updatingId={null}
+        />
+      );
+
+      const paymentBtn = screen.getByRole("button", { name: /Lịch sử nạp Funtap/i });
+      expect(paymentBtn).toBeDefined();
+      fireEvent.click(paymentBtn);
+
+      await waitFor(() => {
+        expect(mockGetAdminAccountPaymentsAction).toHaveBeenCalledWith(
+          "acc-test-1",
+          expect.objectContaining({ page: 1, limit: 20 })
+        );
+      });
+
+      expect(await screen.findByText(/Lịch Sử Nạp Game \(Funtap\)/i)).toBeDefined();
+      expect((await screen.findAllByText(/Gói 1199000 Khối Vàng/i)).length).toBeGreaterThan(0);
+      expect(screen.getByText("H17928975151436")).toBeDefined();
+      expect(screen.getByText(/Đang tổng hợp 250\/300 giao dịch gần nhất/i)).toBeDefined();
+    });
+
+    it("should display upstream error state and retry when clicking Thử lại in AccountPaymentsDialog", async () => {
+      mockGetAdminAccountPaymentsAction
+        .mockResolvedValueOnce({
+          success: false,
+          error: {
+            code: "UPSTREAM_PAYMENT_ERROR",
+            message: "Không thể kết nối tới cổng lịch sử nạp Funtap. Vui lòng thử lại sau.",
+          },
+        })
+        .mockResolvedValueOnce({
+          success: true,
+          data: {
+            account: {
+              id: "acc-test-1",
+              uid: "1000000000001",
+              nickname: "DragonLord",
+              server_id: "1024",
+            },
+            items: [],
+            total: 0,
+            page: 1,
+            limit: 20,
+            total_pages: 1,
+            summary: {
+              total_orders: 0,
+              fetched_orders: 0,
+              success_orders: 0,
+              total_amount_vnd: 0,
+              average_amount_vnd: 0,
+              max_order_amount_vnd: 0,
+              max_order_description: null,
+              first_payment_at: null,
+              last_payment_at: null,
+              spender_tier: "F2P",
+              is_partial_history: false,
+              methods_breakdown: [],
+            },
+            fetched_at: "2026-10-25T10:06:00.000Z",
+          },
+        });
+
+      render(
+        <TabAccounts
+          accounts={[mockAccount]}
+          onToggle={vi.fn()}
+          updatingId={null}
+        />
+      );
+
+      fireEvent.click(screen.getByRole("button", { name: /Lịch sử nạp Funtap/i }));
+
+      expect(
+        await screen.findByText(/Không thể kết nối tới cổng lịch sử nạp Funtap/i)
+      ).toBeDefined();
+
+      fireEvent.click(screen.getByRole("button", { name: /Thử lại/i }));
+
+      expect(
+        await screen.findByText(/Tài khoản này chưa có lịch sử nạp qua cổng Funtap/i)
+      ).toBeDefined();
     });
 
     it("should trigger getAdminAccountCheckinsAction when clicking CalendarCheck action button", async () => {
