@@ -336,3 +336,59 @@ export interface AdminBannedWordsResponse {
   default_words: string[];
   custom_words: string[];
 }
+
+
+export type SpenderTier = "WHALE" | "DOLPHIN" | "PAYER" | "F2P";
+
+export interface AdminPaymentOrderItem {
+  id: string;
+  txn_no: string;
+  order_no: string;
+  description: string;
+  amount: number;
+  currency: string;
+  method: string;
+  acquirer: string;
+  status: number;
+  is_success: boolean;
+  created_at: string;
+  completed_at: string | null;
+  duration_seconds: number | null;
+}
+
+export interface AdminPaymentMethodStat {
+  method: string;
+  count: number;
+  amount_vnd: number;
+}
+
+export interface AdminAccountPaymentsSummary {
+  total_orders: number;
+  fetched_orders?: number;
+  success_orders: number;
+  total_amount_vnd: number;
+  average_amount_vnd: number;
+  max_order_amount_vnd: number;
+  max_order_description: string | null;
+  first_payment_at: string | null;
+  last_payment_at: string | null;
+  spender_tier: SpenderTier;
+  is_partial_history: boolean;
+  methods_breakdown: AdminPaymentMethodStat[];
+}
+
+export interface AdminAccountPaymentsResponse {
+  account: {
+    id: string;
+    uid: string;
+    nickname: string;
+    server_id: string;
+  };
+  items: AdminPaymentOrderItem[];
+  total: number;
+  page: number;
+  limit: number;
+  total_pages: number;
+  summary: AdminAccountPaymentsSummary;
+  fetched_at: string;
+}

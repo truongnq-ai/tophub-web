@@ -72,4 +72,59 @@ describe("Typed API Client", () => {
       })
     );
   });
+
+  it("getAdminAccountPayments should call /api/v1/admin/accounts/:id/payments with query params and Bearer token", async () => {
+    const fetchMock = vi.fn().mockResolvedValueOnce({
+      ok: true,
+      json: async () => ({
+        success: true,
+        data: {
+          account: { id: "acc-1", uid: "2446869146316", nickname: "Max", server_id: "S10956" },
+          items: [],
+          total: 0,
+          page: 1,
+          limit: 20,
+          total_pages: 1,
+          summary: {
+            total_orders: 0,
+            fetched_orders: 0,
+            success_orders: 0,
+            total_amount_vnd: 0,
+            average_amount_vnd: 0,
+            max_order_amount_vnd: 0,
+            max_order_description: null,
+            first_payment_at: null,
+            last_payment_at: null,
+            spender_tier: "F2P",
+            is_partial_history: false,
+            methods_breakdown: [],
+          },
+          fetched_at: "2026-10-25T09:00:00.000Z",
+        },
+      }),
+    } as any);
+
+    global.fetch = fetchMock;
+
+    const res = await apiClient.getAdminAccountPayments("admin-token-123", "acc-1", {
+      page: 2,
+      limit: 10,
+      method: "QR_9PAY",
+      search: "Khối Vàng",
+      refresh: true,
+    });
+
+    expect(res.success).toBe(true);
+    expect(fetchMock).toHaveBeenCalledWith(
+      expect.stringContaining(
+        "/api/v1/admin/accounts/acc-1/payments?page=2&limit=10&method=QR_9PAY&search=Kh%E1%BB%91i+V%C3%A0ng&refresh=true"
+      ),
+      expect.objectContaining({
+        headers: expect.objectContaining({
+          Authorization: "Bearer admin-token-123",
+        }),
+        cache: "no-store",
+      })
+    );
+  });
 });
