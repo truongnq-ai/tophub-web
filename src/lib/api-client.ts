@@ -19,6 +19,7 @@ import type {
   AdminRetryResponse,
   AdminWeeklyTimelineItem,
   AdminAccountCheckinHistory,
+  AdminAccountPaymentsResponse,
   AdminAccountsListResponse,
   AdminGiftcodesListResponse,
   AdminGiftcodeReceiversListResponse,
@@ -318,6 +319,33 @@ export const apiClient = {
       headers: { Authorization: `Bearer ${token}` },
       cache: "no-store",
     }),
+
+  getAdminAccountPayments: (
+    token: string,
+    accountId: string,
+    query?: {
+      page?: number;
+      limit?: number;
+      method?: string;
+      search?: string;
+      refresh?: boolean;
+    }
+  ) => {
+    const params = new URLSearchParams();
+    if (query?.page) params.set("page", String(query.page));
+    if (query?.limit) params.set("limit", String(query.limit));
+    if (query?.method) params.set("method", query.method);
+    if (query?.search) params.set("search", query.search);
+    if (query?.refresh) params.set("refresh", "true");
+    const qs = params.toString() ? `?${params.toString()}` : "";
+    return apiFetch<AdminAccountPaymentsResponse>(
+      `/api/v1/admin/accounts/${encodeURIComponent(accountId)}/payments${qs}`,
+      {
+        headers: { Authorization: `Bearer ${token}` },
+        cache: "no-store",
+      }
+    );
+  },
 
   getAdminWeeklyTimeline: (token: string) =>
     apiFetch<AdminWeeklyTimelineItem[]>("/api/v1/admin/checkins/weekly-timeline", {

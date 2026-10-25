@@ -13,6 +13,7 @@ import type {
   AdminRetryResponse,
   AdminWeeklyTimelineItem,
   AdminAccountCheckinHistory,
+  AdminAccountPaymentsResponse,
   AdminAccountsListResponse,
   AdminGiftcodesListResponse,
   AdminGiftcodeReceiversListResponse,
@@ -226,4 +227,20 @@ export async function getAdminWeeklyTimelineAction(): Promise<ApiResponse<AdminW
   const auth = getAdminTokenOrUnauthorized<AdminWeeklyTimelineItem[]>();
   if ("errorResponse" in auth) return auth.errorResponse;
   return apiClient.getAdminWeeklyTimeline(auth.token);
+}
+
+
+export async function getAdminAccountPaymentsAction(
+  accountId: string,
+  query?: {
+    page?: number;
+    limit?: number;
+    method?: string;
+    search?: string;
+    refresh?: boolean;
+  }
+): Promise<ApiResponse<AdminAccountPaymentsResponse>> {
+  const auth = getAdminTokenOrUnauthorized<AdminAccountPaymentsResponse>();
+  if ("errorResponse" in auth) return auth.errorResponse;
+  return apiClient.getAdminAccountPayments(auth.token, accountId, query);
 }

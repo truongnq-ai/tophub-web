@@ -15,6 +15,7 @@ import {
   Download,
   Gift,
   CalendarCheck,
+  Receipt,
 } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -33,6 +34,7 @@ import { AdminPagination } from "./pagination";
 import { AdminEmptyState } from "./empty-state";
 import { AccountRedemptionsDialog } from "./account-redemptions-dialog";
 import { AccountCheckinsDialog } from "./account-checkins-dialog";
+import { AccountPaymentsDialog } from "./account-payments-dialog";
 import { formatLocalizedDate } from "@/lib/timezone";
 
 interface TabAccountsProps {
@@ -162,6 +164,8 @@ export function TabAccounts({
   const [isRedemptionsOpen, setIsRedemptionsOpen] = useState(false);
   const [selectedAccountForCheckins, setSelectedAccountForCheckins] = useState<AdminAccountItem | null>(null);
   const [isCheckinsOpen, setIsCheckinsOpen] = useState(false);
+  const [selectedAccountForPayments, setSelectedAccountForPayments] = useState<AdminAccountItem | null>(null);
+  const [isPaymentsOpen, setIsPaymentsOpen] = useState(false);
 
   // Extract unique server IDs for dropdown
   const uniqueServers = useMemo(() => {
@@ -622,6 +626,21 @@ export function TabAccounts({
                             </Button>
                           </AdminTooltip>
 
+                          <AdminTooltip content="Lịch sử nạp Funtap">
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              className="h-8 w-8 p-0 text-muted-foreground hover:text-amber-500 hover:bg-amber-500/10 cursor-pointer"
+                              onClick={() => {
+                                setSelectedAccountForPayments(acc);
+                                setIsPaymentsOpen(true);
+                              }}
+                            >
+                              <Receipt className="h-4 w-4" />
+                              <span className="sr-only">Lịch sử nạp Funtap</span>
+                            </Button>
+                          </AdminTooltip>
+
                           <AdminTooltip content="Lịch sử điểm danh (2 tuần)">
                             <Button
                               variant="ghost"
@@ -684,6 +703,15 @@ export function TabAccounts({
         onOpenChange={(open) => {
           setIsRedemptionsOpen(open);
           if (!open) setSelectedAccountForRedemptions(null);
+        }}
+      />
+
+      <AccountPaymentsDialog
+        account={selectedAccountForPayments}
+        open={isPaymentsOpen}
+        onOpenChange={(open) => {
+          setIsPaymentsOpen(open);
+          if (!open) setSelectedAccountForPayments(null);
         }}
       />
 
