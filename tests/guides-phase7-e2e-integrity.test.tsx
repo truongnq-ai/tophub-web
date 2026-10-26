@@ -327,9 +327,9 @@ describe("Phase 7 — Guides Hub v4.0 Final E2E Asset/Codex Integrity & Producti
       expect(exclusiveWeaponCount).toBeGreaterThanOrEqual(35);
     });
 
-    it("verifies all 91 MediaSpotlightBlocks, 36 VisualDiagramBlocks, and 114 ResponsiveDataTables across 31 articles resolve to valid >64-byte .webp files", () => {
+    it("verifies all 94 MediaSpotlightBlocks, 39 VisualDiagramBlocks, and 123 ResponsiveDataTables across 34 articles resolve to valid >64-byte .webp files", () => {
       const articles = getAllArticles();
-      expect(articles).toHaveLength(31);
+      expect(articles).toHaveLength(34);
 
       const spotlights: GuideMediaSpotlightBlock[] = [];
       const diagrams: GuideVisualDiagramBlock[] = [];
@@ -352,9 +352,9 @@ describe("Phase 7 — Guides Hub v4.0 Final E2E Asset/Codex Integrity & Producti
         }
       }
 
-      expect(spotlights).toHaveLength(91);
-      expect(diagrams).toHaveLength(36);
-      expect(tables).toHaveLength(114);
+      expect(spotlights).toHaveLength(94);
+      expect(diagrams).toHaveLength(39);
+      expect(tables).toHaveLength(123);
 
       for (const sp of spotlights) {
         expect(
@@ -434,7 +434,7 @@ describe("Phase 7 — Guides Hub v4.0 Final E2E Asset/Codex Integrity & Producti
       const validArticleRouteSet = new Set(
         getAllArticles().map((a) => `${a.categorySlug}/${a.slug}`)
       );
-      expect(validArticleRouteSet.size).toBe(31);
+      expect(validArticleRouteSet.size).toBe(34);
 
       const searchIndexPath = path.join(CODEX_DATA_DIR, "search-index.json");
       expect(

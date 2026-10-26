@@ -484,6 +484,6 @@ describe("Track 4 Phase 3G: Group 7 (economy 7.1 -> 7.4) Standardized v2.0 Conte
     for (const pattern of forbidden) {
       expect(raw).not.toMatch(pattern);
     }
-    expect(getAllArticles()).toHaveLength(31);
+    expect(getAllArticles()).toHaveLength(34);
   });
 });

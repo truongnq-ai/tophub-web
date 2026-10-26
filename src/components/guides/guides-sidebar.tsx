@@ -62,6 +62,7 @@ const categoryIcons: Record<GuideCategoryIconName, React.ElementType> = {
   Sparkles,
   ShoppingBag,
   Castle,
+  Flame,
 };
 
 function renderArticleIndicator(badge: GuideBadgeType) {
@@ -304,9 +305,15 @@ function SidebarNavigationTree({
               </div>
 
               <div className="space-y-1.5">
-                {zone.categories.map((category) => {
+                {zone.categories.map((category, catIdx) => {
                   const Icon = categoryIcons[category.iconName] || BookOpen;
                   const isCategoryActive = activeCategorySlug === category.slug;
+                  const categoryDisplayLabel =
+                    zone.id === "zone_events_roadmap"
+                      ? locale === "vi"
+                        ? `Phần ${catIdx + 1} • ${category.order}. ${category.title[locale]}`
+                        : `Part ${catIdx + 1} • ${category.order}. ${category.title[locale]}`
+                      : `${category.order}. ${category.title[locale]}`;
 
                   return (
                     <AccordionItem
@@ -332,7 +339,7 @@ function SidebarNavigationTree({
                             <Icon className="h-3.5 w-3.5" />
                           </div>
                           <span className="font-heading font-bold text-xs text-foreground leading-snug line-clamp-1">
-                            {category.order}. {category.title[locale]}
+                            {categoryDisplayLabel}
                           </span>
                         </div>
                       </AccordionTrigger>

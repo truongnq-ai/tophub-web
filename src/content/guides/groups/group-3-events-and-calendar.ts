@@ -10,8 +10,8 @@ export const GROUP_3_EVENTS_AND_CALENDAR_CATEGORY: GuideCategory = {
   zoneId: "zone_events_roadmap",
   iconName: "CalendarClock",
   title: {
-    vi: "Lịch Sự Kiện & Giờ Vàng Double-Dip",
-    en: "Event Schedule & Double-Dip Windows",
+    vi: "Sự Kiện Hàng Ngày, Hàng Tuần & Giờ Vàng Double-Dip",
+    en: "Daily, Weekly Recurring Events & Double-Dip Windows",
   },
   description: {
     vi: "Lộ trình mở khóa sự kiện theo tiến độ Server (Khởi đầu Lãnh Chúa Mạnh Nhất ➔ Thi Đấu Hội liên tiếp kèm Sự kiện Vệ tinh ➔ Luân phiên Thi Đấu Hội & 6 Ngày Đua Vũ Trang GAR/KvK), Lịch Guild Rush 2 ngày và Ma trận Double-Dip / Triple-Dip 300% cho 13 nhóm vật phẩm.",

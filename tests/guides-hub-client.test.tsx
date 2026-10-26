@@ -110,7 +110,7 @@ describe("GuidesHubClient (4-Layer Smart Command Hub — Hardened)", () => {
     const expandBtns = screen.getAllByRole("button", {
       name: /Xem đầy đủ/i,
     });
-    expect(expandBtns.length).toBe(8);
+    expect(expandBtns.length).toBe(9);
 
     fireEvent.click(expandBtns[0]);
     expect(

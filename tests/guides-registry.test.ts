@@ -10,13 +10,13 @@ import {
   normalizeSearchText,
 } from "../src/content/guides/registry";
 
-describe("Guides Hub Registry Architecture (3 Zones - 8 Groups - 31 Pages)", () => {
-  it("should contain exactly 3 Zones, 8 Level-1 Categories, and 31 Level-2 Articles", () => {
+describe("Guides Hub Registry Architecture (3 Zones - 9 Groups - 34 Pages)", () => {
+  it("should contain exactly 3 Zones, 9 Level-1 Categories, and 34 Level-2 Articles", () => {
     expect(GUIDE_ZONES).toHaveLength(3);
     const categories = getAllCategories();
-    expect(categories).toHaveLength(8);
+    expect(categories).toHaveLength(9);
     const articles = getAllArticles();
-    expect(articles).toHaveLength(31);
+    expect(articles).toHaveLength(34);
   });
 
   it("should have unique category/article slug pairs and non-empty Free/PRO sections", () => {

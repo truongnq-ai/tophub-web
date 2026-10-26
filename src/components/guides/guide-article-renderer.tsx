@@ -38,6 +38,7 @@ import { TacticalFormationBoardWidget } from "./widgets/tactical-formation-board
 import { HordePivotStepperWidget } from "./widgets/horde-pivot-stepper-widget";
 import { BlacksmithAnvilMatrixWidget } from "./widgets/blacksmith-anvil-matrix-widget";
 import { ShopSafetyFloorWidget } from "./widgets/shop-safety-floor-widget";
+import { EventPlaybookExplorerWidget } from "./widgets/event-playbook-explorer-widget";
 import { ProContentGate } from "./pro-content-gate";
 import { GuideCommentsSection } from "./guide-comments-section";
 import { Badge } from "@/components/ui/badge";
@@ -315,6 +316,14 @@ function renderBlock(
         case "shop_safety_floor_explorer":
           return (
             <ShopSafetyFloorWidget
+              key={idx}
+              article={article}
+              locale={locale}
+            />
+          );
+        case "event_playbook_explorer":
+          return (
+            <EventPlaybookExplorerWidget
               key={idx}
               article={article}
               locale={locale}

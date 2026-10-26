@@ -64,6 +64,7 @@ const categoryIcons: Record<GuideCategoryIconName, React.ElementType> = {
   Sparkles,
   ShoppingBag,
   Castle,
+  Flame,
 };
 
 interface HotTagItem {

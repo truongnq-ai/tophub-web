@@ -12,6 +12,7 @@ import { GROUP_5_GEAR_AND_WEAPONS_CATEGORY } from "./groups/group-5-gear-and-wea
 import { GROUP_6_POWER_SYSTEMS_CATEGORY } from "./groups/group-6-power-systems";
 import { GROUP_7_SHOPS_AND_ECONOMY_CATEGORY } from "./groups/group-7-shops-and-economy";
 import { GROUP_8_INFRASTRUCTURE_CATEGORY } from "./groups/group-8-infrastructure";
+import { GROUP_9_EVENT_PLAYBOOKS_CATEGORY } from "./groups/group-9-event-playbooks";
 
 /**
  * Chuẩn hóa chuỗi tìm kiếm: loại bỏ dấu Tiếng Việt (Unicode NFD), đổi đ/Đ -> d, viết thường
@@ -66,6 +67,11 @@ export const GUIDE_CATEGORIES: GuideCategory[] = [
   // GROUP 8: HẠ TẦNG, CÔNG NGHỆ & BẢNG SỐ LIỆU (4 TRANG — MODULE HÓA CHUẨN V2.0)
   // ============================================================================
   GROUP_8_INFRASTRUCTURE_CATEGORY,
+
+  // ============================================================================
+  // GROUP 9 (PHẦN 3 PHÂN KHU II): CẨM NANG CHI TIẾT SỰ KIỆN S0 ➔ GAR (3 TRANG)
+  // ============================================================================
+  GROUP_9_EVENT_PLAYBOOKS_CATEGORY,
 ];
 
 export const GUIDE_ZONES: GuideZone[] = [
