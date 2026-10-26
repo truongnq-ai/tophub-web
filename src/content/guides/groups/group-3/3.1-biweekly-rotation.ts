@@ -325,6 +325,112 @@ export const ARTICLE_3_1_BIWEEKLY_ROTATION: GuideArticle = {
             },
           ],
         },
+        {
+          id: "sub-1-4-five-tier-recurring-events-roster",
+          title: {
+            vi: "1.4. Bảng Kiểm Kê Toàn Diện 5 Tầng Sự Kiện Lặp Đi Lặp Lại (Hàng Ngày • Hàng Giờ • 2–3 Ngày • Hàng Tuần • Cuối Tuần)",
+            en: "1.4. Master Inventory of the 5 Recurring Event Cadence Tiers (Daily • Hourly • 2–3 Day • Weekly • Weekend)",
+          },
+          badge: {
+            vi: "5 Tầng Lặp Lại",
+            en: "5 Recurring Tiers",
+          },
+          blocks: [
+            {
+              type: "table",
+              caption: {
+                vi: "Danh mục toàn bộ các sự kiện luôn lặp đi lặp lại xuyên suốt từ Mùa S0 đến Mùa S4 chia theo 5 tầng chu kỳ thời gian",
+                en: "Complete inventory of recurring events running continuously from Season S0 through Season S4 across 5 cadence tiers",
+              },
+              headers: [
+                {
+                  vi: "Tầng Chu Kỳ",
+                  en: "Cadence Tier",
+                },
+                {
+                  vi: "Danh Sách Sự Kiện Lặp Lại Điển Hình",
+                  en: "Canonical Recurring Events",
+                },
+                {
+                  vi: "Mốc Reset & Kỷ Luật Khai Thác Tối Ưu",
+                  en: "Reset Timing & Optimal Exploitation Rule",
+                },
+              ],
+              rows: [
+                [
+                  {
+                    vi: "Tầng 1: Hàng Ngày (Daily Reset)",
+                    en: "Tier 1: Daily Reset Loop",
+                  },
+                  {
+                    vi: "50 Lượt Auto-Join Boss Rally, Đấu Trường (Arena 5 lượt), Nhiệm Vụ Treo Thưởng (Bounty Quests), Điểm Danh VIP & Rương Hoạt Động Ngày.",
+                    en: "50x Auto-Join Boss Rallies, Arena (5 daily attempts), Map Bounty Quests, VIP Daily Claim & Daily Activity Chests.",
+                  },
+                  {
+                    vi: "Reset lúc 00:00 UTC (07:00 Giờ VN); bật Auto-Join Rally 24/7 và giữ nhiệm vụ Bounty đã làm xong chờ khớp lệnh Guild Race.",
+                    en: "Resets at 00:00 UTC; keep Auto-Join Rally active 24/7 and pre-complete Bounty Quests to claim during Guild Race tasks.",
+                  },
+                ],
+                [
+                  {
+                    vi: "Tầng 2: Hàng Giờ (6 Ca x 4 Tiếng)",
+                    en: "Tier 2: Hourly Sprints (6x 4h Windows)",
+                  },
+                  {
+                    vi: "Đua Vũ Trang Hàng Giờ (Hourly Arms Race — 6 ca 4 tiếng mỗi ngày xoay vòng Xây dựng, Khoa kỹ, Luyện lính, Anh hùng, Tổng lực).",
+                    en: "Hourly Arms Race (6 daily 4-hour sprints rotating across Construction, Tech Research, Troop Training, Hero Upgrades, and All-Speedups).",
+                  },
+                  {
+                    vi: "Đổi ca tại 02:00 UTC (09:00 Giờ VN), 06:00 UTC (13:00 Giờ VN), 10:00 UTC (17:00 Giờ VN), 14:00 UTC (21:00 Giờ VN), 18:00 UTC (01:00 Giờ VN), 22:00 UTC (05:00 Giờ VN).",
+                    en: "Rotates at 02:00 UTC, 06:00 UTC, 10:00 UTC, 14:00 UTC, 18:00 UTC, and 22:00 UTC; always align big dumps with matching GAR daily themes.",
+                  },
+                ],
+                [
+                  {
+                    vi: "Tầng 3: Chu Kỳ 2–3 Ngày (Mini-Rushes)",
+                    en: "Tier 3: 2–3 Day Mini-Rushes",
+                  },
+                  {
+                    vi: "Đua Bang 2 Ngày (Guild Rush) & 8 Sự Kiện Đua Điểm Ngắn Hạn (Lord Gear, Cổ Vật, Cổ Ngữ, Thú Cưng, Luyện Lính, Xây Dựng, Khoa Kỹ, Chiêu Mộ).",
+                    en: "2-Day Guild Rush & 8 Rotating Mini-Rushes (Lord Gear, Relics, Runes, Pets, Troop Training, Construction, Tech, Hero Recruitment).",
+                  },
+                  {
+                    vi: "Nếu mở vào tuần GAR thì xả gộp 3 tầng (Triple-Dip); nếu mở vào tuần nghỉ trước GAR thì khóa kho chống bẫy xả sớm.",
+                    en: "If active during GAR week, execute a Triple-Dip dump; if scheduled in the off-week before GAR, freeze your bag against bait.",
+                  },
+                ],
+                [
+                  {
+                    vi: "Tầng 4: Chu Kỳ Hàng Tuần & 3 Tuần",
+                    en: "Tier 4: Weekly & 3-Week Macro Cycles",
+                  },
+                  {
+                    vi: "Trục Tuần (Thi Đấu Hội Guild Race ⇄ GAR 6 Ngày / KvK) + Trục Banner 3 Tuần (Lucky Wheel ➔ Treasure Dice ➔ Hero Gacha) + Vệ Tinh (Bắt Bướm, Tập Kích Cự Ma, Quân Đoàn Hắc Ám).",
+                    en: "Weekly Backbone (Guild Race ⇄ 6-Day GAR / KvK) + 3-Week Banner Loop (Lucky Wheel ➔ Treasure Dice ➔ Hero Gacha) + Satellites (Butterfly, Giant Raid, Dark Legion).",
+                  },
+                  {
+                    vi: "Mở mới lúc 00:00 UTC (07:00 Giờ VN) hoặc 02:00 UTC (09:00 Giờ VN) Thứ Hai; tích nguyên liệu ở tuần Thi Đấu Hội để dồn xả vào 6 ngày GAR.",
+                    en: "Launches Mondays at 00:00 UTC or 02:00 UTC; hoard upgrade materials during Guild Race week to unleash across the 6 themed GAR days.",
+                  },
+                ],
+                [
+                  {
+                    vi: "Tầng 5: Giải Đấu Định Kỳ Cuối Tuần",
+                    en: "Tier 5: Biweekly & Weekend Tournaments",
+                  },
+                  {
+                    vi: "Chiến Trường Cổ Đại (Ancient Battlefield), Chiến Trường Vinh Quang (Glory Battlefield), Đấu Trường Đỉnh Cao (Apex Arena 3v3) & Chiến Tranh Ngai Vàng / KvK.",
+                    en: "Ancient Battlefield, Glory Battlefield, Apex Arena (3-March PvP), and Throne War / Kingdom Duel (KvK Saturday Clash).",
+                  },
+                  {
+                    vi: "Diễn ra cố định vào Thứ Bảy và Chủ Nhật; cày Xu Vinh Quang & Huy Chương Chiến Trường để đổi Vũ Khí Độc Quyền và Đá Linh Hồn Đỏ.",
+                    en: "Held on Saturdays and Sundays; farm Glory Coins & Battlefield Medals to redeem Exclusive Weapon Shards and Red Soul Stones.",
+                  },
+                ],
+              ],
+            },
+          ],
+        },
       ],
     },
     {

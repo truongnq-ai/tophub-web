@@ -12075,6 +12075,174 @@ export const MEDIA_SHOWCASE_BY_CODE: Readonly<Record<string, readonly MediaShowc
       "labelVi": "Huy Chương Vinh Quang (Glory Medal)",
       "rarity": "rare"
     }
+  ],
+  "MED-9.1-01": [
+    {
+      "assetId": "event-guild-arms-race",
+      "badgeText": "GAR 6 DAYS",
+      "faction": "neutral",
+      "iconPath": "/images/events/entry-icons/Activity_101.webp",
+      "labelEn": "Guild Arms Race (GAR)",
+      "labelVi": "Đua Vũ Trang Bang Hội (GAR 6 Ngày)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "event-guild-race",
+      "badgeText": "9-SLOT BOARD",
+      "faction": "neutral",
+      "iconPath": "/images/events/entry-icons/Activity_109.webp",
+      "labelEn": "Guild Race (9-Slot Board)",
+      "labelVi": "Thi Đấu Hội (Bảng 9 Ô)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "event-guild-rush",
+      "badgeText": "TOP LORD S0",
+      "faction": "neutral",
+      "iconPath": "/images/events/entry-icons/Activity_106.webp",
+      "labelEn": "Top Lord (6-Stage Opening Race)",
+      "labelVi": "Chúa Tể Tối Cao (Top Lord S0)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "item-dragon-essence",
+      "badgeText": "GAR DAY 1 & 2",
+      "faction": "neutral",
+      "iconPath": "/images/tech/research/icon_30417.webp",
+      "labelEn": "Dragon Essence",
+      "labelVi": "Tinh Hoa Rồng (Dragon Essence)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "item-soul-stone",
+      "badgeText": "6,000 HONOR",
+      "faction": "neutral",
+      "iconPath": "/images/items/shards/icon_30231.webp",
+      "labelEn": "Red Soul Stone",
+      "labelVi": "Đá Linh Hồn Đỏ (Red Soul Stone)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "item-lord-orichalcum",
+      "badgeText": "GAR DAY 3",
+      "faction": "neutral",
+      "iconPath": "/images/items/materials/icon_material_3.webp",
+      "labelEn": "Orichalcum (Lord Gear)",
+      "labelVi": "Orichalcum (Rèn Lord Gear Ngày 3)",
+      "rarity": "legendary"
+    }
+  ],
+  "MED-9.2-01": [
+    {
+      "assetId": "hero-storm-maiden",
+      "badgeText": "S0 DAY 27",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10041.webp",
+      "labelEn": "Storm Maiden (Day 27 Dice)",
+      "labelVi": "Storm Maiden (Xúc Xắc Ngày 27)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "hero-desert-prince",
+      "badgeText": "S0 DAY 21",
+      "faction": "horde",
+      "iconPath": "/images/heroes/avatars/Head_10039.webp",
+      "labelEn": "Desert Prince (Day 21 Dice)",
+      "labelVi": "Desert Prince (Xúc Xắc Ngày 21)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "event-dice-of-fate",
+      "badgeText": "30/60/100 ROLLS",
+      "faction": "neutral",
+      "iconPath": "/images/items/chests/icon_chest_Monopoly_DragonTraining.webp",
+      "labelEn": "Treasure Dice / Gala",
+      "labelVi": "Xúc Xắc Kho Báu (Treasure Dice)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "event-fortune-wheel",
+      "badgeText": "45/70/100 SPINS",
+      "faction": "neutral",
+      "iconPath": "/images/items/chests/icon_30059.webp",
+      "labelEn": "Lucky Wheel (Fortune Wheel)",
+      "labelVi": "Vòng Quay May Mắn (Lucky Wheel)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "item-recruit-token",
+      "badgeText": "GAR DAY 4",
+      "faction": "neutral",
+      "iconPath": "/images/ui/rarities/icon_recruit.webp",
+      "labelEn": "Hero Recruit Token",
+      "labelVi": "Vé Chiêu Mộ Anh Hùng (Recruit Token)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "item-universal-shard",
+      "badgeText": "HOLD FOR GAR D4",
+      "faction": "neutral",
+      "iconPath": "/images/items/shards/icon_30175.webp",
+      "labelEn": "Universal Hero Shard",
+      "labelVi": "Mảnh Anh Hùng Vạn Năng (Universal Shard)",
+      "rarity": "legendary"
+    }
+  ],
+  "MED-9.3-01": [
+    {
+      "assetId": "item-decor-token",
+      "badgeText": "BUTTERFLY SHOP",
+      "faction": "neutral",
+      "iconPath": "/images/items/currencies/icon_10030.webp",
+      "labelEn": "Mythic Decoration Token",
+      "labelVi": "Xu Trang Trí Thần Thoại (Decor Token)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "gear-exclusive-weapon",
+      "badgeText": "$4.99 RAID PASS",
+      "faction": "neutral",
+      "iconPath": "/images/equipment/exclusive-weapons/equipment_Exclusive003.webp",
+      "labelEn": "Giant Raid & Exclusive Weapon",
+      "labelVi": "Tập Kích Cự Ma & Vũ Khí Độc Quyền",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "event-dark-empire-invasion",
+      "badgeText": "2X REINFORCE",
+      "faction": "neutral",
+      "iconPath": "/images/events/entry-icons/Activity_103.webp",
+      "labelEn": "Dark Empire & Dark Legion",
+      "labelVi": "Đế Quốc & Quân Đoàn Hắc Ám",
+      "rarity": "epic"
+    },
+    {
+      "assetId": "event-dark-legion-challenge",
+      "badgeText": "TRIPLE-DIP",
+      "faction": "neutral",
+      "iconPath": "/images/events/entry-icons/Activity_104.webp",
+      "labelEn": "8 Rotating Mini-Rushes",
+      "labelVi": "8 Sự Kiện Đua Điểm Ngắn Hạn (Mini-Rushes)",
+      "rarity": "epic"
+    },
+    {
+      "assetId": "item-rune-dust",
+      "badgeText": "GAR DAY 2",
+      "faction": "neutral",
+      "iconPath": "/images/items/currencies/icon_10029.webp",
+      "labelEn": "Rune Dust",
+      "labelVi": "Bụi Cổ Ngữ (Rune Dust)",
+      "rarity": "epic"
+    },
+    {
+      "assetId": "item-pet-essence",
+      "badgeText": "GAR DAY 5",
+      "faction": "neutral",
+      "iconPath": "/images/items/currencies/icon_10036.webp",
+      "labelEn": "Pet Essence",
+      "labelVi": "Tinh Hoa Thú Cưng (Pet Essence)",
+      "rarity": "legendary"
+    }
   ]
 };
 

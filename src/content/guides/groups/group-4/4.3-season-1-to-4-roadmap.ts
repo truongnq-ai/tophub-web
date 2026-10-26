@@ -439,6 +439,112 @@ export const ARTICLE_4_3_SEASON_1_TO_4_ROADMAP: GuideArticle = {
             },
           ],
         },
+        {
+          id: "sub-1-4-seasonal-event-master-roster",
+          title: {
+            vi: "D. Bảng Master Roster Tổng Quan Danh Sách Sự Kiện Theo Từng Mùa Giải (S0 ➔ S4)",
+            en: "D. Master Seasonal Event Roster Across All Seasons (S0 ➔ S4)",
+          },
+          badge: {
+            vi: "TỔNG QUAN EVENT S0➔S4",
+            en: "S0➔S4 EVENT ROSTER",
+          },
+          blocks: [
+            {
+              type: "table",
+              caption: {
+                vi: "Bảng phân loại tổng quan danh sách sự kiện cốt lõi và sự kiện đặc thù theo từng mùa giải từ S0 đến S4",
+                en: "Master classification of core recurring events and season-exclusive flagship events from Season S0 through Season S4",
+              },
+              headers: [
+                {
+                  vi: "Mùa Giải",
+                  en: "Season",
+                },
+                {
+                  vi: "Chuỗi Sự Kiện Nền Tảng (Giữ Nguyên Xuyên Mùa)",
+                  en: "Core Backbone Events (Active All Seasons)",
+                },
+                {
+                  vi: "Sự Kiện Độc Quyền Mùa Giải & Boss Thế Giới",
+                  en: "Season-Exclusive Events & World Bosses",
+                },
+              ],
+              rows: [
+                [
+                  {
+                    vi: "Pre-Season (S0 — Ngày 1–65)",
+                    en: "Pre-Season (S0 — Days 1–65)",
+                  },
+                  {
+                    vi: "Top Lord, Thi Đấu Hội (Guild Race), Đua Vũ Trang (GAR 6 Ngày), Lucky Wheel, Treasure Dice (Storm Maiden Ngày 27), Hero Gacha, Bắt Bướm, Tập Kích Cự Ma, Quân Đoàn Hắc Ám.",
+                    en: "Top Lord, Guild Race, Guild Arms Race (6-Day GAR), Lucky Wheel, Treasure Dice (Day 27 Storm Maiden), Hero Gacha, Butterfly Catching, Giant Troll Raid, Dark Legion.",
+                  },
+                  {
+                    vi: "Mở Di Tích (Ruins Lv.1–5), Chiến Tranh Ngai Vàng Nội Bộ (First Throne War Ngày 35) & 3 Đợt Sóng Tướng Đỏ Thế Hệ 1.",
+                    en: "Ruins Lv.1–5 Occupation, Intra-Server First Throne War (Day 35) & 3 Gen-1 Mythic Hero Release Waves.",
+                  },
+                ],
+                [
+                  {
+                    vi: "Season 1 (S1 — World Tree)",
+                    en: "Season 1 (S1 — World Tree)",
+                  },
+                  {
+                    vi: "Luân phiên 2 tuần GAR ⇄ Guild Race, Chu kỳ Banner 3 tuần, 8 Mini-Rushes & Chiến Trường Cổ Đại.",
+                    en: "Biweekly GAR ⇄ Guild Race rotation, 3-Week Banner Loop, 8 Mini-Rushes & Ancient Battlefield.",
+                  },
+                  {
+                    vi: "Boss Sâu Cát (Dune Devourer), Tứ Quốc Chiến (Four Nations League — 4NL), Sự Kiện Suối Nguồn (Spring Water) & Thức Tỉnh Đá Linh Hồn.",
+                    en: "Dune Devourer World Boss, Four Nations League (4NL), Spring Water Expedition & Soul Stone Awakening.",
+                  },
+                ],
+                [
+                  {
+                    vi: "Season 2 (S2 — Frozen Flame)",
+                    en: "Season 2 (S2 — Frozen Flame)",
+                  },
+                  {
+                    vi: "GAR ⇄ KvK Liên Server, Đua Bang 2 Ngày, Tập Kích Cự Ma & Lễ Hội Thu Thập Theo Mùa.",
+                    en: "GAR ⇄ Cross-Server KvK, 2-Day Guild Rush, Giant Raid & Seasonal Drop Exchange Festivals.",
+                  },
+                  {
+                    vi: "Bảo Vệ Lò Sưởi Băng Giá (Personal Furnace > 30°C), Đua Viện Huy Hoàng (Brilliance Dragon Essence Rush) & Gala Wukong / Beastmaster.",
+                    en: "Frozen Furnace Defense (Personal Furnace > 30°C), Brilliance Dragon Essence Rush & Wukong / Beastmaster Mythic Gala.",
+                  },
+                ],
+                [
+                  {
+                    vi: "Season 3 (S3 — Twilight City)",
+                    en: "Season 3 (S3 — Twilight City)",
+                  },
+                  {
+                    vi: "GAR ⇄ KvK, Vòng Quay Vũ Khí Độc Quyền, Cổ Ngữ & Thú Cưng.",
+                    en: "GAR ⇄ KvK, Exclusive Weapon Wheel, Rune & Pet Promotion Rushes.",
+                  },
+                  {
+                    vi: "Tập Kích Cự Thú Bang Hội (Behemoth Raids), Tranh Đoạt Mạch Mỏ Liên Server (Mine Vein) & Mở Khóa Sách Thánh (Sacred Codex).",
+                    en: "Guild Behemoth Raids, Cross-Server Mine Vein Warfare & Sacred Codex Progression Events.",
+                  },
+                ],
+                [
+                  {
+                    vi: "Season 4 (S4 — Oxygen Tide)",
+                    en: "Season 4 (S4 — Oxygen Tide)",
+                  },
+                  {
+                    vi: "Toàn bộ hệ thống GAR, Guild Race, 6 Ca 4 Giờ & Giải Đấu Cuối Tuần Liên Cụm.",
+                    en: "Full GAR, Guild Race, 6x 4h Sprints & Cross-Cluster Weekend Tournaments.",
+                  },
+                  {
+                    vi: "Săn Khổng Lồ Biển (Sea Giant — Mốc 8,200 Huy Chương), Đoàn Thuyền Buôn (Merchant Fleet), PhantomPals & Cross-Cluster KvK.",
+                    en: "Sea Giant World Boss (8,200 Seasonal Medals), Merchant Fleet Escort, PhantomPals & Cross-Cluster KvK.",
+                  },
+                ],
+              ],
+            },
+          ],
+        },
       ],
     },
     {

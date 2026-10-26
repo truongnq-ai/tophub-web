@@ -361,6 +361,112 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
             },
           ],
         },
+        {
+          id: "sub-1-3-s0-weekly-event-schedule",
+          title: {
+            vi: "1.3. Bảng Tổng Quan Lịch Sự Kiện Mùa S0 Theo Từng Tuần (Ngày 1 ➔ Ngày 65+ & Điểm Nóng Ngày 27–28)",
+            en: "1.3. Season S0 Week-by-Week Master Event Schedule (Day 1 to Day 65+ & Day 27–28 Hotspot)",
+          },
+          badge: {
+            vi: "Lịch Tuần S0",
+            en: "S0 Weekly Roster",
+          },
+          blocks: [
+            {
+              type: "table",
+              caption: {
+                vi: "Lộ trình tổng quan các sự kiện xuất hiện theo từng tuần của Mùa S0 (Pre-Season) từ Ngày 1 đến khi chuyển giao Season 1",
+                en: "Week-by-week master overview of all events running during Season S0 (Pre-Season) from Day 1 through the Season 1 transition",
+              },
+              headers: [
+                {
+                  vi: "Tuần / Tuổi Server (S0)",
+                  en: "S0 Week / Server Age",
+                },
+                {
+                  vi: "Trục Sự Kiện Chính & Vệ Tinh Trong Tuần",
+                  en: "Primary Event Backbone & Weekly Satellites",
+                },
+                {
+                  vi: "Banner Tướng & Trọng Tâm Chiến Thuật",
+                  en: "Hero Banners & Tactical Focus",
+                },
+              ],
+              rows: [
+                [
+                  {
+                    vi: "Tuần 1–2 (Ngày 1 – Ngày 14)",
+                    en: "Weeks 1–2 (Days 1–14)",
+                  },
+                  {
+                    vi: "Chúa Tể Tối Cao (Top Lord 6 Ngày), Đua Bang 2 Ngày (Guild Rush) & Sự kiện Tân Thủ 7 Ngày.",
+                    en: "Top Lord (6-Stage Opening Race), 2-Day Guild Rush & 7-Day Rookie Carnival.",
+                  },
+                  {
+                    vi: "6 SSR Liên Minh mở màn; khóa chặt Kim Cương và nâng công nghệ Chuẩn Bị Vũ Trang (Arms Race Prep).",
+                    en: "6 starter League SSRs; lock Diamonds and rush the Arms Race Prep tech tree toward Double Rewards.",
+                  },
+                ],
+                [
+                  {
+                    vi: "Tuần 3 (Ngày 15 – Ngày 21)",
+                    en: "Week 3 (Days 15–21)",
+                  },
+                  {
+                    vi: "Thi Đấu Hội (Guild Race 9 Ô), Quân Đoàn Hắc Ám (Dark Legion) & Tập Kích Cự Ma (Giant Troll Raid).",
+                    en: "Guild Race (9-Slot Board), Dark Legion Siege & Giant Troll Raid ($4.99 Pass).",
+                  },
+                  {
+                    vi: "Ngày 21 ra mắt Desert Prince (Mythic Horde đầu tiên); mở khóa xác tướng và đóng băng kho chờ GAR.",
+                    en: "Day 21 debuts Desert Prince (first Horde Mythic); unlock base copy and freeze upgrade materials for GAR.",
+                  },
+                ],
+                [
+                  {
+                    vi: "Tuần 4 (Ngày 22 – Ngày 28+)",
+                    en: "Week 4 (Days 22–28+)",
+                  },
+                  {
+                    vi: "Ngày 27 mở Xúc Xắc Storm Maiden (Treasure Dice) ➔ Ngày 28 khởi tranh Ngày 1 Đua Vũ Trang Bang Hội (Guild Arms Race — GAR 6 Ngày) & Lễ Hội Bắt Bướm.",
+                    en: "Day 27 launches Storm Maiden Treasure Dice ➔ Day 28 kicks off Day 1 of Guild Arms Race (GAR 6-Day Matchup) & Butterfly Catching.",
+                  },
+                  {
+                    vi: "ĐIỂM NÓNG S0: Mua gói mồi $0.99/$4.99 lấy Storm Maiden ở Ngày 27 nhưng giữ toàn bộ Mảnh + Sách Kỹ Năng sang Ngày 4 GAR để nổ điểm kép!",
+                    en: "S0 HOTSPOT: Use $0.99/$4.99 daily packs to unlock Storm Maiden on Day 27, holding all Shards + Skill Books until GAR Day 4 for double points!",
+                  },
+                ],
+                [
+                  {
+                    vi: "Tuần 5–6 (Ngày 29 – Ngày 41)",
+                    en: "Weeks 5–6 (Days 29–41)",
+                  },
+                  {
+                    vi: "Luân phiên Thi Đấu Hội (Guild Race) ⇄ Đua Vũ Trang (GAR), Chiến Tranh Ngai Vàng Lần Đầu (Ngày 35) & Đế Quốc Hắc Ám.",
+                    en: "Biweekly alternation of Guild Race ⇄ Guild Arms Race (GAR), First Throne War (Day 35) & Dark Empire Invasion.",
+                  },
+                  {
+                    vi: "Ngày 35 ra mắt Paragon (League) và Ngày 41 ra mắt Witch (hoàn thiện bộ 3 Mythic Horde S0).",
+                    en: "Day 35 releases Paragon (League) and Day 41 releases Witch (completing the S0 Horde Mythic trio).",
+                  },
+                ],
+                [
+                  {
+                    vi: "Tuần 7–9+ (Ngày 42 – Ngày 65+)",
+                    en: "Weeks 7–9+ (Days 42–65+)",
+                  },
+                  {
+                    vi: "Chu kỳ trưởng thành GAR / KvK Liên Server, Chiến Trường Cổ Đại (Ancient Battlefield) & Đấu Trường Đỉnh Cao (Apex Arena).",
+                    en: "Mature GAR / Cross-Server KvK rotation, Ancient Battlefield & Apex Arena.",
+                  },
+                  {
+                    vi: "Ngày 46 ra mắt Rose Princess & Bishop; Ngày 42–65 ra mắt Tidecaller & Monk; tích lũy tài nguyên từ Ngày 45 chuẩn bị vào Season 1.",
+                    en: "Day 46 drops Rose Princess & Bishop; Days 42–65 drop Tidecaller & Monk; hoard 7 core resource categories from Day 45 for Season 1.",
+                  },
+                ],
+              ],
+            },
+          ],
+        },
       ],
     },
     {

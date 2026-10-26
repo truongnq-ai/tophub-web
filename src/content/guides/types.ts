@@ -17,7 +17,8 @@ export type GuideCategoryIconName =
   | "Swords"
   | "Sparkles"
   | "ShoppingBag"
-  | "Castle";
+  | "Castle"
+  | "Flame";
 
 export interface LocalizedText {
   vi: string;
@@ -194,7 +195,8 @@ export type GuideWidgetType =
   | "tactical_formation_board"
   | "horde_pivot_stepper"
   | "blacksmith_anvil_matrix"
-  | "shop_safety_floor_explorer";
+  | "shop_safety_floor_explorer"
+  | "event_playbook_explorer";
 
 export interface GuideWidgetBlock {
   type: "widget";
@@ -262,7 +264,6 @@ export interface GuideZone {
   title: LocalizedText;
   categories: GuideCategory[];
 }
-
 
 // ============================================================================
 // GUIDES HUB v4.0 — VISUAL MEDIA & ASSET REGISTRY CONTRACTS (ZERO `any`)
@@ -348,7 +349,6 @@ export interface DiagramNodeLookupInput {
   readonly mediaCode?: string;
 }
 
-
 export interface CodexEntityRecord {
   readonly id: string;
   readonly gameId: number | null;
@@ -406,4 +406,76 @@ export interface CodexFilterState {
   readonly faction: AssetFaction | "all";
   readonly query: string;
   readonly page: number;
+}
+
+// ============================================================================
+// ZONE II PART 3 — EVENT PLAYBOOK EXPLORER CONTRACTS (S0 ➔ S4, ZERO `any`)
+// ============================================================================
+
+export type EventSeasonTag = "ALL" | "S0" | "S1" | "S2" | "S3" | "S4";
+
+export type EventPlaybookArticleCode = "9.1" | "9.2" | "9.3";
+
+export interface EventPlaybookHoardItem {
+  readonly id: string;
+  readonly name: LocalizedText;
+  readonly iconPath: string;
+  readonly rarity: AssetRarity;
+  readonly targetAmount: LocalizedText;
+  readonly freezeWindow: LocalizedText;
+  readonly dumpTiming: LocalizedText;
+}
+
+export interface EventPlaybookDayStage {
+  readonly dayNumber: number;
+  readonly label: LocalizedText;
+  readonly theme: LocalizedText;
+  readonly goldenWindow: LocalizedText;
+  readonly primaryScoring: LocalizedText;
+  readonly proTip: LocalizedText;
+  readonly doubleDipTarget: LocalizedText;
+}
+
+export interface EventPlaybookBudgetTier {
+  readonly tierId: "f2p" | "low_mid" | "whale";
+  readonly label: LocalizedText;
+  readonly budgetRange: LocalizedText;
+  readonly strategy: LocalizedText;
+  readonly targetMilestone: LocalizedText;
+}
+
+export interface EventPlaybookShopItem {
+  readonly id: string;
+  readonly tier: "S" | "A" | "F";
+  readonly itemName: LocalizedText;
+  readonly iconPath: string;
+  readonly rarity: AssetRarity;
+  readonly costAndCap: LocalizedText;
+  readonly verdict: LocalizedText;
+}
+
+export interface EventPlaybookRecord {
+  readonly id: string;
+  readonly articleCode: EventPlaybookArticleCode;
+  readonly seasons: readonly ("S0" | "S1" | "S2" | "S3" | "S4")[];
+  readonly iconPath: string;
+  readonly rarity: AssetRarity;
+  readonly faction?: AssetFaction;
+  readonly name: LocalizedText;
+  readonly cadenceBadge: LocalizedText;
+  readonly s0TimingBadge: LocalizedText;
+  readonly overview: {
+    readonly summary: LocalizedText;
+    readonly coreLoop: LocalizedText;
+    readonly carryoverRule: LocalizedText;
+    readonly goldenRule: LocalizedText;
+  };
+  readonly hoardingItems: readonly EventPlaybookHoardItem[];
+  readonly dailyStages: readonly EventPlaybookDayStage[];
+  readonly economy: {
+    readonly preBuyStrategy: LocalizedText;
+    readonly diamondCeiling: LocalizedText;
+    readonly budgetTiers: readonly EventPlaybookBudgetTier[];
+    readonly shopTierList: readonly EventPlaybookShopItem[];
+  };
 }
