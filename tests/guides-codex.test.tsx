@@ -12,7 +12,9 @@ import type {
   CodexSearchIndexPayload,
 } from "@/content/guides/types";
 import {
+  CODEX_CATEGORY_FILTER_SCHEMA,
   CODEX_CATEGORY_IDS,
+  CODEX_MENU_ZONES,
   CODEX_PAGE_SIZE,
   filterCodexEntities,
   getInitialCodexSeedRecords,
@@ -86,8 +88,8 @@ const VI_DIACRITIC_REGEX =
 
 const RAW_SPRITE_NAME_REGEX = /^(?:icon|Head|Activity)\s+\d+$/i;
 
-describe("Phase 5 — Suite 1: Game Codex Data Shards & Search Index (Task P5.1)", () => {
-  it("generates search-index.json with gzip size < 45 KB and totalEntities >= 3387 (GAP-P5-01, GAP-P5-10)", () => {
+describe("Phase 5 — Suite 1: Game Codex Data Shards & Search Index (Task P5.1 & Stage B Deduplication)", () => {
+  it("generates search-index.json with gzip size < 45 KB and deduplicated totalEntities >= 3000 (GAP-P5-01, GAP-P5-10)", () => {
     const searchIndexPath = path.resolve(CODEX_DIR, "search-index.json");
     expect(fs.existsSync(searchIndexPath)).toBe(true);
 
@@ -101,7 +103,7 @@ describe("Phase 5 — Suite 1: Game Codex Data Shards & Search Index (Task P5.1)
       rawBytes.toString("utf-8")
     ) as CodexSearchIndexPayload;
 
-    expect(payload.totalEntities).toBeGreaterThanOrEqual(3387);
+    expect(payload.totalEntities).toBeGreaterThanOrEqual(3000);
     expect(payload.items.length).toBeGreaterThanOrEqual(500);
     expect(payload.items.length).toBeLessThanOrEqual(1350);
 
@@ -128,7 +130,7 @@ describe("Phase 5 — Suite 1: Game Codex Data Shards & Search Index (Task P5.1)
     }
   });
 
-  it("generates all 12 category JSON shards with 100% existing .webp paths, normalized names, and non-empty bilingual descriptions (GAP-P5-02, GAP-P5-03)", () => {
+  it("generates all 12 category JSON shards with 100% existing .webp paths, 0 duplicate gameIds per shard, and enriched Pets/Gear/Runes (Stage B)", () => {
     let totalAcrossShards = 0;
 
     for (const cat of EXPECTED_CATEGORIES) {
@@ -143,6 +145,12 @@ describe("Phase 5 — Suite 1: Game Codex Data Shards & Search Index (Task P5.1)
       expect(shard.total).toBe(shard.items.length);
       expect(shard.items.length).toBeGreaterThan(0);
       totalAcrossShards += shard.items.length;
+
+      // Verify 100% deduplication of gameId within every category shard
+      const shardGameIds = shard.items
+        .map((r) => r.gameId)
+        .filter((gid): gid is number => typeof gid === "number");
+      expect(new Set(shardGameIds).size).toBe(shardGameIds.length);
 
       for (const record of shard.items) {
         expect(record.category).toBe(cat);
@@ -163,6 +171,13 @@ describe("Phase 5 — Suite 1: Game Codex Data Shards & Search Index (Task P5.1)
           expect(fs.existsSync(diskPortraitPath)).toBe(true);
         }
 
+        if (record.galleryPaths) {
+          for (const gp of record.galleryPaths) {
+            const diskGp = path.resolve(PUBLIC_DIR, gp.replace(/^\//, ""));
+            expect(fs.existsSync(diskGp)).toBe(true);
+          }
+        }
+
         expect(RAW_SPRITE_NAME_REGEX.test(record.nameVi)).toBe(false);
         expect(RAW_SPRITE_NAME_REGEX.test(record.nameEn)).toBe(false);
 
@@ -179,7 +194,28 @@ describe("Phase 5 — Suite 1: Game Codex Data Shards & Search Index (Task P5.1)
       }
     }
 
-    expect(totalAcrossShards).toBeGreaterThanOrEqual(3387);
+    expect(totalAcrossShards).toBeGreaterThanOrEqual(3000);
+
+    // Verify 21 Companion Pets in pets-behemoths.json
+    const petsShard = JSON.parse(
+      fs.readFileSync(path.resolve(CODEX_DIR, "pets-behemoths.json"), "utf-8")
+    ) as CodexCategoryShardPayload;
+    const companionPets = petsShard.items.filter(
+      (x) => x.subCategory === "companion-pets"
+    );
+    expect(companionPets.length).toBe(21);
+    expect(companionPets.some((p) => p.nameEn === "Flickerkit")).toBe(true);
+    expect(companionPets.some((p) => p.nameEn === "Cactini")).toBe(true);
+    expect(companionPets.some((p) => p.nameEn === "Slime")).toBe(true);
+
+    // Verify 55 canonical Hero Units in heroes.json
+    const heroesShard = JSON.parse(
+      fs.readFileSync(path.resolve(CODEX_DIR, "heroes.json"), "utf-8")
+    ) as CodexCategoryShardPayload;
+    const heroUnits = heroesShard.items.filter(
+      (x) => x.subCategory === "hero-units"
+    );
+    expect(heroUnits.length).toBe(55);
   });
 });
 
@@ -193,20 +229,37 @@ describe("Phase 5 — Suite 2: Codex Utilities, Security & Whitelist Validation 
     expect(normalizeSearchQuery(longQuery).length).toBe(100);
   });
 
-  it("validates URL parameters strictly against Whitelist Enums and rejects malicious/unknown values", () => {
+  it("validates URL parameters strictly against Whitelist Enums, defaults to 'heroes', and sanitizes cross-category filters (GAP-06, GAP-M1-02)", () => {
     expect(CODEX_CATEGORY_IDS.length).toBe(12);
+    expect(CODEX_MENU_ZONES.length).toBe(4);
+    const zoneCats = CODEX_MENU_ZONES.flatMap((z) => z.categories);
+    expect(zoneCats.length).toBe(12);
+    expect(new Set(zoneCats).size).toBe(12);
+
     const valid = parseCodexUrlParams({
       cat: "equipment",
+      sub: "exclusive-weapons",
       rarity: "mythic",
       faction: "horde",
       q: "Titan",
       page: "3",
     });
     expect(valid.category).toBe("equipment");
+    expect(valid.subCategory).toBe("exclusive-weapons");
     expect(valid.rarity).toBe("mythic");
     expect(valid.faction).toBe("horde");
     expect(valid.query).toBe("Titan");
     expect(valid.page).toBe(3);
+
+    // Cross-category sanitization: items has supportsFaction=false and no 'hero-skins' subCategory
+    const crossInvalid = parseCodexUrlParams({
+      cat: "items",
+      sub: "hero-skins",
+      faction: "horde",
+    });
+    expect(crossInvalid.category).toBe("items");
+    expect(crossInvalid.subCategory).toBe("all");
+    expect(crossInvalid.faction).toBe("all");
 
     const malicious = parseCodexUrlParams({
       cat: "<script>alert(1)</script>",
@@ -214,10 +267,49 @@ describe("Phase 5 — Suite 2: Codex Utilities, Security & Whitelist Validation 
       faction: "unknown",
       page: "-999",
     });
-    expect(malicious.category).toBe("all");
+    expect(malicious.category).toBe("heroes");
     expect(malicious.rarity).toBe("all");
     expect(malicious.faction).toBe("all");
     expect(malicious.page).toBe(1);
+  });
+
+  it("defines domain-specific filter schemas for all 12 categories with canonical subCategories on seed records (GAP-M1-03)", () => {
+    for (const cat of CODEX_CATEGORY_IDS) {
+      const schema = CODEX_CATEGORY_FILTER_SCHEMA[cat];
+      expect(schema).toBeDefined();
+      expect(schema.category).toBe(cat);
+      expect(schema.subCategories.length).toBeGreaterThanOrEqual(3);
+      expect(schema.subCategories[0].id).toBe("all");
+    }
+
+    expect(CODEX_CATEGORY_FILTER_SCHEMA.heroes.supportsFaction).toBe(true);
+    expect(CODEX_CATEGORY_FILTER_SCHEMA.troops.supportsFaction).toBe(true);
+    expect(CODEX_CATEGORY_FILTER_SCHEMA.equipment.supportsFaction).toBe(true);
+    expect(CODEX_CATEGORY_FILTER_SCHEMA["pets-behemoths"].supportsFaction).toBe(true);
+
+    expect(CODEX_CATEGORY_FILTER_SCHEMA.items.supportsFaction).toBe(false);
+    expect(CODEX_CATEGORY_FILTER_SCHEMA.relics.supportsFaction).toBe(false);
+    expect(CODEX_CATEGORY_FILTER_SCHEMA["buildings-decor"].supportsFaction).toBe(false);
+    expect(CODEX_CATEGORY_FILTER_SCHEMA.cosmetics.supportsFaction).toBe(false);
+
+    const seeds = getInitialCodexSeedRecords();
+    const heroUnits = filterCodexEntities(seeds, {
+      category: "heroes",
+      subCategory: "hero-units",
+      rarity: "all",
+      faction: "all",
+      query: "",
+    });
+    expect(heroUnits.length).toBeGreaterThan(0);
+
+    const currencies = filterCodexEntities(seeds, {
+      category: "items",
+      subCategory: "currencies",
+      rarity: "all",
+      faction: "all",
+      query: "",
+    });
+    expect(currencies.length).toBeGreaterThan(0);
   });
 
   it("matches bilingual queries (diacritic-insensitive Vietnamese & English) and paginates at 48 items/page", () => {
@@ -248,13 +340,37 @@ describe("Phase 5 — Suite 2: Codex Utilities, Security & Whitelist Validation 
   });
 });
 
-describe("Phase 5 — Suite 3: GameCodexClient & CodexEntityDrawer Interactive Flow (Task P5.2)", () => {
-  it("renders 12 category filter pills, filters by search input, and opens/closes CodexEntityDrawer on card click & Escape", () => {
+describe("Phase 5 — Suite 3: GameCodexClient 4-Zone Menu (Option M1), Context-Aware Filters & CodexEntityDrawer (Task P5.2)", () => {
+  it("renders 4 Menu Zones with 12 categories, adapts filters per category (hiding Faction in items), and opens/closes CodexEntityDrawer", () => {
     mockActiveLocale = "vi";
     render(<GameCodexClient locale="vi" />);
 
     expect(screen.getByTestId("game-codex-client")).toBeDefined();
     expect(screen.getByTestId("codex-search-input")).toBeDefined();
+
+    // Verify 4 Menu Zones are rendered
+    expect(screen.getByTestId("codex-menu-zone-zone_combat")).toBeDefined();
+    expect(screen.getByTestId("codex-menu-zone-zone_gear")).toBeDefined();
+    expect(screen.getByTestId("codex-menu-zone-zone_economy")).toBeDefined();
+    expect(screen.getByTestId("codex-menu-zone-zone_world")).toBeDefined();
+
+    // Default category is "heroes": Faction & Extra filters are visible, plus hero sub-categories
+    expect(screen.getByTestId("codex-faction-filter-group")).toBeDefined();
+    expect(screen.getByTestId("codex-extra-filter-group")).toBeDefined();
+    expect(screen.getByTestId("codex-subcat-hero-units")).toBeDefined();
+    expect(screen.getByTestId("codex-subcat-hero-skins")).toBeDefined();
+
+    // Switch to "items" category -> Faction and Extra filters disappear, items sub-categories appear
+    fireEvent.click(screen.getByTestId("codex-cat-tab-items"));
+    expect(screen.queryByTestId("codex-faction-filter-group")).toBeNull();
+    expect(screen.queryByTestId("codex-extra-filter-group")).toBeNull();
+    expect(screen.getByTestId("codex-subcat-currencies")).toBeDefined();
+    expect(screen.getByTestId("codex-subcat-shards-souls")).toBeDefined();
+    expect(screen.getByTestId("codex-subcat-chests")).toBeDefined();
+
+    // Switch back to "heroes"
+    fireEvent.click(screen.getByTestId("codex-cat-tab-heroes"));
+    expect(screen.getByTestId("codex-faction-filter-group")).toBeDefined();
 
     // Verify <= 48 cards rendered on initial page
     const cards = screen.getAllByTestId("codex-entity-card");

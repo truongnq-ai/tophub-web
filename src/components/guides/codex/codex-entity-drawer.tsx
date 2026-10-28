@@ -134,7 +134,7 @@ export function CodexEntityDrawer({
         </div>
 
         {/* Full Portrait Preview (if available for Heroes) */}
-        {entity.portraitPath && (
+        {entity.portraitPath ? (
           <div className="rounded-2xl border border-border/70 bg-slate-950/60 p-3 flex items-center justify-center">
             <img
               src={entity.portraitPath}
@@ -146,7 +146,30 @@ export function CodexEntityDrawer({
               className="max-h-52 w-auto object-contain rounded-xl"
             />
           </div>
-        )}
+        ) : null}
+
+        {/* Variant / Upgrade Stage Gallery (when multiple sprites were deduplicated into this entity) */}
+        {entity.galleryPaths && entity.galleryPaths.length > 1 ? (
+          <div className="rounded-2xl border border-border/70 bg-background/50 p-3 space-y-2">
+            <span className="text-[10px] font-mono uppercase text-muted-foreground block">
+              {isVi
+                ? `Biến thể hình ảnh & Cấp bậc (${entity.galleryPaths.length})`
+                : `Visual Variants & Upgrade Stages (${entity.galleryPaths.length})`}
+            </span>
+            <div className="flex flex-wrap items-center gap-2">
+              {entity.galleryPaths.slice(0, 8).map((gPath) => (
+                <GameAssetFrame
+                  key={gPath}
+                  src={gPath}
+                  alt={primaryName}
+                  size="md"
+                  rarity={entity.rarity}
+                  faction={entity.faction}
+                />
+              ))}
+            </div>
+          </div>
+        ) : null}
 
         {/* Metadata Badges (Community Term, Game ID, Glossary ID) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">

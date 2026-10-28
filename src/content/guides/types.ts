@@ -357,6 +357,8 @@ export interface CodexEntityRecord {
   readonly subCategory: string;
   readonly path: string;
   readonly portraitPath?: string;
+  readonly galleryPaths?: readonly string[];
+  readonly extraTags?: readonly string[];
   readonly nameVi: string;
   readonly nameEn: string;
   readonly communityNameVi: string | null;
@@ -373,8 +375,11 @@ export interface CodexSearchIndexItem {
   readonly gameId: number | null;
   readonly glossaryId: string | null;
   readonly category: CodexCategoryId;
+  readonly subCategory?: string;
   readonly path: string;
   readonly portraitPath?: string;
+  readonly galleryPaths?: readonly string[];
+  readonly extraTags?: readonly string[];
   readonly nameVi: string;
   readonly nameEn: string;
   readonly communityNameVi: string | null;
@@ -400,10 +405,46 @@ export interface CodexSearchIndexPayload {
   readonly items: readonly CodexSearchIndexItem[];
 }
 
+export type CodexMenuZoneId =
+  | "zone_combat"
+  | "zone_gear"
+  | "zone_economy"
+  | "zone_world";
+
+export interface CodexMenuZone {
+  readonly id: CodexMenuZoneId;
+  readonly iconName: "Swords" | "Shield" | "Package" | "Globe";
+  readonly title: LocalizedText;
+  readonly subtitle: LocalizedText;
+  readonly categories: readonly CodexCategoryId[];
+}
+
+export interface CodexFilterOption {
+  readonly id: string;
+  readonly label: LocalizedText;
+}
+
+export interface CodexCategoryFilterConfig {
+  readonly category: CodexCategoryId;
+  readonly zoneId: CodexMenuZoneId;
+  readonly subCategories: readonly CodexFilterOption[];
+  readonly supportsFaction: boolean;
+  readonly allowedFactions?: readonly AssetFaction[];
+  readonly factionSubCategories?: readonly string[];
+  readonly allowedRarities: readonly AssetRarity[];
+  readonly extraFilterLabel?: LocalizedText;
+  readonly extraFilters?: readonly CodexFilterOption[];
+}
+
+export type CodexSearchScope = "category" | "all";
+
 export interface CodexFilterState {
   readonly category: CodexCategoryId | "all";
+  readonly subCategory?: string;
   readonly rarity: AssetRarity | "all";
   readonly faction: AssetFaction | "all";
+  readonly extraFilter?: string;
+  readonly searchScope?: CodexSearchScope;
   readonly query: string;
   readonly page: number;
 }

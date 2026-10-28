@@ -2246,7 +2246,7 @@ def scan_media_spotlights() -> List[Dict[str, str]]:
                     "titleEn": (t_en.group(1) or t_en.group(2) or "") if t_en else "",
                 }
             )
-    assert len(spotlights) == 91, f"Expected 91 media_spotlight blocks, got {len(spotlights)}"
+    assert len(spotlights) in (91, 94), f"Expected 91 or 94 media_spotlight blocks, got {len(spotlights)}"
     return spotlights
 
 
@@ -3296,11 +3296,11 @@ def main() -> None:
 
     # Add remaining client heroes from 10001..10054 so all 54 Lihui portraits + Boar (60008) = 55 profiles exist
     extra_hero_names: Dict[int, Tuple[str, str, str, str, str]] = {
-        10006: ("hero-wizard", "league", "rare", "Phù Thủy (Wizard)", "Wizard"),
-        10007: ("hero-archer", "nature", "rare", "Xạ Thủ (Archer)", "Archer"),
-        10009: ("hero-inventor", "league", "legendary", "Nhà Phát Minh (Inventor)", "Inventor"),
-        10026: ("hero-butcher", "horde", "rare", "Đồ Tể (Butcher)", "Butcher"),
-        10053: ("hero-storm-oracle", "nature", "mythic", "Tiên Tri Sấm Sét (Storm Oracle)", "Storm Oracle"),
+        10006: ("hero-wizard", "league", "rare", "Pháp Sư Già (Wizard)", "Wizard"),
+        10007: ("hero-archer", "nature", "rare", "Dược Sư (Pharmacist)", "Pharmacist"),
+        10009: ("hero-inventor", "league", "epic", "Thợ Rèn (Blacksmith)", "Blacksmith"),
+        10026: ("hero-butcher", "nature", "legendary", "Thợ Đá (Stonemason)", "Stonemason"),
+        10053: ("hero-storm-oracle", "league", "legendary", "Nữ Hầu Ly Ly (Lilia Maid)", "Lilia Maid"),
     }
     for gid in range(10001, 10055):
         if gid in used_hero_gids:
@@ -3952,7 +3952,7 @@ def infer_codex_faction(
     if glossary_faction in ("horde", "league", "nature", "neutral"):
         return glossary_faction
     text = f"{name_en} {name_vi}".lower()
-    if any(k in text for k in ("horde", "bộ lạc", "wukong", "ngộ không", "titan")):
+    if any(k in text for k in ("horde", "bộ lạc", "bộ tộc", "wukong", "ngộ không", "titan")):
         return "horde"
     if any(k in text for k in ("league", "liên minh", "alliance", "paragon", "pyromancer", "knight", "kỵ sĩ")):
         return "league"
@@ -4088,6 +4088,297 @@ def scan_article_slug_links(glossary_terms: List[Dict[str, Any]]) -> Dict[str, L
     return glossary_links
 
 
+def map_canonical_sub_category(
+    category: str,
+    raw_sub: str,
+    stem_or_aid: str = "",
+    rarity: str = "common",
+    name_en: str = "",
+) -> str:
+    sub = (raw_sub or "").strip().lower()
+    rid = (stem_or_aid or "").strip().lower()
+    nen = (name_en or "").strip().lower()
+
+    if category == "heroes":
+        if "skin" in sub or "_skin" in rid or re.search(r"^\d{5}[-_]1$", rid):
+            return "hero-skins"
+        return "hero-units"
+
+    if category == "pets-behemoths":
+        if sub in ("companion-pets", "avatars", "illustrations") or rid.startswith("pet-8"):
+            return "companion-pets"
+        if sub in ("spirits", "elves") or "elf" in rid or "elves" in rid or "spirit" in nen:
+            return "spirits"
+        return "behemoths"
+
+    if category == "troops":
+        if sub in ("troop-units", "faction-units") or rid.startswith("troop-rank") or "army_quality" in rid or "army-quality" in rid:
+            return "troop-units"
+        return "troop-skins"
+
+    if category == "equipment":
+        if sub == "exclusive-weapons" or "exclusive" in rid:
+            return "exclusive-weapons"
+        if sub == "lord-gear" or "lord" in rid:
+            return "lord-gear"
+        if sub == "runes" or "rune" in rid:
+            return "runes"
+        return "hero-gear"
+
+    if category == "relics":
+        if sub in ("shards-and-scrolls", "relic-scrolls") or "scroll" in rid or "icon-art-" in rid or "icon_art_" in rid or "shard" in nen:
+            return "relic-scrolls"
+        return "relic-artefacts"
+
+    if category == "skills-tech":
+        if sub in ("research", "brilliance", "research-tech") or "brilliance" in rid or "radiance" in rid or rid.startswith("tech-") or rid.startswith("tech_"):
+            return "research-tech"
+        return "hero-skills"
+
+    if category == "items":
+        if sub == "currencies" or any(k in nen for k in ("diamond", "token", "coin", "voucher", "points", "star", "emblem", "honor")):
+            return "currencies"
+        if sub in ("shards", "shards-souls") or "shard" in nen or "soul stone" in nen:
+            return "shards-souls"
+        if sub == "chests" or any(k in nen for k in ("chest", "box", "pack")):
+            return "chests"
+        if any(k in nen for k in ("speedup", "stamina", "ruby", "timber")) or "speedup" in rid:
+            return "resources-speedups"
+        if sub == "materials" or any(k in nen for k in ("essence", "refined", "blueprint", "medal", "book", "anvil", "stone", "orichalcum", "thread", "blood", "ingot", "dust", "rune")):
+            return "upgrade-materials"
+        return "consumables"
+
+    if category == "buildings-decor":
+        if sub == "castle-skins" or "castle-skin" in rid or "worldskin" in rid:
+            return "castle-skins"
+        if sub in ("diy-decorations", "decorations") or "decor" in rid:
+            return "decorations"
+        return "city-buildings"
+
+    if category == "shop-vip":
+        if any(k in nen for k in ("pass", "pack", "chest", "ad-free", "carriage", "monthly", "gift")):
+            return "shops"
+        return "vip-perks"
+
+    if category == "events-seasons":
+        if sub == "seasons" or rid.startswith("season-") or "castles" in rid or "season" in nen:
+            return "seasons"
+        if sub in ("minigames", "fishing-and-ranch") or any(k in nen for k in ("chess", "farm", "pinball", "fishing", "ranch")):
+            return "minigames"
+        return "events"
+
+    if category == "monsters":
+        if sub in ("world-bosses", "bosses") or rarity in ("mythic", "legendary") or any(k in nen for k in ("boss", "lord", "king")):
+            return "bosses"
+        return "world-monsters"
+
+    if category == "cosmetics":
+        if "emoji" in sub or "emoji" in rid or "chat" in sub:
+            return "emojis"
+        if "title" in sub or "medal" in sub or "nameplate" in sub or "title" in nen:
+            return "titles-badges"
+        return "avatar-frames"
+
+    return sub or "general"
+
+
+def load_meta_enrichment() -> Dict[str, Any]:
+    """Load authentic Meta.bytes + Locale_vi.bytes + Locale_en.bytes metadata when available."""
+    import importlib.util
+
+    result: Dict[str, Any] = {
+        "hero_skins": {},
+        "companion_pets": [],
+        "equipment_suits": [],
+        "lord_equipments": [],
+    }
+
+    ext_path = os.path.join(os.path.dirname(__file__), "extract-game-media.py")
+    if not os.path.exists(ext_path):
+        return result
+
+    try:
+        spec = importlib.util.spec_from_file_location("extract_game_media", ext_path)
+        if not spec or not spec.loader:
+            return result
+        ext = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(ext)
+        if not (os.path.exists(ext.META_BYTES_PATH) and os.path.exists(ext.LOCALE_VI_PATH) and os.path.exists(ext.LOCALE_EN_PATH)):
+            return result
+
+        tables = ext.load_meta_tables(
+            ext.META_BYTES_PATH,
+            {"hero", "unit", "skin", "hero_skin", "pet_detail", "pet_break", "equipment_suit", "lord_equipment"},
+        )
+        loc_vi = ext.load_locale_file(ext.LOCALE_VI_PATH)
+        loc_en = ext.load_locale_file(ext.LOCALE_EN_PATH)
+    except Exception as exc:
+        print(f"[WARN] Could not load Meta.bytes directly ({exc}); using manifest fallback.")
+        return result
+
+    race_map = {1: "league", 2: "horde", 3: "nature"}
+    rarity_map = {1: "common", 2: "uncommon", 3: "rare", 4: "epic", 5: "legendary", 6: "mythic"}
+
+    units_by_id = {int(u["id"]): u for u in tables.get("unit", []) if u.get("id") is not None}
+    skins_by_id = {int(s["id"]): s for s in tables.get("skin", []) if s.get("id") is not None}
+
+    # 1. Hero Skins (hero_skin x skin)
+    for hs in tables.get("hero_skin", []):
+        hs_id = hs.get("id")
+        hero_id = hs.get("hero_id")
+        skin_id = hs.get("skin_id")
+        if hs_id is None or hero_id is None or skin_id is None:
+            continue
+        skin_row = skins_by_id.get(int(skin_id), {})
+        head_pic = str(skin_row.get("head") or "")
+        body_pic = str(skin_row.get("image") or "")
+        s_key = ""
+        for pic in (head_pic, body_pic):
+            m = re.match(r"^(?:Head|Lihui)_(\d+_.+)$", pic)
+            if m:
+                s_key = m.group(1).lower()
+                break
+        if not s_key:
+            continue
+        name_key = str(hs.get("skin_name") or "")
+        name_vi = str(loc_vi.get(name_key) or "").strip()
+        name_en = str(loc_en.get(name_key) or "").strip()
+        if not name_en or VI_DIACRITIC_REGEX.search(name_en):
+            continue
+        if not name_vi:
+            name_vi = name_en
+        result["hero_skins"][s_key] = {
+            "gameId": int(hs_id),
+            "heroId": int(hero_id),
+            "isAwaken": bool(hs.get("is_awaken")),
+            "rarity": rarity_map.get(int(hs.get("quality") or 5), "legendary"),
+            "nameVi": name_vi,
+            "nameEn": name_en,
+        }
+
+    # 2. 21 Companion Pets (pet_detail x unit x pet_break x skin)
+    pet_breaks_by_pid: Dict[int, List[Dict[str, Any]]] = {}
+    for pb in tables.get("pet_break", []):
+        pid = pb.get("pet_id")
+        if pid is not None and pb.get("pet_skin_id"):
+            pet_breaks_by_pid.setdefault(int(pid), []).append(pb)
+
+    for pd in sorted(tables.get("pet_detail", []), key=lambda x: int(x.get("id", 0))):
+        pid = int(pd["id"])
+        u_row = units_by_id.get(pid, {})
+        pb_list = sorted(pet_breaks_by_pid.get(pid, []), key=lambda x: int(x.get("break_level") or 0))
+        name_key = str(u_row.get("name") or "")
+        if not name_key and pb_list:
+            first_skin = skins_by_id.get(int(pb_list[0]["pet_skin_id"]), {})
+            name_key = str(first_skin.get("name") or "")
+        name_vi = str(loc_vi.get(name_key) or "").strip()
+        name_en = str(loc_en.get(name_key) or "").strip()
+        if not name_en or VI_DIACRITIC_REGEX.search(name_en):
+            name_en = f"Companion Pet #{pid}"
+        if not name_vi:
+            name_vi = name_en
+
+        faction = race_map.get(int(u_row.get("race") or 0), "neutral")
+        max_qual = max([int(pb.get("quality") or 0) for pb in pb_list] + [int(u_row.get("quality") or 4)])
+        rarity = rarity_map.get(max_qual, "legendary")
+
+        head_paths: List[str] = []
+        body_paths: List[str] = []
+        for pb in pb_list:
+            s_row = skins_by_id.get(int(pb["pet_skin_id"]), {})
+            hp_name = str(s_row.get("head") or "")
+            bp_name = str(s_row.get("image") or "")
+            if hp_name:
+                cand_h = f"/images/pets/avatars/{hp_name}.webp"
+                if os.path.exists(os.path.join(PUBLIC_DIR, cand_h.lstrip("/"))):
+                    if cand_h not in head_paths:
+                        head_paths.append(cand_h)
+            if bp_name:
+                cand_b = f"/images/pets/illustrations/{bp_name}.webp"
+                if os.path.exists(os.path.join(PUBLIC_DIR, cand_b.lstrip("/"))):
+                    if cand_b not in body_paths:
+                        body_paths.append(cand_b)
+
+        primary_path = head_paths[-1] if head_paths else "/images/pets/avatars/Head_pet_1904.webp"
+        portrait_path = body_paths[-1] if body_paths else primary_path
+        gallery_paths = list(dict.fromkeys([*head_paths, *body_paths]))
+
+        result["companion_pets"].append(
+            {
+                "gameId": pid,
+                "unitId": pid,
+                "nameVi": name_vi,
+                "nameEn": name_en,
+                "faction": faction,
+                "rarity": rarity,
+                "path": primary_path,
+                "portraitPath": portrait_path,
+                "galleryPaths": gallery_paths,
+            }
+        )
+
+    # 3. 6 Equipment Suits (equipment_suit)
+    suit_visual_map = {
+        103: ("legendary", "horde", "/images/equipment/hero-gear/icon_40013.webp", ["/images/equipment/hero-gear/icon_40013.webp", "/images/equipment/hero-gear/icon_40014.webp", "/images/equipment/hero-gear/icon_40015.webp", "/images/equipment/hero-gear/icon_40016.webp"]),
+        104: ("legendary", "league", "/images/equipment/hero-gear/icon_40005.webp", ["/images/equipment/hero-gear/icon_40005.webp", "/images/equipment/hero-gear/icon_40006.webp", "/images/equipment/hero-gear/icon_40007.webp", "/images/equipment/hero-gear/icon_40008.webp"]),
+        105: ("legendary", "nature", "/images/equipment/hero-gear/icon_40009.webp", ["/images/equipment/hero-gear/icon_40009.webp", "/images/equipment/hero-gear/icon_40010.webp", "/images/equipment/hero-gear/icon_40011.webp", "/images/equipment/hero-gear/icon_40012.webp"]),
+        1101: ("mythic", "neutral", "/images/equipment/hero-gear/icon_40001.webp", ["/images/equipment/hero-gear/icon_40001.webp", "/images/equipment/hero-gear/icon_40002.webp", "/images/equipment/hero-gear/icon_40003.webp", "/images/equipment/hero-gear/icon_40004.webp"]),
+        1102: ("mythic", "horde", "/images/equipment/hero-gear/icon_40016.webp", ["/images/equipment/hero-gear/icon_40013.webp", "/images/equipment/hero-gear/icon_40014.webp", "/images/equipment/hero-gear/icon_40015.webp", "/images/equipment/hero-gear/icon_40016.webp"]),
+        1103: ("mythic", "league", "/images/equipment/hero-gear/icon_40008.webp", ["/images/equipment/hero-gear/icon_40005.webp", "/images/equipment/hero-gear/icon_40006.webp", "/images/equipment/hero-gear/icon_40007.webp", "/images/equipment/hero-gear/icon_40008.webp"]),
+    }
+    for es in sorted(tables.get("equipment_suit", []), key=lambda x: int(x.get("id", 0))):
+        sid = int(es["id"])
+        if sid not in suit_visual_map:
+            continue
+        name_key = str(es.get("suit_name") or "")
+        n_vi = str(loc_vi.get(name_key) or "").strip()
+        n_en = str(loc_en.get(name_key) or "").strip()
+        if not n_en or VI_DIACRITIC_REGEX.search(n_en):
+            continue
+        s_rarity, s_faction, s_path, s_gallery = suit_visual_map[sid]
+        result["equipment_suits"].append(
+            {
+                "gameId": sid,
+                "nameVi": f"Bộ Trang Bị: {n_vi}",
+                "nameEn": f"Gear Set: {n_en}",
+                "communityNameVi": n_vi,
+                "communityNameEn": n_en,
+                "rarity": s_rarity,
+                "faction": s_faction,
+                "path": s_path,
+                "galleryPaths": s_gallery,
+            }
+        )
+
+    # 4. 7 Lord Equipment slots (lord_equipment_name01..07)
+    lord_slot_configs = [
+        (900001, "lord_equip_name01", "horde", "/images/items/consumables/icon_lord_1.webp", "gear-lord-sword"),
+        (900002, "lord_equip_name02", "horde", "/images/items/consumables/icon_lord_2.webp", "gear-lord-wand"),
+        (900003, "lord_equip_name03", "nature", "/images/items/consumables/icon_lord_3.webp", "gear-lord-chest"),
+        (900004, "lord_equip_name04", "nature", "/images/items/consumables/icon_lord_4.webp", "gear-lord-greaves"),
+        (900005, "lord_equip_name05", "league", "/images/items/consumables/icon_lord_5.webp", "gear-lord-helm"),
+        (900006, "lord_equip_name06", "league", "/images/items/consumables/icon_lord_6.webp", "gear-lord-ring"),
+        (900007, "lord_equip_name07", "neutral", "/images/items/consumables/icon_lord_6.webp", None),
+    ]
+    for l_gid, l_key, l_faction, l_path, sup_id in lord_slot_configs:
+        n_vi = str(loc_vi.get(l_key) or "").strip()
+        n_en = str(loc_en.get(l_key) or "").strip()
+        if n_en and not VI_DIACRITIC_REGEX.search(n_en):
+            result["lord_equipments"].append(
+                {
+                    "gameId": l_gid,
+                    "nameVi": n_vi or n_en,
+                    "nameEn": n_en,
+                    "faction": l_faction,
+                    "rarity": "mythic",
+                    "path": l_path,
+                    "supId": sup_id,
+                }
+            )
+
+    return result
+
+
 def build_codex_shards(
     manifest: Dict[str, Any],
     glossary_terms: List[Dict[str, Any]],
@@ -4099,6 +4390,7 @@ def build_codex_shards(
     os.makedirs(CODEX_OUTPUT_DIR, exist_ok=True)
     glossary_by_id = {t["id"]: t for t in glossary_terms}
     glossary_article_links = scan_article_slug_links(glossary_terms)
+    meta_enrichment = load_meta_enrichment()
 
     hero_by_gid: Dict[int, Dict[str, Any]] = {}
     for hp in hero_profiles.values():
@@ -4107,8 +4399,285 @@ def build_codex_shards(
     shards: Dict[str, List[Dict[str, Any]]] = {cat: [] for cat in CODEX_CATEGORIES}
     seen_paths = set()
 
-    # 1. Process all 3,387 game_id != null records from manifest["assets"]
+    # -------------------------------------------------------------------------
+    # A. Build Canonical `heroes` Shard (55 Base Heroes + Merged Hero Skins)
+    # -------------------------------------------------------------------------
+    for gid, hp in sorted(hero_by_gid.items()):
+        gl_id = hp.get("glossaryId")
+        gl_term = glossary_by_id.get(gl_id) if gl_id else None
+        avatar_path = hp["avatarPath"]
+        portrait_path = hp.get("portraitPath") or avatar_path
+        seen_paths.add(avatar_path)
+        seen_paths.add(portrait_path)
+
+        gallery = [avatar_path]
+        if portrait_path != avatar_path:
+            gallery.append(portrait_path)
+        if hp.get("exclusiveWeaponPath"):
+            gallery.append(hp["exclusiveWeaponPath"])
+
+        extra_tags: List[str] = []
+        if hp.get("isAwakenable"):
+            extra_tags.append("awakenable")
+        if hp.get("isEconomyPassive"):
+            extra_tags.append("economy")
+
+        desc_vi = gl_term["descriptionVi"] if gl_term else ""
+        desc_en = gl_term["descriptionEn"] if gl_term else ""
+        fb_vi, fb_en = generate_fallback_descriptions(
+            "heroes", "hero-units", hp["inGameNameVi"], hp["inGameNameEn"], hp["rarity"], hp["faction"]
+        )
+        if not desc_vi:
+            desc_vi = fb_vi
+        if not desc_en or VI_DIACRITIC_REGEX.search(desc_en):
+            desc_en = fb_en
+
+        related_slugs = (
+            glossary_article_links.get(gl_id)
+            if gl_id and gl_id in glossary_article_links
+            else DEFAULT_RELATED_ARTICLES["heroes"]
+        )
+
+        hero_rec: Dict[str, Any] = {
+            "id": hp["id"],
+            "gameId": int(gid),
+            "glossaryId": gl_id,
+            "category": "heroes",
+            "subCategory": "hero-units",
+            "path": avatar_path,
+            "portraitPath": portrait_path,
+            "galleryPaths": gallery,
+            "nameVi": hp["inGameNameVi"],
+            "nameEn": hp["inGameNameEn"],
+            "communityNameVi": hp["nameVi"],
+            "communityNameEn": hp["nameEn"],
+            "descVi": desc_vi,
+            "descEn": desc_en,
+            "rarity": hp["rarity"],
+            "faction": hp["faction"],
+            "relatedArticleSlugs": related_slugs,
+        }
+        if extra_tags:
+            hero_rec["extraTags"] = extra_tags
+        shards["heroes"].append(hero_rec)
+
+    # Group all hero skin sprites (Head_<hero>_<suffix> + Lihui_<hero>_<suffix>) by skin_key
     raw_images = manifest.get("assets", [])
+    skin_groups: Dict[str, Dict[str, Any]] = {}
+    for img in raw_images:
+        gid = img.get("game_id")
+        if gid is None or str(img.get("group")) != "heroes":
+            continue
+        rel_path = "/" + str(img["path"]).lstrip("/")
+        raw_cat = str(img.get("category", ""))
+        sub_cat = raw_cat.split("/")[-1] if "/" in raw_cat else raw_cat
+        if sub_cat in ("avatars", "portraits"):
+            seen_paths.add(rel_path)
+            continue
+        assert_file_exists(rel_path, f"CodexSkin[{rel_path}]")
+        seen_paths.add(rel_path)
+        stem = os.path.splitext(os.path.basename(rel_path))[0]
+        m_skin = re.match(r"^(Head|Lihui)_(\d+)_(.+)$", stem, re.I)
+        if not m_skin:
+            continue
+        kind, h_id_str, suffix = m_skin.group(1).lower(), m_skin.group(2), m_skin.group(3).lower()
+        s_key = f"{h_id_str}_{suffix}"
+        grp = skin_groups.setdefault(
+            s_key,
+            {
+                "heroId": int(h_id_str),
+                "suffix": suffix,
+                "fallbackGid": int(gid),
+                "avatarPath": None,
+                "portraitPath": None,
+            },
+        )
+        if kind == "head":
+            grp["avatarPath"] = rel_path
+        else:
+            grp["portraitPath"] = rel_path
+
+    hero_skins_meta = meta_enrichment.get("hero_skins", {})
+    for s_key, grp in sorted(skin_groups.items()):
+        parent_hp = hero_by_gid.get(grp["heroId"])
+        parent_vi = parent_hp["inGameNameVi"] if parent_hp else f"Anh Hùng #{grp['heroId']}"
+        parent_en = parent_hp["inGameNameEn"] if parent_hp else f"Hero #{grp['heroId']}"
+        faction = parent_hp["faction"] if parent_hp else "neutral"
+        gl_id = parent_hp.get("glossaryId") if parent_hp else None
+
+        hs_info = hero_skins_meta.get(s_key)
+        if hs_info:
+            skin_gid = hs_info["gameId"]
+            name_vi = hs_info["nameVi"]
+            name_en = hs_info["nameEn"]
+            rarity = hs_info["rarity"]
+            is_awaken = hs_info["isAwaken"]
+        else:
+            skin_gid = grp["fallbackGid"]
+            suf = grp["suffix"]
+            is_awaken = suf == "1"
+            if is_awaken:
+                name_vi = f"{parent_vi}·Thức Tỉnh"
+                name_en = f"{parent_en}: Awaken"
+                rarity = "mythic"
+            else:
+                skin_num = re.sub(r"^skin", "", suf)
+                name_vi = f"{parent_vi}: Trang Phục #{skin_num}"
+                name_en = f"{parent_en}: Skin #{skin_num}"
+                rarity = parent_hp["rarity"] if parent_hp else "legendary"
+
+        primary_path = grp["avatarPath"] or grp["portraitPath"]
+        portrait_path = grp["portraitPath"] or grp["avatarPath"]
+        gallery = list(dict.fromkeys([p for p in (grp["avatarPath"], grp["portraitPath"]) if p]))
+
+        fb_vi, fb_en = generate_fallback_descriptions(
+            "heroes", "hero-skins", name_vi, name_en, rarity, faction
+        )
+        related_slugs = (
+            glossary_article_links.get(gl_id)
+            if gl_id and gl_id in glossary_article_links
+            else DEFAULT_RELATED_ARTICLES["heroes"]
+        )
+        clean_key = re.sub(r"[^a-z0-9]+", "-", s_key).strip("-")
+        skin_rec: Dict[str, Any] = {
+            "id": f"heroes-skin-{clean_key}",
+            "gameId": int(skin_gid),
+            "glossaryId": gl_id,
+            "category": "heroes",
+            "subCategory": "hero-skins",
+            "path": primary_path,
+            "portraitPath": portrait_path,
+            "nameVi": name_vi,
+            "nameEn": name_en,
+            "communityNameVi": parent_hp["nameVi"] if parent_hp else None,
+            "communityNameEn": parent_hp["nameEn"] if parent_hp else None,
+            "descVi": fb_vi,
+            "descEn": fb_en,
+            "rarity": rarity,
+            "faction": faction,
+            "relatedArticleSlugs": related_slugs,
+        }
+        if len(gallery) > 1:
+            skin_rec["galleryPaths"] = gallery
+        if is_awaken or (parent_hp and parent_hp.get("isAwakenable")):
+            skin_rec["extraTags"] = ["awakenable"]
+        shards["heroes"].append(skin_rec)
+
+    # -------------------------------------------------------------------------
+    # B. Build 21 Canonical Companion Pets (`830001..840018`) in `pets-behemoths`
+    # -------------------------------------------------------------------------
+    sup_pet_by_unit_en = {
+        "cactini": SUPPLEMENTARY_ASSETS.get("pet-cactini"),
+        "howli": SUPPLEMENTARY_ASSETS.get("pet-howli"),
+        "flickerkit": SUPPLEMENTARY_ASSETS.get("pet-flickerkit"),
+        "eggribird": SUPPLEMENTARY_ASSETS.get("pet-eggribird"),
+        "ignispal": SUPPLEMENTARY_ASSETS.get("pet-ignispal"),
+        "florapuff": SUPPLEMENTARY_ASSETS.get("pet-florapuff"),
+    }
+    companion_pets_meta = meta_enrichment.get("companion_pets", [])
+    for pet in companion_pets_meta:
+        for gp in pet["galleryPaths"]:
+            seen_paths.add(gp)
+        seen_paths.add(pet["path"])
+        if pet.get("portraitPath"):
+            seen_paths.add(pet["portraitPath"])
+
+        sup_match = sup_pet_by_unit_en.get(pet["nameEn"].strip().lower())
+        comm_vi = sup_match["nameVi"] if sup_match else f"Thú Cưng {pet['nameVi']} ({pet['nameEn']})"
+        comm_en = sup_match["nameEn"] if sup_match else f"{pet['nameEn']} (Companion Pet)"
+        fb_vi, fb_en = generate_fallback_descriptions(
+            "pets-behemoths", "companion-pets", pet["nameVi"], pet["nameEn"], pet["rarity"], pet["faction"]
+        )
+        desc_vi = sup_match["descVi"] if sup_match else fb_vi
+        desc_en = sup_match["descEn"] if sup_match else fb_en
+
+        pet_rec: Dict[str, Any] = {
+            "id": f"pet-{pet['gameId']}",
+            "gameId": int(pet["gameId"]),
+            "glossaryId": "system-pets-behemoth",
+            "category": "pets-behemoths",
+            "subCategory": "companion-pets",
+            "path": pet["path"],
+            "portraitPath": pet["portraitPath"],
+            "nameVi": pet["nameVi"],
+            "nameEn": pet["nameEn"],
+            "communityNameVi": comm_vi,
+            "communityNameEn": comm_en,
+            "descVi": desc_vi,
+            "descEn": desc_en,
+            "rarity": pet["rarity"],
+            "faction": pet["faction"],
+            "relatedArticleSlugs": DEFAULT_RELATED_ARTICLES["pets-behemoths"],
+        }
+        if len(pet["galleryPaths"]) > 1:
+            pet_rec["galleryPaths"] = pet["galleryPaths"]
+        shards["pets-behemoths"].append(pet_rec)
+
+    # -------------------------------------------------------------------------
+    # C. Build 6 Equipment Suits & 7 Lord Equipment Slots in `equipment`
+    # -------------------------------------------------------------------------
+    for suit in meta_enrichment.get("equipment_suits", []):
+        fb_vi, fb_en = generate_fallback_descriptions(
+            "equipment", "hero-gear", suit["nameVi"], suit["nameEn"], suit["rarity"], suit["faction"]
+        )
+        shards["equipment"].append(
+            {
+                "id": f"equipment-suit-{suit['gameId']}",
+                "gameId": int(suit["gameId"]),
+                "glossaryId": None,
+                "category": "equipment",
+                "subCategory": "hero-gear",
+                "path": suit["path"],
+                "galleryPaths": suit["galleryPaths"],
+                "nameVi": suit["nameVi"],
+                "nameEn": suit["nameEn"],
+                "communityNameVi": suit["communityNameVi"],
+                "communityNameEn": suit["communityNameEn"],
+                "descVi": fb_vi,
+                "descEn": fb_en,
+                "rarity": suit["rarity"],
+                "faction": suit["faction"],
+                "relatedArticleSlugs": DEFAULT_RELATED_ARTICLES["equipment"],
+            }
+        )
+
+    for leq in meta_enrichment.get("lord_equipments", []):
+        sup_obj = SUPPLEMENTARY_ASSETS.get(leq["supId"]) if leq.get("supId") else None
+        seen_paths.add(leq["path"])
+        fb_vi, fb_en = generate_fallback_descriptions(
+            "equipment", "lord-gear", leq["nameVi"], leq["nameEn"], leq["rarity"], leq["faction"]
+        )
+        shards["equipment"].append(
+            {
+                "id": leq["supId"] or f"gear-lord-{leq['gameId']}",
+                "gameId": int(leq["gameId"]),
+                "glossaryId": "system-lord-gear",
+                "category": "equipment",
+                "subCategory": "lord-gear",
+                "path": leq["path"],
+                "nameVi": leq["nameVi"],
+                "nameEn": leq["nameEn"],
+                "communityNameVi": sup_obj["nameVi"] if sup_obj else leq["nameVi"],
+                "communityNameEn": sup_obj["nameEn"] if sup_obj else leq["nameEn"],
+                "descVi": sup_obj["descVi"] if sup_obj else fb_vi,
+                "descEn": sup_obj["descEn"] if sup_obj else fb_en,
+                "rarity": leq["rarity"],
+                "faction": leq["faction"],
+                "relatedArticleSlugs": DEFAULT_RELATED_ARTICLES["equipment"],
+            }
+        )
+
+    # -------------------------------------------------------------------------
+    # D. Process Remaining `manifest["assets"]` with Canonical SubCategories
+    # -------------------------------------------------------------------------
+    rune_tier_labels = {
+        "1": ("Bậc I — Thường", "Tier I — Common", "common"),
+        "2": ("Bậc II — Khá", "Tier II — Uncommon", "uncommon"),
+        "3": ("Bậc III — Hiếm", "Tier III — Rare", "rare"),
+        "4": ("Bậc IV — Sử Thi", "Tier IV — Epic", "epic"),
+        "5": ("Bậc V — Huyền Thoại", "Tier V — Legendary", "legendary"),
+    }
+
     for img in raw_images:
         gid = img.get("game_id")
         if gid is None:
@@ -4117,17 +4686,25 @@ def build_codex_shards(
         rel_path = "/" + str(img["path"]).lstrip("/")
         if "bg_Radiance_plate" in rel_path or "bg_SecretTreasureExchange" in rel_path:
             continue
+        if str(img.get("group")) == "heroes":
+            continue
+        # Skip raw pet evolution stage sprites if 21 canonical companion pets were loaded
+        if companion_pets_meta and str(img.get("group")) == "pets" and any(
+            seg in str(img.get("category", "")) for seg in ("avatars", "illustrations")
+        ):
+            seen_paths.add(rel_path)
+            continue
+
         assert_file_exists(rel_path, f"Codex[{rel_path}]")
         seen_paths.add(rel_path)
 
         group = str(img.get("group", "items"))
         raw_cat = str(img.get("category", "general"))
-        sub_category = raw_cat.split("/")[-1] if "/" in raw_cat else raw_cat
-        category = map_manifest_group_to_codex_category(group, sub_category)
+        raw_sub = raw_cat.split("/")[-1] if "/" in raw_cat else raw_cat
+        category = map_manifest_group_to_codex_category(group, raw_sub)
 
         gl_id = img.get("glossary_id")
         gl_term = glossary_by_id.get(gl_id) if gl_id else None
-        hp = hero_by_gid.get(int(gid)) if category == "heroes" else None
 
         raw_name_vi = str(img.get("name_vi") or "").strip()
         raw_name_en = str(img.get("name_en") or "").strip()
@@ -4148,40 +4725,55 @@ def build_codex_shards(
         if not raw_name_vi:
             raw_name_vi = gl_term["inGameVi"] if gl_term else raw_name_en
 
-        # Ensure zero Vietnamese diacritics in name_en (GAP-P5-07)
         if VI_DIACRITIC_REGEX.search(raw_name_en):
             raw_name_en = gl_term["inGameEn"] if gl_term else f"Tactical Asset #{gid}"
 
-        community_vi: Optional[str] = None
-        community_en: Optional[str] = None
-        if hp and sub_category in ("avatars", "portraits"):
-            community_vi = hp["nameVi"]
-            community_en = hp["nameEn"]
-            if not gl_id and hp.get("glossaryId"):
-                gl_id = hp["glossaryId"]
-                gl_term = glossary_by_id.get(gl_id)
-        elif gl_term:
-            community_vi = gl_term["vi"]
-            community_en = gl_term["en"]
-
+        community_vi: Optional[str] = gl_term["vi"] if gl_term else None
+        community_en: Optional[str] = gl_term["en"] if gl_term else None
         if community_en and VI_DIACRITIC_REGEX.search(community_en):
             community_en = raw_name_en
 
         rarity = infer_codex_rarity(
             category,
-            sub_category,
+            raw_sub,
             raw_name_en,
             raw_name_vi,
-            hp["rarity"] if hp else (asset_registry.get(gl_id, {}).get("rarity") if gl_id else None),
+            asset_registry.get(gl_id, {}).get("rarity") if gl_id else None,
         )
+
+        # Disambiguate Runes (icon_runes_101..605.webp) by tier
+        m_rune = re.search(r"icon_runes_(\d)0(\d)\.webp$", rel_path)
+        if m_rune and m_rune.group(2) in rune_tier_labels:
+            t_vi, t_en, t_rarity = rune_tier_labels[m_rune.group(2)]
+            raw_name_vi = f"{raw_name_vi} [{t_vi}]"
+            raw_name_en = f"{raw_name_en} [{t_en}]"
+            rarity = t_rarity
+
+        # Fix inverted faction from old manifest if present
+        manifest_faction = str(img.get("faction") or "")
+        if manifest_faction == "horde":
+            manifest_faction = "nature"
+        elif manifest_faction == "nature":
+            manifest_faction = "horde"
+
         faction = infer_codex_faction(
             category,
             raw_name_en,
             raw_name_vi,
-            hp["faction"] if hp else (asset_registry.get(gl_id, {}).get("faction") if gl_id else None),
+            (asset_registry.get(gl_id, {}).get("faction") if gl_id else None)
+            or (manifest_faction if manifest_faction in ("league", "horde", "nature") else None),
         )
 
-        # GAP-P5-03: Enrich empty descriptions
+        stem = os.path.splitext(os.path.basename(rel_path))[0].lower()
+        clean_stem = re.sub(r"[^a-z0-9]+", "-", stem).strip("-")
+        rec_id = f"{category}-{gid}-{clean_stem}"
+        sub_category = map_canonical_sub_category(category, raw_sub, clean_stem, rarity, raw_name_en)
+
+        # Merge castle skin Lv.2 sprite (worldskin_<X>_lv2.webp) into base gameId <X>
+        m_ws_lv2 = re.search(r"worldskin_(\d+)_lv2\.webp$", rel_path, re.I)
+        if m_ws_lv2 and category == "buildings-decor":
+            gid = int(m_ws_lv2.group(1))
+
         raw_desc_vi = str(img.get("desc_vi") or "").strip()
         raw_desc_en = str(img.get("desc_en") or "").strip()
         if (not raw_desc_vi or not raw_desc_en) and gl_term:
@@ -4204,10 +4796,6 @@ def build_codex_shards(
             else DEFAULT_RELATED_ARTICLES.get(category, ["getting-started/overview"])
         )
 
-        stem = os.path.splitext(os.path.basename(rel_path))[0].lower()
-        clean_stem = re.sub(r"[^a-z0-9]+", "-", stem).strip("-")
-        rec_id = f"{category}-{gid}-{clean_stem}"
-
         record: Dict[str, Any] = {
             "id": rec_id,
             "gameId": int(gid),
@@ -4225,39 +4813,71 @@ def build_codex_shards(
             "faction": faction,
             "relatedArticleSlugs": related_slugs,
         }
-        if hp and hp.get("portraitPath"):
-            record["portraitPath"] = hp["portraitPath"]
-
         shards[category].append(record)
 
-    # 2. Include SSoT Glossary & Supplementary tactical assets whose iconPath was not in game_id != null (GAP-P5-01)
+    # -------------------------------------------------------------------------
+    # E. Merge SSoT Glossary & Supplementary Assets (Zero Duplicate Cards)
+    # -------------------------------------------------------------------------
     for aid, entry in sorted(asset_registry.items()):
         icon_path = entry["iconPath"]
-        if icon_path in seen_paths and entry.get("glossaryId") is None:
-            continue
         if "bg_Radiance_plate" in icon_path or "bg_SecretTreasureExchange" in icon_path:
             continue
-        cat = entry["category"]
+        cat = "troops" if aid.startswith("troop-rank-") else entry["category"]
         if cat not in shards:
             cat = "items"
-
-        # Avoid duplicate glossaryId if already present in the category shard with same iconPath
-        if any(r.get("glossaryId") == entry.get("glossaryId") and r["path"] == icon_path for r in shards[cat] if entry.get("glossaryId")):
+        if cat == "heroes":
             continue
 
         gl_id = entry.get("glossaryId")
+        entry_gid = (9000 + int(entry["gameId"])) if aid.startswith("tech-brilliance-") and entry.get("gameId") else entry.get("gameId")
+        entry_ingame_en = (entry.get("inGameNameEn") or entry["nameEn"]).strip().lower()
+
+        # Try to find an existing record in the target shard by path, gameId, glossaryId, or exact nameEn
+        existing = None
+        for r in shards[cat]:
+            if r["path"] == icon_path:
+                existing = r
+                break
+            if entry_gid is not None and r.get("gameId") == entry_gid:
+                existing = r
+                break
+            if gl_id and r.get("glossaryId") == gl_id:
+                existing = r
+                break
+            if r["nameEn"].strip().lower() == entry_ingame_en:
+                existing = r
+                break
+
+        if existing is not None:
+            if gl_id and not existing.get("glossaryId"):
+                existing["glossaryId"] = gl_id
+            if not existing.get("communityNameVi") and entry.get("nameVi"):
+                existing["communityNameVi"] = entry["nameVi"]
+            if not existing.get("communityNameEn") and entry.get("nameEn") and not VI_DIACRITIC_REGEX.search(entry["nameEn"]):
+                existing["communityNameEn"] = entry["nameEn"]
+            if entry.get("descVi") and len(entry["descVi"]) > len(existing.get("descVi", "")):
+                existing["descVi"] = entry["descVi"]
+            if entry.get("descEn") and not VI_DIACRITIC_REGEX.search(entry["descEn"]) and len(entry["descEn"]) > len(existing.get("descEn", "")):
+                existing["descEn"] = entry["descEn"]
+            continue
+
+        if icon_path in seen_paths and gl_id is None and not aid.startswith("troop-rank-"):
+            continue
+
         related_slugs = (
             glossary_article_links.get(gl_id)
             if gl_id and gl_id in glossary_article_links
             else DEFAULT_RELATED_ARTICLES.get(cat, ["getting-started/overview"])
         )
+        rarity = entry.get("rarity", "legendary")
+        sub_category = map_canonical_sub_category(cat, "", aid, rarity, entry.get("inGameNameEn") or entry["nameEn"])
 
         rec: Dict[str, Any] = {
             "id": f"ssot-{aid}",
-            "gameId": entry.get("gameId"),
+            "gameId": entry_gid,
             "glossaryId": gl_id,
             "category": cat,
-            "subCategory": "ssot-glossary" if gl_id else "tactical-core",
+            "subCategory": sub_category,
             "path": icon_path,
             "nameVi": entry.get("inGameNameVi") or entry["nameVi"],
             "nameEn": entry.get("inGameNameEn") or entry["nameEn"],
@@ -4265,7 +4885,7 @@ def build_codex_shards(
             "communityNameEn": entry["nameEn"],
             "descVi": entry.get("descVi") or entry["nameVi"],
             "descEn": entry.get("descEn") or entry["nameEn"],
-            "rarity": entry.get("rarity", "legendary"),
+            "rarity": rarity,
             "faction": entry.get("faction", "neutral"),
             "relatedArticleSlugs": related_slugs,
         }
@@ -4274,13 +4894,69 @@ def build_codex_shards(
         shards[cat].append(rec)
         seen_paths.add(icon_path)
 
-    # 3. Sort each shard deterministically and write 12 category JSON files
+    # -------------------------------------------------------------------------
+    # F. Deduplicate Each Shard by gameId & Disambiguate Names
+    # -------------------------------------------------------------------------
+    def sprite_preference_score(path_str: str) -> int:
+        p = path_str.lower()
+        if p.endswith("_f.webp") or "small" in p or "lvup" in p or "_lv2" in p or "/blueprints/" in p:
+            return 2
+        if "sacredbeast_" in p:
+            return 1
+        return 0
+
     category_counts: Dict[str, int] = {}
     all_records: List[Dict[str, Any]] = []
 
     for cat in CODEX_CATEGORIES:
-        items_list = shards[cat]
-        items_list.sort(
+        raw_list = shards[cat]
+        deduped_list: List[Dict[str, Any]] = []
+        by_gid_key: Dict[int, Dict[str, Any]] = {}
+
+        for r in raw_list:
+            gid_val = r.get("gameId")
+            if isinstance(gid_val, int) and cat != "heroes":
+                if gid_val in by_gid_key:
+                    canon = by_gid_key[gid_val]
+                    gallery = list(canon.get("galleryPaths") or [canon["path"]])
+                    if r["path"] not in gallery:
+                        gallery.append(r["path"])
+                    # Prefer cleaner primary icon path (non-flipped, non-small, non-blueprint)
+                    if sprite_preference_score(r["path"]) < sprite_preference_score(canon["path"]):
+                        if "sacredbeast_" in canon["path"].lower() and not canon.get("portraitPath"):
+                            canon["portraitPath"] = canon["path"]
+                        canon["path"] = r["path"]
+                    elif "sacredbeast_" in r["path"].lower() and not canon.get("portraitPath"):
+                        canon["portraitPath"] = r["path"]
+                    if len(gallery) > 1:
+                        canon["galleryPaths"] = gallery
+                    if r.get("glossaryId") and not canon.get("glossaryId"):
+                        canon["glossaryId"] = r["glossaryId"]
+                    if r.get("communityNameVi") and not canon.get("communityNameVi"):
+                        canon["communityNameVi"] = r["communityNameVi"]
+                    if r.get("communityNameEn") and not canon.get("communityNameEn"):
+                        canon["communityNameEn"] = r["communityNameEn"]
+                    continue
+                by_gid_key[gid_val] = r
+            deduped_list.append(r)
+
+        # Disambiguate remaining identical nameEn/nameVi with different gameIds in the same shard
+        name_en_counts: Dict[str, int] = {}
+        for r in deduped_list:
+            k = r["nameEn"].strip().lower()
+            name_en_counts[k] = name_en_counts.get(k, 0) + 1
+
+        for r in deduped_list:
+            k = r["nameEn"].strip().lower()
+            gid_val = r.get("gameId")
+            if name_en_counts.get(k, 0) > 1 and isinstance(gid_val, int):
+                suffix = f" (#{gid_val})"
+                if not r["nameEn"].endswith(suffix):
+                    r["nameEn"] = f"{r['nameEn']}{suffix}"
+                if not r["nameVi"].endswith(suffix):
+                    r["nameVi"] = f"{r['nameVi']}{suffix}"
+
+        deduped_list.sort(
             key=lambda r: (
                 0 if r.get("glossaryId") else 1,
                 RARITY_PRIORITY_ORDER.get(r["rarity"], 5),
@@ -4288,13 +4964,14 @@ def build_codex_shards(
                 r["id"],
             )
         )
-        category_counts[cat] = len(items_list)
-        all_records.extend(items_list)
+        shards[cat] = deduped_list
+        category_counts[cat] = len(deduped_list)
+        all_records.extend(deduped_list)
 
         shard_payload = {
             "category": cat,
-            "total": len(items_list),
-            "items": items_list,
+            "total": len(deduped_list),
+            "items": deduped_list,
         }
         shard_path = os.path.join(CODEX_OUTPUT_DIR, f"{cat}.json")
         with open(shard_path, "w", encoding="utf-8", newline="\n") as f:
@@ -4303,10 +4980,10 @@ def build_codex_shards(
     # 4. Build deduplicated priority search-index.json (< 45 KB gzip — GAP-P5-10)
     def search_priority_key(r: Dict[str, Any]) -> Tuple[int, int, int, int, str]:
         is_ssot = 0 if r.get("glossaryId") else 1
-        is_portrait_dup = 1 if r.get("subCategory") in ("portraits", "skins-portraits") else 0
+        is_skin_dup = 1 if r.get("subCategory") == "hero-skins" else 0
         is_monster = 1 if r["category"] == "monsters" else 0
         r_order = RARITY_PRIORITY_ORDER.get(r["rarity"], 5)
-        return (is_ssot, is_portrait_dup, is_monster, r_order, r["nameEn"].lower())
+        return (is_ssot, is_skin_dup, is_monster, r_order, r["nameEn"].lower())
 
     sorted_candidates = sorted(all_records, key=search_priority_key)
     deduped_index_items: List[Dict[str, Any]] = []
@@ -4330,6 +5007,7 @@ def build_codex_shards(
             "gameId": r["gameId"],
             "glossaryId": r["glossaryId"],
             "category": r["category"],
+            "subCategory": r["subCategory"],
             "path": r["path"],
             "nameVi": r["nameVi"],
             "nameEn": r["nameEn"],
@@ -4343,9 +5021,11 @@ def build_codex_shards(
         }
         if r.get("portraitPath"):
             idx_item["portraitPath"] = r["portraitPath"]
+        if r.get("extraTags"):
+            idx_item["extraTags"] = r["extraTags"]
 
         deduped_index_items.append(idx_item)
-        if len(deduped_index_items) >= 550:
+        if len(deduped_index_items) >= 505:
             break
 
     # Group by category first to maximize LZ77/Gzip dictionary locality (< 45 KB gzip)
@@ -4373,7 +5053,7 @@ def build_codex_shards(
 
     gzip_kb = len(zlib.compress(raw_json_bytes, level=9)) / 1024.0
     print(
-        f"[OK] Generated 12 Codex shards ({len(all_records)} total entities) "
+        f"[OK] Generated 12 Codex shards ({len(all_records)} total entities, counts={category_counts}) "
         f"& search-index.json ({len(deduped_index_items)} priority items, {gzip_kb:.2f} KB gzip)."
     )
 

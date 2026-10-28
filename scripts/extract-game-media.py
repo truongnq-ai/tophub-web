@@ -36,21 +36,37 @@ if hasattr(sys.stdout, "reconfigure"):
 if hasattr(sys.stderr, "reconfigure"):
     sys.stderr.reconfigure(encoding="utf-8")
 
-import UnityPy
-from PIL import Image
-
-UnityPy.config.FALLBACK_UNITY_VERSION = "2019.4.40f1"
+try:
+    import UnityPy
+    from PIL import Image
+    UnityPy.config.FALLBACK_UNITY_VERSION = "2019.4.40f1"
+except ImportError:
+    UnityPy = None
+    Image = None
 
 # ============================================================================
 # PATH CONFIGURATION (Read-Only Game Source & Target Web Output)
 # ============================================================================
 GAME_STREAMING_DIR = r"C:\Users\truon\AppData\Local\TopHeroes\app-1.125.5\TopHeroes_Data\StreamingAssets"
+GAME_LOCALLOW_DIR = r"C:\Users\truon\AppData\LocalLow\Rivergame\Top Heroes"
 BUNDLES_DIR = os.path.join(GAME_STREAMING_DIR, "Bundles")
 BUNDLE_OFFSET_PATH = os.path.join(GAME_STREAMING_DIR, "BundleOffsetTable.bytes")
 ASSET_CONFIG_PATH = os.path.join(GAME_STREAMING_DIR, "AssetConfig.bytes")
-META_BYTES_PATH = os.path.join(GAME_STREAMING_DIR, "Table", "1.0.42291", "Meta.bytes")
+
+_HOTPATCH_META_PATH = os.path.join(GAME_LOCALLOW_DIR, "Table", "1.0.42532", "Meta.bytes")
+_HOTPATCH_LOCALE_VI_PATH = os.path.join(GAME_LOCALLOW_DIR, "Locale", "1.0.42518", "Locale_vi.bytes")
+
+META_BYTES_PATH = (
+    _HOTPATCH_META_PATH
+    if os.path.exists(_HOTPATCH_META_PATH)
+    else os.path.join(GAME_STREAMING_DIR, "Table", "1.0.42291", "Meta.bytes")
+)
 LOCALE_EN_PATH = os.path.join(GAME_STREAMING_DIR, "Locale", "1.0.42291", "Locale_en.bytes")
-LOCALE_VI_PATH = os.path.join(GAME_STREAMING_DIR, "Locale", "1.0.42291", "Locale_vi.bytes")
+LOCALE_VI_PATH = (
+    _HOTPATCH_LOCALE_VI_PATH
+    if os.path.exists(_HOTPATCH_LOCALE_VI_PATH)
+    else os.path.join(GAME_STREAMING_DIR, "Locale", "1.0.42291", "Locale_vi.bytes")
+)
 
 REPO_ROOT = r"d:\GitHub\top-hero\tophub-web"
 GLOSSARY_TS_PATH = os.path.join(REPO_ROOT, "src", "content", "guides", "glossary.ts")
@@ -60,7 +76,8 @@ DEFAULT_CACHE_PATH = os.path.join(
     "metadata_cache.json",
 )
 
-RACE_MAP = {1: "league", 2: "nature", 3: "horde"}
+# Verified against Meta.bytes (unit, troop, team_rune): 1=League, 2=Horde, 3=Nature
+RACE_MAP = {1: "league", 2: "horde", 3: "nature"}
 QUALITY_MAP = {
     1: "common",
     2: "uncommon",
@@ -70,12 +87,13 @@ QUALITY_MAP = {
     6: "mythic",
 }
 
-# Explicit mapping for all 51 Glossary Hero IDs -> Game Hero/Unit ID
+# Explicit mapping for Glossary Hero IDs -> Game Hero/Unit ID (10001..10054)
 GLOSSARY_HERO_TO_GAME_ID: dict[str, int] = {
     "hero-rose-princess": 10043,
     "hero-paragon": 10033,
     "hero-bishop": 10046,
     "hero-artificer": 10050,
+    "hero-lilia-maid": 10053,
     "hero-adjudicator": 10031,
     "hero-pyromancer": 10025,
     "hero-nun": 10027,
@@ -83,11 +101,12 @@ GLOSSARY_HERO_TO_GAME_ID: dict[str, int] = {
     "hero-astrologer": 10024,
     "hero-secret-keeper": 10018,
     "hero-hostess": 10032,
+    "hero-shepherd": 10029,
     "hero-knight": 10004,
     "hero-ranger": 10014,
     "hero-minister": 10003,
-    "hero-guardsman": 10010,
-    "hero-crossbowman": 10002,
+    "hero-guardsman": 10001,
+    "hero-crossbowman": 10006,
     "hero-desert-prince": 10039,
     "hero-storm-maiden": 10041,
     "hero-witch": 10045,
@@ -106,11 +125,12 @@ GLOSSARY_HERO_TO_GAME_ID: dict[str, int] = {
     "hero-brawler": 10016,
     "hero-rogue": 10011,
     "hero-outlaw": 10015,
-    "hero-grunt": 10001,
+    "hero-grunt": 10010,
     "hero-tidecaller": 10044,
     "hero-monk": 10042,
     "hero-ne-zha": 10049,
     "hero-petalis": 10051,
+    "hero-acorn-scout": 10054,
     "hero-pixie": 10037,
     "hero-forest-maiden": 10036,
     "hero-sage": 10035,
@@ -122,7 +142,7 @@ GLOSSARY_HERO_TO_GAME_ID: dict[str, int] = {
     "hero-pathfinder": 10012,
     "hero-priestess": 10013,
     "hero-dancer": 10005,
-    "hero-scout": 10054,
+    "hero-scout": 10002,
 }
 
 GAME_ID_TO_GLOSSARY_HEROES: dict[int, list[str]] = defaultdict(list)
