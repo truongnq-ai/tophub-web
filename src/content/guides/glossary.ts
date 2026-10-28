@@ -284,7 +284,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "hero-rose-princess",
     category: "heroes",
-    term: { vi: "Công Chúa Rose (Rose Princess)", en: "Rose Princess" },
+    term: { vi: "Công Chúa Hồng / Công Chúa Rose (Rose Princess)", en: "Rose Princess" },
     heroMeta: { faction: "league", rarity: "mythic" },
     definition: {
       vi: "Main Tank kiêm Buffer phẩm Đỏ số 1 của phe Liên Minh giai đoạn Endgame.",
@@ -294,7 +294,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "hero-paragon",
     category: "heroes",
-    term: { vi: "Thiện Xạ (Paragon)", en: "Paragon" },
+    term: { vi: "Đấng Toàn Năng / Thiện Xạ (Paragon)", en: "Paragon" },
     heroMeta: { faction: "league", rarity: "mythic" },
     definition: {
       vi: "Hyper-Carry DPS phẩm Đỏ gây sát thương chuẩn và chí mạng diện rộng của phe Liên Minh.",
@@ -314,7 +314,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "hero-artificer",
     category: "heroes",
-    term: { vi: "Thợ Chế Tạo (Artificer)", en: "Artificer" },
+    term: { vi: "Cơ Giới Sư / Thợ Chế Tạo (Artificer)", en: "Artificer" },
     heroMeta: { faction: "league", rarity: "mythic" },
     definition: {
       vi: "Siêu hỗ trợ phẩm Đỏ ra mắt ở Season 3 của phe Liên Minh.",
@@ -324,7 +324,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "hero-adjudicator",
     category: "heroes",
-    term: { vi: "Thẩm Phán (Adjudicator)", en: "Adjudicator" },
+    term: { vi: "Thẩm Phán Quan / Trọng Tài (Adjudicator)", en: "Adjudicator" },
     heroMeta: { faction: "league", rarity: "legendary", isAwakenable: true },
     definition: {
       vi: "Main Tank Vàng bền bỉ nhất đầu game của Liên Minh; có thể Thức tỉnh lên Đỏ.",
@@ -334,7 +334,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "hero-pyromancer",
     category: "heroes",
-    term: { vi: "Pháp Sư Lửa (Pyromancer)", en: "Pyromancer" },
+    term: { vi: "Bộ Tinh / Pháp Sư Lửa (Pyromancer)", en: "Pyromancer" },
     heroMeta: { faction: "league", rarity: "legendary", isAwakenable: true },
     definition: {
       vi: "Pháp sư sát thương đốt diện rộng chủ lực giai đoạn S0 của Liên Minh; có thể Thức tỉnh lên Đỏ.",
@@ -344,7 +344,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "hero-nun",
     category: "heroes",
-    term: { vi: "Nữ Tu (Nun)", en: "Nun" },
+    term: { vi: "Tu Nữ / Nữ Tu (Nun)", en: "Nun" },
     heroMeta: { faction: "league", rarity: "legendary", isAwakenable: true },
     definition: {
       vi: "Healer thuần hồi máu diện rộng lớn nhất của phe Liên Minh; có thể Thức tỉnh lên Đỏ.",
@@ -354,7 +354,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "hero-bard",
     category: "heroes",
-    term: { vi: "Nhà Thơ (Bard)", en: "Bard" },
+    term: { vi: "Nhà Thơ / Thi Sĩ (Bard)", en: "Bard" },
     heroMeta: { faction: "league", rarity: "legendary", isEconomyPassive: true },
     definition: {
       vi: "Buffer giảm hồi chiêu kiêm Tướng Vàng Kinh tế (+40% Tốc độ Xây dựng ở Trait 3 Lv.30).",
@@ -364,7 +364,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "hero-astrologer",
     category: "heroes",
-    term: { vi: "Chiêm Tinh Gia (Astrologer)", en: "Astrologer" },
+    term: { vi: "Nhà Chiêm Tinh / Chiêm Tinh Gia (Astrologer)", en: "Astrologer" },
     heroMeta: { faction: "league", rarity: "legendary" },
     definition: {
       vi: "Tướng Vàng sát thương đơn mục tiêu giai đoạn đầu game của Liên Minh.",
@@ -374,7 +374,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "hero-secret-keeper",
     category: "heroes",
-    term: { vi: "Người Giữ Bí Mật (Secret Keeper)", en: "Secret Keeper" },
+    term: { vi: "Vệ Binh Bí Mật / Người Giữ Bí Mật (Secret Keeper)", en: "Secret Keeper" },
     heroMeta: { faction: "league", rarity: "legendary", isEconomyPassive: true },
     definition: {
       vi: "Tanker Vàng đầu game kiêm Nội tại Kinh tế (+50% Tốc độ Hành quân PvP ở Trait 3 Lv.30).",
@@ -384,7 +384,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "hero-hostess",
     category: "heroes",
-    term: { vi: "Nữ Chủ Quán (Hostess)", en: "Hostess" },
+    term: { vi: "Chủ Quán Trọ / Nữ Chủ Quán (Hostess)", en: "Hostess" },
     heroMeta: { faction: "league", rarity: "legendary", isEconomyPassive: true },
     definition: {
       vi: "Tướng Vàng Kinh tế phe Liên Minh (+40% Tốc độ Huấn luyện Lính ở Trait 3 Lv.30).",
@@ -404,7 +404,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "hero-ranger",
     category: "heroes",
-    term: { vi: "Cung Thủ / Thợ Săn (Ranger)", en: "Ranger" },
+    term: { vi: "Du Hiệp / Cung Thủ (Ranger)", en: "Ranger" },
     heroMeta: { faction: "league", rarity: "epic", isEconomyPassive: true },
     definition: {
       vi: "Tướng Tím Kinh tế ưu tiên #3: Mở khóa +30% Tốc độ Thu thập Ruby ở 2 Sao Trắng (300 Mảnh).",
@@ -414,7 +414,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "hero-minister",
     category: "heroes",
-    term: { vi: "Bộ Trưởng (Minister)", en: "Minister" },
+    term: { vi: "Mục Sư / Bộ Trưởng (Minister)", en: "Minister" },
     heroMeta: { faction: "league", rarity: "epic", isEconomyPassive: true },
     definition: {
       vi: "Tướng Tím Kinh tế ưu tiên #6: Mở khóa +30% Tốc độ Chữa thương Bệnh viện ở 2 Sao Trắng.",
@@ -457,7 +457,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "hero-storm-maiden",
     category: "heroes",
-    term: { vi: "Nữ Thần Bão Tố (Storm Maiden)", en: "Storm Maiden" },
+    term: { vi: "Thần Bão Tố / Nữ Thần Bão Tố (Storm Maiden)", en: "Storm Maiden" },
     heroMeta: { faction: "horde", rarity: "mythic" },
     definition: {
       vi: "Hyper-Carry AoE DPS phẩm Đỏ ra mắt Ngày 27, trụ cột sát thương của Bộ Lạc giai đoạn S0–S1.",
@@ -467,7 +467,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "hero-witch",
     category: "heroes",
-    term: { vi: "Phù Thủy (Witch)", en: "Witch" },
+    term: { vi: "Vu Nữ / Phù Thủy (Witch)", en: "Witch" },
     heroMeta: { faction: "horde", rarity: "mythic" },
     definition: {
       vi: "Mythic Healer / CC ra mắt Ngày 41, mảnh ghép bắt buộc để xoay trục sang Bộ Lạc.",
@@ -477,8 +477,8 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "hero-wukong",
     category: "heroes",
-    term: { vi: "Tôn Ngộ Không (Wukong)", en: "Wukong" },
-    aliases: { vi: ["Ngộ Không"], en: ["Monkey King"] },
+    term: { vi: "Ngộ Không / Tôn Ngộ Không (Wukong)", en: "Wukong" },
+    aliases: { vi: ["Ngộ Không", "Tôn Ngộ Không"], en: ["Monkey King"] },
     heroMeta: { faction: "horde", rarity: "mythic" },
     definition: {
       vi: "Siêu phẩm Hyper-Carry phẩm Đỏ ra mắt ở Season 2, đỉnh cao sát thương vật lý của phe Bộ Lạc.",
@@ -488,7 +488,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "hero-beastmaster",
     category: "heroes",
-    term: { vi: "Thú Tướng (Beastmaster)", en: "Beastmaster" },
+    term: { vi: "Thợ Săn Quái Thú / Thú Tướng (Beastmaster)", en: "Beastmaster" },
     heroMeta: { faction: "horde", rarity: "mythic" },
     definition: {
       vi: "Ultimate Main Tank phẩm Đỏ ra mắt ở Season 2, hoàn thiện tuyến đầu bất tử của Bộ Lạc.",
@@ -498,7 +498,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "hero-shadow-priest",
     category: "heroes",
-    term: { vi: "Giáo Sĩ Bóng Tối (Shadow Priest)", en: "Shadow Priest" },
+    term: { vi: "Mục Sư Bóng Tối / Giáo Sĩ Bóng Tối (Shadow Priest)", en: "Shadow Priest" },
     heroMeta: { faction: "horde", rarity: "mythic" },
     definition: {
       vi: "Tướng Đỏ thứ 6 của Bộ Lạc ra mắt ở Season 3, hoàn tất đội hình 6 Mythic Thuần Bộ Lạc.",
@@ -508,7 +508,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "hero-soulmancer",
     category: "heroes",
-    term: { vi: "Thuật Sĩ Linh Hồn (Soulmancer)", en: "Soulmancer" },
+    term: { vi: "Kẻ Gọi Hồn / Thuật Sĩ Linh Hồn (Soulmancer)", en: "Soulmancer" },
     heroMeta: { faction: "horde", rarity: "legendary", isAwakenable: true },
     definition: {
       vi: "Support Vàng chia sẻ sát thương của Bộ Lạc; ứng viên Thức tỉnh lên Đỏ ở Season 1.",
@@ -518,7 +518,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "hero-warlock",
     category: "heroes",
-    term: { vi: "Pháp Sư Bóng Tối (Warlock)", en: "Warlock" },
+    term: { vi: "Pháp Sư Hắc Ám / Pháp Sư Bóng Tối (Warlock)", en: "Warlock" },
     heroMeta: { faction: "horde", rarity: "legendary", isAwakenable: true, isEconomyPassive: true },
     definition: {
       vi: "Buffer tăng Tốc đánh & Hút máu (Thức tỉnh Đỏ ở S1) kiêm Nội tại Kinh tế (+360,000 Giới hạn Cướp bóc).",
@@ -538,7 +538,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "hero-swordmaster",
     category: "heroes",
-    term: { vi: "Kiếm Thánh (Swordmaster)", en: "Swordmaster" },
+    term: { vi: "Kiếm Sư / Kiếm Thánh (Swordmaster)", en: "Swordmaster" },
     heroMeta: { faction: "horde", rarity: "legendary" },
     definition: {
       vi: "Off-Tank Vàng đứng cặp tạm thời với Desert Prince ở S0–S1 trước khi có Beastmaster.",
@@ -548,7 +548,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "hero-barbarian",
     category: "heroes",
-    term: { vi: "Chiến Binh Man Rợ (Barbarian)", en: "Barbarian" },
+    term: { vi: "Man Tộc / Chiến Binh Man Rợ (Barbarian)", en: "Barbarian" },
     heroMeta: { faction: "horde", rarity: "legendary" },
     definition: {
       vi: "Tanker Vàng chống chịu tạm thời đầu game của phe Bộ Lạc.",
@@ -558,7 +558,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "hero-wanderer",
     category: "heroes",
-    term: { vi: "Kẻ Lang Thang (Wanderer)", en: "Wanderer" },
+    term: { vi: "Lãng Khách / Kẻ Lang Thang (Wanderer)", en: "Wanderer" },
     heroMeta: { faction: "horde", rarity: "legendary" },
     definition: {
       vi: "Tướng Vàng sát thương đơn mục tiêu lên Boss PvE của phe Bộ Lạc.",
@@ -568,7 +568,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "hero-headhunter",
     category: "heroes",
-    term: { vi: "Thợ Săn Đầu Người (Headhunter)", en: "Headhunter" },
+    term: { vi: "Kẻ Săn Đầu / Thợ Săn Đầu Người (Headhunter)", en: "Headhunter" },
     heroMeta: { faction: "horde", rarity: "legendary", isEconomyPassive: true },
     definition: {
       vi: "Tướng Vàng Kinh tế phe Bộ Lạc (+40% Tốc độ Thu thập Ruby ở Trait 3 Lv.30).",
@@ -578,7 +578,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "hero-shaman",
     category: "heroes",
-    term: { vi: "Pháp Sư Bộ Lạc (Shaman)", en: "Shaman" },
+    term: { vi: "Tế Tư / Pháp Sư Bộ Lạc (Shaman)", en: "Shaman" },
     heroMeta: { faction: "horde", rarity: "legendary", isEconomyPassive: true },
     definition: {
       vi: "Healer Vàng đầu game kiêm Nội tại Kinh tế (+40% Tốc độ Nghiên cứu Công nghệ ở Trait 3 Lv.30).",
@@ -599,7 +599,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "hero-brawler",
     category: "heroes",
-    term: { vi: "Đấu Sĩ (Brawler)", en: "Brawler" },
+    term: { vi: "Võ Sĩ / Đấu Sĩ (Brawler)", en: "Brawler" },
     heroMeta: { faction: "horde", rarity: "epic", isEconomyPassive: true },
     definition: {
       vi: "Tướng Tím quan trọng số 1 game (Epic #1): Mở khóa +30% Tốc độ Nghiên cứu Công nghệ ở 2 Sao Trắng (300 Mảnh).",
@@ -619,7 +619,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "hero-outlaw",
     category: "heroes",
-    term: { vi: "Kẻ Ngoài Vòng Pháp Luật (Outlaw)", en: "Outlaw" },
+    term: { vi: "Kẻ Đào Tẩu / Kẻ Ngoài Vòng Pháp Luật (Outlaw)", en: "Outlaw" },
     heroMeta: { faction: "horde", rarity: "epic", isEconomyPassive: true },
     definition: {
       vi: "Tướng Tím Kinh tế ưu tiên #5: Mở khóa +30% Tốc độ Thu thập Gỗ ở 2 Sao Trắng (300 Mảnh).",
@@ -642,7 +642,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "hero-tidecaller",
     category: "heroes",
-    term: { vi: "Thuật Sĩ Thủy Triều (Tidecaller)", en: "Tidecaller" },
+    term: { vi: "Thủy Triều / Thuật Sĩ Thủy Triều (Tidecaller)", en: "Tidecaller" },
     heroMeta: { faction: "nature", rarity: "mythic" },
     definition: {
       vi: "Trái tim của hệ Thiên Nhiên: Vừa triệu hồi Thủy tinh linh đỡ đạn, vừa hồi máu và gây sát thương diện rộng.",
@@ -652,7 +652,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "hero-monk",
     category: "heroes",
-    term: { vi: "Hòa Thượng / Tu Sĩ (Monk)", en: "Monk" },
+    term: { vi: "Tăng Nhân / Hòa Thượng (Monk)", en: "Monk" },
     heroMeta: { faction: "nature", rarity: "mythic" },
     definition: {
       vi: "Main Tank phẩm Đỏ của hệ Thiên Nhiên ra mắt ở Season 1 với khả năng tạo khiên vàng và miễn khống chế.",
@@ -672,7 +672,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "hero-petalis",
     category: "heroes",
-    term: { vi: "Tiên Hoa Petalis (Petalis)", en: "Petalis" },
+    term: { vi: "Hoa Tiên / Tiên Hoa Petalis (Petalis)", en: "Petalis" },
     heroMeta: { faction: "nature", rarity: "mythic" },
     definition: {
       vi: "Ultimate Support phẩm Đỏ ra mắt ở Season 3, hoàn thiện độ bất tử và phản sát thương của hệ Thiên Nhiên.",
@@ -682,7 +682,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "hero-pixie",
     category: "heroes",
-    term: { vi: "Tiên Nhỏ (Pixie)", en: "Pixie" },
+    term: { vi: "Hồ Tiên / Tiên Nhỏ (Pixie)", en: "Pixie" },
     heroMeta: { faction: "nature", rarity: "legendary", isAwakenable: true },
     definition: {
       vi: "Pháp sư sát thương phép diện rộng của Thiên Nhiên; ưu tiên số 1 để Thức tỉnh lên Đỏ của hệ Nature.",
@@ -692,7 +692,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "hero-forest-maiden",
     category: "heroes",
-    term: { vi: "Thiếu Nữ Rừng Xanh (Forest Maiden)", en: "Forest Maiden" },
+    term: { vi: "Thần Rừng / Thiếu Nữ Rừng Xanh (Forest Maiden)", en: "Forest Maiden" },
     heroMeta: { faction: "nature", rarity: "legendary" },
     definition: {
       vi: "Support Vàng cộng hưởng triệu hồi, hồi năng lượng và máu mỗi khi đệ triệu hồi xuất hiện hoặc ngã xuống.",
@@ -702,7 +702,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "hero-sage",
     category: "heroes",
-    term: { vi: "Hiền Giả (Sage)", en: "Sage" },
+    term: { vi: "Hiền Giả / Hiền Triết (Sage)", en: "Sage" },
     heroMeta: { faction: "nature", rarity: "legendary", isAwakenable: true },
     definition: {
       vi: "Tanker tạo giáp cây và hồi phục tuyến đầu của Thiên Nhiên; có thể Thức tỉnh lên Đỏ.",
@@ -742,7 +742,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "hero-druid",
     category: "heroes",
-    term: { vi: "Đại Tư Tế Rừng (Druid)", en: "Druid" },
+    term: { vi: "Tinh Linh / Đại Tư Tế Rừng (Druid)", en: "Druid" },
     heroMeta: { faction: "nature", rarity: "legendary" },
     definition: {
       vi: "Healer Vàng gọi đệ cây nhỏ giai đoạn đầu của hệ Thiên Nhiên.",
@@ -752,7 +752,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "hero-watcher",
     category: "heroes",
-    term: { vi: "Người Quan Sát (Watcher)", en: "Watcher" },
+    term: { vi: "Cổ Thụ / Người Quan Sát (Watcher)", en: "Watcher" },
     heroMeta: { faction: "nature", rarity: "legendary", isEconomyPassive: true },
     definition: {
       vi: "Tướng Vàng Kinh tế hệ Thiên Nhiên (+2,000 Quy mô Quân đoàn ở Trait 3 Lv.30).",
@@ -762,7 +762,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "hero-pathfinder",
     category: "heroes",
-    term: { vi: "Người Mở Đường (Pathfinder)", en: "Pathfinder" },
+    term: { vi: "Người Dẫn Đường / Người Mở Đường (Pathfinder)", en: "Pathfinder" },
     heroMeta: { faction: "nature", rarity: "legendary", isEconomyPassive: true },
     definition: {
       vi: "Tướng Vàng Kinh tế hệ Thiên Nhiên (+50% Tốc độ Hành quân PvE ở Trait 3 Lv.30).",
@@ -782,7 +782,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "hero-dancer",
     category: "heroes",
-    term: { vi: "Vũ Công (Dancer)", en: "Dancer" },
+    term: { vi: "Vũ Nữ / Vũ Công (Dancer)", en: "Dancer" },
     heroMeta: { faction: "nature", rarity: "epic", isEconomyPassive: true },
     definition: {
       vi: "Tướng Tím Kinh tế ưu tiên #8: Mở khóa +30% Tốc độ Chữa thương Bệnh viện ở 2 Sao Trắng.",
@@ -901,8 +901,8 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "item-soul-stone",
     category: "items_and_currencies",
-    term: { vi: "Hồn Đá Đỏ (Red Soul Stone)", en: "Red Soul Stone" },
-    aliases: { vi: ["Đá Thức Tỉnh", "9 Hồn Đá Đỏ"], en: ["Soul Stone", "9 Red Soul Stones"] },
+    term: { vi: "Đá Linh Hồn (Hồn Đá Đỏ / Red Soul Stone)", en: "Red Soul Stone" },
+    aliases: { vi: ["Đá Linh Hồn", "Hồn Đá Đỏ", "Đá Thức Tỉnh", "9 Hồn Đá Đỏ"], en: ["Soul Stone", "9 Red Soul Stones"] },
     definition: {
       vi: "Vật phẩm tối thượng dùng để Thức tỉnh Tướng Vàng lên phẩm Đỏ (cần đúng 9 viên + 345–385 Mảnh Tướng).",
       en: "Endgame item required to Awaken a Legendary hero to Mythic quality (requires 9 stones + 345–385 Shards).",
@@ -911,8 +911,8 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "item-universal-shard",
     category: "items_and_currencies",
-    term: { vi: "Mảnh Tướng Vàng Vạn Năng (Universal Legendary Hero Shard)", en: "Universal Legendary Hero Shard" },
-    aliases: { vi: ["Mảnh Vạn Năng", "Mảnh Vàng Vạn Năng"], en: ["Universal Shard", "Gold Shard"] },
+    term: { vi: "Mảnh Anh Hùng Huyền Thoại Vạn Năng (Universal Legendary Hero Shard)", en: "Universal Legendary Hero Shard" },
+    aliases: { vi: ["Mảnh Anh Hùng Huyền Thoại Vạn Năng", "Mảnh Tướng Vàng Vạn Năng", "Mảnh Vạn Năng", "Mảnh Vàng Vạn Năng"], en: ["Universal Shard", "Gold Shard"] },
     definition: {
       vi: "Tài nguyên quý hiếm chỉ được phép đút cho Tướng Đỏ (Mythic) hoặc Tướng Vàng có lộ trình Thức tỉnh của Đội 1.",
       en: "Scarce progression currency strictly reserved for Queue 1 Mythic heroes or Awakenable Legendaries.",
@@ -1021,31 +1021,31 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "gear-set-blood-of-the-titan",
     category: "items_and_currencies",
-    term: { vi: "Huyết Titan / Nộ Huyết (Blood of the Titan)", en: "Blood of the Titan (Fury of Blood)" },
-    aliases: { vi: ["Huyết Titan", "Nộ Huyết"], en: ["Blood of the Titan", "Fury of Blood"] },
+    term: { vi: "Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Huyết Titan / Nộ Huyết)", en: "Knight Set ➔ Titan's Might (Blood of the Titan)" },
+    aliases: { vi: ["Bộ Kỵ Sĩ", "Bộ Đồ Titan", "Huyết Titan", "Nộ Huyết"], en: ["Knight Set", "Titan's Might", "Blood of the Titan", "Fury of Blood"] },
     definition: {
-      vi: "Bộ Trang bị Vàng trấn phái cho Main Tank & Bruiser — tối đa hóa % HP, Giảm sát thương và Khiên đầu trận.",
-      en: "Signature Golden Gear set for Main Tanks & Bruisers — maximizes % HP, Damage Reduction, and opening HP Shields.",
+      vi: "Bộ Trang bị Vàng ➔ Đỏ trấn phái cho Main Tank & Bruiser — tối đa hóa % HP, Giảm sát thương và Khiên đầu trận.",
+      en: "Signature Golden-to-Mythic Gear set for Main Tanks & Bruisers — maximizes % HP, Damage Reduction, and opening HP Shields.",
     },
   },
   {
     id: "gear-set-knights-glory",
     category: "items_and_currencies",
-    term: { vi: "Kỵ Sĩ Vinh Quang (Knight's Glory)", en: "Knight's Glory" },
-    aliases: { vi: ["Bộ Kỵ Sĩ"], en: ["Knight's Glory Set"] },
+    term: { vi: "Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Kỵ Sĩ Vinh Quang)", en: "Duelist's Set ➔ Fury of Blood (Knight's Glory)" },
+    aliases: { vi: ["Bộ Đồ Quyết Đấu", "Cơn Thịnh Nộ", "Kỵ Sĩ Vinh Quang", "Cuồng Chiến"], en: ["Duelist's Set", "Fury of Blood", "Knight's Glory", "Knight's Glory Set"] },
     definition: {
-      vi: "Bộ Trang bị Vàng trấn phái cho Hyper-Carry DPS — khuếch đại Sát thương Kỹ năng và Tỷ lệ Chí mạng.",
-      en: "Signature Golden Gear set for Hyper-Carry Burst/Skill DPS — amplifies Skill Damage and Critical Rate.",
+      vi: "Bộ Trang bị Vàng ➔ Đỏ trấn phái cho Hyper-Carry DPS — khuếch đại Sát thương Kỹ năng và Tỷ lệ Chí mạng.",
+      en: "Signature Golden-to-Mythic Gear set for Hyper-Carry Burst/Skill DPS — amplifies Skill Damage and Critical Rate.",
     },
   },
   {
     id: "gear-set-glory-of-the-sage",
     category: "items_and_currencies",
-    term: { vi: "Hiền Triết Quang Vinh (Glory of the Sage)", en: "Glory of the Sage" },
-    aliases: { vi: ["Hiền Triết"], en: ["Glory of the Sage Set"] },
+    term: { vi: "Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Hiền Triết Quang Vinh)", en: "Sage Set ➔ Glorious Light (Glory of the Sage)" },
+    aliases: { vi: ["Bộ Hiền Giả", "Ánh Sáng Vinh Quang", "Hiền Triết Quang Vinh", "Hiền Triết"], en: ["Sage Set", "Glorious Light", "Glory of the Sage", "Glory of the Sage Set"] },
     definition: {
-      vi: "Bộ Trang bị Vàng trấn phái cho Support, Healer & Controller — tăng Tốc đánh, Giảm hồi chiêu và Hồi Năng lượng.",
-      en: "Signature Golden Gear set for Supports, Healers & Controllers — boosts Attack Speed, Cooldown Reduction, and Energy Regen.",
+      vi: "Bộ Trang bị Vàng ➔ Đỏ trấn phái cho Support, Healer & Controller — tăng Tốc đánh, Giảm hồi chiêu và Hồi Năng lượng.",
+      en: "Signature Golden-to-Mythic Gear set for Supports, Healers & Controllers — boosts Attack Speed, Cooldown Reduction, and Energy Regen.",
     },
   },
 

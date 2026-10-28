@@ -272,8 +272,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "**Hồ sơ phân tích đầy đủ toàn bộ `51` vị tướng thuộc `3` Phe phái (`16` Liên Minh, `19` Bộ Lạc, `16` Thiên Nhiên).**\n• **Thông số tra cứu chuẩn:** Bao gồm phẩm chất gốc, vai trò chiến thuật, vị trí đứng chuẩn trong đội hình `6` người, bộ trang bị Vàng khuyến nghị và chỉ số nội tại kinh tế.",
-            en: "**Complete master directory of all `51` heroes across the `3` Factions (`16` League, `19` Horde, `16` Nature).**\n• **Standardized Reference Metrics:** Details base rarity, tactical role, optimal `6-slot` positioning, recommended Golden Gear set, and passive economic traits.",
+            vi: "**Hồ sơ phân tích đầy đủ toàn bộ `55` vị tướng thuộc `3` Phe phái (`19` Liên Minh, `19` Bộ Lạc, `17` Thiên Nhiên).**\n• **Thông số tra cứu chuẩn:** Bao gồm phẩm chất gốc, vai trò chiến thuật, vị trí đứng chuẩn trong đội hình `6` người, bộ trang bị Vàng ➔ Đỏ khuyến nghị và chỉ số nội tại kinh tế.",
+            en: "**Complete master directory of all `55` heroes across the `3` Factions (`19` League, `19` Horde, `17` Nature).**\n• **Standardized Reference Metrics:** Details base rarity, tactical role, optimal `6-slot` positioning, recommended Golden-to-Mythic Gear set, and passive economic traits.",
           },
         },
         {
@@ -322,12 +322,12 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
         {
           id: "sub-2-1-league-heroes",
           title: {
-            vi: "2.1. Phe Liên Minh (League Faction — Biểu tượng Khiên Xanh Lam)",
-            en: "2.1. League Faction (Blue Shield Emblem — 16 Heroes)",
+            vi: "2.1. Phe Liên Minh (League Faction — Biểu tượng Khiên Xanh Lam — 19 Tướng)",
+            en: "2.1. League Faction (Blue Shield Emblem — 19 Heroes)",
           },
           badge: {
-            vi: "16 TƯỚNG LIÊN MINH",
-            en: "16 LEAGUE HEROES",
+            vi: "19 TƯỚNG LIÊN MINH",
+            en: "19 LEAGUE HEROES",
           },
           blocks: [
             {
@@ -340,8 +340,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
             {
               type: "table",
               caption: {
-                vi: "Danh mục toàn diện 16 tướng Phe Liên Minh (League Faction)",
-                en: "Complete 16-Hero Directory for the League Faction",
+                vi: "Danh mục toàn diện 19 tướng Phe Liên Minh (League Faction)",
+                en: "Complete 19-Hero Directory for the League Faction",
               },
               headers: [
                 { vi: "Tên Quốc Tế (EN)", en: "Hero Name (EN)" },
@@ -357,24 +357,24 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
               rows: [
                 [
                   { vi: "Rose Princess", en: "Rose Princess" },
-                  { vi: "Công Chúa Rose", en: "Rose Princess" },
+                  { vi: "Công Chúa Hồng / Công Chúa Rose", en: "Rose Princess" },
                   { vi: "Mythic", en: "Mythic" },
                   { vi: "Main Tank / Buffer", en: "Main Tank / Buffer" },
                   { vi: "Hàng trước", en: "Frontline" },
                   {
-                    vi: "Trụ cột bất khả xâm phạm của Liên Minh Endgame; phản sát thương và buff công thủ toàn đội. Bộ đồ: Huyết Titan.",
-                    en: "Untouchable Endgame League frontline pillar; reflects damage and buffs team-wide ATK/DEF. Gear Set: Blood of the Titan.",
+                    vi: "Trụ cột bất khả xâm phạm của Liên Minh Endgame; phản sát thương và buff công thủ toàn đội. Bộ đồ: Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Huyết Titan).",
+                    en: "Untouchable Endgame League frontline pillar; reflects damage and buffs team-wide ATK/DEF. Gear Set: Knight Set ➔ Titan's Might (Blood of the Titan).",
                   },
                 ],
                 [
                   { vi: "Paragon", en: "Paragon" },
-                  { vi: "Thiện Xạ", en: "Paragon" },
+                  { vi: "Đấng Toàn Năng / Thiện Xạ", en: "Paragon" },
                   { vi: "Mythic", en: "Mythic" },
                   { vi: "Hyper-Carry DPS", en: "Hyper-Carry DPS" },
                   { vi: "Hàng giữa", en: "Midline" },
                   {
-                    vi: "Sát thương chuẩn và chí mạng diện rộng cực gắt; nguồn hỏa lực số 1 của Liên Minh từ Ngày 35+. Bộ đồ: Kỵ Sĩ Vinh Quang.",
-                    en: "Devastating AoE true damage and critical strikes; #1 League firepower carry from Day 35+. Gear Set: Knight's Glory.",
+                    vi: "Sát thương chuẩn và chí mạng diện rộng cực gắt; nguồn hỏa lực số 1 của Liên Minh từ Ngày 35+. Bộ đồ: Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Kỵ Sĩ Vinh Quang).",
+                    en: "Devastating AoE true damage and critical strikes; #1 League firepower carry from Day 35+. Gear Set: Duelist's Set ➔ Fury of Blood (Knight's Glory).",
                   },
                 ],
                 [
@@ -384,57 +384,57 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                   { vi: "Burst DPS / Support", en: "Burst DPS / Support" },
                   { vi: "Hàng giữa / sau", en: "Midline / Backline" },
                   {
-                    vi: "Sát thương bộc phát Sacred Burst khắc chế cứng các đội hình triệu hồi (Nature); mạnh từ mốc 1–3 Sao Trắng. Bộ đồ: Kỵ Sĩ Vinh Quang.",
-                    en: "Explosive Sacred Burst that hard-counters summon swarms (Nature); spikes hard at 1–3 White Stars. Gear Set: Knight's Glory.",
+                    vi: "Sát thương bộc phát Sacred Burst khắc chế cứng các đội hình triệu hồi (Nature); mạnh từ mốc 1–3 Sao Trắng. Bộ đồ: Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Kỵ Sĩ Vinh Quang).",
+                    en: "Explosive Sacred Burst that hard-counters summon swarms (Nature); spikes hard at 1–3 White Stars. Gear Set: Duelist's Set ➔ Fury of Blood (Knight's Glory).",
                   },
                 ],
                 [
                   { vi: "Artificer", en: "Artificer" },
-                  { vi: "Thợ Chế Tạo", en: "Artificer" },
+                  { vi: "Cơ Giới Sư / Thợ Chế Tạo", en: "Artificer" },
                   { vi: "Mythic (S3)", en: "Mythic (S3)" },
                   { vi: "Top-tier Support", en: "Top-tier Support" },
                   { vi: "Hàng sau", en: "Backline" },
                   {
-                    vi: "Siêu hỗ trợ ra mắt ở Season 3; cường hóa vũ khí và khuếch đại sát thương toàn đội Liên Minh. Bộ đồ: Hiền Triết Quang Vinh.",
-                    en: "Premier Season 3 hyper-support; enchants weapons and amplifies full-team League damage. Gear Set: Glory of the Sage.",
+                    vi: "Siêu hỗ trợ ra mắt ở Season 3; cường hóa vũ khí và khuếch đại sát thương toàn đội Liên Minh. Bộ đồ: Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Hiền Triết Quang Vinh).",
+                    en: "Premier Season 3 hyper-support; enchants weapons and amplifies full-team League damage. Gear Set: Sage Set ➔ Glorious Light (Glory of the Sage).",
                   },
                 ],
                 [
                   { vi: "Adjudicator", en: "Adjudicator" },
-                  { vi: "Thẩm Phán", en: "Adjudicator" },
+                  { vi: "Thẩm Phán Quan / Trọng Tài (Thẩm Phán)", en: "Adjudicator" },
                   { vi: "Legendary (Awaken)", en: "Legendary (Awaken)" },
                   { vi: "Main Tank", en: "Main Tank" },
                   { vi: "Hàng trước", en: "Frontline" },
                   {
-                    vi: "Tanker Vàng bền bỉ nhất đầu game; khi Thức tỉnh lên Đỏ (9 Hồn Đá Đỏ + 345–385 Mảnh Tướng) tạo lá chắn bất hoại. Bộ đồ: Huyết Titan.",
-                    en: "Most durable early-game Legendary tank; Awakening to Mythic (9 Soul Stones + 345–385 Shards) grants an unbreakable shield. Gear Set: Blood of the Titan.",
+                    vi: "Tanker Vàng bền bỉ nhất đầu game; khi Thức tỉnh lên Đỏ (9 Đá Linh Hồn / Hồn Đá Đỏ + 345–385 Mảnh Tướng) tạo lá chắn bất hoại. Bộ đồ: Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Huyết Titan).",
+                    en: "Most durable early-game Legendary tank; Awakening to Mythic (9 Red Soul Stones + 345–385 Shards) grants an unbreakable shield. Gear Set: Knight Set ➔ Titan's Might (Blood of the Titan).",
                   },
                 ],
                 [
                   { vi: "Pyromancer", en: "Pyromancer" },
-                  { vi: "Pháp Sư Lửa", en: "Pyromancer" },
+                  { vi: "Bộ Tinh / Pháp Sư Lửa", en: "Pyromancer" },
                   { vi: "Legendary (Awaken)", en: "Legendary (Awaken)" },
                   { vi: "AoE Magic DPS", en: "AoE Magic DPS" },
                   { vi: "Hàng giữa", en: "Midline" },
                   {
-                    vi: "\"Nữ hoàng vượt ải\" giai đoạn S0; sát thương thiêu đốt diện rộng cực lớn, bắt buộc Thức tỉnh nếu chơi thuần Liên Minh. Bộ đồ: Kỵ Sĩ Vinh Quang.",
-                    en: "The S0 PvE wave-clear queen; massive AoE burn damage and mandatory Awakening target for pure League mains. Gear Set: Knight's Glory.",
+                    vi: "\"Nữ hoàng vượt ải\" giai đoạn S0; sát thương thiêu đốt diện rộng cực lớn, bắt buộc Thức tỉnh nếu chơi thuần Liên Minh. Bộ đồ: Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Kỵ Sĩ Vinh Quang).",
+                    en: "The S0 PvE wave-clear queen; massive AoE burn damage and mandatory Awakening target for pure League mains. Gear Set: Duelist's Set ➔ Fury of Blood (Knight's Glory).",
                   },
                 ],
                 [
                   { vi: "Nun", en: "Nun" },
-                  { vi: "Nữ Tu", en: "Nun" },
+                  { vi: "Tu Nữ / Nữ Tu", en: "Nun" },
                   { vi: "Legendary (Awaken)", en: "Legendary (Awaken)" },
                   { vi: "Pure Healer", en: "Pure Healer" },
                   { vi: "Hàng sau", en: "Backline" },
                   {
-                    vi: "Nguồn hồi máu diện rộng lớn nhất phe Liên Minh; giữ sống toàn bộ hàng Tank. Bộ đồ: Hiền Triết Quang Vinh.",
-                    en: "Largest AoE healer in the League faction; keeps the entire frontline alive. Gear Set: Glory of the Sage.",
+                    vi: "Nguồn hồi máu diện rộng lớn nhất phe Liên Minh; giữ sống toàn bộ hàng Tank. Bộ đồ: Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Hiền Triết Quang Vinh).",
+                    en: "Largest AoE healer in the League faction; keeps the entire frontline alive. Gear Set: Sage Set ➔ Glorious Light (Glory of the Sage).",
                   },
                 ],
                 [
                   { vi: "Bard", en: "Bard" },
-                  { vi: "Nhà Thơ", en: "Bard" },
+                  { vi: "Nhà Thơ / Thi Sĩ", en: "Bard" },
                   { vi: "Legendary (Econ)", en: "Legendary (Econ)" },
                   { vi: "Speed Buffer / Kinh tế", en: "Speed Buffer / Economy" },
                   { vi: "Hàng sau / Dự bị", en: "Backline / Bench" },
@@ -445,7 +445,7 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Astrologer", en: "Astrologer" },
-                  { vi: "Chiêm Tinh Gia", en: "Astrologer" },
+                  { vi: "Nhà Chiêm Tinh / Chiêm Tinh Gia", en: "Astrologer" },
                   { vi: "Legendary", en: "Legendary" },
                   { vi: "Single-Target DPS", en: "Single-Target DPS" },
                   { vi: "Hàng giữa", en: "Midline" },
@@ -456,7 +456,7 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Secret Keeper", en: "Secret Keeper" },
-                  { vi: "Người Giữ Bí Mật", en: "Secret Keeper" },
+                  { vi: "Vệ Binh Bí Mật / Người Giữ Bí Mật", en: "Secret Keeper" },
                   { vi: "Legendary (Econ)", en: "Legendary (Econ)" },
                   { vi: "Early Tank / Kinh tế", en: "Early Tank / Economy" },
                   { vi: "Hàng trước / Dự bị", en: "Frontline / Bench" },
@@ -467,13 +467,24 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Hostess", en: "Hostess" },
-                  { vi: "Nữ Chủ Quán", en: "Hostess" },
+                  { vi: "Chủ Quán Trọ / Nữ Chủ Quán", en: "Hostess" },
                   { vi: "Legendary (Econ)", en: "Legendary (Econ)" },
                   { vi: "Support / Kinh tế", en: "Support / Economy" },
                   { vi: "Dự bị (Bench)", en: "Bench" },
                   {
                     vi: "Sở hữu Nội tại Kinh tế Trait 3 Lv.30: +40% Tốc độ Huấn luyện Lính (Soldier Training Speed) (Active without deployment).",
                     en: "Features Trait 3 Lv.30 Economic Passive: +40% Soldier Training Speed (Active without deployment).",
+                  },
+                ],
+                [
+                  { vi: "Lilia Maid", en: "Lilia Maid" },
+                  { vi: "Nữ Hầu Ly Ly", en: "Lilia Maid" },
+                  { vi: "Legendary", en: "Legendary" },
+                  { vi: "Support / Buffer", en: "Support / Buffer" },
+                  { vi: "Hàng sau / Dự bị", en: "Backline / Bench" },
+                  {
+                    vi: "Tướng Huyền Thoại sự kiện đặc biệt phe Liên Minh; hỗ trợ hồi phục nhẹ và kích điểm bộ sưu tập Liên kết Tướng (Hero Bonds), không dùng Mảnh Vạn Năng.",
+                    en: "Special event League Legendary support; provides light sustain and Hero Bond collection stats, zero Universal Shard investment.",
                   },
                 ],
                 [
@@ -489,7 +500,7 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Ranger", en: "Ranger" },
-                  { vi: "Cung Thủ / Thợ Săn", en: "Ranger" },
+                  { vi: "Du Hiệp / Cung Thủ (Thợ Săn)", en: "Ranger" },
                   { vi: "Epic (#3)", en: "Epic (#3)" },
                   { vi: "Kinh tế (Trait 3)", en: "Economy (Trait 3)" },
                   { vi: "Dự bị (Bench)", en: "Bench" },
@@ -500,13 +511,24 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Minister", en: "Minister" },
-                  { vi: "Bộ Trưởng", en: "Minister" },
+                  { vi: "Mục Sư / Bộ Trưởng", en: "Minister" },
                   { vi: "Epic (#6)", en: "Epic (#6)" },
                   { vi: "Kinh tế (Trait 3)", en: "Economy (Trait 3)" },
                   { vi: "Dự bị (Bench)", en: "Bench" },
                   {
                     vi: "Mở khóa +30% Tốc độ Chữa thương Bệnh viện (Hospital Healing Speed) khi đạt 2 Sao Trắng (12 Sao = 300 Mảnh).",
                     en: "Unlocks +30% Hospital Healing Speed upon reaching 2 White Stars (12 Stars = 300 Shards).",
+                  },
+                ],
+                [
+                  { vi: "Blacksmith", en: "Blacksmith" },
+                  { vi: "Thợ Rèn / Nhà Phát Minh", en: "Blacksmith" },
+                  { vi: "Epic", en: "Epic" },
+                  { vi: "Support / Dự bị", en: "Support / Bench" },
+                  { vi: "Dự bị (Bench)", en: "Bench" },
+                  {
+                    vi: "Tướng Tím hỗ trợ giai đoạn tân thủ phe Liên Minh; giữ ở ghế dự bị để kích hoạt chỉ số bộ sưu tập và Liên kết Tướng (Hero Bonds).",
+                    en: "Early-game League Epic support; keep on the bench strictly for collection index stats and Hero Bonds.",
                   },
                 ],
                 [
@@ -529,6 +551,17 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                   {
                     vi: "Không đầu tư tài nguyên; chỉ giữ kích hoạt bộ sưu tập và Liên kết Tướng (Hero Bonds).",
                     en: "Zero resource investment; keep on the bench strictly for collection index and Hero Bonds.",
+                  },
+                ],
+                [
+                  { vi: "Wizard", en: "Wizard" },
+                  { vi: "Pháp Sư / Pháp Sư Già", en: "Wizard" },
+                  { vi: "Rare", en: "Rare" },
+                  { vi: "Tân thủ 24h", en: "24h Starter" },
+                  { vi: "Dự bị (Bench)", en: "Bench" },
+                  {
+                    vi: "Tướng Xanh tân thủ phe Liên Minh; không nâng cấp, chỉ giữ trong kho kích hoạt bộ sưu tập và Liên kết Tướng (Hero Bonds).",
+                    en: "League Rare starter unit; do not upgrade, keep on the bench strictly for collection index and Hero Bonds.",
                   },
                 ],
               ],
@@ -578,79 +611,79 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                   { vi: "Bruiser / Main Tank", en: "Bruiser / Main Tank" },
                   { vi: "Hàng trước", en: "Frontline" },
                   {
-                    vi: "Mở màn kỷ nguyên Bộ Lạc ở Ngày 21; vừa trâu bò vừa chém diện rộng và tự hồi phục cực mạnh. Bộ đồ: Huyết Titan.",
-                    en: "Ushers in the Horde era on Day 21; combines massive frontline durability with AoE cleaves and self-healing. Gear Set: Blood of the Titan.",
+                    vi: "Mở màn kỷ nguyên Bộ Lạc ở Ngày 21; vừa trâu bò vừa chém diện rộng và tự hồi phục cực mạnh. Bộ đồ: Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Huyết Titan).",
+                    en: "Ushers in the Horde era on Day 21; combines massive frontline durability with AoE cleaves and self-healing. Gear Set: Knight Set ➔ Titan's Might (Blood of the Titan).",
                   },
                 ],
                 [
                   { vi: "Storm Maiden", en: "Storm Maiden" },
-                  { vi: "Nữ Thần Bão Tố", en: "Storm Maiden" },
+                  { vi: "Thần Bão Tố / Nữ Thần Bão Tố", en: "Storm Maiden" },
                   { vi: "Mythic (Day 27)", en: "Mythic (Day 27)" },
                   { vi: "Hyper-Carry AoE DPS", en: "Hyper-Carry AoE DPS" },
                   { vi: "Hàng giữa", en: "Midline" },
                   {
-                    vi: "Ra mắt Ngày 27; gọi lốc xoáy sấm sét hủy diệt hàng giữa và hàng sau đối phương. Trụ cột số 1 của Horde S0–S1. Bộ đồ: Kỵ Sĩ Vinh Quang.",
-                    en: "Releases on Day 27; summons lightning tornadoes that shred enemy midline and backline units. #1 Horde carry in S0–S1. Gear Set: Knight's Glory.",
+                    vi: "Ra mắt Ngày 27; gọi lốc xoáy sấm sét hủy diệt hàng giữa và hàng sau đối phương. Trụ cột số 1 của Horde S0–S1. Bộ đồ: Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Kỵ Sĩ Vinh Quang).",
+                    en: "Releases on Day 27; summons lightning tornadoes that shred enemy midline and backline units. #1 Horde carry in S0–S1. Gear Set: Duelist's Set ➔ Fury of Blood (Knight's Glory).",
                   },
                 ],
                 [
                   { vi: "Witch", en: "Witch" },
-                  { vi: "Phù Thủy", en: "Witch" },
+                  { vi: "Vu Nữ / Phù Thủy", en: "Witch" },
                   { vi: "Mythic (Day 41)", en: "Mythic (Day 41)" },
                   { vi: "Mythic Healer / CC", en: "Mythic Healer / CC" },
                   { vi: "Hàng sau", en: "Backline" },
                   {
-                    vi: "Ra mắt Ngày 41; Healer phẩm Đỏ duy nhất giai đoạn đầu, vừa hồi máu toàn đội vừa nguyền rủa giảm thủ kẻ địch. Bộ đồ: Hiền Triết Quang Vinh.",
-                    en: "Releases on Day 41; the only early-game Mythic Healer, providing full-team healing while cursing and shredding enemy DEF. Gear Set: Glory of the Sage.",
+                    vi: "Ra mắt Ngày 41; Healer phẩm Đỏ duy nhất giai đoạn đầu, vừa hồi máu toàn đội vừa nguyền rủa giảm thủ kẻ địch. Bộ đồ: Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Hiền Triết Quang Vinh).",
+                    en: "Releases on Day 41; the only early-game Mythic Healer, providing full-team healing while cursing and shredding enemy DEF. Gear Set: Sage Set ➔ Glorious Light (Glory of the Sage).",
                   },
                 ],
                 [
                   { vi: "Wukong", en: "Wukong" },
-                  { vi: "Tôn Ngộ Không", en: "Monkey King (Wukong)" },
+                  { vi: "Ngộ Không / Tôn Ngộ Không", en: "Monkey King (Wukong)" },
                   { vi: "Mythic (S2)", en: "Mythic (S2)" },
                   { vi: "Hyper-Carry Assassin", en: "Hyper-Carry Assassin" },
                   { vi: "Hàng giữa", en: "Midline" },
                   {
-                    vi: "Siêu phẩm Mùa 2; phân thân và đập gậy Như Ý gây sát thương vật lý gấp 5 lần tướng thường. Bộ đồ: Kỵ Sĩ Vinh Quang.",
-                    en: "Season 2 apex hyper-carry; summons clones and slams his staff for 5x the physical damage of regular heroes. Gear Set: Knight's Glory.",
+                    vi: "Siêu phẩm Mùa 2; phân thân và đập gậy Như Ý gây sát thương vật lý gấp 5 lần tướng thường. Bộ đồ: Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Kỵ Sĩ Vinh Quang).",
+                    en: "Season 2 apex hyper-carry; summons clones and slams his staff for 5x the physical damage of regular heroes. Gear Set: Duelist's Set ➔ Fury of Blood (Knight's Glory).",
                   },
                 ],
                 [
                   { vi: "Beastmaster", en: "Beastmaster" },
-                  { vi: "Thú Tướng", en: "Beastmaster" },
+                  { vi: "Thợ Săn Quái Thú / Thú Tướng", en: "Beastmaster" },
                   { vi: "Mythic (S2)", en: "Mythic (S2)" },
                   { vi: "Ultimate Main Tank", en: "Ultimate Main Tank" },
                   { vi: "Hàng trước", en: "Frontline" },
                   {
-                    vi: "Ra mắt Mùa 2; tạo khiên máu khổng lồ và khống chế cứng tuyến đầu, hoàn thiện bức tường thép Bộ Lạc. Bộ đồ: Huyết Titan.",
-                    en: "Releases in Season 2; generates colossal HP shields and hard frontline crowd control, completing Horde's iron wall. Gear Set: Blood of the Titan.",
+                    vi: "Ra mắt Mùa 2; tạo khiên máu khổng lồ và khống chế cứng tuyến đầu, hoàn thiện bức tường thép Bộ Lạc. Bộ đồ: Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Huyết Titan).",
+                    en: "Releases in Season 2; generates colossal HP shields and hard frontline crowd control, completing Horde's iron wall. Gear Set: Knight Set ➔ Titan's Might (Blood of the Titan).",
                   },
                 ],
                 [
                   { vi: "Shadow Priest", en: "Shadow Priest" },
-                  { vi: "Giáo Sĩ Bóng Tối", en: "Shadow Priest" },
+                  { vi: "Mục Sư Bóng Tối / Giáo Sĩ Bóng Tối", en: "Shadow Priest" },
                   { vi: "Mythic (S3)", en: "Mythic (S3)" },
                   { vi: "Dark Support / DPS", en: "Dark Support / DPS" },
                   { vi: "Hàng sau", en: "Backline" },
                   {
-                    vi: "Ra mắt Mùa 3; thay thế hoàn toàn vị trí tướng Vàng cuối cùng để tạo đội hình 6 Mythic Thuần Bộ Lạc. Bộ đồ: Hiền Triết Quang Vinh.",
-                    en: "Releases in Season 3; replaces the final Legendary slot to complete a 100% 6-Mythic Pure Horde lineup. Gear Set: Glory of the Sage.",
+                    vi: "Ra mắt Mùa 3; thay thế hoàn toàn vị trí tướng Vàng cuối cùng để tạo đội hình 6 Mythic Thuần Bộ Lạc. Bộ đồ: Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Hiền Triết Quang Vinh).",
+                    en: "Releases in Season 3; replaces the final Legendary slot to complete a 100% 6-Mythic Pure Horde lineup. Gear Set: Sage Set ➔ Glorious Light (Glory of the Sage).",
                   },
                 ],
                 [
                   { vi: "Soulmancer", en: "Soulmancer" },
-                  { vi: "Thuật Sĩ Linh Hồn", en: "Soulmancer" },
+                  { vi: "Kẻ Gọi Hồn / Thuật Sĩ Linh Hồn", en: "Soulmancer" },
                   { vi: "Legendary (Awaken)", en: "Legendary (Awaken)" },
                   { vi: "Link Buffer / Support", en: "Link Buffer / Support" },
                   { vi: "Hàng sau", en: "Backline" },
                   {
-                    vi: "Chia sẻ sát thương và cộng hưởng linh hồn tăng công toàn đội Bộ Lạc; ứng viên Thức tỉnh lên Đỏ ở S1. Bộ đồ: Hiền Triết Quang Vinh.",
-                    en: "Links allies to share incoming damage and buffs Horde team ATK; prime Season 1 Awakening candidate. Gear Set: Glory of the Sage.",
+                    vi: "Chia sẻ sát thương và cộng hưởng linh hồn tăng công toàn đội Bộ Lạc; ứng viên Thức tỉnh lên Đỏ ở S1. Bộ đồ: Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Hiền Triết Quang Vinh).",
+                    en: "Links allies to share incoming damage and buffs Horde team ATK; prime Season 1 Awakening candidate. Gear Set: Sage Set ➔ Glorious Light (Glory of the Sage).",
                   },
                 ],
                 [
                   { vi: "Warlock", en: "Warlock" },
-                  { vi: "Pháp Sư Bóng Tối", en: "Warlock" },
+                  { vi: "Pháp Sư Hắc Ám / Pháp Sư Bóng Tối", en: "Warlock" },
                   {
                     vi: "Legendary (Awaken/Econ)",
                     en: "Legendary (Awaken/Econ)",
@@ -678,7 +711,7 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Swordmaster", en: "Swordmaster" },
-                  { vi: "Kiếm Thánh", en: "Swordmaster" },
+                  { vi: "Kiếm Sư / Kiếm Thánh", en: "Swordmaster" },
                   { vi: "Legendary", en: "Legendary" },
                   { vi: "Off-Tank / Bruiser", en: "Off-Tank / Bruiser" },
                   { vi: "Hàng trước", en: "Frontline" },
@@ -689,7 +722,7 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Barbarian", en: "Barbarian" },
-                  { vi: "Chiến Binh Man Rợ", en: "Barbarian" },
+                  { vi: "Man Tộc / Chiến Binh Man Rợ", en: "Barbarian" },
                   { vi: "Legendary", en: "Legendary" },
                   { vi: "Early Tank", en: "Early Tank" },
                   { vi: "Hàng trước", en: "Frontline" },
@@ -700,7 +733,7 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Wanderer", en: "Wanderer" },
-                  { vi: "Kẻ Lang Thang", en: "Wanderer" },
+                  { vi: "Lãng Khách / Kẻ Lang Thang", en: "Wanderer" },
                   { vi: "Legendary", en: "Legendary" },
                   { vi: "Boss DPS", en: "Boss DPS" },
                   { vi: "Hàng giữa / sau", en: "Midline / Backline" },
@@ -711,7 +744,7 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Headhunter", en: "Headhunter" },
-                  { vi: "Thợ Săn Đầu Người", en: "Headhunter" },
+                  { vi: "Kẻ Săn Đầu / Thợ Săn Đầu Người", en: "Headhunter" },
                   { vi: "Legendary (Econ)", en: "Legendary (Econ)" },
                   {
                     vi: "Early Assassin / Kinh tế",
@@ -725,7 +758,7 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Shaman", en: "Shaman" },
-                  { vi: "Pháp Sư Bộ Lạc", en: "Shaman" },
+                  { vi: "Tế Tư / Pháp Sư Bộ Lạc", en: "Shaman" },
                   { vi: "Legendary (Econ)", en: "Legendary (Econ)" },
                   {
                     vi: "Early Healer / Kinh tế",
@@ -750,7 +783,7 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Brawler", en: "Brawler" },
-                  { vi: "Đấu Sĩ", en: "Brawler" },
+                  { vi: "Võ Sĩ / Đấu Sĩ", en: "Brawler" },
                   { vi: "Epic (#1)", en: "Epic (#1)" },
                   { vi: "Kinh tế Vua (Trait 3)", en: "King Economy (Trait 3)" },
                   { vi: "Dự bị (Bench)", en: "Bench" },
@@ -772,7 +805,7 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Outlaw", en: "Outlaw" },
-                  { vi: "Kẻ Ngoài Vòng Pháp Luật", en: "Outlaw" },
+                  { vi: "Kẻ Đào Tẩu / Kẻ Ngoài Vòng Pháp Luật", en: "Outlaw" },
                   { vi: "Epic (#5)", en: "Epic (#5)" },
                   { vi: "Kinh tế (Trait 3)", en: "Economy (Trait 3)" },
                   { vi: "Dự bị (Bench)", en: "Bench" },
@@ -799,12 +832,12 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
         {
           id: "sub-2-3-nature-heroes",
           title: {
-            vi: "2.3. Phe Thiên Nhiên (Nature Faction — Biểu tượng Lá Cây Xanh Lục)",
-            en: "2.3. Nature Faction (Green Leaf Emblem — 16 Heroes)",
+            vi: "2.3. Phe Thiên Nhiên (Nature Faction — Biểu tượng Lá Cây Xanh Lục — 17 Tướng)",
+            en: "2.3. Nature Faction (Green Leaf Emblem — 17 Heroes)",
           },
           badge: {
-            vi: "16 TƯỚNG THIÊN NHIÊN",
-            en: "16 NATURE HEROES",
+            vi: "17 TƯỚNG THIÊN NHIÊN",
+            en: "17 NATURE HEROES",
           },
           blocks: [
             {
@@ -817,8 +850,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
             {
               type: "table",
               caption: {
-                vi: "Danh mục toàn diện 16 tướng Phe Thiên Nhiên (Nature Faction)",
-                en: "Complete 16-Hero Directory for the Nature Faction",
+                vi: "Danh mục toàn diện 17 tướng Phe Thiên Nhiên (Nature Faction)",
+                en: "Complete 17-Hero Directory for the Nature Faction",
               },
               headers: [
                 { vi: "Tên Quốc Tế (EN)", en: "Hero Name (EN)" },
@@ -834,7 +867,7 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
               rows: [
                 [
                   { vi: "Tidecaller", en: "Tidecaller" },
-                  { vi: "Thuật Sĩ Thủy Triều", en: "Tidecaller" },
+                  { vi: "Thủy Triều / Thuật Sĩ Thủy Triều", en: "Tidecaller" },
                   {
                     vi: "Mythic (Cuối S0/S1)",
                     en: "Mythic (Late S0/S1)",
@@ -845,19 +878,19 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                   },
                   { vi: "Hàng giữa", en: "Midline" },
                   {
-                    vi: "Trái tim của hệ Thiên Nhiên: Vừa triệu hồi Thủy tinh linh đỡ đạn, vừa hồi máu và gây sát thương sóng thần. Bộ đồ: Kỵ Sĩ Vinh Quang hoặc Hiền Triết Quang Vinh.",
-                    en: "The beating heart of Nature: summons Water Elementals to soak fire while healing allies and unleashing tidal wave AoE damage. Gear Set: Knight's Glory or Glory of the Sage.",
+                    vi: "Trái tim của hệ Thiên Nhiên: Vừa triệu hồi Thủy tinh linh đỡ đạn, vừa hồi máu và gây sát thương sóng thần. Bộ đồ: Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Kỵ Sĩ Vinh Quang) hoặc Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Hiền Triết Quang Vinh).",
+                    en: "The beating heart of Nature: summons Water Elementals to soak fire while healing allies and unleashing tidal wave AoE damage. Gear Set: Duelist's Set ➔ Fury of Blood (Knight's Glory) or Sage Set ➔ Glorious Light (Glory of the Sage).",
                   },
                 ],
                 [
                   { vi: "Monk", en: "Monk" },
-                  { vi: "Hòa Thượng / Tu Sĩ", en: "Monk" },
+                  { vi: "Tăng Nhân / Hòa Thượng (Tu Sĩ)", en: "Monk" },
                   { vi: "Mythic (S1)", en: "Mythic (S1)" },
                   { vi: "Evasion Main Tank", en: "Evasion Main Tank" },
                   { vi: "Hàng trước", en: "Frontline" },
                   {
-                    vi: "Tanker phẩm Đỏ siêu cứng với khả năng tạo Khiên vàng, miễn nhiễm khống chế và gom địch. Bộ đồ: Huyết Titan.",
-                    en: "Ultra-tanky Mythic frontline with golden shields, crowd-control immunity, and enemy grouping. Gear Set: Blood of the Titan.",
+                    vi: "Tanker phẩm Đỏ siêu cứng với khả năng tạo Khiên vàng, miễn nhiễm khống chế và gom địch. Bộ đồ: Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Huyết Titan).",
+                    en: "Ultra-tanky Mythic frontline with golden shields, crowd-control immunity, and enemy grouping. Gear Set: Knight Set ➔ Titan's Might (Blood of the Titan).",
                   },
                 ],
                 [
@@ -870,13 +903,13 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                   },
                   { vi: "Hàng trước / giữa", en: "Frontline / Midline" },
                   {
-                    vi: "Tướng công-thủ toàn diện bậc nhất game; lướt Hỗn Thiên Lăng đốt cháy toàn màn hình và tự tái sinh. Bộ đồ: Kỵ Sĩ Vinh Quang / Huyết Titan.",
-                    en: "One of the most complete two-way carries in the game; scorches the entire screen and self-revives. Gear Set: Knight's Glory / Blood of the Titan.",
+                    vi: "Tướng công-thủ toàn diện bậc nhất game; lướt Hỗn Thiên Lăng đốt cháy toàn màn hình và tự tái sinh. Bộ đồ: Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Kỵ Sĩ Vinh Quang) / Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Huyết Titan).",
+                    en: "One of the most complete two-way carries in the game; scorches the entire screen and self-revives. Gear Set: Duelist's Set ➔ Fury of Blood (Knight's Glory) / Knight Set ➔ Titan's Might (Blood of the Titan).",
                   },
                 ],
                 [
                   { vi: "Petalis", en: "Petalis" },
-                  { vi: "Tiên Hoa Petalis", en: "Petalis" },
+                  { vi: "Hoa Tiên / Tiên Hoa Petalis", en: "Petalis" },
                   { vi: "Mythic (S3)", en: "Mythic (S3)" },
                   {
                     vi: "Ultimate Nature Support",
@@ -884,13 +917,13 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                   },
                   { vi: "Hàng sau", en: "Backline" },
                   {
-                    vi: "Mảnh ghép Mùa 3 giúp hệ Thiên Nhiên đạt độ bất tử và phản sát thương tối đa. Bộ đồ: Hiền Triết Quang Vinh.",
-                    en: "Season 3 capstone support granting Nature lineups near-immortality and maximum damage reflection. Gear Set: Glory of the Sage.",
+                    vi: "Mảnh ghép Mùa 3 giúp hệ Thiên Nhiên đạt độ bất tử và phản sát thương tối đa. Bộ đồ: Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Hiền Triết Quang Vinh).",
+                    en: "Season 3 capstone support granting Nature lineups near-immortality and maximum damage reflection. Gear Set: Sage Set ➔ Glorious Light (Glory of the Sage).",
                   },
                 ],
                 [
                   { vi: "Pixie", en: "Pixie" },
-                  { vi: "Tiên Nhỏ", en: "Pixie" },
+                  { vi: "Hồ Tiên / Tiên Nhỏ", en: "Pixie" },
                   { vi: "Legendary (Awaken)", en: "Legendary (Awaken)" },
                   {
                     vi: "AoE Burst / Summon DPS",
@@ -898,13 +931,13 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                   },
                   { vi: "Hàng giữa / sau", en: "Midline / Backline" },
                   {
-                    vi: "Nguồn sát thương phép chủ lực đi cặp hoàn hảo với Tidecaller; ưu tiên số 1 để Thức tỉnh lên Đỏ của hệ Nature. Bộ đồ: Kỵ Sĩ Vinh Quang.",
-                    en: "Primary magic burst DPS that pairs seamlessly with Tidecaller; #1 Awakening priority for Nature mains. Gear Set: Knight's Glory.",
+                    vi: "Nguồn sát thương phép chủ lực đi cặp hoàn hảo với Tidecaller; ưu tiên số 1 để Thức tỉnh lên Đỏ của hệ Nature. Bộ đồ: Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Kỵ Sĩ Vinh Quang).",
+                    en: "Primary magic burst DPS that pairs seamlessly with Tidecaller; #1 Awakening priority for Nature mains. Gear Set: Duelist's Set ➔ Fury of Blood (Knight's Glory).",
                   },
                 ],
                 [
                   { vi: "Forest Maiden", en: "Forest Maiden" },
-                  { vi: "Thiếu Nữ Rừng Xanh", en: "Forest Maiden" },
+                  { vi: "Thần Rừng / Thiếu Nữ Rừng Xanh", en: "Forest Maiden" },
                   { vi: "Legendary", en: "Legendary" },
                   {
                     vi: "Summon Buffer / Healer",
@@ -912,19 +945,19 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                   },
                   { vi: "Hàng sau", en: "Backline" },
                   {
-                    vi: "Mỗi khi có đơn vị triệu hồi ngã xuống hoặc xuất hiện, cô cộng dồn Năng lượng và Hồi máu cho toàn đội. Bộ đồ: Hiền Triết Quang Vinh.",
-                    en: "Whenever a summoned unit spawns or falls, she stacks team-wide Energy and Healing. Gear Set: Glory of the Sage.",
+                    vi: "Mỗi khi có đơn vị triệu hồi ngã xuống hoặc xuất hiện, cô cộng dồn Năng lượng và Hồi máu cho toàn đội. Bộ đồ: Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Hiền Triết Quang Vinh).",
+                    en: "Whenever a summoned unit spawns or falls, she stacks team-wide Energy and Healing. Gear Set: Sage Set ➔ Glorious Light (Glory of the Sage).",
                   },
                 ],
                 [
                   { vi: "Sage", en: "Sage" },
-                  { vi: "Hiền Giả", en: "Sage" },
+                  { vi: "Hiền Giả / Hiền Triết", en: "Sage" },
                   { vi: "Legendary (Awaken)", en: "Legendary (Awaken)" },
                   { vi: "Shield Tank / Support", en: "Shield Tank / Support" },
                   { vi: "Hàng trước", en: "Frontline" },
                   {
-                    vi: "Tạo giáp cây và hồi phục bền bỉ cho tuyến đầu; có thể Thức tỉnh lên Đỏ để đứng cặp cùng Monk hoặc Ne Zha. Bộ đồ: Huyết Titan.",
-                    en: "Generates bark shields and sustained frontline regen; can Awaken to Mythic to pair with Monk or Ne Zha. Gear Set: Blood of the Titan.",
+                    vi: "Tạo giáp cây và hồi phục bền bỉ cho tuyến đầu; có thể Thức tỉnh lên Đỏ để đứng cặp cùng Monk hoặc Ne Zha. Bộ đồ: Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Huyết Titan).",
+                    en: "Generates bark shields and sustained frontline regen; can Awaken to Mythic to pair with Monk or Ne Zha. Gear Set: Knight Set ➔ Titan's Might (Blood of the Titan).",
                   },
                 ],
                 [
@@ -965,7 +998,7 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Druid", en: "Druid" },
-                  { vi: "Đại Tư Tế Rừng", en: "Druid" },
+                  { vi: "Tinh Linh / Đại Tư Tế Rừng", en: "Druid" },
                   { vi: "Legendary", en: "Legendary" },
                   {
                     vi: "Pure Healer / Summoner",
@@ -979,7 +1012,7 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Watcher", en: "Watcher" },
-                  { vi: "Người Quan Sát", en: "Watcher" },
+                  { vi: "Cổ Thụ / Người Quan Sát", en: "Watcher" },
                   { vi: "Legendary (Econ)", en: "Legendary (Econ)" },
                   { vi: "Mid-range CC / Kinh tế", en: "Mid-range CC / Economy" },
                   { vi: "Dự bị (Bench)", en: "Bench" },
@@ -990,7 +1023,7 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Pathfinder", en: "Pathfinder" },
-                  { vi: "Người Mở Đường", en: "Pathfinder" },
+                  { vi: "Người Dẫn Đường / Người Mở Đường", en: "Pathfinder" },
                   { vi: "Legendary (Econ)", en: "Legendary (Econ)" },
                   { vi: "Explorer / Kinh tế", en: "Explorer / Economy" },
                   { vi: "Dự bị (Bench)", en: "Bench" },
@@ -1012,7 +1045,7 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 ],
                 [
                   { vi: "Dancer", en: "Dancer" },
-                  { vi: "Vũ Công", en: "Dancer" },
+                  { vi: "Vũ Nữ / Vũ Công", en: "Dancer" },
                   { vi: "Epic (#8)", en: "Epic (#8)" },
                   { vi: "Kinh tế (Trait 3)", en: "Economy (Trait 3)" },
                   { vi: "Dự bị (Bench)", en: "Bench" },
@@ -1030,6 +1063,17 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                   {
                     vi: "Không nâng cấp; giữ trong kho kích điểm bộ sưu tập.",
                     en: "Do not upgrade; keep on the bench strictly for collection index points.",
+                  },
+                ],
+                [
+                  { vi: "Pharmacist", en: "Pharmacist" },
+                  { vi: "Dược Sư", en: "Pharmacist" },
+                  { vi: "Rare", en: "Rare" },
+                  { vi: "Tân thủ 24h", en: "24h Starter" },
+                  { vi: "Dự bị (Bench)", en: "Bench" },
+                  {
+                    vi: "Tướng Xanh tân thủ hệ Thiên Nhiên; không nâng cấp, chỉ giữ trong kho kích hoạt bộ sưu tập và Liên kết Tướng (Hero Bonds).",
+                    en: "Nature Rare starter unit; do not upgrade, keep on the bench strictly for collection index and Hero Bonds.",
                   },
                 ],
               ],
@@ -1202,12 +1246,12 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                 en: "Zero Universal Shard investment; star-up strictly via Tavern hero-specific shards for Economy Traits & Hero Bonds.",
               },
               {
-                vi: "Headhunter, Boar, Watcher, Pathfinder, Hostess, và toàn bộ Tướng Xanh Lam (Rare).",
-                en: "Headhunter, Boar, Watcher, Pathfinder, Hostess, and all Rare (Blue) heroes.",
+                vi: "Headhunter, Boar, Watcher, Pathfinder, Hostess, Lilia Maid, Blacksmith, và toàn bộ Tướng Xanh Lam (Rare: Guardsman, Crossbowman, Wizard, Grunt, Scout, Pharmacist).",
+                en: "Headhunter, Boar, Watcher, Pathfinder, Hostess, Lilia Maid, Blacksmith, and all Rare (Blue: Guardsman, Crossbowman, Wizard, Grunt, Scout, Pharmacist) heroes.",
               },
               {
-                vi: "Secret Keeper, Astrologer, Barbarian, Shaman, Treeguard, Druid, Stonemason (rút khỏi đội hình PvP chính, giữ dự bị lấy Trait Kinh tế).",
-                en: "Secret Keeper, Astrologer, Barbarian, Shaman, Treeguard, Druid, Stonemason (retired from main PvP lineups, kept on bench for Economy Traits).",
+                vi: "Secret Keeper, Astrologer, Barbarian, Shaman, Treeguard, Druid, Stonemason, Lilia Maid (rút khỏi đội hình PvP chính, giữ dự bị lấy Trait Kinh tế & Hero Bonds).",
+                en: "Secret Keeper, Astrologer, Barbarian, Shaman, Treeguard, Druid, Stonemason, Lilia Maid (retired from main PvP lineups, kept on bench for Economy Traits & Hero Bonds).",
               },
             ],
           ],
@@ -1315,8 +1359,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "1★ White (560 Shards) ➔ Max 5★ White (1,000)",
                   },
                   {
-                    vi: "Huyết Titan / Nộ Huyết — Mythic gốc (0 Đá)",
-                    en: "Blood of the Titan — Native Mythic (0 Stones)",
+                    vi: "Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Huyết Titan / Nộ Huyết) — Mythic gốc (0 Đá)",
+                    en: "Knight Set ➔ Titan's Might (Blood of the Titan) — Native Mythic (0 Stones)",
                   },
                 ],
                 [
@@ -1333,8 +1377,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "1★ White (560 Shards) ➔ Max 5★ White (1,000)",
                   },
                   {
-                    vi: "Kỵ Sĩ Vinh Quang — Mythic gốc (0 Đá)",
-                    en: "Knight's Glory — Native Mythic (0 Stones)",
+                    vi: "Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Kỵ Sĩ Vinh Quang) — Mythic gốc (0 Đá)",
+                    en: "Duelist's Set ➔ Fury of Blood (Knight's Glory) — Native Mythic (0 Stones)",
                   },
                 ],
                 [
@@ -1351,8 +1395,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "1★ White (560 Shards) (Full heal/debuff value)",
                   },
                   {
-                    vi: "Hiền Triết Quang Vinh — Mythic gốc (0 Đá)",
-                    en: "Glory of the Sage — Native Mythic (0 Stones)",
+                    vi: "Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Hiền Triết Quang Vinh) — Mythic gốc (0 Đá)",
+                    en: "Sage Set ➔ Glorious Light (Glory of the Sage) — Native Mythic (0 Stones)",
                   },
                 ],
                 [
@@ -1369,8 +1413,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "Max 5★ White (1,000 Shards) (#1 S2 Priority)",
                   },
                   {
-                    vi: "Kỵ Sĩ Vinh Quang — Mythic gốc (0 Đá)",
-                    en: "Knight's Glory — Native Mythic (0 Stones)",
+                    vi: "Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Kỵ Sĩ Vinh Quang) — Mythic gốc (0 Đá)",
+                    en: "Duelist's Set ➔ Fury of Blood (Knight's Glory) — Native Mythic (0 Stones)",
                   },
                 ],
                 [
@@ -1387,8 +1431,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "1★ White (560 Shards) ➔ 3★ White",
                   },
                   {
-                    vi: "Huyết Titan / Nộ Huyết — Mythic gốc (0 Đá)",
-                    en: "Blood of the Titan — Native Mythic (0 Stones)",
+                    vi: "Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Huyết Titan / Nộ Huyết) — Mythic gốc (0 Đá)",
+                    en: "Knight Set ➔ Titan's Might (Blood of the Titan) — Native Mythic (0 Stones)",
                   },
                 ],
                 [
@@ -1402,8 +1446,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                   { vi: "1★ Đỏ (160 Mảnh)", en: "1★ Red (160 Shards)" },
                   { vi: "1★ Trắng (560 Mảnh)", en: "1★ White (560 Shards)" },
                   {
-                    vi: "Hiền Triết Quang Vinh — Mythic gốc (0 Đá)",
-                    en: "Glory of the Sage — Native Mythic (0 Stones)",
+                    vi: "Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Hiền Triết Quang Vinh) — Mythic gốc (0 Đá)",
+                    en: "Sage Set ➔ Glorious Light (Glory of the Sage) — Native Mythic (0 Stones)",
                   },
                 ],
                 [
@@ -1420,8 +1464,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "2★ White (300 Shards) + Mythic Awakening",
                   },
                   {
-                    vi: "Hiền Triết Quang Vinh — 9 Hồn Đá Đỏ (Soul Stones) + 345–385 Mảnh Tướng",
-                    en: "Glory of the Sage — 9 Red Soul Stones + 345–385 Hero Shards",
+                    vi: "Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Hiền Triết Quang Vinh) — 9 Đá Linh Hồn (9 Hồn Đá Đỏ / Soul Stones) + 345–385 Mảnh Tướng",
+                    en: "Sage Set ➔ Glorious Light (Glory of the Sage) — 9 Red Soul Stones + 345–385 Hero Shards",
                   },
                 ],
                 [
@@ -1438,8 +1482,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "2★ White (300 Shards) + Mythic Awakening",
                   },
                   {
-                    vi: "Hiền Triết Quang Vinh — 9 Hồn Đá Đỏ (Soul Stones) + 345–385 Mảnh Tướng",
-                    en: "Glory of the Sage — 9 Red Soul Stones + 345–385 Hero Shards",
+                    vi: "Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Hiền Triết Quang Vinh) — 9 Đá Linh Hồn (9 Hồn Đá Đỏ / Soul Stones) + 345–385 Mảnh Tướng",
+                    en: "Sage Set ➔ Glorious Light (Glory of the Sage) — 9 Red Soul Stones + 345–385 Hero Shards",
                   },
                 ],
                 [
@@ -1456,8 +1500,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "1★ White (560 Shards) ➔ Max 5★ White (1,000)",
                   },
                   {
-                    vi: "Kỵ Sĩ Vinh Quang — Mythic gốc (0 Đá)",
-                    en: "Knight's Glory — Native Mythic (0 Stones)",
+                    vi: "Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Kỵ Sĩ Vinh Quang) — Mythic gốc (0 Đá)",
+                    en: "Duelist's Set ➔ Fury of Blood (Knight's Glory) — Native Mythic (0 Stones)",
                   },
                 ],
                 [
@@ -1474,8 +1518,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "1★ White (560 Shards) ➔ 3★ White",
                   },
                   {
-                    vi: "Huyết Titan / Nộ Huyết — Mythic gốc (0 Đá)",
-                    en: "Blood of the Titan — Native Mythic (0 Stones)",
+                    vi: "Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Huyết Titan / Nộ Huyết) — Mythic gốc (0 Đá)",
+                    en: "Knight Set ➔ Titan's Might (Blood of the Titan) — Native Mythic (0 Stones)",
                   },
                 ],
                 [
@@ -1492,8 +1536,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "3★ White (720 Shards) (Needs high stars to burst)",
                   },
                   {
-                    vi: "Kỵ Sĩ Vinh Quang — Mythic gốc (0 Đá)",
-                    en: "Knight's Glory — Native Mythic (0 Stones)",
+                    vi: "Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Kỵ Sĩ Vinh Quang) — Mythic gốc (0 Đá)",
+                    en: "Duelist's Set ➔ Fury of Blood (Knight's Glory) — Native Mythic (0 Stones)",
                   },
                 ],
                 [
@@ -1510,8 +1554,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "1★ White (560 Shards) ➔ 3★ White",
                   },
                   {
-                    vi: "Hiền Triết Quang Vinh — Mythic gốc (0 Đá)",
-                    en: "Glory of the Sage — Native Mythic (0 Stones)",
+                    vi: "Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Hiền Triết Quang Vinh) — Mythic gốc (0 Đá)",
+                    en: "Sage Set ➔ Glorious Light (Glory of the Sage) — Native Mythic (0 Stones)",
                   },
                 ],
                 [
@@ -1528,8 +1572,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "Max 5★ White (500 Shards) + Awakening",
                   },
                   {
-                    vi: "Kỵ Sĩ Vinh Quang — 9 Hồn Đá Đỏ (Soul Stones) + 345–385 Mảnh Tướng",
-                    en: "Knight's Glory — 9 Red Soul Stones + 345–385 Hero Shards",
+                    vi: "Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Kỵ Sĩ Vinh Quang) — 9 Đá Linh Hồn (9 Hồn Đá Đỏ / Soul Stones) + 345–385 Mảnh Tướng",
+                    en: "Duelist's Set ➔ Fury of Blood (Knight's Glory) — 9 Red Soul Stones + 345–385 Hero Shards",
                   },
                 ],
                 [
@@ -1546,8 +1590,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "2★–5★ White (300–500 Shards) + Awakening",
                   },
                   {
-                    vi: "Huyết Titan / Nộ Huyết — 9 Hồn Đá Đỏ (Soul Stones) + 345–385 Mảnh Tướng",
-                    en: "Blood of the Titan — 9 Red Soul Stones + 345–385 Hero Shards",
+                    vi: "Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Huyết Titan / Nộ Huyết) — 9 Đá Linh Hồn (9 Hồn Đá Đỏ / Soul Stones) + 345–385 Mảnh Tướng",
+                    en: "Knight Set ➔ Titan's Might (Blood of the Titan) — 9 Red Soul Stones + 345–385 Hero Shards",
                   },
                 ],
                 [
@@ -1564,8 +1608,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "2★ White (300 Shards) + Awakening",
                   },
                   {
-                    vi: "Hiền Triết Quang Vinh — 9 Hồn Đá Đỏ (Soul Stones) + 345–385 Mảnh Tướng",
-                    en: "Glory of the Sage — 9 Red Soul Stones + 345–385 Hero Shards",
+                    vi: "Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Hiền Triết Quang Vinh) — 9 Đá Linh Hồn (9 Hồn Đá Đỏ / Soul Stones) + 345–385 Mảnh Tướng",
+                    en: "Sage Set ➔ Glorious Light (Glory of the Sage) — 9 Red Soul Stones + 345–385 Hero Shards",
                   },
                 ],
                 [
@@ -1582,8 +1626,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "2★ White (300 Shards) (Unlocks +40% Construction)",
                   },
                   {
-                    vi: "Hiền Triết Quang Vinh — Tuỳ chọn (Ưu tiên sau Pyro/Adj)",
-                    en: "Glory of the Sage — Optional (After Pyro/Adj)",
+                    vi: "Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Hiền Triết Quang Vinh) — Tuỳ chọn (Ưu tiên sau Pyro/Adj)",
+                    en: "Sage Set ➔ Glorious Light (Glory of the Sage) — Optional (After Pyro/Adj)",
                   },
                 ],
                 [
@@ -1600,8 +1644,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "Max 5★ White (1,000 Shards) (Core #1 Nature)",
                   },
                   {
-                    vi: "Kỵ Sĩ Vinh Quang / Hiền Triết Quang Vinh — Mythic gốc (0 Đá)",
-                    en: "Knight's Glory / Glory of the Sage — Native Mythic (0 Stones)",
+                    vi: "Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Kỵ Sĩ Vinh Quang) / Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Hiền Triết Quang Vinh) — Mythic gốc (0 Đá)",
+                    en: "Duelist's Set ➔ Fury of Blood (Knight's Glory) / Sage Set ➔ Glorious Light (Glory of the Sage) — Native Mythic (0 Stones)",
                   },
                 ],
                 [
@@ -1618,8 +1662,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "1★ White (560 Shards) ➔ 3★ White",
                   },
                   {
-                    vi: "Huyết Titan / Nộ Huyết — Mythic gốc (0 Đá)",
-                    en: "Blood of the Titan — Native Mythic (0 Stones)",
+                    vi: "Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Huyết Titan / Nộ Huyết) — Mythic gốc (0 Đá)",
+                    en: "Knight Set ➔ Titan's Might (Blood of the Titan) — Native Mythic (0 Stones)",
                   },
                 ],
                 [
@@ -1636,8 +1680,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "Max 5★ White (1,000 Shards) (Core #2 Nature)",
                   },
                   {
-                    vi: "Kỵ Sĩ Vinh Quang / Huyết Titan — Mythic gốc (0 Đá)",
-                    en: "Knight's Glory / Blood of the Titan — Native Mythic (0 Stones)",
+                    vi: "Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Kỵ Sĩ Vinh Quang) / Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Huyết Titan) — Mythic gốc (0 Đá)",
+                    en: "Duelist's Set ➔ Fury of Blood (Knight's Glory) / Knight Set ➔ Titan's Might (Blood of the Titan) — Native Mythic (0 Stones)",
                   },
                 ],
                 [
@@ -1651,8 +1695,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                   { vi: "1★ Đỏ (160 Mảnh)", en: "1★ Red (160 Shards)" },
                   { vi: "1★ Trắng (560 Mảnh)", en: "1★ White (560 Shards)" },
                   {
-                    vi: "Hiền Triết Quang Vinh — Mythic gốc (0 Đá)",
-                    en: "Glory of the Sage — Native Mythic (0 Stones)",
+                    vi: "Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Hiền Triết Quang Vinh) — Mythic gốc (0 Đá)",
+                    en: "Sage Set ➔ Glorious Light (Glory of the Sage) — Native Mythic (0 Stones)",
                   },
                 ],
                 [
@@ -1669,8 +1713,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "2★–5★ White (300–500 Shards) + Awakening",
                   },
                   {
-                    vi: "Kỵ Sĩ Vinh Quang — 9 Hồn Đá Đỏ (Soul Stones) + 345–385 Mảnh Tướng",
-                    en: "Knight's Glory — 9 Red Soul Stones + 345–385 Hero Shards",
+                    vi: "Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Kỵ Sĩ Vinh Quang) — 9 Đá Linh Hồn (9 Hồn Đá Đỏ / Soul Stones) + 345–385 Mảnh Tướng",
+                    en: "Duelist's Set ➔ Fury of Blood (Knight's Glory) — 9 Red Soul Stones + 345–385 Hero Shards",
                   },
                 ],
                 [
@@ -1684,8 +1728,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                   { vi: "1★ Đỏ (80 Mảnh)", en: "1★ Red (80 Shards)" },
                   { vi: "2★ Trắng (300 Mảnh)", en: "2★ White (300 Shards)" },
                   {
-                    vi: "Hiền Triết Quang Vinh — Tuỳ chọn",
-                    en: "Glory of the Sage — Optional",
+                    vi: "Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Hiền Triết Quang Vinh) — Tuỳ chọn",
+                    en: "Sage Set ➔ Glorious Light (Glory of the Sage) — Optional",
                   },
                 ],
                 [
@@ -1702,8 +1746,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
                     en: "2★ White (300 Shards) + Awakening",
                   },
                   {
-                    vi: "Huyết Titan / Nộ Huyết — 9 Hồn Đá Đỏ (Soul Stones) + 345–385 Mảnh Tướng",
-                    en: "Blood of the Titan — 9 Red Soul Stones + 345–385 Hero Shards",
+                    vi: "Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Huyết Titan / Nộ Huyết) — 9 Đá Linh Hồn (9 Hồn Đá Đỏ / Soul Stones) + 345–385 Mảnh Tướng",
+                    en: "Knight Set ➔ Titan's Might (Blood of the Titan) — 9 Red Soul Stones + 345–385 Hero Shards",
                   },
                 ],
                 [

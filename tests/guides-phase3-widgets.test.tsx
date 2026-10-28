@@ -131,8 +131,8 @@ describe("Phase 3 — Interactive Widgets & GuideArticleRenderer Integration", (
     });
   });
 
-  describe("Suite 1: HeroEncyclopediaWidget (51 SSoT Heroes)", () => {
-    it("extracts and displays all 51 heroes by default and filters instantaneously by Faction, Rarity, Role, and Search", () => {
+  describe("Suite 1: HeroEncyclopediaWidget (55 SSoT Heroes)", () => {
+    it("extracts and displays all 55 heroes by default and filters instantaneously by Faction, Rarity, Role, and Search", () => {
       render(
         <HeroEncyclopediaWidget
           article={ARTICLE_2_1_ENCYCLOPEDIA}
@@ -142,44 +142,46 @@ describe("Phase 3 — Interactive Widgets & GuideArticleRenderer Integration", (
 
       expect(screen.getByTestId("widget-hero-encyclopedia")).toBeDefined();
       expect(screen.getByTestId("hero-results-count").textContent).toContain(
-        "51 / 51"
+        "55 / 55"
       );
 
       // Filter by Horde (19 heroes)
       fireEvent.click(screen.getByTestId("hero-filter-faction-horde"));
       expect(screen.getByTestId("hero-results-count").textContent).toContain(
-        "19 / 51"
+        "19 / 55"
       );
 
       // Filter by League (16 heroes)
       fireEvent.click(screen.getByTestId("hero-filter-faction-league"));
+      expect(screen.getByTestId("hero-results-count").textContent).toContain("19 / 55");
+      fireEvent.click(screen.getByTestId("hero-filter-faction-nature"));
       expect(screen.getByTestId("hero-results-count").textContent).toContain(
-        "16 / 51"
+        "17 / 55"
       );
 
       // Filter by Nature (16 heroes)
       fireEvent.click(screen.getByTestId("hero-filter-faction-nature"));
       expect(screen.getByTestId("hero-results-count").textContent).toContain(
-        "16 / 51"
+        "17 / 55"
       );
 
       // Reset Faction to All, then filter by Economy Passive (18 heroes)
       fireEvent.click(screen.getByTestId("hero-filter-faction-all"));
       fireEvent.click(screen.getByTestId("hero-filter-role-economy"));
       expect(screen.getByTestId("hero-results-count").textContent).toContain(
-        "18 / 51"
+        "18 / 55"
       );
 
       // Reset all filters and search for "Ngộ Không"
       fireEvent.click(screen.getByTestId("hero-reset-filters"));
       expect(screen.getByTestId("hero-results-count").textContent).toContain(
-        "51 / 51"
+        "55 / 55"
       );
 
       const searchInput = screen.getByTestId("hero-search-input");
       fireEvent.change(searchInput, { target: { value: "Ngộ Không" } });
       expect(screen.getByTestId("hero-results-count").textContent).toContain(
-        "1 / 51"
+        "1 / 55"
       );
       expect(screen.getByText(/Wukong/i)).toBeDefined();
     });
@@ -201,7 +203,7 @@ describe("Phase 3 — Interactive Widgets & GuideArticleRenderer Integration", (
       });
 
       expect(screen.getByTestId("hero-results-count").textContent).toContain(
-        "19 / 51"
+        "19 / 55"
       );
 
       act(() => {
@@ -213,7 +215,7 @@ describe("Phase 3 — Interactive Widgets & GuideArticleRenderer Integration", (
       });
 
       expect(screen.getByTestId("hero-results-count").textContent).toContain(
-        "18 / 51"
+        "18 / 55"
       );
     });
   });

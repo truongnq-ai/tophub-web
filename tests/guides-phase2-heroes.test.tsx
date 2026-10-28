@@ -11,7 +11,7 @@ import { ARTICLE_2_2_META_LINEUPS } from "@/content/guides/groups/group-2/2.2-me
 import { ARTICLE_2_3_FORMATION_COUNTERS } from "@/content/guides/groups/group-2/2.3-formation-and-counters";
 import { ARTICLE_2_4_SHARDS_SKILL_BOOKS } from "@/content/guides/groups/group-2/2.4-shards-and-skill-books";
 import { ARTICLE_2_5_EPIC_HERO_TRAITS } from "@/content/guides/groups/group-2/2.5-epic-hero-traits";
-import { HERO_VISUAL_PROFILES } from "@/content/guides/asset-registry";
+import { HERO_VISUAL_PROFILES, getHeroVisualProfile } from "@/content/guides/asset-registry";
 
 let activeMockLocale: "vi" | "en" = "vi";
 
@@ -72,10 +72,10 @@ describe("Phase 2 — Group 2 Heroes & Formations Visual Upgrade", () => {
       );
     });
 
-    it("renders faction crest WebP icons in filter pills and 56x56 GameAssetFrame avatars on all 51 hero cards", () => {
+    it("renders faction crest WebP icons in filter pills and 56x56 GameAssetFrame avatars on all 55 hero cards", () => {
       const { container } = render(<HeroEncyclopediaWidget locale="vi" />);
 
-      expect(screen.getByTestId("hero-results-count").textContent).toContain("51");
+      expect(screen.getByTestId("hero-results-count").textContent).toContain("55");
 
       const hordeFilter = screen.getByTestId("hero-filter-faction-horde");
       const leagueFilter = screen.getByTestId("hero-filter-faction-league");
@@ -115,7 +115,15 @@ describe("Phase 2 — Group 2 Heroes & Formations Visual Upgrade", () => {
 
       // Check GAP-04 lazy loading on all images
       const allImgs = Array.from(container.querySelectorAll("img"));
-      expect(allImgs.length).toBeGreaterThanOrEqual(54);
+      // Verify the 4 newly synchronized base heroes (Lilia Maid, Blacksmith, Wizard, Pharmacist)
+      expect(getHeroVisualProfile("Blacksmith")?.id).toBe("hero-inventor");
+      expect(screen.getByTestId("hero-card-lilia-maid")).toBeDefined();
+      expect(screen.getByTestId("hero-card-blacksmith")).toBeDefined();
+      expect(screen.getByTestId("hero-card-wizard")).toBeDefined();
+      expect(screen.getByTestId("hero-card-pharmacist")).toBeDefined();
+      expect(container.textContent).toContain("Đấng Toàn Năng");
+      expect(container.textContent).toContain("Thẩm Phán Quan");
+      expect(allImgs.length).toBeGreaterThanOrEqual(58);
       for (const img of allImgs) {
         expect(img.getAttribute("loading")).toBe("lazy");
         expect(img.getAttribute("decoding")).toBe("async");

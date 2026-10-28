@@ -928,72 +928,90 @@ export const GAME_ASSET_REGISTRY: Readonly<Record<string, GameAssetEntry>> = {
   "gear-set-blood-of-the-titan": {
     "aliases": [
       "gear-set-blood-of-the-titan",
+      "Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Huyết Titan / Nộ Huyết)",
+      "Knight Set ➔ Titan's Might (Blood of the Titan)",
       "Huyết Titan / Nộ Huyết (Blood of the Titan)",
       "Blood of the Titan (Fury of Blood)",
       "Huyết Titan / Nộ Huyết",
       "Blood of the Titan",
       "Huyết Titan",
       "Nộ Huyết",
-      "Fury of Blood"
+      "Bộ Đồ Titan",
+      "Titan's Might",
+      "Bộ Kỵ Sĩ",
+      "Knight Set"
     ],
     "category": "equipment",
-    "descEn": "Signature Golden Gear set for Main Tanks & Bruisers — maximizes % HP, Damage Reduction, and opening HP Shields.",
-    "descVi": "Bộ Trang bị Vàng trấn phái cho Main Tank & Bruiser — tối đa hóa % HP, Giảm sát thương và Khiên đầu trận.",
+    "descEn": "Signature Golden-to-Mythic Gear set (Knight Set ➔ Titan's Might / Blood of the Titan) for Main Tanks & Bruisers — maximizes % HP, Damage Reduction, and opening HP Shields.",
+    "descVi": "Bộ Trang bị Vàng ➔ Đỏ trấn phái (Bộ Kỵ Sĩ ➔ Bộ Đồ Titan / Huyết Titan) cho Main Tank & Bruiser — tối đa hóa % HP, Giảm sát thương và Khiên đầu trận.",
     "faction": "horde",
     "gameId": null,
     "glossaryId": "gear-set-blood-of-the-titan",
     "iconPath": "/images/items/consumables/icon_30222.webp",
     "id": "gear-set-blood-of-the-titan",
-    "inGameNameEn": "Blood of the Titan",
-    "inGameNameVi": "Huyết Titan / Nộ Huyết",
-    "nameEn": "Blood of the Titan (Fury of Blood)",
-    "nameVi": "Huyết Titan / Nộ Huyết (Blood of the Titan)",
+    "inGameNameEn": "Knight Set ➔ Titan's Might (Blood of the Titan)",
+    "inGameNameVi": "Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Huyết Titan)",
+    "nameEn": "Knight Set ➔ Titan's Might (Blood of the Titan)",
+    "nameVi": "Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Huyết Titan / Nộ Huyết)",
     "rarity": "mythic"
   },
   "gear-set-glory-of-the-sage": {
     "aliases": [
       "gear-set-glory-of-the-sage",
+      "Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Hiền Triết Quang Vinh)",
+      "Sage Set ➔ Glorious Light (Glory of the Sage)",
       "Hiền Triết Quang Vinh (Glory of the Sage)",
       "Glory of the Sage",
       "Hiền Triết Quang Vinh",
       "Hiền Triết",
-      "Glory of the Sage Set"
+      "Glory of the Sage Set",
+      "Bộ Hiền Giả",
+      "Sage Set",
+      "Ánh Sáng Vinh Quang",
+      "Glorious Light"
     ],
     "category": "equipment",
-    "descEn": "Signature Golden Gear set for Supports, Healers & Controllers — boosts Attack Speed, Cooldown Reduction, and Energy Regen.",
-    "descVi": "Bộ Trang bị Vàng trấn phái cho Support, Healer & Controller — tăng Tốc đánh, Giảm hồi chiêu và Hồi Năng lượng.",
+    "descEn": "Signature Golden-to-Mythic Gear set (Sage Set ➔ Glorious Light / Glory of the Sage) for Supports, Healers & Controllers — boosts Attack Speed, Cooldown Reduction, and Energy Regen.",
+    "descVi": "Bộ Trang bị Vàng ➔ Đỏ trấn phái (Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang / Hiền Triết Quang Vinh) cho Support, Healer & Controller — tăng Tốc đánh, Giảm hồi chiêu và Hồi Năng lượng.",
     "faction": "nature",
     "gameId": null,
     "glossaryId": "gear-set-glory-of-the-sage",
     "iconPath": "/images/equipment/hero-gear/icon_40009.webp",
     "id": "gear-set-glory-of-the-sage",
-    "inGameNameEn": "Glory of the Sage",
-    "inGameNameVi": "Hiền Triết Quang Vinh",
-    "nameEn": "Glory of the Sage",
-    "nameVi": "Hiền Triết Quang Vinh (Glory of the Sage)",
+    "inGameNameEn": "Sage Set ➔ Glorious Light (Glory of the Sage)",
+    "inGameNameVi": "Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Hiền Triết Quang Vinh)",
+    "nameEn": "Sage Set ➔ Glorious Light (Glory of the Sage)",
+    "nameVi": "Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Hiền Triết Quang Vinh)",
     "rarity": "mythic"
   },
   "gear-set-knights-glory": {
     "aliases": [
       "gear-set-knights-glory",
+      "Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Kỵ Sĩ Vinh Quang)",
+      "Duelist's Set ➔ Fury of Blood (Knight's Glory)",
       "Kỵ Sĩ Vinh Quang (Knight's Glory)",
       "Knight's Glory",
       "Kỵ Sĩ Vinh Quang",
       "Bộ Kỵ Sĩ",
-      "Knight's Glory Set"
+      "Knight's Glory Set",
+      "Bộ Đồ Quyết Đấu",
+      "Duelist's Set",
+      "Cơn Thịnh Nộ",
+      "Fury of Blood",
+      "Cuồng Chiến"
     ],
     "category": "equipment",
-    "descEn": "Signature Golden Gear set for Hyper-Carry Burst/Skill DPS — amplifies Skill Damage and Critical Rate.",
-    "descVi": "Bộ Trang bị Vàng trấn phái cho Hyper-Carry DPS — khuếch đại Sát thương Kỹ năng và Tỷ lệ Chí mạng.",
+    "descEn": "Signature Golden-to-Mythic Gear set (Duelist's Set ➔ Fury of Blood / Knight's Glory) for Hyper-Carry Burst/Skill DPS — amplifies Skill Damage and Critical Rate.",
+    "descVi": "Bộ Trang bị Vàng ➔ Đỏ trấn phái (Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ / Kỵ Sĩ Vinh Quang) cho Hyper-Carry DPS — khuếch đại Sát thương Kỹ năng và Tỷ lệ Chí mạng.",
     "faction": "league",
     "gameId": null,
     "glossaryId": "gear-set-knights-glory",
     "iconPath": "/images/equipment/hero-gear/icon_40005.webp",
     "id": "gear-set-knights-glory",
-    "inGameNameEn": "Knight's Glory",
-    "inGameNameVi": "Kỵ Sĩ Vinh Quang",
-    "nameEn": "Knight's Glory",
-    "nameVi": "Kỵ Sĩ Vinh Quang (Knight's Glory)",
+    "inGameNameEn": "Duelist's Set ➔ Fury of Blood (Knight's Glory)",
+    "inGameNameVi": "Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Kỵ Sĩ Vinh Quang)",
+    "nameEn": "Duelist's Set ➔ Fury of Blood (Knight's Glory)",
+    "nameVi": "Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Kỵ Sĩ Vinh Quang)",
     "rarity": "mythic"
   },
   "gear-slot-armor-knight": {
@@ -13344,7 +13362,19 @@ export function getAssetByGlossaryId(glossaryId: string): GameAssetEntry | undef
 }
 
 export function getHeroVisualProfile(idOrName: string): HeroVisualProfile | undefined {
+  if (!idOrName) return undefined;
   if (HERO_VISUAL_PROFILES[idOrName]) return HERO_VISUAL_PROFILES[idOrName];
+  const lower = idOrName.trim().toLowerCase();
+  for (const prof of Object.values(HERO_VISUAL_PROFILES)) {
+    if (
+      prof.inGameNameEn.toLowerCase() === lower ||
+      prof.nameEn.toLowerCase() === lower ||
+      prof.inGameNameVi.toLowerCase() === lower ||
+      prof.nameVi.toLowerCase() === lower
+    ) {
+      return prof;
+    }
+  }
   const asset = resolveEntityFromCodeToken(idOrName);
   if (asset && HERO_VISUAL_PROFILES[asset.id]) return HERO_VISUAL_PROFILES[asset.id];
   return undefined;
@@ -13408,13 +13438,21 @@ export function resolveGearSetAssetsFromText(
     const entry = GAME_ASSET_REGISTRY[id];
     if (entry && !sets.some((s) => s.id === entry.id)) sets.push(entry);
   };
-  if (/titan|nộ huyết|fury of blood/.test(lower)) {
+  if (/titan|nộ huyết|bộ kỵ sĩ\b|knight set/.test(lower)) {
     pushSet('gear-set-blood-of-the-titan');
   }
-  if (/knight|kỵ sĩ vinh quang|vinh quang kỵ sĩ/.test(lower)) {
+  if (
+    /knight(?!\s*set)|kỵ sĩ vinh quang|vinh quang kỵ sĩ|quyết đấu|duelist|cơn thịnh nộ|fury of blood|cuồng chiến/.test(
+      lower
+    )
+  ) {
     pushSet('gear-set-knights-glory');
   }
-  if (/sage|hiền triết|hiền nhân/.test(lower)) {
+  if (
+    /sage|hiền triết|hiền nhân|bộ hiền giả|ánh sáng vinh quang|glorious light/.test(
+      lower
+    )
+  ) {
     pushSet('gear-set-glory-of-the-sage');
   }
   if (sets.length === 0 && fallbackFaction) {
