@@ -241,6 +241,77 @@ describe("Phase 2 — Group 2 Heroes & Formations Visual Upgrade", () => {
       expect(VI_DIACRITIC_REGEX.test(container.textContent || "")).toBe(false);
       expect(container.innerHTML).not.toMatch(/border-l-[24]|rounded-l-sm/);
     });
+
+    it("renders canonical In-Game Dual-Naming (VI) across all 6 LINEUP_PRESETS and resolves Wukong DPS gear set in VI", () => {
+      const { container } = render(<TacticalFormationBoardWidget locale="vi" />);
+
+      // 1. Default preset: league-starter
+      expect(container.textContent).toContain("Thẩm Phán (Adjudicator)");
+      expect(container.textContent).toContain("Người Giữ Bí Mật (Secret Keeper)");
+      expect(container.textContent).toContain("Pháp Sư Lửa (Pyromancer)");
+      expect(container.textContent).toContain("Thiện Xạ (Paragon) / Chiêm Tinh Gia (Astrologer)");
+      expect(container.textContent).toContain("Nữ Tu (Nun)");
+      expect(container.textContent).toContain("Nhà Thơ (Bard)");
+      expect(container.textContent).toContain("Đá Linh Hồn (Hồn Đá Đỏ / Soul Stone)");
+
+      // 2. Switch to horde-endgame and inspect Slot 3 (Wukong)
+      fireEvent.click(screen.getByTestId("formation-lineup-pill-horde-endgame"));
+      expect(container.textContent).toContain("Thú Tướng (Beastmaster)");
+      expect(container.textContent).toContain("Tôn Ngộ Không (Wukong)");
+      expect(container.textContent).toContain("Nữ Thần Bão Tố (Storm Maiden)");
+      expect(container.textContent).toContain("Phù Thủy (Witch)");
+      expect(container.textContent).toContain("Thuật Sĩ Linh Hồn (Soulmancer)");
+
+      fireEvent.click(screen.getByTestId("formation-slot-3"));
+      const loadoutStrip = screen.getByTestId("formation-inspector-loadout");
+      const loadoutSrcs = Array.from(loadoutStrip.querySelectorAll("img")).map(
+        (img) => img.getAttribute("src") || ""
+      );
+      expect(loadoutSrcs).toContain("/images/heroes/avatars/Head_10047.webp");
+      expect(loadoutSrcs).toContain("/images/equipment/exclusive-weapons/equipment_Exclusive006.webp");
+      expect(loadoutSrcs).toContain("/images/equipment/hero-gear/icon_40005.webp");
+
+      // 3. Switch to nature-endgame
+      fireEvent.click(screen.getByTestId("formation-lineup-pill-nature-endgame"));
+      expect(container.textContent).toContain("Hòa Thượng (Monk)");
+      expect(container.textContent).toContain("Na Tra (Ne Zha)");
+      expect(container.textContent).toContain("Thuật Sĩ Thủy Triều (Tidecaller)");
+      expect(container.textContent).toContain("Tiên Nhỏ Đỏ (Pixie · Thức Tỉnh)");
+      expect(container.textContent).toContain("Thiếu Nữ Rừng Xanh Đỏ (Forest Maiden · Thức Tỉnh)");
+      expect(container.textContent).toContain("Tiên Hoa Petalis (Petalis)");
+
+      // 4. Switch to swaps mode in VI and verify Dual-Naming in all 4 scenarios
+      fireEvent.click(screen.getByTestId("formation-mode-swaps"));
+      expect(container.textContent).toContain("Tôn Ngộ Không / Wukong");
+      fireEvent.click(screen.getByTestId("arena-swap-pill-4"));
+      expect(container.textContent).toContain("Thuật Sĩ Thủy Triều / Tidecaller");
+    });
+
+    it("maintains 100% English purity across all 6 presets (36 slots) and all 4 arena swaps when locale='en'", () => {
+      const { container } = render(<TacticalFormationBoardWidget locale="en" />);
+      const presetIds = [
+        "league-starter",
+        "league-endgame",
+        "horde-hybrid",
+        "horde-endgame",
+        "nature-transition",
+        "nature-endgame",
+      ];
+
+      for (const presetId of presetIds) {
+        fireEvent.click(within(container).getByTestId(`formation-lineup-pill-${presetId}`));
+        for (let slot = 1; slot <= 6; slot++) {
+          fireEvent.click(within(container).getByTestId(`formation-slot-${slot}`));
+          expect(VI_DIACRITIC_REGEX.test(container.textContent || "")).toBe(false);
+        }
+      }
+
+      fireEvent.click(within(container).getByTestId("formation-mode-swaps"));
+      for (let swapIdx = 1; swapIdx <= 4; swapIdx++) {
+        fireEvent.click(within(container).getByTestId(`arena-swap-pill-${swapIdx}`));
+        expect(VI_DIACRITIC_REGEX.test(container.textContent || "")).toBe(false);
+      }
+    });
   });
 
   describe("Suite 3: Task P2.3 — Group 2 Articles (2.1..2.5) Visual Integration & Regression Guards", () => {

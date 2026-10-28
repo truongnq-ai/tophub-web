@@ -506,12 +506,12 @@ export const ARTICLE_2_3_FORMATION_COUNTERS: GuideArticle = {
               rows: [
                 [
                   {
-                    vi: "5+1 Kẹp Tidecaller (5 Liên Minh / 5 Bộ Lạc + Tidecaller)",
+                    vi: "5+1 Kẹp Thuật Sĩ Thủy Triều / Tidecaller (5 Liên Minh / 5 Bộ Lạc + Tidecaller)",
                     en: "5+1 with Tidecaller (5 League / 5 Horde + Tidecaller)",
                   },
                   {
-                    vi: "Tidecaller (1★ Trắng + UW) thay vị trí Tank/Support yếu thứ 6",
-                    en: "Tidecaller (1★ White + UW) replacing weakest 6th Tank/Support",
+                    vi: "Thuật Sĩ Thủy Triều (Tidecaller — 1★ Trắng + Vũ khí Độc quyền Đinh Ba Thần) thay vị trí Đỡ đòn/Hỗ trợ yếu thứ 6",
+                    en: "Tidecaller (1★ White + Divine Trident UW) replacing weakest 6th Tank/Support",
                   },
                   {
                     vi: "Giảm từ +35% ➔ +25% ATK/HP (-10%)",
@@ -524,11 +524,11 @@ export const ARTICLE_2_3_FORMATION_COUNTERS: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "5+1 Kẹp Witch (5 Liên Minh / 5 Thiên Nhiên + Witch)",
+                    vi: "5+1 Kẹp Phù Thủy / Witch (5 Liên Minh / 5 Thiên Nhiên + Witch)",
                     en: "5+1 with Witch (5 League / 5 Nature + Witch)",
                   },
                   {
-                    vi: "Witch (3★ Vàng – 1★ Trắng) thay Nun / Druid ít sao",
+                    vi: "Phù Thủy (Witch — 3★ Vàng – 1★ Trắng) thay Nữ Tu (Nun) / Đại Tư Tế Rừng (Druid) ít sao",
                     en: "Witch (3★ Gold – 1★ White) replacing low-star Nun / Druid",
                   },
                   {
@@ -536,17 +536,17 @@ export const ARTICLE_2_3_FORMATION_COUNTERS: GuideArticle = {
                     en: "Drops from +35% ➔ +25% ATK/HP (-10%)",
                   },
                   {
-                    vi: "Có ngay Healer phẩm Đỏ duy nhất giai đoạn S0–S1 kèm hiệu ứng CC + nguyền rủa giảm thủ diện rộng mà không tốn 9 Hồn Đá Đỏ thức tỉnh Healer Vàng.",
-                    en: "Provides the only Mythic Healer in S0–S1 with hard CC + AoE defense-shred curse without spending 9 Red Soul Stones to awaken an SSR Healer.",
+                    vi: "Có ngay tướng Hồi máu phẩm Đỏ duy nhất giai đoạn S0–S1 kèm hiệu ứng khống chế + nguyền rủa giảm thủ diện rộng mà không tốn 9 Đá Linh Hồn (Hồn Đá Đỏ / Soul Stone) thức tỉnh tướng Hồi máu Vàng.",
+                    en: "Provides the only Mythic Healer in S0–S1 with hard CC + AoE defense-shred curse without spending 9 Soul Stones (Red Soul Stones) to awaken an SSR Healer.",
                   },
                 ],
                 [
                   {
-                    vi: "4+2 Chuyển Giao S0 (4 Liên Minh + Desert Prince & Storm Maiden)",
+                    vi: "4+2 Chuyển Giao S0 (4 Liên Minh + Hoàng Tử Sa Mạc / Desert Prince & Nữ Thần Bão Tố / Storm Maiden)",
                     en: "4+2 S0 Transition (4 League + Desert Prince & Storm Maiden)",
                   },
                   {
-                    vi: "Cặp đôi Mythic Desert Prince + Storm Maiden (Ngày 21–40)",
+                    vi: "Cặp đôi Tướng Đỏ Hoàng Tử Sa Mạc (Desert Prince) + Nữ Thần Bão Tố (Storm Maiden) (Ngày 21–40)",
                     en: "Mythic duo Desert Prince + Storm Maiden (Days 21–40)",
                   },
                   {
@@ -554,7 +554,7 @@ export const ARTICLE_2_3_FORMATION_COUNTERS: GuideArticle = {
                     en: "Retains +15% ATK/HP from 4 League",
                   },
                   {
-                    vi: "Tận dụng ngay sức mạnh áp chế cấp sao của 2 tướng Đỏ Bộ Lạc ở Ngày 27–40 trong lúc chờ Witch ra mắt ở Ngày 41 để hoàn tất 6/6 Bộ Lạc.",
+                    vi: "Tận dụng ngay sức mạnh áp chế cấp sao của 2 tướng Đỏ Bộ Lạc ở Ngày 27–40 trong lúc chờ Phù Thủy (Witch) ra mắt ở Ngày 41 để hoàn tất 6/6 Bộ Lạc.",
                     en: "Immediately leverages star-level suppression from 2 Horde Mythics on Days 27–40 while waiting for Witch on Day 41 to complete 6/6 Horde.",
                   },
                 ],
@@ -725,73 +725,73 @@ export const ARTICLE_2_3_FORMATION_COUNTERS: GuideArticle = {
               rows: [
                 [
                   {
-                    vi: "1. Chống Sát Thủ Nhảy Hàng Sau (Wukong / Windwalker)",
+                    vi: "1. Chống Sát Thủ Nhảy Hàng Sau (Tôn Ngộ Không / Wukong, Phong Hành Giả / Windwalker)",
                     en: "1. Anti-Backline Assassin Swap (Wukong / Windwalker)",
                   },
                   {
-                    vi: "Sát thủ địch nhảy thẳng vào Ô 5 hoặc Ô 6 (cùng cột hoặc chéo cột), chém bốc hơi Healer/DPS máu giấy trong 3 giây.",
-                    en: "Enemy assassin jumps straight into Slot 5 or Slot 6 (same or cross column), evaporating squishy Healer/DPS within 3 seconds.",
+                    vi: "Sát thủ địch (Tôn Ngộ Không / Wukong, Phong Hành Giả / Windwalker) nhảy thẳng vào Ô 5 hoặc Ô 6 (cùng cột hoặc chéo cột), chém bốc hơi tướng Hồi máu / Chủ lực máu giấy trong 3 giây.",
+                    en: "Enemy assassin (Wukong, Windwalker) jumps straight into Slot 5 or Slot 6 (same or cross column), evaporating squishy Healer/DPS within 3 seconds.",
                   },
                   {
-                    vi: "Hoán đổi tạm thời Off-Tank/Bruiser (Desert Prince, Sage, Adjudicator) hoặc tướng có Bất tử/Khiên dày xuống Ô 5/Ô 6 ở đúng góc đáp của sát thủ; đẩy Healer lên Ô 3/Ô 4.",
-                    en: "Temporarily swap your Off-Tank/Bruiser (Desert Prince, Sage, Adjudicator) or a hero with Invincibility/Thick Shield down to Slot 5/Slot 6 at the assassin's landing zone; push your Healer up to Slot 3/Slot 4.",
+                    vi: "Hoán đổi tạm thời Đấu sĩ / Đỡ đòn phụ (Hoàng Tử Sa Mạc / Desert Prince, Hiền Giả / Sage, Thẩm Phán / Adjudicator) xuống Ô 5/Ô 6 ở đúng góc đáp của sát thủ; đẩy tướng Hồi máu (Nữ Tu / Nun, Phù Thủy / Witch) lên Ô 3/Ô 4.",
+                    en: "Temporarily swap your Off-Tank/Bruiser (Desert Prince, Sage, Adjudicator) down to Slot 5/Slot 6 at the assassin's landing zone; push your Healer (Nun, Witch) up to Slot 3/Slot 4.",
                   },
                   {
-                    vi: "Sát thủ địch lao vào đấm trúng lớp giáp thép của Off-Tank, bị giữ chân và bị DPS ở Hàng giữa quay ngược lại tiêu diệt.",
+                    vi: "Sát thủ địch lao vào đấm trúng lớp giáp thép của Đỡ đòn phụ, bị giữ chân và bị Chủ lực ở Hàng giữa quay ngược lại tiêu diệt.",
                     en: "Enemy assassin crashes into the Off-Tank's steel armor, gets pinned down, and is eliminated when Midline DPS turns back to focus fire.",
                   },
                 ],
                 [
                   {
-                    vi: "2. Chống Lốc Xoáy Cột Dọc (Storm Maiden / Paragon)",
+                    vi: "2. Chống Lốc Xoáy Cột Dọc (Nữ Thần Bão Tố / Storm Maiden, Thiện Xạ / Paragon)",
                     en: "2. Cross-Column Swap Against Vertical AoE (Storm Maiden / Paragon)",
                   },
                   {
-                    vi: "Kỹ năng diện rộng của địch quét dọc theo cột có Main Tank đang bị dồn đám đông, làm chết lây Hyper-Carry đứng sau.",
-                    en: "Enemy column AoE sweeps vertically along the column where your Main Tank is swarmed, killing the Hyper-Carry standing behind.",
+                    vi: "Kỹ năng diện rộng của địch (Nữ Thần Bão Tố / Storm Maiden, Thiện Xạ / Paragon) quét dọc theo cột có Đỡ đòn chính đang bị dồn đám đông, làm chết lây Chủ lực đứng sau.",
+                    en: "Enemy column AoE (Storm Maiden, Paragon) sweeps vertically along the column where your Main Tank is swarmed, killing the Hyper-Carry standing behind.",
                   },
                   {
-                    vi: "Đảo cột chéo (Cross-Column Swap): Đặt Main Tank (Beastmaster / Rose Princess) ở Ô 1 (Trái) để gom quái cánh trái, nhưng đặt Hyper-Carry ở Ô 4 (Phải - Giữa) sau lưng một Bruiser tự hồi máu tốt (Desert Prince / Ne Zha ở Ô 2).",
-                    en: "Cross-Column Swap: Place your Main Tank (Beastmaster / Rose Princess) in Slot 1 (Left) to cluster enemies on the left wing, while placing your Hyper-Carry in Slot 4 (Mid-Right) behind a self-sustaining Bruiser (Desert Prince / Ne Zha in Slot 2).",
+                    vi: "Đảo cột chéo (Cross-Column Swap): Đặt Đỡ đòn chính (Thú Tướng / Beastmaster, Công Chúa Rose / Rose Princess) ở Ô 1 (Trái) để gom quái cánh trái, nhưng đặt Chủ lực ở Ô 4 (Phải - Giữa) sau lưng một Đấu sĩ tự hồi máu tốt (Hoàng Tử Sa Mạc / Desert Prince, Na Tra / Ne Zha ở Ô 2).",
+                    en: "Cross-Column Swap: Place your Main Tank (Beastmaster, Rose Princess) in Slot 1 (Left) to cluster enemies on the left wing, while placing your Hyper-Carry in Slot 4 (Mid-Right) behind a self-sustaining Bruiser (Desert Prince, Ne Zha in Slot 2).",
                   },
                   {
-                    vi: "Toàn bộ chiêu AoE nhắm vào cụm đông ở cánh trái chỉ trúng Main Tank, giúp Hyper-Carry ở cánh phải xả sát thương nguyên vẹn 100% máu.",
+                    vi: "Toàn bộ chiêu diện rộng nhắm vào cụm đông ở cánh trái chỉ trúng Đỡ đòn chính, giúp Chủ lực ở cánh phải xả sát thương nguyên vẹn 100% máu.",
                     en: "All column AoE aimed at the crowded left cluster only hits the Main Tank, leaving your right-wing Hyper-Carry at 100% HP to deal uninterrupted damage.",
                   },
                 ],
                 [
                   {
-                    vi: "3. Khoan Thủng Mắt Xích Yếu (Weak-Side Overload)",
-                    en: "3. Weak-Side Overload",
+                    vi: "3. Khoan Thủng Mắt Xích Yếu (Weak-Side Overload — Ô 2 & Ô 4)",
+                    en: "3. Weak-Side Overload (Slots 2 & 4)",
                   },
                   {
-                    vi: "Đối phương có 1 Tanker rất cứng ở Ô 1 (Rose Princess 3 Sao Trắng) nhưng Ô 2 lại là một Tanker yếu (Secret Keeper hoặc Swordmaster).",
+                    vi: "Đối phương có 1 Đỡ đòn rất cứng ở Ô 1 (Công Chúa Rose / Rose Princess 3 Sao Trắng) nhưng Ô 2 lại là một Đỡ đòn yếu (Người Giữ Bí Mật / Secret Keeper hoặc Kiếm Thánh / Swordmaster).",
                     en: "Opponent has an ultra-tanky Slot 1 (Rose Princess at 3 White Stars) but a weak Tank in Slot 2 (Secret Keeper or Swordmaster).",
                   },
                   {
-                    vi: "Dồn Bruiser công mạnh (Desert Prince / Ne Zha) sang Ô 2 đối diện trực tiếp với Tanker yếu của địch, kết hợp đặt Wukong / Paragon ngay phía sau ở Ô 4.",
-                    en: "Stack your high-ATK Bruiser (Desert Prince / Ne Zha) into Slot 2 directly opposite the enemy weak tank, paired with Wukong / Paragon right behind in Slot 4.",
+                    vi: "Dồn Đấu sĩ công mạnh (Hoàng Tử Sa Mạc / Desert Prince, Na Tra / Ne Zha) sang Ô 2 đối diện trực tiếp với Đỡ đòn yếu của địch, kết hợp đặt Tôn Ngộ Không (Wukong) hoặc Thiện Xạ (Paragon) ngay phía sau ở Ô 4.",
+                    en: "Stack your high-ATK Bruiser (Desert Prince, Ne Zha) into Slot 2 directly opposite the enemy weak tank, paired with Wukong or Paragon right behind in Slot 4.",
                   },
                   {
-                    vi: "Đánh sập hoàn toàn cánh yếu của địch trong 5 giây đầu, tạo thế gọng kìm 6 đánh 5 bao vây ngược lại Main Tank bên kia.",
+                    vi: "Đánh sập hoàn toàn cánh yếu của địch trong 5 giây đầu, tạo thế gọng kìm 6 đánh 5 bao vây ngược lại Đỡ đòn chính bên kia.",
                     en: "Completely collapses the enemy weak wing within the first 5 seconds, creating a 6v5 pincer that surrounds the enemy Main Tank from behind.",
                   },
                 ],
                 [
                   {
-                    vi: "4. Chống Đội Hình Triệu Hồi (Tidecaller + Forest Maiden)",
+                    vi: "4. Chống Đội Hình Triệu Hồi (Thuật Sĩ Thủy Triều / Tidecaller + Thiếu Nữ Rừng Xanh / Forest Maiden)",
                     en: "4. Anti-Summon Swarm (Bishop / Storm Maiden)",
                   },
                   {
-                    vi: "Đệ triệu hồi tràn ngập làm nghẽn tầm bắn của các tướng đơn mục tiêu.",
-                    en: "Summoned minions flood the battlefield and block the firing lines of single-target heroes.",
+                    vi: "Đệ triệu hồi của Thuật Sĩ Thủy Triều (Tidecaller) và Thiếu Nữ Rừng Xanh (Forest Maiden) tràn ngập làm nghẽn tầm bắn của các tướng đơn mục tiêu.",
+                    en: "Summoned minions from Tidecaller and Forest Maiden flood the battlefield and block the firing lines of single-target heroes.",
                   },
                   {
-                    vi: "Đưa Bishop (Liên Minh) hoặc Storm Maiden (Bộ Lạc) vào vị trí trung tâm Hàng giữa kèm trang bị tăng Chí mạng/Tốc đánh tối đa.",
-                    en: "Place Bishop (League) or Storm Maiden (Horde) into the central Midline slot equipped with maximum Crit/ATK Speed gear.",
+                    vi: "Đưa Giám Mục (Bishop — Liên Minh) hoặc Nữ Thần Bão Tố (Storm Maiden — Bộ Lạc) vào vị trí trung tâm Hàng giữa (Ô 3 & Ô 4) kèm Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ / Kỵ Sĩ Vinh Quang tăng Chí mạng/Tốc đánh tối đa.",
+                    en: "Place Bishop (League) or Storm Maiden (Horde) into the central Midline slots (Slots 3 & 4) equipped with Duelist's Set ➔ Fury of Blood (Knight's Glory Set) for maximum Crit/ATK Speed.",
                   },
                   {
-                    vi: "Tận dụng sát thương lan (Splash/Chain AoE) bật nảy qua các đệ triệu hồi để rút máu trực tiếp vào bản thể Tidecaller phía sau.",
+                    vi: "Tận dụng sát thương nổ lan (Splash/Chain AoE) bật nảy qua các đệ triệu hồi để rút máu trực tiếp vào bản thể Thuật Sĩ Thủy Triều (Tidecaller) phía sau.",
                     en: "Exploits Splash/Chain AoE bouncing across summoned minions to drain HP directly from the real Tidecaller body in the back.",
                   },
                 ],
@@ -818,15 +818,15 @@ export const ARTICLE_2_3_FORMATION_COUNTERS: GuideArticle = {
               ordered: true,
               items: [
                 {
-                  vi: "**5 Bộ Lạc + 1 Tidecaller (hoặc Rose Princess):** Cuối `S0` – đầu `S1` khi chưa có `Beastmaster`/`Wukong`, kẹp **Tidecaller** (`1★ Trắng` = `560 Mảnh` + `UW`) giúp giải quyết triệt để điểm yếu thiếu khiên và hồi phục.",
-                  en: "**5 Horde + 1 Tidecaller (or Rose Princess):** In late `S0` – early `S1` before `Beastmaster`/`Wukong`, flexing **Tidecaller** (`1★ White` = `560 Shards` + `UW`) solves Horde's lack of frontline shields and sustain.",
+                  vi: "**5 Bộ Lạc + 1 Thuật Sĩ Thủy Triều / Tidecaller (hoặc Công Chúa Rose / Rose Princess):** Cuối `S0` – đầu `S1` khi chưa có Thú Tướng (`Beastmaster`) / Tôn Ngộ Không (`Wukong`), kẹp **Thuật Sĩ Thủy Triều (`Tidecaller`)** (`1★ Trắng` = `560 Mảnh` + `Đinh Ba Thần / Divine Trident`) giúp giải quyết triệt để điểm yếu thiếu khiên và hồi phục.",
+                  en: "**5 Horde + 1 Tidecaller (or Rose Princess):** In late `S0` – early `S1` before `Beastmaster`/`Wukong`, flexing **Tidecaller** (`1★ White` = `560 Shards` + `Divine Trident UW`) solves Horde's lack of frontline shields and sustain.",
                 },
                 {
-                  vi: "**5 Liên Minh + 1 Wukong (hoặc Witch / Desert Prince):** Khi gặp Liên Minh có `Nun` + `Rose Princess` quá trâu, kẹp **Wukong** giúp ám sát hàng sau, hoặc kẹp **Witch** khi chưa đủ `9 Hồn Đá Đỏ` thức tỉnh `Nun`.",
-                  en: "**5 League + 1 Wukong (or Witch / Desert Prince):** Against mirror League teams with tanky `Nun` + `Rose Princess`, flex **Wukong** to dive the backline, or flex **Witch** before saving `9 Red Soul Stones` for `Nun`.",
+                  vi: "**5 Liên Minh + 1 Tôn Ngộ Không / Wukong (hoặc Phù Thủy / Witch, Hoàng Tử Sa Mạc / Desert Prince):** Khi gặp Liên Minh có Nữ Tu (`Nun`) + Công Chúa Rose (`Rose Princess`) quá trâu, kẹp **Tôn Ngộ Không (`Wukong`)** giúp ám sát hàng sau, hoặc kẹp **Phù Thủy (`Witch`)** khi chưa đủ `9 Đá Linh Hồn (Hồn Đá Đỏ / Soul Stone)` thức tỉnh `Nun`.",
+                  en: "**5 League + 1 Wukong (or Witch / Desert Prince):** Against mirror League teams with tanky `Nun` + `Rose Princess`, flex **Wukong** to dive the backline, or flex **Witch** before saving `9 Soul Stones (Red Soul Stones)` for `Nun`.",
                 },
                 {
-                  vi: "**5 Thiên Nhiên + 1 Bishop / Storm Maiden:** Giúp đội hình **Thiên Nhiên** ở giai đoạn đầu `S1` bổ sung lượng `Burst Damage` + `AoE` kết liễu (`Finisher Damage`) khi **Ne Zha** chưa đủ cấp sao.",
+                  vi: "**5 Thiên Nhiên + 1 Giám Mục / Bishop (hoặc Nữ Thần Bão Tố / Storm Maiden):** Giúp đội hình **Thiên Nhiên** ở giai đoạn đầu `S1` bổ sung lượng `Burst Damage` + `AoE` kết liễu (`Finisher Damage`) khi **Na Tra (`Ne Zha`)** chưa đủ cấp sao.",
                   en: "**5 Nature + 1 Bishop / Storm Maiden:** Supplements early `S1` **Nature** lineups with high `Burst Damage` + `AoE` finisher power (`Finisher Damage`) while **Ne Zha** is still at low star levels.",
                 },
               ],

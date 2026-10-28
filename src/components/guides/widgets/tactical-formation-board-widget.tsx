@@ -94,8 +94,8 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
       en: "League Starter (Days 1–20)",
     },
     fullTitle: {
-      vi: "Đội Hình Khởi Đầu & Chuyển Tiếp Liên Minh (6 SSR Tavern/Early)",
-      en: "League Starter & Transition Formation (6 SSR Early Meta)",
+      vi: "1. Đội Hình Khởi Đầu & Chuyển Tiếp Liên Minh (Ngày 1–20 S0)",
+      en: "1. League Starter & Transition Formation (Days 1–20 S0)",
     },
     stageTiming: {
       vi: "Ngày 1 – Ngày 20 (Cầu nối trước khi mở Tướng Đỏ)",
@@ -106,8 +106,8 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
       en: "6/6 Pure League: +35% Team ATK & HP",
     },
     soulStoneBudget: {
-      vi: "0 Hồn Đá Đỏ (Cấm đút Mảnh Vàng Vạn Năng cho tướng Tavern)",
-      en: "0 Soul Stones (Zero Universal Shards on Tavern SSRs)",
+      vi: "0 Đá Linh Hồn (Hồn Đá Đỏ / Soul Stone) — Tuyệt đối không thức tỉnh ở giai đoạn đầu S0; tích lũy đủ 9 viên Đá Linh Hồn đầu tiên (360,000 Điểm Vinh Dự Bang hoặc 54,000 Xu Vinh Quang Hội) cho định hướng lâu dài.",
+      en: "0 Soul Stones (Red Soul Stones) — Never awaken in early S0; hoard your first 9 Soul Stones (360,000 Guild Honor or 54,000 Guild Race Honor Coins) for your long-term core.",
     },
     counterAdvantage: {
       vi: "🔵 Liên Minh khắc chế 🟢 Thiên Nhiên (+20% DMG) • Bị 🔴 Bộ Lạc khắc chế (-20%)",
@@ -119,15 +119,18 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
         rowZone: "frontline",
         wing: "left",
         heroName: {
-          vi: "Adjudicator (Trọng Tài)",
+          vi: "Thẩm Phán (Adjudicator)",
           en: "Adjudicator",
         },
         rarity: "legendary",
         roleBadge: { vi: "🛡️ Main Tank (Cột Trái)", en: "🛡️ Main Tank (Left)" },
-        mvsSweetSpot: { vi: "1★ Trắng (280 Mảnh)", en: "1★ White (280 Shards)" },
+        mvsSweetSpot: {
+          vi: "3 Sao Vàng (MVS) ➔ 1 Sao Trắng (280 Mảnh — Điểm ngọt)",
+          en: "3★ Gold (MVS) ➔ 1★ White (280 Shards — Sweet Spot)",
+        },
         slotReason: {
-          vi: "Khiên Bất Tử chặn 80% sát thương trực diện cột trái, che chắn tuyệt đối cho Pyromancer đứng ngay sau lưng ở Ô 3.",
-          en: "Immortal Shield absorbs 80% of left-column direct aggro, shielding Pyromancer directly behind in Slot 3.",
+          vi: "Đỡ đòn chính đứng Ô 1 chịu trực diện luồng hỏa lực cột trái, che chắn tuyệt đối cho Pháp Sư Lửa (Pyromancer) ở Ô 3; trang bị Bộ Đồ Titan / Huyết Titan (Titan's Might / Blood of the Titan) để tối đa hóa máu và Giảm sát thương nhận vào.",
+          en: "Main Tank in Slot 1 absorbing direct left-column aggro to shield Pyromancer in Slot 3; equip Titan's Might / Blood of the Titan Set to maximize HP and Damage Reduction.",
         },
       },
       {
@@ -135,15 +138,18 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
         rowZone: "frontline",
         wing: "right",
         heroName: {
-          vi: "Secret Keeper (Người Giữ Bí Mật)",
+          vi: "Người Giữ Bí Mật (Secret Keeper)",
           en: "Secret Keeper",
         },
         rarity: "legendary",
         roleBadge: { vi: "🛡️ Off-Tank / Câm Lặng", en: "🛡️ Off-Tank / Silence" },
-        mvsSweetSpot: { vi: "Mảnh Tavern tự nhiên", en: "Free Tavern Shards" },
+        mvsSweetSpot: {
+          vi: "3 Sao Vàng (Chỉ dùng mảnh riêng Quán Rượu, 0 Mảnh Vạn Năng)",
+          en: "3★ Gold (Free Tavern shards only, 0 Universal Shards)",
+        },
         slotReason: {
-          vi: "Tạo khiên phép và làm Câm lặng tuyến đầu địch ở cánh phải; về sau nhường vị trí cho Rose Princess.",
-          en: "Provides magic shields and silences enemy frontline on the right wing; later replaced by Rose Princess.",
+          vi: "Đỡ đòn phụ Ô 2 tạo Khiên hấp thụ sát thương phép và làm Câm lặng tuyến đầu địch; mặc Bộ Đồ Titan / Huyết Titan (Titan's Might / Blood of the Titan) và nâng tự nhiên từ Quán Rượu, tuyệt đối không dùng Mảnh Anh Hùng Huyền Thoại Vạn Năng (Universal Legendary Shard).",
+          en: "Off-Tank in Slot 2 providing magic shields and frontline silence; equip Titan's Might / Blood of the Titan Set and upgrade strictly via free Tavern shards (zero Universal Legendary Shards).",
         },
       },
       {
@@ -151,7 +157,7 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
         rowZone: "midline_safe",
         wing: "left",
         heroName: {
-          vi: "Pyromancer (Pháp Sư Lửa)",
+          vi: "Pháp Sư Lửa (Pyromancer)",
           en: "Pyromancer",
         },
         rarity: "legendary",
@@ -159,10 +165,13 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
           vi: "👑 Hyper-Carry DPS (Vùng An Toàn)",
           en: "👑 Hyper-Carry DPS (Safe Zone)",
         },
-        mvsSweetSpot: { vi: "1★ Trắng ➔ Thức Tỉnh", en: "1★ White ➔ Awaken" },
+        mvsSweetSpot: {
+          vi: "1 Sao Đỏ (200 Mảnh) ➔ 1 Sao Trắng (280 Mảnh — Điểm ngọt S0)",
+          en: "1★ Red (200 Shards) ➔ 1★ White (280 Shards — S0 Sweet Spot)",
+        },
         slotReason: {
-          vi: "Đứng ở Ô 3 (Hàng Giữa) giúp Pyromancer miễn nhiễm đòn đánh thường tuyến đầu VÀ không bị sát thủ nhảy hàng sau (Ô 5–6) chém trúng.",
-          en: "Standing in Slot 3 (Midline Safe Zone) protects Pyromancer from frontline aggro AND backline assassin dives into Slots 5–6.",
+          vi: "Nguồn sát thương diện rộng số 1 đầu game đứng Ô 3 (Vùng An Toàn sau lưng Thẩm Phán); mặc Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ / Kỵ Sĩ Vinh Quang (Duelist's Set ➔ Fury of Blood / Knight's Glory) để dọn sạch lính hộ vệ địch.",
+          en: "#1 early-game AoE carry positioned in Safe Slot 3 behind Adjudicator; equip Duelist's Set ➔ Fury of Blood (Knight's Glory Set) to wipe enemy escort soldiers.",
         },
       },
       {
@@ -170,7 +179,7 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
         rowZone: "midline_safe",
         wing: "right",
         heroName: {
-          vi: "Paragon / Astrologer",
+          vi: "Thiện Xạ (Paragon) / Chiêm Tinh Gia (Astrologer)",
           en: "Paragon / Astrologer",
         },
         rarity: "mythic",
@@ -178,10 +187,13 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
           vi: "⚔️ Sub-DPS Sát Thương Chuẩn",
           en: "⚔️ Burst / True DMG Sub-DPS",
         },
-        mvsSweetSpot: { vi: "1★ Đỏ (160 Mảnh)", en: "1★ Red (160 Shards)" },
+        mvsSweetSpot: {
+          vi: "Chiêm Tinh Gia: 1 Sao Vàng (0 mảnh vạn năng) | Thiện Xạ: 1 Sao Đỏ (160 Mảnh)",
+          en: "Astrologer: 1★ Gold (0 Universal Shards) | Paragon: 1★ Red (160 Shards)",
+        },
         slotReason: {
-          vi: "Vị trí an toàn thứ 2 ở Hàng Giữa để xả sát thương diện rộng và buff Chí mạng cho toàn đội Liên Minh.",
-          en: "Second Midline Safe Zone slot to unleash AoE burst and team-wide Crit buffs.",
+          vi: "Ô 4 kết liễu đơn mục tiêu và săn Boss; dùng tạm Chiêm Tinh Gia (Astrologer) không tốn tài nguyên hoặc thay bằng Thiện Xạ (Paragon) mặc Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ / Kỵ Sĩ Vinh Quang (Duelist's Set ➔ Fury of Blood / Knight's Glory) ngay khi mở Vòng Quay May Mắn.",
+          en: "Slot 4 single-target finisher and Boss killer; use zero-investment Astrologer early or replace with Paragon wearing Duelist's Set ➔ Fury of Blood (Knight's Glory Set) upon unlocking Lucky Wheel.",
         },
       },
       {
@@ -189,15 +201,18 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
         rowZone: "backline_dive",
         wing: "left",
         heroName: {
-          vi: "Nun (Nữ Tu)",
+          vi: "Nữ Tu (Nun)",
           en: "Nun",
         },
         rarity: "legendary",
         roleBadge: { vi: "✨ Healer Bơm Máu", en: "✨ Primary Healer" },
-        mvsSweetSpot: { vi: "1★ Trắng (280 Mảnh)", en: "1★ White (280 Shards)" },
+        mvsSweetSpot: {
+          vi: "3 Sao Vàng (MVS) ➔ 1 Sao Trắng (280 Mảnh — Mở khóa Thức tỉnh S1)",
+          en: "3★ Gold (MVS) ➔ 1★ White (280 Shards — Ready for S1 Awakening)",
+        },
         slotReason: {
-          vi: "Hồi máu liên tục và tăng giới hạn HP từ Hàng Sau; cần dè chừng khi gặp đội hình có Wukong/Windwalker nhảy Ô 5.",
-          en: "Sustains team HP from the Backline; swap with Off-Tank in Arena when facing Wukong/Windwalker dive.",
+          vi: "Đặt ở Ô 5 (Hàng sau) để bơm máu liên tục và tăng giới hạn HP tối đa cho toàn bộ 6 tướng cùng lính hộ vệ; trang bị Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang / Hiền Triết Quang Vinh (Sage Set ➔ Glorious Light / Glory of the Sage).",
+          en: "Positioned in Backline Slot 5 to sustain HP and boost Max HP across all 6 heroes and soldiers; equip Sage Set ➔ Glorious Light (Glory of the Sage Set).",
         },
       },
       {
@@ -205,15 +220,18 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
         rowZone: "backline_dive",
         wing: "right",
         heroName: {
-          vi: "Bard (Thi Nhân)",
+          vi: "Nhà Thơ (Bard)",
           en: "Bard",
         },
         rarity: "legendary",
         roleBadge: { vi: "🎵 Buff Tốc Độ Hồi Nộ", en: "🎵 Energy & Cooldown Buffer" },
-        mvsSweetSpot: { vi: "2★ Trắng (+40% Xây Dựng)", en: "2★ White (+40% Build)" },
+        mvsSweetSpot: {
+          vi: "3 Sao Vàng (MVS) ➔ 2 Sao Trắng (300 Mảnh — Max Trait 3 +40% Xây dựng)",
+          en: "3★ Gold (MVS) ➔ 2★ White (300 Shards — Max Trait 3 +40% Build)",
+        },
         slotReason: {
-          vi: "Giảm thời gian hồi chiêu cho Pyromancer/Paragon xả bão lửa liên hoàn, đồng thời cộng +40% tốc độ xây dựng Lâu Đài.",
-          en: "Accelerates skill cooldowns for Pyromancer/Paragon while granting +40% Castle construction speed.",
+          vi: "Đứng Ô 6 mặc Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang / Hiền Triết Quang Vinh (Sage Set ➔ Glorious Light / Glory of the Sage) để tăng Tốc độ đánh, Tỷ lệ chí mạng và giảm hồi chiêu kỹ năng cho Pháp Sư Lửa (Pyromancer) cùng Thiện Xạ (Paragon).",
+          en: "Stands in Slot 6 wearing Sage Set ➔ Glorious Light (Glory of the Sage Set) to boost Attack Speed, Crit Rate, and skill cooldowns for Pyromancer and Paragon.",
         },
       },
     ],
@@ -223,27 +241,27 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
     tocSubSectionId: "sub-1-2-league-endgame-pure",
     faction: "league",
     shortLabel: {
-      vi: "Liên Minh Endgame (3 Mythic)",
-      en: "League Endgame (3 Mythics)",
+      vi: "Liên Minh Cuối Game (S1–S4)",
+      en: "League Endgame (S1–S4)",
     },
     fullTitle: {
-      vi: "Đội Hình Thuần Liên Minh Cuối Game (Rose Princess + Paragon + Artificer)",
-      en: "League Endgame Pure Meta Lineup (Rose Princess + Paragon + Artificer)",
+      vi: "2. Đội Hình Thuần Liên Minh Cuối Game (Công Chúa Rose + Thiện Xạ + Thợ Chế Tạo)",
+      en: "2. League Endgame Pure Meta Lineup (Rose Princess + Paragon + Artificer)",
     },
     stageTiming: {
-      vi: "Season 1 – Season 4 (3 Mythic + 3 Legendary Thức Tỉnh)",
-      en: "Season 1 – Season 4 (3 Native Mythics + 3 Awakened Legendaries)",
+      vi: "Season 1 – Season 4 (3 Tướng Đỏ gốc + 2–3 Tướng Vàng Thức Tỉnh)",
+      en: "Season 1 – Season 4 (3 Native Mythics + 2–3 Awakened Legendaries)",
     },
     auraBonus: {
       vi: "6/6 Liên Minh: +35% ATK & HP + +20% DMG lên Thiên Nhiên",
       en: "6/6 Pure League: +35% ATK & HP + +20% DMG vs Nature",
     },
     soulStoneBudget: {
-      vi: "18 – 27 Hồn Đá Đỏ (Đắt gấp 2–3 lần Bộ Lạc)",
-      en: "18 – 27 Soul Stones (2–3x more expensive than Horde)",
+      vi: "18 đến 27 Đá Linh Hồn (Hồn Đá Đỏ / Soul Stone) — Cần 2–3 tướng Vàng Thức tỉnh: Thẩm Phán (Adjudicator — 9 viên) + Nữ Tu (Nun — 9 viên) + Pháp Sư Lửa (Pyromancer — 9 viên, nếu chưa có Thợ Chế Tạo / Artificer).",
+      en: "18 to 27 Soul Stones (Red Soul Stones) — Requires 2–3 Awakened Legendaries: Adjudicator (9 stones) + Nun (9 stones) + Pyromancer (9 stones, if Artificer is not yet unlocked).",
     },
     counterAdvantage: {
-      vi: "🔵 Khắc chế cứng 🟢 Thiên Nhiên (Tidecaller) • Yếu thế trước 🔴 Bộ Lạc",
+      vi: "🔵 Khắc chế cứng 🟢 Thiên Nhiên (Thuật Sĩ Thủy Triều / Tidecaller) • Yếu thế trước 🔴 Bộ Lạc",
       en: "🔵 Hard-counters 🟢 Nature (Tidecaller) • Vulnerable to 🔴 Horde",
     },
     slots: [
@@ -252,15 +270,18 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
         rowZone: "frontline",
         wing: "left",
         heroName: {
-          vi: "Rose Princess (Công Chúa Hoa Hồng)",
+          vi: "Công Chúa Rose (Rose Princess)",
           en: "Rose Princess",
         },
         rarity: "mythic",
         roleBadge: { vi: "👑 Mythic Main Tank", en: "👑 Mythic Main Tank" },
-        mvsSweetSpot: { vi: "1★ Trắng (560 Mảnh)", en: "1★ White (560 Shards)" },
+        mvsSweetSpot: {
+          vi: "1 Sao Đỏ (160 Mảnh) ➔ 1 Sao Trắng (560 Mảnh) + Vũ khí Độc quyền Thời Đại Anh Hùng +10",
+          en: "1★ Red (160 Shards) ➔ 1★ White (560 Shards) + Royalthorn Blade +10",
+        },
         slotReason: {
-          vi: "Tạo khiên toàn đội, gom sát thương và phản đòn cực mạnh ở Ô 1 tuyến đầu.",
-          en: "Team-wide shielding, damage absorption, and frontline counter-burst in Slot 1.",
+          vi: "Tướng Đỏ công thủ toàn diện đứng Ô 1, mặc Bộ Đồ Titan / Huyết Titan (Titan's Might / Blood of the Titan) (+30% Dấu Hệ Liên Minh) vừa tạo khiên toàn đội, gom sát thương vừa tung đòn phản kích kết liễu hàng trước địch.",
+          en: "All-around Mythic Main Tank in Slot 1 wearing Titan's Might / Blood of the Titan Set (+30% League Faction Mark), generating team-wide shields while storing and reflecting burst damage.",
         },
       },
       {
@@ -268,15 +289,18 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
         rowZone: "frontline",
         wing: "right",
         heroName: {
-          vi: "Adjudicator (Trọng Tài Đỏ)",
+          vi: "Thẩm Phán Đỏ (Adjudicator · Thức Tỉnh)",
           en: "Adjudicator (Awakened)",
         },
         rarity: "legendary",
         roleBadge: { vi: "🛡️ Awakened Tank (9 Đá)", en: "🛡️ Awakened Tank (9 Stones)" },
-        mvsSweetSpot: { vi: "Thức Tỉnh Đỏ (9 Hồn Đá)", en: "Mythic Awakened (9 Stones)" },
+        mvsSweetSpot: {
+          vi: "Thức Tỉnh Đỏ (9 Đá Linh Hồn + 345–385 Mảnh) ➔ 1 Sao Trắng",
+          en: "Mythic Awakened (9 Soul Stones + 345–385 Shards) ➔ 1★ White",
+        },
         slotReason: {
-          vi: "Khóa chặt cánh phải nhờ Khiên Bất Tử, tạo bức tường thép kép cùng Rose Princess.",
-          en: "Locks down the right column with Immortal Shield alongside Rose Princess.",
+          vi: "Sau khi Thức tỉnh lên phẩm Đỏ bằng 9 Đá Linh Hồn (Hồn Đá Đỏ / Soul Stone) và mặc Bộ Đồ Titan / Huyết Titan (Titan's Might / Blood of the Titan), Thẩm Phán (Adjudicator) sở hữu khả năng Bất tử ngắn hạn khóa chặt cánh phải ở Ô 2 cùng Công Chúa Rose.",
+          en: "Awakened to Mythic with 9 Soul Stones (Red Soul Stones) and geared in Titan's Might / Blood of the Titan Set, Adjudicator locks down the right column in Slot 2 with Immortal Shield alongside Rose Princess.",
         },
       },
       {
@@ -284,15 +308,18 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
         rowZone: "midline_safe",
         wing: "left",
         heroName: {
-          vi: "Paragon (Thánh Nữ)",
+          vi: "Thiện Xạ (Paragon)",
           en: "Paragon",
         },
         rarity: "mythic",
         roleBadge: { vi: "👑 Hyper-Carry Số 1", en: "👑 #1 Hyper-Carry DPS" },
-        mvsSweetSpot: { vi: "1★ Trắng (560 Mảnh) + UW", en: "1★ White (560 Shards) + UW" },
+        mvsSweetSpot: {
+          vi: "1 Sao Trắng (560 Mảnh — Điểm ngọt +30%) ➔ 5 Sao Trắng (1,000 Mảnh)",
+          en: "1★ White (560 Shards — +30% Sweet Spot) ➔ 5★ White (1,000 Shards)",
+        },
         slotReason: {
-          vi: "Đứng sau lưng Rose Princess tại Ô 3 Vùng An Toàn để gọi Thiên Thạch Sát Thương Chuẩn đốt cháy toàn bản đồ.",
-          en: "Positioned safely in Slot 3 behind Rose Princess to rain True Damage meteors.",
+          vi: "Trái tim sát thương của Liên Minh đứng Ô 3; kết hợp Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ / Kỵ Sĩ Vinh Quang (Duelist's Set ➔ Fury of Blood / Knight's Glory) (+30% Dấu Hệ Liên Minh) và Vũ khí Độc quyền Chính Nghĩa Bất Bại (Everlasting Justice) +10/+20 cho phép kỹ năng chí mạng và gây sát thương chuẩn theo % máu tối đa.",
+          en: "Core League Hyper-Carry in Safe Slot 3; pairs Duelist's Set ➔ Fury of Blood (Knight's Glory Set) (+30% League Faction Mark) with Exclusive Weapon Everlasting Justice +10/+20 for critical skill strikes and % Max HP True Damage.",
         },
       },
       {
@@ -300,15 +327,18 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
         rowZone: "midline_safe",
         wing: "right",
         heroName: {
-          vi: "Artificer / Pyromancer Đỏ",
+          vi: "Thợ Chế Tạo (Artificer) / Pháp Sư Lửa Đỏ (Pyromancer)",
           en: "Artificer / Awakened Pyro",
         },
         rarity: "mythic",
         roleBadge: { vi: "⚔️ Khuếch Đại & Sốc Phép", en: "⚔️ Tech Amplifier & Burst" },
-        mvsSweetSpot: { vi: "1★ Trắng (560 Mảnh)", en: "1★ White (560 Shards)" },
+        mvsSweetSpot: {
+          vi: "Thợ Chế Tạo (Artificer): 1 Sao Trắng (560 Mảnh) | Pháp Sư Lửa Đỏ: 9 Đá Linh Hồn",
+          en: "Artificer: 1★ White (560 Shards) | Awakened Pyromancer: 9 Soul Stones",
+        },
         slotReason: {
-          vi: "Cộng hưởng sát thương kỹ năng ở Ô 4 Vùng An Toàn cùng Paragon.",
-          en: "Amplifies skill burst in Midline Safe Slot 4 alongside Paragon.",
+          vi: "Trước S2 dùng Pháp Sư Lửa (Pyromancer) Thức tỉnh (Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ / Kỵ Sĩ Vinh Quang); từ S2+ thay bằng Thợ Chế Tạo (Artificer) mặc Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang / Hiền Triết Quang Vinh (Sage Set ➔ Glorious Light / Glory of the Sage) để gom cụm kẻ địch và khuếch đại toàn bộ hỏa lực cho Thiện Xạ (Paragon) cùng Giám Mục (Bishop).",
+          en: "Pre-S2 fields Awakened Pyromancer (Duelist's Set ➔ Fury of Blood / Knight's Glory); from S2+ replaces with Artificer wearing Sage Set ➔ Glorious Light (Glory of the Sage Set) to cluster enemies and amplify skill burst for Paragon and Bishop.",
         },
       },
       {
@@ -316,15 +346,18 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
         rowZone: "backline_dive",
         wing: "left",
         heroName: {
-          vi: "Bishop (Giám Mục)",
+          vi: "Giám Mục (Bishop)",
           en: "Bishop",
         },
         rarity: "mythic",
         roleBadge: { vi: "✨ Khắc Chế Triệu Hồi", en: "✨ Anti-Summon & Shield" },
-        mvsSweetSpot: { vi: "1★ Đỏ ➔ 1★ Trắng", en: "1★ Red ➔ 1★ White" },
+        mvsSweetSpot: {
+          vi: "1 Sao Đỏ (160 Mảnh) ➔ 1 Sao Trắng (560 Mảnh — Điểm ngọt khắc chế Triệu hồi)",
+          en: "1★ Red (160 Shards) ➔ 1★ White (560 Shards — Anti-Summon Sweet Spot)",
+        },
         slotReason: {
-          vi: "Tia sáng trừng phạt ở Ô 5 xóa sổ đệ triệu hồi của Tidecaller và giải hiệu ứng xấu.",
-          en: "Punishing beams from Slot 5 clear Tidecaller summons and cleanse debuffs.",
+          vi: "Đứng Ô 5 mặc Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ / Kỵ Sĩ Vinh Quang (Duelist's Set ➔ Fury of Blood / Knight's Glory) để vừa ban Khiên Thánh giải hiệu ứng xấu, vừa kích hoạt tia sáng trừng phạt nổ lan diện rộng xóa sổ đệ triệu hồi của Thuật Sĩ Thủy Triều (Tidecaller).",
+          en: "Stands in Slot 5 wearing Duelist's Set ➔ Fury of Blood (Knight's Glory Set) to grant Holy Shields, cleanse debuffs, and trigger chain-explosion beams that wipe Tidecaller's summons.",
         },
       },
       {
@@ -332,15 +365,18 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
         rowZone: "backline_dive",
         wing: "right",
         heroName: {
-          vi: "Nun (Nữ Tu Đỏ)",
+          vi: "Nữ Tu Đỏ (Tu Nữ · Thức Tỉnh / Nun)",
           en: "Nun (Awakened)",
         },
         rarity: "legendary",
         roleBadge: { vi: "💚 Đại Tư Tế Hồi Phục", en: "💚 Supreme Healer" },
-        mvsSweetSpot: { vi: "1★ Trắng / Thức Tỉnh", en: "1★ White / Awakened" },
+        mvsSweetSpot: {
+          vi: "Thức Tỉnh Đỏ (9 Đá Linh Hồn + 345–385 Mảnh) ➔ 1 Sao Trắng",
+          en: "Mythic Awakened (9 Soul Stones + 345–385 Shards) ➔ 1★ White",
+        },
         slotReason: {
-          vi: "Giữ nhịp sinh tồn cho toàn bộ 6 vị trí Liên Minh trong giao tranh kéo dài.",
-          en: "Sustains all 6 League positions through prolonged endgame battles.",
+          vi: "Chốt chặn hồi phục tối hậu ở Ô 6 với Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang / Hiền Triết Quang Vinh (Sage Set ➔ Glorious Light / Glory of the Sage), giữ cho dàn chắn Công Chúa Rose – Thẩm Phán trụ vững trước các đợt dồn sát thương đầu trận.",
+          en: "Supreme healing anchor in Slot 6 equipped with Sage Set ➔ Glorious Light (Glory of the Sage Set), sustaining the Rose Princess – Adjudicator frontline through heavy opening bursts.",
         },
       },
     ],
@@ -354,11 +390,11 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
       en: "4-2 Hybrid Bridge (Days 21–40)",
     },
     fullTitle: {
-      vi: "Đội Hình Cầu Nối Lai 4 Liên Minh + 2 Bộ Lạc (Zero-Loss Bridge)",
-      en: "4 League + 2 Horde Hybrid Bridge Lineup (Days 21–40)",
+      vi: "3. Đội Hình Cầu Nối Lai 4 Liên Minh + 2 Bộ Lạc (Ngày 21–40 S0)",
+      en: "3. 4 League + 2 Horde Hybrid Bridge Lineup (Days 21–40 S0)",
     },
     stageTiming: {
-      vi: "Ngày 21 – Ngày 40 (Khi vừa mở Desert Prince & Storm Maiden)",
+      vi: "Ngày 21 – Ngày 40 (Khi vừa mở Hoàng Tử Sa Mạc & Nữ Thần Bão Tố)",
       en: "Days 21 – 40 (Upon unlocking Desert Prince & Storm Maiden)",
     },
     auraBonus: {
@@ -366,11 +402,11 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
       en: "4+2 Hybrid Aura: +15% ATK & HP + Dual Mythic Power Spike",
     },
     soulStoneBudget: {
-      vi: "Đang tích lũy 9 Hồn Đá Đỏ (360k Guild Honor / 54k Xu)",
-      en: "Saving 9 Soul Stones (360k Guild Honor / 54k Guild Coins)",
+      vi: "0 Đá Linh Hồn (Hồn Đá Đỏ / Soul Stone) — Đang tích lũy đủ 9 viên Đá Linh Hồn (360,000 Điểm Vinh Dự Bang / 54,000 Xu Vinh Quang Hội) chờ Thức tỉnh Thuật Sĩ Linh Hồn (Soulmancer) hoặc Pháp Sư Bóng Tối (Warlock).",
+      en: "0 Soul Stones (Red Soul Stones) — Actively hoarding 9 Soul Stones (360,000 Guild Honor / 54,000 Guild Race Honor Coins) to awaken Soulmancer or Warlock.",
     },
     counterAdvantage: {
-      vi: "⚡ Giai đoạn chuyển giao mượt mà không làm tụt hạng Arena",
+      vi: "⚡ Giai đoạn chuyển giao mượt mà không làm tụt hạng Đấu Trường (Arena)",
       en: "⚡ Seamless transition bridge with zero Arena rank drop",
     },
     slots: [
@@ -379,15 +415,18 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
         rowZone: "frontline",
         wing: "left",
         heroName: {
-          vi: "Desert Prince (Hoàng Tử Sa Mạc)",
+          vi: "Hoàng Tử Sa Mạc (Desert Prince)",
           en: "Desert Prince",
         },
         rarity: "mythic",
         roleBadge: { vi: "🔴 Mythic Bruiser Tank", en: "🔴 Mythic Bruiser Tank" },
-        mvsSweetSpot: { vi: "1★ Đỏ ➔ 1★ Trắng (560)", en: "1★ Red ➔ 1★ White (560)" },
+        mvsSweetSpot: {
+          vi: "1 Sao Đỏ (160 Mảnh — Ra trận ngay thay Người Giữ Bí Mật) ➔ 1 Sao Trắng (560 Mảnh)",
+          en: "1★ Red (160 Shards — Replaces Secret Keeper) ➔ 1★ White (560 Shards)",
+        },
         slotReason: {
-          vi: "Tướng Đỏ Bộ Lạc đầu tiên bước vào Ô 1 thay Tank phụ Liên Minh, vừa chống chịu vừa chém sát thương chuẩn.",
-          en: "First Horde Mythic entering Slot 1 to replace secondary League tank with massive True Damage.",
+          vi: "Thay thế trực tiếp Người Giữ Bí Mật (Secret Keeper) ở Ô 1 ngay khi đạt 1 Sao Đỏ (160 Mảnh Anh Hùng Huyền Thoại Vạn Năng); mặc Bộ Đồ Titan / Huyết Titan (Titan's Might / Blood of the Titan) đem lại khả năng bất tử ngắn hạn và sát thương chuẩn vượt trội.",
+          en: "Directly replaces Secret Keeper in Slot 1 upon reaching 1 Red Star (160 Universal Legendary Shards); wears Titan's Might / Blood of the Titan Set for short-term invulnerability and massive True Damage.",
         },
       },
       {
@@ -395,15 +434,18 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
         rowZone: "frontline",
         wing: "right",
         heroName: {
-          vi: "Adjudicator (Trọng Tài)",
+          vi: "Thẩm Phán (Adjudicator)",
           en: "Adjudicator",
         },
         rarity: "legendary",
         roleBadge: { vi: "🔵 Cầu Nối Liên Minh", en: "🔵 League Bridge Tank" },
-        mvsSweetSpot: { vi: "Giữ nguyên cấp cũ", en: "Keep existing investment" },
+        mvsSweetSpot: {
+          vi: "1 Sao Trắng (Giữ nguyên cấp cũ, 0 Mảnh Vạn Năng)",
+          en: "1★ White (Keep existing investment, 0 Universal Shards)",
+        },
         slotReason: {
-          vi: "Giữ Ô 2 để kích hoạt mốc 4 tướng Liên Minh (+15% Aura) trong khi chờ Beastmaster.",
-          en: "Holds Slot 2 to preserve the 4-League (+15% Aura) bonus while awaiting Beastmaster.",
+          vi: "Đứng Ô 2 mặc Bộ Đồ Titan / Huyết Titan (Titan's Might / Blood of the Titan) làm trụ đỡ đòn phụ và góp đủ mốc 4 Tướng Liên Minh để giữ hào quang +15% ATK/HP trong lúc chờ Thú Tướng (Beastmaster).",
+          en: "Holds Slot 2 in Titan's Might / Blood of the Titan Set as secondary tank and preserves the 4-League (+15% ATK/HP) aura while awaiting Beastmaster.",
         },
       },
       {
@@ -411,15 +453,18 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
         rowZone: "midline_safe",
         wing: "left",
         heroName: {
-          vi: "Storm Maiden (Thần Nữ Bão Tố)",
+          vi: "Nữ Thần Bão Tố (Storm Maiden)",
           en: "Storm Maiden",
         },
         rarity: "mythic",
         roleBadge: { vi: "🔴 Mythic Hyper-Carry", en: "🔴 Mythic Hyper-Carry" },
-        mvsSweetSpot: { vi: "1★ Trắng (560 Mảnh)", en: "1★ White (560 Shards)" },
+        mvsSweetSpot: {
+          vi: "1 Sao Đỏ (160 Mảnh — Mở Kỹ năng thứ 5) ➔ 1 Sao Trắng (560 Mảnh — +30% hiệu ứng)",
+          en: "1★ Red (160 Shards — Unlocks 5th Skill) ➔ 1★ White (560 Shards — +30% Boost)",
+        },
         slotReason: {
-          vi: "Đứng tại Ô 3 Vùng An Toàn ngay sau lưng Desert Prince để thả lốc xoáy xuyên cột dọc.",
-          en: "Protected in Safe Slot 3 behind Desert Prince to unleash vertical column cyclones.",
+          vi: "Thay thế trực tiếp Chiêm Tinh Gia (Astrologer) ở Ô 3 Vùng An Toàn sau lưng Hoàng Tử Sa Mạc; mặc Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ / Kỵ Sĩ Vinh Quang (Duelist's Set ➔ Fury of Blood / Knight's Glory) và ưu tiên nhận toàn bộ Sách Kỹ Năng cùng Mảnh Anh Hùng Huyền Thoại Vạn Năng (Universal Legendary Shard).",
+          en: "Replaces Astrologer in Safe Slot 3 behind Desert Prince; wears Duelist's Set ➔ Fury of Blood (Knight's Glory Set) and receives 100% of Skill Books and Universal Legendary Shards.",
         },
       },
       {
@@ -427,15 +472,18 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
         rowZone: "midline_safe",
         wing: "right",
         heroName: {
-          vi: "Pyromancer (Pháp Sư Lửa)",
+          vi: "Pháp Sư Lửa (Pyromancer)",
           en: "Pyromancer",
         },
         rarity: "legendary",
         roleBadge: { vi: "🔵 Cầu Nối DPS Phụ", en: "🔵 Bridge Sub-DPS" },
-        mvsSweetSpot: { vi: "1★ Trắng (Chuẩn bị sang Đội 2)", en: "1★ White (Ready for Queue 2)" },
+        mvsSweetSpot: {
+          vi: "1 Sao Trắng (Dùng tiếp từ giai đoạn Ngày 1–20, chờ chuyển xuống Đội 2)",
+          en: "1★ White (Carryover from Days 1–20, ready for Queue 2)",
+        },
         slotReason: {
-          vi: "Tiếp tục phụ sát thương ở Ô 4 cho đến Ngày 41 rồi chuyển nguyên vẹn xuống làm Chủ lực Đội 2.",
-          en: "Provides secondary burst in Slot 4 until Day 41 before moving intact to anchor Queue 2.",
+          vi: "Đứng Ô 4 mặc Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ / Kỵ Sĩ Vinh Quang (Duelist's Set ➔ Fury of Blood / Knight's Glory) phụ sát thương dọn lính cùng Nữ Thần Bão Tố (Storm Maiden) cho đến Ngày 41 rồi chuyển nguyên vẹn xuống làm Chủ lực Đội 2.",
+          en: "Stands in Slot 4 with Duelist's Set ➔ Fury of Blood (Knight's Glory Set) providing secondary AoE alongside Storm Maiden until Day 41 before moving intact to anchor Queue 2.",
         },
       },
       {
@@ -443,15 +491,18 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
         rowZone: "backline_dive",
         wing: "left",
         heroName: {
-          vi: "Nun (Nữ Tu)",
+          vi: "Nữ Tu (Nun)",
           en: "Nun",
         },
         rarity: "legendary",
         roleBadge: { vi: "🔵 Cầu Nối Hồi Máu", en: "🔵 Bridge Healer" },
-        mvsSweetSpot: { vi: "Giữ nguyên chờ Witch", en: "Hold until Witch Day 41" },
+        mvsSweetSpot: {
+          vi: "3 Sao Vàng ➔ 1 Sao Trắng (Giữ nguyên chờ Phù Thủy / Witch ở Ngày 41)",
+          en: "3★ Gold ➔ 1★ White (Hold until Witch unlocks on Day 41)",
+        },
         slotReason: {
-          vi: "Giữ máu cho đội hình Lai 4-2 trước khi Witch ra mắt ở Ngày 41.",
-          en: "Sustains the 4-2 Hybrid squad until Witch unlocks on Day 41.",
+          vi: "Giữ nhịp hồi máu ở Ô 5 với Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang / Hiền Triết Quang Vinh (Sage Set ➔ Glorious Light / Glory of the Sage) trong lúc chờ Phù Thủy (Witch — Tướng Đỏ hồi máu hệ Bộ Lạc) ra mắt ở Ngày 41.",
+          en: "Sustains the 4-2 Hybrid squad from Slot 5 in Sage Set ➔ Glorious Light (Glory of the Sage Set) until Witch (Horde Mythic healer) unlocks on Day 41.",
         },
       },
       {
@@ -459,15 +510,18 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
         rowZone: "backline_dive",
         wing: "right",
         heroName: {
-          vi: "Bard (Thi Nhân)",
+          vi: "Nhà Thơ (Bard)",
           en: "Bard",
         },
         rarity: "legendary",
         roleBadge: { vi: "🔵 Cầu Nối Hồi Nộ", en: "🔵 Bridge Cooldown Buffer" },
-        mvsSweetSpot: { vi: "Giữ nguyên", en: "Keep existing stars" },
+        mvsSweetSpot: {
+          vi: "3 Sao Vàng ➔ 2 Sao Trắng (Giữ nguyên cấp sao hiện có)",
+          en: "3★ Gold ➔ 2★ White (Keep existing star level)",
+        },
         slotReason: {
-          vi: "Mảnh ghép thứ 4 của Liên Minh giúp Desert Prince & Storm Maiden tung chiêu liên tục.",
-          en: "Completes the 4-League bridge while accelerating Desert Prince & Storm Maiden ultimates.",
+          vi: "Đứng Ô 6 mặc Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang / Hiền Triết Quang Vinh (Sage Set ➔ Glorious Light / Glory of the Sage) bơm tốc độ đánh và giảm hồi chiêu cho Hoàng Tử Sa Mạc (Desert Prince) & Nữ Thần Bão Tố (Storm Maiden), hoàn tất mảnh ghép thứ 4 của hào quang Liên Minh.",
+          en: "Stands in Slot 6 with Sage Set ➔ Glorious Light (Glory of the Sage Set) accelerating ultimates for Desert Prince & Storm Maiden while completing the 4-League aura bridge.",
         },
       },
     ],
@@ -477,12 +531,12 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
     tocSubSectionId: "sub-2-2-horde-endgame-5mythic",
     faction: "horde",
     shortLabel: {
-      vi: "Bộ Lạc Đỉnh Cao (5 Mythic — Khuyên Dùng #1)",
-      en: "Horde Endgame (5 Mythics — #1 F2P Pick)",
+      vi: "Bộ Lạc Đỉnh Cao (5 Đỏ + 1 Vàng)",
+      en: "Horde Endgame (5 Mythics + 1 SSR)",
     },
     fullTitle: {
-      vi: "Đội Hình Thuần Bộ Lạc 5 Mythic + 1 Awakened (Lộ Trình Vua F2P/Low-Spender)",
-      en: "Pure Horde 5-Mythic + 1 Awakened Endgame Lineup (#1 Optimal F2P/Low-Spender Meta)",
+      vi: "4. Đội Hình Thuần Bộ Lạc 5 Tướng Đỏ + 1 Vàng Thức Tỉnh (Lộ Trình Tối Ưu Số 1)",
+      en: "4. Pure Horde 5-Mythic + 1 Awakened Endgame Lineup (#1 Optimal F2P/Low-Spender Meta)",
     },
     stageTiming: {
       vi: "Ngày 41+ đến Season 1–4 (Hoàn tất Xoay Trục Bộ Lạc)",
@@ -493,11 +547,11 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
       en: "6/6 Pure Horde: +35% ATK & HP + +20% Counter DMG vs League",
     },
     soulStoneBudget: {
-      vi: "🔥 Chỉ tốn 9 Hồn Đá Đỏ + 345–385 Mảnh (Cho duy nhất Soulmancer / Warlock)",
-      en: "🔥 Only 9 Soul Stones + 345–385 Shards (For Soulmancer / Warlock alone)",
+      vi: "🔥 Chỉ tốn 9 Đá Linh Hồn (Hồn Đá Đỏ / Soul Stone — Tiết kiệm 67% so với Liên Minh & Thiên Nhiên) + 345–385 Mảnh cho duy nhất Thuật Sĩ Linh Hồn (Soulmancer) hoặc Pháp Sư Bóng Tối (Warlock).",
+      en: "🔥 Only 9 Soul Stones (Red Soul Stones — Saves 67% vs League & Nature) + 345–385 Shards for Soulmancer or Warlock alone.",
     },
     counterAdvantage: {
-      vi: "🔴 Khắc chế +20% trước 75% dân số Server chơi 🔵 Liên Minh!",
+      vi: "🔴 Khắc chế +20% DMG trước 75% dân số máy chủ chơi 🔵 Liên Minh!",
       en: "🔴 +20% Counter DMG against 75% of the server playing 🔵 League!",
     },
     slots: [
@@ -506,15 +560,18 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
         rowZone: "frontline",
         wing: "left",
         heroName: {
-          vi: "Beastmaster (Chúa Tể Muông Thú)",
+          vi: "Thú Tướng (Beastmaster)",
           en: "Beastmaster",
         },
         rarity: "mythic",
         roleBadge: { vi: "🛡️ Mythic Main Tank", en: "🛡️ Mythic Main Tank" },
-        mvsSweetSpot: { vi: "1★ Trắng (560 Mảnh)", en: "1★ White (560 Shards)" },
+        mvsSweetSpot: {
+          vi: "1 Sao Đỏ (160 Mảnh) ➔ 1 Sao Trắng (560 Mảnh — Điểm ngọt bất khả xâm phạm)",
+          en: "1★ Red (160 Shards) ➔ 1★ White (560 Shards — Unbreakable Sweet Spot)",
+        },
         slotReason: {
-          vi: "Chốt chặn bất khả xâm phạm ở Ô 1 với Khiên Máu và Gấu triệu hồi gom toàn bộ Aggro cánh trái.",
-          en: "Unbreakable Slot 1 fortress with HP shields and Bear summon locking left-wing aggro.",
+          vi: "Chốt chặn bất khả xâm phạm của Bộ Lạc đứng Ô 1; mặc Bộ Đồ Titan / Huyết Titan (Titan's Might / Blood of the Titan) (+30% Dấu Hệ Bộ Lạc), tạo Khiên theo % máu tối đa cực dày, gọi Gấu triệu hồi gom toàn bộ hỏa lực cánh trái và tự động nhảy vào bảo vệ đồng đội thấp máu nhất.",
+          en: "Unbreakable Horde Main Tank in Slot 1; wears Titan's Might / Blood of the Titan Set (+30% Horde Faction Mark), generating massive % Max HP shields, summoning a Bear to lock left-wing aggro, and leaping to protect low-HP allies.",
         },
       },
       {
@@ -522,15 +579,18 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
         rowZone: "frontline",
         wing: "right",
         heroName: {
-          vi: "Desert Prince (Hoàng Tử Sa Mạc)",
+          vi: "Hoàng Tử Sa Mạc (Desert Prince)",
           en: "Desert Prince",
         },
         rarity: "mythic",
         roleBadge: { vi: "⚔️ Mythic Bruiser / Off-Tank", en: "⚔️ Mythic Bruiser / Off-Tank" },
-        mvsSweetSpot: { vi: "1★ Trắng (560 Mảnh) + UW", en: "1★ White (560 Shards) + UW" },
+        mvsSweetSpot: {
+          vi: "1 Sao Trắng (560 Mảnh) + Vũ khí Độc quyền Đế Vương Hoàng Kim +10",
+          en: "1★ White (560 Shards) + Golden Emperor +10",
+        },
         slotReason: {
-          vi: "Đứng Ô 2 nhận đòn để tích đầy Nộ trong 3 giây và bổ đôi tuyến đầu đối phương bằng Sát thương chuẩn.",
-          en: "Takes frontline hits in Slot 2 to fill Rage in 3s and cleave enemy tanks with True Damage.",
+          vi: "Đứng Ô 2 làm Đấu sĩ / Đỡ đòn phụ mặc Bộ Đồ Titan / Huyết Titan (Titan's Might / Blood of the Titan), nhận đòn tích đầy Nộ trong 3 giây, kích hoạt bất tử ngắn hạn và bổ đôi tuyến đầu đối phương bằng sát thương chuẩn.",
+          en: "Off-Tank / Bruiser in Slot 2 wearing Titan's Might / Blood of the Titan Set, soaking hits to fill Rage in 3s, triggering short-term invulnerability, and cleaving enemy tanks with True Damage.",
         },
       },
       {
@@ -538,15 +598,18 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
         rowZone: "midline_safe",
         wing: "left",
         heroName: {
-          vi: "Wukong (Tề Thiên Đại Thánh)",
+          vi: "Tôn Ngộ Không (Wukong)",
           en: "Wukong",
         },
         rarity: "mythic",
         roleBadge: { vi: "👑 Thần Chiến Tranh (Hyper-Carry)", en: "👑 God of War Hyper-Carry" },
-        mvsSweetSpot: { vi: "1★ Trắng ➔ 5★ Trắng + UW Lv.20", en: "1★ White ➔ 5★ White + UW Lv.20" },
+        mvsSweetSpot: {
+          vi: "1 Sao Trắng (560 Mảnh) ➔ 5 Sao Trắng (1,000 Mảnh) + Vũ khí Độc quyền Gậy Vàng Như Ý +20",
+          en: "1★ White (560 Shards) ➔ 5★ White (1,000 Shards) + Ruyi Jingu Bang +20",
+        },
         slotReason: {
-          vi: "Đứng tại Ô 3 Vùng An Toàn để gọi Phân Thân Lông Khỉ (thừa hưởng 100% Flat ATK từ Bộ Kỵ Sĩ) và nhảy bổ vào Hàng sau địch.",
-          en: "Starts in Safe Slot 3 to summon clones (inheriting 100% Flat ATK) and dive enemy Backline.",
+          vi: "Sát thương chủ lực mạnh nhất trò chơi đứng tại Ô 3 Vùng An Toàn (ngay sau lưng Thú Tướng); kết hợp Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ / Kỵ Sĩ Vinh Quang (Duelist's Set ➔ Fury of Blood / Knight's Glory) (+30% Dấu Hệ Bộ Lạc), gọi Phân Thân Lông Khỉ quét sạch đệ triệu hồi và nhảy bổ vào kết liễu Hàng sau địch.",
+          en: "#1 God-of-War Hyper-Carry in Safe Slot 3 behind Beastmaster; pairs Duelist's Set ➔ Fury of Blood (Knight's Glory Set) (+30% Horde Faction Mark) with clone summons that inherit 100% Flat ATK to wipe summons and dive the enemy Backline.",
         },
       },
       {
@@ -554,15 +617,18 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
         rowZone: "midline_safe",
         wing: "right",
         heroName: {
-          vi: "Storm Maiden (Thần Nữ Bão Tố)",
+          vi: "Nữ Thần Bão Tố (Storm Maiden)",
           en: "Storm Maiden",
         },
         rarity: "mythic",
         roleBadge: { vi: "🌪️ AoE Hyper-Carry Số 2", en: "🌪️ #2 AoE Hyper-Carry" },
-        mvsSweetSpot: { vi: "1★ Trắng (560 Mảnh) + UW Lv.10", en: "1★ White (560 Shards) + UW Lv.10" },
+        mvsSweetSpot: {
+          vi: "1 Sao Trắng (560 Mảnh — Điểm ngọt +30%) + Vũ khí Độc quyền Thiên Lôi +10",
+          en: "1★ White (560 Shards — +30% Sweet Spot) + Stormbringer +10",
+        },
         slotReason: {
-          vi: "An toàn tuyệt đối sau lưng Desert Prince tại Ô 4, quét sạch cột dọc bằng lốc xoáy chí mạng.",
-          en: "Safely positioned in Slot 4 behind Desert Prince to sweep columns with critical tornadoes.",
+          vi: "An toàn tuyệt đối sau lưng Hoàng Tử Sa Mạc tại Ô 4, mặc Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ / Kỵ Sĩ Vinh Quang (Duelist's Set ➔ Fury of Blood / Knight's Glory) (+30% Dấu Hệ Bộ Lạc) tạo gọng kìm sát thương kép cùng Tôn Ngộ Không (Wukong), quét sạch cột dọc bằng lốc xoáy chí mạng.",
+          en: "Safely positioned behind Desert Prince in Slot 4 wearing Duelist's Set ➔ Fury of Blood (Knight's Glory Set) (+30% Horde Faction Mark), forming a dual-carry pincer with Wukong to sweep vertical columns with critical tornadoes.",
         },
       },
       {
@@ -570,15 +636,18 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
         rowZone: "backline_dive",
         wing: "left",
         heroName: {
-          vi: "Witch (Phù Thủy Hắc Ám)",
+          vi: "Phù Thủy (Witch)",
           en: "Witch",
         },
         rarity: "mythic",
         roleBadge: { vi: "✨ Mythic Healer & Cấm Hồi Máu", en: "✨ Mythic Healer & Anti-Heal" },
-        mvsSweetSpot: { vi: "1★ Trắng (560 Mảnh)", en: "1★ White (560 Shards)" },
+        mvsSweetSpot: {
+          vi: "1 Sao Đỏ (160 Mảnh — Đủ dùng hoàn hảo) ➔ 1 Sao Trắng (560 Mảnh)",
+          en: "1★ Red (160 Shards — Fully Viable) ➔ 1★ White (560 Shards)",
+        },
         slotReason: {
-          vi: "Trái tim hồi phục của Bộ Lạc ở Ô 5, vừa bơm máu toàn đội vừa nguyền rủa giảm phòng thủ địch.",
-          en: "Core Horde healer in Slot 5 providing team-wide sustain and armor-shredding curses.",
+          vi: "Trái tim hồi phục kiêm Khống chế phẩm Đỏ của Bộ Lạc ở Ô 5; mặc Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang / Hiền Triết Quang Vinh (Sage Set ➔ Glorious Light / Glory of the Sage) để giảm hồi chiêu, vừa bơm máu toàn đội vừa nguyền rủa gây Sợ hãi và giảm phòng thủ diện rộng.",
+          en: "Core Horde Mythic healer and controller in Slot 5; wears Sage Set ➔ Glorious Light (Glory of the Sage Set) for cooldown reduction, providing team-wide sustain alongside AoE Fear and defense-shredding curses.",
         },
       },
       {
@@ -586,15 +655,18 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
         rowZone: "backline_dive",
         wing: "right",
         heroName: {
-          vi: "Soulmancer / Warlock (Thức Tỉnh Đỏ)",
+          vi: "Thuật Sĩ Linh Hồn (Soulmancer) / Pháp Sư Bóng Tối Đỏ (Warlock)",
           en: "Soulmancer / Warlock (Awakened)",
         },
         rarity: "legendary",
         roleBadge: { vi: "🔥 Tướng Vàng Thức Tỉnh Duy Nhất", en: "🔥 Sole Awakened Legendary" },
-        mvsSweetSpot: { vi: "9 Hồn Đá Đỏ + 345–385 Mảnh", en: "9 Soul Stones + 345–385 Shards" },
+        mvsSweetSpot: {
+          vi: "9 Đá Linh Hồn (Hồn Đá Đỏ / Soul Stone) + 345–385 Mảnh (Tướng Vàng Thức tỉnh duy nhất)",
+          en: "9 Soul Stones (Red Soul Stones) + 345–385 Shards (Sole Awakened SSR)",
+        },
         slotReason: {
-          vi: "Soulmancer (Chia sẻ sát thương bảo vệ Wukong) hoặc Warlock (Buff Tốc đánh & Hút máu điên cuồng) — chỉ tốn đúng 9 Hồn Đá Đỏ!",
-          en: "Soulmancer (Damage Link protecting Wukong) or Warlock (Frenzy ATK Speed/Lifesteal buff) — costs only 9 Soul Stones!",
+          vi: "Mảnh ghép thứ 6 mặc Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang / Hiền Triết Quang Vinh (Sage Set ➔ Glorious Light / Glory of the Sage): chọn Thuật Sĩ Linh Hồn (Soulmancer) (Chia sẻ sát thương bảo vệ Tôn Ngộ Không + hồi sinh PvP) hoặc Pháp Sư Bóng Tối (Warlock) (Buff Tốc đánh & Hút máu dồn sát thương Boss/PvE) — chỉ tốn đúng 9 Đá Linh Hồn (Hồn Đá Đỏ / Soul Stone)!",
+          en: "6th slot wearing Sage Set ➔ Glorious Light (Glory of the Sage Set): choose Soulmancer (Damage Link protecting Wukong + PvP revive) or Warlock (Frenzy ATK Speed & Lifesteal buff for Boss/PvE) — costs only 9 Soul Stones (Red Soul Stones) total!",
         },
       },
     ],
@@ -604,15 +676,15 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
     tocSubSectionId: "sub-3-1-nature-transition",
     faction: "nature",
     shortLabel: {
-      vi: "Thiên Nhiên Chuyển Tiếp (S0–S1)",
+      vi: "Thiên Nhiên Giao Thời (S0–S1)",
       en: "Nature Transition (S0–S1)",
     },
     fullTitle: {
-      vi: "Đội Hình Thiên Nhiên Khởi Đầu & Chuyển Tiếp (Pixie + Forest Maiden)",
-      en: "Nature Starter & Transition Formation (Pixie + Forest Maiden)",
+      vi: "5. Đội Hình Thiên Nhiên Khởi Đầu & Giao Thời (Tiên Nhỏ + Thiếu Nữ Rừng Xanh)",
+      en: "5. Nature Starter & Transition Formation (Pixie + Forest Maiden)",
     },
     stageTiming: {
-      vi: "Cuối S0 – Đầu Season 1 (Trước khi hoàn thiện bộ đôi Monk + Tidecaller)",
+      vi: "Cuối S0 – Đầu Season 1 (Trước khi hoàn thiện bộ đôi Hòa Thượng + Thuật Sĩ Thủy Triều)",
       en: "Late S0 – Early Season 1 (Before full Monk + Tidecaller engine)",
     },
     auraBonus: {
@@ -620,8 +692,8 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
       en: "6/6 Pure Nature: +35% Team ATK & HP",
     },
     soulStoneBudget: {
-      vi: "18 Hồn Đá Đỏ (Ưu tiên đánh thức Pixie & Sage/Forest Maiden)",
-      en: "18 Soul Stones (Prioritize awakening Pixie & Sage/Forest Maiden)",
+      vi: "9 đến 18 Đá Linh Hồn (Hồn Đá Đỏ / Soul Stone) — Ưu tiên thức tỉnh Tiên Nhỏ (Pixie — 9 viên) làm nguồn sát thương diện rộng trước, sau đó đến Thiếu Nữ Rừng Xanh (Forest Maiden — 9 viên) hoặc Hiền Giả (Sage — 9 viên).",
+      en: "9 to 18 Soul Stones (Red Soul Stones) — Prioritize awakening Pixie (9 stones) first for AoE output, followed by Forest Maiden (9 stones) or Sage (9 stones).",
     },
     counterAdvantage: {
       vi: "🟢 Thiên Nhiên khắc chế 🔴 Bộ Lạc (+20% DMG) • Bị 🔵 Liên Minh khắc chế (-20%)",
@@ -633,15 +705,18 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
         rowZone: "frontline",
         wing: "left",
         heroName: {
-          vi: "Sage (Hiền Nhân)",
+          vi: "Hiền Giả (Sage)",
           en: "Sage",
         },
         rarity: "legendary",
         roleBadge: { vi: "🛡️ Tank Hồi Phục & Khiên", en: "🛡️ Sustain & Shield Tank" },
-        mvsSweetSpot: { vi: "1★ Trắng (280 Mảnh)", en: "1★ White (280 Shards)" },
+        mvsSweetSpot: {
+          vi: "1 Sao Trắng (280 Mảnh) ➔ Thức Tỉnh Đỏ (9 Đá Linh Hồn ở S1)",
+          en: "1★ White (280 Shards) ➔ Mythic Awakened (9 Soul Stones in S1)",
+        },
         slotReason: {
-          vi: "Chịu đòn chính ở Ô 1 và giảm sát thương nhận vào cho cả cột trái.",
-          en: "Absorbs primary aggro in Slot 1 while reducing damage taken along the left column.",
+          vi: "Đỡ đòn chính giai đoạn chuyển tiếp đứng Ô 1, mặc Bộ Đồ Titan / Huyết Titan (Titan's Might / Blood of the Titan) chịu đòn trực diện và giảm sát thương nhận vào cho cả cột trái.",
+          en: "Transition Main Tank in Slot 1 wearing Titan's Might / Blood of the Titan Set, absorbing primary aggro while reducing damage taken along the left column.",
         },
       },
       {
@@ -649,15 +724,18 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
         rowZone: "frontline",
         wing: "right",
         heroName: {
-          vi: "Treeguard (Mộc Tinh)",
+          vi: "Vệ Thần Rừng (Treeguard)",
           en: "Treeguard",
         },
         rarity: "legendary",
         roleBadge: { vi: "🌲 Off-Tank Rễ Cây", en: "🌲 Root Control Off-Tank" },
-        mvsSweetSpot: { vi: "Mảnh Tavern tự nhiên", en: "Free Tavern Shards" },
+        mvsSweetSpot: {
+          vi: "3 Sao Vàng ➔ 1 Sao Trắng (Mảnh Quán Rượu tự nhiên, 0 Mảnh Vạn Năng)",
+          en: "3★ Gold ➔ 1★ White (Free Tavern shards, 0 Universal Shards)",
+        },
         slotReason: {
-          vi: "Trói chân tuyến đầu địch ở Ô 2 trước khi nhường chỗ cho Monk và Ne Zha.",
-          en: "Roots enemy frontline in Slot 2 until replaced by Monk and Ne Zha.",
+          vi: "Đỡ đòn phụ Ô 2 mặc Bộ Đồ Titan / Huyết Titan (Titan's Might / Blood of the Titan) tự hồi phục máu và mọc rễ trói chân tuyến đầu địch trước khi nhường chỗ cho Hòa Thượng (Monk) và Na Tra (Ne Zha).",
+          en: "Off-Tank in Slot 2 wearing Titan's Might / Blood of the Titan Set, self-healing and rooting enemy frontline units until replaced by Monk and Ne Zha.",
         },
       },
       {
@@ -665,15 +743,18 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
         rowZone: "midline_safe",
         wing: "left",
         heroName: {
-          vi: "Pixie (Tiên Hoa)",
+          vi: "Tiên Nhỏ (Pixie)",
           en: "Pixie",
         },
         rarity: "legendary",
         roleBadge: { vi: "👑 Sát Thương Phép Chuẩn", en: "👑 AoE Burst Carry" },
-        mvsSweetSpot: { vi: "Thức Tỉnh Đỏ (9 Hồn Đá)", en: "Mythic Awakened (9 Stones)" },
+        mvsSweetSpot: {
+          vi: "1 Sao Trắng (280 Mảnh) ➔ Ưu tiên số 1 Thức Tỉnh Đỏ (9 Đá Linh Hồn)",
+          en: "1★ White (280 Shards) ➔ #1 Awakening Priority (9 Soul Stones)",
+        },
         slotReason: {
-          vi: "Đứng tại Ô 3 Vùng An Toàn để xả phấn hoa nổ diện rộng liên tục.",
-          en: "Protected in Safe Slot 3 to detonate continuous AoE pollen blasts.",
+          vi: "Nguồn sát thương phép diện rộng cốt lõi đứng tại Ô 3 Vùng An Toàn; mặc Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ / Kỵ Sĩ Vinh Quang (Duelist's Set ➔ Fury of Blood / Knight's Glory) để xả phấn hoa nổ diện rộng liên tục.",
+          en: "Core Nature AoE magic carry protected in Safe Slot 3; wears Duelist's Set ➔ Fury of Blood (Knight's Glory Set) to detonate continuous AoE pollen blasts.",
         },
       },
       {
@@ -681,15 +762,18 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
         rowZone: "midline_safe",
         wing: "right",
         heroName: {
-          vi: "Windwalker (Phong Hành Giả)",
+          vi: "Phong Hành Giả (Windwalker)",
           en: "Windwalker",
         },
         rarity: "legendary",
         roleBadge: { vi: "🗡️ Sát Thủ Móc Lốp", en: "🗡️ Backline Dive Assassin" },
-        mvsSweetSpot: { vi: "1★ Trắng", en: "1★ White" },
+        mvsSweetSpot: {
+          vi: "1 Sao Đỏ (200 Mảnh) ➔ 1 Sao Trắng (Ngưng đầu tư khi có Thuật Sĩ Thủy Triều)",
+          en: "1★ Red (200 Shards) ➔ 1★ White (Stop investing once Tidecaller unlocks)",
+        },
         slotReason: {
-          vi: "Xuất phát từ Ô 4 để lao vào kết liễu Healer hàng sau của đối phương.",
-          en: "Launches from Slot 4 to dive and execute enemy backline healers.",
+          vi: "Xuất phát từ Ô 4 mặc Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ / Kỵ Sĩ Vinh Quang (Duelist's Set ➔ Fury of Blood / Knight's Glory) để lao vào kết liễu nhanh tướng Hồi máu hàng sau của địch trước khi Thuật Sĩ Thủy Triều (Tidecaller) ra mắt ở đầu Season 1.",
+          en: "Launches from Slot 4 in Duelist's Set ➔ Fury of Blood (Knight's Glory Set) to dive and execute enemy backline healers prior to Tidecaller's Season 1 debut.",
         },
       },
       {
@@ -697,15 +781,18 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
         rowZone: "backline_dive",
         wing: "left",
         heroName: {
-          vi: "Forest Maiden (Thần Nữ Rừng Xanh)",
+          vi: "Thiếu Nữ Rừng Xanh (Forest Maiden)",
           en: "Forest Maiden",
         },
         rarity: "legendary",
         roleBadge: { vi: "🐑 Khống Chế & Cộng Hưởng Đệ", en: "🐑 Polymorph & Summon Engine" },
-        mvsSweetSpot: { vi: "1★ Trắng ➔ Thức Tỉnh", en: "1★ White ➔ Awaken" },
+        mvsSweetSpot: {
+          vi: "1 Sao Trắng (280 Mảnh) ➔ Thức Tỉnh Đỏ (9 Đá Linh Hồn)",
+          en: "1★ White (280 Shards) ➔ Mythic Awakened (9 Soul Stones)",
+        },
         slotReason: {
-          vi: "Biến cừu kẻ địch từ Ô 5 và hồi năng lượng mỗi khi đệ triệu hồi biến mất.",
-          en: "Polymorphs enemies from Slot 5 and refunds energy whenever summons expire.",
+          vi: "Động cơ năng lượng của hệ Triệu hồi đứng Ô 5, mặc Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang / Hiền Triết Quang Vinh (Sage Set ➔ Glorious Light / Glory of the Sage): gọi Cừu khắc chế kẻ địch và hồi năng lượng + cộng dồn ATK cho toàn đội mỗi khi đệ triệu hồi biến mất.",
+          en: "Summon energy engine in Slot 5 wearing Sage Set ➔ Glorious Light (Glory of the Sage Set): polymorphs enemies, summons sheep, and refunds energy + ATK stacks whenever summons expire.",
         },
       },
       {
@@ -713,15 +800,18 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
         rowZone: "backline_dive",
         wing: "right",
         heroName: {
-          vi: "Druid (Tu Sĩ Rừng)",
+          vi: "Đại Tư Tế Rừng (Druid)",
           en: "Druid",
         },
         rarity: "legendary",
         roleBadge: { vi: "🌿 Hồi Máu & Gọi Đệ", en: "🌿 Sustain & Ent Summoner" },
-        mvsSweetSpot: { vi: "Mảnh Tavern", en: "Free Tavern Shards" },
+        mvsSweetSpot: {
+          vi: "3 Sao Vàng ➔ 1 Sao Trắng (Mảnh Quán Rượu, bàn giao xuống Đội 2 ở S1)",
+          en: "3★ Gold ➔ 1★ White (Free Tavern shards, hand off to Queue 2 in S1)",
+        },
         slotReason: {
-          vi: "Hồi máu theo thời gian (HoT) ở Ô 6 giữ tuyến đầu sống sót.",
-          en: "Provides Heal-over-Time (HoT) from Slot 6 to sustain the frontline.",
+          vi: "Đứng Ô 6 mặc Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang / Hiền Triết Quang Vinh (Sage Set ➔ Glorious Light / Glory of the Sage) hồi máu theo thời gian (HoT) và gọi Người Cây (Treant) giữ tuyến đầu sống sót cho đến khi có Thuật Sĩ Thủy Triều (Tidecaller).",
+          en: "Stands in Slot 6 with Sage Set ➔ Glorious Light (Glory of the Sage Set), providing Heal-over-Time (HoT) and Treant summons to sustain the frontline until Tidecaller arrives.",
         },
       },
     ],
@@ -731,12 +821,12 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
     tocSubSectionId: "sub-3-2-nature-endgame-pure",
     faction: "nature",
     shortLabel: {
-      vi: "Thiên Nhiên Đỉnh Cao (Tidecaller + Ne Zha)",
-      en: "Nature Endgame (Tidecaller + Ne Zha)",
+      vi: "Thiên Nhiên Đỉnh Cao (S1–S4)",
+      en: "Nature Endgame (S1–S4)",
     },
     fullTitle: {
-      vi: "Đội Hình Thuần Thiên Nhiên Endgame (Động Cơ Vĩnh Cửu Tidecaller + Monk + Ne Zha)",
-      en: "Pure Nature Endgame Perpetual Summon Engine (Tidecaller + Monk + Ne Zha)",
+      vi: "6. Đội Hình Thuần Thiên Nhiên Cuối Game (Thuật Sĩ Thủy Triều + Hòa Thượng + Na Tra)",
+      en: "6. Pure Nature Endgame Perpetual Summon Engine (Tidecaller + Monk + Ne Zha)",
     },
     stageTiming: {
       vi: "Season 1 – Season 4 (Khắc tinh số 1 của Bộ Lạc ở Cuối Game)",
@@ -747,11 +837,11 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
       en: "6/6 Pure Nature: +35% ATK & HP + +20% Counter DMG vs Horde",
     },
     soulStoneBudget: {
-      vi: "18 Hồn Đá Đỏ (Thức tỉnh Pixie + Forest Maiden / Sage)",
-      en: "18 Soul Stones (Awaken Pixie + Forest Maiden / Sage)",
+      vi: "18 đến 27 Đá Linh Hồn (Hồn Đá Đỏ / Soul Stone) — Bắt buộc thức tỉnh Tiên Nhỏ (Pixie — 9 viên) và Thiếu Nữ Rừng Xanh (Forest Maiden — 9 viên); nếu chưa có Tiên Hoa Petalis (Petalis — S3) thì cần thêm 9 viên cho Hiền Giả (Sage).",
+      en: "18 to 27 Soul Stones (Red Soul Stones) — Mandatory awakening for Pixie (9 stones) and Forest Maiden (9 stones); requires an additional 9 stones for Sage prior to unlocking Petalis in S3.",
     },
     counterAdvantage: {
-      vi: "🟢 Khắc chế cứng 🔴 Bộ Lạc (+20% DMG & Đệ chắn đòn Wukong)",
+      vi: "🟢 Khắc chế cứng 🔴 Bộ Lạc (+20% DMG & Đệ chắn đòn Tôn Ngộ Không / Wukong)",
       en: "🟢 Hard-counters 🔴 Horde (+20% DMG & Summons absorb Wukong dives)",
     },
     slots: [
@@ -760,15 +850,18 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
         rowZone: "frontline",
         wing: "left",
         heroName: {
-          vi: "Monk (Võ Tăng)",
+          vi: "Hòa Thượng (Monk)",
           en: "Monk",
         },
         rarity: "mythic",
         roleBadge: { vi: "🛡️ Mythic Main Tank", en: "🛡️ Mythic Main Tank" },
-        mvsSweetSpot: { vi: "1★ Trắng (560 Mảnh)", en: "1★ White (560 Shards)" },
+        mvsSweetSpot: {
+          vi: "1 Sao Đỏ (160 Mảnh) ➔ 1 Sao Trắng (560 Mảnh — Điểm ngọt chống sốc sát thương)",
+          en: "1★ Red (160 Shards) ➔ 1★ White (560 Shards — Anti-Burst Sweet Spot)",
+        },
         slotReason: {
-          vi: "Tạo khiên cộng hưởng với số lượng đệ của Tidecaller và miễn nhiễm khống chế tại Ô 1.",
-          en: "Generates shields scaling with Tidecaller's summons and resists CC in Slot 1.",
+          vi: "Đỡ đòn chính Tướng Đỏ đứng Ô 1 mặc Bộ Đồ Titan / Huyết Titan (Titan's Might / Blood of the Titan) (+30% Dấu Hệ Thiên Nhiên), tạo Khiên cộng hưởng với số lượng đệ của Thuật Sĩ Thủy Triều (Tidecaller) và kháng khống chế tuyến đầu.",
+          en: "Mythic Main Tank in Slot 1 wearing Titan's Might / Blood of the Titan Set (+30% Nature Faction Mark), generating shields scaling with Tidecaller's summons and resisting CC.",
         },
       },
       {
@@ -776,15 +869,18 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
         rowZone: "frontline",
         wing: "right",
         heroName: {
-          vi: "Ne Zha (Na Tra)",
+          vi: "Na Tra (Ne Zha)",
           en: "Ne Zha",
         },
         rarity: "mythic",
         roleBadge: { vi: "🔥 Mythic Bruiser Bất Tử", en: "🔥 Immortal Mythic Bruiser" },
-        mvsSweetSpot: { vi: "1★ Trắng (560 Mảnh) + UW", en: "1★ White (560 Shards) + UW" },
+        mvsSweetSpot: {
+          vi: "1 Sao Trắng (560 Mảnh) + Vũ khí Độc quyền Hỏa Tiêm Thương +10/+20",
+          en: "1★ White (560 Shards) + Fire-Tipped Spear +10/+20",
+        },
         slotReason: {
-          vi: "Đấu sĩ hàng đầu Ô 2 với khả năng hồi sinh Hoa Sen và thiêu đốt diện rộng.",
-          en: "Frontline bruiser in Slot 2 with Lotus resurrection and AoE burn.",
+          vi: "Đấu sĩ Tướng Đỏ đứng Ô 2 mặc Bộ Đồ Titan / Huyết Titan (Titan's Might / Blood of the Titan) (+30% Dấu Hệ Thiên Nhiên) với nội tại Hồi sinh Hoa Sen và thiêu đốt diện rộng, giúp tuyến đầu Thiên Nhiên trụ vững trước Tôn Ngộ Không (Wukong).",
+          en: "Immortal Mythic bruiser in Slot 2 wearing Titan's Might / Blood of the Titan Set (+30% Nature Faction Mark) with Lotus resurrection and AoE burn to hold the frontline against Wukong.",
         },
       },
       {
@@ -792,15 +888,18 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
         rowZone: "midline_safe",
         wing: "left",
         heroName: {
-          vi: "Tidecaller (Triệu Thủy Sư)",
+          vi: "Thuật Sĩ Thủy Triều (Tidecaller)",
           en: "Tidecaller",
         },
         rarity: "mythic",
         roleBadge: { vi: "👑 Nữ Hoàng Triệu Hồi & Hồi Máu", en: "👑 Supreme Summoner & Healer Carry" },
-        mvsSweetSpot: { vi: "1★ Trắng ➔ 5★ Trắng + UW Lv.20", en: "1★ White ➔ 5★ White + UW Lv.20" },
+        mvsSweetSpot: {
+          vi: "1 Sao Trắng (560 Mảnh) ➔ 5 Sao Trắng (1,000 Mảnh) + Vũ khí Độc quyền Đinh Ba Thần +20",
+          en: "1★ White (560 Shards) ➔ 5★ White (1,000 Shards) + Divine Trident +20",
+        },
         slotReason: {
-          vi: "Bắt buộc đứng ở Ô 3 Vùng An Toàn sau lưng Monk: vừa gọi Thủy Tinh Linh chắn đạn, vừa hồi máu và xả sóng thần.",
-          en: "Must stand in Safe Slot 3 behind Monk: floods the field with Water Elementals, heals, and unleashes tsunamis.",
+          vi: "Bắt buộc đứng ở Ô 3 Vùng An Toàn sau lưng Hòa Thượng (Monk); mặc Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ / Kỵ Sĩ Vinh Quang (Duelist's Set ➔ Fury of Blood / Knight's Glory) (+30% Dấu Hệ Thiên Nhiên) vừa gọi Thủy Tinh Linh chắn đạn, vừa hồi máu toàn đội và xả sóng thần.",
+          en: "Must stand in Safe Slot 3 behind Monk; wears Duelist's Set ➔ Fury of Blood (Knight's Glory Set) (+30% Nature Faction Mark) to flood the field with Water Elementals, heal allies, and unleash tsunamis.",
         },
       },
       {
@@ -808,15 +907,18 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
         rowZone: "midline_safe",
         wing: "right",
         heroName: {
-          vi: "Pixie (Tiên Hoa Đỏ)",
+          vi: "Tiên Nhỏ Đỏ (Pixie · Thức Tỉnh)",
           en: "Pixie (Awakened)",
         },
         rarity: "legendary",
         roleBadge: { vi: "🌸 Awakened Burst Carry", en: "🌸 Awakened Burst Carry" },
-        mvsSweetSpot: { vi: "Thức Tỉnh Đỏ (9 Hồn Đá)", en: "Mythic Awakened (9 Stones)" },
+        mvsSweetSpot: {
+          vi: "Thức Tỉnh Đỏ (9 Đá Linh Hồn + 345–385 Mảnh) ➔ 1 Sao Trắng",
+          en: "Mythic Awakened (9 Soul Stones + 345–385 Shards) ➔ 1★ White",
+        },
         slotReason: {
-          vi: "Xả sát thương phép khổng lồ từ Ô 4 Vùng An Toàn trong khi địch bị kẹt vào biển đệ triệu hồi.",
-          en: "Unleashes massive magic AoE from Safe Slot 4 while enemies are bogged down by summons.",
+          vi: "Đứng Ô 4 Vùng An Toàn mặc Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ / Kỵ Sĩ Vinh Quang (Duelist's Set ➔ Fury of Blood / Knight's Glory) (+30% Dấu Hệ Thiên Nhiên) xả sát thương phép khổng lồ trong khi địch bị kẹt vào biển đệ triệu hồi của Thuật Sĩ Thủy Triều (Tidecaller).",
+          en: "Unleashes massive magic AoE from Safe Slot 4 in Duelist's Set ➔ Fury of Blood (Knight's Glory Set) (+30% Nature Faction Mark) while enemies are bogged down by Tidecaller's summons.",
         },
       },
       {
@@ -824,15 +926,18 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
         rowZone: "backline_dive",
         wing: "left",
         heroName: {
-          vi: "Forest Maiden (Thần Nữ Đỏ)",
+          vi: "Thiếu Nữ Rừng Xanh Đỏ (Forest Maiden · Thức Tỉnh)",
           en: "Forest Maiden (Awakened)",
         },
         rarity: "legendary",
         roleBadge: { vi: "♻️ Động Cơ Hồi Nộ Vĩnh Cửu", en: "♻️ Perpetual Energy Engine" },
-        mvsSweetSpot: { vi: "1★ Trắng / Thức Tỉnh", en: "1★ White / Awakened" },
+        mvsSweetSpot: {
+          vi: "Thức Tỉnh Đỏ (9 Đá Linh Hồn + 345–385 Mảnh) ➔ 1 Sao Trắng",
+          en: "Mythic Awakened (9 Soul Stones + 345–385 Shards) ➔ 1★ White",
+        },
         slotReason: {
-          vi: "Mỗi khi đệ Nước của Tidecaller chết, Forest Maiden ở Ô 5 bơm đầy Nộ và tăng ATK cho cả đội.",
-          en: "Whenever Tidecaller's Water Elementals die, Forest Maiden in Slot 5 refills team Energy and buffs ATK.",
+          vi: "Đặt ở Ô 5 mặc Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang / Hiền Triết Quang Vinh (Sage Set ➔ Glorious Light / Glory of the Sage): mỗi khi Thủy Tinh Linh của Thuật Sĩ Thủy Triều (Tidecaller) hoặc Cừu hy sinh, Thiếu Nữ Rừng Xanh bơm đầy Nộ và tăng ATK cho cả đội.",
+          en: "Positioned in Slot 5 wearing Sage Set ➔ Glorious Light (Glory of the Sage Set): whenever Tidecaller's Water Elementals or sheep die, Forest Maiden refills team Energy and buffs ATK.",
         },
       },
       {
@@ -840,15 +945,18 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
         rowZone: "backline_dive",
         wing: "right",
         heroName: {
-          vi: "Petalis / Sage Đỏ",
+          vi: "Tiên Hoa Petalis (Petalis) / Hiền Giả Đỏ (Sage)",
           en: "Petalis / Awakened Sage",
         },
         rarity: "mythic",
         roleBadge: { vi: "✨ Hỗ Trợ Đỉnh Cao S3–S4", en: "✨ S3–S4 Supreme Support" },
-        mvsSweetSpot: { vi: "1★ Trắng (560 Mảnh)", en: "1★ White (560 Shards)" },
+        mvsSweetSpot: {
+          vi: "Tiên Hoa Petalis (S3): 1 Sao Trắng (560 Mảnh) | Hiền Giả Đỏ (S1–S2): 9 Đá Linh Hồn",
+          en: "Petalis (S3): 1★ White (560 Shards) | Awakened Sage (S1–S2): 9 Soul Stones",
+        },
         slotReason: {
-          vi: "Khóa chặt Ô 6 với lớp khiên thực vật và khả năng chống sốc sát thương từ Sát thủ địch.",
-          en: "Secures Slot 6 with botanical shields and anti-burst protection against diving assassins.",
+          vi: "Ở S1–S2 dùng Hiền Giả (Sage) Thức tỉnh; từ S3 thay bằng Tiên Hoa Petalis (Petalis) khóa chặt Ô 6 với Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang / Hiền Triết Quang Vinh (Sage Set ➔ Glorious Light / Glory of the Sage), tạo lớp khiên thực vật và Bào Tử Mê Hoặc chống sốc sát thương từ Sát thủ địch.",
+          en: "Uses Awakened Sage in S1–S2; from S3 replaces with Petalis in Slot 6 wearing Sage Set ➔ Glorious Light (Glory of the Sage Set) for botanical shields and Charm Spores against diving assassins.",
         },
       },
     ],
@@ -910,9 +1018,9 @@ const LABELS: Record<
     slotPrefix: "Ô",
     selectedSlotHeading: "🎯 Phân tích Vị trí & Thuật toán Tìm Mục tiêu (Targeting AI):",
     exclusiveWeaponChip: "Vũ Khí Độc Quyền",
-    gearSetChip: "Bộ Đồ Vàng Chuẩn",
+    gearSetChip: "Bộ Trang Bị Chuẩn",
     auraHeading: "✨ Hào Quang Đồng Hệ:",
-    soulStoneHeading: "💎 Ngân Sách Hồn Đá Đỏ:",
+    soulStoneHeading: "💎 Ngân Sách Đá Linh Hồn (Hồn Đá Đỏ / Soul Stone):",
     counterHeading: "🔄 Tam Giác Khắc Chế (±20%):",
     swapsIntro:
       "Trong Đấu Trường (Arena) & 3v3, chỉ cần đổi vị trí giữa Ô 3–4 và Ô 5–6 hoặc đảo cột Trái ⇄ Phải, bạn có thể lật kèo đối thủ cao hơn 10%–18% Lực chiến:",
@@ -946,9 +1054,9 @@ const LABELS: Record<
     slotPrefix: "Slot",
     selectedSlotHeading: "🎯 Slot Targeting Physics & Positioning Rationale:",
     exclusiveWeaponChip: "Exclusive Weapon",
-    gearSetChip: "BiS Golden Gear Set",
+    gearSetChip: "BiS Golden/Mythic Gear Set",
     auraHeading: "✨ Faction Aura:",
-    soulStoneHeading: "💎 Soul Stone Budget:",
+    soulStoneHeading: "💎 Soul Stone (Red Soul Stone) Budget:",
     counterHeading: "🔄 Counter Triangle (±20%):",
     swapsIntro:
       "In Arena & 3v3 PvP, swapping heroes between Slots 3–4 and Slots 5–6 or mirroring Left ⇄ Right columns lets you defeat opponents with 10%–18% higher Combat Power:",
