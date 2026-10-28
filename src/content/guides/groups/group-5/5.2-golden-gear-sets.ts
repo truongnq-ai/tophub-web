@@ -7,17 +7,17 @@ export const ARTICLE_5_2_GOLDEN_GEAR_SETS: GuideArticle = {
   badge: "HOT",
   readingMinutes: 11,
   title: {
-    vi: "Giải Mã 3 Bộ Trang Bị Vàng, Quy Tắc Dấu Hệ (+30%) & Ma Trận Phối Đồ 3 Phe",
-    en: "3 Golden Gear Sets Decoded, +30% Faction Marks & 3-Faction BiS Gear Matrix",
+    vi: "Giải Mã 3 Bộ Trang Bị Vàng ➔ Đỏ, Quy Tắc Dấu Hệ (+30%) & Ma Trận Phối Đồ 3 Phe",
+    en: "3 Golden-to-Mythic Gear Sets Decoded, +30% Faction Marks & 3-Faction BiS Gear Matrix",
   },
   summary: {
-    vi: "Phân tích chuyên sâu 3 Bộ Trang bị Huyền Thoại Vàng trong Lò Rèn (Bộ Huyết Titan / Nộ Huyết Blood of the Titan / Fury of Blood, Bộ Hiền Triết Quang Vinh Glory of the Sage, Bộ Kỵ Sĩ Vinh Quang / Cuồng Chiến Knight's Glory / Berserker's Wrath), 3 tầng thưởng chỉ số độc lập, quy tắc +30% Dấu Hệ (750 Thỏi Vàng/món, 3,000 Thỏi Vàng/tướng, 18,000 Thỏi Vàng/24 món Đội 1) và bảng phối đồ chuẩn BiS cho toàn bộ 24 tướng chủ lực của 3 Phe.",
-    en: "In-depth breakdown of the 3 Legendary Golden Gear sets at the Blacksmith (Blood of the Titan / Fury of Blood, Glory of the Sage / Glory of the Knight, Knight's Glory / Berserker's Wrath / Fury of the Champion), 3 independent stat bonus layers, +30% Faction Mark mechanics (750 Gold Ingots/piece, 3,000 Gold Ingots/hero, 18,000 Gold Ingots/24 Queue 1 pieces), and the complete 3-Faction BiS Gear Matrix for 24 core heroes.",
+    vi: "Phân tích chuyên sâu 3 Bộ Trang bị Huyền Thoại Vàng tiến hóa lên Thần Thoại Đỏ trong Lò Rèn: Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Knight Set ➔ Titan's Might / Huyết Titan — Blood of the Titan), Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Sage Set ➔ Glorious Light / Hiền Triết Quang Vinh — Glory of the Sage), Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Duelist's Set ➔ Fury of Blood / Kỵ Sĩ Vinh Quang — Knight's Glory / Berserker's Wrath), 3 tầng thưởng chỉ số độc lập, quy tắc +30% Dấu Hệ (750 Thỏi Vàng/món, 3,000 Thỏi Vàng/tướng, 18,000 Thỏi Vàng/24 món Đội 1) và bảng phối đồ chuẩn BiS cho toàn bộ 24 tướng chủ lực của 3 Phe.",
+    en: "In-depth breakdown of the 3 Legendary Golden-to-Mythic Red Gear sets at the Blacksmith: Knight Set ➔ Titan's Might (Blood of the Titan), Sage Set ➔ Glorious Light (Glory of the Sage / Glory of the Knight), and Duelist's Set ➔ Fury of Blood (Knight's Glory / Berserker's Wrath / Fury of the Champion), 3 independent stat bonus layers, +30% Faction Mark mechanics (750 Gold Ingots/piece, 3,000 Gold Ingots/hero, 18,000 Gold Ingots/24 Queue 1 pieces), and the complete 3-Faction BiS Gear Matrix for 24 core heroes.",
   },
   tldr: {
     coreRule: {
-      vi: "**Luôn mặc trọn bộ `4` món cùng tên thuộc `1` trong `3` bộ Trang bị Vàng chuẩn hóa:**\n• **Bộ Huyết Titan (`Blood of the Titan` / `Fury of Blood`):** Cộng `+160%` Gear HP & `+6%` Giảm Sát Thương cho Tank/Sustain.\n• **Bộ Hiền Triết Quang Vinh (`Glory of the Sage`):** Cộng `+40%` ATK, `+80%` HP, Kháng Bạo & `+8%` Khuếch đại Kỹ năng cho Support/Control/Bruiser.\n• **Bộ Kỵ Sĩ Vinh Quang (`Knight's Glory`):** Cộng `+80%` ATK, Crit & `+6%` Tăng Sát Thương cho Burst DPS / Hyper-Carry.",
-      en: "**Always equip a full `4`-piece matching set from the `3` standardized Golden Gear sets:**\n• **`Blood of the Titan` (`Fury of Blood`):** Grants `+160%` Gear HP & `+6%` Damage Reduction for Pure Tanks/Sustain.\n• **`Glory of the Sage` (`Glory of the Knight`):** Grants `+40%` ATK, `+80%` HP, Crit Resistance & `+8%` Skill Damage Amplify for Supports/Controllers/Bruisers.\n• **`Knight's Glory` (`Berserker's Wrath`):** Grants `+80%` ATK, Crit & `+6%` Damage Increase for Burst DPS & Hyper-Carries.",
+      vi: "**Luôn mặc trọn bộ `4` món cùng tên thuộc `1` trong `3` bộ Trang bị Vàng ➔ Đỏ chuẩn hóa:**\n• **Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (`Knight Set` ➔ `Titan's Might` / `Blood of the Titan`):** Cộng `+160%` Gear HP & `+6%` Giảm Sát Thương cho Tank/Sustain.\n• **Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (`Sage Set` ➔ `Glorious Light` / `Glory of the Sage`):** Cộng `+40%` ATK, `+80%` HP, Kháng Bạo & `+8%` Khuếch đại Kỹ năng cho Support/Control/Bruiser.\n• **Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (`Duelist's Set` ➔ `Fury of Blood` / `Knight's Glory`):** Cộng `+80%` ATK, Crit & `+6%` Tăng Sát Thương cho Burst DPS / Hyper-Carry.",
+      en: "**Always equip a full `4`-piece matching set from the `3` standardized Golden-to-Mythic Gear sets:**\n• **`Knight Set` ➔ `Titan's Might` (`Blood of the Titan`):** Grants `+160%` Gear HP & `+6%` Damage Reduction for Pure Tanks/Sustain.\n• **`Sage Set` ➔ `Glorious Light` (`Glory of the Sage` / `Glory of the Knight`):** Grants `+40%` ATK, `+80%` HP, Crit Resistance & `+8%` Skill Damage Amplify for Supports/Controllers/Bruisers.\n• **`Duelist's Set` ➔ `Fury of Blood` (`Knight's Glory` / `Berserker's Wrath`):** Grants `+80%` ATK, Crit & `+6%` Damage Increase for Burst DPS & Hyper-Carries.",
     },
     immediateAction: {
       vi: "**Bắt buộc chọn đúng Cột Dấu Hệ (`+30%`) khi rèn đồ Vàng trong Lò Rèn:**\n• **Ngân sách cơ sở (`750` / `3,000` / `18,000` Thỏi Vàng):** Tốn `750` Thỏi Vàng/món ➔ `3,000` Thỏi Vàng/tướng (`4` món) ➔ `18,000` Thỏi Vàng cho `24` món Đội 1.\n• **Chọn Cột 1/2/3 (`+30%` miễn phí):** Chọn Cột 1 Liên Minh, Cột 2 Bộ Lạc hoặc Cột 3 Thiên Nhiên; nếu chuyển sang Bộ Lạc ở Ngày 21+, hãy đúc Cột 2 Bộ Lạc ngay từ món đầu tiên.",
@@ -30,12 +30,12 @@ export const ARTICLE_5_2_GOLDEN_GEAR_SETS: GuideArticle = {
   },
   keyTakeaways: [
     {
-      vi: "**Ba Bộ Đồ Vàng chuẩn hóa trong Lò Rèn cho `24` tướng chủ lực `3` Phe:**\n• **Bộ Huyết Titan (`Blood of the Titan` — Hàng Giữa: `+160%` HP & `+6%` Giảm ST):** Cho Adjudicator, Rose Princess, Desert Prince, Beastmaster, Monk, Sage, Soulmancer.\n• **Bộ Hiền Triết Quang Vinh (`Glory of the Sage` — Hàng Dưới: `+40%` ATK, `+80%` HP & `+8%` Skill Amp):** Cho Nun, Bishop, Artificer, Bard, Witch, Warlock, Shadow Priest, Forest Maiden, Petalis.\n• **Bộ Kỵ Sĩ Vinh Quang (`Knight's Glory` — Hàng Trên: `+80%` ATK, Crit & `+6%` Tăng ST):** Cho Wukong (phân thân nhận Flat ATK), Storm Maiden, Wilderness Hunter, Paragon, Pyromancer, Tidecaller, Ne Zha, Pixie.",
-      en: "**Three Standardized Golden Gear Sets across all `24` core heroes of the `3` Factions:**\n• **`Blood of the Titan` (Middle Row: `+160%` HP & `+6%` Damage Reduction):** BiS for Adjudicator, Rose Princess, Desert Prince, Beastmaster, Monk, Sage, Soulmancer.\n• **`Glory of the Sage` (Bottom Row: `+40%` ATK, `+80%` HP & `+8%` Skill Damage Amplify):** BiS for Nun, Bishop, Artificer, Bard, Witch, Warlock, Shadow Priest, Forest Maiden, Petalis.\n• **`Knight's Glory` (Top Row: `+80%` ATK, Crit & `+6%` Damage Increase):** BiS for Wukong (clones inherit Flat ATK), Storm Maiden, Wilderness Hunter, Paragon, Pyromancer, Tidecaller, Ne Zha, Pixie.",
+      vi: "**Ba Bộ Đồ Vàng ➔ Đỏ chuẩn hóa trong Lò Rèn cho `24` tướng chủ lực `3` Phe:**\n• **Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (`Knight Set` ➔ `Titan's Might` / `Blood of the Titan`):** `+160%` HP & `+6%` Giảm ST cho 8 tướng Tank/Sustain tuyến đầu.\n• **Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (`Sage Set` ➔ `Glorious Light` / `Glory of the Sage`):** `+40%` ATK, `+80%` HP & `+8%` Skill Amp cho 9 tướng Support/Bruiser.\n• **Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (`Duelist's Set` ➔ `Fury of Blood` / `Knight's Glory`):** `+80%` ATK, Crit & `+6%` Tăng ST cho 7 tướng Burst DPS & phân thân Wukong.",
+      en: "**Three Standardized Golden-to-Mythic Gear Sets across all `24` core heroes of the `3` Factions:**\n• **`Knight Set` ➔ `Titan's Might` (`Blood of the Titan`):** `+160%` HP & `+6%` Damage Reduction for the 8 frontline Tanks and Sustain anchors.\n• **`Sage Set` ➔ `Glorious Light` (`Glory of the Sage`):** `+40%` ATK, `+80%` HP & `+8%` Skill Damage Amplify for the 9 Supports and Bruisers.\n• **`Duelist's Set` ➔ `Fury of Blood` (`Knight's Glory`):** `+80%` ATK, Crit & `+6%` Damage Increase for the 7 Burst Carries and Wukong clones.",
     },
     {
-      vi: "**Ba tầng thưởng chỉ số độc lập trên mỗi vị tướng Đội 1:**\n• **Tầng 1 & 2 (Bộ `2/4` món + Dấu Hệ `+30%`):** Mặc `4` món cùng phẩm chất Vàng + cùng Tên Bộ kết hợp đúng biểu tượng Dấu Hệ Liên Minh / Bộ Lạc / Thiên Nhiên.\n• **Tầng 3 (Bậc Thầy Cường Hóa `+10`/`+20`/`+30`/`+40`):** Tính theo món có cấp độ và phẩm chất thấp nhất, hoạt động độc lập với Dấu Hệ.",
-      en: "**Three Independent Stat Bonus Layers on every Queue 1 hero:**\n• **Layers 1 & 2 (`2/4`-Piece Set Bonus + `+30%` Faction Mark):** Equip `4` Golden pieces of the same Set Name with a matching League / Horde / Nature Faction emblem.\n• **Layer 3 (Enhancement Master `+10`/`+20`/`+30`/`+40`):** Governed by the lowest-level/rarity piece, independent of Faction Marks.",
+      vi: "**Ba tầng thưởng chỉ số độc lập trên mỗi vị tướng Đội 1:**\n• **Tầng 1 & 2 (Bộ `2/4` món + Dấu Hệ `+30%`):** Mặc `4` món cùng phẩm chất Vàng/Đỏ + cùng Tên Bộ kết hợp đúng biểu tượng Dấu Hệ Liên Minh / Bộ Lạc / Thiên Nhiên.\n• **Tầng 3 (Bậc Thầy Cường Hóa `+10`/`+20`/`+30`/`+40`):** Tính theo món có cấp độ và phẩm chất thấp nhất, hoạt động độc lập với Dấu Hệ.",
+      en: "**Three Independent Stat Bonus Layers on every Queue 1 hero:**\n• **Layers 1 & 2 (`2/4`-Piece Set Bonus + `+30%` Faction Mark):** Equip `4` Golden/Mythic pieces of the same Set Name with a matching League / Horde / Nature Faction emblem.\n• **Layer 3 (Enhancement Master `+10`/`+20`/`+30`/`+40`):** Governed by the lowest-level/rarity piece, independent of Faction Marks.",
     },
     {
       vi: "**Thứ tự ưu tiên đúc `6` bộ Đồ Vàng cho Đội 1 (`750` Thỏi Vàng/món = `3,000` Thỏi Vàng/tướng = `18,000` Thỏi Vàng/24 món):**\n• **Ưu tiên tuyến đầu & sát thương:** Bộ `#1` cho Hyper-Carry DPS số 1 ➔ Bộ `#2` cho Main Tanker số 1.\n• **Hoàn thiện đội hình:** Bộ `#3` & `#4` cho Sub-DPS & Off-Tank ➔ Bộ `#5` & `#6` cho Healer & Support.",
@@ -46,17 +46,27 @@ export const ARTICLE_5_2_GOLDEN_GEAR_SETS: GuideArticle = {
     "bộ đồ vàng",
     "bo do vang",
     "golden gear sets",
+    "bộ kỵ sĩ",
+    "knight set",
+    "bộ đồ titan",
+    "titan's might",
     "blood of the titan",
-    "fury of blood",
     "huyết titan",
     "nộ huyết",
+    "bộ hiền giả",
+    "sage set",
+    "ánh sáng vinh quang",
+    "glorious light",
     "glory of the sage",
     "glory of the knight",
     "hiền triết quang vinh",
+    "bộ đồ quyết đấu",
+    "duelist's set",
+    "cơn thịnh nộ",
+    "fury of blood",
     "knight's glory",
     "berserker's wrath",
     "fury of the champion",
-    "titan's might",
     "kỵ sĩ vinh quang",
     "cuồng chiến",
     "dấu hệ",
@@ -76,8 +86,8 @@ export const ARTICLE_5_2_GOLDEN_GEAR_SETS: GuideArticle = {
     {
       id: "sec-1-three-golden-sets-and-three-stat-layers",
       title: {
-        vi: "1. Giải thích Cơ chế Cốt lõi: 3 Bộ Trang Bị Huyền Thoại Vàng & 3 Tầng Thưởng Chỉ Số",
-        en: "1. Core Mechanics: The 3 Legendary Golden Gear Sets & 3 Independent Stat Bonus Layers",
+        vi: "1. Giải thích Cơ chế Cốt lõi: 3 Bộ Trang Bị Huyền Thoại Vàng ➔ Thần Thoại Đỏ & 3 Tầng Thưởng Chỉ Số",
+        en: "1. Core Mechanics: The 3 Legendary Golden-to-Mythic Gear Sets & 3 Independent Stat Bonus Layers",
       },
       blocks: [
         {
@@ -87,8 +97,8 @@ export const ARTICLE_5_2_GOLDEN_GEAR_SETS: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "**Giao diện Lò Rèn (`Blacksmith`) ở bậc Huyền Thoại Vàng chia thành ma trận `3` Bộ × `4` Cột Phe Phái:**\n• **Đồng bộ tên gọi & cơ chế:** Do tên dịch có thể khác nhau giữa các bản cập nhật, phần dưới đây chuẩn hóa tên quốc tế, vị trí hàng trong Lò Rèn và vai trò thực chiến của cả `3` bộ.",
-            en: "**The Blacksmith at the Legendary Golden tier presents a `3` Gear Sets × `4` Faction Columns matrix:**\n• **Standardized names & roles:** Because localizations vary across patches, the breakdown below unifies international names, Blacksmith row positions, and combat roles for all `3` sets.",
+            vi: "**Giao diện Lò Rèn (`Blacksmith`) ở bậc Huyền Thoại Vàng chia thành ma trận `3` Bộ × `4` Cột Phe Phái:**\n• **Đồng bộ tên chuẩn In-Game & quốc tế:** Phần dưới đây chuẩn hóa tên gốc In-Game (Vàng ➔ Đỏ), vị trí hàng trong Lò Rèn và vai trò thực chiến của cả `3` bộ.",
+            en: "**The Blacksmith at the Legendary Golden tier presents a `3` Gear Sets × `4` Faction Columns matrix:**\n• **Unified In-Game & Community names:** The breakdown below pairs official Golden-to-Mythic set names, Blacksmith row positions, and combat roles for all `3` sets.",
           },
         },
         {
@@ -96,46 +106,46 @@ export const ARTICLE_5_2_GOLDEN_GEAR_SETS: GuideArticle = {
           mediaCode: "MED-5.2-01",
           tier: "tier2_annotated_ui",
           title: {
-            vi: "Nhận Diện Chuẩn 3 Bộ Trang Bị Vàng & 3 Huy Hiệu Dấu Ấn Phe Phái (+30%)",
-            en: "Visual Identification of the 3 Golden Gear Sets & 3 Faction Mark Emblems (+30%)",
+            vi: "Nhận Diện Chuẩn 3 Bộ Trang Bị Vàng ➔ Đỏ & 3 Huy Hiệu Dấu Ấn Phe Phái (+30%)",
+            en: "Visual Identification of the 3 Golden-to-Mythic Gear Sets & 3 Faction Mark Emblems (+30%)",
           },
           description: {
-            vi: "Bộ icon chuẩn hóa của 3 Bộ Trang bị Huyền Thoại Vàng trong Lò Rèn (Blood of the Titan / Fury of Blood, Glory of the Sage / Glory of the Knight, Knight's Glory / Berserker's Wrath / Fury of the Champion) cùng 3 huy hiệu Dấu Hệ góc trái (+30% chỉ số cho Liên Minh, Bộ Lạc, Thiên Nhiên).",
-            en: "Standardized icon strip of the 3 Legendary Golden Gear sets at the Blacksmith (Blood of the Titan / Fury of Blood, Glory of the Sage / Glory of the Knight, Knight's Glory / Berserker's Wrath / Fury of the Champion) alongside the 3 top-left Faction Mark emblems (+30% stats for League, Horde, and Nature).",
+            vi: "Bộ icon chuẩn hóa của 3 Bộ Trang bị trong Lò Rèn: Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Knight Set ➔ Titan's Might / Blood of the Titan), Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Sage Set ➔ Glorious Light / Glory of the Sage), Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Duelist's Set ➔ Fury of Blood / Knight's Glory) cùng 3 huy hiệu Dấu Hệ góc trái (+30% chỉ số cho Liên Minh, Bộ Lạc, Thiên Nhiên).",
+            en: "Standardized icon strip of the 3 Blacksmith Gear sets: Knight Set ➔ Titan's Might (Blood of the Titan), Sage Set ➔ Glorious Light (Glory of the Sage / Glory of the Knight), and Duelist's Set ➔ Fury of Blood (Knight's Glory / Berserker's Wrath) alongside the 3 top-left Faction Mark emblems (+30% stats for League, Horde, and Nature).",
           },
-          imageSrc: "/images/items/consumables/icon_30222.webp",
+          imageSrc: "/images/equipment/hero-gear/icon_40013.webp",
           annotations: [
             {
               kind: "do",
               label: {
-                vi: "Hàng Giữa — Bộ Huyết Titan / Nộ Huyết (Blood of the Titan / Fury of Blood)",
-                en: "Middle Row — Blood of the Titan / Fury of Blood",
+                vi: "Hàng Giữa — Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Huyết Titan / Nộ Huyết — Knight Set ➔ Titan's Might / Blood of the Titan)",
+                en: "Middle Row — Knight Set ➔ Titan's Might (Blood of the Titan)",
               },
               detail: {
-                vi: "Biểu tượng Vuốt Thú / Giọt Máu: Bộ 2 món tăng +160% Gear HP & Phòng thủ; Bộ 4 món tăng +6% Giảm Sát Thương Nhận Vào (Damage Reduction) — chuẩn BiS cho Main Tanker và tướng tạo Khiên theo % Max HP.",
-                en: "Beast Claw / Blood Drop emblem: 2-piece grants +160% Gear HP & Defense; 4-piece grants +6% Damage Reduction — mandatory BiS for Main Tankers and % Max HP shielders.",
+                vi: "Bộ 2 món tăng +160% Gear HP & Phòng thủ; Bộ 4 món tăng +6% Giảm Sát Thương Nhận Vào (Damage Reduction) — chuẩn BiS cho Main Tanker và tướng tạo Khiên theo % Max HP.",
+                en: "2-piece grants +160% Gear HP & Defense; 4-piece grants +6% Damage Reduction — mandatory BiS for Main Tankers and % Max HP shielders.",
               },
             },
             {
               kind: "info",
               label: {
-                vi: "Hàng Dưới — Bộ Hiền Triết Quang Vinh (Glory of the Sage / Glory of the Knight)",
-                en: "Bottom Row — Glory of the Sage / Glory of the Knight",
+                vi: "Hàng Dưới — Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Hiền Triết Quang Vinh — Sage Set ➔ Glorious Light / Glory of the Sage)",
+                en: "Bottom Row — Sage Set ➔ Glorious Light (Glory of the Sage / Glory of the Knight)",
               },
               detail: {
-                vi: "Biểu tượng Giáp Chữ Thập / Ấn Pháp Sư: Bộ 2 món cân bằng +40% Gear ATK & +80% Gear HP; Bộ 4 món tăng Kháng Bạo Kích (Crit Resistance), tối ưu hồi chiêu & +8% Khuếch đại Sát thương Kỹ năng (Skill Damage Amplify).",
-                en: "Cross Armor / Mage Seal emblem: 2-piece balances +40% Gear ATK & +80% Gear HP; 4-piece adds Crit Resistance, cooldown cycling, and +8% Skill Damage Amplify.",
+                vi: "Bộ 2 món cân bằng +40% Gear ATK & +80% Gear HP; Bộ 4 món tăng Kháng Bạo Kích (Crit Resistance), tối ưu hồi chiêu & +8% Khuếch đại Sát thương Kỹ năng (Skill Damage Amplify).",
+                en: "2-piece balances +40% Gear ATK & +80% Gear HP; 4-piece adds Crit Resistance, cooldown cycling, and +8% Skill Damage Amplify.",
               },
             },
             {
               kind: "do",
               label: {
-                vi: "Hàng Trên — Bộ Kỵ Sĩ Vinh Quang / Cuồng Chiến (Knight's Glory / Berserker's Wrath)",
-                en: "Top Row — Knight's Glory / Berserker's Wrath (Fury of the Champion / Titan's Might)",
+                vi: "Hàng Trên — Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Kỵ Sĩ Vinh Quang / Cuồng Chiến — Duelist's Set ➔ Fury of Blood / Knight's Glory)",
+                en: "Top Row — Duelist's Set ➔ Fury of Blood (Knight's Glory / Berserker's Wrath)",
               },
               detail: {
-                vi: "Biểu tượng Ngọc Cam / Kiếm Chiến: Bộ 2 món tăng cực đại +80% Gear ATK; Bộ 4 món tăng Crit Rate, Crit Damage & +6% Tăng Sát Thương Tổng (Damage Increase) cho Burst DPS & Phân thân Wukong.",
-                en: "Orange Gem / War Sword emblem: 2-piece maximizes +80% Gear ATK; 4-piece boosts Crit Rate, Crit Damage & +6% Damage Increase for Burst Carries and Wukong Clones.",
+                vi: "Bộ 2 món tăng cực đại +80% Gear ATK; Bộ 4 món tăng Crit Rate, Crit Damage & +6% Tăng Sát Thương Tổng (Damage Increase) cho Burst DPS & Phân thân Tôn Ngộ Không (Wukong).",
+                en: "2-piece maximizes +80% Gear ATK; 4-piece boosts Crit Rate, Crit Damage & +6% Damage Increase for Burst Carries and Wukong Clones.",
               },
             },
           ],
@@ -145,24 +155,24 @@ export const ARTICLE_5_2_GOLDEN_GEAR_SETS: GuideArticle = {
         {
           id: "sub-1-1-three-golden-sets-decoded-table",
           title: {
-            vi: "1.1. Giải Mã Chi Tiết 3 Bộ Trang Bị Huyền Thoại Vàng",
-            en: "1.1. Detailed Breakdown of the 3 Legendary Golden Gear Sets",
+            vi: "1.1. Giải Mã Chi Tiết 3 Bộ Trang Bị Huyền Thoại Vàng ➔ Thần Thoại Đỏ",
+            en: "1.1. Detailed Breakdown of the 3 Legendary Golden-to-Mythic Gear Sets",
           },
           blocks: [
             {
               type: "list",
               items: [
                 {
-                  vi: "**1. Bộ Huyết Titan (`Blood of the Titan`):** `2` món `+160%` HP, `4` món `+6%` Giảm ST — chuẩn Tank/Sustain (Adjudicator, Rose Princess, Desert Prince, Beastmaster, Monk, Sage, Soulmancer).",
-                  en: "**1. `Blood of the Titan` (Middle Row):** `2`-Piece `+160%` Gear HP, `4`-Piece `+6%` DMG Reduction — BiS for Tanks/Sustain (Adjudicator, Rose Princess, Desert Prince, Beastmaster, Monk, Sage, Soulmancer).",
+                  vi: "**1. Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (`Knight Set` ➔ `Titan's Might` / `Blood of the Titan` — Hàng Giữa):** `2` món `+160%` HP, `4` món `+6%` Giảm ST — chuẩn BiS cho 8 tướng Tank/Sustain tuyến đầu.",
+                  en: "**1. `Knight Set` ➔ `Titan's Might` (`Blood of the Titan` — Middle Row):** `2`-Piece `+160%` Gear HP, `4`-Piece `+6%` DMG Reduction — BiS for the 8 frontline Tanks & Sustain heroes.",
                 },
                 {
-                  vi: "**2. Bộ Hiền Triết (`Glory of the Sage`):** `2` món `+40%` ATK & `+80%` HP, `4` món Crit Res & `+8%` Skill Amp — Support/Hybrid (Nun, Bishop, Artificer, Bard, Witch, Warlock, Shadow Priest, Forest Maiden, Petalis).",
-                  en: "**2. `Glory of the Sage`:** `2`-Piece `+40%` ATK & `+80%` HP, `4`-Piece Crit Res & `+8%` Skill Amp — BiS for Supports/Hybrids (Nun, Bishop, Artificer, Bard, Witch, Warlock, Shadow Priest, Forest Maiden, Petalis).",
+                  vi: "**2. Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (`Sage Set` ➔ `Glorious Light` / `Glory of the Sage` — Hàng Dưới):** `2` món `+40%` ATK & `+80%` HP, `4` món Crit Res & `+8%` Skill Amp — chuẩn Support/Bruiser.",
+                  en: "**2. `Sage Set` ➔ `Glorious Light` (`Glory of the Sage` — Bottom Row):** `2`-Piece `+40%` ATK & `+80%` HP, `4`-Piece Crit Res & `+8%` Skill Amp — BiS for the 9 Supports & Bruisers.",
                 },
                 {
-                  vi: "**3. Bộ Kỵ Sĩ (`Knight's Glory`):** `2` món `+80%` ATK, `4` món Crit & `+6%` Tăng ST — chuẩn Burst DPS (Wukong, Storm Maiden, Wilderness Hunter, Paragon, Pyromancer, Tidecaller, Ne Zha, Pixie).",
-                  en: "**3. `Knight's Glory` (Top Row):** `2`-Piece `+80%` Gear ATK, `4`-Piece Crit & `+6%` DMG Increase — BiS for Burst Carries (Wukong, Storm Maiden, Wilderness Hunter, Paragon, Pyromancer, Tidecaller, Ne Zha, Pixie).",
+                  vi: "**3. Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (`Duelist's Set` ➔ `Fury of Blood` / `Knight's Glory` — Hàng Trên):** `2` món `+80%` ATK, `4` món Crit & `+6%` Tăng ST — chuẩn Burst DPS & phân thân Wukong.",
+                  en: "**3. `Duelist's Set` ➔ `Fury of Blood` (`Knight's Glory` — Top Row):** `2`-Piece `+80%` Gear ATK, `4`-Piece Crit & `+6%` DMG Increase — BiS for the 7 Burst Carries & Wukong clones.",
                 },
               ],
             },
@@ -187,8 +197,8 @@ export const ARTICLE_5_2_GOLDEN_GEAR_SETS: GuideArticle = {
               ordered: true,
               items: [
                 {
-                  vi: "**Tầng 1 — Thưởng Bộ Trang Bị (`2/4` Món):** Yêu cầu mặc các món đồ cùng phẩm chất Vàng và cùng Tên Bộ (`Blood of the Titan`, `Glory of the Sage`, hoặc `Knight's Glory`).",
-                  en: "**Layer 1 — Gear Set Bonus (`2/4`-Piece):** Requires equipping Golden pieces sharing the exact same Set Name (`Blood of the Titan`, `Glory of the Sage`, or `Knight's Glory`).",
+                  vi: "**Tầng 1 — Thưởng Bộ Trang Bị (`2/4` Món):** Mặc đủ các món đồ cùng phẩm chất Vàng/Đỏ và cùng Tên Bộ (`Bộ Kỵ Sĩ ➔ Bộ Đồ Titan`, `Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang`, hoặc `Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ`).",
+                  en: "**Layer 1 — Gear Set Bonus (`2/4`-Piece):** Equip Golden/Mythic pieces sharing the exact same Set Name (`Knight Set ➔ Titan's Might`, `Sage Set ➔ Glorious Light`, or `Duelist's Set ➔ Fury of Blood`).",
                 },
                 {
                   vi: "**Tầng 2 — Thưởng Dấu Ấn Phe Phái (`+30%` Faction Mark):** Yêu cầu biểu tượng góc trên bên trái của món đồ khớp với phe phái của tướng đang mặc (Liên Minh, Bộ Lạc, hoặc Thiên Nhiên).",
@@ -316,20 +326,20 @@ export const ARTICLE_5_2_GOLDEN_GEAR_SETS: GuideArticle = {
               ordered: true,
               items: [
                 {
-                  vi: "**Bộ Vàng Số 1 (Hyper-Carry DPS số 1):** Đúc `4` món `Knight's Glory` hoặc `Glory of the Sage` cho Carry chính (Paragon / Pyromancer, Wukong / Storm Maiden, Tidecaller / Ne Zha).",
-                  en: "**Golden Set #1 (Primary Hyper-Carry DPS):** Forge `4`-piece `Knight's Glory` or `Glory of the Sage` for your #1 Carry (Paragon / Pyromancer, Wukong / Storm Maiden, Tidecaller / Ne Zha).",
+                  vi: "**Bộ Vàng Số 1 (Hyper-Carry DPS số 1):** Đúc `4` món `Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ` hoặc `Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang` cho Carry chính (Paragon, Pyromancer, Wukong, Storm Maiden, Tidecaller, Ne Zha).",
+                  en: "**Golden Set #1 (Primary Hyper-Carry DPS):** Forge `4`-piece `Duelist's Set ➔ Fury of Blood` or `Sage Set ➔ Glorious Light` for your #1 Carry (Paragon, Pyromancer, Wukong, Storm Maiden, Tidecaller, Ne Zha).",
                 },
                 {
-                  vi: "**Bộ Vàng Số 2 (Main Tanker số 1):** Đúc trọn bộ `4` món `Blood of the Titan` cho đỡ đòn chính (Adjudicator / Rose Princess, Beastmaster / Desert Prince, Monk / Sage).",
-                  en: "**Golden Set #2 (Primary Main Tanker):** Forge a full `4`-piece `Blood of the Titan` set for your #1 frontline tank (Adjudicator / Rose Princess, Beastmaster / Desert Prince, Monk / Sage).",
+                  vi: "**Bộ Vàng Số 2 (Main Tanker số 1):** Đúc trọn bộ `4` món `Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Blood of the Titan)` cho đỡ đòn chính (Adjudicator, Rose Princess, Beastmaster, Desert Prince, Monk, Sage).",
+                  en: "**Golden Set #2 (Primary Main Tanker):** Forge a full `4`-piece `Knight Set ➔ Titan's Might (Blood of the Titan)` set for your #1 frontline tank (Adjudicator, Rose Princess, Beastmaster, Desert Prince, Monk, Sage).",
                 },
                 {
                   vi: "**Bộ Vàng Số 3 & Số 4 (Sub-DPS & Off-Tank):** Đúc tiếp `2` bộ `4` món hoàn chỉnh cho vị trí Sát thương thứ 2 và Chống chịu thứ 2 trong Đội 1.",
                   en: "**Golden Sets #3 & #4 (Sub-DPS & Off-Tank):** Forge the next `2` complete `4`-piece sets for your secondary damage dealer and off-tank in Queue 1.",
                 },
                 {
-                  vi: "**Bộ Vàng Số 5 & Số 6 (Healer & Support):** Đúc `2` bộ `Glory of the Sage` hoặc `Blood of the Titan` cho `2` tướng hỗ trợ (Nun, Bishop, Artificer, Bard, Witch, Warlock, Soulmancer, Shadow Priest, Forest Maiden, Petalis).",
-                  en: "**Golden Sets #5 & #6 (Healer & Support):** Forge `2` sets of `Glory of the Sage` or `Blood of the Titan` for supports (Nun, Bishop, Artificer, Bard, Witch, Warlock, Soulmancer, Shadow Priest, Forest Maiden, Petalis).",
+                  vi: "**Bộ Vàng Số 5 & Số 6 (Healer & Support):** Đúc `2` bộ `Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang` hoặc `Bộ Kỵ Sĩ ➔ Bộ Đồ Titan` cho `2` tướng hỗ trợ/hồi máu ở hàng sau.",
+                  en: "**Golden Sets #5 & #6 (Healer & Support):** Forge `2` sets of `Sage Set ➔ Glorious Light` or `Knight Set ➔ Titan's Might` for your two backline healers and utility supports.",
                 },
               ],
             },
@@ -431,12 +441,12 @@ export const ARTICLE_5_2_GOLDEN_GEAR_SETS: GuideArticle = {
           type: "list",
           items: [
             {
-              vi: "**Sai lầm 1 — Mặc `Knight's Glory` cho mọi tướng tuyến sau:** Tướng hỗ trợ/pháp sư cần trụ lâu nên mặc `Glory of the Sage` để có `+80%` HP, Kháng Bạo và `+8%` Khuếch đại Kỹ năng.",
-              en: "**Pitfall 1 — Equipping `Knight's Glory` on every backline hero:** Utility supports and hybrid casters need `Glory of the Sage` for `+80%` HP, Crit Resistance, and `+8%` Skill Damage Amplify.",
+              vi: "**Sai lầm 1 — Mặc `Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ` cho mọi tướng tuyến sau:** Tướng hỗ trợ cần mặc `Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang` để có `+80%` HP, Kháng Bạo và `+8%` Khuếch đại Kỹ năng.",
+              en: "**Pitfall 1 — Equipping `Duelist's Set ➔ Fury of Blood` on every backline hero:** Utility supports need `Sage Set ➔ Glorious Light` for `+80%` HP, Crit Resistance, and `+8%` Skill Damage Amplify.",
             },
             {
-              vi: "**Sai lầm 2 — Phối lai `2+2` (2+2 Mixing) dài hạn:** Phối `2+2` làm mất dòng thưởng Bộ `4` món (`+6%` Giảm sát thương, `+8%` Khuếch đại kỹ năng, hoặc `+6%` Tăng sát thương) — luôn mặc đủ `4` món cùng tên.",
-              en: "**Pitfall 2 — Running `2+2` mixed sets long-term:** Mixing `2+2` forfeits the `4`-piece modifier (`+6%` Damage Reduction, `+8%` Skill Damage Amplify, or `+6%` Damage Increase) — always complete a `4`-Piece Set.",
+              vi: "**Sai lầm 2 — Phối lai `2+2` (2+2 Mixing) dài hạn:** Phối `2+2` làm mất dòng thưởng Bộ `4` món (`+6%` Giảm ST, `+8%` Khuếch đại kỹ năng, hoặc `+6%` Tăng ST) — luôn mặc đủ `4` món cùng tên.",
+              en: "**Pitfall 2 — Running `2+2` mixed sets long-term:** Mixing `2+2` forfeits the `4`-piece modifier (`+6%` DMG Reduction, `+8%` Skill Amp, or `+6%` DMG Increase) — always complete a `4`-Piece Set.",
             },
             {
               vi: "**Sai lầm 3 — Sợ `1` món Không Hệ làm mất Bậc Thầy Cường Hóa (`+10`/`+20`):** Bậc Thầy Cường Hóa chỉ xét Phẩm chất Vàng và Cấp độ (`+10`/`+20`/`+30`/`+40`), độc lập với Dấu Hệ (chỉ hụt `+30%` riêng món đó).",
@@ -452,8 +462,8 @@ export const ARTICLE_5_2_GOLDEN_GEAR_SETS: GuideArticle = {
             en: "Localization Warning: Never Confuse Set Names Across Patches!",
           },
           content: {
-            vi: "**Nhận diện theo Hàng Lò Rèn và Dòng chỉ số thay vì chỉ đọc tên truyền miệng:**\n• **Hàng Giữa (`Blood of the Titan` / `Fury of Blood`):** Vuốt Thú / Giọt Máu (`+160%` HP & `+6%` Giảm Sát Thương) ➔ Đồ Tank.\n• **Hàng Dưới (`Glory of the Sage`):** Giáp Chữ Thập (`+40%` ATK, `+80%` HP & `+8%` Skill Amp) ➔ Đồ Support/Hybrid.\n• **Hàng Trên (`Knight's Glory`):** Ngọc Cam / Kiếm Chiến (`+80%` ATK, Crit & `+6%` Tăng Sát Thương) ➔ Đồ Burst DPS!",
-            en: "**Verify the Blacksmith Row Icon and Stat Modifiers rather than translated names:**\n• **Middle Row (`Blood of the Titan` / `Fury of Blood`):** Beast Claw (`+160%` HP & `+6%` Damage Reduction) ➔ Tank set.\n• **Bottom Row (`Glory of the Sage`):** Cross Armor (`+40%` ATK, `+80%` HP & `+8%` Skill Amp) ➔ Support/Hybrid set.\n• **Top Row (`Knight's Glory`):** Orange Gem (`+80%` ATK, Crit & `+6%` Damage Increase) ➔ Burst DPS set!",
+            vi: "**Nhận diện theo Hàng Lò Rèn, Tên gốc In-Game và Dòng chỉ số:**\n• **Hàng Giữa (`Bộ Kỵ Sĩ ➔ Bộ Đồ Titan` / `Knight Set ➔ Titan's Might` — `Blood of the Titan`):** `+160%` HP & `+6%` Giảm Sát Thương ➔ Đồ Tank.\n• **Hàng Dưới (`Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang` / `Sage Set ➔ Glorious Light` — `Glory of the Sage`):** `+40%` ATK, `+80%` HP & `+8%` Skill Amp ➔ Đồ Support/Hybrid.\n• **Hàng Trên (`Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ` / `Duelist's Set ➔ Fury of Blood` — `Knight's Glory`):** `+80%` ATK, Crit & `+6%` Tăng Sát Thương ➔ Đồ Burst DPS!",
+            en: "**Verify the Blacksmith Row, Official In-Game Name, and Stat Modifiers:**\n• **Middle Row (`Knight Set ➔ Titan's Might` — `Blood of the Titan`):** `+160%` HP & `+6%` Damage Reduction ➔ Tank set.\n• **Bottom Row (`Sage Set ➔ Glorious Light` — `Glory of the Sage`):** `+40%` ATK, `+80%` HP & `+8%` Skill Amp ➔ Support/Hybrid set.\n• **Top Row (`Duelist's Set ➔ Fury of Blood` — `Knight's Glory`):** `+80%` ATK, Crit & `+6%` Damage Increase ➔ Burst DPS set!",
           },
         },
       ],
@@ -471,8 +481,8 @@ export const ARTICLE_5_2_GOLDEN_GEAR_SETS: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "Để loại bỏ phỏng đoán khi rèn đồ, dưới đây là **Sơ đồ Quyết định** và **3 Bảng Ma trận Phối Đồ Tốt Nhất (Best-in-Slot Gear Assignment Matrix)**:\n• Bao phủ toàn bộ `24` tướng chủ lực của **CẢ 3 PHE PHÁI** (Liên Minh / League, Bộ Lạc / Horde, Thiên Nhiên / Nature) kèm phân tích cơ chế kỹ năng:",
-            en: "To eliminate all guesswork at the Blacksmith, below is the **Decision Flowchart** and the **3 Best-in-Slot (BiS) Gear Assignment Matrix** tables:\n• Covers all `24` core heroes across **ALL 3 FACTIONS** (League, Horde, Nature), complete with skill-scaling rationales:",
+            vi: "Để loại bỏ phỏng đoán khi rèn đồ, dưới đây là **Sơ đồ Quyết định** và **3 Bảng Ma trận Phối Đồ Tốt Nhất (Best-in-Slot Gear Assignment Matrix)**:\n• Bao phủ toàn bộ `24` tướng chủ lực của **CẢ 3 PHE PHÁI** (Liên Minh / League, Bộ Lạc / Horde, Thiên Nhiên / Nature) kèm tên chuẩn In-Game và phân tích cơ chế kỹ năng:",
+            en: "To eliminate all guesswork at the Blacksmith, below is the **Decision Flowchart** and the **3 Best-in-Slot (BiS) Gear Assignment Matrix** tables:\n• Covers all `24` core heroes across **ALL 3 FACTIONS** (League, Horde, Nature), complete with official In-Game set progressions and skill-scaling rationales:",
           },
         },
         {
@@ -480,12 +490,12 @@ export const ARTICLE_5_2_GOLDEN_GEAR_SETS: GuideArticle = {
           mediaCode: "MED-5.2-03",
           variant: "decision_flow",
           title: {
-            vi: "Sơ Đồ Quyết Định Chọn Bộ Đồ Vàng Chuẩn BiS Theo Cơ Chế Kỹ Năng Tướng",
-            en: "BiS Golden Gear Set Decision Flowchart by Hero Skill Scaling Mechanics",
+            vi: "Sơ Đồ Quyết Định Chọn Bộ Đồ Vàng ➔ Đỏ Chuẩn BiS Theo Cơ Chế Kỹ Năng Tướng",
+            en: "BiS Golden-to-Mythic Gear Set Decision Flowchart by Hero Skill Scaling Mechanics",
           },
           subtitle: {
-            vi: "Phân nhánh 24 tướng chủ lực 3 Phe vào 3 Bộ Đồ Vàng chuẩn hóa trong Lò Rèn",
-            en: "Routing all 24 core heroes across 3 Factions into the 3 standardized Blacksmith Golden Gear sets",
+            vi: "Phân nhánh 24 tướng chủ lực 3 Phe vào 3 Bộ Đồ chuẩn hóa trong Lò Rèn",
+            en: "Routing all 24 core heroes across 3 Factions into the 3 standardized Blacksmith Gear sets",
           },
           centerNode: {
             id: "node-bis-set-root",
@@ -522,8 +532,8 @@ export const ARTICLE_5_2_GOLDEN_GEAR_SETS: GuideArticle = {
                     en: "+160% HP & +6% DMG REDUCTION",
                   },
                   title: {
-                    vi: "Bộ Huyết Titan / Nộ Huyết (Blood of the Titan / Fury of Blood)",
-                    en: "Blood of the Titan / Fury of Blood",
+                    vi: "Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Knight Set ➔ Titan's Might / Blood of the Titan)",
+                    en: "Knight Set ➔ Titan's Might (Blood of the Titan)",
                   },
                   subtitle: {
                     vi: "Tối đa hóa tổng lượng máu và giảm sát thương trực diện cho tuyến đầu.",
@@ -531,16 +541,16 @@ export const ARTICLE_5_2_GOLDEN_GEAR_SETS: GuideArticle = {
                   },
                   metrics: [
                     {
-                      vi: "Tướng chuẩn BiS: Adjudicator, Rose Princess, Desert Prince, Beastmaster (Khiên Bong Bóng % Max HP), Monk, Sage, Soulmancer (dây chia sẻ sát thương)",
-                      en: "BiS Heroes: Adjudicator, Rose Princess, Desert Prince, Beastmaster (% Max HP Bubble Shield), Monk, Sage, Soulmancer (damage-sharing link)",
+                      vi: "Tướng chuẩn BiS: Thẩm Phán Quan (Adjudicator), Công Chúa Hoa Hồng (Rose Princess), Hoàng Tử Sa Mạc (Desert Prince), Bậc Thầy Thú (Beastmaster), Thánh Tăng (Monk), Hiền Giả (Sage), Hồn Pháp Sư (Soulmancer), Tu Nữ (Nun)",
+                      en: "BiS Heroes: Adjudicator, Rose Princess, Desert Prince, Beastmaster (% Max HP Bubble Shield), Monk, Sage, Soulmancer (damage-sharing link), Nun",
                     },
                   ],
                   tone: "emerald",
                 },
               ],
               outcome: {
-                vi: "Chốt 4 món Blood of the Titan / Fury of Blood + đúng Dấu Hệ để tăng kịch trần độ dày Khiên và khả năng đứng trụ.",
-                en: "Lock in 4-piece Blood of the Titan / Fury of Blood + matching Faction Mark for maximum shield thickness and frontline EHP.",
+                vi: "Chốt 4 món Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Blood of the Titan) + đúng Dấu Hệ để tăng kịch trần độ dày Khiên và khả năng đứng trụ.",
+                en: "Lock in 4-piece Knight Set ➔ Titan's Might (Blood of the Titan) + matching Faction Mark for maximum shield thickness and frontline EHP.",
               },
             },
             {
@@ -561,8 +571,8 @@ export const ARTICLE_5_2_GOLDEN_GEAR_SETS: GuideArticle = {
                     en: "+40% ATK, +80% HP, CRIT RES & +8% SKILL AMP",
                   },
                   title: {
-                    vi: "Bộ Hiền Triết Quang Vinh (Glory of the Sage / Glory of the Knight)",
-                    en: "Glory of the Sage / Glory of the Knight",
+                    vi: "Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Sage Set ➔ Glorious Light / Glory of the Sage)",
+                    en: "Sage Set ➔ Glorious Light (Glory of the Sage / Glory of the Knight)",
                   },
                   subtitle: {
                     vi: "Cân bằng công thủ, chống bị sát thủ chí mạng kết liễu và tối ưu chu kỳ tung chiêu.",
@@ -570,16 +580,16 @@ export const ARTICLE_5_2_GOLDEN_GEAR_SETS: GuideArticle = {
                   },
                   metrics: [
                     {
-                      vi: "Tướng chuẩn BiS: Nun, Bishop, Artificer, Bard, Witch, Warlock, Shadow Priest, Forest Maiden, Petalis (và cấu hình Bruiser/Hybrid cho Desert Prince, Paragon, Pyromancer, Pixie)",
-                      en: "BiS Heroes: Nun, Bishop, Artificer, Bard, Witch, Warlock, Shadow Priest, Forest Maiden, Petalis (plus Bruiser/Hybrid builds for Desert Prince, Paragon, Pyromancer, Pixie)",
+                      vi: "Tướng chuẩn BiS: Giám Mục (Bishop), Bậc Thầy Cơ Khí (Artificer), Nhà Thơ (Bard), Vu Nữ (Witch), Thuật Sĩ (Warlock), Giáo Sĩ Bóng Tối (Shadow Priest), Thiếu Nữ Rừng Xanh (Forest Maiden), Hoa Tiên (Petalis), Na Tra (Ne Zha)",
+                      en: "BiS Heroes: Bishop, Artificer, Bard, Witch, Warlock, Shadow Priest, Forest Maiden, Petalis, Ne Zha (plus Bruiser/Hybrid builds for Desert Prince, Paragon, Pyromancer, Pixie)",
                     },
                   ],
                   tone: "gold",
                 },
               ],
               outcome: {
-                vi: "Chốt 4 món Glory of the Sage / Glory of the Knight + đúng Dấu Hệ để vừa hồi máu/xả chiêu mạnh vừa trụ vững trước sát thủ nhảy hàng sau.",
-                en: "Lock in 4-piece Glory of the Sage / Glory of the Knight + matching Faction Mark for durable spell cycling and backline survival.",
+                vi: "Chốt 4 món Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Glory of the Sage) + đúng Dấu Hệ để vừa hồi máu/xả chiêu mạnh vừa trụ vững trước sát thủ nhảy hàng sau.",
+                en: "Lock in 4-piece Sage Set ➔ Glorious Light (Glory of the Sage) + matching Faction Mark for durable spell cycling and backline survival.",
               },
             },
             {
@@ -600,8 +610,8 @@ export const ARTICLE_5_2_GOLDEN_GEAR_SETS: GuideArticle = {
                     en: "+80% ATK, CRIT RATE/DMG & +6% DAMAGE INCREASE",
                   },
                   title: {
-                    vi: "Bộ Kỵ Sĩ Vinh Quang / Cuồng Chiến (Knight's Glory / Berserker's Wrath)",
-                    en: "Knight's Glory / Berserker's Wrath (Fury of the Champion)",
+                    vi: "Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Duelist's Set ➔ Fury of Blood / Knight's Glory)",
+                    en: "Duelist's Set ➔ Fury of Blood (Knight's Glory / Berserker's Wrath)",
                   },
                   subtitle: {
                     vi: "Đẩy chỉ số Tấn công cơ bản (Flat ATK) và sát thương chí mạng lên mức hủy diệt.",
@@ -609,22 +619,22 @@ export const ARTICLE_5_2_GOLDEN_GEAR_SETS: GuideArticle = {
                   },
                   metrics: [
                     {
-                      vi: "Tướng chuẩn BiS: Wukong (Phân thân thừa hưởng Flat ATK), Storm Maiden, Wilderness Hunter, Paragon, Pyromancer, Tidecaller, Ne Zha, Pixie",
-                      en: "BiS Heroes: Wukong (Clones inherit Flat ATK), Storm Maiden, Wilderness Hunter, Paragon, Pyromancer, Tidecaller, Ne Zha, Pixie",
+                      vi: "Tướng chuẩn BiS: Tôn Ngộ Không / Ngộ Không (Wukong — Phân thân thừa hưởng Flat ATK), Trinh Nữ Bão Tố (Storm Maiden), Thợ Săn Hoang Dã (Wilderness Hunter), Đấng Toàn Năng (Paragon), Hoả Pháp Sư (Pyromancer), Triệu Hồi Thủy (Tidecaller), Hồ Tiên (Pixie)",
+                      en: "BiS Heroes: Wukong (Clones inherit Flat ATK), Storm Maiden, Wilderness Hunter, Paragon, Pyromancer, Tidecaller, Pixie",
                     },
                   ],
                   tone: "emerald",
                 },
               ],
               outcome: {
-                vi: "Chốt 4 món Knight's Glory / Berserker's Wrath + đúng Dấu Hệ cho Hyper-Carry chủ lực để kết liễu mục tiêu trong 10 giây đầu trận.",
-                en: "Lock in 4-piece Knight's Glory / Berserker's Wrath + matching Faction Mark on primary Hyper-Carries to eliminate enemies within the first 10 seconds.",
+                vi: "Chốt 4 món Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Knight's Glory / Berserker's Wrath) + đúng Dấu Hệ cho Hyper-Carry chủ lực để kết liễu mục tiêu trong 10 giây đầu trận.",
+                en: "Lock in 4-piece Duelist's Set ➔ Fury of Blood (Knight's Glory / Berserker's Wrath) + matching Faction Mark on primary Hyper-Carries to eliminate enemies within the first 10 seconds.",
               },
             },
           ],
           footnote: {
-            vi: "Lưu ý: Khi thay đổi vai trò tướng trong PvP (ví dụ Paragon hoặc Pixie bị sát thủ nhảy hàng sau quá rát), có thể luân chuyển linh hoạt giữa Knight's Glory và Glory of the Sage.",
-            en: "Note: When adjusting for heavy backline dive in PvP (e.g., on Paragon or Pixie), you can flex seamlessly between Knight's Glory and Glory of the Sage.",
+            vi: "Lưu ý: Khi thay đổi vai trò tướng trong PvP (ví dụ Đấng Toàn Năng Paragon hoặc Hồ Tiên Pixie bị sát thủ nhảy hàng sau quá rát), có thể luân chuyển linh hoạt giữa Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Knight's Glory) và Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Glory of the Sage).",
+            en: "Note: When adjusting for heavy backline dive in PvP (e.g., on Paragon or Pixie), you can flex seamlessly between Duelist's Set ➔ Fury of Blood (Knight's Glory) and Sage Set ➔ Glorious Light (Glory of the Sage).",
           },
         },
       ],
@@ -639,8 +649,8 @@ export const ARTICLE_5_2_GOLDEN_GEAR_SETS: GuideArticle = {
             {
               type: "table",
               caption: {
-                vi: "Bảng 4.1: Ma trận phối đồ Vàng chuẩn BiS cho 6 tướng Đỡ đòn tuyến đầu (Adjudicator, Rose Princess, Desert Prince, Beastmaster, Monk, Sage)",
-                en: "Table 4.1: BiS Golden Gear Matrix for the 6 Frontline Tankers & Bruisers (Adjudicator, Rose Princess, Desert Prince, Beastmaster, Monk, Sage)",
+                vi: "Bảng 4.1: Ma trận phối đồ Vàng ➔ Đỏ chuẩn BiS cho 6 tướng Đỡ đòn tuyến đầu (Adjudicator, Rose Princess, Desert Prince, Beastmaster, Monk, Sage)",
+                en: "Table 4.1: BiS Golden-to-Mythic Gear Matrix for the 6 Frontline Tankers & Bruisers (Adjudicator, Rose Princess, Desert Prince, Beastmaster, Monk, Sage)",
               },
               headers: [
                 {
@@ -663,110 +673,110 @@ export const ARTICLE_5_2_GOLDEN_GEAR_SETS: GuideArticle = {
               rows: [
                 [
                   {
-                    vi: "Liên Minh (League) — Thẩm Phán (Adjudicator) [Legendary Vàng ➔ Đỏ]",
+                    vi: "Liên Minh (League) — Thẩm Phán / Thẩm Phán Quan (Adjudicator) [Huyền Thoại Vàng ➔ Thần Thoại Đỏ]",
                     en: "League — Adjudicator [Legendary ➔ Mythic Awakened]",
                   },
                   {
-                    vi: "Bộ Huyết Titan / Nộ Huyết (Blood of the Titan / Fury of Blood) + Dấu Liên Minh (+30%)",
-                    en: "Blood of the Titan / Fury of Blood + League Mark (+30%)",
+                    vi: "Trọn bộ 4 món **Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Knight Set ➔ Titan's Might / Huyết Titan — Blood of the Titan)** [Dấu Hệ Liên Minh +30%]",
+                    en: "Full 4-Piece **Knight Set ➔ Titan's Might (Blood of the Titan)** [League Mark +30%]",
                   },
                   {
-                    vi: "Không thay thế (Bắt buộc thuần Tank)",
-                    en: "No substitute (Mandatory Pure Tank)",
+                    vi: "4 món **Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Sage Set ➔ Glorious Light / Glory of the Sage)**",
+                    en: "4-Piece **Sage Set ➔ Glorious Light (Glory of the Sage)**",
                   },
                   {
-                    vi: "Tanker thuần chủng của Liên Minh; độ dày Khiên chắn và khả năng đứng trụ tuyến đầu phụ thuộc 100% vào tổng lượng HP (+160% Gear HP) và +6% Giảm Sát Thương.",
-                    en: "Pure frontline tank for League; shield thickness and frontline survival depend 100% on total HP pool (+160% Gear HP) and +6% Damage Reduction.",
-                  },
-                ],
-                [
-                  {
-                    vi: "Liên Minh (League) — Công Chúa Hồng (Rose Princess) [Mythic Đỏ]",
-                    en: "League — Rose Princess [Mythic Red]",
-                  },
-                  {
-                    vi: "Bộ Huyết Titan / Nộ Huyết (Blood of the Titan / Fury of Blood) + Dấu Liên Minh (+30%)",
-                    en: "Blood of the Titan / Fury of Blood + League Mark (+30%)",
-                  },
-                  {
-                    vi: "Bộ Hiền Triết Quang Vinh (Glory of the Sage / Glory of the Knight)",
-                    en: "Glory of the Sage / Glory of the Knight",
-                  },
-                  {
-                    vi: "Kỹ năng tạo khiên phản đòn và chống chịu của Rose Princess tỷ lệ thuận trực tiếp với Max HP; mặc Blood of the Titan / Fury of Blood giúp tối đa hóa khả năng càn lướt.",
-                    en: "Rose Princess's counter-shield and frontline mitigation scale directly with Max HP; Blood of the Titan / Fury of Blood maximizes her frontline durability.",
+                    vi: "Khiên chắn toàn đội của Thẩm Phán Quan (Adjudicator) tỷ lệ thuận trực tiếp với **Max HP** (`+160% HP`); dòng 4 món **+6% Giảm Sát Thương** giúp anh ta trụ vững ở Ô 1 trước hỏa lực Bộ Lạc.",
+                    en: "Adjudicator's team-wide barrier scales directly off **Max HP** (`+160% HP`); the 4-piece **+6% Damage Reduction** keeps him alive in Slot 1 against Horde burst.",
                   },
                 ],
                 [
                   {
-                    vi: "Bộ Lạc (Horde) — Hoàng Tử Sa Mạc (Desert Prince) [Mythic Đỏ]",
-                    en: "Horde — Desert Prince [Mythic Red]",
+                    vi: "Liên Minh (League) — Công Chúa Rose / Công Chúa Hoa Hồng (Rose Princess) [Thần Thoại Đỏ]",
+                    en: "League — Rose Princess [Mythic]",
                   },
                   {
-                    vi: "Bộ Huyết Titan / Nộ Huyết (Blood of the Titan / Fury of Blood) [PvP Tank] hoặc Bộ Hiền Triết Quang Vinh (Glory of the Sage) [Bruiser] + Dấu Bộ Lạc",
-                    en: "Blood of the Titan / Fury of Blood [PvP Tank] or Glory of the Sage [Bruiser] + Horde Mark",
+                    vi: "Trọn bộ 4 món **Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Knight Set ➔ Titan's Might / Huyết Titan — Blood of the Titan)** [Dấu Hệ Liên Minh +30%]",
+                    en: "Full 4-Piece **Knight Set ➔ Titan's Might (Blood of the Titan)** [League Mark +30%]",
                   },
                   {
-                    vi: "Bộ Kỵ Sĩ Vinh Quang / Cuồng Chiến (Knight's Glory / Berserker's Wrath)",
-                    en: "Knight's Glory / Berserker's Wrath",
+                    vi: "4 món **Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Sage Set ➔ Glorious Light / Glory of the Sage)** (Cấu hình Đấu Sĩ phản đòn)",
+                    en: "4-Piece **Sage Set ➔ Glorious Light (Glory of the Sage)** (Bruiser Build)",
                   },
                   {
-                    vi: "Khi đóng vai trò Main Tank chống sốc sát thương, ưu tiên Blood of the Titan; khi kẹp cùng Beastmaster và muốn tối đa hóa chiêu cuối sát thương chuẩn diện rộng, dùng Glory of the Sage (+80% HP & +8% Skill Amp).",
-                    en: "As solo Main Tank against burst, prioritize Blood of the Titan; when paired with Beastmaster as an offensive Bruiser, run Glory of the Sage (+80% HP & +8% Skill Amp) to amplify AoE true-damage ultimates.",
-                  },
-                ],
-                [
-                  {
-                    vi: "Bộ Lạc (Horde) — Thú Tướng (Beastmaster) [Mythic Đỏ]",
-                    en: "Horde — Beastmaster [Mythic Red]",
-                  },
-                  {
-                    vi: "Bộ Huyết Titan / Nộ Huyết (Blood of the Titan / Fury of Blood) + Dấu Bộ Lạc (+30%)",
-                    en: "Blood of the Titan / Fury of Blood + Horde Mark (+30%)",
-                  },
-                  {
-                    vi: "Bộ Hiền Triết Quang Vinh (Glory of the Sage / Glory of the Knight)",
-                    en: "Glory of the Sage / Glory of the Knight",
-                  },
-                  {
-                    vi: "Khiên Bong Bóng (Bubble Shield) bảo vệ toàn đội của Beastmaster cộng theo % HP Tối Đa của bản thân ➔ Blood of the Titan / Fury of Blood (+160% Gear HP & +6% Giảm Sát Thương) là bắt buộc.",
-                    en: "Beastmaster's team-wide Bubble Shield scales directly off her own % Max HP ➔ Blood of the Titan / Fury of Blood (+160% Gear HP & +6% Damage Reduction) is strictly mandatory.",
+                    vi: "Cơ chế hấp thụ và phản hồi sát thương của Công Chúa Hoa Hồng (Rose Princess) cần bể máu khổng lồ (`+160% HP`) để tích đầy thanh gai mà không bị sốc chết.",
+                    en: "Rose Princess's damage-absorption and thorn-reflection pool requires a massive HP buffer (`+160% HP`) to charge fully without getting one-shot.",
                   },
                 ],
                 [
                   {
-                    vi: "Thiên Nhiên (Nature) — Thiền Sư (Monk) [Mythic Đỏ]",
-                    en: "Nature — Monk [Mythic Red]",
+                    vi: "Bộ Lạc (Horde) — Hoàng Tử Sa Mạc (Desert Prince) [Thần Thoại Đỏ]",
+                    en: "Horde — Desert Prince [Mythic]",
                   },
                   {
-                    vi: "Bộ Huyết Titan / Nộ Huyết (Blood of the Titan / Fury of Blood) + Dấu Thiên Nhiên (+30%)",
-                    en: "Blood of the Titan / Fury of Blood + Nature Mark (+30%)",
+                    vi: "Trọn bộ 4 món **Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Knight Set ➔ Titan's Might / Huyết Titan — Blood of the Titan)** [Đỡ Đòn Chính S0–S1] hoặc **Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Sage Set ➔ Glorious Light / Glory of the Sage)** [Đấu Sĩ S2+] — Dấu Hệ Bộ Lạc +30%",
+                    en: "Full 4-Piece **Knight Set ➔ Titan's Might (Blood of the Titan)** [Main Tank S0–S1] or **Sage Set ➔ Glorious Light (Glory of the Sage)** [Bruiser S2+] — Horde Mark +30%",
                   },
                   {
-                    vi: "Bộ Hiền Triết Quang Vinh (Glory of the Sage / Glory of the Knight)",
-                    en: "Glory of the Sage / Glory of the Knight",
+                    vi: "4 món **Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Duelist's Set ➔ Fury of Blood / Knight's Glory)** (Chỉ dùng khi đánh Boss PvE)",
+                    en: "4-Piece **Duelist's Set ➔ Fury of Blood (Knight's Glory)** (PvE Bossing Only)",
                   },
                   {
-                    vi: "Tướng chống chịu chủ lực tuyến đầu của hệ Thiên Nhiên; cần lượng HP (+160%) và Giảm sát thương (+6%) lớn nhất để câu giờ cho đội hình triệu hồi/hồi phục hoạt động.",
-                    en: "Nature's primary frontline anchor; requires maximum HP (+160%) and Damage Reduction (+6%) to stall for Nature's summon and healing engines.",
+                    vi: "Ở S0–S1 khi đứng chịu đòn chính, Hoàng Tử Sa Mạc (Desert Prince) cần **Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Blood of the Titan)** để nối nhịp bất tử; từ S2 khi đã có Bậc Thầy Thú (Beastmaster) gánh Ô 1, chuyển sang **Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Glory of the Sage)** để vừa trâu vừa chém AoE chuẩn.",
+                    en: "In S0–S1 as primary anchor, Desert Prince needs **Knight Set ➔ Titan's Might (Blood of the Titan)** to bridge his invulnerability window; in S2+ alongside Beastmaster, **Sage Set ➔ Glorious Light (Glory of the Sage)** maximizes his AoE True Damage.",
                   },
                 ],
                 [
                   {
-                    vi: "Thiên Nhiên (Nature) — Hiền Giả (Sage) [Legendary Vàng ➔ Đỏ]",
+                    vi: "Bộ Lạc (Horde) — Thú Tướng / Bậc Thầy Thú (Beastmaster) [Thần Thoại Đỏ]",
+                    en: "Horde — Beastmaster [Mythic]",
+                  },
+                  {
+                    vi: "Trọn bộ 4 món **Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Knight Set ➔ Titan's Might / Huyết Titan — Blood of the Titan)** [Dấu Hệ Bộ Lạc +30%]",
+                    en: "Full 4-Piece **Knight Set ➔ Titan's Might (Blood of the Titan)** [Horde Mark +30%]",
+                  },
+                  {
+                    vi: "Không có bộ thay thế (Bắt buộc 100% **Bộ Kỵ Sĩ ➔ Bộ Đồ Titan / Blood of the Titan**)",
+                    en: "None (Mandatory **Knight Set ➔ Titan's Might / Blood of the Titan**)",
+                  },
+                  {
+                    vi: "Khiên Bong Bóng đầu trận của Bậc Thầy Thú / Thú Tướng (Beastmaster) tính trực tiếp theo **% Max HP** của bản thân cô ta; mặc **Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Blood of the Titan)** giúp lớp khiên dày gấp rưỡi.",
+                    en: "Beastmaster's opening Bubble Shield scales directly off her own **% Max HP**; **Knight Set ➔ Titan's Might (Blood of the Titan)** inflates her shield thickness by over 1.5x.",
+                  },
+                ],
+                [
+                  {
+                    vi: "Thiên Nhiên (Nature) — Hòa Thượng / Tu Sĩ / Thánh Tăng (Monk) [Thần Thoại Đỏ]",
+                    en: "Nature — Monk [Mythic]",
+                  },
+                  {
+                    vi: "Trọn bộ 4 món **Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Knight Set ➔ Titan's Might / Huyết Titan — Blood of the Titan)** [Dấu Hệ Thiên Nhiên +30%]",
+                    en: "Full 4-Piece **Knight Set ➔ Titan's Might (Blood of the Titan)** [Nature Mark +30%]",
+                  },
+                  {
+                    vi: "4 món **Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Sage Set ➔ Glorious Light / Glory of the Sage)**",
+                    en: "4-Piece **Sage Set ➔ Glorious Light (Glory of the Sage)**",
+                  },
+                  {
+                    vi: "Thánh Tăng / Hòa Thượng (Monk) là bức tường thịt bảo vệ Triệu Hồi Thủy (Tidecaller) có thời gian niệm phép; cần tối đa hóa `+160% HP` và `+6% Giảm Sát Thương` để hứng trọn đợt nộ đầu của Tôn Ngộ Không (Wukong).",
+                    en: "Monk is the meat-shield buying time for Tidecaller to ramp summons; he requires maximum `+160% HP` and `+6% Damage Reduction` to survive Wukong's opening slam.",
+                  },
+                ],
+                [
+                  {
+                    vi: "Thiên Nhiên (Nature) — Hiền Giả (Sage) [Huyền Thoại Vàng ➔ Thần Thoại Đỏ]",
                     en: "Nature — Sage [Legendary ➔ Mythic Awakened]",
                   },
                   {
-                    vi: "Bộ Huyết Titan / Nộ Huyết (Blood of the Titan / Fury of Blood) + Dấu Thiên Nhiên (+30%)",
-                    en: "Blood of the Titan / Fury of Blood + Nature Mark (+30%)",
+                    vi: "Trọn bộ 4 món **Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Knight Set ➔ Titan's Might / Huyết Titan — Blood of the Titan)** [Dấu Hệ Thiên Nhiên +30%]",
+                    en: "Full 4-Piece **Knight Set ➔ Titan's Might (Blood of the Titan)** [Nature Mark +30%]",
                   },
                   {
-                    vi: "Bộ Hiền Triết Quang Vinh (Glory of the Sage / Glory of the Knight)",
-                    en: "Glory of the Sage / Glory of the Knight",
+                    vi: "4 món **Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Sage Set ➔ Glorious Light / Glory of the Sage)**",
+                    en: "4-Piece **Sage Set ➔ Glorious Light (Glory of the Sage)**",
                   },
                   {
-                    vi: "Đỡ đòn tuyến trước của Nature giai đoạn đầu và giữa game (hoặc khi đã Thức tỉnh Đỏ); bắt buộc mặc Blood of the Titan / Fury of Blood để tránh bị bốc hơi bởi sát thương Bộ Lạc.",
-                    en: "Nature's frontline tank during early-to-mid game (and post-Mythic Awakening); must wear Blood of the Titan / Fury of Blood to survive heavy Horde burst.",
+                    vi: "Hiền Giả (Sage) đứng tuyến đầu gom quái và hút sát thương; mặc **Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Blood of the Titan)** giúp anh ta không bị bốc hơi trước khi kịp kích hoạt hồi phục diện rộng.",
+                    en: "Sage anchors the frontline and pulls aggro; **Knight Set ➔ Titan's Might (Blood of the Titan)** prevents him from evaporating before his AoE sustain triggers.",
                   },
                 ],
               ],
@@ -783,8 +793,8 @@ export const ARTICLE_5_2_GOLDEN_GEAR_SETS: GuideArticle = {
             {
               type: "table",
               caption: {
-                vi: "Bảng 4.2: Ma trận phối đồ Vàng chuẩn BiS cho 8 tướng Sát thương chủ lực (Paragon, Pyromancer, Wukong, Storm Maiden, Wilderness Hunter, Tidecaller, Ne Zha, Pixie)",
-                en: "Table 4.2: BiS Golden Gear Matrix for the 8 Hyper-Carry & Burst DPS Heroes (Paragon, Pyromancer, Wukong, Storm Maiden, Wilderness Hunter, Tidecaller, Ne Zha, Pixie)",
+                vi: "Bảng 4.2: Ma trận phối đồ Vàng ➔ Đỏ chuẩn BiS cho 8 tướng Sát thương chủ lực (Paragon, Pyromancer, Wukong, Storm Maiden, Wilderness Hunter, Tidecaller, Ne Zha, Pixie)",
+                en: "Table 4.2: BiS Golden-to-Mythic Gear Matrix for the 8 Hyper-Carry & Burst DPS Heroes (Paragon, Pyromancer, Wukong, Storm Maiden, Wilderness Hunter, Tidecaller, Ne Zha, Pixie)",
               },
               headers: [
                 {
@@ -807,146 +817,146 @@ export const ARTICLE_5_2_GOLDEN_GEAR_SETS: GuideArticle = {
               rows: [
                 [
                   {
-                    vi: "Liên Minh (League) — Mẫu Mực (Paragon) [Mythic Đỏ]",
-                    en: "League — Paragon [Mythic Red]",
+                    vi: "Liên Minh (League) — Thiện Xạ / Đấng Toàn Năng (Paragon) [Thần Thoại Đỏ]",
+                    en: "League — Paragon [Mythic]",
                   },
                   {
-                    vi: "Bộ Kỵ Sĩ Vinh Quang / Cuồng Chiến (Knight's Glory / Berserker's Wrath) hoặc Bộ Hiền Triết Quang Vinh (Glory of the Sage) + Dấu Liên Minh",
-                    en: "Knight's Glory / Berserker's Wrath or Glory of the Sage + League Mark",
+                    vi: "Trọn bộ 4 món **Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Duelist's Set ➔ Fury of Blood / Knight's Glory)** hoặc **Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Sage Set ➔ Glorious Light / Glory of the Sage)** [Dấu Hệ Liên Minh +30%]",
+                    en: "Full 4-Piece **Duelist's Set ➔ Fury of Blood (Knight's Glory)** or **Sage Set ➔ Glorious Light (Glory of the Sage)** [League Mark +30%]",
                   },
                   {
-                    vi: "Luân chuyển linh hoạt tùy đối thủ PvP",
-                    en: "Flex between Knight's Glory & Glory of the Sage by PvP matchup",
+                    vi: "Hoán đổi linh hoạt giữa 2 bộ tùy theo cấp Cổ Ngữ (Runes)",
+                    en: "Interchangeable based on Rune sub-stats",
                   },
                   {
-                    vi: "Sát thương của Paragon xoay quanh chuỗi kỹ năng diện rộng liên hoàn; Knight's Glory (+80% ATK, +6% Dmg) tối đa hóa sát thương bùng nổ khi có dàn chắn dày, còn Glory of the Sage (+8% Skill Amp & +80% HP) chống bị sát thủ nhảy hàng sau kết liễu.",
-                    en: "Paragon's output revolves around chained AoE skills; Knight's Glory (+80% ATK, +6% Dmg) maximizes burst behind a sturdy frontline, while Glory of the Sage (+8% Skill Amp & +80% HP) prevents backline assassin one-shots.",
+                    vi: "Đấng Toàn Năng / Thiện Xạ (Paragon) có nội tại giúp kỹ năng bạo kích; **Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Knight's Glory)** (`+80% ATK`, `+6% DMG`) tối đa hóa đòn chém thiên thạch, trong khi **Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Glory of the Sage)** (`+8% Skill Amp`) giúp cô ta sống dai hơn trước Bộ Lạc.",
+                    en: "Paragon's passive enables skill crits; **Duelist's Set ➔ Fury of Blood (Knight's Glory)** (`+80% ATK`, `+6% DMG`) maximizes meteor burst, while **Sage Set ➔ Glorious Light (Glory of the Sage)** (`+8% Skill Amp`) adds survivability vs Horde.",
                   },
                 ],
                 [
                   {
-                    vi: "Liên Minh (League) — Pháp Sư Lửa (Pyromancer) [Legendary Vàng ➔ Đỏ]",
+                    vi: "Liên Minh (League) — Pháp Sư Lửa / Hoả Pháp Sư (Pyromancer) [Huyền Thoại Vàng ➔ Thần Thoại Đỏ]",
                     en: "League — Pyromancer [Legendary ➔ Mythic Awakened]",
                   },
                   {
-                    vi: "Bộ Kỵ Sĩ Vinh Quang / Cuồng Chiến (Knight's Glory / Berserker's Wrath) hoặc Bộ Hiền Triết Quang Vinh (Glory of the Sage) + Dấu Liên Minh",
-                    en: "Knight's Glory / Berserker's Wrath or Glory of the Sage + League Mark",
+                    vi: "Trọn bộ 4 món **Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Duelist's Set ➔ Fury of Blood / Knight's Glory)** [Dấu Hệ Liên Minh +30%]",
+                    en: "Full 4-Piece **Duelist's Set ➔ Fury of Blood (Knight's Glory)** [League Mark +30%]",
                   },
                   {
-                    vi: "Luân chuyển theo áp lực giao tranh",
-                    en: "Flex based on backline survival pressure",
+                    vi: "4 món **Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Sage Set ➔ Glorious Light / Glory of the Sage)** (Khi cần sống sót trước Sát thủ)",
+                    en: "4-Piece **Sage Set ➔ Glorious Light (Glory of the Sage)** (Anti-Assassin Survival)",
                   },
                   {
-                    vi: "Nguồn sát thương chính đến từ chiêu cuối nổ lửa diện rộng (Meteor Blaze); mặc Knight's Glory để tối đa hóa Burst AoE, hoặc Glory of the Sage nếu cần thêm +80% HP sống sót qua các đợt dồn dame tầm xa.",
-                    en: "Primary damage comes from her AoE ultimate (Meteor Blaze); equip Knight's Glory for maximum AoE burst, or Glory of the Sage when +80% HP is needed to survive ranged burst.",
-                  },
-                ],
-                [
-                  {
-                    vi: "Bộ Lạc (Horde) — Tôn Ngộ Không (Wukong) [Mythic Đỏ]",
-                    en: "Horde — Wukong [Mythic Red]",
-                  },
-                  {
-                    vi: "Bộ Kỵ Sĩ Vinh Quang / Cuồng Chiến (Knight's Glory / Berserker's Wrath) + Dấu Bộ Lạc (+30%)",
-                    en: "Knight's Glory / Berserker's Wrath + Horde Mark (+30%)",
-                  },
-                  {
-                    vi: "Bộ Hiền Triết Quang Vinh (Glory of the Sage / Glory of the Knight)",
-                    en: "Glory of the Sage / Glory of the Knight",
-                  },
-                  {
-                    vi: "Quy tắc bắt buộc: Các phân thân khỉ con (Clones) của Wukong thừa hưởng trực tiếp Chỉ số ATK cơ bản (Flat ATK) của bản thể ➔ Knight's Glory (+80% Gear ATK, Crit & +6% Dmg) mang lại lượng sát thương hủy diệt nhất game!",
-                    en: "Mandatory rule: Wukong's monkey Clones directly inherit the main body's Flat ATK stat ➔ Knight's Glory (+80% Gear ATK, Crit & +6% Damage Increase) delivers the highest multiplicative burst in the game!",
+                    vi: "Sát thương Thiêu Đốt (Burn DoT) và vụ nổ Ultimate của Hoả Pháp Sư / Pháp Sư Lửa (Pyromancer) nhân trực tiếp với chỉ số ATK cơ bản; `+80% ATK` từ **Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Knight's Glory)** giúp cô ta dọn sạch bãi lính chỉ sau 1 lần nổ.",
+                    en: "Pyromancer's Burn DoT and Ultimate detonation scale directly with base ATK; `+80% ATK` from **Duelist's Set ➔ Fury of Blood (Knight's Glory)** lets her wipe soldier waves in one cast.",
                   },
                 ],
                 [
                   {
-                    vi: "Bộ Lạc (Horde) — Thiếu Nữ Bão Tố (Storm Maiden) [Mythic Đỏ]",
-                    en: "Horde — Storm Maiden [Mythic Red]",
+                    vi: "Bộ Lạc (Horde) — Tôn Ngộ Không / Ngộ Không (Wukong) [Thần Thoại Đỏ]",
+                    en: "Horde — Wukong [Mythic]",
                   },
                   {
-                    vi: "Bộ Kỵ Sĩ Vinh Quang / Cuồng Chiến (Knight's Glory / Berserker's Wrath) + Dấu Bộ Lạc (+30%)",
-                    en: "Knight's Glory / Berserker's Wrath + Horde Mark (+30%)",
+                    vi: "Trọn bộ 4 món **Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Duelist's Set ➔ Fury of Blood / Knight's Glory / Berserker's Wrath)** [Dấu Hệ Bộ Lạc +30%]",
+                    en: "Full 4-Piece **Duelist's Set ➔ Fury of Blood (Knight's Glory / Berserker's Wrath)** [Horde Mark +30%]",
                   },
                   {
-                    vi: "Bộ Hiền Triết Quang Vinh (Glory of the Sage / Glory of the Knight)",
-                    en: "Glory of the Sage / Glory of the Knight",
+                    vi: "4 món **Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Sage Set ➔ Glorious Light / Glory of the Sage)** (Chỉ dùng khi đi kèm Thuật Sĩ / Warlock chưa max đồ)",
+                    en: "4-Piece **Sage Set ➔ Glorious Light (Glory of the Sage)** (Early S2 Sustain Variant)",
                   },
                   {
-                    vi: "Hyper-carry bắn xa dồn sát thương bạo kích và triệu hồi lốc xoáy liên tục; Knight's Glory giúp tối đa hóa khả năng kết liễu nhanh mục tiêu trong 10 giây đầu trận.",
-                    en: "Ranged hyper-carry dealing critical burst and continuous tornado AoE; Knight's Glory maximizes her ability to execute targets within the first 10 seconds of combat.",
-                  },
-                ],
-                [
-                  {
-                    vi: "Bộ Lạc (Horde) — Thợ Săn Hoang Dã (Wilderness Hunter) [Legendary Vàng]",
-                    en: "Horde — Wilderness Hunter [Legendary SSR]",
-                  },
-                  {
-                    vi: "Bộ Kỵ Sĩ Vinh Quang / Cuồng Chiến (Knight's Glory / Berserker's Wrath) + Dấu Bộ Lạc (+30%)",
-                    en: "Knight's Glory / Berserker's Wrath + Horde Mark (+30%)",
-                  },
-                  {
-                    vi: "Bộ Hiền Triết Quang Vinh (Glory of the Sage / Glory of the Knight)",
-                    en: "Glory of the Sage / Glory of the Knight",
-                  },
-                  {
-                    vi: "Xạ thủ sát thương vật lý tầm xa chủ lực giai đoạn Đầu–Giữa game của Bộ Lạc; tối ưu hóa đòn bắn xuyên thấu và tỷ lệ chí mạng với Knight's Glory.",
-                    en: "Horde's core early-to-mid game ranged physical marksman; optimizes piercing shots and critical hit rate with Knight's Glory.",
+                    vi: "Phân thân khỉ con (Clones) của Tôn Ngộ Không / Ngộ Không (Wukong) kế thừa **100% ATK** của bản thể và đòn đập gậy kết liễu tính theo tổng sát thương; **Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Knight's Glory)** là bộ duy nhất giúp Wukong bổ 1 gậy bốc hơi hàng sau.",
+                    en: "Wukong's monkey Clones inherit **100% of his ATK** and his staff execution scales with total damage; **Duelist's Set ➔ Fury of Blood (Knight's Glory)** is the undisputed BiS for one-shotting backlines.",
                   },
                 ],
                 [
                   {
-                    vi: "Thiên Nhiên (Nature) — Người Gọi Thủy Triều (Tidecaller) [Mythic Đỏ]",
-                    en: "Nature — Tidecaller [Mythic Red]",
+                    vi: "Bộ Lạc (Horde) — Nữ Thần Bão Tố / Trinh Nữ Bão Tố (Storm Maiden) [Thần Thoại Đỏ]",
+                    en: "Horde — Storm Maiden [Mythic]",
                   },
                   {
-                    vi: "Bộ Kỵ Sĩ Vinh Quang (Knight's Glory) [DPS Carry] hoặc Bộ Huyết Titan (Blood of the Titan) [Sustain] + Dấu Thiên Nhiên",
-                    en: "Knight's Glory [DPS Carry] or Blood of the Titan [Sustain] + Nature Mark",
+                    vi: "Trọn bộ 4 món **Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Duelist's Set ➔ Fury of Blood / Knight's Glory)** [Dấu Hệ Bộ Lạc +30%]",
+                    en: "Full 4-Piece **Duelist's Set ➔ Fury of Blood (Knight's Glory)** [Horde Mark +30%]",
                   },
                   {
-                    vi: "Bộ Hiền Triết Quang Vinh (Glory of the Sage / Glory of the Knight)",
-                    en: "Glory of the Sage / Glory of the Knight",
+                    vi: "4 món **Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Sage Set ➔ Glorious Light / Glory of the Sage)**",
+                    en: "4-Piece **Sage Set ➔ Glorious Light (Glory of the Sage)**",
                   },
                   {
-                    vi: "Tidecaller vừa triệu hồi Thủy Tinh Linh tấn công vừa hồi máu cực mạnh theo chỉ số; mặc Knight's Glory khi đóng vai trò Carry chính hoặc Blood of the Titan / Glory of the Sage khi đối đầu đội hình dồn sát thương mạnh.",
-                    en: "Tidecaller both summons Water Elementals for offense and provides massive stat-scaling heals; run Knight's Glory as primary Carry or Blood of the Titan / Glory of the Sage against heavy burst comps.",
-                  },
-                ],
-                [
-                  {
-                    vi: "Thiên Nhiên (Nature) — Na Tra (Ne Zha) [Mythic Đỏ]",
-                    en: "Nature — Ne Zha [Mythic Red]",
-                  },
-                  {
-                    vi: "Bộ Kỵ Sĩ Vinh Quang / Cuồng Chiến (Knight's Glory / Berserker's Wrath) + Dấu Thiên Nhiên (+30%)",
-                    en: "Knight's Glory / Berserker's Wrath + Nature Mark (+30%)",
-                  },
-                  {
-                    vi: "Bộ Hiền Triết Quang Vinh (Glory of the Sage / Glory of the Knight)",
-                    en: "Glory of the Sage / Glory of the Knight",
-                  },
-                  {
-                    vi: "Đấu sĩ/Sát thủ tuyến đầu và tuyến giữa của hệ Thiên Nhiên có khả năng gây sát thương bạo kích liên hoàn cực lớn; tối ưu nhất với Knight's Glory (+80% ATK & +6% Dmg).",
-                    en: "Nature's frontline/midline fighter-assassin capable of relentless multi-hit critical combos; scales best with Knight's Glory (+80% ATK & +6% Damage Increase).",
+                    vi: "Lốc xoáy liên hoàn của Trinh Nữ Bão Tố / Nữ Thần Bão Tố (Storm Maiden) ở S0–S1 đóng vai trò dọn lính mở đường; cần tối đa hóa `+80% ATK` và `+6% Tăng Sát Thương` để kết liễu mục tiêu kích hoạt hồi nộ.",
+                    en: "Storm Maiden's chaining tornadoes serve as the primary wave-clear in S0–S1; she needs maximum `+80% ATK` and `+6% Damage Increase` to secure kills and reset energy.",
                   },
                 ],
                 [
                   {
-                    vi: "Thiên Nhiên (Nature) — Tiên Nhỏ (Pixie) [Legendary Vàng ➔ Đỏ]",
+                    vi: "Bộ Lạc (Horde) — Thợ Săn Hoang Dã (Wilderness Hunter) [Huyền Thoại Vàng]",
+                    en: "Horde — Wilderness Hunter [Legendary]",
+                  },
+                  {
+                    vi: "Trọn bộ 4 món **Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Duelist's Set ➔ Fury of Blood / Knight's Glory)** [Dấu Hệ Bộ Lạc +30%]",
+                    en: "Full 4-Piece **Duelist's Set ➔ Fury of Blood (Knight's Glory)** [Horde Mark +30%]",
+                  },
+                  {
+                    vi: "4 món **Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Sage Set ➔ Glorious Light / Glory of the Sage)**",
+                    en: "4-Piece **Sage Set ➔ Glorious Light (Glory of the Sage)**",
+                  },
+                  {
+                    vi: "Xạ thủ sát thương đơn mục tiêu và chảy máu (Bleed) giai đoạn S0–S1; đứng an toàn ở hàng sau nên dồn toàn bộ vào `+80% ATK` (về sau chuyển nguyên bộ đồ này sang cho Tôn Ngộ Không).",
+                    en: "Single-target and Bleed marksman in S0–S1; positioned safely in the backline so she stacks pure `+80% ATK` (this exact set later transfers directly onto Wukong).",
+                  },
+                ],
+                [
+                  {
+                    vi: "Thiên Nhiên (Nature) — Thuật Sĩ Thủy Triều / Triệu Hồi Thủy (Tidecaller) [Thần Thoại Đỏ]",
+                    en: "Nature — Tidecaller [Mythic]",
+                  },
+                  {
+                    vi: "Trọn bộ 4 món **Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Duelist's Set ➔ Fury of Blood / Knight's Glory)** [Chủ Lực Sát Thương] hoặc **Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Knight Set ➔ Titan's Might / Blood of the Titan)** [Trụ Giao Tranh] — Dấu Hệ Thiên Nhiên +30%",
+                    en: "Full 4-Piece **Duelist's Set ➔ Fury of Blood (Knight's Glory)** [DPS Carry] or **Knight Set ➔ Titan's Might (Blood of the Titan)** [Sustain] — Nature Mark +30%",
+                  },
+                  {
+                    vi: "4 món **Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Sage Set ➔ Glorious Light / Glory of the Sage)** (Cấu hình cân bằng Công/Thủ)",
+                    en: "4-Piece **Sage Set ➔ Glorious Light (Glory of the Sage)** (Balanced Hybrid)",
+                  },
+                  {
+                    vi: "Cả sát thương lẫn lượng máu hồi của Thủy Tinh Linh (Water Elementals) đều tính theo **% ATK** của Triệu Hồi Thủy / Thuật Sĩ Thủy Triều (Tidecaller) nên **Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Knight's Glory)** cho đầu ra khủng nhất; tuy nhiên khi đối đầu Tôn Ngộ Không (Wukong) quá mạnh, đổi sang **Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Blood of the Titan)** để không bị sốc chết sớm.",
+                    en: "Both the damage and healing of Tidecaller's Water Elementals scale off her **% ATK**, making **Duelist's Set ➔ Fury of Blood (Knight's Glory)** highest output; however, against heavy Wukong dive, **Knight Set ➔ Titan's Might (Blood of the Titan)** prevents early assassination.",
+                  },
+                ],
+                [
+                  {
+                    vi: "Thiên Nhiên (Nature) — Na Tra / Tam Thái Tử (Ne Zha) [Thần Thoại Đỏ]",
+                    en: "Nature — Ne Zha [Mythic]",
+                  },
+                  {
+                    vi: "Trọn bộ 4 món **Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Sage Set ➔ Glorious Light / Glory of the Sage)** hoặc **Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Knight Set ➔ Titan's Might / Blood of the Titan)** [Dấu Hệ Thiên Nhiên +30%]",
+                    en: "Full 4-Piece **Sage Set ➔ Glorious Light (Glory of the Sage)** or **Knight Set ➔ Titan's Might (Blood of the Titan)** [Nature Mark +30%]",
+                  },
+                  {
+                    vi: "4 món **Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Duelist's Set ➔ Fury of Blood / Knight's Glory)** (Khi đứng hàng sau thuần DPS)",
+                    en: "4-Piece **Duelist's Set ➔ Fury of Blood (Knight's Glory)** (Backline Pure DPS)",
+                  },
+                  {
+                    vi: "Na Tra (Ne Zha) là Đấu sĩ cận chiến (Bruiser) có cơ chế hồi sinh Hoa Sen; mặc **Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Glory of the Sage)** (`+40% ATK`, `+80% HP`, `+8% Skill Amp`) giúp anh ta vừa lì đòn ở Ô 2 vừa gây sát thương kỹ năng diện rộng cực rát.",
+                    en: "Ne Zha is a frontline melee Bruiser with Lotus resurrection; **Sage Set ➔ Glorious Light (Glory of the Sage)** (`+40% ATK`, `+80% HP`, `+8% Skill Amp`) balances his Slot 2 durability with explosive AoE skill damage.",
+                  },
+                ],
+                [
+                  {
+                    vi: "Thiên Nhiên (Nature) — Tiên Nhỏ / Hồ Tiên (Pixie) [Huyền Thoại Vàng ➔ Thần Thoại Đỏ]",
                     en: "Nature — Pixie [Legendary ➔ Mythic Awakened]",
                   },
                   {
-                    vi: "Bộ Kỵ Sĩ Vinh Quang (Knight's Glory) [Burst AoE] hoặc Bộ Hiền Triết Quang Vinh (Glory of the Sage) [Cooldown Utility] + Dấu Thiên Nhiên",
-                    en: "Knight's Glory [Burst AoE] or Glory of the Sage [Cooldown Utility] + Nature Mark",
+                    vi: "Trọn bộ 4 món **Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Duelist's Set ➔ Fury of Blood / Knight's Glory)** hoặc **Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Sage Set ➔ Glorious Light / Glory of the Sage)** [Dấu Hệ Thiên Nhiên +30%]",
+                    en: "Full 4-Piece **Duelist's Set ➔ Fury of Blood (Knight's Glory)** or **Sage Set ➔ Glorious Light (Glory of the Sage)** [Nature Mark +30%]",
                   },
                   {
-                    vi: "Phối linh hoạt theo vai trò trong đội hình Nature",
-                    en: "Flex according to sub-DPS vs utility role in Nature",
+                    vi: "4 món **Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Knight Set ➔ Titan's Might / Blood of the Titan)** (Khi bị Tôn Ngộ Không / Wukong đối phương nhắm tới)",
+                    en: "4-Piece **Knight Set ➔ Titan's Might (Blood of the Titan)** (Anti-Wukong Survival)",
                   },
                   {
-                    vi: "Mặc Knight's Glory khi cần tối đa hóa sát thương nổ diện rộng (Burst AoE), hoặc chuyển sang Glory of the Sage khi ưu tiên xoay vòng chiêu thức, kháng bạo và độ bền giao tranh.",
-                    en: "Equip Knight's Glory to maximize Burst AoE damage, or switch to Glory of the Sage when prioritizing cooldown cycling, Crit Resistance, and sustained fight durability.",
+                    vi: "Pháp sư cấu rỉa tầm xa của hệ Thiên Nhiên; dùng **Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Knight's Glory)** để tối đa hóa sát thương phép diện rộng, hoặc **Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Glory of the Sage)** để lấy thêm `+80% HP` chống sốc đam cho Hồ Tiên / Tiên Nhỏ (Pixie).",
+                    en: "Nature's ranged AoE mage; run **Duelist's Set ➔ Fury of Blood (Knight's Glory)** for maximum spell burst, or **Sage Set ➔ Glorious Light (Glory of the Sage)** for the extra `+80% HP` cushion against dive.",
                   },
                 ],
               ],
@@ -963,8 +973,8 @@ export const ARTICLE_5_2_GOLDEN_GEAR_SETS: GuideArticle = {
             {
               type: "table",
               caption: {
-                vi: "Bảng 4.3: Ma trận phối đồ Vàng chuẩn BiS cho 10 tướng Hỗ trợ, Hồi máu & Khống chế (Nun, Bishop, Artificer, Bard, Witch, Warlock, Soulmancer, Shadow Priest, Forest Maiden, Petalis)",
-                en: "Table 4.3: BiS Golden Gear Matrix for the 10 Healers, Buffers & Controllers (Nun, Bishop, Artificer, Bard, Witch, Warlock, Soulmancer, Shadow Priest, Forest Maiden, Petalis)",
+                vi: "Bảng 4.3: Ma trận phối đồ Vàng ➔ Đỏ chuẩn BiS cho 10 tướng Hỗ trợ, Hồi máu & Khống chế (Nun, Bishop, Artificer, Bard, Witch, Warlock, Soulmancer, Shadow Priest, Forest Maiden, Petalis)",
+                en: "Table 4.3: BiS Golden-to-Mythic Gear Matrix for the 10 Healers, Buffers & Controllers (Nun, Bishop, Artificer, Bard, Witch, Warlock, Soulmancer, Shadow Priest, Forest Maiden, Petalis)",
               },
               headers: [
                 {
@@ -987,182 +997,182 @@ export const ARTICLE_5_2_GOLDEN_GEAR_SETS: GuideArticle = {
               rows: [
                 [
                   {
-                    vi: "Liên Minh (League) — Tu Nữ (Nun) [Legendary Vàng ➔ Đỏ]",
+                    vi: "Liên Minh (League) — Nữ Tu / Tu Nữ (Nun) [Huyền Thoại Vàng ➔ Thần Thoại Đỏ]",
                     en: "League — Nun [Legendary ➔ Mythic Awakened]",
                   },
                   {
-                    vi: "Bộ Hiền Triết Quang Vinh (Glory of the Sage) hoặc Bộ Huyết Titan (Blood of the Titan / Fury of Blood) + Dấu Liên Minh",
-                    en: "Glory of the Sage or Blood of the Titan / Fury of Blood + League Mark",
+                    vi: "Trọn bộ 4 món **Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Knight Set ➔ Titan's Might / Huyết Titan — Blood of the Titan)** [Dấu Hệ Liên Minh +30%]",
+                    en: "Full 4-Piece **Knight Set ➔ Titan's Might (Blood of the Titan)** [League Mark +30%]",
                   },
                   {
-                    vi: "Phối theo áp lực sát thủ nhảy hàng sau",
-                    en: "Flex based on enemy backline dive pressure",
+                    vi: "4 món **Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Sage Set ➔ Glorious Light / Glory of the Sage)**",
+                    en: "4-Piece **Sage Set ➔ Glorious Light (Glory of the Sage)**",
                   },
                   {
-                    vi: "Mặc Glory of the Sage để tăng Kháng Bạo Kích, tốc độ xoay vòng kỹ năng bơm máu và lượng hồi phục (+40% ATK, +80% HP); đổi sang Blood of the Titan nếu thường xuyên bị Wukong / Storm Maiden nhảy hàng sau.",
-                    en: "Equip Glory of the Sage for Crit Resistance, faster healing skill rotation, and stronger heals (+40% ATK, +80% HP); switch to Blood of the Titan if heavily targeted by Wukong / Storm Maiden dives.",
-                  },
-                ],
-                [
-                  {
-                    vi: "Liên Minh (League) — Giám Mục (Bishop) [Mythic Đỏ]",
-                    en: "League — Bishop [Mythic Red]",
-                  },
-                  {
-                    vi: "Bộ Hiền Triết Quang Vinh (Glory of the Sage / Glory of the Knight) + Dấu Liên Minh (+30%)",
-                    en: "Glory of the Sage / Glory of the Knight + League Mark (+30%)",
-                  },
-                  {
-                    vi: "Bộ Kỵ Sĩ Vinh Quang (Knight's Glory / Berserker's Wrath)",
-                    en: "Knight's Glory / Berserker's Wrath",
-                  },
-                  {
-                    vi: "Pháp sư hỗ trợ kiêm sát thương diện rộng và khắc chế triệu hồi; Glory of the Sage cung cấp hoàn hảo cả độ trâu (+80% HP), tốc độ tung chiêu lẫn +8% Skill Damage Amplify.",
-                    en: "Support mage with AoE damage and anti-summon utility; Glory of the Sage provides the ideal mix of survivability (+80% HP), cast frequency, and +8% Skill Damage Amplify.",
+                    vi: "Kỹ năng hồi máu và tăng giới hạn máu của Tu Nữ / Nữ Tu (Nun) phụ thuộc vào việc cô ta phải sống sót trước đòn càn quét hàng sau; **Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Blood of the Titan)** (`+160% HP`) là bảo hiểm sinh mạng tốt nhất.",
+                    en: "Nun's healing output and Max HP buff depend entirely on surviving backline dive; **Knight Set ➔ Titan's Might (Blood of the Titan)** (`+160% HP`) is her strongest life insurance.",
                   },
                 ],
                 [
                   {
-                    vi: "Liên Minh (League) — Nghệ Nhân Cơ Khí (Artificer) [Mythic Đỏ]",
-                    en: "League — Artificer [Mythic Red]",
+                    vi: "Liên Minh (League) — Giám Mục (Bishop) [Thần Thoại Đỏ]",
+                    en: "League — Bishop [Mythic]",
                   },
                   {
-                    vi: "Bộ Hiền Triết Quang Vinh (Glory of the Sage / Glory of the Knight) + Dấu Liên Minh (+30%)",
-                    en: "Glory of the Sage / Glory of the Knight + League Mark (+30%)",
+                    vi: "Trọn bộ 4 món **Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Sage Set ➔ Glorious Light / Glory of the Sage)** [Dấu Hệ Liên Minh +30%]",
+                    en: "Full 4-Piece **Sage Set ➔ Glorious Light (Glory of the Sage / Glory of the Knight)** [League Mark +30%]",
                   },
                   {
-                    vi: "Bộ Huyết Titan / Nộ Huyết (Blood of the Titan / Fury of Blood)",
-                    en: "Blood of the Titan / Fury of Blood",
+                    vi: "4 món **Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Duelist's Set ➔ Fury of Blood / Knight's Glory)**",
+                    en: "4-Piece **Duelist's Set ➔ Fury of Blood (Knight's Glory)**",
                   },
                   {
-                    vi: "Tướng hỗ trợ công nghệ tối thượng của Liên Minh; mặc Glory of the Sage để tối ưu hóa chu kỳ hồi kỹ năng buff công cụ, Kháng Bạo và độ lì đòn ở hàng sau.",
-                    en: "League's premier tech-support Mythic; equip Glory of the Sage to optimize gadget buff cooldowns, Crit Resistance, and backline durability.",
-                  },
-                ],
-                [
-                  {
-                    vi: "Liên Minh (League) — Nhà Thơ (Bard) [Legendary Vàng]",
-                    en: "League — Bard [Legendary SSR]",
-                  },
-                  {
-                    vi: "Bộ Hiền Triết Quang Vinh (Glory of the Sage / Glory of the Knight) + Dấu Liên Minh (+30%)",
-                    en: "Glory of the Sage / Glory of the Knight + League Mark (+30%)",
-                  },
-                  {
-                    vi: "Bộ Huyết Titan / Nộ Huyết (Blood of the Titan / Fury of Blood)",
-                    en: "Blood of the Titan / Fury of Blood",
-                  },
-                  {
-                    vi: "Nhiệm vụ cốt lõi của Bard là sống sót để buff tốc độ đánh và giảm hồi chiêu cho toàn đội; Glory of the Sage giúp tối ưu hóa cả chu kỳ kỹ năng lẫn Kháng Bạo và +80% HP.",
-                    en: "Bard's core duty is staying alive to buff team attack speed and cooldown reduction; Glory of the Sage optimizes both skill rotation, Crit Resistance, and +80% HP.",
+                    vi: "Giám Mục (Bishop) vừa tạo khiên thanh tẩy vừa gây nổ sát thương diện rộng chống đệ triệu hồi; **Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Glory of the Sage)** (`+40% ATK`, `+80% HP`, `+8% Skill Amp`) tối ưu hóa cả 2 vai trò.",
+                    en: "Bishop provides divine shields, dispel, and anti-summon AoE burst; **Sage Set ➔ Glorious Light (Glory of the Sage)** (`+40% ATK`, `+80% HP`, `+8% Skill Amp`) scales both his shields and nuke.",
                   },
                 ],
                 [
                   {
-                    vi: "Bộ Lạc (Horde) — Phù Thủy (Witch) [Mythic Đỏ]",
-                    en: "Horde — Witch [Mythic Red]",
+                    vi: "Liên Minh (League) — Thợ Chế Tạo / Bậc Thầy Cơ Khí (Artificer) [Thần Thoại Đỏ]",
+                    en: "League — Artificer [Mythic]",
                   },
                   {
-                    vi: "Bộ Hiền Triết Quang Vinh (Glory of the Sage / Glory of the Knight) + Dấu Bộ Lạc (+30%)",
-                    en: "Glory of the Sage / Glory of the Knight + Horde Mark (+30%)",
+                    vi: "Trọn bộ 4 món **Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Sage Set ➔ Glorious Light / Glory of the Sage)** [Dấu Hệ Liên Minh +30%]",
+                    en: "Full 4-Piece **Sage Set ➔ Glorious Light (Glory of the Sage / Glory of the Knight)** [League Mark +30%]",
                   },
                   {
-                    vi: "Bộ Huyết Titan / Nộ Huyết (Blood of the Titan / Fury of Blood)",
-                    en: "Blood of the Titan / Fury of Blood",
+                    vi: "4 món **Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Knight Set ➔ Titan's Might / Blood of the Titan)**",
+                    en: "4-Piece **Knight Set ➔ Titan's Might (Blood of the Titan)**",
                   },
                   {
-                    vi: "Lượng máu hồi phục và sát thương của Witch tỷ lệ thuận với ATK (+40% ATK), đồng thời cô cần +80% HP và Kháng Bạo để đứng vững ở hàng sau ➔ Glory of the Sage là lựa chọn hoàn hảo số 1.",
-                    en: "Witch's healing output and damage scale with ATK (+40% ATK), while she requires +80% HP and Crit Resistance to survive in the backline ➔ Glory of the Sage is her #1 BiS.",
+                    vi: "Siêu hỗ trợ Mùa 3 của Liên Minh; Bậc Thầy Cơ Khí / Thợ Chế Tạo (Artificer) cần vừa đủ máu để giữ máy móc trên sân vừa cần `+8% Khuếch Đại Kỹ Năng` từ **Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Glory of the Sage)** để cường hóa vũ khí cho Đấng Toàn Năng (Paragon).",
+                    en: "League's Season 3 hyper-support; needs hybrid HP to stay alive while leveraging **Sage Set ➔ Glorious Light (Glory of the Sage)** `+8% Skill Amp` to supercharge Paragon's weapons.",
                   },
                 ],
                 [
                   {
-                    vi: "Bộ Lạc (Horde) — Pháp Sư Hắc Ám (Warlock) [Legendary Vàng ➔ Đỏ]",
+                    vi: "Liên Minh (League) — Nhà Thơ / Thi Nhân Tự Do (Bard) [Huyền Thoại Vàng ➔ Thần Thoại Đỏ]",
+                    en: "League — Bard [Legendary ➔ Mythic Awakened]",
+                  },
+                  {
+                    vi: "Trọn bộ 4 món **Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Sage Set ➔ Glorious Light / Glory of the Sage)** [Dấu Hệ Liên Minh +30%]",
+                    en: "Full 4-Piece **Sage Set ➔ Glorious Light (Glory of the Sage / Glory of the Knight)** [League Mark +30%]",
+                  },
+                  {
+                    vi: "4 món **Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Knight Set ➔ Titan's Might / Blood of the Titan)**",
+                    en: "4-Piece **Knight Set ➔ Titan's Might (Blood of the Titan)**",
+                  },
+                  {
+                    vi: "Nhạc công buff Năng lượng và Tốc đánh cho Liên Minh; **Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Glory of the Sage)** giúp Nhà Thơ (Bard) sống sót qua các đợt AoE để duy trì khúc nhạc giảm hồi chiêu.",
+                    en: "League's energy and attack-speed buffer; **Sage Set ➔ Glorious Light (Glory of the Sage)** gives Bard the hybrid durability needed to keep his cooldown-reduction anthem active.",
+                  },
+                ],
+                [
+                  {
+                    vi: "Bộ Lạc (Horde) — Phù Thủy / Vu Nữ (Witch) [Thần Thoại Đỏ]",
+                    en: "Horde — Witch [Mythic]",
+                  },
+                  {
+                    vi: "Trọn bộ 4 món **Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Sage Set ➔ Glorious Light / Glory of the Sage)** [Dấu Hệ Bộ Lạc +30%]",
+                    en: "Full 4-Piece **Sage Set ➔ Glorious Light (Glory of the Sage / Glory of the Knight)** [Horde Mark +30%]",
+                  },
+                  {
+                    vi: "4 món **Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Knight Set ➔ Titan's Might / Blood of the Titan)**",
+                    en: "4-Piece **Knight Set ➔ Titan's Might (Blood of the Titan)**",
+                  },
+                  {
+                    vi: "Trái tim hồi máu và khống chế Hoảng Sợ (Fear) của Bộ Lạc; lượng hồi máu của Vu Nữ / Phù Thủy (Witch) tỷ lệ với **ATK** nhưng bản thân cô ta rất mỏng, nên **Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Glory of the Sage)** (`+40% ATK`, `+80% HP`, `+8% Skill Amp`) là mảnh ghép hoàn hảo.",
+                    en: "Horde's premier healer and Fear controller; Witch's healing scales with **ATK** while her base body is fragile, making **Sage Set ➔ Glorious Light (Glory of the Sage)** (`+40% ATK`, `+80% HP`, `+8% Skill Amp`) tailor-made for her.",
+                  },
+                ],
+                [
+                  {
+                    vi: "Bộ Lạc (Horde) — Pháp Sư Bóng Tối / Thuật Sĩ (Warlock) [Huyền Thoại Vàng ➔ Thần Thoại Đỏ]",
                     en: "Horde — Warlock [Legendary ➔ Mythic Awakened]",
                   },
                   {
-                    vi: "Bộ Hiền Triết Quang Vinh (Glory of the Sage / Glory of the Knight) + Dấu Bộ Lạc (+30%)",
-                    en: "Glory of the Sage / Glory of the Knight + Horde Mark (+30%)",
+                    vi: "Trọn bộ 4 món **Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Sage Set ➔ Glorious Light / Glory of the Sage)** [Dấu Hệ Bộ Lạc +30%]",
+                    en: "Full 4-Piece **Sage Set ➔ Glorious Light (Glory of the Sage / Glory of the Knight)** [Horde Mark +30%]",
                   },
                   {
-                    vi: "Bộ Huyết Titan / Nộ Huyết (Blood of the Titan / Fury of Blood)",
-                    en: "Blood of the Titan / Fury of Blood",
+                    vi: "4 món **Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Knight Set ➔ Titan's Might / Blood of the Titan)**",
+                    en: "4-Piece **Knight Set ➔ Titan's Might (Blood of the Titan)**",
                   },
                   {
-                    vi: "Tướng hỗ trợ buff Hút máu/Tốc đánh và gây sát thương kỹ năng của Bộ Lạc; tối ưu hóa khả năng xoay chiêu và sinh tồn với Glory of the Sage.",
-                    en: "Horde support buffer granting Lifesteal/Attack Speed and skill damage; optimizes spell cycling and survivability with Glory of the Sage.",
-                  },
-                ],
-                [
-                  {
-                    vi: "Bộ Lạc (Horde) — Thuật Sư Linh Hồn (Soulmancer) [Legendary Vàng]",
-                    en: "Horde — Soulmancer [Legendary SSR]",
-                  },
-                  {
-                    vi: "Bộ Huyết Titan / Nộ Huyết (Blood of the Titan / Fury of Blood) hoặc Bộ Hiền Triết Quang Vinh (Glory of the Sage) + Dấu Bộ Lạc",
-                    en: "Blood of the Titan / Fury of Blood or Glory of the Sage + Horde Mark",
-                  },
-                  {
-                    vi: "Cấm mặc đồ thuần ATK (Knight's Glory)",
-                    en: "NEVER equip glass-cannon ATK gear (Knight's Glory)",
-                  },
-                  {
-                    vi: "Soulmancer dùng dây liên kết chia sẻ sát thương gánh đòn hộ toàn đội; bắt buộc ưu tiên Blood of the Titan (+160% HP & +6% Giảm Sát Thương) hoặc Glory of the Sage để không bị sốc chết sớm.",
-                    en: "Soulmancer's spirit link absorbs shared damage on behalf of the entire team; strictly prioritize Blood of the Titan (+160% HP & +6% Damage Reduction) or Glory of the Sage so he never dies early.",
+                    vi: "Cung cấp Hút Máu (Lifesteal) và Tăng Tốc Đánh điên cuồng cho Tôn Ngộ Không (Wukong); **Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Glory of the Sage)** giúp Thuật Sĩ / Pháp Sư Bóng Tối (Warlock) vừa gây thêm sát thương nguyền rủa vừa trụ vững ở Ô 6.",
+                    en: "Grants massive Lifesteal and Attack Speed frenzy to Wukong; **Sage Set ➔ Glorious Light (Glory of the Sage)** amplifies Warlock's curse damage while keeping him alive in Slot 6.",
                   },
                 ],
                 [
                   {
-                    vi: "Bộ Lạc (Horde) — Tư Tế Bóng Tối (Shadow Priest) [Legendary Vàng]",
-                    en: "Horde — Shadow Priest [Legendary SSR]",
+                    vi: "Bộ Lạc (Horde) — Thuật Sĩ Linh Hồn / Hồn Pháp Sư (Soulmancer) [Huyền Thoại Vàng ➔ Thần Thoại Đỏ]",
+                    en: "Horde — Soulmancer [Legendary ➔ Mythic Awakened]",
                   },
                   {
-                    vi: "Bộ Hiền Triết Quang Vinh (Glory of the Sage / Glory of the Knight) + Dấu Bộ Lạc (+30%)",
-                    en: "Glory of the Sage / Glory of the Knight + Horde Mark (+30%)",
+                    vi: "Trọn bộ 4 món **Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Knight Set ➔ Titan's Might / Huyết Titan — Blood of the Titan)** [Dấu Hệ Bộ Lạc +30%]",
+                    en: "Full 4-Piece **Knight Set ➔ Titan's Might (Blood of the Titan)** [Horde Mark +30%]",
                   },
                   {
-                    vi: "Bộ Huyết Titan / Nộ Huyết (Blood of the Titan / Fury of Blood)",
-                    en: "Blood of the Titan / Fury of Blood",
+                    vi: "Không có bộ thay thế (Bắt buộc 100% **Bộ Kỵ Sĩ ➔ Bộ Đồ Titan / Blood of the Titan**)",
+                    en: "None (Mandatory **Knight Set ➔ Titan's Might / Blood of the Titan**)",
                   },
                   {
-                    vi: "Healer/Support tuyến sau của Bộ Lạc giai đoạn Đầu–Giữa game; cần Glory of the Sage để tăng lượng máu hồi phục theo ATK, tốc độ xoay chiêu và độ cứng cáp.",
-                    en: "Early-to-mid game Horde backline healer; relies on Glory of the Sage to boost ATK-scaling heals, cooldown rotation, and survivability.",
-                  },
-                ],
-                [
-                  {
-                    vi: "Thiên Nhiên (Nature) — Thiếu Nữ Rừng Xanh (Forest Maiden) [Legendary Vàng]",
-                    en: "Nature — Forest Maiden [Legendary SSR]",
-                  },
-                  {
-                    vi: "Bộ Hiền Triết Quang Vinh (Glory of the Sage / Glory of the Knight) + Dấu Thiên Nhiên (+30%)",
-                    en: "Glory of the Sage / Glory of the Knight + Nature Mark (+30%)",
-                  },
-                  {
-                    vi: "Bộ Huyết Titan / Nộ Huyết (Blood of the Titan / Fury of Blood)",
-                    en: "Blood of the Titan / Fury of Blood",
-                  },
-                  {
-                    vi: "Tướng hỗ trợ khống chế và cộng hưởng triệu hồi (Cừu) tăng năng lượng cho cả đội; cần Glory of the Sage để liên tục tung kỹ năng mà không bị chí mạng hạ gục.",
-                    en: "Crowd-control and summon-synergy (Sheep) energy battery for Nature; needs Glory of the Sage to cycle skills continuously without being crit-eliminated.",
+                    vi: "**Cơ chế đặc biệt:** Dây liên kết của Hồn Pháp Sư / Thuật Sĩ Linh Hồn (Soulmancer) hút sát thương từ đồng đội truyền thẳng vào máu của chính ông ta; nếu không mặc **Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Blood of the Titan)** (`+160% HP`, `+6% Giảm Sát Thương`), ông ta sẽ tự nổ xác trước khi kịp hồi sinh!",
+                    en: "**Critical Mechanic:** Soulmancer's spirit link redirects damage taken by allies directly into his own HP bar; without **Knight Set ➔ Titan's Might (Blood of the Titan)** (`+160% HP`, `+6% Damage Reduction`), he will die from redirected damage!",
                   },
                 ],
                 [
                   {
-                    vi: "Thiên Nhiên (Nature) — Hoa Tiên (Petalis) [Mythic Đỏ]",
-                    en: "Nature — Petalis [Mythic Red]",
+                    vi: "Bộ Lạc (Horde) — Giáo Sĩ Bóng Tối (Shadow Priest) [Thần Thoại Đỏ]",
+                    en: "Horde — Shadow Priest [Mythic]",
                   },
                   {
-                    vi: "Bộ Hiền Triết Quang Vinh (Glory of the Sage / Glory of the Knight) + Dấu Thiên Nhiên (+30%)",
-                    en: "Glory of the Sage / Glory of the Knight + Nature Mark (+30%)",
+                    vi: "Trọn bộ 4 món **Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Sage Set ➔ Glorious Light / Glory of the Sage)** [Dấu Hệ Bộ Lạc +30%]",
+                    en: "Full 4-Piece **Sage Set ➔ Glorious Light (Glory of the Sage / Glory of the Knight)** [Horde Mark +30%]",
                   },
                   {
-                    vi: "Bộ Huyết Titan / Nộ Huyết (Blood of the Titan / Fury of Blood)",
-                    en: "Blood of the Titan / Fury of Blood",
+                    vi: "4 món **Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Knight Set ➔ Titan's Might / Blood of the Titan)**",
+                    en: "4-Piece **Knight Set ➔ Titan's Might (Blood of the Titan)**",
                   },
                   {
-                    vi: "Hỗ trợ/Kiểm soát tối thượng của hệ Thiên Nhiên ở giai đoạn Endgame; mặc Glory of the Sage để tối đa hóa tần suất thi triển kỹ năng, Kháng Bạo và độ bền giao tranh.",
-                    en: "Nature's ultimate Endgame controller/support; equip Glory of the Sage to maximize spell frequency, Crit Resistance, and prolonged fight durability.",
+                    vi: "Hỗ trợ Thần Thoại của Bộ Lạc; Giáo Sĩ Bóng Tối (Shadow Priest) tối ưu hóa cả khả năng hồi phục hắc ám lẫn sát thương kỹ năng nhờ `+40% ATK`, `+80% HP` và `+8% Khuếch Đại Kỹ Năng` từ **Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Glory of the Sage)**.",
+                    en: "Horde's Mythic dark support; optimizes both shadow sustain and skill burst via `+40% ATK`, `+80% HP`, and `+8% Skill Amp` from **Sage Set ➔ Glorious Light (Glory of the Sage)**.",
+                  },
+                ],
+                [
+                  {
+                    vi: "Thiên Nhiên (Nature) — Thiếu Nữ Rừng Xanh (Forest Maiden) [Huyền Thoại Vàng ➔ Thần Thoại Đỏ]",
+                    en: "Nature — Forest Maiden [Legendary ➔ Mythic Awakened]",
+                  },
+                  {
+                    vi: "Trọn bộ 4 món **Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Sage Set ➔ Glorious Light / Glory of the Sage)** [Dấu Hệ Thiên Nhiên +30%]",
+                    en: "Full 4-Piece **Sage Set ➔ Glorious Light (Glory of the Sage / Glory of the Knight)** [Nature Mark +30%]",
+                  },
+                  {
+                    vi: "4 món **Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Knight Set ➔ Titan's Might / Blood of the Titan)**",
+                    en: "4-Piece **Knight Set ➔ Titan's Might (Blood of the Titan)**",
+                  },
+                  {
+                    vi: "Trạm bơm Năng lượng (khi cừu và đệ chết) kiêm khống chế ru ngủ của Thiên Nhiên; **Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Glory of the Sage)** giúp Thiếu Nữ Rừng Xanh (Forest Maiden) trụ vững ở hàng sau và tăng hiệu quả kỹ năng hỗ trợ.",
+                    en: "Nature's energy battery (triggered when sheep/summons die) and sleep controller; **Sage Set ➔ Glorious Light (Glory of the Sage)** keeps Forest Maiden alive in the backline while amplifying her support skills.",
+                  },
+                ],
+                [
+                  {
+                    vi: "Thiên Nhiên (Nature) — Tiên Hoa Petalis / Hoa Tiên (Petalis) [Thần Thoại Đỏ]",
+                    en: "Nature — Petalis [Mythic]",
+                  },
+                  {
+                    vi: "Trọn bộ 4 món **Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Sage Set ➔ Glorious Light / Glory of the Sage)** [Dấu Hệ Thiên Nhiên +30%]",
+                    en: "Full 4-Piece **Sage Set ➔ Glorious Light (Glory of the Sage / Glory of the Knight)** [Nature Mark +30%]",
+                  },
+                  {
+                    vi: "4 món **Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Knight Set ➔ Titan's Might / Blood of the Titan)**",
+                    en: "4-Piece **Knight Set ➔ Titan's Might (Blood of the Titan)**",
+                  },
+                  {
+                    vi: "Hỗ trợ Thần Thoại Mùa 3 của Thiên Nhiên tạo khiên phấn hoa và giảm sát thương cho toàn bộ đệ triệu hồi; **Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Glory of the Sage)** giúp Hoa Tiên / Tiên Hoa Petalis (Petalis) cân bằng hoàn hảo giữa độ trâu và hiệu lực khiên.",
+                    en: "Nature's Season 3 Mythic support granting pollen shields and summon mitigation; **Sage Set ➔ Glorious Light (Glory of the Sage)** perfectly balances Petalis's survivability and shield potency.",
                   },
                 ],
               ],
@@ -1172,12 +1182,12 @@ export const ARTICLE_5_2_GOLDEN_GEAR_SETS: GuideArticle = {
               mediaCode: "MED-5.2-04",
               tier: "tier4_youtube_ref",
               title: {
-                vi: "Video Tham Chiếu Quốc Tế: Phân Tích 3 Bộ Trang Bị Vàng & Quy Tắc +30% Faction Bonus Cho Mọi Tướng",
+                vi: "Video Tham Chiếu Quốc Tế: Phân Tích 3 Bộ Trang Bị Vàng ➔ Đỏ & Quy Tắc +30% Faction Bonus Cho Mọi Tướng",
                 en: "International Video Reference: Best Gear Sets for Every Mythic & Legendary Hero (+30% Faction Bonus)",
               },
               description: {
-                vi: "Phân tích trực quan 3 Bộ Đồ Vàng trong Lò Rèn (Blood of the Titan, Glory of the Sage, Knight's Glory), chứng minh sự khác biệt +30% chỉ số giữa Cột 1–3 và Cột 4 Không Hệ, cùng bảng ghép đồ BiS thực chiến.",
-                en: "Visual breakdown of the 3 Blacksmith Golden Gear sets (Blood of the Titan, Glory of the Sage, Knight's Glory), proving the +30% Faction Mark advantage between Columns 1–3 and Column 4, plus practical BiS hero loadouts.",
+                vi: "Phân tích trực quan 3 Bộ Đồ Vàng ➔ Đỏ trong Lò Rèn (Bộ Kỵ Sĩ ➔ Bộ Đồ Titan / Blood of the Titan, Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang / Glory of the Sage, Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ / Knight's Glory), chứng minh sự khác biệt +30% chỉ số giữa Cột 1–3 và Cột 4 Không Hệ, cùng bảng ghép đồ BiS thực chiến.",
+                en: "Visual breakdown of the 3 Blacksmith Golden-to-Mythic Gear sets (Knight Set ➔ Titan's Might / Blood of the Titan, Sage Set ➔ Glorious Light / Glory of the Sage, Duelist's Set ➔ Fury of Blood / Knight's Glory), proving the +30% Faction Mark advantage between Columns 1–3 and Column 4, plus practical BiS hero loadouts.",
               },
               videoChannel: "Otiz Heroes Official / RedBaron Gaming",
               videoTitle: "Best Gear Sets for Every Mythic & Legendary Hero in Top Heroes",
@@ -1272,11 +1282,11 @@ export const ARTICLE_5_2_GOLDEN_GEAR_SETS: GuideArticle = {
               en: "**Forfeited `+30%` Faction bonus on `9/24` pieces**:\n• `9` Golden pieces came from random event chests (Unmarked or League-marked), losing tens of thousands of effective ATK and HP.",
             },
             {
-              vi: "**Mặc ngược cơ chế kỹ năng cho Beastmaster & Soulmancer**:\n• Cả Beastmaster (Khiên Bong Bóng theo `% Max HP`) lẫn Soulmancer (dây liên kết chia sẻ sát thương) đều mặc nhầm bộ ATK, khiến Soulmancer bị sốc chết ở giây thứ `8`.",
+              vi: "**Mặc ngược cơ chế kỹ năng cho Bậc Thầy Thú (Beastmaster) & Hồn Pháp Sư (Soulmancer)**:\n• Cả Beastmaster (`% Max HP` Khiên Bong Bóng) lẫn Soulmancer (dây chia sẻ sát thương) đều mặc nhầm bộ ATK nên Soulmancer chết ở giây thứ `8`.",
               en: "**Anti-synergy sets on Beastmaster & Soulmancer**:\n• Both Beastmaster (`% Max HP` Bubble Shield) and Soulmancer (team damage-sharing link) wore offensive ATK sets, causing Soulmancer to die at the `8s` mark.",
             },
             {
-              vi: "**Wukong mặc lai `2+2` mất dòng 4 món**:\n• Wukong mặc lai `2` món Máu + `2` món Kỹ năng nên phân thân khỉ con (Clones) thiếu hụt trầm trọng Flat ATK và mất `+6%` Tăng Sát Thương Tổng.",
+              vi: "**Tôn Ngộ Không (Wukong) mặc lai `2+2` mất dòng 4 món**:\n• Wukong mặc lai `2` món Máu + `2` món Kỹ năng nên phân thân khỉ con (Clones) thiếu hụt trầm trọng Flat ATK và mất `+6%` Tăng Sát Thương Tổng.",
               en: "**Wukong crippled by `2+2` mixing**:\n• Wearing `2` HP + `2` Skill pieces starved Wukong's monkey Clones of Flat ATK and forfeited the 4-piece `+6%` Damage Increase.",
             },
           ],
@@ -1288,8 +1298,8 @@ export const ARTICLE_5_2_GOLDEN_GEAR_SETS: GuideArticle = {
                 en: "Reassign & Standardize Full 4-Piece Sets by Skill Mechanics",
               },
               detail: {
-                vi: "• **Hyper-Carry**: Chuyển trọn bộ 4 món **Bộ Kỵ Sĩ Vinh Quang / Cuồng Chiến (Knight's Glory / Berserker's Wrath)** cho Wukong và Storm Maiden.\n• **Tank & Support**: Chuyển **Blood of the Titan** cho Beastmaster, Soulmancer và **Glory of the Sage** cho Witch, Desert Prince.",
-                en: "• **Hyper-Carry**: Transfer full 4-piece **Knight's Glory / Berserker's Wrath** sets to Wukong and Storm Maiden.\n• **Tank & Support**: Assign 4-piece **Blood of the Titan** to Beastmaster, Soulmancer and **Glory of the Sage** to Witch, Desert Prince.",
+                vi: "• **Hyper-Carry**: Chuyển trọn bộ 4 món **Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Knight's Glory)** cho Tôn Ngộ Không (Wukong) và Trinh Nữ Bão Tố (Storm Maiden).\n• **Tank & Support**: Chuyển **Bộ Kỵ Sĩ ➔ Bộ Đồ Titan** cho Bậc Thầy Thú, Hồn Pháp Sư và **Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang** cho Vu Nữ, Hoàng Tử Sa Mạc.",
+                en: "• **Hyper-Carry**: Transfer full 4-piece **Duelist's Set ➔ Fury of Blood (Knight's Glory)** sets to Wukong and Storm Maiden.\n• **Tank & Support**: Assign 4-piece **Knight Set ➔ Titan's Might** to Beastmaster, Soulmancer and **Sage Set ➔ Glorious Light** to Witch, Desert Prince.",
               },
               impactBadge: {
                 vi: "Kích Hoạt Đủ 6 Bộ 4 Món BiS",
@@ -1303,8 +1313,8 @@ export const ARTICLE_5_2_GOLDEN_GEAR_SETS: GuideArticle = {
                 en: "Forge 9 Replacement Pieces in Column 2 (Horde Mark)",
               },
               detail: {
-                vi: "Dùng Thỏi Vàng tích lũy trong Lò Rèn đúc mới `9` món gắn đúng **Dấu Hệ Bộ Lạc** ở Cột 2 (ưu tiên thay Kiếm + Giày của Wukong và Mũ + Giáp của Beastmaster trước).",
-                en: "Use accumulated Gold Ingots at the Blacksmith to craft `9` replacement pieces in Column 2 with the **Horde Faction Mark** (prioritizing Wukong's Weapon + Boots and Beastmaster's Helmet + Chestplate first).",
+                vi: "• **Đúc tại Cột 2 Lò Rèn**: Dùng Thỏi Vàng tích lũy đúc mới `9` món gắn đúng **Dấu Hệ Bộ Lạc**.\n• **Thứ tự thay thế**: Ưu tiên thay Kiếm + Giày của Tôn Ngộ Không (Wukong) và Mũ + Giáp của Bậc Thầy Thú (Beastmaster) trước.",
+                en: "• **Craft in Column 2**: Use accumulated Gold Ingots at the Blacksmith to craft `9` replacement pieces with the **Horde Faction Mark**.\n• **Replacement Order**: Prioritize Wukong's Weapon + Boots and Beastmaster's Helmet + Chestplate first.",
               },
               impactBadge: {
                 vi: "+30% Chỉ Số Trên 9 Món Thay Mới",
@@ -1328,8 +1338,8 @@ export const ARTICLE_5_2_GOLDEN_GEAR_SETS: GuideArticle = {
             },
           ],
           conclusion: {
-            vi: "• **Đột biến chỉ số**: ATK của Wukong và HP của Beastmaster tăng thêm `+30%` trên từng món thay mới, đồng thời kích hoạt đủ `6/6` dòng thưởng Bộ 4 món.\n• **Kết quả tái đấu**: Trước cùng đối thủ 8.4M Lực chiến, Soulmancer và Beastmaster sống sót đến hết trận nhờ `+6%` Giảm Sát Thương và Khiên Bong Bóng dày, thắng áp đảo `5/6` tướng sống sót.",
-            en: "• **Stat Surge**: Wukong's ATK and Beastmaster's HP jumped by `+30%` on every replaced piece while activating all `6/6` 4-piece set bonuses.\n• **Rematch Outcome**: Against the exact same 8.4M Power opponents, Soulmancer and Beastmaster survived the entire fight via `+6%` Damage Reduction and thicker Bubble Shields, winning with `5/6` heroes standing.",
+            vi: "• **Đột biến chỉ số**: ATK của Tôn Ngộ Không (Wukong) và HP của Bậc Thầy Thú (Beastmaster) tăng `+30%` trên từng món thay mới và kích hoạt đủ `6/6` Bộ 4 món.\n• **Kết quả tái đấu**: Trước đối thủ 8.4M Lực chiến, Hồn Pháp Sư (Soulmancer) và Bậc Thầy Thú (Beastmaster) trụ vững nhờ `+6%` Giảm ST, thắng áp đảo `5/6` tướng sống sót.",
+            en: "• **Stat Surge**: Wukong's ATK and Beastmaster's HP jumped by `+30%` on every replaced piece while activating all `6/6` 4-piece set bonuses.\n• **Rematch Outcome**: Against the same 8.4M Power opponents, Soulmancer and Beastmaster survived via `+6%` DMG Reduction, winning with `5/6` heroes standing.",
           },
         },
       ],

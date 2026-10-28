@@ -337,7 +337,7 @@ describe("Phase 3 — Interactive Widgets & GuideArticleRenderer Integration", (
 
   describe("Suite 3: MasterDataExplorerWidget (12 SSoT Tables Explorer)", () => {
     it("extracts all 12 tables from Article 8.4, renders only 1 active table at a time, and supports cross-table global search", () => {
-      render(
+      const { unmount } = render(
         <MasterDataExplorerWidget
           article={ARTICLE_8_4_MASTER_DATA_TABLES}
           locale="vi"
@@ -362,16 +362,40 @@ describe("Phase 3 — Interactive Widgets & GuideArticleRenderer Integration", (
           })
         );
       });
-      expect(
-        screen.getByTestId("widget-master-data-explorer").textContent
-      ).toMatch(/327,660|Cổ Ngữ/i);
+      const textAfter44 =
+        screen.getByTestId("widget-master-data-explorer").textContent ?? "";
+      expect(textAfter44).toContain("327,660");
+      expect(textAfter44).toMatch(/Cổ Ngữ \/ Phù Văn \(Runes\)/i);
 
-      // Global search across all 12 tables for "780,000" (Faction Soul Points in Table 4.1)
+      // Global search across all 12 tables for "780,000" (Enhancement Ore in 1.3 & Faction Soul Points in 4.1)
       const globalSearch = screen.getByTestId("master-global-search");
       fireEvent.change(globalSearch, { target: { value: "780,000" } });
-      expect(
-        screen.getByTestId("widget-master-data-explorer").textContent
-      ).toMatch(/780,000/);
+      const searchText =
+        screen.getByTestId("widget-master-data-explorer").textContent ?? "";
+      expect(searchText).toContain("780,000");
+      expect(searchText).toMatch(/Điểm Linh Hồn Phe Phái/i);
+      unmount();
+
+      // Verify PRO paywall protection (GAP-P3-12) when NEXT_PUBLIC_ENABLE_PRO_CONTENT_LOCK="true" and forceUnlockPro={false}
+      const prevLockEnv = process.env.NEXT_PUBLIC_ENABLE_PRO_CONTENT_LOCK;
+      process.env.NEXT_PUBLIC_ENABLE_PRO_CONTENT_LOCK = "true";
+      try {
+        const lockedRender = render(
+          <MasterDataExplorerWidget
+            article={ARTICLE_8_4_MASTER_DATA_TABLES}
+            locale="vi"
+            forceUnlockPro={false}
+          />
+        );
+        const lockedSearch = screen.getByTestId("master-global-search");
+        fireEvent.change(lockedSearch, { target: { value: "327,660" } });
+        expect(
+          screen.getByTestId("widget-master-data-explorer").textContent
+        ).not.toContain("327,660 Mảnh Cổ Ngữ");
+        lockedRender.unmount();
+      } finally {
+        process.env.NEXT_PUBLIC_ENABLE_PRO_CONTENT_LOCK = prevLockEnv;
+      }
     });
   });
 
@@ -445,21 +469,136 @@ describe("Phase 3 — Interactive Widgets & GuideArticleRenderer Integration", (
         />
       );
 
+      const trapIconSrcs: string[] = [];
       for (let i = 1; i <= 10; i++) {
         const iconWrapper = screen.getByTestId(`trap-item-icon-${i}`);
         const img = iconWrapper.querySelector("img");
         expect(img).not.toBeNull();
-        expect(img?.getAttribute("src")).toMatch(/^\/images\/.+\.webp$/);
+        const src = img?.getAttribute("src") ?? "";
+        expect(src).toMatch(/^\/images\/.+\.webp$/);
         expect(img?.getAttribute("loading")).toBe("lazy");
         expect(img?.getAttribute("decoding")).toBe("async");
+        trapIconSrcs.push(src);
       }
 
-      // Expand Trap #1 and verify zero Vietnamese diacritics in EN
-      fireEvent.click(screen.getByTestId("trap-diagnose-btn-1"));
+      // Verify exact upgraded icons for Trap #6, #7, #8
+      expect(trapIconSrcs[5]).toBe("/images/buildings/structures/icon_building_yanjiuyuan.webp");
+      expect(trapIconSrcs[6]).toBe("/images/equipment/runes/icon_runes_505.webp");
+      expect(trapIconSrcs[7]).toBe("/images/buildings/structures/icon_building_Radiance.webp");
+
+      // Zero Icon Collision across 10 Trap Cards + 4 System Group Filter Tabs
+      const groupKeys = ["heroes_skills", "shops_events", "gear_runes", "infra_tech"] as const;
+      const groupIconSrcs = groupKeys.map((key) => {
+        const btn = screen.getByTestId(`trap-group-filter-${key}`);
+        const img = btn.querySelector("img");
+        expect(img).not.toBeNull();
+        return img?.getAttribute("src") ?? "";
+      });
+      expect(new Set(trapIconSrcs).size).toBe(10);
+      expect(new Set([...trapIconSrcs, ...groupIconSrcs]).size).toBe(14);
+
+      // Expand all 10 Traps in EN and verify zero Vietnamese diacritics + canonical EN terms
+      for (let i = 1; i <= 10; i++) {
+        fireEvent.click(screen.getByTestId(`trap-diagnose-btn-${i}`));
+      }
       const viDiacriticRegex =
         /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i;
-      expect(viDiacriticRegex.test(container.textContent ?? "")).toBe(false);
+      const enText = container.textContent ?? "";
+      expect(viDiacriticRegex.test(enText)).toBe(false);
+
+      const expectedEnTerms = [
+        "Universal Legendary Hero Shard",
+        "Tavern Heroes",
+        "Soul Stone",
+        "Guild Honor",
+        "Guild Glory Coins",
+        "Duelist's Set",
+        "Knight Set",
+        "Sage Set",
+        "Faction Mark",
+        "Guild Arms Race",
+        "Guild Race",
+        "Supreme King",
+        "Unopened Building Gift Box",
+        "Brawler",
+        "Knight",
+        "Ranger",
+        "Bard",
+        "Research Cottage",
+        "Arms Race Prep",
+        "Soldiers",
+        "Runes",
+        "Legendary Choice Rune Chest",
+        "Castle",
+        "Brilliance Institute",
+        "Exclusive Weapon Chest",
+        "Wukong",
+        "Paragon",
+        "Tidecaller",
+        "Storm Maiden",
+        "Staircase Troop Promotion",
+      ];
+      for (const term of expectedEnTerms) {
+        expect(enText).toContain(term);
+      }
       unmount();
+
+      // Render in VI and verify Dual-Naming Standard across all 10 Traps
+      const viRender = render(
+        <AccountTrapsTriageWidget
+          article={ARTICLE_1_4_TOP_10_TRAPS}
+          locale="vi"
+          forceUnlockPro={true}
+        />
+      );
+      for (let i = 1; i <= 10; i++) {
+        fireEvent.click(screen.getByTestId(`trap-diagnose-btn-${i}`));
+      }
+      const viText = viRender.container.textContent ?? "";
+      const expectedViTerms = [
+        "Mảnh Anh Hùng Huyền Thoại Vạn Năng",
+        "Tướng Quán Rượu",
+        "Đá Linh Hồn",
+        "9 Hồn Đá Đỏ",
+        "Điểm Vinh Dự Bang",
+        "Xu Vinh Quang Hội",
+        "Bộ Đồ Quyết Đấu",
+        "Bộ Kỵ Sĩ",
+        "Bộ Hiền Giả",
+        "Dấu Ấn Phe Phái",
+        "Đua Vũ Trang Bang Hội",
+        "Thi Đấu Hội",
+        "Đức Vua Tối Cao",
+        "Hộp Quà Công Trình Chưa Mở",
+        "Võ Sĩ",
+        "Kỵ Sĩ",
+        "Cung Thủ",
+        "Nhà Thơ",
+        "Viện Nghiên Cứu",
+        "Chuẩn Bị Đua Vũ Trang",
+        "Quân Đội",
+        "Cổ Ngữ / Phù Văn",
+        "Rương Cổ Ngữ Vàng Tự Chọn",
+        "Lâu Đài",
+        "Viện Tinh Hoa",
+        "Học Viện Rực Rỡ",
+        "Rương Vũ Khí Độc Quyền",
+        "Ngộ Không",
+        "Đấng Toàn Năng",
+        "Triệu Hồi Thủy",
+        "Trinh Nữ Bão Tố",
+        "Thăng Cấp Lính Bậc Thang",
+      ];
+      for (const term of expectedViTerms) {
+        expect(viText).toContain(term);
+      }
+
+      // Verify search input indexes trapAsset aliases from GAME_ASSET_REGISTRY (G1 hardening)
+      const searchInputVi = screen.getByTestId("trap-search-input");
+      fireEvent.change(searchInputVi, { target: { value: "Red Soul Stone" } });
+      expect(screen.getByTestId("trap-card-2")).toBeDefined();
+      expect(screen.queryByTestId("trap-card-1")).toBeNull();
+      viRender.unmount();
     });
 
     it("renders GameAssetFrame icons for all 7 daily stages and all 13 Double-Dip items in BiweeklyCalendarWidget", () => {
@@ -632,7 +771,22 @@ describe("Phase 3 — Interactive Widgets & GuideArticleRenderer Integration", (
         }
       }
 
-      // All 24 Hero BiS cards must render both Hero Avatar and BiS Set Icon
+      // Official In-Game Golden -> Mythic set names + Community aliases in EN
+      for (const setToken of [
+        "Duelist's Set",
+        "Fury of Blood",
+        "Knight Set",
+        "Titan's Might",
+        "Sage Set",
+        "Glorious Light",
+        "Knight's Glory",
+        "Blood of the Titan",
+        "Glory of the Sage",
+      ]) {
+        expect(container.textContent).toContain(setToken);
+      }
+
+      // All 24 Hero BiS cards must render both Hero Avatar and Hero-Gear BiS Set Icon (icon_400xx.webp)
       for (let idx = 0; idx < 24; idx++) {
         const heroAvatar = screen.getByTestId(`bis-hero-avatar-${idx}`);
         const avatarImg = heroAvatar.querySelector("img");
@@ -642,7 +796,7 @@ describe("Phase 3 — Interactive Widgets & GuideArticleRenderer Integration", (
         const setIcon = screen.getByTestId(`bis-set-icon-${idx}`);
         const setImg = setIcon.querySelector("img");
         expect(setImg).not.toBeNull();
-        expect(setImg?.getAttribute("src")).toMatch(/^\/images\/.+\.webp$/);
+        expect(setImg?.getAttribute("src")).toMatch(/^\/images\/equipment\/hero-gear\/icon_400\d\d\.webp$/);
       }
 
       const viDiacriticRegex =
@@ -651,6 +805,55 @@ describe("Phase 3 — Interactive Widgets & GuideArticleRenderer Integration", (
       expect(container.innerHTML).not.toMatch(/\bborder-l-[24]\b/);
       expect(container.innerHTML).not.toMatch(/\brounded-l-sm\b/);
       unmount();
+
+      // Verify VI locale Dual-Naming Standard for 6 Gear Suits & 24 Core Heroes
+      const viRender = render(
+        <BlacksmithAnvilMatrixWidget
+          article={ARTICLE_5_2_GOLDEN_GEAR_SETS}
+          locale="vi"
+          forceUnlockPro={true}
+        />
+      );
+      const viText = viRender.container.textContent ?? "";
+      for (const viTerm of [
+        "Bộ Đồ Quyết Đấu",
+        "Cơn Thịnh Nộ",
+        "Bộ Kỵ Sĩ",
+        "Bộ Đồ Titan",
+        "Bộ Hiền Giả",
+        "Ánh Sáng Vinh Quang",
+        "Thẩm Phán Quan",
+        "Công Chúa Hoa Hồng",
+        "Bậc Thầy Thú",
+        "Thánh Tăng",
+        "Đấng Toàn Năng",
+        "Hoả Pháp Sư",
+        "Ngộ Không",
+        "Trinh Nữ Bão Tố",
+        "Triệu Hồi Thủy",
+        "Hồ Tiên",
+        "Tu Nữ",
+        "Bậc Thầy Cơ Khí",
+        "Vu Nữ",
+        "Thuật Sĩ",
+        "Hồn Pháp Sư",
+        "Giáo Sĩ Bóng Tối",
+        "Thiếu Nữ Rừng Xanh",
+        "Hoa Tiên",
+      ]) {
+        expect(viText).toContain(viTerm);
+      }
+      for (let idx = 0; idx < 24; idx++) {
+        const heroAvatar = screen.getByTestId(`bis-hero-avatar-${idx}`);
+        expect(heroAvatar.querySelector("img")?.getAttribute("src")).toMatch(
+          /^\/images\/heroes\/avatars\/Head_\d+\.webp$/
+        );
+        const setIcon = screen.getByTestId(`bis-set-icon-${idx}`);
+        expect(setIcon.querySelector("img")?.getAttribute("src")).toMatch(
+          /^\/images\/equipment\/hero-gear\/icon_400\d\d\.webp$/
+        );
+      }
+      viRender.unmount();
     });
 
     it("renders 13 Shop Currency icons, Safety Floor Banner icon, and 3-Bucket Item icons in ShopSafetyFloorWidget", () => {
@@ -675,6 +878,16 @@ describe("Phase 3 — Interactive Widgets & GuideArticleRenderer Integration", (
       const bannerIcon = screen.getByTestId("shop-floor-currency-icon");
       expect(bannerIcon.querySelector("img")).not.toBeNull();
 
+      // Verify Game Codex Zone III Quick Deep-Links
+      const codexShopsLink = screen.getByTestId("shop-codex-link-shops");
+      expect(codexShopsLink.getAttribute("href")).toBe(
+        "/guides/codex?zone=economy&cat=shop-vip"
+      );
+      const codexItemsLink = screen.getByTestId("shop-codex-link-items");
+      expect(codexItemsLink.getAttribute("href")).toBe(
+        "/guides/codex?zone=economy&cat=items"
+      );
+
       // Verify item icons across all 3 buckets on initial Arena Shop (#1)
       expect(
         screen
@@ -686,11 +899,12 @@ describe("Phase 3 — Interactive Widgets & GuideArticleRenderer Integration", (
           .getByTestId("shop-bucket-surplus")
           .querySelectorAll("[data-testid='game-asset-frame'] img").length
       ).toBeGreaterThan(0);
-      expect(
-        screen
-          .getByTestId("shop-bucket-forbidden")
-          .querySelectorAll("[data-testid='game-asset-frame'] img").length
-      ).toBeGreaterThan(0);
+      const forbiddenImgs = screen
+        .getByTestId("shop-bucket-forbidden")
+        .querySelectorAll("[data-testid='game-asset-frame'] img");
+      expect(forbiddenImgs.length).toBeGreaterThan(0);
+      // Row 14 (Hero Guardian Skin) must resolve to skin icon, not Secret Keeper hero avatar
+      expect(forbiddenImgs[0]?.getAttribute("src")).not.toMatch(/\/heroes\/avatars\//);
 
       const viDiacriticRegex =
         /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i;
@@ -698,9 +912,58 @@ describe("Phase 3 — Interactive Widgets & GuideArticleRenderer Integration", (
       expect(container.innerHTML).not.toMatch(/\bborder-l-[24]\b/);
       expect(container.innerHTML).not.toMatch(/\brounded-l-sm\b/);
       unmount();
+
+      // Verify VI locale Dual-Naming Standard across all 13 shops, core items, and 6 heroes
+      const viRender = render(
+        <ShopSafetyFloorWidget
+          article={ARTICLE_7_1_SHOPS_TIER_LIST}
+          locale="vi"
+          forceUnlockPro={true}
+        />
+      );
+      const viShopNames = [
+        "Tiệm Đấu Trường",
+        "Tiệm Bang Hội",
+        "Tiệm Công Huân",
+        "Tiệm Chiến Trường",
+        "Tiệm Vinh Quang Bang",
+        "Tiệm VIP & Cửa Hàng Hàng Ngày",
+        "Tiệm Đổi Mảnh Tướng",
+        "Tiệm Vòng Quay & Sự Kiện Xu",
+        "Tiệm Xúc Xắc",
+        "Tiệm Huy Chương Vinh Quang",
+        "Tiệm Biểu Tượng Vương Quốc",
+        "Tiệm Điểm Xâm Lược",
+        "Tiệm Xu Trang Trí",
+      ];
+      for (const shopName of viShopNames) {
+        expect(viRender.container.textContent).toContain(shopName);
+      }
+      for (const coreTerm of [
+        "Mảnh Anh Hùng Huyền Thoại Vạn Năng",
+        "Hồn Pháp Sư",
+        "Thuật Sĩ",
+        "Hoả Pháp Sư",
+        "Thẩm Phán Quan",
+        "Hồ Tiên",
+      ]) {
+        expect(viRender.container.textContent).toContain(coreTerm);
+      }
+
+      // Click Shop #5 (Guild Honor) and Shop #7 (Hero Exchange) to verify item & hero Dual-Naming in active floor banner
+      fireEvent.click(screen.getByTestId("shop-pill-5"));
+      expect(viRender.container.textContent).toContain("Đá Linh Hồn");
+      expect(screen.getByTestId("shop-safety-floor-banner").textContent).toContain(
+        "Hồn Pháp Sư (Soulmancer)"
+      );
+      fireEvent.click(screen.getByTestId("shop-pill-7"));
+      expect(screen.getByTestId("shop-safety-floor-banner").textContent).toContain(
+        "Kỵ Sĩ (Knight)"
+      );
+      viRender.unmount();
     });
 
-    it("renders representative icons on all 12 Master Table tabs, active table header, and Column 1 thumbnails in MasterDataExplorerWidget", () => {
+    it("renders representative icons on all 12 Master Table tabs, active table header, Contextual Codex Deep-Link, and Column 1 thumbnails across all 12 tables in MasterDataExplorerWidget", () => {
       const publicDir = path.resolve(__dirname, "../public");
       const { container, unmount } = render(
         <MasterDataExplorerWidget
@@ -723,18 +986,40 @@ describe("Phase 3 — Interactive Widgets & GuideArticleRenderer Integration", (
         expect(fs.existsSync(path.join(publicDir, src.replace(/^\//, "")))).toBe(true);
       }
 
-      const activeHeaderIcon = screen.getByTestId("master-active-table-icon");
-      expect(activeHeaderIcon.querySelector("img")).not.toBeNull();
-
-      // Column 1 of the active table must display GameAssetFrame thumbnails
-      const col1Imgs = container.querySelectorAll(
-        "tbody tr td:first-child [data-testid='game-asset-frame'] img"
-      );
-      expect(col1Imgs.length).toBeGreaterThan(0);
-
       const viDiacriticRegex =
         /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i;
-      expect(viDiacriticRegex.test(container.textContent ?? "")).toBe(false);
+
+      const tablePills = screen.getAllByTestId(/^master-table-pill-/);
+      expect(tablePills.length).toBe(12);
+
+      for (const pill of tablePills) {
+        fireEvent.click(pill);
+
+        const activeHeaderIcon = screen.getByTestId("master-active-table-icon");
+        expect(activeHeaderIcon.querySelector("img")).not.toBeNull();
+
+        const codexLink = screen.getByTestId("master-active-codex-link");
+        const href = codexLink.getAttribute("href") ?? "";
+        expect(href).toMatch(/^\/guides\/codex\?zone=.+&cat=.+/);
+
+        // Column 1 of EVERY active table (1.1 -> 4.7) must display GameAssetFrame thumbnails
+        const col1Imgs = Array.from(
+          container.querySelectorAll(
+            "tbody tr td:first-child [data-testid='game-asset-frame'] img"
+          )
+        );
+        expect(col1Imgs.length).toBeGreaterThan(0);
+        for (const colImg of col1Imgs) {
+          const src = colImg.getAttribute("src") ?? "";
+          expect(src).toMatch(/^\/images\/.+\.webp$/);
+          expect(
+            fs.existsSync(path.join(publicDir, src.replace(/^\//, "")))
+          ).toBe(true);
+        }
+
+        expect(viDiacriticRegex.test(container.textContent ?? "")).toBe(false);
+      }
+
       expect(container.innerHTML).not.toMatch(/\bborder-l-[24]\b/);
       expect(container.innerHTML).not.toMatch(/\brounded-l-sm\b/);
       unmount();

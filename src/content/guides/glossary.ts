@@ -600,6 +600,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
     id: "hero-brawler",
     category: "heroes",
     term: { vi: "Võ Sĩ / Đấu Sĩ (Brawler)", en: "Brawler" },
+    aliases: { vi: ["Võ Sĩ", "Đấu Sĩ", "Võ Sĩ (Brawler)"], en: ["Brawler"] },
     heroMeta: { faction: "horde", rarity: "epic", isEconomyPassive: true },
     definition: {
       vi: "Tướng Tím quan trọng số 1 game (Epic #1): Mở khóa +30% Tốc độ Nghiên cứu Công nghệ ở 2 Sao Trắng (300 Mảnh).",
@@ -818,7 +819,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
     id: "event-guild-arms-race",
     category: "events",
     term: { vi: "Chạy Đua Vũ Trang Bang Hội (Guild Arms Race — GAR)", en: "Guild Arms Race (GAR)" },
-    aliases: { vi: ["Kỳ Đua Vũ Trang", "GAR"], en: ["GAR", "6-Day Arms Race"] },
+    aliases: { vi: ["Đua Vũ Trang Bang Hội", "Kỳ Đua Vũ Trang", "GAR"], en: ["Guild Arms Race", "GAR", "6-Day Arms Race"] },
     definition: {
       vi: "Sự kiện đối kháng 6 ngày theo chủ đề (Xây dựng, Nghiên cứu, Đá Cổ Ngữ, Chiêu mộ, Luyện lính, Chiến đấu).",
       en: "6-day themed alliance competition (Construction, Research, Runes/Gear, Hero Development, Training, Combat).",
@@ -828,7 +829,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
     id: "event-kvk",
     category: "events",
     term: { vi: "Chiến Tranh Vương Quốc (Kingdom vs Kingdom — KvK)", en: "Kingdom vs Kingdom (KvK / Four Nations League)" },
-    aliases: { vi: ["KvK", "Liên Đấu Bốn Quốc Gia"], en: ["KvK", "Four Nations League"] },
+    aliases: { vi: ["Đức Vua Tối Cao", "KvK", "Liên Đấu Bốn Quốc Gia"], en: ["Supreme King", "KvK", "Four Nations League"] },
     definition: {
       vi: "Sự kiện đại chiến liên server gồm 5 ngày Chuẩn bị (Prep Phase) và Ngày 6 Thực chiến chiếm ngai vàng.",
       en: "Cross-server war featuring 5 themed Preparation Days followed by Day 6 throne warfare.",
@@ -902,7 +903,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
     id: "item-soul-stone",
     category: "items_and_currencies",
     term: { vi: "Đá Linh Hồn (Hồn Đá Đỏ / Red Soul Stone)", en: "Red Soul Stone" },
-    aliases: { vi: ["Đá Linh Hồn", "Hồn Đá Đỏ", "Đá Thức Tỉnh", "9 Hồn Đá Đỏ"], en: ["Soul Stone", "9 Red Soul Stones"] },
+    aliases: { vi: ["Đá Linh Hồn", "Hồn Đá Đỏ", "Đá Thức Tỉnh", "9 Hồn Đá Đỏ"], en: ["Soul Stone", "Soul Stone (Red Soul Stone)", "9 Red Soul Stones"] },
     definition: {
       vi: "Vật phẩm tối thượng dùng để Thức tỉnh Tướng Vàng lên phẩm Đỏ (cần đúng 9 viên + 345–385 Mảnh Tướng).",
       en: "Endgame item required to Awaken a Legendary hero to Mythic quality (requires 9 stones + 345–385 Shards).",
@@ -912,7 +913,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
     id: "item-universal-shard",
     category: "items_and_currencies",
     term: { vi: "Mảnh Anh Hùng Huyền Thoại Vạn Năng (Universal Legendary Hero Shard)", en: "Universal Legendary Hero Shard" },
-    aliases: { vi: ["Mảnh Anh Hùng Huyền Thoại Vạn Năng", "Mảnh Tướng Vàng Vạn Năng", "Mảnh Vạn Năng", "Mảnh Vàng Vạn Năng"], en: ["Universal Shard", "Gold Shard"] },
+    aliases: { vi: ["Mảnh Anh Hùng Huyền Thoại Vạn Năng", "Mảnh Tướng Vàng Vạn Năng", "Mảnh Vạn Năng", "Mảnh Vàng Vạn Năng", "Mảnh Anh Hùng Vạn Năng"], en: ["Universal Legendary Hero Shard", "Universal Shard", "Gold Shard"] },
     definition: {
       vi: "Tài nguyên quý hiếm chỉ được phép đút cho Tướng Đỏ (Mythic) hoặc Tướng Vàng có lộ trình Thức tỉnh của Đội 1.",
       en: "Scarce progression currency strictly reserved for Queue 1 Mythic heroes or Awakenable Legendaries.",
@@ -932,7 +933,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
     id: "item-guild-honor",
     category: "items_and_currencies",
     term: { vi: "Điểm Vinh Dự Bang Hội (Guild Honor)", en: "Guild Honor" },
-    aliases: { vi: ["Điểm Vinh Dự", "40,000 Điểm Vinh Dự"], en: ["Guild Honor Points"] },
+    aliases: { vi: ["Điểm Vinh Dự Bang", "Điểm Vinh Dự", "40,000 Điểm Vinh Dự"], en: ["Guild Honor", "Guild Honor Points"] },
     definition: {
       vi: "Tiền tệ kiếm được từ Thi Đấu Hội (Guild Race), dùng mua Hồn Đá Đỏ (40,000 Điểm/viên = 360,000 Điểm/9 viên).",
       en: "Currency earned from Guild Race, used to buy Red Soul Stones (40,000 Honor/stone = 360,000 Honor for 9 stones).",
@@ -942,7 +943,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
     id: "item-guild-coins",
     category: "items_and_currencies",
     term: { vi: "Xu Vinh Quang Bang Hội (Guild Coins)", en: "Guild Coins" },
-    aliases: { vi: ["Xu Vinh Quang", "6,000 Xu Vinh Quang"], en: ["Glory Coins"] },
+    aliases: { vi: ["Xu Vinh Quang Hội", "Xu Vinh Quang", "6,000 Xu Vinh Quang"], en: ["Guild Glory Coins", "Glory Coins"] },
     definition: {
       vi: "Tiền tệ dùng mua Hồn Đá Đỏ tại Tiệm Bang Hội (6,000 Xu/viên = 54,000 Xu/9 viên).",
       en: "Currency used to purchase Red Soul Stones in the Guild Shop (6,000 Coins/stone = 54,000 Coins for 9 stones).",
@@ -1056,7 +1057,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
     id: "system-brilliance-institute",
     category: "buildings_and_systems",
     term: { vi: "Viện Huy Hoàng (Brilliance Institute)", en: "Brilliance Institute" },
-    aliases: { vi: ["Cấp Huy Hoàng", "Brilliance 1–3"], en: ["Brilliance Level"] },
+    aliases: { vi: ["Viện Tinh Hoa", "Học Viện Rực Rỡ", "Viện Nghiên Cứu Quang Huy", "Viện Tinh Hoa / Học Viện Rực Rỡ", "Cấp Huy Hoàng", "Brilliance 1–3"], en: ["Brilliance Institute", "Brilliance Level"] },
     definition: {
       vi: "Công trình mở khóa sau Lâu đài Lv.40, quyết định cấp độ Quân đoàn T11 và sức mạnh cuối game.",
       en: "Endgame building unlocked after Castle Lv.40 that governs T11 troop tiers and Brilliance research.",
@@ -1066,7 +1067,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
     id: "system-research-cottage",
     category: "buildings_and_systems",
     term: { vi: "Viện Nghiên Cứu (Research Cottage)", en: "Research Cottage" },
-    aliases: { vi: ["Nhà Nghiên Cứu"], en: ["Tech Academy"] },
+    aliases: { vi: ["Viện Nghiên Cứu", "Nhà Nghiên Cứu"], en: ["Research Cottage", "Tech Academy"] },
     definition: {
       vi: "Công trình nghiên cứu công nghệ Kinh tế, Chiến đấu và Nhân đôi Phần thưởng sự kiện.",
       en: "Core building for researching Economy, Combat, and Arms Race Double Rewards technologies.",
@@ -1106,7 +1107,7 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
     id: "system-runes",
     category: "buildings_and_systems",
     term: { vi: "Đá Cổ Ngữ (Runes)", en: "Runes" },
-    aliases: { vi: ["Cổ Ngữ"], en: ["Rune System"] },
+    aliases: { vi: ["Cổ Ngữ / Phù Văn", "Phù Văn", "Cổ Ngữ"], en: ["Runes", "Rune System"] },
     definition: {
       vi: "Hệ thống 6 khe đá khảm theo quy luật hợp thành 3^(n-1), xả điểm vào Thứ Ba Kỳ GAR/KvK.",
       en: "6-slot socket system governed by the 3^(n-1) merge law, scored on Tuesday of GAR/KvK.",

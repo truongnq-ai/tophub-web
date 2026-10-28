@@ -35,6 +35,7 @@ import { useToast } from "@/hooks/use-toast";
 import {
   getAdminGiftcodesAction,
   createAdminGiftcodeAction,
+  verifyAdminGiftcodeAction,
   getAdminGiftcodeReceiversAction,
 } from "@/actions/admin";
 import {
@@ -196,7 +197,7 @@ export function TabGiftcodes() {
 
   const handleAddSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const codeClean = newCode.trim().toUpperCase().replace(/[^A-Z0-9_-]/g, "");
+    const codeClean = newCode.trim().replace(/[^a-zA-Z0-9_-]/g, "");
     if (!codeClean) {
       toast({
         variant: "destructive",
@@ -206,8 +207,8 @@ export function TabGiftcodes() {
       return;
     }
 
-    // Check duplicate code
-    if (giftCodes.some((c) => c.code === codeClean)) {
+    // Check duplicate code (case-insensitive)
+    if (giftCodes.some((c) => c.code.toLowerCase() === codeClean.toLowerCase())) {
       toast({
         variant: "destructive",
         title: "Mã đã tồn tại",
@@ -241,6 +242,13 @@ export function TabGiftcodes() {
           title: "Thêm Giftcode thành công",
           description: `Mã ${codeClean} đã được thêm vào hệ thống và kích hoạt cho toàn bộ bot.`,
         });
+      } else if (res.error && res.error.code !== "NETWORK_ERROR") {
+        toast({
+          variant: "destructive",
+          title: "Không thể thêm Giftcode",
+          description: res.error.message || "Dữ liệu không hợp lệ hoặc mã đã tồn tại",
+        });
+        return;
       } else {
         const defaultValidTo = new Date();
         defaultValidTo.setMonth(defaultValidTo.getMonth() + 2, 0);
@@ -360,18 +368,57 @@ export function TabGiftcodes() {
     setSelectedCodeForReceivers(item);
   };
 
-  const handleCheckCode = (item: AdminGiftCode) => {
+  const handleCheckCode = async (item: AdminGiftCode) => {
+    if (checkingCodeId) return;
     setCheckingCodeId(item.id);
-    setTimeout(() => {
-      setCheckingCodeId(null);
+    try {
+      const res = await verifyAdminGiftcodeAction(item.id);
+      if (res.success && res.data) {
+        const { status: newStatus, game_status, message } = res.data;
+        const wasValid = item.status === "VALID";
+        const isNowValid = newStatus === "VALID";
+        setGiftCodes((prev) =>
+          prev.map((c) => (c.id === item.id ? { ...c, status: newStatus } : c))
+        );
+        if (wasValid !== isNowValid) {
+          setSummary((prev) =>
+            prev
+              ? {
+                  ...prev,
+                  active_codes_count: Math.max(
+                    0,
+                    prev.active_codes_count + (isNowValid ? 1 : -1)
+                  ),
+                }
+              : prev
+          );
+        }
+        toast({
+          variant:
+            game_status === "EXPIRED" || game_status === "NOT_FOUND"
+              ? "destructive"
+              : "default",
+          title: `Kiểm tra mã: ${item.code}`,
+          description: message,
+        });
+      } else {
+        toast({
+          variant: "destructive",
+          title: `Kiểm tra mã: ${item.code}`,
+          description:
+            res.error?.message ||
+            "Không thể kiểm tra trạng thái mã trên máy chủ game.",
+        });
+      }
+    } catch {
       toast({
+        variant: "destructive",
         title: `Kiểm tra mã: ${item.code}`,
-        description:
-          item.status === "EXPIRED"
-            ? "Mã này đã hết hạn nhận thưởng từ máy chủ game!"
-            : "Mã vẫn còn hiệu lực và hoạt động tốt trên hệ thống Top Heroes.",
+        description: "Lỗi kết nối khi kiểm tra trạng thái mã trên game.",
       });
-    }, 1000);
+    } finally {
+      setCheckingCodeId(null);
+    }
   };
 
   const filteredCodes = useMemo(() => {
@@ -798,9 +845,9 @@ export function TabGiftcodes() {
                   type="text"
                   placeholder="VD: HERO2026, AUTOBOT888..."
                   value={newCode}
-                  onChange={(e) => setNewCode(e.target.value.toUpperCase())}
+                  onChange={(e) => setNewCode(e.target.value)}
                   required
-                  className="font-mono uppercase font-bold text-sm bg-background border-border/60"
+                  className="font-mono font-bold text-sm bg-background border-border/60"
                 />
               </div>
 

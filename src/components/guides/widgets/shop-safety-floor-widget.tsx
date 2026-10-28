@@ -2,10 +2,12 @@
 
 import React, { useEffect, useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/routing";
 import {
   AlertOctagon,
   CheckCircle2,
   Coins,
+  ExternalLink,
   Lock,
   ShieldAlert,
   ShoppingBag,
@@ -79,33 +81,78 @@ function resolveShopItemAsset(
   itemName: string,
   bucket: "must_sweep" | "surplus" | "forbidden"
 ): GameAssetEntry | undefined {
+  const lower = itemName.toLowerCase();
+  if (
+    /guardian skin|trang phục tướng|trang phục bảo vệ|ngoại hình quân lính|quân trang|troop skin/.test(
+      lower
+    )
+  ) {
+    return getAssetById("troop-skin-samurai");
+  }
+  if (/recruit|chiêu mộ/.test(lower)) {
+    return getAssetById("item-recruit-token");
+  }
+  if (/diamond|kim cương|kc\b/.test(lower)) {
+    return getAssetById("item-diamond");
+  }
+  if (/soul stone|hồn đá|đá linh hồn/.test(lower)) {
+    return getAssetById("item-soul-stone");
+  }
+  if (/vip/.test(lower)) {
+    return getAssetById("item-vip-points");
+  }
+  if (/stamina|thể lực/.test(lower)) {
+    return getAssetById("item-stamina-potion");
+  }
+  if (/shield|khiên|teleport|relocat|dịch chuyển/.test(lower)) {
+    return getAssetById("item-peace-shield");
+  }
+  if (/exclusive|vũ khí độc quyền|vũ khí chuyên dụng/.test(lower)) {
+    return getAssetById("gear-exclusive-weapon");
+  }
+  if (/orichalcum|bản vẽ/.test(lower)) {
+    return getAssetById("item-lord-orichalcum");
+  }
+  if (/dragon essence|tinh chất rồng|tinh hoa rồng/.test(lower)) {
+    return getAssetById("item-dragon-essence");
+  }
+  if (/dragon blood|máu rồng/.test(lower)) {
+    return getAssetById("item-lord-dragon-blood");
+  }
+  if (/promotion|đá thăng cấp|đá đột phá/.test(lower)) {
+    return getAssetById("item-promotion-stone");
+  }
+  if (/decor|trang trí|nội thất/.test(lower)) {
+    return getAssetById("item-decor-token");
+  }
+  if (/speed|tăng tốc/.test(lower)) {
+    return getAssetById("item-speedup");
+  }
+  if (/pet food|thức ăn thú cưng|lương thực thú cưng/.test(lower)) {
+    return getAssetById("item-pet-food");
+  }
+  if (/pet|thú cưng/.test(lower)) {
+    return getAssetById("item-pet-essence");
+  }
+  if (/relic|thánh vật/.test(lower)) {
+    return getAssetById("relic-eternal-wings");
+  }
+  if (/book|sách/.test(lower)) {
+    return getAssetById("item-skill-book");
+  }
+  if (/meat|wood|stone|ruby|rubies|thịt|gỗ|hồng ngọc/.test(lower)) {
+    return getAssetById("item-ruby");
+  }
+  if (/shard|mảnh/.test(lower)) {
+    return getAssetById("item-universal-shard");
+  }
+
   const direct = resolveEntityFromTableCell(itemName);
   if (direct) return direct;
-  const lower = itemName.toLowerCase();
-  if (/diamond|kim cương|kc\b/.test(lower)) return getAssetById("item-diamond");
-  if (/soul stone|hồn đá/.test(lower)) return getAssetById("item-soul-stone");
-  if (/vip/.test(lower)) return getAssetById("item-vip-points");
-  if (/stamina|thể lực/.test(lower)) return getAssetById("item-stamina-potion");
-  if (/shield|khiên/.test(lower)) return getAssetById("item-peace-shield");
-  if (/skin|quân trang|trang phục/.test(lower))
-    return getAssetById("troop-skin-samurai");
-  if (/orichalcum|bản vẽ/.test(lower))
-    return getAssetById("item-lord-orichalcum");
-  if (/dragon blood|máu rồng/.test(lower))
-    return getAssetById("item-lord-dragon-blood");
-  if (/promotion|đá thăng cấp/.test(lower))
-    return getAssetById("item-promotion-stone");
-  if (/exclusive|vũ khí độc quyền/.test(lower))
-    return getAssetById("gear-exclusive-weapon");
-  if (/relic|thánh vật/.test(lower)) return getAssetById("relic-eternal-wings");
-  if (/pet|thú cưng/.test(lower)) return getAssetById("item-pet-essence");
-  if (/decor|trang trí/.test(lower)) return getAssetById("item-decor-token");
-  if (/speed|tăng tốc/.test(lower)) return getAssetById("item-speedup");
-  if (/book|sách/.test(lower)) return getAssetById("item-skill-book");
-  if (/shard|mảnh/.test(lower)) return getAssetById("item-universal-shard");
+
   if (bucket === "must_sweep") return getAssetById("item-universal-shard");
   if (bucket === "surplus") return getAssetById("item-speedup");
-  return getAssetById("item-stamina");
+  return getAssetById("item-ruby");
 }
 
 const SHOP_SAFETY_FLOORS: Record<
@@ -120,136 +167,174 @@ const SHOP_SAFETY_FLOORS: Record<
 > = {
   1: {
     floorBadge: {
-      vi: "Đáy Ví An Toàn: 1,900–2,000 Arena Stars (Sao Đấu Trường)",
+      vi: "Đáy Ví An Toàn: 1,900–2,000 Sao Đấu Trường (Arena Stars)",
       en: "Weekly Safety Floor: 1,900–2,000 Arena Stars",
     },
     floorDetail: {
-      vi: "Khóa cứng 1,900–2,000 Arena Stars trước 00:00 UTC Thứ Hai (07:00 sáng Giờ VN) để vét ngay gói 300 KC (50 Sao, ROI 600%), Vé Chiêu Mộ (50 Sao, ROI 300%), gói 300 KC định mức (300 Sao) và 5 Mảnh Tướng Vàng Hệ Chính (1,500 Sao: Soulmancer, Warlock, Pyromancer, Adjudicator, Pixie).",
+      vi: "Khóa cứng 1,900–2,000 Sao Đấu Trường (Arena Stars) trước 00:00 UTC Thứ Hai (07:00 sáng Giờ VN) để vét ngay gói 300 KC (50 Sao, ROI 600%), Lệnh Chiêu Mộ Giảm Giá (50 Sao, ROI 300%), gói 300 KC định mức (300 Sao) và 5 Mảnh Tướng Vàng Hệ Chính (1,500 Sao: Hồn Pháp Sư / Soulmancer, Thuật Sĩ / Warlock, Hoả Pháp Sư / Pyromancer, Thẩm Phán Quan / Adjudicator, Hồ Tiên / Pixie).",
       en: "Lock 1,900–2,000 Arena Stars before Monday 00:00 UTC to immediately sweep the 300-Diamond Super Pack (50 Stars, 600% ROI), Recruitment Token (50 Stars, 300% ROI), standard 300-Diamond pack (300 Stars), and 5x Main-Faction Legendary Shards (1,500 Stars: Soulmancer, Warlock, Pyromancer, Adjudicator, Pixie).",
     },
     surplusRule: {
-      vi: "Chỉ dùng phần thặng dư vượt trên 2,000 Sao để mua Rương Trang Trí Tím Tự Chọn (2,500 Sao) khi thiếu đúng 1 mảnh kích Set.",
-      en: "Only spend surplus above 2,000 Stars on Epic Decoration Choice Chests (2,500 Stars) to finish a Decor Set.",
+      vi: "Chỉ dùng phần thặng dư vượt trên 2,000 Sao để mua Rương Trang Trí Huyền Thoại / Sử Thi Tự Chọn (2,500 Sao) hoặc Đá Thăng Cấp Trang Bị (Promotion Stone) khi thiếu mảnh kích Set.",
+      en: "Only spend surplus above 2,000 Stars on Epic Decoration Choice Chests (2,500 Stars) or Promotion Stones to finish a Decor Set.",
     },
     forbiddenTrap: {
-      vi: "CẤM MUA Trang Phục Guardian Skin giá 12,000 Sao (= 40 mảnh Tướng Vàng), vé giá gốc 300 Sao và mảnh lẻ 800 Sao!",
+      vi: "CẤM MUA Trang Phục Bảo Vệ Tướng (Hero Guardian Skin) giá 12,000 Sao (= 40 mảnh Tướng Vàng), vé giá gốc 300 Sao và mảnh lẻ 800 Sao!",
       en: "NEVER buy the 12,000-Star Guardian Skin (= 40 Legendary Shards), full-price 300-Star tokens, or 800-Star single shards!",
     },
-    roiKeywords: ["Arena Shop", "Mọi Cửa Hàng", "All Shops"],
+    roiKeywords: ["Tiệm Đấu Trường", "Arena Shop", "Mọi Cửa Hàng", "All Shops"],
   },
   2: {
     floorBadge: {
-      vi: "Đáy Ví An Toàn: 12,000–15,000 Guild Points (Điểm Cống Hiến Bang)",
+      vi: "Đáy Ví An Toàn: 12,000–15,000 Điểm Bang Hội (Guild Points)",
       en: "Weekly Safety Floor: 12,000–15,000 Guild Points",
     },
     floorDetail: {
-      vi: "Giữ sàn 12,000–15,000 Guild Points để luôn mua đủ Điểm VIP (1,000 Điểm/tuần = ROI Vô Cực), Bình Thể Lực 25 (800 Điểm, cất kho xả Thứ Tư Kỳ GAR/KvK) và Khiên Hòa Bình 8h/24h bảo vệ lính ngày Thứ Bảy KvK.",
-      en: "Maintain 12,000–15,000 Guild Points to sweep VIP Points (1,000 Points/week = Infinite ROI), Stamina Potions (800 Points for Wednesday of GAR/KvK), and 8h/24h Peace Shields for Saturday KvK.",
+      vi: "Giữ sàn 12,000–15,000 Điểm Bang Hội (Guild Points) để luôn mua đủ Điểm VIP (VIP Points — 1,000 Điểm/tuần = ROI Vô Cực), Bình Thể Lực (Stamina Potion 25 — 800 Điểm, cất kho xả Thứ Tư Kỳ GAR/KvK) và Khiên Hòa Bình (Peace Shield 8h/24h) + Dịch Chuyển Ngẫu Nhiên / Chỉ Định (Random / Targeted Teleport) bảo vệ lính ngày Thứ Bảy KvK.",
+      en: "Maintain 12,000–15,000 Guild Points to sweep VIP Points (1,000 Points/week = Infinite ROI), Stamina Potions (800 Points for Wednesday of GAR/KvK), and 8h/24h Peace Shields + Random / Targeted Teleports for Saturday KvK.",
     },
     surplusRule: {
-      vi: "Khi số dư > 15,000 Guild Points, mua thêm Tăng tốc Xây dựng / Nghiên cứu 60m (2,000 Điểm).",
+      vi: "Khi số dư > 15,000 Điểm Bang Hội (Guild Points), mua thêm Vật Phẩm Tăng Tốc (Speed-ups) Xây dựng / Nghiên cứu 60m (2,000 Điểm).",
       en: "When balance exceeds 15,000 Guild Points, buy 60m Construction / Research Speed-ups (2,000 Points).",
     },
     forbiddenTrap: {
-      vi: "Cấm xả cạn Guild Points trước ngày Thứ Bảy KvK khiến phải tốn 100–1,000 Kim Cương mua Khiên khẩn cấp!",
+      vi: "Cấm xả cạn Điểm Bang Hội (Guild Points) trước ngày Thứ Bảy KvK khiến phải tốn 100–1,000 Kim Cương mua Khiên Hòa Bình khẩn cấp!",
       en: "Never zero out Guild Points before Saturday KvK and waste 100–1,000 Diamonds on emergency Shields!",
     },
-    roiKeywords: ["Guild Points Shop", "Mọi Cửa Hàng", "All Shops"],
+    roiKeywords: [
+      "Tiệm Bang Hội",
+      "Guild Shop",
+      "Guild Points Shop",
+      "Mọi Cửa Hàng",
+      "All Shops",
+    ],
   },
   3: {
     floorBadge: {
-      vi: "Ưu Tiên Chiến Trường: Mảnh Vàng Vạn Năng Giảm Giá & Orichalcum",
-      en: "Battlefield Priority: Discounted Universal Shards & Orichalcum",
+      vi: "Ưu Tiên Tiệm Công Huân: Mảnh Anh Hùng Huyền Thoại Vạn Năng & Quặng Orichalcum",
+      en: "Valor Shop Priority: Discounted Universal Shards & Orichalcum",
     },
     floorDetail: {
-      vi: "Dồn 100% Điểm Dũng Khí (Valor Coins) mua các bậc giảm giá Mảnh Tướng Vàng Vạn Năng (30/64/80 Xu), Mảnh Vũ Khí Độc Quyền và Orichalcum.",
+      vi: "Dồn 100% Xu Công Huân (Valor Coins) mua các bậc giảm giá Mảnh Anh Hùng Huyền Thoại Vạn Năng (Universal Legendary Hero Shard — 30/64/80 Xu), Mảnh Vũ Khí Độc Quyền Vạn Năng và Quặng Orichalcum (Orichalcum).",
       en: "Funnel 100% of Valor Coins into discounted Universal Legendary Hero Shards (30/64/80 Coins), Exclusive Gear Shards, and Orichalcum.",
     },
     surplusRule: {
-      vi: "Mua thêm Magic Thread / Refined Metal khi đã vét hết Mảnh Vàng và Orichalcum tuần.",
+      vi: "Mua thêm Chỉ Phép (Magic Thread) / Thép Tinh Luyện (Refined Metal) khi đã vét hết Mảnh Anh Hùng Huyền Thoại Vạn Năng và Quặng Orichalcum tuần.",
       en: "Buy Magic Thread / Refined Metal after sweeping weekly Universal Shards and Orichalcum.",
     },
     forbiddenTrap: {
-      vi: "Cấm đốt Xu Chiến Trường vào Thịt / Gỗ / Đá / Ruby cày miễn phí trên bản đồ!",
+      vi: "Cấm đốt Xu Công Huân (Valor Coins) vào Thịt / Gỗ / Đá / Hồng Ngọc (Ruby) cày miễn phí trên bản đồ!",
       en: "Never burn Valor Coins on farmable Meat / Wood / Stone / Rubies!",
     },
-    roiKeywords: ["Combat Valor", "Mọi Cửa Hàng", "All Shops"],
+    roiKeywords: [
+      "Tiệm Công Huân",
+      "Valor Shop",
+      "Combat Valor",
+      "Mọi Cửa Hàng",
+      "All Shops",
+    ],
   },
   4: {
     floorBadge: {
-      vi: "Ưu Tiên 4 Quốc Gia: Vũ Khí Độc Quyền Vạn Năng & Đá Thăng Cấp",
-      en: "4 Nations Priority: Universal Exclusive Gear Shards & Promotion Stones",
+      vi: "Ưu Tiên Tiệm Chiến Trường: Vũ Khí Độc Quyền Vạn Năng & Đá Thăng Cấp Trang Bị",
+      en: "Battlefield / Clash Priority: Universal Exclusive Gear Shards & Promotion Stones",
     },
     floorDetail: {
-      vi: "Tập trung Xu Chiến Đấu (Clash Coins) cho Mảnh Vũ Khí Độc Quyền Vạn Năng (đột phá UW Lv.10 & Lv.20) và Đá Thăng Cấp Trang Bị (Promotion Stone).",
+      vi: "Tập trung Xu Chiến Trường (Clash Coins) cho Mảnh Vũ Khí Độc Quyền Vạn Năng (đột phá UW Lv.10 & Lv.20) và Đá Thăng Cấp Trang Bị (Promotion Stone).",
       en: "Focus Clash Coins on Universal Exclusive Gear Shards (for UW Lv.10 & Lv.20 breakthroughs) and Gear Promotion Stones.",
     },
     surplusRule: {
-      vi: "Mua thêm Tinh Chất Thú Cưng (Pet Essence) và Orichalcum khi dư Xu.",
+      vi: "Mua thêm Tinh Chất Thú Cưng (Pet Essence) và Quặng Orichalcum (Orichalcum) khi dư Xu Chiến Trường.",
       en: "Purchase Pet Essence and Orichalcum with remaining surplus.",
     },
     forbiddenTrap: {
       vi: "Cấm mua tài nguyên thô hoặc rương trang bị phẩm chất thấp!",
       en: "Never buy raw resources or low-rarity gear chests!",
     },
-    roiKeywords: ["4 Nations", "Citadel Clash", "Mọi Cửa Hàng", "All Shops"],
+    roiKeywords: [
+      "Tiệm Chiến Trường",
+      "Battlefield",
+      "Clash Shop",
+      "4 Nations",
+      "Citadel Clash",
+      "Mọi Cửa Hàng",
+      "All Shops",
+    ],
   },
   5: {
     floorBadge: {
-      vi: "Đáy Ví An Toàn: 40,000 Điểm Vinh Dự / 6,000 Xu Vinh Quang (Hồn Đá Đỏ / Soul Stone)",
-      en: "Safety Floor: 40,000 Guild Honor / 6,000 Guild Coins (Soul Stone)",
+      vi: "Đáy Ví An Toàn: 40,000 Điểm Vinh Dự / 6,000 Xu Vinh Quang Bang (Đá Linh Hồn / Soul Stone)",
+      en: "Safety Floor: 40,000 Guild Honor / 6,000 Guild Glory Coins (Soul Stone)",
     },
     floorDetail: {
-      vi: "Khóa chặt 40,000 Điểm Vinh Dự Bang / viên (tổng 360,000 Điểm cho 9 viên ở Lâu Đài Lv.30) hoặc 6,000 Xu Vinh Quang Hội / viên (tổng 54,000 Xu cho 9 viên xoay tua 3 tuần S1: League ➔ Horde ➔ Nature) để thức tỉnh Soulmancer, Warlock, Pyromancer, Adjudicator, Pixie.",
-      en: "Lock 40,000 Guild Honor per stone (360,000 Honor for 9 stones at Castle Lv.30) or 6,000 Guild Coins per stone (54,000 Coins for 9 stones on 3-week S1 rotation: League ➔ Horde ➔ Nature) to awaken Soulmancer, Warlock, Pyromancer, Adjudicator, and Pixie.",
+      vi: "Khóa chặt 40,000 Điểm Vinh Dự Bang / viên (tổng 360,000 Điểm cho 9 viên ở Lâu Đài Lv.30) hoặc 6,000 Xu Vinh Quang Bang (Guild Glory Coins) / viên (tổng 54,000 Xu cho 9 viên xoay tua 3 tuần S1: League ➔ Horde ➔ Nature) để mua Đá Linh Hồn (Hồn Đá Đỏ / Soul Stone) thức tỉnh Hồn Pháp Sư (Soulmancer), Thuật Sĩ (Warlock), Hoả Pháp Sư (Pyromancer), Thẩm Phán Quan (Adjudicator), Hồ Tiên (Pixie).",
+      en: "Lock 40,000 Guild Honor per stone (360,000 Honor for 9 stones at Castle Lv.30) or 6,000 Guild Glory Coins per stone (54,000 Coins for 9 stones on 3-week S1 rotation: League ➔ Horde ➔ Nature) to buy Soul Stones and awaken Soulmancer, Warlock, Pyromancer, Adjudicator, and Pixie.",
     },
     surplusRule: {
-      vi: "Sau khi mua xong Hồn Đá Đỏ (Soul Stone) trong tuần, dùng phần dư mua Mảnh Vũ Khí Độc Quyền Vạn Năng.",
+      vi: "Sau khi mua xong Đá Linh Hồn (Hồn Đá Đỏ / Soul Stone) trong tuần, dùng phần dư mua Mảnh Vũ Khí Độc Quyền Vạn Năng.",
       en: "After securing the weekly Soul Stone, spend surplus on Universal Exclusive Gear Shards.",
     },
     forbiddenTrap: {
-      vi: "Cấm tiêu sạch Điểm Vinh Dự / Xu Vinh Quang vào đạo cụ lặt vặt trước khi Lâu Đài đạt Lv.30 & bước vào S1!",
-      en: "Never drain Guild Honor / Guild Coins on minor items before Castle Lv.30 & Season 1!",
+      vi: "Cấm tiêu sạch Điểm Vinh Dự / Xu Vinh Quang Bang vào đạo cụ lặt vặt trước khi Lâu Đài đạt Lv.30 & bước vào S1!",
+      en: "Never drain Guild Honor / Guild Glory Coins on minor items before Castle Lv.30 & Season 1!",
     },
-    roiKeywords: ["Guild Honor", "Guild Coin", "Mọi Cửa Hàng", "All Shops"],
+    roiKeywords: [
+      "Tiệm Vinh Quang Bang",
+      "Guild Honor",
+      "Guild Coin",
+      "Mọi Cửa Hàng",
+      "All Shops",
+    ],
   },
   6: {
     floorBadge: {
-      vi: "Đáy Ví Kim Cương: Giữ Quỹ 15,000–32,000+ KC Cho Vòng Quay & Xúc Xắc",
+      vi: "Đáy Ví Kim Cương: Giữ Quỹ 15,000–32,000+ Kim Cương (Diamonds) Cho Vòng Quay & Xúc Xắc",
       en: "Diamond Reserve: Keep 15,000–32,000+ Diamonds for Wheel & Dice",
     },
     floorDetail: {
-      vi: "Trong VIP Shop chỉ mua Mảnh Tướng Vàng Vạn Năng giảm giá sâu (150–240 KC) và Bình Thể Lực 25 giảm giá.",
-      en: "In VIP Shop, only buy deeply discounted Universal Legendary Shards (150–240 Diamonds) and Stamina Potions.",
+      vi: "Trong Tiệm VIP & Cửa Hàng Hàng Ngày (VIP & Daily Shop), chỉ mua Mảnh Anh Hùng Huyền Thoại Vạn Năng (Universal Legendary Hero Shard) giảm giá sâu (150–240 KC) và Bình Thể Lực (Stamina Potion 25) giảm giá.",
+      en: "In VIP & Daily Shop, only buy deeply discounted Universal Legendary Hero Shards (150–240 Diamonds) and Stamina Potions.",
     },
     surplusRule: {
-      vi: "Mua thêm Sách Kỹ Năng Cam và Đá Cường Hóa giảm giá sâu nếu quỹ Kim Cương vượt trên 32,000 KC.",
+      vi: "Mua thêm Sách Kỹ Năng Cam và Đá Cường Hóa giảm giá sâu nếu quỹ Kim Cương (Diamonds) vượt trên 32,000 KC.",
       en: "Buy discounted Legendary Skill Books and Enhancement Runes only if Diamonds exceed 32,000.",
     },
     forbiddenTrap: {
-      vi: "Cấm mua đồ nguyên giá bằng Kim Cương hoặc quay Tavern bằng Kim Cương lẻ!",
+      vi: "Cấm mua Điểm VIP nguyên giá hoặc quay Quán Rượu bằng Kim Cương lẻ!",
       en: "Never buy full-price Diamond items or pull regular Tavern banners with raw Diamonds!",
     },
-    roiKeywords: ["VIP Shop", "Mọi Cửa Hàng", "All Shops"],
+    roiKeywords: [
+      "Tiệm VIP",
+      "VIP & Daily Shop",
+      "VIP Shop",
+      "Mọi Cửa Hàng",
+      "All Shops",
+    ],
   },
   7: {
     floorBadge: {
-      vi: "Mốc Mở Khóa: 12 Sao (Trait 3 +30%) vs 15 Sao (500 / 1,000 Mảnh Mở Exchange Shop)",
-      en: "Unlock Rule: 12-Star (Trait 3 +30%) vs 15-Star (500 / 1,000 Shards Exchange Unlock)",
+      vi: "Mốc Mở Khóa: 12 Sao (Trait 3 +30%) vs 15 Sao (500 Mảnh Kỵ Sĩ / Knight Mở Exchange Shop)",
+      en: "Unlock Rule: 12-Star (Trait 3 +30%) vs 15-Star (500 Knight / 1,000 Shards Exchange Unlock)",
     },
     floorDetail: {
-      vi: "Phân biệt rõ: Tướng Tím Kinh tế dừng ở 12 Sao (2 Sao Trắng) để mở Trait 3 (+30% xây dựng/nghiên cứu), còn phải đẩy tối đa 1 tướng lên 15 Sao (5 Sao Trắng/Bạc = 500 Mảnh Knight hoặc 1,000 Mảnh Tím/Vàng) mới mở khóa Hero Shard Exchange Shop!",
-      en: "Distinguish clearly: Economy Epic heroes stop at 12 Stars (2 White Stars) for Trait 3 (+30% speed), whereas maxing 1 hero to 15 Stars (5 White/Silver Stars = 500 Knight Shards or 1,000 Epic/Legendary Shards) unlocks the Hero Shard Exchange Shop!",
+      vi: "Phân biệt rõ: Tướng Tím Kinh tế dừng ở 12 Sao (2 Sao Trắng) để mở Trait 3 (+30% xây dựng/nghiên cứu), còn phải đẩy tối đa 1 tướng lên 15 Sao (5 Sao Trắng/Bạc = 500 Mảnh Kỵ Sĩ (Knight) hoặc 1,000 Mảnh Tím/Vàng) mới mở khóa Tiệm Đổi Mảnh Tướng (Hero Exchange Shop) sử dụng Mảnh Tướng Dư (Excess Hero Shards)!",
+      en: "Distinguish clearly: Economy Epic heroes stop at 12 Stars (2 White Stars) for Trait 3 (+30% speed), whereas maxing 1 hero to 15 Stars (5 White/Silver Stars = 500 Knight Shards or 1,000 Epic/Legendary Shards) unlocks the Hero Exchange Shop for Excess Hero Shards!",
     },
     surplusRule: {
-      vi: "Đổi mảnh dư 15 Sao lấy Mảnh Vàng Vạn Năng và Mảnh Tím Vạn Năng hàng tuần.",
+      vi: "Dùng Mảnh Tướng Dư (Excess Hero Shards) 15 Sao đổi Mảnh Anh Hùng Huyền Thoại Vạn Năng (Universal Legendary Hero Shard) và Mảnh Tím Vạn Năng hàng tuần.",
       en: "Exchange excess 15-Star shards for Universal Legendary and Epic Shards weekly.",
     },
     forbiddenTrap: {
-      vi: "Cấm dừng tất cả tướng ở 12 Sao khiến không bao giờ mở được tiệm đổi mảnh dư!",
-      en: "Never stop every single hero at 12 Stars and lock yourself out of the Shard Exchange Shop!",
+      vi: "Cấm dừng tất cả tướng ở 12 Sao khiến không bao giờ mở được Tiệm Đổi Mảnh Tướng!",
+      en: "Never stop every single hero at 12 Stars and lock yourself out of the Hero Exchange Shop!",
     },
-    roiKeywords: ["Exchange Shop", "Mọi Cửa Hàng", "All Shops"],
+    roiKeywords: [
+      "Tiệm Đổi Mảnh",
+      "Hero Exchange",
+      "Exchange Shop",
+      "Mọi Cửa Hàng",
+      "All Shops",
+    ],
   },
   8: {
     floorBadge: {
@@ -257,118 +342,155 @@ const SHOP_SAFETY_FLOORS: Record<
       en: "Wheel Coins Carry Over: Bank for Mythic Hero & Exclusive Weapon Chests",
     },
     floorDetail: {
-      vi: "Xu Vòng Quay (Wheel Coins) được bảo lưu qua các kỳ 3 tuần/lần; chỉ đổi Rương Tướng Đỏ (Mythic Hero) và Rương Vũ Khí Độc Quyền Hệ Chính.",
-      en: "Wheel Coins carry over across 3-week cycles; redeem strictly for Main-Faction Mythic Hero and Exclusive Weapon Chests.",
+      vi: "Xu Vòng Quay (Wheel Coins) trong Tiệm Vòng Quay & Sự Kiện Xu (Wheel & Coin Shop) được bảo lưu qua các kỳ 3 tuần/lần; chỉ đổi Rương Tướng Đỏ (Mythic Hero) và Rương Vũ Khí Độc Quyền Hệ Chính.",
+      en: "Wheel Coins in the Wheel & Coin Shop carry over across 3-week cycles; redeem strictly for Main-Faction Mythic Hero and Exclusive Weapon Chests.",
     },
     surplusRule: {
-      vi: "Giữ Xu chờ đúng kỳ Vòng Quay của Hệ Chính (Bộ Lạc / Thiên Nhiên / Liên Minh).",
+      vi: "Giữ Xu Vòng Quay (Wheel Coins) chờ đúng kỳ Vòng Quay của Hệ Chính (Bộ Lạc / Thiên Nhiên / Liên Minh).",
       en: "Hold Wheel Coins until your Main Faction rotation arrives.",
     },
     forbiddenTrap: {
       vi: "Cấm tiêu lẻ Xu Vòng Quay vào Đá Cường Hóa hay Rương Tài Nguyên!",
       en: "Never spend Wheel Coins on enhancement stones or resource chests!",
     },
-    roiKeywords: ["Wheel", "Mọi Cửa Hàng", "All Shops"],
+    roiKeywords: [
+      "Tiệm Vòng Quay",
+      "Wheel & Coin",
+      "Wheel",
+      "Mọi Cửa Hàng",
+      "All Shops",
+    ],
   },
   9: {
     floorBadge: {
-      vi: "Bảo Lưu Phiếu Xúc Xắc (Dice Vouchers Carry Over): Đổi Hồn Đá Đỏ & Tướng Đỏ",
+      vi: "Bảo Lưu Vé Xúc Xắc (Dice Vouchers Carry Over): Đổi Đá Linh Hồn & Tướng Đỏ",
       en: "Dice Vouchers Carry Over: Redeem Soul Stones & Mythic Heroes",
     },
     floorDetail: {
-      vi: "Phiếu Xúc Xắc (Dice Vouchers) không mất đi khi hết sự kiện; tích lũy đổi Rương Tự Chọn Hồn Đá Đỏ / Tướng Đỏ và Trang Trí Huyền Thoại.",
-      en: "Dice Vouchers persist across events; save for Soul Stone / Mythic Hero Choice Chests and Legendary Decorations.",
+      vi: "Vé Xúc Xắc (Dice Vouchers) tại Tiệm Xúc Xắc (Dice Event Shop) không mất đi khi hết sự kiện; tích lũy đổi Rương Tự Chọn Đá Linh Hồn (Hồn Đá Đỏ / Soul Stone) / Tướng Đỏ và Trang Trí Huyền Thoại (Legendary Decorations).",
+      en: "Dice Vouchers in the Dice Event Shop persist across events; save for Soul Stone / Mythic Hero Choice Chests and Legendary Decorations.",
     },
     surplusRule: {
-      vi: "Mua mảnh Trang Trí Vàng hoàn thiện bộ sưu tập cộng % ATK/HP toàn quân.",
-      en: "Redeem Legendary Decor pieces that complete global % ATK/HP set bonuses.",
+      vi: "Mua mảnh Trang Trí Huyền Thoại / Sử Thi (Legendary / Epic Decorations) hoàn thiện bộ sưu tập cộng % ATK/HP toàn quân.",
+      en: "Redeem Legendary / Epic Decoration pieces that complete global % ATK/HP set bonuses.",
     },
     forbiddenTrap: {
-      vi: "Cấm xả sạch Phiếu Xúc Xắc vào vật phẩm tiêu hao ngắn hạn!",
+      vi: "Cấm xả sạch Vé Xúc Xắc (Dice Vouchers) vào vật phẩm tiêu hao ngắn hạn!",
       en: "Never dump Dice Vouchers on short-term consumables!",
     },
-    roiKeywords: ["Dice", "Mọi Cửa Hàng", "All Shops"],
+    roiKeywords: [
+      "Tiệm Xúc Xắc",
+      "Dice Event",
+      "Dice of Fate",
+      "Dice",
+      "Mọi Cửa Hàng",
+      "All Shops",
+    ],
   },
   10: {
     floorBadge: {
-      vi: "Đáy Ví Huân Chương: 15,000–30,000 Glory Medals Mở Khóa Quân Trang",
+      vi: "Đáy Ví Huy Chương: 15,000–30,000 Huy Chương Vinh Quang (Glory Medals) Mở Quân Trang",
       en: "Medal Floor: 15,000–30,000 Glory Medals for First-Time Troop Skins",
     },
     floorDetail: {
-      vi: "Ưu tiên số 1 tại Medal Shop là mở khóa lần đầu Ngoại Hình Quân Lính Tím / Xanh (30,000 / 15,000 Glory Medals) để nhận buff chỉ số sở hữu vĩnh viễn cho toàn tài khoản.",
-      en: "Priority #1 in Medal Shop is unlocking Epic / Rare Troop Skins for the first time (30,000 / 15,000 Glory Medals) for permanent account-wide ownership stats.",
+      vi: "Ưu tiên số 1 tại Tiệm Huy Chương Vinh Quang (Glory Medal Shop) là mở khóa lần đầu Ngoại Hình Quân Lính (Quân Trang / Troop Skins) Tím / Xanh (30,000 / 15,000 Glory Medals) để nhận buff chỉ số sở hữu vĩnh viễn cho toàn tài khoản.",
+      en: "Priority #1 in Glory Medal Shop is unlocking Epic / Rare Troop Skins for the first time (30,000 / 15,000 Glory Medals) for permanent account-wide ownership stats.",
     },
     surplusRule: {
-      vi: "Sau khi mở khóa các Quân Trang cơ bản, dùng thặng dư mua Tăng tốc 60m.",
+      vi: "Sau khi mở khóa các Ngoại Hình Quân Lính (Quân Trang / Troop Skins) cơ bản, dùng thặng dư mua Vật Phẩm Tăng Tốc (Speed-ups) 60m.",
       en: "After unlocking core Troop Skins, spend surplus on 60m Speed-ups.",
     },
     forbiddenTrap: {
       vi: "Cấm mua lặp lại mảnh Skin đã tối đa hoặc đổi tài nguyên thô!",
       en: "Never over-buy maxed skin fragments or raw resources!",
     },
-    roiKeywords: ["Medal Shop", "Mọi Cửa Hàng", "All Shops"],
+    roiKeywords: [
+      "Tiệm Huy Chương",
+      "Glory Medal",
+      "Medal Shop",
+      "Mọi Cửa Hàng",
+      "All Shops",
+    ],
   },
   11: {
     floorBadge: {
-      vi: "Ưu Tiên Vương Quốc (KvK / S1+): Máu Rồng (Dragon Blood) & Tinh Chất Rồng",
+      vi: "Ưu Tiên Biểu Tượng Vương Quốc (KvK / S1+): Máu Rồng (Dragon Blood) & Tinh Chất Rồng",
       en: "Kingdom Emblem Priority: Dragon Blood, Dragon Essence & Exclusive Shards",
     },
     floorDetail: {
-      vi: "Huy Hiệu Vương Quốc (Kingdom Emblems) là nguồn cung cấp độc quyền Máu Rồng (Dragon Blood), Tinh Chất Rồng (Dragon Essence) và Mảnh Vũ Khí Độc Quyền.",
-      en: "Kingdom Emblems are the primary bottleneck source for Dragon Blood, Dragon Essence, and Universal Exclusive Gear Shards.",
+      vi: "Biểu Tượng Vương Quốc (Kingdom Emblems) tại Tiệm Biểu Tượng Vương Quốc (Kingdom Emblem Shop) là nguồn cung cấp độc quyền Máu Rồng (Dragon Blood), Tinh Chất Rồng (Dragon Essence) và Mảnh Vũ Khí Độc Quyền Vạn Năng.",
+      en: "Kingdom Emblems in the Kingdom Emblem Shop are the primary bottleneck source for Dragon Blood, Dragon Essence, and Universal Exclusive Gear Shards.",
     },
     surplusRule: {
-      vi: "Mua thêm Orichalcum khi đã vét hết giới hạn Máu Rồng và Vũ Khí Độc Quyền.",
+      vi: "Mua thêm Quặng Orichalcum (Orichalcum) khi đã vét hết giới hạn Máu Rồng và Vũ Khí Độc Quyền.",
       en: "Buy Orichalcum after capping Dragon Blood and Exclusive Gear Shards.",
     },
     forbiddenTrap: {
-      vi: "Cấm đổi Huy Hiệu Vương Quốc lấy Tăng tốc thường hoặc Gỗ/Đá!",
+      vi: "Cấm đổi Biểu Tượng Vương Quốc lấy Vật Phẩm Tăng Tốc thường hoặc Gỗ/Đá!",
       en: "Never trade Kingdom Emblems for regular speed-ups or Wood/Stone!",
     },
-    roiKeywords: ["Kingdom Emblem", "Mọi Cửa Hàng", "All Shops"],
+    roiKeywords: [
+      "Tiệm Biểu Tượng",
+      "Kingdom Emblem",
+      "Mọi Cửa Hàng",
+      "All Shops",
+    ],
   },
   12: {
     floorBadge: {
-      vi: "Ưu Tiên Xâm Lăng (Invasion Shop): Mảnh Thánh Vật Vàng & Mảnh Tướng Vàng",
+      vi: "Ưu Tiên Tiệm Điểm Xâm Lược: Mảnh Thánh Vật Vàng & Mảnh Anh Hùng Huyền Thoại Vạn Năng",
       en: "Invasion Shop Priority: Legendary Relic Shards & Universal Hero Shards",
     },
     floorDetail: {
-      vi: "Dồn Xu Rồng Đen / Yeti (Invasion Coins) mua Mảnh Thánh Vật Vàng (Legendary Relic Shards) và Mảnh Tướng Vàng Vạn Năng.",
-      en: "Spend Black Dragon / Yeti Invasion Coins strictly on Legendary Relic Shards and Universal Legendary Hero Shards.",
+      vi: "Dồn Xu Xâm Lược (Invasion Coins) tại Tiệm Điểm Xâm Lược (Invasion Shop) mua Mảnh Thánh Vật Vàng (Legendary Relic Shards) và Mảnh Anh Hùng Huyền Thoại Vạn Năng (Universal Legendary Hero Shard).",
+      en: "Spend Invasion Coins strictly on Legendary Relic Shards and Universal Legendary Hero Shards.",
     },
     surplusRule: {
-      vi: "Mua Cuộn Kinh Nghiệm Thánh Vật (Relic EXP Scrolls) khi còn dư xu.",
-      en: "Buy Relic EXP Scrolls with leftover coins.",
+      vi: "Mua Cuộn Kinh Nghiệm Thánh Vật (Relic EXP Scrolls) khi còn dư Xu Xâm Lược.",
+      en: "Buy Relic EXP Scrolls with leftover Invasion Coins.",
     },
     forbiddenTrap: {
       vi: "Cấm mua mảnh Thánh Vật Xanh/Tím dễ kiếm từ hầm ngục thường!",
       en: "Never buy Blue/Purple Relic shards that drop freely in dungeons!",
     },
-    roiKeywords: ["Invasion", "Black Dragon", "Mọi Cửa Hàng", "All Shops"],
+    roiKeywords: [
+      "Tiệm Điểm Xâm Lược",
+      "Invasion Shop",
+      "Invasion",
+      "Black Dragon",
+      "Mọi Cửa Hàng",
+      "All Shops",
+    ],
   },
   13: {
     floorBadge: {
-      vi: "Ưu Tiên Xu Trang Trí: Kích Hoạt Trọn Bộ Sưu Tập (Decor Set Bonus)",
-      en: "Decor Token Priority: Complete Unowned Decor Set Bonuses",
+      vi: "Ưu Tiên Tiệm Xu Trang Trí: Kích Hoạt Trọn Bộ Sưu Tập (Decor Set Bonus)",
+      en: "Decoration Token Priority: Complete Unowned Decor Set Bonuses",
     },
     floorDetail: {
-      vi: "Chỉ dùng Xu Trang Trí (Decor Tokens) mua các món Trang Trí chưa sở hữu để kích hoạt mốc thưởng Bộ Sưu Tập (Set Bonus +ATK/+HP/+March Size).",
-      en: "Spend Decor Tokens strictly on unowned decorations to activate full Decor Set Bonuses (+ATK/+HP/+March Size).",
+      vi: "Chỉ dùng Xu Trang Trí (Decor Tokens) tại Tiệm Xu Trang Trí (Decoration Token Shop) mua các món Trang Trí Huyền Thoại / Sử Thi (Legendary / Epic Decorations) chưa sở hữu để kích hoạt mốc thưởng Bộ Sưu Tập (Set Bonus +ATK/+HP/+March Size).",
+      en: "Spend Decor Tokens in the Decoration Token Shop strictly on unowned Legendary / Epic Decorations to activate full Decor Set Bonuses (+ATK/+HP/+March Size).",
     },
     surplusRule: {
-      vi: "Nâng bậc các bộ Trang Trí cộng Tốc độ Xây dựng / Nghiên cứu hoặc HP Đội 1.",
-      en: "Upgrade Decor Sets granting Construction/Research speed or Queue 1 HP.",
+      vi: "Nâng bậc các bộ Trang Trí Huyền Thoại / Sử Thi cộng Tốc độ Xây dựng / Nghiên cứu hoặc HP Đội 1.",
+      en: "Upgrade Legendary / Epic Decor Sets granting Construction/Research speed or Queue 1 HP.",
     },
     forbiddenTrap: {
       vi: "Cấm nâng cấp trùng lặp một món trang trí lẻ khi chưa mở khóa đủ bộ!",
       en: "Never upgrade duplicate single decorations before completing full sets!",
     },
-    roiKeywords: ["Decor", "Mọi Cửa Hàng", "All Shops"],
+    roiKeywords: [
+      "Tiệm Xu Trang Trí",
+      "Decoration Token",
+      "Decor",
+      "Mọi Cửa Hàng",
+      "All Shops",
+    ],
   },
 };
 
 function detectArchCategory(tierText: string): "static" | "evolving" | "event" {
-  if (/Static|Tĩnh/i.test(tierText)) return "static";
+  if (/Static|Fixed|Tĩnh|Cố định/i.test(tierText)) return "static";
   if (/Event|Sự kiện/i.test(tierText)) return "event";
   return "evolving";
 }
@@ -550,6 +672,32 @@ export function ShopSafetyFloorWidget({
           <p className="text-xs sm:text-sm text-muted-foreground dark:text-slate-300">
             {widgetSubtitleText}
           </p>
+          <div className="flex flex-wrap items-center gap-2 pt-1">
+            <Link
+              href="/guides/codex?zone=economy&cat=shop-vip"
+              data-testid="shop-codex-link-shops"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-amber-500/35 bg-amber-500/10 px-2.5 py-1 text-[11px] font-semibold text-amber-700 transition hover:bg-amber-500/20 dark:text-amber-300"
+            >
+              <ExternalLink className="h-3 w-3" />
+              <span>
+                {locale === "vi"
+                  ? "Tra cứu Cửa Hàng & VIP (Codex)"
+                  : "Shop & VIP Codex"}
+              </span>
+            </Link>
+            <Link
+              href="/guides/codex?zone=economy&cat=items"
+              data-testid="shop-codex-link-items"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-border/75 bg-muted/40 px-2.5 py-1 text-[11px] font-semibold text-foreground/85 transition hover:bg-muted/70 dark:border-white/15 dark:bg-white/[0.04] dark:text-slate-200"
+            >
+              <ExternalLink className="h-3 w-3" />
+              <span>
+                {locale === "vi"
+                  ? "Kho Vật Phẩm & Tiền Tệ"
+                  : "Items & Currencies Codex"}
+              </span>
+            </Link>
+          </div>
         </div>
 
         {/* Architecture Filter Tabs */}
@@ -557,10 +705,10 @@ export function ShopSafetyFloorWidget({
           {(
             [
               { id: "all", label: { vi: "Tất cả (13)", en: "All (13)" } },
-              { id: "static", label: { vi: "Tĩnh (3)", en: "Static (3)" } },
+              { id: "static", label: { vi: "Cố định (3)", en: "Static (3)" } },
               {
                 id: "evolving",
-                label: { vi: "Động / Bán động (7)", en: "Evolving (7)" },
+                label: { vi: "Tiến hóa (7)", en: "Evolving (7)" },
               },
               { id: "event", label: { vi: "Sự kiện (3)", en: "Event (3)" } },
             ] as const
@@ -568,6 +716,7 @@ export function ShopSafetyFloorWidget({
             <button
               key={tab.id}
               type="button"
+              data-testid={`shop-arch-filter-${tab.id}`}
               onClick={() => setArchFilter(tab.id)}
               className={`min-h-11 rounded-lg border px-2.5 py-1.5 text-xs font-bold transition ${
                 archFilter === tab.id

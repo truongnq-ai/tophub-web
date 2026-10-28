@@ -140,7 +140,7 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                     en: "Lock Weekly Safety Floors: 1,900–2,000 Arena Stars, 12,000–15,000 Guild Points & 40,000 Guild Honor / 6,000 Guild Coins",
                   },
                   detail: {
-                    vi: "Đảm bảo 00:00 UTC (07:00 sáng Giờ VN) Thứ Hai luôn đủ 1,900 Sao Đấu Trường để vét 2 gói 50 Sao (ROI 600% & 300%), gói 300 KC và 5 mảnh Tướng Vàng Hệ Chính (1,500 Sao cho Soulmancer, Warlock, Pyromancer, Adjudicator hoặc Pixie), đồng thời sẵn sàng mua ngay Soul Stone (40,000 Điểm Vinh Dự hoặc 6,000 Xu Vinh Quang).",
+                    vi: "Đảm bảo 00:00 UTC (07:00 sáng Giờ VN) Thứ Hai luôn đủ 1,900 Sao Đấu Trường để vét 2 gói 50 Sao (ROI 600% & 300%), gói 300 KC và 5 mảnh Tướng Vàng Hệ Chính (1,500 Sao cho Hồn Pháp Sư / Soulmancer, Thuật Sĩ / Warlock, Hoả Pháp Sư / Pyromancer, Thẩm Phán Quan / Adjudicator hoặc Hồ Tiên / Pixie), đồng thời sẵn sàng mua ngay Đá Linh Hồn (Hồn Đá Đỏ / Soul Stone — 40,000 Điểm Vinh Dự hoặc 6,000 Xu Vinh Quang).",
                     en: "Guarantees you have 1,900 Arena Stars every Monday at 00:00 UTC to sweep both 50-Star packs (600% & 300% ROI), the 300-Diamond pack, and 5 Main-Faction Legendary Shards (1,500 Stars for Soulmancer, Warlock, Pyromancer, Adjudicator, or Pixie), while keeping 40,000 Guild Honor or 6,000 Guild Coins ready for Soul Stones.",
                   },
                 },
@@ -151,7 +151,7 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                     en: "Distinguish 12-Star Trait 3 (+30%) from the 15-Star Hero Shard Exchange Shop Unlock",
                   },
                   detail: {
-                    vi: "Tướng Tím Kinh tế dừng ở 12 Sao (2 Sao Trắng) để mở Trait 3 (+30%), trong khi muốn mở khóa Hero Shard Exchange Shop bắt buộc phải nâng tối đa 1 tướng lên 15 Sao (5 Sao Trắng/Bạc = 500 Mảnh Knight hoặc 1,000 Mảnh Tím/Vàng).",
+                    vi: "Tướng Tím Kinh tế dừng ở 12 Sao (2 Sao Trắng) để mở Trait 3 (+30%), trong khi muốn mở khóa Tiệm Đổi Mảnh Tướng (Hero Shard Exchange Shop) bắt buộc phải nâng tối đa 1 tướng lên 15 Sao (5 Sao Trắng/Bạc = 500 Mảnh Kỵ Sĩ / Knight hoặc 1,000 Mảnh Tím/Vàng).",
                     en: "Economy Epic heroes stop at 12 Stars (2 White Stars) for Trait 3 (+30%), whereas unlocking the Hero Shard Exchange Shop strictly requires maxing one hero to 15 Stars (5 White/Silver Stars = 500 Knight Shards or 1,000 Epic/Legendary Shards).",
                   },
                 },
@@ -194,42 +194,42 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
               rows: [
                 [
                   { vi: "1", en: "1" },
-                  { vi: "Cửa hàng Đấu Trường (Arena Shop)", en: "Arena Shop" },
+                  { vi: "Tiệm Đấu Trường (Arena Shop)", en: "Arena Shop" },
                   { vi: "Sao Đấu Trường (Arena Stars)", en: "Arena Stars" },
-                  { vi: "Tĩnh (Static)", en: "Static" },
+                  { vi: "Cố định / Tĩnh (Static)", en: "Static" },
                   { vi: "7 ngày (00:00 UTC / 07:00 VN Thứ Hai)", en: "Weekly (Monday 00:00 UTC)" },
                   {
-                    vi: "Gói 300 KC siêu rẻ (50 Sao, ROI 600%), Vé Chiêu Mộ (50 Sao, ROI 300%), 5 Mảnh Tướng Vàng Hệ Chính (1,500 Sao: Soulmancer, Warlock, Pyromancer, Adjudicator, Pixie)",
+                    vi: "Gói 300 KC siêu rẻ (50 Sao, ROI 600%), Vé Chiêu Mộ (50 Sao, ROI 300%), 5 Mảnh Tướng Vàng Hệ Chính (1,500 Sao: Hồn Pháp Sư / Soulmancer, Thuật Sĩ / Warlock, Hoả Pháp Sư / Pyromancer, Thẩm Phán Quan / Adjudicator, Hồ Tiên / Pixie)",
                     en: "300 Diamonds Super Pack (50 Stars, 600% ROI), Recruitment Token (50 Stars, 300% ROI), 5x Main-Faction Legendary Shards (1,500 Stars: Soulmancer, Warlock, Pyromancer, Adjudicator, Pixie)",
                   },
                 ],
                 [
                   { vi: "2", en: "2" },
-                  { vi: "Cửa hàng Bang Hội Thường (Guild Points Shop)", en: "Guild Points Shop" },
-                  { vi: "Điểm Cống Hiến Bang (Guild Points)", en: "Guild Points" },
-                  { vi: "Tĩnh (Static)", en: "Static" },
+                  { vi: "Tiệm Bang Hội (Guild Shop / Guild Points Shop)", en: "Guild Shop (Guild Points Shop)" },
+                  { vi: "Điểm Bang Hội (Guild Points)", en: "Guild Points" },
+                  { vi: "Cố định / Tĩnh (Static)", en: "Static" },
                   { vi: "Hàng ngày & 7 ngày", en: "Daily & Weekly" },
                   {
-                    vi: "Điểm VIP (1,000 Guild Points/tuần), Bình Thể Lực (800 Điểm), Khiên Hòa Bình 8h/24h (giữ sàn 12,000–15,000 Điểm)",
+                    vi: "Điểm VIP (1,000 Guild Points/tuần), Bình Thể Lực (Stamina Potion — 800 Điểm), Khiên Hòa Bình (Peace Shield 8h/24h — giữ sàn 12,000–15,000 Điểm)",
                     en: "VIP Points (1,000 Guild Points/week), Stamina Potions (800 Points), 8h/24h Peace Shields (maintain 12,000–15,000 Points floor)",
                   },
                 ],
                 [
                   { vi: "3", en: "3" },
-                  { vi: "Cửa hàng Chiến Trường (Combat Valor / Battlefield Shop)", en: "Combat Valor / Battlefield Shop" },
-                  { vi: "Điểm Dũng Khí (Valor Coins)", en: "Valor Coins" },
-                  { vi: "Bán động (Semi-Dynamic)", en: "Semi-Dynamic" },
+                  { vi: "Tiệm Công Huân (Valor Shop / Combat Valor Shop)", en: "Valor Shop (Combat Valor / Battlefield Shop)" },
+                  { vi: "Xu Công Huân (Valor Coins)", en: "Valor Coins" },
+                  { vi: "Tiến hóa Bán động (Semi-Dynamic)", en: "Semi-Dynamic" },
                   { vi: "7 ngày / Theo kỳ", en: "Weekly / Per Event" },
                   {
-                    vi: "Mảnh Tướng Vàng Vạn Năng giảm giá, Nguyên liệu Đồ Chúa Tể bậc cao (Orichalcum, Magic Thread)",
+                    vi: "Mảnh Anh Hùng Huyền Thoại Vạn Năng (Universal Legendary Hero Shard) giảm giá, Quặng Orichalcum (Orichalcum) & Chỉ Phép (Magic Thread)",
                     en: "Discounted Universal Legendary Hero Shards, High-tier Lord Gear Materials (Orichalcum, Magic Thread)",
                   },
                 ],
                 [
                   { vi: "4", en: "4" },
-                  { vi: "Cửa hàng 4 Quốc Gia / Thành Đô (4 Nations / Citadel Clash Shop)", en: "4 Nations / Citadel Clash Shop" },
-                  { vi: "Xu Chiến Đấu / Vé (Clash Coins / Tickets)", en: "Clash Coins / Tickets" },
-                  { vi: "Bán động (Semi-Dynamic)", en: "Semi-Dynamic" },
+                  { vi: "Tiệm Chiến Trường (Battlefield / Clash Shop — 4 Nations / Citadel Clash)", en: "Battlefield / Clash Shop (4 Nations / Citadel Clash Shop)" },
+                  { vi: "Xu Chiến Trường (Clash Coins)", en: "Clash Coins / Tickets" },
+                  { vi: "Tiến hóa Bán động (Semi-Dynamic)", en: "Semi-Dynamic" },
                   { vi: "Theo mùa giải / Tuần", en: "Seasonal / Weekly" },
                   {
                     vi: "Mảnh Vũ Khí Độc Quyền Vạn Năng, Đá Thăng Cấp Trang Bị (Promotion Stone), Tinh Chất Pet",
@@ -238,40 +238,40 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                 ],
                 [
                   { vi: "5", en: "5" },
-                  { vi: "Cửa hàng Vinh Dự Bang / Xu Vinh Quang (Guild Honor / Guild Coin Shop)", en: "Guild Honor / Guild Coin Shop" },
-                  { vi: "Điểm Vinh Dự (Guild Honor) / Xu Vinh Quang Hội (Guild Coins)", en: "Guild Honor / Guild Coins" },
-                  { vi: "Động (Evolving Lv.30 & S1+)", en: "Dynamic Evolving (Lv.30 & S1+)" },
+                  { vi: "Tiệm Vinh Quang Bang (Guild Honor Shop / Guild Coin Shop)", en: "Guild Honor Shop (Guild Coin Shop)" },
+                  { vi: "Xu Vinh Quang Bang (Guild Glory Coins / Guild Honor / Guild Coins)", en: "Guild Glory Coins (Guild Honor / Guild Coins)" },
+                  { vi: "Tiến hóa Động (Evolving Lv.30 & S1+)", en: "Dynamic Evolving (Lv.30 & S1+)" },
                   { vi: "7 ngày (00:00 UTC / 07:00 VN Thứ Hai)", en: "Weekly (Monday 00:00 UTC)" },
                   {
-                    vi: "Hồn Đá Đỏ (Soul Stone): 40,000 Điểm Vinh Dự/viên (360,000 Điểm/9 viên ở Lv.30) & 6,000 Xu Vinh Quang/viên (54,000 Xu/9 viên xoay tua 3 tuần S1: League ➔ Horde ➔ Nature)",
+                    vi: "Đá Linh Hồn (Hồn Đá Đỏ / Soul Stone): 40,000 Điểm Vinh Dự/viên (360,000 Điểm/9 viên ở Lv.30) & 6,000 Xu Vinh Quang/viên (54,000 Xu/9 viên xoay tua 3 tuần S1: League ➔ Horde ➔ Nature)",
                     en: "Soul Stone: 40,000 Guild Honor/stone (360,000 Honor/9 stones at Lv.30) & 6,000 Guild Coins/stone (54,000 Coins/9 stones on 3-week S1 rotation: League ➔ Horde ➔ Nature)",
                   },
                 ],
                 [
                   { vi: "6", en: "6" },
-                  { vi: "Cửa hàng VIP & Kim Cương (VIP Shop)", en: "VIP Shop" },
+                  { vi: "Tiệm VIP & Cửa Hàng Hàng Ngày (VIP & Daily Shop / VIP Shop)", en: "VIP & Daily Shop (VIP Shop)" },
                   { vi: "Kim Cương (Diamonds)", en: "Diamonds" },
-                  { vi: "Động (Theo cấp VIP & Castle)", en: "Dynamic (Scales with VIP & Castle)" },
+                  { vi: "Tiến hóa Động (Theo cấp VIP & Castle)", en: "Dynamic (Scales with VIP & Castle)" },
                   { vi: "7 ngày (00:00 UTC / 07:00 VN Thứ Hai)", en: "Weekly (Monday 00:00 UTC)" },
                   {
-                    vi: "Mảnh Vàng Vạn Năng, Bình Thể Lực, Sách Kỹ Năng & Đá Cường Hóa giảm giá sâu",
-                    en: "Deeply discounted Universal Legendary Shards, Stamina Potions, Skill Books & Gear Enhance Runes",
+                    vi: "Mảnh Anh Hùng Huyền Thoại Vạn Năng (Universal Legendary Hero Shard), Bình Thể Lực (Stamina Potion), Sách Kỹ Năng & Đá Cường Hóa giảm giá sâu",
+                    en: "Deeply discounted Universal Legendary Hero Shards, Stamina Potions, Skill Books & Gear Enhance Runes",
                   },
                 ],
                 [
                   { vi: "7", en: "7" },
-                  { vi: "Cửa hàng Đổi Điểm / Mảnh Dư (Exchange Shop)", en: "Exchange Shop" },
-                  { vi: "Điểm Chiêu Mộ & Mảnh Tướng 15 Sao dư", en: "Tavern Recruitment Points & Excess 15-Star Hero Shards" },
-                  { vi: "Động (Mở khi có tướng tối đa 15 Sao)", en: "Dynamic (Unlocks at 15-Star Max Hero)" },
+                  { vi: "Tiệm Đổi Mảnh Tướng (Hero Exchange Shop / Exchange Shop)", en: "Hero Exchange Shop (Exchange Shop)" },
+                  { vi: "Mảnh Tướng Dư (Excess Hero Shards — Tướng 15 Sao)", en: "Excess Hero Shards (15-Star Max Hero Shards)" },
+                  { vi: "Tiến hóa Động (Mở khi có tướng tối đa 15 Sao)", en: "Dynamic (Unlocks at 15-Star Max Hero)" },
                   { vi: "7 ngày (00:00 UTC / 07:00 VN Thứ Hai)", en: "Weekly (Monday 00:00 UTC)" },
                   {
-                    vi: "Mảnh Vạn Năng Tím (đẩy tướng kinh tế lên 12 Sao mở Trait 3 +30%), Mảnh Vạn Năng Vàng (mở tiệm khi có tướng 15 Sao = 500 hoặc 1,000 Mảnh)",
-                    en: "Universal Epic Shards (push economy heroes to 12 Stars for Trait 3 +30%), Universal Legendary Shards (shop unlocks at 15-Star max = 500 or 1,000 Shards)",
+                    vi: "Mảnh Vạn Năng Tím (đẩy tướng kinh tế lên 12 Sao mở Trait 3 +30%), Mảnh Anh Hùng Huyền Thoại Vạn Năng (mở tiệm khi có tướng 15 Sao = 500 Mảnh Kỵ Sĩ / Knight hoặc 1,000 Mảnh)",
+                    en: "Universal Epic Shards (push economy heroes to 12 Stars for Trait 3 +30%), Universal Legendary Hero Shards (shop unlocks at 15-Star max = 500 Knight Shards or 1,000 Shards)",
                   },
                 ],
                 [
                   { vi: "8", en: "8" },
-                  { vi: "Cửa hàng Vòng Quay (Wheel Token Shop)", en: "Wheel Token Shop (Wheel)" },
+                  { vi: "Tiệm Vòng Quay & Sự Kiện Xu (Wheel & Coin Shop)", en: "Wheel & Coin Shop (Wheel Token Shop)" },
                   { vi: "Xu Vòng Quay (Wheel Coins)", en: "Wheel Coins" },
                   { vi: "Sự kiện (Chu kỳ 3 tuần/lần)", en: "Event (3-Week Rotation)" },
                   { vi: "Bảo lưu Xu qua các kỳ", en: "Coins Carry Over Across Events" },
@@ -282,57 +282,57 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                 ],
                 [
                   { vi: "9", en: "9" },
-                  { vi: "Cửa hàng Xúc Xắc (Dice of Fate Shop)", en: "Dice of Fate Shop" },
-                  { vi: "Xu / Phiếu Xúc Xắc (Dice Vouchers)", en: "Dice Vouchers / Coins" },
+                  { vi: "Tiệm Xúc Xắc (Dice Event Shop / Dice of Fate Shop)", en: "Dice Event Shop (Dice of Fate Shop)" },
+                  { vi: "Vé Xúc Xắc (Dice Vouchers)", en: "Dice Vouchers / Coins" },
                   { vi: "Sự kiện (Chu kỳ 3 tuần/lần)", en: "Event (3-Week Rotation)" },
                   { vi: "Bảo lưu Xu qua các kỳ", en: "Vouchers Carry Over Across Events" },
                   {
-                    vi: "Rương Tự Chọn Hồn Đá / Tướng Đỏ, Trang Trí Huyền Thoại (Legendary Decor)",
+                    vi: "Rương Tự Chọn Đá Linh Hồn (Hồn Đá Đỏ / Soul Stone) / Tướng Đỏ, Trang Trí Huyền Thoại (Legendary Decorations)",
                     en: "Soul Stone / Mythic Hero Choice Chests, Legendary Decorations",
                   },
                 ],
                 [
                   { vi: "10", en: "10" },
-                  { vi: "Cửa hàng Huân Chương (Medal Shop)", en: "Medal Shop" },
-                  { vi: "Huân Chương Vinh Quang (Glory Medals)", en: "Glory Medals" },
-                  { vi: "Tĩnh (Static)", en: "Static" },
+                  { vi: "Tiệm Huy Chương Vinh Quang (Glory Medal Shop / Medal Shop)", en: "Glory Medal Shop (Medal Shop)" },
+                  { vi: "Huy Chương Vinh Quang (Glory Medals)", en: "Glory Medals" },
+                  { vi: "Cố định / Tĩnh (Static)", en: "Static" },
                   { vi: "7 ngày (Skin) & 24h (Tăng tốc)", en: "Weekly (Skins) & 24h (Speed-ups)" },
                   {
-                    vi: "Thẻ Mở Khóa Ngoại Hình Quân Lính Tím / Xanh lần đầu (30,000 / 15,000 Glory Medals)",
+                    vi: "Ngoại Hình Quân Lính (Quân Trang / Troop Skins) Tím / Xanh mở khóa lần đầu (30,000 / 15,000 Glory Medals)",
                     en: "First-time Epic / Rare Troop Skin Unlocks (30,000 / 15,000 Glory Medals)",
                   },
                 ],
                 [
                   { vi: "11", en: "11" },
-                  { vi: "Cửa hàng Vương Quốc (Kingdom Emblem Shop)", en: "Kingdom Emblem Shop" },
-                  { vi: "Huy Hiệu Vương Quốc (Kingdom Emblems)", en: "Kingdom Emblems" },
-                  { vi: "Động (KvK / Season 1+)", en: "Dynamic (KvK / Season 1+)" },
+                  { vi: "Tiệm Biểu Tượng Vương Quốc (Kingdom Emblem Shop)", en: "Kingdom Emblem Shop" },
+                  { vi: "Biểu Tượng Vương Quốc (Kingdom Emblems)", en: "Kingdom Emblems" },
+                  { vi: "Tiến hóa Động (KvK / Season 1+)", en: "Dynamic (KvK / Season 1+)" },
                   { vi: "Theo kỳ KvK / Mùa giải", en: "Per KvK / Seasonal Cycle" },
                   {
-                    vi: "Máu Rồng (Dragon Blood), Tinh Chất Rồng (Dragon Essence), Mảnh Vũ Khí Độc Quyền",
+                    vi: "Máu Rồng (Dragon Blood), Tinh Chất Rồng (Dragon Essence), Mảnh Vũ Khí Độc Quyền Vạn Năng",
                     en: "Dragon Blood, Dragon Essence, Universal Exclusive Gear Shards",
                   },
                 ],
                 [
                   { vi: "12", en: "12" },
-                  { vi: "Cửa hàng Xâm Lăng (Black Dragon / Yeti Invasion Shop)", en: "Black Dragon / Yeti Invasion Shop" },
-                  { vi: "Xu Rồng Đen / Yeti (Invasion Coins)", en: "Invasion Coins" },
+                  { vi: "Tiệm Điểm Xâm Lược (Invasion Shop — Black Dragon / Yeti)", en: "Invasion Shop (Black Dragon / Yeti Invasion Shop)" },
+                  { vi: "Xu Xâm Lược (Invasion Coins)", en: "Invasion Coins" },
                   { vi: "Sự kiện (4 tuần/lần)", en: "Event (4-Week Cycle)" },
                   { vi: "Theo kỳ sự kiện", en: "Per Invasion Event" },
                   {
-                    vi: "Mảnh Thánh Vật Vàng (Legendary Relic Shards), Mảnh Tướng Vàng Vạn Năng",
+                    vi: "Mảnh Thánh Vật Vàng (Legendary Relic Shards), Mảnh Anh Hùng Huyền Thoại Vạn Năng (Universal Legendary Hero Shard)",
                     en: "Legendary Relic Shards, Universal Legendary Hero Shards",
                   },
                 ],
                 [
                   { vi: "13", en: "13" },
-                  { vi: "Cửa hàng Trang Trí (Decor Token Shop)", en: "Decor Token Shop" },
+                  { vi: "Tiệm Xu Trang Trí (Decoration Token Shop)", en: "Decoration Token Shop (Decor Token Shop)" },
                   { vi: "Xu Trang Trí (Decor Tokens)", en: "Decor Tokens" },
-                  { vi: "Bán động (Semi-Dynamic)", en: "Semi-Dynamic" },
+                  { vi: "Tiến hóa Bán động (Semi-Dynamic)", en: "Semi-Dynamic" },
                   { vi: "7 ngày / Theo mùa", en: "Weekly / Seasonal" },
                   {
-                    vi: "Vật phẩm Trang trí chưa mở khóa để kích hoạt trọn bộ sưu tập (Decor Set Bonus)",
-                    en: "Unowned Decorations to complete full Decor Set Bonuses",
+                    vi: "Trang Trí Huyền Thoại / Sử Thi (Legendary / Epic Decorations) chưa mở khóa để kích hoạt trọn bộ sưu tập (Decor Set Bonus)",
+                    en: "Unowned Legendary / Epic Decorations to complete full Decor Set Bonuses",
                   },
                 ],
               ],
@@ -677,8 +677,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
               rows: [
                 [
                   { vi: "S+ (Must-Buy)", en: "S+ (Must-Buy)" },
-                  { vi: "Gói 300 Kim Cương Siêu Rẻ (300 Diamonds Pack)", en: "300 Diamonds Super Pack" },
-                  { vi: "Arena Shop", en: "Arena Shop" },
+                  { vi: "Gói 300 Kim Cương Siêu Rẻ (300 Diamonds Super Pack)", en: "300 Diamonds Super Pack" },
+                  { vi: "Tiệm Đấu Trường (Arena Shop)", en: "Arena Shop" },
                   { vi: "50 Sao (1/1)", en: "50 Arena Stars (1/1)" },
                   { vi: "300 Kim Cương trực tiếp", en: "300 Diamonds direct" },
                   {
@@ -689,7 +689,7 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                 [
                   { vi: "S+ (Must-Buy)", en: "S+ (Must-Buy)" },
                   { vi: "Lệnh Chiêu Mộ Giảm Giá (Discounted Recruitment Token)", en: "Discounted Recruitment Token" },
-                  { vi: "Arena Shop", en: "Arena Shop" },
+                  { vi: "Tiệm Đấu Trường (Arena Shop)", en: "Arena Shop" },
                   { vi: "50 Sao (1/1)", en: "50 Arena Stars (1/1)" },
                   { vi: "150 Kim Cương", en: "150 Diamonds" },
                   {
@@ -700,7 +700,7 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                 [
                   { vi: "S+ (Must-Buy)", en: "S+ (Must-Buy)" },
                   { vi: "Điểm VIP (VIP Points x50)", en: "VIP Points (x50)" },
-                  { vi: "Guild Points Shop", en: "Guild Points Shop" },
+                  { vi: "Tiệm Bang Hội (Guild Shop / Guild Points Shop)", en: "Guild Shop (Guild Points Shop)" },
                   { vi: "50 Điểm × 20 (1,000 Guild Points)", en: "50 Points × 20 (1,000 Guild Points)" },
                   { vi: "1,000 Kim Cương (1 Điểm VIP = 1 KC)", en: "1,000 Diamonds (1 VIP Point = 1 Diamond)" },
                   {
@@ -710,22 +710,22 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                 ],
                 [
                   { vi: "S+ (Must-Buy)", en: "S+ (Must-Buy)" },
-                  { vi: "Hồn Đá Đỏ (Soul Stone)", en: "Soul Stone" },
-                  { vi: "Guild Honor / Guild Coin Shop", en: "Guild Honor / Guild Coin Shop" },
+                  { vi: "Đá Linh Hồn (Hồn Đá Đỏ / Soul Stone)", en: "Soul Stone (Red Soul Stone)" },
+                  { vi: "Tiệm Vinh Quang Bang (Guild Honor / Guild Coin Shop) / Tiệm Xúc Xắc (Dice Event / Dice of Fate Shop)", en: "Guild Honor / Guild Coin Shop / Dice Event (Dice of Fate Shop)" },
                   {
                     vi: "40,000 Điểm Vinh Dự/viên (360,000 Điểm/9 viên ở Lv.30) hoặc 6,000 Xu Vinh Quang Hội/viên (54,000 Xu/9 viên xoay tua 3 tuần S1: League ➔ Horde ➔ Nature)",
                     en: "40,000 Guild Honor/stone (360,000 Honor/9 stones at Lv.30) or 6,000 Guild Coins/stone (54,000 Coins/9 stones on 3-week S1 rotation: League ➔ Horde ➔ Nature)",
                   },
                   { vi: "~15,000 – 18,000 KC / viên", en: "~15,000 – 18,000 Diamonds / stone" },
                   {
-                    vi: "ROI Tối Thượng. Duy trì Ngưỡng Đóng Băng 40,000 Điểm Vinh Dự / 12,000–18,000 Xu Vinh Quang (6,000 Xu/viên) để thức tỉnh Soulmancer, Warlock, Pyromancer, Adjudicator, Pixie.",
+                    vi: "ROI Tối Thượng. Duy trì Ngưỡng Đóng Băng 40,000 Điểm Vinh Dự / 12,000–18,000 Xu Vinh Quang (6,000 Xu/viên) để thức tỉnh Hồn Pháp Sư (Soulmancer), Thuật Sĩ (Warlock), Hoả Pháp Sư (Pyromancer), Thẩm Phán Quan (Adjudicator), Hồ Tiên (Pixie).",
                     en: "Supreme ROI. Lock a 40,000 Guild Honor / 12,000–18,000 Guild Coins (6,000 Coins/stone) floor to awaken Soulmancer, Warlock, Pyromancer, Adjudicator, and Pixie.",
                   },
                 ],
                 [
                   { vi: "S+ (Must-Buy)", en: "S+ (Must-Buy)" },
                   { vi: "Mảnh Vũ Khí Độc Quyền Vạn Năng (Universal Exclusive Gear Shard)", en: "Universal Exclusive Gear Shard" },
-                  { vi: "Combat Valor / 4 Nations / Guild Coin / Kingdom Emblem", en: "Combat Valor / 4 Nations / Guild Coin / Kingdom Emblem" },
+                  { vi: "Tiệm Công Huân (Valor Shop / Combat Valor) / Tiệm Chiến Trường (4 Nations / Clash Shop) / Tiệm Vinh Quang Bang (Guild Coin) / Tiệm Biểu Tượng Vương Quốc (Kingdom Emblem) / Tiệm Vòng Quay (Wheel & Coin Shop)", en: "Valor Shop (Combat Valor) / Battlefield (4 Nations / Clash Shop) / Guild Coin / Kingdom Emblem / Wheel & Coin Shop" },
                   { vi: "15 – 400 Xu/mảnh (Giới hạn tuần)", en: "15 – 400 Coins/shard (Weekly cap)" },
                   { vi: "300 – 400 KC / mảnh", en: "300 – 400 Diamonds / shard" },
                   {
@@ -735,19 +735,19 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                 ],
                 [
                   { vi: "S (Core Buy)", en: "S (Core Buy)" },
-                  { vi: "Mảnh Tướng Vàng Hệ Đội 1 (x5: Soulmancer, Warlock, Pyromancer, Adjudicator, Pixie)", en: "Queue 1 Faction Legendary Hero Shards (x5: Soulmancer, Warlock, Pyromancer, Adjudicator, Pixie)" },
-                  { vi: "Arena Shop", en: "Arena Shop" },
+                  { vi: "Mảnh Tướng Vàng Hệ Đội 1 (x5: Hồn Pháp Sư / Soulmancer, Thuật Sĩ / Warlock, Hoả Pháp Sư / Pyromancer, Thẩm Phán Quan / Adjudicator, Hồ Tiên / Pixie)", en: "Queue 1 Faction Legendary Hero Shards (x5: Soulmancer, Warlock, Pyromancer, Adjudicator, Pixie)" },
+                  { vi: "Tiệm Đấu Trường (Arena Shop)", en: "Arena Shop" },
                   { vi: "300 Sao × 5 (1,500 Arena Stars)", en: "300 Stars × 5 (1,500 Arena Stars)" },
                   { vi: "1,500 Kim Cương (300 KC/mảnh)", en: "1,500 Diamonds (300 Diamonds/shard)" },
                   {
-                    vi: "ROI 100%. Giúp gom mảnh đẩy tướng lên 15 Sao (mở Exchange Shop) và tiết kiệm Mảnh Vàng Vạn Năng cho tướng Mythic.",
+                    vi: "ROI 100%. Giúp gom mảnh đẩy tướng lên 15 Sao (mở Exchange Shop) và tiết kiệm Mảnh Anh Hùng Huyền Thoại Vạn Năng cho tướng Mythic.",
                     en: "100% ROI. Accelerates 15-Star awakening / Exchange Shop unlock while saving Universal Shards for Mythics.",
                   },
                 ],
                 [
                   { vi: "S (Core Buy)", en: "S (Core Buy)" },
-                  { vi: "Mảnh Tướng Vàng Vạn Năng (Legendary Universal Hero Shard)", en: "Legendary Universal Hero Shard" },
-                  { vi: "Combat Valor / Citadel Clash / VIP Shop / Exchange Shop", en: "Combat Valor / Citadel Clash / VIP Shop / Exchange Shop" },
+                  { vi: "Mảnh Anh Hùng Huyền Thoại Vạn Năng (Universal Legendary Hero Shard)", en: "Universal Legendary Hero Shard" },
+                  { vi: "Tiệm Công Huân (Combat Valor) / Tiệm Chiến Trường (Citadel Clash) / Tiệm VIP (VIP Shop) / Tiệm Đổi Mảnh (Exchange Shop) / Tiệm Điểm Xâm Lược (Invasion Shop)", en: "Combat Valor / Citadel Clash / VIP Shop / Exchange Shop / Invasion Shop" },
                   { vi: "30 – 80 Xu/mảnh (10–20 mảnh)", en: "30 – 80 Coins/shard (10–20 shards)" },
                   { vi: "300 KC / mảnh", en: "300 Diamonds / shard" },
                   {
@@ -757,8 +757,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                 ],
                 [
                   { vi: "S (Core Buy)", en: "S (Core Buy)" },
-                  { vi: "Khiên Hòa Bình 8h / 24h (Peace Shield)", en: "8h / 24h Peace Shield" },
-                  { vi: "Guild Points Shop", en: "Guild Points Shop" },
+                  { vi: "Khiên Hòa Bình 8h / 24h & Dịch Chuyển Ngẫu Nhiên / Chỉ Định (Peace Shield & Random / Targeted Teleport)", en: "Peace Shield (8h / 24h) & Random / Targeted Teleport" },
+                  { vi: "Tiệm Bang Hội (Guild Shop / Guild Points Shop)", en: "Guild Shop (Guild Points Shop)" },
                   { vi: "400 / 800 / 2,500 Guild Points", en: "400 / 800 / 2,500 Guild Points" },
                   { vi: "100 – 1,000 Kim Cương", en: "100 – 1,000 Diamonds" },
                   {
@@ -769,7 +769,7 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                 [
                   { vi: "A (Situational)", en: "A (Situational)" },
                   { vi: "Gói 300 Kim Cương Định Mức (Standard 300 Diamonds Pack)", en: "Standard 300 Diamonds Pack" },
-                  { vi: "Arena Shop", en: "Arena Shop" },
+                  { vi: "Tiệm Đấu Trường (Arena Shop)", en: "Arena Shop" },
                   { vi: "300 Sao (1/1)", en: "300 Arena Stars (1/1)" },
                   { vi: "300 Kim Cương trực tiếp", en: "300 Diamonds direct" },
                   {
@@ -780,7 +780,7 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                 [
                   { vi: "A (Situational)", en: "A (Situational)" },
                   { vi: "Bình Thể Lực 25 (Stamina Potion 25)", en: "Stamina Potion 25" },
-                  { vi: "Guild Points Shop / VIP Shop", en: "Guild Points Shop / VIP Shop" },
+                  { vi: "Tiệm Bang Hội (Guild Shop / Guild Points Shop) / Tiệm VIP (VIP Shop)", en: "Guild Shop (Guild Points Shop) / VIP Shop" },
                   { vi: "400 Điểm × 2 (800 Guild Points)", en: "400 Points × 2 (800 Guild Points)" },
                   { vi: "200 Kim Cương + Quà săn Boss", en: "200 Diamonds + Boss/Rally drops" },
                   {
@@ -790,19 +790,19 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                 ],
                 [
                   { vi: "A (Situational)", en: "A (Situational)" },
-                  { vi: "Nguyên liệu Đồ Chúa Tể (Orichalcum / Magic Thread / Refined Metal)", en: "Lord Gear Materials (Orichalcum / Magic Thread / Refined Metal)" },
-                  { vi: "Combat Valor / Citadel Clash", en: "Combat Valor / Citadel Clash" },
+                  { vi: "Quặng Orichalcum, Máu Rồng & Tinh Chất Rồng (Orichalcum, Dragon Blood & Dragon Essence)", en: "Orichalcum, Dragon Blood & Dragon Essence (Lord Gear & Tech Materials)" },
+                  { vi: "Tiệm Công Huân (Combat Valor) / Tiệm Chiến Trường (Citadel Clash) / Tiệm Biểu Tượng Vương Quốc (Kingdom Emblem)", en: "Combat Valor / Citadel Clash / Kingdom Emblem" },
                   { vi: "5 – 25 Xu / gói", en: "5 – 25 Coins / pack" },
                   { vi: "200 – 500 Kim Cương", en: "200 – 500 Diamonds" },
                   {
-                    vi: "Mua ưu tiên các gói Orichalcum giảm giá để phá nút cổ chai Bản vẽ Chúa tể bậc Tím/Vàng/Đỏ.",
+                    vi: "Mua ưu tiên các gói Quặng Orichalcum (Orichalcum) giảm giá để phá nút cổ chai Bản vẽ Chúa tể bậc Tím/Vàng/Đỏ.",
                     en: "Prioritize discounted Orichalcum packs to break through Epic/Legendary/Mythic Lord Gear blueprint bottlenecks.",
                   },
                 ],
                 [
                   { vi: "B (Surplus Only)", en: "B (Surplus Only)" },
-                  { vi: "Tăng Tốc Xây Dựng / Nghiên Cứu 60m (60m Speed-ups)", en: "60m Construction / Research Speed-ups" },
-                  { vi: "Guild Points Shop / Medal Shop", en: "Guild Points Shop / Medal Shop" },
+                  { vi: "Vật Phẩm Tăng Tốc 60m & Ngoại Hình Quân Lính (Speed-ups & Quân Trang / Troop Skins)", en: "60m Speed-ups & First-Time Troop Skins" },
+                  { vi: "Tiệm Bang Hội (Guild Points Shop) / Tiệm Huy Chương Vinh Quang (Glory Medal / Medal Shop)", en: "Guild Points Shop / Glory Medal (Medal Shop)" },
                   { vi: "200 Điểm × 10 (2,000 Guild Points)", en: "200 Points × 10 (2,000 Guild Points)" },
                   { vi: "600 – 1,000 Kim Cương", en: "600 – 1,000 Diamonds" },
                   {
@@ -812,8 +812,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                 ],
                 [
                   { vi: "B (Surplus Only)", en: "B (Surplus Only)" },
-                  { vi: "Rương Trang Trí Tím Tự Chọn (Epic Decor Choice Chest)", en: "Epic Decoration Choice Chest" },
-                  { vi: "Arena Shop", en: "Arena Shop" },
+                  { vi: "Rương Trang Trí Huyền Thoại / Sử Thi Tự Chọn (Legendary / Epic Decoration Choice Chest)", en: "Legendary / Epic Decoration Choice Chest" },
+                  { vi: "Tiệm Đấu Trường (Arena Shop) / Tiệm Xu Trang Trí (Decoration Token Shop)", en: "Arena Shop / Decoration Token Shop" },
                   { vi: "2,500 Sao (3/3)", en: "2,500 Arena Stars (3/3)" },
                   { vi: "~1,000 Kim Cương", en: "~1,000 Diamonds" },
                   {
@@ -823,8 +823,8 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                 ],
                 [
                   { vi: "F (Trap - Cấm)", en: "F (Trap - Never Buy)" },
-                  { vi: "Trang Phục Tướng (Hero Guardian Skin)", en: "Hero Guardian Skin (Secret Keeper)" },
-                  { vi: "Arena Shop", en: "Arena Shop" },
+                  { vi: "Trang Phục Bảo Vệ Tướng 12,000 Sao (Hero Guardian Skin — VD: Secret Keeper)", en: "Hero Guardian Skin (12,000 Arena Stars — e.g. Secret Keeper)" },
+                  { vi: "Tiệm Đấu Trường (Arena Shop)", en: "Arena Shop" },
                   { vi: "12,000 Sao (1/1)", en: "12,000 Arena Stars (1/1)" },
                   { vi: "Hiệu quả chiến đấu < 500 KC", en: "Combat value < 500 Diamonds" },
                   {
@@ -835,7 +835,7 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                 [
                   { vi: "F (Trap - Cấm)", en: "F (Trap - Never Buy)" },
                   { vi: "Lệnh Chiêu Mộ Giá Gốc (300 Sao) & Mảnh Tướng Tím / Mảnh Lẻ Đắt Đỏ (800 Sao)", en: "Full-Price Recruitment Token (300 Stars) & Epic / Overpriced 800-Star Shards" },
-                  { vi: "Arena Shop", en: "Arena Shop" },
+                  { vi: "Tiệm Đấu Trường (Arena Shop) / Tiệm VIP (VIP Shop)", en: "Arena Shop / VIP Shop" },
                   { vi: "300 Sao/vé | 75–800 Sao/mảnh", en: "300 Stars/token | 75–800 Stars/shard" },
                   { vi: "150 Kim Cương (Lỗ 50%–83%)", en: "150 Diamonds (50%–83% ROI loss)" },
                   {
@@ -845,12 +845,12 @@ export const ARTICLE_7_1_SHOPS_TIER_LIST: GuideArticle = {
                 ],
                 [
                   { vi: "F (Trap - Cấm)", en: "F (Trap - Never Buy)" },
-                  { vi: "Rương Thịt / Gỗ / Đá / Ruby / Đá Cường Hóa Lẻ Giá Gốc", en: "Raw Meat / Wood / Stone / Rubies / Un-discounted Enhancement Stones" },
+                  { vi: "Rương Thịt / Gỗ / Đá / Hồng Ngọc (Ruby) & Đá Cường Hóa Lẻ Giá Gốc", en: "Raw Meat / Wood / Stone / Rubies & Un-discounted Enhancement Stones" },
                   { vi: "Mọi Cửa Hàng (Arena Shop / Guild Points / Battlefield)", en: "All Shops (Arena Shop / Guild Points / Battlefield)" },
                   { vi: "40 – 300 Xu / Điểm", en: "40 – 300 Coins / Points" },
                   { vi: "0 KC (Cày miễn phí trên bản đồ)", en: "0 Diamonds (Farmable for free on world map)" },
                   {
-                    vi: "Tự đốt tiền tệ chiến thuật vào tài nguyên hạ cấp thay vì gom Orichalcum và Mảnh Vũ Khí Độc Quyền.",
+                    vi: "Tự đốt tiền tệ chiến thuật vào tài nguyên hạ cấp thay vì gom Quặng Orichalcum (Orichalcum) và Mảnh Vũ Khí Độc Quyền.",
                     en: "Burns scarce strategic currencies on farmable resources instead of Orichalcum and Exclusive Gear Shards.",
                   },
                 ],

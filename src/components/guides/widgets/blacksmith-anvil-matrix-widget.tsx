@@ -97,20 +97,20 @@ const ANVIL_ROWS: AnvilRowMeta[] = [
     id: "knights_glory",
     rowLabel: { vi: "Hàng Trên (Row 1)", en: "Top Row (Row 1)" },
     setName: {
-      vi: "⚔️ Bộ Kỵ Sĩ Vinh Quang / Cuồng Chiến (Knight's Glory / Berserker's Wrath)",
-      en: "⚔️ Knight's Glory / Berserker's Wrath (Fury of the Champion)",
+      vi: "⚔️ Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ (Kỵ Sĩ Vinh Quang / Cuồng Chiến — Duelist's Set ➔ Fury of Blood / Knight's Glory)",
+      en: "⚔️ Duelist's Set ➔ Fury of Blood (Knight's Glory / Berserker's Wrath)",
     },
     twoPieceBonus: {
-      vi: "Bộ 2: +80% Gear ATK",
+      vi: "Bộ 2: +80% ATK Trang Bị (+80% Gear ATK)",
       en: "2-Pc: +80% Gear ATK",
     },
     fourPieceBonus: {
-      vi: "Bộ 4: Crit Rate, Crit Dmg & +6% Damage Increase",
+      vi: "Bộ 4: Crit Rate, Crit Dmg & +6% Tăng Sát Thương Tổng (+6% Damage Increase)",
       en: "4-Pc: Crit Rate, Crit Dmg & +6% Damage Increase",
     },
     archetype: {
-      vi: "Burst DPS & Hyper-Carry (Wukong, Storm Maiden, Paragon, Tidecaller)",
-      en: "Burst DPS & Hyper-Carry (Wukong, Storm Maiden, Paragon, Tidecaller)",
+      vi: "Chủ lực Sát thương (Burst DPS & Hyper-Carry): Tôn Ngộ Không / Ngộ Không (Wukong), Trinh Nữ Bão Tố (Storm Maiden), Đấng Toàn Năng (Paragon), Triệu Hồi Thủy (Tidecaller), Hoả Pháp Sư (Pyromancer)",
+      en: "Burst DPS & Hyper-Carry (Wukong, Storm Maiden, Paragon, Tidecaller, Pyromancer)",
     },
     linkedRole: "carry",
   },
@@ -118,20 +118,20 @@ const ANVIL_ROWS: AnvilRowMeta[] = [
     id: "titan_blood",
     rowLabel: { vi: "Hàng Giữa (Row 2)", en: "Middle Row (Row 2)" },
     setName: {
-      vi: "🩸 Bộ Huyết Titan / Nộ Huyết (Blood of the Titan / Fury of Blood)",
-      en: "🩸 Blood of the Titan / Fury of Blood",
+      vi: "🩸 Bộ Kỵ Sĩ ➔ Bộ Đồ Titan (Huyết Titan / Nộ Huyết — Knight Set ➔ Titan's Might / Blood of the Titan)",
+      en: "🩸 Knight Set ➔ Titan's Might (Blood of the Titan)",
     },
     twoPieceBonus: {
-      vi: "Bộ 2: +160% Gear HP & DEF",
+      vi: "Bộ 2: +160% HP Trang Bị (+160% Gear HP & DEF)",
       en: "2-Pc: +160% Gear HP & DEF",
     },
     fourPieceBonus: {
-      vi: "Bộ 4: +6% Giảm Sát Thương Nhận Vào (Damage Reduction)",
+      vi: "Bộ 4: +6% Giảm Sát Thương Nhận Vào (+6% Damage Reduction)",
       en: "4-Pc: +6% Incoming Damage Reduction",
     },
     archetype: {
-      vi: "Main Tank & Khiên % Max HP (Beastmaster, Rose Princess, Desert Prince, Monk)",
-      en: "Main Tank & % Max HP Shielders (Beastmaster, Rose Princess, Desert Prince, Monk)",
+      vi: "Đỡ đòn chính & Khiên % Max HP: Bậc Thầy Thú / Thú Tướng (Beastmaster), Công Chúa Hoa Hồng (Rose Princess), Hoàng Tử Sa Mạc (Desert Prince), Thánh Tăng (Monk), Thẩm Phán Quan (Adjudicator), Hồn Pháp Sư (Soulmancer)",
+      en: "Main Tank & % Max HP Shielders (Beastmaster, Rose Princess, Desert Prince, Monk, Adjudicator, Soulmancer)",
     },
     linkedRole: "tank",
   },
@@ -139,20 +139,20 @@ const ANVIL_ROWS: AnvilRowMeta[] = [
     id: "sage_glory",
     rowLabel: { vi: "Hàng Dưới (Row 3)", en: "Bottom Row (Row 3)" },
     setName: {
-      vi: "⚡ Bộ Hiền Triết Quang Vinh (Glory of the Sage / Glory of the Knight)",
-      en: "⚡ Glory of the Sage / Glory of the Knight",
+      vi: "⚡ Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang (Hiền Triết Quang Vinh — Sage Set ➔ Glorious Light / Glory of the Sage)",
+      en: "⚡ Sage Set ➔ Glorious Light (Glory of the Sage / Glory of the Knight)",
     },
     twoPieceBonus: {
-      vi: "Bộ 2: +40% Gear ATK & +80% Gear HP",
+      vi: "Bộ 2: +40% ATK & +80% HP Trang Bị (+40% Gear ATK & +80% Gear HP)",
       en: "2-Pc: +40% Gear ATK & +80% Gear HP",
     },
     fourPieceBonus: {
-      vi: "Bộ 4: Kháng Bạo Kích, Xoay Chiêu & +8% Skill Damage Amplify",
+      vi: "Bộ 4: Kháng Bạo Kích, Xoay Chiêu & +8% Khuếch Đại Kỹ Năng (+8% Skill Damage Amplify)",
       en: "4-Pc: Crit Res, Cooldown Cycling & +8% Skill Damage Amplify",
     },
     archetype: {
-      vi: "Support / Healer / Control & Hybrid Bruiser (Witch, Bishop, Nun, Forest Maiden)",
-      en: "Support / Healer / Control & Hybrid Bruiser (Witch, Bishop, Nun, Forest Maiden)",
+      vi: "Hỗ trợ, Hồi máu, Khống chế & Đấu sĩ kỹ năng: Vu Nữ / Phù Thủy (Witch), Thuật Sĩ (Warlock), Giám Mục (Bishop), Bậc Thầy Cơ Khí (Artificer), Tu Nữ (Nun), Thiếu Nữ Rừng Xanh (Forest Maiden), Hoa Tiên (Petalis), Na Tra (Ne Zha)",
+      en: "Support / Healer / Control & Hybrid Bruiser (Witch, Warlock, Bishop, Artificer, Nun, Forest Maiden, Petalis, Ne Zha)",
     },
     linkedRole: "support",
   },
@@ -544,8 +544,8 @@ export function BlacksmithAnvilMatrixWidget({
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder={
                 locale === "vi"
-                  ? "Tìm tướng (VD: Wukong, Beastmaster)..."
-                  : "Search hero (e.g., Wukong, Beastmaster)..."
+                  ? "Tìm nhanh trong 24 tướng (VD: Ngộ Không, Wukong, Bậc Thầy Thú, Beastmaster, Bộ Kỵ Sĩ, Huyết Titan, Bộ Đồ Quyết Đấu)..."
+                  : "Search across 24 heroes (e.g., Wukong, Beastmaster, Tidecaller, Paragon, Knight Set, Blood of the Titan, Duelist's Set)..."
               }
               className="min-h-11 w-full rounded-xl border border-border/80 dark:border-white/15 bg-background/85 dark:bg-black/40 pl-9 pr-3 text-xs text-foreground dark:text-white placeholder:text-muted-foreground focus:border-amber-400 focus:outline-none"
             />

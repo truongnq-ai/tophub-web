@@ -818,15 +818,15 @@ export const ARTICLE_2_3_FORMATION_COUNTERS: GuideArticle = {
               ordered: true,
               items: [
                 {
-                  vi: "**5 Bộ Lạc + 1 Thuật Sĩ Thủy Triều / Tidecaller (hoặc Công Chúa Rose / Rose Princess):** Cuối `S0` – đầu `S1` khi chưa có Thú Tướng (`Beastmaster`) / Tôn Ngộ Không (`Wukong`), kẹp **Thuật Sĩ Thủy Triều (`Tidecaller`)** (`1★ Trắng` = `560 Mảnh` + `Đinh Ba Thần / Divine Trident`) giúp giải quyết triệt để điểm yếu thiếu khiên và hồi phục.",
-                  en: "**5 Horde + 1 Tidecaller (or Rose Princess):** In late `S0` – early `S1` before `Beastmaster`/`Wukong`, flexing **Tidecaller** (`1★ White` = `560 Shards` + `Divine Trident UW`) solves Horde's lack of frontline shields and sustain.",
+                  vi: "**5 Bộ Lạc + 1 Thuật Sĩ Thủy Triều (`Tidecaller` / `Rose Princess`):** Cuối `S0`–`S1` trước khi có `Beastmaster`/`Wukong`, kẹp `Tidecaller` (`1★ Trắng` = `560 Mảnh` + `Divine Trident`) bù khiên và hồi máu.",
+                  en: "**5 Horde + 1 Tidecaller (or Rose Princess):** In late `S0`–`S1` before `Beastmaster`/`Wukong`, flexing **Tidecaller** (`1★ White` = `560 Shards` + `Divine Trident UW`) solves frontline shields and sustain.",
                 },
                 {
-                  vi: "**5 Liên Minh + 1 Tôn Ngộ Không / Wukong (hoặc Phù Thủy / Witch, Hoàng Tử Sa Mạc / Desert Prince):** Khi gặp Liên Minh có Nữ Tu (`Nun`) + Công Chúa Rose (`Rose Princess`) quá trâu, kẹp **Tôn Ngộ Không (`Wukong`)** giúp ám sát hàng sau, hoặc kẹp **Phù Thủy (`Witch`)** khi chưa đủ `9 Đá Linh Hồn (Hồn Đá Đỏ / Soul Stone)` thức tỉnh `Nun`.",
-                  en: "**5 League + 1 Wukong (or Witch / Desert Prince):** Against mirror League teams with tanky `Nun` + `Rose Princess`, flex **Wukong** to dive the backline, or flex **Witch** before saving `9 Soul Stones (Red Soul Stones)` for `Nun`.",
+                  vi: "**5 Liên Minh + 1 Tôn Ngộ Không (`Wukong` / `Witch` / `Desert Prince`):** Trước `Nun` + `Rose Princess`, kẹp `Wukong` ám sát hàng sau hoặc `Witch` khi chưa đủ `9 Đá Linh Hồn (Hồn Đá Đỏ / Soul Stone)`.",
+                  en: "**5 League + 1 Wukong (or Witch / Desert Prince):** Against mirror League with `Nun` + `Rose Princess`, flex **Wukong** to dive backlines or **Witch** before saving `9 Soul Stones (Red Soul Stones)`.",
                 },
                 {
-                  vi: "**5 Thiên Nhiên + 1 Giám Mục / Bishop (hoặc Nữ Thần Bão Tố / Storm Maiden):** Giúp đội hình **Thiên Nhiên** ở giai đoạn đầu `S1` bổ sung lượng `Burst Damage` + `AoE` kết liễu (`Finisher Damage`) khi **Na Tra (`Ne Zha`)** chưa đủ cấp sao.",
+                  vi: "**5 Thiên Nhiên + 1 Giám Mục (`Bishop` / `Storm Maiden`):** Giúp đội hình **Thiên Nhiên** đầu `S1` bổ sung `Burst Damage` + `AoE` kết liễu (`Finisher Damage`) khi **Na Tra (`Ne Zha`)** còn ít sao.",
                   en: "**5 Nature + 1 Bishop / Storm Maiden:** Supplements early `S1` **Nature** lineups with high `Burst Damage` + `AoE` finisher power (`Finisher Damage`) while **Ne Zha** is still at low star levels.",
                 },
               ],

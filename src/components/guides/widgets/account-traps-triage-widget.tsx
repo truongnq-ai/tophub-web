@@ -44,10 +44,53 @@ const TRAP_ICON_ASSET_ID_BY_NUMBER: Record<number, string> = {
 };
 
 const TRAP_GROUP_ICON_ASSET_ID: Partial<Record<TrapSystemGroup, string>> = {
-  heroes_skills: "item-universal-shard",
-  shops_events: "item-soul-stone",
-  gear_runes: "gear-set-knights-glory",
-  infra_tech: "system-research-cottage",
+  heroes_skills: "item-skill-book",
+  shops_events: "item-guild-honor",
+  gear_runes: "building-blacksmith",
+  infra_tech: "building-castle",
+};
+
+const TRAP_ENTITY_FOCUS_BY_NUMBER: Record<number, { vi: string; en: string }> = {
+  1: {
+    vi: "Mảnh Anh Hùng Huyền Thoại Vạn Năng (Mảnh Vàng Vạn Năng) vs Tướng Quán Rượu",
+    en: "Universal Legendary Hero Shard vs Tavern Heroes",
+  },
+  2: {
+    vi: "Đá Linh Hồn (9 Hồn Đá Đỏ), Điểm Vinh Dự Bang & Xu Vinh Quang Hội",
+    en: "Soul Stone (Red Soul Stone), Guild Honor & Guild Glory Coins",
+  },
+  3: {
+    vi: "Bộ Đồ Quyết Đấu / Bộ Kỵ Sĩ / Bộ Hiền Giả (+30% Dấu Ấn Phe Phái)",
+    en: "Duelist's Set / Knight Set / Sage Set (+30% Faction Mark)",
+  },
+  4: {
+    vi: "Đua Vũ Trang Bang Hội (GAR), Thi Đấu Hội, Đức Vua Tối Cao (KvK) & Hộp Quà Công Trình Chưa Mở",
+    en: "Guild Arms Race (GAR), Guild Race, Supreme King (KvK) & Unopened Building Gift Box",
+  },
+  5: {
+    vi: "Võ Sĩ (Brawler), Kỵ Sĩ (Knight), Cung Thủ (Ranger) & Nhà Thơ (Bard)",
+    en: "Brawler, Knight, Ranger & Bard (Economy Passives)",
+  },
+  6: {
+    vi: "Viện Nghiên Cứu: Chuẩn Bị Đua Vũ Trang (Arms Race Prep) vs Quân Đội (Soldiers)",
+    en: "Research Cottage: Arms Race Prep vs Soldiers",
+  },
+  7: {
+    vi: "Cổ Ngữ / Phù Văn (Runes Bậc I–V) & Rương Cổ Ngữ Vàng Tự Chọn",
+    en: "Runes (Tiers I–V) & Legendary Choice Rune Chest",
+  },
+  8: {
+    vi: "Lâu Đài (Castle) & Viện Tinh Hoa / Học Viện Rực Rỡ (Brilliance Institute)",
+    en: "Castle & Brilliance Institute",
+  },
+  9: {
+    vi: "Rương Vũ Khí Độc Quyền (Ngộ Không, Đấng Toàn Năng, Triệu Hồi Thủy, Trinh Nữ Bão Tố)",
+    en: "Exclusive Weapon Chest (Wukong, Paragon, Tidecaller, Storm Maiden)",
+  },
+  10: {
+    vi: "Thăng Cấp Lính Bậc Thang (Staircase Troop Promotion T5–T11)",
+    en: "Staircase Troop Promotion (T5–T11)",
+  },
 };
 
 export type TrapSystemGroup =
@@ -126,7 +169,7 @@ const LABELS: Record<
     subtitle:
       "Lọc theo 4 Nhóm Hệ thống hoặc bấm vào lỗi bạn đang mắc phải để mở phác đồ cắt lỗ & thời gian phục hồi tức thì",
     searchPlaceholder:
-      "Tìm cạm bẫy (VD: Mảnh Vạn Năng, Hồn Đá Đỏ, Brawler, Staircase, Dấu Hệ...)",
+      "Tìm cạm bẫy (VD: Mảnh Anh Hùng Huyền Thoại Vạn Năng, Đá Linh Hồn, Bộ Đồ Quyết Đấu, Võ Sĩ / Brawler, Viện Tinh Hoa...)",
     clearSearch: "Xóa tìm kiếm",
     groups: {
       all: "Tất cả (10 Bẫy)",
@@ -162,7 +205,7 @@ const LABELS: Record<
     subtitle:
       "Filter by 4 System Groups or click any trap you committed to reveal its immediate stop-loss protocol & recovery timeline",
     searchPlaceholder:
-      "Search traps (e.g., Universal Shards, Soul Stones, Brawler, Staircase, Faction Mark...)",
+      "Search traps (e.g., Universal Legendary Hero Shard, Soul Stone, Duelist's Set, Brawler, Brilliance Institute...)",
     clearSearch: "Clear search",
     groups: {
       all: "All (10 Traps)",
@@ -349,8 +392,23 @@ export function AccountTrapsTriageWidget({
         return false;
       }
       if (!normalizedQuery) return true;
+      const assetId = TRAP_ICON_ASSET_ID_BY_NUMBER[trap.trapNumber];
+      const trapAsset = assetId ? getAssetById(assetId) : undefined;
+      const assetHaystack = trapAsset
+        ? [
+            trapAsset.inGameNameVi,
+            trapAsset.inGameNameEn,
+            trapAsset.nameVi,
+            trapAsset.nameEn,
+            ...(trapAsset.aliases ?? []),
+          ]
+            .filter(Boolean)
+            .join(" ")
+        : "";
       const haystack = [
         trap.title,
+        TRAP_ENTITY_FOCUS_BY_NUMBER[trap.trapNumber]?.[locale] ?? "",
+        assetHaystack,
         ...trap.symptoms,
         trap.whyItRuins,
         trap.metaRuleContent,
@@ -361,7 +419,7 @@ export function AccountTrapsTriageWidget({
         .toLowerCase();
       return haystack.includes(normalizedQuery);
     });
-  }, [traps, groupFilter, normalizedQuery]);
+  }, [traps, groupFilter, normalizedQuery, locale]);
 
   const toggleTrap = (trapNum: number) => {
     setExpandedTraps((prev) => {
@@ -586,11 +644,17 @@ export function AccountTrapsTriageWidget({
                       );
                     })()}
                     <h4 className="font-heading font-bold text-sm sm:text-base text-foreground leading-snug flex-1">
-                    <RichGuideText
-                      text={trap.title}
-                      variant="inline"
-                      accentColor="rose"
-                    />
+                      <RichGuideText
+                        text={trap.title}
+                        variant="inline"
+                        accentColor="rose"
+                        locale={locale}
+                      />
+                      {TRAP_ENTITY_FOCUS_BY_NUMBER[trap.trapNumber]?.[locale] && (
+                        <span className="mt-1.5 block text-[11px] font-mono font-semibold text-muted-foreground">
+                          🎯 {TRAP_ENTITY_FOCUS_BY_NUMBER[trap.trapNumber][locale]}
+                        </span>
+                      )}
                     </h4>
                   </div>
 
@@ -604,6 +668,7 @@ export function AccountTrapsTriageWidget({
                         key={sIdx}
                         text={symp}
                         accentColor="rose"
+                        locale={locale}
                         className="text-xs sm:text-sm text-foreground/90 leading-relaxed"
                       />
                     ))}
@@ -652,6 +717,7 @@ export function AccountTrapsTriageWidget({
                         <RichGuideText
                           text={trap.whyItRuins}
                           accentColor="amber"
+                          locale={locale}
                           className="text-xs sm:text-sm text-foreground/90 leading-relaxed"
                         />
                       </div>
@@ -665,6 +731,7 @@ export function AccountTrapsTriageWidget({
                           <RichGuideText
                             text={trap.metaRuleContent}
                             accentColor="emerald"
+                            locale={locale}
                             className="text-xs sm:text-sm font-medium text-foreground leading-relaxed"
                           />
                         </div>
@@ -685,6 +752,7 @@ export function AccountTrapsTriageWidget({
                           <RichGuideText
                             text={trap.stopLossAction}
                             accentColor="amber"
+                            locale={locale}
                             className="text-xs sm:text-sm text-foreground/95 leading-relaxed"
                           />
 
@@ -699,6 +767,7 @@ export function AccountTrapsTriageWidget({
                                   text={trap.recoveryTime}
                                   variant="inline"
                                   accentColor="amber"
+                                  locale={locale}
                                 />
                               </p>
                             </div>
@@ -713,6 +782,7 @@ export function AccountTrapsTriageWidget({
                                   text={trap.rerollThreshold}
                                   variant="inline"
                                   accentColor="rose"
+                                  locale={locale}
                                 />
                               </p>
                             </div>

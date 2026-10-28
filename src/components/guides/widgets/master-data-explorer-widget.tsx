@@ -3,6 +3,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import {
   Database,
+  ExternalLink,
   Search,
   X,
   Crown,
@@ -70,7 +71,7 @@ const LABELS: Record<
     subtitle:
       "Chuyển đổi tức thì giữa 12 bảng định lượng chuẩn S0 ➔ S4 hoặc gõ từ khóa để quét xuyên toàn bộ cơ sở dữ liệu",
     globalSearchPlaceholder:
-      "Tìm xuyên 12 bảng (VD: 780,000, VIP 8, Lv.8, 327,660, 1,181.162M, 9 Hồn Đá...)",
+      "Tìm xuyên 12 bảng (VD: 780,000, VIP 8, Lv.8, 327,660, 1,181.162M, 9 Đá Linh Hồn / Soul Stone...)",
     groups: {
       all: "Tất cả (12 Bảng)",
       free: "🌱 5 Bảng Sinh Tồn & Cạm Bẫy (Free)",
@@ -85,7 +86,7 @@ const LABELS: Record<
     clearSearchBtn: "Xóa tìm kiếm",
     proLockedTitle: "Bảng Cơ Sở Dữ Liệu Định Lượng PRO (Tables 4.1 ➔ 4.7)",
     proLockedDesc:
-      "Mở khóa toàn bộ 7 Bảng Định Lượng PRO (Cấp Phe Phái Lv.1–80, Đồ Đỏ & UW, Đồ Chúa Tể, Cổ Ngữ Lv.1–12, Thú Cưng Lv.1–120, Quân Trang Lv.1–50 & VIP 1–20).",
+      "Mở khóa toàn bộ 7 Bảng Định Lượng PRO: Cấp Phe Phái (Faction Level) Lv.1–80, Trang Bị Thần Thoại (Mythic Gear) & Vũ Khí Độc Quyền (UW), Trang Bị Chúa Tể (Lord Gear), Cổ Ngữ / Phù Văn (Runes) Lv.1–12, Thú Cưng (Pets) Lv.1–120, Ngoại Hình Quân Lính (Quân Trang / Troop Skins) Lv.1–50 & VIP 1–20.",
     proUpgradeBtn: "Nâng Cấp PRO Ngay",
     proCheckUidBtn: "Liên Kết UID Tại Trang Chủ",
   },
@@ -109,7 +110,7 @@ const LABELS: Record<
     clearSearchBtn: "Clear search",
     proLockedTitle: "PRO Master Quantitative Dataset (Tables 4.1 ➔ 4.7)",
     proLockedDesc:
-      "Unlock all 7 PRO Master Quantitative Datasets (Faction Levels 1–80, Mythic Gear & UW, Lord Gear, Runes Lv.1–12, Pets Lv.1–120, Troop Skins Lv.1–50 & VIP 1–20).",
+      "Unlock all 7 PRO Master Quantitative Datasets (Faction Levels 1–80, Mythic Gear & Exclusive Weapons (UW), Lord Gear, Runes Lv.1–12, Pets Lv.1–120, Troop Skins Lv.1–50 & VIP 1–20).",
     proUpgradeBtn: "Upgrade to PRO Now",
     proCheckUidBtn: "Link UID on Home Page",
   },
@@ -130,79 +131,133 @@ const MASTER_TABLE_ICON_BY_CODE: Record<string, string> = {
   "4.7": "item-vip-points",
 };
 
+const MASTER_TABLE_CODEX_LINK_BY_CODE: Record<
+  string,
+  { href: string; label: Record<GuideLocale, string> }
+> = {
+  "1.1": {
+    href: "/guides/codex?zone=combat&cat=heroes&sub=hero-units",
+    label: { vi: "Mở Codex: Anh Hùng", en: "Codex: Heroes" },
+  },
+  "1.2": {
+    href: "/guides/codex?zone=combat&cat=heroes&sub=hero-units&extra=awakenable",
+    label: { vi: "Mở Codex: Thức Tỉnh Đỏ", en: "Codex: Red Awakening" },
+  },
+  "1.3": {
+    href: "/guides/codex?zone=gear&cat=equipment&sub=hero-gear",
+    label: { vi: "Mở Codex: Trang Bị Tướng", en: "Codex: Hero Gear" },
+  },
+  "1.4": {
+    href: "/guides/codex?zone=combat&cat=troops&sub=troop-units",
+    label: { vi: "Mở Codex: Binh Chủng", en: "Codex: Troop Units" },
+  },
+  "3.1": {
+    href: "/guides/codex?zone=economy&cat=buildings-decor&sub=city-buildings",
+    label: { vi: "Mở Codex: Công Trình", en: "Codex: City Buildings" },
+  },
+  "4.1": {
+    href: "/guides/codex?zone=combat&cat=skills-tech&sub=research-tech",
+    label: { vi: "Mở Codex: Khoa Kỹ & Phe Phái", en: "Codex: Research Tech" },
+  },
+  "4.2": {
+    href: "/guides/codex?zone=gear&cat=equipment&sub=exclusive-weapons",
+    label: { vi: "Mở Codex: Vũ Khí Độc Quyền", en: "Codex: Exclusive Weapons" },
+  },
+  "4.3": {
+    href: "/guides/codex?zone=gear&cat=equipment&sub=lord-gear",
+    label: { vi: "Mở Codex: Đồ Chúa Tể", en: "Codex: Lord Gear" },
+  },
+  "4.4": {
+    href: "/guides/codex?zone=gear&cat=equipment&sub=runes",
+    label: { vi: "Mở Codex: Cổ Ngữ (Runes)", en: "Codex: Runes" },
+  },
+  "4.5": {
+    href: "/guides/codex?zone=gear&cat=pets-behemoths&sub=companion-pets",
+    label: { vi: "Mở Codex: Thú Cưng (Pets)", en: "Codex: Companion Pets" },
+  },
+  "4.6": {
+    href: "/guides/codex?zone=combat&cat=troops&sub=troop-skins",
+    label: { vi: "Mở Codex: Quân Trang", en: "Codex: Troop Skins" },
+  },
+  "4.7": {
+    href: "/guides/codex?zone=economy&cat=shop-vip&sub=vip-perks",
+    label: { vi: "Mở Codex: Đặc Quyền VIP", en: "Codex: VIP Perks" },
+  },
+};
+
 const SHORT_NAMES: Record<
   string,
   { code: string; vi: string; en: string; group: Exclude<MasterTableGroup, "all"> }
 > = {
   "sub-1-1-hero-star-and-skill-books-table": {
     code: "1.1",
-    vi: "1.1 Sao Tướng & Sách",
-    en: "1.1 Hero Stars & Books",
+    vi: "1.1 Sao Tướng & Sách (Shards & Books)",
+    en: "1.1 Hero Stars & Skill Books",
     group: "free",
   },
   "sub-1-2-hero-awakening-cost-table": {
     code: "1.2",
-    vi: "1.2 Thức Tỉnh (9 Đá)",
-    en: "1.2 Awakening (9 Stones)",
+    vi: "1.2 Thức Tỉnh (9 Soul Stones)",
+    en: "1.2 Awakening (9 Soul Stones)",
     group: "free",
   },
   "sub-1-3-gear-enhancement-master-table": {
     code: "1.3",
-    vi: "1.3 Cường Hóa +40",
-    en: "1.3 Enhancement +40",
+    vi: "1.3 Cường Hóa +40 (Enhancement)",
+    en: "1.3 Enhancement Master +40",
     group: "free",
   },
   "sub-1-4-troop-tiers-unlock-table": {
     code: "1.4",
-    vi: "1.4 Bậc Lính T5–T11",
+    vi: "1.4 Bậc Lính T5–T11 (Troop Tiers)",
     en: "1.4 Troop Tiers T5–T11",
     group: "free",
   },
   "sec-3-master-tables-common-pitfalls": {
     code: "3.1",
-    vi: "3.1 Cạm Bẫy Tra Bảng",
+    vi: "3.1 Cạm Bẫy Tra Bảng (Pitfalls)",
     en: "3.1 Budgeting Pitfalls",
     group: "free",
   },
   "sub-4-1-faction-level-table": {
     code: "4.1",
-    vi: "4.1 Cấp Phe Phái 1–80",
-    en: "4.1 Faction Lv.1–80",
+    vi: "4.1 Cấp Phe Phái (Faction Lv.1–80)",
+    en: "4.1 Faction Level 1–80",
     group: "pro_core",
   },
   "sub-4-2-mythic-gear-and-uw-table": {
     code: "4.2",
-    vi: "4.2 Đồ Đỏ & UW Lv.20",
-    en: "4.2 Mythic Gear & UW",
+    vi: "4.2 Đồ Đỏ & VKĐQ (Mythic & UW)",
+    en: "4.2 Mythic Gear & UW Lv.20",
     group: "pro_core",
   },
   "sub-4-3-lord-gear-master-table": {
     code: "4.3",
-    vi: "4.3 Đồ Chúa Tể",
+    vi: "4.3 Đồ Chúa Tể (Lord Gear)",
     en: "4.3 Lord Gear",
     group: "pro_core",
   },
   "sub-4-4-runes-master-table": {
     code: "4.4",
-    vi: "4.4 Cổ Ngữ Lv.1–12",
+    vi: "4.4 Cổ Ngữ / Phù Văn (Runes 1–12)",
     en: "4.4 Runes Lv.1–12",
     group: "pro_core",
   },
   "sub-4-5-pets-master-table": {
     code: "4.5",
-    vi: "4.5 Thú Cưng Lv.1–120",
+    vi: "4.5 Thú Cưng (Pets Lv.1–120)",
     en: "4.5 Pets Lv.1–120",
     group: "pro_endgame",
   },
   "sub-4-6-troop-skins-master-table": {
     code: "4.6",
-    vi: "4.6 Quân Trang Lv.1–50",
+    vi: "4.6 Quân Trang (Troop Skins 1–50)",
     en: "4.6 Troop Skins Lv.1–50",
     group: "pro_endgame",
   },
   "sub-4-7-vip-master-table": {
     code: "4.7",
-    vi: "4.7 VIP 1–20 ($)",
+    vi: "4.7 Đặc Quyền VIP 1–20 ($)",
     en: "4.7 VIP 1–20 ($)",
     group: "pro_endgame",
   },
@@ -217,6 +272,23 @@ const ALIAS_TARGET_MAP: Record<string, string> = {
   "sub-4-7-vip-level-master-table": "sub-4-7-vip-master-table",
   "sec-4-seven-master-quantitative-tables": "sub-4-1-faction-level-table",
 };
+
+function normalizeSearchToken(value: string): string {
+  return value
+    .replace(/[*`]/g, "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/đ/g, "d")
+    .replace(/Đ/g, "d")
+    .toLowerCase();
+}
+
+function matchesSearchText(text: string | undefined, rawQuery: string, foldedQuery: string): boolean {
+  if (!text) return false;
+  const cleaned = text.replace(/[*`]/g, "").toLowerCase();
+  if (cleaned.includes(rawQuery)) return true;
+  return normalizeSearchToken(text).includes(foldedQuery);
+}
 
 export function extractMasterTablesFromArticle84(
   sourceArticle: GuideArticle,
@@ -405,7 +477,16 @@ export function MasterDataExplorerWidget({
       )
     : undefined;
 
+  const activeCodexLink = selectedTable
+    ? (MASTER_TABLE_CODEX_LINK_BY_CODE[selectedTable.shortCode] ??
+      MASTER_TABLE_CODEX_LINK_BY_CODE["1.1"])
+    : undefined;
+
   const normalizedQuery = globalSearch.trim().toLowerCase();
+  const foldedQuery = useMemo(
+    () => normalizeSearchToken(globalSearch.trim()),
+    [globalSearch]
+  );
 
   // Cross-Table Instant Search Results (< 20ms)
   const crossTableSearchResults = useMemo(() => {
@@ -418,13 +499,18 @@ export function MasterDataExplorerWidget({
     for (const tbl of allTables) {
       if (tbl.isPro && !hasProAccess) continue;
       const matchingRows = tbl.rows.filter((row) =>
-        row.some((cell) =>
-          cell.replace(/[*`]/g, "").toLowerCase().includes(normalizedQuery)
-        )
+        row.some((cell) => matchesSearchText(cell, normalizedQuery, foldedQuery))
       );
-      const introMatch = tbl.introParagraphs.some((p) =>
-        p.replace(/[*`]/g, "").toLowerCase().includes(normalizedQuery)
-      );
+      const introMatch =
+        tbl.introParagraphs.some((p) =>
+          matchesSearchText(p, normalizedQuery, foldedQuery)
+        ) ||
+        matchesSearchText(tbl.fullTitle, normalizedQuery, foldedQuery) ||
+        matchesSearchText(tbl.shortTitle, normalizedQuery, foldedQuery) ||
+        matchesSearchText(tbl.caption, normalizedQuery, foldedQuery) ||
+        tbl.headers.some((h) =>
+          matchesSearchText(h, normalizedQuery, foldedQuery)
+        );
       if (matchingRows.length > 0 || introMatch) {
         results.push({
           table: tbl,
@@ -434,7 +520,7 @@ export function MasterDataExplorerWidget({
       }
     }
     return results;
-  }, [allTables, normalizedQuery, hasProAccess]);
+  }, [allTables, normalizedQuery, foldedQuery, hasProAccess]);
 
   const totalMatchingRows = useMemo(
     () =>
@@ -615,34 +701,54 @@ export function MasterDataExplorerWidget({
             </div>
           ) : (
             <div className="space-y-5">
-              {crossTableSearchResults.map(({ table, matchingRows }) => (
-                <div
-                  key={table.id}
-                  className="rounded-xl border border-border/70 bg-background/70 p-4 space-y-3"
-                >
-                  <div className="flex items-center justify-between gap-2">
-                    <h4 className="font-heading font-extrabold text-sm sm:text-base text-foreground flex items-center gap-2">
-                      <Table2 className="h-4 w-4 text-amber-500 shrink-0" />
-                      <span>{table.fullTitle}</span>
-                    </h4>
-                  </div>
-                  {table.introParagraphs.map((p, idx) => (
-                    <RichGuideText
-                      key={idx}
-                      text={p}
-                      accentColor="amber"
-                      className="text-xs text-muted-foreground leading-relaxed"
+              {crossTableSearchResults.map(({ table, matchingRows }) => {
+                const tableFallbackAsset = getAssetById(
+                  MASTER_TABLE_ICON_BY_CODE[table.shortCode] ??
+                    "item-universal-shard"
+                );
+                const tableCodexLink =
+                  MASTER_TABLE_CODEX_LINK_BY_CODE[table.shortCode] ??
+                  MASTER_TABLE_CODEX_LINK_BY_CODE["1.1"];
+                return (
+                  <div
+                    key={table.id}
+                    className="rounded-xl border border-border/70 bg-background/70 p-4 space-y-3"
+                  >
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <h4 className="font-heading font-extrabold text-sm sm:text-base text-foreground flex items-center gap-2">
+                        <Table2 className="h-4 w-4 text-amber-500 shrink-0" />
+                        <span>{table.fullTitle}</span>
+                      </h4>
+                      {tableCodexLink && (
+                        <Link
+                          href={tableCodexLink.href}
+                          className="inline-flex items-center gap-1.5 rounded-lg border border-amber-500/35 bg-amber-500/10 px-2.5 py-1 text-[11px] font-bold text-amber-700 dark:text-amber-300 hover:bg-amber-500/20 transition-colors"
+                        >
+                          <Database className="h-3 w-3 shrink-0" />
+                          <span>{tableCodexLink.label[locale]}</span>
+                          <ExternalLink className="h-3 w-3 shrink-0" />
+                        </Link>
+                      )}
+                    </div>
+                    {table.introParagraphs.map((p, idx) => (
+                      <RichGuideText
+                        key={idx}
+                        text={p}
+                        accentColor="amber"
+                        className="text-xs text-muted-foreground leading-relaxed"
+                      />
+                    ))}
+                    <ResponsiveDataTable
+                      caption={table.caption}
+                      headers={table.headers}
+                      rows={matchingRows}
+                      locale={locale}
+                      defaultExpanded={true}
+                      fallbackRowAsset={tableFallbackAsset}
                     />
-                  ))}
-                  <ResponsiveDataTable
-                    caption={table.caption}
-                    headers={table.headers}
-                    rows={matchingRows}
-                    locale={locale}
-                    defaultExpanded={true}
-                  />
-                </div>
-              ))}
+                  </div>
+                );
+              })}
             </div>
           )}
         </div>
@@ -651,7 +757,7 @@ export function MasterDataExplorerWidget({
         selectedTable && (
           <div className="rounded-2xl border border-border/80 bg-background/80 p-4 sm:p-5 space-y-4">
             <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-border/50">
-              <div className="flex items-center gap-2.5">
+              <div className="flex flex-wrap items-center gap-2.5">
                 {activeTableAsset && (
                   <span
                     data-testid="master-active-table-icon"
@@ -679,6 +785,18 @@ export function MasterDataExplorerWidget({
                   {selectedTable.fullTitle}
                 </h4>
               </div>
+
+              {activeCodexLink && (
+                <Link
+                  href={activeCodexLink.href}
+                  data-testid="master-active-codex-link"
+                  className="inline-flex items-center gap-1.5 min-h-[36px] rounded-xl border border-amber-500/40 bg-amber-500/10 px-3 py-1.5 text-xs font-extrabold text-amber-700 dark:text-amber-300 hover:bg-amber-500/20 transition-colors shrink-0"
+                >
+                  <Database className="h-3.5 w-3.5 shrink-0" />
+                  <span>{activeCodexLink.label[locale]}</span>
+                  <ExternalLink className="h-3.5 w-3.5 shrink-0" />
+                </Link>
+              )}
             </div>
 
             {selectedTable.isPro && !hasProAccess ? (
@@ -730,6 +848,7 @@ export function MasterDataExplorerWidget({
                   rows={selectedTable.rows}
                   locale={locale}
                   defaultExpanded={true}
+                  fallbackRowAsset={activeTableAsset}
                 />
               </>
             )}

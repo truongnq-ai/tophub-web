@@ -266,6 +266,12 @@ describe("Track 4 Phase 3E: Group 5 (gear) Standardized v2.0 Content & Schema In
 
       // 3. Article 5.2: 3 Golden Gear Sets, +30% Faction Mark, 3 Independent Bonus Layers & 24 Heroes BiS Matrix
       for (const kw of [
+        "Knight Set",
+        "Titan's Might",
+        "Duelist's Set",
+        "Fury of Blood",
+        "Sage Set",
+        "Glorious Light",
         "Blood of the Titan",
         "Glory of the Sage",
         "Knight's Glory",
@@ -304,6 +310,39 @@ describe("Track 4 Phase 3E: Group 5 (gear) Standardized v2.0 Content & Schema In
         "Petalis",
       ]) {
         expect(t52, `5.2 (${locale}) missing metric/hero: ${kw}`).toContain(kw);
+      }
+
+      if (locale === "vi") {
+        for (const viOfficialName of [
+          "Bộ Kỵ Sĩ",
+          "Bộ Đồ Titan",
+          "Bộ Đồ Quyết Đấu",
+          "Cơn Thịnh Nộ",
+          "Bộ Hiền Giả",
+          "Ánh Sáng Vinh Quang",
+          "Thẩm Phán Quan",
+          "Công Chúa Hoa Hồng",
+          "Bậc Thầy Thú",
+          "Thánh Tăng",
+          "Đấng Toàn Năng",
+          "Hoả Pháp Sư",
+          "Ngộ Không",
+          "Trinh Nữ Bão Tố",
+          "Triệu Hồi Thủy",
+          "Hồ Tiên",
+          "Tu Nữ",
+          "Bậc Thầy Cơ Khí",
+          "Vu Nữ",
+          "Thuật Sĩ",
+          "Hồn Pháp Sư",
+          "Giáo Sĩ Bóng Tối",
+          "Thiếu Nữ Rừng Xanh",
+          "Hoa Tiên",
+        ]) {
+          expect(t52, `5.2 (vi) missing official In-Game name: ${viOfficialName}`).toContain(
+            viOfficialName
+          );
+        }
       }
 
       // 4. Article 5.3: Lv.0->+40 Enhancement, 1★->5★ Mythic Promotion, Exclusive Weapon Lv.1->Lv.20, 3-Faction UW Priority & Star Level 1★->5★

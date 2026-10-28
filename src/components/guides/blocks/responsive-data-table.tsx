@@ -3,8 +3,11 @@
 import React, { useMemo, useState } from "react";
 import { Search, ChevronDown, ChevronUp, Flame } from "lucide-react";
 import { GameAssetFrame } from "@/components/guides/media/game-asset-frame";
-import { resolveEntityFromTableCell } from "@/content/guides/asset-registry";
-import type { GuideLocale } from "@/content/guides/types";
+import {
+  getAssetById,
+  resolveEntityFromTableCell,
+} from "@/content/guides/asset-registry";
+import type { GameAssetEntry, GuideLocale } from "@/content/guides/types";
 import { cn } from "@/lib/utils";
 import { RichGuideText } from "./rich-guide-text";
 
@@ -15,6 +18,7 @@ interface ResponsiveDataTableProps {
   footnote?: string;
   locale?: GuideLocale;
   defaultExpanded?: boolean;
+  fallbackRowAsset?: GameAssetEntry;
 }
 
 const INITIAL_VISIBLE_ROWS = 6;
@@ -42,6 +46,31 @@ export function isBreakpointRow(row: string[]): boolean {
   return row.some((cell) => BREAKPOINT_REGEX.test(cell));
 }
 
+function resolveRowCol0Asset(
+  cell0: string | undefined,
+  fallbackRowAsset?: GameAssetEntry
+): GameAssetEntry | undefined {
+  if (!cell0) return fallbackRowAsset;
+  const direct = resolveEntityFromTableCell(cell0);
+  if (direct) return direct;
+
+  if (/^(?:★\s*)?VIP\s*\d+\b/i.test(cell0.trim())) {
+    return getAssetById("item-vip-points") ?? fallbackRowAsset;
+  }
+
+  if (fallbackRowAsset) {
+    if (/5-Star\s*MYTHIC|5\s*Sao\s*Đỏ/i.test(cell0)) {
+      return getAssetById("item-mythic-promotion-stone") ?? fallbackRowAsset;
+    }
+    if (/^[1-4]★\s*Đỏ|^[1-4]-Star\s*Mythic/i.test(cell0.trim())) {
+      return getAssetById("item-promotion-stone") ?? fallbackRowAsset;
+    }
+    return fallbackRowAsset;
+  }
+
+  return undefined;
+}
+
 export function ResponsiveDataTable({
   caption,
   headers,
@@ -49,6 +78,7 @@ export function ResponsiveDataTable({
   footnote,
   locale = "vi",
   defaultExpanded = false,
+  fallbackRowAsset,
 }: ResponsiveDataTableProps) {
   const copy = LABELS[locale];
   const [filterQuery, setFilterQuery] = useState("");
@@ -139,9 +169,7 @@ export function ResponsiveDataTable({
             ) : (
               visibleRows.map((row, rowIdx) => {
                 const isBp = isBreakpointRow(row);
-                const col0Asset = row[0]
-                  ? resolveEntityFromTableCell(row[0])
-                  : undefined;
+                const col0Asset = resolveRowCol0Asset(row[0], fallbackRowAsset);
 
                 return (
                   <tr

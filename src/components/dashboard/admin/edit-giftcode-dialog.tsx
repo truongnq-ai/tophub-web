@@ -91,7 +91,7 @@ export function EditGiftcodeDialog({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const codeClean = code.trim().toUpperCase().replace(/[^A-Z0-9_-]/g, "");
+    const codeClean = code.trim().replace(/[^a-zA-Z0-9_-]/g, "");
     if (!codeClean) {
       toast({
         variant: "destructive",
@@ -124,6 +124,12 @@ export function EditGiftcodeDialog({
         });
         onSuccess(res.data);
         onOpenChange(false);
+      } else if (res.error && res.error.code !== "NETWORK_ERROR") {
+        toast({
+          variant: "destructive",
+          title: "Không thể cập nhật Giftcode",
+          description: res.error.message || "Dữ liệu không hợp lệ hoặc mã đã tồn tại",
+        });
       } else {
         // Fallback update locally in mock/offline mode
         const updatedItem: AdminGiftCode = {
@@ -188,10 +194,10 @@ export function EditGiftcodeDialog({
                 type="text"
                 placeholder="VD: HERO2026..."
                 value={code}
-                onChange={(e) => setCode(e.target.value.toUpperCase())}
+                onChange={(e) => setCode(e.target.value)}
                 disabled={isCodeLocked}
                 required
-                className={`font-mono uppercase font-bold text-sm bg-background border-border/60 ${
+                className={`font-mono font-bold text-sm bg-background border-border/60 ${
                   isCodeLocked ? "opacity-75 cursor-not-allowed bg-muted/40" : ""
                 }`}
               />

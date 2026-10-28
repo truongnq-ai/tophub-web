@@ -143,7 +143,7 @@ export const ARTICLE_8_4_MASTER_DATA_TABLES: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "**Cấu trúc 5 Nấc Sao**: Mỗi cấp Sao chia làm `5` nấc nhỏ (`5 Tiers/Segments`). Tướng Đỏ (`Mythic`) tốn mảnh gấp đôi tướng Vàng (`Legendary`) hoặc Tím (`Epic`) ở mỗi nấc.\n• **Tổng Định mức Kịch trần**: Cần `1,000` Mảnh Vạn Năng để tướng Đỏ đạt kịch trần `5 Sao Trắng / Bạc` (`15 Sao`), so với `500` Mảnh cho Tướng Vàng/Tím:",
+                vi: "**Cấu trúc 5 Nấc Sao**: Mỗi cấp Sao chia làm `5` nấc nhỏ (`5 Tiers/Segments`). Tướng Đỏ (`Mythic`) tốn mảnh gấp đôi tướng Vàng (`Legendary`) hoặc Tím (`Epic`) ở mỗi nấc.\n• **Tổng Định mức Kịch trần**: Cần `1,000` Mảnh Anh Hùng Huyền Thoại Vạn Năng (`Universal Legendary Hero Shard`) để tướng Đỏ đạt kịch trần `5 Sao Trắng / Bạc` (`15 Sao`), so với `500` Mảnh cho Tướng Vàng/Tím:",
                 en: "**5-Segment Star Structure**: Every Star level is divided into `5` sub-segments (`5 Tiers/Segments`). A `Mythic` (Red) hero consumes double the shards per segment compared to `Legendary` or `Epic` heroes.\n• **Ceiling Benchmark**: Requires `1,000` Universal Legendary Shards for a Mythic hero to hit the `5 White/Silver Star` ceiling (`15 Stars`), versus `500` Shards for Legendary/Epic heroes:",
               },
             },
@@ -219,8 +219,8 @@ export const ARTICLE_8_4_MASTER_DATA_TABLES: GuideArticle = {
                     en: "600 Shards (Cumulative: 1★ White = 560 | 2★ White = 600 | Total: 1,000 Shards)",
                   },
                   {
-                    vi: "★ Điểm gãy Vàng 1★ Trắng (280/560 mảnh): Mở khóa +30% hiệu ứng kỹ năng & bắt đầu Thức Tỉnh; 2★ Trắng (300/600 mảnh): Max Trait 3 Tướng Tím; 5★ Trắng (500/1,000 mảnh): Mở Tiệm Đổi Quà!",
-                    en: "★ Golden Breakpoint 1★ White (280/560 shards): Unlocks +30% skill effect & Awakening start; 2★ White (300/600 shards): Max Epic Trait 3; 5★ White (500/1,000 shards): Unlocks Exchange Shop!",
+                    vi: "★ Điểm gãy Vàng 1★ Trắng (280/560 mảnh): Mở khóa +30% hiệu ứng kỹ năng & bắt đầu Thức Tỉnh; 2★ Trắng (300/600 mảnh): Max Trait 3 Tướng Tím; 5★ Trắng (500/1,000 mảnh): Mở Tiệm Đổi Mảnh Tướng (Tiệm Đổi Quà / Hero Exchange Shop)!",
+                    en: "★ Golden Breakpoint 1★ White (280/560 shards): Unlocks +30% skill effect & Awakening start; 2★ White (300/600 shards): Max Epic Trait 3; 5★ White (500/1,000 shards): Unlocks Hero Exchange Shop!",
                   },
                 ],
               ],
@@ -228,7 +228,7 @@ export const ARTICLE_8_4_MASTER_DATA_TABLES: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "**Chi phí Sách Kỹ Năng (`Lv.1 ➔ Lv.6`)**: Lv.2: `100` | Lv.3: `200` (Tổng `300`) | Lv.4: `400` (`700`) | Lv.5: `600` (`1,300`) | Lv.6: `800` (`2,100`).\n• **Giai đoạn Trung cấp (`Lv.7 ➔ Lv.10`)**: Lv.7: `1,100` (`3,200`) | Lv.8: `1,300` (`4,500`) | Lv.9: `1,600` (`6,100`) | Lv.10: `1,900` (`8,000`).\n• **Giai đoạn Đột phá (`Lv.11 ➔ Lv.15`)**: Lv.11: `2,200` (`10,200`) | Lv.12: `2,700` (`12,900`) | Lv.13: `3,200` (`16,100`) | Lv.14: `3,900` (`20,000`) | Lv.15: `4,700` (Tổng cộng: `24,700` Sách Kỹ Năng / 1 Kỹ năng).",
+                vi: "**Chi phí Sách Kỹ Năng (`Skill Book` — `Lv.1 ➔ Lv.6`)**: Lv.2: `100` | Lv.3: `200` (Tổng `300`) | Lv.4: `400` (`700`) | Lv.5: `600` (`1,300`) | Lv.6: `800` (`2,100`).\n• **Giai đoạn Trung cấp (`Lv.7 ➔ Lv.10`)**: Lv.7: `1,100` (`3,200`) | Lv.8: `1,300` (`4,500`) | Lv.9: `1,600` (`6,100`) | Lv.10: `1,900` (`8,000`).\n• **Giai đoạn Đột phá (`Lv.11 ➔ Lv.15`)**: Lv.11: `2,200` (`10,200`) | Lv.12: `2,700` (`12,900`) | Lv.13: `3,200` (`16,100`) | Lv.14: `3,900` (`20,000`) | Lv.15: `4,700` (Tổng cộng: `24,700` Sách Kỹ Năng / 1 Kỹ năng).",
                 en: "**Skill Book Costs (`Lv.1 ➔ Lv.6`)**: Lv.2: `100` | Lv.3: `200` (Total `300`) | Lv.4: `400` (`700`) | Lv.5: `600` (`1,300`) | Lv.6: `800` (`2,100`).\n• **Mid-Game Tiers (`Lv.7 ➔ Lv.10`)**: Lv.7: `1,100` (`3,200`) | Lv.8: `1,300` (`4,500`) | Lv.9: `1,600` (`6,100`) | Lv.10: `1,900` (`8,000`).\n• **Endgame Tiers (`Lv.11 ➔ Lv.15`)**: Lv.11: `2,200` (`10,200`) | Lv.12: `2,700` (`12,900`) | Lv.13: `3,200` (`16,100`) | Lv.14: `3,900` (`20,000`) | Lv.15: `4,700` (Grand Total: `24,700` Skill Books per Skill).",
               },
             },
@@ -237,14 +237,14 @@ export const ARTICLE_8_4_MASTER_DATA_TABLES: GuideArticle = {
         {
           id: "sub-1-2-hero-awakening-cost-table",
           title: {
-            vi: "1.2. Bảng Tóm tắt Chi phí Thức Tỉnh Tướng Vàng Lên Đỏ (Awakening Tiers 0 ➔ 4 = 9 Hồn Đá Đỏ)",
+            vi: "1.2. Bảng Tóm tắt Chi phí Thức Tỉnh Tướng Vàng Lên Đỏ (Awakening Tiers 0 ➔ 4 = 9 Đá Linh Hồn / 9 Hồn Đá Đỏ)",
             en: "1.2. Legendary-to-Mythic Hero Awakening Cost Table (Awakening Tiers 0 ➔ 4 = 9 Soul Stones)",
           },
           blocks: [
             {
               type: "paragraph",
               text: {
-                vi: "**Điều kiện Thức Tỉnh**: Khi tướng Vàng (`Legendary`) đạt `2 Sao Trắng / Bạc` trở lên, dùng Hồn Đá Đỏ (`Soul Stones`) kèm Mảnh Tướng để Thức Tỉnh (`Awakening`) lên phẩm chất Thần Thoại (`Mythic`) và mở trần kỹ năng:",
+                vi: "**Điều kiện Thức Tỉnh**: Khi tướng Vàng (`Legendary`) đạt `2 Sao Trắng` trở lên, dùng Đá Linh Hồn (`Hồn Đá Đỏ` / `Soul Stones`) kèm Mảnh Tướng để Thức Tỉnh (`Awakening`) lên Thần Thoại (`Mythic`) và mở trần kỹ năng:",
                 en: "**Awakening Prerequisite**: Once a `Legendary` hero reaches `2 White/Silver Stars`, combine Red `Soul Stones` with Hero Shards to perform `Awakening`, ascending the hero to `Mythic` quality and raising skill caps:",
               },
             },
@@ -259,7 +259,7 @@ export const ARTICLE_8_4_MASTER_DATA_TABLES: GuideArticle = {
                 { vi: "Số Nấc Nhỏ (Sub-levels)", en: "Sub-levels" },
                 { vi: "Chi phí Mảnh Tướng Mỗi Nấc", en: "Hero Shards per Sub-level" },
                 { vi: "Tổng Mảnh Tướng Ở Bậc Này", en: "Tier Total Shards" },
-                { vi: "Số Hồn Đá Đỏ Cần Để Đột Phá Bậc (Tier Up)", en: "Soul Stones Required for Tier Up" },
+                { vi: "Số Đá Linh Hồn / Hồn Đá Đỏ Cần Để Đột Phá Bậc (Soul Stones)", en: "Soul Stones Required for Tier Up" },
                 { vi: "Tổng Tích Lũy (Mảnh + Hồn Đá)", en: "Cumulative Total (Shards + Soul Stones)" },
               ],
               rows: [
@@ -302,7 +302,7 @@ export const ARTICLE_8_4_MASTER_DATA_TABLES: GuideArticle = {
                   { vi: "0–40 Mảnh", en: "0–40 Shards" },
                   { vi: "Đã hoàn tất ở cuối Bậc 3", en: "Completed at the end of Tier 3" },
                   {
-                    vi: "Tổng chuẩn: 9 Hồn Đá Đỏ + 345–385 Mảnh",
+                    vi: "Tổng chuẩn: 9 Đá Linh Hồn (9 Hồn Đá Đỏ / Soul Stones) + 345–385 Mảnh",
                     en: "Standard Total: 9 Soul Stones + 345–385 Shards",
                   },
                 ],
@@ -320,7 +320,7 @@ export const ARTICLE_8_4_MASTER_DATA_TABLES: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "**Điều kiện Cộng hưởng**: Hệ thống Bậc Thầy Cường Hóa (`Enhancement Master`) chỉ kích hoạt khi CẢ 4 MÓN TRANG BỊ trên 1 tướng cùng đạt `+10`, `+20`, `+30` hoặc `+40`:",
+                vi: "**Điều kiện Cộng hưởng**: Bậc Thầy Cường Hóa (`Enhancement Master`) kích hoạt khi cả 4 món trên 1 tướng cùng đạt `+10`, `+20`, `+30`, `+40` bằng Quặng Cường Hóa / Đá Cường Hóa (`Enhancement Ore / Upgrade Rune`):",
                 en: "**Resonance Rule**: The `Enhancement Master` resonance system only activates when ALL 4 GEAR PIECES equipped on a single hero simultaneously reach `+10`, `+20`, `+30`, or `+40`:",
               },
             },
@@ -332,7 +332,7 @@ export const ARTICLE_8_4_MASTER_DATA_TABLES: GuideArticle = {
               },
               headers: [
                 { vi: "Mốc Cộng Hưởng Cường Hóa", en: "Enhancement Master Milestone" },
-                { vi: "Quặng Cường Hóa / 1 Món (Trong Giai đoạn)", en: "Enhancement Ore / Piece (Stage Cost)" },
+                { vi: "Quặng Cường Hóa / Đá Cường Hóa / 1 Món (Enhancement Ore)", en: "Enhancement Ore / Piece (Stage Cost)" },
                 { vi: "Tổng Quặng Tích Lũy / 1 Món (Từ Lv.0)", en: "Cumulative Ore / Piece (From Lv.0)" },
                 { vi: "Tổng Quặng Cho 1 Bộ 4 Món (1 Tướng)", en: "Total Ore per 4-Piece Set (1 Hero)" },
                 { vi: "Tổng Quặng Cho Cả Đội 1 (6 Tướng = 24 Món)", en: "Total Ore for Queue 1 (6 Heroes = 24 Pieces)" },
@@ -385,7 +385,7 @@ export const ARTICLE_8_4_MASTER_DATA_TABLES: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "**Quy luật Mở khóa Bậc Lính**: Mỗi `5` cấp Doanh Trại (`Barracks`) mở khóa 1 Bậc Lính mới (`T5 ➔ T10`), còn Lính Bậc 11 (`Tier 11`) mở qua node `Soldier Level` tại Viện Huy Hoàng (`Brilliance Institute Lv.15`):",
+                vi: "**Quy luật Mở khóa Bậc Lính**: Mỗi `5` cấp Doanh Trại (`Barracks`) mở khóa 1 Bậc Lính mới (`T5 ➔ T10`), còn Lính Bậc 11 (`Tier 11`) mở qua node `Soldier Level` tại Viện Tinh Hoa (`Brilliance Institute Lv.15`):",
                 en: "**Troop Tier Unlock Rule**: Every `5` levels of your Faction `Barracks` unlocks a new Troop Tier (`T5 ➔ T10`), while `Tier 11` Troops unlock via the `Soldier Level` node inside the `Brilliance Institute` (`Lv.15`):",
               },
             },
@@ -468,11 +468,11 @@ export const ARTICLE_8_4_MASTER_DATA_TABLES: GuideArticle = {
                 ],
                 [
                   { vi: "★ Lính Bậc 11 (Tier 11)", en: "★ Tier 11 Troops (T11)" },
-                  { vi: "Viện Huy Hoàng Lv.15", en: "Brilliance Institute Lv.15" },
+                  { vi: "Viện Tinh Hoa / Viện Huy Hoàng Lv.15", en: "Brilliance Institute Lv.15" },
                   { vi: "Lâu Đài Lv.40+ (B1–B3)", en: "Castle Lv.40+ (B1–B3)" },
                   { vi: "Lv.220+", en: "Lv.220+" },
                   {
-                    vi: "Mở khóa qua node Soldier Level trong Brilliance Institute (Tổng tốn 5,422 Dragon Essence).",
+                    vi: "Mở khóa qua node Soldier Level trong Viện Tinh Hoa (Brilliance Institute, Tổng tốn 5,422 Tinh Chất Rồng / 5,422 Dragon Essence).",
                     en: "Unlocked via the Soldier Level node inside the Brilliance Institute (Total cost: 5,422 Dragon Essence).",
                   },
                 ],
@@ -599,7 +599,7 @@ export const ARTICLE_8_4_MASTER_DATA_TABLES: GuideArticle = {
           rows: [
             [
               {
-                vi: "Đập nguyên liệu theo cảm hứng 'có bao nhiêu bấm bấy nhiêu': Dẫn đến việc cả 6 tướng đều dừng ở mức trang bị +14, +17 hoặc Cổ Ngữ Lv.4, Quân Trang Lv.16, không kích hoạt được bất kỳ dòng thưởng % cộng hưởng nào.",
+                vi: "Đập nguyên liệu theo cảm hứng 'có bao nhiêu bấm bấy nhiêu': Dẫn đến việc cả 6 tướng đều dừng ở mức trang bị +14, +17 hoặc Cổ Ngữ / Phù Văn (Runes) Lv.4, Ngoại Hình Quân Lính (Quân Trang / Troop Skins) Lv.16, không kích hoạt được bất kỳ dòng thưởng % cộng hưởng nào.",
                 en: "Impulse-upgrading 'whenever materials appear': Leaves all 6 heroes stuck at +14 or +17 gear, Lv.4 Runes, or Lv.16 Troop Skins without activating a single percentage resonance bonus.",
               },
               {
@@ -613,7 +613,7 @@ export const ARTICLE_8_4_MASTER_DATA_TABLES: GuideArticle = {
                 en: "Ignoring the massive Meat wall of Faction Levels: Draining Meat on minor upgrades and getting hard-stuck pushing Faction Level Lv.20 ➔ Lv.40 (which consumes 1,181.162M Meat / over 1.18 Billion Meat total!).",
               },
               {
-                vi: "Quỹ Dự Trữ Thịt & Mảnh Dư: Luôn tích trữ các rương Thịt lớn trong túi đồ và đổi thêm Thịt trong Tiệm Đổi Quà để phục vụ các mốc +5.00% Queue HP ở Faction Level 10 / 20 / 30 / 40 (tổng +20.00% Queue HP).",
+                vi: "Quỹ Dự Trữ Thịt & Mảnh Dư: Luôn tích trữ các rương Thịt lớn trong túi đồ và đổi thêm Thịt trong Tiệm Đổi Mảnh Tướng (Tiệm Đổi Quà / Hero Exchange Shop) để phục vụ các mốc +5.00% Queue HP ở Faction Level 10 / 20 / 30 / 40 (tổng +20.00% Queue HP).",
                 en: "Dedicated Meat & Excess Shard Reserve: Keep large Meat chests sealed in your Bag and buy discounted Meat in the Exchange Shop specifically for the +5.00% Queue HP milestones at Faction Levels 10 / 20 / 30 / 40 (+20.00% Queue HP total).",
               },
             ],
@@ -796,8 +796,8 @@ export const ARTICLE_8_4_MASTER_DATA_TABLES: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "**Hào Quang Cấp Phe Phái (`+20.00% Queue HP`)**: Mỗi `10` cấp Phe Phái (`Lv.10/20/30/40`) kích hoạt `+5.00%` Máu Đội Hình, đạt tổng `+20.00% Queue HP` tại `Lv.40` (`1,181.162M` Thịt & `1,307` Mảnh):",
-                en: "**Faction Level Aura (`+20.00% Queue HP`)**: Every `10` Faction Levels (`Lv.10/20/30/40`) unlocks a `+5.00%` Queue HP Aura, reaching `+20.00% Queue HP` at `Lv.40` (`1,181.162M` Meat & `1,307` Shards):",
+                vi: "**Hào Quang Cấp Phe Phái (`Faction Level` — `+20.00% Queue HP`)**: Mỗi `10` cấp Phe Phái (`Lv.10/20/30/40`) kích hoạt `+5.00%` Máu Đội Hình.\n• **Tổng Định mức `Lv.40`**: Đạt tổng `+20.00% Queue HP` với `1,181.162M` Thịt (`Meat`), `1,307` Mảnh & `780,000` Điểm Linh Hồn Phe Phái (`Faction Soul Points`):",
+                en: "**Faction Level Aura (`+20.00% Queue HP`)**: Every `10` Faction Levels (`Lv.10/20/30/40`) unlocks a `+5.00%` Queue HP Aura.\n• **`Lv.40` Benchmark**: Reaches `+20.00% Queue HP` at `Lv.40` (`1,181.162M` Meat, `1,307` Shards & `780,000` Faction Soul Points):",
               },
             },
             {
@@ -1004,7 +1004,7 @@ export const ARTICLE_8_4_MASTER_DATA_TABLES: GuideArticle = {
         {
           id: "sub-4-2-mythic-gear-and-uw-table",
           title: {
-            vi: "4.2. Bảng 2: Chi Phí Đột Phá Đồ Thần Thoại (Gear Promotion 0 ➔ 5 Sao Đỏ) & Vũ Khí Độc Quyền (UW Lv.1 ➔ Lv.20)",
+            vi: "4.2. Bảng 2: Chi Phí Đột Phá Trang Bị Thần Thoại (Đồ Đỏ / Mythic Gear 0 ➔ 5 Sao Đỏ) & Vũ Khí Độc Quyền (Exclusive Weapon — UW Lv.1 ➔ Lv.20)",
             en: "4.2. Table 2: Mythic Gear Star Promotion (1★ ➔ 5★ MYTHIC) & Exclusive Weapons (UW Lv.1 ➔ Lv.20)",
           },
           blocks: [
@@ -1024,7 +1024,7 @@ export const ARTICLE_8_4_MASTER_DATA_TABLES: GuideArticle = {
               headers: [
                 { vi: "Cấp Sao Đột Phá (Sau Lv.40)", en: "Promotion Star Tier (Post-Lv.40)" },
                 { vi: "Chi Phí Mỗi Nấc Nhỏ (×5 Nấc / Sao)", en: "Cost per Sub-segment (×5 / Star)" },
-                { vi: "Đá Thăng Cấp Ở Nấc Cuối (5/5)", en: "Promotion Stones at Final Step (5/5)" },
+                { vi: "Đá Thăng Cấp Trang Bị Ở Nấc Cuối (Promotion Stone 5/5)", en: "Promotion Stones at Final Step (5/5)" },
                 { vi: "Tổng Nguyên Liệu Cho 1 Món Ở Cấp Sao Này", en: "Total Materials per Piece at This Star" },
                 { vi: "Tổng Tích Lũy Từ Lv.40 (1 Món Đồ)", en: "Cumulative Total from Lv.40 (1 Piece)" },
                 { vi: "Thuộc Tính Cộng Thêm & Biến Đổi Phẩm Chất", en: "Bonus Attributes & Quality Ascension" },
@@ -1159,8 +1159,8 @@ export const ARTICLE_8_4_MASTER_DATA_TABLES: GuideArticle = {
         {
           id: "sub-4-3-lord-gear-master-table",
           title: {
-            vi: "4.3. Bảng 3: Chi Phí Toàn Trình Đồ Chúa Tể (Lord Gear BASE / G1 ➔ T4 ➔ Mythic T1 3★ — Tab Аркуш23)",
-            en: "4.3. Table 3: Complete Lord Gear Progression Costs (Uncommon BASE ➔ T4 ➔ Mythic T1 3★ — Tab Аркуш23)",
+            vi: "4.3. Bảng 3: Chi Phí Toàn Trình Trang Bị Chúa Tể (Đồ Chúa Tể / Lord Gear BASE ➔ T4 ➔ Mythic T1 3★)",
+            en: "4.3. Table 3: Complete Lord Gear Progression Costs (Uncommon BASE ➔ T4 ➔ Mythic T1 3★ — Tab Lord Gear)",
           },
           blocks: [
             {
@@ -1178,10 +1178,10 @@ export const ARTICLE_8_4_MASTER_DATA_TABLES: GuideArticle = {
               },
               headers: [
                 { vi: "Cấp Bậc Đồ Chúa Tể (Lord Gear Tier)", en: "Lord Gear Tier" },
-                { vi: "Đá Xanh / Thép Tinh Luyện (Refined Metal)", en: "Refined Metal (Green Stone)" },
-                { vi: "Dây Gai / Chỉ Phép (Magic Thread)", en: "Magic Thread" },
-                { vi: "Bản Vẽ / Hợp Kim (Blueprints / Orichalcum)", en: "Blueprints / Orichalcum" },
-                { vi: "Nguyên Liệu Đỏ / Máu Rồng (Mythic Material / Dragon Blood)", en: "Mythic Material / Dragon Blood" },
+                { vi: "Kim Loại Tinh Chế / Đá Xanh (Refined Metal)", en: "Refined Metal (Green Stone)" },
+                { vi: "Sợi Cường Hóa / Dây Gai (Magic Thread)", en: "Magic Thread" },
+                { vi: "Quặng Orichalcum / Bản Vẽ (Blueprints / Orichalcum)", en: "Blueprints / Orichalcum" },
+                { vi: "Máu Rồng / Nguyên Liệu Đỏ (Dragon Blood)", en: "Mythic Material / Dragon Blood" },
                 { vi: "Chỉ Số Nhánh Trái (LEFT: Hero HP / Soldier HP / All ATK)", en: "Left Branch Stats (LEFT: Hero HP / Soldier HP / All ATK)" },
                 { vi: "Chỉ Số Nhánh Phải (RIGHT: Hero ATK / Soldier ATK / All HP)", en: "Right Branch Stats (RIGHT: Hero ATK / Soldier ATK / All HP)" },
               ],
@@ -1305,10 +1305,10 @@ export const ARTICLE_8_4_MASTER_DATA_TABLES: GuideArticle = {
                 ],
                 [
                   { vi: "TỔNG CỘNG (Full 1 Món Kịch Trần)", en: "TOTAL (1 Maxed Piece)" },
-                  { vi: "958,800 Đá Xanh", en: "958,800 Refined Metal" },
-                  { vi: "9,955 Dây Gai", en: "9,955 Magic Thread" },
-                  { vi: "2,030 Bản Vẽ", en: "2,030 Orichalcum" },
-                  { vi: "101 Nguyên Liệu Đỏ", en: "101 Dragon Blood" },
+                  { vi: "958,800 Đá Xanh (Kim Loại Tinh Chế)", en: "958,800 Refined Metal" },
+                  { vi: "9,955 Dây Gai (Sợi Cường Hóa)", en: "9,955 Magic Thread" },
+                  { vi: "2,030 Bản Vẽ (Orichalcum)", en: "2,030 Orichalcum" },
+                  { vi: "101 Nguyên Liệu Đỏ (Máu Rồng)", en: "101 Dragon Blood" },
                   { vi: "—", en: "—" },
                   { vi: "—", en: "—" },
                 ],
@@ -1367,15 +1367,15 @@ export const ARTICLE_8_4_MASTER_DATA_TABLES: GuideArticle = {
         {
           id: "sub-4-4-runes-master-table",
           title: {
-            vi: "4.4. Bảng 4: Hệ Thống Cổ Ngữ (Runes Lv.1 ➔ Lv.12 — Trọng tâm Điểm gãy Lv.5 & Lv.8)",
+            vi: "4.4. Bảng 4: Hệ Thống Cổ Ngữ / Phù Văn (Runes Lv.1 ➔ Lv.12 — Trọng tâm Điểm gãy Lv.5 & Lv.8)",
             en: "4.4. Table 4: Rune System Progression (Runes Lv.1 ➔ Lv.12 — Lv.5 & Lv.8 Breakpoints)",
           },
           blocks: [
             {
               type: "paragraph",
               text: {
-                vi: "**Điểm gãy Số 1 (`Lv.5` — `Tab Runes`)**: Trích xuất từ `TopHeroes Tables - Max`, mốc `Lv.5` mở khóa dòng `+5%` HP/ATK Tướng và `+30` / `+50` Quy mô Hành quân (`March Size`).\n• **Điểm gãy Số 2 (`Lv.8`)**: Mở khóa dòng `+5%` HP/ATK của TẤT CẢ Lính (`All Soldiers`) và `+5%` HP Thánh Tích (`Relic HP`)!",
-                en: "**Breakpoint #1 (`Lv.5` — `Tab Runes`)**: Extracted from `TopHeroes Tables - Max`, `Lv.5` unlocks `+5%` Hero HP/ATK and `+30` / `+50` `March Size`.\n• **Breakpoint #2 (`Lv.8`)**: Unlocks `+5%` `All Soldiers` HP/ATK and `+5%` `Relic HP`!",
+                vi: "**Điểm gãy Số 1 (`Lv.5` — `Tab Runes`)**: Trích xuất từ `TopHeroes Tables - Max`, mốc `Lv.5` mở khóa dòng `+5%` HP/ATK Tướng và `+30` / `+50` Quy mô Hành quân (`March Size`).\n• **Điểm gãy Số 2 (`Lv.8`) & Kịch trần `Lv.12`**: Mở khóa `+5%` HP/ATK của TẤT CẢ Lính (`All Soldiers`) và `+5%` HP Thánh Tích (`Relic HP`); kịch trần `Lv.12` tốn `327,660` Mảnh Cổ Ngữ (`Rune Fragments`)!",
+                en: "**Breakpoint #1 (`Lv.5` — `Tab Runes`)**: Extracted from `TopHeroes Tables - Max`, `Lv.5` unlocks `+5%` Hero HP/ATK and `+30` / `+50` `March Size`.\n• **Breakpoint #2 (`Lv.8`) & `Lv.12` Cap (`327,660` `Rune Fragments`)**: Unlocks `+5%` `All Soldiers` HP/ATK and `+5%` `Relic HP`, with full `Lv.12` progression totaling `327,660` `Rune Fragments`!",
               },
             },
             {
@@ -1385,7 +1385,7 @@ export const ARTICLE_8_4_MASTER_DATA_TABLES: GuideArticle = {
                 en: "Table 4.4: Rune System Stat Progression (Runes Lv.1 ➔ Lv.12 — Lv.5 & Lv.8 Breakpoints)",
               },
               headers: [
-                { vi: "Cấp Cổ Ngữ (Rune Level)", en: "Rune Level" },
+                { vi: "Cấp Cổ Ngữ / Phù Văn (Runes)", en: "Rune Level" },
                 { vi: "Hero HP Rune (Flat HP / % Hero HP)", en: "Hero HP Rune (Flat HP / % Hero HP)" },
                 { vi: "Hero Attack Rune (Flat ATK / % Hero ATK)", en: "Hero Attack Rune (Flat ATK / % Hero ATK)" },
                 { vi: "Soldier HP Rune (Soldier HP / March / % All HP)", en: "Soldier HP Rune (Soldier HP / March / % All HP)" },
@@ -1715,8 +1715,8 @@ export const ARTICLE_8_4_MASTER_DATA_TABLES: GuideArticle = {
                 ],
                 [
                   { vi: "TỔNG KỊCH TRẦN Lv.120 (Rare Faction Pet)", en: "MAX TOTAL Lv.120 (Rare Faction Pet)" },
-                  { vi: "714,000 Thức Ăn Pet", en: "714,000 Pet Food" },
-                  { vi: "40,050 Pet Essence", en: "40,050 Pet Essence" },
+                  { vi: "714,000 Thức Ăn Thú Cưng (714,000 Thức Ăn Pet)", en: "714,000 Pet Food" },
+                  { vi: "40,050 Tinh Chất Thú Cưng (40,050 Pet Essence)", en: "40,050 Pet Essence" },
                   {
                     vi: "58 Phôi Cùng Loại (Same) + 211 Phôi Khác (Any)",
                     en: "58 Same Copies + 211 Any Copies",
@@ -1733,14 +1733,14 @@ export const ARTICLE_8_4_MASTER_DATA_TABLES: GuideArticle = {
         {
           id: "sub-4-6-troop-skins-master-table",
           title: {
-            vi: "4.6. Bảng 6: Chi Phí Ngoại Hình Quân Lính (Troop Skins Lv.1 ➔ Lv.50 & Honor Level 1–150 — Tab Troop Skins)",
+            vi: "4.6. Bảng 6: Chi Phí Ngoại Hình Quân Lính / Quân Trang (Troop Skins Lv.1 ➔ Lv.50 & Honor Level 1–150 — Tab Troop Skins)",
             en: "4.6. Table 6: Troop Skin Upgrade Costs (Lv.1 ➔ Lv.50 & Honor Level 1–150 — Tab Troop Skins)",
           },
           blocks: [
             {
               type: "paragraph",
               text: {
-                vi: "**Cơ chế Cộng dồn (`Owned Passive Bonus`)**: Mỗi Quân Trang (`Troop Skin`) đều có Chỉ số Sở hữu Toàn cục cộng dồn vĩnh viễn cho mọi đội hình.\n• **Tỷ lệ Chi phí `4:2:1` (`Glory Medals`)**: Chi phí nâng `Skin Tím` (`Epic`) luôn bằng đúng `50%` `Skin Vàng` (`Legendary`), và `Skin Xanh` (`Rare`) bằng `25%` `Skin Vàng`:",
+                vi: "**Cơ chế Cộng dồn (`Owned Passive Bonus`)**: Mỗi Ngoại Hình Quân Lính (`Quân Trang` / `Troop Skin`) đều có Chỉ số Sở hữu Toàn cục cộng dồn vĩnh viễn cho mọi đội hình.\n• **Tỷ lệ Chi phí `4:2:1` (`Huy Chương Vinh Quang` / `Glory Medals`)**: Chi phí nâng `Skin Tím` (`Epic`) luôn bằng đúng `50%` `Skin Vàng` (`Legendary`), và `Skin Xanh` (`Rare`) bằng `25%` `Skin Vàng`:",
                 en: "**Permanent Stacking (`Owned Passive Bonus`)**: Every `Troop Skin` grants a permanent Owned Passive Bonus that stacks across all queues.\n• **The `4:2:1` Cost Ratio (`Glory Medals`)**: Upgrading an `Epic` skin always costs `50%` of a `Legendary` skin, while a `Rare` skin costs `25%` of a `Legendary` skin:",
               },
             },
@@ -1753,7 +1753,7 @@ export const ARTICLE_8_4_MASTER_DATA_TABLES: GuideArticle = {
               headers: [
                 { vi: "Cấp Độ Quân Trang (Troop Skin Level)", en: "Troop Skin Level" },
                 { vi: "Số Nấc Nhỏ / Cấp (Sublevels)", en: "Sublevels / Level" },
-                { vi: "Skin Vàng (Legendary): Huân Chương / Cấp", en: "Legendary Skin: Medals / Level" },
+                { vi: "Skin Vàng (Legendary): Huy Chương Vinh Quang / Huân Chương", en: "Legendary Skin: Medals / Level" },
                 { vi: "Skin Vàng (Legendary): Tổng Tích Lũy", en: "Legendary Skin: Cumulative Total" },
                 { vi: "Skin Tím (Epic): Huân Chương / Cấp", en: "Epic Skin: Medals / Level" },
                 { vi: "Skin Tím (Epic): Tổng Tích Lũy", en: "Epic Skin: Cumulative Total" },
@@ -1991,7 +1991,7 @@ export const ARTICLE_8_4_MASTER_DATA_TABLES: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "**Tỷ lệ Quy đổi Chuẩn (`$1.00 = 6 Điểm VIP` — `Tab VIP cost USD`)**: Trích xuất từ `TopHeroes Tables - Max`, kết hợp điểm VIP miễn phí mua từ Tiệm Điểm Bang Hội (`Guild Points Shop`) và đăng nhập hàng ngày:",
+                vi: "**Tỷ lệ Quy đổi Chuẩn (`$1.00 = 6 Điểm VIP` / `VIP Points` — `Tab VIP cost USD`)**: Trích xuất từ `TopHeroes Tables - Max`, kết hợp điểm VIP miễn phí từ Tiệm Điểm Bang Hội (`Guild Points Shop`) và đăng nhập:",
                 en: "**Standard Conversion Rate (`$1.00 = 6 VIP Points` — `Tab VIP cost USD`)**: Extracted from `TopHeroes Tables - Max`, supplemented by free VIP Points from the `Guild Points Shop` and daily login rewards:",
               },
             },
