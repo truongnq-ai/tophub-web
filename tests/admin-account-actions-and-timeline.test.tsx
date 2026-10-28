@@ -316,6 +316,77 @@ describe("Admin Account Actions and Weekly Timeline", () => {
       expect(screen.getByText(/Đang tổng hợp 250\/300 giao dịch gần nhất/i)).toBeDefined();
     });
 
+    it("should render Dual-Channel FUNTAP + OFFICIAL_STORE orders and breakdown in AccountPaymentsDialog", async () => {
+      mockGetAdminAccountPaymentsAction.mockResolvedValueOnce({
+        success: true,
+        data: {
+          account: {
+            id: "acc-test-1",
+            uid: "1000000000001",
+            nickname: "DragonLord",
+            server_id: "1024",
+            country: "SG",
+          },
+          items: [
+            {
+              id: "STORE-9001",
+              channel: "OFFICIAL_STORE",
+              txn_no: "STORE-9001",
+              order_no: "9001",
+              description: "TopHeroes Web Store (+5,000 Pts ≈ $50.00)",
+              amount: 1250000,
+              raw_amount: 5000,
+              currency: "PTS",
+              amount_vnd_est: 1250000,
+              method: "OFFICIAL_STORE",
+              acquirer: "rivergame_store",
+              status: 1,
+              is_success: true,
+              created_at: "2026-10-26 10:00:00",
+              completed_at: "2026-10-26 10:00:00",
+              duration_seconds: null,
+            },
+          ],
+          total: 1,
+          page: 1,
+          limit: 20,
+          total_pages: 1,
+          summary: {
+            total_orders: 1,
+            fetched_orders: 1,
+            success_orders: 1,
+            total_amount_vnd: 1250000,
+            funtap_amount_vnd: 0,
+            store_amount_pts: 5000,
+            store_amount_vnd_est: 1250000,
+            average_amount_vnd: 1250000,
+            max_order_amount_vnd: 1250000,
+            max_order_description: "TopHeroes Web Store (+5,000 Pts ≈ $50.00)",
+            first_payment_at: "2026-10-26 10:00:00",
+            last_payment_at: "2026-10-26 10:00:00",
+            spender_tier: "MEGA_WHALE",
+            is_partial_history: false,
+            methods_breakdown: [{ method: "OFFICIAL_STORE", count: 1, amount_vnd: 1250000 }],
+          },
+          fetched_at: "2026-10-26T10:06:00.000Z",
+        },
+      });
+
+      render(
+        <TabAccounts
+          accounts={[mockAccount]}
+          onToggle={vi.fn()}
+          updatingId={null}
+        />
+      );
+
+      fireEvent.click(screen.getByRole("button", { name: /Lịch sử nạp Funtap/i }));
+
+      expect(await screen.findByText(/MEGA WHALE/i)).toBeDefined();
+      expect(screen.getByText(/\+5\.000 Pts/i)).toBeDefined();
+      expect(screen.getByText(/Official Store: 5\.000 Pts/i)).toBeDefined();
+    });
+
     it("should display upstream error state and retry when clicking Thử lại in AccountPaymentsDialog", async () => {
       mockGetAdminAccountPaymentsAction
         .mockResolvedValueOnce({

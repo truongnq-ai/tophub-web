@@ -7,6 +7,7 @@ import type {
   AdminLoginResponse,
   AdminAccountItem,
   AdminGiftCodeItem,
+  AdminVerifyGiftcodeResponse,
   AdminGiftcodeReceiverItem,
   AdminRedemptionItem,
   AdminCheckinItem,
@@ -19,6 +20,10 @@ import type {
   AdminGiftcodeReceiversListResponse,
   AdminRedemptionsListResponse,
   AdminCheckinsListResponse,
+  AdminWhaleAnalyticsResponse,
+  AdminPaymentSyncJobState,
+  AdminSystemParamItem,
+  AdminSystemParamsListResponse,
 } from "@/types/api";
 
 const ADMIN_COOKIE_NAME = "tophub_admin_token";
@@ -83,6 +88,8 @@ export async function getAdminAccountsAction(query?: {
   search?: string;
   plan?: string;
   server_id?: string;
+  country?: string;
+  spender_tier?: string;
   token_status?: string;
   sort_by?: string;
 }): Promise<ApiResponse<AdminAccountsListResponse | AdminAccountItem[]>> {
@@ -138,6 +145,14 @@ export async function updateAdminGiftcodeAction(
   const auth = getAdminTokenOrUnauthorized<AdminGiftCodeItem>();
   if ("errorResponse" in auth) return auth.errorResponse;
   return apiClient.updateAdminGiftcode(auth.token, id, data);
+}
+
+export async function verifyAdminGiftcodeAction(
+  id: string
+): Promise<ApiResponse<AdminVerifyGiftcodeResponse>> {
+  const auth = getAdminTokenOrUnauthorized<AdminVerifyGiftcodeResponse>();
+  if ("errorResponse" in auth) return auth.errorResponse;
+  return apiClient.verifyAdminGiftcode(auth.token, id);
 }
 
 export async function getAdminGiftcodeReceiversAction(
@@ -235,6 +250,7 @@ export async function getAdminAccountPaymentsAction(
   query?: {
     page?: number;
     limit?: number;
+    channel?: string;
     method?: string;
     search?: string;
     refresh?: boolean;
@@ -243,4 +259,83 @@ export async function getAdminAccountPaymentsAction(
   const auth = getAdminTokenOrUnauthorized<AdminAccountPaymentsResponse>();
   if ("errorResponse" in auth) return auth.errorResponse;
   return apiClient.getAdminAccountPayments(auth.token, accountId, query);
+}
+
+export async function getAdminWhaleAnalyticsAction(query?: {
+  country?: string;
+  server_id?: string;
+  spender_tier?: string;
+  tier?: string;
+  activity_status?: string;
+  activity?: string;
+  channel?: string;
+  search?: string;
+  page?: number;
+  limit?: number;
+  sort_by?: string;
+}): Promise<ApiResponse<AdminWhaleAnalyticsResponse>> {
+  const auth = getAdminTokenOrUnauthorized<AdminWhaleAnalyticsResponse>();
+  if ("errorResponse" in auth) return auth.errorResponse;
+  return apiClient.getAdminWhaleAnalytics(auth.token, query);
+}
+
+export async function triggerAdminPaymentsSyncAllAction(): Promise<
+  ApiResponse<AdminPaymentSyncJobState>
+> {
+  const auth = getAdminTokenOrUnauthorized<AdminPaymentSyncJobState>();
+  if ("errorResponse" in auth) return auth.errorResponse;
+  return apiClient.triggerAdminPaymentsSyncAll(auth.token);
+}
+
+export async function getAdminPaymentsSyncStatusAction(): Promise<
+  ApiResponse<AdminPaymentSyncJobState>
+> {
+  const auth = getAdminTokenOrUnauthorized<AdminPaymentSyncJobState>();
+  if ("errorResponse" in auth) return auth.errorResponse;
+  return apiClient.getAdminPaymentsSyncStatus(auth.token);
+}
+
+export async function getAdminSystemParamsAction(query?: {
+  group?: string;
+  status?: string;
+  search?: string;
+}): Promise<ApiResponse<AdminSystemParamsListResponse>> {
+  const auth = getAdminTokenOrUnauthorized<AdminSystemParamsListResponse>();
+  if ("errorResponse" in auth) return auth.errorResponse;
+  return apiClient.getAdminSystemParams(auth.token, query);
+}
+
+export async function createAdminSystemParamAction(payload: {
+  group: string;
+  code: string;
+  value: string;
+  description?: string | null;
+  status?: "ACTIVE" | "INACTIVE";
+}): Promise<ApiResponse<AdminSystemParamItem>> {
+  const auth = getAdminTokenOrUnauthorized<AdminSystemParamItem>();
+  if ("errorResponse" in auth) return auth.errorResponse;
+  return apiClient.createAdminSystemParam(auth.token, payload);
+}
+
+export async function updateAdminSystemParamAction(
+  id: string,
+  payload: {
+    group?: string;
+    code?: string;
+    value?: string;
+    description?: string | null;
+    status?: "ACTIVE" | "INACTIVE";
+  }
+): Promise<ApiResponse<AdminSystemParamItem>> {
+  const auth = getAdminTokenOrUnauthorized<AdminSystemParamItem>();
+  if ("errorResponse" in auth) return auth.errorResponse;
+  return apiClient.updateAdminSystemParam(auth.token, id, payload);
+}
+
+export async function deleteAdminSystemParamAction(
+  id: string
+): Promise<ApiResponse<AdminSystemParamItem>> {
+  const auth = getAdminTokenOrUnauthorized<AdminSystemParamItem>();
+  if ("errorResponse" in auth) return auth.errorResponse;
+  return apiClient.deleteAdminSystemParam(auth.token, id);
 }

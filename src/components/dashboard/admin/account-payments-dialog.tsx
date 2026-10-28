@@ -17,6 +17,7 @@ import {
   TrendingUp,
   Crown,
   CalendarClock,
+  Globe,
 } from "lucide-react";
 import {
   Dialog,
@@ -60,6 +61,8 @@ export function formatPaymentMethodLabel(method: string): string {
       return "ZaloPay";
     case "QR_DEEPLINK":
       return "QR Banking";
+    case "OFFICIAL_STORE":
+      return "Official Store (Web Quốc Tế)";
     default:
       return method || "Khác";
   }
@@ -81,6 +84,7 @@ export function AccountPaymentsDialog({
 
   const [search, setSearch] = useState("");
   const [debouncedSearch, setDebouncedSearch] = useState("");
+  const [filterChannel, setFilterChannel] = useState<string>("ALL");
   const [filterMethod, setFilterMethod] = useState<string>("ALL");
   const [copiedTxn, setCopiedTxn] = useState<string | null>(null);
 
@@ -112,6 +116,7 @@ export function AccountPaymentsDialog({
     setErrorMessage(null);
     setSearch("");
     setDebouncedSearch("");
+    setFilterChannel("ALL");
     setFilterMethod("ALL");
     setCurrentPage(1);
     setTotalItems(0);
@@ -134,6 +139,7 @@ export function AccountPaymentsDialog({
         const res = await getAdminAccountPaymentsAction(accountId, {
           page: currentPage,
           limit: pageSize,
+          channel: filterChannel !== "ALL" ? filterChannel : undefined,
           method: filterMethod !== "ALL" ? filterMethod : undefined,
           search: debouncedSearch || undefined,
           refresh: forceRefresh || undefined,
@@ -149,7 +155,7 @@ export function AccountPaymentsDialog({
           if (forceRefresh) {
             toastRef.current({
               title: "Đã làm mới lịch sử nạp",
-              description: `Cập nhật thành công dữ liệu từ Funtap cho ${account?.nickname || accountId}`,
+              description: `Cập nhật thành công dữ liệu từ Funtap & Official Store cho ${account?.nickname || accountId}`,
             });
           }
         } else {
@@ -168,7 +174,16 @@ export function AccountPaymentsDialog({
         }
       }
     },
-    [open, accountId, account?.nickname, currentPage, pageSize, filterMethod, debouncedSearch]
+    [
+      open,
+      accountId,
+      account?.nickname,
+      currentPage,
+      pageSize,
+      filterChannel,
+      filterMethod,
+      debouncedSearch,
+    ]
   );
 
   useEffect(() => {
@@ -187,6 +202,13 @@ export function AccountPaymentsDialog({
 
   const renderSpenderTierBadge = (tier?: SpenderTier) => {
     switch (tier) {
+      case "MEGA_WHALE":
+        return (
+          <Badge className="bg-gradient-to-r from-rose-500 to-amber-500 text-slate-950 font-black text-[10px] gap-1 shadow-sm">
+            <Crown className="h-3 w-3" />
+            MEGA WHALE
+          </Badge>
+        );
       case "WHALE":
         return (
           <Badge className="bg-gradient-to-r from-amber-500 to-orange-500 text-slate-950 font-black text-[10px] gap-1 shadow-sm">
@@ -219,6 +241,13 @@ export function AccountPaymentsDialog({
 
   const getMethodBadge = (method: string) => {
     const label = formatPaymentMethodLabel(method);
+    if (method === "OFFICIAL_STORE") {
+      return (
+        <Badge className="bg-purple-500/15 text-purple-300 border border-purple-500/35 text-[10px] font-bold">
+          {label}
+        </Badge>
+      );
+    }
     if (method === "QR_9PAY_MOMO") {
       return (
         <Badge className="bg-pink-500/10 text-pink-600 dark:text-pink-400 border border-pink-500/30 text-[10px] font-bold">
@@ -252,6 +281,7 @@ export function AccountPaymentsDialog({
     : "https://nap.funtap.games/top-heroes";
 
   const allTabCount = summary?.fetched_orders ?? summary?.total_orders ?? totalItems;
+  const resolvedCountry = summary?.country || account?.country;
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -270,7 +300,7 @@ export function AccountPaymentsDialog({
               <div>
                 <DialogTitle className="text-lg font-bold text-foreground flex items-center gap-2">
                   <Receipt className="h-5 w-5 text-amber-500" />
-                  <span>Lịch Sử Nạp Game (Funtap)</span>
+                  <span>Lịch Sử Nạp Game (Funtap) &amp; Official Store</span>
                 </DialogTitle>
                 {account && (
                   <DialogDescription className="text-xs text-muted-foreground flex items-center gap-2 mt-0.5 flex-wrap">
@@ -281,6 +311,15 @@ export function AccountPaymentsDialog({
                     <span className="font-mono">UID: {account.uid}</span>
                     <span>•</span>
                     <ServerTag serverId={account.server_id} />
+                    {resolvedCountry && resolvedCountry !== "UNKNOWN" && (
+                      <>
+                        <span>•</span>
+                        <span className="inline-flex items-center gap-1 rounded border border-border/70 bg-muted/50 px-1.5 py-0.5 text-[10px] font-semibold text-foreground">
+                          <Globe className="h-2.5 w-2.5 text-sky-400" />
+                          {resolvedCountry}
+                        </span>
+                      </>
+                    )}
                   </DialogDescription>
                 )}
               </div>
@@ -295,7 +334,7 @@ export function AccountPaymentsDialog({
                 onClick={() => loadPayments(true)}
                 disabled={isLoading || isRefreshing}
                 className="h-8 px-2.5 text-xs font-semibold gap-1.5 border-border/60"
-                title="Làm mới dữ liệu trực tiếp từ Funtap"
+                title="Làm mới dữ liệu trực tiếp từ Funtap & Official Store"
               >
                 <RefreshCw
                   className={`h-3.5 w-3.5 ${isRefreshing ? "animate-spin text-primary" : ""}`}
@@ -347,8 +386,16 @@ export function AccountPaymentsDialog({
                 <div className="text-base sm:text-lg font-black font-mono text-amber-600 dark:text-amber-400">
                   {formatVndCurrency(summary.total_amount_vnd)}
                 </div>
-                <div className="text-[10px] text-muted-foreground font-mono">
-                  TB: {formatVndCurrency(summary.average_amount_vnd)}/đơn
+                <div className="text-[10px] text-muted-foreground font-mono space-y-0.5">
+                  <div>
+                    Funtap: {formatVndCurrency(summary.funtap_amount_vnd ?? summary.total_amount_vnd)}
+                  </div>
+                  {(summary.store_amount_pts ?? 0) > 0 && (
+                    <div className="text-purple-400">
+                      Official Store: {(summary.store_amount_pts ?? 0).toLocaleString("vi-VN")} Pts (≈{" "}
+                      {formatVndCurrency(summary.store_amount_vnd_est ?? 0)})
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -361,7 +408,7 @@ export function AccountPaymentsDialog({
                   {summary.success_orders} đơn
                 </div>
                 <div className="text-[10px] text-muted-foreground font-mono">
-                  Trên tổng {summary.total_orders} lệnh
+                  Trên tổng {summary.total_orders} lệnh (TB: {formatVndCurrency(summary.average_amount_vnd)})
                 </div>
               </div>
 
@@ -399,6 +446,52 @@ export function AccountPaymentsDialog({
           {/* Filter Pills & Search Input */}
           <div className="pt-1 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5">
             <div className="flex flex-wrap items-center gap-1.5">
+              {/* Channel Filter Pills */}
+              <div className="inline-flex rounded-lg border border-border/60 p-0.5 bg-muted/40 text-xs mr-1">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setFilterChannel("ALL");
+                    setCurrentPage(1);
+                  }}
+                  className={`px-2 py-0.5 rounded-md font-semibold transition-all cursor-pointer ${
+                    filterChannel === "ALL"
+                      ? "bg-primary text-primary-foreground"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  Tất cả kênh
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setFilterChannel("FUNTAP");
+                    setCurrentPage(1);
+                  }}
+                  className={`px-2 py-0.5 rounded-md font-semibold transition-all cursor-pointer ${
+                    filterChannel === "FUNTAP"
+                      ? "bg-emerald-600 text-white"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  Funtap VN
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setFilterChannel("OFFICIAL_STORE");
+                    setCurrentPage(1);
+                  }}
+                  className={`px-2 py-0.5 rounded-md font-semibold transition-all cursor-pointer ${
+                    filterChannel === "OFFICIAL_STORE"
+                      ? "bg-purple-600 text-white"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  Official Store
+                </button>
+              </div>
+
               <button
                 type="button"
                 onClick={() => {
@@ -452,7 +545,7 @@ export function AccountPaymentsDialog({
           {isLoading && orders.length === 0 ? (
             <div className="py-12 flex flex-col items-center justify-center gap-2 text-muted-foreground">
               <Loader2 className="h-6 w-6 animate-spin text-primary" />
-              <span className="text-xs">Đang tải lịch sử nạp từ Funtap...</span>
+              <span className="text-xs">Đang tải lịch sử nạp từ Funtap &amp; Official Store...</span>
             </div>
           ) : errorMessage ? (
             <div className="py-10 text-center space-y-3">
@@ -470,7 +563,10 @@ export function AccountPaymentsDialog({
           ) : orders.length > 0 ? (
             <div className="divide-y divide-border/30 rounded-xl border border-border/40 overflow-hidden bg-muted/10">
               {orders.map((item) => {
-                const isHighValue = item.amount >= 449000;
+                const isOfficialStore =
+                  item.channel === "OFFICIAL_STORE" || item.currency === "PTS";
+                const vndEst = item.amount_vnd_est ?? item.amount;
+                const isHighValue = vndEst >= 449000;
                 return (
                   <div
                     key={item.id}
@@ -481,7 +577,13 @@ export function AccountPaymentsDialog({
                         <span className="font-bold text-sm text-foreground">
                           {item.description}
                         </span>
-                        {getMethodBadge(item.method)}
+                        {isOfficialStore ? (
+                          <Badge className="bg-purple-500/15 text-purple-300 border border-purple-500/35 text-[10px] font-bold">
+                            Official Store
+                          </Badge>
+                        ) : (
+                          getMethodBadge(item.method)
+                        )}
                         {item.is_success ? (
                           <Badge className="bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 gap-1 text-[10px] font-bold">
                             <CheckCircle2 className="h-3 w-3" />
@@ -520,15 +622,26 @@ export function AccountPaymentsDialog({
                     </div>
 
                     <div className="flex sm:flex-col items-center sm:items-end justify-between gap-1 shrink-0">
-                      <div
-                        className={`font-mono text-sm font-black ${
-                          isHighValue
-                            ? "text-amber-500"
-                            : "text-emerald-600 dark:text-emerald-400"
-                        }`}
-                      >
-                        +{formatVndCurrency(item.amount)}
-                      </div>
+                      {isOfficialStore ? (
+                        <div className="text-right">
+                          <div className="font-mono text-sm font-black text-purple-400">
+                            +{((item.raw_amount ?? item.amount) || 0).toLocaleString("vi-VN")} Pts
+                          </div>
+                          <div className="font-mono text-[10px] text-amber-400">
+                            ≈ {formatVndCurrency(vndEst)}
+                          </div>
+                        </div>
+                      ) : (
+                        <div
+                          className={`font-mono text-sm font-black ${
+                            isHighValue
+                              ? "text-amber-500"
+                              : "text-emerald-600 dark:text-emerald-400"
+                          }`}
+                        >
+                          +{formatVndCurrency(item.amount)}
+                        </div>
+                      )}
                       <div className="text-[11px] text-muted-foreground font-mono flex items-center gap-1">
                         <Clock className="h-3 w-3 opacity-70" />
                         <span>{item.completed_at || item.created_at}</span>
@@ -547,9 +660,9 @@ export function AccountPaymentsDialog({
             <div className="py-12 text-center text-muted-foreground space-y-2">
               <Receipt className="h-8 w-8 mx-auto opacity-30" />
               <p className="text-xs font-semibold">
-                {search || filterMethod !== "ALL"
+                {search || filterMethod !== "ALL" || filterChannel !== "ALL"
                   ? "Không có giao dịch nạp nào khớp với bộ lọc hiện tại"
-                  : "Tài khoản này chưa có lịch sử nạp qua cổng Funtap"}
+                  : "Tài khoản này chưa có lịch sử nạp qua cổng Funtap hoặc Official Store."}
               </p>
             </div>
           )}

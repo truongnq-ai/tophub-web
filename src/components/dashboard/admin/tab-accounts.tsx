@@ -9,10 +9,6 @@ import {
   Copy,
   Check,
   RefreshCw,
-  Users,
-  Filter,
-  ArrowUpDown,
-  Download,
   Gift,
   CalendarCheck,
   Receipt,
@@ -48,6 +44,47 @@ interface TabAccountsProps {
   updatingId: string | null;
   onRefresh?: () => void;
   onSummaryChange?: (summary: AdminAccountsSummary) => void;
+  accCountryFilter?: string;
+  setAccCountryFilter?: (val: string) => void;
+  accSpenderTierFilter?: string;
+  setAccSpenderTierFilter?: (val: string) => void;
+  onOpenAccountPayments?: (acc: AdminAccountItem) => void;
+}
+
+function formatCompactVnd(amount?: number): string {
+  const val = typeof amount === "number" && Number.isFinite(amount) ? amount : 0;
+  if (val <= 0) return "0 ₫";
+  return `${new Intl.NumberFormat("vi-VN").format(Math.round(val))} ₫`;
+}
+
+function getTierBadgeMeta(tier?: string): { label: string; className: string } {
+  switch (tier) {
+    case "MEGA_WHALE":
+      return {
+        label: "Mega Whale",
+        className: "bg-rose-500/15 text-rose-300 border-rose-500/35",
+      };
+    case "WHALE":
+      return {
+        label: "Whale",
+        className: "bg-amber-500/15 text-amber-300 border-amber-500/35",
+      };
+    case "DOLPHIN":
+      return {
+        label: "Dolphin",
+        className: "bg-sky-500/15 text-sky-300 border-sky-500/35",
+      };
+    case "PAYER":
+      return {
+        label: "Payer",
+        className: "bg-emerald-500/15 text-emerald-300 border-emerald-500/35",
+      };
+    default:
+      return {
+        label: "F2P",
+        className: "bg-slate-800/80 text-slate-400 border-slate-700/70",
+      };
+  }
 }
 
 export function TabAccounts({
@@ -57,6 +94,11 @@ export function TabAccounts({
   updatingId,
   onRefresh,
   onSummaryChange,
+  accCountryFilter,
+  setAccCountryFilter,
+  accSpenderTierFilter,
+  setAccSpenderTierFilter,
+  onOpenAccountPayments,
 }: TabAccountsProps) {
   const { toast } = useToast();
   const [items, setItems] = useState<AdminAccountItem[]>(accounts);
@@ -70,9 +112,18 @@ export function TabAccounts({
   const [filterPlan, setFilterPlan] = useState<"ALL" | "PRO" | "FREE">("ALL");
   const [filterServer, setFilterServer] = useState<string>("ALL");
   const [filterToken, setFilterToken] = useState<string>("ALL");
-  const [sortBy, setSortBy] = useState<"DEFAULT" | "NEWEST" | "PRO_FIRST" | "NAME" | "SERVER">("DEFAULT");
+  const [localCountryFilter, setLocalCountryFilter] = useState<string>("ALL");
+  const [localTierFilter, setLocalTierFilter] = useState<string>("ALL");
+  const [sortBy, setSortBy] = useState<
+    "DEFAULT" | "NEWEST" | "PRO_FIRST" | "NAME" | "SERVER" | "MOST_SPENT" | "SPENT_30D"
+  >("DEFAULT");
   const [copiedUid, setCopiedUid] = useState<string | null>(null);
   const [isRefreshing, setIsRefreshing] = useState(false);
+
+  const filterCountry = accCountryFilter ?? localCountryFilter;
+  const setFilterCountry = setAccCountryFilter ?? setLocalCountryFilter;
+  const filterSpenderTier = accSpenderTierFilter ?? localTierFilter;
+  const setFilterSpenderTier = setAccSpenderTierFilter ?? setLocalTierFilter;
 
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
@@ -116,6 +167,8 @@ export function TabAccounts({
         search: debouncedSearch || undefined,
         plan: filterPlan !== "ALL" ? filterPlan : undefined,
         server_id: filterServer !== "ALL" ? filterServer : undefined,
+        country: filterCountry !== "ALL" ? filterCountry : undefined,
+        spender_tier: filterSpenderTier !== "ALL" ? filterSpenderTier : undefined,
         token_status: filterToken !== "ALL" ? filterToken : undefined,
         sort_by: sortBy !== "DEFAULT" ? sortBy : undefined,
       });
@@ -143,6 +196,8 @@ export function TabAccounts({
     debouncedSearch,
     filterPlan,
     filterServer,
+    filterCountry,
+    filterSpenderTier,
     filterToken,
     sortBy,
     accounts.length,
@@ -160,12 +215,24 @@ export function TabAccounts({
   }, [fetchServerAccounts, accounts.length]);
 
   // Dialog states for Actions
-  const [selectedAccountForRedemptions, setSelectedAccountForRedemptions] = useState<AdminAccountItem | null>(null);
+  const [selectedAccountForRedemptions, setSelectedAccountForRedemptions] =
+    useState<AdminAccountItem | null>(null);
   const [isRedemptionsOpen, setIsRedemptionsOpen] = useState(false);
-  const [selectedAccountForCheckins, setSelectedAccountForCheckins] = useState<AdminAccountItem | null>(null);
+  const [selectedAccountForCheckins, setSelectedAccountForCheckins] =
+    useState<AdminAccountItem | null>(null);
   const [isCheckinsOpen, setIsCheckinsOpen] = useState(false);
-  const [selectedAccountForPayments, setSelectedAccountForPayments] = useState<AdminAccountItem | null>(null);
+  const [selectedAccountForPayments, setSelectedAccountForPayments] =
+    useState<AdminAccountItem | null>(null);
   const [isPaymentsOpen, setIsPaymentsOpen] = useState(false);
+
+  const openPaymentsDialog = (acc: AdminAccountItem) => {
+    if (onOpenAccountPayments) {
+      onOpenAccountPayments(acc);
+      return;
+    }
+    setSelectedAccountForPayments(acc);
+    setIsPaymentsOpen(true);
+  };
 
   // Extract unique server IDs for dropdown
   const uniqueServers = useMemo(() => {
@@ -177,6 +244,21 @@ export function TabAccounts({
       ])
     ).sort(compareServerIds);
   }, [summary, accounts, items]);
+
+  const uniqueCountries = useMemo(() => {
+    return Array.from(
+      new Set([
+        "VN",
+        "PH",
+        "US",
+        "TW",
+        "SG",
+        "ID",
+        ...accounts.map((a) => a.country).filter((c): c is string => Boolean(c && c !== "UNKNOWN")),
+        ...items.map((a) => a.country).filter((c): c is string => Boolean(c && c !== "UNKNOWN")),
+      ])
+    ).sort();
+  }, [accounts, items]);
 
   const handleCopyUid = (uid: string) => {
     navigator.clipboard.writeText(uid);
@@ -243,19 +325,36 @@ export function TabAccounts({
         acc.server_id === filterServer ||
         formatServerCode(acc.server_id) === formatServerCode(filterServer);
 
+      const matchesCountry =
+        filterCountry === "ALL" || (acc.country || "UNKNOWN") === filterCountry;
+
+      const matchesTier =
+        filterSpenderTier === "ALL" || (acc.spender_tier || "F2P") === filterSpenderTier;
+
       const matchesToken =
         filterToken === "ALL" ||
         (filterToken === "VALID" && acc.token_status === "VALID") ||
         (filterToken === "EXPIRED" && acc.token_status !== "VALID");
 
-      return matchesSearch && matchesPlan && matchesServer && matchesToken;
+      return (
+        matchesSearch &&
+        matchesPlan &&
+        matchesServer &&
+        matchesCountry &&
+        matchesTier &&
+        matchesToken
+      );
     });
 
     if (sortBy === "DEFAULT") return list;
 
     // Sorting
     return [...list].sort((a, b) => {
-      if (sortBy === "PRO_FIRST") {
+      if (sortBy === "MOST_SPENT") {
+        return (b.total_spent_vnd_est ?? 0) - (a.total_spent_vnd_est ?? 0);
+      } else if (sortBy === "SPENT_30D") {
+        return (b.spent_last_30d_vnd_est ?? 0) - (a.spent_last_30d_vnd_est ?? 0);
+      } else if (sortBy === "PRO_FIRST") {
         if (a.active_plan === "PRO" && b.active_plan !== "PRO") return -1;
         if (a.active_plan !== "PRO" && b.active_plan === "PRO") return 1;
       } else if (sortBy === "NAME") {
@@ -265,7 +364,16 @@ export function TabAccounts({
       }
       return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
     });
-  }, [items, search, filterPlan, filterServer, filterToken, sortBy]);
+  }, [
+    items,
+    search,
+    filterPlan,
+    filterServer,
+    filterCountry,
+    filterSpenderTier,
+    filterToken,
+    sortBy,
+  ]);
 
   // Paginated items (avoid double-slicing when server already paginated)
   const isPendingClientFilter = search.trim() !== debouncedSearch;
@@ -278,7 +386,8 @@ export function TabAccounts({
     return filteredAccounts.slice(start, start + pageSize);
   }, [filteredAccounts, isServerPaginated, currentPage, pageSize]);
 
-  const totalAccountsInDb = summary?.total_accounts ?? Math.max(effectiveTotalItems, accounts.length);
+  const totalAccountsInDb =
+    summary?.total_accounts ?? Math.max(effectiveTotalItems, accounts.length);
 
   // Calculate PRO expiration countdown
   const getDaysRemaining = (endsAt: string | null) => {
@@ -302,7 +411,7 @@ export function TabAccounts({
               </Badge>
             </div>
             <CardDescription className="text-xs text-muted-foreground mt-0.5">
-              Bật/tắt tự động săn code và điểm danh độc lập cho từng tài khoản người chơi.
+              Bật/tắt tự động săn code, điểm danh và theo dõi tổng nạp đa kênh của từng tài khoản.
             </CardDescription>
           </div>
 
@@ -388,6 +497,42 @@ export function TabAccounts({
               </select>
             )}
 
+            {/* Country filter dropdown */}
+            <select
+              value={filterCountry}
+              onChange={(e) => {
+                setFilterCountry(e.target.value);
+                setCurrentPage(1);
+              }}
+              aria-label="Lọc theo quốc gia"
+              className="h-9 px-2 rounded-lg bg-background border border-border/60 text-foreground text-xs focus:outline-none focus:ring-1 focus:ring-primary/30 cursor-pointer"
+            >
+              <option value="ALL">Mọi quốc gia</option>
+              {uniqueCountries.map((c) => (
+                <option key={c} value={c}>
+                  Quốc gia: {c}
+                </option>
+              ))}
+            </select>
+
+            {/* Spender Tier filter dropdown */}
+            <select
+              value={filterSpenderTier}
+              onChange={(e) => {
+                setFilterSpenderTier(e.target.value);
+                setCurrentPage(1);
+              }}
+              aria-label="Lọc theo hạng nạp"
+              className="h-9 px-2 rounded-lg bg-background border border-border/60 text-foreground text-xs focus:outline-none focus:ring-1 focus:ring-primary/30 cursor-pointer"
+            >
+              <option value="ALL">Mọi hạng nạp</option>
+              <option value="MEGA_WHALE">Mega Whale</option>
+              <option value="WHALE">Whale</option>
+              <option value="DOLPHIN">Dolphin</option>
+              <option value="PAYER">Payer</option>
+              <option value="F2P">F2P (Chưa nạp)</option>
+            </select>
+
             {/* Token status filter dropdown */}
             <select
               value={filterToken}
@@ -414,6 +559,8 @@ export function TabAccounts({
               className="h-9 px-2 rounded-lg bg-background border border-border/60 text-foreground text-xs focus:outline-none focus:ring-1 focus:ring-primary/30 cursor-pointer"
             >
               <option value="NEWEST">Mới nhất</option>
+              <option value="MOST_SPENT">Nạp cao nhất</option>
+              <option value="SPENT_30D">Nạp 30 ngày qua</option>
               <option value="PRO_FIRST">PRO trước</option>
               <option value="NAME">Tên A-Z</option>
               <option value="SERVER">Máy chủ</option>
@@ -452,6 +599,7 @@ export function TabAccounts({
               <tr>
                 <th className="px-4 py-3">Nhân Vật / UID</th>
                 <th className="px-4 py-3">Máy Chủ</th>
+                <th className="px-4 py-3">Tổng Nạp / Hạng</th>
                 <th className="px-4 py-3">Gói Cước</th>
                 <th className="px-4 py-3 text-center">Tự Săn Code</th>
                 <th className="px-4 py-3 text-center">Điểm Danh</th>
@@ -465,6 +613,10 @@ export function TabAccounts({
                 paginatedAccounts.map((acc) => {
                   const isPro = acc.active_plan === "PRO";
                   const daysRemaining = getDaysRemaining(acc.ends_at);
+                  const tierMeta = getTierBadgeMeta(acc.spender_tier);
+                  const totalSpentVnd = acc.total_spent_vnd_est ?? 0;
+                  const funtapSpent = acc.funtap_spent_vnd ?? 0;
+                  const storePts = acc.store_spent_pts ?? 0;
 
                   return (
                     <tr
@@ -500,7 +652,48 @@ export function TabAccounts({
                       </td>
 
                       <td className="px-4 py-3.5">
-                        <ServerTag serverId={acc.server_id} />
+                        <div className="flex items-center gap-1.5">
+                          <ServerTag serverId={acc.server_id} />
+                          {acc.country && acc.country !== "UNKNOWN" && (
+                            <span
+                              title={`Quốc gia: ${acc.country}`}
+                              className="inline-flex items-center rounded border border-slate-700 bg-slate-800/90 px-1.5 py-0.5 text-[10px] font-semibold text-slate-300"
+                            >
+                              {acc.country}
+                            </span>
+                          )}
+                        </div>
+                      </td>
+
+                      <td className="px-4 py-3.5">
+                        <button
+                          type="button"
+                          onClick={() => openPaymentsDialog(acc)}
+                          title="Xem chi tiết lịch sử nạp"
+                          className="text-left group/spend cursor-pointer focus:outline-none"
+                        >
+                          <div className="flex items-center gap-1.5">
+                            <span
+                              className={`font-mono text-xs font-extrabold tabular-nums group-hover/spend:underline ${
+                                totalSpentVnd > 0 ? "text-amber-400" : "text-muted-foreground"
+                              }`}
+                            >
+                              {formatCompactVnd(totalSpentVnd)}
+                            </span>
+                            <span
+                              className={`inline-flex items-center rounded border px-1.5 py-0 text-[10px] font-bold ${tierMeta.className}`}
+                            >
+                              {tierMeta.label}
+                            </span>
+                          </div>
+                          {(funtapSpent > 0 || storePts > 0) && (
+                            <div className="text-[10px] text-muted-foreground font-mono mt-0.5">
+                              {funtapSpent > 0 && `FT: ${formatCompactVnd(funtapSpent)}`}
+                              {funtapSpent > 0 && storePts > 0 && " • "}
+                              {storePts > 0 && `Store: ${storePts.toLocaleString("vi-VN")} Pts`}
+                            </div>
+                          )}
+                        </button>
                       </td>
 
                       <td className="px-4 py-3.5">
@@ -626,15 +819,12 @@ export function TabAccounts({
                             </Button>
                           </AdminTooltip>
 
-                          <AdminTooltip content="Lịch sử nạp Funtap">
+                          <AdminTooltip content="Lịch sử nạp Funtap & Official Store">
                             <Button
                               variant="ghost"
                               size="sm"
                               className="h-8 w-8 p-0 text-muted-foreground hover:text-amber-500 hover:bg-amber-500/10 cursor-pointer"
-                              onClick={() => {
-                                setSelectedAccountForPayments(acc);
-                                setIsPaymentsOpen(true);
-                              }}
+                              onClick={() => openPaymentsDialog(acc)}
                             >
                               <Receipt className="h-4 w-4" />
                               <span className="sr-only">Lịch sử nạp Funtap</span>
@@ -662,7 +852,7 @@ export function TabAccounts({
                 })
               ) : (
                 <tr>
-                  <td colSpan={8} className="p-0">
+                  <td colSpan={9} className="p-0">
                     <AdminEmptyState
                       title="Không tìm thấy tài khoản game nào"
                       description="Không có tài khoản nào phù hợp với các tiêu chí tìm kiếm hoặc bộ lọc hiện tại."
@@ -670,6 +860,8 @@ export function TabAccounts({
                         setSearch("");
                         setFilterPlan("ALL");
                         setFilterServer("ALL");
+                        setFilterCountry("ALL");
+                        setFilterSpenderTier("ALL");
                         setFilterToken("ALL");
                         setCurrentPage(1);
                       }}
@@ -706,14 +898,16 @@ export function TabAccounts({
         }}
       />
 
-      <AccountPaymentsDialog
-        account={selectedAccountForPayments}
-        open={isPaymentsOpen}
-        onOpenChange={(open) => {
-          setIsPaymentsOpen(open);
-          if (!open) setSelectedAccountForPayments(null);
-        }}
-      />
+      {!onOpenAccountPayments && (
+        <AccountPaymentsDialog
+          account={selectedAccountForPayments}
+          open={isPaymentsOpen}
+          onOpenChange={(open) => {
+            setIsPaymentsOpen(open);
+            if (!open) setSelectedAccountForPayments(null);
+          }}
+        />
+      )}
 
       <AccountCheckinsDialog
         account={selectedAccountForCheckins}

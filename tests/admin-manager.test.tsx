@@ -87,6 +87,17 @@ const mockUpdateAdminGiftcodeAction = vi.fn().mockResolvedValue({
     is_public: true,
   },
 });
+const mockVerifyAdminGiftcodeAction = vi.fn().mockResolvedValue({
+  success: true,
+  data: {
+    id: "gc-1",
+    code: "HERO2026",
+    status: "VALID",
+    game_status: "VALID",
+    upstream_message: "Personal redemption limit reached for this CDKey.",
+    message: "Mã HERO2026 đang hoạt động hợp lệ trên máy chủ game!",
+  },
+});
 
 const mockGetAdminWeeklyTimelineAction = vi.fn().mockResolvedValue({
   success: true,
@@ -112,6 +123,163 @@ const mockGetAdminAccountCheckinsAction = vi.fn().mockResolvedValue({
     last_week: [],
   },
 });
+const mockGetAdminAccountPaymentsAction = vi.fn().mockResolvedValue({
+  success: true,
+  data: {
+    account: { id: "acc-1", uid: "1000000000001", nickname: "DragonSlayer", server_id: "1024", country: "VN" },
+    items: [],
+    total: 0,
+    page: 1,
+    limit: 20,
+    total_pages: 1,
+    summary: {
+      total_orders: 0,
+      success_orders: 0,
+      total_amount_vnd: 0,
+      average_amount_vnd: 0,
+      max_order_amount_vnd: 0,
+      max_order_description: null,
+      first_payment_at: null,
+      last_payment_at: null,
+      spender_tier: "F2P",
+      is_partial_history: false,
+      methods_breakdown: [],
+    },
+    fetched_at: "2026-10-27T10:00:00Z",
+  },
+});
+const mockGetAdminWhaleAnalyticsAction = vi.fn().mockResolvedValue({
+  success: true,
+  data: {
+    kpis: {
+      total_spent_vnd_est: 27155000,
+      funtap_spent_vnd: 20000000,
+      store_spent_pts: 28620,
+      store_spent_vnd_est: 7155000,
+      spent_last_30d_vnd_est: 12500000,
+      total_accounts: 48,
+      paying_accounts_count: 15,
+      conversion_rate_pct: 31.3,
+      mega_whale_count: 1,
+      whale_count: 3,
+      dolphin_count: 5,
+      payer_count: 6,
+      f2p_count: 33,
+      active_spenders_count: 8,
+      dormant_whales_count: 1,
+      point_to_vnd_rate: 250,
+    },
+    by_server: [
+      {
+        server_id: "10758",
+        accounts_count: 10,
+        paying_count: 5,
+        total_spent_vnd_est: 27155000,
+        funtap_spent_vnd: 20000000,
+        store_spent_pts: 28620,
+      },
+    ],
+    by_country: [
+      {
+        country: "PH",
+        accounts_count: 3,
+        paying_count: 2,
+        total_spent_vnd_est: 7155000,
+        funtap_spent_vnd: 0,
+        store_spent_pts: 28620,
+      },
+    ],
+    items: [
+      {
+        id: "acc-whale-1",
+        uid: "2449770492694",
+        nickname: "KaelDravos",
+        server_id: "10758",
+        country: "PH",
+        active_plan: "PRO",
+        token_status: "VALID",
+        funtap_spent_vnd: 0,
+        store_spent_pts: 28620,
+        store_spent_vnd_est: 7155000,
+        total_spent_vnd_est: 7155000,
+        spent_last_30d_vnd_est: 7155000,
+        total_payment_orders: 13,
+        spender_tier: "WHALE",
+        activity_status: "ACTIVE_SPENDER",
+        first_payment_at: "2026-10-01T00:00:00Z",
+        last_payment_at: "2026-10-25T00:00:00Z",
+        payments_synced_at: "2026-10-27T08:00:00Z",
+      },
+    ],
+    total: 1,
+    page: 1,
+    limit: 20,
+    total_pages: 1,
+    servers: ["10758"],
+    countries: ["PH", "VN"],
+  },
+});
+const mockGetAdminPaymentsSyncStatusAction = vi.fn().mockResolvedValue({
+  success: true,
+  data: {
+    status: "IDLE",
+    totalAccounts: 0,
+    processedAccounts: 0,
+    successCount: 0,
+    failedCount: 0,
+    currentAccountNickname: null,
+    startedAt: null,
+    finishedAt: null,
+    lastError: null,
+  },
+});
+const mockTriggerAdminPaymentsSyncAllAction = vi.fn().mockResolvedValue({
+  success: true,
+  data: {
+    status: "RUNNING",
+    totalAccounts: 48,
+    processedAccounts: 1,
+    successCount: 1,
+    failedCount: 0,
+    currentAccountNickname: "DragonSlayer",
+    startedAt: "2026-10-27T10:00:00Z",
+    finishedAt: null,
+    lastError: null,
+  },
+});
+const mockGetAdminSystemParamsAction = vi.fn().mockResolvedValue({
+  success: true,
+  data: {
+    items: [
+      {
+        id: "sp-1",
+        group: "PAYMENT_SYNC",
+        code: "STORE_POINT_TO_VND_RATE",
+        value: "250",
+        description: "Tỷ giá quy đổi 1 điểm nạp tại cổng quốc tế sang VNĐ",
+        status: "ACTIVE",
+        created_at: "2026-10-27T00:00:00Z",
+        updated_at: "2026-10-27T00:00:00Z",
+      },
+    ],
+    groups: ["PAYMENT_SYNC", "SPENDER_TIER"],
+  },
+});
+const mockCreateAdminSystemParamAction = vi.fn().mockResolvedValue({
+  success: true,
+  data: {
+    id: "sp-2",
+    group: "PAYMENT_SYNC",
+    code: "SYNC_DELAY_MS",
+    value: "2500",
+    description: "Delay",
+    status: "ACTIVE",
+    created_at: "2026-10-27T00:00:00Z",
+    updated_at: "2026-10-27T00:00:00Z",
+  },
+});
+const mockUpdateAdminSystemParamAction = vi.fn().mockResolvedValue({ success: true, data: {} });
+const mockDeleteAdminSystemParamAction = vi.fn().mockResolvedValue({ success: true, data: { id: "sp-1" } });
 
 vi.mock("@/actions/admin", () => ({
   updateAdminAccountAction: (...args: any[]) => mockUpdateAdminAccountAction(...args),
@@ -120,6 +288,7 @@ vi.mock("@/actions/admin", () => ({
   getAdminGiftcodesAction: (...args: any[]) => mockGetAdminGiftcodesAction(...args),
   createAdminGiftcodeAction: (...args: any[]) => mockCreateAdminGiftcodeAction(...args),
   updateAdminGiftcodeAction: (...args: any[]) => mockUpdateAdminGiftcodeAction(...args),
+  verifyAdminGiftcodeAction: (...args: any[]) => mockVerifyAdminGiftcodeAction(...args),
   getAdminGiftcodeReceiversAction: (...args: any[]) => mockGetAdminGiftcodeReceiversAction(...args),
   getAdminRedemptionsAction: (...args: any[]) => mockGetAdminRedemptionsAction(...args),
   retryAdminRedemptionAction: (...args: any[]) => mockRetryAdminRedemptionAction(...args),
@@ -130,6 +299,14 @@ vi.mock("@/actions/admin", () => ({
   getAdminWeeklyTimelineAction: (...args: any[]) => mockGetAdminWeeklyTimelineAction(...args),
   getAdminAccountRedemptionsAction: (...args: any[]) => mockGetAdminAccountRedemptionsAction(...args),
   getAdminAccountCheckinsAction: (...args: any[]) => mockGetAdminAccountCheckinsAction(...args),
+  getAdminAccountPaymentsAction: (...args: any[]) => mockGetAdminAccountPaymentsAction(...args),
+  getAdminWhaleAnalyticsAction: (...args: any[]) => mockGetAdminWhaleAnalyticsAction(...args),
+  getAdminPaymentsSyncStatusAction: (...args: any[]) => mockGetAdminPaymentsSyncStatusAction(...args),
+  triggerAdminPaymentsSyncAllAction: (...args: any[]) => mockTriggerAdminPaymentsSyncAllAction(...args),
+  getAdminSystemParamsAction: (...args: any[]) => mockGetAdminSystemParamsAction(...args),
+  createAdminSystemParamAction: (...args: any[]) => mockCreateAdminSystemParamAction(...args),
+  updateAdminSystemParamAction: (...args: any[]) => mockUpdateAdminSystemParamAction(...args),
+  deleteAdminSystemParamAction: (...args: any[]) => mockDeleteAdminSystemParamAction(...args),
 }));
 
 vi.mock("@/hooks/use-toast", () => ({
@@ -146,6 +323,7 @@ describe("AdminManager Component", () => {
       uid: "1000000000001",
       nickname: "DragonSlayer",
       server_id: "1024",
+      country: "VN",
       active_plan: "PRO",
       ends_at: "2026-12-31T23:59:59Z",
       auto_redeem: true,
@@ -158,6 +336,7 @@ describe("AdminManager Component", () => {
       uid: "2446869146317",
       nickname: "ShadowNinja",
       server_id: "1028",
+      country: "SG",
       active_plan: "FREE",
       ends_at: null,
       auto_redeem: false,
@@ -228,6 +407,40 @@ describe("AdminManager Component", () => {
     });
     expect(screen.getByText("Lịch Sử Điểm Danh Hàng Ngày")).toBeDefined();
     expect(screen.getByText(/Điểm Danh Lại Lỗi/i)).toBeDefined();
+  });
+
+  it("should render 4-group AdminSidebar with 7 screens and switch to Whale Analytics & System Params", async () => {
+    await renderAdminManager();
+
+    // Verify 4 Level-1 group headers
+    expect(screen.getByText("Tài khoản")).toBeDefined();
+    expect(screen.getByText("Gift Code")).toBeDefined();
+    expect(screen.getByText("Cẩm nang")).toBeDefined();
+    expect(screen.getByText("Cấu hình")).toBeDefined();
+
+    // Verify 7 Level-2 menu tabs
+    const whaleTab = screen.getByRole("tab", { name: /Thống Kê Nạp/i });
+    const sysParamsTab = screen.getByRole("tab", { name: /Tham Số Hệ Thống/i });
+    expect(whaleTab).toBeDefined();
+    expect(sysParamsTab).toBeDefined();
+
+    // Switch to Whale Analytics screen
+    await act(async () => {
+      fireEvent.click(whaleTab);
+    });
+    expect(
+      screen.getByText(/Thống Kê Nạp Đa Kênh \(Funtap VN & Official Store\)/i)
+    ).toBeDefined();
+    expect(screen.getByText("KaelDravos")).toBeDefined();
+
+    // Switch to System Params screen
+    await act(async () => {
+      fireEvent.click(sysParamsTab);
+    });
+    expect(
+      screen.getByText(/Tham Số Hệ Thống \(MySQL \+ Redis Write-Through Cache\)/i)
+    ).toBeDefined();
+    expect(screen.getByText("STORE_POINT_TO_VND_RATE")).toBeDefined();
   });
 
   it("should toggle auto_redeem switch and call updateAdminAccountAction", async () => {
@@ -537,5 +750,45 @@ describe("AdminManager Component", () => {
     expect(screen.getByText("DragonSlayer")).toBeDefined();
     expect(screen.getByText("ShadowNinja")).toBeDefined();
   });
-});
 
+  it("preserves mixed case when adding a giftcode (e.g. St0rmCl4w) and calls verifyAdminGiftcodeAction when clicking 'Kiểm tra trạng thái trên game'", async () => {
+    await renderAdminManager();
+
+    const giftcodesTab = screen.getByRole("tab", { name: /Quản Lý Giftcode/i });
+    await act(async () => {
+      fireEvent.mouseDown(giftcodesTab, { button: 0 });
+    });
+
+    // 1. Add mixed-case giftcode St0rmCl4w
+    const addBtn = screen.getByRole("button", { name: /Thêm Mã Mới/i });
+    await act(async () => {
+      fireEvent.click(addBtn);
+    });
+
+    const codeInput = screen.getByPlaceholderText("VD: HERO2026, AUTOBOT888...");
+    await act(async () => {
+      fireEvent.change(codeInput, { target: { value: "St0rmCl4w" } });
+    });
+
+    const submitBtn = screen.getByRole("button", { name: /Lưu & Kích Hoạt/i });
+    await act(async () => {
+      fireEvent.click(submitBtn);
+    });
+
+    expect(mockCreateAdminGiftcodeAction).toHaveBeenCalledWith(
+      expect.objectContaining({
+        code: "St0rmCl4w",
+      })
+    );
+
+    // 2. Click "Kiểm tra trạng thái trên game" button
+    const checkBtns = screen.getAllByTitle("Kiểm tra trạng thái trên game");
+    expect(checkBtns.length).toBeGreaterThan(0);
+
+    await act(async () => {
+      fireEvent.click(checkBtns[0]);
+    });
+
+    expect(mockVerifyAdminGiftcodeAction).toHaveBeenCalled();
+  });
+});

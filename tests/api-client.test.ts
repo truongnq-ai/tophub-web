@@ -127,4 +127,45 @@ describe("Typed API Client", () => {
       })
     );
   });
+
+  it("calls admin system-params and whale analytics endpoints with correct query strings and headers", async () => {
+    const fetchMock = vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({ success: true, data: { items: [], groups: [] } }),
+    } as any);
+
+    global.fetch = fetchMock;
+
+    await apiClient.getAdminSystemParams("admin-jwt", {
+      group: "PAYMENT_SYNC",
+      status: "ACTIVE",
+      search: "STORE",
+    });
+
+    expect(fetchMock).toHaveBeenCalledWith(
+      expect.stringContaining(
+        "/api/v1/admin/system-params?group=PAYMENT_SYNC&status=ACTIVE&search=STORE"
+      ),
+      expect.objectContaining({
+        headers: expect.objectContaining({ Authorization: "Bearer admin-jwt" }),
+      })
+    );
+
+    await apiClient.getAdminWhaleAnalytics("admin-jwt", {
+      country: "PH",
+      spender_tier: "WHALE",
+      channel: "OFFICIAL_STORE",
+      page: 1,
+      limit: 20,
+    });
+
+    expect(fetchMock).toHaveBeenCalledWith(
+      expect.stringContaining(
+        "/api/v1/admin/payments/analytics?country=PH&spender_tier=WHALE&channel=OFFICIAL_STORE&page=1&limit=20"
+      ),
+      expect.objectContaining({
+        headers: expect.objectContaining({ Authorization: "Bearer admin-jwt" }),
+      })
+    );
+  });
 });

@@ -123,11 +123,21 @@ export interface AdminAccountItem {
   uid: string;
   nickname: string;
   server_id: string;
+  country?: string;
   active_plan: string;
   ends_at: string | null;
   auto_redeem: boolean;
   auto_checkin: boolean;
   token_status: string;
+  total_spent_vnd_est?: number;
+  funtap_spent_vnd?: number;
+  store_spent_pts?: number;
+  store_spent_vnd_est?: number;
+  spent_last_30d_vnd_est?: number;
+  total_payment_orders?: number;
+  spender_tier?: SpenderTier;
+  last_payment_at?: string | null;
+  payments_synced_at?: string | null;
   created_at: string;
 }
 
@@ -143,6 +153,15 @@ export interface AdminGiftCodeItem {
   total_accounts: number;
   rewards?: string;
   is_public: boolean;
+}
+
+export interface AdminVerifyGiftcodeResponse {
+  id: string;
+  code: string;
+  status: "VALID" | "EXPIRED" | "PENDING_VALIDATION";
+  game_status: "VALID" | "EXPIRED" | "NOT_FOUND" | "RATE_LIMITED" | "UNKNOWN";
+  upstream_message: string;
+  message: string;
 }
 
 export interface AdminGiftcodeReceiverItem {
@@ -288,6 +307,7 @@ export interface AdminAccountsSummary {
   pro_count: number;
   active_bots_count: number;
   servers: string[];
+  countries?: string[];
 }
 
 export interface AdminGiftcodesSummary {
@@ -338,7 +358,9 @@ export interface AdminBannedWordsResponse {
 }
 
 
-export type SpenderTier = "WHALE" | "DOLPHIN" | "PAYER" | "F2P";
+export type SpenderTier = "MEGA_WHALE" | "WHALE" | "DOLPHIN" | "PAYER" | "F2P";
+export type PaymentChannel = "FUNTAP" | "OFFICIAL_STORE";
+export type SpenderActivityStatus = "ACTIVE_SPENDER" | "DORMANT_WHALE" | "NORMAL" | "NONE";
 
 export interface AdminPaymentOrderItem {
   id: string;
@@ -349,11 +371,22 @@ export interface AdminPaymentOrderItem {
   currency: string;
   method: string;
   acquirer: string;
-  status: number;
+  status: number | string;
   is_success: boolean;
   created_at: string;
   completed_at: string | null;
   duration_seconds: number | null;
+  channel?: PaymentChannel;
+  order_id?: string;
+  package_name?: string;
+  package_code?: string | null;
+  quantity?: number;
+  raw_amount?: number;
+  raw_currency?: string;
+  amount_vnd?: number;
+  amount_vnd_est?: number;
+  payment_method?: string;
+  paid_at?: string;
 }
 
 export interface AdminPaymentMethodStat {
@@ -363,6 +396,8 @@ export interface AdminPaymentMethodStat {
 }
 
 export interface AdminAccountPaymentsSummary {
+  uid?: string;
+  country?: string;
   total_orders: number;
   fetched_orders?: number;
   success_orders: number;
@@ -372,6 +407,11 @@ export interface AdminAccountPaymentsSummary {
   max_order_description: string | null;
   first_payment_at: string | null;
   last_payment_at: string | null;
+  funtap_amount_vnd?: number;
+  store_amount_pts?: number;
+  store_amount_vnd_est?: number;
+  funtap_orders_count?: number;
+  store_orders_count?: number;
   spender_tier: SpenderTier;
   is_partial_history: boolean;
   methods_breakdown: AdminPaymentMethodStat[];
@@ -383,6 +423,7 @@ export interface AdminAccountPaymentsResponse {
     uid: string;
     nickname: string;
     server_id: string;
+    country?: string;
   };
   items: AdminPaymentOrderItem[];
   total: number;
@@ -391,4 +432,131 @@ export interface AdminAccountPaymentsResponse {
   total_pages: number;
   summary: AdminAccountPaymentsSummary;
   fetched_at: string;
+  sync_warning?: string;
+}
+
+export interface AdminWhaleLeaderboardItem {
+  id: string;
+  uid: string;
+  nickname: string | null;
+  server_id: string;
+  country: string;
+  active_plan: "PRO" | "FREE" | string;
+  token_status: string;
+  spender_tier: SpenderTier;
+  activity_status: SpenderActivityStatus;
+  total_spent_vnd_est: number;
+  funtap_spent_vnd: number;
+  store_spent_pts: number;
+  store_spent_vnd_est: number;
+  spent_last_30d_vnd_est: number;
+  total_payment_orders: number;
+  first_payment_at?: string | null;
+  last_payment_at: string | null;
+  payments_synced_at: string | null;
+}
+
+export interface AdminCountryBreakdownItem {
+  country: string;
+  accounts?: number;
+  payers?: number;
+  revenue_vnd_est?: number;
+  accounts_count?: number;
+  paying_count?: number;
+  total_spent_vnd_est?: number;
+  funtap_spent_vnd?: number;
+  store_spent_pts?: number;
+}
+
+export interface AdminServerBreakdownItem {
+  server_id: string;
+  accounts?: number;
+  payers?: number;
+  whales?: number;
+  revenue_vnd_est?: number;
+  accounts_count?: number;
+  paying_count?: number;
+  total_spent_vnd_est?: number;
+}
+
+export interface AdminPaymentSyncJobState {
+  status?: "IDLE" | "RUNNING" | "COMPLETED" | "FAILED";
+  isRunning?: boolean;
+  startedAt: string | null;
+  finishedAt: string | null;
+  totalAccounts: number;
+  processedAccounts: number;
+  succeededAccounts?: number;
+  successCount?: number;
+  failedAccounts?: number;
+  failedCount?: number;
+  currentAccountNickname?: string | null;
+  lastError?: string | null;
+  lastTriggerSource?: "CRON" | "MANUAL" | "STARTUP" | null;
+}
+
+export interface AdminWhaleAnalyticsKpis {
+  total_accounts: number;
+  paying_accounts_count: number;
+  f2p_count: number;
+  conversion_rate_pct: number;
+  total_spent_vnd_est: number;
+  funtap_spent_vnd: number;
+  store_spent_pts: number;
+  store_spent_vnd_est: number;
+  spent_last_30d_vnd_est: number;
+  mega_whale_count: number;
+  whale_count: number;
+  dolphin_count: number;
+  payer_count: number;
+  active_spenders_count: number;
+  dormant_whales_count: number;
+  point_to_vnd_rate: number;
+}
+
+export interface AdminWhaleAnalyticsSummary {
+  total_accounts: number;
+  paying_accounts_count: number;
+  paying_ratio_percent: number;
+  total_revenue_vnd_est: number;
+  funtap_revenue_vnd: number;
+  store_revenue_pts: number;
+  store_revenue_vnd_est: number;
+  store_point_to_vnd_rate: number;
+  tier_counts: Record<SpenderTier, number>;
+  active_spenders_count: number;
+  dormant_whales_count: number;
+  countries_breakdown: AdminCountryBreakdownItem[];
+  top_servers_breakdown: AdminServerBreakdownItem[];
+  sync_job: AdminPaymentSyncJobState;
+}
+
+export interface AdminWhaleAnalyticsResponse {
+  items: AdminWhaleLeaderboardItem[];
+  total: number;
+  page: number;
+  limit: number;
+  total_pages: number;
+  summary?: AdminWhaleAnalyticsSummary;
+  kpis?: AdminWhaleAnalyticsKpis;
+  by_server?: AdminServerBreakdownItem[];
+  by_country?: AdminCountryBreakdownItem[];
+  countries: string[];
+  servers: string[];
+}
+
+export interface AdminSystemParamItem {
+  id: string;
+  group: string;
+  code: string;
+  value: string;
+  description: string | null;
+  status: "ACTIVE" | "INACTIVE";
+  created_at: string;
+  updated_at: string;
+}
+
+export interface AdminSystemParamsListResponse {
+  items: AdminSystemParamItem[];
+  groups: string[];
 }

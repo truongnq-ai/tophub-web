@@ -111,7 +111,7 @@ export default async function AdminDashboardPage({ params: { locale } }: AdminDa
   }
 
   return (
-    <div className="container mx-auto px-4 py-8 sm:py-12 max-w-6xl">
+    <div className="container mx-auto px-4 sm:px-6 py-6 sm:py-8 max-w-[1440px]">
       <AdminManager
         initialAccounts={accounts}
         initialAccountsSummary={accountsSummary}

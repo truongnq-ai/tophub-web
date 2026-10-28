@@ -13,6 +13,7 @@ import type {
   AdminLoginResponse,
   AdminAccountItem,
   AdminGiftCodeItem,
+  AdminVerifyGiftcodeResponse,
   AdminGiftcodeReceiverItem,
   AdminRedemptionItem,
   AdminCheckinItem,
@@ -32,6 +33,10 @@ import type {
   AdminCommentItem,
   AdminCommentsListResponse,
   AdminBannedWordsResponse,
+  AdminWhaleAnalyticsResponse,
+  AdminPaymentSyncJobState,
+  AdminSystemParamItem,
+  AdminSystemParamsListResponse,
 } from "@/types/api";
 
 
@@ -122,6 +127,8 @@ export const apiClient = {
       search?: string;
       plan?: string;
       server_id?: string;
+      country?: string;
+      spender_tier?: string;
       token_status?: string;
       sort_by?: string;
     }
@@ -132,6 +139,8 @@ export const apiClient = {
     if (query?.search) params.set("search", query.search);
     if (query?.plan) params.set("plan", query.plan);
     if (query?.server_id) params.set("server_id", query.server_id);
+    if (query?.country) params.set("country", query.country);
+    if (query?.spender_tier) params.set("spender_tier", query.spender_tier);
     if (query?.token_status) params.set("token_status", query.token_status);
     if (query?.sort_by) params.set("sort_by", query.sort_by);
     const qs = params.toString() ? `?${params.toString()}` : "";
@@ -204,6 +213,12 @@ export const apiClient = {
       method: "PATCH",
       headers: { Authorization: `Bearer ${token}` },
       body: JSON.stringify(data),
+    }),
+
+  verifyAdminGiftcode: (token: string, id: string) =>
+    apiFetch<AdminVerifyGiftcodeResponse>(`/api/v1/admin/giftcodes/${encodeURIComponent(id)}/verify`, {
+      method: "POST",
+      headers: { Authorization: `Bearer ${token}` },
     }),
 
   getAdminGiftcodeReceivers: (
@@ -326,6 +341,7 @@ export const apiClient = {
     query?: {
       page?: number;
       limit?: number;
+      channel?: string;
       method?: string;
       search?: string;
       refresh?: boolean;
@@ -334,6 +350,7 @@ export const apiClient = {
     const params = new URLSearchParams();
     if (query?.page) params.set("page", String(query.page));
     if (query?.limit) params.set("limit", String(query.limit));
+    if (query?.channel) params.set("channel", query.channel);
     if (query?.method) params.set("method", query.method);
     if (query?.search) params.set("search", query.search);
     if (query?.refresh) params.set("refresh", "true");
@@ -346,6 +363,121 @@ export const apiClient = {
       }
     );
   },
+
+  getAdminWhaleAnalytics: (
+    token: string,
+    query?: {
+      country?: string;
+      server_id?: string;
+      spender_tier?: string;
+      tier?: string;
+      activity_status?: string;
+      activity?: string;
+      channel?: string;
+      search?: string;
+      page?: number;
+      limit?: number;
+      sort_by?: string;
+    }
+  ) => {
+    const params = new URLSearchParams();
+    if (query?.country) params.set("country", query.country);
+    if (query?.server_id) params.set("server_id", query.server_id);
+    if (query?.spender_tier || query?.tier) {
+      params.set("spender_tier", (query.spender_tier || query.tier)!);
+    }
+    if (query?.activity_status || query?.activity) {
+      params.set("activity_status", (query.activity_status || query.activity)!);
+    }
+    if (query?.channel) params.set("channel", query.channel);
+    if (query?.search) params.set("search", query.search);
+    if (query?.page) params.set("page", String(query.page));
+    if (query?.limit) params.set("limit", String(query.limit));
+    if (query?.sort_by) params.set("sort_by", query.sort_by);
+    const qs = params.toString() ? `?${params.toString()}` : "";
+    return apiFetch<AdminWhaleAnalyticsResponse>(
+      `/api/v1/admin/payments/analytics${qs}`,
+      {
+        headers: { Authorization: `Bearer ${token}` },
+        cache: "no-store",
+      }
+    );
+  },
+
+  triggerAdminPaymentsSyncAll: (token: string) =>
+    apiFetch<AdminPaymentSyncJobState>("/api/v1/admin/payments/sync-all", {
+      method: "POST",
+      headers: { Authorization: `Bearer ${token}` },
+    }),
+
+  getAdminPaymentsSyncStatus: (token: string) =>
+    apiFetch<AdminPaymentSyncJobState>("/api/v1/admin/payments/sync-status", {
+      headers: { Authorization: `Bearer ${token}` },
+      cache: "no-store",
+    }),
+
+  getAdminSystemParams: (
+    token: string,
+    query?: { group?: string; status?: string; search?: string }
+  ) => {
+    const params = new URLSearchParams();
+    if (query?.group) params.set("group", query.group);
+    if (query?.status) params.set("status", query.status);
+    if (query?.search) params.set("search", query.search);
+    const qs = params.toString() ? `?${params.toString()}` : "";
+    return apiFetch<AdminSystemParamsListResponse>(
+      `/api/v1/admin/system-params${qs}`,
+      {
+        headers: { Authorization: `Bearer ${token}` },
+        cache: "no-store",
+      }
+    );
+  },
+
+  createAdminSystemParam: (
+    token: string,
+    payload: {
+      group: string;
+      code: string;
+      value: string;
+      description?: string | null;
+      status?: "ACTIVE" | "INACTIVE";
+    }
+  ) =>
+    apiFetch<AdminSystemParamItem>("/api/v1/admin/system-params", {
+      method: "POST",
+      headers: { Authorization: `Bearer ${token}` },
+      body: JSON.stringify(payload),
+    }),
+
+  updateAdminSystemParam: (
+    token: string,
+    id: string,
+    payload: {
+      group?: string;
+      code?: string;
+      value?: string;
+      description?: string | null;
+      status?: "ACTIVE" | "INACTIVE";
+    }
+  ) =>
+    apiFetch<AdminSystemParamItem>(
+      `/api/v1/admin/system-params/${encodeURIComponent(id)}`,
+      {
+        method: "PATCH",
+        headers: { Authorization: `Bearer ${token}` },
+        body: JSON.stringify(payload),
+      }
+    ),
+
+  deleteAdminSystemParam: (token: string, id: string) =>
+    apiFetch<AdminSystemParamItem>(
+      `/api/v1/admin/system-params/${encodeURIComponent(id)}`,
+      {
+        method: "DELETE",
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    ),
 
   getAdminWeeklyTimeline: (token: string) =>
     apiFetch<AdminWeeklyTimelineItem[]>("/api/v1/admin/checkins/weekly-timeline", {
@@ -515,4 +647,3 @@ export const apiClient = {
       body: JSON.stringify({ words }),
     }),
 };
-

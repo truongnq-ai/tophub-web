@@ -9,18 +9,13 @@ import {
   LogOut,
   Bot,
   Gift,
-  CalendarCheck,
   Loader2,
-  Activity,
   Database,
-  Radio,
   RefreshCw,
-  MessageSquare,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import {
   adminLogoutAction,
   updateAdminAccountAction,
@@ -31,11 +26,15 @@ import {
 } from "@/actions/admin";
 import type { AdminAccountItem, AdminAccountsSummary } from "@/types/api";
 import { extractPaginatedResult } from "./admin/types";
+import { AdminSidebar, type AdminTabId } from "./admin/admin-sidebar";
 import { TabAccounts } from "./admin/tab-accounts";
+import { TabWhaleAnalytics } from "./admin/tab-whale-analytics";
 import { TabGiftcodes } from "./admin/tab-giftcodes";
 import { TabRedemptions } from "./admin/tab-redemptions";
 import { TabCheckins } from "./admin/tab-checkins";
 import { TabComments } from "./admin/tab-comments";
+import { TabSystemParams } from "./admin/tab-system-params";
+import { AccountPaymentsDialog } from "./admin/account-payments-dialog";
 
 interface AdminManagerProps {
   initialAccounts: AdminAccountItem[];
@@ -55,13 +54,28 @@ export function AdminManager({
   );
   const [updatingId, setUpdatingId] = useState<string | null>(null);
   const [isLoggingOut, setIsLoggingOut] = useState(false);
-  const [activeTab, setActiveTab] = useState("accounts");
+  const [activeTab, setActiveTab] = useState<AdminTabId>("accounts");
   const [giftCodesCount, setGiftCodesCount] = useState(0);
   const [activeCodesCount, setActiveCodesCount] = useState(0);
   const [redemptionsCount, setRedemptionsCount] = useState(0);
   const [failedRedemptionsCount, setFailedRedemptionsCount] = useState(0);
   const [checkinsCount, setCheckinsCount] = useState(0);
+  const [systemParamsCount, setSystemParamsCount] = useState<number | undefined>(undefined);
   const [isRefreshingStats, setIsRefreshingStats] = useState(false);
+
+  // Filter states for Accounts CRM
+  const [accCountryFilter, setAccCountryFilter] = useState<string>("ALL");
+  const [accSpenderTierFilter, setAccSpenderTierFilter] = useState<string>("ALL");
+
+  // Shared Payments Dialog state (used by both TabAccounts & TabWhaleAnalytics)
+  const [selectedAccountForPayments, setSelectedAccountForPayments] =
+    useState<AdminAccountItem | null>(null);
+  const [isPaymentsOpen, setIsPaymentsOpen] = useState(false);
+
+  const handleOpenAccountPayments = (account: AdminAccountItem) => {
+    setSelectedAccountForPayments(account);
+    setIsPaymentsOpen(true);
+  };
 
   const loadStats = React.useCallback(async () => {
     try {
@@ -218,7 +232,7 @@ export function AdminManager({
               </Badge>
             </div>
             <p className="text-xs text-muted-foreground mt-0.5">
-              Hệ thống quản trị tài khoản game, kho giftcode và lịch sử tự động hóa bot.
+              Hệ thống quản trị tài khoản game, kho giftcode, thống kê nạp đa kênh và cấu hình bot.
             </p>
           </div>
         </div>
@@ -405,110 +419,70 @@ export function AdminManager({
         </Card>
       </div>
 
-      {/* Tab Navigation HUD (4 Tabs) */}
-      <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-4">
-        <div className="overflow-x-auto pb-1 scrollbar-none">
-          <TabsList className="h-12 p-1 bg-muted/60 border border-border/60 rounded-xl inline-flex w-full sm:w-auto min-w-[560px] sm:min-w-0 justify-start shadow-sm">
-            <TabsTrigger
-              value="accounts"
-              className="gap-2 px-4 py-2 text-xs sm:text-sm font-bold rounded-lg data-[state=active]:bg-card data-[state=active]:text-foreground data-[state=active]:shadow-sm text-muted-foreground min-h-[40px]"
-            >
-              <Users className="h-4 w-4 text-blue-500" />
-              <span>Tài Khoản Game</span>
-              <Badge
-                variant="outline"
-                className="ml-1 text-[10px] px-1.5 py-0 font-mono border-border/80"
-              >
-                {totalAccountsCount}
-              </Badge>
-            </TabsTrigger>
+      {/* 2-Column Layout: Sticky Left Sidebar (4 Groups - 7 Items) + Flexible Main Panel */}
+      <div className="flex flex-col lg:flex-row lg:items-start gap-6">
+        <AdminSidebar
+          activeTab={activeTab}
+          onSelectTab={setActiveTab}
+          badges={{
+            accountsCount: totalAccountsCount,
+            activeGiftcodesCount: giftCodesCount,
+            redemptionsCount: redemptionsCount,
+            failedRedemptionsCount: failedRedemptionsCount,
+            checkinsCount: checkinsCount,
+            systemParamsCount: systemParamsCount,
+          }}
+        />
 
-            <TabsTrigger
-              value="giftcodes"
-              className="gap-2 px-4 py-2 text-xs sm:text-sm font-bold rounded-lg data-[state=active]:bg-card data-[state=active]:text-foreground data-[state=active]:shadow-sm text-muted-foreground min-h-[40px]"
-            >
-              <Gift className="h-4 w-4 text-purple-500" />
-              <span>Quản Lý Giftcode</span>
-              <Badge
-                variant="outline"
-                className="ml-1 text-[10px] px-1.5 py-0 font-mono border-border/80"
-              >
-                {giftCodesCount}
-              </Badge>
-            </TabsTrigger>
+        <div
+          id={`admin-tabpanel-${activeTab}`}
+          role="tabpanel"
+          aria-labelledby={`admin-tab-${activeTab}`}
+          className="flex-1 min-w-0 space-y-6"
+        >
+          {activeTab === "accounts" && (
+            <TabAccounts
+              accounts={accounts}
+              initialSummary={accountsSummary}
+              onToggle={handleToggle}
+              updatingId={updatingId}
+              onRefresh={handleRefreshAccounts}
+              onSummaryChange={setAccountsSummary}
+              accCountryFilter={accCountryFilter}
+              setAccCountryFilter={setAccCountryFilter}
+              accSpenderTierFilter={accSpenderTierFilter}
+              setAccSpenderTierFilter={setAccSpenderTierFilter}
+              onOpenAccountPayments={handleOpenAccountPayments}
+            />
+          )}
 
-            <TabsTrigger
-              value="redemptions"
-              className="gap-2 px-4 py-2 text-xs sm:text-sm font-bold rounded-lg data-[state=active]:bg-card data-[state=active]:text-foreground data-[state=active]:shadow-sm text-muted-foreground min-h-[40px]"
-            >
-              <Zap className="h-4 w-4 text-amber-500" />
-              <span>Lịch Sử Đổi Mã</span>
-              <Badge
-                variant="outline"
-                className={`ml-1 text-[10px] px-1.5 py-0 font-mono border-border/80 ${
-                  failedRedemptionsCount > 0 ? "text-amber-500 border-amber-500/40 font-bold" : ""
-                }`}
-              >
-                {failedRedemptionsCount > 0 ? `${failedRedemptionsCount} lỗi` : redemptionsCount}
-              </Badge>
-            </TabsTrigger>
+          {activeTab === "whale-analytics" && (
+            <TabWhaleAnalytics onOpenAccountPayments={handleOpenAccountPayments} />
+          )}
 
-            <TabsTrigger
-              value="checkins"
-              className="gap-2 px-4 py-2 text-xs sm:text-sm font-bold rounded-lg data-[state=active]:bg-card data-[state=active]:text-foreground data-[state=active]:shadow-sm text-muted-foreground min-h-[40px]"
-            >
-              <CalendarCheck className="h-4 w-4 text-emerald-500" />
-              <span>Lịch Sử Điểm Danh</span>
-              <Badge
-                variant="outline"
-                className="ml-1 text-[10px] px-1.5 py-0 font-mono border-border/80"
-              >
-                {checkinsCount}
-              </Badge>
-            </TabsTrigger>
+          {activeTab === "giftcodes" && <TabGiftcodes />}
 
-            <TabsTrigger
-              value="comments"
-              className="gap-2 px-4 py-2 text-xs sm:text-sm font-bold rounded-lg data-[state=active]:bg-card data-[state=active]:text-foreground data-[state=active]:shadow-sm text-muted-foreground min-h-[40px]"
-            >
-              <MessageSquare className="h-4 w-4 text-rose-500" />
-              <span>Bình Luận Cẩm Nang</span>
-            </TabsTrigger>
-          </TabsList>
+          {activeTab === "redemptions" && <TabRedemptions />}
+
+          {activeTab === "checkins" && <TabCheckins />}
+
+          {activeTab === "comments" && <TabComments onStatsChange={loadStats} />}
+
+          {activeTab === "system-params" && (
+            <TabSystemParams onParamsCountChange={setSystemParamsCount} />
+          )}
         </div>
+      </div>
 
-        {/* Tab 1 Content: Accounts Manager */}
-        <TabsContent value="accounts" className="mt-0 focus-visible:outline-none">
-          <TabAccounts
-            accounts={accounts}
-            initialSummary={accountsSummary}
-            onToggle={handleToggle}
-            updatingId={updatingId}
-            onRefresh={handleRefreshAccounts}
-            onSummaryChange={setAccountsSummary}
-          />
-        </TabsContent>
-
-        {/* Tab 2 Content: Giftcode Manager */}
-        <TabsContent value="giftcodes" className="mt-0 focus-visible:outline-none">
-          <TabGiftcodes />
-        </TabsContent>
-
-        {/* Tab 3 Content: Redemptions History */}
-        <TabsContent value="redemptions" className="mt-0 focus-visible:outline-none">
-          <TabRedemptions />
-        </TabsContent>
-
-        {/* Tab 4 Content: Checkins History */}
-        <TabsContent value="checkins" className="mt-0 focus-visible:outline-none">
-          <TabCheckins />
-        </TabsContent>
-
-        {/* Tab 5 Content: Guide Comments Moderation */}
-        <TabsContent value="comments" className="mt-0 focus-visible:outline-none">
-          <TabComments onStatsChange={loadStats} />
-        </TabsContent>
-      </Tabs>
+      {/* Shared Dual-Channel Payment History Dialog */}
+      <AccountPaymentsDialog
+        account={selectedAccountForPayments}
+        open={isPaymentsOpen}
+        onOpenChange={(open) => {
+          setIsPaymentsOpen(open);
+          if (!open) setSelectedAccountForPayments(null);
+        }}
+      />
     </div>
   );
 }
