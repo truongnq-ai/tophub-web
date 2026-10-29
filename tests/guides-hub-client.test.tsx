@@ -1,3 +1,5 @@
+import fs from "node:fs";
+import path from "node:path";
 import React from "react";
 import { describe, expect, it, vi } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
@@ -63,7 +65,7 @@ vi.mock("@/i18n/routing", () => ({
   ),
 }));
 
-describe("GuidesHubClient (4-Layer Smart Command Hub — Hardened)", () => {
+describe("GuidesHubClient (4-Layer Smart Command Hub — Hardened & Phase 3.1 Google MD3 Audit)", () => {
   it("renders all 4 layers: Hero + Hot Tags, 3-Stage Tabs, 4 Tools Strip, and 8 Bento Category Cards", () => {
     render(<GuidesHubClient locale="vi" />);
 
@@ -116,5 +118,29 @@ describe("GuidesHubClient (4-Layer Smart Command Hub — Hardened)", () => {
     expect(
       screen.getByRole("button", { name: /Thu gọn danh sách bài/i })
     ).toBeDefined();
+  });
+
+  it("enforces Google MD3 Phase 3.1 standards: 16px mobile search input, 44px touch targets on Hot Tags and Stage Tabs, and zero sub-12px classes", () => {
+    render(<GuidesHubClient locale="vi" />);
+
+    const searchInput = screen.getByPlaceholderText(/Tìm tướng, sự kiện/i);
+    expect(searchInput.className).toContain("text-base");
+    expect(searchInput.className).toContain("h-11");
+
+    const hotTagBtn = screen.getByRole("button", { name: /#DoubleDip/i });
+    expect(hotTagBtn.className).toContain("min-h-[44px]");
+    expect(hotTagBtn.className).toContain("font-sans");
+
+    const earlyTab = screen.getByRole("tab", { name: /Tân Thủ \(Ngày 1–20\)/i });
+    expect(earlyTab.className).toContain("min-h-[44px]");
+
+    const source = fs.readFileSync(
+      path.resolve(
+        __dirname,
+        "../src/components/guides/guides-hub-client.tsx"
+      ),
+      "utf8"
+    );
+    expect(source).not.toMatch(/text-\[(8|9|10|11)px\]/);
   });
 });

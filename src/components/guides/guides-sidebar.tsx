@@ -70,9 +70,9 @@ function renderArticleIndicator(badge: GuideBadgeType) {
     return (
       <span
         title="HOT"
-        className="inline-flex items-center justify-center rounded-md bg-rose-500/15 border border-rose-500/30 px-1.5 py-0.5 text-[10px] font-mono font-bold text-rose-600 dark:text-rose-400 shrink-0"
+        className="inline-flex items-center justify-center rounded-md bg-rose-500/15 border border-rose-500/30 px-1.5 py-0.5 text-xs font-sans font-bold text-rose-600 dark:text-rose-400 shrink-0"
       >
-        <Flame className="h-2.5 w-2.5 fill-current" />
+        <Flame className="h-3 w-3 fill-current" />
       </span>
     );
   }
@@ -80,9 +80,9 @@ function renderArticleIndicator(badge: GuideBadgeType) {
     return (
       <span
         title="PRO"
-        className="inline-flex items-center justify-center rounded-md bg-amber-500/15 border border-amber-500/30 px-1.5 py-0.5 text-[10px] font-mono font-bold text-amber-600 dark:text-amber-400 shrink-0"
+        className="inline-flex items-center justify-center rounded-md bg-amber-500/15 border border-amber-500/30 px-1.5 py-0.5 text-xs font-sans font-bold text-amber-600 dark:text-amber-400 shrink-0"
       >
-        <Crown className="h-2.5 w-2.5 fill-current" />
+        <Crown className="h-3 w-3 fill-current" />
       </span>
     );
   }
@@ -152,22 +152,22 @@ function SidebarNavigationTree({
       {/* Quick Search Box + Optional Desktop Collapse Trigger */}
       <div className="flex items-center gap-1.5">
         <div className="relative flex-1">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-amber-500" />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-amber-500" />
           <Input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder={t("searchPlaceholder")}
-            className="pl-8 pr-8 h-10 rounded-xl bg-background/80 text-xs border-border/80 focus-visible:ring-amber-500/30 focus-visible:border-amber-500"
+            className="pl-9 pr-9 h-11 min-h-[44px] rounded-xl bg-background/80 text-base sm:text-sm border-border/80 focus-visible:ring-amber-500/30 focus-visible:border-amber-500"
           />
           {searchQuery && (
             <button
               type="button"
               onClick={() => setSearchQuery("")}
               aria-label={t("clearSearch")}
-              className="absolute right-2 top-1/2 -translate-y-1/2 p-1 rounded-md text-muted-foreground hover:text-foreground"
+              className="absolute right-0 top-1/2 -translate-y-1/2 inline-flex h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center rounded-xl text-muted-foreground hover:text-foreground"
             >
-              <X className="h-3.5 w-3.5" />
+              <X className="h-4 w-4" />
             </button>
           )}
         </div>
@@ -180,7 +180,7 @@ function SidebarNavigationTree({
             onClick={onCollapseDesktop}
             aria-label={t("collapseSidebar")}
             title={t("collapseSidebar")}
-            className="h-10 w-10 shrink-0 rounded-xl border-border/80 bg-card/60 text-muted-foreground hover:text-amber-500 hover:border-amber-500/40"
+            className="h-11 w-11 min-h-[44px] min-w-[44px] shrink-0 rounded-xl border-border/80 bg-card/60 text-muted-foreground hover:text-amber-500 hover:border-amber-500/40"
           >
             <PanelLeftClose className="h-4 w-4" />
           </Button>
@@ -192,7 +192,7 @@ function SidebarNavigationTree({
         href="/guides"
         onClick={onNavigate}
         className={cn(
-          "flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-bold transition-all min-h-[40px] border",
+          "flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm font-bold transition-all min-h-[44px] border",
           pathname === "/guides"
             ? "bg-amber-500/15 text-amber-600 dark:text-amber-400 border-amber-500/35 shadow-sm"
             : "border-border/60 bg-card/40 text-muted-foreground hover:text-foreground hover:bg-muted/50"
@@ -209,7 +209,7 @@ function SidebarNavigationTree({
         aria-current={isCodexRoute ? "page" : undefined}
         onClick={onNavigate}
         className={cn(
-          "flex items-center justify-between gap-2 px-3 py-2 rounded-xl text-xs font-bold transition-all min-h-[40px] border",
+          "flex items-center justify-between gap-2 px-3 py-2.5 rounded-xl text-sm font-bold transition-all min-h-[44px] border",
           isCodexRoute
             ? "bg-amber-500/15 text-amber-600 dark:text-amber-400 border-amber-500/35 shadow-sm"
             : "border-border/60 bg-card/40 text-muted-foreground hover:text-foreground hover:bg-muted/50"
@@ -219,7 +219,7 @@ function SidebarNavigationTree({
           <Database className="h-4 w-4 text-amber-500 shrink-0" />
           <span className="truncate">{t("sidebarCodexLink")}</span>
         </span>
-        <span className="rounded-md bg-amber-500/15 border border-amber-500/30 px-1.5 py-0.5 font-mono text-[10px] font-bold text-amber-500 shrink-0">
+        <span className="rounded-md bg-amber-500/15 border border-amber-500/30 px-2 py-0.5 font-mono text-xs font-bold text-amber-500 shrink-0">
           3.4K+
         </span>
       </Link>
@@ -228,13 +228,13 @@ function SidebarNavigationTree({
       {searchResults !== null ? (
         <div className="space-y-2 pt-1">
           <div className="flex items-center justify-between px-1">
-            <span className="text-[11px] font-mono font-bold text-amber-600 dark:text-amber-400">
+            <span className="text-xs font-sans font-bold text-amber-600 dark:text-amber-400">
               {t("searchResultsCount", { count: searchResults.length })}
             </span>
             <button
               type="button"
               onClick={() => setSearchQuery("")}
-              className="text-[11px] text-muted-foreground hover:text-foreground underline"
+              className="inline-flex items-center min-h-[44px] px-2 text-xs font-sans font-medium text-muted-foreground hover:text-foreground underline"
             >
               {t("clearSearch")}
             </button>
@@ -255,14 +255,14 @@ function SidebarNavigationTree({
                     onClick={handleArticleClick}
                     title={article.title[locale]}
                     className={cn(
-                      "flex items-center justify-between gap-2 rounded-xl px-2.5 py-2 text-xs transition-all min-h-[40px] border",
+                      "flex items-center justify-between gap-2 rounded-xl px-2.5 py-2 text-xs sm:text-sm transition-all min-h-[44px] border",
                       isActive
                         ? "bg-amber-500/15 text-amber-600 dark:text-amber-400 border-amber-500/30 font-bold"
                         : "border-border/50 bg-card/50 text-foreground/90 hover:border-amber-500/30"
                     )}
                   >
                     <div className="overflow-hidden flex items-center gap-1.5 min-w-0">
-                      <span className="font-mono text-[10px] text-amber-500 shrink-0">
+                      <span className="font-mono text-xs font-bold text-amber-500 shrink-0">
                         {article.code}
                       </span>
                       <span className="line-clamp-1">{cleanMainTitle}</span>
@@ -273,8 +273,8 @@ function SidebarNavigationTree({
               })}
             </div>
           ) : (
-            <div className="rounded-2xl border border-dashed border-border/80 p-4 text-center space-y-2">
-              <p className="text-xs text-muted-foreground">
+            <div className="rounded-2xl border border-dashed border-border/80 p-4 text-center space-y-2.5">
+              <p className="text-xs sm:text-sm text-muted-foreground">
                 {t("searchNoResults")}
               </p>
               <Button
@@ -282,7 +282,7 @@ function SidebarNavigationTree({
                 variant="outline"
                 size="sm"
                 onClick={() => setSearchQuery("")}
-                className="text-xs h-8 rounded-lg"
+                className="text-xs h-11 min-h-[44px] px-4 rounded-xl"
               >
                 {t("clearSearch")}
               </Button>
@@ -300,7 +300,7 @@ function SidebarNavigationTree({
         >
           {GUIDE_ZONES.map((zone) => (
             <div key={zone.id} className="space-y-1.5">
-              <div className="px-2 text-[10px] font-mono font-bold uppercase tracking-wider text-amber-600/90 dark:text-amber-400/90">
+              <div className="px-2 text-xs font-sans font-bold uppercase tracking-wider text-amber-600/90 dark:text-amber-400/90">
                 {zone.title[locale]}
               </div>
 
@@ -326,7 +326,7 @@ function SidebarNavigationTree({
                           : "border-border/60 bg-card/35"
                       )}
                     >
-                      <AccordionTrigger className="py-2.5 hover:no-underline min-h-[42px]">
+                      <AccordionTrigger className="py-2.5 hover:no-underline min-h-[44px]">
                         <div className="flex items-center gap-2 text-left pr-1.5 min-w-0">
                           <div
                             className={cn(
@@ -338,7 +338,7 @@ function SidebarNavigationTree({
                           >
                             <Icon className="h-3.5 w-3.5" />
                           </div>
-                          <span className="font-heading font-bold text-xs text-foreground leading-snug line-clamp-1">
+                          <span className="font-heading font-bold text-xs sm:text-sm text-foreground leading-snug line-clamp-1">
                             {categoryDisplayLabel}
                           </span>
                         </div>
@@ -360,14 +360,14 @@ function SidebarNavigationTree({
                                 onClick={handleArticleClick}
                                 title={article.title[locale]}
                                 className={cn(
-                                  "flex items-center justify-between gap-1.5 rounded-lg px-2 py-1.5 text-xs transition-all min-h-[38px]",
+                                  "flex items-center justify-between gap-1.5 rounded-lg px-2.5 py-2 text-xs sm:text-sm transition-all min-h-[44px]",
                                   isArticleActive
                                     ? "bg-amber-500/15 text-amber-600 dark:text-amber-400 font-bold border border-amber-500/30"
                                     : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                                 )}
                               >
                                 <span className="line-clamp-1 leading-snug min-w-0">
-                                  <strong className="font-mono text-[10px] text-amber-500 mr-1.5">
+                                  <strong className="font-mono text-xs text-amber-500 mr-1.5">
                                     {article.code}
                                   </strong>
                                   {cleanMainTitle}
@@ -467,12 +467,12 @@ export function GuidesSidebar() {
               </span>
               <span className="flex items-center gap-2 shrink-0">
                 {isLoaded && activeAccount && (
-                  <span className="inline-flex items-center gap-1 rounded-md bg-emerald-500/15 px-1.5 py-0.5 font-mono text-[10px] font-bold text-emerald-600 dark:text-emerald-400">
+                  <span className="inline-flex items-center gap-1 rounded-md bg-emerald-500/15 px-2 py-0.5 font-sans text-xs font-bold text-emerald-600 dark:text-emerald-400">
                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
                     {activeAccount.active_plan === "PRO" ? "PRO" : "Bot"}
                   </span>
                 )}
-                <span className="font-mono text-[11px] text-amber-600 dark:text-amber-400">
+                <span className="font-sans text-xs font-semibold text-amber-600 dark:text-amber-400">
                   {categories.length} Topics
                 </span>
               </span>
@@ -512,7 +512,7 @@ export function GuidesSidebar() {
                 onClick={() => toggleDesktopCollapsed(false)}
                 aria-label={t("expandSidebar")}
                 title={t("expandSidebar")}
-                className="h-10 w-10 rounded-xl text-amber-500 hover:bg-amber-500/15"
+                className="h-11 w-11 min-h-[44px] min-w-[44px] rounded-xl text-amber-500 hover:bg-amber-500/15"
               >
                 <PanelLeftOpen className="h-4 w-4" />
               </Button>
@@ -521,7 +521,7 @@ export function GuidesSidebar() {
                 href="/guides"
                 title={t("backToHub")}
                 className={cn(
-                  "flex h-10 w-10 items-center justify-center rounded-xl border transition-colors",
+                  "flex h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center rounded-xl border transition-colors",
                   pathname === "/guides"
                     ? "border-amber-500/40 bg-amber-500/15 text-amber-500"
                     : "border-transparent text-muted-foreground hover:bg-muted/60 hover:text-foreground"
@@ -535,7 +535,7 @@ export function GuidesSidebar() {
                 data-testid="sidebar-rail-codex-link"
                 title={t("sidebarCodexLink")}
                 className={cn(
-                  "flex h-10 w-10 items-center justify-center rounded-xl border transition-colors",
+                  "flex h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center rounded-xl border transition-colors",
                   pathname.startsWith("/guides/codex")
                     ? "border-amber-500/40 bg-amber-500/15 text-amber-500"
                     : "border-transparent text-muted-foreground hover:bg-muted/60 hover:text-foreground"
@@ -559,7 +559,7 @@ export function GuidesSidebar() {
                     aria-label={label}
                     title={label}
                     className={cn(
-                      "flex h-10 w-10 items-center justify-center rounded-xl border transition-colors cursor-pointer",
+                      "flex h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center rounded-xl border transition-colors cursor-pointer",
                       isActive
                         ? "border-amber-500/40 bg-amber-500 text-slate-950 shadow-sm"
                         : "border-transparent text-muted-foreground hover:bg-amber-500/10 hover:text-amber-500"

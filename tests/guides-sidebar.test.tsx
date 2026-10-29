@@ -1,6 +1,9 @@
+import fs from "node:fs";
+import path from "node:path";
 import React from "react";
 import { describe, expect, it, vi, beforeEach } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
+import { GuidesShell } from "../src/components/guides/guides-shell";
 import { GuidesSidebar } from "../src/components/guides/guides-sidebar";
 
 const mockPathname = vi.fn(() => "/guides/roadmap/horde-pivot-roadmap");
@@ -24,6 +27,7 @@ vi.mock("next-intl", () => ({
       searchPlaceholder: "Tìm tướng, sự kiện...",
       clearSearch: "Xóa bộ lọc tìm kiếm",
       backToHub: "Tổng quan Cẩm Nang",
+      sidebarCodexLink: "Kho Đồ Giám (Codex)",
       mobileMenuBtn: "Danh Mục Cẩm Nang (8 Nhóm)",
       collapseSidebar: "Thu gọn danh mục",
       expandSidebar: "Mở rộng danh mục",
@@ -64,7 +68,7 @@ vi.mock("@/hooks/use-uid-session", () => ({
   useUidSession: () => mockUidSession(),
 }));
 
-describe("GuidesSidebar (Phase 1 Hardened Redesign)", () => {
+describe("GuidesSidebar (Phase 1 Hardened Redesign & Phase 3.1 Google MD3 Audit)", () => {
   beforeEach(() => {
     window.localStorage.clear();
     mockPathname.mockReturnValue("/guides/roadmap/horde-pivot-roadmap");
@@ -152,5 +156,37 @@ describe("GuidesSidebar (Phase 1 Hardened Redesign)", () => {
     expect(articleLink.getAttribute("title")).toContain("(");
     expect(articleLink.textContent).not.toContain("(");
   });
-});
 
+  it("enforces Google MD3 Phase 3.1 standards: px-3 sm:px-6 mobile shell gutter, 44px touch targets, 16px mobile search input, and zero sub-12px classes across GuidesShell, CompactUidStatusPill, and GuidesSidebar", () => {
+    const { container } = render(
+      <GuidesShell locale="vi">
+        <div data-testid="shell-child">Child Content</div>
+      </GuidesShell>
+    );
+
+    // 1. GuidesShell outer container uses px-3 sm:px-6 for maximum 375px mobile reading width
+    const shellRoot = container.firstElementChild as HTMLElement;
+    expect(shellRoot.className).toContain("px-3");
+    expect(shellRoot.className).toContain("sm:px-6");
+
+    // 2. Search input uses text-base sm:text-sm and h-11 / min-h-[44px] (prevents iOS Safari auto-zoom)
+    const searchInput = screen.getByPlaceholderText(/Tìm tướng, sự kiện/i);
+    expect(searchInput.className).toContain("text-base");
+    expect(searchInput.className).toContain("h-11");
+
+    // 3. Hub & Codex navigation links and UID status pill enforce min-h-[44px]
+    const codexLink = screen.getByTestId("sidebar-codex-link");
+    expect(codexLink.className).toContain("min-h-[44px]");
+
+    // 4. Static source scan: zero sub-12px classes (text-[8px..11px]) in all 3 files
+    const filesToAudit = [
+      "../src/components/guides/guides-shell.tsx",
+      "../src/components/guides/compact-uid-status-pill.tsx",
+      "../src/components/guides/guides-sidebar.tsx",
+    ];
+    for (const relPath of filesToAudit) {
+      const source = fs.readFileSync(path.resolve(__dirname, relPath), "utf8");
+      expect(source).not.toMatch(/text-\[(8|9|10|11)px\]/);
+    }
+  });
+});

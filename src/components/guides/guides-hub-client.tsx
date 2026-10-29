@@ -257,27 +257,27 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
                 #{art.code}
               </span>
               {art.badge === "HOT" && (
-                <Badge className="bg-rose-500/15 text-rose-500 border-rose-500/30 text-[10px] font-mono">
+                <Badge className="bg-rose-500/15 text-rose-500 border-rose-500/30 text-xs font-sans font-bold">
                   <Flame className="h-3 w-3 mr-1 fill-current" />
                   HOT
                 </Badge>
               )}
               {art.badge === "PRO" && (
-                <Badge className="bg-amber-500/15 text-amber-500 border-amber-500/30 text-[10px] font-mono">
+                <Badge className="bg-amber-500/15 text-amber-500 border-amber-500/30 text-xs font-sans font-bold">
                   <Crown className="h-3 w-3 mr-1 fill-current" />
                   PRO
                 </Badge>
               )}
             </div>
-            <h3 className="font-heading font-bold text-sm sm:text-base text-foreground group-hover:text-amber-500 transition-colors line-clamp-2">
+            <h3 className="font-heading font-bold text-base sm:text-lg text-foreground group-hover:text-amber-500 transition-colors line-clamp-2">
               {art.title[locale]}
             </h3>
-            <p className="text-xs text-muted-foreground line-clamp-2 leading-relaxed">
+            <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">
               {art.summary[locale]}
             </p>
           </div>
 
-          <div className="flex items-center justify-between pt-2 border-t border-border/50 text-[11px] font-mono text-amber-600 dark:text-amber-400">
+          <div className="flex items-center justify-between pt-2 border-t border-border/50 text-xs font-sans font-semibold text-amber-600 dark:text-amber-400">
             <span>{t("readingTime", { minutes: art.readingMinutes })}</span>
             <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
           </div>
@@ -289,7 +289,7 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
   return (
     <div className="space-y-8">
       {/* LAYER 1: Compact Hero + Instant Search + Hot Keyword Tags */}
-      <section className="card-rpg rounded-3xl p-5 sm:p-7 space-y-4">
+      <section className="card-rpg rounded-3xl p-4 sm:p-7 space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/40 bg-amber-500/10 px-3.5 py-1 text-xs font-bold text-amber-600 dark:text-amber-400">
             <BookOpen className="h-3.5 w-3.5 text-amber-500" />
@@ -301,7 +301,7 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
           <h1 className="font-heading font-black text-2xl sm:text-3xl lg:text-4xl text-foreground leading-tight">
             {t("hubTitle")}
           </h1>
-          <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-3xl">
+          <p className="text-base text-muted-foreground leading-relaxed max-w-3xl">
             {t("hubDescription")}
           </p>
         </div>
@@ -315,14 +315,14 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder={t("searchPlaceholder")}
-              className="pl-10 pr-10 h-11 rounded-2xl bg-background/85 text-xs sm:text-sm border-border/80 focus-visible:ring-amber-500/30 focus-visible:border-amber-500"
+              className="pl-10 pr-10 h-11 min-h-[44px] rounded-2xl bg-background/85 text-base sm:text-sm border-border/80 focus-visible:ring-amber-500/30 focus-visible:border-amber-500"
             />
             {searchQuery && (
               <button
                 type="button"
                 onClick={() => setSearchQuery("")}
                 aria-label={t("clearSearch")}
-                className="absolute right-3 top-1/2 -translate-y-1/2 p-1 rounded-md text-muted-foreground hover:text-foreground"
+                className="absolute right-0.5 top-1/2 -translate-y-1/2 inline-flex h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center rounded-xl text-muted-foreground hover:text-foreground"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -330,7 +330,7 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
           </div>
 
           <div className="flex flex-wrap items-center gap-1.5 text-xs">
-            <span className="font-mono text-[11px] text-muted-foreground mr-1">
+            <span className="font-sans text-xs font-medium text-muted-foreground mr-1">
               {t("hotTagsLabel")}
             </span>
             {HOT_TAGS.map((tag) => {
@@ -345,7 +345,7 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
                     setSearchQuery(isSelected ? "" : targetQuery)
                   }
                   className={cn(
-                    "rounded-full border px-2.5 py-1 font-mono text-[11px] font-semibold transition-all",
+                    "inline-flex items-center justify-center min-h-[44px] sm:min-h-[36px] rounded-full border px-3.5 py-1.5 font-sans text-xs font-semibold transition-all",
                     isSelected
                       ? "border-amber-500 bg-amber-500 text-slate-950"
                       : "border-border/70 bg-background/60 text-muted-foreground hover:border-amber-500/40 hover:text-amber-500"
@@ -362,7 +362,7 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
         {searchResults !== null && (
           <div className="rounded-2xl border border-amber-500/30 bg-background/80 p-4 space-y-4">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-mono font-bold text-amber-600 dark:text-amber-400">
+              <span className="text-xs font-sans font-bold text-amber-600 dark:text-amber-400">
                 {t("searchResultsCount", {
                   count: searchResults.length + codexSearchResults.length,
                 })}
@@ -370,7 +370,7 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
               <button
                 type="button"
                 onClick={() => setSearchQuery("")}
-                className="text-xs text-muted-foreground hover:text-foreground underline"
+                className="inline-flex items-center min-h-[44px] px-2 text-xs font-sans font-medium text-muted-foreground hover:text-foreground underline"
               >
                 {t("clearSearch")}
               </button>
@@ -381,7 +381,7 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
               data-testid="hub-search-articles-section"
               className="space-y-2"
             >
-              <div className="text-[11px] font-mono font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
+              <div className="text-xs font-sans font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
                 <BookOpen className="h-3.5 w-3.5 text-amber-500" />
                 <span>{t("hubSearchArticlesHeading")}</span>
               </div>
@@ -392,27 +392,27 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
                     <Link
                       key={`${art.categorySlug}/${art.slug}`}
                       href={`/guides/${art.categorySlug}/${art.slug}`}
-                      className="group flex items-center justify-between gap-2 rounded-xl border border-border/70 bg-card/70 hover:border-amber-500/50 p-3 text-xs transition-all"
+                      className="group flex items-center justify-between gap-2 rounded-xl border border-border/70 bg-card/70 hover:border-amber-500/50 p-3 text-xs sm:text-sm min-h-[44px] transition-all"
                     >
                       <div className="min-w-0 space-y-0.5">
                         <div className="flex items-center gap-1.5">
-                          <span className="font-mono text-[11px] font-bold text-amber-500 shrink-0">
+                          <span className="font-mono text-xs font-bold text-amber-500 shrink-0">
                             #{art.code}
                           </span>
                           <span className="font-heading font-bold text-foreground group-hover:text-amber-500 line-clamp-1">
                             {art.title[locale]}
                           </span>
                         </div>
-                        <p className="text-[11px] text-muted-foreground line-clamp-1">
+                        <p className="text-xs text-muted-foreground line-clamp-1">
                           {art.summary[locale]}
                         </p>
                       </div>
-                      <ArrowRight className="h-3.5 w-3.5 text-muted-foreground group-hover:text-amber-500 shrink-0" />
+                      <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-amber-500 shrink-0" />
                     </Link>
                   ))}
                 </div>
               ) : (
-                <p className="text-xs text-muted-foreground py-1">
+                <p className="text-xs sm:text-sm text-muted-foreground py-1">
                   {t("searchNoResults")}
                 </p>
               )}
@@ -424,7 +424,7 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
               className="space-y-2 pt-2 border-t border-border/60"
             >
               <div className="flex items-center justify-between gap-2">
-                <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
+                <span className="text-xs font-sans font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
                   <Database className="h-3.5 w-3.5 text-amber-500" />
                   <span>{t("hubSearchCodexHeading")}</span>
                 </span>
@@ -432,7 +432,7 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
                   href={`/guides/codex?q=${encodeURIComponent(
                     searchQuery.trim()
                   )}`}
-                  className="text-[11px] font-mono font-bold text-amber-500 hover:underline"
+                  className="inline-flex items-center min-h-[44px] px-2 text-xs font-sans font-bold text-amber-500 hover:underline"
                 >
                   {t("hubSearchOpenCodexBtn")}
                 </Link>
@@ -451,7 +451,7 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
                         href={`/guides/codex?q=${encodeURIComponent(
                           displayName
                         )}`}
-                        className="group flex items-center gap-2.5 rounded-xl border border-border/70 bg-card/70 hover:border-amber-500/50 p-2.5 text-xs transition-all"
+                        className="group flex items-center gap-2.5 rounded-xl border border-border/70 bg-card/70 hover:border-amber-500/50 p-2.5 text-xs min-h-[44px] transition-all"
                       >
                         <GameAssetFrame
                           src={entity.path}
@@ -462,14 +462,14 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
                         />
                         <div className="min-w-0 flex-1 space-y-0.5">
                           <div className="flex items-center justify-between gap-1">
-                            <span className="font-heading font-bold text-foreground group-hover:text-amber-500 truncate">
+                            <span className="font-heading font-bold text-xs sm:text-sm text-foreground group-hover:text-amber-500 truncate">
                               {displayName}
                             </span>
-                            <span className="text-[10px] font-mono text-amber-500 shrink-0">
+                            <span className="text-xs font-sans font-semibold text-amber-500 shrink-0">
                               {CODEX_CATEGORY_LABELS[entity.category][locale]}
                             </span>
                           </div>
-                          <p className="text-[11px] text-muted-foreground line-clamp-1">
+                          <p className="text-xs text-muted-foreground line-clamp-1">
                             {displayDesc}
                           </p>
                         </div>
@@ -494,36 +494,36 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
           <TabsList className="grid grid-cols-1 sm:grid-cols-3 h-auto gap-1.5 rounded-2xl bg-card/70 border border-border/80 p-1.5">
             <TabsTrigger
               value="early"
-              className="rounded-xl py-2.5 px-3 text-left flex flex-col items-start gap-0.5 data-[state=active]:bg-amber-500/15 data-[state=active]:text-amber-600 dark:data-[state=active]:text-amber-400 data-[state=active]:border-amber-500/30 border border-transparent"
+              className="rounded-xl py-2.5 px-3 min-h-[44px] text-left flex flex-col items-start gap-0.5 data-[state=active]:bg-amber-500/15 data-[state=active]:text-amber-600 dark:data-[state=active]:text-amber-400 data-[state=active]:border-amber-500/30 border border-transparent"
             >
-              <span className="font-heading font-bold text-xs sm:text-sm">
+              <span className="font-heading font-bold text-sm sm:text-base">
                 🌱 {t("stageEarlyLabel")}
               </span>
-              <span className="text-[11px] text-muted-foreground line-clamp-1 font-normal">
+              <span className="text-xs text-muted-foreground line-clamp-1 font-normal">
                 {t("stageEarlySub")}
               </span>
             </TabsTrigger>
 
             <TabsTrigger
               value="pivot"
-              className="rounded-xl py-2.5 px-3 text-left flex flex-col items-start gap-0.5 data-[state=active]:bg-amber-500/15 data-[state=active]:text-amber-600 dark:data-[state=active]:text-amber-400 data-[state=active]:border-amber-500/30 border border-transparent"
+              className="rounded-xl py-2.5 px-3 min-h-[44px] text-left flex flex-col items-start gap-0.5 data-[state=active]:bg-amber-500/15 data-[state=active]:text-amber-600 dark:data-[state=active]:text-amber-400 data-[state=active]:border-amber-500/30 border border-transparent"
             >
-              <span className="font-heading font-bold text-xs sm:text-sm">
+              <span className="font-heading font-bold text-sm sm:text-base">
                 🔥 {t("stagePivotLabel")}
               </span>
-              <span className="text-[11px] text-muted-foreground line-clamp-1 font-normal">
+              <span className="text-xs text-muted-foreground line-clamp-1 font-normal">
                 {t("stagePivotSub")}
               </span>
             </TabsTrigger>
 
             <TabsTrigger
               value="season"
-              className="rounded-xl py-2.5 px-3 text-left flex flex-col items-start gap-0.5 data-[state=active]:bg-amber-500/15 data-[state=active]:text-amber-600 dark:data-[state=active]:text-amber-400 data-[state=active]:border-amber-500/30 border border-transparent"
+              className="rounded-xl py-2.5 px-3 min-h-[44px] text-left flex flex-col items-start gap-0.5 data-[state=active]:bg-amber-500/15 data-[state=active]:text-amber-600 dark:data-[state=active]:text-amber-400 data-[state=active]:border-amber-500/30 border border-transparent"
             >
-              <span className="font-heading font-bold text-xs sm:text-sm">
+              <span className="font-heading font-bold text-sm sm:text-base">
                 ⚔️ {t("stageSeasonLabel")}
               </span>
-              <span className="text-[11px] text-muted-foreground line-clamp-1 font-normal">
+              <span className="text-xs text-muted-foreground line-clamp-1 font-normal">
                 {t("stageSeasonSub")}
               </span>
             </TabsTrigger>
@@ -568,15 +568,15 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
                 </div>
                 <div className="min-w-0 flex-1 space-y-1">
                   <div className="flex items-center justify-between gap-1">
-                    <span className="font-mono text-[10px] font-bold text-amber-500">
+                    <span className="font-mono text-xs font-bold text-amber-500">
                       #{tool.code}
                     </span>
                     <ArrowRight className="h-3.5 w-3.5 text-muted-foreground group-hover:text-amber-500 transition-transform group-hover:translate-x-0.5" />
                   </div>
-                  <h3 className="font-heading font-bold text-xs sm:text-sm text-foreground group-hover:text-amber-500 transition-colors truncate">
+                  <h3 className="font-heading font-bold text-sm sm:text-base text-foreground group-hover:text-amber-500 transition-colors truncate">
                     {tool.title}
                   </h3>
-                  <p className="text-[11px] text-muted-foreground line-clamp-1">
+                  <p className="text-xs text-muted-foreground line-clamp-1">
                     {tool.desc}
                   </p>
                 </div>
@@ -601,7 +601,7 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
             return (
               <div
                 key={category.slug}
-                className="rounded-3xl border border-border/80 dark:border-amber-500/20 bg-card/70 p-5 sm:p-6 flex flex-col justify-between space-y-4 shadow-sm hover:border-amber-500/40 transition-all"
+                className="rounded-3xl border border-border/80 dark:border-amber-500/20 bg-card/70 p-4 sm:p-6 flex flex-col justify-between space-y-4 shadow-sm hover:border-amber-500/40 transition-all"
               >
                 <div className="space-y-3">
                   <div className="flex items-start justify-between gap-3">
@@ -610,7 +610,7 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
                         <Icon className="h-5 w-5" />
                       </div>
                       <div>
-                        <span className="text-[11px] font-mono font-bold text-amber-600 dark:text-amber-400">
+                        <span className="text-xs font-mono font-bold text-amber-600 dark:text-amber-400">
                           TOPIC 0{category.order}
                         </span>
                         <h3 className="font-heading font-black text-base sm:text-lg text-foreground leading-snug">
@@ -620,13 +620,13 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
                     </div>
                     <Badge
                       variant="outline"
-                      className="font-mono text-[11px] shrink-0"
+                      className="font-sans text-xs font-semibold shrink-0"
                     >
                       {t("articlesCount", { count: category.articles.length })}
                     </Badge>
                   </div>
 
-                  <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">
+                  <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">
                     {category.description[locale]}
                   </p>
                 </div>
@@ -636,7 +636,7 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
                   {firstArticle && (
                     <Link
                       href={`/guides/${category.slug}/${firstArticle.slug}`}
-                      className="group flex items-center justify-between gap-2 rounded-xl border border-amber-500/30 bg-amber-500/10 hover:bg-amber-500/15 px-3.5 py-2.5 text-xs font-bold text-amber-600 dark:text-amber-400 transition-all min-h-[42px]"
+                      className="group flex items-center justify-between gap-2 rounded-xl border border-amber-500/30 bg-amber-500/10 hover:bg-amber-500/15 px-3.5 py-2.5 text-xs sm:text-sm font-bold text-amber-600 dark:text-amber-400 transition-all min-h-[44px]"
                     >
                       <span className="truncate">
                         🚀 {t("startWithArticleBtn", { code: firstArticle.code })} —{" "}
@@ -649,7 +649,7 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
                   <button
                     type="button"
                     onClick={() => toggleCategoryExpand(category.slug)}
-                    className="w-full flex items-center justify-between px-2 py-1.5 text-[11px] font-mono font-semibold text-muted-foreground hover:text-foreground transition-colors"
+                    className="w-full flex items-center justify-between px-2.5 py-2 min-h-[44px] rounded-xl text-xs font-sans font-semibold text-muted-foreground hover:text-foreground hover:bg-muted/40 transition-colors"
                   >
                     <span>
                       {isExpanded
@@ -659,9 +659,9 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
                           })}
                     </span>
                     {isExpanded ? (
-                      <ChevronUp className="h-3.5 w-3.5" />
+                      <ChevronUp className="h-4 w-4" />
                     ) : (
-                      <ChevronDown className="h-3.5 w-3.5" />
+                      <ChevronDown className="h-4 w-4" />
                     )}
                   </button>
 
@@ -671,10 +671,10 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
                         <Link
                           key={article.slug}
                           href={`/guides/${category.slug}/${article.slug}`}
-                          className="group flex items-center justify-between gap-2 rounded-xl px-3 py-2 text-xs hover:bg-amber-500/10 transition-colors min-h-[38px]"
+                          className="group flex items-center justify-between gap-2 rounded-xl px-3 py-2 text-xs sm:text-sm hover:bg-amber-500/10 transition-colors min-h-[44px]"
                         >
                           <span className="truncate font-medium text-foreground/90 group-hover:text-amber-500">
-                            <strong className="font-mono text-[11px] text-amber-500 mr-1.5">
+                            <strong className="font-mono text-xs text-amber-500 mr-1.5">
                               {article.code}
                             </strong>
                             {article.title[locale]}

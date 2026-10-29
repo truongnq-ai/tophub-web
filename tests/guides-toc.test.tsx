@@ -1,3 +1,5 @@
+import fs from "node:fs";
+import path from "node:path";
 import React from "react";
 import { describe, expect, it, vi, beforeEach } from "vitest";
 import { render, screen, fireEvent, act } from "@testing-library/react";
@@ -23,7 +25,7 @@ vi.mock("next-intl", () => ({
   },
 }));
 
-describe("GuidesToc (Scroll-Tracking Neon Shuttle Bubble)", () => {
+describe("GuidesToc (Scroll-Tracking Neon Shuttle Bubble & Phase 3.1 Google MD3 Audit)", () => {
   const observeSpy = vi.fn();
   const disconnectSpy = vi.fn();
 
@@ -126,5 +128,28 @@ describe("GuidesToc (Scroll-Tracking Neon Shuttle Bubble)", () => {
     const secondLink = screen.getByText(secondSecTitle).closest("a");
     expect(secondLink?.getAttribute("data-neon-active")).toBe("true");
   });
-});
 
+  it("enforces Google MD3 Phase 3.1 standards: Close TOC button >= 44x44px, font-sans on Vietnamese progress label, and zero sub-12px classes", () => {
+    render(<GuidesToc article={ARTICLE_1_2_STRICT_ONE_QUEUE} />);
+
+    const shuttleBtn = screen.getByRole("button", {
+      name: /Tiến độ đọc và Mục lục Neon/i,
+    });
+    fireEvent.click(shuttleBtn);
+
+    const closeBtn = screen.getByRole("button", { name: "Close TOC" });
+    expect(closeBtn.className).toContain("min-h-[44px]");
+    expect(closeBtn.className).toContain("min-w-[44px]");
+
+    const progressLabel = screen.getByText("Tiến độ đọc");
+    expect(progressLabel.className).toContain("font-sans");
+    expect(progressLabel.className).toContain("text-xs");
+    expect(progressLabel.className).not.toContain("font-mono");
+
+    const source = fs.readFileSync(
+      path.resolve(__dirname, "../src/components/guides/guides-toc.tsx"),
+      "utf8"
+    );
+    expect(source).not.toMatch(/text-\[(8|9|10|11)px\]/);
+  });
+});

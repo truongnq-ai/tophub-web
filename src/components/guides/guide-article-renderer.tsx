@@ -94,12 +94,8 @@ const CONSOLIDATED_SUBSECTIONS_BY_SLUG: Record<string, ReadonlySet<string>> = {
     "sub-3-1-nature-transition",
     "sub-3-2-nature-endgame-pure",
   ]),
-  "formation-and-counters": new Set([
-    "sub-4-1-four-arena-swaps",
-  ]),
-  "horde-pivot-roadmap": new Set([
-    "sub-4-2-zero-loss-pivot-matrix",
-  ]),
+  "formation-and-counters": new Set(["sub-4-1-four-arena-swaps"]),
+  "horde-pivot-roadmap": new Set(["sub-4-2-zero-loss-pivot-matrix"]),
   "golden-gear-sets": new Set([
     "sub-1-1-three-golden-sets-decoded-table",
     "sub-4-1-tank-bruiser-bis-table",
@@ -174,7 +170,7 @@ function renderBlock(
           key={idx}
           text={block.text[locale]}
           locale={locale}
-          className="text-sm sm:text-base text-foreground/90 leading-relaxed"
+          className="text-base text-foreground leading-relaxed font-sans"
         />
       );
     case "list":
@@ -182,7 +178,7 @@ function renderBlock(
         return (
           <ol
             key={idx}
-            className="list-decimal list-inside space-y-2 text-sm sm:text-base text-foreground/90 pl-1"
+            className="list-decimal list-inside space-y-2 text-base text-foreground font-sans pl-1"
           >
             {block.items.map((item, i) => (
               <li key={i} className="leading-relaxed">
@@ -199,11 +195,11 @@ function renderBlock(
       return (
         <ul
           key={idx}
-          className="space-y-2 text-sm sm:text-base text-foreground/90 pl-1"
+          className="space-y-2 text-base text-foreground font-sans pl-1"
         >
           {block.items.map((item, i) => (
             <li key={i} className="flex items-start gap-2.5 leading-relaxed">
-              <span className="mt-2 h-1.5 w-1.5 rounded-full bg-amber-500 shrink-0" />
+              <span className="mt-2.5 h-1.5 w-1.5 rounded-full bg-amber-500 shrink-0" />
               <div className="min-w-0 flex-1">
                 <RichGuideText text={item[locale]} locale={locale} />
               </div>
@@ -415,7 +411,7 @@ function renderSection(
         </div>
       )}
       {visibleSubSections.length > 0 && (
-        <div className="space-y-5 pt-1">
+        <div className="space-y-5 sm:space-y-5 divide-y divide-border/40 sm:divide-y-0 pt-1">
           {visibleSubSections.map((sub, subIdx) => {
             const fallbackH3Badge = `${sectionNumber}.${subIdx + 1}`;
             const { badge: h3Badge, cleanTitle: h3CleanTitle } =
@@ -425,13 +421,13 @@ function renderSection(
               <div
                 key={sub.id}
                 id={sub.id}
-                className="scroll-mt-28 rounded-2xl border border-border/60 bg-card/35 p-4 sm:p-5 space-y-3.5"
+                className="scroll-mt-28 border-0 bg-transparent p-0 pt-4 first:pt-0 sm:pt-5 sm:first:pt-5 sm:rounded-2xl sm:border sm:border-border/60 sm:bg-card/35 sm:p-5 space-y-3.5"
               >
                 <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border/50 pb-2.5">
                   <div className="flex items-center gap-2.5 min-w-0">
                     <span
                       data-testid="subsection-index-badge"
-                      className="inline-flex h-6 shrink-0 items-center justify-center rounded-md border border-amber-500/25 bg-amber-500/10 px-1.5 font-mono text-[11px] font-bold text-amber-600 dark:text-amber-400"
+                      className="inline-flex h-6 shrink-0 items-center justify-center rounded-md border border-amber-500/25 bg-amber-500/10 px-2 font-mono text-xs font-bold text-amber-600 dark:text-amber-400"
                     >
                       {h3Badge}
                     </span>
@@ -447,7 +443,7 @@ function renderSection(
                   {sub.badge && (
                     <Badge
                       variant="outline"
-                      className="font-mono text-[11px] border-amber-500/30 text-amber-600 dark:text-amber-400"
+                      className="font-sans text-xs font-semibold border-amber-500/30 text-amber-600 dark:text-amber-400"
                     >
                       {sub.badge[locale]}
                     </Badge>
@@ -607,10 +603,10 @@ export function GuideArticleRenderer({
       {/* Compact Hero Header & Unified Tactical Brief */}
       <div className="card-rpg rounded-3xl p-4 sm:p-6 space-y-3.5">
         <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-muted-foreground">
-          <div className="flex items-center gap-2 font-mono">
+          <div className="flex items-center gap-2 font-sans font-medium">
             <Link
               href="/guides"
-              className="hover:text-amber-500 transition-colors flex items-center gap-1"
+              className="hover:text-amber-500 transition-colors inline-flex items-center gap-1.5 min-h-[44px] sm:min-h-0"
             >
               <BookOpen className="h-3.5 w-3.5 text-amber-500" />
               <span>{t("backToHub")}</span>
@@ -632,7 +628,7 @@ export function GuideArticleRenderer({
             >
               #{article.code}
             </Badge>
-            <span className="inline-flex items-center gap-1 font-mono text-xs text-muted-foreground">
+            <span className="inline-flex items-center gap-1 font-sans font-medium text-xs text-muted-foreground">
               <Clock className="h-3.5 w-3.5 text-amber-500" />
               {t("readingTime", { minutes: article.readingMinutes })}
             </span>
@@ -644,7 +640,7 @@ export function GuideArticleRenderer({
             {mainTitle}
           </h1>
           {subTitle && (
-            <p className="font-mono text-xs sm:text-sm font-semibold text-amber-600/90 dark:text-amber-400/90">
+            <p className="font-sans text-xs sm:text-sm font-semibold text-amber-600/90 dark:text-amber-400/90">
               {subTitle}
             </p>
           )}
@@ -653,7 +649,7 @@ export function GuideArticleRenderer({
         <RichGuideText
           text={article.summary[locale]}
           locale={locale}
-          className="text-xs sm:text-sm text-muted-foreground leading-relaxed"
+          className="text-sm sm:text-base text-muted-foreground leading-relaxed"
         />
 
         {/* Unified 3-Column Tactical Brief (TldrActionBox + Integrated Collapsible KeyTakeaways) */}
@@ -670,7 +666,7 @@ export function GuideArticleRenderer({
                 <CheckCircle2 className="h-4 w-4" />
                 <span>{t("keyTakeawaysTitle")}</span>
               </h3>
-              <ul className="space-y-1.5 text-xs sm:text-sm text-foreground/90">
+              <ul className="space-y-1.5 text-sm sm:text-base text-foreground/90">
                 {article.keyTakeaways.map((item, idx) => (
                   <li
                     key={idx}
@@ -717,7 +713,7 @@ export function GuideArticleRenderer({
                 }
               }}
               className={cn(
-                "inline-flex items-center gap-1.5 min-h-[38px] px-3 py-1.5 rounded-xl border text-xs font-heading font-bold whitespace-nowrap transition-all cursor-pointer",
+                "inline-flex items-center gap-1.5 min-h-[44px] px-3 py-1.5 rounded-xl border text-xs font-heading font-bold whitespace-nowrap transition-all cursor-pointer",
                 activeTab === "core"
                   ? "border-amber-400 bg-amber-500/15 text-amber-700 dark:text-amber-300 shadow-xs"
                   : "border-border/70 bg-card/70 text-muted-foreground hover:text-foreground hover:border-amber-500/40"
@@ -725,7 +721,7 @@ export function GuideArticleRenderer({
             >
               <Target className="h-3.5 w-3.5 text-amber-500 shrink-0" />
               <span>{t("viewModeTabCore")}</span>
-              <span className="rounded-md bg-background/80 px-1.5 py-0.5 font-mono text-[10px]">
+              <span className="rounded-md bg-background/80 px-1.5 py-0.5 font-mono text-xs">
                 {tabCounts.core}
               </span>
             </button>
@@ -748,7 +744,7 @@ export function GuideArticleRenderer({
                 }
               }}
               className={cn(
-                "inline-flex items-center gap-1.5 min-h-[38px] px-3 py-1.5 rounded-xl border text-xs font-heading font-bold whitespace-nowrap transition-all cursor-pointer",
+                "inline-flex items-center gap-1.5 min-h-[44px] px-3 py-1.5 rounded-xl border text-xs font-heading font-bold whitespace-nowrap transition-all cursor-pointer",
                 activeTab === "data"
                   ? "border-amber-400 bg-amber-500/15 text-amber-700 dark:text-amber-300 shadow-xs"
                   : "border-border/70 bg-card/70 text-muted-foreground hover:text-foreground hover:border-amber-500/40"
@@ -756,7 +752,7 @@ export function GuideArticleRenderer({
             >
               <BarChart3 className="h-3.5 w-3.5 text-amber-500 shrink-0" />
               <span>{t("viewModeTabData")}</span>
-              <span className="rounded-md bg-background/80 px-1.5 py-0.5 font-mono text-[10px]">
+              <span className="rounded-md bg-background/80 px-1.5 py-0.5 font-mono text-xs">
                 {tabCounts.data}
               </span>
             </button>
@@ -779,7 +775,7 @@ export function GuideArticleRenderer({
                 }
               }}
               className={cn(
-                "inline-flex items-center gap-1.5 min-h-[38px] px-3 py-1.5 rounded-xl border text-xs font-heading font-bold whitespace-nowrap transition-all cursor-pointer",
+                "inline-flex items-center gap-1.5 min-h-[44px] px-3 py-1.5 rounded-xl border text-xs font-heading font-bold whitespace-nowrap transition-all cursor-pointer",
                 activeTab === "action"
                   ? "border-amber-400 bg-amber-500/15 text-amber-700 dark:text-amber-300 shadow-xs"
                   : "border-border/70 bg-card/70 text-muted-foreground hover:text-foreground hover:border-amber-500/40"
@@ -787,7 +783,7 @@ export function GuideArticleRenderer({
             >
               <Stethoscope className="h-3.5 w-3.5 text-amber-500 shrink-0" />
               <span>{t("viewModeTabAction")}</span>
-              <span className="rounded-md bg-background/80 px-1.5 py-0.5 font-mono text-[10px]">
+              <span className="rounded-md bg-background/80 px-1.5 py-0.5 font-mono text-xs">
                 {tabCounts.action}
               </span>
             </button>
@@ -810,7 +806,7 @@ export function GuideArticleRenderer({
             }
           }}
           className={cn(
-            "inline-flex items-center gap-1.5 min-h-[38px] px-3 py-1.5 rounded-xl border text-xs font-heading font-bold whitespace-nowrap transition-all cursor-pointer shrink-0",
+            "inline-flex items-center gap-1.5 min-h-[44px] px-3 py-1.5 rounded-xl border text-xs font-heading font-bold whitespace-nowrap transition-all cursor-pointer shrink-0",
             activeTab === "all"
               ? "border-amber-400 bg-amber-500 text-slate-950 shadow-xs"
               : "border-border/70 bg-card/70 text-muted-foreground hover:text-foreground hover:border-amber-500/40"
@@ -818,7 +814,7 @@ export function GuideArticleRenderer({
         >
           <Layers className="h-3.5 w-3.5 shrink-0" />
           <span>{t("viewModeTabAll")}</span>
-          <span className="rounded-md bg-background/80 text-foreground px-1.5 py-0.5 font-mono text-[10px]">
+          <span className="rounded-md bg-background/80 text-foreground px-1.5 py-0.5 font-mono text-xs">
             {tabCounts.all}
           </span>
         </button>
@@ -888,8 +884,9 @@ export function GuideArticleRenderer({
           >
             <ArrowLeft className="h-5 w-5 text-muted-foreground group-hover:text-amber-500 shrink-0 transition-transform group-hover:-translate-x-1" />
             <div className="overflow-hidden">
-              <span className="block text-[11px] font-mono text-muted-foreground">
-                {t("prevArticle")} ({prevArticle.code})
+              <span className="block text-xs font-sans font-medium text-muted-foreground">
+                {t("prevArticle")}{" "}
+                <span className="font-mono">({prevArticle.code})</span>
               </span>
               <span className="block font-heading font-bold text-sm text-foreground group-hover:text-amber-500 truncate">
                 {prevArticle.title[locale]}
@@ -906,8 +903,9 @@ export function GuideArticleRenderer({
             className="group rounded-2xl border border-border/80 bg-card/60 hover:border-amber-500/40 p-4 flex items-center justify-between gap-3 text-right transition-all min-h-[64px]"
           >
             <div className="overflow-hidden flex-1">
-              <span className="block text-[11px] font-mono text-muted-foreground">
-                {t("nextArticle")} ({nextArticle.code})
+              <span className="block text-xs font-sans font-medium text-muted-foreground">
+                {t("nextArticle")}{" "}
+                <span className="font-mono">({nextArticle.code})</span>
               </span>
               <span className="block font-heading font-bold text-sm text-foreground group-hover:text-amber-500 truncate">
                 {nextArticle.title[locale]}

@@ -1,3 +1,5 @@
+import fs from "node:fs";
+import path from "node:path";
 import React from "react";
 import { describe, expect, it, vi, beforeEach } from "vitest";
 import { render, screen, fireEvent, act } from "@testing-library/react";
@@ -56,7 +58,7 @@ vi.mock("@/hooks/use-uid-session", () => ({
   }),
 }));
 
-describe("GuideArticleRenderer v3.0 (Compact Header, Unified Brief & 3-Tab View Mode)", () => {
+describe("GuideArticleRenderer v3.0 (Compact Header, Unified Brief, 3-Tab View Mode & Phase 3.1 Google MD3 Audit)", () => {
   const category = getCategoryBySlug("getting-started")!;
 
   beforeEach(() => {
@@ -222,7 +224,10 @@ describe("GuideArticleRenderer v3.0 (Compact Header, Unified Brief & 3-Tab View 
           items: [
             {
               id: "chk-1",
-              label: { vi: "Nâng **Pyromancer** lên `560 Mảnh`", en: "Upgrade **Pyromancer**" },
+              label: {
+                vi: "Nâng **Pyromancer** lên `560 Mảnh`",
+                en: "Upgrade **Pyromancer**",
+              },
               detail: {
                 vi: "Chi tiết:\n• Bước 1: Tích mảnh\n• Bước 2: Đột phá",
                 en: "Details:\n• Step 1\n• Step 2",
@@ -329,8 +334,56 @@ describe("GuideArticleRenderer v3.0 (Compact Header, Unified Brief & 3-Tab View 
 
     window.removeEventListener("tophub:tab-change", listener);
   });
+
+  it("enforces Google MD3 Phase 3.1 standards: 16px fixed body prose, 14px-16px article summary, flat mobile SubSection (de-boxed on mobile), 44px tab buttons, and zero sub-12px classes", () => {
+    const { container } = render(
+      <GuideArticleRenderer
+        category={category}
+        article={ARTICLE_1_1_OVERVIEW}
+        prevArticle={ARTICLE_2_2_META_LINEUPS}
+        nextArticle={ARTICLE_2_2_META_LINEUPS}
+      />
+    );
+
+    // 1. All 4 tab buttons enforce min-h-[44px] touch target
+    for (const tabTestId of [
+      "article-tab-core",
+      "article-tab-data",
+      "article-tab-action",
+      "article-tab-all",
+    ]) {
+      const tabBtn = screen.getByTestId(tabTestId);
+      expect(tabBtn.className).toContain("min-h-[44px]");
+    }
+
+    // 2. SubSections are de-boxed on mobile (border-0 bg-transparent p-0 ... sm:rounded-2xl sm:border)
+    const firstSubBadge = container.querySelector(
+      "[data-testid='subsection-index-badge']"
+    ) as HTMLElement;
+    expect(firstSubBadge).not.toBeNull();
+    expect(firstSubBadge.className).toContain("text-xs");
+
+    const subSectionContainer = firstSubBadge.closest(
+      "div[id]"
+    ) as HTMLElement;
+    expect(subSectionContainer).not.toBeNull();
+    expect(subSectionContainer.className).toContain("border-0");
+    expect(subSectionContainer.className).toContain("bg-transparent");
+    expect(subSectionContainer.className).toContain("p-0");
+    expect(subSectionContainer.className).toContain("sm:rounded-2xl");
+    expect(subSectionContainer.className).toContain("sm:border");
+
+    // 3. Static source scan: 16px body prose and zero sub-12px classes
+    const source = fs.readFileSync(
+      path.resolve(
+        __dirname,
+        "../src/components/guides/guide-article-renderer.tsx"
+      ),
+      "utf8"
+    );
+    expect(source).not.toMatch(/text-\[(8|9|10|11)px\]/);
+    expect(source).toContain(
+      'className="text-base text-foreground leading-relaxed font-sans"'
+    );
+  });
 });
-
-
-
-

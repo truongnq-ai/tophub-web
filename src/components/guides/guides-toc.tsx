@@ -99,7 +99,6 @@ function useArticleScrollSpy(sectionIds: string[]) {
         return;
       }
 
-
       const pct = Math.min(
         100,
         Math.max(0, Math.round((scrollTop / docHeight) * 100))
@@ -355,7 +354,7 @@ export function GuidesToc({ article }: GuidesTocProps) {
             />
             <span
               className={cn(
-                "font-mono text-[11px] font-extrabold tracking-tight",
+                "font-mono text-xs font-extrabold tracking-tight",
                 isOpen || isIgniting
                   ? "text-amber-300 drop-shadow-[0_0_6px_rgba(245,158,11,0.8)]"
                   : "text-amber-600 dark:text-amber-400"
@@ -401,7 +400,7 @@ export function GuidesToc({ article }: GuidesTocProps) {
                 </h4>
               </div>
               <div className="flex items-center gap-2">
-                <span className="font-mono text-[11px] text-muted-foreground">
+                <span className="font-sans text-xs font-medium text-muted-foreground">
                   {t("readingProgressLabel")}
                 </span>
                 <span className="font-mono text-xs font-extrabold text-amber-500 drop-shadow-[0_0_6px_rgba(245,158,11,0.5)]">
@@ -411,9 +410,9 @@ export function GuidesToc({ article }: GuidesTocProps) {
                   type="button"
                   onClick={() => setIsOpen(false)}
                   aria-label="Close TOC"
-                  className="p-1 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/60 cursor-pointer"
+                  className="inline-flex h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center rounded-xl text-muted-foreground hover:text-foreground hover:bg-muted/60 cursor-pointer"
                 >
-                  <X className="h-3.5 w-3.5" />
+                  <X className="h-4 w-4" />
                 </button>
               </div>
             </div>
@@ -455,7 +454,7 @@ export function GuidesToc({ article }: GuidesTocProps) {
                         }
                       }}
                       className={cn(
-                        "flex items-start justify-between gap-2 rounded-xl px-2.5 py-2 transition-all duration-200 leading-snug border",
+                        "flex items-start justify-between gap-2 rounded-xl px-2.5 py-2 min-h-[44px] transition-all duration-200 leading-snug border",
                         isSecActive
                           ? "opacity-100 border-amber-400/80 bg-amber-500/15 dark:bg-amber-500/20 text-amber-700 dark:text-amber-300 font-bold shadow-[0_0_18px_rgba(245,158,11,0.32)]"
                           : "opacity-35 hover:opacity-100 focus-visible:opacity-100 border-transparent text-muted-foreground hover:text-foreground hover:bg-muted/40 font-medium"
@@ -506,8 +505,7 @@ export function GuidesToc({ article }: GuidesTocProps) {
                                   }
                                 }}
                                 className={cn(
-
-                                  "flex items-center gap-1.5 rounded-lg px-2 py-1 text-[11px] transition-all duration-200 line-clamp-1",
+                                  "flex items-center gap-1.5 rounded-lg px-2.5 py-2 min-h-[40px] sm:min-h-[36px] text-xs transition-all duration-200 line-clamp-1",
                                   isSubActive
                                     ? "bg-amber-500/15 text-amber-700 dark:text-amber-300 font-bold border border-amber-400/60 shadow-[0_0_12px_rgba(245,158,11,0.28)]"
                                     : "text-muted-foreground hover:text-foreground"
