@@ -26,6 +26,11 @@ import type {
 import { GameAssetFrame } from "@/components/guides/media/game-asset-frame";
 import { Input } from "@/components/ui/input";
 import { HeroAwakeningStepSelector } from "./hero-awakening-step-selector";
+import {
+  CALC_MD3,
+  CalculatorMetricValue,
+  CalculatorToolHeader,
+} from "./calculator-md3-primitives";
 import { cn } from "@/lib/utils";
 
 interface HeroAwakeningCalculatorProps {
@@ -127,52 +132,54 @@ export function HeroAwakeningCalculator({
       : activeHero.nameEn
     : "";
 
+  const breakdownLabel =
+    locale === "vi"
+      ? "Xem Bảng Chi Tiết Từng Bậc Thức Tỉnh"
+      : "View Step-by-Step Awakening Tier Breakdown";
+
   return (
     <div data-testid="hero-awakening-calculator" className="space-y-4">
-      {/* 1. Ultra-Compact Top Bar */}
-      <div className="flex flex-wrap items-center justify-between gap-2 rounded-2xl border border-amber-500/30 bg-gradient-to-r from-amber-500/10 via-card to-card px-4 py-3 shadow-sm">
-        <div className="flex items-center gap-2.5 min-w-0">
-          <span className="rounded-lg bg-amber-500 px-2 py-0.5 font-mono text-xs font-black text-slate-950 shrink-0">
-            {tool.code}
-          </span>
-          <h1 className="text-base sm:text-xl font-heading font-black tracking-tight text-foreground truncate">
-            {tool.title[locale].replace(`${tool.code} `, "")}
-          </h1>
-        </div>
+      {/* 1. Flat MD3 Tool Header */}
+      <CalculatorToolHeader
+        code={tool.code}
+        title={tool.title[locale].replace(`${tool.code} `, "")}
+        actions={
+          <>
+            <button
+              type="button"
+              data-testid="awakening-preset-next-tier-btn"
+              onClick={() => {
+                setFromStepIndex(6);
+                setToStepIndex(7);
+              }}
+              className={cn(
+                CALC_MD3.chipButton,
+                "bg-muted/50 font-sans text-muted-foreground hover:bg-muted hover:text-foreground"
+              )}
+            >
+              <span>{locale === "vi" ? "Bậc 1 ➔ Bậc 2" : "Tier 1 ➔ Tier 2"}</span>
+            </button>
 
-        <div className="flex items-center gap-2">
-          <button
-            type="button"
-            data-testid="awakening-preset-next-tier-btn"
-            onClick={() => {
-              setFromStepIndex(6);
-              setToStepIndex(7);
-            }}
-            className="inline-flex items-center gap-1 rounded-xl border border-border/80 bg-background/70 hover:bg-secondary px-2.5 py-1.5 text-xs font-mono font-semibold text-muted-foreground hover:text-foreground cursor-pointer transition-colors"
-          >
-            <span>
-              {locale === "vi" ? "Bậc 1 ➔ Bậc 2" : "Tier 1 ➔ Tier 2"}
-            </span>
-          </button>
-
-          <button
-            type="button"
-            data-testid="awakening-preset-full-btn"
-            onClick={() => {
-              setFromStepIndex(0);
-              setToStepIndex(19);
-              setOwnedStonesInput("0");
-              setOwnedShardsInput("0");
-            }}
-            className="inline-flex items-center gap-1 rounded-xl border border-border/80 bg-background/70 hover:bg-secondary px-2.5 py-1.5 text-xs font-mono font-semibold text-muted-foreground hover:text-foreground cursor-pointer transition-colors"
-          >
-            <RotateCcw className="h-3.5 w-3.5 text-amber-500" />
-            <span>
-              {locale === "vi" ? "Bậc 0 ➔ Bậc 4" : "Tier 0 ➔ Tier 4"}
-            </span>
-          </button>
-        </div>
-      </div>
+            <button
+              type="button"
+              data-testid="awakening-preset-full-btn"
+              onClick={() => {
+                setFromStepIndex(0);
+                setToStepIndex(19);
+                setOwnedStonesInput("0");
+                setOwnedShardsInput("0");
+              }}
+              className={cn(
+                CALC_MD3.chipButton,
+                "bg-muted/50 font-sans text-muted-foreground hover:bg-muted hover:text-foreground"
+              )}
+            >
+              <RotateCcw className="h-4 w-4 text-amber-500" aria-hidden="true" />
+              <span>{locale === "vi" ? "Bậc 0 ➔ Bậc 4" : "Tier 0 ➔ Tier 4"}</span>
+            </button>
+          </>
+        }
+      />
 
       {/* 2. Main 3-Zone Workspace: [Bậc Thức Tỉnh Hiện Tại] ⟷ [Avatar Tướng Trung Tâm] ⟷ [Bậc Thức Tỉnh Muốn Đạt] */}
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] items-center gap-3 sm:gap-4">
@@ -181,9 +188,7 @@ export function HeroAwakeningCalculator({
           <HeroAwakeningStepSelector
             idPrefix="from"
             title={
-              locale === "vi"
-                ? "Bậc Thức Tỉnh Hiện Tại"
-                : "Current Awakening Tier"
+              locale === "vi" ? "Bậc Thức Tỉnh Hiện Tại" : "Current Awakening Tier"
             }
             stepIndex={fromStepIndex}
             nextStepShards={result.nextStepFromCurrentShards}
@@ -201,14 +206,13 @@ export function HeroAwakeningCalculator({
           <button
             type="button"
             data-testid="central-hero-avatar-trigger"
+            aria-expanded={pickerStep !== "closed"}
             onClick={() =>
-              setPickerStep((prev) =>
-                prev === "closed" ? "faction" : "closed"
-              )
+              setPickerStep((prev) => (prev === "closed" ? "faction" : "closed"))
             }
-            className="group flex flex-col items-center gap-1.5 rounded-2xl border border-amber-500/40 bg-gradient-to-b from-amber-500/15 via-card to-card px-4 py-3 shadow-sm hover:border-amber-500 transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/40"
+            className="group flex min-h-[44px] flex-col items-center gap-1.5 rounded-2xl border border-amber-500/40 bg-amber-500/[0.06] px-4 py-3 shadow-sm hover:border-amber-500 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/40"
           >
-            {activeHero && (
+            {activeHero ? (
               <GameAssetFrame
                 src={activeHero.iconPath}
                 alt={activeHeroName}
@@ -216,28 +220,35 @@ export function HeroAwakeningCalculator({
                 faction={activeHero.faction}
                 size="lg"
               />
-            )}
+            ) : null}
 
             {/* DUY NHẤT 1 VỊ TRÍ HIỂN THỊ TÊN TƯỚNG DƯỚI AVATAR */}
-            <div className="text-center max-w-[140px]">
+            <div className="text-center max-w-[160px]">
               <div
                 data-testid="central-hero-name"
-                className="text-xs sm:text-sm font-heading font-black text-foreground leading-tight truncate"
+                className="truncate text-sm sm:text-base font-heading font-black text-foreground leading-tight"
               >
                 {activeHeroName}
               </div>
-              <div className="inline-flex items-center gap-1 text-[10px] font-mono font-bold text-amber-600 dark:text-amber-400 mt-0.5">
+              <div className="mt-0.5 inline-flex items-center gap-1 text-xs font-sans font-bold text-amber-700 dark:text-amber-400">
                 <span>{factionConfig.shortLabel[locale]}</span>
-                <ChevronDown className="h-3 w-3 transition-transform group-hover:translate-y-0.5" />
+                <ChevronDown
+                  className="h-3.5 w-3.5 transition-transform group-hover:translate-y-0.5"
+                  aria-hidden="true"
+                />
               </div>
             </div>
           </button>
 
-          {/* Sequential Popover: Step 1 (Select Faction) -> Step 2 (Select Hero) -> Auto Close */}
-          {pickerStep !== "closed" && (
+          {/* Sequential Overlay: Step 1 (Select Faction) -> Step 2 (Select Hero) -> Auto Close */}
+          {pickerStep !== "closed" ? (
             <div
               data-testid="hero-sequential-picker"
-              className="z-30 mt-2 w-full max-w-sm lg:w-80 lg:absolute lg:top-full lg:left-1/2 lg:-translate-x-1/2 rounded-2xl border border-amber-500/45 bg-card/95 backdrop-blur-md p-3.5 shadow-xl space-y-3"
+              data-md3-overlay="true"
+              className={cn(
+                CALC_MD3.overlayCard,
+                "z-30 mt-2 w-full max-w-sm space-y-3 lg:absolute lg:left-1/2 lg:top-full lg:w-80 lg:-translate-x-1/2"
+              )}
             >
               <div className="flex items-center justify-between gap-2 border-b border-border/60 pb-2">
                 {pickerStep === "hero" ? (
@@ -245,15 +256,13 @@ export function HeroAwakeningCalculator({
                     type="button"
                     data-testid="picker-back-to-faction-btn"
                     onClick={() => setPickerStep("faction")}
-                    className="inline-flex items-center gap-1 text-xs font-heading font-bold text-amber-500 hover:underline cursor-pointer"
+                    className="inline-flex min-h-[44px] items-center gap-1.5 rounded-xl px-2 text-sm font-heading font-bold text-amber-600 hover:bg-amber-500/10 dark:text-amber-400 cursor-pointer"
                   >
-                    <ArrowLeft className="h-3.5 w-3.5" />
-                    <span>
-                      {locale === "vi" ? "Chọn lại Phe" : "Change Faction"}
-                    </span>
+                    <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+                    <span>{locale === "vi" ? "Chọn lại Phe" : "Change Faction"}</span>
                   </button>
                 ) : (
-                  <span className="text-xs font-heading font-black text-foreground">
+                  <span className="text-sm font-heading font-bold text-foreground">
                     {locale === "vi"
                       ? "Bước 1: Chọn Phe & Đá Linh Hồn"
                       : "Step 1: Select Faction & Soul Stone"}
@@ -264,9 +273,12 @@ export function HeroAwakeningCalculator({
                   type="button"
                   onClick={() => setPickerStep("closed")}
                   aria-label={locale === "vi" ? "Đóng" : "Close"}
-                  className="inline-flex h-6 w-6 items-center justify-center rounded-lg text-muted-foreground hover:text-foreground cursor-pointer"
+                  className={cn(
+                    CALC_MD3.iconButton,
+                    "text-muted-foreground hover:bg-muted hover:text-foreground"
+                  )}
                 >
-                  <X className="h-4 w-4" />
+                  <X className="h-5 w-5" aria-hidden="true" />
                 </button>
               </div>
 
@@ -276,9 +288,7 @@ export function HeroAwakeningCalculator({
                     const cfg = AWAKENING_FACTION_CONFIGS[fKey];
                     const isSelected = faction === fKey;
                     const stoneName =
-                      locale === "vi"
-                        ? cfg.soulStone.nameVi
-                        : cfg.soulStone.nameEn;
+                      locale === "vi" ? cfg.soulStone.nameVi : cfg.soulStone.nameEn;
 
                     return (
                       <button
@@ -287,10 +297,9 @@ export function HeroAwakeningCalculator({
                         data-testid={`faction-card-${fKey}`}
                         onClick={() => handlePickFactionInSequence(fKey)}
                         className={cn(
-                          "flex items-center gap-3 rounded-xl border p-2.5 text-left transition-all cursor-pointer",
-                          isSelected
-                            ? "border-amber-500 bg-amber-500/15 font-bold"
-                            : "border-border/70 bg-background/70 hover:border-amber-500/40"
+                          CALC_MD3.tonalTile,
+                          "flex min-h-[56px] items-center gap-3 p-2.5 text-left",
+                          isSelected ? CALC_MD3.tileSelected : null
                         )}
                       >
                         <GameAssetFrame
@@ -301,11 +310,11 @@ export function HeroAwakeningCalculator({
                           size="sm"
                         />
                         <div className="min-w-0 flex-1">
-                          <div className="text-xs font-heading font-black text-foreground truncate">
+                          <div className="truncate text-sm font-heading font-bold text-foreground">
                             {cfg.label[locale]}
                           </div>
-                          <div className="font-mono text-[10px] text-amber-600 dark:text-amber-400 truncate">
-                            {stoneName} (9{" "}
+                          <div className="truncate text-xs font-sans text-amber-700 dark:text-amber-400">
+                            {stoneName} (<span className="font-mono">9</span>{" "}
                             {locale === "vi" ? "viên" : "stones"})
                           </div>
                         </div>
@@ -315,12 +324,12 @@ export function HeroAwakeningCalculator({
                 </div>
               ) : (
                 <div className="space-y-2">
-                  <div className="text-[11px] font-mono text-muted-foreground">
+                  <div className="text-xs font-sans font-medium text-muted-foreground">
                     {locale === "vi"
                       ? `Bước 2: Chọn Tướng Vàng ${factionConfig.shortLabel.vi}`
                       : `Step 2: Pick ${factionConfig.shortLabel.en} Legendary Hero`}
                   </div>
-                  <div className="grid grid-cols-3 gap-2 max-h-52 overflow-y-auto pr-1">
+                  <div className="grid max-h-56 grid-cols-3 gap-2 overflow-y-auto pr-1">
                     {heroesForFaction.map((h) => {
                       const hName = locale === "vi" ? h.nameVi : h.nameEn;
                       const isHeroActive = activeHero?.id === h.id;
@@ -332,10 +341,9 @@ export function HeroAwakeningCalculator({
                           onClick={() => handlePickHeroInSequence(h.id)}
                           title={hName}
                           className={cn(
-                            "flex flex-col items-center gap-1 rounded-xl border p-1.5 transition-all cursor-pointer",
-                            isHeroActive
-                              ? "border-amber-500 bg-amber-500/15"
-                              : "border-border/60 bg-background/60 hover:border-amber-500/40"
+                            CALC_MD3.tonalTile,
+                            "flex min-h-[44px] flex-col items-center gap-1 p-1.5",
+                            isHeroActive ? CALC_MD3.tileSelected : null
                           )}
                         >
                           <GameAssetFrame
@@ -345,7 +353,7 @@ export function HeroAwakeningCalculator({
                             faction={h.faction}
                             size="sm"
                           />
-                          <span className="text-[10px] font-medium text-foreground truncate w-full text-center">
+                          <span className="w-full truncate text-center text-xs font-medium text-foreground">
                             {hName}
                           </span>
                         </button>
@@ -355,7 +363,7 @@ export function HeroAwakeningCalculator({
                 </div>
               )}
             </div>
-          )}
+          ) : null}
         </div>
 
         {/* Right: Target Awakening Tier */}
@@ -363,9 +371,7 @@ export function HeroAwakeningCalculator({
           <HeroAwakeningStepSelector
             idPrefix="to"
             title={
-              locale === "vi"
-                ? "Bậc Thức Tỉnh Muốn Đạt"
-                : "Target Awakening Tier"
+              locale === "vi" ? "Bậc Thức Tỉnh Muốn Đạt" : "Target Awakening Tier"
             }
             stepIndex={toStepIndex}
             nextStepShards={result.nextStepToTargetShards}
@@ -376,19 +382,28 @@ export function HeroAwakeningCalculator({
         </div>
       </div>
 
-      {/* 3. Compact Dual-Resource Result Bar + Guild Honor Badge + [i] Breakdown Trigger */}
+      {/* 3. Dual-Resource Result Surface (1 lớp viền) + Guild Honor + [i] Breakdown */}
       <section
         data-testid="hero-awakening-result-section"
-        className="rounded-2xl border border-amber-500/35 bg-gradient-to-br from-amber-500/10 via-card to-card p-4 space-y-3 shadow-sm"
+        className={cn(
+          CALC_MD3.surfaceCard,
+          "relative overflow-hidden space-y-3 border-amber-500/35"
+        )}
       >
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-amber-500 via-amber-400 to-transparent"
+        />
+
         {result.isInvalidRange ? (
           <div
             data-testid="hero-awakening-invalid-range-alert"
-            className="rounded-xl border border-amber-500/40 bg-amber-500/10 p-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5"
+            role="alert"
+            className="flex flex-col items-start justify-between gap-2.5 rounded-xl bg-amber-500/10 p-3 sm:flex-row sm:items-center"
           >
-            <div className="flex items-center gap-2.5">
-              <AlertTriangle className="h-4 w-4 text-amber-500 shrink-0" />
-              <p className="text-xs text-foreground font-medium">
+            <div className="flex items-start gap-2.5">
+              <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-amber-500" aria-hidden="true" />
+              <p className="text-sm font-medium text-foreground">
                 {locale === "vi"
                   ? "Bậc thức tỉnh muốn đạt đang thấp hơn hoặc bằng bậc thức tỉnh hiện tại."
                   : "Target awakening tier is less than or equal to current awakening tier."}
@@ -397,72 +412,65 @@ export function HeroAwakeningCalculator({
             <button
               type="button"
               onClick={() => setToStepIndex(Math.min(19, fromStepIndex + 1))}
-              className="rounded-lg bg-amber-500 px-3 py-1.5 min-h-[36px] text-xs font-heading font-bold text-slate-950 shrink-0 cursor-pointer"
+              className={cn(
+                CALC_MD3.chipButton,
+                "shrink-0 bg-amber-500 px-4 font-heading font-bold text-slate-950 hover:bg-amber-400"
+              )}
             >
-              {locale === "vi"
-                ? "Tăng mục tiêu +1 Nấc"
-                : "Set Target +1 Step"}
+              {locale === "vi" ? "Tăng mục tiêu +1 Nấc" : "Set Target +1 Step"}
             </button>
           </div>
         ) : (
           <>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              {/* Card A: Faction Soul Stones + Guild Honor Conversion */}
-              <div className="rounded-xl border border-border/80 bg-background/80 p-3.5 space-y-2.5">
-                <div className="flex items-center justify-between gap-3">
-                  <div className="flex items-center gap-3 min-w-0">
-                    <GameAssetFrame
-                      src={result.soulStoneMaterial.iconPath}
-                      alt={soulStoneName}
-                      rarity={result.soulStoneMaterial.rarity}
-                      faction={result.soulStoneMaterial.faction}
-                      size="md"
-                    />
-                    <div className="min-w-0">
-                      <div className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground truncate">
-                        {soulStoneName}
-                      </div>
-                      <div className="flex items-baseline gap-1.5">
-                        <span
-                          data-testid="awakening-required-stones"
-                          className="font-mono text-2xl font-black text-amber-500 leading-none"
-                        >
-                          {result.requiredStones.toLocaleString()}
-                        </span>
-                        <span className="text-xs font-heading font-bold text-foreground">
-                          {locale === "vi" ? "Viên Đá" : "Stones"}
-                        </span>
-                      </div>
+            <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+              {/* Card A (tonal): Faction Soul Stones + Guild Honor Conversion */}
+              <div className={cn(CALC_MD3.tonalGroup, "space-y-3")}>
+                <div className="flex min-w-0 items-center gap-3">
+                  <GameAssetFrame
+                    src={result.soulStoneMaterial.iconPath}
+                    alt={soulStoneName}
+                    rarity={result.soulStoneMaterial.rarity}
+                    faction={result.soulStoneMaterial.faction}
+                    size="md"
+                  />
+                  <div className="min-w-0 space-y-1">
+                    <div className={cn(CALC_MD3.eyebrow, "truncate text-muted-foreground")}>
+                      {soulStoneName}
                     </div>
-                  </div>
-
-                  {/* Owned Stones Input */}
-                  <div className="flex items-center gap-1.5 shrink-0">
-                    <label
-                      htmlFor="awakening-owned-stones-input"
-                      className="text-[11px] font-mono font-bold text-muted-foreground"
-                    >
-                      {locale === "vi" ? "Đang có:" : "Owned:"}
-                    </label>
-                    <Input
-                      id="awakening-owned-stones-input"
-                      data-testid="awakening-owned-stones-input"
-                      type="number"
-                      min={0}
-                      max={99}
-                      value={ownedStonesInput}
-                      onChange={(e) => setOwnedStonesInput(e.target.value)}
-                      className="w-16 h-8 font-mono font-bold text-xs text-center"
+                    <CalculatorMetricValue
+                      testId="awakening-required-stones"
+                      value={result.requiredStones.toLocaleString()}
+                      unit={locale === "vi" ? "Viên Đá" : "Stones"}
+                      toneClassName="text-amber-600 dark:text-amber-400"
                     />
                   </div>
                 </div>
 
-                {/* Missing Stones + Guild Shop Currency Equivalent */}
-                <div className="flex flex-wrap items-center justify-between gap-2 pt-1 border-t border-border/60 text-[11px]">
+                <div className="flex items-center justify-between gap-3">
+                  <label
+                    htmlFor="awakening-owned-stones-input"
+                    className="text-sm font-sans font-semibold text-foreground"
+                  >
+                    {locale === "vi" ? "Đang có:" : "Owned:"}
+                  </label>
+                  <Input
+                    id="awakening-owned-stones-input"
+                    data-testid="awakening-owned-stones-input"
+                    type="number"
+                    inputMode="numeric"
+                    min={0}
+                    max={99}
+                    value={ownedStonesInput}
+                    onChange={(e) => setOwnedStonesInput(e.target.value)}
+                    className={cn(CALC_MD3.dataInput, "w-24 text-center")}
+                  />
+                </div>
+
+                <div className="flex flex-wrap items-center justify-between gap-2 border-t border-border/60 pt-2.5">
                   {result.missingStones > 0 ? (
                     <span
                       data-testid="awakening-missing-stones-status"
-                      className="font-mono font-bold text-rose-600 dark:text-rose-400"
+                      className="text-sm font-sans font-bold text-rose-600 dark:text-rose-400"
                     >
                       {locale === "vi"
                         ? `Thiếu ${result.missingStones} viên`
@@ -471,9 +479,9 @@ export function HeroAwakeningCalculator({
                   ) : (
                     <span
                       data-testid="awakening-surplus-stones-status"
-                      className="inline-flex items-center gap-1 font-mono font-bold text-emerald-600 dark:text-emerald-400"
+                      className="inline-flex items-center gap-1 text-sm font-sans font-bold text-emerald-600 dark:text-emerald-400"
                     >
-                      <CheckCircle2 className="h-3.5 w-3.5" />
+                      <CheckCircle2 className="h-4 w-4" aria-hidden="true" />
                       {locale === "vi"
                         ? `Đủ Đá (Dư ${result.surplusStones})`
                         : `Enough Stones (+${result.surplusStones})`}
@@ -482,9 +490,9 @@ export function HeroAwakeningCalculator({
 
                   <span
                     data-testid="awakening-guild-honor-badge"
-                    className="inline-flex items-center gap-1 rounded-md bg-amber-500/15 border border-amber-500/30 px-2 py-0.5 font-mono text-[10px] font-bold text-amber-700 dark:text-amber-300"
+                    className="inline-flex items-center gap-1.5 rounded-lg bg-amber-500/15 px-2.5 py-1 text-xs font-sans font-semibold text-amber-800 dark:text-amber-300"
                   >
-                    <Coins className="h-3 w-3 text-amber-500 shrink-0" />
+                    <Coins className="h-3.5 w-3.5 shrink-0 text-amber-500" aria-hidden="true" />
                     {locale === "vi"
                       ? `${result.missingStonesGuildHonorCost.toLocaleString()} Vinh Quang Hội (hoặc ${result.missingStonesGuildCoinS1Cost.toLocaleString()} Xu Bang S1)`
                       : `${result.missingStonesGuildHonorCost.toLocaleString()} Guild Honor (or ${result.missingStonesGuildCoinS1Cost.toLocaleString()} S1 Guild Coins)`}
@@ -492,87 +500,77 @@ export function HeroAwakeningCalculator({
                 </div>
               </div>
 
-              {/* Card B: Hero Shards + [i] Breakdown Button */}
-              <div className="rounded-xl border border-border/80 bg-background/80 p-3.5 space-y-2.5">
-                <div className="flex items-center justify-between gap-3">
-                  <div className="flex items-center gap-3 min-w-0">
-                    <GameAssetFrame
-                      src={result.universalShardMaterial.iconPath}
-                      alt={universalShardName}
-                      rarity={result.universalShardMaterial.rarity}
-                      size="md"
-                    />
-                    <div className="min-w-0">
-                      <div className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground truncate">
-                        {locale === "vi"
-                          ? "Mảnh Tướng Riêng / Mảnh Vạn Năng Cam"
-                          : "Named Hero Shards / Universal Shards"}
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <span
-                          data-testid="awakening-required-shards"
-                          className="font-mono text-2xl font-black text-amber-500 leading-none"
-                        >
-                          {result.requiredShards.toLocaleString()}
-                        </span>
-                        <span className="text-xs font-heading font-bold text-foreground">
-                          {locale === "vi" ? "Mảnh" : "Shards"}
-                        </span>
-
-                        {/* Nút icon [i] ngay cạnh kết quả số mảnh để mở Bảng Chi Tiết Từng Bậc */}
-                        <button
-                          type="button"
-                          data-testid="toggle-awakening-breakdown-btn"
-                          onClick={() => setIsBreakdownOpen((prev) => !prev)}
-                          title={
-                            locale === "vi"
-                              ? "Xem Bảng Chi Tiết Từng Bậc Thức Tỉnh"
-                              : "View Step-by-Step Awakening Tier Breakdown"
-                          }
-                          aria-expanded={isBreakdownOpen}
-                          className={cn(
-                            "inline-flex items-center gap-1 rounded-lg border px-2 py-1 text-[11px] font-mono font-bold transition-all cursor-pointer",
-                            isBreakdownOpen
-                              ? "border-amber-500 bg-amber-500 text-slate-950"
-                              : "border-amber-500/40 bg-amber-500/10 text-amber-600 dark:text-amber-300 hover:bg-amber-500/20"
-                          )}
-                        >
-                          <Info className="h-3.5 w-3.5" />
-                          <span className="hidden sm:inline">
-                            {locale === "vi" ? "Chi tiết" : "Details"}
-                          </span>
-                        </button>
-                      </div>
+              {/* Card B (tonal): Hero Shards + [i] Breakdown Button */}
+              <div className={cn(CALC_MD3.tonalGroup, "space-y-3")}>
+                <div className="flex min-w-0 items-center gap-3">
+                  <GameAssetFrame
+                    src={result.universalShardMaterial.iconPath}
+                    alt={universalShardName}
+                    rarity={result.universalShardMaterial.rarity}
+                    size="md"
+                  />
+                  <div className="min-w-0 space-y-1">
+                    <div className={cn(CALC_MD3.eyebrow, "truncate text-muted-foreground")}>
+                      {locale === "vi"
+                        ? "Mảnh Tướng Riêng / Mảnh Vạn Năng Cam"
+                        : "Named Hero Shards / Universal Shards"}
                     </div>
-                  </div>
-
-                  {/* Owned Shards Input */}
-                  <div className="flex items-center gap-1.5 shrink-0">
-                    <label
-                      htmlFor="awakening-owned-shards-input"
-                      className="text-[11px] font-mono font-bold text-muted-foreground"
-                    >
-                      {locale === "vi" ? "Đang có:" : "Owned:"}
-                    </label>
-                    <Input
-                      id="awakening-owned-shards-input"
-                      data-testid="awakening-owned-shards-input"
-                      type="number"
-                      min={0}
-                      max={99999}
-                      value={ownedShardsInput}
-                      onChange={(e) => setOwnedShardsInput(e.target.value)}
-                      className="w-20 h-8 font-mono font-bold text-xs text-center"
-                    />
+                    <div className="flex items-center gap-2">
+                      <CalculatorMetricValue
+                        testId="awakening-required-shards"
+                        value={result.requiredShards.toLocaleString()}
+                        unit={locale === "vi" ? "Mảnh" : "Shards"}
+                        toneClassName="text-amber-600 dark:text-amber-400"
+                      />
+                      <button
+                        type="button"
+                        data-testid="toggle-awakening-breakdown-btn"
+                        onClick={() => setIsBreakdownOpen((prev) => !prev)}
+                        title={breakdownLabel}
+                        aria-label={breakdownLabel}
+                        aria-expanded={isBreakdownOpen}
+                        className={cn(
+                          CALC_MD3.chipButton,
+                          "min-w-[44px] px-2.5 font-sans",
+                          isBreakdownOpen
+                            ? "bg-amber-500 text-slate-950"
+                            : "bg-amber-500/15 text-amber-700 hover:bg-amber-500/25 dark:text-amber-300"
+                        )}
+                      >
+                        <Info className="h-5 w-5" aria-hidden="true" />
+                        <span className="hidden sm:inline">
+                          {locale === "vi" ? "Chi tiết" : "Details"}
+                        </span>
+                      </button>
+                    </div>
                   </div>
                 </div>
 
-                {/* Missing Shards + Tavern Tip */}
-                <div className="flex flex-wrap items-center justify-between gap-2 pt-1 border-t border-border/60 text-[11px]">
+                <div className="flex items-center justify-between gap-3">
+                  <label
+                    htmlFor="awakening-owned-shards-input"
+                    className="text-sm font-sans font-semibold text-foreground"
+                  >
+                    {locale === "vi" ? "Đang có:" : "Owned:"}
+                  </label>
+                  <Input
+                    id="awakening-owned-shards-input"
+                    data-testid="awakening-owned-shards-input"
+                    type="number"
+                    inputMode="numeric"
+                    min={0}
+                    max={99999}
+                    value={ownedShardsInput}
+                    onChange={(e) => setOwnedShardsInput(e.target.value)}
+                    className={cn(CALC_MD3.dataInput, "w-28 text-center")}
+                  />
+                </div>
+
+                <div className="flex flex-wrap items-center justify-between gap-2 border-t border-border/60 pt-2.5">
                   {result.missingShards > 0 ? (
                     <span
                       data-testid="awakening-missing-shards-status"
-                      className="font-mono font-bold text-rose-600 dark:text-rose-400"
+                      className="text-sm font-sans font-bold text-rose-600 dark:text-rose-400"
                     >
                       {locale === "vi"
                         ? `Thiếu ${result.missingShards.toLocaleString()} mảnh`
@@ -581,16 +579,16 @@ export function HeroAwakeningCalculator({
                   ) : (
                     <span
                       data-testid="awakening-surplus-shards-status"
-                      className="inline-flex items-center gap-1 font-mono font-bold text-emerald-600 dark:text-emerald-400"
+                      className="inline-flex items-center gap-1 text-sm font-sans font-bold text-emerald-600 dark:text-emerald-400"
                     >
-                      <CheckCircle2 className="h-3.5 w-3.5" />
+                      <CheckCircle2 className="h-4 w-4" aria-hidden="true" />
                       {locale === "vi"
                         ? `Đủ Mảnh (Dư ${result.surplusShards.toLocaleString()})`
                         : `Enough Shards (+${result.surplusShards.toLocaleString()})`}
                     </span>
                   )}
 
-                  <span className="font-mono text-[10px] text-muted-foreground">
+                  <span className="text-xs font-sans tabular-nums text-muted-foreground">
                     {locale === "vi"
                       ? `Đã đầu tư: ${result.alreadyInvestedStones} Đá • ${result.alreadyInvestedShards} Mảnh`
                       : `Invested: ${result.alreadyInvestedStones} Stones • ${result.alreadyInvestedShards} Shards`}
@@ -599,79 +597,63 @@ export function HeroAwakeningCalculator({
               </div>
             </div>
 
-            {/* 4. On-Demand Step-by-Step Awakening Tier Breakdown (chỉ hiện khi bấm nút [i]) */}
-            {isBreakdownOpen && result.tierBreakdown.length > 0 && (
+            {/* 4. On-Demand Awakening Tier Breakdown (phẳng: hairline trên, bảng cuộn ngang trên mobile) */}
+            {isBreakdownOpen && result.tierBreakdown.length > 0 ? (
               <div
                 data-testid="awakening-steps-breakdown-panel"
-                className="rounded-xl border border-border/80 bg-background/90 p-3 space-y-2.5 animate-in fade-in duration-150"
+                className="space-y-2.5 border-t border-border/60 pt-3 animate-in fade-in duration-150"
               >
                 <div className="flex items-center justify-between gap-2">
-                  <span className="text-xs font-heading font-bold text-foreground">
+                  <h3 className="text-base font-heading font-bold text-foreground">
                     {locale === "vi"
                       ? `Bảng Chi Tiết Từng Giai Đoạn Thức Tỉnh (${result.tierBreakdown.length} giai đoạn)`
                       : `Step-by-Step Awakening Tier Breakdown (${result.tierBreakdown.length} stages)`}
-                  </span>
+                  </h3>
                   <button
                     type="button"
                     onClick={() => setIsBreakdownOpen(false)}
-                    className="inline-flex items-center gap-1 text-[11px] font-mono text-muted-foreground hover:text-foreground cursor-pointer"
+                    className={cn(
+                      CALC_MD3.chipButton,
+                      "px-3 font-sans text-muted-foreground hover:bg-muted hover:text-foreground"
+                    )}
                   >
-                    <X className="h-3.5 w-3.5" />
+                    <X className="h-4 w-4" aria-hidden="true" />
                     <span>{locale === "vi" ? "Ẩn" : "Hide"}</span>
                   </button>
                 </div>
 
-                <div className="overflow-x-auto max-h-60 overflow-y-auto">
+                <div className="max-h-72 overflow-auto">
                   <table
                     data-testid="hero-awakening-breakdown-table"
-                    className="w-full text-left border-collapse text-xs"
+                    className="w-full min-w-[520px] border-collapse text-left text-sm"
                   >
                     <thead>
-                      <tr className="border-b border-border/80 text-[10px] font-mono uppercase text-muted-foreground">
-                        <th className="py-1.5 pr-2">
-                          {locale === "vi" ? "Giai đoạn" : "Stage"}
-                        </th>
-                        <th className="py-1.5 px-2">
-                          {locale === "vi" ? "Đá Linh Hồn" : "Soul Stones"}
-                        </th>
-                        <th className="py-1.5 px-2">
-                          {locale === "vi" ? "Mảnh Tướng" : "Hero Shards"}
-                        </th>
-                        <th className="py-1.5 px-2">
-                          {locale === "vi" ? "Tích lũy" : "Cumulative"}
-                        </th>
-                        <th className="py-1.5 pl-2">
-                          {locale === "vi" ? "Hiệu ứng mở khóa" : "Unlock Effect"}
-                        </th>
+                      <tr className="border-b border-border/80 text-xs font-sans font-semibold uppercase tracking-wide text-muted-foreground">
+                        <th className="py-2 pr-2">{locale === "vi" ? "Giai đoạn" : "Stage"}</th>
+                        <th className="py-2 px-2">{locale === "vi" ? "Đá Linh Hồn" : "Soul Stones"}</th>
+                        <th className="py-2 px-2">{locale === "vi" ? "Mảnh Tướng" : "Hero Shards"}</th>
+                        <th className="py-2 px-2">{locale === "vi" ? "Tích lũy" : "Cumulative"}</th>
+                        <th className="py-2 pl-2">{locale === "vi" ? "Hiệu ứng mở khóa" : "Unlock Effect"}</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-border/50 font-mono">
+                    <tbody className="divide-y divide-border/50 font-sans tabular-nums">
                       {result.tierBreakdown.map((item) => (
-                        <tr
-                          key={item.tierKey}
-                          className="hover:bg-secondary/40"
-                        >
-                          <td className="py-1.5 pr-2 font-sans font-bold text-foreground">
+                        <tr key={item.tierKey} className="hover:bg-secondary/40">
+                          <td className="py-2 pr-2 font-bold text-foreground">
                             {item.stageLabel[locale]}
                           </td>
-                          <td className="py-1.5 px-2 font-extrabold text-rose-500">
-                            +{item.stageStones}{" "}
-                            {locale === "vi" ? "Đá" : "Stones"}
+                          <td className="py-2 px-2 font-extrabold text-rose-600 dark:text-rose-400">
+                            +{item.stageStones} {locale === "vi" ? "Đá" : "Stones"}
                           </td>
-                          <td className="py-1.5 px-2 font-extrabold text-amber-500">
-                            +{item.stageShards}{" "}
-                            {locale === "vi" ? "Mảnh" : "Shards"}
+                          <td className="py-2 px-2 font-extrabold text-amber-600 dark:text-amber-400">
+                            +{item.stageShards} {locale === "vi" ? "Mảnh" : "Shards"}
                           </td>
-                          <td className="py-1.5 px-2 text-muted-foreground">
-                            {item.cumulativeStonesAtEnd}{" "}
-                            {locale === "vi" ? "Đá" : "St"} •{" "}
-                            {item.cumulativeShardsAtEnd}{" "}
-                            {locale === "vi" ? "Mảnh" : "Sh"}
+                          <td className="py-2 px-2 text-muted-foreground">
+                            {item.cumulativeStonesAtEnd} {locale === "vi" ? "Đá" : "St"} •{" "}
+                            {item.cumulativeShardsAtEnd} {locale === "vi" ? "Mảnh" : "Sh"}
                           </td>
-                          <td className="py-1.5 pl-2 font-sans text-[11px] text-amber-600 dark:text-amber-400">
-                            {item.milestoneNote
-                              ? item.milestoneNote[locale]
-                              : "—"}
+                          <td className="py-2 pl-2 text-sm text-amber-700 dark:text-amber-400">
+                            {item.milestoneNote ? item.milestoneNote[locale] : "—"}
                           </td>
                         </tr>
                       ))}
@@ -679,7 +661,7 @@ export function HeroAwakeningCalculator({
                   </table>
                 </div>
               </div>
-            )}
+            ) : null}
           </>
         )}
       </section>

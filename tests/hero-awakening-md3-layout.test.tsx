@@ -2,6 +2,8 @@ import React from "react";
 import { describe, expect, it } from "vitest";
 import { fireEvent, render, screen, within } from "@testing-library/react";
 import { HeroAwakeningStepSelector } from "../src/components/calculators/hero-awakening-step-selector";
+import { getCalculatorToolBySlug } from "../src/content/calculators/registry";
+import { HeroAwakeningCalculator } from "../src/components/calculators/hero-awakening-calculator";
 import {
   ALL_SIDE_BORDER_REGEX,
   countMicroTextOccurrences,
@@ -102,5 +104,84 @@ describe("Phase 2.3 / HeroAwakeningStepSelector MD3", () => {
     fireEvent.click(screen.getByTestId("from-tier-btn-4"));
     expect(summary()).toContain("19/19");
     expect((screen.getByTestId("from-step-plus") as HTMLButtonElement).disabled).toBe(true);
+  });
+});
+
+describe("Phase 2.3 / HeroAwakeningCalculator MD3", () => {
+  const resolved = getCalculatorToolBySlug("heroes", "hero-awakening")!;
+  const renderCalculator = () =>
+    render(
+      <HeroAwakeningCalculator
+        zone={resolved.zone}
+        category={resolved.category}
+        tool={resolved.tool}
+        locale="vi"
+      />
+    );
+
+  it("hero-awakening-calculator.tsx contains zero text-[8px..11px] classes", () => {
+    expect(
+      countMicroTextOccurrences(
+        readSource("src/components/calculators/hero-awakening-calculator.tsx")
+      )
+    ).toBe(0);
+  });
+
+  it("uses a flat header, 30–36px heading metrics (value-only text) and 16px/44px inputs", () => {
+    renderCalculator();
+    expect(screen.getByTestId("calculator-tool-header").className).not.toMatch(
+      ALL_SIDE_BORDER_REGEX
+    );
+
+    const stones = screen.getByTestId("awakening-required-stones");
+    expect(stones.textContent).toBe("8");
+    expect(stones.className).toContain("text-3xl");
+    expect(stones.className).toContain("font-heading");
+    expect(stones.className).not.toContain("font-mono");
+    expect(screen.getByTestId("awakening-required-shards").textContent).toBe("290");
+
+    for (const id of ["awakening-owned-stones-input", "awakening-owned-shards-input"]) {
+      const input = screen.getByTestId(id);
+      expect(input.className).toContain("h-11");
+      expect(input.className).toContain("text-base");
+    }
+
+    const toggle = screen.getByTestId("toggle-awakening-breakdown-btn");
+    expect(toggle.className).toContain("min-h-[44px]");
+    expect(toggle.getAttribute("aria-label")).toBeTruthy();
+  });
+
+  it("renders the awakening breakdown flat with Vietnamese-safe font-sans table text", () => {
+    renderCalculator();
+    fireEvent.click(screen.getByTestId("toggle-awakening-breakdown-btn"));
+
+    const panel = screen.getByTestId("awakening-steps-breakdown-panel");
+    expect(panel.className).not.toMatch(ALL_SIDE_BORDER_REGEX);
+    expect(panel.className).toContain("border-t");
+
+    const table = screen.getByTestId("hero-awakening-breakdown-table");
+    expect(table.className).toContain("text-sm");
+    const headRow = table.querySelector("thead tr");
+    expect(headRow?.className).toContain("font-sans");
+    expect(headRow?.className).not.toContain("font-mono");
+    expect(table.querySelector("tbody")?.className).not.toContain("font-mono");
+  });
+
+  it("keeps ≤ 1 bordered layer, zero micro-text and zero mono Vietnamese with picker + breakdown open", () => {
+    renderCalculator();
+    fireEvent.click(screen.getByTestId("central-hero-avatar-trigger"));
+    fireEvent.click(screen.getByTestId("toggle-awakening-breakdown-btn"));
+
+    expect(screen.getByTestId("hero-sequential-picker").getAttribute("data-md3-overlay")).toBe(
+      "true"
+    );
+    const factionCard = screen.getByTestId("faction-card-league");
+    expect(factionCard.className).toContain("min-h-[56px]");
+    expect(factionCard.className).not.toMatch(ALL_SIDE_BORDER_REGEX);
+
+    const root = screen.getByTestId("hero-awakening-calculator");
+    expect(getMaxBorderedContainerDepth(root)).toBeLessThanOrEqual(1);
+    expect(findMicroTextElements(root)).toEqual([]);
+    expect(findMonoElementsWithVietnamese(root)).toEqual([]);
   });
 });
