@@ -1,15 +1,14 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import {
-  Sparkles,
   RotateCcw,
   CheckCircle2,
   AlertTriangle,
-  Layers,
-  Database,
-  ChevronRight,
-  Users,
+  ChevronDown,
+  ArrowLeft,
+  Info,
+  X,
 } from "lucide-react";
 import {
   HERO_STAR_RARITY_CONFIGS,
@@ -44,79 +43,12 @@ const RARITY_ORDER: readonly HeroStarRarity[] = [
   "rare",
 ];
 
-const QUICK_PRESETS: readonly {
-  readonly id: string;
-  readonly label: Record<CalculatorLocale, string>;
-  readonly rarity?: HeroStarRarity;
-  readonly heroId?: string;
-  readonly fromPetal: number;
-  readonly toPetal: number;
-}[] = [
-  {
-    id: "desert-prince-1-1-to-1-silver",
-    label: {
-      vi: "Ví dụ: Hoàng Tử Sa Mạc (1★ Vàng + 1 Cánh ➔ 1★ Bạc = 548 mảnh)",
-      en: "Example: Desert Prince (1★ Gold + 1P ➔ 1★ Silver = 548 shards)",
-    },
-    rarity: "mythic",
-    heroId: "hero-desert-prince",
-    fromPetal: 6,
-    toPetal: 55,
-  },
-  {
-    id: "desert-prince-1-2-to-1-silver",
-    label: {
-      vi: "Ví dụ: Hoàng Tử Sa Mạc (1★ Vàng + 2 Cánh ➔ 1★ Bạc = 546 mảnh)",
-      en: "Example: Desert Prince (1★ Gold + 2P ➔ 1★ Silver = 546 shards)",
-    },
-    rarity: "mythic",
-    heroId: "hero-desert-prince",
-    fromPetal: 7,
-    toPetal: 55,
-  },
-  {
-    id: "target-1-red",
-    label: {
-      vi: "Đích: 1★ Đỏ (Mở Skill 5)",
-      en: "Target: 1★ Red (5th Skill)",
-    },
-    fromPetal: 0,
-    toPetal: 30,
-  },
-  {
-    id: "target-1-silver",
-    label: {
-      vi: "Đích: 1★ Bạc (+30% Skill)",
-      en: "Target: 1★ Silver (+30% Skill)",
-    },
-    fromPetal: 0,
-    toPetal: 55,
-  },
-  {
-    id: "target-2-silver-trait3",
-    label: {
-      vi: "Đích: 2★ Bạc (Mở Trait 3 Kinh Tế)",
-      en: "Target: 2★ Silver (Economy Trait 3)",
-    },
-    fromPetal: 0,
-    toPetal: 60,
-  },
-  {
-    id: "target-5-silver-max",
-    label: {
-      vi: "Đích: 5★ Bạc (Max 15★)",
-      en: "Target: 5★ Silver (Max 15★)",
-    },
-    fromPetal: 0,
-    toPetal: 75,
-  },
-];
+type SequentialPickerStep = "closed" | "rarity" | "hero";
 
 export function HeroStarsCalculator({
   tool,
   locale,
 }: HeroStarsCalculatorProps) {
-  // Mặc định mở sẵn bài toán mẫu Hoàng Tử Sa Mạc từ 1★ Vàng + 1 Cánh (nấc 6) -> 1★ Bạc (nấc 55)
   const [rarity, setRarity] = useState<HeroStarRarity>("mythic");
   const [costProfile, setCostProfile] =
     useState<HeroStarCostProfile>("standard");
@@ -126,6 +58,21 @@ export function HeroStarsCalculator({
   const [fromPetalIndex, setFromPetalIndex] = useState<number>(6);
   const [toPetalIndex, setToPetalIndex] = useState<number>(55);
   const [ownedInput, setOwnedInput] = useState<string>("0");
+
+  // Trạng thái đóng/mở luồng chọn nối tiếp (Phẩm chất -> Tướng -> Ẩn) & Bảng chi tiết [i]
+  const [pickerStep, setPickerStep] = useState<SequentialPickerStep>("closed");
+  const [isBreakdownOpen, setIsBreakdownOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setPickerStep("closed");
+        setIsBreakdownOpen(false);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   const heroesForRarity = useMemo(() => getHeroesByRarity(rarity), [rarity]);
 
@@ -137,9 +84,17 @@ export function HeroStarsCalculator({
 
   const rarityConfig = HERO_STAR_RARITY_CONFIGS[rarity];
 
-  const handleSelectRarity = (nextRarity: HeroStarRarity) => {
+  const handlePickRarityInSequence = (nextRarity: HeroStarRarity) => {
     setRarity(nextRarity);
     setSelectedHeroId(HERO_STAR_RARITY_CONFIGS[nextRarity].defaultHeroId);
+    // Hành động nối tiếp: Chọn xong phẩm chất chuyển ngay sang chọn Avatar tướng
+    setPickerStep("hero");
+  };
+
+  const handlePickHeroInSequence = (heroId: string) => {
+    setSelectedHeroId(heroId);
+    // Hành động nối tiếp: Chọn xong tướng tự động ẩn đi
+    setPickerStep("closed");
   };
 
   const result = useMemo(
@@ -166,276 +121,251 @@ export function HeroStarsCalculator({
     : "";
 
   return (
-    <div data-testid="hero-stars-calculator" className="space-y-6">
-      {/* Hero Header Card */}
-      <section className="card-rpg relative overflow-hidden rounded-3xl border border-amber-500/30 bg-gradient-to-br from-amber-500/10 via-card to-card p-6 sm:p-8 shadow-sm">
-        <div className="flex flex-wrap items-center gap-2 mb-3">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/20 border border-emerald-500/40 px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-emerald-600 dark:text-emerald-300">
-            <Sparkles className="w-3.5 h-3.5" />
-            {locale === "vi" ? "Công cụ tương tác" : "Interactive Calculator"}
+    <div data-testid="hero-stars-calculator" className="space-y-4">
+      {/* 1. Ultra-Compact Top Bar */}
+      <div className="flex flex-wrap items-center justify-between gap-2 rounded-2xl border border-amber-500/30 bg-gradient-to-r from-amber-500/10 via-card to-card px-4 py-3 shadow-sm">
+        <div className="flex items-center gap-2.5 min-w-0">
+          <span className="rounded-lg bg-amber-500 px-2 py-0.5 font-mono text-xs font-black text-slate-950 shrink-0">
+            {tool.code}
           </span>
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-secondary/80 border border-border px-3 py-1 text-xs font-mono font-bold text-muted-foreground">
-            <Layers className="w-3.5 h-3.5 text-amber-500" />
-            Phase {tool.phaseNumber} • {tool.code}
-          </span>
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 px-3 py-1 text-xs font-mono text-amber-600 dark:text-amber-400">
-            <Database className="w-3.5 h-3.5" />
-            {tool.dataSourceTab[locale]}
-          </span>
+          <h1 className="text-base sm:text-xl font-heading font-black tracking-tight text-foreground truncate">
+            {tool.title[locale].replace(`${tool.code} `, "")}
+          </h1>
         </div>
 
-        <h1 className="text-2xl sm:text-3xl font-heading font-black tracking-tight text-foreground mb-2">
-          {tool.fullTitle[locale]}
-        </h1>
-        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-          {tool.summary[locale]}
-        </p>
-      </section>
-
-      {/* STEP 1: Select Hero Rarity & Representative Hero */}
-      <section className="rounded-3xl border border-border/80 bg-card/65 p-5 sm:p-6 space-y-4 shadow-sm">
-        <div className="flex flex-wrap items-center justify-between gap-2">
-          <div>
-            <span className="text-[11px] font-mono font-extrabold uppercase tracking-wider text-amber-600 dark:text-amber-400">
-              {locale === "vi"
-                ? "Bước 1 • Phẩm Chất & Anh Hùng Đại Diện"
-                : "Step 1 • Hero Rarity & Representative Hero"}
-            </span>
-            <h2 className="text-lg font-heading font-black text-foreground">
-              {locale === "vi"
-                ? "Chọn Phẩm Chất Tướng (Đỏ / Vàng / Tím / Xanh)"
-                : "Select Hero Rarity (Mythic / Legendary / Epic / Rare)"}
-            </h2>
-          </div>
-
+        <div className="flex items-center gap-2">
           {rarityConfig.supportsProfileToggle && (
-            <div className="flex items-center gap-1.5 rounded-xl border border-border/80 bg-background/70 p-1">
+            <div className="flex items-center gap-1 rounded-xl border border-border/80 bg-background/80 p-0.5">
               <button
                 type="button"
                 data-testid="cost-profile-standard-btn"
                 onClick={() => setCostProfile("standard")}
                 className={cn(
-                  "rounded-lg px-2.5 py-1.5 text-xs font-mono font-bold transition-colors cursor-pointer",
+                  "rounded-lg px-2 py-1 text-[11px] font-mono font-bold transition-colors cursor-pointer",
                   costProfile === "standard"
                     ? "bg-amber-500 text-slate-950"
                     : "text-muted-foreground hover:text-foreground"
                 )}
               >
-                {locale === "vi"
-                  ? `Chuẩn (${rarityConfig.totalShardsStandard} mảnh)`
-                  : `Standard (${rarityConfig.totalShardsStandard})`}
+                {rarityConfig.totalShardsStandard}
               </button>
               <button
                 type="button"
                 data-testid="cost-profile-legacy500-btn"
                 onClick={() => setCostProfile("legacy_500")}
                 className={cn(
-                  "rounded-lg px-2.5 py-1.5 text-xs font-mono font-bold transition-colors cursor-pointer",
+                  "rounded-lg px-2 py-1 text-[11px] font-mono font-bold transition-colors cursor-pointer",
                   costProfile === "legacy_500"
                     ? "bg-amber-500 text-slate-950"
                     : "text-muted-foreground hover:text-foreground"
                 )}
               >
-                {locale === "vi" ? "Mốc 500 mảnh" : "500-Shard Scale"}
+                500
               </button>
             </div>
           )}
+
+          <button
+            type="button"
+            onClick={() => {
+              setFromPetalIndex(0);
+              setToPetalIndex(75);
+              setOwnedInput("0");
+            }}
+            className="inline-flex items-center gap-1 rounded-xl border border-border/80 bg-background/70 hover:bg-secondary px-2.5 py-1.5 text-xs font-mono font-semibold text-muted-foreground hover:text-foreground cursor-pointer transition-colors"
+          >
+            <RotateCcw className="h-3.5 w-3.5 text-amber-500" />
+            <span>0★ ➔ 15★</span>
+          </button>
         </div>
+      </div>
 
-        {/* 4 Rarity Cards with Representative Hero Avatar + Universal Shard Icon */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-          {RARITY_ORDER.map((rKey) => {
-            const cfg = HERO_STAR_RARITY_CONFIGS[rKey];
-            const isSelected = rarity === rKey;
-            const repHeroes = getHeroesByRarity(rKey);
-            const repHero =
-              rKey === rarity && activeHero ? activeHero : repHeroes[0];
-            const repName = repHero
-              ? locale === "vi"
-                ? repHero.nameVi
-                : repHero.nameEn
-              : "";
-            const shardName =
-              locale === "vi"
-                ? cfg.universalShard.nameVi
-                : cfg.universalShard.nameEn;
-
-            return (
-              <button
-                key={rKey}
-                type="button"
-                data-testid={`rarity-card-${rKey}`}
-                onClick={() => handleSelectRarity(rKey)}
-                className={cn(
-                  "flex flex-col justify-between gap-3 rounded-2xl border p-4 text-left transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/40",
-                  isSelected
-                    ? "border-amber-500 bg-amber-500/10 shadow-sm ring-1 ring-amber-500/40"
-                    : "border-border/70 bg-background/60 hover:border-amber-500/40"
-                )}
-              >
-                <div className="flex items-center gap-3">
-                  {repHero && (
-                    <GameAssetFrame
-                      src={repHero.iconPath}
-                      alt={repName}
-                      rarity={rKey}
-                      faction={repHero.faction}
-                      size="md"
-                    />
-                  )}
-                  <div className="min-w-0">
-                    <div className="text-xs font-heading font-black text-foreground truncate">
-                      {cfg.label[locale]}
-                    </div>
-                    <div className="text-[11px] text-muted-foreground truncate">
-                      {repName}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex items-center justify-between gap-2 pt-2 border-t border-border/50">
-                  <div className="flex items-center gap-1.5 min-w-0">
-                    <GameAssetFrame
-                      src={cfg.universalShard.iconPath}
-                      alt={shardName}
-                      rarity={cfg.universalShard.rarity}
-                      size="sm"
-                    />
-                    <span className="text-[11px] font-medium text-foreground/90 truncate">
-                      {shardName}
-                    </span>
-                  </div>
-                  <span className="font-mono text-[10px] font-bold text-amber-600 dark:text-amber-400 shrink-0">
-                    {cfg.totalShardsStandard}
-                  </span>
-                </div>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Hero Picker Strip for Active Rarity */}
-        <div className="rounded-2xl border border-border/70 bg-background/60 p-3.5 space-y-2.5">
-          <div className="flex items-center gap-1.5 text-xs font-heading font-bold text-foreground">
-            <Users className="h-4 w-4 text-amber-500" />
-            <span>
-              {locale === "vi"
-                ? `Chọn tướng ${rarityConfig.shortLabel.vi} cụ thể để minh họa:`
-                : `Pick a specific ${rarityConfig.shortLabel.en} hero:`}
-            </span>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-1.5 max-h-36 overflow-y-auto pr-1">
-            {heroesForRarity.map((h) => {
-              const hName = locale === "vi" ? h.nameVi : h.nameEn;
-              const isHeroActive = activeHero?.id === h.id;
-              return (
-                <button
-                  key={h.id}
-                  type="button"
-                  data-testid={`select-hero-${h.id}`}
-                  onClick={() => setSelectedHeroId(h.id)}
-                  className={cn(
-                    "inline-flex items-center gap-2 rounded-xl border px-2.5 py-1.5 min-h-[38px] text-xs transition-all cursor-pointer",
-                    isHeroActive
-                      ? "border-amber-500 bg-amber-500/15 font-bold text-foreground"
-                      : "border-border/60 bg-card/70 text-muted-foreground hover:text-foreground"
-                  )}
-                >
-                  <GameAssetFrame
-                    src={h.iconPath}
-                    alt={hName}
-                    rarity={h.rarity}
-                    faction={h.faction}
-                    size="xs"
-                  />
-                  <span className="truncate max-w-[160px]">{hName}</span>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* STEP 2: Interactive Star & 5-Petal Selector (Current X -> Target Y) */}
-      <section className="space-y-4">
-        {/* Quick Presets Bar */}
-        <div className="rounded-2xl border border-amber-500/25 bg-card/70 p-4 space-y-2.5">
-          <div className="flex items-center justify-between gap-2">
-            <span className="text-xs font-mono font-extrabold uppercase tracking-wider text-amber-600 dark:text-amber-400">
-              {locale === "vi"
-                ? "Bước 2 • Nạp Nhanh Bài Toán Mẫu & Điểm Gãy Chiến Thuật:"
-                : "Step 2 • Quick Scenarios & Tactical Breakpoints:"}
-            </span>
-            <button
-              type="button"
-              onClick={() => {
-                setFromPetalIndex(0);
-                setToPetalIndex(75);
-                setOwnedInput("0");
-              }}
-              className="inline-flex items-center gap-1 text-xs font-mono text-muted-foreground hover:text-foreground cursor-pointer"
-            >
-              <RotateCcw className="h-3.5 w-3.5" />
-              <span>
-                {locale === "vi" ? "Đặt lại 0★ ➔ 15★" : "Reset 0★ ➔ 15★"}
-              </span>
-            </button>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-2">
-            {QUICK_PRESETS.map((preset) => (
-              <button
-                key={preset.id}
-                type="button"
-                data-testid={`preset-btn-${preset.id}`}
-                onClick={() => {
-                  if (preset.rarity) {
-                    setRarity(preset.rarity);
-                  }
-                  if (preset.heroId) {
-                    setSelectedHeroId(preset.heroId);
-                  }
-                  if (preset.id.startsWith("desert-prince")) {
-                    setFromPetalIndex(preset.fromPetal);
-                  }
-                  setToPetalIndex(preset.toPetal);
-                }}
-                className="rounded-xl border border-amber-500/30 bg-amber-500/10 hover:bg-amber-500/20 px-3 py-2 min-h-[40px] text-xs font-medium text-foreground transition-colors cursor-pointer"
-              >
-                {preset.label[locale]}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Dual Selector Grid: Current Star (X) & Target Star (Y) */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      {/* 2. Main 3-Zone Workspace: [Điểm Xuất Phát (X)] ⟷ [Avatar Tướng Trung Tâm] ⟷ [Mục Tiêu Đích (Y)] */}
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] items-center gap-3 sm:gap-4">
+        {/* Left: Starting Point (X) */}
+        <div className="order-2 lg:order-1 min-w-0">
           <HeroStarPetalSelector
             idPrefix="from"
             subtitle={
               locale === "vi" ? "Điểm Xuất Phát (X)" : "Starting Point (X)"
             }
-            title={
-              locale === "vi"
-                ? "Bậc Sao & Cánh Sao Hiện Tại"
-                : "Current Star & Petal Level"
-            }
+            title={locale === "vi" ? "Bậc Sao Hiện Tại" : "Current Star Level"}
             petalIndex={fromPetalIndex}
             costPerPetal={result.currentCostPerPetal}
             cumulativeShards={result.alreadyInvestedShards}
             locale={locale}
             onChangePetalIndex={setFromPetalIndex}
           />
+        </div>
 
+        {/* Center: Hero Avatar Hub + Sequential Rarity -> Hero Picker */}
+        <div
+          data-testid="central-hero-avatar-hub"
+          className="order-1 lg:order-2 relative flex flex-col items-center justify-center py-1 lg:px-1"
+        >
+          <button
+            type="button"
+            data-testid="central-hero-avatar-trigger"
+            onClick={() =>
+              setPickerStep((prev) => (prev === "closed" ? "rarity" : "closed"))
+            }
+            className="group flex flex-col items-center gap-1.5 rounded-2xl border border-amber-500/40 bg-gradient-to-b from-amber-500/15 via-card to-card px-4 py-3 shadow-sm hover:border-amber-500 transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/40"
+          >
+            {activeHero && (
+              <GameAssetFrame
+                src={activeHero.iconPath}
+                alt={activeHeroName}
+                rarity={rarity}
+                faction={activeHero.faction}
+                size="lg"
+              />
+            )}
+
+            {/* DUY NHẤT 1 VỊ TRÍ HIỂN THỊ TÊN TƯỚNG DƯỚI AVATAR */}
+            <div className="text-center">
+              <div
+                data-testid="central-hero-name"
+                className="text-xs sm:text-sm font-heading font-black text-foreground leading-tight"
+              >
+                {activeHeroName}
+              </div>
+              <div className="inline-flex items-center gap-1 text-[10px] font-mono font-bold text-amber-600 dark:text-amber-400 mt-0.5">
+                <span>{rarityConfig.shortLabel[locale]}</span>
+                <ChevronDown className="h-3 w-3 transition-transform group-hover:translate-y-0.5" />
+              </div>
+            </div>
+          </button>
+
+          {/* Sequential Popover: Step 1 (Select Rarity) -> Step 2 (Select Hero) -> Auto Close */}
+          {pickerStep !== "closed" && (
+            <div
+              data-testid="hero-sequential-picker"
+              className="z-30 mt-2 w-full max-w-sm lg:w-80 lg:absolute lg:top-full lg:left-1/2 lg:-translate-x-1/2 rounded-2xl border border-amber-500/45 bg-card/95 backdrop-blur-md p-3.5 shadow-xl space-y-3"
+            >
+              <div className="flex items-center justify-between gap-2 border-b border-border/60 pb-2">
+                {pickerStep === "hero" ? (
+                  <button
+                    type="button"
+                    data-testid="picker-back-to-rarity-btn"
+                    onClick={() => setPickerStep("rarity")}
+                    className="inline-flex items-center gap-1 text-xs font-heading font-bold text-amber-500 hover:underline cursor-pointer"
+                  >
+                    <ArrowLeft className="h-3.5 w-3.5" />
+                    <span>
+                      {locale === "vi" ? "Chọn lại phẩm chất" : "Change Rarity"}
+                    </span>
+                  </button>
+                ) : (
+                  <span className="text-xs font-heading font-black text-foreground">
+                    {locale === "vi"
+                      ? "Bước 1: Chọn Phẩm Chất Tướng"
+                      : "Step 1: Select Hero Rarity"}
+                  </span>
+                )}
+
+                <button
+                  type="button"
+                  onClick={() => setPickerStep("closed")}
+                  aria-label={locale === "vi" ? "Đóng" : "Close"}
+                  className="inline-flex h-6 w-6 items-center justify-center rounded-lg text-muted-foreground hover:text-foreground cursor-pointer"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              </div>
+
+              {pickerStep === "rarity" ? (
+                <div className="grid grid-cols-2 gap-2">
+                  {RARITY_ORDER.map((rKey) => {
+                    const cfg = HERO_STAR_RARITY_CONFIGS[rKey];
+                    const isSelected = rarity === rKey;
+                    const shardName =
+                      locale === "vi"
+                        ? cfg.universalShard.nameVi
+                        : cfg.universalShard.nameEn;
+
+                    return (
+                      <button
+                        key={rKey}
+                        type="button"
+                        data-testid={`rarity-card-${rKey}`}
+                        onClick={() => handlePickRarityInSequence(rKey)}
+                        className={cn(
+                          "flex items-center gap-2.5 rounded-xl border p-2.5 text-left transition-all cursor-pointer",
+                          isSelected
+                            ? "border-amber-500 bg-amber-500/15 font-bold"
+                            : "border-border/70 bg-background/70 hover:border-amber-500/40"
+                        )}
+                      >
+                        <GameAssetFrame
+                          src={cfg.universalShard.iconPath}
+                          alt={shardName}
+                          rarity={cfg.universalShard.rarity}
+                          size="sm"
+                        />
+                        <div className="min-w-0">
+                          <div className="text-xs font-heading font-black text-foreground truncate">
+                            {cfg.shortLabel[locale]}
+                          </div>
+                          <div className="font-mono text-[10px] text-amber-600 dark:text-amber-400">
+                            {cfg.totalShardsStandard}{" "}
+                            {locale === "vi" ? "mảnh" : "shards"}
+                          </div>
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="space-y-2">
+                  <div className="text-[11px] font-mono text-muted-foreground">
+                    {locale === "vi"
+                      ? `Bước 2: Chọn Avatar ${rarityConfig.shortLabel.vi}`
+                      : `Step 2: Pick ${rarityConfig.shortLabel.en} Hero`}
+                  </div>
+                  <div className="grid grid-cols-4 gap-2 max-h-48 overflow-y-auto pr-1">
+                    {heroesForRarity.map((h) => {
+                      const hName = locale === "vi" ? h.nameVi : h.nameEn;
+                      const isHeroActive = activeHero?.id === h.id;
+                      return (
+                        <button
+                          key={h.id}
+                          type="button"
+                          data-testid={`select-hero-${h.id}`}
+                          onClick={() => handlePickHeroInSequence(h.id)}
+                          title={hName}
+                          className={cn(
+                            "flex flex-col items-center gap-1 rounded-xl border p-1.5 transition-all cursor-pointer",
+                            isHeroActive
+                              ? "border-amber-500 bg-amber-500/15"
+                              : "border-border/60 bg-background/60 hover:border-amber-500/40"
+                          )}
+                        >
+                          <GameAssetFrame
+                            src={h.iconPath}
+                            alt={hName}
+                            rarity={h.rarity}
+                            faction={h.faction}
+                            size="sm"
+                          />
+                          <span className="text-[10px] font-medium text-foreground truncate w-full text-center">
+                            {hName}
+                          </span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+
+        {/* Right: Target Goal (Y) */}
+        <div className="order-3 min-w-0">
           <HeroStarPetalSelector
             idPrefix="to"
             subtitle={locale === "vi" ? "Mục Tiêu Đích (Y)" : "Target Goal (Y)"}
-            title={
-              locale === "vi"
-                ? "Bậc Sao & Cánh Sao Muốn Đạt"
-                : "Target Star & Petal Level"
-            }
+            title={locale === "vi" ? "Bậc Sao Muốn Đạt" : "Target Star Level"}
             petalIndex={toPetalIndex}
             costPerPetal={result.targetCostPerPetal}
             cumulativeShards={result.targetCumulativeShards}
@@ -443,123 +373,138 @@ export function HeroStarsCalculator({
             onChangePetalIndex={setToPetalIndex}
           />
         </div>
-      </section>
+      </div>
 
-      {/* STEP 3: Computed Resource Requirements & Step-by-Step Star Breakdown */}
+      {/* 3. Compact Result Bar & [i] Icon Trigger for Step-by-Step Star Breakdown */}
       <section
         data-testid="hero-stars-result-section"
-        className="rounded-3xl border border-amber-500/35 bg-gradient-to-br from-amber-500/10 via-card to-card p-5 sm:p-7 space-y-6 shadow-sm"
+        className="rounded-2xl border border-amber-500/35 bg-gradient-to-br from-amber-500/10 via-card to-card p-4 space-y-3 shadow-sm"
       >
-        <div className="flex flex-wrap items-center justify-between gap-2">
-          <div>
-            <span className="text-[11px] font-mono font-extrabold uppercase tracking-wider text-amber-600 dark:text-amber-400">
-              {locale === "vi"
-                ? "Bước 3 • Kết Quả Định Lượng Chính Xác"
-                : "Step 3 • Exact Resource Output"}
-            </span>
-            <h2 className="text-xl sm:text-2xl font-heading font-black text-foreground">
-              {locale === "vi"
-                ? `Tài Nguyên Cần Có Cho ${activeHeroName}`
-                : `Required Resources for ${activeHeroName}`}
-            </h2>
-          </div>
-        </div>
-
         {result.isInvalidRange ? (
           <div
             data-testid="hero-stars-invalid-range-alert"
-            className="rounded-2xl border border-amber-500/40 bg-amber-500/10 p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3"
+            className="rounded-xl border border-amber-500/40 bg-amber-500/10 p-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5"
           >
-            <div className="flex items-center gap-3">
-              <AlertTriangle className="h-5 w-5 text-amber-500 shrink-0" />
-              <p className="text-xs sm:text-sm text-foreground font-medium">
+            <div className="flex items-center gap-2.5">
+              <AlertTriangle className="h-4 w-4 text-amber-500 shrink-0" />
+              <p className="text-xs text-foreground font-medium">
                 {locale === "vi"
-                  ? "Bậc sao mục tiêu (Y) đang thấp hơn hoặc bằng bậc sao hiện tại (X). Hãy chọn mục tiêu cao hơn để tính số mảnh cần thêm."
-                  : "Target star level (Y) is less than or equal to current level (X). Please pick a higher target star."}
+                  ? "Bậc sao mục tiêu (Y) đang thấp hơn hoặc bằng bậc sao hiện tại (X)."
+                  : "Target star level (Y) is less than or equal to current level (X)."}
               </p>
             </div>
             <button
               type="button"
               onClick={() => setToPetalIndex(Math.min(75, fromPetalIndex + 5))}
-              className="rounded-xl bg-amber-500 px-3.5 py-2 min-h-[42px] text-xs font-heading font-bold text-slate-950 shrink-0 cursor-pointer"
+              className="rounded-lg bg-amber-500 px-3 py-1.5 min-h-[36px] text-xs font-heading font-bold text-slate-950 shrink-0 cursor-pointer"
             >
-              {locale === "vi"
-                ? "Đặt mục tiêu +1 Ngôi Sao"
-                : "Set Target +1 Star"}
+              {locale === "vi" ? "+1 Ngôi Sao" : "+1 Star"}
             </button>
           </div>
         ) : null}
 
-        {/* Main Resource Output & Inventory Box */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {/* Card A: Total Universal Shards Needed */}
-          <div className="rounded-2xl border border-amber-500/40 bg-background/85 p-5 flex items-center gap-4 shadow-xs">
-            <div className="relative shrink-0">
-              <GameAssetFrame
-                src={result.universalShard.iconPath}
-                alt={universalShardName}
-                rarity={result.universalShard.rarity}
-                size="lg"
-              />
-              {activeHero && (
-                <div className="absolute -bottom-1.5 -right-1.5">
-                  <GameAssetFrame
-                    src={activeHero.iconPath}
-                    alt={activeHeroName}
-                    rarity={activeHero.rarity}
-                    faction={activeHero.faction}
-                    size="xs"
-                  />
-                </div>
-              )}
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          {/* Card A: Total Universal Shards Needed + [i] Breakdown Icon */}
+          <div className="rounded-xl border border-amber-500/40 bg-background/85 p-3.5 flex items-center gap-3.5">
+            <GameAssetFrame
+              src={result.universalShard.iconPath}
+              alt={universalShardName}
+              rarity={result.universalShard.rarity}
+              size="md"
+            />
 
-            <div className="min-w-0 space-y-1">
-              <div className="text-[11px] font-mono font-bold uppercase text-amber-600 dark:text-amber-400">
+            <div className="min-w-0 flex-1">
+              <div className="text-[10px] font-mono font-bold uppercase text-amber-600 dark:text-amber-400">
                 {locale === "vi"
-                  ? "Tổng số mảnh cần dùng (X ➔ Y):"
-                  : "Total Shards Required (X ➔ Y):"}
+                  ? "Tổng số mảnh cần dùng:"
+                  : "Total Shards Required:"}
               </div>
-              <div
-                data-testid="hero-stars-total-required"
-                className="text-2xl sm:text-3xl font-heading font-black text-foreground"
-              >
-                {result.requiredShards.toLocaleString()}{" "}
-                <span className="text-sm font-bold text-amber-500">
-                  {locale === "vi" ? "Mảnh" : "Shards"}
-                </span>
+
+              <div className="flex items-center gap-2">
+                <div
+                  data-testid="hero-stars-total-required"
+                  className="text-xl sm:text-2xl font-heading font-black text-foreground"
+                >
+                  {result.requiredShards.toLocaleString()}{" "}
+                  <span className="text-xs font-bold text-amber-500">
+                    {locale === "vi" ? "Mảnh" : "Shards"}
+                  </span>
+                </div>
+
+                {/* Nút Icon [i] hiển thị Bảng Chi Tiết Từng Ngôi Sao */}
+                {result.starStepsBreakdown.length > 0 && (
+                  <button
+                    type="button"
+                    data-testid="toggle-star-breakdown-btn"
+                    onClick={() => setIsBreakdownOpen((prev) => !prev)}
+                    title={
+                      locale === "vi"
+                        ? "Xem bảng chi tiết từng ngôi sao"
+                        : "View step-by-step star breakdown"
+                    }
+                    aria-label={
+                      locale === "vi"
+                        ? "Xem bảng chi tiết từng ngôi sao"
+                        : "View step-by-step star breakdown"
+                    }
+                    className={cn(
+                      "inline-flex h-7 w-7 items-center justify-center rounded-full border transition-colors cursor-pointer",
+                      isBreakdownOpen
+                        ? "border-amber-500 bg-amber-500 text-slate-950"
+                        : "border-amber-500/40 bg-amber-500/15 text-amber-600 dark:text-amber-300 hover:bg-amber-500/25"
+                    )}
+                  >
+                    <Info className="h-3.5 w-3.5" />
+                  </button>
+                )}
               </div>
+
               <div
                 data-testid="hero-stars-universal-shard-name"
-                className="text-xs font-heading font-bold text-foreground truncate"
+                className="text-xs font-heading font-bold text-muted-foreground truncate"
               >
                 {universalShardName}
-              </div>
-              <div className="text-[11px] text-muted-foreground">
-                {rarityConfig.specificShardLabel[locale]} ({activeHeroName})
               </div>
             </div>
           </div>
 
-          {/* Card B: Owned Shards Input -> Missing Shards Calculation */}
-          <div className="rounded-2xl border border-border/80 bg-background/85 p-5 space-y-3">
+          {/* Card B: Compact Owned Shards Input -> Missing Shards */}
+          <div className="rounded-xl border border-border/80 bg-background/85 p-3.5 flex flex-col justify-center gap-2">
             <div className="flex items-center justify-between gap-2">
               <label
                 htmlFor="hero-stars-owned-shards-input"
                 className="text-xs font-heading font-bold text-foreground"
               >
-                {locale === "vi"
-                  ? "Số mảnh đang có trong túi đồ:"
-                  : "Shards currently in inventory:"}
+                {locale === "vi" ? "Đang có trong túi:" : "In inventory:"}
               </label>
-              <span className="font-mono text-[11px] font-bold text-emerald-600 dark:text-emerald-400">
-                {locale === "vi"
-                  ? `Tiến độ đích: ${result.completionPercent}%`
-                  : `Target progress: ${result.completionPercent}%`}
-              </span>
+
+              <div className="flex items-center gap-1.5">
+                <span className="text-[10px] font-mono uppercase text-muted-foreground">
+                  {result.missingShards > 0
+                    ? locale === "vi"
+                      ? "Thiếu:"
+                      : "Missing:"
+                    : locale === "vi"
+                      ? "Dư:"
+                      : "Surplus:"}
+                </span>
+                <span
+                  data-testid="hero-stars-missing-value"
+                  className={cn(
+                    "text-sm font-heading font-black",
+                    result.missingShards > 0
+                      ? "text-rose-500"
+                      : "text-emerald-500"
+                  )}
+                >
+                  {result.missingShards > 0
+                    ? `${result.missingShards.toLocaleString()} ${locale === "vi" ? "mảnh" : "shards"}`
+                    : `+${result.surplusShards.toLocaleString()} ${locale === "vi" ? "mảnh" : "shards"}`}
+                </span>
+              </div>
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2.5">
               <Input
                 id="hero-stars-owned-shards-input"
                 data-testid="hero-stars-owned-input"
@@ -568,107 +513,90 @@ export function HeroStarsCalculator({
                 max={999999}
                 value={ownedInput}
                 onChange={(e) => setOwnedInput(e.target.value)}
-                className="h-11 rounded-xl font-mono font-bold text-sm"
+                className="h-9 rounded-lg font-mono font-bold text-xs max-w-[130px]"
               />
-              <div className="shrink-0 text-right">
-                <div className="text-[10px] font-mono uppercase text-muted-foreground">
-                  {result.missingShards > 0
-                    ? locale === "vi"
-                      ? "Còn thiếu"
-                      : "Missing"
-                    : locale === "vi"
-                      ? "Đã đủ mảnh"
-                      : "Surplus"}
+              <div className="flex-1 space-y-1">
+                <div className="h-2 w-full rounded-full bg-secondary overflow-hidden">
+                  <div
+                    className="h-full bg-gradient-to-r from-amber-500 to-emerald-500 transition-all duration-300"
+                    style={{ width: `${result.completionPercent}%` }}
+                  />
                 </div>
-                <div
-                  data-testid="hero-stars-missing-value"
-                  className={cn(
-                    "text-lg font-heading font-black",
-                    result.missingShards > 0
-                      ? "text-rose-500"
-                      : "text-emerald-500"
-                  )}
-                >
-                  {result.missingShards > 0
-                    ? `${result.missingShards.toLocaleString()} ${locale === "vi" ? "mảnh" : "shards"}`
-                    : `+${result.surplusShards.toLocaleString()} ${locale === "vi" ? "dư" : "extra"}`}
+                <div className="text-right font-mono text-[10px] text-muted-foreground">
+                  {result.completionPercent}%
                 </div>
               </div>
-            </div>
-
-            {/* Progress Bar */}
-            <div className="h-2.5 w-full rounded-full bg-secondary overflow-hidden">
-              <div
-                className="h-full bg-gradient-to-r from-amber-500 to-emerald-500 transition-all duration-300"
-                style={{ width: `${result.completionPercent}%` }}
-              />
             </div>
           </div>
         </div>
 
-        {/* Step-by-Step Star Tier Breakdown Table */}
-        {result.starStepsBreakdown.length > 0 && (
-          <div className="space-y-3">
-            <div className="flex items-center justify-between">
-              <h3 className="text-xs font-mono font-extrabold uppercase tracking-wider text-muted-foreground">
+        {/* Collapsible Popover / Drawer for Step-by-Step Star Breakdown (Only visible when [i] is clicked) */}
+        {isBreakdownOpen && result.starStepsBreakdown.length > 0 && (
+          <div
+            data-testid="star-breakdown-popover"
+            className="rounded-xl border border-border/80 bg-background/95 p-3.5 space-y-2.5 shadow-md"
+          >
+            <div className="flex items-center justify-between gap-2 border-b border-border/60 pb-2">
+              <h3 className="text-xs font-mono font-extrabold uppercase tracking-wider text-foreground">
                 {locale === "vi"
                   ? `Bảng Chi Tiết Từng Ngôi Sao (${formatStarPositionSummary(result.fromState, locale)} ➔ ${formatStarPositionSummary(result.toState, locale)})`
                   : `Step-by-Step Star Breakdown (${formatStarPositionSummary(result.fromState, locale)} ➔ ${formatStarPositionSummary(result.toState, locale)})`}
               </h3>
+              <button
+                type="button"
+                data-testid="close-star-breakdown-btn"
+                onClick={() => setIsBreakdownOpen(false)}
+                aria-label={
+                  locale === "vi" ? "Đóng bảng chi tiết" : "Close breakdown"
+                }
+                className="inline-flex h-6 w-6 items-center justify-center rounded-lg text-muted-foreground hover:text-foreground cursor-pointer"
+              >
+                <X className="h-4 w-4" />
+              </button>
             </div>
 
-            <div className="grid grid-cols-1 gap-2">
+            <div className="grid grid-cols-1 gap-1.5 max-h-64 overflow-y-auto pr-1">
               {result.starStepsBreakdown.map((step) => {
                 const badgeClass =
                   step.colorTier === "gold"
                     ? "border-amber-500/40 bg-amber-500/15 text-amber-600 dark:text-amber-300"
                     : step.colorTier === "red"
                       ? "border-rose-500/40 bg-rose-500/15 text-rose-600 dark:text-rose-300"
-                      : "border-sky-400/40 bg-sky-500/15 text-sky-600 dark:text-sky-200";
+                      : "border-slate-400/60 bg-slate-200/70 dark:bg-slate-400/20 text-slate-800 dark:text-slate-100";
 
                 return (
                   <div
                     key={step.overallStarNumber}
-                    className="rounded-2xl border border-border/75 bg-background/80 p-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5"
+                    className="rounded-xl border border-border/70 bg-card/75 px-3 py-2 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5"
                   >
-                    <div className="space-y-1">
+                    <div className="space-y-0.5">
                       <div className="flex flex-wrap items-center gap-2">
                         <span
                           className={cn(
-                            "rounded-lg border px-2.5 py-0.5 font-mono text-xs font-bold",
+                            "rounded-md border px-2 py-0.5 font-mono text-[11px] font-bold",
                             badgeClass
                           )}
                         >
                           {step.starLabel[locale]}
                         </span>
-                        <span className="font-mono text-xs text-muted-foreground">
+                        <span className="font-mono text-[11px] text-muted-foreground">
                           {locale === "vi"
-                            ? `Nâng ${step.petalsUsed}/5 cánh (Cánh ${step.startPetalInStar} ➔ ${step.endPetalInStar}) × ${step.costPerPetal} mảnh/cánh`
-                            : `Upgrade ${step.petalsUsed}/5 petals (Petal ${step.startPetalInStar} ➔ ${step.endPetalInStar}) × ${step.costPerPetal}/petal`}
+                            ? `${step.petalsUsed}/5 cánh (Cánh ${step.startPetalInStar}➔${step.endPetalInStar}) × ${step.costPerPetal}`
+                            : `${step.petalsUsed}/5 petals (P${step.startPetalInStar}➔${step.endPetalInStar}) × ${step.costPerPetal}`}
                         </span>
                       </div>
 
                       {step.milestoneNote && (
-                        <div className="flex items-center gap-1.5 text-xs font-medium text-emerald-600 dark:text-emerald-400">
-                          <CheckCircle2 className="h-3.5 w-3.5 shrink-0" />
+                        <div className="flex items-center gap-1 text-[11px] font-medium text-emerald-600 dark:text-emerald-400">
+                          <CheckCircle2 className="h-3 w-3 shrink-0" />
                           <span>{step.milestoneNote[locale]}</span>
                         </div>
                       )}
                     </div>
 
-                    <div className="flex items-center gap-3 sm:text-right shrink-0">
-                      <div>
-                        <div className="text-sm font-heading font-black text-foreground">
-                          +{step.starTotalShards.toLocaleString()}{" "}
-                          {locale === "vi" ? "mảnh" : "shards"}
-                        </div>
-                        <div className="text-[11px] font-mono text-muted-foreground">
-                          {locale === "vi"
-                            ? `Mốc tích lũy: ${step.cumulativeShardsAtStepEnd.toLocaleString()}`
-                            : `Cumulative: ${step.cumulativeShardsAtStepEnd.toLocaleString()}`}
-                        </div>
-                      </div>
-                      <ChevronRight className="h-4 w-4 text-muted-foreground hidden sm:block" />
+                    <div className="font-heading text-xs font-black text-foreground sm:text-right shrink-0">
+                      +{step.starTotalShards.toLocaleString()}{" "}
+                      {locale === "vi" ? "mảnh" : "shards"}
                     </div>
                   </div>
                 );
