@@ -26,6 +26,8 @@ const COLLAPSE_THRESHOLD = 8;
 const FILTER_THRESHOLD = 5;
 const BREAKPOINT_REGEX =
   /(🔥|⭐|👑|★|Mythic|T10|T11|Điểm gãy|Breakpoint|Mốc gãy)/i;
+const PURE_NUMERIC_CELL_REGEX =
+  /^[+\-~≈<>≤≥]?[\d.,]+(?:\s*(?:%|x|s|h|d|k|m|b|★|⭐|\+|\/|–|-)\s*[\d.,%x★⭐]*)*$/i;
 
 const LABELS = {
   vi: {
@@ -44,6 +46,12 @@ const LABELS = {
 
 export function isBreakpointRow(row: string[]): boolean {
   return row.some((cell) => BREAKPOINT_REGEX.test(cell));
+}
+
+function isPureNumericCell(cell: string): boolean {
+  const stripped = cell.replace(/[*`]/g, "").trim();
+  if (!stripped || stripped.length > 24) return false;
+  return PURE_NUMERIC_CELL_REGEX.test(stripped);
 }
 
 function resolveRowCol0Asset(
@@ -106,11 +114,11 @@ export function ResponsiveDataTable({
   }, [filteredRows, normalizedQuery, canCollapse, isExpanded]);
 
   return (
-    <div data-testid="block-table" className="space-y-2">
+    <div data-testid="block-table" className="space-y-2.5">
       {(caption || showFilterInput) && (
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 px-1">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 px-1">
           {caption ? (
-            <p className="text-xs font-mono font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
+            <p className="text-xs sm:text-sm font-heading font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
               <RichGuideText text={caption} variant="inline" locale={locale} />
             </p>
           ) : (
@@ -118,30 +126,30 @@ export function ResponsiveDataTable({
           )}
 
           {showFilterInput && (
-            <div className="relative w-full sm:w-56">
-              <Search className="pointer-events-none absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
+            <div className="relative w-full sm:w-64">
+              <Search className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <input
                 type="search"
                 data-testid="table-filter-input"
                 value={filterQuery}
                 onChange={(e) => setFilterQuery(e.target.value)}
                 placeholder={copy.filterPlaceholder}
-                className="h-8 w-full rounded-lg border border-border/80 bg-background/80 pl-8 pr-2.5 text-xs text-foreground placeholder:text-muted-foreground focus:border-amber-500 focus:outline-none"
+                className="h-11 min-h-[44px] w-full rounded-xl border border-border/80 bg-background/80 pl-9 pr-3 text-base sm:text-sm font-sans text-foreground placeholder:text-muted-foreground focus:border-amber-500 focus:outline-none"
               />
             </div>
           )}
         </div>
       )}
 
-      <div className="w-full overflow-x-auto rounded-2xl border border-border/80 dark:border-amber-500/20 bg-card/70 shadow-sm">
-        <table className="w-full min-w-[520px] border-collapse text-left text-xs sm:text-sm">
+      <div className="w-full overflow-x-auto rounded-2xl border border-border/80 dark:border-amber-500/20 bg-card/85 shadow-sm">
+        <table className="w-full min-w-[520px] border-collapse text-left text-sm font-sans">
           <thead>
             <tr className="border-b border-border/80 bg-muted/50 dark:bg-amber-500/10">
               {headers.map((header, idx) => (
                 <th
                   key={idx}
                   className={cn(
-                    "px-3.5 py-2.5 font-heading font-bold text-foreground",
+                    "px-3.5 py-3 text-xs sm:text-sm font-heading font-bold text-foreground",
                     idx === 0
                       ? "sticky left-0 z-10 min-w-[136px] max-w-[172px] sm:max-w-[260px] whitespace-normal sm:whitespace-nowrap bg-muted/95 dark:bg-slate-900/95 backdrop-blur-xs"
                       : "whitespace-nowrap"
@@ -161,7 +169,7 @@ export function ResponsiveDataTable({
               <tr>
                 <td
                   colSpan={Math.max(1, headers.length)}
-                  className="px-4 py-6 text-center text-xs text-muted-foreground"
+                  className="px-4 py-6 text-center text-sm text-muted-foreground"
                 >
                   {copy.noMatch}
                 </td>
@@ -189,12 +197,14 @@ export function ResponsiveDataTable({
                           : cellIdx === 1 && !col0Asset
                             ? resolveEntityFromTableCell(cell)
                             : undefined;
+                      const isNumeric = cellIdx > 0 && isPureNumericCell(cell);
 
                       return (
                         <td
                           key={cellIdx}
                           className={cn(
                             "px-3.5 py-2.5 leading-relaxed",
+                            isNumeric ? "font-mono tabular-nums" : "font-sans",
                             cellIdx === 0
                               ? cn(
                                   "sticky left-0 z-10 font-semibold min-w-[136px] max-w-[172px] sm:max-w-[260px] whitespace-normal sm:whitespace-nowrap backdrop-blur-xs",
@@ -253,15 +263,15 @@ export function ResponsiveDataTable({
               type="button"
               data-testid="table-expand-toggle"
               onClick={() => setIsExpanded((prev) => !prev)}
-              className="inline-flex items-center gap-1.5 min-h-[36px] px-3 py-1 rounded-lg text-xs font-heading font-bold text-amber-600 dark:text-amber-400 hover:bg-amber-500/10 transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 min-h-[44px] px-4 py-2 rounded-xl text-xs sm:text-sm font-heading font-bold text-amber-600 dark:text-amber-400 hover:bg-amber-500/10 transition-colors cursor-pointer"
             >
               <span>
                 {isExpanded ? copy.collapse : copy.showAll(rows.length)}
               </span>
               {isExpanded ? (
-                <ChevronUp className="h-3.5 w-3.5" />
+                <ChevronUp className="h-4 w-4" />
               ) : (
-                <ChevronDown className="h-3.5 w-3.5" />
+                <ChevronDown className="h-4 w-4" />
               )}
             </button>
           </div>
@@ -269,7 +279,7 @@ export function ResponsiveDataTable({
       </div>
 
       {footnote && (
-        <p className="text-xs text-muted-foreground italic px-1">
+        <p className="text-xs sm:text-sm font-sans text-muted-foreground italic leading-relaxed px-1">
           <RichGuideText text={footnote} variant="inline" locale={locale} />
         </p>
       )}

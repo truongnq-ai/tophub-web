@@ -10,8 +10,6 @@ import { InteractiveChecklistBlock } from "../src/components/guides/blocks/inter
 import { CaseStudyBlock } from "../src/components/guides/blocks/case-study-block";
 import { MediaSpotlightBlock } from "../src/components/guides/blocks/media-spotlight-block";
 
-
-
 describe("Rich RPG Guide UI Blocks v2.0", () => {
   beforeEach(() => {
     window.localStorage.clear();
@@ -439,7 +437,62 @@ describe("Rich RPG Guide UI Blocks v2.0", () => {
       }
     });
   });
+
+  it("enforces MD3 table text-sm, 44px filter/expand controls, and single-layer StepRoadmap in Task 2", () => {
+    const rows = Array.from({ length: 10 }, (_, idx) => [
+      `Mốc ${idx + 1}`,
+      `${(idx + 1) * 100}`,
+      `Tăng kỹ năng chủ động`,
+    ]);
+
+    const { container } = render(
+      <div>
+        <ResponsiveDataTable
+          caption="Bảng Mốc Sao"
+          headers={["Bậc Sao", "Mảnh", "Hiệu Ứng"]}
+          rows={rows}
+          locale="vi"
+        />
+        <StepRoadmap
+          steps={[
+            {
+              badge: "Bước 1",
+              title: "Mốc Khởi Đầu",
+              timing: "Ngày 1-7",
+              description: "Dồn tài nguyên cho Đội 1",
+            },
+            {
+              badge: "Bước 2",
+              title: "Mốc Chuyển Hệ",
+              timing: "Ngày 21+",
+              description: "Chuyển sang Bộ Lạc",
+            },
+          ]}
+        />
+      </div>
+    );
+
+    const table = container.querySelector("table");
+    expect(table?.className).toContain("text-sm");
+    expect(table?.className).toContain("font-sans");
+
+    const filterInput = screen.getByTestId("table-filter-input");
+    expect(filterInput.className).toContain("min-h-[44px]");
+    expect(filterInput.className).toContain("text-base");
+
+    const expandToggle = screen.getByTestId("table-expand-toggle");
+    expect(expandToggle.className).toContain("min-h-[44px]");
+
+    const numericCell = screen.getByText("100").closest("td");
+    expect(numericCell?.className).toContain("font-mono");
+
+    const textCell = screen.getAllByText("Tăng kỹ năng chủ động")[0].closest("td");
+    expect(textCell?.className).not.toContain("font-mono");
+
+    expect(screen.getByTestId("stepper-view-all").className).toContain("min-h-[44px]");
+    expect(screen.getByTestId("stepper-pill-0").className).toContain("min-h-[44px]");
+    expect(screen.getByTestId("stepper-pill-0").className).toContain("font-sans");
+    expect(screen.getByTestId("stepper-pill-0").className).not.toContain("font-mono");
+    expect(screen.getByTestId("step-roadmap-item-0").className).not.toMatch(/(^|\s)border(\s|$)/);
+  });
 });
-
-
-
