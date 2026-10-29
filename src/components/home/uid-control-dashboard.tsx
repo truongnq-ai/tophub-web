@@ -165,10 +165,10 @@ export function UidControlDashboard({ account, initialActiveCodes }: UidControlD
   const displayServerId = statusData?.server_id || account.server_id;
 
   return (
-    <div className="space-y-6 max-w-4xl mx-auto py-6 animate-in fade-in-50 duration-500">
+    <div className="space-y-6 max-w-4xl mx-auto py-4 sm:py-6 animate-in fade-in-50 duration-500">
       {/* Account Info Header Card */}
-      <Card className="relative overflow-hidden card-rpg rounded-3xl">
-        <CardHeader className="pb-4">
+      <Card className="relative overflow-hidden card-rpg rounded-2xl sm:rounded-3xl">
+        <CardHeader className="p-4 sm:p-6 pb-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="flex items-center gap-4">
               <div className="h-14 w-14 rounded-2xl bg-gradient-to-tr from-amber-500 via-amber-400 to-yellow-300 text-slate-950 flex items-center justify-center font-bold text-2xl font-heading shadow-lg shadow-amber-500/20 border border-amber-300/30 shrink-0">
@@ -176,7 +176,7 @@ export function UidControlDashboard({ account, initialActiveCodes }: UidControlD
               </div>
               <div>
                 <div className="flex flex-wrap items-center gap-2.5">
-                  <CardTitle className="text-2xl font-black text-foreground font-heading">
+                  <CardTitle className="text-xl sm:text-2xl font-black text-foreground font-heading">
                     {displayNickname}
                   </CardTitle>
                   <Badge className="bg-emerald-500/15 text-emerald-500 dark:text-emerald-400 border-emerald-500/30 text-xs font-bold flex items-center gap-1.5 py-0.5 px-2.5">
@@ -205,23 +205,23 @@ export function UidControlDashboard({ account, initialActiveCodes }: UidControlD
               variant="outline"
               size="sm"
               onClick={() => logout()}
-              className="h-10 px-4 rounded-xl text-xs font-bold border-border/80 hover:bg-destructive/10 hover:text-destructive hover:border-destructive/30 shrink-0 self-start sm:self-center transition-colors min-h-[40px]"
+              className="h-11 min-h-[44px] px-4 rounded-xl text-xs font-bold border-border/80 hover:bg-destructive/10 hover:text-destructive hover:border-destructive/30 shrink-0 self-start sm:self-center transition-colors"
             >
-              <LogOut className="h-3.5 w-3.5 mr-1.5" />
+              <LogOut className="h-4 w-4 mr-1.5" />
               <span>{t("logoutBtn")}</span>
             </Button>
           </div>
         </CardHeader>
 
-        <CardContent className="space-y-4 pt-2">
-          {/* Quick Action: RUN NOW BANNER */}
-          <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-amber-500/15 via-amber-600/10 to-amber-500/15 border border-amber-500/30 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
+        <CardContent className="p-4 sm:p-6 space-y-4 pt-2">
+          {/* Quick Action: RUN NOW BANNER (Tonal Surface on Mobile, Bordered on sm+) */}
+          <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-amber-500/15 via-amber-600/10 to-amber-500/15 border-0 sm:border sm:border-amber-500/30 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
             <div className="space-y-1 text-center sm:text-left">
-              <h3 className="text-sm sm:text-base font-bold text-foreground flex items-center justify-center sm:justify-start gap-2 font-heading">
+              <h3 className="text-base font-bold text-foreground flex items-center justify-center sm:justify-start gap-2 font-heading">
                 <Zap className="h-4 w-4 text-amber-500 fill-amber-500" />
                 {t("runNowBannerTitle")}
               </h3>
-              <p className="text-xs text-muted-foreground">
+              <p className="text-sm text-muted-foreground">
                 {t("runNowBannerDesc")}
               </p>
             </div>
@@ -253,10 +253,10 @@ export function UidControlDashboard({ account, initialActiveCodes }: UidControlD
           {/* Feedback Message */}
           {feedbackMsg && (
             <div
-              className={`p-3.5 rounded-xl border text-xs sm:text-sm flex items-center gap-2.5 animate-in fade-in-50 ${
+              className={`p-3.5 rounded-xl text-sm flex items-center gap-2.5 animate-in fade-in-50 ${
                 feedbackMsg.type === "success"
-                  ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-500 dark:text-emerald-400"
-                  : "border-destructive/30 bg-destructive/10 text-destructive"
+                  ? "sm:border sm:border-emerald-500/30 bg-emerald-500/10 text-emerald-500 dark:text-emerald-400"
+                  : "sm:border sm:border-destructive/30 bg-destructive/10 text-destructive"
               }`}
             >
               {feedbackMsg.type === "success" ? (
@@ -268,16 +268,19 @@ export function UidControlDashboard({ account, initialActiveCodes }: UidControlD
             </div>
           )}
 
-          {/* Bot Automation Controls (Switches) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+          {/* Bot Automation Controls (Switches) — Single-Layer Containment on Mobile using divide-y */}
+          <div
+            data-testid="bot-automation-switches"
+            className="divide-y divide-border/60 sm:divide-y-0 grid grid-cols-1 sm:grid-cols-2 sm:gap-4 pt-1"
+          >
             {/* Auto Redeem Switch */}
-            <div className="p-4 rounded-2xl border border-border/80 bg-background/50 flex items-center justify-between gap-3">
+            <div className="py-3.5 sm:p-4 sm:rounded-2xl sm:border sm:border-border/60 sm:bg-muted/30 flex items-center justify-between gap-3">
               <div className="space-y-0.5">
-                <span className="text-sm font-bold text-foreground flex items-center gap-2 font-heading">
+                <span className="text-base font-bold text-foreground flex items-center gap-2 font-heading">
                   <Gift className="h-4 w-4 text-amber-500" />
                   {t("toggleRedeem")}
                 </span>
-                <p className="text-xs text-muted-foreground">
+                <p className="text-sm text-muted-foreground">
                   {t("toggleRedeemDesc")}
                 </p>
               </div>
@@ -288,13 +291,13 @@ export function UidControlDashboard({ account, initialActiveCodes }: UidControlD
             </div>
 
             {/* Auto Checkin Switch */}
-            <div className="p-4 rounded-2xl border border-border/80 bg-background/50 flex items-center justify-between gap-3">
+            <div className="py-3.5 sm:p-4 sm:rounded-2xl sm:border sm:border-border/60 sm:bg-muted/30 flex items-center justify-between gap-3">
               <div className="space-y-0.5">
-                <span className="text-sm font-bold text-foreground flex items-center gap-2 font-heading">
+                <span className="text-base font-bold text-foreground flex items-center gap-2 font-heading">
                   <Calendar className="h-4 w-4 text-amber-500" />
                   {t("toggleCheckin")}
                 </span>
-                <p className="text-xs text-muted-foreground">
+                <p className="text-sm text-muted-foreground">
                   {t("toggleCheckinDesc")}
                 </p>
               </div>
@@ -308,8 +311,8 @@ export function UidControlDashboard({ account, initialActiveCodes }: UidControlD
       </Card>
 
       {/* Recent Redemptions History */}
-      <Card className="card-rpg rounded-3xl">
-        <CardHeader className="pb-3 flex flex-row items-center justify-between">
+      <Card className="card-rpg rounded-2xl sm:rounded-3xl">
+        <CardHeader className="p-4 sm:p-6 pb-3 flex flex-row items-center justify-between">
           <CardTitle className="text-base sm:text-lg font-bold text-foreground flex items-center gap-2 font-heading">
             <Gift className="h-5 w-5 text-amber-400" />
             {t("historyTitle")}
@@ -319,20 +322,20 @@ export function UidControlDashboard({ account, initialActiveCodes }: UidControlD
             size="sm"
             onClick={loadStatus}
             disabled={loading}
-            className="h-8 px-2 text-xs text-muted-foreground hover:text-foreground"
+            className="h-11 min-h-[44px] px-3 text-xs text-muted-foreground hover:text-foreground rounded-xl"
           >
-            <RefreshCw className={`h-3.5 w-3.5 mr-1 ${loading ? "animate-spin" : ""}`} />
+            <RefreshCw className={`h-4 w-4 mr-1.5 ${loading ? "animate-spin" : ""}`} />
             <span>{t("refreshBtn")}</span>
           </Button>
         </CardHeader>
-        <CardContent>
+        <CardContent className="p-4 sm:p-6 pt-0">
           {loading && !statusData ? (
             <div className="py-8 flex items-center justify-center text-muted-foreground">
               <Loader2 className="h-5 w-5 animate-spin mr-2" />
-              <span className="text-xs">{t("loadingHistory")}</span>
+              <span className="text-sm">{t("loadingHistory")}</span>
             </div>
           ) : statusData?.recent_redemptions && statusData.recent_redemptions.length > 0 ? (
-            <div className="divide-y divide-border/60 text-xs sm:text-sm">
+            <div className="divide-y divide-border/60 text-sm">
               {statusData.recent_redemptions.map((redemption, idx) => (
                 <div key={idx} className="flex items-center justify-between py-3">
                   <div className="flex items-center gap-3">
@@ -350,23 +353,23 @@ export function UidControlDashboard({ account, initialActiveCodes }: UidControlD
                   </div>
                   <div>
                     {redemption.status === "SUCCESS" ? (
-                      <span className="inline-flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-bold text-xs bg-emerald-500/10 px-2 py-0.5 rounded-md border border-emerald-500/20">
-                        <CheckCircle2 className="h-3 w-3" />
+                      <span className="inline-flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-bold text-xs bg-emerald-500/10 px-2.5 py-0.5 rounded-md border border-emerald-500/20">
+                        <CheckCircle2 className="h-3.5 w-3.5" />
                         {t("statusSuccess")}
                       </span>
                     ) : redemption.status === "ALREADY_REDEEMED" ? (
-                      <span className="inline-flex items-center gap-1 text-amber-600 dark:text-amber-400 font-bold text-xs bg-amber-500/10 px-2 py-0.5 rounded-md border border-amber-500/20">
-                        <CheckCircle2 className="h-3 w-3" />
+                      <span className="inline-flex items-center gap-1 text-amber-600 dark:text-amber-400 font-bold text-xs bg-amber-500/10 px-2.5 py-0.5 rounded-md border border-amber-500/20">
+                        <CheckCircle2 className="h-3.5 w-3.5" />
                         {t("statusAlready")}
                       </span>
                     ) : redemption.status === "EXPIRED" ? (
-                      <span className="inline-flex items-center gap-1 text-muted-foreground font-medium text-xs bg-muted/60 px-2 py-0.5 rounded-md border border-border/40">
-                        <Clock className="h-3 w-3" />
+                      <span className="inline-flex items-center gap-1 text-muted-foreground font-medium text-xs bg-muted/60 px-2.5 py-0.5 rounded-md border border-border/40">
+                        <Clock className="h-3.5 w-3.5" />
                         {t("statusExpired")}
                       </span>
                     ) : (
-                      <span className="inline-flex items-center gap-1 text-rose-600 dark:text-rose-400 font-bold text-xs bg-rose-500/10 px-2 py-0.5 rounded-md border border-rose-500/20">
-                        <XCircle className="h-3 w-3" />
+                      <span className="inline-flex items-center gap-1 text-rose-600 dark:text-rose-400 font-bold text-xs bg-rose-500/10 px-2.5 py-0.5 rounded-md border border-rose-500/20">
+                        <XCircle className="h-3.5 w-3.5" />
                         {t("statusFailed")}
                       </span>
                     )}
@@ -375,7 +378,7 @@ export function UidControlDashboard({ account, initialActiveCodes }: UidControlD
               ))}
             </div>
           ) : (
-            <div className="py-8 text-center text-muted-foreground text-xs sm:text-sm">
+            <div className="py-8 text-center text-muted-foreground text-sm">
               {t("emptyHistory")}
             </div>
           )}
@@ -383,8 +386,8 @@ export function UidControlDashboard({ account, initialActiveCodes }: UidControlD
       </Card>
 
       {/* Active Giftcodes Quick Copy Section */}
-      <Card className="card-rpg rounded-3xl">
-        <CardHeader className="pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+      <Card className="card-rpg rounded-2xl sm:rounded-3xl">
+        <CardHeader className="p-4 sm:p-6 pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <CardTitle className="text-base sm:text-lg font-bold text-foreground flex items-center gap-2 font-heading">
             <Gift className="h-5 w-5 text-amber-500" />
             <span>
@@ -401,14 +404,14 @@ export function UidControlDashboard({ account, initialActiveCodes }: UidControlD
             </span>
             <Link
               href="/giftcodes"
-              className="inline-flex items-center gap-1 text-xs font-semibold text-amber-600 dark:text-amber-400 hover:underline"
+              className="inline-flex items-center gap-1 min-h-[44px] sm:min-h-0 text-xs font-semibold text-amber-600 dark:text-amber-400 hover:underline"
             >
               <span>{tActiveCodes("viewArchive")}</span>
               <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>
         </CardHeader>
-        <CardContent>
+        <CardContent className="p-4 sm:p-6 pt-0">
           {(initialActiveCodes ?? []).length > 0 ? (
             <div className="flex flex-wrap gap-2.5">
               {(initialActiveCodes ?? []).map((item) => (
@@ -416,19 +419,19 @@ export function UidControlDashboard({ account, initialActiveCodes }: UidControlD
                   key={item.code}
                   type="button"
                   onClick={() => handleCopyCode(item.code)}
-                  className="group inline-flex items-center gap-2 rounded-xl border border-border/80 dark:border-amber-500/20 bg-muted/40 hover:bg-amber-500/10 hover:border-amber-500/50 px-3.5 py-2 min-h-[40px] font-mono text-xs text-foreground transition-all duration-150"
+                  className="group inline-flex items-center gap-2 rounded-xl border border-border/80 dark:border-amber-500/20 bg-muted/40 hover:bg-amber-500/10 hover:border-amber-500/50 px-3.5 py-2 min-h-[44px] font-mono text-sm text-foreground transition-all duration-150"
                 >
                   <span className="font-bold tracking-wide">{item.code}</span>
                   {copiedCode === item.code ? (
-                    <Check className="h-3.5 w-3.5 text-emerald-500" />
+                    <Check className="h-4 w-4 text-emerald-500" />
                   ) : (
-                    <Copy className="h-3.5 w-3.5 text-muted-foreground group-hover:text-amber-500 transition-colors" />
+                    <Copy className="h-4 w-4 text-muted-foreground group-hover:text-amber-500 transition-colors" />
                   )}
                 </button>
               ))}
             </div>
           ) : (
-            <div className="rounded-2xl border border-dashed border-border/80 p-4 text-center text-xs text-muted-foreground bg-muted/20">
+            <div className="rounded-2xl border border-dashed border-border/80 p-4 text-center text-sm text-muted-foreground bg-muted/20">
               {tActiveCodes("empty")}
             </div>
           )}

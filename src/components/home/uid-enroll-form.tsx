@@ -5,14 +5,10 @@ import {
   Shield,
   Search,
   Loader2,
-  Sparkles,
-  CheckCircle2,
   AlertCircle,
   Rocket,
   UserPlus,
   Trash2,
-  User,
-  Server,
   Gift,
   Copy,
   Check,
@@ -22,7 +18,7 @@ import { useTranslations } from "next-intl";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { previewPlayerAction, enrollPlayerAction } from "@/actions/players";
 import { useUidSession, type SavedAccount } from "@/hooks/use-uid-session";
 import { sanitizeReturnUrl, navigateToReturnUrl } from "@/lib/return-url";
@@ -119,7 +115,6 @@ export function UidEnrollForm({
     if (!previewData) return;
 
     if (previewData.is_enrolled) {
-      // Đã có trong bot: Lưu vào máy và vào thẳng Dashboard (hoặc quay lại returnUrl)
       const account: SavedAccount = {
         uid: previewData.uid,
         nickname: previewData.nickname,
@@ -129,7 +124,6 @@ export function UidEnrollForm({
       await saveAccount(account);
       triggerReturnRedirectIfNeeded();
     } else {
-      // Chưa có bot: Gọi enroll để đăng ký và lấy token game
       try {
         setEnrolling(true);
         setErrorMsg(null);
@@ -157,25 +151,25 @@ export function UidEnrollForm({
   const activeCodesList = initialActiveCodes ?? [];
 
   return (
-    <div className="space-y-12 max-w-3xl mx-auto py-6">
+    <div className="space-y-12 max-w-3xl mx-auto py-4 sm:py-6">
       {/* Hero Title */}
       <div className="text-center space-y-4">
-        <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/40 bg-amber-500/10 px-4 py-1.5 text-xs sm:text-[13px] font-heading font-extrabold text-amber-600 dark:text-amber-400 shadow-sm shadow-amber-500/10">
+        <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/40 bg-amber-500/10 px-4 py-1.5 text-xs sm:text-sm font-heading font-extrabold text-amber-600 dark:text-amber-400 shadow-sm shadow-amber-500/10">
           <Shield className="h-4 w-4 fill-current text-amber-500" />
           <span>{t("hero.badge")}</span>
         </div>
 
-        <h1 className="text-3xl sm:text-5xl font-heading font-black tracking-tight text-foreground leading-[1.2]">
+        <h1 className="text-2xl sm:text-5xl font-heading font-black tracking-tight text-foreground leading-[1.2]">
           {t("hero.title")}
         </h1>
 
-        <p className="text-muted-foreground text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+        <p className="text-muted-foreground text-base max-w-xl mx-auto leading-relaxed">
           {t("hero.description")}
         </p>
       </div>
 
       {/* Main Console Input Form */}
-      <div className="card-rpg p-5 sm:p-7 rounded-3xl space-y-5">
+      <div className="card-rpg p-4 sm:p-7 rounded-2xl sm:rounded-3xl space-y-5">
         <form onSubmit={handleCheck} className="space-y-3">
           <label className="block text-xs font-bold uppercase tracking-wider text-muted-foreground font-heading">
             {t("form.uidLabel")}
@@ -218,31 +212,31 @@ export function UidEnrollForm({
 
         {/* Error Feedback */}
         {errorMsg && (
-          <div className="p-3.5 rounded-xl border border-destructive/30 bg-destructive/10 text-destructive flex items-center gap-2.5 text-xs sm:text-sm animate-in fade-in-50">
+          <div className="p-3.5 rounded-xl bg-destructive/10 sm:border sm:border-destructive/30 text-destructive flex items-center gap-2.5 text-sm animate-in fade-in-50">
             <AlertCircle className="h-4 w-4 shrink-0" />
             <span>{errorMsg}</span>
           </div>
         )}
 
-        {/* Preview Card (Appears after successful verification) */}
+        {/* Preview Card (Tonal Sub-Surface on Mobile — No nested border on <640px) */}
         {previewData && (
-          <div className="p-4 sm:p-5 rounded-2xl border border-amber-500/40 bg-amber-500/5 dark:bg-card/90 space-y-4 animate-in fade-in-50 duration-300">
+          <div className="surface-tonal sm:border-amber-500/40 bg-amber-500/10 dark:bg-slate-900/70 space-y-4 animate-in fade-in-50 duration-300">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div className="flex items-center gap-3.5">
-                <div className="h-12 w-12 rounded-2xl bg-gradient-to-tr from-amber-500 via-amber-400 to-yellow-300 text-slate-950 flex items-center justify-center font-bold text-xl font-heading shadow-md shadow-amber-500/20 border border-amber-300/30">
+                <div className="h-12 w-12 rounded-2xl bg-gradient-to-tr from-amber-500 via-amber-400 to-yellow-300 text-slate-950 flex items-center justify-center font-bold text-xl font-heading shadow-md shadow-amber-500/20 border border-amber-300/30 shrink-0">
                   {previewData.nickname ? previewData.nickname.charAt(0).toUpperCase() : "U"}
                 </div>
                 <div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex flex-wrap items-center gap-2">
                     <span className="font-heading font-black text-lg text-foreground">
                       {previewData.nickname}
                     </span>
                     {previewData.is_enrolled ? (
-                      <Badge className="bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30 text-[11px] font-bold">
+                      <Badge className="bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30 text-xs font-bold">
                         {t("form.enrolledBadge")}
                       </Badge>
                     ) : (
-                      <Badge variant="outline" className="text-amber-600 dark:text-amber-400 border-amber-500/30 bg-amber-500/10 text-[11px] font-bold">
+                      <Badge variant="outline" className="text-amber-600 dark:text-amber-400 border-amber-500/30 bg-amber-500/10 text-xs font-bold">
                         {t("form.notEnrolledBadge")}
                       </Badge>
                     )}
@@ -255,7 +249,7 @@ export function UidEnrollForm({
                 </div>
               </div>
 
-              {/* Action Button: [🚀 Vào xem & Quản lý] OR [➕ Thêm & Kích hoạt Bot] */}
+              {/* Action Button */}
               <Button
                 onClick={handleProceed}
                 disabled={enrolling}
@@ -292,7 +286,7 @@ export function UidEnrollForm({
         <div className="space-y-3">
           <div className="flex items-center justify-between text-xs text-muted-foreground font-bold uppercase tracking-wider px-1 font-heading">
             <span>{t("savedAccounts.title")} ({savedAccounts.length})</span>
-            <span className="text-[11px] font-normal normal-case text-muted-foreground/80">{t("savedAccounts.subtext")}</span>
+            <span className="text-xs font-normal normal-case text-muted-foreground/80">{t("savedAccounts.subtext")}</span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -303,14 +297,14 @@ export function UidEnrollForm({
               >
                 <div
                   onClick={() => handleSelectSavedAccount(account)}
-                  className="flex items-center gap-3 cursor-pointer overflow-hidden flex-1"
+                  className="flex items-center gap-3 cursor-pointer overflow-hidden flex-1 min-h-[44px]"
                 >
-                  <div className="h-9 w-9 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-500 flex items-center justify-center font-bold text-sm shrink-0">
+                  <div className="h-10 w-10 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-500 flex items-center justify-center font-bold text-sm shrink-0">
                     {account.nickname ? account.nickname.charAt(0).toUpperCase() : "U"}
                   </div>
                   <div className="overflow-hidden">
                     <p className="text-sm font-bold text-foreground truncate">{account.nickname}</p>
-                    <p className="text-[11px] text-muted-foreground font-mono truncate">
+                    <p className="text-xs text-muted-foreground font-mono truncate">
                       {formatServerCode(account.server_id)} • UID: {account.uid}
                     </p>
                   </div>
@@ -320,7 +314,7 @@ export function UidEnrollForm({
                   <Button
                     size="sm"
                     onClick={() => handleSelectSavedAccount(account)}
-                    className="h-8 px-3 rounded-lg text-xs font-bold bg-amber-500/20 hover:bg-amber-500 text-amber-600 dark:text-amber-400 hover:text-slate-950 transition-colors"
+                    className="h-11 min-h-[44px] px-3.5 rounded-xl text-xs font-bold bg-amber-500/20 hover:bg-amber-500 text-amber-600 dark:text-amber-400 hover:text-slate-950 transition-colors"
                   >
                     {t("savedAccounts.manageBtn")}
                   </Button>
@@ -329,9 +323,9 @@ export function UidEnrollForm({
                     size="icon"
                     onClick={() => removeSavedAccount(account.uid)}
                     title={t("savedAccounts.removeTitle")}
-                    className="h-8 w-8 text-muted-foreground hover:text-destructive hover:bg-destructive/10 rounded-lg"
+                    className="h-11 w-11 min-h-[44px] min-w-[44px] text-muted-foreground hover:text-destructive hover:bg-destructive/10 rounded-xl"
                   >
-                    <Trash2 className="h-3.5 w-3.5" />
+                    <Trash2 className="h-4 w-4" />
                   </Button>
                 </div>
               </Card>
@@ -362,19 +356,19 @@ export function UidEnrollForm({
               <button
                 key={item.code}
                 onClick={() => handleCopyCode(item.code)}
-                className="group inline-flex items-center gap-2 rounded-xl border border-border/80 dark:border-amber-500/20 bg-muted/40 hover:bg-amber-500/10 hover:border-amber-500/50 px-3.5 py-1.5 font-mono text-xs text-foreground transition-all duration-150"
+                className="group inline-flex items-center gap-2 rounded-xl border border-border/80 dark:border-amber-500/20 bg-muted/40 hover:bg-amber-500/10 hover:border-amber-500/50 px-3.5 py-2 min-h-[44px] font-mono text-sm text-foreground transition-all duration-150"
               >
                 <span className="font-bold tracking-wide">{item.code}</span>
                 {copiedCode === item.code ? (
-                  <Check className="h-3.5 w-3.5 text-emerald-500" />
+                  <Check className="h-4 w-4 text-emerald-500" />
                 ) : (
-                  <Copy className="h-3.5 w-3.5 text-muted-foreground group-hover:text-amber-500 transition-colors" />
+                  <Copy className="h-4 w-4 text-muted-foreground group-hover:text-amber-500 transition-colors" />
                 )}
               </button>
             ))}
           </div>
         ) : (
-          <div className="rounded-2xl border border-dashed border-border/80 p-4 text-center text-xs text-muted-foreground bg-muted/20">
+          <div className="rounded-2xl border border-dashed border-border/80 p-4 text-center text-sm text-muted-foreground bg-muted/20">
             {t("activeCodes.empty")}
           </div>
         )}
@@ -386,15 +380,15 @@ export function UidEnrollForm({
           {t("stats.title")}
         </h2>
         <div className="grid grid-cols-2 gap-4">
-          <div className="card-rpg p-5 rounded-2xl space-y-1">
+          <div className="card-rpg p-4 sm:p-5 rounded-2xl space-y-1">
             <p className="text-xs text-muted-foreground">{t("stats.codesClaimed")}</p>
-            <p className="font-heading text-2xl sm:text-4xl font-black text-amber-500 dark:text-amber-400 tracking-tight">11,480+</p>
-            <p className="text-[11px] text-muted-foreground">{t("stats.codesClaimedSub")}</p>
+            <p className="font-heading text-3xl sm:text-4xl font-black text-amber-500 dark:text-amber-400 tracking-tight">11,480+</p>
+            <p className="text-xs text-muted-foreground">{t("stats.codesClaimedSub")}</p>
           </div>
-          <div className="card-rpg p-5 rounded-2xl space-y-1">
+          <div className="card-rpg p-4 sm:p-5 rounded-2xl space-y-1">
             <p className="text-xs text-muted-foreground">{t("stats.activeAccounts")}</p>
-            <p className="font-heading text-2xl sm:text-4xl font-black text-amber-500 dark:text-amber-400 tracking-tight">850+</p>
-            <p className="text-[11px] text-muted-foreground">{t("stats.activeAccountsSub")}</p>
+            <p className="font-heading text-3xl sm:text-4xl font-black text-amber-500 dark:text-amber-400 tracking-tight">850+</p>
+            <p className="text-xs text-muted-foreground">{t("stats.activeAccountsSub")}</p>
           </div>
         </div>
       </section>
@@ -406,31 +400,31 @@ export function UidEnrollForm({
         </h2>
         <div className="space-y-2.5">
           <details className="group rounded-2xl border border-border/80 dark:border-amber-500/15 bg-card/50 hover:border-amber-500/30 p-4 transition-all [&_summary::-webkit-details-marker]:hidden">
-            <summary className="flex cursor-pointer items-center justify-between text-sm font-bold text-foreground">
+            <summary className="flex cursor-pointer items-center justify-between min-h-[44px] text-base font-bold text-foreground">
               <span>{t("faq.q1")}</span>
-              <ChevronDown className="h-4 w-4 text-muted-foreground transition-transform group-open:rotate-180" />
+              <ChevronDown className="h-4 w-4 text-muted-foreground transition-transform group-open:rotate-180 shrink-0 ml-2" />
             </summary>
-            <p className="mt-3 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+            <p className="mt-3 text-base text-muted-foreground leading-relaxed">
               {t("faq.a1")}
             </p>
           </details>
 
           <details className="group rounded-2xl border border-border/80 dark:border-amber-500/15 bg-card/50 hover:border-amber-500/30 p-4 transition-all [&_summary::-webkit-details-marker]:hidden">
-            <summary className="flex cursor-pointer items-center justify-between text-sm font-bold text-foreground">
+            <summary className="flex cursor-pointer items-center justify-between min-h-[44px] text-base font-bold text-foreground">
               <span>{t("faq.q2")}</span>
-              <ChevronDown className="h-4 w-4 text-muted-foreground transition-transform group-open:rotate-180" />
+              <ChevronDown className="h-4 w-4 text-muted-foreground transition-transform group-open:rotate-180 shrink-0 ml-2" />
             </summary>
-            <p className="mt-3 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+            <p className="mt-3 text-base text-muted-foreground leading-relaxed">
               {t("faq.a2")}
             </p>
           </details>
 
           <details className="group rounded-2xl border border-border/80 dark:border-amber-500/15 bg-card/50 hover:border-amber-500/30 p-4 transition-all [&_summary::-webkit-details-marker]:hidden">
-            <summary className="flex cursor-pointer items-center justify-between text-sm font-bold text-foreground">
+            <summary className="flex cursor-pointer items-center justify-between min-h-[44px] text-base font-bold text-foreground">
               <span>{t("faq.q3")}</span>
-              <ChevronDown className="h-4 w-4 text-muted-foreground transition-transform group-open:rotate-180" />
+              <ChevronDown className="h-4 w-4 text-muted-foreground transition-transform group-open:rotate-180 shrink-0 ml-2" />
             </summary>
-            <p className="mt-3 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+            <p className="mt-3 text-base text-muted-foreground leading-relaxed">
               {t("faq.a3")}
             </p>
           </details>

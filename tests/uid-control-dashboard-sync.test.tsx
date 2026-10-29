@@ -1,6 +1,8 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import React from "react";
+import fs from "node:fs";
+import path from "node:path";
 import { UidControlDashboard } from "../src/components/home/uid-control-dashboard";
 
 const saveAccountMock = vi.fn().mockResolvedValue(undefined);
@@ -33,7 +35,9 @@ vi.mock("next-intl", () => ({
   }),
 }));
 
-describe("UidControlDashboard — Nickname Auto-Sync to LocalStorage", () => {
+const FORBIDDEN_MICRO_TEXT_REGEX = /text-\[(?:8|9|10|11)px\]/;
+
+describe("UidControlDashboard — Nickname Auto-Sync & MD3 Containment", () => {
   beforeEach(() => {
     vi.clearAllMocks();
   });
@@ -78,5 +82,58 @@ describe("UidControlDashboard — Nickname Auto-Sync to LocalStorage", () => {
     });
 
     expect(screen.getByText("Max")).toBeDefined();
+  });
+
+  it("Phase 1.2: enforces Single-Layer Containment on mobile (divide-y without nested borders) and >=44px touch targets", async () => {
+    const dashboardPath = path.resolve(
+      __dirname,
+      "../src/components/home/uid-control-dashboard.tsx"
+    );
+    const dashboardSource = fs.readFileSync(dashboardPath, "utf-8");
+    expect(FORBIDDEN_MICRO_TEXT_REGEX.test(dashboardSource)).toBe(false);
+
+    getPlayerStatusActionMock.mockResolvedValue({
+      success: true,
+      data: {
+        uid: "2446869146316",
+        nickname: "Max",
+        server_id: "S10956",
+        active_plan: "FREE",
+        ends_at: null,
+        auto_redeem: true,
+        auto_checkin: true,
+        token_status: "READY",
+        recent_redemptions: [],
+      },
+    });
+
+    render(
+      <UidControlDashboard
+        account={{
+          uid: "2446869146316",
+          nickname: "Max",
+          server_id: "S10956",
+          added_at: 1700000000000,
+          active_plan: "FREE",
+        }}
+        initialActiveCodes={[{ code: "GIFT2026", status: "VALID" }]}
+      />
+    );
+
+    await waitFor(() => {
+      expect(screen.getByText("Max")).toBeDefined();
+    });
+
+    const switchesGroup = screen.getByTestId("bot-automation-switches");
+    expect(switchesGroup.className).toContain("divide-y");
+
+    const logoutBtn = screen.getByRole("button", { name: /logoutBtn/i });
+    expect(logoutBtn.className).toContain("min-h-[44px]");
+
+    const refreshBtn = screen.getByRole("button", { name: /refreshBtn/i });
+    expect(refreshBtn.className).toContain("min-h-[44px]");
+
+    const copyBtn = screen.getByRole("button", { name: "GIFT2026" });
+    expect(copyBtn.className).toContain("min-h-[44px]");
   });
 });

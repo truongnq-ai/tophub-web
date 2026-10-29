@@ -1,6 +1,8 @@
 import { render, screen, fireEvent, act } from "@testing-library/react";
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import React from "react";
+import fs from "node:fs";
+import path from "node:path";
 import { UidEnrollForm } from "../src/components/home/uid-enroll-form";
 
 vi.mock("@/hooks/use-uid-session", () => ({
@@ -15,16 +17,20 @@ vi.mock("@/hooks/use-uid-session", () => ({
 vi.mock("next-intl", () => ({
   useTranslations: () => (key: string) => {
     const translations: Record<string, string> = {
+      "hero.description": "Đăng ký mã số người chơi một lần duy nhất.",
       "activeCodes.title": "Mã Giftcode Đang Hoạt Động",
       "activeCodes.scanning": "Đang quét",
       "activeCodes.empty": "Hệ thống đang quét tìm giftcode mới 24/7. Chưa có mã hoạt động.",
       "form.validationError": "UID không hợp lệ",
+      "faq.a1": "Hoàn toàn an toàn, chỉ dùng API chính thức.",
     };
     return translations[key] || key;
   },
 }));
 
-describe("UidEnrollForm Component - Active Giftcodes", () => {
+const FORBIDDEN_MICRO_TEXT_REGEX = /text-\[(?:8|9|10|11)px\]/;
+
+describe("UidEnrollForm Component - Active Giftcodes & MD3 Standards", () => {
   beforeEach(() => {
     vi.restoreAllMocks();
   });
@@ -98,5 +104,27 @@ describe("UidEnrollForm Component - Active Giftcodes", () => {
     expect(screen.queryByText("HEROES2026")).toBeNull();
     expect(screen.queryByText("THVIP888")).toBeNull();
     expect(screen.queryByText("TOPHEROESGO")).toBeNull();
+  });
+
+  it("Phase 1.2: enforces 16px (text-base) reading prose, >=44px touch targets, and zero sub-12px classes in UidEnrollForm & Index.tsx", () => {
+    const enrollPath = path.resolve(__dirname, "../src/components/home/uid-enroll-form.tsx");
+    const indexPath = path.resolve(__dirname, "../src/app/[locale]/Index.tsx");
+    const enrollSource = fs.readFileSync(enrollPath, "utf-8");
+    const indexSource = fs.readFileSync(indexPath, "utf-8");
+
+    expect(FORBIDDEN_MICRO_TEXT_REGEX.test(enrollSource)).toBe(false);
+    expect(FORBIDDEN_MICRO_TEXT_REGEX.test(indexSource)).toBe(false);
+    expect(indexSource).toContain("px-3 sm:px-6");
+
+    render(<UidEnrollForm initialActiveCodes={[{ code: "DrAg0n", status: "VALID" }]} />);
+
+    const heroDesc = screen.getByText("Đăng ký mã số người chơi một lần duy nhất.");
+    expect(heroDesc.className).toContain("text-base");
+
+    const faqAnswer = screen.getByText("Hoàn toàn an toàn, chỉ dùng API chính thức.");
+    expect(faqAnswer.className).toContain("text-base");
+
+    const codeBtn = screen.getByRole("button", { name: "DrAg0n" });
+    expect(codeBtn.className).toContain("min-h-[44px]");
   });
 });
