@@ -27,7 +27,7 @@ interface StatusCardProps {
   locale: string;
 }
 
-export function StatusCard({ data, locale }: StatusCardProps) {
+export function StatusCard({ data }: StatusCardProps) {
   const t = useTranslations("Check.card");
   const format = useFormatter();
   const isPro = data.active_plan === "PRO";
@@ -44,7 +44,7 @@ export function StatusCard({ data, locale }: StatusCardProps) {
   return (
     <div className="space-y-6 max-w-4xl mx-auto animate-in fade-in-50 duration-500">
       {/* Account & Plan Overview Card */}
-      <Card className="relative overflow-hidden card-rpg rounded-3xl">
+      <Card className="relative overflow-hidden card-rpg rounded-2xl sm:rounded-3xl">
         <div className="absolute top-0 right-0 p-4">
           {isPro ? (
             <Badge className="bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-300 text-slate-950 font-black px-3.5 py-1 text-xs uppercase tracking-wider flex items-center gap-1.5 shadow-md shadow-amber-500/25 border border-amber-300/40">
@@ -58,13 +58,13 @@ export function StatusCard({ data, locale }: StatusCardProps) {
           )}
         </div>
 
-        <CardHeader className="pb-4">
+        <CardHeader className="p-4 sm:p-6 pb-4">
           <div className="flex items-center gap-4">
-            <div className="h-14 w-14 rounded-2xl bg-gradient-to-tr from-amber-500 via-amber-400 to-yellow-300 text-slate-950 flex items-center justify-center shadow-lg shadow-amber-500/20 font-bold text-2xl font-heading border border-amber-300/30">
+            <div className="h-14 w-14 rounded-2xl bg-gradient-to-tr from-amber-500 via-amber-400 to-yellow-300 text-slate-950 flex items-center justify-center shadow-lg shadow-amber-500/20 font-bold text-2xl font-heading border border-amber-300/30 shrink-0">
               {data.nickname ? data.nickname.charAt(0).toUpperCase() : "U"}
             </div>
             <div>
-              <CardTitle className="text-2xl font-black text-foreground flex items-center gap-2 font-heading">
+              <CardTitle className="text-xl sm:text-2xl font-black text-foreground flex items-center gap-2 font-heading">
                 {data.nickname}
               </CardTitle>
               <div className="flex flex-wrap items-center gap-3 mt-1.5 text-xs text-muted-foreground font-mono">
@@ -82,10 +82,10 @@ export function StatusCard({ data, locale }: StatusCardProps) {
           </div>
         </CardHeader>
 
-        <CardContent className="space-y-4 pt-2">
+        <CardContent className="p-4 sm:p-6 space-y-4 pt-2">
           {/* Expiry Banner */}
           {isPro && formattedEndsAt && (
-            <div className="flex items-center justify-between p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/25 text-xs sm:text-sm">
+            <div className="flex items-center justify-between p-3.5 rounded-xl bg-amber-500/10 border-0 sm:border sm:border-amber-500/25 text-sm">
               <div className="flex items-center gap-2 text-amber-600 dark:text-amber-400 font-medium">
                 <Clock className="h-4 w-4" />
                 <span>{t("expiresAt")}</span>
@@ -94,10 +94,10 @@ export function StatusCard({ data, locale }: StatusCardProps) {
             </div>
           )}
 
-          {/* Automation Bot Features Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+          {/* Automation Bot Features Grid (Single-Layer Containment on Mobile via divide-y) */}
+          <div className="divide-y divide-border/60 sm:divide-y-0 grid grid-cols-1 sm:grid-cols-3 sm:gap-3 pt-1">
             {/* Auto Redeem */}
-            <div className="p-4 rounded-2xl border border-border/80 dark:border-amber-500/15 bg-background/60 space-y-1.5">
+            <div className="py-3 sm:p-4 sm:rounded-2xl sm:border sm:border-border/70 sm:bg-muted/30 space-y-1.5">
               <div className="flex items-center justify-between">
                 <span className="text-xs text-muted-foreground font-medium font-heading">{t("autoRedeem")}</span>
                 {data.auto_redeem ? (
@@ -122,7 +122,7 @@ export function StatusCard({ data, locale }: StatusCardProps) {
             </div>
 
             {/* Auto Checkin */}
-            <div className="p-4 rounded-2xl border border-border/80 dark:border-amber-500/15 bg-background/60 space-y-1.5">
+            <div className="py-3 sm:p-4 sm:rounded-2xl sm:border sm:border-border/70 sm:bg-muted/30 space-y-1.5">
               <div className="flex items-center justify-between">
                 <span className="text-xs text-muted-foreground font-medium font-heading">{t("autoCheckin")}</span>
                 {data.auto_checkin ? (
@@ -141,7 +141,7 @@ export function StatusCard({ data, locale }: StatusCardProps) {
             </div>
 
             {/* Token Status */}
-            <div className="p-4 rounded-2xl border border-border/80 dark:border-amber-500/15 bg-background/60 space-y-1.5">
+            <div className="py-3 sm:p-4 sm:rounded-2xl sm:border sm:border-border/70 sm:bg-muted/30 space-y-1.5">
               <div className="flex items-center justify-between">
                 <span className="text-xs text-muted-foreground font-medium font-heading">{t("botConnection")}</span>
                 {data.token_status === "VALID" ? (
@@ -163,16 +163,16 @@ export function StatusCard({ data, locale }: StatusCardProps) {
       </Card>
 
       {/* Recent Redemptions */}
-      <Card className="card-rpg rounded-3xl">
-        <CardHeader className="pb-3">
-          <CardTitle className="text-lg font-bold text-foreground flex items-center gap-2 font-heading">
+      <Card className="card-rpg rounded-2xl sm:rounded-3xl">
+        <CardHeader className="p-4 sm:p-6 pb-3">
+          <CardTitle className="text-base sm:text-lg font-bold text-foreground flex items-center gap-2 font-heading">
             <Gift className="h-5 w-5 text-amber-500" />
             {t("recentRedemptions")}
           </CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className="p-4 sm:p-6 pt-0">
           {data.recent_redemptions && data.recent_redemptions.length > 0 ? (
-            <div className="divide-y divide-border/60 text-xs sm:text-sm">
+            <div className="divide-y divide-border/60 text-sm">
               {data.recent_redemptions.map((redemption, idx) => (
                 <div key={idx} className="flex items-center justify-between py-3">
                   <div className="flex items-center gap-3">
@@ -190,22 +190,22 @@ export function StatusCard({ data, locale }: StatusCardProps) {
                   </div>
                   <div>
                     {redemption.status === "SUCCESS" ? (
-                      <span className="inline-flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-bold text-xs bg-emerald-500/10 px-2 py-0.5 rounded-md border border-emerald-500/20">
+                      <span className="inline-flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-bold text-xs bg-emerald-500/10 px-2.5 py-0.5 rounded-md border border-emerald-500/20">
                         <CheckCircle2 className="h-3.5 w-3.5" />
                         {t("statusSuccess")}
                       </span>
                     ) : redemption.status === "ALREADY_REDEEMED" ? (
-                      <span className="inline-flex items-center gap-1 text-amber-600 dark:text-amber-400 font-bold text-xs bg-amber-500/10 px-2 py-0.5 rounded-md border border-amber-500/20">
+                      <span className="inline-flex items-center gap-1 text-amber-600 dark:text-amber-400 font-bold text-xs bg-amber-500/10 px-2.5 py-0.5 rounded-md border border-amber-500/20">
                         <CheckCircle2 className="h-3.5 w-3.5" />
                         {t("statusAlreadyRedeemed")}
                       </span>
                     ) : redemption.status === "EXPIRED" ? (
-                      <span className="inline-flex items-center gap-1 text-muted-foreground font-medium text-xs bg-muted/60 px-2 py-0.5 rounded-md border border-border/40">
+                      <span className="inline-flex items-center gap-1 text-muted-foreground font-medium text-xs bg-muted/60 px-2.5 py-0.5 rounded-md border border-border/40">
                         <Clock className="h-3.5 w-3.5" />
                         {t("statusExpired")}
                       </span>
                     ) : (
-                      <span className="inline-flex items-center gap-1 text-rose-600 dark:text-rose-400 font-bold text-xs bg-rose-500/10 px-2 py-0.5 rounded-md border border-rose-500/20">
+                      <span className="inline-flex items-center gap-1 text-rose-600 dark:text-rose-400 font-bold text-xs bg-rose-500/10 px-2.5 py-0.5 rounded-md border border-rose-500/20">
                         <XCircle className="h-3.5 w-3.5" />
                         {t("statusFailed")}
                       </span>
@@ -215,7 +215,7 @@ export function StatusCard({ data, locale }: StatusCardProps) {
               ))}
             </div>
           ) : (
-            <div className="py-8 text-center text-muted-foreground text-xs sm:text-sm">
+            <div className="py-8 text-center text-muted-foreground text-sm">
               {t("noRedemptions")}
             </div>
           )}
@@ -224,19 +224,19 @@ export function StatusCard({ data, locale }: StatusCardProps) {
 
       {/* Upgrade CTA if FREE */}
       {!isPro && (
-        <div className="p-6 rounded-3xl border border-amber-500/40 bg-gradient-to-r from-amber-500/15 via-amber-600/10 to-amber-500/15 backdrop-blur-xl flex flex-col sm:flex-row items-center justify-between gap-4 shadow-[0_8px_30px_rgba(245,158,11,0.15)]">
+        <div className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl border border-amber-500/40 bg-gradient-to-r from-amber-500/15 via-amber-600/10 to-amber-500/15 backdrop-blur-xl flex flex-col sm:flex-row items-center justify-between gap-4 shadow-[0_8px_30px_rgba(245,158,11,0.15)]">
           <div className="space-y-1 text-center sm:text-left">
             <h4 className="text-base font-bold text-foreground flex items-center justify-center sm:justify-start gap-2 font-heading">
               <Shield className="h-4 w-4 text-amber-500 fill-current" />
               {t("ctaTitle")}
             </h4>
-            <p className="text-xs text-muted-foreground">
+            <p className="text-sm text-muted-foreground">
               {t("ctaDesc")}
             </p>
           </div>
           <Button
             asChild
-            className="w-full sm:w-auto font-bold gap-2 btn-tactile-gold px-6 py-2.5 rounded-xl shrink-0 min-h-[44px]"
+            className="w-full sm:w-auto font-bold gap-2 btn-tactile-gold px-6 py-2.5 h-11 rounded-xl shrink-0 min-h-[44px]"
           >
             <Link href="/pricing">
               <span>{t("ctaBtn")}</span>

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { UserCheck, Shield, Trash2, Sparkles, Calendar, Server } from "lucide-react";
+import { UserCheck, Trash2, Sparkles, Calendar, Server } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
@@ -48,7 +48,7 @@ export function AccountCard({ account, onToggle, onUnlink, labels }: AccountCard
 
   return (
     <Card className="border border-white/10 bg-slate-900/50 backdrop-blur-md overflow-hidden hover:border-purple-500/40 rounded-2xl transition-all shadow-md">
-      <CardContent className="p-5 space-y-4">
+      <CardContent className="p-4 sm:p-5 space-y-4">
         {/* Account Info Header */}
         <div className="flex items-start justify-between gap-3">
           <div className="flex items-center gap-3">
@@ -66,7 +66,7 @@ export function AccountCard({ account, onToggle, onUnlink, labels }: AccountCard
                 </span>
               </div>
               <div className="flex items-center gap-2 mt-1 text-xs text-muted-foreground">
-                <span className="flex items-center gap-1 font-semibold text-slate-300">
+                <span className="flex items-center gap-1 font-mono font-semibold text-slate-300">
                   <Server className="h-3 w-3 text-purple-400" />
                   {formatServerCode(account.server_id)}
                 </span>
@@ -114,10 +114,10 @@ export function AccountCard({ account, onToggle, onUnlink, labels }: AccountCard
           {/* Auto Redeem Giftcodes */}
           <div className="flex items-center justify-between py-1">
             <div className="flex items-center gap-2.5">
-              <div className="h-6 w-6 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center shrink-0">
+              <div className="h-7 w-7 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center shrink-0">
                 <Sparkles className="h-3.5 w-3.5" />
               </div>
-              <div className="text-xs sm:text-sm font-semibold text-foreground">
+              <div className="text-sm font-semibold text-foreground">
                 {labels.autoRedeem}
               </div>
             </div>
@@ -131,10 +131,10 @@ export function AccountCard({ account, onToggle, onUnlink, labels }: AccountCard
           {/* Auto Daily Check-in */}
           <div className="flex items-center justify-between py-1">
             <div className="flex items-center gap-2.5">
-              <div className="h-6 w-6 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
+              <div className="h-7 w-7 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
                 <Calendar className="h-3.5 w-3.5" />
               </div>
-              <div className="text-xs sm:text-sm font-semibold text-foreground">
+              <div className="text-sm font-semibold text-foreground">
                 {labels.autoCheckin}
               </div>
             </div>

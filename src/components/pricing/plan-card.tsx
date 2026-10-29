@@ -86,12 +86,12 @@ export function PlanCard({
 
   return (
     <>
-      <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 max-w-5xl mx-auto items-stretch">
+      <div className="grid grid-cols-1 gap-6 sm:gap-8 lg:grid-cols-2 max-w-5xl mx-auto items-stretch">
         {/* FREE PLAN */}
         <Card className="flex flex-col border border-white/10 bg-slate-900/40 backdrop-blur-md relative overflow-hidden rounded-2xl hover:border-white/20 transition-all">
-          <CardHeader className="space-y-2 pb-6">
+          <CardHeader className="p-4 sm:p-6 space-y-2 pb-5">
             <CardTitle className="text-2xl font-bold tracking-tight text-foreground">{labels.freeTitle}</CardTitle>
-            <CardDescription className="text-xs sm:text-sm text-muted-foreground">
+            <CardDescription className="text-sm text-muted-foreground">
               {labels.freeDesc}
             </CardDescription>
             <div className="pt-2">
@@ -102,11 +102,11 @@ export function PlanCard({
             </div>
           </CardHeader>
 
-          <CardContent className="flex-1 space-y-4">
+          <CardContent className="p-4 sm:p-6 pt-0 flex-1 space-y-4">
             <div className="text-xs font-bold text-muted-foreground uppercase tracking-wider">
               Tính năng bao gồm:
             </div>
-            <ul className="space-y-3.5 text-xs sm:text-sm">
+            <ul className="space-y-3.5 text-sm">
               <li className="flex items-start gap-2.5">
                 <div className="h-5 w-5 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
                   <Check className="h-3.5 w-3.5" />
@@ -128,10 +128,10 @@ export function PlanCard({
             </ul>
           </CardContent>
 
-          <CardFooter className="pt-6 border-t border-white/5">
+          <CardFooter className="p-4 sm:p-6 pt-5 border-t border-white/5">
             <Button
               variant="outline"
-              className="w-full font-bold min-h-[44px] rounded-xl border-white/10 hover:bg-white/5 active:scale-[0.98] transition-all"
+              className="w-full h-11 font-bold min-h-[44px] rounded-xl border-white/10 hover:bg-white/5 active:scale-[0.98] transition-all"
               onClick={() => {
                 window.location.href = isLoggedIn ? `/${locale}/dashboard` : `/${locale}/login`;
               }}
@@ -143,21 +143,21 @@ export function PlanCard({
 
         {/* PRO PLAN */}
         <Card className="flex flex-col border-2 border-purple-500/80 bg-gradient-to-b from-purple-950/20 via-slate-900/90 to-slate-950/90 backdrop-blur-xl relative overflow-hidden rounded-2xl shadow-[0_0_40px_rgba(124,58,237,0.22)] ring-1 ring-purple-400/30">
-          <div className="absolute top-0 right-0 bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 text-[11px] font-black px-3.5 py-1 rounded-bl-xl flex items-center gap-1.5 uppercase tracking-wider shadow-md">
+          <div className="absolute top-0 right-0 bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 text-xs font-black px-3.5 py-1 rounded-bl-xl flex items-center gap-1.5 uppercase tracking-wider shadow-md">
             <Sparkles className="h-3.5 w-3.5 fill-current" />
             <span>KHUYÊN DÙNG</span>
           </div>
 
-          <CardHeader className="space-y-2 pb-6">
+          <CardHeader className="p-4 sm:p-6 space-y-2 pb-5">
             <div className="flex items-center gap-2">
               <CardTitle className="text-2xl font-black tracking-tight text-foreground">
                 {labels.proTitle}
               </CardTitle>
-              <Badge variant="outline" className="border-purple-400/40 text-purple-300 bg-purple-500/10 text-[10px] font-extrabold px-2 py-0.5 uppercase tracking-wider">
+              <Badge variant="outline" className="border-purple-400/40 text-purple-300 bg-purple-500/10 text-xs font-extrabold px-2.5 py-0.5 uppercase tracking-wider">
                 {selectedCycle} Tháng
               </Badge>
             </div>
-            <CardDescription className="text-xs sm:text-sm text-slate-400">
+            <CardDescription className="text-sm text-slate-400">
               {labels.proDesc}
             </CardDescription>
 
@@ -171,12 +171,12 @@ export function PlanCard({
             </div>
           </CardHeader>
 
-          <CardContent className="flex-1 space-y-4">
+          <CardContent className="p-4 sm:p-6 pt-0 flex-1 space-y-4">
             <div className="text-xs font-bold text-purple-400 uppercase tracking-wider flex items-center gap-1.5">
               <Zap className="h-3.5 w-3.5 fill-current text-purple-400" />
               <span>Đặc quyền Pro:</span>
             </div>
-            <ul className="space-y-3.5 text-xs sm:text-sm">
+            <ul className="space-y-3.5 text-sm">
               <li className="flex items-start gap-2.5">
                 <div className="h-5 w-5 rounded-full bg-purple-500/20 text-purple-300 ring-1 ring-purple-400/40 flex items-center justify-center shrink-0 mt-0.5">
                   <Check className="h-3.5 w-3.5" />
@@ -204,9 +204,9 @@ export function PlanCard({
             </ul>
           </CardContent>
 
-          <CardFooter className="pt-6 border-t border-purple-500/20">
+          <CardFooter className="p-4 sm:p-6 pt-5 border-t border-purple-500/20">
             <Button
-              className="w-full font-black gap-2 text-sm sm:text-base py-6 rounded-xl bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-600 hover:from-purple-500 hover:to-indigo-500 text-white shadow-[0_0_25px_rgba(124,58,237,0.35)] transition-all hover:scale-[1.01] active:scale-[0.98]"
+              className="w-full min-h-[48px] font-black gap-2 text-base py-6 rounded-xl bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-600 hover:from-purple-500 hover:to-indigo-500 text-white shadow-[0_0_25px_rgba(124,58,237,0.35)] transition-all hover:scale-[1.01] active:scale-[0.98]"
               onClick={handleBuy}
             >
               <span>{labels.upgradeBtn}</span>

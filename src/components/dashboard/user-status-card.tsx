@@ -2,7 +2,7 @@
 "use client";
 
 import React from "react";
-import { User, ShieldCheck, Sparkles, Clock, Crown, Zap } from "lucide-react";
+import { User, Sparkles, Clock, Crown, Zap } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import type { UserProfileResponse } from "@/types/api";
@@ -28,7 +28,7 @@ export function UserStatusCard({ profile, discordUser, labels }: UserStatusCardP
 
   // Calculate remaining days (guaranteed clamped to 0)
   let daysRemaining = 0;
-  let totalPeriodDays = isTrial ? 7 : 30;
+  const totalPeriodDays = isTrial ? 7 : 30;
   if (profile.subscription?.ends_at) {
     const end = new Date(profile.subscription.ends_at).getTime();
     const now = Date.now();
@@ -45,7 +45,7 @@ export function UserStatusCard({ profile, discordUser, labels }: UserStatusCardP
     <div className="space-y-4">
       {/* 7-Day Trial Promotional Alert */}
       {isTrial && (
-        <div className="flex items-center gap-3 rounded-2xl border border-purple-500/30 bg-purple-950/20 backdrop-blur-md p-4 text-xs sm:text-sm text-foreground shadow-[0_0_25px_rgba(124,58,237,0.15)]">
+        <div className="flex items-center gap-3 rounded-2xl border border-purple-500/30 bg-purple-950/20 backdrop-blur-md p-4 text-sm text-foreground shadow-[0_0_25px_rgba(124,58,237,0.15)]">
           <div className="h-8 w-8 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center shrink-0">
             <Sparkles className="h-4 w-4" />
           </div>
@@ -56,7 +56,7 @@ export function UserStatusCard({ profile, discordUser, labels }: UserStatusCardP
       {/* Main Profile & Plan Status Card */}
       <Card className="border border-white/10 bg-slate-900/60 backdrop-blur-xl relative overflow-hidden rounded-2xl shadow-xl">
         <div className="absolute top-0 right-0 w-80 h-80 bg-purple-600/10 rounded-full blur-3xl pointer-events-none" />
-        <CardContent className="p-6 relative z-10">
+        <CardContent className="p-4 sm:p-6 relative z-10">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
             {/* User Info */}
             <div className="flex items-center gap-4">
@@ -89,7 +89,7 @@ export function UserStatusCard({ profile, discordUser, labels }: UserStatusCardP
                 <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
                   <div className="flex items-center gap-1.5 font-mono">
                     <span>Discord ID:</span>
-                    <span className="select-all font-bold text-foreground/90 bg-white/5 px-2 py-0.5 rounded border border-white/5">
+                    <span className="select-all font-bold text-foreground/90 bg-white/5 px-2 py-0.5 rounded">
                       {profile.discord_id}
                     </span>
                   </div>
@@ -104,8 +104,8 @@ export function UserStatusCard({ profile, discordUser, labels }: UserStatusCardP
               </div>
             </div>
 
-            {/* Plan Status Widget */}
-            <div className="flex flex-col sm:items-end justify-center rounded-2xl bg-slate-950/60 p-4 border border-white/5 space-y-3 min-w-[240px]">
+            {/* Plan Status Widget (Tonal sub-surface on mobile, bordered on sm+) */}
+            <div className="flex flex-col sm:items-end justify-center rounded-2xl bg-slate-950/60 p-4 border-0 sm:border sm:border-white/5 space-y-3 min-w-[240px]">
               <div className="flex items-center justify-between w-full sm:justify-end gap-2">
                 <span className="text-xs text-muted-foreground font-medium sm:hidden">
                   {labels.planStatus}

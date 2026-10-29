@@ -9,14 +9,15 @@ interface PricingSectionProps {
   plans: PlanItem[];
   isLoggedIn: boolean;
   locale: string;
-  labels: any;
+  labels: React.ComponentProps<typeof PlanCard>["labels"] &
+    React.ComponentProps<typeof BillingSelector>["labels"];
 }
 
 export function PricingSection({ plans, isLoggedIn, locale, labels }: PricingSectionProps) {
-  const [selectedCycle, setSelectedCycle] = useState<BillingCycle>(6); // Mặc định 6 tháng (Phổ biến nhất)
+  const [selectedCycle, setSelectedCycle] = useState<BillingCycle>(6);
 
   return (
-    <div className="space-y-10">
+    <div className="space-y-8 sm:space-y-10">
       <BillingSelector
         selectedCycle={selectedCycle}
         onChange={setSelectedCycle}

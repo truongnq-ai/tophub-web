@@ -81,14 +81,14 @@ export function CheckClient({ locale }: CheckClientProps) {
               placeholder={t("placeholder")}
               value={uid}
               onChange={(e) => setUid(e.target.value.replace(/\D/g, ""))}
-              className="bg-transparent border-0 pl-10 pr-4 font-mono text-sm placeholder:font-sans placeholder:tracking-normal placeholder:font-normal focus-visible:ring-0 focus-visible:ring-offset-0 text-foreground placeholder:text-muted-foreground"
+              className="bg-transparent border-0 h-11 pl-10 pr-4 font-mono text-base placeholder:font-sans placeholder:tracking-normal placeholder:font-normal focus-visible:ring-0 focus-visible:ring-offset-0 text-foreground placeholder:text-muted-foreground"
               maxLength={20}
             />
           </div>
           <Button
             type="submit"
             disabled={loading || !uid.trim()}
-            className="w-full sm:w-auto font-bold gap-2 px-6 py-2.5 rounded-xl btn-tactile-gold shrink-0 min-h-[44px]"
+            className="w-full sm:w-auto font-bold gap-2 px-6 py-2.5 h-11 rounded-xl btn-tactile-gold shrink-0 min-h-[44px]"
           >
             {loading ? (
               <>
@@ -106,7 +106,7 @@ export function CheckClient({ locale }: CheckClientProps) {
 
         {/* Error notification */}
         {error && (
-          <div className="mt-4 flex items-center gap-2.5 p-4 rounded-xl bg-destructive/10 border border-destructive/30 text-destructive text-xs sm:text-sm animate-in fade-in-50">
+          <div className="mt-4 flex items-center gap-2.5 p-4 rounded-xl bg-destructive/10 sm:border sm:border-destructive/30 text-destructive text-sm animate-in fade-in-50">
             <AlertCircle className="h-4 w-4 shrink-0" />
             <span>{error}</span>
           </div>
@@ -122,8 +122,8 @@ export function CheckClient({ locale }: CheckClientProps) {
           <div className="h-10 w-10 mx-auto rounded-xl bg-amber-500/15 text-amber-500 flex items-center justify-center">
             <Sparkles className="h-5 w-5" />
           </div>
-          <h3 className="text-sm font-bold text-foreground font-heading">{t("guideTitle")}</h3>
-          <p className="text-xs text-muted-foreground leading-relaxed">
+          <h3 className="text-base font-bold text-foreground font-heading">{t("guideTitle")}</h3>
+          <p className="text-sm text-muted-foreground leading-relaxed">
             {t("guideStep1")}<br />
             {t("guideStep2")}<br />
             {t("guideStep3")}

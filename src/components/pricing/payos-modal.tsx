@@ -256,7 +256,7 @@ export function PayOsModal({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-md sm:max-w-lg p-6 bg-slate-950/95 border border-purple-500/30 backdrop-blur-xl shadow-[0_0_50px_rgba(124,58,237,0.25)] rounded-2xl overflow-hidden text-foreground">
+      <DialogContent className="max-w-md sm:max-w-lg p-4 sm:p-6 bg-slate-950/95 border border-purple-500/30 backdrop-blur-xl shadow-[0_0_50px_rgba(124,58,237,0.25)] rounded-2xl overflow-hidden text-foreground">
         <DialogHeader className="space-y-1.5">
           <DialogTitle className="text-xl font-black flex items-center gap-2">
             {step === 1 ? (
@@ -271,7 +271,7 @@ export function PayOsModal({
               </>
             )}
           </DialogTitle>
-          <DialogDescription className="text-xs sm:text-sm text-slate-400">
+          <DialogDescription className="text-sm text-slate-400">
             {step === 1
               ? labels.enterUidDesc || "Nhập UID game để hệ thống kiểm tra nhân vật và máy chủ trước khi thanh toán"
               : labels.vietqrModalDesc}
@@ -291,7 +291,7 @@ export function PayOsModal({
                   placeholder={labels.uidPlaceholder || "Ví dụ: 1000000000001"}
                   value={uid}
                   onChange={(e) => setUid(e.target.value.replace(/\D/g, ""))}
-                  className="bg-slate-900/80 border-white/10 font-mono text-sm placeholder:font-sans placeholder:tracking-normal placeholder:font-normal pl-3 pr-10 focus:border-purple-500/50"
+                  className="h-11 bg-slate-900/80 border-white/10 font-mono text-base placeholder:font-sans placeholder:tracking-normal placeholder:font-normal pl-3 pr-10 focus:border-purple-500/50"
                   maxLength={20}
                   autoFocus
                 />
@@ -305,15 +305,15 @@ export function PayOsModal({
 
             {/* Error Message */}
             {previewError && (
-              <div className="flex items-center gap-2 p-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs">
+              <div className="flex items-center gap-2 p-3 rounded-xl bg-rose-500/10 sm:border sm:border-rose-500/30 text-rose-300 text-xs">
                 <AlertCircle className="h-4 w-4 shrink-0 text-rose-400" />
                 <span>{previewError}</span>
               </div>
             )}
 
-            {/* Verified Character Card */}
+            {/* Verified Character Card (Tonal surface on mobile) */}
             {previewData && (
-              <div className="p-4 rounded-xl border border-emerald-500/30 bg-emerald-950/20 backdrop-blur-md space-y-2.5">
+              <div className="p-4 rounded-xl border-0 sm:border sm:border-emerald-500/30 bg-emerald-950/30 backdrop-blur-md space-y-2.5">
                 <div className="flex items-center justify-between text-xs">
                   <span className="font-bold text-emerald-400 flex items-center gap-1.5 uppercase tracking-wide">
                     <CheckCircle2 className="h-4 w-4 text-emerald-400" />
@@ -321,18 +321,18 @@ export function PayOsModal({
                   </span>
                   <span className="font-mono text-muted-foreground">UID: {previewData.uid}</span>
                 </div>
-                <div className="grid grid-cols-2 gap-2 pt-1 border-t border-emerald-500/20 text-xs sm:text-sm">
+                <div className="grid grid-cols-2 gap-2 pt-2 border-t border-emerald-500/20 text-sm">
                   <div className="flex items-center gap-2">
                     <User className="h-4 w-4 text-purple-400" />
                     <div>
-                      <div className="text-[10px] text-muted-foreground">Tên nhân vật</div>
+                      <div className="text-xs text-muted-foreground">Tên nhân vật</div>
                       <div className="font-bold text-slate-100">{previewData.nickname}</div>
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
                     <Server className="h-4 w-4 text-indigo-400" />
                     <div>
-                      <div className="text-[10px] text-muted-foreground">{labels.serverLabel || "Máy chủ"}</div>
+                      <div className="text-xs text-muted-foreground">{labels.serverLabel || "Máy chủ"}</div>
                       <div className="font-bold text-slate-100">Server {formatServerCode(previewData.server_id)}</div>
                     </div>
                   </div>
@@ -340,8 +340,8 @@ export function PayOsModal({
               </div>
             )}
 
-            {/* Plan Summary */}
-            <div className="flex items-center justify-between p-3 rounded-xl border border-white/5 bg-slate-900/50 text-xs">
+            {/* Plan Summary (Tonal surface on mobile) */}
+            <div className="flex items-center justify-between p-3.5 rounded-xl border-0 sm:border sm:border-white/5 bg-slate-900/60 text-xs">
               <span className="text-muted-foreground">Gói cước:</span>
               <div className="text-right">
                 <span className="font-bold text-purple-300">{planName} ({months} Tháng)</span>
@@ -350,7 +350,7 @@ export function PayOsModal({
             </div>
 
             <Button
-              className="w-full font-bold gap-2 py-5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white shadow-[0_0_20px_rgba(124,58,237,0.3)] transition-all"
+              className="w-full min-h-[44px] font-bold gap-2 py-5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white shadow-[0_0_20px_rgba(124,58,237,0.3)] transition-all"
               onClick={handleProceedToPayment}
               disabled={!previewData || isVerifying || isCreatingCheckout}
             >
@@ -387,7 +387,7 @@ export function PayOsModal({
               <div className="space-y-4">
                 {/* Character Header Banner */}
                 {previewData && (
-                  <div className="flex items-center justify-between px-3 py-2 rounded-xl bg-purple-950/40 border border-purple-500/30 text-xs">
+                  <div className="flex items-center justify-between px-3.5 py-2 rounded-xl bg-purple-950/40 border-0 sm:border sm:border-purple-500/30 text-xs">
                     <div className="flex items-center gap-2">
                       <User className="h-3.5 w-3.5 text-purple-400" />
                       <span className="font-bold text-purple-200">{previewData.nickname}</span>
@@ -396,9 +396,9 @@ export function PayOsModal({
                     <button
                       type="button"
                       onClick={() => setStep(1)}
-                      className="text-[11px] text-purple-400 hover:text-purple-300 underline flex items-center gap-1"
+                      className="min-h-[44px] px-2 text-xs text-purple-400 hover:text-purple-300 underline inline-flex items-center gap-1"
                     >
-                      <ArrowLeft className="h-3 w-3" />
+                      <ArrowLeft className="h-3.5 w-3.5" />
                       Đổi UID
                     </button>
                   </div>
@@ -406,7 +406,7 @@ export function PayOsModal({
 
                 {/* VietQR Code Image with soft light card container */}
                 {checkoutData && (
-                  <div className="flex flex-col items-center justify-center p-4 rounded-2xl bg-white border border-slate-200/80 shadow-inner">
+                  <div className="flex flex-col items-center justify-center p-4 rounded-2xl bg-white shadow-inner">
                     <img
                       src={qrUrl}
                       alt="VietQR Payment Code"
@@ -420,9 +420,9 @@ export function PayOsModal({
                   </div>
                 )}
 
-                {/* Payment Details Table */}
+                {/* Payment Details Table (Tonal surface on mobile) */}
                 {checkoutData && (
-                  <div className="rounded-xl border border-white/10 bg-slate-900/60 backdrop-blur-md p-3.5 space-y-2 text-xs sm:text-sm">
+                  <div className="rounded-xl border-0 sm:border sm:border-white/10 bg-slate-900/70 backdrop-blur-md p-3.5 space-y-2 text-sm">
                     <div className="flex items-center justify-between">
                       <span className="text-muted-foreground font-medium">{labels.bankLabel}</span>
                       <span className="font-bold text-foreground">{bankId}</span>
@@ -436,7 +436,7 @@ export function PayOsModal({
                           type="button"
                           onClick={() => handleCopy("accountNo", accountNo)}
                           aria-label={`Sao chép ${labels.accountNumberLabel}`}
-                          className="min-h-[36px] min-w-[36px] flex items-center justify-center rounded-lg text-slate-400 hover:text-white hover:bg-white/10 active:scale-95 transition-all"
+                          className="h-11 w-11 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-xl text-slate-400 hover:text-white hover:bg-white/10 active:scale-95 transition-all"
                         >
                           {copiedKey === "accountNo" ? (
                             <Check className="h-4 w-4 text-emerald-400" />
@@ -462,7 +462,7 @@ export function PayOsModal({
                           type="button"
                           onClick={() => handleCopy("amount", checkoutData.amount.toString())}
                           aria-label={`Sao chép ${labels.amountLabel}`}
-                          className="min-h-[36px] min-w-[36px] flex items-center justify-center rounded-lg text-slate-400 hover:text-white hover:bg-white/10 active:scale-95 transition-all"
+                          className="h-11 w-11 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-xl text-slate-400 hover:text-white hover:bg-white/10 active:scale-95 transition-all"
                         >
                           {copiedKey === "amount" ? (
                             <Check className="h-4 w-4 text-emerald-400" />
@@ -485,7 +485,7 @@ export function PayOsModal({
                           type="button"
                           onClick={() => handleCopy("orderCode", checkoutData.orderCode.toString())}
                           aria-label={`Sao chép ${labels.transferContentLabel}`}
-                          className="min-h-[36px] min-w-[36px] flex items-center justify-center rounded-lg text-purple-400 hover:text-purple-200 hover:bg-purple-500/20 active:scale-95 transition-all"
+                          className="h-11 w-11 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-xl text-purple-400 hover:text-purple-200 hover:bg-purple-500/20 active:scale-95 transition-all"
                         >
                           {copiedKey === "orderCode" ? (
                             <Check className="h-4 w-4 text-emerald-400" />

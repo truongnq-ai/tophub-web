@@ -50,7 +50,7 @@ export function BillingSelector({ selectedCycle, onChange, labels }: BillingSele
             key={opt.months}
             type="button"
             onClick={() => onChange(opt.months)}
-            className={`relative flex items-center justify-center gap-2 px-4 py-2.5 min-h-[44px] rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 active:scale-95 ${
+            className={`relative flex items-center justify-center gap-2 px-4 py-2.5 min-h-[44px] rounded-xl text-sm font-bold transition-all duration-200 active:scale-95 ${
               isSelected
                 ? "bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg shadow-purple-600/30 border border-purple-400/30"
                 : "text-muted-foreground hover:text-foreground hover:bg-white/5 border border-transparent"
@@ -60,7 +60,7 @@ export function BillingSelector({ selectedCycle, onChange, labels }: BillingSele
             {opt.badge && (
               <Badge
                 variant={opt.badgeVariant || "secondary"}
-                className={`text-[10px] px-2 py-0.5 font-extrabold uppercase tracking-wider ${
+                className={`text-xs px-2 py-0.5 font-extrabold uppercase tracking-wider ${
                   opt.months === 6
                     ? isSelected
                       ? "bg-white/20 text-white border border-white/30"
