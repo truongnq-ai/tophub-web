@@ -6,7 +6,15 @@ import enMessages from "../messages/en.json";
 import { CalculatorsShell } from "../src/components/calculators/calculators-shell";
 import { CalculatorsSidebar } from "../src/components/calculators/calculators-sidebar";
 import { GuidesFeedbackNotice } from "../src/components/guides/guides-feedback-notice";
-import { countMicroTextOccurrences, readSource } from "./utils/md3-audit";
+import { getCalculatorToolBySlug } from "../src/content/calculators/registry";
+import { CalculatorPlaceholderView } from "../src/components/calculators/calculator-placeholder-view";
+import {
+  ALL_SIDE_BORDER_REGEX,
+  countMicroTextOccurrences,
+  findMonoElementsWithVietnamese,
+  getMaxBorderedContainerDepth,
+  readSource,
+} from "./utils/md3-audit";
 
 let mockLocale: "vi" | "en" = "vi";
 const mockPathname = vi.fn(() => "/calculators");
@@ -170,5 +178,65 @@ describe("Phase 2.1 / Shell, Notice & Sidebar", () => {
     const railCategoryBtn = screen.getByRole("button", { name: /1\. Anh Hùng/i });
     expect(railCategoryBtn.className).toContain("h-11");
     expect(railCategoryBtn.className).toContain("w-11");
+  });
+});
+
+describe("Phase 2.1 / Placeholder View", () => {
+  beforeEach(() => {
+    mockLocale = "vi";
+    mockPathname.mockReturnValue("/calculators");
+    window.localStorage.clear();
+  });
+
+  it("calculator-placeholder-view.tsx contains zero text-[8px..11px] classes", () => {
+    expect(
+      countMicroTextOccurrences(
+        readSource("src/components/calculators/calculator-placeholder-view.tsx")
+      )
+    ).toBe(0);
+  });
+
+  it("Hub keeps single-layer containment, 16px search input, 44px hot tags and no mono on Vietnamese", () => {
+    render(<CalculatorPlaceholderView mode="hub" />);
+    const hub = screen.getByTestId("calculators-hub-placeholder");
+
+    expect(getMaxBorderedContainerDepth(hub)).toBeLessThanOrEqual(1);
+    expect(findMonoElementsWithVietnamese(hub)).toEqual([]);
+    expect(screen.getByTestId("calculators-hub-search-input").className).toContain("text-base");
+
+    const hotTag = screen.getByRole("button", { name: "#SợiTơMaThuật" });
+    expect(hotTag.className).toContain("min-h-[44px]");
+    expect(hotTag.className).not.toContain("font-mono");
+
+    expect(screen.getByTestId("calculators-hub-dev-notice").className).not.toMatch(
+      ALL_SIDE_BORDER_REGEX
+    );
+  });
+
+  it("Coming-soon tool placeholder flattens the example preview and uses 14–16px copy", () => {
+    mockPathname.mockReturnValue("/calculators/lord-gear/lord-gear-upgrade");
+    const resolved = getCalculatorToolBySlug("lord-gear", "lord-gear-upgrade")!;
+    render(
+      <CalculatorPlaceholderView
+        mode="tool"
+        zone={resolved.zone}
+        category={resolved.category}
+        tool={resolved.tool}
+      />
+    );
+
+    const root = screen.getByTestId("calculator-tool-placeholder");
+    expect(getMaxBorderedContainerDepth(root)).toBeLessThanOrEqual(1);
+    expect(findMonoElementsWithVietnamese(root)).toEqual([]);
+
+    const preview = screen.getByTestId("calculator-example-preview");
+    expect(preview.className).not.toMatch(ALL_SIDE_BORDER_REGEX);
+    expect(preview.className).toContain("border-t");
+    expect(screen.getByTestId("calculator-example-question").className).toContain(
+      "sm:text-base"
+    );
+    expect(
+      screen.getByTestId("calculator-under-development-banner").className
+    ).not.toMatch(ALL_SIDE_BORDER_REGEX);
   });
 });
