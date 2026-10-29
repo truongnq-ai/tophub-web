@@ -3,8 +3,10 @@ import { withAuth } from "next-auth/middleware";
 import createMiddleware from "next-intl/middleware";
 import { routing } from "./i18n/routing";
 
-const publicPages = [
+export const publicPages = [
   "/",
+  // Fix: Whitelist /calculators and all sub-routes so unauthenticated visitors are not redirected to /login -> /admin/login
+  "/calculators",
   "/guides",
   "/giftcodes",
   "/pricing",
@@ -35,10 +37,16 @@ export default function middleware(req: NextRequest) {
 
   // Extract path without locale prefix (e.g., /en/admin/login -> /admin/login)
   const pathnameWithoutLocale =
-    pathname.replace(new RegExp(`^/(${routing.locales.join("|")})`), "") || "/";
+    pathname.replace(
+      new RegExp(`^/(${routing.locales.join("|")})(?=/|$)`),
+      ""
+    ) || "/";
 
   const isPublicPage = publicPages.some((page) =>
-    page === "/" ? pathnameWithoutLocale === "/" : pathnameWithoutLocale.startsWith(page)
+    page === "/"
+      ? pathnameWithoutLocale === "/"
+      : pathnameWithoutLocale === page ||
+        pathnameWithoutLocale.startsWith(`${page}/`)
   );
 
   if (isPublicPage) {
