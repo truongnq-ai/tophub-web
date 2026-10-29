@@ -1,6 +1,8 @@
 {
   "Navigation": {
     "home": "Home",
+    "calculators": "Calculators",
+    "calculatorsNewBadge": "NEW",
     "guides": "Guides",
     "guidesNewBadge": "NEW",
     "giftcodes": "Giftcodes",
@@ -482,6 +484,38 @@
     "hubSearchArticlesHeading": "Matching Strategy Guides",
     "hubSearchCodexHeading": "Matching Game Codex Entities",
     "hubSearchOpenCodexBtn": "Open full Game Codex →"
+  },
+  "Calculators": {
+    "metaTitle": "Top Heroes Calculators — Shards, Gear, Runes & Castle Planner | TopHub",
+    "metaDescription": "21 precision quantitative calculators for Top Heroes: Universal Hero Shards, Skill Books, Lord Gear, Runes, Relics, Companion Pets, and Main Castle resources.",
+    "hubBadge": "QUANTITATIVE SUITE • 9 GROUPS • 21 TOOLS",
+    "hubTitle": "Top Heroes Quantitative Calculators Hub",
+    "hubSubtitle": "Compute 100% exact in-game resource requirements powered by the TopHeroes Tables - Max dataset and official client item catalog (v1.125.5).",
+    "backToHub": "Calculators Overview",
+    "searchPlaceholder": "Search tools or items (e.g. Shard, Thread)...",
+    "clearSearch": "Clear search filter",
+    "searchResultsCount": "{count} matching tools",
+    "searchNoResults": "No matching calculators found.",
+    "mobileMenuBtn": "Calculators Menu (9 Groups)",
+    "collapseSidebar": "Collapse sidebar",
+    "expandSidebar": "Expand sidebar",
+    "underDevelopmentBadge": "Under Development",
+    "readyBadge": "Ready",
+    "underDevelopmentTitle": "Interactive Calculator Engine Under Development",
+    "underDevelopmentMessage": "The 3-Zone, 9-Group, 21-Tool navigation shell is live. Interactive calculation formulas powered by the master spreadsheets are being rolled out sequentially from Phase 1 to Phase 9.",
+    "materialsSectionTitle": "Official In-Game Items & Currencies Covered",
+    "dataSourceLabel": "Master Dataset Source:",
+    "phaseBadgeLabel": "Rollout Roadmap: Phase {phase}",
+    "exploreToolsTitle": "All 9 Category Groups & 21 Calculators",
+    "toolsCountBadge": "{count} tools",
+    "prevTool": "Previous Tool",
+    "nextTool": "Next Tool",
+    "hotTagsLabel": "Quick lookup:",
+    "sidebarCodexLink": "Game Codex & Item Compendium",
+    "exampleSectionTitle": "Real-World Scenario & Input ➔ Output Preview",
+    "exampleQuestionLabel": "Tactical scenario:",
+    "exampleInputLabel": "Input parameters:",
+    "exampleOutputLabel": "Computed output:",
+    "startWithToolBtn": "Open Tool {code}"
   }
 }
-

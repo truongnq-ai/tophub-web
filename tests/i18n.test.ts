@@ -9,13 +9,14 @@ describe('i18n Translation Keys Parity', () => {
     expect(viKeys).toEqual(enKeys);
   });
 
-  it('should have required modules: Navigation, Common, Giftcodes, Pricing, Dashboard, Guides', () => {
+  it('should have required modules: Navigation, Common, Giftcodes, Pricing, Dashboard, Guides, Calculators', () => {
     expect(vi).toHaveProperty('Navigation');
     expect(vi).toHaveProperty('Common');
     expect(vi).toHaveProperty('Giftcodes');
     expect(vi).toHaveProperty('Pricing');
     expect(vi).toHaveProperty('Dashboard');
     expect(vi).toHaveProperty('Guides');
+    expect(vi).toHaveProperty('Calculators');
 
     expect(en).toHaveProperty('Navigation');
     expect(en).toHaveProperty('Common');
@@ -23,20 +24,32 @@ describe('i18n Translation Keys Parity', () => {
     expect(en).toHaveProperty('Pricing');
     expect(en).toHaveProperty('Dashboard');
     expect(en).toHaveProperty('Guides');
+    expect(en).toHaveProperty('Calculators');
   });
 
-  it('should have matching sub-keys for Navigation including guides', () => {
+  it('should have matching sub-keys for Navigation including guides and calculators', () => {
     expect(vi.Navigation).toHaveProperty('guides');
     expect(en.Navigation).toHaveProperty('guides');
+    expect(vi.Navigation).toHaveProperty('calculators');
+    expect(en.Navigation).toHaveProperty('calculators');
+    expect(vi.Navigation).toHaveProperty('calculatorsNewBadge');
+    expect(en.Navigation).toHaveProperty('calculatorsNewBadge');
     expect(Object.keys(vi.Navigation).sort()).toEqual(Object.keys(en.Navigation).sort());
   });
 
-  it('should have matching sub-keys for Guides namespace', () => {
+  it('should have matching sub-keys for Guides and Calculators namespaces', () => {
     expect(Object.keys((vi as Record<string, Record<string, unknown>>).Guides || {}).length).toBeGreaterThan(0);
     expect(
       Object.keys((vi as Record<string, Record<string, unknown>>).Guides || {}).sort()
     ).toEqual(
       Object.keys((en as Record<string, Record<string, unknown>>).Guides || {}).sort()
+    );
+
+    expect(Object.keys((vi as Record<string, Record<string, unknown>>).Calculators || {}).length).toBeGreaterThan(0);
+    expect(
+      Object.keys((vi as Record<string, Record<string, unknown>>).Calculators || {}).sort()
+    ).toEqual(
+      Object.keys((en as Record<string, Record<string, unknown>>).Calculators || {}).sort()
     );
   });
 

@@ -1,6 +1,8 @@
 {
   "Navigation": {
     "home": "Trang Chủ",
+    "calculators": "Tính Toán",
+    "calculatorsNewBadge": "MỚI",
     "guides": "Cẩm Nang",
     "guidesNewBadge": "MỚI",
     "giftcodes": "Săn Giftcode",
@@ -482,6 +484,38 @@
     "hubSearchArticlesHeading": "Bài Viết Cẩm Nang Khớp Từ Khóa",
     "hubSearchCodexHeading": "Thực Thể & Vật Phẩm Trong Kho Đồ Giám",
     "hubSearchOpenCodexBtn": "Mở Kho Đồ Giám đầy đủ →"
+  },
+  "Calculators": {
+    "metaTitle": "Công Cụ Tính Toán Top Heroes — Nguyên Liệu, Nâng Sao & Lâu Đài | TopHub",
+    "metaDescription": "Hệ thống 21 công cụ tính toán định lượng chuẩn xác cho Top Heroes: Mảnh Vạn Năng nâng sao tướng, Sách Skill, Trang Bị Chúa Tể, Cổ Ngữ, Bí Bảo, Thú Cưng và Lâu Đài Chính.",
+    "hubBadge": "HỆ THỐNG ĐỊNH LƯỢNG 9 NHÓM • 21 CÔNG CỤ",
+    "hubTitle": "Trung Tâm Tính Toán Top Heroes",
+    "hubSubtitle": "Tra cứu và tính toán chính xác 100% lượng nguyên liệu gốc trong game dựa trên bộ cơ sở dữ liệu định lượng TopHeroes Tables - Max (v1.125.5).",
+    "backToHub": "Tổng quan Tính toán",
+    "searchPlaceholder": "Tìm công cụ, vật phẩm (VD: Mảnh, Sợi Tơ)...",
+    "clearSearch": "Xóa bộ lọc tìm kiếm",
+    "searchResultsCount": "{count} công cụ phù hợp",
+    "searchNoResults": "Không tìm thấy công cụ tính toán phù hợp.",
+    "mobileMenuBtn": "Danh Mục Tính Toán (9 Nhóm)",
+    "collapseSidebar": "Thu gọn danh mục",
+    "expandSidebar": "Mở rộng danh mục",
+    "underDevelopmentBadge": "Đang phát triển",
+    "readyBadge": "Sẵn sàng",
+    "underDevelopmentTitle": "Tính năng Tính Toán đang được phát triển",
+    "underDevelopmentMessage": "Bộ khung điều hướng 3 Phân khu – 9 Nhóm – 21 Công cụ đã sẵn sàng. Công thức tính toán tương tác trực tiếp từ bảng dữ liệu gốc đang được hoàn thiện theo lộ trình từng Phase (Phase 1 ➔ Phase 9).",
+    "materialsSectionTitle": "Vật phẩm & Tài nguyên Gốc trong Game sẽ tính toán",
+    "dataSourceLabel": "Nguồn bảng dữ liệu gốc:",
+    "phaseBadgeLabel": "Lộ trình triển khai: Phase {phase}",
+    "exploreToolsTitle": "Danh mục 9 Nhóm & 21 Công cụ Tính toán",
+    "toolsCountBadge": "{count} công cụ",
+    "prevTool": "Công cụ trước",
+    "nextTool": "Công cụ tiếp theo",
+    "hotTagsLabel": "Tra cứu nhanh:",
+    "sidebarCodexLink": "Kho Đồ Giám & Vật Phẩm (Codex)",
+    "exampleSectionTitle": "Bài Toán Thực Tế & Khung Mô Phỏng (Sắp Mở)",
+    "exampleQuestionLabel": "Bài toán thực chiến:",
+    "exampleInputLabel": "Đầu vào (Input):",
+    "exampleOutputLabel": "Kết quả định lượng (Output):",
+    "startWithToolBtn": "Mở công cụ {code}"
   }
 }
-

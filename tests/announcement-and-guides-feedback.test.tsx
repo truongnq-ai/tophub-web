@@ -67,19 +67,22 @@ describe("Task 1 — SystemAnnouncement Schema, Date Boundaries & i18n Parity", 
     vi.restoreAllMocks();
   });
 
-  it("defines default Guides launch announcement with valid bilingual fields and zero Vietnamese leaks in .en", () => {
-    expect(SYSTEM_ANNOUNCEMENTS.length).toBeGreaterThanOrEqual(1);
-    const guidesAnn = SYSTEM_ANNOUNCEMENTS.find(
-      (a) => a.id === "ann-guides-launch-2026"
+  it("defines default Calculators launch announcement as primary active announcement with valid bilingual fields and zero Vietnamese leaks in .en", () => {
+    expect(SYSTEM_ANNOUNCEMENTS.length).toBeGreaterThanOrEqual(2);
+    const calcAnn = SYSTEM_ANNOUNCEMENTS.find(
+      (a) => a.id === "ann-calculators-launch-2026"
     );
-    expect(guidesAnn).toBeDefined();
-    expect(guidesAnn?.type).toBe("GUIDE");
-    expect(guidesAnn?.href).toBe("/guides");
-    expect(guidesAnn?.isActive).toBe(true);
-    expect(VI_DIACRITIC_REGEX.test(guidesAnn?.message.vi ?? "")).toBe(true);
-    expect(VI_DIACRITIC_REGEX.test(guidesAnn?.message.en ?? "")).toBe(false);
-    expect(VI_DIACRITIC_REGEX.test(guidesAnn?.badge.en ?? "")).toBe(false);
-    expect(VI_DIACRITIC_REGEX.test(guidesAnn?.ctaLabel.en ?? "")).toBe(false);
+    expect(calcAnn).toBeDefined();
+    expect(calcAnn?.type).toBe("FEATURE");
+    expect(calcAnn?.href).toBe("/calculators");
+    expect(calcAnn?.isActive).toBe(true);
+    expect(VI_DIACRITIC_REGEX.test(calcAnn?.message.vi ?? "")).toBe(true);
+    expect(VI_DIACRITIC_REGEX.test(calcAnn?.message.en ?? "")).toBe(false);
+    expect(VI_DIACRITIC_REGEX.test(calcAnn?.badge.en ?? "")).toBe(false);
+    expect(VI_DIACRITIC_REGEX.test(calcAnn?.ctaLabel.en ?? "")).toBe(false);
+
+    const active = getActiveAnnouncements();
+    expect(active[0]?.id).toBe("ann-calculators-launch-2026");
   });
 
   it("evaluates isAnnouncementActive accurately across active flags, date ranges, and invalid dates (GAP-06)", () => {
@@ -184,7 +187,7 @@ describe("Task 2 — HomeAnnouncementTicker (Marquee R-to-L, Icons, A11y & Bilin
     mockLocale = "vi";
   });
 
-  it("renders Megaphone and Open Book icons, links to /guides, and marks clone track aria-hidden (GAP-05)", () => {
+  it("renders Megaphone and Open Book icons, links to /calculators, and marks clone track aria-hidden (GAP-05)", () => {
     render(<HomeAnnouncementTicker locale="vi" />);
 
     const ticker = screen.getByTestId("home-announcement-ticker");
@@ -200,16 +203,16 @@ describe("Task 2 — HomeAnnouncementTicker (Marquee R-to-L, Icons, A11y & Bilin
     expect(primaryTrack.getAttribute("aria-hidden")).not.toBe("true");
     expect(cloneTrack.getAttribute("aria-hidden")).toBe("true");
 
-    expect(primaryTrack.textContent).toContain("Cẩm Nang Chiến Thuật");
+    expect(primaryTrack.textContent).toContain("Tính Toán");
 
     const link = ticker.querySelector("a");
-    expect(link?.getAttribute("href")).toBe("/guides");
+    expect(link?.getAttribute("href")).toBe("/calculators");
   });
 
   it("renders 100% pure English in locale='en' and hides cleanly when no announcements are active", () => {
     const { container, unmount } = render(<HomeAnnouncementTicker locale="en" />);
     expect(container.textContent ?? "").not.toMatch(VI_DIACRITIC_REGEX);
-    expect(container.textContent).toContain("Tactical Guides Hub");
+    expect(container.textContent).toContain("Calculators Hub");
     unmount();
 
     const { container: emptyContainer } = render(
@@ -218,12 +221,13 @@ describe("Task 2 — HomeAnnouncementTicker (Marquee R-to-L, Icons, A11y & Bilin
     expect(emptyContainer.firstChild).toBeNull();
   });
 
-  it("renders NEW / MỚI badge next to Guides link in Header navigation (DEC-QW-04)", async () => {
+  it("renders NEW / MỚI badge next to Calculators link (between Home and Guides) and removes it from Guides", async () => {
     const { Header } = await import("../src/components/header");
     render(<Header />);
-    const badge = screen.getByTestId("header-guides-new-badge");
-    expect(badge).toBeTruthy();
-    expect(badge.textContent).toBe("MỚI");
+    const calcBadge = screen.getByTestId("header-calculators-new-badge");
+    expect(calcBadge).toBeTruthy();
+    expect(calcBadge.textContent).toBe("MỚI");
+    expect(screen.queryByTestId("header-guides-new-badge")).toBeNull();
   });
 });
 

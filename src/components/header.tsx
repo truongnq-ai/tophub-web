@@ -12,6 +12,7 @@ import {
   Home,
   ChevronDown,
   BookOpen,
+  Calculator,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -42,12 +43,26 @@ export function Header() {
   const { activeAccount, savedAccounts, selectAccount, logout, isLoaded } = useUidSession();
 
   const navigationItems = [
-    { name: tNav("home"), href: "/", icon: Home, badge: null },
+    {
+      name: tNav("home"),
+      href: "/",
+      icon: Home,
+      badge: null as string | null,
+      badgeTestId: undefined as string | undefined,
+    },
+    {
+      name: tNav("calculators"),
+      href: "/calculators",
+      icon: Calculator,
+      badge: tNav("calculatorsNewBadge"),
+      badgeTestId: "header-calculators-new-badge",
+    },
     {
       name: tNav("guides"),
       href: "/guides",
       icon: BookOpen,
-      badge: tNav("guidesNewBadge"),
+      badge: null as string | null,
+      badgeTestId: undefined as string | undefined,
     },
   ];
 
@@ -154,7 +169,7 @@ export function Header() {
                 <span>{item.name}</span>
                 {item.badge && (
                   <span
-                    data-testid="header-guides-new-badge"
+                    data-testid={item.badgeTestId}
                     className="rounded-full bg-amber-500/20 border border-amber-500/40 px-1.5 py-0.5 font-mono text-[9px] font-bold uppercase leading-none text-amber-600 dark:text-amber-400"
                   >
                     {item.badge}

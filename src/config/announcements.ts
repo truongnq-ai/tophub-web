@@ -25,9 +25,29 @@ export interface SystemAnnouncement {
 
 export const SYSTEM_ANNOUNCEMENTS: SystemAnnouncement[] = [
   {
+    id: "ann-calculators-launch-2026",
+    type: "FEATURE",
+    isActive: true,
+    href: "/calculators",
+    startsAt: null,
+    endsAt: null,
+    badge: {
+      vi: "TÍNH NĂNG MỚI",
+      en: "NEW FEATURE",
+    },
+    message: {
+      vi: "Ra mắt chuyên trang Tính Toán (Calculators) Top Heroes! Quy hoạch chính xác 100% Mảnh Vạn Năng nâng sao tướng, Sách Skill, Đồ Chúa Tể, Cổ Ngữ, Bí Bảo & Lâu Đài Chính theo bảng dữ liệu gốc — Khám phá ngay!",
+      en: "Introducing the Top Heroes Calculators Hub! Plan 100% exact Universal Hero Shards, Skill Books, Lord Gear, Runes, Relics & Main Castle upgrades powered by the master dataset — Explore now!",
+    },
+    ctaLabel: {
+      vi: "Mở Tính Toán",
+      en: "Open Calculators",
+    },
+  },
+  {
     id: "ann-guides-launch-2026",
     type: "GUIDE",
-    isActive: true,
+    isActive: false,
     href: "/guides",
     startsAt: null,
     endsAt: null,
