@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Minus, Plus, Settings, Gem, Sparkles } from "lucide-react";
+import { Settings, Gem, Sparkles } from "lucide-react";
 import {
   MAX_TRAIT_SLOT_LEVEL,
   SHARDS_PER_TRAIT_LEVEL,
@@ -12,6 +12,7 @@ import {
 } from "@/content/calculators/hero-traits-data";
 import type { CalculatorLocale } from "@/content/calculators/types";
 import { cn } from "@/lib/utils";
+import { CALC_MD3, CalculatorStepperButton } from "./calculator-md3-primitives";
 
 interface HeroTraitSlotsSelectorProps {
   readonly idPrefix: "from" | "to";
@@ -27,6 +28,11 @@ interface HeroTraitSlotsSelectorProps {
 }
 
 const SLOT_INDEXES: readonly TraitSlotIndex[] = [0, 1, 2, 3];
+const BLOCK_PRESETS = [5, 10, 15, 20, 25] as const;
+const NUMERIC_PRESET_CHIP = cn(
+  CALC_MD3.chipButton,
+  "bg-muted/60 px-3 font-mono text-muted-foreground hover:bg-muted hover:text-foreground"
+);
 
 export function HeroTraitSlotsSelector({
   idPrefix,
@@ -39,6 +45,7 @@ export function HeroTraitSlotsSelector({
 }: HeroTraitSlotsSelectorProps) {
   const totalShardsInState =
     (levels[0] + levels[1] + levels[2] + levels[3]) * SHARDS_PER_TRAIT_LEVEL;
+  const shardUnit = locale === "vi" ? "Mảnh" : "Shards";
 
   const getSlotMeta = (slotIndex: TraitSlotIndex) => {
     const lv = levels[slotIndex];
@@ -85,33 +92,32 @@ export function HeroTraitSlotsSelector({
   return (
     <div
       data-testid={`${idPrefix}-trait-slots-selector`}
-      className="rounded-2xl border border-border/80 bg-card/75 p-3.5 sm:p-4 space-y-3 shadow-sm"
+      className={cn(CALC_MD3.surfaceCard, "space-y-3")}
     >
       {/* Header + Cumulative Shards */}
-      <div className="flex items-center justify-between gap-2 border-b border-border/60 pb-2">
-        <div className="flex items-center gap-1.5 min-w-0">
-          <Settings className="h-4 w-4 text-amber-500 shrink-0" />
-          <span className="text-xs font-mono font-extrabold uppercase tracking-wider text-muted-foreground truncate">
+      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border/60 pb-2.5">
+        <div className="flex min-w-0 items-center gap-2">
+          <Settings className="h-5 w-5 shrink-0 text-amber-500" aria-hidden="true" />
+          <h3 data-testid={`${idPrefix}-trait-slots-title`} className={CALC_MD3.sectionTitle}>
             {title}
-          </span>
+          </h3>
         </div>
-
         <span
           data-testid={`${idPrefix}-cumulative-shards-badge`}
-          className="rounded-lg bg-amber-500/15 border border-amber-500/35 px-2 py-0.5 font-mono text-[11px] font-bold text-amber-600 dark:text-amber-300 shrink-0"
+          className="shrink-0 rounded-lg bg-amber-500/15 px-2.5 py-1 text-xs font-sans font-bold text-amber-700 dark:text-amber-300"
         >
-          {totalShardsInState.toLocaleString("en-US")}{" "}
-          {locale === "vi" ? "Mảnh" : "Shards"}
+          <span className="font-mono">{totalShardsInState.toLocaleString("en-US")}</span>{" "}
+          {shardUnit}
         </span>
       </div>
 
-      {/* Quick Presets Row */}
-      <div className="flex flex-wrap items-center gap-1.5">
+      {/* Quick Presets Row (≥ 44px) */}
+      <div className="flex flex-wrap items-center gap-2">
         <button
           type="button"
           data-testid={`${idPrefix}-preset-zero-btn`}
           onClick={() => onApplyPreset([0, 0, 0, 0])}
-          className="rounded-lg border border-border/70 bg-secondary/50 hover:bg-secondary px-2 py-1 font-mono text-[10px] font-bold text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+          className={NUMERIC_PRESET_CHIP}
         >
           0/0/0/0
         </button>
@@ -120,21 +126,24 @@ export function HeroTraitSlotsSelector({
           type="button"
           data-testid={`${idPrefix}-preset-econ-btn`}
           onClick={() => onApplyPreset([15, 0, 30, 0])}
-          className="inline-flex items-center gap-1 rounded-lg border border-emerald-500/35 bg-emerald-500/10 hover:bg-emerald-500/20 px-2 py-1 font-mono text-[10px] font-bold text-emerald-600 dark:text-emerald-400 transition-colors cursor-pointer"
+          className={cn(
+            CALC_MD3.chipButton,
+            "bg-emerald-500/10 px-3 font-sans text-emerald-700 hover:bg-emerald-500/20 dark:text-emerald-400"
+          )}
         >
-          <Sparkles className="h-3 w-3" />
+          <Sparkles className="h-4 w-4" aria-hidden="true" />
           <span>
             {locale === "vi" ? "Phễu Kinh Tế (15/0/30/0)" : "Econ (15/0/30/0)"}
           </span>
         </button>
 
-        {([5, 10, 15, 20, 25] as const).map((blk) => (
+        {BLOCK_PRESETS.map((blk) => (
           <button
             key={blk}
             type="button"
             data-testid={`${idPrefix}-preset-block-${blk}-btn`}
             onClick={() => onApplyPreset([blk, blk, blk, blk])}
-            className="rounded-lg border border-border/70 bg-secondary/50 hover:bg-secondary px-2 py-1 font-mono text-[10px] font-bold text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+            className={NUMERIC_PRESET_CHIP}
           >
             {blk}/{blk}
           </button>
@@ -144,35 +153,36 @@ export function HeroTraitSlotsSelector({
           type="button"
           data-testid={`${idPrefix}-preset-max-btn`}
           onClick={() => onApplyPreset([30, 30, 30, 30])}
-          className="rounded-lg border border-amber-500/35 bg-amber-500/15 hover:bg-amber-500/25 px-2 py-1 font-mono text-[10px] font-bold text-amber-600 dark:text-amber-300 transition-colors cursor-pointer"
+          className={cn(
+            CALC_MD3.chipButton,
+            "bg-amber-500/15 px-3 font-mono text-amber-700 hover:bg-amber-500/25 dark:text-amber-300"
+          )}
         >
           Max 30/30/30/30
         </button>
       </div>
 
-      {/* 4 Trait Slot Sliders */}
-      <div className="space-y-2.5">
+      {/* 4 Trait Slot Rows — hairline dividers, không hộp viền con */}
+      <ul data-testid={`${idPrefix}-trait-slot-list`} className={CALC_MD3.dividedList}>
         {SLOT_INDEXES.map((slotIdx) => {
           const lv = levels[slotIdx];
           const meta = getSlotMeta(slotIdx);
           const slotNum = slotIdx + 1;
 
           return (
-            <div
+            <li
               key={slotNum}
               data-testid={`${idPrefix}-slot-${slotNum}-row`}
               className={cn(
-                "rounded-xl border p-2.5 space-y-1.5 transition-colors",
-                meta.isUniqueSlot3
-                  ? "border-amber-500/40 bg-amber-500/[0.06]"
-                  : "border-border/70 bg-background/60"
+                "space-y-2 py-3",
+                meta.isUniqueSlot3 ? "-mx-2 rounded-xl bg-amber-500/[0.08] px-2" : "px-0"
               )}
             >
               <div className="flex items-center justify-between gap-2">
-                <div className="min-w-0 flex items-center gap-1.5">
+                <div className="flex min-w-0 items-center gap-2">
                   <span
                     className={cn(
-                      "inline-flex h-5 w-5 items-center justify-center rounded-full font-mono text-[10px] font-black shrink-0",
+                      "inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full font-mono text-xs font-black",
                       lv > 0
                         ? "bg-amber-500 text-slate-950"
                         : "bg-secondary text-muted-foreground"
@@ -180,54 +190,48 @@ export function HeroTraitSlotsSelector({
                   >
                     {slotNum}
                   </span>
-                  <span className="text-xs font-heading font-bold text-foreground truncate">
+                  <span className="truncate text-sm font-heading font-bold text-foreground">
                     {meta.shortTitle}
                   </span>
                 </div>
 
-                <div className="flex items-center gap-1.5 shrink-0">
-                  {meta.isDiamondSlot4 && (
-                    <span className="inline-flex items-center gap-0.5 rounded-md bg-sky-500/15 border border-sky-500/35 px-1.5 py-0.5 font-mono text-[9px] font-bold text-sky-600 dark:text-sky-300">
-                      <Gem className="h-2.5 w-2.5" />
+                <div className="flex shrink-0 items-center gap-1.5">
+                  {meta.isDiamondSlot4 ? (
+                    <span className="inline-flex items-center gap-1 rounded-md bg-sky-500/15 px-2 py-0.5 font-mono text-xs font-bold text-sky-700 dark:text-sky-300">
+                      <Gem className="h-3.5 w-3.5" aria-hidden="true" />
                       <span>2,000</span>
                     </span>
-                  )}
+                  ) : null}
                   <span
                     data-testid={`${idPrefix}-slot-${slotNum}-level-badge`}
-                    className="rounded-md bg-secondary px-1.5 py-0.5 font-mono text-[11px] font-black text-foreground"
+                    className="rounded-md bg-secondary px-2 py-0.5 font-mono text-sm font-black text-foreground"
                   >
                     {lv}/{MAX_TRAIT_SLOT_LEVEL}
                   </span>
                 </div>
               </div>
 
-              <div className="flex items-center justify-between gap-2 text-[10px] font-mono text-muted-foreground">
+              <div className="flex items-center justify-between gap-2 text-sm font-sans text-muted-foreground">
                 <span className="truncate">{meta.effectText}</span>
-                <span className="shrink-0 font-semibold text-amber-600 dark:text-amber-400">
-                  {lv * SHARDS_PER_TRAIT_LEVEL}{" "}
-                  {locale === "vi" ? "Mảnh" : "Shards"}
+                <span className="shrink-0 font-semibold text-amber-700 dark:text-amber-400">
+                  <span className="font-mono">{lv * SHARDS_PER_TRAIT_LEVEL}</span>{" "}
+                  {shardUnit}
                 </span>
               </div>
 
-              {/* Slider with [-] and [+] at both ends */}
-              <div className="flex items-center gap-1.5">
-                <button
-                  type="button"
-                  data-testid={`${idPrefix}-slot-${slotNum}-minus-btn`}
+              {/* Slider with 44px [-] and [+] at both ends */}
+              <div className="flex items-center gap-2">
+                <CalculatorStepperButton
+                  direction="decrease"
+                  testId={`${idPrefix}-slot-${slotNum}-minus-btn`}
                   disabled={lv <= 0}
-                  onClick={() =>
-                    onChangeSlotLevel(slotIdx, clampTraitLevel(lv - 1))
-                  }
-                  aria-label={
+                  onClick={() => onChangeSlotLevel(slotIdx, clampTraitLevel(lv - 1))}
+                  ariaLabel={
                     locale === "vi"
                       ? `Giảm cấp Ô ${slotNum}`
                       : `Decrease Slot ${slotNum} level`
                   }
-                  className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border border-border bg-card hover:bg-secondary disabled:opacity-40 cursor-pointer disabled:cursor-not-allowed transition-colors"
-                >
-                  <Minus className="h-3.5 w-3.5" />
-                </button>
-
+                />
                 <input
                   type="range"
                   min={0}
@@ -237,35 +241,26 @@ export function HeroTraitSlotsSelector({
                   data-testid={`${idPrefix}-slot-${slotNum}-slider`}
                   aria-label={`${title} - Slot ${slotNum}`}
                   onChange={(e) =>
-                    onChangeSlotLevel(
-                      slotIdx,
-                      clampTraitLevel(Number(e.target.value))
-                    )
+                    onChangeSlotLevel(slotIdx, clampTraitLevel(Number(e.target.value)))
                   }
-                  className="w-full h-1.5 accent-amber-500 cursor-pointer"
+                  className="h-11 min-w-0 flex-1 cursor-pointer accent-amber-500"
                 />
-
-                <button
-                  type="button"
-                  data-testid={`${idPrefix}-slot-${slotNum}-plus-btn`}
+                <CalculatorStepperButton
+                  direction="increase"
+                  testId={`${idPrefix}-slot-${slotNum}-plus-btn`}
                   disabled={lv >= MAX_TRAIT_SLOT_LEVEL}
-                  onClick={() =>
-                    onChangeSlotLevel(slotIdx, clampTraitLevel(lv + 1))
-                  }
-                  aria-label={
+                  onClick={() => onChangeSlotLevel(slotIdx, clampTraitLevel(lv + 1))}
+                  ariaLabel={
                     locale === "vi"
                       ? `Tăng cấp Ô ${slotNum}`
                       : `Increase Slot ${slotNum} level`
                   }
-                  className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border border-border bg-card hover:bg-secondary disabled:opacity-40 cursor-pointer disabled:cursor-not-allowed transition-colors"
-                >
-                  <Plus className="h-3.5 w-3.5" />
-                </button>
+                />
               </div>
-            </div>
+            </li>
           );
         })}
-      </div>
+      </ul>
     </div>
   );
 }
