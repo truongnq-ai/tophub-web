@@ -78,9 +78,9 @@ const SIZE_CONFIG: Record<
 
 const RARITY_FRAME_CLASSES: Record<AssetRarity, string> = {
   mythic:
-    "border border-rose-500/65 dark:border-rose-400/60 bg-gradient-to-br from-rose-500/25 via-amber-500/12 to-slate-900/10 dark:from-rose-950/85 dark:via-slate-900/90 dark:to-rose-900/55 text-rose-500 dark:text-rose-400 ring-1 ring-inset ring-black/10 dark:ring-white/15 shadow-xs",
+    "border border-rose-500/65 dark:border-rose-400/60 bg-gradient-to-br from-rose-500/25 via-amber-500/12 to-slate-900/10 dark:from-rose-950/85 dark:via-slate-900/90 dark:to-rose-900/55 text-rose-500 dark:text-rose-400 ring-1 ring-inset ring-black/10 dark:ring-white/15 shadow-sm",
   legendary:
-    "border border-amber-500/65 dark:border-amber-400/60 bg-gradient-to-br from-amber-500/25 via-yellow-500/12 to-slate-900/10 dark:from-amber-950/85 dark:via-slate-900/90 dark:to-amber-900/55 text-amber-500 dark:text-amber-400 ring-1 ring-inset ring-black/10 dark:ring-white/15 shadow-xs",
+    "border border-amber-500/65 dark:border-amber-400/60 bg-gradient-to-br from-amber-500/25 via-yellow-500/12 to-slate-900/10 dark:from-amber-950/85 dark:via-slate-900/90 dark:to-amber-900/55 text-amber-500 dark:text-amber-400 ring-1 ring-inset ring-black/10 dark:ring-white/15 shadow-sm",
   epic:
     "border border-purple-500/60 dark:border-purple-400/60 bg-gradient-to-br from-purple-500/25 via-fuchsia-500/12 to-slate-900/10 dark:from-purple-950/85 dark:via-slate-900/90 dark:to-purple-900/55 text-purple-500 dark:text-purple-400 ring-1 ring-inset ring-black/10 dark:ring-white/15",
   rare:
@@ -181,7 +181,7 @@ export function GameAssetFrame({
         <span
           aria-hidden="true"
           className={cn(
-            "pointer-events-none absolute z-10 inline-flex items-center justify-center rounded-full border border-slate-950/90 bg-slate-950/90 shadow-xs",
+            "pointer-events-none absolute z-10 inline-flex items-center justify-center rounded-full bg-slate-950/90 ring-1 ring-slate-950/90 shadow-sm",
             cfg.badgeClass
           )}
         >

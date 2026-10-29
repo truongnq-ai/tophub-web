@@ -24,7 +24,7 @@ export function VisualShowcaseDeck({
     <div
       data-testid="visual-showcase-deck"
       className={cn(
-        "min-w-0 overflow-hidden rounded-xl border border-amber-500/25 bg-background/75 p-3",
+        "min-w-0 overflow-hidden rounded-2xl bg-muted/35 dark:bg-slate-900/50 border-0 p-3 sm:p-3.5",
         className
       )}
     >
@@ -47,10 +47,10 @@ export function VisualShowcaseDeck({
             <figure
               key={`${item.assetId}-${idx}`}
               data-testid={`showcase-card-${idx}`}
-              className="group relative flex min-w-0 flex-col items-center justify-between rounded-xl border border-border/75 bg-card/90 p-2.5 text-center transition-colors hover:border-amber-500/45"
+              className="group relative flex min-w-0 flex-col items-center justify-between rounded-xl bg-background/85 dark:bg-card/85 border-0 sm:border sm:border-border/60 p-3 text-center transition-colors hover:bg-amber-500/5 sm:hover:border-amber-500/45"
             >
               {item.badgeText ? (
-                <span className="mb-1.5 inline-flex items-center rounded-md border border-amber-500/35 bg-amber-500/15 px-1.5 py-0.5 font-mono text-[10px] font-bold text-amber-600 dark:text-amber-300">
+                <span className="mb-1.5 inline-flex items-center rounded-md bg-amber-500/15 border-0 px-2 py-0.5 font-sans text-xs font-bold text-amber-600 dark:text-amber-300">
                   {item.badgeText}
                 </span>
               ) : null}
@@ -65,11 +65,11 @@ export function VisualShowcaseDeck({
               />
 
               <figcaption className="mt-1.5 w-full space-y-0.5">
-                <span className="line-clamp-2 block font-heading text-[11px] font-bold leading-tight text-foreground">
+                <span className="line-clamp-2 block font-heading text-sm font-bold leading-snug text-foreground">
                   {primaryLabel}
                 </span>
                 {subLabel ? (
-                  <span className="line-clamp-1 block font-mono text-[9px] text-muted-foreground">
+                  <span className="line-clamp-1 block font-sans text-xs text-muted-foreground">
                     {subLabel}
                   </span>
                 ) : null}

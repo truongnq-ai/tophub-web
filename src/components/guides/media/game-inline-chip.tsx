@@ -62,7 +62,7 @@ export function GameInlineChip({
         setIsOpen((prev) => !prev);
       }}
       className={cn(
-        "relative mx-0.5 inline-flex items-center gap-1 rounded-md border border-border/75 dark:border-white/15 bg-muted/85 dark:bg-slate-900/90 px-1.5 py-0.5 font-mono text-[0.82em] leading-snug font-semibold align-middle -translate-y-[1px] transition-colors cursor-pointer",
+        "relative mx-0.5 inline-flex items-center gap-1 rounded-md border border-border/75 dark:border-white/15 bg-muted/85 dark:bg-slate-900/90 px-1.5 py-0.5 font-sans text-xs sm:text-sm leading-snug font-semibold align-middle -translate-y-[1px] transition-colors cursor-pointer",
         codeClassName
       )}
     >
@@ -76,7 +76,7 @@ export function GameInlineChip({
           width={16}
           height={16}
           onError={() => setImgError(true)}
-          className="h-4 w-4 shrink-0 rounded-xs object-contain"
+          className="h-4 w-4 shrink-0 rounded-sm object-contain"
         />
       ) : null}
       {children}

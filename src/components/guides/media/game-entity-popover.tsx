@@ -53,7 +53,7 @@ export function GameEntityPopover({ entity, locale }: GameEntityPopoverProps) {
     <span
       role="tooltip"
       data-testid="game-entity-popover"
-      className="pointer-events-none absolute bottom-full left-1/2 z-50 mb-2 w-[min(16rem,calc(100vw-2rem))] max-w-[calc(100vw-2rem)] -translate-x-1/2 rounded-xl border border-amber-500/40 bg-slate-950/95 p-3 text-left font-sans text-xs text-slate-100 shadow-xl backdrop-blur-md"
+      className="pointer-events-none absolute bottom-full left-1/2 z-50 mb-2 w-[min(18rem,calc(100vw-2rem))] max-w-[calc(100vw-2rem)] -translate-x-1/2 rounded-2xl border border-amber-500/40 bg-slate-950/95 p-3.5 text-left font-sans text-xs text-slate-100 shadow-xl backdrop-blur-md"
     >
       <span className="flex items-start gap-2.5">
         <GameAssetFrame
@@ -63,21 +63,21 @@ export function GameEntityPopover({ entity, locale }: GameEntityPopoverProps) {
           size="md"
           alt=""
         />
-        <span className="min-w-0 flex-1 space-y-0.5">
-          <span className="block font-heading text-xs font-bold leading-snug text-white">
+        <span className="min-w-0 flex-1 space-y-1">
+          <span className="block font-heading text-sm font-bold leading-snug text-white">
             {primaryName}
           </span>
           {secondaryName ? (
-            <span className="block font-mono text-[10px] font-medium text-amber-300/90">
+            <span className="block font-sans text-xs font-medium text-amber-300/90">
               {secondaryName}
             </span>
           ) : null}
-          <span className="flex flex-wrap items-center gap-1 pt-0.5">
-            <span className="inline-flex items-center rounded border border-amber-500/35 bg-amber-500/15 px-1.5 py-0.5 font-mono text-[10px] font-semibold text-amber-300">
+          <span className="flex flex-wrap items-center gap-1.5 pt-0.5">
+            <span className="inline-flex items-center rounded-md bg-amber-500/20 px-2 py-0.5 font-sans text-xs font-semibold text-amber-300">
               {rarityLabel}
             </span>
             {factionLabel ? (
-              <span className="inline-flex items-center rounded border border-slate-700 bg-slate-800/90 px-1.5 py-0.5 font-mono text-[10px] font-medium text-slate-300">
+              <span className="inline-flex items-center rounded-md bg-slate-800/90 px-2 py-0.5 font-sans text-xs font-medium text-slate-200">
                 {factionLabel}
               </span>
             ) : null}
@@ -86,7 +86,7 @@ export function GameEntityPopover({ entity, locale }: GameEntityPopoverProps) {
       </span>
 
       {description ? (
-        <span className="mt-2 block border-t border-slate-800 pt-1.5 text-[11px] font-normal leading-relaxed text-slate-300">
+        <span className="mt-2.5 block border-t border-slate-800/80 pt-2 font-sans text-sm font-normal leading-relaxed text-slate-200">
           {description}
         </span>
       ) : null}

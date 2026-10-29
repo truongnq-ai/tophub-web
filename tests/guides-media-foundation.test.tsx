@@ -17,12 +17,15 @@ import {
   getMediaShowcaseItems,
 } from "../src/content/guides/asset-registry";
 import { GameAssetFrame } from "../src/components/guides/media/game-asset-frame";
+import { GameInlineChip } from "../src/components/guides/media/game-inline-chip";
+import { VisualShowcaseDeck } from "../src/components/guides/media/visual-showcase-deck";
 import { RichGuideText } from "../src/components/guides/blocks/rich-guide-text";
 import { MediaSpotlightBlock } from "../src/components/guides/blocks/media-spotlight-block";
 import { VisualDiagramBlock } from "../src/components/guides/blocks/visual-diagram-block";
 import { ResponsiveDataTable } from "../src/components/guides/blocks/responsive-data-table";
 
 const PUBLIC_DIR = path.resolve(__dirname, "../public");
+const MEDIA_DIR = path.resolve(__dirname, "../src/components/guides/media");
 const VI_DIACRITIC_REGEX =
   /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỠỲÝỴỶỸĐ]/;
 
@@ -354,6 +357,69 @@ describe("Phase 1 — Tier-1 Media Asset Registry & RPG Visual Primitives", () =
         diagramContainer.querySelectorAll("img").length
       ).toBeGreaterThanOrEqual(2);
       expect(diagramContainer.textContent ?? "").not.toMatch(VI_DIACRITIC_REGEX);
+    });
+
+    it("enforces Google MD3 typography & Single-Layer Containment across GameInlineChip, GameEntityPopover, and VisualShowcaseDeck (Track 3 Phase 3.3)", () => {
+      const wukong = getAssetById("hero-wukong")!;
+      const showcaseItems = getMediaShowcaseItems("MED-2.4-01", {
+        vi: "Bộ ba Tài nguyên",
+        en: "The Core Resource Trinity",
+      });
+
+      const { container } = render(
+        <div>
+          <GameInlineChip entity={wukong} locale="vi">
+            Tôn Ngộ Không
+          </GameInlineChip>
+          <VisualShowcaseDeck items={showcaseItems} locale="vi" />
+        </div>
+      );
+
+      const chip = container.querySelector("code[data-entity-id]");
+      expect(chip).not.toBeNull();
+      expect(chip?.className).toContain("font-sans");
+      expect(chip?.className).toContain("text-xs");
+      expect(chip?.className).toContain("sm:text-sm");
+      expect(chip?.className).toContain("align-middle");
+      expect(chip?.className).toContain("-translate-y-[1px]");
+      expect(chip?.className).toContain("leading-snug");
+      expect(chip?.className).not.toContain("font-mono");
+      expect(chip?.className).not.toContain("text-[0.82em]");
+
+      fireEvent.click(chip!);
+      const popover = screen.getByTestId("game-entity-popover");
+      expect(popover.className).toContain("max-w-[calc(100vw-2rem)]");
+      expect(popover.innerHTML).not.toMatch(/\btext-\[(?:8|9|10|11)px\]/);
+
+      const rarityBadge = screen.getByText("Thần Thoại (UR)");
+      expect(rarityBadge.className).toContain("text-xs");
+      expect(rarityBadge.className).toContain("font-sans");
+      expect(rarityBadge.className).not.toContain("font-mono");
+      expect(rarityBadge.className).not.toMatch(/(^|\s)border(\s|$)/);
+
+      const deck = screen.getByTestId("visual-showcase-deck");
+      expect(deck.className).toContain("min-w-0");
+      expect(deck.className).toContain("border-0");
+      expect(deck.innerHTML).not.toMatch(/\btext-\[(?:8|9|10|11)px\]/);
+
+      const firstCard = screen.getByTestId("showcase-card-0");
+      expect(firstCard.className).toContain("border-0");
+      const figcaptionSpans = firstCard.querySelectorAll("figcaption span");
+      expect(figcaptionSpans[0]?.className).toContain("text-sm");
+
+      // Static source scan of all 4 files in src/components/guides/media/
+      const mediaFiles = [
+        "game-asset-frame.tsx",
+        "game-inline-chip.tsx",
+        "game-entity-popover.tsx",
+        "visual-showcase-deck.tsx",
+      ];
+      for (const file of mediaFiles) {
+        const src = fs.readFileSync(path.join(MEDIA_DIR, file), "utf-8");
+        expect(src, `${file} contains forbidden micro-text`).not.toMatch(
+          /\btext-\[(?:8|9|10|11)px\]|text-\[0\.82em\]/
+        );
+      }
     });
   });
 });
