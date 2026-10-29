@@ -63,9 +63,11 @@ export function CodexEntityDrawer({
     })
     .filter((a): a is NonNullable<typeof a> => a !== null);
 
+  const hasMetadataCards = Boolean(communityName) || entity.gameId !== null;
+
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-end bg-slate-950/70 backdrop-blur-xs p-3 sm:p-5"
+      className="fixed inset-0 z-50 flex items-center justify-end bg-slate-950/70 backdrop-blur-sm p-3 sm:p-5"
       onClick={onClose}
     >
       <div
@@ -74,10 +76,10 @@ export function CodexEntityDrawer({
         aria-labelledby="codex-drawer-title"
         data-testid="codex-entity-drawer"
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-3xl border border-amber-500/35 bg-card/95 p-5 sm:p-6 shadow-2xl space-y-5"
+        className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-3xl border border-amber-500/35 bg-card/95 p-4 sm:p-6 shadow-2xl space-y-5"
       >
         {/* Header + Close Button */}
-        <div className="flex items-start justify-between gap-3 border-b border-border/70 pb-4">
+        <div className="flex items-start justify-between gap-3 border-b border-border/60 pb-4">
           <div className="flex items-center gap-3.5 min-w-0">
             <GameAssetFrame
               src={entity.path}
@@ -90,15 +92,21 @@ export function CodexEntityDrawer({
               <div className="flex flex-wrap items-center gap-1.5">
                 <Badge
                   variant="outline"
-                  className="font-mono text-[10px] border-amber-500/40 text-amber-500"
+                  className="border-0 bg-amber-500/15 px-2.5 py-0.5 font-sans text-xs font-semibold text-amber-600 dark:text-amber-400"
                 >
                   {categoryLabel}
                 </Badge>
-                <Badge variant="outline" className="font-mono text-[10px]">
+                <Badge
+                  variant="outline"
+                  className="border-0 bg-muted/60 px-2.5 py-0.5 font-sans text-xs font-semibold text-foreground/90"
+                >
                   {rarityLabel}
                 </Badge>
                 {entity.faction !== "neutral" && (
-                  <Badge variant="outline" className="font-mono text-[10px]">
+                  <Badge
+                    variant="outline"
+                    className="border-0 bg-muted/60 px-2.5 py-0.5 font-sans text-xs font-semibold text-foreground/90"
+                  >
                     {factionLabel}
                   </Badge>
                 )}
@@ -106,14 +114,14 @@ export function CodexEntityDrawer({
 
               <h2
                 id="codex-drawer-title"
-                className="font-heading font-black text-lg sm:text-xl text-foreground leading-snug"
+                className="font-heading font-black text-lg sm:text-2xl text-foreground leading-snug break-words"
               >
                 {primaryName}
               </h2>
 
               {secondaryBilingualName &&
                 secondaryBilingualName !== primaryName && (
-                  <p className="text-xs font-mono text-amber-500">
+                  <p className="text-xs sm:text-sm font-sans font-medium text-amber-600 dark:text-amber-400 break-words">
                     EN: {secondaryBilingualName}
                   </p>
                 )}
@@ -127,15 +135,15 @@ export function CodexEntityDrawer({
             data-testid="codex-drawer-close-btn"
             onClick={onClose}
             aria-label={isVi ? "Đóng chi tiết" : "Close details"}
-            className="h-11 w-11 shrink-0 rounded-xl border-border/80"
+            className="h-11 w-11 min-h-[44px] min-w-[44px] shrink-0 rounded-xl border-0 bg-muted/50 hover:bg-muted/80"
           >
             <X className="h-4 w-4" />
           </Button>
         </div>
 
-        {/* Full Portrait Preview (if available for Heroes) */}
+        {/* Full Portrait Preview (if available for Heroes) — Flat Tonal Surface */}
         {entity.portraitPath ? (
-          <div className="rounded-2xl border border-border/70 bg-slate-950/60 p-3 flex items-center justify-center">
+          <div className="rounded-2xl bg-muted/45 dark:bg-slate-950/60 border-0 p-3.5 flex items-center justify-center">
             <img
               src={entity.portraitPath}
               alt={primaryName}
@@ -148,10 +156,10 @@ export function CodexEntityDrawer({
           </div>
         ) : null}
 
-        {/* Variant / Upgrade Stage Gallery (when multiple sprites were deduplicated into this entity) */}
+        {/* Variant / Upgrade Stage Gallery — Flat Tonal Surface */}
         {entity.galleryPaths && entity.galleryPaths.length > 1 ? (
-          <div className="rounded-2xl border border-border/70 bg-background/50 p-3 space-y-2">
-            <span className="text-[10px] font-mono uppercase text-muted-foreground block">
+          <div className="rounded-2xl bg-muted/40 dark:bg-muted/20 border-0 p-3.5 space-y-2.5">
+            <span className="text-xs font-sans font-semibold uppercase tracking-wide text-muted-foreground block">
               {isVi
                 ? `Biến thể hình ảnh & Cấp bậc (${entity.galleryPaths.length})`
                 : `Visual Variants & Upgrade Stages (${entity.galleryPaths.length})`}
@@ -171,52 +179,54 @@ export function CodexEntityDrawer({
           </div>
         ) : null}
 
-        {/* Metadata Badges (Community Term, Game ID, Glossary ID) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
-          {communityName && (
-            <div className="rounded-2xl border border-border/70 bg-background/60 p-3 space-y-0.5">
-              <span className="text-[10px] font-mono uppercase text-muted-foreground flex items-center gap-1">
-                <Sparkles className="h-3 w-3 text-amber-500" />
-                {isVi ? "Thuật ngữ Cẩm nang" : "Tactical Guide Term"}
-              </span>
-              <p className="font-heading font-bold text-foreground">
-                {communityName}
-              </p>
-            </div>
-          )}
+        {/* Metadata Cards (Community Term, Game ID) — Flat Tonal Surfaces */}
+        {hasMetadataCards ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            {communityName && (
+              <div className="rounded-2xl bg-muted/40 dark:bg-muted/20 border-0 p-3.5 space-y-1">
+                <span className="text-xs font-sans font-semibold text-muted-foreground flex items-center gap-1.5">
+                  <Sparkles className="h-3.5 w-3.5 text-amber-500 shrink-0" />
+                  {isVi ? "Thuật ngữ Cẩm nang" : "Tactical Guide Term"}
+                </span>
+                <p className="font-heading font-bold text-sm sm:text-base text-foreground break-words">
+                  {communityName}
+                </p>
+              </div>
+            )}
 
-          {entity.gameId !== null && (
-            <div className="rounded-2xl border border-border/70 bg-background/60 p-3 space-y-0.5">
-              <span className="text-[10px] font-mono uppercase text-muted-foreground flex items-center gap-1">
-                <Hash className="h-3 w-3 text-amber-500" />
-                {isVi ? "Mã định danh Game ID" : "In-Game Asset ID"}
-              </span>
-              <p className="font-mono font-bold text-amber-500">
-                #{entity.gameId}
-              </p>
-            </div>
-          )}
-        </div>
+            {entity.gameId !== null && (
+              <div className="rounded-2xl bg-muted/40 dark:bg-muted/20 border-0 p-3.5 space-y-1">
+                <span className="text-xs font-sans font-semibold text-muted-foreground flex items-center gap-1.5">
+                  <Hash className="h-3.5 w-3.5 text-amber-500 shrink-0" />
+                  {isVi ? "Mã định danh Game ID" : "In-Game Asset ID"}
+                </span>
+                <p className="font-mono font-bold text-sm sm:text-base text-amber-500">
+                  #{entity.gameId}
+                </p>
+              </div>
+            )}
+          </div>
+        ) : null}
 
-        {/* In-Game Effect & Tactical Usage Description */}
-        <div className="rounded-2xl border border-amber-500/25 bg-amber-500/5 p-4 space-y-1.5">
-          <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
+        {/* In-Game Effect & Tactical Usage Description — Flat Tonal Surface */}
+        <div className="rounded-2xl bg-amber-500/10 dark:bg-amber-500/10 border-0 p-4 space-y-2">
+          <h3 className="text-xs sm:text-sm font-heading font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
             {isVi
               ? "Công Dụng & Vai Trò Chiến Thuật"
               : "In-Game Effect & Tactical Role"}
           </h3>
-          <p className="text-xs sm:text-sm text-foreground/90 leading-relaxed">
+          <p className="text-sm sm:text-base font-sans text-foreground leading-relaxed break-words">
             {description}
           </p>
         </div>
 
-        {/* Related Tactical Guide Articles */}
+        {/* Related Tactical Guide Articles — Single-Layer Tonal List with Hairline Dividers */}
         <div
           data-testid="codex-drawer-related-guides"
           className="space-y-2.5 pt-1"
         >
-          <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
-            <BookOpen className="h-3.5 w-3.5 text-amber-500" />
+          <h3 className="text-xs sm:text-sm font-heading font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
+            <BookOpen className="h-4 w-4 text-amber-500 shrink-0" />
             <span>
               {isVi
                 ? "Cẩm Nang Chiến Thuật Liên Quan"
@@ -224,31 +234,39 @@ export function CodexEntityDrawer({
             </span>
           </h3>
 
-          <div className="space-y-2">
-            {relatedArticles.map((art) => (
-              <Link
-                key={`${art.categorySlug}/${art.slug}`}
-                href={`/guides/${art.categorySlug}/${art.slug}`}
-                onClick={onClose}
-                className="group flex items-center justify-between gap-2.5 rounded-2xl border border-border/80 bg-background/70 hover:border-amber-500/50 p-3 text-xs transition-all"
-              >
-                <div className="min-w-0 space-y-0.5">
-                  <div className="flex items-center gap-1.5">
-                    <span className="font-mono text-[11px] font-bold text-amber-500">
-                      #{art.code}
-                    </span>
-                    <span className="font-heading font-bold text-foreground group-hover:text-amber-500 truncate">
-                      {art.title[locale]}
-                    </span>
+          {relatedArticles.length > 0 ? (
+            <div className="rounded-2xl bg-muted/35 dark:bg-muted/20 border-0 divide-y divide-border/60 overflow-hidden">
+              {relatedArticles.map((art) => (
+                <Link
+                  key={`${art.categorySlug}/${art.slug}`}
+                  href={`/guides/${art.categorySlug}/${art.slug}`}
+                  onClick={onClose}
+                  className="group flex items-center justify-between gap-3 min-h-[44px] px-3.5 py-3 border-0 hover:bg-amber-500/10 transition-colors"
+                >
+                  <div className="min-w-0 space-y-0.5">
+                    <div className="flex items-center gap-2">
+                      <span className="font-mono text-xs font-bold text-amber-500 shrink-0">
+                        #{art.code}
+                      </span>
+                      <span className="font-heading font-bold text-sm sm:text-base text-foreground group-hover:text-amber-500 truncate">
+                        {art.title[locale]}
+                      </span>
+                    </div>
+                    <p className="text-xs sm:text-sm font-sans text-muted-foreground line-clamp-1">
+                      {art.summary[locale]}
+                    </p>
                   </div>
-                  <p className="text-[11px] text-muted-foreground line-clamp-1">
-                    {art.summary[locale]}
-                  </p>
-                </div>
-                <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-amber-500 shrink-0" />
-              </Link>
-            ))}
-          </div>
+                  <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-amber-500 shrink-0" />
+                </Link>
+              ))}
+            </div>
+          ) : (
+            <p className="rounded-2xl bg-muted/35 dark:bg-muted/20 border-0 px-3.5 py-3 text-xs sm:text-sm font-sans text-muted-foreground">
+              {isVi
+                ? "Đang cập nhật bài viết chiến thuật liên quan."
+                : "Related strategy guides are being updated."}
+            </p>
+          )}
         </div>
       </div>
     </div>

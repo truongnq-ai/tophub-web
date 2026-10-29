@@ -24,6 +24,8 @@ import {
 } from "@/components/guides/codex/codex-utils";
 import { GameCodexClient } from "@/components/guides/codex/game-codex-client";
 import { CodexEntityDrawer } from "@/components/guides/codex/codex-entity-drawer";
+import { GuidesHubClient } from "@/components/guides/guides-hub-client";
+import { GuidesSidebar } from "@/components/guides/guides-sidebar";
 
 let mockActiveLocale: "vi" | "en" = "vi";
 
@@ -84,7 +86,7 @@ const EXPECTED_CATEGORIES: readonly CodexCategoryId[] = [
 ] as const;
 
 const VI_DIACRITIC_REGEX =
-  /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ]/;
+  /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỠỲÝỴỶỸĐ]/;
 
 const RAW_SPRITE_NAME_REGEX = /^(?:icon|Head|Activity)\s+\d+$/i;
 
@@ -414,10 +416,6 @@ describe("Phase 5 — Suite 4: Strict Locale Gate (GAP-01) & De-Boxing CSS Guard
   });
 });
 
-
-import { GuidesHubClient } from "@/components/guides/guides-hub-client";
-import { GuidesSidebar } from "@/components/guides/guides-sidebar";
-
 describe("Phase 5 — Suite 5: GuidesHubClient 3A Integration & Unified Search (Task P5.3)", () => {
   it("renders the /guides/codex shortcut card on Interactive Tools Strip and shows both Articles & Codex Entities on Instant Search", () => {
     mockActiveLocale = "vi";
@@ -456,5 +454,67 @@ describe("Phase 5 — Suite 6: GuidesSidebar Codex Link & isCodexRoute State (GA
 
     // First article in getting-started ("1.1") should remain visible in the open Accordion
     expect(screen.getByText("1.1")).toBeDefined();
+  });
+});
+
+describe("Track 3 — Phase 3.3 Suite 7A: CodexEntityDrawer MD3 Typography, Single-Layer Containment & Null Safety Gate", () => {
+  it("flattens inner Drawer sections to border-0 + divide-y, upgrades descriptions & related links to 14px-16px, and handles empty relatedArticleSlugs safely", () => {
+    mockActiveLocale = "vi";
+    const seeds = getInitialCodexSeedRecords();
+    const { unmount } = render(
+      <CodexEntityDrawer
+        entity={{
+          ...seeds[0]!,
+          galleryPaths: [seeds[0]!.path, seeds[1]!.path],
+        }}
+        locale="vi"
+        onClose={() => undefined}
+      />
+    );
+
+    const drawer = screen.getByTestId("codex-entity-drawer");
+    expect(drawer.innerHTML).not.toMatch(/\btext-\[(?:8|9|10|11)px\]/);
+
+    const closeBtn = screen.getByTestId("codex-drawer-close-btn");
+    expect(closeBtn.className).toContain("h-11");
+    expect(closeBtn.className).toContain("w-11");
+    expect(closeBtn.className).toContain("border-0");
+
+    const relatedGuides = screen.getByTestId("codex-drawer-related-guides");
+    const relatedLink = relatedGuides.querySelector("a");
+    expect(relatedLink).not.toBeNull();
+    expect(relatedLink?.className).toContain("min-h-[44px]");
+    expect(relatedLink?.className).toContain("border-0");
+
+    const drawerSource = fs.readFileSync(
+      path.resolve(
+        process.cwd(),
+        "src/components/guides/codex/codex-entity-drawer.tsx"
+      ),
+      "utf-8"
+    );
+    expect(drawerSource).not.toMatch(/\btext-\[(?:8|9|10|11)px\]/);
+    expect(drawerSource).not.toContain("backdrop-blur-xs");
+    unmount();
+
+    // Null/Empty Edge Case: no communityName, gameId = null, relatedArticleSlugs = []
+    render(
+      <CodexEntityDrawer
+        entity={{
+          ...seeds[0]!,
+          communityNameVi: undefined,
+          communityNameEn: undefined,
+          gameId: null,
+          relatedArticleSlugs: [],
+        }}
+        locale="en"
+        onClose={() => undefined}
+      />
+    );
+    const emptyRelated = screen.getByTestId("codex-drawer-related-guides");
+    expect(emptyRelated.textContent).toContain(
+      "Related strategy guides are being updated."
+    );
+    expect(VI_DIACRITIC_REGEX.test(emptyRelated.textContent ?? "")).toBe(false);
   });
 });
