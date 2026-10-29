@@ -7,6 +7,8 @@ import {
   type TraitSlotIndex,
 } from "../src/content/calculators/hero-traits-data";
 import { HeroTraitSlotsSelector } from "../src/components/calculators/hero-trait-slots-selector";
+import { getCalculatorToolBySlug } from "../src/content/calculators/registry";
+import { HeroTraitsCalculator } from "../src/components/calculators/hero-traits-calculator";
 import {
   ALL_SIDE_BORDER_REGEX,
   countMicroTextOccurrences,
@@ -103,5 +105,86 @@ describe("Phase 2.4 / HeroTraitSlotsSelector MD3", () => {
 
     fireEvent.click(screen.getByTestId("to-slot-1-plus-btn"));
     expect(screen.getByTestId("to-slot-1-level-badge").textContent).toBe("16/30");
+  });
+});
+
+describe("Phase 2.4 / HeroTraitsCalculator MD3", () => {
+  const selection = getCalculatorToolBySlug("heroes", "hero-traits")!;
+  const renderCalculator = () =>
+    render(
+      <HeroTraitsCalculator
+        zone={selection.zone}
+        category={selection.category}
+        tool={selection.tool}
+        locale="vi"
+      />
+    );
+
+  it("hero-traits-calculator.tsx contains zero text-[8px..11px] classes", () => {
+    expect(
+      countMicroTextOccurrences(
+        readSource("src/components/calculators/hero-traits-calculator.tsx")
+      )
+    ).toBe(0);
+  });
+
+  it("uses a flat header, 30–36px dual metrics and 16px/44px inputs with an accessible [i] button", () => {
+    renderCalculator();
+    expect(screen.getByTestId("calculator-tool-header").className).not.toMatch(
+      ALL_SIDE_BORDER_REGEX
+    );
+
+    const shards = screen.getByTestId("traits-required-shards-value");
+    expect(shards.textContent).toBe("450");
+    expect(shards.className).toContain("text-3xl");
+    expect(screen.getByTestId("traits-required-diamonds-value").className).toContain(
+      "sm:text-4xl"
+    );
+
+    for (const id of ["traits-owned-shards-input", "traits-owned-diamonds-input"]) {
+      const input = screen.getByTestId(id);
+      expect(input.className).toContain("h-11");
+      expect(input.className).toContain("text-base");
+    }
+
+    const infoBtn = screen.getByTestId("toggle-traits-breakdown-btn");
+    expect(infoBtn.className).toContain("h-11");
+    expect(infoBtn.getAttribute("aria-label")).toBeTruthy();
+  });
+
+  it("renders the 4-slot breakdown table without a nested bordered wrapper", () => {
+    renderCalculator();
+    fireEvent.click(screen.getByTestId("toggle-traits-breakdown-btn"));
+
+    const panel = screen.getByTestId("traits-breakdown-panel");
+    expect(getMaxBorderedContainerDepth(panel)).toBe(1);
+    const heading = within(panel).getByRole("heading", { level: 2 });
+    expect(heading.className).toContain("font-heading");
+    expect(heading.className).not.toContain("font-mono");
+
+    const table = screen.getByTestId("traits-breakdown-table");
+    expect(table.parentElement?.className ?? "").not.toMatch(ALL_SIDE_BORDER_REGEX);
+    expect(table.querySelector("thead tr")?.className).toContain("font-sans");
+    expect(table.querySelector("tbody")?.className).not.toContain("font-mono");
+  });
+
+  it("keeps warnings at 44px CTAs and ≤ 1 bordered layer with zero micro/mono-Vietnamese text", () => {
+    renderCalculator();
+    fireEvent.click(screen.getByTestId("to-preset-max-btn"));
+    expect(screen.getByTestId("lock-slot4-save-diamonds-btn").className).toContain(
+      "min-h-[44px]"
+    );
+
+    fireEvent.click(screen.getByTestId("central-hero-avatar-trigger"));
+    expect(screen.getByTestId("hero-sequential-picker").getAttribute("data-md3-overlay")).toBe(
+      "true"
+    );
+    expect(screen.getByTestId("rarity-tab-mythic").className).toContain("min-h-[56px]");
+    fireEvent.click(screen.getByTestId("toggle-traits-breakdown-btn"));
+
+    const root = screen.getByTestId("hero-traits-calculator");
+    expect(getMaxBorderedContainerDepth(root)).toBeLessThanOrEqual(1);
+    expect(findMicroTextElements(root)).toEqual([]);
+    expect(findMonoElementsWithVietnamese(root)).toEqual([]);
   });
 });
