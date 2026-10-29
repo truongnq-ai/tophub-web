@@ -140,27 +140,27 @@ export const HERO_STAR_MILESTONES: Readonly<
   Record<number, Record<CalculatorLocale, string>>
 > = {
   5: {
-    vi: "Hoàn tất 5★ Vàng — Chuẩn bị đột phá tầng Sao Đỏ",
-    en: "Completed 5★ Gold — Ready for Red Star breakthrough",
+    vi: "Hoàn tất 5★ Vàng — Mở khóa đột phá tầng Sao Đỏ",
+    en: "Completed 5★ Gold — Unlocks Red Star tier breakthrough",
   },
   6: {
-    vi: "Mở khóa Kỹ năng thứ 5 (Tướng Đỏ Mythic) & Đột phá 1★ Đỏ",
-    en: "Unlocks 5th Skill (Mythic Heroes) & 1★ Red Breakthrough",
+    vi: "Mở khóa 1★ Đỏ & Thiên Phú mới",
+    en: "Unlocks 1★ Red & New Hero Talent",
   },
   10: {
-    vi: "Hoàn tất 5★ Đỏ — Mở điều kiện tiến lên tầng Sao Bạc",
+    vi: "Hoàn tất 5★ Đỏ — Mở khóa đột phá tầng Sao Bạc",
     en: "Completed 5★ Red — Unlocks Silver Star tier progression",
   },
   11: {
-    vi: "Điểm Gãy Vàng 1★ Bạc: Cường hóa +30% hiệu ứng kỹ năng",
-    en: "1★ Silver Golden Breakpoint: +30% Skill Effect boost",
+    vi: "Mở khóa 1★ Bạc: Cường hóa +30% hiệu ứng Thiên Phú",
+    en: "Unlocks 1★ Silver: +30% Hero Talent effect boost",
   },
   12: {
-    vi: "Mở khóa Nội tại thứ 3 (Trait 3 Kinh tế cho Tướng Tím/Vàng)",
-    en: "Unlocks 3rd Trait (Economy Passive for Epic/Legendary Heroes)",
+    vi: "Mở khóa Thiên Phú thứ 3 (2★ Bạc)",
+    en: "Unlocks 3rd Hero Talent (2★ Silver)",
   },
   15: {
-    vi: "Đạt Đỉnh 5★ Bạc (Max 15★) — Mở khóa Tiệm Đổi Quà (Exchange Shop)",
+    vi: "Đạt tối đa 5★ Bạc (15★) — Mở khóa Tiệm Đổi Mảnh",
     en: "Max 5★ Silver (15★ Cap) — Unlocks Shard Exchange Shop",
   },
 };

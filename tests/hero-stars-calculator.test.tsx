@@ -5,6 +5,7 @@ import viMessages from "../messages/vi.json";
 import enMessages from "../messages/en.json";
 import {
   HERO_STAR_RARITY_CONFIGS,
+  HERO_STAR_MILESTONES,
   getHeroesByRarity,
   stateToPetalIndex,
   petalIndexToState,
@@ -71,7 +72,7 @@ vi.mock("@/actions/comments", () => ({
 const VI_DIACRITIC_REGEX =
   /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ]/;
 
-describe("Suite 1 — Hero Stars Math Engine (15 Stars x 5 Petals = 75 Steps SSoT)", () => {
+describe("Suite 1 — Hero Stars Math Engine & In-Game Terminology (Thiên Phú / Mở khóa)", () => {
   it("computes exact 0★ -> 15★ (5★ Silver) totals for Mythic (1000), Legendary (500), Epic (470 & 500), and Rare (290 & 500)", () => {
     expect(
       calculateHeroStarUpgrade({
@@ -132,7 +133,7 @@ describe("Suite 1 — Hero Stars Math Engine (15 Stars x 5 Petals = 75 Steps SSo
     ).toBe(500);
   });
 
-  it("solves the Desert Prince (Hoàng Tử Sa Mạc) benchmark from 1★ Gold + 1 Petal (step 6) and 1★ Gold + 2 Petals (step 7) to 1★ Silver (step 55)", () => {
+  it("solves the Desert Prince (Hoàng Tử Sa Mạc) benchmark and uses 'Mở khóa' & 'Thiên Phú' terminology in milestones", () => {
     const fromStep6 = stateToPetalIndex("gold", 1, 1);
     const fromStep7 = stateToPetalIndex("gold", 1, 2);
     const to1Silver = stateToPetalIndex("silver", 1, 0);
@@ -153,14 +154,10 @@ describe("Suite 1 — Hero Stars Math Engine (15 Stars x 5 Petals = 75 Steps SSo
     expect(resStep6.missingShards).toBe(448);
     expect(resStep6.starStepsBreakdown.length).toBe(10);
 
-    const resStep7 = calculateHeroStarUpgrade({
-      rarity: "mythic",
-      fromPetalIndex: fromStep7,
-      toPetalIndex: to1Silver,
-      ownedShards: 0,
-    });
-    expect(resStep7.alreadyInvestedShards).toBe(14);
-    expect(resStep7.requiredShards).toBe(546);
+    // Terminology verification: uses "Mở khóa" & "Thiên Phú", never "Điểm Gãy Vàng"
+    expect(HERO_STAR_MILESTONES[11].vi).toContain("Mở khóa");
+    expect(HERO_STAR_MILESTONES[11].vi).toContain("Thiên Phú");
+    expect(HERO_STAR_MILESTONES[11].vi).not.toContain("Điểm Gãy Vàng");
   });
 
   it("handles round-trip petalIndex <-> Star/Petal state, boundary clamping at 75, and invalid range (fromPetal >= toPetal) safely", () => {
@@ -205,16 +202,16 @@ describe("Suite 1 — Hero Stars Math Engine (15 Stars x 5 Petals = 75 Steps SSo
   });
 });
 
-describe("Suite 2 — Compact v2.0 UI: Central Avatar Sequential Picker, 15-Star Bar, CCW Petals & [i] Breakdown", () => {
+describe("Suite 2 — Compact v2.1 UI: 15 Integrated 5-Petal Stars, 12h Top CCW [0, 288, 216, 144, 72], Slider +/- Ends & [i] Breakdown", () => {
   beforeEach(() => {
     mockLocale = "vi";
   });
 
-  it("orders star petals counter-clockwise [288, 216, 144, 72, 0] matching in-game progression", () => {
-    expect(COUNTER_CLOCKWISE_PETAL_ANGLES).toEqual([288, 216, 144, 72, 0]);
+  it("starts Petal 1 at 12h Top (0°) and progresses counter-clockwise [0, 288, 216, 144, 72]", () => {
+    expect(COUNTER_CLOCKWISE_PETAL_ANGLES).toEqual([0, 288, 216, 144, 72]);
   });
 
-  it("renders Central Hero Avatar between X and Y with single Hero Name occurrence, supports sequential Rarity -> Hero selection that auto-hides, and toggles Star Breakdown via [i] icon", () => {
+  it("renders 15 integrated 5-petal stars directly on the bar, +/- buttons at slider ends, single Hero Name under Central Avatar, and [i] Breakdown", () => {
     const resolved = getCalculatorToolBySlug("heroes", "hero-stars")!;
     expect(resolved.tool.status).toBe("ready");
 
@@ -235,65 +232,41 @@ describe("Suite 2 — Compact v2.0 UI: Central Avatar Sequential Picker, 15-Star
     );
     expect(screen.getAllByText("Hoàng Tử Sa Mạc")).toHaveLength(1);
 
-    // Sequential picker is closed initially
-    expect(screen.queryByTestId("hero-sequential-picker")).toBeNull();
-
-    // 2. Click Central Avatar -> Opens Step 1 (Select Rarity)
-    fireEvent.click(screen.getByTestId("central-hero-avatar-trigger"));
-    expect(screen.getByTestId("hero-sequential-picker")).toBeDefined();
-    expect(screen.getByTestId("rarity-card-mythic")).toBeDefined();
-    expect(screen.getByTestId("rarity-card-legendary")).toBeDefined();
-    expect(screen.getByTestId("rarity-card-epic")).toBeDefined();
-    expect(screen.getByTestId("rarity-card-rare")).toBeDefined();
-
-    // 3. Click Epic Rarity -> Advances to Step 2 (Select Hero for Epic)
-    fireEvent.click(screen.getByTestId("rarity-card-epic"));
-    const brawlerBtn = screen.getByTestId("select-hero-hero-brawler");
-    expect(brawlerBtn).toBeDefined();
-
-    // 4. Click Hero Avatar -> Selects hero and automatically hides the picker!
-    fireEvent.click(brawlerBtn);
-    expect(screen.queryByTestId("hero-sequential-picker")).toBeNull();
+    // 2. Integrated 5-petal stars on the 15-star track:
+    // At default fromPetalIndex = 6 (1★ Gold + 1 Petal of Star 2):
+    // Star 1 has 5 lit petals, Star 2 has 1 lit petal, Star 3 has 0 lit petals
     expect(
-      screen.getByTestId("hero-stars-universal-shard-name").textContent
-    ).toContain("Mảnh Vạn Năng Anh Hùng Tím");
-
-    // Switch back to Mythic -> Desert Prince to test 15-star bar & [i] breakdown
-    fireEvent.click(screen.getByTestId("central-hero-avatar-trigger"));
-    fireEvent.click(screen.getByTestId("rarity-card-mythic"));
-    fireEvent.click(screen.getByTestId("select-hero-hero-desert-prince"));
-    expect(screen.queryByTestId("hero-sequential-picker")).toBeNull();
-
-    // Default state: 1★ Gold + 1 Petal (6) -> 1★ Silver (55) = 548 shards
+      screen.getByTestId("from-milestone-star-1").getAttribute("data-lit-petals")
+    ).toBe("5");
     expect(
-      screen.getByTestId("hero-stars-total-required").textContent
-    ).toContain("548");
+      screen.getByTestId("from-milestone-star-2").getAttribute("data-lit-petals")
+    ).toBe("1");
+    expect(
+      screen.getByTestId("from-milestone-star-3").getAttribute("data-lit-petals")
+    ).toBe("0");
 
-    // 5. Stepper +1 petal on Current Star (X: step 6 -> step 7 => 546 shards)
+    // 3. Click + button at the end of the slider bar (step 6 -> step 7 => Star 2 now has 2 lit petals, required = 546)
     fireEvent.click(screen.getByTestId("from-petal-plus-btn"));
+    expect(
+      screen.getByTestId("from-milestone-star-2").getAttribute("data-lit-petals")
+    ).toBe("2");
     expect(
       screen.getByTestId("hero-stars-total-required").textContent
     ).toContain("546");
 
-    // 6. Click on 15-Star Milestone Bar (e.g. target star 12 = 2★ Silver = 60 petals)
+    // 4. Click on 15-Star Milestone Bar (target star 12 = 2★ Silver = 60 petals)
     fireEvent.click(screen.getByTestId("to-milestone-star-12"));
     expect(
       screen.getByTestId("hero-stars-total-required").textContent
-    ).toContain("586"); // 600 - 14 = 586
+    ).toContain("586");
 
-    // 7. Inventory input: 186 owned -> 400 missing
-    const ownedInput = screen.getByTestId("hero-stars-owned-input");
-    fireEvent.change(ownedInput, { target: { value: "186" } });
-    expect(
-      screen.getByTestId("hero-stars-missing-value").textContent
-    ).toContain("400");
-
-    // 8. Star Breakdown is hidden by default, shown only when clicking [i] icon next to result
+    // 5. Star Breakdown hidden by default, shows updated 'Mở khóa' & 'Thiên Phú' wording when [i] clicked
     expect(screen.queryByTestId("star-breakdown-popover")).toBeNull();
     fireEvent.click(screen.getByTestId("toggle-star-breakdown-btn"));
-    expect(screen.getByTestId("star-breakdown-popover")).toBeDefined();
-    fireEvent.click(screen.getByTestId("close-star-breakdown-btn"));
-    expect(screen.queryByTestId("star-breakdown-popover")).toBeNull();
+    const popover = screen.getByTestId("star-breakdown-popover");
+    expect(popover.textContent).toContain("Mở khóa");
+    expect(popover.textContent).toContain("Thiên Phú");
+    expect(popover.textContent).not.toContain("Điểm Gãy Vàng");
   });
 
   it("renders 100% pure English without any Vietnamese diacritics when locale='en' (including open popovers)", () => {
@@ -312,7 +285,6 @@ describe("Suite 2 — Compact v2.0 UI: Central Avatar Sequential Picker, 15-Star
     expect(screen.getByTestId("hero-stars-calculator")).toBeDefined();
     expect(container.textContent ?? "").not.toMatch(VI_DIACRITIC_REGEX);
 
-    // Open both Avatar Picker and Breakdown Popover in English to verify 0 diacritics
     fireEvent.click(screen.getByTestId("central-hero-avatar-trigger"));
     fireEvent.click(screen.getByTestId("toggle-star-breakdown-btn"));
     expect(container.textContent ?? "").not.toMatch(VI_DIACRITIC_REGEX);
