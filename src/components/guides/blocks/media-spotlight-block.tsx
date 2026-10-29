@@ -31,11 +31,11 @@ export function MediaSpotlightBlock({
 }: MediaSpotlightBlockProps) {
   if (block.tier === "tier1_faction_loop") {
     return (
-      <div className="rounded-2xl border border-amber-500/30 bg-card/80 p-4 sm:p-5 space-y-4">
+      <div className="rounded-2xl border border-amber-500/30 bg-card/85 p-3.5 sm:p-5 space-y-4 shadow-sm">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <Shield className="h-4 w-4 text-amber-500" />
-            <h4 className="font-heading font-bold text-sm sm:text-base text-foreground">
+            <Shield className="h-4 w-4 text-amber-500 shrink-0" />
+            <h4 className="font-heading font-bold text-base sm:text-lg text-foreground">
               <RichGuideText
                 text={block.title[locale]}
                 variant="inline"
@@ -43,7 +43,7 @@ export function MediaSpotlightBlock({
               />
             </h4>
           </div>
-          <Badge variant="outline" className="font-mono text-[10px]">
+          <Badge variant="outline" className="font-mono text-xs">
             {block.mediaCode} • Tier 1 Visual
           </Badge>
         </div>
@@ -51,11 +51,11 @@ export function MediaSpotlightBlock({
         <RichGuideText
           text={block.description[locale]}
           locale={locale}
-          className="text-xs sm:text-sm text-muted-foreground leading-relaxed"
+          className="text-sm sm:text-base text-muted-foreground leading-relaxed"
         />
 
-        {/* Visual Counter Cycle Arrow Banner */}
-        <div className="rounded-xl border border-amber-500/25 bg-background/80 px-3 py-2 flex flex-wrap items-center justify-center gap-2 text-xs font-heading font-bold">
+        {/* Visual Counter Cycle Arrow Banner (Flat Tonal Surface) */}
+        <div className="rounded-xl bg-muted/45 dark:bg-muted/25 px-3.5 py-2.5 flex flex-wrap items-center justify-center gap-2 text-xs sm:text-sm font-heading font-bold">
           <span className="inline-flex items-center gap-1.5 text-rose-600 dark:text-rose-400">
             <GameAssetFrame
               src="/images/factions/race_horde.webp"
@@ -92,14 +92,14 @@ export function MediaSpotlightBlock({
           <span className="inline-flex items-center gap-1.5 text-rose-600 dark:text-rose-400">
             <span>🔴 {locale === "en" ? "Horde" : "Bộ Lạc"}</span>
           </span>
-          <Badge className="ml-1 bg-amber-500/15 text-amber-600 dark:text-amber-300 border-amber-500/30 font-mono text-[10px]">
+          <Badge className="ml-1 bg-amber-500/15 text-amber-600 dark:text-amber-300 border-amber-500/30 font-mono text-xs font-bold">
             +20% DMG / -20% Taken
           </Badge>
         </div>
 
-        {/* 3-Faction Counter Cycle Strip with Real Faction Crests & Flagship Carries */}
+        {/* 3-Faction Counter Cycle Strip with Real Faction Crests & Flagship Carries (Single-Layer Tonal Surfaces) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-          <div className="rounded-xl border border-rose-500/40 bg-rose-500/10 p-3.5 space-y-2">
+          <div className="rounded-xl bg-rose-500/10 dark:bg-rose-500/15 p-3.5 space-y-2">
             <div className="flex items-center justify-between gap-2">
               <div className="flex items-center gap-2">
                 <GameAssetFrame
@@ -109,7 +109,7 @@ export function MediaSpotlightBlock({
                   showFactionBadge={false}
                   alt=""
                 />
-                <span className="font-heading font-black text-sm text-rose-600 dark:text-rose-400">
+                <span className="font-heading font-black text-sm sm:text-base text-rose-600 dark:text-rose-400">
                   🔴 {locale === "en" ? "Horde" : "Bộ Lạc (Horde)"}
                 </span>
               </div>
@@ -121,14 +121,14 @@ export function MediaSpotlightBlock({
                 alt=""
               />
             </div>
-            <p className="text-xs text-foreground/90 font-medium">
+            <p className="text-sm text-foreground/90 font-medium leading-relaxed">
               {locale === "en"
                 ? "Counters League (+20% DMG Dealt / -20% DMG Taken)"
                 : "Khắc chế cứng Liên Minh (+20% Sát thương / -20% Nhận vào)"}
             </p>
           </div>
 
-          <div className="rounded-xl border border-sky-500/40 bg-sky-500/10 p-3.5 space-y-2">
+          <div className="rounded-xl bg-sky-500/10 dark:bg-sky-500/15 p-3.5 space-y-2">
             <div className="flex items-center justify-between gap-2">
               <div className="flex items-center gap-2">
                 <GameAssetFrame
@@ -138,7 +138,7 @@ export function MediaSpotlightBlock({
                   showFactionBadge={false}
                   alt=""
                 />
-                <span className="font-heading font-black text-sm text-sky-600 dark:text-sky-400">
+                <span className="font-heading font-black text-sm sm:text-base text-sky-600 dark:text-sky-400">
                   🔵 {locale === "en" ? "League" : "Liên Minh (League)"}
                 </span>
               </div>
@@ -150,14 +150,14 @@ export function MediaSpotlightBlock({
                 alt=""
               />
             </div>
-            <p className="text-xs text-foreground/90 font-medium">
+            <p className="text-sm text-foreground/90 font-medium leading-relaxed">
               {locale === "en"
                 ? "Counters Nature (+20% DMG Dealt / -20% DMG Taken)"
                 : "Khắc chế cứng Thiên Nhiên (+20% Sát thương / -20% Nhận vào)"}
             </p>
           </div>
 
-          <div className="rounded-xl border border-emerald-500/40 bg-emerald-500/10 p-3.5 space-y-2">
+          <div className="rounded-xl bg-emerald-500/10 dark:bg-emerald-500/15 p-3.5 space-y-2">
             <div className="flex items-center justify-between gap-2">
               <div className="flex items-center gap-2">
                 <GameAssetFrame
@@ -167,7 +167,7 @@ export function MediaSpotlightBlock({
                   showFactionBadge={false}
                   alt=""
                 />
-                <span className="font-heading font-black text-sm text-emerald-600 dark:text-emerald-400">
+                <span className="font-heading font-black text-sm sm:text-base text-emerald-600 dark:text-emerald-400">
                   🟢 {locale === "en" ? "Nature" : "Thiên Nhiên (Nature)"}
                 </span>
               </div>
@@ -179,7 +179,7 @@ export function MediaSpotlightBlock({
                 alt=""
               />
             </div>
-            <p className="text-xs text-foreground/90 font-medium">
+            <p className="text-sm text-foreground/90 font-medium leading-relaxed">
               {locale === "en"
                 ? "Counters Horde (+20% DMG Dealt / -20% DMG Taken)"
                 : "Khắc chế cứng Bộ Lạc (+20% Sát thương / -20% Nhận vào)"}
@@ -187,29 +187,29 @@ export function MediaSpotlightBlock({
           </div>
         </div>
 
-        {/* Faction Aura Milestones */}
-        <div className="grid grid-cols-3 gap-2 pt-1 text-center">
-          <div className="rounded-lg border border-border/70 bg-background/70 p-2">
-            <span className="block font-mono text-xs font-bold text-amber-500">
+        {/* Faction Aura Milestones (Flat Tonal Surfaces + >= 12px Typography) */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1 text-center">
+          <div className="rounded-xl bg-muted/45 dark:bg-muted/25 p-2.5 space-y-0.5">
+            <span className="block font-sans text-xs sm:text-sm font-bold text-amber-500">
               4 {locale === "en" ? "Same Faction" : "Tướng cùng hệ"}
             </span>
-            <span className="text-[11px] text-foreground/90">
+            <span className="block font-mono text-xs text-foreground/90">
               +15% ATK & HP
             </span>
           </div>
-          <div className="rounded-lg border border-border/70 bg-background/70 p-2">
-            <span className="block font-mono text-xs font-bold text-amber-500">
+          <div className="rounded-xl bg-muted/45 dark:bg-muted/25 p-2.5 space-y-0.5">
+            <span className="block font-sans text-xs sm:text-sm font-bold text-amber-500">
               5 {locale === "en" ? "Same Faction" : "Tướng cùng hệ"}
             </span>
-            <span className="text-[11px] text-foreground/90">
+            <span className="block font-mono text-xs text-foreground/90">
               +25% ATK & HP
             </span>
           </div>
-          <div className="rounded-lg border border-amber-500/40 bg-amber-500/10 p-2">
-            <span className="block font-mono text-xs font-bold text-amber-600 dark:text-amber-400">
+          <div className="rounded-xl bg-amber-500/15 p-2.5 space-y-0.5">
+            <span className="block font-sans text-xs sm:text-sm font-bold text-amber-600 dark:text-amber-400">
               6 {locale === "en" ? "Pure Faction" : "Thuần hệ"}
             </span>
-            <span className="text-[11px] font-bold text-foreground">
+            <span className="block font-mono text-xs font-bold text-foreground">
               +35% ATK & HP
             </span>
           </div>
@@ -232,7 +232,7 @@ export function MediaSpotlightBlock({
     ).slice(0, 2);
 
     return (
-      <div className="rounded-2xl border border-rose-500/30 bg-gradient-to-r from-rose-500/10 via-card to-card p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="rounded-2xl border border-rose-500/30 bg-gradient-to-r from-rose-500/10 via-card to-card p-3.5 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm">
         <div className="flex items-start gap-3 min-w-0 flex-1">
           {previewItems.length > 0 && (
             <div className="hidden sm:flex items-center gap-1.5 shrink-0 pt-0.5">
@@ -250,23 +250,23 @@ export function MediaSpotlightBlock({
           )}
           <div className="space-y-1.5 min-w-0 flex-1">
             <div className="flex flex-wrap items-center gap-2">
-              <Badge className="bg-rose-500/15 text-rose-600 dark:text-rose-400 border-rose-500/30 font-mono text-[10px]">
-                <PlayCircle className="h-3 w-3 mr-1" />
+              <Badge className="bg-rose-500/15 text-rose-600 dark:text-rose-400 border-rose-500/30 font-mono text-xs">
+                <PlayCircle className="h-3.5 w-3.5 mr-1 shrink-0" />
                 {block.mediaCode} • YouTube Reference
               </Badge>
               {block.videoChannel && (
-                <span className="text-xs font-mono font-bold text-amber-600 dark:text-amber-400">
+                <span className="text-xs sm:text-sm font-sans font-bold text-amber-600 dark:text-amber-400">
                   {block.videoChannel}
                 </span>
               )}
               {block.videoTimestamp && (
-                <span className="inline-flex items-center gap-1 rounded-md bg-background/80 border border-border/70 px-2 py-0.5 font-mono text-[11px] text-muted-foreground">
-                  <Clock className="h-3 w-3 text-amber-500" />
+                <span className="inline-flex items-center gap-1 rounded-md bg-muted/50 px-2 py-0.5 font-mono text-xs text-muted-foreground">
+                  <Clock className="h-3.5 w-3.5 text-amber-500 shrink-0" />
                   {block.videoTimestamp}
                 </span>
               )}
             </div>
-            <h4 className="font-heading font-bold text-sm sm:text-base text-foreground">
+            <h4 className="font-heading font-bold text-base sm:text-lg text-foreground">
               <RichGuideText
                 text={block.videoTitle ?? block.title[locale]}
                 variant="inline"
@@ -276,7 +276,7 @@ export function MediaSpotlightBlock({
             <RichGuideText
               text={block.description[locale]}
               locale={locale}
-              className="text-xs text-muted-foreground leading-relaxed"
+              className="text-sm text-muted-foreground leading-relaxed"
             />
           </div>
         </div>
@@ -285,10 +285,10 @@ export function MediaSpotlightBlock({
           href={safeUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-rose-500/40 bg-rose-500/15 hover:bg-rose-500/25 px-4 py-2.5 text-xs font-heading font-bold text-rose-600 dark:text-rose-300 transition-colors shrink-0 min-h-[44px]"
+          className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-rose-500/40 bg-rose-500/15 hover:bg-rose-500/25 px-4 py-2.5 text-xs sm:text-sm font-heading font-bold text-rose-600 dark:text-rose-300 transition-colors shrink-0 min-h-[44px]"
         >
           <span>{locale === "en" ? "Watch Reference" : "Xem Video"}</span>
-          <ExternalLink className="h-3.5 w-3.5" />
+          <ExternalLink className="h-4 w-4 shrink-0" />
         </a>
       </div>
     );
@@ -302,11 +302,11 @@ export function MediaSpotlightBlock({
   );
 
   return (
-    <div className="rounded-2xl border border-border/80 bg-card/75 p-4 sm:p-5 space-y-3.5">
+    <div className="rounded-2xl border border-border/80 bg-card/85 p-3.5 sm:p-5 space-y-3.5 shadow-sm">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div className="flex items-center gap-2">
           <Camera className="h-4 w-4 text-amber-500 shrink-0" />
-          <h4 className="font-heading font-bold text-sm sm:text-base text-foreground">
+          <h4 className="font-heading font-bold text-base sm:text-lg text-foreground">
             <RichGuideText
               text={block.title[locale]}
               variant="inline"
@@ -314,7 +314,7 @@ export function MediaSpotlightBlock({
             />
           </h4>
         </div>
-        <Badge variant="outline" className="font-mono text-[10px]">
+        <Badge variant="outline" className="font-mono text-xs">
           {block.mediaCode} • Annotated UI Guide
         </Badge>
       </div>
@@ -322,7 +322,7 @@ export function MediaSpotlightBlock({
       <RichGuideText
         text={block.description[locale]}
         locale={locale}
-        className="text-xs sm:text-sm text-muted-foreground leading-relaxed"
+        className="text-sm sm:text-base text-muted-foreground leading-relaxed"
       />
 
       <VisualShowcaseDeck items={showcaseItems} locale={locale} />
@@ -337,13 +337,13 @@ export function MediaSpotlightBlock({
                 key={pIdx}
                 className={
                   isDo
-                    ? "rounded-xl border border-emerald-500/40 bg-emerald-500/10 p-3 space-y-1.5"
+                    ? "rounded-xl bg-emerald-500/10 dark:bg-emerald-500/15 p-3.5 space-y-1.5"
                     : isDont
-                      ? "rounded-xl border border-rose-500/40 bg-rose-500/10 p-3 space-y-1.5"
-                      : "rounded-xl border border-sky-500/40 bg-sky-500/10 p-3 space-y-1.5"
+                      ? "rounded-xl bg-rose-500/10 dark:bg-rose-500/15 p-3.5 space-y-1.5"
+                      : "rounded-xl bg-sky-500/10 dark:bg-sky-500/15 p-3.5 space-y-1.5"
                 }
               >
-                <div className="flex items-center justify-between gap-2 text-xs font-heading font-bold">
+                <div className="flex items-center justify-between gap-2 text-sm font-heading font-bold">
                   <div className="flex items-center gap-1.5 min-w-0">
                     {isDo ? (
                       <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
@@ -369,7 +369,7 @@ export function MediaSpotlightBlock({
                       />
                     </span>
                   </div>
-                  <span className="inline-flex h-5 min-w-[24px] items-center justify-center rounded-md bg-amber-500/20 border border-amber-500/40 px-1.5 font-mono text-[10px] font-black text-amber-600 dark:text-amber-300 shrink-0">
+                  <span className="inline-flex h-6 min-w-[26px] items-center justify-center rounded-md bg-amber-500/20 px-1.5 font-mono text-xs font-black text-amber-600 dark:text-amber-300 shrink-0">
                     #{pIdx + 1}
                   </span>
                 </div>
@@ -377,7 +377,7 @@ export function MediaSpotlightBlock({
                   text={pin.detail[locale]}
                   locale={locale}
                   accentColor={isDo ? "emerald" : isDont ? "rose" : "sky"}
-                  className="text-xs text-foreground/90 leading-relaxed"
+                  className="text-sm text-foreground/90 leading-relaxed"
                 />
               </div>
             );

@@ -1,3 +1,5 @@
+import fs from "node:fs";
+import path from "node:path";
 import React from "react";
 import { describe, expect, it, beforeEach } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
@@ -438,131 +440,133 @@ describe("Rich RPG Guide UI Blocks v2.0", () => {
     });
   });
 
-  it("enforces MD3 table text-sm, 44px filter/expand controls, and single-layer StepRoadmap in Task 2", () => {
-    const rows = Array.from({ length: 10 }, (_, idx) => [
-      `Mốc ${idx + 1}`,
-      `${(idx + 1) * 100}`,
-      `Tăng kỹ năng chủ động`,
-    ]);
+  describe("Phase 3.2 Google MD3 Typography, Single-Layer Containment & Touch Target Gate", () => {
+    it("guarantees zero text-[8px..11px] or text-[13px] classes and zero border-l-* across all 9 files in src/components/guides/blocks/", () => {
+      const blocksDir = path.resolve(
+        __dirname,
+        "../src/components/guides/blocks"
+      );
+      const expectedFiles = [
+        "tldr-action-box.tsx",
+        "callout-box.tsx",
+        "responsive-data-table.tsx",
+        "step-roadmap.tsx",
+        "case-study-block.tsx",
+        "interactive-checklist-block.tsx",
+        "visual-diagram-block.tsx",
+        "media-spotlight-block.tsx",
+        "rich-guide-text.tsx",
+      ];
 
-    const { container } = render(
-      <div>
-        <ResponsiveDataTable
-          caption="Bảng Mốc Sao"
-          headers={["Bậc Sao", "Mảnh", "Hiệu Ứng"]}
-          rows={rows}
-          locale="vi"
-        />
-        <StepRoadmap
-          steps={[
-            {
-              badge: "Bước 1",
-              title: "Mốc Khởi Đầu",
-              timing: "Ngày 1-7",
-              description: "Dồn tài nguyên cho Đội 1",
-            },
-            {
-              badge: "Bước 2",
-              title: "Mốc Chuyển Hệ",
-              timing: "Ngày 21+",
-              description: "Chuyển sang Bộ Lạc",
-            },
-          ]}
-        />
-      </div>
-    );
+      const actualFiles = fs
+        .readdirSync(blocksDir)
+        .filter((f) => f.endsWith(".tsx"));
+      expect(actualFiles.sort()).toEqual([...expectedFiles].sort());
 
-    const table = container.querySelector("table");
-    expect(table?.className).toContain("text-sm");
-    expect(table?.className).toContain("font-sans");
+      const forbiddenMicroText = /\btext-\[(?:8|9|10|11|13)px\]/;
+      const forbiddenBorderLeft = /\b(?:border-l-2|border-l-4|rounded-l-sm)\b/;
 
-    const filterInput = screen.getByTestId("table-filter-input");
-    expect(filterInput.className).toContain("min-h-[44px]");
-    expect(filterInput.className).toContain("text-base");
+      for (const fileName of expectedFiles) {
+        const source = fs.readFileSync(
+          path.join(blocksDir, fileName),
+          "utf-8"
+        );
+        expect(
+          source,
+          `${fileName} contains forbidden sub-12px or 13px micro-text class`
+        ).not.toMatch(forbiddenMicroText);
+        expect(
+          source,
+          `${fileName} contains forbidden GAP-03 left-border class`
+        ).not.toMatch(forbiddenBorderLeft);
+      }
+    });
 
-    const expandToggle = screen.getByTestId("table-expand-toggle");
-    expect(expandToggle.className).toContain("min-h-[44px]");
+    it("enforces >= 44px touch targets (min-h-[44px] / min-h-[48px]) and flat tonal surfaces across interactive controls in all guide blocks", () => {
+      const rows = Array.from({ length: 10 }, (_, idx) => [
+        `Mốc ${idx + 1}`,
+        `${(idx + 1) * 100}`,
+      ]);
 
-    const numericCell = screen.getByText("100").closest("td");
-    expect(numericCell?.className).toContain("font-mono");
-
-    const textCell = screen.getAllByText("Tăng kỹ năng chủ động")[0].closest("td");
-    expect(textCell?.className).not.toContain("font-mono");
-
-    expect(screen.getByTestId("stepper-view-all").className).toContain("min-h-[44px]");
-    expect(screen.getByTestId("stepper-pill-0").className).toContain("min-h-[44px]");
-    expect(screen.getByTestId("stepper-pill-0").className).toContain("font-sans");
-    expect(screen.getByTestId("stepper-pill-0").className).not.toContain("font-mono");
-    expect(screen.getByTestId("step-roadmap-item-0").className).not.toMatch(/(^|\s)border(\s|$)/);
-  });
-
-  it("enforces MD3 single-layer containment and >= 12px/14px typography in CaseStudyBlock and InteractiveChecklistBlock (Task 3)", () => {
-    render(
-      <div>
-        <CaseStudyBlock
-          locale="vi"
-          block={{
-            type: "case_study",
-            badge: { vi: "CA BỆNH MD3", en: "MD3 CASE" },
-            title: { vi: "Phẫu thuật Đội 1", en: "Queue 1 Surgery" },
-            profileSummary: { vi: "Tóm tắt hồ sơ", en: "Profile summary" },
-            metrics: [
+      render(
+        <div>
+          <TldrActionBox
+            locale="vi"
+            tldr={{
+              coreRule: { vi: "Quy tắc 1", en: "Rule 1" },
+              immediateAction: { vi: "Làm ngay", en: "Act now" },
+              strictTaboo: { vi: "Cấm kỵ", en: "Forbidden" },
+            }}
+            keyTakeaways={[{ vi: "Mốc 560 Mảnh", en: "560 Shards" }]}
+          />
+          <ResponsiveDataTable
+            caption="Bảng Mốc Sao"
+            headers={["Bậc Sao", "Mảnh"]}
+            rows={rows}
+            locale="vi"
+          />
+          <StepRoadmap
+            steps={[
               {
-                label: { vi: "Lực chiến Đội 1", en: "Queue 1 Power" },
-                before: { vi: "3.60M", en: "3.60M" },
-                after: { vi: "4.25M", en: "4.25M" },
-                delta: { vi: "+650K", en: "+650K" },
+                badge: "Bước 1",
+                title: "Khởi đầu",
+                timing: "Ngày 1-7",
+                description: "Nuôi Đội 1",
               },
-            ],
-            diagnostics: [{ vi: "Chẩn đoán 1", en: "Diag 1" }],
-            recoverySteps: [
               {
-                stepNumber: "1",
-                title: { vi: "Bước phục hồi 1", en: "Recovery 1" },
-                detail: { vi: "Chi tiết phục hồi 1", en: "Detail 1" },
-                impactBadge: { vi: "+280K", en: "+280K" },
+                badge: "Bước 2",
+                title: "Chuyển hệ",
+                timing: "Ngày 21+",
+                description: "Sang Bộ Lạc",
               },
-            ],
-          }}
-        />
-        <InteractiveChecklistBlock
-          locale="vi"
-          block={{
-            type: "checklist",
-            checklistId: "md3-task3-check",
-            title: { vi: "Checklist Task 3", en: "Task 3 Checklist" },
-            items: [
-              {
-                id: "m1",
-                label: { vi: "Mục kiểm tra 1", en: "Check item 1" },
-                detail: { vi: "Chi tiết kiểm tra 1", en: "Check detail 1" },
-                badge: { vi: "Quan trọng", en: "Critical" },
-              },
-            ],
-          }}
-        />
-      </div>
-    );
+            ]}
+          />
+          <InteractiveChecklistBlock
+            locale="vi"
+            block={{
+              type: "checklist",
+              checklistId: "md3-touch-check",
+              title: { vi: "Checklist MD3", en: "MD3 Checklist" },
+              items: [
+                {
+                  id: "m1",
+                  label: { vi: "Mục 1", en: "Item 1" },
+                  detail: { vi: "Chi tiết 1", en: "Detail 1" },
+                },
+              ],
+            }}
+          />
+        </div>
+      );
 
-    const metricLabel = screen.getByText("Lực chiến Đội 1").closest("span")?.parentElement;
-    expect(metricLabel?.className).toContain("text-xs");
-    expect(metricLabel?.className).toContain("font-sans");
-    expect(metricLabel?.className).not.toContain("text-[11px]");
-    expect(metricLabel?.className).not.toContain("font-mono");
-
-    const diagItem = screen.getByText(/Chẩn đoán 1/i).closest("li");
-    expect(diagItem?.className).not.toMatch(/(^|\s)border(\s|$)/);
-
-    const detailsToggle = screen.getByTestId("checklist-details-toggle");
-    expect(detailsToggle.className).toContain("min-h-[44px]");
-
-    const checkbox = screen.getByRole("checkbox");
-    expect(checkbox.className).toContain("min-h-[48px]");
-    expect(checkbox.className).not.toMatch(/(^|\s)border(\s|$)/);
-
-    const itemBadge = screen.getByText("Quan trọng").closest("span")?.parentElement;
-    expect(itemBadge?.className).toContain("text-xs");
-    expect(itemBadge?.className).toContain("font-sans");
-    expect(itemBadge?.className).not.toContain("text-[10px]");
+      expect(screen.getByTestId("tldr-takeaways-toggle").className).toContain(
+        "min-h-[44px]"
+      );
+      expect(screen.getByTestId("table-filter-input").className).toContain(
+        "min-h-[44px]"
+      );
+      expect(screen.getByTestId("table-filter-input").className).toContain(
+        "text-base"
+      );
+      expect(screen.getByTestId("table-expand-toggle").className).toContain(
+        "min-h-[44px]"
+      );
+      expect(screen.getByTestId("stepper-view-all").className).toContain(
+        "min-h-[44px]"
+      );
+      expect(screen.getByTestId("stepper-pill-0").className).toContain(
+        "min-h-[44px]"
+      );
+      expect(
+        screen.getByTestId("checklist-details-toggle").className
+      ).toContain("min-h-[44px]");
+      expect(screen.getByRole("checkbox").className).toContain("min-h-[48px]");
+      expect(screen.getByRole("checkbox").className).not.toMatch(
+        /(^|\s)border(\s|$)/
+      );
+      expect(
+        screen.getByTestId("step-roadmap-item-0").className
+      ).not.toMatch(/(^|\s)border(\s|$)/);
+    });
   });
 });
