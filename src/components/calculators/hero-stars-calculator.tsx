@@ -27,6 +27,11 @@ import type {
 import { GameAssetFrame } from "@/components/guides/media/game-asset-frame";
 import { Input } from "@/components/ui/input";
 import { HeroStarPetalSelector } from "./hero-star-petal-selector";
+import {
+  CALC_MD3,
+  CalculatorMetricValue,
+  CalculatorToolHeader,
+} from "./calculator-md3-primitives";
 import { cn } from "@/lib/utils";
 
 interface HeroStarsCalculatorProps {
@@ -120,65 +125,72 @@ export function HeroStarsCalculator({
       : activeHero.nameEn
     : "";
 
+  const shardUnitLower = locale === "vi" ? "mảnh" : "shards";
+  const breakdownLabel =
+    locale === "vi"
+      ? "Xem bảng chi tiết từng ngôi sao"
+      : "View step-by-step star breakdown";
+
   return (
     <div data-testid="hero-stars-calculator" className="space-y-4">
-      {/* 1. Ultra-Compact Top Bar */}
-      <div className="flex flex-wrap items-center justify-between gap-2 rounded-2xl border border-amber-500/30 bg-gradient-to-r from-amber-500/10 via-card to-card px-4 py-3 shadow-sm">
-        <div className="flex items-center gap-2.5 min-w-0">
-          <span className="rounded-lg bg-amber-500 px-2 py-0.5 font-mono text-xs font-black text-slate-950 shrink-0">
-            {tool.code}
-          </span>
-          <h1 className="text-base sm:text-xl font-heading font-black tracking-tight text-foreground truncate">
-            {tool.title[locale].replace(`${tool.code} `, "")}
-          </h1>
-        </div>
+      {/* 1. Flat MD3 Tool Header (không card viền, chỉ hairline đáy) */}
+      <CalculatorToolHeader
+        code={tool.code}
+        title={tool.title[locale].replace(`${tool.code} `, "")}
+        actions={
+          <>
+            {rarityConfig.supportsProfileToggle ? (
+              <div className="flex items-center gap-1 rounded-xl bg-muted/50 p-1">
+                <button
+                  type="button"
+                  data-testid="cost-profile-standard-btn"
+                  onClick={() => setCostProfile("standard")}
+                  className={cn(
+                    CALC_MD3.chipButton,
+                    "min-w-[44px] px-3 font-mono",
+                    costProfile === "standard"
+                      ? "bg-amber-500 text-slate-950"
+                      : "text-muted-foreground hover:text-foreground"
+                  )}
+                >
+                  {rarityConfig.totalShardsStandard}
+                </button>
+                <button
+                  type="button"
+                  data-testid="cost-profile-legacy500-btn"
+                  onClick={() => setCostProfile("legacy_500")}
+                  className={cn(
+                    CALC_MD3.chipButton,
+                    "min-w-[44px] px-3 font-mono",
+                    costProfile === "legacy_500"
+                      ? "bg-amber-500 text-slate-950"
+                      : "text-muted-foreground hover:text-foreground"
+                  )}
+                >
+                  500
+                </button>
+              </div>
+            ) : null}
 
-        <div className="flex items-center gap-2">
-          {rarityConfig.supportsProfileToggle && (
-            <div className="flex items-center gap-1 rounded-xl border border-border/80 bg-background/80 p-0.5">
-              <button
-                type="button"
-                data-testid="cost-profile-standard-btn"
-                onClick={() => setCostProfile("standard")}
-                className={cn(
-                  "rounded-lg px-2 py-1 text-[11px] font-mono font-bold transition-colors cursor-pointer",
-                  costProfile === "standard"
-                    ? "bg-amber-500 text-slate-950"
-                    : "text-muted-foreground hover:text-foreground"
-                )}
-              >
-                {rarityConfig.totalShardsStandard}
-              </button>
-              <button
-                type="button"
-                data-testid="cost-profile-legacy500-btn"
-                onClick={() => setCostProfile("legacy_500")}
-                className={cn(
-                  "rounded-lg px-2 py-1 text-[11px] font-mono font-bold transition-colors cursor-pointer",
-                  costProfile === "legacy_500"
-                    ? "bg-amber-500 text-slate-950"
-                    : "text-muted-foreground hover:text-foreground"
-                )}
-              >
-                500
-              </button>
-            </div>
-          )}
-
-          <button
-            type="button"
-            onClick={() => {
-              setFromPetalIndex(0);
-              setToPetalIndex(75);
-              setOwnedInput("0");
-            }}
-            className="inline-flex items-center gap-1 rounded-xl border border-border/80 bg-background/70 hover:bg-secondary px-2.5 py-1.5 text-xs font-mono font-semibold text-muted-foreground hover:text-foreground cursor-pointer transition-colors"
-          >
-            <RotateCcw className="h-3.5 w-3.5 text-amber-500" />
-            <span>0★ ➔ 15★</span>
-          </button>
-        </div>
-      </div>
+            <button
+              type="button"
+              data-testid="hero-stars-reset-full-btn"
+              onClick={() => {
+                setFromPetalIndex(0);
+                setToPetalIndex(75);
+                setOwnedInput("0");
+              }}
+              className={cn(
+                CALC_MD3.chipButton,
+                "bg-muted/50 font-mono text-muted-foreground hover:bg-muted hover:text-foreground"
+              )}
+            >
+              <RotateCcw className="h-4 w-4 text-amber-500" aria-hidden="true" />
+              <span>0★ ➔ 15★</span>
+            </button>
+          </>
+        }
+      />
 
       {/* 2. Main 3-Zone Workspace: [Bậc Sao Hiện Tại] ⟷ [Avatar Tướng Trung Tâm] ⟷ [Bậc Sao Muốn Đạt] */}
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] items-center gap-3 sm:gap-4">
@@ -203,12 +215,13 @@ export function HeroStarsCalculator({
           <button
             type="button"
             data-testid="central-hero-avatar-trigger"
+            aria-expanded={pickerStep !== "closed"}
             onClick={() =>
               setPickerStep((prev) => (prev === "closed" ? "rarity" : "closed"))
             }
-            className="group flex flex-col items-center gap-1.5 rounded-2xl border border-amber-500/40 bg-gradient-to-b from-amber-500/15 via-card to-card px-4 py-3 shadow-sm hover:border-amber-500 transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/40"
+            className="group flex min-h-[44px] flex-col items-center gap-1.5 rounded-2xl border border-amber-500/40 bg-amber-500/[0.06] px-4 py-3 shadow-sm hover:border-amber-500 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/40"
           >
-            {activeHero && (
+            {activeHero ? (
               <GameAssetFrame
                 src={activeHero.iconPath}
                 alt={activeHeroName}
@@ -216,28 +229,35 @@ export function HeroStarsCalculator({
                 faction={activeHero.faction}
                 size="lg"
               />
-            )}
+            ) : null}
 
             {/* DUY NHẤT 1 VỊ TRÍ HIỂN THỊ TÊN TƯỚNG DƯỚI AVATAR */}
-            <div className="text-center">
+            <div className="text-center max-w-[160px]">
               <div
                 data-testid="central-hero-name"
-                className="text-xs sm:text-sm font-heading font-black text-foreground leading-tight"
+                className="text-sm sm:text-base font-heading font-black text-foreground leading-tight"
               >
                 {activeHeroName}
               </div>
-              <div className="inline-flex items-center gap-1 text-[10px] font-mono font-bold text-amber-600 dark:text-amber-400 mt-0.5">
+              <div className="mt-0.5 inline-flex items-center gap-1 text-xs font-sans font-bold text-amber-700 dark:text-amber-400">
                 <span>{rarityConfig.shortLabel[locale]}</span>
-                <ChevronDown className="h-3 w-3 transition-transform group-hover:translate-y-0.5" />
+                <ChevronDown
+                  className="h-3.5 w-3.5 transition-transform group-hover:translate-y-0.5"
+                  aria-hidden="true"
+                />
               </div>
             </div>
           </button>
 
-          {/* Sequential Popover: Step 1 (Select Rarity) -> Step 2 (Select Hero) -> Auto Close */}
-          {pickerStep !== "closed" && (
+          {/* Sequential Overlay: Step 1 (Select Rarity) -> Step 2 (Select Hero) -> Auto Close */}
+          {pickerStep !== "closed" ? (
             <div
               data-testid="hero-sequential-picker"
-              className="z-30 mt-2 w-full max-w-sm lg:w-80 lg:absolute lg:top-full lg:left-1/2 lg:-translate-x-1/2 rounded-2xl border border-amber-500/45 bg-card/95 backdrop-blur-md p-3.5 shadow-xl space-y-3"
+              data-md3-overlay="true"
+              className={cn(
+                CALC_MD3.overlayCard,
+                "z-30 mt-2 w-full max-w-sm space-y-3 lg:absolute lg:left-1/2 lg:top-full lg:w-80 lg:-translate-x-1/2"
+              )}
             >
               <div className="flex items-center justify-between gap-2 border-b border-border/60 pb-2">
                 {pickerStep === "hero" ? (
@@ -245,15 +265,15 @@ export function HeroStarsCalculator({
                     type="button"
                     data-testid="picker-back-to-rarity-btn"
                     onClick={() => setPickerStep("rarity")}
-                    className="inline-flex items-center gap-1 text-xs font-heading font-bold text-amber-500 hover:underline cursor-pointer"
+                    className="inline-flex min-h-[44px] items-center gap-1.5 rounded-xl px-2 text-sm font-heading font-bold text-amber-600 hover:bg-amber-500/10 dark:text-amber-400 cursor-pointer"
                   >
-                    <ArrowLeft className="h-3.5 w-3.5" />
+                    <ArrowLeft className="h-4 w-4" aria-hidden="true" />
                     <span>
                       {locale === "vi" ? "Chọn lại phẩm chất" : "Change Rarity"}
                     </span>
                   </button>
                 ) : (
-                  <span className="text-xs font-heading font-black text-foreground">
+                  <span className="text-sm font-heading font-bold text-foreground">
                     {locale === "vi"
                       ? "Bước 1: Chọn Phẩm Chất Tướng"
                       : "Step 1: Select Hero Rarity"}
@@ -264,9 +284,12 @@ export function HeroStarsCalculator({
                   type="button"
                   onClick={() => setPickerStep("closed")}
                   aria-label={locale === "vi" ? "Đóng" : "Close"}
-                  className="inline-flex h-6 w-6 items-center justify-center rounded-lg text-muted-foreground hover:text-foreground cursor-pointer"
+                  className={cn(
+                    CALC_MD3.iconButton,
+                    "text-muted-foreground hover:bg-muted hover:text-foreground"
+                  )}
                 >
-                  <X className="h-4 w-4" />
+                  <X className="h-5 w-5" aria-hidden="true" />
                 </button>
               </div>
 
@@ -287,10 +310,9 @@ export function HeroStarsCalculator({
                         data-testid={`rarity-card-${rKey}`}
                         onClick={() => handlePickRarityInSequence(rKey)}
                         className={cn(
-                          "flex items-center gap-2.5 rounded-xl border p-2.5 text-left transition-all cursor-pointer",
-                          isSelected
-                            ? "border-amber-500 bg-amber-500/15 font-bold"
-                            : "border-border/70 bg-background/70 hover:border-amber-500/40"
+                          CALC_MD3.tonalTile,
+                          "flex min-h-[56px] items-center gap-2.5 p-2.5 text-left",
+                          isSelected ? CALC_MD3.tileSelected : null
                         )}
                       >
                         <GameAssetFrame
@@ -300,12 +322,12 @@ export function HeroStarsCalculator({
                           size="sm"
                         />
                         <div className="min-w-0">
-                          <div className="text-xs font-heading font-black text-foreground truncate">
+                          <div className="truncate text-sm font-heading font-bold text-foreground">
                             {cfg.shortLabel[locale]}
                           </div>
-                          <div className="font-mono text-[10px] text-amber-600 dark:text-amber-400">
-                            {cfg.totalShardsStandard}{" "}
-                            {locale === "vi" ? "mảnh" : "shards"}
+                          <div className="text-xs font-sans text-amber-700 dark:text-amber-400">
+                            <span className="font-mono">{cfg.totalShardsStandard}</span>{" "}
+                            {shardUnitLower}
                           </div>
                         </div>
                       </button>
@@ -314,12 +336,12 @@ export function HeroStarsCalculator({
                 </div>
               ) : (
                 <div className="space-y-2">
-                  <div className="text-[11px] font-mono text-muted-foreground">
+                  <div className="text-xs font-sans font-medium text-muted-foreground">
                     {locale === "vi"
                       ? `Bước 2: Chọn Avatar ${rarityConfig.shortLabel.vi}`
                       : `Step 2: Pick ${rarityConfig.shortLabel.en} Hero`}
                   </div>
-                  <div className="grid grid-cols-4 gap-2 max-h-48 overflow-y-auto pr-1">
+                  <div className="grid max-h-56 grid-cols-3 gap-2 overflow-y-auto pr-1 sm:grid-cols-4">
                     {heroesForRarity.map((h) => {
                       const hName = locale === "vi" ? h.nameVi : h.nameEn;
                       const isHeroActive = activeHero?.id === h.id;
@@ -331,10 +353,9 @@ export function HeroStarsCalculator({
                           onClick={() => handlePickHeroInSequence(h.id)}
                           title={hName}
                           className={cn(
-                            "flex flex-col items-center gap-1 rounded-xl border p-1.5 transition-all cursor-pointer",
-                            isHeroActive
-                              ? "border-amber-500 bg-amber-500/15"
-                              : "border-border/60 bg-background/60 hover:border-amber-500/40"
+                            CALC_MD3.tonalTile,
+                            "flex min-h-[44px] flex-col items-center gap-1 p-1.5",
+                            isHeroActive ? CALC_MD3.tileSelected : null
                           )}
                         >
                           <GameAssetFrame
@@ -344,7 +365,7 @@ export function HeroStarsCalculator({
                             faction={h.faction}
                             size="sm"
                           />
-                          <span className="text-[10px] font-medium text-foreground truncate w-full text-center">
+                          <span className="w-full truncate text-center text-xs font-medium text-foreground">
                             {hName}
                           </span>
                         </button>
@@ -354,7 +375,7 @@ export function HeroStarsCalculator({
                 </div>
               )}
             </div>
-          )}
+          ) : null}
         </div>
 
         {/* Right: Target Star Level */}
@@ -371,19 +392,28 @@ export function HeroStarsCalculator({
         </div>
       </div>
 
-      {/* 3. Compact Result Bar & [i] Icon Trigger for Step-by-Step Star Breakdown */}
+      {/* 3. Result Surface (1 lớp viền duy nhất) + [i] Step-by-Step Star Breakdown */}
       <section
         data-testid="hero-stars-result-section"
-        className="rounded-2xl border border-amber-500/35 bg-gradient-to-br from-amber-500/10 via-card to-card p-4 space-y-3 shadow-sm"
+        className={cn(
+          CALC_MD3.surfaceCard,
+          "relative overflow-hidden space-y-3 border-amber-500/35"
+        )}
       >
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-amber-500 via-amber-400 to-transparent"
+        />
+
         {result.isInvalidRange ? (
           <div
             data-testid="hero-stars-invalid-range-alert"
-            className="rounded-xl border border-amber-500/40 bg-amber-500/10 p-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5"
+            role="alert"
+            className="flex flex-col items-start justify-between gap-2.5 rounded-xl bg-amber-500/10 p-3 sm:flex-row sm:items-center"
           >
-            <div className="flex items-center gap-2.5">
-              <AlertTriangle className="h-4 w-4 text-amber-500 shrink-0" />
-              <p className="text-xs text-foreground font-medium">
+            <div className="flex items-start gap-2.5">
+              <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-amber-500" aria-hidden="true" />
+              <p className="text-sm font-medium text-foreground">
                 {locale === "vi"
                   ? "Bậc sao muốn đạt đang thấp hơn hoặc bằng bậc sao hiện tại."
                   : "Target star level is less than or equal to current star level."}
@@ -392,90 +422,75 @@ export function HeroStarsCalculator({
             <button
               type="button"
               onClick={() => setToPetalIndex(Math.min(75, fromPetalIndex + 5))}
-              className="rounded-lg bg-amber-500 px-3 py-1.5 min-h-[36px] text-xs font-heading font-bold text-slate-950 shrink-0 cursor-pointer"
+              className={cn(
+                CALC_MD3.chipButton,
+                "shrink-0 bg-amber-500 px-4 font-heading font-bold text-slate-950 hover:bg-amber-400"
+              )}
             >
               {locale === "vi" ? "+1 Ngôi Sao" : "+1 Star"}
             </button>
           </div>
         ) : null}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          {/* Card A: Total Universal Shards Needed + [i] Breakdown Icon */}
-          <div className="rounded-xl border border-amber-500/40 bg-background/85 p-3.5 flex items-center gap-3.5">
+        <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+          {/* Card A (tonal): Total Universal Shards Needed + [i] Breakdown */}
+          <div className={cn(CALC_MD3.tonalGroup, "flex items-center gap-3.5")}>
             <GameAssetFrame
               src={result.universalShard.iconPath}
               alt={universalShardName}
               rarity={result.universalShard.rarity}
               size="md"
             />
-
-            <div className="min-w-0 flex-1">
-              <div className="text-[10px] font-mono font-bold uppercase text-amber-600 dark:text-amber-400">
-                {locale === "vi"
-                  ? "Tổng số mảnh cần dùng:"
-                  : "Total Shards Required:"}
+            <div className="min-w-0 flex-1 space-y-1">
+              <div className={cn(CALC_MD3.eyebrow, "text-amber-700 dark:text-amber-400")}>
+                {locale === "vi" ? "Tổng số mảnh cần dùng" : "Total Shards Required"}
               </div>
-
               <div className="flex items-center gap-2">
-                <div
-                  data-testid="hero-stars-total-required"
-                  className="text-xl sm:text-2xl font-heading font-black text-foreground"
-                >
-                  {result.requiredShards.toLocaleString()}{" "}
-                  <span className="text-xs font-bold text-amber-500">
-                    {locale === "vi" ? "Mảnh" : "Shards"}
-                  </span>
-                </div>
-
-                {/* Nút Icon [i] hiển thị Bảng Chi Tiết Từng Ngôi Sao */}
-                {result.starStepsBreakdown.length > 0 && (
+                <CalculatorMetricValue
+                  testId="hero-stars-total-required"
+                  value={result.requiredShards.toLocaleString()}
+                  unit={locale === "vi" ? "Mảnh" : "Shards"}
+                />
+                {result.starStepsBreakdown.length > 0 ? (
                   <button
                     type="button"
                     data-testid="toggle-star-breakdown-btn"
                     onClick={() => setIsBreakdownOpen((prev) => !prev)}
-                    title={
-                      locale === "vi"
-                        ? "Xem bảng chi tiết từng ngôi sao"
-                        : "View step-by-step star breakdown"
-                    }
-                    aria-label={
-                      locale === "vi"
-                        ? "Xem bảng chi tiết từng ngôi sao"
-                        : "View step-by-step star breakdown"
-                    }
+                    aria-expanded={isBreakdownOpen}
+                    title={breakdownLabel}
+                    aria-label={breakdownLabel}
                     className={cn(
-                      "inline-flex h-7 w-7 items-center justify-center rounded-full border transition-colors cursor-pointer",
+                      CALC_MD3.iconButton,
+                      "rounded-full",
                       isBreakdownOpen
-                        ? "border-amber-500 bg-amber-500 text-slate-950"
-                        : "border-amber-500/40 bg-amber-500/15 text-amber-600 dark:text-amber-300 hover:bg-amber-500/25"
+                        ? "bg-amber-500 text-slate-950"
+                        : "bg-amber-500/15 text-amber-700 hover:bg-amber-500/25 dark:text-amber-300"
                     )}
                   >
-                    <Info className="h-3.5 w-3.5" />
+                    <Info className="h-5 w-5" aria-hidden="true" />
                   </button>
-                )}
+                ) : null}
               </div>
-
               <div
                 data-testid="hero-stars-universal-shard-name"
-                className="text-xs font-heading font-bold text-muted-foreground truncate"
+                className="truncate text-sm font-sans font-medium text-muted-foreground"
               >
                 {universalShardName}
               </div>
             </div>
           </div>
 
-          {/* Card B: Compact Owned Shards Input -> Missing Shards */}
-          <div className="rounded-xl border border-border/80 bg-background/85 p-3.5 flex flex-col justify-center gap-2">
+          {/* Card B (tonal): Owned Shards Input -> Missing / Surplus */}
+          <div className={cn(CALC_MD3.tonalGroup, "flex flex-col justify-center gap-2.5")}>
             <div className="flex items-center justify-between gap-2">
               <label
                 htmlFor="hero-stars-owned-shards-input"
-                className="text-xs font-heading font-bold text-foreground"
+                className="text-sm font-heading font-bold text-foreground"
               >
                 {locale === "vi" ? "Đang có trong túi:" : "In inventory:"}
               </label>
-
-              <div className="flex items-center gap-1.5">
-                <span className="text-[10px] font-mono uppercase text-muted-foreground">
+              <div className="flex items-baseline gap-1.5">
+                <span className={cn(CALC_MD3.eyebrow, "text-muted-foreground")}>
                   {result.missingShards > 0
                     ? locale === "vi"
                       ? "Thiếu:"
@@ -487,38 +502,39 @@ export function HeroStarsCalculator({
                 <span
                   data-testid="hero-stars-missing-value"
                   className={cn(
-                    "text-sm font-heading font-black",
+                    "text-base font-heading font-black tabular-nums",
                     result.missingShards > 0
-                      ? "text-rose-500"
-                      : "text-emerald-500"
+                      ? "text-rose-600 dark:text-rose-400"
+                      : "text-emerald-600 dark:text-emerald-400"
                   )}
                 >
                   {result.missingShards > 0
-                    ? `${result.missingShards.toLocaleString()} ${locale === "vi" ? "mảnh" : "shards"}`
-                    : `+${result.surplusShards.toLocaleString()} ${locale === "vi" ? "mảnh" : "shards"}`}
+                    ? `${result.missingShards.toLocaleString()} ${shardUnitLower}`
+                    : `+${result.surplusShards.toLocaleString()} ${shardUnitLower}`}
                 </span>
               </div>
             </div>
 
-            <div className="flex items-center gap-2.5">
+            <div className="flex items-center gap-3">
               <Input
                 id="hero-stars-owned-shards-input"
                 data-testid="hero-stars-owned-input"
                 type="number"
+                inputMode="numeric"
                 min={0}
                 max={999999}
                 value={ownedInput}
                 onChange={(e) => setOwnedInput(e.target.value)}
-                className="h-9 rounded-lg font-mono font-bold text-xs max-w-[130px]"
+                className={cn(CALC_MD3.dataInput, "max-w-[140px]")}
               />
               <div className="flex-1 space-y-1">
-                <div className="h-2 w-full rounded-full bg-secondary overflow-hidden">
+                <div className="h-2 w-full overflow-hidden rounded-full bg-secondary">
                   <div
                     className="h-full bg-gradient-to-r from-amber-500 to-emerald-500 transition-all duration-300"
                     style={{ width: `${result.completionPercent}%` }}
                   />
                 </div>
-                <div className="text-right font-mono text-[10px] text-muted-foreground">
+                <div className="text-right font-mono text-xs text-muted-foreground">
                   {result.completionPercent}%
                 </div>
               </div>
@@ -526,14 +542,14 @@ export function HeroStarsCalculator({
           </div>
         </div>
 
-        {/* Collapsible Popover / Drawer for Step-by-Step Star Breakdown (Only visible when [i] is clicked) */}
-        {isBreakdownOpen && result.starStepsBreakdown.length > 0 && (
+        {/* Step-by-Step Star Breakdown (phẳng: hairline trên + danh sách divide-y) */}
+        {isBreakdownOpen && result.starStepsBreakdown.length > 0 ? (
           <div
             data-testid="star-breakdown-popover"
-            className="rounded-xl border border-border/80 bg-background/95 p-3.5 space-y-2.5 shadow-md"
+            className="space-y-2 border-t border-border/60 pt-3"
           >
-            <div className="flex items-center justify-between gap-2 border-b border-border/60 pb-2">
-              <h3 className="text-xs font-mono font-extrabold uppercase tracking-wider text-foreground">
+            <div className="flex items-center justify-between gap-2">
+              <h3 className="text-base font-heading font-bold text-foreground">
                 {locale === "vi"
                   ? `Bảng Chi Tiết Từng Ngôi Sao (${formatStarPositionSummary(result.fromState, locale)} ➔ ${formatStarPositionSummary(result.toState, locale)})`
                   : `Step-by-Step Star Breakdown (${formatStarPositionSummary(result.fromState, locale)} ➔ ${formatStarPositionSummary(result.toState, locale)})`}
@@ -542,64 +558,72 @@ export function HeroStarsCalculator({
                 type="button"
                 data-testid="close-star-breakdown-btn"
                 onClick={() => setIsBreakdownOpen(false)}
-                aria-label={
-                  locale === "vi" ? "Đóng bảng chi tiết" : "Close breakdown"
-                }
-                className="inline-flex h-6 w-6 items-center justify-center rounded-lg text-muted-foreground hover:text-foreground cursor-pointer"
+                aria-label={locale === "vi" ? "Đóng bảng chi tiết" : "Close breakdown"}
+                className={cn(
+                  CALC_MD3.iconButton,
+                  "text-muted-foreground hover:bg-muted hover:text-foreground"
+                )}
               >
-                <X className="h-4 w-4" />
+                <X className="h-5 w-5" aria-hidden="true" />
               </button>
             </div>
 
-            <div className="grid grid-cols-1 gap-1.5 max-h-64 overflow-y-auto pr-1">
+            <ol
+              data-testid="star-breakdown-list"
+              className={cn(CALC_MD3.dividedList, "max-h-80 overflow-y-auto")}
+            >
               {result.starStepsBreakdown.map((step) => {
                 const badgeClass =
                   step.colorTier === "gold"
-                    ? "border-amber-500/40 bg-amber-500/15 text-amber-600 dark:text-amber-300"
+                    ? "bg-amber-500/15 text-amber-700 dark:text-amber-300"
                     : step.colorTier === "red"
-                      ? "border-rose-500/40 bg-rose-500/15 text-rose-600 dark:text-rose-300"
-                      : "border-slate-400/60 bg-slate-200/70 dark:bg-slate-400/20 text-slate-800 dark:text-slate-100";
+                      ? "bg-rose-500/15 text-rose-700 dark:text-rose-300"
+                      : "bg-slate-200/80 text-slate-800 dark:bg-slate-400/20 dark:text-slate-100";
+                const formula =
+                  locale === "vi"
+                    ? `${step.petalsUsed}/5 cánh (Cánh ${step.startPetalInStar}➔${step.endPetalInStar}) × ${step.costPerPetal}`
+                    : `${step.petalsUsed}/5 petals (P${step.startPetalInStar}➔${step.endPetalInStar}) × ${step.costPerPetal}`;
 
                 return (
-                  <div
+                  <li
                     key={step.overallStarNumber}
-                    className="rounded-xl border border-border/70 bg-card/75 px-3 py-2 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5"
+                    className="flex flex-col justify-between gap-1.5 py-2.5 sm:flex-row sm:items-center"
                   >
-                    <div className="space-y-0.5">
+                    <div className="space-y-1">
                       <div className="flex flex-wrap items-center gap-2">
                         <span
                           className={cn(
-                            "rounded-md border px-2 py-0.5 font-mono text-[11px] font-bold",
+                            "rounded-md px-2 py-0.5 text-xs font-sans font-bold",
                             badgeClass
                           )}
                         >
                           {step.starLabel[locale]}
                         </span>
-                        <span className="font-mono text-[11px] text-muted-foreground">
-                          {locale === "vi"
-                            ? `${step.petalsUsed}/5 cánh (Cánh ${step.startPetalInStar}➔${step.endPetalInStar}) × ${step.costPerPetal}`
-                            : `${step.petalsUsed}/5 petals (P${step.startPetalInStar}➔${step.endPetalInStar}) × ${step.costPerPetal}`}
+                        <span className="text-sm font-sans text-muted-foreground">
+                          {formula}
                         </span>
                       </div>
 
-                      {step.milestoneNote && (
-                        <div className="flex items-center gap-1 text-[11px] font-medium text-emerald-600 dark:text-emerald-400">
-                          <CheckCircle2 className="h-3 w-3 shrink-0" />
+                      {step.milestoneNote ? (
+                        <div className="flex items-start gap-1.5 text-sm font-medium text-emerald-700 dark:text-emerald-400">
+                          <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
                           <span>{step.milestoneNote[locale]}</span>
                         </div>
-                      )}
+                      ) : null}
                     </div>
 
-                    <div className="font-heading text-xs font-black text-foreground sm:text-right shrink-0">
-                      +{step.starTotalShards.toLocaleString()}{" "}
-                      {locale === "vi" ? "mảnh" : "shards"}
+                    <div className="shrink-0 text-sm sm:text-base font-heading font-black text-foreground sm:text-right">
+                      <span className="tabular-nums">
+                        +{step.starTotalShards.toLocaleString()}
+                      </span>{" "}
+                      {shardUnitLower}
                     </div>
-                  </div>
+                  </li>
                 );
               })}
-            </div>
+            </ol>
           </div>
-        )}
+        ) : null}
       </section>
     </div>
   );

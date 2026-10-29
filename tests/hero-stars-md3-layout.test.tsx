@@ -2,6 +2,8 @@ import React from "react";
 import { describe, expect, it } from "vitest";
 import { fireEvent, render, screen, within } from "@testing-library/react";
 import { HeroStarPetalSelector } from "../src/components/calculators/hero-star-petal-selector";
+import { getCalculatorToolBySlug } from "../src/content/calculators/registry";
+import { HeroStarsCalculator } from "../src/components/calculators/hero-stars-calculator";
 import {
   ALL_SIDE_BORDER_REGEX,
   countMicroTextOccurrences,
@@ -90,5 +92,86 @@ describe("Phase 2.2 / HeroStarPetalSelector MD3", () => {
     fireEvent.click(screen.getByTestId("from-milestone-star-12"));
     expect(screen.getByTestId("from-milestone-star-12").getAttribute("data-lit-petals")).toBe("5");
     expect(screen.getByTestId("from-milestone-star-13").getAttribute("data-lit-petals")).toBe("0");
+  });
+});
+
+describe("Phase 2.2 / HeroStarsCalculator MD3", () => {
+  const resolved = getCalculatorToolBySlug("heroes", "hero-stars")!;
+  const renderCalculator = (locale: "vi" | "en" = "vi") =>
+    render(
+      <HeroStarsCalculator
+        zone={resolved.zone}
+        category={resolved.category}
+        tool={resolved.tool}
+        locale={locale}
+      />
+    );
+
+  it("hero-stars-calculator.tsx contains zero text-[8px..11px] classes", () => {
+    expect(
+      countMicroTextOccurrences(
+        readSource("src/components/calculators/hero-stars-calculator.tsx")
+      )
+    ).toBe(0);
+  });
+
+  it("uses a flat MD3 tool header and a 30–36px primary metric with a 16px/44px owned-shards input", () => {
+    renderCalculator();
+    const header = screen.getByTestId("calculator-tool-header");
+    expect(header.className).not.toMatch(ALL_SIDE_BORDER_REGEX);
+    expect(screen.getByRole("heading", { level: 1 }).className).toContain("text-xl");
+
+    const total = screen.getByTestId("hero-stars-total-required");
+    expect(total.className).toContain("text-3xl");
+    expect(total.className).toContain("sm:text-4xl");
+    expect(total.textContent).toBe("548");
+
+    const input = screen.getByTestId("hero-stars-owned-input");
+    expect(input.className).toContain("h-11");
+    expect(input.className).toContain("text-base");
+
+    const infoBtn = screen.getByTestId("toggle-star-breakdown-btn");
+    expect(infoBtn.className).toContain("h-11");
+    expect(infoBtn.className).toContain("w-11");
+  });
+
+  it("renders the star breakdown as a flat hairline list with a non-mono Vietnamese heading", () => {
+    renderCalculator();
+    fireEvent.click(screen.getByTestId("toggle-star-breakdown-btn"));
+
+    const popover = screen.getByTestId("star-breakdown-popover");
+    expect(popover.className).not.toMatch(ALL_SIDE_BORDER_REGEX);
+    expect(popover.className).toContain("border-t");
+
+    const heading = within(popover).getByRole("heading", { level: 3 });
+    expect(heading.className).toContain("font-heading");
+    expect(heading.className).not.toContain("font-mono");
+    expect(heading.className).not.toContain("uppercase");
+
+    const list = screen.getByTestId("star-breakdown-list");
+    expect(list.className).toContain("divide-y");
+    const rows = within(list).getAllByRole("listitem");
+    expect(rows).toHaveLength(10);
+    for (const row of rows) {
+      expect(row.className).not.toMatch(ALL_SIDE_BORDER_REGEX);
+    }
+    expect(screen.getByTestId("close-star-breakdown-btn").className).toContain("h-11");
+  });
+
+  it("keeps ≤ 1 bordered layer, zero micro-text and zero mono Vietnamese with picker + breakdown open", () => {
+    renderCalculator();
+    fireEvent.click(screen.getByTestId("central-hero-avatar-trigger"));
+    fireEvent.click(screen.getByTestId("toggle-star-breakdown-btn"));
+
+    const picker = screen.getByTestId("hero-sequential-picker");
+    expect(picker.getAttribute("data-md3-overlay")).toBe("true");
+    const rarityCard = screen.getByTestId("rarity-card-mythic");
+    expect(rarityCard.className).toContain("min-h-[56px]");
+    expect(rarityCard.className).not.toMatch(ALL_SIDE_BORDER_REGEX);
+
+    const root = screen.getByTestId("hero-stars-calculator");
+    expect(getMaxBorderedContainerDepth(root)).toBeLessThanOrEqual(1);
+    expect(findMicroTextElements(root)).toEqual([]);
+    expect(findMonoElementsWithVietnamese(root)).toEqual([]);
   });
 });
