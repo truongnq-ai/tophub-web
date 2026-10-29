@@ -234,11 +234,13 @@ export function parseInlineTokens(
           </GameInlineChip>
         );
       } else {
+        const hasViDiacritics = VI_DIACRITIC_REGEX.test(cleanCodeText);
         nodes.push(
           <code
             key={`${keyPrefix}-c-${idx}`}
             className={cn(
-              "mx-0.5 inline-flex items-center rounded-md border px-1.5 py-0.5 font-mono text-[0.82em] font-semibold transition-colors",
+              "mx-0.5 inline-flex items-center rounded-md border px-1.5 py-0.5 text-[0.88em] font-semibold transition-colors",
+              hasViDiacritics ? "font-sans" : "font-mono",
               ACCENT_STYLES[accentColor].code
             )}
           >
@@ -474,7 +476,7 @@ export function RichGuideText({
               {parseInlineTokens(leadLine, accentColor, "sb-lead", briefOptions)}
             </p>
             {restItems.length > 0 && (
-              <ul className="space-y-1.5 text-xs sm:text-[13px] text-muted-foreground">
+              <ul className="space-y-1.5 text-sm sm:text-base text-muted-foreground">
                 {restItems.map((item, idx) => (
                   <li
                     key={idx}
@@ -482,12 +484,12 @@ export function RichGuideText({
                   >
                     <span
                       className={cn(
-                        "mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full",
+                        "mt-2 h-1.5 w-1.5 shrink-0 rounded-full",
                         accentStyle.bullet
                       )}
                       aria-hidden="true"
                     />
-                    <span className="min-w-0 flex-1 text-foreground/90">
+                    <span className="min-w-0 flex-1 text-foreground/95">
                       {parseInlineTokens(
                         item,
                         accentColor,
@@ -520,7 +522,7 @@ export function RichGuideText({
                   briefOptions
                 )}
               </p>
-              <ul className="space-y-1.5 text-xs sm:text-[13px] text-muted-foreground">
+              <ul className="space-y-1.5 text-sm sm:text-base text-muted-foreground">
                 {restSentences.map((sentence, idx) => (
                   <li
                     key={idx}
@@ -528,12 +530,12 @@ export function RichGuideText({
                   >
                     <span
                       className={cn(
-                        "mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full",
+                        "mt-2 h-1.5 w-1.5 shrink-0 rounded-full",
                         accentStyle.bullet
                       )}
                       aria-hidden="true"
                     />
-                    <span className="min-w-0 flex-1 text-foreground/90">
+                    <span className="min-w-0 flex-1 text-foreground/95">
                       {parseInlineTokens(
                         sentence,
                         accentColor,
@@ -642,7 +644,7 @@ export function RichGuideText({
                   >
                     <span
                       className={cn(
-                        "mt-0.5 inline-flex h-5 min-w-5 shrink-0 items-center justify-center rounded border px-1 font-mono text-[11px] font-bold",
+                        "mt-0.5 inline-flex h-5 min-w-[22px] shrink-0 items-center justify-center rounded border px-1 font-mono text-xs font-bold",
                         accentStyle.stepBadge
                       )}
                     >

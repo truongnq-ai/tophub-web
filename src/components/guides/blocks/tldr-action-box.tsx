@@ -53,13 +53,13 @@ export function TldrActionBox({
   const hasTakeaways = Boolean(keyTakeaways && keyTakeaways.length > 0);
 
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-border/80 bg-card/85 p-4 sm:p-5 space-y-3.5 shadow-sm">
+    <div className="relative overflow-hidden rounded-2xl border border-border/80 bg-card/85 p-3.5 sm:p-5 space-y-3.5 shadow-sm">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-amber-500/80 via-emerald-500/50 to-rose-500/70"
       />
 
-      <div className="flex items-center justify-between gap-2 text-xs sm:text-sm font-heading font-black uppercase tracking-wider text-foreground">
+      <div className="flex items-center justify-between gap-2 text-sm sm:text-base font-heading font-black uppercase tracking-wider text-foreground">
         <div className="flex items-center gap-2">
           <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-md border border-amber-500/25 bg-amber-500/10 text-amber-500">
             <Target className="h-3.5 w-3.5" aria-hidden="true" />
@@ -68,17 +68,17 @@ export function TldrActionBox({
         </div>
       </div>
 
-      {/* 3-Column Neutral Bento Partition Grid (DEC-V4-02) */}
+      {/* 3-Column Neutral Bento Partition Grid (DEC-V4-02 + Single-Layer Containment) */}
       <div
         data-testid="tldr-bento-grid"
-        className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-border/60 rounded-xl border border-border/70 bg-background/55 overflow-hidden"
+        className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-border/60 rounded-xl border-0 sm:border sm:border-border/60 bg-muted/40 dark:bg-muted/25 overflow-hidden"
       >
-        <div className="p-3.5 sm:p-4 flex flex-col gap-2">
+        <div className="px-3 py-3 sm:p-4 flex flex-col gap-2">
           <div className="flex items-center gap-2">
             <span className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border border-amber-500/25 bg-amber-500/10 text-amber-500">
               <Crown className="h-3.5 w-3.5" aria-hidden="true" />
             </span>
-            <span className="inline-flex items-center rounded-md bg-amber-500/10 px-2 py-0.5 font-mono text-[11px] font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
+            <span className="inline-flex items-center rounded-md bg-amber-500/10 px-2 py-0.5 font-sans text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
               {copy.coreRule}
             </span>
           </div>
@@ -87,16 +87,16 @@ export function TldrActionBox({
             variant="structured-brief"
             locale={locale}
             accentColor="amber"
-            className="text-xs sm:text-sm leading-relaxed text-foreground/95"
+            className="text-sm sm:text-base leading-relaxed text-foreground"
           />
         </div>
 
-        <div className="p-3.5 sm:p-4 flex flex-col gap-2">
+        <div className="px-3 py-3 sm:p-4 flex flex-col gap-2">
           <div className="flex items-center gap-2">
             <span className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border border-emerald-500/25 bg-emerald-500/10 text-emerald-500">
               <Zap className="h-3.5 w-3.5" aria-hidden="true" />
             </span>
-            <span className="inline-flex items-center rounded-md bg-emerald-500/10 px-2 py-0.5 font-mono text-[11px] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+            <span className="inline-flex items-center rounded-md bg-emerald-500/10 px-2 py-0.5 font-sans text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
               {copy.immediateAction}
             </span>
           </div>
@@ -105,16 +105,16 @@ export function TldrActionBox({
             variant="structured-brief"
             locale={locale}
             accentColor="emerald"
-            className="text-xs sm:text-sm leading-relaxed text-foreground/95"
+            className="text-sm sm:text-base leading-relaxed text-foreground"
           />
         </div>
 
-        <div className="p-3.5 sm:p-4 flex flex-col gap-2">
+        <div className="px-3 py-3 sm:p-4 flex flex-col gap-2">
           <div className="flex items-center gap-2">
             <span className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border border-rose-500/25 bg-rose-500/10 text-rose-500">
               <AlertOctagon className="h-3.5 w-3.5" aria-hidden="true" />
             </span>
-            <span className="inline-flex items-center rounded-md bg-rose-500/10 px-2 py-0.5 font-mono text-[11px] font-bold uppercase tracking-wider text-rose-600 dark:text-rose-400">
+            <span className="inline-flex items-center rounded-md bg-rose-500/10 px-2 py-0.5 font-sans text-xs font-bold uppercase tracking-wider text-rose-600 dark:text-rose-400">
               {copy.strictTaboo}
             </span>
           </div>
@@ -123,12 +123,12 @@ export function TldrActionBox({
             variant="structured-brief"
             locale={locale}
             accentColor="rose"
-            className="text-xs sm:text-sm leading-relaxed text-foreground/95"
+            className="text-sm sm:text-base leading-relaxed text-foreground"
           />
         </div>
       </div>
 
-      {/* Integrated Collapsible Key Takeaways Drawer */}
+      {/* Integrated Collapsible Key Takeaways Drawer (Single-Layer Flat Tonal List) */}
       {hasTakeaways && keyTakeaways && (
         <div className="pt-2 border-t border-border/60">
           <button
@@ -136,10 +136,10 @@ export function TldrActionBox({
             data-testid="tldr-takeaways-toggle"
             aria-expanded={isTakeawaysOpen}
             onClick={() => setIsTakeawaysOpen((prev) => !prev)}
-            className="w-full min-h-[36px] flex items-center justify-between gap-2 rounded-xl bg-background/70 hover:bg-muted/60 border border-border/70 px-3 py-1.5 text-xs font-heading font-bold text-foreground transition-colors cursor-pointer"
+            className="w-full min-h-[44px] flex items-center justify-between gap-2 rounded-xl bg-muted/45 hover:bg-muted/70 px-3.5 py-2 text-xs sm:text-sm font-heading font-bold text-foreground transition-colors cursor-pointer"
           >
-            <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0" />
+            <span className="flex items-center gap-2">
+              <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
               <span>
                 {isTakeawaysOpen
                   ? copy.hideTakeaways
@@ -154,13 +154,13 @@ export function TldrActionBox({
           </button>
 
           {isTakeawaysOpen && (
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2.5 text-xs sm:text-sm text-foreground/90">
+            <ul className="mt-2.5 rounded-xl bg-muted/35 dark:bg-muted/20 px-3.5 py-1 divide-y divide-border/60 text-sm sm:text-base text-foreground">
               {keyTakeaways.map((item, idx) => (
                 <li
                   key={idx}
-                  className="rounded-lg border border-border/70 bg-background/60 px-3 py-2 flex items-start gap-2 leading-relaxed"
+                  className="py-2.5 flex items-start gap-2.5 leading-relaxed"
                 >
-                  <span className="font-mono font-bold text-emerald-500 shrink-0">
+                  <span className="font-mono text-xs sm:text-sm font-bold text-emerald-500 shrink-0 mt-0.5">
                     {idx + 1}.
                   </span>
                   <RichGuideText

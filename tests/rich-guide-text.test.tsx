@@ -1,10 +1,12 @@
 import React from "react";
 import { describe, expect, it } from "vitest";
-import { render } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import {
   RichGuideText,
   splitStructuredSentences,
 } from "../src/components/guides/blocks/rich-guide-text";
+import { TldrActionBox } from "../src/components/guides/blocks/tldr-action-box";
+import { CalloutBox } from "../src/components/guides/blocks/callout-box";
 import { ARTICLE_5_1_GEAR_OVERVIEW } from "../src/content/guides/groups/group-5/5.1-gear-overview";
 
 describe("RichGuideText Semantic HTML Engine (DEC-V4-01)", () => {
@@ -130,5 +132,72 @@ describe("RichGuideText Semantic HTML Engine (DEC-V4-01)", () => {
     );
     expect(listItems[2].textContent).toContain("Lv.40 với 1.000 Đá.");
   });
-});
 
+  it("enforces Google MD3 typography (text-sm sm:text-base for body/brief lists, >= 12px badges, min-h-[44px] drawer toggle, and flat keyTakeaways list)", () => {
+    const denseParagraph = `${ARTICLE_5_1_GEAR_OVERVIEW.tldr!.coreRule.vi} Giữ nguyên mốc Lv.40 và định mức 1.000 Kim Cương ở bài 5.1 mà không bị cắt nhầm câu.`;
+
+    const { container } = render(
+      <div>
+        <RichGuideText
+          text={"1. Bước khởi đầu\n2. Bước hoàn tất"}
+          locale="vi"
+        />
+        <RichGuideText text={denseParagraph} variant="structured-brief" />
+        <TldrActionBox
+          locale="vi"
+          tldr={{
+            coreRule: { vi: "Dồn 100% tài nguyên cho Đội 1", en: "Focus 100% on Queue 1" },
+            immediateAction: { vi: "Vào Bang Top 1-3 ngay", en: "Join Top 1-3 Guild" },
+            strictTaboo: { vi: "Cấm tiêu Kim Cương vào Quán Rượu", en: "Never spend Diamonds in Tavern" },
+          }}
+          keyTakeaways={[
+            { vi: "Định mức `560 Mảnh` cho bậc Thần Thoại.", en: "560 Shards for Mythic." },
+          ]}
+        />
+        <CalloutBox
+          variant="danger"
+          locale="vi"
+          title="Cảnh báo lệch tài nguyên"
+          content="Tuyệt đối không nâng dàn trải 3 đội hình cùng lúc."
+        />
+      </div>
+    );
+
+    const olStepBadge = container.querySelector("ol li span");
+    expect(olStepBadge?.className).toContain("text-xs");
+    expect(olStepBadge?.className).not.toContain("text-[11px]");
+
+    const structuredUl = container.querySelector("ul");
+    expect(structuredUl?.className).toContain("text-sm");
+    expect(structuredUl?.className).toContain("sm:text-base");
+    expect(structuredUl?.className).not.toContain("text-[13px]");
+
+    const coreRuleBadge = screen.getByText("Nguyên tắc số 1");
+    expect(coreRuleBadge.className).toContain("text-xs");
+    expect(coreRuleBadge.className).toContain("font-sans");
+    expect(coreRuleBadge.className).not.toContain("text-[11px]");
+    expect(coreRuleBadge.className).not.toContain("font-mono");
+
+    const toggleBtn = screen.getByTestId("tldr-takeaways-toggle");
+    expect(toggleBtn.className).toContain("min-h-[44px]");
+    fireEvent.click(toggleBtn);
+
+    const takeawayItem = screen
+      .getByText(/cho bậc Thần Thoại/i)
+      .closest("li");
+    expect(takeawayItem).not.toBeNull();
+    expect(takeawayItem?.className).not.toMatch(/(^|\s)border(\s|$)/);
+
+    const calloutBadge = screen.getByText("BẪY ĐỎ");
+    expect(calloutBadge.className).toContain("text-xs");
+    expect(calloutBadge.className).toContain("font-sans");
+    expect(calloutBadge.className).not.toContain("text-[10px]");
+    expect(calloutBadge.className).not.toContain("font-mono");
+
+    const calloutHeading = screen.getByRole("heading", {
+      name: /Cảnh báo lệch tài nguyên/i,
+    });
+    expect(calloutHeading.className).toContain("text-sm");
+    expect(calloutHeading.className).toContain("sm:text-base");
+  });
+});

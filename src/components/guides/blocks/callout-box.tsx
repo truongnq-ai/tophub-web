@@ -79,7 +79,7 @@ export function CalloutBox({
   const Icon = style.Icon;
 
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-border/80 bg-card/85 p-4 sm:p-5 flex items-start gap-3.5 shadow-sm transition-all">
+    <div className="relative overflow-hidden rounded-2xl border border-border/80 bg-card/85 p-3.5 sm:p-5 flex items-start gap-3 sm:gap-3.5 shadow-sm transition-all">
       <div
         data-testid="callout-top-glow"
         aria-hidden="true"
@@ -90,17 +90,17 @@ export function CalloutBox({
       />
       <div
         className={cn(
-          "inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border mt-0.5",
+          "inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border mt-0.5",
           style.iconFrame
         )}
       >
-        <Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" aria-hidden="true" />
+        <Icon className="h-4 w-4" aria-hidden="true" />
       </div>
-      <div className="space-y-1.5 text-sm min-w-0 flex-1">
+      <div className="space-y-2 text-sm sm:text-base min-w-0 flex-1">
         <div className="flex flex-wrap items-center gap-2">
           <span
             className={cn(
-              "inline-flex items-center rounded-md border px-2 py-0.5 font-mono text-[10px] font-extrabold uppercase tracking-wider",
+              "inline-flex items-center rounded-md border px-2 py-0.5 font-sans text-xs font-extrabold uppercase tracking-wider",
               style.badgeClass
             )}
           >
@@ -108,7 +108,7 @@ export function CalloutBox({
           </span>
           <h4
             className={cn(
-              "font-heading font-bold text-xs sm:text-sm",
+              "font-heading font-bold text-sm sm:text-base",
               style.titleColor
             )}
           >
@@ -125,7 +125,7 @@ export function CalloutBox({
           variant="structured-brief"
           locale={locale}
           accentColor={style.accentColor}
-          className="text-foreground/90 leading-relaxed text-xs sm:text-sm"
+          className="text-foreground leading-relaxed text-sm sm:text-base"
         />
       </div>
     </div>
