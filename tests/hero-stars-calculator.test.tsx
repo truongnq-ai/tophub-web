@@ -232,6 +232,12 @@ describe("Suite 2 — Compact v2.1 UI: 15 Integrated 5-Petal Stars, 12h Top CCW 
     );
     expect(screen.getAllByText("Hoàng Tử Sa Mạc")).toHaveLength(1);
 
+    // 1b. Displays only "Bậc Sao Hiện Tại" & "Bậc Sao Muốn Đạt" without "Điểm Xuất Phát (X)" or "Mục Tiêu Đích (Y)"
+    expect(screen.getByText("Bậc Sao Hiện Tại")).toBeDefined();
+    expect(screen.getByText("Bậc Sao Muốn Đạt")).toBeDefined();
+    expect(screen.queryByText("Điểm Xuất Phát (X)")).toBeNull();
+    expect(screen.queryByText("Mục Tiêu Đích (Y)")).toBeNull();
+
     // 2. Integrated 5-petal stars on the 15-star track:
     // At default fromPetalIndex = 6 (1★ Gold + 1 Petal of Star 2):
     // Star 1 has 5 lit petals, Star 2 has 1 lit petal, Star 3 has 0 lit petals
@@ -283,6 +289,10 @@ describe("Suite 2 — Compact v2.1 UI: 15 Integrated 5-Petal Stars, 12h Top CCW 
     );
 
     expect(screen.getByTestId("hero-stars-calculator")).toBeDefined();
+    expect(screen.getByText("Current Star Level")).toBeDefined();
+    expect(screen.getByText("Target Star Level")).toBeDefined();
+    expect(screen.queryByText("Starting Point (X)")).toBeNull();
+    expect(screen.queryByText("Target Goal (Y)")).toBeNull();
     expect(container.textContent ?? "").not.toMatch(VI_DIACRITIC_REGEX);
 
     fireEvent.click(screen.getByTestId("central-hero-avatar-trigger"));

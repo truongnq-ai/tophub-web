@@ -18,6 +18,8 @@ import type {
 } from "@/content/calculators/types";
 import { categoryIcons } from "./calculators-sidebar";
 import { HeroStarsCalculator } from "./hero-stars-calculator";
+import { HeroAwakeningCalculator } from "./hero-awakening-calculator";
+import { HeroTraitsCalculator } from "./hero-traits-calculator";
 import { GameAssetFrame } from "@/components/guides/media/game-asset-frame";
 import { GuideCommentsSection } from "@/components/guides/guide-comments-section";
 import { Input } from "@/components/ui/input";
@@ -101,7 +103,21 @@ export function CalculatorPlaceholderView({
           </span>
         </nav>
 
-        {tool.slug === "hero-stars" ? (
+        {tool.slug === "hero-traits" ? (
+          <HeroTraitsCalculator
+            zone={zone}
+            category={category}
+            tool={tool}
+            locale={locale}
+          />
+        ) : tool.slug === "hero-awakening" ? (
+          <HeroAwakeningCalculator
+            zone={zone}
+            category={category}
+            tool={tool}
+            locale={locale}
+          />
+        ) : tool.slug === "hero-stars" ? (
           <HeroStarsCalculator
             zone={zone}
             category={category}

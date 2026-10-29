@@ -107,7 +107,7 @@ describe("Suite 1 — Calculators Registry SSoT (3 Zones, 9 Categories, 21 Tools
     });
 
     const tools = getAllCalculatorTools();
-    expect(tools).toHaveLength(21);
+    expect(tools).toHaveLength(22);
     expect(HOT_CALCULATOR_TAGS).toHaveLength(5);
   });
 
@@ -173,6 +173,8 @@ describe("Suite 1 — Calculators Registry SSoT (3 Zones, 9 Categories, 21 Tools
     const firstAdj = getAdjacentCalculatorTools("heroes", "hero-stars");
     expect(firstAdj.prev).toBeNull();
     expect(firstAdj.next?.code).toBe("1.2");
+    expect(getCalculatorToolBySlug("heroes", "hero-traits")?.tool.code).toBe("1.3");
+    expect(getCalculatorToolBySlug("heroes", "hero-level-spirit")?.tool.code).toBe("1.4");
 
     // UX-UPGRADE-01: returnUrl builder for calculators comments
     expect(buildGuideReturnUrl("calculators:hub", "vi")).toBe(

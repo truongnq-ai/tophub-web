@@ -306,8 +306,8 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
           en: "1. Heroes",
         },
         description: {
-          vi: "Tính Mảnh Vạn Năng nâng sao từng cánh (0★ ➔ 5★ Trắng), Đá Linh Hồn thức tỉnh, Thịt nâng cấp độ và Mảnh Linh Thể Vạn Năng.",
-          en: "Calculate Universal Shards per star tier (0★ to 5★ Silver), Awakening Soul Stones, Meat for hero levels, and Universal Heroic Spirit Shards.",
+          vi: "Tính Mảnh Vạn Năng nâng sao từng cánh (0★ ➔ 5★ Trắng), Đá Linh Hồn thức tỉnh, Mảnh nâng 4 ô Thiên Phú (Lv.0–30), Thịt nâng cấp độ và Mảnh Linh Thể Vạn Năng.",
+          en: "Calculate Universal Shards per star tier (0★ to 5★ Silver), Awakening Soul Stones, Shards for 4 Hero Trait slots (Lv.0–30), Meat for hero levels, and Universal Heroic Spirit Shards.",
         },
         tools: [
           {
@@ -388,33 +388,80 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
                 question:
                   "Thức tỉnh một Anh Hùng Cam (như Pháp Sư Lửa) từ Bậc 1 (Đã mở khóa) lên Bậc 4 (Hóa Đỏ hoàn toàn) cần bao nhiêu Đá Linh Hồn và Mảnh?",
                 inputPreview:
-                  "Phe: Liên Minh • Đang ở: Bậc 1 (Hoàn tất) ➔ Mục tiêu: Bậc 4 (Hóa Thần Thoại Đỏ)",
+                  "Phe: Liên Minh • Đang ở: Bậc 1 • Lv.5 (1 Đá + 55 Mảnh) ➔ Mục tiêu: Bậc 4 (Hóa Thần Thoại Đỏ)",
                 outputPreview:
-                  "Cần thêm 8 Đá Linh Hồn Liên Minh + 265 Mảnh Vạn Năng Anh Hùng Cam",
+                  "Cần thêm 8 Đá Linh Hồn Liên Minh + 290 Mảnh Vạn Năng Anh Hùng Cam (Hoặc 8 Đá + 340 Mảnh nếu từ Bậc 1 • Lv.0)",
               },
               en: {
                 question:
                   "Awakening a Legendary Hero (such as Pyromancer) from Tier 1 (Unlocked) to Tier 4 (Full Mythic Ascension) — how many Soul Stones and Shards are required?",
                 inputPreview:
-                  "Faction: League • Current: Tier 1 (Complete) ➔ Target: Tier 4 (Full Mythic Ascension)",
+                  "Faction: League • Current: Tier 1 • Lv.5 (1 Stone + 55 Shards) ➔ Target: Tier 4 (Full Mythic Ascension)",
                 outputPreview:
-                  "Requires 8 League Soul Stones + 265 Legendary Universal Hero Shards",
+                  "Requires 8 League Soul Stones + 290 Legendary Universal Hero Shards (Or 8 Stones + 340 Shards from Tier 1 • Lv.0)",
               },
             },
-            status: "coming_soon",
+            status: "ready",
           },
           {
             code: "1.3",
+            slug: "hero-traits",
+            categorySlug: "heroes",
+            phaseNumber: 1,
+            title: {
+              vi: "1.3 Thiên Phú Tướng",
+              en: "1.3 Hero Traits",
+            },
+            fullTitle: {
+              vi: "1.3 Máy Tính Thiên Phú Anh Hùng (4 Ô Lv.0 ➔ Lv.30 & Trao Đổi Thiên Phú)",
+              en: "1.3 Hero Traits Calculator (4 Slots Lv.0 to Lv.30 & Trait Swap)",
+            },
+            summary: {
+              vi: "Tính chính xác số Mảnh Anh Hùng (10 mảnh/cấp, 300 mảnh/ô, 1,200 mảnh/tướng) cho 4 ô Thiên Phú (mở khóa ở 2★ Bạc), tối ưu lộ trình Ô 3 Kinh Tế 24/7 và cảnh báo bẫy 2,000 Kim Cương mở Ô 4.",
+              en: "Calculate exact Hero Shards (10 shards/level, 300 shards/slot, 1,200 shards/hero) across all 4 Trait Slots (unlocked at 2★ Silver), optimize Slot 3 Economy 24/7 funnels, and guard against the 2,000-Diamond Slot 4 trap.",
+            },
+            dataSourceTab: {
+              vi: "Tab Heroes — Ma Trận 4 Ô Thiên Phú (Lv.1–30) & Thiên Phú Đặc Thù",
+              en: "Heroes Tab — 4-Slot Trait Matrix (Lv.1–30) & Individual Trait 3",
+            },
+            materials: [
+              CALCULATOR_MATERIALS.legendaryUniversalHeroShard,
+              CALCULATOR_MATERIALS.epicUniversalHeroShard,
+              CALCULATOR_MATERIALS.rareUniversalHeroShard,
+              CALCULATOR_MATERIALS.diamond,
+            ],
+            exampleCase: {
+              vi: {
+                question:
+                  "Tướng Tím Đấu Sĩ (Brawler) đã đạt 2★ Bạc, muốn nâng Thiên Phú theo phễu Kinh Tế (Ô 1 Lv.15 mở cầu ➔ Ô 3 Max Lv.30 lấy +30% Tốc độ Nghiên cứu Công nghệ) tốn bao nhiêu Mảnh và có nên mở Ô 4 không?",
+                inputPreview:
+                  "Tướng: Đấu Sĩ (Tím) • Lộ trình: Phễu Kinh Tế (Ô 1 Lv.15 + Ô 2 Lv.0 + Ô 3 Lv.30 + Ô 4 Khóa)",
+                outputPreview:
+                  "Cần 450 Mảnh Tím (150 mảnh Ô 1 + 300 mảnh Ô 3) • Tiết kiệm 2,000 Kim Cương (Không mở Ô 4 cho tướng dự bị)",
+              },
+              en: {
+                question:
+                  "Brawler (Epic) has reached 2★ Silver and wants to follow the Economy Trait Funnel (Slot 1 Lv.15 bridge to Slot 3 Max Lv.30 for +30% Tech Research Speed) — how many Shards are needed and should Slot 4 be unlocked?",
+                inputPreview:
+                  "Hero: Brawler (Epic) • Mode: Economy Funnel (Slot 1 Lv.15 + Slot 2 Lv.0 + Slot 3 Lv.30 + Slot 4 Locked)",
+                outputPreview:
+                  "Requires 450 Epic Shards (150 for Slot 1 + 300 for Slot 3) • Saves 2,000 Diamonds (Do not unlock Slot 4 on benched economy heroes)",
+              },
+            },
+            status: "ready",
+          },
+          {
+            code: "1.4",
             slug: "hero-level-spirit",
             categorySlug: "heroes",
             phaseNumber: 1,
             title: {
-              vi: "1.3 Cấp Tướng & Linh Thể",
-              en: "1.3 Hero Level & Spirit",
+              vi: "1.4 Cấp Tướng & Linh Thể",
+              en: "1.4 Hero Level & Spirit",
             },
             fullTitle: {
-              vi: "1.3 Máy Tính Thịt Nâng Cấp Tướng (Lv.1–250) & Mảnh Linh Thể (Lv.1–60)",
-              en: "1.3 Hero Level Meat (Lv.1–250) & Heroic Spirit Shard (Lv.1–60) Calculator",
+              vi: "1.4 Máy Tính Thịt Nâng Cấp Tướng (Lv.1–250) & Mảnh Linh Thể (Lv.1–60)",
+              en: "1.4 Hero Level Meat (Lv.1–250) & Heroic Spirit Shard (Lv.1–60) Calculator",
             },
             summary: {
               vi: "Tính lượng Thịt cần để nâng cấp 1 tướng hoặc 5 tướng Đội 1 từ Lv.1 đến Lv.250 theo trần Lâu Đài Chính, kết hợp tính Mảnh Linh Thể Vạn Năng (Lv.1–60).",

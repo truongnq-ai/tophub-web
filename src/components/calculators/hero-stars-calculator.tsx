@@ -180,15 +180,12 @@ export function HeroStarsCalculator({
         </div>
       </div>
 
-      {/* 2. Main 3-Zone Workspace: [Điểm Xuất Phát (X)] ⟷ [Avatar Tướng Trung Tâm] ⟷ [Mục Tiêu Đích (Y)] */}
+      {/* 2. Main 3-Zone Workspace: [Bậc Sao Hiện Tại] ⟷ [Avatar Tướng Trung Tâm] ⟷ [Bậc Sao Muốn Đạt] */}
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] items-center gap-3 sm:gap-4">
-        {/* Left: Starting Point (X) */}
+        {/* Left: Current Star Level */}
         <div className="order-2 lg:order-1 min-w-0">
           <HeroStarPetalSelector
             idPrefix="from"
-            subtitle={
-              locale === "vi" ? "Điểm Xuất Phát (X)" : "Starting Point (X)"
-            }
             title={locale === "vi" ? "Bậc Sao Hiện Tại" : "Current Star Level"}
             petalIndex={fromPetalIndex}
             costPerPetal={result.currentCostPerPetal}
@@ -360,11 +357,10 @@ export function HeroStarsCalculator({
           )}
         </div>
 
-        {/* Right: Target Goal (Y) */}
+        {/* Right: Target Star Level */}
         <div className="order-3 min-w-0">
           <HeroStarPetalSelector
             idPrefix="to"
-            subtitle={locale === "vi" ? "Mục Tiêu Đích (Y)" : "Target Goal (Y)"}
             title={locale === "vi" ? "Bậc Sao Muốn Đạt" : "Target Star Level"}
             petalIndex={toPetalIndex}
             costPerPetal={result.targetCostPerPetal}
@@ -389,8 +385,8 @@ export function HeroStarsCalculator({
               <AlertTriangle className="h-4 w-4 text-amber-500 shrink-0" />
               <p className="text-xs text-foreground font-medium">
                 {locale === "vi"
-                  ? "Bậc sao mục tiêu (Y) đang thấp hơn hoặc bằng bậc sao hiện tại (X)."
-                  : "Target star level (Y) is less than or equal to current level (X)."}
+                  ? "Bậc sao muốn đạt đang thấp hơn hoặc bằng bậc sao hiện tại."
+                  : "Target star level is less than or equal to current star level."}
               </p>
             </div>
             <button

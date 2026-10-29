@@ -12,7 +12,6 @@ import { cn } from "@/lib/utils";
 interface HeroStarPetalSelectorProps {
   readonly idPrefix: "from" | "to";
   readonly title: string;
-  readonly subtitle: string;
   readonly petalIndex: number;
   readonly costPerPetal: number;
   readonly cumulativeShards: number;
@@ -35,7 +34,6 @@ const FIFTEEN_STARS = Array.from({ length: 15 }, (_, i) => i + 1);
 export function HeroStarPetalSelector({
   idPrefix,
   title,
-  subtitle,
   petalIndex,
   costPerPetal,
   cumulativeShards,
@@ -116,9 +114,6 @@ export function HeroStarPetalSelector({
       {/* 1. Compact Header + 0★ Reset + Cumulative Shards */}
       <div className="flex items-center justify-between gap-2">
         <div className="min-w-0">
-          <div className="text-[10px] font-mono font-extrabold uppercase tracking-wider text-amber-600 dark:text-amber-400">
-            {subtitle}
-          </div>
           <h3 className="text-sm sm:text-base font-heading font-black text-foreground truncate">
             {title}
           </h3>
