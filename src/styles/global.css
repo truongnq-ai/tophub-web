@@ -102,4 +102,19 @@
     @apply border border-border/80 dark:border-amber-500/20 bg-card/85 backdrop-blur-xl
            shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.5)];
   }
+
+  /* MD3 Primary Surface Container (Single-Layer Containment) */
+  .surface-card {
+    @apply rounded-2xl border border-border/80 dark:border-amber-500/20 bg-card/90 backdrop-blur-xl p-4 sm:p-6 shadow-sm;
+  }
+
+  /* MD3 Tonal Sub-Surface (No extra border on mobile — separated by tonal fill only) */
+  .surface-tonal {
+    @apply rounded-xl bg-muted/40 dark:bg-slate-900/60 border-0 sm:border sm:border-border/50 p-3.5 sm:p-4;
+  }
+
+  /* Mandatory Touch Target Helper (WCAG 2.5.5 >= 44x44px) */
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px] inline-flex items-center justify-center;
+  }
 }

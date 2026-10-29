@@ -10,7 +10,7 @@ export function Footer() {
 
   return (
     <footer className="w-full border-t border-border/80 dark:border-amber-500/15 bg-muted/20 dark:bg-card/40 py-12 mt-auto">
-      <div className="container mx-auto px-4 md:px-6 max-w-7xl">
+      <div className="container mx-auto px-3 sm:px-6 max-w-7xl">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand info */}
           <div className="space-y-3">
@@ -22,32 +22,32 @@ export function Footer() {
                 {tFooter("title")}
               </span>
             </Link>
-            <p className="text-xs text-muted-foreground leading-relaxed">
+            <p className="text-sm text-muted-foreground leading-relaxed">
               {tFooter("brandDesc")}
             </p>
-            <p className="text-[11px] text-muted-foreground leading-relaxed border-l-2 border-amber-500/50 pl-2.5 py-1 bg-amber-500/5 rounded-r">
+            <p className="text-xs text-muted-foreground leading-relaxed border-l-2 border-amber-500/50 pl-2.5 py-1.5 bg-amber-500/5 rounded-r">
               {tFooter("disclaimer")}
             </p>
           </div>
 
           {/* Quick links */}
           <div className="space-y-3 md:pl-8">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-foreground font-heading">
+            <h4 className="text-sm font-bold uppercase tracking-wider text-foreground font-heading">
               {tFooter("featuredFeatures")}
             </h4>
-            <ul className="space-y-2 text-xs">
+            <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/guides" className="text-muted-foreground hover:text-amber-500 dark:hover:text-amber-400 transition-colors font-semibold">
+                <Link href="/guides" className="inline-flex items-center min-h-[44px] sm:min-h-0 py-1 text-muted-foreground hover:text-amber-500 dark:hover:text-amber-400 transition-colors font-semibold">
                   {tNav("guides")} (S0 ➔ S4)
                 </Link>
               </li>
               <li>
-                <Link href="/giftcodes" className="text-muted-foreground hover:text-amber-500 dark:hover:text-amber-400 transition-colors">
+                <Link href="/giftcodes" className="inline-flex items-center min-h-[44px] sm:min-h-0 py-1 text-muted-foreground hover:text-amber-500 dark:hover:text-amber-400 transition-colors">
                   {tNav("giftcodes")} 2026
                 </Link>
               </li>
               <li>
-                <Link href="/" className="text-muted-foreground hover:text-amber-500 dark:hover:text-amber-400 transition-colors">
+                <Link href="/" className="inline-flex items-center min-h-[44px] sm:min-h-0 py-1 text-muted-foreground hover:text-amber-500 dark:hover:text-amber-400 transition-colors">
                   {tFooter("autoCheckin247")}
                 </Link>
               </li>
@@ -56,17 +56,17 @@ export function Footer() {
 
           {/* Legal and Support */}
           <div className="space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-foreground font-heading">
+            <h4 className="text-sm font-bold uppercase tracking-wider text-foreground font-heading">
               {tFooter("legalAndSupport")}
             </h4>
-            <ul className="space-y-2 text-xs">
+            <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/terms" className="text-muted-foreground hover:text-amber-500 dark:hover:text-amber-400 transition-colors">
+                <Link href="/terms" className="inline-flex items-center min-h-[44px] sm:min-h-0 py-1 text-muted-foreground hover:text-amber-500 dark:hover:text-amber-400 transition-colors">
                   {tFooter("terms")}
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="text-muted-foreground hover:text-amber-500 dark:hover:text-amber-400 transition-colors">
+                <Link href="/privacy" className="inline-flex items-center min-h-[44px] sm:min-h-0 py-1 text-muted-foreground hover:text-amber-500 dark:hover:text-amber-400 transition-colors">
                   {tFooter("privacy")}
                 </Link>
               </li>
@@ -75,7 +75,7 @@ export function Footer() {
                   href="https://discord.gg/topheroes"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-amber-500 dark:hover:text-amber-400 transition-colors"
+                  className="inline-flex items-center min-h-[44px] sm:min-h-0 py-1 text-muted-foreground hover:text-amber-500 dark:hover:text-amber-400 transition-colors"
                 >
                   {tFooter("discordCommunity")}
                 </a>
