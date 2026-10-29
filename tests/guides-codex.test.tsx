@@ -518,3 +518,85 @@ describe("Track 3 — Phase 3.3 Suite 7A: CodexEntityDrawer MD3 Typography, Sing
     expect(VI_DIACRITIC_REGEX.test(emptyRelated.textContent ?? "")).toBe(false);
   });
 });
+
+describe("Track 3 — Phase 3.3 Suite 7B: GameCodexClient MD3 Typography, Single-Layer Containment & Touch Target Gate", () => {
+  it("enforces 16px mobile search input, >= 44px touch targets on filters/tabs, 14px-16px entity titles & descriptions, and flat Single-Layer Containment across all 8 Phase 3.3 files", () => {
+    mockActiveLocale = "vi";
+    const { container } = render(<GameCodexClient locale="vi" />);
+
+    const searchInput = screen.getByTestId("codex-search-input");
+    expect(searchInput.className).toContain("text-base");
+    expect(searchInput.className).toContain("h-11");
+    expect(searchInput.className).toContain("min-h-[44px]");
+
+    // Type query to reveal scope toggle and reset button
+    fireEvent.change(searchInput, { target: { value: "Wukong" } });
+    const scopeCatBtn = screen.getByTestId("codex-scope-category-btn");
+    const scopeAllBtn = screen.getByTestId("codex-scope-all-btn");
+    const resetBtn = screen.getByTestId("codex-reset-filters-btn");
+    expect(scopeCatBtn.className).toContain("min-h-[44px]");
+    expect(scopeAllBtn.className).toContain("min-h-[44px]");
+    expect(resetBtn.className).toContain("min-h-[44px]");
+
+    // Verify 4 menu zones & filter bar use border-0 on mobile (Single-Layer Containment)
+    const combatZone = screen.getByTestId("codex-menu-zone-zone_combat");
+    const filterBar = screen.getByTestId("codex-context-filter-bar");
+    expect(combatZone.className).toContain("border-0");
+    expect(filterBar.className).toContain("border-0");
+
+    // Verify category tab, sub-category, rarity, faction, and extra filter buttons meet min-h-[44px]
+    expect(screen.getByTestId("codex-cat-tab-heroes").className).toContain(
+      "min-h-[44px]"
+    );
+    expect(screen.getByTestId("codex-subcat-hero-units").className).toContain(
+      "min-h-[44px]"
+    );
+    expect(screen.getByTestId("codex-rarity-mythic").className).toContain(
+      "min-h-[44px]"
+    );
+    expect(screen.getByTestId("codex-faction-horde").className).toContain(
+      "min-h-[44px]"
+    );
+    expect(screen.getByTestId("codex-extra-awakenable").className).toContain(
+      "min-h-[44px]"
+    );
+
+    // Clear search to inspect entity cards
+    fireEvent.change(searchInput, { target: { value: "" } });
+    const firstCard = screen.getAllByTestId("codex-entity-card")[0]!;
+    const cardHeading = firstCard.querySelector("h3");
+    expect(cardHeading?.className).toContain("text-sm");
+    expect(cardHeading?.className).toContain("sm:text-base");
+
+    // Zero micro-text in rendered DOM
+    expect(container.innerHTML).not.toMatch(/\btext-\[(?:8|9|10|11)px\]/);
+
+    // Static scan across all 8 Phase 3.3 files on disk
+    const phase33Files = [
+      "src/app/[locale]/guides/codex/page.tsx",
+      "src/components/guides/codex/game-codex-client.tsx",
+      "src/components/guides/codex/codex-entity-drawer.tsx",
+      "src/components/guides/codex/codex-utils.ts",
+      "src/components/guides/media/game-asset-frame.tsx",
+      "src/components/guides/media/game-entity-popover.tsx",
+      "src/components/guides/media/game-inline-chip.tsx",
+      "src/components/guides/media/visual-showcase-deck.tsx",
+    ];
+
+    for (const relPath of phase33Files) {
+      const fullPath = path.resolve(process.cwd(), relPath);
+      const source = fs.readFileSync(fullPath, "utf-8");
+      expect(source, `${relPath} contains forbidden micro-text`).not.toMatch(
+        /\btext-\[(?:8|9|10|11)px\]|text-\[0\.82em\]/
+      );
+      expect(source, `${relPath} contains forbidden GAP-03 class`).not.toMatch(
+        /\b(border-l-2|border-l-4|rounded-l-sm)\b/
+      );
+      expect(
+        source,
+        `${relPath} contains Tailwind v4-only -xs utility`
+      ).not.toMatch(/\b(shadow-xs|backdrop-blur-xs|rounded-xs)\b/);
+    }
+  });
+});
+

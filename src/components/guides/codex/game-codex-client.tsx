@@ -353,10 +353,10 @@ export function GameCodexClient({
       className="min-w-0 overflow-hidden space-y-6"
     >
       {/* LAYER 1: Hero Header & Bilingual Instant Search */}
-      <section className="card-rpg rounded-3xl p-5 sm:p-7 space-y-4">
+      <section className="card-rpg rounded-3xl p-4 sm:p-7 space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/40 bg-amber-500/10 px-3.5 py-1 text-xs font-bold text-amber-600 dark:text-amber-400">
-            <Database className="h-3.5 w-3.5 text-amber-500" />
+          <div className="inline-flex items-center gap-2 rounded-full border-0 bg-amber-500/15 px-3.5 py-1.5 text-xs font-sans font-bold text-amber-600 dark:text-amber-400">
+            <Database className="h-3.5 w-3.5 text-amber-500 shrink-0" />
             <span>
               {isVi
                 ? "Tầng 2 • Kho Đồ Giám & Từ Điển Vật Phẩm Song Ngữ"
@@ -364,19 +364,21 @@ export function GameCodexClient({
             </span>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             <Badge
               variant="outline"
-              className="font-mono text-[11px] border-amber-500/35 text-amber-500"
+              className="border-0 bg-amber-500/10 px-2.5 py-1 font-sans text-xs font-semibold text-amber-600 dark:text-amber-400"
             >
-              {totalCatalogCount.toLocaleString()}{" "}
+              <span className="font-mono font-bold mr-1">
+                {totalCatalogCount.toLocaleString()}
+              </span>
               {isVi ? "Thực thể chuẩn hóa" : "Verified Entities"}
             </Badge>
             <Link
               href="/guides"
-              className="inline-flex items-center gap-1.5 rounded-xl border border-border/70 bg-background/60 px-3 py-1.5 text-xs font-semibold text-muted-foreground hover:text-amber-500 hover:border-amber-500/40 transition-colors"
+              className="inline-flex items-center gap-1.5 min-h-[44px] rounded-xl bg-muted/50 hover:bg-amber-500/15 px-3.5 py-2 text-xs sm:text-sm font-sans font-semibold text-muted-foreground hover:text-amber-500 transition-colors"
             >
-              <BookOpen className="h-3.5 w-3.5 text-amber-500" />
+              <BookOpen className="h-4 w-4 text-amber-500 shrink-0" />
               <span>{isVi ? "Về Cẩm Nang" : "Back to Guides"}</span>
             </Link>
           </div>
@@ -388,7 +390,7 @@ export function GameCodexClient({
               ? "Kho Đồ Giám & Từ Điển Vật Phẩm Song Ngữ (Anh – Việt)"
               : "Top Heroes Bilingual Game Codex & Item Encyclopedia"}
           </h1>
-          <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-3xl">
+          <p className="text-sm sm:text-base font-sans text-foreground/85 leading-relaxed max-w-3xl">
             {isVi
               ? "Hệ thống tra cứu 12 Danh mục chuyên biệt: Anh hùng, Trang bị Hoàng Kim, Vũ khí Độc quyền, Cổ ngữ, Thánh vật, Thú cưng, Công trình và Vật phẩm sự kiện chuẩn tên trong game kèm thuật ngữ cộng đồng."
               : "Structured 12-Category encyclopedia covering Heroes, Golden Gear, Exclusive Weapons, Runes, Relics, Companion Pets, Buildings, and Event Items with official in-game names and community aliases."}
@@ -396,10 +398,10 @@ export function GameCodexClient({
         </div>
 
         {/* Bilingual Instant Search Box + Search Scope Toggle + Quick Filter Chips */}
-        <div className="pt-1 space-y-2.5">
+        <div className="pt-1 space-y-3">
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 max-w-3xl">
             <div className="relative flex-1">
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-amber-500" />
+              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-amber-500 pointer-events-none" />
               <Input
                 type="text"
                 data-testid="codex-search-input"
@@ -413,7 +415,7 @@ export function GameCodexClient({
                     ? "Tìm theo tên trong game, tên cộng đồng hoặc mã ID... (VD: Thánh Đồ, Paragon, Hồn Đá Đỏ)"
                     : "Search by official name, community alias, or Game ID... (e.g., Paragon, Wukong, Soul Stone)"
                 }
-                className="pl-10 pr-10 h-11 rounded-2xl bg-background/85 text-xs sm:text-sm border-border/80 focus-visible:ring-amber-500/30 focus-visible:border-amber-500"
+                className="pl-10 pr-11 h-11 min-h-[44px] rounded-2xl bg-background/90 text-base sm:text-sm font-sans border-border/80 focus-visible:ring-amber-500/30 focus-visible:border-amber-500"
               />
               {searchQuery ? (
                 <button
@@ -423,7 +425,7 @@ export function GameCodexClient({
                     setPage(1);
                   }}
                   aria-label={isVi ? "Xóa tìm kiếm" : "Clear search"}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 p-1 rounded-md text-muted-foreground hover:text-foreground"
+                  className="absolute right-1 top-1/2 -translate-y-1/2 inline-flex h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center rounded-xl text-muted-foreground hover:text-foreground"
                 >
                   <X className="h-4 w-4" />
                 </button>
@@ -431,7 +433,7 @@ export function GameCodexClient({
             </div>
 
             {searchQuery.trim().length > 0 ? (
-              <div className="inline-flex items-center rounded-2xl border border-border/80 bg-background/70 p-1 text-[11px] font-mono shrink-0">
+              <div className="inline-flex items-center rounded-2xl bg-muted/50 dark:bg-slate-900/70 border-0 p-1 text-xs font-sans shrink-0">
                 <button
                   type="button"
                   data-testid="codex-scope-category-btn"
@@ -440,7 +442,7 @@ export function GameCodexClient({
                     setPage(1);
                   }}
                   className={cn(
-                    "rounded-xl px-2.5 py-1.5 font-semibold transition-all",
+                    "min-h-[44px] rounded-xl px-3 py-2 text-xs sm:text-sm font-sans font-semibold transition-all",
                     searchScope === "category"
                       ? "bg-amber-500 text-slate-950"
                       : "text-muted-foreground hover:text-foreground"
@@ -456,7 +458,7 @@ export function GameCodexClient({
                     setPage(1);
                   }}
                   className={cn(
-                    "rounded-xl px-2.5 py-1.5 font-semibold transition-all",
+                    "min-h-[44px] rounded-xl px-3 py-2 text-xs sm:text-sm font-sans font-semibold transition-all",
                     searchScope === "all"
                       ? "bg-amber-500 text-slate-950"
                       : "text-muted-foreground hover:text-foreground"
@@ -468,8 +470,8 @@ export function GameCodexClient({
             ) : null}
           </div>
 
-          <div className="flex flex-wrap items-center gap-1.5 text-xs">
-            <span className="font-mono text-[11px] text-muted-foreground mr-1">
+          <div className="flex flex-wrap items-center gap-2 text-xs font-sans">
+            <span className="font-sans text-xs font-medium text-muted-foreground mr-1">
               {isVi ? "Tra cứu nhanh:" : "Quick lookup:"}
             </span>
             {QUICK_CODEX_CHIPS.map((chip) => {
@@ -492,10 +494,10 @@ export function GameCodexClient({
                     }
                   }}
                   className={cn(
-                    "rounded-full border px-2.5 py-1 font-mono text-[11px] font-semibold transition-all",
+                    "min-h-[44px] sm:min-h-[38px] inline-flex items-center rounded-full border-0 px-3.5 py-1.5 font-sans text-xs font-semibold transition-all",
                     isSelected
-                      ? "border-amber-500 bg-amber-500 text-slate-950"
-                      : "border-border/70 bg-background/60 text-muted-foreground hover:border-amber-500/40 hover:text-amber-500"
+                      ? "bg-amber-500 text-slate-950 shadow-sm"
+                      : "bg-muted/50 dark:bg-slate-900/60 text-foreground/85 hover:bg-amber-500/15 hover:text-amber-500"
                   )}
                 >
                   {chip.label[locale]}
@@ -506,12 +508,12 @@ export function GameCodexClient({
         </div>
       </section>
 
-      {/* LAYER 2A: 4-Zone Category Menu Navigation (Option M1) */}
-      <section className="rounded-3xl border border-border/80 bg-card/70 p-4 sm:p-5 space-y-4">
+      {/* LAYER 2A: 4-Zone Category Menu Navigation (Option M1 — Single-Layer Containment) */}
+      <section className="rounded-3xl border border-border/80 bg-card/75 p-3.5 sm:p-5 space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <Layers className="h-4 w-4 text-amber-500" />
-            <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
+            <Layers className="h-4 w-4 text-amber-500 shrink-0" />
+            <span className="text-xs sm:text-sm font-sans font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
               {isVi
                 ? "Menu 12 Danh Mục Vật Phẩm (4 Phân Khu Chuyên Biệt)"
                 : "12-Category Encyclopedia Menu (4 Tactical Zones)"}
@@ -523,9 +525,9 @@ export function GameCodexClient({
               type="button"
               data-testid="codex-reset-filters-btn"
               onClick={handleResetFilters}
-              className="inline-flex items-center gap-1 text-xs font-mono text-muted-foreground hover:text-amber-500 transition-colors"
+              className="inline-flex items-center gap-1.5 min-h-[44px] rounded-xl bg-muted/45 hover:bg-amber-500/15 px-3 py-1.5 text-xs font-sans font-semibold text-muted-foreground hover:text-amber-500 transition-colors"
             >
-              <RotateCcw className="h-3 w-3" />
+              <RotateCcw className="h-3.5 w-3.5" />
               <span>{isVi ? "Đặt lại bộ lọc" : "Reset filters"}</span>
             </button>
           ) : null}
@@ -539,18 +541,18 @@ export function GameCodexClient({
                 key={zone.id}
                 data-testid={`codex-menu-zone-${zone.id}`}
                 className={cn(
-                  "rounded-2xl border p-3 space-y-2.5 transition-all",
+                  "rounded-2xl border-0 sm:border p-3 space-y-2.5 transition-all",
                   isZoneActive
-                    ? "border-amber-500/45 bg-amber-500/5"
-                    : "border-border/70 bg-background/45"
+                    ? "bg-amber-500/10 sm:border-amber-500/45"
+                    : "bg-muted/35 dark:bg-slate-900/45 sm:border-border/60"
                 )}
               >
                 <div className="space-y-0.5 px-1">
-                  <div className="flex items-center gap-1.5 text-xs font-heading font-bold text-foreground">
+                  <div className="flex items-center gap-1.5 text-xs sm:text-sm font-heading font-bold text-foreground">
                     {renderZoneIcon(zone.iconName)}
                     <span>{zone.title[locale]}</span>
                   </div>
-                  <p className="text-[11px] text-muted-foreground line-clamp-1">
+                  <p className="text-xs font-sans text-muted-foreground line-clamp-1">
                     {zone.subtitle[locale]}
                   </p>
                 </div>
@@ -567,10 +569,10 @@ export function GameCodexClient({
                         data-testid={`codex-cat-tab-${catId}`}
                         onClick={() => handleCategoryChange(catId)}
                         className={cn(
-                          "w-full flex items-center justify-between gap-2 rounded-xl border px-3 py-2 text-xs font-heading font-bold transition-all text-left",
+                          "w-full min-h-[44px] flex items-center justify-between gap-2 rounded-xl border-0 px-3.5 py-2 text-xs sm:text-sm font-heading font-bold transition-all text-left",
                           isSelected
-                            ? "border-amber-500 bg-amber-500 text-slate-950 shadow-xs"
-                            : "border-border/70 bg-background/70 text-foreground/85 hover:border-amber-500/40 hover:text-amber-500"
+                            ? "bg-amber-500 text-slate-950 shadow-sm"
+                            : "bg-background/80 dark:bg-slate-950/60 text-foreground/90 hover:bg-amber-500/15 hover:text-amber-500"
                         )}
                       >
                         <span className="truncate">
@@ -579,7 +581,7 @@ export function GameCodexClient({
                         {typeof count === "number" ? (
                           <span
                             className={cn(
-                              "rounded-md px-1.5 py-0.5 font-mono text-[10px] shrink-0",
+                              "rounded-md px-2 py-0.5 font-mono text-xs font-bold shrink-0",
                               isSelected
                                 ? "bg-slate-950/20 text-slate-950"
                                 : "bg-muted text-muted-foreground"
@@ -597,15 +599,15 @@ export function GameCodexClient({
           })}
         </div>
 
-        {/* LAYER 2B: Context-Aware Dynamic Filter Bar for the Active Category */}
+        {/* LAYER 2B: Context-Aware Dynamic Filter Bar (Single-Layer Tonal Surface) */}
         <div
           data-testid="codex-context-filter-bar"
-          className="rounded-2xl border border-border/75 bg-background/55 p-3.5 space-y-3"
+          className="rounded-2xl bg-muted/40 dark:bg-slate-900/55 border-0 p-3.5 sm:p-4 space-y-3"
         >
           {/* Row 1: Domain-Specific Sub-Category Pills */}
-          <div className="flex flex-wrap items-center gap-1.5">
-            <span className="text-[11px] font-mono font-bold text-amber-600 dark:text-amber-400 mr-1.5 flex items-center gap-1">
-              <Filter className="h-3 w-3" />
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-xs font-sans font-bold text-amber-600 dark:text-amber-400 mr-1 flex items-center gap-1">
+              <Filter className="h-3.5 w-3.5" />
               {isVi ? "Phân nhóm:" : "Sub-group:"}
             </span>
             {activeSchema.subCategories.map((sub) => {
@@ -617,10 +619,10 @@ export function GameCodexClient({
                   data-testid={`codex-subcat-${sub.id}`}
                   onClick={() => handleSubCategoryChange(sub.id)}
                   className={cn(
-                    "rounded-xl border px-3 py-1 text-xs font-heading font-bold transition-all",
+                    "min-h-[44px] sm:min-h-[38px] inline-flex items-center rounded-xl border-0 px-3.5 py-2 text-xs sm:text-sm font-heading font-bold transition-all",
                     isSelected
-                      ? "border-amber-500 bg-amber-500/20 text-amber-500"
-                      : "border-border/65 bg-background/60 text-muted-foreground hover:border-amber-500/40 hover:text-foreground"
+                      ? "bg-amber-500/20 text-amber-600 dark:text-amber-400 ring-1 ring-inset ring-amber-500/50"
+                      : "bg-background/80 dark:bg-slate-950/60 text-muted-foreground hover:text-foreground"
                   )}
                 >
                   {sub.label[locale]}
@@ -630,13 +632,13 @@ export function GameCodexClient({
           </div>
 
           {/* Row 2: Rarity + Conditional Faction + Conditional Extra Filter */}
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2.5 pt-2.5 border-t border-border/60">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2.5 pt-3 border-t border-border/60">
             {/* Allowed Rarity Filter */}
             <div
               data-testid="codex-rarity-filter-group"
               className="flex flex-wrap items-center gap-1.5"
             >
-              <span className="text-[11px] font-mono text-muted-foreground mr-1">
+              <span className="text-xs font-sans font-semibold text-muted-foreground mr-1">
                 {isVi ? "Phẩm cấp:" : "Rarity:"}
               </span>
               {(["all", ...activeSchema.allowedRarities] as const).map(
@@ -649,10 +651,10 @@ export function GameCodexClient({
                       data-testid={`codex-rarity-${rId}`}
                       onClick={() => handleRarityChange(rId)}
                       className={cn(
-                        "rounded-lg border px-2.5 py-1 text-[11px] font-mono font-semibold transition-all",
+                        "min-h-[44px] sm:min-h-[38px] inline-flex items-center rounded-xl border-0 px-3 py-1.5 text-xs font-sans font-semibold transition-all",
                         isSelected
-                          ? "border-amber-500/60 bg-amber-500/15 text-amber-500"
-                          : "border-border/60 bg-background/50 text-muted-foreground hover:text-foreground"
+                          ? "bg-amber-500/20 text-amber-600 dark:text-amber-400 ring-1 ring-inset ring-amber-500/50"
+                          : "bg-background/80 dark:bg-slate-950/60 text-muted-foreground hover:text-foreground"
                       )}
                     >
                       {CODEX_RARITY_LABELS[rId][locale]}
@@ -668,7 +670,7 @@ export function GameCodexClient({
                 data-testid="codex-faction-filter-group"
                 className="flex flex-wrap items-center gap-1.5"
               >
-                <span className="text-[11px] font-mono text-muted-foreground mr-1">
+                <span className="text-xs font-sans font-semibold text-muted-foreground mr-1">
                   {isVi ? "Phe phái:" : "Faction:"}
                 </span>
                 {(
@@ -685,10 +687,10 @@ export function GameCodexClient({
                       data-testid={`codex-faction-${fId}`}
                       onClick={() => handleFactionChange(fId)}
                       className={cn(
-                        "rounded-lg border px-2.5 py-1 text-[11px] font-mono font-semibold transition-all",
+                        "min-h-[44px] sm:min-h-[38px] inline-flex items-center rounded-xl border-0 px-3 py-1.5 text-xs font-sans font-semibold transition-all",
                         isSelected
-                          ? "border-amber-500/60 bg-amber-500/15 text-amber-500"
-                          : "border-border/60 bg-background/50 text-muted-foreground hover:text-foreground"
+                          ? "bg-amber-500/20 text-amber-600 dark:text-amber-400 ring-1 ring-inset ring-amber-500/50"
+                          : "bg-background/80 dark:bg-slate-950/60 text-muted-foreground hover:text-foreground"
                       )}
                     >
                       {CODEX_FACTION_LABELS[fId][locale]}
@@ -705,7 +707,7 @@ export function GameCodexClient({
                 data-testid="codex-extra-filter-group"
                 className="flex flex-wrap items-center gap-1.5"
               >
-                <span className="text-[11px] font-mono text-muted-foreground mr-1">
+                <span className="text-xs font-sans font-semibold text-muted-foreground mr-1">
                   {activeSchema.extraFilterLabel?.[locale] ??
                     (isVi ? "Đặc tính:" : "Trait:")}
                 </span>
@@ -718,10 +720,10 @@ export function GameCodexClient({
                       data-testid={`codex-extra-${opt.id}`}
                       onClick={() => handleExtraFilterChange(opt.id)}
                       className={cn(
-                        "rounded-lg border px-2.5 py-1 text-[11px] font-mono font-semibold transition-all",
+                        "min-h-[44px] sm:min-h-[38px] inline-flex items-center rounded-xl border-0 px-3 py-1.5 text-xs font-sans font-semibold transition-all",
                         isSelected
-                          ? "border-amber-500/60 bg-amber-500/15 text-amber-500"
-                          : "border-border/60 bg-background/50 text-muted-foreground hover:text-foreground"
+                          ? "bg-amber-500/20 text-amber-600 dark:text-amber-400 ring-1 ring-inset ring-amber-500/50"
+                          : "bg-background/80 dark:bg-slate-950/60 text-muted-foreground hover:text-foreground"
                       )}
                     >
                       {opt.label[locale]}
@@ -737,7 +739,7 @@ export function GameCodexClient({
       {/* LAYER 3: Paginated RPG Entity Card Grid (Max 48 items/page) */}
       <section className="space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-2 px-1">
-          <div className="text-xs font-mono text-muted-foreground">
+          <div className="text-xs sm:text-sm font-sans text-muted-foreground">
             {isVi ? (
               <span>
                 Danh mục{" "}
@@ -747,11 +749,11 @@ export function GameCodexClient({
                     : CODEX_CATEGORY_LABELS[category].vi}
                 </strong>{" "}
                 • Hiển thị{" "}
-                <strong className="text-amber-500">
+                <strong className="font-mono text-amber-500">
                   {paginated.items.length}
                 </strong>{" "}
                 /{" "}
-                <strong className="text-foreground">
+                <strong className="font-mono text-foreground">
                   {paginated.totalItems}
                 </strong>{" "}
                 thực thể
@@ -765,11 +767,11 @@ export function GameCodexClient({
                     : CODEX_CATEGORY_LABELS[category].en}
                 </strong>{" "}
                 • Showing{" "}
-                <strong className="text-amber-500">
+                <strong className="font-mono text-amber-500">
                   {paginated.items.length}
                 </strong>{" "}
                 of{" "}
-                <strong className="text-foreground">
+                <strong className="font-mono text-foreground">
                   {paginated.totalItems}
                 </strong>{" "}
                 entities
@@ -783,20 +785,22 @@ export function GameCodexClient({
           </div>
 
           {paginated.totalPages > 1 ? (
-            <div className="flex items-center gap-1.5 text-xs font-mono">
+            <div className="flex items-center gap-2 text-xs sm:text-sm font-sans">
               <Button
                 type="button"
                 variant="outline"
                 size="sm"
                 disabled={paginated.currentPage <= 1}
                 onClick={() => setPage((p) => Math.max(1, p - 1))}
-                className="h-8 px-2.5 rounded-xl"
+                className="min-h-[44px] min-w-[44px] h-11 px-3 rounded-xl"
               >
-                <ChevronLeft className="h-3.5 w-3.5" />
+                <ChevronLeft className="h-4 w-4" />
               </Button>
               <span className="px-2">
-                {isVi ? "Trang" : "Page"} {paginated.currentPage} /{" "}
-                {paginated.totalPages}
+                {isVi ? "Trang" : "Page"}{" "}
+                <span className="font-mono font-semibold">
+                  {paginated.currentPage} / {paginated.totalPages}
+                </span>
               </span>
               <Button
                 type="button"
@@ -806,9 +810,9 @@ export function GameCodexClient({
                 onClick={() =>
                   setPage((p) => Math.min(paginated.totalPages, p + 1))
                 }
-                className="h-8 px-2.5 rounded-xl"
+                className="min-h-[44px] min-w-[44px] h-11 px-3 rounded-xl"
               >
-                <ChevronRight className="h-3.5 w-3.5" />
+                <ChevronRight className="h-4 w-4" />
               </Button>
             </div>
           ) : null}
@@ -833,7 +837,7 @@ export function GameCodexClient({
                   type="button"
                   data-testid="codex-entity-card"
                   onClick={() => setSelectedEntity(item)}
-                  className="group text-left rounded-2xl border border-border/80 bg-card/75 hover:border-amber-500/55 p-3.5 flex flex-col justify-between gap-3 transition-all shadow-xs hover:shadow-md cursor-pointer"
+                  className="group text-left rounded-2xl border border-border/80 bg-card/85 hover:border-amber-500/55 p-3.5 sm:p-4 flex flex-col justify-between gap-3 transition-all shadow-sm hover:shadow-md cursor-pointer"
                 >
                   <div className="flex items-start gap-3">
                     <GameAssetFrame
@@ -844,41 +848,41 @@ export function GameCodexClient({
                       faction={item.faction}
                     />
                     <div className="min-w-0 flex-1 space-y-1">
-                      <div className="flex items-center justify-between gap-1">
-                        <span className="text-[10px] font-mono font-bold text-amber-500 truncate">
+                      <div className="flex items-center justify-between gap-1.5">
+                        <span className="text-xs font-sans font-semibold text-amber-600 dark:text-amber-400 truncate">
                           {CODEX_CATEGORY_LABELS[item.category][locale]}
                         </span>
                         {item.gameId !== null ? (
-                          <span className="text-[10px] font-mono text-muted-foreground shrink-0">
+                          <span className="text-xs font-mono text-muted-foreground shrink-0">
                             #{item.gameId}
                           </span>
                         ) : null}
                       </div>
 
-                      <h3 className="font-heading font-bold text-xs sm:text-sm text-foreground group-hover:text-amber-500 transition-colors line-clamp-1">
+                      <h3 className="font-heading font-bold text-sm sm:text-base text-foreground group-hover:text-amber-500 transition-colors line-clamp-1">
                         {primaryName}
                       </h3>
 
                       {secondaryName && secondaryName !== primaryName ? (
-                        <p className="text-[11px] font-mono text-muted-foreground truncate">
+                        <p className="text-xs font-sans text-muted-foreground truncate">
                           {secondaryName}
                         </p>
                       ) : null}
                     </div>
                   </div>
 
-                  <p className="text-[11px] text-muted-foreground line-clamp-2 leading-relaxed">
+                  <p className="text-sm sm:text-base font-sans text-foreground/85 line-clamp-2 leading-relaxed">
                     {desc}
                   </p>
 
-                  <div className="flex items-center justify-between gap-2 pt-2 border-t border-border/50 text-[10px] font-mono">
+                  <div className="flex items-center justify-between gap-2 pt-2.5 border-t border-border/60 text-xs font-sans">
                     {communityName && communityName !== primaryName ? (
-                      <span className="inline-flex items-center gap-1 text-amber-600 dark:text-amber-400 truncate">
-                        <Sparkles className="h-3 w-3 shrink-0" />
+                      <span className="inline-flex items-center gap-1 font-medium text-amber-600 dark:text-amber-400 truncate">
+                        <Sparkles className="h-3.5 w-3.5 shrink-0" />
                         <span className="truncate">{communityName}</span>
                       </span>
                     ) : (
-                      <span className="text-muted-foreground">
+                      <span className="text-muted-foreground font-medium">
                         {CODEX_RARITY_LABELS[item.rarity][locale]}
                       </span>
                     )}
@@ -892,12 +896,12 @@ export function GameCodexClient({
           </div>
         ) : (
           <div className="rounded-3xl border border-dashed border-border/80 bg-card/40 p-8 text-center space-y-3">
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm sm:text-base font-sans text-muted-foreground">
               {isVi
                 ? "Không tìm thấy vật phẩm hoặc thực thể nào khớp với bộ lọc hiện tại trong danh mục này."
                 : "No game entities matched your active search and filter criteria in this category."}
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-2">
+            <div className="flex flex-wrap items-center justify-center gap-2.5">
               {searchQuery.trim().length > 0 && searchScope !== "all" ? (
                 <Button
                   type="button"
@@ -907,7 +911,7 @@ export function GameCodexClient({
                     setSearchScope("all");
                     setPage(1);
                   }}
-                  className="rounded-xl text-xs bg-amber-500 text-slate-950 hover:bg-amber-400"
+                  className="min-h-[44px] px-4 rounded-xl text-xs sm:text-sm font-sans font-semibold bg-amber-500 text-slate-950 hover:bg-amber-400"
                 >
                   {isVi
                     ? "Tìm trên toàn bộ 12 Danh mục"
@@ -919,7 +923,7 @@ export function GameCodexClient({
                 variant="outline"
                 size="sm"
                 onClick={handleResetFilters}
-                className="rounded-xl text-xs"
+                className="min-h-[44px] px-4 rounded-xl text-xs sm:text-sm font-sans font-semibold"
               >
                 {isVi ? "Đặt lại bộ lọc" : "Reset filters"}
               </Button>
