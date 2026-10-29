@@ -88,12 +88,12 @@ export function InteractiveChecklistBlock({
     total > 0 ? Math.min(100, Math.round((completed / total) * 100)) : 0;
 
   return (
-    <div className="rounded-2xl border border-emerald-500/35 bg-gradient-to-b from-emerald-500/10 via-card/90 to-card p-4 sm:p-5 space-y-3.5 shadow-sm">
+    <div className="rounded-2xl border border-emerald-500/35 bg-gradient-to-b from-emerald-500/10 via-card/90 to-card p-3.5 sm:p-5 space-y-3.5 shadow-sm">
       <div className="flex flex-wrap items-center justify-between gap-2.5">
-        <div className="space-y-0.5">
+        <div className="space-y-1">
           <div className="flex items-center gap-2">
             <Trophy className="h-4 w-4 text-emerald-500 shrink-0" />
-            <h4 className="font-heading font-bold text-sm sm:text-base text-foreground">
+            <h4 className="font-heading font-bold text-base sm:text-lg text-foreground">
               <RichGuideText
                 text={block.title[locale]}
                 variant="inline"
@@ -105,7 +105,7 @@ export function InteractiveChecklistBlock({
             <RichGuideText
               text={block.description[locale]}
               locale={locale}
-              className="text-xs text-muted-foreground leading-relaxed"
+              className="text-sm text-muted-foreground leading-relaxed"
             />
           )}
         </div>
@@ -120,16 +120,16 @@ export function InteractiveChecklistBlock({
             data-testid="checklist-details-toggle"
             aria-expanded={showDetails}
             onClick={() => setShowDetails((prev) => !prev)}
-            className="inline-flex items-center gap-1 rounded-xl border border-border/80 bg-background/70 hover:border-amber-500/40 px-2.5 py-1.5 text-xs font-heading font-semibold text-muted-foreground hover:text-foreground transition-colors cursor-pointer min-h-[34px]"
+            className="inline-flex items-center gap-1.5 rounded-xl bg-muted/50 hover:bg-muted/80 px-3 py-2 text-xs sm:text-sm font-heading font-semibold text-muted-foreground hover:text-foreground transition-colors cursor-pointer min-h-[44px]"
           >
             {showDetails ? (
               <>
-                <EyeOff className="h-3.5 w-3.5" />
+                <EyeOff className="h-4 w-4 shrink-0" />
                 <span>{locale === "en" ? "Hide details" : "Ẩn giải thích"}</span>
               </>
             ) : (
               <>
-                <Eye className="h-3.5 w-3.5" />
+                <Eye className="h-4 w-4 shrink-0" />
                 <span>{locale === "en" ? "Show details" : "Hiện giải thích"}</span>
               </>
             )}
@@ -141,9 +141,9 @@ export function InteractiveChecklistBlock({
               variant="outline"
               size="sm"
               onClick={handleReset}
-              className="h-8.5 px-2.5 text-xs rounded-xl border-border/80"
+              className="min-h-[44px] px-3 text-xs sm:text-sm rounded-xl border-border/80"
             >
-              <RotateCcw className="h-3.5 w-3.5 mr-1" />
+              <RotateCcw className="h-3.5 w-3.5 mr-1.5" />
               <span>{locale === "en" ? "Reset" : "Đặt lại"}</span>
             </Button>
           )}
@@ -158,8 +158,8 @@ export function InteractiveChecklistBlock({
         />
       </div>
 
-      {/* Checklist Interactive Items (min-h-[48px] for Mobile UX Core) */}
-      <div className="space-y-2">
+      {/* Checklist Interactive Items (Single-Layer Flat Tonal Container + min-h-[48px] Touch Targets) */}
+      <div className="rounded-xl bg-muted/35 dark:bg-muted/20 divide-y divide-border/60 overflow-hidden">
         {block.items.map((item) => {
           const isChecked = checkedIds.includes(item.id);
           return (
@@ -176,10 +176,10 @@ export function InteractiveChecklistBlock({
                 }
               }}
               className={cn(
-                "w-full text-left rounded-xl border px-3.5 py-2.5 flex items-start gap-3 transition-all min-h-[48px] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/50",
+                "w-full text-left px-3.5 py-3 flex items-start gap-3 transition-colors min-h-[48px] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/50",
                 isChecked
-                  ? "border-emerald-500/50 bg-emerald-500/10"
-                  : "border-border/80 bg-background/70 hover:border-amber-500/40"
+                  ? "bg-emerald-500/10"
+                  : "hover:bg-muted/50"
               )}
             >
               <div className="mt-0.5 shrink-0 text-emerald-500">
@@ -193,7 +193,7 @@ export function InteractiveChecklistBlock({
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <span
                     className={cn(
-                      "font-heading font-bold text-xs sm:text-sm",
+                      "font-heading font-bold text-sm sm:text-base",
                       isChecked
                         ? "line-through text-muted-foreground"
                         : "text-foreground"
@@ -209,7 +209,7 @@ export function InteractiveChecklistBlock({
                   {item.badge && (
                     <Badge
                       variant="outline"
-                      className="font-mono text-[10px] border-amber-500/30 text-amber-600 dark:text-amber-400"
+                      className="font-sans text-xs font-semibold border-amber-500/30 text-amber-600 dark:text-amber-400"
                     >
                       <RichGuideText
                         text={item.badge[locale]}
@@ -224,7 +224,7 @@ export function InteractiveChecklistBlock({
                   locale={locale}
                   accentColor="emerald"
                   className={cn(
-                    "text-xs text-muted-foreground leading-relaxed",
+                    "text-sm sm:text-base text-muted-foreground leading-relaxed",
                     !showDetails && "hidden"
                   )}
                 />

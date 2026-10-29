@@ -495,4 +495,74 @@ describe("Rich RPG Guide UI Blocks v2.0", () => {
     expect(screen.getByTestId("stepper-pill-0").className).not.toContain("font-mono");
     expect(screen.getByTestId("step-roadmap-item-0").className).not.toMatch(/(^|\s)border(\s|$)/);
   });
+
+  it("enforces MD3 single-layer containment and >= 12px/14px typography in CaseStudyBlock and InteractiveChecklistBlock (Task 3)", () => {
+    render(
+      <div>
+        <CaseStudyBlock
+          locale="vi"
+          block={{
+            type: "case_study",
+            badge: { vi: "CA BỆNH MD3", en: "MD3 CASE" },
+            title: { vi: "Phẫu thuật Đội 1", en: "Queue 1 Surgery" },
+            profileSummary: { vi: "Tóm tắt hồ sơ", en: "Profile summary" },
+            metrics: [
+              {
+                label: { vi: "Lực chiến Đội 1", en: "Queue 1 Power" },
+                before: { vi: "3.60M", en: "3.60M" },
+                after: { vi: "4.25M", en: "4.25M" },
+                delta: { vi: "+650K", en: "+650K" },
+              },
+            ],
+            diagnostics: [{ vi: "Chẩn đoán 1", en: "Diag 1" }],
+            recoverySteps: [
+              {
+                stepNumber: "1",
+                title: { vi: "Bước phục hồi 1", en: "Recovery 1" },
+                detail: { vi: "Chi tiết phục hồi 1", en: "Detail 1" },
+                impactBadge: { vi: "+280K", en: "+280K" },
+              },
+            ],
+          }}
+        />
+        <InteractiveChecklistBlock
+          locale="vi"
+          block={{
+            type: "checklist",
+            checklistId: "md3-task3-check",
+            title: { vi: "Checklist Task 3", en: "Task 3 Checklist" },
+            items: [
+              {
+                id: "m1",
+                label: { vi: "Mục kiểm tra 1", en: "Check item 1" },
+                detail: { vi: "Chi tiết kiểm tra 1", en: "Check detail 1" },
+                badge: { vi: "Quan trọng", en: "Critical" },
+              },
+            ],
+          }}
+        />
+      </div>
+    );
+
+    const metricLabel = screen.getByText("Lực chiến Đội 1").closest("span")?.parentElement;
+    expect(metricLabel?.className).toContain("text-xs");
+    expect(metricLabel?.className).toContain("font-sans");
+    expect(metricLabel?.className).not.toContain("text-[11px]");
+    expect(metricLabel?.className).not.toContain("font-mono");
+
+    const diagItem = screen.getByText(/Chẩn đoán 1/i).closest("li");
+    expect(diagItem?.className).not.toMatch(/(^|\s)border(\s|$)/);
+
+    const detailsToggle = screen.getByTestId("checklist-details-toggle");
+    expect(detailsToggle.className).toContain("min-h-[44px]");
+
+    const checkbox = screen.getByRole("checkbox");
+    expect(checkbox.className).toContain("min-h-[48px]");
+    expect(checkbox.className).not.toMatch(/(^|\s)border(\s|$)/);
+
+    const itemBadge = screen.getByText("Quan trọng").closest("span")?.parentElement;
+    expect(itemBadge?.className).toContain("text-xs");
+    expect(itemBadge?.className).toContain("font-sans");
+    expect(itemBadge?.className).not.toContain("text-[10px]");
+  });
 });
