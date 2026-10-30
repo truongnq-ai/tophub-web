@@ -6,6 +6,7 @@ import { ARTICLE_3_4_DOUBLE_DIP_SCHEDULE } from "./group-3/3.4-double-dip-schedu
 
 export const GROUP_3_EVENTS_AND_CALENDAR_CATEGORY: GuideCategory = {
   order: 3,
+  displayOrder: 3,
   slug: "events",
   zoneId: "zone_events_roadmap",
   iconName: "CalendarClock",

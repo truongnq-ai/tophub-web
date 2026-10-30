@@ -26,7 +26,7 @@ import {
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import {
-  getAllCategories,
+  getCategoriesInDisplayOrder,
   getArticleBySlug,
   searchGuides,
 } from "@/content/guides/registry";
@@ -104,7 +104,7 @@ const HOT_TAGS: HotTagItem[] = [
 
 export function GuidesHubClient({ locale }: GuidesHubClientProps) {
   const t = useTranslations("Guides");
-  const categories = useMemo(() => getAllCategories(), []);
+  const categories = useMemo(() => getCategoriesInDisplayOrder(), []);
 
   const [searchQuery, setSearchQuery] = useState("");
   const [expandedCategories, setExpandedCategories] = useState<
@@ -254,7 +254,7 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
           <div className="space-y-2">
             <div className="flex items-center justify-between gap-2">
               <span className="font-mono text-xs font-bold text-amber-500">
-                #{art.code}
+                #{art.displayCode ?? art.code}
               </span>
               {art.badge === "HOT" && (
                 <Badge className="bg-rose-500/15 text-rose-500 border-rose-500/30 text-xs font-sans font-bold">
@@ -397,7 +397,7 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
                       <div className="min-w-0 space-y-0.5">
                         <div className="flex items-center gap-1.5">
                           <span className="font-mono text-xs font-bold text-amber-500 shrink-0">
-                            #{art.code}
+                            #{art.displayCode ?? art.code}
                           </span>
                           <span className="font-heading font-bold text-foreground group-hover:text-amber-500 line-clamp-1">
                             {art.title[locale]}
@@ -586,7 +586,7 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
         </div>
       </section>
 
-      {/* LAYER 4: Clean 8-Category Bento Grid */}
+      {/* LAYER 4: Clean 9-Category Bento Grid */}
       <section className="space-y-4">
         <h2 className="text-xs font-heading font-bold uppercase tracking-wider text-muted-foreground px-1">
           {t("categoriesGridTitle")}
@@ -597,6 +597,7 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
             const Icon = categoryIcons[category.iconName] || BookOpen;
             const firstArticle = category.articles[0];
             const isExpanded = Boolean(expandedCategories[category.slug]);
+            const displayOrder = category.displayOrder ?? category.order;
 
             return (
               <div
@@ -611,7 +612,7 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
                       </div>
                       <div>
                         <span className="text-xs font-mono font-bold text-amber-600 dark:text-amber-400">
-                          TOPIC 0{category.order}
+                          TOPIC 0{displayOrder}
                         </span>
                         <h3 className="font-heading font-black text-base sm:text-lg text-foreground leading-snug">
                           {category.title[locale]}
@@ -639,8 +640,11 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
                       className="group flex items-center justify-between gap-2 rounded-xl border border-amber-500/30 bg-amber-500/10 hover:bg-amber-500/15 px-3.5 py-2.5 text-xs sm:text-sm font-bold text-amber-600 dark:text-amber-400 transition-all min-h-[44px]"
                     >
                       <span className="truncate">
-                        🚀 {t("startWithArticleBtn", { code: firstArticle.code })} —{" "}
-                        {firstArticle.title[locale]}
+                        🚀{" "}
+                        {t("startWithArticleBtn", {
+                          code: firstArticle.displayCode ?? firstArticle.code,
+                        })}{" "}
+                        — {firstArticle.title[locale]}
                       </span>
                       <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5" />
                     </Link>
@@ -675,7 +679,7 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
                         >
                           <span className="truncate font-medium text-foreground/90 group-hover:text-amber-500">
                             <strong className="font-mono text-xs text-amber-500 mr-1.5">
-                              {article.code}
+                              {article.displayCode ?? article.code}
                             </strong>
                             {article.title[locale]}
                           </span>

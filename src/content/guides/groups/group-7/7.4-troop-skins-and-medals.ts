@@ -2,6 +2,7 @@ import type { GuideArticle } from "../../types";
 
 export const ARTICLE_7_4_TROOP_SKINS_AND_MEDALS: GuideArticle = {
   code: "7.4",
+  displayCode: "8.4",
   slug: "troop-skins-and-medals",
   categorySlug: "economy",
   badge: "PRO",

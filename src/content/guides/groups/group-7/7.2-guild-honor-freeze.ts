@@ -2,6 +2,7 @@ import type { GuideArticle } from "../../types";
 
 export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
   code: "7.2",
+  displayCode: "8.2",
   slug: "guild-honor-freeze",
   categorySlug: "economy",
   badge: "HOT",

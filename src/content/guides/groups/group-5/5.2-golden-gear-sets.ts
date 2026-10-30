@@ -2,6 +2,7 @@ import type { GuideArticle } from "../../types";
 
 export const ARTICLE_5_2_GOLDEN_GEAR_SETS: GuideArticle = {
   code: "5.2",
+  displayCode: "6.2",
   slug: "golden-gear-sets",
   categorySlug: "gear",
   badge: "HOT",

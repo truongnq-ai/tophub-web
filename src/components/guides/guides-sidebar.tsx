@@ -24,7 +24,7 @@ import { Link, usePathname } from "@/i18n/routing";
 import { useUidSession } from "@/hooks/use-uid-session";
 import {
   GUIDE_ZONES,
-  getAllCategories,
+  getCategoriesInDisplayOrder,
   searchGuides,
 } from "@/content/guides/registry";
 import type {
@@ -263,7 +263,7 @@ function SidebarNavigationTree({
                   >
                     <div className="overflow-hidden flex items-center gap-1.5 min-w-0">
                       <span className="font-mono text-xs font-bold text-amber-500 shrink-0">
-                        {article.code}
+                        {article.displayCode ?? article.code}
                       </span>
                       <span className="line-clamp-1">{cleanMainTitle}</span>
                     </div>
@@ -290,7 +290,7 @@ function SidebarNavigationTree({
           )}
         </div>
       ) : (
-        /* 3 Zones -> 8 Categories Single-Accordion -> 31 Articles */
+        /* 3 Zones -> 9 Categories Single-Accordion -> 37 Articles */
         <Accordion
           type="single"
           collapsible
@@ -305,15 +305,11 @@ function SidebarNavigationTree({
               </div>
 
               <div className="space-y-1.5">
-                {zone.categories.map((category, catIdx) => {
+                {zone.categories.map((category) => {
                   const Icon = categoryIcons[category.iconName] || BookOpen;
                   const isCategoryActive = activeCategorySlug === category.slug;
-                  const categoryDisplayLabel =
-                    zone.id === "zone_events_roadmap"
-                      ? locale === "vi"
-                        ? `Phần ${catIdx + 1} • ${category.order}. ${category.title[locale]}`
-                        : `Part ${catIdx + 1} • ${category.order}. ${category.title[locale]}`
-                      : `${category.order}. ${category.title[locale]}`;
+                  const displayOrder = category.displayOrder ?? category.order;
+                  const categoryDisplayLabel = `${displayOrder}. ${category.title[locale]}`;
 
                   return (
                     <AccordionItem
@@ -352,6 +348,8 @@ function SidebarNavigationTree({
                             const cleanMainTitle = splitArticleTitle(
                               article.title[locale]
                             ).mainTitle;
+                            const displayCode =
+                              article.displayCode ?? article.code;
 
                             return (
                               <Link
@@ -368,7 +366,7 @@ function SidebarNavigationTree({
                               >
                                 <span className="line-clamp-1 leading-snug min-w-0">
                                   <strong className="font-mono text-xs text-amber-500 mr-1.5">
-                                    {article.code}
+                                    {displayCode}
                                   </strong>
                                   {cleanMainTitle}
                                 </span>
@@ -403,7 +401,7 @@ export function GuidesSidebar() {
     string | null
   >(null);
   const prevPathnameRef = useRef<string>(pathname);
-  const categories = getAllCategories();
+  const categories = getCategoriesInDisplayOrder();
 
   useEffect(() => {
     try {
@@ -549,7 +547,8 @@ export function GuidesSidebar() {
               {categories.map((category) => {
                 const Icon = categoryIcons[category.iconName] || BookOpen;
                 const isActive = pathname.startsWith(`/guides/${category.slug}`);
-                const label = `${category.order}. ${category.title[locale]}`;
+                const displayOrder = category.displayOrder ?? category.order;
+                const label = `${displayOrder}. ${category.title[locale]}`;
 
                 return (
                   <button

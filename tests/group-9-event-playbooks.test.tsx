@@ -146,6 +146,28 @@ describe("Zone II Part 3 — Suite 1: S0 ➔ GAR Event Playbooks SSoT Data (Task
     const s0Events = filterPlaybooksBySeason(EVENT_PLAYBOOKS_DATA, "S0");
     expect(s0Events).toHaveLength(10);
   });
+
+  it("populates all 6 canonical Event Encyclopedia tables (5.1 ➔ 5.6) including all 4 Pro-Player Mechanics on every event", () => {
+    for (const ev of EVENT_PLAYBOOKS_DATA) {
+      expect(ev.sixTables, `Missing sixTables on ${ev.id}`).toBeDefined();
+      const st = ev.sixTables!;
+      expect(st.table1TimelineRules.takeEffectTime.vi.length).toBeGreaterThan(5);
+      expect(st.table1TimelineRules.recyclePolicy.vi.length).toBeGreaterThan(10);
+      expect(st.table2TasksAndMilestones.tasks.length).toBeGreaterThanOrEqual(2);
+      expect(st.table2TasksAndMilestones.milestones.length).toBeGreaterThanOrEqual(2);
+      expect(st.table3ShopAndDrops.dropSources.length).toBeGreaterThanOrEqual(1);
+      expect(st.table3ShopAndDrops.shopItems.length).toBeGreaterThanOrEqual(3);
+      expect(st.table4PacksAndRoi.packs.length).toBeGreaterThanOrEqual(2);
+      expect(st.section5HoardingPlan.shortTermTargets.length).toBeGreaterThanOrEqual(2);
+      expect(st.section5HoardingPlan.longTermRoadmap.length).toBeGreaterThanOrEqual(2);
+      expect(st.section6ProMechanics.map((m) => m.mechanicId)).toEqual([
+        "pre_building",
+        "troop_precooking",
+        "pre_gathering_quest_banking",
+        "double_triple_dip",
+      ]);
+    }
+  });
 });
 
 
@@ -326,17 +348,19 @@ describe("Zone II Part 3 — Suite 4: Group 9 Category, 3 Articles (9.1..9.3) & 
     expect(cat9).toBeDefined();
     expect(cat9!.order).toBe(9);
     expect(cat9!.iconName).toBe("Flame");
-    expect(cat9!.articles).toHaveLength(3);
-    expect(cat9!.articles.map((a) => a.code)).toEqual(["9.1", "9.2", "9.3"]);
+    expect(cat9!.displayOrder).toBe(5);
+    expect(cat9!.title.vi).toBe("Danh sách event");
+    expect(cat9!.articles).toHaveLength(6);
+    expect(cat9!.articles.map((a) => a.code)).toEqual(["5.1", "5.2", "5.3", "5.4", "5.5", "5.6"]);
 
-    for (const code of ["MED-9.1-01", "MED-9.2-01", "MED-9.3-01"]) {
+    for (const code of ["MED-5.1-01", "MED-5.2-01", "MED-5.3-01", "MED-5.4-01", "MED-5.5-01", "MED-5.6-01"]) {
       expect(MEDIA_SHOWCASE_BY_CODE[code]).toBeDefined();
       expect(MEDIA_SHOWCASE_BY_CODE[code].length).toBe(6);
     }
 
     for (const article of cat9!.articles) {
-      expect(article.freeSections).toHaveLength(3);
-      expect(article.proSections).toHaveLength(2);
+      expect(article.freeSections).toHaveLength(1);
+      expect(article.proSections).toHaveLength(1);
 
       const allSections = [...article.freeSections, ...article.proSections];
       const allBlocks = allSections.flatMap((s) => [

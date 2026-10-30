@@ -6,6 +6,7 @@ import { ARTICLE_5_4_LORD_GEAR_STRATEGY } from "./group-5/5.4-lord-gear-strategy
 
 export const GROUP_5_GEAR_AND_WEAPONS_CATEGORY: GuideCategory = {
   order: 5,
+  displayOrder: 6,
   slug: "gear",
   zoneId: "zone_systems_economy",
   iconName: "Swords",

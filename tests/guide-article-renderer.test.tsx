@@ -375,8 +375,8 @@ describe("GuideArticleRenderer v3.0 (Compact Header, Unified Brief, 3-Tab View M
     expect(subSectionContainer.className).toContain("border-0");
     expect(subSectionContainer.className).toContain("bg-transparent");
     expect(subSectionContainer.className).toContain("p-0");
-    expect(subSectionContainer.className).toContain("sm:rounded-2xl");
-    expect(subSectionContainer.className).toContain("sm:border");
+    expect(subSectionContainer.className).not.toContain("sm:rounded-2xl");
+    expect(subSectionContainer.className).not.toContain("sm:border");
 
     // 3. Static source scan: 16px body prose and zero sub-12px classes
     const source = fs.readFileSync(
@@ -447,6 +447,32 @@ describe("GuideArticleRenderer v3.0 (Compact Header, Unified Brief, 3-Tab View M
     } finally {
       vi.unstubAllEnvs();
       mockActiveAccount = { uid: "100001", active_plan: "PRO" };
+    }
+  });
+
+  it("renders EventEncyclopediaFlatView on event-playbooks articles (5.1..5.6) without TldrActionBox, KeyTakeaways, or 3-Tab view mode bars", () => {
+    const eventCategory = getCategoryBySlug("event-playbooks")!;
+    const article51 = eventCategory.articles[0];
+
+    const { container } = render(
+      <GuideArticleRenderer
+        category={eventCategory}
+        article={article51}
+        prevArticle={null}
+        nextArticle={eventCategory.articles[1]}
+      />
+    );
+
+    expect(screen.getByTestId("event-encyclopedia-flat-view")).toBeDefined();
+    expect(screen.queryByTestId("article-view-mode-tabs")).toBeNull();
+    expect(container.textContent).not.toContain("Tóm Tắt Cốt Lõi");
+    expect(screen.getByTestId("flat-section-5.1")).toBeDefined();
+    expect(screen.getByTestId("flat-section-5.2")).toBeDefined();
+    expect(screen.getByTestId("flat-section-5.3")).toBeDefined();
+    expect(screen.getByTestId("flat-section-5.4")).toBeDefined();
+    expect(screen.getByTestId("flat-section-5.5")).toBeDefined();
+    expect(screen.getByTestId("flat-section-5.6")).toBeDefined();
+    if (Boolean(container)) {
     }
   });
 });

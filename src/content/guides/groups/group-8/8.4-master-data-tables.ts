@@ -2,6 +2,7 @@ import type { GuideArticle } from "../../types";
 
 export const ARTICLE_8_4_MASTER_DATA_TABLES: GuideArticle = {
   code: "8.4",
+  displayCode: "9.4",
   slug: "master-data-tables",
   categorySlug: "infrastructure",
   badge: "PRO",

@@ -5,6 +5,7 @@ import { ARTICLE_6_3_PETS_AND_BEHEMOTH } from "./group-6/6.3-pets-and-behemoth";
 
 export const GROUP_6_POWER_SYSTEMS_CATEGORY: GuideCategory = {
   order: 6,
+  displayOrder: 7,
   slug: "power-systems",
   zoneId: "zone_systems_economy",
   iconName: "Sparkles",

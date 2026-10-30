@@ -2,6 +2,7 @@ import type { GuideArticle } from "../../types";
 
 export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
   code: "5.4",
+  displayCode: "6.4",
   slug: "lord-gear-strategy",
   categorySlug: "gear",
   badge: "PRO",

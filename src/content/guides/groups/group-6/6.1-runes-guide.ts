@@ -2,6 +2,7 @@ import type { GuideArticle } from "../../types";
 
 export const ARTICLE_6_1_RUNES_GUIDE: GuideArticle = {
   code: "6.1",
+  displayCode: "7.1",
   slug: "runes-guide",
   categorySlug: "power-systems",
   badge: "HOT",

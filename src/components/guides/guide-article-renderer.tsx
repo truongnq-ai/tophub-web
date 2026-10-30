@@ -39,6 +39,7 @@ import { HordePivotStepperWidget } from "./widgets/horde-pivot-stepper-widget";
 import { BlacksmithAnvilMatrixWidget } from "./widgets/blacksmith-anvil-matrix-widget";
 import { ShopSafetyFloorWidget } from "./widgets/shop-safety-floor-widget";
 import { EventPlaybookExplorerWidget } from "./widgets/event-playbook-explorer-widget";
+import { EventEncyclopediaFlatView } from "./widgets/event-encyclopedia-flat-view";
 import { ProContentGate } from "./pro-content-gate";
 import { GuideCommentsSection } from "./guide-comments-section";
 import { Badge } from "@/components/ui/badge";
@@ -421,7 +422,7 @@ function renderSection(
               <div
                 key={sub.id}
                 id={sub.id}
-                className="scroll-mt-28 border-0 bg-transparent p-0 pt-4 first:pt-0 sm:pt-5 sm:first:pt-5 sm:rounded-2xl sm:border sm:border-border/60 sm:bg-card/35 sm:p-5 space-y-3.5"
+                className="scroll-mt-28 border-0 bg-transparent p-0 pt-4 first:pt-0 sm:pt-5 sm:first:pt-0 space-y-3.5"
               >
                 <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border/50 pb-2.5">
                   <div className="flex items-center gap-2.5 min-w-0">
@@ -615,7 +616,7 @@ export function GuideArticleRenderer({
               <>
                 <span>/</span>
                 <span className="text-amber-600 dark:text-amber-400 font-bold">
-                  {category.order}. {category.title[locale]}
+                  {category.displayOrder ?? category.order}. {category.title[locale]}
                 </span>
               </>
             )}
@@ -626,7 +627,7 @@ export function GuideArticleRenderer({
               variant="outline"
               className="font-mono text-xs border-amber-500/30 text-amber-600 dark:text-amber-400"
             >
-              #{article.code}
+              #{article.displayCode ?? article.code}
             </Badge>
             <span className="inline-flex items-center gap-1 font-sans font-medium text-xs text-muted-foreground">
               <Clock className="h-3.5 w-3.5 text-amber-500" />
@@ -653,7 +654,7 @@ export function GuideArticleRenderer({
         />
 
         {/* Unified 3-Column Tactical Brief (TldrActionBox + Integrated Collapsible KeyTakeaways) */}
-        {article.tldr ? (
+        {article.categorySlug === "event-playbooks" ? null : article.tldr ? (
           <TldrActionBox
             tldr={article.tldr}
             locale={locale}
@@ -688,7 +689,11 @@ export function GuideArticleRenderer({
         )}
       </div>
 
-      {/* Sticky 3-Tab Article View Mode Bar (DEC-UX-01 & DEC-V4-02) */}
+      {article.categorySlug === "event-playbooks" ? (
+        <EventEncyclopediaFlatView article={article} locale={locale} />
+      ) : (
+        <>
+          {/* Sticky 3-Tab Article View Mode Bar (DEC-UX-01 & DEC-V4-02) */}
       <div
         role="tablist"
         aria-label="Article View Mode"
@@ -876,6 +881,9 @@ export function GuideArticleRenderer({
       )}
 
       {/* Previous / Next Article Sequential Navigation */}
+        </>
+      )}
+      <div className="hidden" />
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-border/70">
         {prevArticle ? (
           <Link
@@ -886,7 +894,7 @@ export function GuideArticleRenderer({
             <div className="overflow-hidden">
               <span className="block text-xs font-sans font-medium text-muted-foreground">
                 {t("prevArticle")}{" "}
-                <span className="font-mono">({prevArticle.code})</span>
+                <span className="font-mono">({prevArticle.displayCode ?? prevArticle.code})</span>
               </span>
               <span className="block font-heading font-bold text-sm text-foreground group-hover:text-amber-500 truncate">
                 {prevArticle.title[locale]}
@@ -905,7 +913,7 @@ export function GuideArticleRenderer({
             <div className="overflow-hidden flex-1">
               <span className="block text-xs font-sans font-medium text-muted-foreground">
                 {t("nextArticle")}{" "}
-                <span className="font-mono">({nextArticle.code})</span>
+                <span className="font-mono">({nextArticle.displayCode ?? nextArticle.code})</span>
               </span>
               <span className="block font-heading font-bold text-sm text-foreground group-hover:text-amber-500 truncate">
                 {nextArticle.title[locale]}

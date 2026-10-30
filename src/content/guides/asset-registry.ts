@@ -12285,6 +12285,15 @@ export const MEDIA_SHOWCASE_BY_CODE: Readonly<Record<string, readonly MediaShowc
   ]
 };
 
+Object.assign(MEDIA_SHOWCASE_BY_CODE, {
+  "MED-5.1-01": MEDIA_SHOWCASE_BY_CODE["MED-9.1-01"],
+  "MED-5.2-01": MEDIA_SHOWCASE_BY_CODE["MED-9.1-01"],
+  "MED-5.3-01": MEDIA_SHOWCASE_BY_CODE["MED-9.3-01"],
+  "MED-5.4-01": MEDIA_SHOWCASE_BY_CODE["MED-9.2-01"],
+  "MED-5.5-01": MEDIA_SHOWCASE_BY_CODE["MED-9.2-01"],
+  "MED-5.6-01": MEDIA_SHOWCASE_BY_CODE["MED-9.1-01"],
+});
+
 const RAW_ALIAS_LOOKUP: Readonly<Record<string, string>> = {
   "+30% faction mark": "faction-aura",
   "1 red star": "tier-red-stars",
@@ -13712,5 +13721,13 @@ export function getMediaShowcaseItems(
   _title?: LocalizedText,
   _annotations?: readonly MediaAnnotationPin[]
 ): readonly MediaShowcaseItem[] {
-  return MEDIA_SHOWCASE_BY_CODE[mediaCode] ?? MEDIA_SHOWCASE_BY_CODE['MED-1.1-01'] ?? [];
+  const mappedCode =
+    mediaCode === "MED-5.1-01" || mediaCode === "MED-5.2-01" || mediaCode === "MED-5.6-01"
+      ? "MED-9.1-01"
+      : mediaCode === "MED-5.3-01"
+      ? "MED-9.3-01"
+      : mediaCode === "MED-5.4-01" || mediaCode === "MED-5.5-01"
+      ? "MED-9.2-01"
+      : mediaCode;
+  return MEDIA_SHOWCASE_BY_CODE[mappedCode] ?? MEDIA_SHOWCASE_BY_CODE['MED-1.1-01'] ?? [];
 }

@@ -2,6 +2,7 @@ import type { GuideArticle } from "../../types";
 
 export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
   code: "8.2",
+  displayCode: "9.2",
   slug: "builder-queues-and-villagers",
   categorySlug: "infrastructure",
   badge: "FREE",

@@ -3,6 +3,7 @@ import type {
   EventPlaybookRecord,
   EventSeasonTag,
 } from "./types";
+import { buildEventSixTablesData } from "./event-six-tables-data";
 
 /**
  * ZONE II PART 3 — S0 ➔ GAR EVENT PLAYBOOKS SSoT DATA (10 CANONICAL EVENTS)
@@ -2923,13 +2924,16 @@ const PLAYBOOKS_PART_2: readonly EventPlaybookRecord[] = [
 ];
 
 export const EVENT_PLAYBOOKS_DATA: readonly EventPlaybookRecord[] = [
-  ...PLAYBOOKS_PART_1,
-  ...PLAYBOOKS_PART_2,
+  // PLAYBOOKS_PART_1 merged below
+  // PLAYBOOKS_PART_2 merged below
+  ...([...PLAYBOOKS_PART_1, ...PLAYBOOKS_PART_2].map((item) => ({ ...item, sixTables: buildEventSixTablesData(item) }))),
+  // end EVENT_PLAYBOOKS_DATA
 ];
 
 export function getPlaybooksByArticleCode(
   articleCode: EventPlaybookArticleCode
 ): readonly EventPlaybookRecord[] {
+  if (articleCode.startsWith("5.")) return EVENT_PLAYBOOKS_DATA;
   return EVENT_PLAYBOOKS_DATA.filter((item) => item.articleCode === articleCode);
 }
 

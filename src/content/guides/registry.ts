@@ -14,6 +14,16 @@ import { GROUP_7_SHOPS_AND_ECONOMY_CATEGORY } from "./groups/group-7-shops-and-e
 import { GROUP_8_INFRASTRUCTURE_CATEGORY } from "./groups/group-8-infrastructure";
 import { GROUP_9_EVENT_PLAYBOOKS_CATEGORY } from "./groups/group-9-event-playbooks";
 
+const CATEGORY_SLUG_ALIASES: Readonly<Record<string, string>> = {
+  "event-list": "event-playbooks",
+};
+
+const ARTICLE_SLUG_ALIASES: Readonly<Record<string, string>> = {
+  "s0-major-point-races": "timeline-and-rules",
+  "s0-gacha-mythic-banners": "tasks-and-milestones",
+  "s0-satellites-and-raids": "shop-and-drops",
+};
+
 /**
  * Chuẩn hóa chuỗi tìm kiếm: loại bỏ dấu Tiếng Việt (Unicode NFD), đổi đ/Đ -> d, viết thường
  */
@@ -49,27 +59,27 @@ export const GUIDE_CATEGORIES: GuideCategory[] = [
   GROUP_4_SERVER_ROADMAP_CATEGORY,
 
   // ============================================================================
-  // GROUP 5: TRANG BỊ, LÃNH CHÚA & VŨ KHÍ (4 TRANG — MODULE HÓA CHUẨN V2.0)
+  // GROUP 5 (DISPLAY 6): TRANG BỊ, LÃNH CHÚA & VŨ KHÍ (4 TRANG — MODULE HÓA CHUẨN V2.0)
   // ============================================================================
   GROUP_5_GEAR_AND_WEAPONS_CATEGORY,
 
   // ============================================================================
-  // GROUP 6: CỔ NGỮ, THÁNH VẬT & THÚ CƯNG (3 TRANG — MODULE HÓA CHUẨN V2.0)
+  // GROUP 6 (DISPLAY 7): CỔ NGỮ, THÁNH VẬT & THÚ CƯNG (3 TRANG — MODULE HÓA CHUẨN V2.0)
   // ============================================================================
   GROUP_6_POWER_SYSTEMS_CATEGORY,
 
   // ============================================================================
-  // GROUP 7: TIỆM MUA SẮM, TIỀN TỆ & QUÂN TRANG (4 TRANG — MODULE HÓA CHUẨN V2.0)
+  // GROUP 7 (DISPLAY 8): TIỆM MUA SẮM, TIỀN TỆ & QUÂN TRANG (4 TRANG — MODULE HÓA CHUẨN V2.0)
   // ============================================================================
   GROUP_7_SHOPS_AND_ECONOMY_CATEGORY,
 
   // ============================================================================
-  // GROUP 8: HẠ TẦNG, CÔNG NGHỆ & BẢNG SỐ LIỆU (4 TRANG — MODULE HÓA CHUẨN V2.0)
+  // GROUP 8 (DISPLAY 9): HẠ TẦNG, CÔNG NGHỆ & BẢNG SỐ LIỆU (4 TRANG — MODULE HÓA CHUẨN V2.0)
   // ============================================================================
   GROUP_8_INFRASTRUCTURE_CATEGORY,
 
   // ============================================================================
-  // GROUP 9 (PHẦN 3 PHÂN KHU II): CẨM NANG CHI TIẾT SỰ KIỆN S0 ➔ GAR (3 TRANG)
+  // GROUP 9 (DISPLAY 5 — PHÂN KHU II): DANH SÁCH EVENT (6 CHUYÊN MỤC CHUẨN HÓA 5.1 ➔ 5.6)
   // ============================================================================
   GROUP_9_EVENT_PLAYBOOKS_CATEGORY,
 ];
@@ -105,12 +115,21 @@ export function getAllCategories(): GuideCategory[] {
   return GUIDE_CATEGORIES;
 }
 
+/**
+ * Trả về 9 danh mục theo đúng thứ tự hiển thị trực quan từ trên xuống dưới (1 ➔ 9):
+ * Zone I (1, 2) ➔ Zone II (3, 4, 5. Danh sách event) ➔ Zone III (6, 7, 8, 9)
+ */
+export function getCategoriesInDisplayOrder(): GuideCategory[] {
+  return GUIDE_ZONES.flatMap((zone) => zone.categories);
+}
+
 export function getAllArticles(): GuideArticle[] {
   return GUIDE_CATEGORIES.flatMap((category) => category.articles);
 }
 
 export function getCategoryBySlug(categorySlug: string): GuideCategory | undefined {
-  return GUIDE_CATEGORIES.find((cat) => cat.slug === categorySlug);
+  const canonicalSlug = CATEGORY_SLUG_ALIASES[categorySlug] ?? categorySlug;
+  return GUIDE_CATEGORIES.find((cat) => cat.slug === canonicalSlug);
 }
 
 export function getArticleBySlug(
@@ -119,16 +138,19 @@ export function getArticleBySlug(
 ): GuideArticle | undefined {
   const category = getCategoryBySlug(categorySlug);
   if (!category) return undefined;
-  return category.articles.find((art) => art.slug === articleSlug);
+  const canonicalArticleSlug = ARTICLE_SLUG_ALIASES[articleSlug] ?? articleSlug;
+  return category.articles.find((art) => art.slug === canonicalArticleSlug);
 }
 
 export function getAdjacentArticles(
   categorySlug: string,
   articleSlug: string
 ): { prev: GuideArticle | null; next: GuideArticle | null } {
+  const canonicalCatSlug = CATEGORY_SLUG_ALIASES[categorySlug] ?? categorySlug;
+  const canonicalArtSlug = ARTICLE_SLUG_ALIASES[articleSlug] ?? articleSlug;
   const all = getAllArticles();
   const idx = all.findIndex(
-    (art) => art.categorySlug === categorySlug && art.slug === articleSlug
+    (art) => art.categorySlug === canonicalCatSlug && art.slug === canonicalArtSlug
   );
   if (idx === -1) {
     return { prev: null, next: null };
@@ -149,6 +171,9 @@ export function searchGuides(query: string, locale: GuideLocale): GuideArticle[]
     const titleNorm = normalizeSearchText(article.title[locale]);
     const summaryNorm = normalizeSearchText(article.summary[locale]);
     const codeNorm = normalizeSearchText(article.code);
+    const displayCodeNorm = article.displayCode
+      ? normalizeSearchText(article.displayCode)
+      : "";
     const keywordsNorm = article.keywords.map((k) => normalizeSearchText(k));
 
     const tldrMatch = article.tldr
@@ -173,10 +198,10 @@ export function searchGuides(query: string, locale: GuideLocale): GuideArticle[]
       titleNorm.includes(normalizedQuery) ||
       summaryNorm.includes(normalizedQuery) ||
       codeNorm.includes(normalizedQuery) ||
+      (displayCodeNorm.length > 0 && displayCodeNorm.includes(normalizedQuery)) ||
       keywordsNorm.some((k) => k.includes(normalizedQuery)) ||
       tldrMatch ||
       sectionMatch
     );
   });
 }
-

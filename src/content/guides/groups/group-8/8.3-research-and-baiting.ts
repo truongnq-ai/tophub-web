@@ -2,6 +2,7 @@ import type { GuideArticle } from "../../types";
 
 export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
   code: "8.3",
+  displayCode: "9.3",
   slug: "research-and-baiting",
   categorySlug: "infrastructure",
   badge: "PRO",

@@ -2,6 +2,7 @@ import type { GuideArticle } from "../../types";
 
 export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
   code: "6.3",
+  displayCode: "7.3",
   slug: "pets-and-behemoth",
   categorySlug: "power-systems",
   badge: "PRO",

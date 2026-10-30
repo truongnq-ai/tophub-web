@@ -6,6 +6,7 @@ import { ARTICLE_8_4_MASTER_DATA_TABLES } from "./group-8/8.4-master-data-tables
 
 export const GROUP_8_INFRASTRUCTURE_CATEGORY: GuideCategory = {
   order: 8,
+  displayOrder: 9,
   slug: "infrastructure",
   zoneId: "zone_systems_economy",
   iconName: "Castle",

@@ -189,4 +189,37 @@ describe("GuidesSidebar (Phase 1 Hardened Redesign & Phase 3.1 Google MD3 Audit)
       expect(source).not.toMatch(/text-\[(8|9|10|11)px\]/);
     }
   });
+
+  it("renders sequential menu numbering 1 ➔ 9 without 'Phần 1/2/3 •' prefix and shows '5. Danh sách event' with 6 canonical sub-menus (5.1 ➔ 5.6)", () => {
+    const { container } = render(<GuidesSidebar />);
+
+    // Zero 'Phần 1 •' / 'Part 1 •' clutter anywhere in the sidebar
+    expect(container.textContent).not.toMatch(/Phần\s+[123]\s*•/i);
+    expect(container.textContent).not.toMatch(/Part\s+[123]\s*•/i);
+
+    const cat5Btn = screen.getByRole("button", {
+      name: /^5\.\s*Danh sách event$/i,
+    });
+    expect(cat5Btn).toBeDefined();
+
+    // Open Category 5 and verify 6 sub-menus 5.1 ➔ 5.6
+    fireEvent.click(cat5Btn);
+    expect(cat5Btn.getAttribute("data-state")).toBe("open");
+
+    for (const code of ["5.1", "5.2", "5.3", "5.4", "5.5", "5.6"]) {
+      expect(screen.getByRole("link", { name: new RegExp(code) })).toBeDefined();
+    }
+
+    // Verify Zone III categories display as 6, 7, 8, 9
+    expect(
+      screen.getByRole("button", {
+        name: /^6\.\s*Trang Bị, Lãnh Chúa & Vũ Khí$/i,
+      })
+    ).toBeDefined();
+    expect(
+      screen.getByRole("button", {
+        name: /^9\.\s*Hạ Tầng, Công Nghệ & Bảng Số Liệu$/i,
+      })
+    ).toBeDefined();
+  });
 });

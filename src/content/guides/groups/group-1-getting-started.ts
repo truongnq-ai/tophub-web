@@ -6,6 +6,7 @@ import { ARTICLE_1_4_TOP_10_TRAPS } from "./group-1/1.4-top-10-account-traps";
 
 export const GROUP_1_GETTING_STARTED_CATEGORY: GuideCategory = {
   order: 1,
+  displayOrder: 1,
   slug: "getting-started",
   zoneId: "zone_onboarding_meta",
   iconName: "Sprout",

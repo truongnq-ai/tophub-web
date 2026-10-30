@@ -5,6 +5,7 @@ import { ARTICLE_4_3_SEASON_1_TO_4_ROADMAP } from "./group-4/4.3-season-1-to-4-r
 
 export const GROUP_4_SERVER_ROADMAP_CATEGORY: GuideCategory = {
   order: 4,
+  displayOrder: 4,
   slug: "roadmap",
   zoneId: "zone_events_roadmap",
   iconName: "Map",

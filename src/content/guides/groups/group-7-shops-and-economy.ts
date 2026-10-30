@@ -6,6 +6,7 @@ import { ARTICLE_7_4_TROOP_SKINS_AND_MEDALS } from "./group-7/7.4-troop-skins-an
 
 export const GROUP_7_SHOPS_AND_ECONOMY_CATEGORY: GuideCategory = {
   order: 7,
+  displayOrder: 8,
   slug: "economy",
   zoneId: "zone_systems_economy",
   iconName: "ShoppingBag",

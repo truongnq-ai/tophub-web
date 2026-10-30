@@ -46,6 +46,12 @@ const SEASONS: readonly EventSeasonTag[] = [
 const DEFAULT_EVENT_BY_ARTICLE: Readonly<
   Record<EventPlaybookArticleCode, string>
 > = {
+  "5.1": "guild-arms-race",
+  "5.2": "guild-arms-race",
+  "5.3": "butterfly-catching",
+  "5.4": "treasure-dice-storm-maiden",
+  "5.5": "guild-arms-race",
+  "5.6": "guild-arms-race",
   "9.1": "guild-arms-race",
   "9.2": "treasure-dice-storm-maiden",
   "9.3": "butterfly-catching",

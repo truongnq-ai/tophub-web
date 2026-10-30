@@ -235,6 +235,7 @@ export interface GuideSection {
 
 export interface GuideArticle {
   code: string;
+  displayCode?: string;
   slug: string;
   categorySlug: string;
   badge: GuideBadgeType;
@@ -251,6 +252,7 @@ export interface GuideArticle {
 
 export interface GuideCategory {
   order: number;
+  displayOrder?: number;
   slug: string;
   zoneId: GuideZoneId;
   iconName: GuideCategoryIconName;
@@ -450,12 +452,21 @@ export interface CodexFilterState {
 }
 
 // ============================================================================
-// ZONE II PART 3 — EVENT PLAYBOOK EXPLORER CONTRACTS (S0 ➔ S4, ZERO `any`)
+// ZONE II CATEGORY 5 — EVENT LIST & 6-TABLE ENCYCLOPEDIA CONTRACTS (ZERO `any`)
 // ============================================================================
 
 export type EventSeasonTag = "ALL" | "S0" | "S1" | "S2" | "S3" | "S4";
 
-export type EventPlaybookArticleCode = "9.1" | "9.2" | "9.3";
+export type EventPlaybookArticleCode =
+  | "5.1"
+  | "5.2"
+  | "5.3"
+  | "5.4"
+  | "5.5"
+  | "5.6"
+  | "9.1"
+  | "9.2"
+  | "9.3";
 
 export interface EventPlaybookHoardItem {
   readonly id: string;
@@ -495,6 +506,98 @@ export interface EventPlaybookShopItem {
   readonly verdict: LocalizedText;
 }
 
+export interface EventTimelineRulesTable {
+  readonly takeEffectTime: LocalizedText;
+  readonly durationAndCooldown: LocalizedText;
+  readonly unlockConditions: LocalizedText;
+  readonly coreFaqRules: readonly LocalizedText[];
+  readonly recyclePolicy: LocalizedText;
+}
+
+export interface EventTaskRow {
+  readonly taskType: "daily" | "cumulative";
+  readonly taskName: LocalizedText;
+  readonly pointsAwarded: LocalizedText;
+  readonly capOrNote: LocalizedText;
+}
+
+export interface EventMilestoneChestRow {
+  readonly tierLabel: LocalizedText;
+  readonly pointsRequired: LocalizedText;
+  readonly freeRewards: LocalizedText;
+  readonly vipOrPassRewards: LocalizedText;
+}
+
+export interface EventDropSourceRow {
+  readonly sourceName: LocalizedText;
+  readonly dropRate: LocalizedText;
+  readonly dailyHiddenCap: LocalizedText;
+}
+
+export interface EventShopItemRow {
+  readonly id: string;
+  readonly itemName: LocalizedText;
+  readonly iconPath: string;
+  readonly rarity: AssetRarity;
+  readonly quantityPerPurchase: LocalizedText;
+  readonly cost: LocalizedText;
+  readonly purchaseLimit: LocalizedText;
+  readonly priorityTier: "S" | "A" | "B" | "F";
+  readonly verdict: LocalizedText;
+}
+
+export interface EventPackRoiRow {
+  readonly packId: string;
+  readonly packName: LocalizedText;
+  readonly priceUsdVnd: LocalizedText;
+  readonly purchaseLimit: LocalizedText;
+  readonly contentsSummary: LocalizedText;
+  readonly roiRating: LocalizedText;
+  readonly isBestValue: boolean;
+  readonly isHiddenCrossEvent: boolean;
+}
+
+export interface EventLongTermRoadmapStep {
+  readonly horizonLabel: LocalizedText;
+  readonly focusItems: LocalizedText;
+  readonly targetQuota: LocalizedText;
+  readonly rationale: LocalizedText;
+}
+
+export interface EventProMechanicItem {
+  readonly mechanicId:
+    | "pre_building"
+    | "troop_precooking"
+    | "pre_gathering_quest_banking"
+    | "double_triple_dip";
+  readonly title: LocalizedText;
+  readonly whenToApply: LocalizedText;
+  readonly stepByStep: LocalizedText;
+  readonly warningNote: LocalizedText;
+}
+
+export interface EventEncyclopediaSixTableData {
+  readonly table1TimelineRules: EventTimelineRulesTable;
+  readonly table2TasksAndMilestones: {
+    readonly tasks: readonly EventTaskRow[];
+    readonly milestones: readonly EventMilestoneChestRow[];
+  };
+  readonly table3ShopAndDrops: {
+    readonly dropSources: readonly EventDropSourceRow[];
+    readonly shopItems: readonly EventShopItemRow[];
+  };
+  readonly table4PacksAndRoi: {
+    readonly preBuyNote: LocalizedText;
+    readonly diamondCeiling: LocalizedText;
+    readonly packs: readonly EventPackRoiRow[];
+  };
+  readonly section5HoardingPlan: {
+    readonly shortTermTargets: readonly EventPlaybookHoardItem[];
+    readonly longTermRoadmap: readonly EventLongTermRoadmapStep[];
+  };
+  readonly section6ProMechanics: readonly EventProMechanicItem[];
+}
+
 export interface EventPlaybookRecord {
   readonly id: string;
   readonly articleCode: EventPlaybookArticleCode;
@@ -519,4 +622,5 @@ export interface EventPlaybookRecord {
     readonly budgetTiers: readonly EventPlaybookBudgetTier[];
     readonly shopTierList: readonly EventPlaybookShopItem[];
   };
+  readonly sixTables?: EventEncyclopediaSixTableData;
 }

@@ -2,6 +2,7 @@ import type { GuideArticle } from "../../types";
 
 export const ARTICLE_6_2_RELICS_GUIDE: GuideArticle = {
   code: "6.2",
+  displayCode: "7.2",
   slug: "relics-guide",
   categorySlug: "power-systems",
   badge: "HOT",

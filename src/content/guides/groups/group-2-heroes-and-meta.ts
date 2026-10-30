@@ -7,6 +7,7 @@ import { ARTICLE_2_5_EPIC_HERO_TRAITS } from "./group-2/2.5-epic-hero-traits";
 
 export const GROUP_2_HEROES_AND_META_CATEGORY: GuideCategory = {
   order: 2,
+  displayOrder: 2,
   slug: "heroes",
   zoneId: "zone_onboarding_meta",
   iconName: "ShieldAlert",
