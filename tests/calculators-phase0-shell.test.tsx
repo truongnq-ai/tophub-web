@@ -107,7 +107,15 @@ describe("Suite 1 — Calculators Registry SSoT (3 Zones, 9 Categories, 22 Tools
     });
 
     const tools = getAllCalculatorTools();
-    expect(tools).toHaveLength(22);
+    expect(tools).toHaveLength(23);
+    const relicHallTool = getCalculatorToolBySlug("runes-relics", "relic-hall");
+    expect(relicHallTool?.tool.code).toBe("6.2");
+    expect(relicHallTool?.tool.title.vi).toBe("6.2 Sảnh Bí Bảo");
+    expect(relicHallTool?.tool.title.en).toBe("6.2 Relic Hall");
+    const relicStarTool = getCalculatorToolBySlug("runes-relics", "relics");
+    expect(relicStarTool?.tool.code).toBe("6.3");
+    expect(relicStarTool?.tool.title.vi).toBe("6.3 Nâng sao Bí Bảo");
+    expect(relicStarTool?.tool.title.en).toBe("6.3 Relic Star-Up");
     expect(HOT_CALCULATOR_TAGS).toHaveLength(5);
 
     for (const tool of tools) {

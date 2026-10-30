@@ -29,6 +29,7 @@ import { GearEnhanceCalculator } from "./gear-enhance-calculator";
 import { GearPromotionCalculator } from "./gear-promotion-calculator";
 import { ExclusiveWeaponCalculator } from "./exclusive-weapon-calculator";
 import { RunesCalculator } from "./runes-calculator";
+import { RelicHallCalculator } from "./relic-hall-calculator";
 import { RelicsCalculator } from "./relics-calculator";
 import { EventPointsCalculator } from "./event-points-calculator";
 import { VipAndShopsCalculator } from "./vip-and-shops-calculator";
@@ -131,6 +132,13 @@ export function CalculatorPlaceholderView({
           />
         ) : tool.slug === "runes" ? (
           <RunesCalculator
+            zone={zone}
+            category={category}
+            tool={tool}
+            locale={locale}
+          />
+        ) : tool.slug === "relic-hall" ? (
+          <RelicHallCalculator
             zone={zone}
             category={category}
             tool={tool}

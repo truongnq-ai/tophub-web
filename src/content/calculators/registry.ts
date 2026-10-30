@@ -1052,49 +1052,91 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
           },
           {
             code: "6.2",
+            slug: "relic-hall",
+            categorySlug: "runes-relics",
+            phaseNumber: 6,
+            title: {
+              vi: "6.2 Sảnh Bí Bảo",
+              en: "6.2 Relic Hall",
+            },
+            fullTitle: {
+              vi: "6.2 Nâng Cấp Sảnh Bí Bảo (Lv.1 ➔ Lv.250)",
+              en: "6.2 Relic Hall Building Upgrade (Lv.1 to Lv.250)",
+            },
+            summary: {
+              vi: "Tính chính xác Đá Vân Ma Thuật và Pha Lê Bí Thuật theo từng bậc Tiến Độ Nâng Cấp Sảnh Bí Bảo (Lv.1–250), hỗ trợ % Giảm Chi Phí Xây Dựng và tra cứu % Tăng Tỉ Lệ ATK/HP Bí Bảo.",
+              en: "Calculate exact Magic Stones and Arcane Crystals across all Relic Hall upgrade progress steps (Lv.1–250), with Construction Cost Reduction % and Relic ATK/HP amplification lookup.",
+            },
+            dataSourceTab: {
+              vi: "Bảng citybuilding_lvup_new (index = 155) — Sảnh Bí Bảo Lv.1–250",
+              en: "Table citybuilding_lvup_new (index = 155) — Relic Hall Lv.1–250",
+            },
+            materials: [
+              CALCULATOR_MATERIALS.arcaneCrystal,
+              CALCULATOR_MATERIALS.magicStone,
+            ],
+            exampleCase: {
+              vi: {
+                question:
+                  "Đột phá Sảnh Bí Bảo tại mốc Lv.60 với 5% Giảm Chi Phí Xây Dựng cần bao nhiêu Pha Lê Bí Thuật và Đá Vân Ma Thuật?",
+                inputPreview:
+                  "Cấp hiện tại: Lv.60 (Bậc 0/1) ➔ Mục tiêu: Lv.61 • Giảm chi phí xây dựng: 5%",
+                outputPreview:
+                  "76 Pha Lê Bí Thuật + 9,500 Đá Vân Ma Thuật • Tăng Tỉ Lệ ATK/HP Bí Bảo: 191.4% ➔ 196.4%",
+              },
+              en: {
+                question:
+                  "Breaking through Relic Hall Lv.60 with 5% Construction Cost Reduction — how many Arcane Crystals and Magic Stones are needed?",
+                inputPreview:
+                  "Current: Lv.60 (Step 0/1) ➔ Target: Lv.61 • Construction Cost Reduction: 5%",
+                outputPreview:
+                  "76 Arcane Crystals + 9,500 Magic Stones • Relic ATK/HP Rate: 191.4% ➔ 196.4%",
+              },
+            },
+            status: "ready",
+          },
+          {
+            code: "6.3",
             slug: "relics",
             categorySlug: "runes-relics",
             phaseNumber: 6,
             title: {
-              vi: "6.2 Bí Bảo",
-              en: "6.2 Relics",
+              vi: "6.3 Nâng sao Bí Bảo",
+              en: "6.3 Relic Star-Up",
             },
             fullTitle: {
-              vi: "6.2 Nâng Cấp, Đột Phá Sao & Thức Tỉnh Bí Bảo",
-              en: "6.2 Relic Upgrade, Star Promotion & Awakening",
+              vi: "6.3 Nâng Sao Bí Bảo (0★ ➔ 20★ / 100 Cánh Sao)",
+              en: "6.3 Relic Star-Up (0★ to 20★ / 100 Star Petals)",
             },
             summary: {
-              vi: "Tính Cuộn Bí Bảo, Mảnh Vạn Năng Bí Bảo Cam / Tím / Lam, Đá Vân Ma Thuật và Pha Lê Bí Thuật cho bộ 3 Bí Bảo chủ lực.",
-              en: "Calculate Relic Scrolls, Universal Relic Shards, Magic Stones, and Arcane Crystals required for your 3-slot Relic loadout.",
+              vi: "Tính Mảnh Bí Bảo riêng và Mảnh Vạn Năng Bí Bảo (Cam / Tím / Lam) qua 20 ngôi sao (4 tầng màu × 5 sao = 100 cánh) cho toàn bộ 29 Bí Bảo, liên kết trực tiếp hệ số % Sảnh Bí Bảo.",
+              en: "Calculate specific Relic Shards and Universal Relic Shards (Legendary / Epic / Rare) across 20 stars (4 color tiers × 5 stars = 100 petals) for all 29 Relics, synced with Relic Hall % scaling.",
             },
             dataSourceTab: {
-              vi: "Tab Relic — Bảng Nâng Cấp & Đột Phá Bí Bảo",
-              en: "Relic Tab — Relic Level & Star Upgrade Table",
+              vi: "Bảng artifact & artifact_star_up — 29 Bí Bảo (0★–20★)",
+              en: "Tables artifact & artifact_star_up — 29 Relics (0★–20★)",
             },
             materials: [
               CALCULATOR_MATERIALS.legendaryUniversalRelicShard,
               CALCULATOR_MATERIALS.epicUniversalRelicShard,
               CALCULATOR_MATERIALS.rareUniversalRelicShard,
-              CALCULATOR_MATERIALS.relicScroll,
-              CALCULATOR_MATERIALS.magicStone,
-              CALCULATOR_MATERIALS.arcaneCrystal,
             ],
             exampleCase: {
               vi: {
                 question:
-                  "Nâng cấp và đột phá sao cho bộ 3 Bí Bảo Huyền Thoại đội chính cần bao nhiêu Cuộn Bí Bảo, Đá Vân Ma Thuật và Pha Lê Bí Thuật?",
+                  "Nâng Nhẫn Đuôi Công Tước từ 3★ lên 4★ (hoặc từng cánh sao lẻ) tại Sảnh Bí Bảo Lv.60 cần bao nhiêu mảnh và tăng bao nhiêu ATK/HP thực tế?",
                 inputPreview:
-                  "Bí Bảo Cam • Cấp & Sao hiện tại ➔ Cấp & Sao mục tiêu",
+                  "Nhẫn Đuôi Công Tước (Cam) • Đang ở: 3★ (15/100 cánh) ➔ Mục tiêu: 4★ (20/100 cánh) • Sảnh Lv.60 (191.4%)",
                 outputPreview:
-                  "Tổng Cuộn Bí Bảo + Mảnh Vạn Năng Bí Bảo Cam + Đá Vân Ma Thuật + Pha Lê Bí Thuật",
+                  "40 Mảnh (8 mảnh/cánh) • Tấn công Bí Bảo: 9,684 ➔ 12,020 • HP Bí Bảo: 65,650 ➔ 81,153",
               },
               en: {
                 question:
-                  "Upgrading and star-promoting your 3-slot Legendary Relic set — how many Relic Scrolls, Magic Stones, and Arcane Crystals are required?",
+                  "Upgrading Duke's Signet Ring from 3★ to 4★ at Relic Hall Lv.60 — how many shards are needed and what are the effective ATK/HP gains?",
                 inputPreview:
-                  "Legendary Relic • Current Level & Stars ➔ Target Level & Stars",
+                  "Duke's Signet Ring (Legendary) • Current: 3★ (15/100 petals) ➔ Target: 4★ (20/100 petals) • Hall Lv.60 (191.4%)",
                 outputPreview:
-                  "Total Relic Scrolls + Legendary Universal Relic Shards + Magic Stones + Arcane Crystals",
+                  "40 Shards (8 shards/petal) • Relic ATK: 9,684 ➔ 12,020 • Relic HP: 65,650 ➔ 81,153",
               },
             },
             status: "ready",

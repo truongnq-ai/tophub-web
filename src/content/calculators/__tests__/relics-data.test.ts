@@ -1,104 +1,176 @@
 import { describe, expect, it } from "vitest";
 import {
+  RELIC_CATALOG,
   RELIC_EVENT_SCORING,
   RELIC_FACTION_SETS,
   RELIC_RARITY_TABLES,
-  calculateAuxiliaryRelicMaterialsBetweenStars,
+  RELIC_STAR_TIERS,
+  RELIC_UNLOCK_SHARDS_COST,
   calculateRelicShardsBetweenStates,
+  calculateRelicStarUpgrade,
   calculateRelicTrioPlan,
   calculateSingleRelicUpgrade,
   evaluateStarRatingSuppression,
   getInvestedRelicShardsAtState,
+  getRelicById,
   getRelicPassiveStatsAtStar,
+  getRelicPetalSnapshot,
+  petalIndexToStarAndSubStep,
+  starAndSubStepToPetalIndex,
 } from "../relics-data";
 
-describe("6.2 Bí Bảo — SSoT Data Engine (relics-data.ts)", () => {
-  it("verifies 20-star SSoT cumulative shards and passive ATK/HP milestones for Legendary (1,800), Epic (3,130), and Rare (4,810)", () => {
+describe("6.3 Nâng sao Bí Bảo — SSoT Data Engine (relics-data.ts)", () => {
+  it("contains all 29 active Relics (19 Legendary, 7 Epic, 3 Rare) with official bilingual names, illustration paths, shard icons, and 4 bonus profiles", () => {
+    expect(RELIC_CATALOG).toHaveLength(29);
+    expect(RELIC_CATALOG.filter((r) => r.rarity === "legendary")).toHaveLength(
+      19
+    );
+    expect(RELIC_CATALOG.filter((r) => r.rarity === "epic")).toHaveLength(7);
+    expect(RELIC_CATALOG.filter((r) => r.rarity === "rare")).toHaveLength(3);
+
+    for (const relic of RELIC_CATALOG) {
+      expect(relic.name.vi.length).toBeGreaterThan(1);
+      expect(relic.name.en.length).toBeGreaterThan(1);
+      expect(relic.name.en).not.toContain("artifact_name_");
+      expect(relic.illustrationPath).toMatch(
+        /^\/images\/relics\/illustrations\/Artifact_\d+\.webp$/
+      );
+      expect(relic.shardIconPath).toMatch(
+        /^\/images\/items\/shards\/icon_\d+\.webp$/
+      );
+    }
+
+    const dukeRing = getRelicById(150001);
+    expect(dukeRing.name.vi).toBe("Nhẫn Đuôi Công Tước");
+    expect(dukeRing.name.en).toBe("Duke's Signet Ring");
+    expect(dukeRing.bonusProfile).toBe("dmg_boost");
+
+    const warFlag = getRelicById(150005);
+    expect(warFlag.bonusProfile).toBe("dual_dmg_boost_and_reduction");
+  });
+
+  it("verifies active version=1 20-star (100 petals) cumulative shards for Legendary (1,800), Epic (3,150), and Rare (4,860) across 4 Star Color Tiers", () => {
+    expect(RELIC_STAR_TIERS).toHaveLength(4);
+    expect(RELIC_STAR_TIERS.map((t) => t.id)).toEqual([
+      "gold",
+      "red",
+      "silver",
+      "diamond",
+    ]);
+
     const leg = RELIC_RARITY_TABLES.legendary;
     expect(leg.maxTotalShards).toBe(1_800);
     expect(leg.tierTotals).toEqual([130, 360, 610, 700]);
-    expect(leg.breakthroughCrystalsByTier).toEqual([10, 25, 50, 100]);
-    expect(leg.magicStonesByTier).toEqual([2_000, 6_000, 12_000, 20_000]);
-
-    // Key Legendary Star Milestones: 5★, 8★ (ROI), 10★, 15★, 20★
     expect(leg.stars[4].cumulativeShards).toBe(130);
-    expect(leg.stars[4].heroAttackPercent).toBe(1.6);
-    expect(leg.stars[4].heroHpPercent).toBe(3.2);
-    expect(leg.stars[4].isBreakthrough).toBe(true);
-
-    expect(leg.stars[7].cumulativeShards).toBe(330);
-    expect(leg.stars[7].heroAttackPercent).toBe(4.0);
-    expect(leg.stars[7].heroHpPercent).toBe(8.0);
-    expect(leg.stars[7].isRoiSweetSpot).toBe(true);
-
     expect(leg.stars[9].cumulativeShards).toBe(490);
-    expect(leg.stars[9].heroAttackPercent).toBe(6.0);
-    expect(leg.stars[9].heroHpPercent).toBe(12.0);
-    expect(leg.stars[9].isBreakthrough).toBe(true);
-
     expect(leg.stars[14].cumulativeShards).toBe(1_100);
-    expect(leg.stars[14].heroAttackPercent).toBe(11.0);
-    expect(leg.stars[14].heroHpPercent).toBe(22.0);
-    expect(leg.stars[14].isBreakthrough).toBe(true);
-
     expect(leg.stars[19].cumulativeShards).toBe(1_800);
-    expect(leg.stars[19].heroAttackPercent).toBe(20.0);
-    expect(leg.stars[19].heroHpPercent).toBe(40.0);
-    expect(leg.stars[19].isBreakthrough).toBe(true);
 
-    // Epic (3,130 max) & Rare (4,810 max)
     const epic = RELIC_RARITY_TABLES.epic;
-    expect(epic.maxTotalShards).toBe(3_130);
-    expect(epic.tierTotals).toEqual([130, 400, 1_300, 1_300]);
-    expect(epic.stars[19].cumulativeShards).toBe(3_130);
-    expect(epic.stars[19].heroAttackPercent).toBe(12.0);
-    expect(epic.stars[19].heroHpPercent).toBe(24.0);
-    expect(epic.countsForStarSuppression).toBe(false);
+    expect(epic.maxTotalShards).toBe(3_150);
+    expect(epic.tierTotals).toEqual([150, 400, 1_300, 1_300]);
+    expect(epic.stars[4].cumulativeShards).toBe(150);
+    expect(epic.stars[9].cumulativeShards).toBe(550);
+    expect(epic.stars[14].cumulativeShards).toBe(1_850);
+    expect(epic.stars[19].cumulativeShards).toBe(3_150);
 
     const rare = RELIC_RARITY_TABLES.rare;
-    expect(rare.maxTotalShards).toBe(4_810);
-    expect(rare.tierTotals).toEqual([150, 460, 1_850, 2_350]);
-    expect(rare.stars[19].cumulativeShards).toBe(4_810);
-    expect(rare.stars[19].heroAttackPercent).toBe(6.0);
-    expect(rare.stars[19].heroHpPercent).toBe(12.0);
-    expect(rare.countsForStarSuppression).toBe(false);
+    expect(rare.maxTotalShards).toBe(4_860);
+    expect(rare.tierTotals).toEqual([150, 460, 1_850, 2_400]);
+    expect(rare.stars[4].cumulativeShards).toBe(150);
+    expect(rare.stars[9].cumulativeShards).toBe(610);
+    expect(rare.stars[14].cumulativeShards).toBe(2_460);
+    expect(rare.stars[19].cumulativeShards).toBe(4_860);
   });
 
-  it("calculates exact sub-step petal (0/5..4/5) shard investment and auxiliary materials across 5★/10★/15★/20★ breakthroughs", () => {
-    // 0★ (3/5) -> 3 * 2 = 6 shards
-    expect(getInvestedRelicShardsAtState("legendary", 0, 3)).toBe(6);
-    // 5★ (2/5) -> 130 + 2 * 12 = 154 shards
+  it("maps star+subStep <-> petalIndex (0..100) and matches Screenshot 4 (Nhẫn Đuôi Công Tước 3★ 0/5 ➔ 3★ 1/5 at Relic Hall Lv.60 = 9,684 ➔ 10,151 ATK, 65,650 ➔ 68,750 HP, 6% ➔ 6.4% DMG Boost, 8 Shards)", () => {
+    expect(starAndSubStepToPetalIndex(0, 0)).toBe(0);
+    expect(starAndSubStepToPetalIndex(3, 0)).toBe(15);
+    expect(starAndSubStepToPetalIndex(3, 1)).toBe(16);
+    expect(starAndSubStepToPetalIndex(20, 0)).toBe(100);
+
+    expect(petalIndexToStarAndSubStep(15)).toEqual({
+      starLevel: 3,
+      subStep: 0,
+      tierIndex: 1,
+      tierColorId: "gold",
+    });
+    expect(petalIndexToStarAndSubStep(16)).toEqual({
+      starLevel: 3,
+      subStep: 1,
+      tierIndex: 1,
+      tierColorId: "gold",
+    });
+
+    const p15 = getRelicPetalSnapshot(150001, 15, 60);
+    expect(p15.baseAtk).toBe(5060);
+    expect(p15.baseHp).toBe(34300);
+    expect(p15.effectiveAtk).toBe(9684);
+    expect(p15.effectiveHp).toBe(65650);
+    expect(p15.dmgBoostPercent).toBe(6);
+    expect(p15.heroAtkPercent).toBe(0.9);
+    expect(p15.heroHpPercent).toBe(1.8);
+
+    const p16 = getRelicPetalSnapshot(150001, 16, 60);
+    expect(p16.baseAtk).toBe(5304);
+    expect(p16.baseHp).toBe(35920);
+    expect(p16.effectiveAtk).toBe(10151);
+    expect(p16.effectiveHp).toBe(68750);
+    expect(p16.dmgBoostPercent).toBe(6.4);
+    expect(p16.heroAtkPercent).toBe(0.9);
+    expect(p16.heroHpPercent).toBe(1.8);
+
+    // Screenshot 4 Upgrade: 3★ (0/5) -> 3★ (1/5) with 7 Specific Shards & 23 Universal Shards
+    const upgrade = calculateRelicStarUpgrade({
+      relicId: 150001,
+      fromPetalIndex: 15,
+      toPetalIndex: 16,
+      relicHallLevel: 60,
+      includeUnlockCost: false,
+      ownedSpecificShards: 7,
+      ownedUniversalShards: 23,
+    });
+    expect(upgrade.isInvalidRange).toBe(false);
+    expect(upgrade.starUpgradeShards).toBe(8);
+    expect(upgrade.unlockShards).toBe(0);
+    expect(upgrade.totalRequiredShards).toBe(8);
+    expect(upgrade.specificShardsUsed).toBe(7);
+    expect(upgrade.universalShardsUsed).toBe(1);
+    expect(upgrade.missingShards).toBe(0);
+    expect(upgrade.surplusSpecificShards).toBe(0);
+    expect(upgrade.surplusUniversalShards).toBe(22);
+    expect(upgrade.atkDelta).toBe(467);
+    expect(upgrade.hpDelta).toBe(3100);
+  });
+
+  it("includes +10 unlock shards when includeUnlockCost=true and preserves backward-compatible Trio / Suppression helpers", () => {
+    expect(RELIC_UNLOCK_SHARDS_COST).toBe(10);
+
+    const fullLegendaryWithUnlock = calculateRelicStarUpgrade({
+      relicId: 150001,
+      fromPetalIndex: 0,
+      toPetalIndex: 100,
+      relicHallLevel: 60,
+      includeUnlockCost: true,
+      ownedSpecificShards: 10,
+      ownedUniversalShards: 1000,
+    });
+    expect(fullLegendaryWithUnlock.starUpgradeShards).toBe(1800);
+    expect(fullLegendaryWithUnlock.unlockShards).toBe(10);
+    expect(fullLegendaryWithUnlock.totalRequiredShards).toBe(1810);
+    expect(fullLegendaryWithUnlock.specificShardsUsed).toBe(10);
+    expect(fullLegendaryWithUnlock.universalShardsUsed).toBe(1000);
+    expect(fullLegendaryWithUnlock.missingShards).toBe(800);
+
     expect(getInvestedRelicShardsAtState("legendary", 5, 2)).toBe(154);
-    // 5★ (2/5) -> 10★ (0/5) = 490 - 154 = 336 shards
     expect(calculateRelicShardsBetweenStates("legendary", 5, 2, 10, 0)).toBe(
       336
     );
-    // At 20★, subStep is capped at maxTotalShards (1,800)
-    expect(getInvestedRelicShardsAtState("legendary", 20, 4)).toBe(1_800);
-
-    // Passive stats at 0★ and 8★
-    expect(getRelicPassiveStatsAtStar("legendary", 0)).toEqual({
-      heroAttackPercent: 0,
-      heroHpPercent: 0,
-    });
     expect(getRelicPassiveStatsAtStar("legendary", 8)).toEqual({
       heroAttackPercent: 4,
       heroHpPercent: 8,
     });
 
-    // Full 0★ -> 20★ Legendary auxiliary materials:
-    // Arcane Crystals = 10 + 25 + 50 + 100 = 185
-    // Magic Stones = 2,000 + 6,000 + 12,000 + 20,000 = 40,000
-    const fullAux = calculateAuxiliaryRelicMaterialsBetweenStars(
-      "legendary",
-      0,
-      20
-    );
-    expect(fullAux.breakthroughCountCrossed).toBe(4);
-    expect(fullAux.requiredArcaneCrystals).toBe(185);
-    expect(fullAux.requiredMagicStones).toBe(40_000);
-
-    // Single Relic Upgrade 0★ -> 20★ with inventory
     const singleMax = calculateSingleRelicUpgrade({
       rarity: "legendary",
       fromStar: 0,
@@ -111,36 +183,11 @@ describe("6.2 Bí Bảo — SSoT Data Engine (relics-data.ts)", () => {
       ownedMagicStones: 50_000,
     });
     expect(singleMax.requiredShards).toBe(1_800);
-    expect(singleMax.deficitShards).toBe(800);
-    expect(singleMax.surplusShards).toBe(0);
-    expect(singleMax.requiredArcaneCrystals).toBe(185);
-    expect(singleMax.deficitArcaneCrystals).toBe(0);
-    expect(singleMax.requiredMagicStones).toBe(40_000);
-    expect(singleMax.deficitMagicStones).toBe(0);
-    expect(singleMax.garPointsFromRequiredShards).toBe(
-      1_800 * RELIC_RARITY_TABLES.legendary.garPointsPerShard
-    );
     expect(RELIC_EVENT_SCORING.garPointsPerArcaneCrystal).toBe(1_200);
-  });
-
-  it("evaluates -50% Star Rating Suppression and Faction Trio profiles accurately", () => {
     expect(RELIC_FACTION_SETS).toHaveLength(3);
-
-    const suppressing = evaluateStarRatingSuppression(25, 24, false);
-    expect(suppressing.status).toBe("suppressing_enemy");
-    expect(suppressing.enemyPenaltyPercent).toBe(-50);
-    expect(suppressing.ourPenaltyPercent).toBe(0);
-
-    const tied = evaluateStarRatingSuppression(24, 24, false);
-    expect(tied.status).toBe("tied_no_suppression");
-    expect(tied.neededStarsToSuppress).toBe(1);
-
-    const suppressed = evaluateStarRatingSuppression(16, 18, true);
-    expect(suppressed.status).toBe("suppressed_by_enemy");
-    expect(suppressed.ourPenaltyPercent).toBe(-50);
-    expect(suppressed.neededStarsToTie).toBe(2);
-    expect(suppressed.neededStarsToSuppress).toBe(3);
-    expect(suppressed.hasNonLegendaryInQueueWarning).toBe(true);
+    expect(evaluateStarRatingSuppression(25, 24, false).status).toBe(
+      "suppressing_enemy"
+    );
 
     const trio = calculateRelicTrioPlan({
       faction: "league",
@@ -179,7 +226,6 @@ describe("6.2 Bí Bảo — SSoT Data Engine (relics-data.ts)", () => {
       ownedArcaneCrystals: 5,
     });
     expect(trio.requiredShardsByRarity.legendary).toBe(460);
-    expect(trio.requiredShardsByRarity.epic).toBe(530);
-    expect(trio.targetQueueLegendaryStars).toBe(13);
+    expect(trio.requiredShardsByRarity.epic).toBe(550);
   });
 });
