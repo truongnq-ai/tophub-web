@@ -39,8 +39,8 @@ describe("6.2 Sảnh Bí Bảo — v2.0 1/3 + 2/3 Single-Viewport Layout, Zone (
     expect(screen.getByTestId("relic-hall-resources-panel")).toBeDefined();
 
     // Clean zone titles without (X), (Y), Bước 1, Bước 2
-    expect(screen.getByText("Cấp Hiện Tại")).toBeDefined();
-    expect(screen.getByText("Cấp Mục Tiêu")).toBeDefined();
+    expect(screen.getByText("Điểm xuất phát")).toBeDefined();
+    expect(screen.getByText("Đích đến")).toBeDefined();
     expect(container.textContent ?? "").not.toContain("(X)");
     expect(container.textContent ?? "").not.toContain("(Y)");
 

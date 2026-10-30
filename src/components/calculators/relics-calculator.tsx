@@ -787,7 +787,7 @@ export function RelicsCalculator({ tool, locale }: RelicsCalculatorProps) {
             <RelicStarPetalSelector
               idPrefix="from"
               title={isVi ? "Sao Hiện Tại" : "Current Star"}
-              badgeLabel={isVi ? "Đang sở hữu" : "Current"}
+              badgeLabel={isVi ? "Điểm xuất phát" : "Start"}
               snapshot={fromState}
               locale={locale}
               onChangePetalIndex={setFromPetalIndex}

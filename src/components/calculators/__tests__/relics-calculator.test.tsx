@@ -45,15 +45,15 @@ describe("6.3 Nâng sao Bí Bảo — v2.0 1/3 + 2/3 Single-Viewport Layout, Zon
     expect(screen.getByTestId("from-star-tier-row-diamond")).toBeDefined();
 
     // Clean zone titles without (X), (Y), Bước 1, Bước 2
-    expect(screen.getByText("Sao Hiện Tại")).toBeDefined();
-    expect(screen.getByText("Sao Mục Tiêu")).toBeDefined();
+    expect(screen.getByText("Điểm xuất phát")).toBeDefined();
+    expect(screen.getByText("Đích đến")).toBeDefined();
     expect(container.textContent ?? "").not.toContain("(X)");
     expect(container.textContent ?? "").not.toContain("(Y)");
 
     // Select Screenshot 4 state: Nhẫn Đuôi Công Tước (default), Current 3★ (0/5) -> Target 3★ (1/5)
     fireEvent.click(screen.getByTestId("relics-from-chip-3"));
     fireEvent.click(screen.getByTestId("relics-to-chip-3"));
-    fireEvent.click(screen.getByTestId("relics-to-substep-1"));
+    fireEvent.click(screen.getByTestId("relics-to-petal-plus-btn"));
 
     // Open Current (i) popover to verify Current stats (9,684 ATK & 65,650 HP)
     fireEvent.click(screen.getByTestId("relics-from-info-trigger"));

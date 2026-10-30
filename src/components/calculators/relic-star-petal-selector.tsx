@@ -86,7 +86,7 @@ export function RelicStarPetalSelector({
   onChangePetalIndex,
 }: RelicStarPetalSelectorProps) {
   const isVi = locale === "vi";
-  const { petalIndex, starLevel, subStep, tierColorId } = snapshot;
+  const { petalIndex, starLevel, subStep } = snapshot;
 
   const handleStarClick = (overallStar: number) => {
     const starEndPetal = overallStar * 5;
@@ -98,20 +98,6 @@ export function RelicStarPetalSelector({
   const handleMilestoneClick = (milestoneStar: number) => {
     onChangePetalIndex(starAndSubStepToPetalIndex(milestoneStar, 0));
   };
-
-  const handleSubStepClick = (nextSubStep: number) => {
-    if (starLevel >= 20) return;
-    onChangePetalIndex(starAndSubStepToPetalIndex(starLevel, nextSubStep));
-  };
-
-  const tierTone =
-    tierColorId === "gold"
-      ? "bg-amber-500/15 text-amber-700 dark:text-amber-300"
-      : tierColorId === "red"
-        ? "bg-rose-500/15 text-rose-700 dark:text-rose-300"
-        : tierColorId === "silver"
-          ? "bg-slate-400/20 text-slate-700 dark:text-slate-200"
-          : "bg-sky-500/15 text-sky-700 dark:text-sky-300";
 
   const bonusLabel =
     snapshot.bonusProfile === "dmg_boost"
@@ -191,18 +177,12 @@ export function RelicStarPetalSelector({
         </defs>
       </svg>
 
-      {/* 1. Header Row: Badge + Title + Inline Quick Star Chips + Readout + (i) Popup */}
+      {/* 1. Single-Line Header Row: Amber Badge ("Điểm xuất phát" / "Đích đến") + Inline Quick Star Chips + Readout + (i) Popup */}
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <div className="flex flex-wrap items-center gap-2">
-          <span
-            className={cn(
-              "inline-flex items-center rounded-lg px-2.5 py-1 font-sans text-xs font-bold",
-              tierTone
-            )}
-          >
+        <div className="flex flex-wrap items-center gap-1.5">
+          <span className="inline-flex items-center rounded-lg bg-amber-500/15 px-2.5 py-1 font-sans text-xs font-bold text-amber-700 dark:text-amber-300">
             {badgeLabel}
           </span>
-          <h2 className={CALC_MD3.sectionTitle}>{title}</h2>
 
           {/* Inline Quick Star Milestone Chips (0★, 3★, 5★, 8★, 10★, 15★, 20★) */}
           <div className="flex flex-wrap items-center gap-1">
@@ -216,7 +196,7 @@ export function RelicStarPetalSelector({
                   onClick={() => handleMilestoneClick(mStar)}
                   className={cn(
                     CALC_MD3.chipButton,
-                    "px-2 font-mono text-xs font-bold",
+                    "px-2.5 font-mono text-xs font-bold",
                     isSelected
                       ? "bg-amber-500 text-slate-950 shadow-sm"
                       : "bg-muted/50 text-foreground hover:bg-amber-500/15"
@@ -229,7 +209,7 @@ export function RelicStarPetalSelector({
           </div>
         </div>
 
-        <div className="flex items-center gap-1.5">
+        <div className="flex items-center gap-1.5 shrink-0">
           <div
             data-testid={`relics-${idPrefix}-readout`}
             className="inline-flex items-center gap-1.5 rounded-xl bg-muted/60 px-3 py-1.5"
@@ -250,8 +230,8 @@ export function RelicStarPetalSelector({
           <CalculatorInfoPopover
             title={
               isVi
-                ? `Chỉ Số Bí Bảo — ${title} (${starLevel}★ ${subStep}/5)`
-                : `Relic Attributes — ${title} (${starLevel}★ ${subStep}/5)`
+                ? `Chỉ Số Bí Bảo — ${badgeLabel} (${starLevel}★ ${subStep}/5)`
+                : `Relic Attributes — ${badgeLabel} (${starLevel}★ ${subStep}/5)`
             }
             subtitle={
               isVi
@@ -433,87 +413,56 @@ export function RelicStarPetalSelector({
         ))}
       </div>
 
-      {/* 3. Single-Line Control Bar: [- / Slider / +] + Sub-step Petal Chips (0/5 .. 4/5) */}
+      {/* 3. Clean Single-Line 100-Petal Slider Bar: [- / Slider / +] */}
       <div
         className={cn(
           CALC_MD3.tonalGroup,
-          "flex flex-col md:flex-row md:items-center justify-between gap-2.5 p-2 sm:px-3"
+          "flex items-center gap-2.5 p-2 sm:px-3"
         )}
       >
-        <div className="flex flex-1 items-center gap-2">
-          <CalculatorStepperButton
-            direction="decrease"
-            testId={`relics-${idPrefix}-petal-minus-btn`}
-            disabled={petalIndex <= 0}
-            onClick={() =>
-              onChangePetalIndex(clampPetalIndex(petalIndex - 1))
-            }
-            ariaLabel={
-              isVi
-                ? `Lùi 1 cánh sao (${title})`
-                : `Decrease 1 star petal (${title})`
-            }
-          />
-          <input
-            type="range"
-            min={0}
-            max={RELIC_MAX_PETAL_INDEX}
-            step={1}
-            data-testid={`relics-${idPrefix}-petal-slider`}
-            value={petalIndex}
-            onChange={(event) =>
-              onChangePetalIndex(clampPetalIndex(Number(event.target.value)))
-            }
-            aria-label={
-              isVi
-                ? `Thanh kéo 100 cánh sao (${title})`
-                : `100-petal star slider (${title})`
-            }
-            className="h-11 min-w-0 flex-1 cursor-pointer accent-amber-500"
-          />
-          <CalculatorStepperButton
-            direction="increase"
-            testId={`relics-${idPrefix}-petal-plus-btn`}
-            disabled={petalIndex >= RELIC_MAX_PETAL_INDEX}
-            onClick={() =>
-              onChangePetalIndex(clampPetalIndex(petalIndex + 1))
-            }
-            ariaLabel={
-              isVi
-                ? `Tiến 1 cánh sao (${title})`
-                : `Increase 1 star petal (${title})`
-            }
-          />
-        </div>
-
-        {starLevel < 20 ? (
-          <div className="flex flex-wrap items-center justify-between md:justify-end gap-1.5 shrink-0">
-            <span className="font-sans text-xs font-semibold text-muted-foreground">
-              {isVi ? "Cánh lẻ:" : "Petals:"}
-            </span>
-            <div className="grid grid-cols-5 gap-1">
-              {([0, 1, 2, 3, 4] as const).map((s) => {
-                const active = subStep === s;
-                return (
-                  <button
-                    key={s}
-                    type="button"
-                    data-testid={`relics-${idPrefix}-substep-${s}`}
-                    onClick={() => handleSubStepClick(s)}
-                    className={cn(
-                      "inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-xl px-2 font-mono text-xs font-bold transition-colors cursor-pointer",
-                      active
-                        ? "bg-amber-500 text-slate-950 shadow-sm"
-                        : "bg-background/70 text-muted-foreground hover:bg-amber-500/15 hover:text-foreground"
-                    )}
-                  >
-                    {`${s}/5`}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-        ) : null}
+        <CalculatorStepperButton
+          direction="decrease"
+          testId={`relics-${idPrefix}-petal-minus-btn`}
+          disabled={petalIndex <= 0}
+          onClick={() =>
+            onChangePetalIndex(clampPetalIndex(petalIndex - 1))
+          }
+          ariaLabel={
+            isVi
+              ? `Lùi 1 cánh sao (${title})`
+              : `Decrease 1 star petal (${title})`
+          }
+        />
+        <input
+          type="range"
+          min={0}
+          max={RELIC_MAX_PETAL_INDEX}
+          step={1}
+          data-testid={`relics-${idPrefix}-petal-slider`}
+          value={petalIndex}
+          onChange={(event) =>
+            onChangePetalIndex(clampPetalIndex(Number(event.target.value)))
+          }
+          aria-label={
+            isVi
+              ? `Thanh kéo 100 cánh sao (${title})`
+              : `100-petal star slider (${title})`
+          }
+          className="h-11 min-w-0 flex-1 cursor-pointer accent-amber-500"
+        />
+        <CalculatorStepperButton
+          direction="increase"
+          testId={`relics-${idPrefix}-petal-plus-btn`}
+          disabled={petalIndex >= RELIC_MAX_PETAL_INDEX}
+          onClick={() =>
+            onChangePetalIndex(clampPetalIndex(petalIndex + 1))
+          }
+          ariaLabel={
+            isVi
+              ? `Tiến 1 cánh sao (${title})`
+              : `Increase 1 star petal (${title})`
+          }
+        />
       </div>
     </div>
   );

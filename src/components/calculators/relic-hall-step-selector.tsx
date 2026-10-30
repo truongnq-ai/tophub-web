@@ -80,13 +80,12 @@ export function RelicHallStepSelector({
 
   return (
     <div className="space-y-2.5">
-      {/* Row 1: Header + Inline Quick Milestone Chips + Readout + (i) Popup */}
+      {/* Row 1: Single-Line Header — Amber Badge ("Điểm xuất phát" / "Đích đến") + Quick Milestone Chips + Readout + (i) Popup */}
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="flex flex-wrap items-center gap-1.5">
           <span className="inline-flex items-center rounded-lg bg-amber-500/15 px-2.5 py-1 font-sans text-xs font-bold text-amber-700 dark:text-amber-300">
             {badgeLabel}
           </span>
-          <h2 className={CALC_MD3.sectionTitle}>{title}</h2>
 
           {/* Inline Milestone Chips */}
           <div className="flex flex-wrap items-center gap-1">
@@ -113,7 +112,7 @@ export function RelicHallStepSelector({
           </div>
         </div>
 
-        <div className="flex items-center gap-1.5">
+        <div className="flex items-center gap-1.5 shrink-0">
           <div
             data-testid={`relic-hall-${testIdPrefix}-Readout`}
             className="inline-flex items-center gap-1.5 rounded-xl bg-muted/60 px-3 py-1.5"
@@ -131,8 +130,8 @@ export function RelicHallStepSelector({
           <CalculatorInfoPopover
             title={
               isVi
-                ? `Chỉ Số Sảnh Bí Bảo — ${title} (Lv.${state.level})`
-                : `Relic Hall Stats — ${title} (Lv.${state.level})`
+                ? `Chỉ Số Sảnh Bí Bảo — ${badgeLabel} (Lv.${state.level})`
+                : `Relic Hall Stats — ${badgeLabel} (Lv.${state.level})`
             }
             subtitle={
               isVi
@@ -217,13 +216,13 @@ export function RelicHallStepSelector({
         </div>
       </div>
 
-      {/* Row 2: Horizontal 2-Column Split — Left: Level Slider [-/+] | Right: Upgrade Progress (Tiến Độ Nâng Cấp) */}
+      {/* Row 2: Fixed-Height Horizontal 2-Column Split — Left (4/12): Level Slider [-/+] | Right (8/12): Non-Wrapping Upgrade Progress */}
       <div className="grid grid-cols-1 xl:grid-cols-12 gap-2.5 items-stretch">
-        {/* Left: Level Slider + [-]/[+] Stepper */}
+        {/* Left (4/12): Level Slider + [-]/[+] Stepper */}
         <div
           className={cn(
             CALC_MD3.tonalGroup,
-            "xl:col-span-5 flex flex-col justify-center space-y-1.5 p-2.5 sm:p-3"
+            "xl:col-span-4 flex flex-col justify-between space-y-1.5 p-2.5"
           )}
         >
           <div className="flex items-center justify-between gap-2">
@@ -278,19 +277,19 @@ export function RelicHallStepSelector({
           </div>
         </div>
 
-        {/* Right: Upgrade Progress Bar (Tiến Độ Nâng Cấp — Bậc 0..N-1) */}
+        {/* Right (8/12): Upgrade Progress Bar (Tiến Độ Nâng Cấp — Bậc 0..N-1) — Locked 1-Line Height */}
         <div
           className={cn(
             CALC_MD3.tonalGroup,
-            "xl:col-span-7 flex flex-col justify-center space-y-2 p-2.5 sm:p-3"
+            "xl:col-span-8 flex flex-col justify-between space-y-1.5 p-2.5"
           )}
         >
-          <div className="flex flex-wrap items-center justify-between gap-2">
+          <div className="flex items-center justify-between gap-2">
             <span className="font-sans text-xs font-semibold text-foreground">
               {isVi ? "Tiến Độ Nâng Cấp" : "Upgrade Progress"}
             </span>
             {isBreakthrough ? (
-              <span className="inline-flex items-center gap-1 rounded-lg bg-amber-500/20 px-2.5 py-0.5 font-sans text-xs font-bold text-amber-700 dark:text-amber-300">
+              <span className="inline-flex items-center gap-1 rounded-lg bg-amber-500/20 px-2 py-0.5 font-sans text-xs font-bold text-amber-700 dark:text-amber-300">
                 <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
                 {isVi
                   ? "Mốc đột phá 1 bước (Pha Lê + Đá Vân)"
@@ -306,8 +305,8 @@ export function RelicHallStepSelector({
           </div>
 
           {state.subStepsCount > 1 ? (
-            <div className="space-y-1.5">
-              {/* Visual Progress Track */}
+            state.subStepsCount <= 10 ? (
+              /* Single Non-Wrapping Grid Row for 4, 6, 7, 8, or 10 Sub-Steps */
               <div
                 className="grid gap-1"
                 style={{
@@ -315,85 +314,69 @@ export function RelicHallStepSelector({
                 }}
               >
                 {Array.from({ length: state.subStepsCount }, (_, idx) => {
+                  const active = state.subStep === idx;
                   const isFilled = idx < state.subStep;
-                  const isCurrentPointer = idx === state.subStep;
                   return (
-                    <div
+                    <button
                       key={idx}
+                      type="button"
+                      data-testid={`relic-hall-${testIdPrefix}-substep-${idx}`}
+                      onClick={() =>
+                        onChange(
+                          state.level,
+                          clampRelicHallSubStep(state.level, idx)
+                        )
+                      }
                       className={cn(
-                        "h-2 rounded-full transition-colors",
-                        isFilled
-                          ? "bg-amber-500"
-                          : isCurrentPointer
-                            ? "bg-amber-500/35"
-                            : "bg-muted"
+                        "inline-flex min-h-[44px] min-w-0 items-center justify-center rounded-xl px-1 font-mono text-xs font-bold transition-colors cursor-pointer",
+                        active
+                          ? "bg-amber-500 text-slate-950 shadow-sm"
+                          : isFilled
+                            ? "bg-amber-500/25 text-amber-700 dark:text-amber-300 hover:bg-amber-500/35"
+                            : "bg-background/70 text-muted-foreground hover:bg-amber-500/15 hover:text-foreground"
                       )}
-                    />
+                    >
+                      {`${idx}/${state.subStepsCount}`}
+                    </button>
                   );
                 })}
               </div>
-
-              {/* Sub-step Selector Chips / Range */}
-              {state.subStepsCount <= 10 ? (
-                <div className="flex flex-wrap gap-1">
-                  {Array.from({ length: state.subStepsCount }, (_, idx) => {
-                    const active = state.subStep === idx;
-                    return (
-                      <button
-                        key={idx}
-                        type="button"
-                        data-testid={`relic-hall-${testIdPrefix}-substep-${idx}`}
-                        onClick={() =>
-                          onChange(
-                            state.level,
-                            clampRelicHallSubStep(state.level, idx)
-                          )
-                        }
-                        className={cn(
-                          "inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-xl px-2 font-mono text-xs font-bold transition-colors cursor-pointer",
-                          active
-                            ? "bg-amber-500 text-slate-950 shadow-sm"
-                            : "bg-background/70 text-muted-foreground hover:bg-amber-500/15 hover:text-foreground"
-                        )}
-                      >
-                        {`${idx}/${state.subStepsCount}`}
-                      </button>
-                    );
-                  })}
-                </div>
-              ) : (
-                <div className="flex items-center gap-3">
-                  <input
-                    type="range"
-                    min={0}
-                    max={state.subStepsCount - 1}
-                    step={1}
-                    value={state.subStep}
-                    data-testid={`relic-hall-${testIdPrefix}-substep-slider`}
-                    aria-label={
-                      isVi
-                        ? `Chọn bậc tiến độ nâng cấp (${title})`
-                        : `Select upgrade progress step (${title})`
-                    }
-                    onChange={(event) =>
-                      onChange(
+            ) : (
+              <div className="flex min-h-[44px] items-center gap-3 rounded-xl bg-background/60 px-3">
+                <input
+                  type="range"
+                  min={0}
+                  max={state.subStepsCount - 1}
+                  step={1}
+                  value={state.subStep}
+                  data-testid={`relic-hall-${testIdPrefix}-substep-slider`}
+                  aria-label={
+                    isVi
+                      ? `Chọn bậc tiến độ nâng cấp (${title})`
+                      : `Select upgrade progress step (${title})`
+                  }
+                  onChange={(event) =>
+                    onChange(
+                      state.level,
+                      clampRelicHallSubStep(
                         state.level,
-                        clampRelicHallSubStep(
-                          state.level,
-                          Number(event.target.value)
-                        )
+                        Number(event.target.value)
                       )
-                    }
-                    className="h-2.5 w-full cursor-pointer appearance-none rounded-lg bg-muted accent-amber-500"
-                  />
-                  <span className="shrink-0 font-mono text-xs font-bold text-foreground">
-                    {`${state.subStep}/${state.subStepsCount}`}
-                  </span>
-                </div>
-              )}
-            </div>
+                    )
+                  }
+                  className="h-2.5 w-full cursor-pointer appearance-none rounded-lg bg-muted accent-amber-500"
+                />
+                <span className="shrink-0 font-mono text-xs font-bold text-foreground">
+                  {`${state.subStep}/${state.subStepsCount}`}
+                </span>
+              </div>
+            )
           ) : (
-            <div className="h-2 w-full rounded-full bg-amber-500/35" />
+            <div className="flex min-h-[44px] items-center justify-center rounded-xl bg-amber-500/15 px-3 font-sans text-xs font-semibold text-amber-700 dark:text-amber-300">
+              {isVi
+                ? "Bấm Lên Cấp trực tiếp sang cấp tiếp theo (0/1 bậc)"
+                : "Direct 1-step breakthrough to next level (0/1 step)"}
+            </div>
           )}
         </div>
       </div>
