@@ -543,7 +543,7 @@ export function HeroEncyclopediaWidget({
     <div
       ref={containerRef}
       data-testid="widget-hero-encyclopedia"
-      className="relative my-5 rounded-2xl border border-amber-500/35 bg-card/85 dark:bg-slate-950/80 p-4 sm:p-6 space-y-5 shadow-lg shadow-amber-500/5"
+      className="relative my-5 rounded-2xl border border-amber-500/35 bg-card/85 dark:bg-slate-950/80 p-3.5 sm:p-6 space-y-5 shadow-lg shadow-amber-500/5"
     >
       {/* Consolidated TOC Anchor Stubs at Widget Top (GAP-P3-10) */}
       <span
@@ -574,14 +574,14 @@ export function HeroEncyclopediaWidget({
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-border/60">
         <div className="space-y-1">
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 px-2.5 py-0.5 text-[11px] font-mono font-bold text-amber-600 dark:text-amber-400">
-            <Sparkles className="h-3 w-3" />
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 px-2.5 py-0.5 text-xs font-sans font-bold text-amber-600 dark:text-amber-400">
+            <Sparkles className="h-3.5 w-3.5" />
             <span>{copy.badge}</span>
           </div>
           <h3 className="font-heading font-black text-lg sm:text-xl text-foreground">
             {copy.title}
           </h3>
-          <p className="text-xs sm:text-sm text-muted-foreground">
+          <p className="text-sm text-muted-foreground leading-relaxed">
             {copy.subtitle}
           </p>
         </div>
@@ -607,7 +607,7 @@ export function HeroEncyclopediaWidget({
         </div>
       </div>
 
-      {/* Search Bar */}
+      {/* Search Bar (16px on mobile to prevent iOS Safari Auto-Zoom) */}
       <div className="relative">
         <Search className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
         <input
@@ -617,25 +617,25 @@ export function HeroEncyclopediaWidget({
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder={copy.searchPlaceholder}
           aria-label={copy.searchPlaceholder}
-          className="w-full min-h-[44px] rounded-xl border border-border/80 bg-background/90 pl-10 pr-10 py-2 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-amber-500/70 focus:ring-2 focus:ring-amber-500/20"
+          className="w-full min-h-[44px] rounded-xl border border-border/80 bg-background/90 pl-10 pr-11 py-2 text-base sm:text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-amber-500/70 focus:ring-2 focus:ring-amber-500/20"
         />
         {searchQuery && (
           <button
             type="button"
             onClick={() => setSearchQuery("")}
             aria-label="Clear search"
-            className="absolute right-2.5 top-1/2 -translate-y-1/2 p-1.5 rounded-lg text-muted-foreground hover:text-foreground cursor-pointer"
+            className="absolute right-1.5 top-1/2 -translate-y-1/2 inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg text-muted-foreground hover:text-foreground cursor-pointer"
           >
             <X className="h-4 w-4" />
           </button>
         )}
       </div>
 
-      {/* Multi-Dimensional Filter Pills (Touch Target >= 44px) */}
+      {/* Multi-Dimensional Filter Pills (Horizontal Scroll on Mobile, Wrap on Desktop) */}
       <div className="space-y-3">
         {/* 1. Faction Filter with Real Faction Crests */}
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="text-xs font-bold text-muted-foreground min-w-[70px]">
+        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 snap-x sm:flex-wrap">
+          <span className="text-xs font-bold text-muted-foreground min-w-[70px] shrink-0">
             {copy.factionLabel}
           </span>
           {(["all", "horde", "league", "nature"] as HeroFaction[]).map(
@@ -651,7 +651,7 @@ export function HeroEncyclopediaWidget({
                   aria-pressed={isActive}
                   onClick={() => setFactionFilter(fac)}
                   className={cn(
-                    "inline-flex items-center gap-2 min-h-[44px] px-3.5 rounded-xl border text-xs font-bold transition-all cursor-pointer",
+                    "snap-start shrink-0 inline-flex items-center gap-2 min-h-[44px] px-3.5 rounded-xl border text-xs font-bold transition-all cursor-pointer",
                     isActive
                       ? fac === "horde"
                         ? "border-rose-500 bg-rose-500/15 text-rose-600 dark:text-rose-300 shadow-sm"
@@ -667,13 +667,15 @@ export function HeroEncyclopediaWidget({
                     <img
                       src={crestPath}
                       alt={copy.factions[fac]}
-                      width={20} height={20} loading="lazy"
+                      width={20}
+                      height={20}
+                      loading="lazy"
                       decoding="async"
                       className="h-5 w-5 rounded-full object-contain shrink-0"
                     />
                   )}
                   <span>{copy.factions[fac]}</span>
-                  <span className="rounded-md bg-background/70 px-1.5 py-0.5 font-mono text-[10px]">
+                  <span className="rounded-md bg-background/70 px-1.5 py-0.5 font-mono text-xs">
                     {factionCounts[fac]}
                   </span>
                 </button>
@@ -684,8 +686,8 @@ export function HeroEncyclopediaWidget({
 
         {/* 2. Rarity & Role Filters */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
-          <div className="flex flex-wrap items-center gap-1.5">
-            <span className="text-xs font-bold text-muted-foreground min-w-[70px]">
+          <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1 snap-x sm:flex-wrap">
+            <span className="text-xs font-bold text-muted-foreground min-w-[70px] shrink-0">
               {copy.rarityLabel}
             </span>
             {(
@@ -700,7 +702,7 @@ export function HeroEncyclopediaWidget({
                   aria-pressed={isActive}
                   onClick={() => setRarityFilter(rar)}
                   className={cn(
-                    "inline-flex items-center min-h-[44px] px-3 rounded-xl border text-xs font-bold transition-all cursor-pointer",
+                    "snap-start shrink-0 inline-flex items-center min-h-[44px] px-3 rounded-xl border text-xs font-bold transition-all cursor-pointer",
                     isActive
                       ? "border-amber-500 bg-amber-500/15 text-amber-700 dark:text-amber-300 shadow-sm"
                       : "border-border/60 bg-background/60 text-muted-foreground hover:text-foreground hover:bg-muted/40"
@@ -712,8 +714,8 @@ export function HeroEncyclopediaWidget({
             })}
           </div>
 
-          <div className="flex flex-wrap items-center gap-1.5">
-            <span className="text-xs font-bold text-muted-foreground min-w-[70px]">
+          <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1 snap-x sm:flex-wrap">
+            <span className="text-xs font-bold text-muted-foreground min-w-[70px] shrink-0">
               {copy.roleLabel}
             </span>
             {(
@@ -734,7 +736,7 @@ export function HeroEncyclopediaWidget({
                   aria-pressed={isActive}
                   onClick={() => setRoleFilter(role)}
                   className={cn(
-                    "inline-flex items-center min-h-[44px] px-3 rounded-xl border text-xs font-bold transition-all cursor-pointer",
+                    "snap-start shrink-0 inline-flex items-center min-h-[44px] px-3 rounded-xl border text-xs font-bold transition-all cursor-pointer",
                     isActive
                       ? "border-amber-500 bg-amber-500/15 text-amber-700 dark:text-amber-300 shadow-sm"
                       : "border-border/60 bg-background/60 text-muted-foreground hover:text-foreground hover:bg-muted/40"
@@ -821,7 +823,7 @@ export function HeroEncyclopediaWidget({
                         size="lg"
                       />
                       <div className="min-w-0">
-                        <h4 className="font-heading font-extrabold text-sm sm:text-base text-foreground flex flex-wrap items-center gap-1.5">
+                        <h4 className="font-heading font-extrabold text-base text-foreground flex flex-wrap items-center gap-1.5">
                           <span>{hero.nameEn}</span>
                           {locale === "vi" &&
                             hero.nameVi &&
@@ -831,8 +833,8 @@ export function HeroEncyclopediaWidget({
                               </span>
                             )}
                         </h4>
-                        <div className="mt-1 flex flex-wrap items-center gap-1.5 text-[11px]">
-                          <span className="rounded-md bg-muted px-2 py-0.5 font-mono font-bold text-foreground">
+                        <div className="mt-1 flex flex-wrap items-center gap-1.5 text-xs">
+                          <span className="rounded-md bg-muted px-2 py-0.5 font-sans font-bold text-foreground">
                             {hero.rarityBadge}
                           </span>
                           <span className="rounded-md bg-muted/60 px-2 py-0.5 text-muted-foreground font-medium">
@@ -850,7 +852,7 @@ export function HeroEncyclopediaWidget({
                       {hero.tierSeason && (
                         <span
                           className={cn(
-                            "rounded-lg px-2 py-0.5 font-mono text-[11px] font-extrabold border",
+                            "rounded-lg px-2 py-0.5 font-mono text-xs font-extrabold border",
                             hero.tierSeason === "S+"
                               ? "border-amber-500/50 bg-amber-500/15 text-amber-600 dark:text-amber-300"
                               : hero.tierSeason === "S"
@@ -862,7 +864,7 @@ export function HeroEncyclopediaWidget({
                         </span>
                       )}
                       {hero.tierS0 && hero.tierS0 !== hero.tierSeason && (
-                        <span className="font-mono text-[10px] text-muted-foreground">
+                        <span className="font-mono text-xs text-muted-foreground">
                           {copy.tierS0Prefix} {hero.tierS0}
                         </span>
                       )}
@@ -871,13 +873,13 @@ export function HeroEncyclopediaWidget({
                         data-testid={`hero-portrait-toggle-${slug}`}
                         onClick={(e) => togglePortraitPreview(hero.id, e)}
                         className={cn(
-                          "inline-flex items-center gap-1 rounded-lg border px-2 py-1 text-[10px] font-mono font-bold transition-colors cursor-pointer",
+                          "inline-flex min-h-[44px] items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs font-sans font-bold transition-colors cursor-pointer",
                           isPortraitOpen
                             ? "border-amber-500/60 bg-amber-500/20 text-amber-600 dark:text-amber-300"
                             : "border-border/70 bg-background/70 text-muted-foreground hover:text-foreground"
                         )}
                       >
-                        <Eye className="h-3 w-3 shrink-0" />
+                        <Eye className="h-3.5 w-3.5 shrink-0" />
                         <span>
                           {isPortraitOpen
                             ? copy.portraitBtnClose
@@ -896,11 +898,13 @@ export function HeroEncyclopediaWidget({
                       <img
                         src={portraitPath}
                         alt={`${hero.nameEn} Standing Portrait`}
-                        width={180} height={208} loading="lazy"
+                        width={180}
+                        height={208}
+                        loading="lazy"
                         decoding="async"
                         className="max-h-52 w-auto object-contain drop-shadow-[0_8px_20px_rgba(245,158,11,0.22)]"
                       />
-                      <span className="text-[11px] font-mono text-amber-300/90">
+                      <span className="text-xs font-sans font-medium text-amber-300/90">
                         {copy.portraitCaption} • {hero.nameEn}
                       </span>
                     </div>
@@ -910,12 +914,14 @@ export function HeroEncyclopediaWidget({
                   {(hero.isAwakenable || hero.isEconomy) && (
                     <div className="flex flex-wrap items-center gap-1.5">
                       {hero.isAwakenable && (
-                        <span className="inline-flex items-center gap-1 rounded-md border border-rose-500/30 bg-rose-500/10 px-2 py-0.5 text-[11px] font-bold text-rose-600 dark:text-rose-300">
+                        <span className="inline-flex items-center gap-1 rounded-md border border-rose-500/30 bg-rose-500/10 px-2 py-0.5 text-xs font-bold text-rose-600 dark:text-rose-300">
                           {soulStoneAsset && (
                             <img
                               src={soulStoneAsset.iconPath}
                               alt=""
-                              width={14} height={14} loading="lazy"
+                              width={14}
+                              height={14}
+                              loading="lazy"
                               decoding="async"
                               className="h-3.5 w-3.5 object-contain shrink-0"
                             />
@@ -924,8 +930,8 @@ export function HeroEncyclopediaWidget({
                         </span>
                       )}
                       {hero.isEconomy && (
-                        <span className="inline-flex items-center gap-1 rounded-md border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-[11px] font-bold text-emerald-600 dark:text-emerald-300">
-                          <Coins className="h-3 w-3" />
+                        <span className="inline-flex items-center gap-1 rounded-md border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-xs font-bold text-emerald-600 dark:text-emerald-300">
+                          <Coins className="h-3.5 w-3.5" />
                           <span>{copy.economyBadge}</span>
                         </span>
                       )}
@@ -937,7 +943,7 @@ export function HeroEncyclopediaWidget({
                     text={hero.assessment}
                     locale={locale}
                     accentColor="amber"
-                    className="text-xs text-muted-foreground leading-relaxed"
+                    className="text-sm sm:text-base text-foreground/90 leading-relaxed"
                   />
                 </div>
 
@@ -947,7 +953,7 @@ export function HeroEncyclopediaWidget({
                     <button
                       type="button"
                       onClick={() => toggleProDrawer(hero.id)}
-                      className="w-full min-h-[44px] flex items-center justify-between gap-2 rounded-lg bg-amber-500/10 hover:bg-amber-500/15 border border-amber-500/25 px-3 py-1.5 text-xs font-bold text-amber-700 dark:text-amber-300 transition-colors cursor-pointer"
+                      className="w-full min-h-[44px] flex items-center justify-between gap-2 rounded-xl bg-amber-500/10 hover:bg-amber-500/15 border border-amber-500/25 px-3.5 py-2 text-xs font-bold text-amber-700 dark:text-amber-300 transition-colors cursor-pointer"
                     >
                       <span className="flex items-center gap-1.5">
                         <Crown className="h-3.5 w-3.5 text-amber-500 shrink-0" />
@@ -965,11 +971,11 @@ export function HeroEncyclopediaWidget({
                     </button>
 
                     {isProOpen && (
-                      <div className="mt-2 rounded-xl bg-muted/40 p-3 space-y-2 text-xs">
+                      <div className="mt-2.5 rounded-xl bg-muted/40 p-3.5 space-y-2.5 text-sm">
                         {/* Visual Exclusive Weapon Banner */}
                         <div
                           data-testid={`hero-pro-uw-${slug}`}
-                          className="flex items-center gap-2.5 rounded-lg border border-amber-500/30 bg-amber-500/10 p-2"
+                          className="flex items-center gap-2.5 rounded-lg border border-amber-500/30 bg-amber-500/10 p-2.5"
                         >
                           <GameAssetFrame
                             src={exclusiveWeaponPath}
@@ -979,7 +985,7 @@ export function HeroEncyclopediaWidget({
                             size="sm"
                           />
                           <div className="min-w-0">
-                            <span className="block text-[10px] font-mono uppercase tracking-wider text-amber-600 dark:text-amber-400 font-bold">
+                            <span className="block text-xs font-sans uppercase tracking-wider text-amber-600 dark:text-amber-400 font-bold">
                               {copy.exclusiveWeaponLabel}
                             </span>
                             <span className="font-heading font-bold text-foreground truncate block">
@@ -1006,7 +1012,9 @@ export function HeroEncyclopediaWidget({
                             <img
                               src="/images/items/shards/icon_30176.webp"
                               alt=""
-                              width={14} height={14} loading="lazy"
+                              width={14}
+                              height={14}
+                              loading="lazy"
                               decoding="async"
                               className="h-3.5 w-3.5 object-contain shrink-0"
                             />
@@ -1026,7 +1034,9 @@ export function HeroEncyclopediaWidget({
                             <img
                               src="/images/items/shards/icon_30176.webp"
                               alt=""
-                              width={14} height={14} loading="lazy"
+                              width={14}
+                              height={14}
+                              loading="lazy"
                               decoding="async"
                               className="h-3.5 w-3.5 object-contain shrink-0"
                             />
@@ -1045,18 +1055,20 @@ export function HeroEncyclopediaWidget({
                         {/* Visual Golden Gear Set + Awakening Soul Stone Strip */}
                         <div
                           data-testid={`hero-pro-gear-${slug}`}
-                          className="pt-2 border-t border-border/40 space-y-1.5 text-[11px] text-muted-foreground"
+                          className="pt-2 border-t border-border/40 space-y-2 text-xs text-muted-foreground"
                         >
                           <div className="flex flex-wrap items-center gap-1.5">
                             {gearSetAssets.map((gearSet) => (
                               <span
                                 key={gearSet.id}
-                                className="inline-flex items-center gap-1.5 rounded-lg border border-amber-500/35 bg-background/80 px-2 py-1 text-[11px] font-semibold text-foreground"
+                                className="inline-flex items-center gap-1.5 rounded-lg border border-amber-500/35 bg-background/80 px-2.5 py-1 text-xs font-semibold text-foreground"
                               >
                                 <img
                                   src={gearSet.iconPath}
                                   alt=""
-                                  width={16} height={16} loading="lazy"
+                                  width={16}
+                                  height={16}
+                                  loading="lazy"
                                   decoding="async"
                                   className="h-4 w-4 rounded-sm object-contain shrink-0"
                                 />
@@ -1068,11 +1080,13 @@ export function HeroEncyclopediaWidget({
                               </span>
                             ))}
                             {soulStoneAsset && (
-                              <span className="inline-flex items-center gap-1.5 rounded-lg border border-rose-500/35 bg-rose-500/10 px-2 py-1 text-[11px] font-semibold text-rose-600 dark:text-rose-300">
+                              <span className="inline-flex items-center gap-1.5 rounded-lg border border-rose-500/35 bg-rose-500/10 px-2.5 py-1 text-xs font-semibold text-rose-600 dark:text-rose-300">
                                 <img
                                   src={soulStoneAsset.iconPath}
                                   alt=""
-                                  width={16} height={16} loading="lazy"
+                                  width={16}
+                                  height={16}
+                                  loading="lazy"
                                   decoding="async"
                                   className="h-4 w-4 rounded-sm object-contain shrink-0"
                                 />
@@ -1080,7 +1094,7 @@ export function HeroEncyclopediaWidget({
                               </span>
                             )}
                           </div>
-                          <div>
+                          <div className="text-sm leading-relaxed">
                             <span className="font-bold text-foreground">
                               {copy.gearLabel}{" "}
                             </span>

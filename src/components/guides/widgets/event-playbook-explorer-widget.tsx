@@ -141,12 +141,12 @@ export function EventPlaybookExplorerWidget({
   return (
     <div
       data-testid="event-playbook-explorer-widget"
-      className="my-6 rounded-2xl border border-amber-500/30 bg-card/95 p-4 sm:p-6 shadow-md"
+      className="my-6 rounded-2xl border border-amber-500/30 bg-card/95 p-3.5 sm:p-6 shadow-md"
     >
       {/* Top Header & Season Filter Bar */}
       <div className="flex flex-col gap-4 border-b border-border/70 pb-4 lg:flex-row lg:items-center lg:justify-between">
         <div className="space-y-1">
-          <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/40 bg-amber-500/10 px-3 py-1 text-xs font-semibold text-amber-600 dark:text-amber-300">
+          <div className="inline-flex items-center gap-2 rounded-full border-0 bg-amber-500/15 px-3 py-1 text-xs font-sans font-semibold text-amber-600 dark:text-amber-300">
             <Flame className="h-3.5 w-3.5" />
             <span>
               {locale === "vi"
@@ -154,16 +154,16 @@ export function EventPlaybookExplorerWidget({
                 : "EVENT TACTICAL PLAYBOOK CONSOLE (S0 ➔ GAR)"}
             </span>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-foreground">
+          <h3 className="text-lg sm:text-xl font-heading font-bold text-foreground">
             {locale === "vi"
               ? "Tra Cứu 4 Chiều: Tổng Quan • Tích Trữ • Từng Ngày • Nạp & Đổi Shop"
               : "4-Tab Event Playbook Explorer: Overview • Hoarding • Daily • Economy"}
           </h3>
         </div>
 
-        {/* Season Filter & Scope Filter */}
+        {/* Season Filter & Scope Filter — Touch Target >= 44px */}
         <div className="flex flex-wrap items-center gap-1.5">
-          <span className="mr-1 text-xs font-medium text-muted-foreground">
+          <span className="mr-1 text-xs font-sans font-medium text-muted-foreground">
             {locale === "vi" ? "Mùa giải:" : "Season:"}
           </span>
           {SEASONS.map((season) => {
@@ -175,9 +175,9 @@ export function EventPlaybookExplorerWidget({
                 data-testid={`playbook-season-filter-${season}`}
                 onClick={() => handleSelectSeason(season)}
                 className={cn(
-                  "rounded-lg px-2.5 py-1 text-xs font-semibold transition-colors",
+                  "min-h-11 min-h-[44px] inline-flex items-center justify-center rounded-xl px-3 py-2 text-xs font-sans font-semibold transition-colors",
                   isSelected
-                    ? "bg-amber-500 text-slate-950 shadow-xs"
+                    ? "bg-amber-500 text-slate-950 shadow-sm"
                     : "border border-border/70 bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground"
                 )}
               >
@@ -195,7 +195,7 @@ export function EventPlaybookExplorerWidget({
             onClick={() =>
               setScopeFilter((prev) => (prev === "all" ? "article" : "all"))
             }
-            className="ml-1 rounded-lg border border-sky-500/40 bg-sky-500/10 px-2.5 py-1 text-xs font-semibold text-sky-600 dark:text-sky-300 hover:bg-sky-500/20"
+            className="ml-1 min-h-11 min-h-[44px] inline-flex items-center rounded-xl border border-sky-500/40 bg-sky-500/10 px-3.5 py-2 text-xs font-sans font-semibold text-sky-600 dark:text-sky-300 hover:bg-sky-500/20"
           >
             {scopeFilter === "all"
               ? locale === "vi"
@@ -208,20 +208,20 @@ export function EventPlaybookExplorerWidget({
         </div>
       </div>
 
-      {/* Event Selector Pills */}
+      {/* Event Selector Pills — Horizontal Snap Scroll on Mobile, Grid on sm+ */}
       <div className="mt-4">
-        <div className="mb-2 flex items-center justify-between text-xs text-muted-foreground">
+        <div className="mb-2 flex items-center justify-between text-xs font-sans text-muted-foreground">
           <span>
             {locale === "vi"
               ? "Chọn sự kiện để xem cẩm nang tác chiến chi tiết:"
               : "Select an event to inspect its full tactical playbook:"}
           </span>
-          <span className="font-medium text-amber-600 dark:text-amber-300">
+          <span className="font-semibold text-amber-600 dark:text-amber-300">
             {visibleEvents.length}{" "}
             {locale === "vi" ? "sự kiện khả dụng" : "events available"}
           </span>
         </div>
-        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="flex overflow-x-auto no-scrollbar snap-x gap-2.5 pb-1 sm:grid sm:grid-cols-2 sm:overflow-visible sm:pb-0 lg:grid-cols-5">
           {visibleEvents.map((ev) => {
             const isSelected = ev.id === activeEvent.id;
             const isCurrentArticle = ev.articleCode === articleCode;
@@ -232,7 +232,7 @@ export function EventPlaybookExplorerWidget({
                 data-testid={`playbook-event-pill-${ev.id}`}
                 onClick={() => handleSelectEvent(ev.id)}
                 className={cn(
-                  "flex items-center gap-2.5 rounded-xl border p-2.5 text-left transition-all",
+                  "snap-start shrink-0 min-w-[240px] sm:min-w-0 min-h-[56px] flex items-center gap-2.5 rounded-xl border p-2.5 text-left transition-all",
                   isSelected
                     ? "border-amber-500 bg-amber-500/15 ring-1 ring-amber-500/50"
                     : "border-border/70 bg-muted/30 hover:border-amber-500/40 hover:bg-muted/60"
@@ -247,14 +247,14 @@ export function EventPlaybookExplorerWidget({
                 />
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center gap-1">
-                    <span className="truncate text-xs font-bold text-foreground">
+                    <span className="truncate text-xs sm:text-sm font-heading font-bold text-foreground">
                       {ev.name[locale]}
                     </span>
                   </div>
-                  <div className="mt-0.5 flex items-center gap-1.5 text-[11px] text-muted-foreground">
+                  <div className="mt-0.5 flex items-center gap-1.5 text-xs font-sans text-muted-foreground">
                     <span
                       className={cn(
-                        "rounded px-1 py-0.2 font-semibold",
+                        "rounded px-1.5 py-0.5 font-mono font-semibold",
                         isCurrentArticle
                           ? "bg-amber-500/20 text-amber-700 dark:text-amber-300"
                           : "bg-muted text-muted-foreground"
@@ -272,7 +272,7 @@ export function EventPlaybookExplorerWidget({
       </div>
 
       {/* Selected Event Banner Header */}
-      <div className="mt-5 flex flex-col gap-3 rounded-xl border border-border/80 bg-muted/40 p-4 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mt-5 flex flex-col gap-3 rounded-xl border-0 sm:border sm:border-border/80 bg-muted/45 p-3.5 sm:p-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-3.5">
           <GameAssetFrame
             src={activeEvent.iconPath}
@@ -284,16 +284,16 @@ export function EventPlaybookExplorerWidget({
           />
           <div>
             <div className="flex flex-wrap items-center gap-2">
-              <span className="rounded-md bg-amber-500/20 px-2 py-0.5 text-xs font-bold text-amber-700 dark:text-amber-300">
+              <span className="rounded-md bg-amber-500/20 px-2.5 py-0.5 text-xs font-sans font-bold text-amber-700 dark:text-amber-300">
                 {activeEvent.cadenceBadge[locale]}
               </span>
-              <span className="rounded-md bg-rose-500/15 px-2 py-0.5 text-xs font-semibold text-rose-600 dark:text-rose-300">
+              <span className="rounded-md bg-rose-500/15 px-2.5 py-0.5 text-xs font-sans font-semibold text-rose-600 dark:text-rose-300">
                 {activeEvent.s0TimingBadge[locale]}
               </span>
             </div>
             <h4
               data-testid="playbook-active-event-title"
-              className="mt-1 text-base sm:text-lg font-bold text-foreground"
+              className="mt-1 text-base sm:text-lg font-heading font-bold text-foreground"
             >
               {activeEvent.name[locale]}
             </h4>
@@ -321,9 +321,9 @@ export function EventPlaybookExplorerWidget({
               data-testid={`playbook-tab-${tab.id}`}
               onClick={() => setActiveTab(tab.id)}
               className={cn(
-                "flex items-center justify-center gap-2 rounded-xl border px-3 py-2.5 text-xs sm:text-sm font-bold transition-all",
+                "min-h-11 min-h-[44px] flex items-center justify-center gap-2 rounded-xl border px-3 py-2.5 text-xs sm:text-sm font-sans font-bold transition-all",
                 isSelected
-                  ? "border-amber-500 bg-amber-500 text-slate-950 shadow-xs"
+                  ? "border-amber-500 bg-amber-500 text-slate-950 shadow-sm"
                   : "border-border/70 bg-muted/40 text-muted-foreground hover:bg-muted hover:text-foreground"
               )}
             >
@@ -342,8 +342,8 @@ export function EventPlaybookExplorerWidget({
           data-testid="playbook-panel-overview"
           className="mt-4 grid grid-cols-1 gap-3.5 md:grid-cols-2"
         >
-          <div className="rounded-xl border border-border/70 bg-background/80 p-4">
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
+          <div className="rounded-xl border-0 sm:border sm:border-border/70 bg-muted/40 sm:bg-background/80 p-4">
+            <div className="flex items-center gap-2 text-xs font-heading font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
               <Sparkles className="h-4 w-4" />
               <span>
                 {locale === "vi"
@@ -351,13 +351,13 @@ export function EventPlaybookExplorerWidget({
                   : "Strategic Role & Summary"}
               </span>
             </div>
-            <p className="mt-2 text-sm leading-relaxed text-foreground/90">
+            <p className="mt-2 text-sm sm:text-base font-sans leading-relaxed text-foreground/90">
               {activeEvent.overview.summary[locale]}
             </p>
           </div>
 
-          <div className="rounded-xl border border-border/70 bg-background/80 p-4">
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-sky-600 dark:text-sky-400">
+          <div className="rounded-xl border-0 sm:border sm:border-border/70 bg-muted/40 sm:bg-background/80 p-4">
+            <div className="flex items-center gap-2 text-xs font-heading font-bold uppercase tracking-wider text-sky-600 dark:text-sky-400">
               <Clock className="h-4 w-4" />
               <span>
                 {locale === "vi"
@@ -365,13 +365,13 @@ export function EventPlaybookExplorerWidget({
                   : "Core Scoring Loop"}
               </span>
             </div>
-            <p className="mt-2 text-sm leading-relaxed text-foreground/90">
+            <p className="mt-2 text-sm sm:text-base font-sans leading-relaxed text-foreground/90">
               {activeEvent.overview.coreLoop[locale]}
             </p>
           </div>
 
-          <div className="rounded-xl border border-emerald-500/40 bg-emerald-500/10 p-4">
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-300">
+          <div className="rounded-xl border-0 sm:border sm:border-emerald-500/40 bg-emerald-500/10 p-4">
+            <div className="flex items-center gap-2 text-xs font-heading font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-300">
               <CheckCircle2 className="h-4 w-4" />
               <span>
                 {locale === "vi"
@@ -379,13 +379,13 @@ export function EventPlaybookExplorerWidget({
                   : "Cross-Cycle Carryover Law"}
               </span>
             </div>
-            <p className="mt-2 text-sm leading-relaxed text-foreground/90">
+            <p className="mt-2 text-sm sm:text-base font-sans leading-relaxed text-foreground/90">
               {activeEvent.overview.carryoverRule[locale]}
             </p>
           </div>
 
-          <div className="rounded-xl border border-rose-500/40 bg-rose-500/10 p-4">
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-rose-700 dark:text-rose-300">
+          <div className="rounded-xl border-0 sm:border sm:border-rose-500/40 bg-rose-500/10 p-4">
+            <div className="flex items-center gap-2 text-xs font-heading font-bold uppercase tracking-wider text-rose-700 dark:text-rose-300">
               <ShieldAlert className="h-4 w-4" />
               <span>
                 {locale === "vi"
@@ -393,7 +393,7 @@ export function EventPlaybookExplorerWidget({
                   : "Golden Anti-Brick Rule"}
               </span>
             </div>
-            <p className="mt-2 text-sm leading-relaxed text-foreground/90">
+            <p className="mt-2 text-sm sm:text-base font-sans leading-relaxed text-foreground/90">
               {activeEvent.overview.goldenRule[locale]}
             </p>
           </div>
@@ -403,7 +403,7 @@ export function EventPlaybookExplorerWidget({
       {/* TAB 2: HOARDING CHECKLIST */}
       {activeTab === "hoarding" ? (
         <div data-testid="playbook-panel-hoarding" className="mt-4 space-y-3">
-          <div className="rounded-xl border border-amber-500/30 bg-amber-500/10 px-4 py-2.5 text-xs sm:text-sm font-medium text-foreground">
+          <div className="rounded-xl border-0 sm:border sm:border-amber-500/30 bg-amber-500/10 px-4 py-3 text-sm font-sans font-medium text-foreground">
             {locale === "vi"
               ? "Danh mục vật phẩm bắt buộc đóng băng trước sự kiện và thời điểm mở khóa xả kho tối ưu:"
               : "Mandatory inventory freeze targets ahead of the event and optimal dump windows:"}
@@ -422,16 +422,16 @@ export function EventPlaybookExplorerWidget({
                     rarity={item.rarity}
                   />
                   <div>
-                    <h5 className="text-sm font-bold text-foreground">
+                    <h5 className="text-sm sm:text-base font-heading font-bold text-foreground">
                       {item.name[locale]}
                     </h5>
-                    <span className="inline-block rounded bg-amber-500/20 px-2 py-0.5 text-xs font-semibold text-amber-700 dark:text-amber-300">
+                    <span className="mt-0.5 inline-block rounded-md bg-amber-500/20 px-2.5 py-0.5 text-xs font-sans font-semibold text-amber-700 dark:text-amber-300">
                       {locale === "vi" ? "Chỉ tiêu tích trữ: " : "Target: "}
                       {item.targetAmount[locale]}
                     </span>
                   </div>
                 </div>
-                <div className="space-y-1.5 border-t border-border/60 pt-2 text-xs sm:text-sm">
+                <div className="space-y-2 border-t border-border/60 pt-2.5 text-sm sm:text-base font-sans leading-relaxed">
                   <p className="text-foreground/90">
                     <span className="font-bold text-rose-600 dark:text-rose-400">
                       {locale === "vi" ? "• Khung Đóng Băng: " : "• Freeze Window: "}
@@ -455,7 +455,7 @@ export function EventPlaybookExplorerWidget({
       {activeTab === "daily" ? (
         <div data-testid="playbook-panel-daily" className="mt-4 space-y-4">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="text-xs font-semibold text-muted-foreground">
+            <span className="text-xs font-sans font-semibold text-muted-foreground">
               {locale === "vi"
                 ? "Chọn Ngày / Giai đoạn:"
                 : "Select Day / Stage:"}
@@ -469,9 +469,9 @@ export function EventPlaybookExplorerWidget({
                   data-testid={`playbook-day-pill-${stage.dayNumber}`}
                   onClick={() => setActiveDayIdx(idx)}
                   className={cn(
-                    "rounded-lg border px-3 py-1.5 text-xs font-bold transition-all",
+                    "min-h-11 min-h-[44px] inline-flex items-center justify-center rounded-xl border px-3.5 py-2 text-xs font-sans font-bold transition-all",
                     isSelected
-                      ? "border-amber-500 bg-amber-500 text-slate-950 shadow-xs"
+                      ? "border-amber-500 bg-amber-500 text-slate-950 shadow-sm"
                       : "border-border/70 bg-muted/40 text-muted-foreground hover:bg-muted hover:text-foreground"
                   )}
                 >
@@ -482,18 +482,18 @@ export function EventPlaybookExplorerWidget({
           </div>
 
           {activeDayStage ? (
-            <div className="rounded-xl border border-amber-500/40 bg-background/95 p-4 sm:p-5 space-y-3">
+            <div className="border-0 bg-transparent p-0 sm:rounded-xl sm:border sm:border-amber-500/40 sm:bg-background/95 sm:p-5 space-y-3">
               <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between border-b border-border/60 pb-3">
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
+                  <span className="text-xs font-sans font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
                     {activeDayStage.label[locale]}
                   </span>
-                  <h5 className="text-base sm:text-lg font-bold text-foreground">
+                  <h5 className="text-base sm:text-lg font-heading font-bold text-foreground">
                     {activeDayStage.theme[locale]}
                   </h5>
                 </div>
-                <div className="inline-flex items-center gap-1.5 rounded-lg border border-amber-500/40 bg-amber-500/15 px-3 py-1 text-xs font-bold text-amber-700 dark:text-amber-300">
-                  <Clock className="h-3.5 w-3.5" />
+                <div className="inline-flex items-center gap-1.5 rounded-lg border-0 bg-amber-500/15 px-3 py-1.5 text-xs font-sans font-bold text-amber-700 dark:text-amber-300">
+                  <Clock className="h-3.5 w-3.5 shrink-0" />
                   <span>
                     {locale === "vi" ? "Giờ Vàng: " : "Golden Window: "}
                     {activeDayStage.goldenWindow[locale]}
@@ -502,35 +502,35 @@ export function EventPlaybookExplorerWidget({
               </div>
 
               <div className="grid grid-cols-1 gap-3 md:grid-cols-3">
-                <div className="rounded-lg border border-border/70 bg-muted/30 p-3">
-                  <div className="text-xs font-bold text-sky-600 dark:text-sky-400">
+                <div className="rounded-xl border-0 sm:border sm:border-border/70 bg-muted/40 p-3.5">
+                  <div className="text-xs font-heading font-bold uppercase tracking-wide text-sky-600 dark:text-sky-400">
                     {locale === "vi"
                       ? "Nguồn Tính Điểm Chính"
                       : "Primary Scoring Actions"}
                   </div>
-                  <p className="mt-1 text-xs sm:text-sm leading-relaxed text-foreground/90">
+                  <p className="mt-1.5 text-sm sm:text-base font-sans leading-relaxed text-foreground/90">
                     {activeDayStage.primaryScoring[locale]}
                   </p>
                 </div>
 
-                <div className="rounded-lg border border-emerald-500/30 bg-emerald-500/10 p-3">
-                  <div className="text-xs font-bold text-emerald-700 dark:text-emerald-300">
+                <div className="rounded-xl border-0 sm:border sm:border-emerald-500/30 bg-emerald-500/10 p-3.5">
+                  <div className="text-xs font-heading font-bold uppercase tracking-wide text-emerald-700 dark:text-emerald-300">
                     {locale === "vi"
                       ? "Mẹo Tác Chiến (Pro Tip)"
                       : "Tactical Pro Tip"}
                   </div>
-                  <p className="mt-1 text-xs sm:text-sm leading-relaxed text-foreground/90">
+                  <p className="mt-1.5 text-sm sm:text-base font-sans leading-relaxed text-foreground/90">
                     {activeDayStage.proTip[locale]}
                   </p>
                 </div>
 
-                <div className="rounded-lg border border-purple-500/30 bg-purple-500/10 p-3">
-                  <div className="text-xs font-bold text-purple-700 dark:text-purple-300">
+                <div className="rounded-xl border-0 sm:border sm:border-purple-500/30 bg-purple-500/10 p-3.5">
+                  <div className="text-xs font-heading font-bold uppercase tracking-wide text-purple-700 dark:text-purple-300">
                     {locale === "vi"
                       ? "Khớp Lệnh Ăn Điểm Kép (Double-Dip)"
                       : "Double-Dip Synergy Target"}
                   </div>
-                  <p className="mt-1 text-xs sm:text-sm leading-relaxed text-foreground/90">
+                  <p className="mt-1.5 text-sm sm:text-base font-sans leading-relaxed text-foreground/90">
                     {activeDayStage.doubleDipTarget[locale]}
                   </p>
                 </div>
@@ -545,8 +545,8 @@ export function EventPlaybookExplorerWidget({
         <div data-testid="playbook-panel-economy" className="mt-4 space-y-5">
           {/* Pre-Buy Strategy & Diamond Ceiling */}
           <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
-            <div className="rounded-xl border border-amber-500/40 bg-amber-500/10 p-4">
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-700 dark:text-amber-300">
+            <div className="rounded-xl border-0 sm:border sm:border-amber-500/40 bg-amber-500/10 p-4">
+              <div className="flex items-center gap-2 text-xs font-heading font-bold uppercase tracking-wider text-amber-700 dark:text-amber-300">
                 <Target className="h-4 w-4" />
                 <span>
                   {locale === "vi"
@@ -554,13 +554,13 @@ export function EventPlaybookExplorerWidget({
                     : "Pre-Buy & Pack Stacking Strategy"}
                 </span>
               </div>
-              <p className="mt-2 text-xs sm:text-sm leading-relaxed text-foreground/90">
+              <p className="mt-2 text-sm sm:text-base font-sans leading-relaxed text-foreground/90">
                 {activeEvent.economy.preBuyStrategy[locale]}
               </p>
             </div>
 
-            <div className="rounded-xl border border-sky-500/40 bg-sky-500/10 p-4">
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-sky-700 dark:text-sky-300">
+            <div className="rounded-xl border-0 sm:border sm:border-sky-500/40 bg-sky-500/10 p-4">
+              <div className="flex items-center gap-2 text-xs font-heading font-bold uppercase tracking-wider text-sky-700 dark:text-sky-300">
                 <Coins className="h-4 w-4" />
                 <span>
                   {locale === "vi"
@@ -568,7 +568,7 @@ export function EventPlaybookExplorerWidget({
                     : "Allowed Diamond Ceiling"}
                 </span>
               </div>
-              <p className="mt-2 text-xs sm:text-sm leading-relaxed text-foreground/90">
+              <p className="mt-2 text-sm sm:text-base font-sans leading-relaxed text-foreground/90">
                 {activeEvent.economy.diamondCeiling[locale]}
               </p>
             </div>
@@ -576,7 +576,7 @@ export function EventPlaybookExplorerWidget({
 
           {/* 3-Tier Budget Matrix */}
           <div>
-            <h5 className="mb-2.5 text-sm font-bold text-foreground">
+            <h5 className="mb-2.5 text-base sm:text-lg font-heading font-bold text-foreground">
               {locale === "vi"
                 ? "Ma Trận Kinh Tế 3 Tầng Ngân Sách (F2P • Low-Mid Spender • Whale)"
                 : "3-Tier Budget Execution Matrix (F2P • Low-Mid Spender • Whale)"}
@@ -589,18 +589,18 @@ export function EventPlaybookExplorerWidget({
                 >
                   <div>
                     <div className="flex items-center justify-between gap-2">
-                      <span className="text-sm font-bold text-foreground">
+                      <span className="text-sm sm:text-base font-heading font-bold text-foreground">
                         {bTier.label[locale]}
                       </span>
-                      <span className="rounded bg-muted px-2 py-0.5 text-xs font-semibold text-muted-foreground">
+                      <span className="rounded-md bg-muted px-2.5 py-0.5 text-xs font-sans font-semibold text-muted-foreground">
                         {bTier.budgetRange[locale]}
                       </span>
                     </div>
-                    <p className="mt-2 text-xs sm:text-sm leading-relaxed text-foreground/90">
+                    <p className="mt-2 text-sm sm:text-base font-sans leading-relaxed text-foreground/90">
                       {bTier.strategy[locale]}
                     </p>
                   </div>
-                  <div className="mt-3 border-t border-border/60 pt-2 text-xs font-semibold text-amber-600 dark:text-amber-300">
+                  <div className="mt-3 border-t border-border/60 pt-2.5 text-xs sm:text-sm font-sans font-semibold text-amber-600 dark:text-amber-300">
                     {locale === "vi" ? "Mục tiêu chốt: " : "Target Milestone: "}
                     {bTier.targetMilestone[locale]}
                   </div>
@@ -611,7 +611,7 @@ export function EventPlaybookExplorerWidget({
 
           {/* Shop Tier List (S / A / F) */}
           <div>
-            <h5 className="mb-2.5 text-sm font-bold text-foreground">
+            <h5 className="mb-2.5 text-base sm:text-lg font-heading font-bold text-foreground">
               {locale === "vi"
                 ? "Bảng Xếp Hạng Đổi Cửa Hàng Sự Kiện (Shop Tier List S / A / F)"
                 : "Event Shop Exchange Priority Tier List (Tier S / A / F)"}
@@ -620,14 +620,14 @@ export function EventPlaybookExplorerWidget({
               {activeEvent.economy.shopTierList.map((sItem) => {
                 const badgeClass =
                   sItem.tier === "S"
-                    ? "bg-rose-500/20 text-rose-700 dark:text-rose-300 border-rose-500/40"
+                    ? "bg-rose-500/20 text-rose-700 dark:text-rose-300"
                     : sItem.tier === "A"
-                      ? "bg-amber-500/20 text-amber-700 dark:text-amber-300 border-amber-500/40"
-                      : "bg-slate-500/20 text-slate-700 dark:text-slate-300 border-slate-500/40";
+                      ? "bg-amber-500/20 text-amber-700 dark:text-amber-300"
+                      : "bg-slate-500/20 text-slate-700 dark:text-slate-300";
                 return (
                   <div
                     key={sItem.id}
-                    className="flex flex-col gap-2 rounded-xl border border-border/80 bg-background/90 p-3.5"
+                    className="flex flex-col gap-2 rounded-xl border border-border/80 bg-background/90 p-4"
                   >
                     <div className="flex items-center gap-3">
                       <GameAssetFrame
@@ -639,21 +639,21 @@ export function EventPlaybookExplorerWidget({
                       <div className="min-w-0 flex-1">
                         <span
                           className={cn(
-                            "inline-block rounded border px-1.5 py-0.5 text-[11px] font-bold",
+                            "inline-block rounded-md border-0 px-2 py-0.5 text-xs font-sans font-bold",
                             badgeClass
                           )}
                         >
                           Tier {sItem.tier}
                         </span>
-                        <div className="mt-0.5 truncate text-xs sm:text-sm font-bold text-foreground">
+                        <div className="mt-1 truncate text-sm sm:text-base font-heading font-bold text-foreground">
                           {sItem.itemName[locale]}
                         </div>
                       </div>
                     </div>
-                    <div className="text-xs text-muted-foreground">
+                    <div className="text-sm sm:text-base font-sans leading-relaxed text-muted-foreground">
                       {sItem.costAndCap[locale]}
                     </div>
-                    <div className="text-xs font-medium text-foreground/90">
+                    <div className="text-sm sm:text-base font-sans font-medium leading-relaxed text-foreground/90">
                       {sItem.verdict[locale]}
                     </div>
                   </div>

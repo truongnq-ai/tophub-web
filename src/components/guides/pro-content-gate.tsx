@@ -23,23 +23,23 @@ export function ProContentGate({ children }: ProContentGateProps) {
 
   if (hasProAccess) {
     return (
-      <section className="rounded-3xl border border-amber-500/35 bg-gradient-to-b from-amber-500/10 via-card/80 to-card/90 p-5 sm:p-7 space-y-6 shadow-md shadow-amber-500/5">
+      <section className="border-t-2 border-amber-500/35 bg-transparent px-0 pt-5 pb-2 sm:rounded-3xl sm:border sm:border-amber-500/35 sm:bg-gradient-to-b sm:from-amber-500/10 sm:via-card/80 sm:to-card/90 sm:p-7 space-y-6 sm:shadow-md sm:shadow-amber-500/5">
         <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-amber-500/20">
           <div className="flex items-center gap-2.5">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-tr from-amber-500 to-yellow-300 text-slate-950 shadow-sm">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-tr from-amber-500 to-yellow-300 text-slate-950 shadow-sm">
               <Crown className="h-5 w-5 fill-current" />
             </div>
             <div>
               <h3 className="font-heading font-black text-base sm:text-lg text-foreground">
                 {t("proPreviewHeader")}
               </h3>
-              <p className="text-xs text-amber-600 dark:text-amber-400 font-medium">
+              <p className="text-sm sm:text-base font-sans text-amber-600 dark:text-amber-400 font-medium leading-relaxed">
                 {t("proPreviewSubtext")}
               </p>
             </div>
           </div>
 
-          <Badge className="bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30 font-mono text-xs font-bold px-3 py-1 flex items-center gap-1.5">
+          <Badge className="border-0 bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono text-xs font-bold px-3 py-1 flex items-center gap-1.5">
             <Sparkles className="h-3.5 w-3.5" />
             <span>PRO Preview</span>
           </Badge>
@@ -51,7 +51,7 @@ export function ProContentGate({ children }: ProContentGateProps) {
   }
 
   return (
-    <section className="relative overflow-hidden rounded-3xl border border-amber-500/40 bg-card/90 p-5 sm:p-7 shadow-lg">
+    <section className="relative overflow-hidden rounded-3xl border border-amber-500/40 bg-card/90 p-4 sm:p-7 shadow-lg">
       {/* Blurred preview background */}
       <div
         aria-hidden="true"
@@ -61,7 +61,7 @@ export function ProContentGate({ children }: ProContentGateProps) {
       </div>
 
       {/* Paywall CTA Overlay */}
-      <div className="relative z-10 -mt-32 rounded-2xl border border-amber-500/40 bg-background/95 backdrop-blur-xl p-6 text-center space-y-4 shadow-2xl max-w-xl mx-auto">
+      <div className="relative z-10 -mt-32 rounded-2xl border border-amber-500/40 bg-background/95 backdrop-blur-xl p-4 sm:p-6 text-center space-y-4 shadow-2xl max-w-xl mx-auto">
         <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-tr from-amber-500 to-yellow-300 text-slate-950 shadow-md shadow-amber-500/20">
           <Lock className="h-6 w-6" />
         </div>
@@ -70,7 +70,7 @@ export function ProContentGate({ children }: ProContentGateProps) {
           <h3 className="font-heading font-black text-lg sm:text-xl text-foreground">
             {t("proLockedTitle")}
           </h3>
-          <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+          <p className="text-sm sm:text-base font-sans text-muted-foreground leading-relaxed">
             {t("proLockedDesc")}
           </p>
         </div>

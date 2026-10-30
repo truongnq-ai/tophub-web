@@ -52,9 +52,14 @@ vi.mock("@/i18n/routing", () => ({
   ),
 }));
 
+let mockActiveAccount: { uid: string; active_plan: "PRO" | "FREE" } | null = {
+  uid: "100001",
+  active_plan: "PRO",
+};
+
 vi.mock("@/hooks/use-uid-session", () => ({
   useUidSession: () => ({
-    activeAccount: { uid: "100001", active_plan: "PRO" },
+    activeAccount: mockActiveAccount,
   }),
 }));
 
@@ -385,5 +390,63 @@ describe("GuideArticleRenderer v3.0 (Compact Header, Unified Brief, 3-Tab View M
     expect(source).toContain(
       'className="text-base text-foreground leading-relaxed font-sans"'
     );
+  });
+
+  it("enforces Google MD3 Phase 3.6 ProContentGate standards: flat mobile divider when unlocked (px-0 border-t-2 sm:rounded-3xl sm:border) and 14px-16px description with 44px CTAs when locked", () => {
+    // 1. Unlocked state (hasProAccess === true)
+    mockActiveAccount = { uid: "100001", active_plan: "PRO" };
+    const { unmount } = render(
+      <GuideArticleRenderer
+        category={category}
+        article={ARTICLE_1_1_OVERVIEW}
+        prevArticle={null}
+        nextArticle={null}
+      />
+    );
+
+    fireEvent.click(screen.getByTestId("article-tab-all"));
+
+    const proGateWrapper = screen.getByTestId("article-pro-gate-wrapper");
+    const unlockedSection = proGateWrapper.querySelector("section")!;
+    expect(unlockedSection).not.toBeNull();
+    expect(unlockedSection.className).toContain("border-t-2");
+    expect(unlockedSection.className).toContain("bg-transparent");
+    expect(unlockedSection.className).toContain("px-0");
+    expect(unlockedSection.className).toContain("sm:rounded-3xl");
+    expect(unlockedSection.className).toContain("sm:border");
+    expect(unlockedSection.className).toContain("sm:p-7");
+
+    const previewSubtext = screen.getByText("Trải nghiệm sớm");
+    expect(previewSubtext.className).toContain("text-sm");
+    expect(previewSubtext.className).toContain("sm:text-base");
+    unmount();
+
+    // 2. Locked paywall state (NEXT_PUBLIC_ENABLE_PRO_CONTENT_LOCK="true" & non-PRO user)
+    vi.stubEnv("NEXT_PUBLIC_ENABLE_PRO_CONTENT_LOCK", "true");
+    mockActiveAccount = null;
+    try {
+      render(
+        <GuideArticleRenderer
+          category={category}
+          article={ARTICLE_1_1_OVERVIEW}
+          prevArticle={null}
+          nextArticle={null}
+        />
+      );
+      fireEvent.click(screen.getByTestId("article-tab-all"));
+
+      const lockedWrapper = screen.getByTestId("article-pro-gate-wrapper");
+      const lockedDesc = screen.getByText("proLockedDesc");
+      expect(lockedDesc.className).toContain("text-sm");
+      expect(lockedDesc.className).toContain("sm:text-base");
+
+      const checkUidLink = lockedWrapper.querySelector('a[href="/"]')!;
+      const upgradeLink = lockedWrapper.querySelector('a[href="/pricing"]')!;
+      expect(checkUidLink.className).toContain("min-h-[44px]");
+      expect(upgradeLink.className).toContain("min-h-[44px]");
+    } finally {
+      vi.unstubAllEnvs();
+      mockActiveAccount = { uid: "100001", active_plan: "PRO" };
+    }
   });
 });

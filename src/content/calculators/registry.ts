@@ -175,6 +175,20 @@ export const CALCULATOR_MATERIALS = {
     iconPath: "/images/items/shards/icon_30400.webp",
     rarity: "legendary",
   },
+  epicUniversalRelicShard: {
+    gameId: 220202,
+    nameVi: "Mảnh Vạn Năng Bí Bảo Tím",
+    nameEn: "Epic Universal Relic Shard",
+    iconPath: "/images/items/shards/icon_30399.webp",
+    rarity: "epic",
+  },
+  rareUniversalRelicShard: {
+    gameId: 220201,
+    nameVi: "Mảnh Vạn Năng Bí Bảo Lam",
+    nameEn: "Rare Universal Relic Shard",
+    iconPath: "/images/items/shards/icon_30398.webp",
+    rarity: "rare",
+  },
   magicStone: {
     gameId: 237,
     nameVi: "Đá Vân Ma Thuật",
@@ -493,7 +507,7 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
                   "Total Meat required across 5 heroes & Meat Chest inventory comparison",
               },
             },
-            status: "coming_soon",
+            status: "ready",
           },
         ],
       },
@@ -552,7 +566,7 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
                   "Total additional Skill Books needed & optimal Lv.12 ROI breakpoint analysis",
               },
             },
-            status: "coming_soon",
+            status: "ready",
           },
           {
             code: "2.2",
@@ -585,20 +599,20 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
                 question:
                   "Đẩy Cấp Phe Bộ Tộc từ Lv.30 lên Lv.50 cần bao nhiêu Thịt và Mảnh Anh Hùng dự phòng?",
                 inputPreview:
-                  "Phe: Bộ Tộc • Đang ở: Lv.30 (Vạch 0/5) ➔ Mục tiêu: Lv.50",
+                  "Phe: Bộ Tộc • Đang ở: Lv.30 (Vạch 12/12) ➔ Mục tiêu: Lv.50 (Vạch 12/12)",
                 outputPreview:
-                  "Tổng lượng Thịt + Mảnh Anh Hùng theo từng vạch EXP & tổng % HP/ATK cộng thêm",
+                  "Tổng lượng Thịt (Lv.1–40: 692.162M, Lv.1–50: 1,181.162M) + Mảnh Anh Hùng (1,237–1,307 mảnh) & Hào Quang +20% HP Đội hình",
               },
               en: {
                 question:
                   "Pushing Horde Faction Level from Lv.30 to Lv.50 — how much Meat and spare Hero Shards are required?",
                 inputPreview:
-                  "Faction: Horde • Current: Lv.30 (Segment 0/5) ➔ Target: Lv.50",
+                  "Faction: Horde • Current: Lv.30 (Segment 12/12) ➔ Target: Lv.50 (Segment 12/12)",
                 outputPreview:
-                  "Total Meat + Hero Shards across EXP segments & cumulative HP/ATK bonus",
+                  "Total Meat (Lv.1–40: 692.162M, Lv.1–50: 1,181.162M) + Hero Shards (1,237–1,307 shards) & +20% Queue HP Aura bonus",
               },
             },
-            status: "coming_soon",
+            status: "ready",
           },
         ],
       },
@@ -657,7 +671,7 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
                   "Total Glory Medals + duplicate skin cards at Lv.10 / Lv.20 / Lv.30 milestones",
               },
             },
-            status: "coming_soon",
+            status: "ready",
           },
           {
             code: "3.2",
@@ -699,7 +713,7 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
                   "Optimal upgrade sequence maximizing Honor EXP per Glory Medal spent",
               },
             },
-            status: "coming_soon",
+            status: "ready",
           },
         ],
       },
@@ -748,7 +762,10 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
               vi: "Tab Gear — Bảng Cường Hóa Trang Bị +0 đến +40",
               en: "Gear Tab — Enhancement Runes (+0 to +40)",
             },
-            materials: [CALCULATOR_MATERIALS.gearEnhanceRune],
+            materials: [
+              CALCULATOR_MATERIALS.gearEnhanceRune,
+              CALCULATOR_MATERIALS.meat,
+            ],
             exampleCase: {
               vi: {
                 question:
@@ -767,7 +784,7 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
                   "Total Gear Enhance Runes required & unlocked Enhancement Master stat bonuses",
               },
             },
-            status: "coming_soon",
+            status: "ready",
           },
           {
             code: "4.2",
@@ -792,8 +809,10 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
             },
             materials: [
               CALCULATOR_MATERIALS.solarGoldIngot,
+              CALCULATOR_MATERIALS.gearEnhanceRune,
               CALCULATOR_MATERIALS.legendaryPromotionStone,
               CALCULATOR_MATERIALS.mythicPromotionStone,
+              CALCULATOR_MATERIALS.meat,
             ],
             exampleCase: {
               vi: {
@@ -813,7 +832,7 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
                   "Total Solar Gold Ingots + Legendary Promotion Stones + Mythic Promotion Stones + Fodder",
               },
             },
-            status: "coming_soon",
+            status: "ready",
           },
           {
             code: "4.3",
@@ -858,7 +877,7 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
                   "Total Universal Exclusive Gear Shards & Meteoric Iron Cores per milestone",
               },
             },
-            status: "coming_soon",
+            status: "ready",
           },
         ],
       },
@@ -1008,7 +1027,11 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
               vi: "Tab Runes — Bảng Bụi Cổ Ngữ & Chỉ Số Lv.1–12",
               en: "Runes Tab — Rune Dust & Stat Matrix (Lv.1–12)",
             },
-            materials: [CALCULATOR_MATERIALS.runeDust],
+            materials: [
+              CALCULATOR_MATERIALS.runeDust,
+              CALCULATOR_MATERIALS.magicStone,
+              CALCULATOR_MATERIALS.arcaneCrystal,
+            ],
             exampleCase: {
               vi: {
                 question:
@@ -1027,7 +1050,7 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
                   "Equivalent Lv.1/Lv.5 Rune count & total Rune Dust cost",
               },
             },
-            status: "coming_soon",
+            status: "ready",
           },
           {
             code: "6.2",
@@ -1051,8 +1074,10 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
               en: "Relic Tab — Relic Level & Star Upgrade Table",
             },
             materials: [
-              CALCULATOR_MATERIALS.relicScroll,
               CALCULATOR_MATERIALS.legendaryUniversalRelicShard,
+              CALCULATOR_MATERIALS.epicUniversalRelicShard,
+              CALCULATOR_MATERIALS.rareUniversalRelicShard,
+              CALCULATOR_MATERIALS.relicScroll,
               CALCULATOR_MATERIALS.magicStone,
               CALCULATOR_MATERIALS.arcaneCrystal,
             ],
@@ -1074,7 +1099,7 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
                   "Total Relic Scrolls + Legendary Universal Relic Shards + Magic Stones + Arcane Crystals",
               },
             },
-            status: "coming_soon",
+            status: "ready",
           },
         ],
       },
@@ -1402,7 +1427,7 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
                   "Total GAR / KvK points scored, 9 Milestone Chest unlock status & surplus reserve advice",
               },
             },
-            status: "coming_soon",
+            status: "ready",
           },
           {
             code: "9.2",
@@ -1447,7 +1472,7 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
                   "Remaining VIP Points needed, unlocked privileges & safe Guild Honor allocation plan",
               },
             },
-            status: "coming_soon",
+            status: "ready",
           },
         ],
       },

@@ -12,6 +12,7 @@ import { getInitialCodexSeedRecords } from "@/components/guides/codex/codex-util
 import { HordePivotStepperWidget } from "@/components/guides/widgets/horde-pivot-stepper-widget";
 import { BlacksmithAnvilMatrixWidget } from "@/components/guides/widgets/blacksmith-anvil-matrix-widget";
 import { ShopSafetyFloorWidget } from "@/components/guides/widgets/shop-safety-floor-widget";
+import { EventPlaybookExplorerWidget } from "@/components/guides/widgets/event-playbook-explorer-widget";
 import {
   getAssetById,
   getMediaShowcaseItems,
@@ -167,7 +168,7 @@ describe("Phase 6.2 — Dark/Light Mode Contrast, RGBA Alpha Backdrop & GAP-03 D
     }
   });
 
-  it("ensures HordePivotStepperWidget, BlacksmithAnvilMatrixWidget, and ShopSafetyFloorWidget support dual-theme (bg-card/95 + dark:bg-...) and have zero white-on-light invisible text", () => {
+  it("ensures HordePivotStepperWidget, BlacksmithAnvilMatrixWidget, ShopSafetyFloorWidget, and EventPlaybookExplorerWidget support dual-theme (bg-card/95 + dark:bg-...) and have zero white-on-light invisible text", () => {
     const { container: c1 } = render(<HordePivotStepperWidget locale="vi" />);
     expect(c1.firstElementChild?.className).toContain("bg-card/95");
     expect(c1.innerHTML).not.toMatch(/class="[^"]*(?<!dark:)text-white(?![-/\w])/);
@@ -179,6 +180,10 @@ describe("Phase 6.2 — Dark/Light Mode Contrast, RGBA Alpha Backdrop & GAP-03 D
     const { container: c3 } = render(<ShopSafetyFloorWidget locale="vi" />);
     expect(c3.firstElementChild?.className).toContain("bg-card/95");
     expect(c3.innerHTML).not.toMatch(/class="[^"]*(?<!dark:)text-white(?![-/\w])/);
+
+    const { container: c4 } = render(<EventPlaybookExplorerWidget locale="vi" />);
+    expect(c4.firstElementChild?.className).toContain("bg-card/95");
+    expect(c4.innerHTML).not.toMatch(/class="[^"]*(?<!dark:)text-white(?![-/\w])/);
   });
 
   it("enforces GAP-03 De-Boxing invariant (zero border-l-2, border-l-4, rounded-l-sm) across every .tsx file in src/components/guides/", () => {
@@ -288,5 +293,45 @@ describe("Phase 6.3 — Image Performance (CLS = 0) & Bundle Size Isolation Guar
         `Bundle bloat static import detected in ${path.relative(process.cwd(), file)}`
       ).not.toMatch(forbiddenImport);
     }
+  });
+});
+
+describe("Phase 3.6 Final Gate: Zero Sub-12px & Full Guides Directory Static Guard", () => {
+  it("contains ZERO sub-12px Tailwind classes (text-[8px..11px]) across all files in src/components/guides/, src/app/[locale]/guides/, and src/content/guides/", () => {
+    const collectAllGuideFiles = (dir: string): string[] => {
+      if (!fs.existsSync(dir)) return [];
+      const entries = fs.readdirSync(dir, { withFileTypes: true });
+      return entries.flatMap((entry) => {
+        const fullPath = path.join(dir, entry.name);
+        return entry.isDirectory()
+          ? collectAllGuideFiles(fullPath)
+          : /\.(ts|tsx)$/.test(entry.name)
+            ? [fullPath]
+            : [];
+      });
+    };
+
+    const dirsToScan = [
+      path.resolve(process.cwd(), "src/components/guides"),
+      path.resolve(process.cwd(), "src/app/[locale]/guides"),
+      path.resolve(process.cwd(), "src/content/guides"),
+    ];
+
+    const sub12Regex = /\btext-\[(?:8|9|10|11)px\]/g;
+    const violations: string[] = [];
+
+    for (const dir of dirsToScan) {
+      const files = collectAllGuideFiles(dir);
+      for (const filePath of files) {
+        const source = fs.readFileSync(filePath, "utf-8");
+        const matches = source.match(sub12Regex);
+        if (matches && matches.length > 0) {
+          const relPath = path.relative(process.cwd(), filePath);
+          violations.push(`${relPath}: ${matches.join(", ")}`);
+        }
+      }
+    }
+
+    expect(violations).toEqual([]);
   });
 });

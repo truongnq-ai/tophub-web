@@ -1265,7 +1265,7 @@ export function TacticalFormationBoardWidget({
     <div
       ref={containerRef}
       data-testid="widget-tactical-formation-board"
-      className="relative my-5 rounded-2xl border border-amber-500/35 bg-card/90 dark:bg-slate-950/85 p-4 sm:p-6 space-y-5 shadow-lg shadow-amber-500/5"
+      className="relative my-5 rounded-2xl border border-amber-500/35 bg-card/90 dark:bg-slate-950/85 p-3.5 sm:p-6 space-y-5 shadow-lg shadow-amber-500/5"
     >
       {/* Consolidated TOC Anchor Stubs */}
       {article?.slug === "formation-and-counters" ? (
@@ -1289,14 +1289,14 @@ export function TacticalFormationBoardWidget({
 
       {/* Header */}
       <div className="space-y-1.5 pb-4 border-b border-border/60">
-        <div className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 px-2.5 py-0.5 text-[11px] font-mono font-bold text-amber-600 dark:text-amber-400">
+        <div className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 px-2.5 py-0.5 text-xs font-sans font-bold text-amber-600 dark:text-amber-400">
           <Crosshair className="h-3.5 w-3.5" />
           <span>{copy.badge}</span>
         </div>
         <h3 className="font-heading font-black text-lg sm:text-xl text-foreground">
           {copy.title}
         </h3>
-        <p className="text-xs sm:text-sm text-muted-foreground">
+        <p className="text-sm text-muted-foreground leading-relaxed">
           {copy.subtitle}
         </p>
       </div>
@@ -1341,7 +1341,7 @@ export function TacticalFormationBoardWidget({
       {mode === "board" ? (
         <div className="space-y-4">
           {/* 6 Meta Lineup Selector Pills with Real Faction Crests */}
-          <div className="flex flex-wrap items-center gap-2">
+          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 snap-x sm:flex-wrap">
             {LINEUP_PRESETS.map((preset) => {
               const isSelected = preset.id === activeLineup.id;
               const crestPath = FACTION_CREST_PATHS[preset.faction];
@@ -1352,7 +1352,7 @@ export function TacticalFormationBoardWidget({
                   data-testid={`formation-lineup-pill-${preset.id}`}
                   onClick={() => setSelectedLineupId(preset.id)}
                   className={cn(
-                    "inline-flex items-center gap-2 min-h-[44px] px-3.5 py-2 rounded-xl border text-xs font-heading font-bold transition-all cursor-pointer",
+                    "snap-start shrink-0 inline-flex items-center gap-2 min-h-[44px] px-3.5 py-2 rounded-xl border text-xs font-heading font-bold transition-all cursor-pointer",
                     isSelected
                       ? preset.faction === "horde"
                         ? "border-rose-500 bg-rose-500/15 text-rose-700 dark:text-rose-300 shadow-xs"
@@ -1365,7 +1365,9 @@ export function TacticalFormationBoardWidget({
                   <img
                     src={crestPath}
                     alt={preset.faction}
-                    width={20} height={20} loading="lazy"
+                    width={20}
+                    height={20}
+                    loading="lazy"
                     decoding="async"
                     className="h-5 w-5 rounded-full object-contain shrink-0"
                   />
@@ -1382,13 +1384,15 @@ export function TacticalFormationBoardWidget({
                 <img
                   src={FACTION_CREST_PATHS[activeLineup.faction]}
                   alt={activeLineup.faction}
-                  width={20} height={20} loading="lazy"
+                  width={20}
+                  height={20}
+                  loading="lazy"
                   decoding="async"
                   className="h-5 w-5 rounded-full object-contain shrink-0"
                 />
                 <span>{activeLineup.fullTitle[locale]}</span>
               </h4>
-              <span className="font-mono text-xs text-amber-600 dark:text-amber-400 font-semibold">
+              <span className="font-sans text-xs text-amber-600 dark:text-amber-400 font-semibold">
                 {activeLineup.stageTiming[locale]}
               </span>
             </div>
@@ -1396,51 +1400,51 @@ export function TacticalFormationBoardWidget({
             <div className="grid grid-cols-1 md:grid-cols-3 gap-2.5 text-xs">
               <div
                 data-testid="formation-aura-badge"
-                className="rounded-lg border border-amber-500/30 bg-amber-500/10 p-2.5 space-y-0.5"
+                className="rounded-lg border border-amber-500/30 bg-amber-500/10 p-2.5 space-y-1"
               >
-                <span className="font-mono font-bold text-amber-600 dark:text-amber-300 block">
+                <span className="font-sans font-bold text-amber-600 dark:text-amber-300 block">
                   {copy.auraHeading}
                 </span>
-                <span className="text-foreground font-medium">
+                <span className="text-foreground font-medium leading-relaxed block">
                   {activeLineup.auraBonus[locale]}
                 </span>
               </div>
 
-              <div className="rounded-lg border border-emerald-500/30 bg-emerald-500/10 p-2.5 space-y-0.5">
-                <span className="font-mono font-bold text-emerald-600 dark:text-emerald-300 block">
+              <div className="rounded-lg border border-emerald-500/30 bg-emerald-500/10 p-2.5 space-y-1">
+                <span className="font-sans font-bold text-emerald-600 dark:text-emerald-300 block">
                   {copy.soulStoneHeading}
                 </span>
-                <span className="text-foreground font-medium">
+                <span className="text-foreground font-medium leading-relaxed block">
                   {activeLineup.soulStoneBudget[locale]}
                 </span>
               </div>
 
-              <div className="rounded-lg border border-blue-500/30 bg-blue-500/10 p-2.5 space-y-0.5">
-                <span className="font-mono font-bold text-blue-600 dark:text-blue-300 block">
+              <div className="rounded-lg border border-blue-500/30 bg-blue-500/10 p-2.5 space-y-1">
+                <span className="font-sans font-bold text-blue-600 dark:text-blue-300 block">
                   {copy.counterHeading}
                 </span>
-                <span className="text-foreground font-medium">
+                <span className="text-foreground font-medium leading-relaxed block">
                   {activeLineup.counterAdvantage[locale]}
                 </span>
               </div>
             </div>
           </div>
 
-          {/* Visual 2x3 Six-Slot Grid Board */}
+          {/* Visual 2x3 Six-Slot Grid Board (Single-Layer Containment on Mobile) */}
           <div
             data-testid="formation-grid-board"
-            className="space-y-3 rounded-2xl border border-border/80 bg-background/80 p-3.5 sm:p-5"
+            className="space-y-3 rounded-none border-0 bg-transparent p-0 sm:rounded-2xl sm:border sm:border-border/80 sm:bg-background/80 sm:p-5"
           >
             {rowsGrouped.map((rowGroup) => (
               <div
                 key={rowGroup.zone}
                 className={cn(
-                  "rounded-xl border p-3 space-y-2.5",
+                  "rounded-xl border-0 p-2.5 sm:border sm:p-3 space-y-2.5",
                   rowGroup.zone === "frontline"
-                    ? "border-amber-500/35 bg-amber-500/[0.04]"
+                    ? "sm:border-amber-500/35 bg-amber-500/[0.06]"
                     : rowGroup.zone === "midline_safe"
-                      ? "border-emerald-500/45 bg-emerald-500/[0.06]"
-                      : "border-rose-500/35 bg-rose-500/[0.04]"
+                      ? "sm:border-emerald-500/45 bg-emerald-500/[0.08]"
+                      : "sm:border-rose-500/35 bg-rose-500/[0.06]"
                 )}
               >
                 <div className="flex items-center justify-between gap-2 text-xs font-heading font-bold">
@@ -1480,14 +1484,14 @@ export function TacticalFormationBoardWidget({
                             : "border-border/75 bg-card/90 hover:border-amber-500/45"
                         )}
                       >
-                        <div className="flex items-center justify-between gap-2">
+                        <div className="flex flex-wrap items-center justify-between gap-2">
                           <span className="inline-flex items-center gap-1 rounded-md bg-slate-900 text-amber-400 px-2 py-0.5 font-mono text-xs font-black">
                             {copy.slotPrefix} {slot.slotNumber} •{" "}
                             {copy.wingLabels[slot.wing]}
                           </span>
                           <span
                             className={cn(
-                              "inline-flex items-center gap-1 rounded-md px-2 py-0.5 text-[11px] font-mono font-bold",
+                              "inline-flex items-center gap-1 rounded-md px-2 py-0.5 text-xs font-sans font-bold",
                               slot.rarity === "mythic"
                                 ? "bg-rose-500/15 text-rose-600 dark:text-rose-300 border border-rose-500/30"
                                 : "bg-amber-500/15 text-amber-600 dark:text-amber-300 border border-amber-500/30"
@@ -1497,7 +1501,9 @@ export function TacticalFormationBoardWidget({
                               <img
                                 src={primaryWeaponPath}
                                 alt=""
-                                width={14} height={14} loading="lazy"
+                                width={14}
+                                height={14}
+                                loading="lazy"
                                 decoding="async"
                                 className="h-3.5 w-3.5 rounded-xs object-contain shrink-0"
                               />
@@ -1567,10 +1573,10 @@ export function TacticalFormationBoardWidget({
           {/* Active Slot Targeting Inspector with Visual Loadout Strip */}
           <div
             data-testid="formation-slot-inspector"
-            className="rounded-xl border border-amber-500/40 bg-amber-500/10 p-4 space-y-3"
+            className="rounded-xl border-0 sm:border sm:border-amber-500/40 bg-amber-500/10 p-3.5 sm:p-4 space-y-3"
           >
             <div className="flex flex-wrap items-center justify-between gap-2">
-              <p className="text-xs font-heading font-bold text-amber-700 dark:text-amber-300">
+              <p className="text-xs sm:text-sm font-heading font-bold text-amber-700 dark:text-amber-300">
                 {copy.selectedSlotHeading} {copy.slotPrefix}{" "}
                 {activeSlotEntry.slotNumber} (
                 {activeSlotEntry.heroName[locale]})
@@ -1601,7 +1607,9 @@ export function TacticalFormationBoardWidget({
                       <img
                         src={prof.exclusiveWeaponPath}
                         alt={copy.exclusiveWeaponChip}
-                        width={20} height={20} loading="lazy"
+                        width={20}
+                        height={20}
+                        loading="lazy"
                         decoding="async"
                         className="h-5 w-5 rounded-sm object-contain shrink-0"
                       />
@@ -1625,7 +1633,9 @@ export function TacticalFormationBoardWidget({
                   <img
                     src={gear.iconPath}
                     alt={copy.gearSetChip}
-                    width={20} height={20} loading="lazy"
+                    width={20}
+                    height={20}
+                    loading="lazy"
                     decoding="async"
                     className="h-5 w-5 rounded-sm object-contain shrink-0"
                   />
@@ -1636,7 +1646,7 @@ export function TacticalFormationBoardWidget({
               ))}
             </div>
 
-            <div className="text-xs sm:text-sm text-foreground/95 leading-relaxed">
+            <div className="text-sm sm:text-base text-foreground/95 leading-relaxed">
               <RichGuideText
                 text={activeSlotEntry.slotReason[locale]}
                 locale={locale}
@@ -1649,11 +1659,11 @@ export function TacticalFormationBoardWidget({
       ) : (
         /* Mode 2: 4 Arena Positional Counter-Swaps */
         <div className="space-y-4">
-          <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+          <p className="text-sm text-muted-foreground leading-relaxed">
             {copy.swapsIntro}
           </p>
 
-          <div className="flex flex-wrap items-center gap-2">
+          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 snap-x sm:flex-wrap">
             {arenaSwaps.map((swp) => {
               const isSelected = swp.index === activeSwap?.index;
               return (
@@ -1663,7 +1673,7 @@ export function TacticalFormationBoardWidget({
                   data-testid={`arena-swap-pill-${swp.index}`}
                   onClick={() => setSelectedSwapIdx(swp.index)}
                   className={cn(
-                    "min-h-[44px] px-3.5 py-2 rounded-xl border text-xs font-heading font-bold transition-all cursor-pointer",
+                    "snap-start shrink-0 min-h-[44px] px-3.5 py-2 rounded-xl border text-xs font-heading font-bold transition-all cursor-pointer",
                     isSelected
                       ? "border-amber-500 bg-amber-500/15 text-amber-700 dark:text-amber-300 shadow-xs"
                       : "border-border/70 bg-background/70 text-muted-foreground hover:text-foreground"
@@ -1678,10 +1688,10 @@ export function TacticalFormationBoardWidget({
           {activeSwap && (
             <div
               data-testid="arena-active-swap-panel"
-              className="rounded-2xl border border-amber-500/40 bg-background/90 p-4 sm:p-5 space-y-4"
+              className="rounded-none border-0 bg-transparent p-0 pt-2 sm:rounded-2xl sm:border sm:border-amber-500/40 sm:bg-background/90 sm:p-5 space-y-4"
             >
               <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border/60 pb-3">
-                <h4 className="font-heading font-bold text-sm sm:text-base text-foreground flex items-center gap-2">
+                <h4 className="font-heading font-bold text-base text-foreground flex items-center gap-2">
                   <Swords className="h-4 w-4 text-amber-500 shrink-0" />
                   <span>{activeSwap.scenarioTitle}</span>
                 </h4>
@@ -1702,7 +1712,7 @@ export function TacticalFormationBoardWidget({
                 data-testid="arena-swap-visual-row"
                 className="rounded-xl border border-amber-500/30 bg-amber-500/[0.06] p-3 space-y-2"
               >
-                <span className="block text-[11px] font-mono font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
+                <span className="block text-xs font-sans font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
                   {copy.swapVisualHeading}
                 </span>
                 <div className="flex flex-wrap items-center gap-2.5">
@@ -1720,7 +1730,7 @@ export function TacticalFormationBoardWidget({
                           <p className="font-heading font-bold text-foreground">
                             {locale === "vi" ? prof.inGameNameVi : prof.inGameNameEn}
                           </p>
-                          <p className="font-mono text-[10px] text-muted-foreground uppercase">
+                          <p className="font-mono text-xs text-muted-foreground uppercase">
                             {prof.faction}
                           </p>
                         </div>
@@ -1735,12 +1745,12 @@ export function TacticalFormationBoardWidget({
                 </div>
               </div>
 
-              <div className="rounded-xl border border-rose-500/30 bg-rose-500/5 p-3.5 space-y-1">
+              <div className="rounded-xl border border-rose-500/30 bg-rose-500/5 p-3.5 space-y-1.5">
                 <p className="text-xs font-heading font-bold text-rose-600 dark:text-rose-400 flex items-center gap-1.5">
                   <AlertTriangle className="h-3.5 w-3.5" />
                   <span>{copy.threatLabel}</span>
                 </p>
-                <div className="text-xs sm:text-sm text-foreground/90 leading-relaxed">
+                <div className="text-sm sm:text-base text-foreground/90 leading-relaxed">
                   <RichGuideText
                     text={activeSwap.enemyThreat}
                     locale={locale}
@@ -1757,7 +1767,7 @@ export function TacticalFormationBoardWidget({
                       <Crown className="h-3.5 w-3.5 text-amber-500" />
                       <span>{copy.executionLabel}</span>
                     </p>
-                    <div className="text-xs sm:text-sm text-foreground/95 leading-relaxed">
+                    <div className="text-sm sm:text-base text-foreground/95 leading-relaxed">
                       <RichGuideText
                         text={activeSwap.swapExecution}
                         locale={locale}
@@ -1772,7 +1782,7 @@ export function TacticalFormationBoardWidget({
                       <Sparkles className="h-3.5 w-3.5 text-emerald-500" />
                       <span>{copy.impactLabel}</span>
                     </p>
-                    <div className="text-xs sm:text-sm text-foreground/95 leading-relaxed">
+                    <div className="text-sm sm:text-base text-foreground/95 leading-relaxed">
                       <RichGuideText
                         text={activeSwap.combatImpact}
                         locale={locale}
@@ -1789,13 +1799,13 @@ export function TacticalFormationBoardWidget({
                       <Lock className="h-3.5 w-3.5" />
                       <span>{copy.proLockedTitle}</span>
                     </p>
-                    <p className="text-xs text-muted-foreground">
+                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                       {copy.proLockedDesc}
                     </p>
                   </div>
                   <Link
                     href="#sub-4-1-four-arena-swaps"
-                    className="inline-flex items-center justify-center min-h-[40px] px-3.5 py-2 rounded-xl bg-amber-500 text-slate-950 text-xs font-heading font-bold shrink-0"
+                    className="inline-flex items-center justify-center min-h-[44px] px-4 py-2 rounded-xl bg-amber-500 text-slate-950 text-xs font-heading font-bold shrink-0"
                   >
                     {copy.proUpgradeBtn}
                   </Link>

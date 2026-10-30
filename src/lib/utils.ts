@@ -45,3 +45,13 @@ export function compareServerIds(a?: string | null, b?: string | null): number {
     sensitivity: "base",
   })
 }
+
+export {
+  formatCompactNumber,
+  formatExactNumber,
+  formatGameNumberParts,
+  parseCompactNumberInput,
+  type FormatCompactNumberOptions,
+  type FormattedGameNumberParts,
+  type NumberSuffixUnit,
+} from "./number-format"

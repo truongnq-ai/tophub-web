@@ -535,7 +535,7 @@ export function MasterDataExplorerWidget({
     <div
       ref={containerRef}
       data-testid="widget-master-data-explorer"
-      className="relative my-5 rounded-2xl border border-amber-500/35 bg-card/85 dark:bg-slate-950/80 p-4 sm:p-6 space-y-5 shadow-lg shadow-amber-500/5"
+      className="relative my-5 rounded-2xl border border-amber-500/35 bg-card/85 dark:bg-slate-950/80 p-3.5 sm:p-6 space-y-5 shadow-lg shadow-amber-500/5"
     >
       {/* Consolidated TOC Anchor Stubs at Widget Top (GAP-P3-10: Zero duplicate IDs & accurate scroll target) */}
       {allTables
@@ -552,19 +552,19 @@ export function MasterDataExplorerWidget({
 
       {/* Header */}
       <div className="space-y-1 pb-4 border-b border-border/60">
-        <div className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 px-2.5 py-0.5 text-[11px] font-mono font-bold text-amber-600 dark:text-amber-400">
-          <Database className="h-3 w-3" />
+        <div className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/15 border-0 px-3 py-1 text-xs font-sans font-bold text-amber-600 dark:text-amber-400">
+          <Database className="h-3.5 w-3.5 shrink-0" />
           <span>{copy.badge}</span>
         </div>
         <h3 className="font-heading font-black text-lg sm:text-xl text-foreground">
           {copy.title}
         </h3>
-        <p className="text-xs sm:text-sm text-muted-foreground">
+        <p className="text-sm sm:text-base font-sans leading-relaxed text-muted-foreground">
           {copy.subtitle}
         </p>
       </div>
 
-      {/* Global Cross-Table Search Input */}
+      {/* Global Cross-Table Search Input — 16px (text-base) on mobile to prevent iOS Safari auto-zoom */}
       <div className="relative">
         <Search className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
         <input
@@ -574,14 +574,14 @@ export function MasterDataExplorerWidget({
           onChange={(e) => setGlobalSearch(e.target.value)}
           placeholder={copy.globalSearchPlaceholder}
           aria-label={copy.globalSearchPlaceholder}
-          className="w-full min-h-[44px] rounded-xl border border-border/80 bg-background/90 pl-10 pr-10 py-2 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-amber-500/70 focus:ring-2 focus:ring-amber-500/20"
+          className="h-11 min-h-11 min-h-[44px] w-full rounded-xl border border-border/80 bg-background/90 pl-10 pr-11 py-2 text-base sm:text-sm font-sans text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-amber-500/70 focus:ring-2 focus:ring-amber-500/20"
         />
         {globalSearch && (
           <button
             type="button"
             onClick={() => setGlobalSearch("")}
             aria-label={copy.clearSearchBtn}
-            className="absolute right-2.5 top-1/2 -translate-y-1/2 p-1.5 rounded-lg text-muted-foreground hover:text-foreground cursor-pointer"
+            className="absolute right-1 top-1/2 -translate-y-1/2 h-11 w-11 min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-lg text-muted-foreground hover:text-foreground cursor-pointer"
           >
             <X className="h-4 w-4" />
           </button>
@@ -591,6 +591,7 @@ export function MasterDataExplorerWidget({
       {/* Pillar Group Filter Tabs */}
       <div
         role="tablist"
+        aria-label={copy.title}
         className="flex flex-wrap items-center gap-2"
       >
         {(
@@ -615,7 +616,7 @@ export function MasterDataExplorerWidget({
                 }
               }}
               className={cn(
-                "min-h-[44px] px-3.5 py-2 rounded-xl border text-xs font-extrabold transition-all cursor-pointer",
+                "min-h-11 min-h-[44px] px-3.5 py-2 rounded-xl border text-xs font-sans font-extrabold transition-all cursor-pointer",
                 isActive
                   ? "border-amber-500 bg-amber-500/15 text-amber-700 dark:text-amber-300 shadow-sm"
                   : "border-border/60 bg-background/60 text-muted-foreground hover:text-foreground hover:bg-muted/40"
@@ -645,7 +646,7 @@ export function MasterDataExplorerWidget({
                 setActiveTableId(tbl.id);
               }}
               className={cn(
-                "snap-start shrink-0 min-h-[44px] px-3.5 py-2 rounded-xl border text-xs font-bold transition-all inline-flex items-center gap-2 cursor-pointer",
+                "snap-start shrink-0 min-h-11 min-h-[44px] px-3.5 py-2 rounded-xl border text-xs font-sans font-bold transition-all inline-flex items-center gap-2 cursor-pointer",
                 isSelected
                   ? "border-amber-500 bg-amber-500/20 text-amber-700 dark:text-amber-300 shadow-sm ring-1 ring-amber-500/40"
                   : "border-border/60 bg-background/75 text-muted-foreground hover:text-foreground hover:bg-muted/40"
@@ -667,7 +668,7 @@ export function MasterDataExplorerWidget({
                 <Crown className="h-3.5 w-3.5 text-amber-500 shrink-0" />
               )}
               <span>{tbl.shortTitle}</span>
-              <span className="rounded-md bg-background/80 px-1.5 py-0.5 font-mono text-[10px] text-muted-foreground">
+              <span className="rounded-md bg-background/80 px-2 py-0.5 font-sans text-xs font-semibold text-muted-foreground">
                 {copy.rowsCountBadge(tbl.rows.length)}
               </span>
             </button>
@@ -678,7 +679,7 @@ export function MasterDataExplorerWidget({
       {/* Mode A: Cross-Table Global Search View */}
       {normalizedQuery ? (
         <div className="space-y-4">
-          <div className="flex items-center justify-between gap-2 rounded-xl border border-amber-500/30 bg-amber-500/10 px-4 py-2.5 text-xs font-bold text-amber-700 dark:text-amber-300">
+          <div className="flex items-center justify-between gap-2 rounded-xl border-0 bg-amber-500/10 px-3.5 py-2.5 text-xs sm:text-sm font-sans font-bold text-amber-700 dark:text-amber-300">
             <span>
               {copy.searchHitsHeading(
                 globalSearch,
@@ -689,14 +690,14 @@ export function MasterDataExplorerWidget({
             <button
               type="button"
               onClick={() => setGlobalSearch("")}
-              className="underline cursor-pointer"
+              className="min-h-11 min-h-[44px] px-2.5 inline-flex items-center underline cursor-pointer shrink-0"
             >
               {copy.clearSearchBtn}
             </button>
           </div>
 
           {crossTableSearchResults.length === 0 ? (
-            <div className="rounded-xl border border-dashed border-border p-8 text-center text-xs sm:text-sm text-muted-foreground">
+            <div className="rounded-xl border border-dashed border-border p-8 text-center text-sm sm:text-base font-sans text-muted-foreground">
               {copy.noSearchHits}
             </div>
           ) : (
@@ -712,7 +713,7 @@ export function MasterDataExplorerWidget({
                 return (
                   <div
                     key={table.id}
-                    className="rounded-xl border border-border/70 bg-background/70 p-4 space-y-3"
+                    className="border-0 border-b border-border/60 bg-transparent pb-4 last:border-b-0 last:pb-0 sm:rounded-xl sm:border sm:border-border/70 sm:bg-background/70 sm:p-4 space-y-3"
                   >
                     <div className="flex flex-wrap items-center justify-between gap-2">
                       <h4 className="font-heading font-extrabold text-sm sm:text-base text-foreground flex items-center gap-2">
@@ -722,11 +723,11 @@ export function MasterDataExplorerWidget({
                       {tableCodexLink && (
                         <Link
                           href={tableCodexLink.href}
-                          className="inline-flex items-center gap-1.5 rounded-lg border border-amber-500/35 bg-amber-500/10 px-2.5 py-1 text-[11px] font-bold text-amber-700 dark:text-amber-300 hover:bg-amber-500/20 transition-colors"
+                          className="inline-flex min-h-11 min-h-[44px] items-center gap-1.5 rounded-xl border border-amber-500/35 bg-amber-500/10 px-3.5 py-2 text-xs font-sans font-bold text-amber-700 dark:text-amber-300 hover:bg-amber-500/20 transition-colors"
                         >
-                          <Database className="h-3 w-3 shrink-0" />
+                          <Database className="h-3.5 w-3.5 shrink-0" />
                           <span>{tableCodexLink.label[locale]}</span>
-                          <ExternalLink className="h-3 w-3 shrink-0" />
+                          <ExternalLink className="h-3.5 w-3.5 shrink-0" />
                         </Link>
                       )}
                     </div>
@@ -735,7 +736,7 @@ export function MasterDataExplorerWidget({
                         key={idx}
                         text={p}
                         accentColor="amber"
-                        className="text-xs text-muted-foreground leading-relaxed"
+                        className="text-sm sm:text-base font-sans text-foreground/90 leading-relaxed"
                       />
                     ))}
                     <ResponsiveDataTable
@@ -753,9 +754,9 @@ export function MasterDataExplorerWidget({
           )}
         </div>
       ) : (
-        /* Mode B: Single-Table Focused Explorer */
+        /* Mode B: Single-Table Focused Explorer — Single-Layer Containment on Mobile */
         selectedTable && (
-          <div className="rounded-2xl border border-border/80 bg-background/80 p-4 sm:p-5 space-y-4">
+          <div className="border-0 bg-transparent p-0 sm:rounded-2xl sm:border sm:border-border/80 sm:bg-background/80 sm:p-5 space-y-4">
             <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-border/50">
               <div className="flex flex-wrap items-center gap-2.5">
                 {activeTableAsset && (
@@ -771,12 +772,12 @@ export function MasterDataExplorerWidget({
                   </span>
                 )}
                 {selectedTable.isPro ? (
-                  <span className="inline-flex items-center gap-1 rounded-lg bg-amber-500/15 border border-amber-500/35 px-2.5 py-1 font-mono text-xs font-extrabold text-amber-600 dark:text-amber-300">
+                  <span className="inline-flex items-center gap-1 rounded-lg bg-amber-500/15 border-0 px-2.5 py-1 font-mono text-xs font-extrabold text-amber-600 dark:text-amber-300">
                     <Crown className="h-3.5 w-3.5 text-amber-500" />
                     <span>PRO SSoT #{selectedTable.shortCode}</span>
                   </span>
                 ) : (
-                  <span className="inline-flex items-center gap-1 rounded-lg bg-emerald-500/15 border border-emerald-500/35 px-2.5 py-1 font-mono text-xs font-extrabold text-emerald-600 dark:text-emerald-300">
+                  <span className="inline-flex items-center gap-1 rounded-lg bg-emerald-500/15 border-0 px-2.5 py-1 font-mono text-xs font-extrabold text-emerald-600 dark:text-emerald-300">
                     <Sparkles className="h-3.5 w-3.5" />
                     <span>FREE SSoT #{selectedTable.shortCode}</span>
                   </span>
@@ -790,7 +791,7 @@ export function MasterDataExplorerWidget({
                 <Link
                   href={activeCodexLink.href}
                   data-testid="master-active-codex-link"
-                  className="inline-flex items-center gap-1.5 min-h-[36px] rounded-xl border border-amber-500/40 bg-amber-500/10 px-3 py-1.5 text-xs font-extrabold text-amber-700 dark:text-amber-300 hover:bg-amber-500/20 transition-colors shrink-0"
+                  className="inline-flex min-h-11 min-h-[44px] items-center gap-1.5 rounded-xl border border-amber-500/40 bg-amber-500/10 px-3.5 py-2 text-xs font-sans font-extrabold text-amber-700 dark:text-amber-300 hover:bg-amber-500/20 transition-colors shrink-0"
                 >
                   <Database className="h-3.5 w-3.5 shrink-0" />
                   <span>{activeCodexLink.label[locale]}</span>
@@ -801,26 +802,26 @@ export function MasterDataExplorerWidget({
 
             {selectedTable.isPro && !hasProAccess ? (
               /* PRO Paywall Overlay for Locked PRO Tables */
-              <div className="rounded-xl border border-amber-500/40 bg-card/95 p-6 text-center space-y-3">
+              <div className="rounded-xl border-0 sm:border sm:border-amber-500/40 bg-muted/40 sm:bg-card/95 p-5 sm:p-6 text-center space-y-3">
                 <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-2xl bg-amber-500/20 text-amber-500">
                   <Lock className="h-5 w-5" />
                 </div>
-                <h5 className="font-heading font-black text-base text-foreground">
+                <h5 className="font-heading font-black text-base sm:text-lg text-foreground">
                   {copy.proLockedTitle}
                 </h5>
-                <p className="text-xs text-muted-foreground max-w-lg mx-auto leading-relaxed">
+                <p className="text-sm sm:text-base font-sans text-muted-foreground max-w-lg mx-auto leading-relaxed">
                   {copy.proLockedDesc}
                 </p>
                 <div className="flex flex-wrap items-center justify-center gap-2.5 pt-2">
                   <Link
                     href="/"
-                    className="inline-flex items-center min-h-[44px] px-4 rounded-xl border border-amber-500/35 text-xs font-bold text-foreground hover:bg-amber-500/10"
+                    className="inline-flex items-center min-h-11 min-h-[44px] px-4 rounded-xl border border-amber-500/35 text-xs sm:text-sm font-sans font-bold text-foreground hover:bg-amber-500/10"
                   >
                     {copy.proCheckUidBtn}
                   </Link>
                   <Link
                     href="/pricing"
-                    className="inline-flex items-center min-h-[44px] px-5 rounded-xl bg-amber-500 text-slate-950 text-xs font-extrabold"
+                    className="inline-flex items-center min-h-11 min-h-[44px] px-5 rounded-xl bg-amber-500 text-slate-950 text-xs sm:text-sm font-sans font-extrabold"
                   >
                     {copy.proUpgradeBtn}
                   </Link>
@@ -829,13 +830,13 @@ export function MasterDataExplorerWidget({
             ) : (
               <>
                 {selectedTable.introParagraphs.length > 0 && (
-                  <div className="space-y-2 rounded-xl border border-amber-500/25 bg-amber-500/5 p-3.5">
+                  <div className="space-y-2 rounded-xl border-0 bg-amber-500/10 p-3.5">
                     {selectedTable.introParagraphs.map((p, idx) => (
                       <RichGuideText
                         key={idx}
                         text={p}
                         accentColor="amber"
-                        className="text-xs sm:text-sm text-foreground/90 leading-relaxed"
+                        className="text-sm sm:text-base font-sans text-foreground/90 leading-relaxed"
                       />
                     ))}
                   </div>

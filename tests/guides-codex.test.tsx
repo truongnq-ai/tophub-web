@@ -502,8 +502,8 @@ describe("Track 3 — Phase 3.3 Suite 7A: CodexEntityDrawer MD3 Typography, Sing
       <CodexEntityDrawer
         entity={{
           ...seeds[0]!,
-          communityNameVi: undefined,
-          communityNameEn: undefined,
+          communityNameVi: null,
+          communityNameEn: null,
           gameId: null,
           relatedArticleSlugs: [],
         }}

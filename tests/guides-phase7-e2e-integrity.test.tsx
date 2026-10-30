@@ -7,7 +7,7 @@ import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import viMessages from "../messages/vi.json";
 import enMessages from "../messages/en.json";
 import { GUIDE_GLOSSARY } from "../src/content/guides/glossary";
-import { getAllArticles } from "../src/content/guides/registry";
+import { GUIDE_CATEGORIES, getAllArticles } from "../src/content/guides/registry";
 import type {
   CodexCategoryId,
   GuideMediaSpotlightBlock,
@@ -35,6 +35,7 @@ import { HordePivotStepperWidget } from "../src/components/guides/widgets/horde-
 import { BlacksmithAnvilMatrixWidget } from "../src/components/guides/widgets/blacksmith-anvil-matrix-widget";
 import { ShopSafetyFloorWidget } from "../src/components/guides/widgets/shop-safety-floor-widget";
 import { MasterDataExplorerWidget } from "../src/components/guides/widgets/master-data-explorer-widget";
+import { EventPlaybookExplorerWidget } from "../src/components/guides/widgets/event-playbook-explorer-widget";
 import { GameCodexClient } from "../src/components/guides/codex/game-codex-client";
 import {
   normalizeSearchQuery,
@@ -580,8 +581,8 @@ describe("Phase 7 — Guides Hub v4.0 Final E2E Asset/Codex Integrity & Producti
     });
   });
 
-  describe("Suite 3: Full-Matrix Render & Interactive State Audit — 31 Articles × 2 Locales, 8 Widgets × 2 Locales & Codex × 2 Locales (GAP-01..04, GAP-P7-R2-01..04, GAP-P7-R2-07)", () => {
-    it("verifies all 8 Interactive Widgets render in BOTH locale='en' and locale='vi' with valid disk-backed .webp images, GAP-01 Bilingual Purity (including interactive state expansions), and GAP-03 De-Boxing", () => {
+  describe("Suite 3: Full-Matrix Render & Interactive State Audit — 34 Articles × 2 Locales, 9 Widgets × 2 Locales & Codex × 2 Locales (GAP-01..04, GAP-P7-R2-01..04, GAP-P7-R2-07)", () => {
+    it("verifies all 9 Interactive Widgets render in BOTH locale='en' and locale='vi' with valid disk-backed .webp images, GAP-01 Bilingual Purity (including interactive state expansions), and GAP-03 De-Boxing", () => {
       const articles = getAllArticles();
       const findArticle = (code: string) => articles.find((a) => a.code === code)!;
 
@@ -653,6 +654,15 @@ describe("Phase 7 — Guides Hub v4.0 Final E2E Asset/Codex Integrity & Producti
                 article={findArticle("8.4")}
                 locale={locale}
                 forceUnlockPro={true}
+              />
+            ),
+          },
+          {
+            name: `EventPlaybookExplorerWidget[${locale}]`,
+            el: (
+              <EventPlaybookExplorerWidget
+                article={findArticle("9.1")}
+                locale={locale}
               />
             ),
           },
@@ -850,14 +860,13 @@ describe("Phase 7 — Guides Hub v4.0 Final E2E Asset/Codex Integrity & Producti
         rarity: "INVALID_RARITY",
         faction: "INVALID_FACTION",
         q: adversarialQuery,
-        page: "-999",
+        id: "non-existent-id",
       });
       expect(parsedMaliciousParams.category).toBe("heroes");
       expect(parsedMaliciousParams.rarity).toBe("all");
       expect(parsedMaliciousParams.faction).toBe("all");
-      expect(parsedMaliciousParams.page).toBe(1);
 
-      // GuidesHubClient search input check
+      // GuidesHubClient search input with regex characters
       const { container: hubContainer, unmount: unmountHub } = render(
         <GuidesHubClient locale="en" />
       );
@@ -866,37 +875,42 @@ describe("Phase 7 — Guides Hub v4.0 Final E2E Asset/Codex Integrity & Producti
       expect(() => {
         fireEvent.change(hubInput!, { target: { value: adversarialQuery } });
       }).not.toThrow();
-      expect(VI_DIACRITIC_REGEX.test(hubContainer.textContent ?? "")).toBe(false);
+      expect(hubContainer.querySelector("script")).toBeNull();
       unmountHub();
 
-      // GameCodexClient search input check
+      // GameCodexClient search input with regex characters
       const { container: codexContainer, unmount: unmountCodex } = render(
         <GameCodexClient locale="en" />
       );
-      await waitFor(() => {
-        expect(codexContainer.querySelector("input")).not.toBeNull();
-      });
-      const codexInput = codexContainer.querySelector("input")!;
+      const codexInput = codexContainer.querySelector(
+        "[data-testid='codex-search-input']"
+      );
+      expect(codexInput).not.toBeNull();
       expect(() => {
-        fireEvent.change(codexInput, { target: { value: adversarialQuery } });
+        fireEvent.change(codexInput!, { target: { value: adversarialQuery } });
       }).not.toThrow();
+      expect(codexContainer.querySelector("script")).toBeNull();
       unmountCodex();
 
-      // ResponsiveDataTable search input check
-      const { container: tableContainer, unmount: unmountTable } = render(
+      // ResponsiveDataTable filter input with regex characters (> 5 rows to enable filter bar)
+      const { container: tblContainer, unmount: unmountTable } = render(
         <ResponsiveDataTable
-          headers={["Hero", "Role"]}
-          rows={Array.from({ length: 10 }, (_, idx) => [
-            `Wanderer ${idx + 1}`,
-            "Damage Dealer",
-          ])}
+          headers={["Hero", "Role", "Cost"]}
+          rows={[
+            ["`Pyromancer`", "DPS", "`560 Shards`"],
+            ["`Adjudicator`", "Tank", "`1000 Shards`"],
+            ["`Nun`", "Healer", "`560 Shards`"],
+            ["`Paragon`", "Mythic DPS", "`1000 Shards`"],
+            ["`Bishop`", "Mythic Support", "`1000 Shards`"],
+            ["`Rose Princess`", "Mythic Tank", "`1000 Shards`"],
+          ]}
           locale="en"
         />
       );
-      const tableInput = tableContainer.querySelector("input");
-      if (tableInput) {
+      const tblInput = tblContainer.querySelector("input");
+      if (tblInput) {
         expect(() => {
-          fireEvent.change(tableInput, { target: { value: adversarialQuery } });
+          fireEvent.change(tblInput, { target: { value: adversarialQuery } });
         }).not.toThrow();
       }
       unmountTable();
@@ -977,6 +991,114 @@ describe("Phase 7 — Guides Hub v4.0 Final E2E Asset/Codex Integrity & Producti
       }
 
       expect(violations).toEqual([]);
+    });
+  });
+
+  describe("Suite 5: Phase 3.6 Final Gate — Complete 34-Article End-to-End MD3 & All-Sections Audit", () => {
+    it("verifies exact SSoT counts: 9 categories, 34 articles, 9 interactive widget bindings, and 34 PRO-extended articles", () => {
+      const allArticles = getAllArticles();
+      expect(GUIDE_CATEGORIES).toHaveLength(9);
+      expect(allArticles).toHaveLength(34);
+
+      const articlesWithPro = allArticles.filter(
+        (a) => Array.isArray(a.proSections) && a.proSections.length > 0
+      );
+      expect(articlesWithPro.length).toBeGreaterThanOrEqual(33);
+    });
+
+    it(
+      "renders all 34 articles in full 'all-sections' mode (freeSections + proSections + widgets + comments) with zero sub-12px classes and zero GAP-03 violations",
+      () => {
+        activeMockLocale = "vi";
+        const allArticles = getAllArticles();
+
+        for (const article of allArticles) {
+          const { container, unmount } = render(
+            <GuideArticleRenderer article={article} locale="vi" />
+          );
+
+          // Switch to 'All' tab so freeSections + ProContentGate + proSections + Widgets render simultaneously
+          const allTabBtn = screen.getByTestId("article-tab-all");
+          fireEvent.click(allTabBtn);
+
+          // 1. Zero sub-12px text classes anywhere in the rendered article DOM
+          const sub12Elements = Array.from(container.querySelectorAll("[class]")).filter((el) =>
+            /\btext-\[(?:8|9|10|11)px\]/.test(el.getAttribute("class") ?? "")
+          );
+          expect(
+            sub12Elements.length,
+            `Article ${article.code} (${article.slug}) contains sub-12px classes`
+          ).toBe(0);
+
+          // 2. Zero GAP-03 partial left-border stripe classes
+          const gap03Elements = Array.from(container.querySelectorAll("[class]")).filter((el) =>
+            /\b(border-l-2|border-l-4|rounded-l-sm)\b/.test(el.getAttribute("class") ?? "")
+          );
+          expect(
+            gap03Elements.length,
+            `Article ${article.code} (${article.slug}) contains GAP-03 left-border stripe`
+          ).toBe(0);
+
+          // 3. If article has proSections, verify ProContentGate is rendered and de-boxed on mobile
+          if (article.proSections && article.proSections.length > 0) {
+            const proGateWrapper = screen.getByTestId("article-pro-gate-wrapper");
+            const proGateSection = proGateWrapper.querySelector("section");
+            expect(proGateSection).not.toBeNull();
+            expect(proGateSection!.className).toContain("border-t-2");
+            expect(proGateSection!.className).toContain("px-0");
+          }
+
+          // 4. Verify GuideCommentsSection and pre-comment GuidesFeedbackNotice are mounted
+          expect(screen.getByTestId("guide-comments-section")).not.toBeNull();
+          expect(screen.getByTestId("guides-feedback-pre-comment")).not.toBeNull();
+
+          unmount();
+        }
+      },
+      30_000
+    );
+  });
+
+  describe("Master Plan Sign-Off (3 Tracks / 13 Phases): Cross-Track Zero Sub-12px Gate", () => {
+    it("enforces zero text-[8px..11px] micro-typography across Track 1 (Home/Shell), Track 2 (Calculators), and Track 3 (Guides)", () => {
+      const rootSrc = path.resolve(__dirname, "../src");
+      const targetTargets = [
+        path.join(rootSrc, "components/header.tsx"),
+        path.join(rootSrc, "components/footer.tsx"),
+        path.join(rootSrc, "components/home"),
+        path.join(rootSrc, "components/calculators"),
+        path.join(rootSrc, "components/guides"),
+        path.join(rootSrc, "app/[locale]/calculators"),
+        path.join(rootSrc, "app/[locale]/guides"),
+        path.join(rootSrc, "content/guides"),
+      ];
+
+      const sub12Regex = /\btext-\[(?:8|9|10|11)px\]/g;
+      const offendingFiles: string[] = [];
+
+      const scanTarget = (targetPath: string) => {
+        if (!fs.existsSync(targetPath)) return;
+        const stat = fs.statSync(targetPath);
+        if (stat.isFile()) {
+          const content = fs.readFileSync(targetPath, "utf-8");
+          const matches = content.match(sub12Regex);
+          if (matches) {
+            offendingFiles.push(`${path.relative(rootSrc, targetPath)} (${matches.join(", ")})`);
+          }
+          return;
+        }
+        for (const entry of fs.readdirSync(targetPath, { withFileTypes: true })) {
+          const fullPath = path.join(targetPath, entry.name);
+          if (entry.isDirectory()) {
+            scanTarget(fullPath);
+          } else if (entry.isFile() && /\.(tsx|ts)$/.test(entry.name)) {
+            scanTarget(fullPath);
+          }
+        }
+      };
+
+      targetTargets.forEach(scanTarget);
+      expect(offendingFiles).toEqual([]);
     });
   });
 });

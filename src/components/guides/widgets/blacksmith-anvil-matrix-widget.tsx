@@ -273,7 +273,7 @@ export function BlacksmithAnvilMatrixWidget({
   return (
     <div
       data-testid="widget-blacksmith-anvil-matrix"
-      className="my-6 rounded-2xl border border-amber-500/30 bg-card/95 dark:bg-gradient-to-b dark:from-[#141824]/95 dark:via-[#0F131D]/95 dark:to-[#0B0E14]/95 p-4 sm:p-6 shadow-[0_14px_36px_rgba(0,0,0,0.45)]"
+      className="my-6 rounded-2xl border border-amber-500/30 bg-card/95 dark:bg-gradient-to-b dark:from-[#141824]/95 dark:via-[#0F131D]/95 dark:to-[#0B0E14]/95 p-3.5 sm:p-6 shadow-[0_14px_36px_rgba(0,0,0,0.45)]"
     >
       {/* Consolidated SSoT Anchor Stubs */}
       {CONSOLIDATED_IDS.map((id) => (
@@ -289,7 +289,7 @@ export function BlacksmithAnvilMatrixWidget({
       {/* Widget Header */}
       <div className="flex flex-col gap-3 border-b border-border/75 dark:border-white/10 pb-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="space-y-1">
-          <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-amber-700 dark:text-amber-300">
+          <div className="inline-flex items-center gap-2 rounded-full border-0 bg-amber-500/15 px-3 py-1 text-xs font-sans font-semibold uppercase tracking-wider text-amber-700 dark:text-amber-300">
             <Hammer className="h-3.5 w-3.5 text-amber-400" />
             <span>
               {locale === "vi"
@@ -297,12 +297,12 @@ export function BlacksmithAnvilMatrixWidget({
                 : "3×4 Blacksmith Anvil Matrix & 24-Hero BiS Explorer"}
             </span>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-foreground dark:text-white">
+          <h3 className="text-lg sm:text-xl font-heading font-bold text-foreground dark:text-white">
             {locale === "vi"
               ? t("widgetAnvilTitle")
               : "3×4 Blacksmith Anvil Matrix & 24-Hero BiS Gear Explorer"}
           </h3>
-          <p className="text-xs sm:text-sm text-muted-foreground dark:text-slate-300">
+          <p className="text-sm sm:text-base font-sans leading-relaxed text-muted-foreground dark:text-slate-300">
             {locale === "vi"
               ? t("widgetAnvilSubtitle")
               : "Decode the 3 Golden Gear Sets, enforce the Column 4 Unmarked Forge Taboo, and filter Best-in-Slot sets across 24 core heroes."}
@@ -312,16 +312,16 @@ export function BlacksmithAnvilMatrixWidget({
         {/* Column 4 Forbidden Taboo Banner */}
         <div
           data-testid="anvil-col4-forbidden-banner"
-          className="flex items-start gap-2.5 rounded-xl border border-rose-500/40 bg-rose-500/15 px-3.5 py-2.5 text-xs text-rose-900 dark:text-rose-100 sm:max-w-sm"
+          className="flex items-start gap-2.5 rounded-xl border-0 sm:border sm:border-rose-500/40 bg-rose-500/15 px-3.5 py-3 text-xs font-sans text-rose-900 dark:text-rose-100 sm:max-w-sm"
         >
           <Ban className="mt-0.5 h-4 w-4 shrink-0 text-rose-400" />
           <div>
-            <div className="font-bold uppercase tracking-wide text-rose-700 dark:text-rose-300">
+            <div className="text-xs sm:text-sm font-heading font-bold uppercase tracking-wide text-rose-700 dark:text-rose-300">
               {locale === "vi"
                 ? "❌ Cấm Tuyệt Đối Đúc Cột 4 (Không Dấu Hệ)"
                 : "❌ Never Forge Column 4 (Unmarked Gear)"}
             </div>
-            <p className="mt-0.5 text-[11px] leading-snug text-rose-900/90 dark:text-rose-900 dark:text-rose-100/90">
+            <p className="mt-1 text-xs sm:text-sm font-sans leading-relaxed text-rose-900/90 dark:text-rose-100/90">
               {locale === "vi"
                 ? "Tốn cùng lượng Thỏi Vàng nhưng mất vĩnh viễn +30% chỉ số Dấu Ấn Phe Phái!"
                 : "Costs the exact same Gold Ingots while permanently losing +30% Faction Mark stats!"}
@@ -338,17 +338,17 @@ export function BlacksmithAnvilMatrixWidget({
             <div
               key={row.id}
               data-testid={`anvil-row-${row.id}`}
-              className="rounded-xl border border-border/75 dark:border-white/10 bg-muted/35 dark:bg-[#0B0E14]/90 p-3.5 sm:p-4"
+              className="rounded-xl border-0 sm:border sm:border-border/75 dark:sm:border-white/10 bg-muted/40 dark:bg-[#0B0E14]/90 p-3.5 sm:p-4"
             >
-              <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between">
                 <div>
-                  <span className="rounded bg-amber-500/15 px-2 py-0.5 font-mono text-[11px] font-bold text-amber-700 dark:text-amber-300">
+                  <span className="inline-flex items-center rounded-md bg-amber-500/15 px-2.5 py-0.5 font-sans text-xs font-bold text-amber-700 dark:text-amber-300">
                     {row.rowLabel[locale]}
                   </span>
-                  <h4 className="mt-1 text-sm sm:text-base font-bold text-foreground dark:text-white">
+                  <h4 className="mt-1.5 text-sm sm:text-base font-heading font-bold text-foreground dark:text-white">
                     {row.setName[locale]}
                   </h4>
-                  <p className="mt-0.5 text-xs text-muted-foreground dark:text-slate-300">
+                  <p className="mt-1 text-sm sm:text-base font-sans leading-relaxed text-muted-foreground dark:text-slate-300">
                     {row.archetype[locale]}
                   </p>
                   <div
@@ -369,11 +369,11 @@ export function BlacksmithAnvilMatrixWidget({
                     })}
                   </div>
                 </div>
-                <div className="flex flex-wrap gap-1.5 text-[11px]">
-                  <span className="rounded-lg border border-amber-500/30 bg-amber-500/10 px-2.5 py-1 font-mono font-semibold text-amber-800 dark:text-amber-200">
+                <div className="flex flex-wrap gap-1.5 text-xs font-sans">
+                  <span className="rounded-lg border-0 bg-amber-500/15 px-2.5 py-1 font-sans font-semibold text-amber-800 dark:text-amber-200">
                     {row.twoPieceBonus[locale]}
                   </span>
-                  <span className="rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-1 font-mono font-semibold text-emerald-800 dark:text-emerald-200">
+                  <span className="rounded-lg border-0 bg-emerald-500/15 px-2.5 py-1 font-sans font-semibold text-emerald-800 dark:text-emerald-200">
                     {row.fourPieceBonus[locale]}
                   </span>
                 </div>
@@ -387,7 +387,7 @@ export function BlacksmithAnvilMatrixWidget({
                     setRoleFilter(row.linkedRole);
                     setFactionFilter("league");
                   }}
-                  className="min-h-11 flex items-center justify-between rounded-lg border border-blue-500/35 bg-blue-500/10 px-3 py-2 text-left text-xs text-blue-900 dark:text-blue-100 transition hover:bg-blue-500/20"
+                  className="min-h-11 min-h-[44px] flex items-center justify-between rounded-lg border border-blue-500/35 bg-blue-500/10 px-3 py-2 text-left text-xs font-sans text-blue-900 dark:text-blue-100 transition hover:bg-blue-500/20"
                 >
                   <span className="inline-flex items-center gap-2 font-bold">
                     <span
@@ -413,7 +413,7 @@ export function BlacksmithAnvilMatrixWidget({
                       {locale === "vi" ? "Cột 1: 🔵 Liên Minh" : "Col 1: 🔵 League"}
                     </span>
                   </span>
-                  <span className="rounded bg-emerald-500/20 px-1.5 py-0.5 font-mono text-[11px] font-bold text-emerald-700 dark:text-emerald-300">
+                  <span className="rounded bg-emerald-500/20 px-1.5 py-0.5 font-mono text-xs font-bold text-emerald-700 dark:text-emerald-300">
                     +30% Stats
                   </span>
                 </button>
@@ -424,7 +424,7 @@ export function BlacksmithAnvilMatrixWidget({
                     setRoleFilter(row.linkedRole);
                     setFactionFilter("horde");
                   }}
-                  className="min-h-11 flex items-center justify-between rounded-lg border border-rose-500/35 bg-rose-500/10 px-3 py-2 text-left text-xs text-rose-900 dark:text-rose-100 transition hover:bg-rose-500/20"
+                  className="min-h-11 min-h-[44px] flex items-center justify-between rounded-lg border border-rose-500/35 bg-rose-500/10 px-3 py-2 text-left text-xs font-sans text-rose-900 dark:text-rose-100 transition hover:bg-rose-500/20"
                 >
                   <span className="inline-flex items-center gap-2 font-bold">
                     <span
@@ -450,7 +450,7 @@ export function BlacksmithAnvilMatrixWidget({
                       {locale === "vi" ? "Cột 2: 🔴 Bộ Lạc" : "Col 2: 🔴 Horde"}
                     </span>
                   </span>
-                  <span className="rounded bg-emerald-500/20 px-1.5 py-0.5 font-mono text-[11px] font-bold text-emerald-700 dark:text-emerald-300">
+                  <span className="rounded bg-emerald-500/20 px-1.5 py-0.5 font-mono text-xs font-bold text-emerald-700 dark:text-emerald-300">
                     +30% Stats
                   </span>
                 </button>
@@ -461,7 +461,7 @@ export function BlacksmithAnvilMatrixWidget({
                     setRoleFilter(row.linkedRole);
                     setFactionFilter("nature");
                   }}
-                  className="min-h-11 flex items-center justify-between rounded-lg border border-emerald-500/35 bg-emerald-500/10 px-3 py-2 text-left text-xs text-emerald-900 dark:text-emerald-100 transition hover:bg-emerald-500/20"
+                  className="min-h-11 min-h-[44px] flex items-center justify-between rounded-lg border border-emerald-500/35 bg-emerald-500/10 px-3 py-2 text-left text-xs font-sans text-emerald-900 dark:text-emerald-100 transition hover:bg-emerald-500/20"
                 >
                   <span className="inline-flex items-center gap-2 font-bold">
                     <span
@@ -489,18 +489,18 @@ export function BlacksmithAnvilMatrixWidget({
                         : "Col 3: 🟢 Nature"}
                     </span>
                   </span>
-                  <span className="rounded bg-emerald-500/20 px-1.5 py-0.5 font-mono text-[11px] font-bold text-emerald-700 dark:text-emerald-300">
+                  <span className="rounded bg-emerald-500/20 px-1.5 py-0.5 font-mono text-xs font-bold text-emerald-700 dark:text-emerald-300">
                     +30% Stats
                   </span>
                 </button>
 
-                <div className="min-h-11 flex items-center justify-between rounded-lg border border-rose-500/40 bg-rose-950/40 px-3 py-2 text-xs text-rose-700 dark:text-rose-300 opacity-85">
+                <div className="min-h-11 min-h-[44px] flex items-center justify-between rounded-lg border border-rose-500/40 bg-rose-950/40 px-3 py-2 text-xs font-sans text-rose-700 dark:text-rose-300 opacity-85">
                   <span className="font-bold line-through">
                     {locale === "vi"
                       ? "Cột 4: ⚪ Không Hệ"
                       : "Col 4: ⚪ Unmarked"}
                   </span>
-                  <span className="rounded bg-rose-500/30 px-1.5 py-0.5 font-mono text-[10px] font-bold uppercase text-rose-800 dark:text-rose-200">
+                  <span className="rounded bg-rose-500/30 px-1.5 py-0.5 font-sans text-xs font-bold uppercase text-rose-800 dark:text-rose-200">
                     {locale === "vi" ? "❌ CẤM ĐÚC" : "❌ FORBIDDEN"}
                   </span>
                 </div>
@@ -510,31 +510,31 @@ export function BlacksmithAnvilMatrixWidget({
         })}
       </div>
 
-      {/* 24-Hero BiS Gear Explorer */}
-      <div className="mt-6 rounded-xl border border-border/75 dark:border-white/10 bg-muted/35 dark:bg-[#0B0E14]/90 p-4 sm:p-5">
+      {/* 24-Hero BiS Gear Explorer — Single-Layer Containment on Mobile */}
+      <div className="mt-6 border-0 bg-transparent p-0 sm:rounded-xl sm:border sm:border-border/75 dark:sm:border-white/10 sm:bg-muted/35 dark:sm:bg-[#0B0E14]/90 sm:p-5">
         <div className="flex flex-col gap-3 border-b border-border/75 dark:border-white/10 pb-4 lg:flex-row lg:items-center lg:justify-between">
           <div>
             <div className="flex items-center gap-2">
               <Sparkles className="h-4 w-4 text-amber-400" />
-              <h4 className="text-sm sm:text-base font-bold text-foreground dark:text-white">
+              <h4 className="text-base sm:text-lg font-heading font-bold text-foreground dark:text-white">
                 {locale === "vi"
                   ? "Tra Cứu Phối Đồ Vàng Chuẩn BiS Cho 24 Tướng Chủ Lực (3 Phe)"
                   : "24-Hero Best-in-Slot (BiS) Golden Gear Explorer"}
               </h4>
               {!hasProAccess && (
-                <span className="inline-flex items-center gap-1 rounded bg-amber-500/20 px-2 py-0.5 text-[10px] font-bold text-amber-700 dark:text-amber-300">
+                <span className="inline-flex items-center gap-1 rounded-md bg-amber-500/20 px-2 py-0.5 font-sans text-xs font-bold text-amber-700 dark:text-amber-300">
                   <Lock className="h-3 w-3" /> PRO
                 </span>
               )}
             </div>
-            <p className="mt-0.5 text-xs text-muted-foreground dark:text-slate-400">
+            <p className="mt-0.5 text-xs sm:text-sm font-sans text-muted-foreground dark:text-slate-400">
               {locale === "vi"
                 ? `Hiển thị ${filteredHeroRows.length} / ${allHeroRows.length} hồ sơ tướng SSoT (6 Tank • 8 Carry • 10 Support)`
                 : `Showing ${filteredHeroRows.length} / ${allHeroRows.length} SSoT hero profiles (6 Tank • 8 Carry • 10 Support)`}
             </p>
           </div>
 
-          {/* Search Input */}
+          {/* Search Input — 16px (text-base) on mobile to prevent iOS Safari auto-zoom */}
           <div className="relative w-full lg:w-64">
             <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground dark:text-slate-400" />
             <input
@@ -547,7 +547,7 @@ export function BlacksmithAnvilMatrixWidget({
                   ? "Tìm nhanh trong 24 tướng (VD: Ngộ Không, Wukong, Bậc Thầy Thú, Beastmaster, Bộ Kỵ Sĩ, Huyết Titan, Bộ Đồ Quyết Đấu)..."
                   : "Search across 24 heroes (e.g., Wukong, Beastmaster, Tidecaller, Paragon, Knight Set, Blood of the Titan, Duelist's Set)..."
               }
-              className="min-h-11 w-full rounded-xl border border-border/80 dark:border-white/15 bg-background/85 dark:bg-black/40 pl-9 pr-3 text-xs text-foreground dark:text-white placeholder:text-muted-foreground focus:border-amber-400 focus:outline-none"
+              className="h-11 min-h-11 min-h-[44px] w-full rounded-xl border border-border/80 dark:border-white/15 bg-background/85 dark:bg-black/40 pl-9 pr-3 text-base sm:text-sm font-sans text-foreground dark:text-white placeholder:text-muted-foreground focus:border-amber-400 focus:outline-none"
             />
           </div>
         </div>
@@ -583,7 +583,7 @@ export function BlacksmithAnvilMatrixWidget({
                 type="button"
                 data-testid={`bis-role-filter-${pill.id}`}
                 onClick={() => setRoleFilter(pill.id)}
-                className={`min-h-11 rounded-lg border px-3 py-1.5 text-xs font-bold transition ${
+                className={`min-h-11 min-h-[44px] rounded-lg border px-3 py-1.5 text-xs font-sans font-bold transition ${
                   roleFilter === pill.id
                     ? "border-amber-400/60 bg-amber-500/20 text-amber-800 dark:text-amber-200"
                     : "border-border/75 dark:border-white/10 bg-muted/30 dark:bg-white/[0.03] text-muted-foreground dark:text-slate-300 hover:bg-muted/60 dark:hover:bg-white/[0.07]"
@@ -608,7 +608,7 @@ export function BlacksmithAnvilMatrixWidget({
                 type="button"
                 data-testid={`bis-faction-filter-${pill.id}`}
                 onClick={() => setFactionFilter(pill.id)}
-                className={`min-h-11 rounded-lg border px-2.5 py-1.5 text-xs font-semibold transition ${
+                className={`min-h-11 min-h-[44px] rounded-lg border px-2.5 py-1.5 text-xs font-sans font-semibold transition ${
                   factionFilter === pill.id
                     ? "border-amber-400/60 bg-amber-500/20 text-amber-800 dark:text-amber-200"
                     : "border-border/75 dark:border-white/10 bg-muted/30 dark:bg-white/[0.03] text-muted-foreground dark:text-slate-300 hover:bg-muted/60 dark:hover:bg-white/[0.07]"
@@ -633,7 +633,7 @@ export function BlacksmithAnvilMatrixWidget({
               <div
                 key={row.index}
                 data-testid={`bis-hero-row-${row.index}`}
-                className="rounded-xl border border-border/75 dark:border-white/10 bg-muted/25 dark:bg-white/[0.02] p-3.5 transition hover:border-amber-500/30"
+                className="rounded-xl border border-border/75 dark:border-white/10 bg-muted/25 dark:bg-white/[0.02] p-3.5 sm:p-4 transition hover:border-amber-500/30"
               >
                 <div className="flex items-start justify-between gap-2">
                   <div className="flex items-center gap-2.5">
@@ -645,7 +645,7 @@ export function BlacksmithAnvilMatrixWidget({
                         <GameAssetFrame asset={heroAsset} size="sm" />
                       </span>
                     )}
-                    <div className="text-xs sm:text-sm font-bold text-foreground dark:text-white">
+                    <div className="text-sm sm:text-base font-heading font-bold text-foreground dark:text-white">
                       <RichGuideText
                         text={row.heroAndFaction}
                         variant="inline"
@@ -653,7 +653,7 @@ export function BlacksmithAnvilMatrixWidget({
                       />
                     </div>
                   </div>
-                  <span className="shrink-0 rounded bg-muted/70 dark:bg-white/10 px-2 py-0.5 font-mono text-[10px] uppercase text-muted-foreground dark:text-slate-300">
+                  <span className="shrink-0 rounded-md bg-muted/70 dark:bg-white/10 px-2 py-0.5 font-sans text-xs font-semibold uppercase text-muted-foreground dark:text-slate-300">
                     {row.role === "tank" ? (
                       <span className="inline-flex items-center gap-1 text-amber-700 dark:text-amber-300">
                         <Shield className="h-3 w-3" /> Tank
@@ -670,7 +670,7 @@ export function BlacksmithAnvilMatrixWidget({
                   </span>
                 </div>
 
-                <div className="mt-2 rounded-lg border border-amber-500/25 bg-amber-500/10 px-2.5 py-1.5 text-xs font-semibold text-amber-800 dark:text-amber-200">
+                <div className="mt-2.5 rounded-lg border-0 bg-amber-500/10 px-3 py-2 text-xs sm:text-sm font-sans font-semibold text-amber-800 dark:text-amber-200">
                   <span className="inline-flex items-center gap-1.5">
                     {bisSetAsset && (
                       <span
@@ -696,7 +696,7 @@ export function BlacksmithAnvilMatrixWidget({
                   </span>
                 </div>
 
-                <div className="mt-1.5 text-[11px] text-muted-foreground dark:text-slate-300">
+                <div className="mt-2 text-xs sm:text-sm font-sans text-muted-foreground dark:text-slate-300">
                   <span className="font-semibold text-muted-foreground dark:text-slate-400">
                     {locale === "vi" ? "Phương án phụ: " : "Alt Set: "}
                   </span>
@@ -710,7 +710,7 @@ export function BlacksmithAnvilMatrixWidget({
                 <RichGuideText
                   text={row.rationale}
                   accentColor="amber"
-                  className="mt-2 border-t border-border/75 dark:border-white/10 pt-2 text-xs leading-relaxed text-muted-foreground dark:text-slate-300"
+                  className="mt-2.5 border-t border-border/60 dark:border-white/10 pt-2.5 text-sm sm:text-base font-sans leading-relaxed text-foreground/90 dark:text-slate-200"
                 />
               </div>
             );

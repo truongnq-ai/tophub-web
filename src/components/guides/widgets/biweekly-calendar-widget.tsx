@@ -662,7 +662,7 @@ export function BiweeklyCalendarWidget({
     });
   }, [doubleDipItems, tierFilter, searchQuery]);
 
-  // KeepARTICLE_3_1_BIWEEKLY_ROTATION referenced for SSoT traceability
+  // Keep ARTICLE_3_1_BIWEEKLY_ROTATION referenced for SSoT traceability
   const _ssot31Slug = ARTICLE_3_1_BIWEEKLY_ROTATION.slug;
 
   const localDailyReset = convertUtcHourMinuteToLocal(
@@ -702,18 +702,18 @@ export function BiweeklyCalendarWidget({
       ref={containerRef}
       data-testid="widget-biweekly-calendar"
       data-ssot-ref={_ssot31Slug}
-      className="my-5 rounded-2xl border border-amber-500/35 bg-card/85 dark:bg-slate-950/80 p-4 sm:p-6 space-y-5 shadow-lg shadow-amber-500/5"
+      className="my-5 rounded-2xl border border-amber-500/35 bg-card/85 dark:bg-slate-950/80 p-3.5 sm:p-6 space-y-5 shadow-lg shadow-amber-500/5"
     >
       {/* Header */}
       <div className="space-y-1 pb-4 border-b border-border/60">
-        <div className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 px-2.5 py-0.5 text-[11px] font-mono font-bold text-amber-600 dark:text-amber-400">
-          <Calendar className="h-3 w-3" />
+        <div className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 px-2.5 py-0.5 text-xs font-sans font-bold text-amber-600 dark:text-amber-400">
+          <Calendar className="h-3.5 w-3.5" />
           <span>{copy.badge}</span>
         </div>
         <h3 className="font-heading font-black text-lg sm:text-xl text-foreground">
           {copy.title}
         </h3>
-        <p className="text-xs sm:text-sm text-muted-foreground">
+        <p className="text-sm text-muted-foreground leading-relaxed">
           {copy.subtitle}
         </p>
       </div>
@@ -721,10 +721,10 @@ export function BiweeklyCalendarWidget({
       {/* SSR-Safe Server Time (UTC) & Browser Local Timezone Reference Bar */}
       <div
         data-testid="calendar-timezone-bar"
-        className="rounded-xl border border-amber-500/30 bg-amber-500/5 px-3.5 py-2.5 text-xs space-y-2"
+        className="rounded-xl border border-amber-500/30 bg-amber-500/5 px-3.5 py-3 text-xs space-y-2.5"
       >
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <div className="flex items-center gap-2 font-mono font-bold text-amber-700 dark:text-amber-300">
+          <div className="flex items-center gap-2 font-sans font-bold text-amber-700 dark:text-amber-300">
             <Clock className="h-3.5 w-3.5 shrink-0 text-amber-500" />
             <span>
               {locale === "vi"
@@ -732,7 +732,7 @@ export function BiweeklyCalendarWidget({
                 : "Server Time (UTC) & Your Local Timezone Reference:"}
             </span>
           </div>
-          <div className="flex flex-wrap items-center gap-1.5 font-mono text-[11px]">
+          <div className="flex flex-wrap items-center gap-1.5 font-mono text-xs">
             {mounted && (
               <span className="rounded bg-amber-500/15 border border-amber-500/30 px-2 py-0.5 font-bold text-amber-700 dark:text-amber-300">
                 {locale === "vi" ? "Giờ Server:" : "Server:"} {formatUtcClock(now)}
@@ -743,32 +743,32 @@ export function BiweeklyCalendarWidget({
             </span>
           </div>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-[11px] font-mono text-muted-foreground">
-          <div className="rounded-lg border border-border/50 bg-background/60 px-2.5 py-1.5">
-            <span className="font-bold text-foreground">00:00 UTC</span>{" "}
+        <div className="rounded-lg border border-border/50 bg-background/60 divide-y sm:divide-y-0 sm:divide-x divide-border/50 grid grid-cols-1 sm:grid-cols-3 text-xs text-muted-foreground">
+          <div className="px-3 py-2">
+            <span className="font-mono font-bold text-foreground">00:00 UTC</span>{" "}
             <span>
               ({locale === "vi" ? "Reset Ngày/Shop" : "Daily/Shop Reset"}) ➔{" "}
-              <strong className="text-amber-600 dark:text-amber-400">
+              <strong className="font-mono text-amber-600 dark:text-amber-400">
                 {localDailyReset} ({tzInfo.offsetLabel})
               </strong>
             </span>
           </div>
-          <div className="rounded-lg border border-border/50 bg-background/60 px-2.5 py-1.5">
-            <span className="font-bold text-foreground">02:00 UTC</span>{" "}
+          <div className="px-3 py-2">
+            <span className="font-mono font-bold text-foreground">02:00 UTC</span>{" "}
             <span>
               ({locale === "vi" ? "Mở Lịch Event T2" : "Mon Event Start"}) ➔{" "}
-              <strong className="text-amber-600 dark:text-amber-400">
+              <strong className="font-mono text-amber-600 dark:text-amber-400">
                 {localCalendarReset} ({tzInfo.offsetLabel})
               </strong>
             </span>
           </div>
-          <div className="rounded-lg border border-border/50 bg-background/60 px-2.5 py-1.5">
-            <span className="font-bold text-foreground">
+          <div className="px-3 py-2">
+            <span className="font-mono font-bold text-foreground">
               06:00 / 10:00 / 14:00 UTC
             </span>{" "}
             <span>
               ({locale === "vi" ? "Ca 4h" : "4h Shifts"}) ➔{" "}
-              <strong className="text-amber-600 dark:text-amber-400">
+              <strong className="font-mono text-amber-600 dark:text-amber-400">
                 {localWindow1} • {localWindow2} • {localWindow3}
               </strong>
             </span>
@@ -816,22 +816,22 @@ export function BiweeklyCalendarWidget({
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
             <div className="rounded-xl border border-border/60 bg-background/80 p-3.5 space-y-1.5">
-              <div className="text-xs font-extrabold text-foreground">
+              <div className="text-sm font-extrabold text-foreground">
                 {copy.phase1BackboneTitle}
               </div>
-              <p className="text-xs text-muted-foreground leading-relaxed">
+              <p className="text-sm text-foreground/90 leading-relaxed">
                 {copy.phase1BackboneDesc}
               </p>
             </div>
 
             <div className="rounded-xl border border-border/60 bg-background/80 p-3.5 space-y-2">
-              <div className="text-xs font-extrabold text-foreground">
+              <div className="text-sm font-extrabold text-foreground">
                 {copy.phase1SatellitesTitle}
               </div>
-              <ul className="space-y-1.5 text-xs text-muted-foreground">
+              <ul className="space-y-1.5 text-sm text-foreground/90 leading-relaxed">
                 {copy.phase1Satellites.map((sat, idx) => (
                   <li key={idx} className="flex items-start gap-2">
-                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
                     <span>{sat}</span>
                   </li>
                 ))}
@@ -839,11 +839,11 @@ export function BiweeklyCalendarWidget({
             </div>
           </div>
 
-          <div className="rounded-xl border border-amber-500/35 bg-amber-500/10 p-3.5 space-y-1">
-            <div className="text-xs font-extrabold text-amber-700 dark:text-amber-300">
+          <div className="rounded-xl border border-amber-500/35 bg-amber-500/10 p-3.5 space-y-1.5">
+            <div className="text-sm font-extrabold text-amber-700 dark:text-amber-300">
               {copy.phase1StrategyTitle}
             </div>
-            <p className="text-xs text-muted-foreground leading-relaxed">
+            <p className="text-sm text-foreground/90 leading-relaxed">
               {copy.phase1StrategyDesc}
             </p>
           </div>
@@ -868,13 +868,13 @@ export function BiweeklyCalendarWidget({
                   aria-pressed={isSelected}
                   onClick={() => setSelectedDay(day.dayNumber)}
                   className={cn(
-                    "snap-start shrink-0 min-h-[44px] min-w-[88px] sm:min-w-[105px] px-3 py-2 rounded-xl border text-left transition-all flex flex-col justify-between cursor-pointer",
+                    "snap-start shrink-0 min-h-[44px] min-w-[100px] sm:min-w-[115px] px-3 py-2 rounded-xl border text-left transition-all flex flex-col justify-between cursor-pointer",
                     isSelected
                       ? "border-amber-500 bg-amber-500/15 text-amber-700 dark:text-amber-300 shadow-sm ring-1 ring-amber-500/40"
                       : "border-border/60 bg-background/70 text-muted-foreground hover:text-foreground hover:bg-muted/40"
                   )}
                 >
-                  <div className="flex items-center justify-between gap-1 w-full">
+                  <div className="flex items-center justify-between gap-1.5 w-full">
                     <span className="inline-flex items-center gap-1.5 font-mono text-xs font-black">
                       {(() => {
                         const dayAssetId =
@@ -898,12 +898,12 @@ export function BiweeklyCalendarWidget({
                       {day.shortLabel}
                     </span>
                     {isToday && (
-                      <span className="rounded bg-amber-500 px-1.5 py-0.2 text-[9px] font-mono font-black text-slate-950">
+                      <span className="rounded bg-amber-500 px-1.5 py-0.5 text-xs font-sans font-black text-slate-950">
                         {copy.todayBadge}
                       </span>
                     )}
                   </div>
-                  <span className="text-[11px] font-medium truncate w-full mt-0.5">
+                  <span className="text-xs font-medium truncate w-full mt-1">
                     {day.stageTitle.replace(/^🔥\s*/, "")}
                   </span>
                 </button>
@@ -911,14 +911,14 @@ export function BiweeklyCalendarWidget({
             })}
           </div>
 
-          {/* Active Day Detail Panel */}
+          {/* Active Day Detail Panel (Single-Layer Containment on Mobile) */}
           <div
             data-testid="calendar-active-day-panel"
-            className="rounded-2xl border border-border/80 bg-background/85 p-4 sm:p-5 space-y-4"
+            className="rounded-xl border-0 bg-muted/30 p-3.5 sm:rounded-2xl sm:border sm:border-border/80 sm:bg-background/85 sm:p-5 space-y-4"
           >
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-border/50">
               <div>
-                <div className="text-xs font-mono font-bold text-amber-600 dark:text-amber-400">
+                <div className="text-xs font-sans font-bold text-amber-600 dark:text-amber-400">
                   {activeDayEntry.fullLabel} • {activeDayEntry.guildRush}
                 </div>
                 <h4 className="font-heading font-black text-base sm:text-lg text-foreground mt-1 flex items-center gap-2.5">
@@ -944,7 +944,7 @@ export function BiweeklyCalendarWidget({
                 </h4>
               </div>
 
-              <div className="inline-flex items-center gap-1.5 rounded-xl border border-amber-500/40 bg-amber-500/10 px-3 py-1.5 text-xs font-mono font-bold text-amber-700 dark:text-amber-300 self-start sm:self-center">
+              <div className="inline-flex items-center gap-1.5 rounded-xl border border-amber-500/40 bg-amber-500/10 px-3 py-1.5 text-xs font-sans font-bold text-amber-700 dark:text-amber-300 self-start sm:self-center">
                 <Clock className="h-3.5 w-3.5 shrink-0 text-amber-500" />
                 <span>{activeDayEntry.goldenWindow}</span>
               </div>
@@ -960,7 +960,7 @@ export function BiweeklyCalendarWidget({
                 <RichGuideText
                   text={activeDayEntry.scoringDetail}
                   accentColor="emerald"
-                  className="text-xs text-foreground/90 leading-relaxed"
+                  className="text-sm text-foreground/90 leading-relaxed"
                 />
               </div>
 
@@ -973,7 +973,7 @@ export function BiweeklyCalendarWidget({
                 <RichGuideText
                   text={activeDayEntry.tabooWarning}
                   accentColor="rose"
-                  className="text-xs text-foreground/90 leading-relaxed"
+                  className="text-sm text-foreground/90 leading-relaxed"
                 />
               </div>
             </div>
@@ -995,21 +995,21 @@ export function BiweeklyCalendarWidget({
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder={copy.doubleDipSearchPlaceholder}
                 aria-label={copy.doubleDipSearchPlaceholder}
-                className="w-full min-h-[44px] rounded-xl border border-border/80 bg-background/90 pl-10 pr-9 py-2 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-amber-500/70"
+                className="w-full min-h-[44px] rounded-xl border border-border/80 bg-background/90 pl-10 pr-11 py-2 text-base sm:text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-amber-500/70"
               />
               {searchQuery && (
                 <button
                   type="button"
                   onClick={() => setSearchQuery("")}
                   aria-label="Clear item search"
-                  className="absolute right-2.5 top-1/2 -translate-y-1/2 p-1 text-muted-foreground hover:text-foreground cursor-pointer"
+                  className="absolute right-1.5 top-1/2 -translate-y-1/2 inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg text-muted-foreground hover:text-foreground cursor-pointer"
                 >
                   <X className="h-4 w-4" />
                 </button>
               )}
             </div>
 
-            <div className="flex flex-wrap items-center gap-1.5">
+            <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1 snap-x sm:flex-wrap">
               {(
                 ["all", "300", "200", "immediate"] as DoubleDipTierFilter[]
               ).map((tf) => {
@@ -1022,7 +1022,7 @@ export function BiweeklyCalendarWidget({
                     aria-pressed={isActive}
                     onClick={() => setTierFilter(tf)}
                     className={cn(
-                      "min-h-[44px] px-3 rounded-xl border text-xs font-bold transition-all cursor-pointer",
+                      "snap-start shrink-0 min-h-[44px] px-3 rounded-xl border text-xs font-bold transition-all cursor-pointer",
                       isActive
                         ? "border-amber-500 bg-amber-500/15 text-amber-700 dark:text-amber-300 shadow-sm"
                         : "border-border/60 bg-background/60 text-muted-foreground hover:text-foreground"
@@ -1040,10 +1040,10 @@ export function BiweeklyCalendarWidget({
             {filteredDoubleDipItems.map((item) => (
               <div
                 key={item.index}
-                className="rounded-xl border border-border/70 bg-background/80 p-4 space-y-2.5"
+                className="rounded-xl border border-border/70 bg-background/80 p-3.5 sm:p-4 space-y-3"
               >
-                <div className="flex items-start justify-between gap-2">
-                  <h4 className="font-heading font-extrabold text-sm text-foreground flex items-center gap-2.5">
+                <div className="flex flex-wrap items-start justify-between gap-2">
+                  <h4 className="font-heading font-extrabold text-sm sm:text-base text-foreground flex items-center gap-2.5">
                     {(() => {
                       const ddAssetId = DOUBLE_DIP_ITEM_ASSET_ID[item.index];
                       const ddAsset = ddAssetId ? getAssetById(ddAssetId) : undefined;
@@ -1078,7 +1078,7 @@ export function BiweeklyCalendarWidget({
                   </h4>
                   <span
                     className={cn(
-                      "shrink-0 rounded-lg px-2.5 py-0.5 font-mono text-[11px] font-extrabold border",
+                      "shrink-0 rounded-lg px-2.5 py-0.5 font-mono text-xs font-extrabold border",
                       item.isImmediateSpend
                         ? "border-sky-500/40 bg-sky-500/15 text-sky-600 dark:text-sky-300"
                         : "border-amber-500/40 bg-amber-500/15 text-amber-600 dark:text-amber-300"
@@ -1088,9 +1088,9 @@ export function BiweeklyCalendarWidget({
                   </span>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 text-xs">
-                  <div className="rounded-lg border border-amber-500/30 bg-amber-500/10 p-2.5">
-                    <div className="font-bold text-amber-700 dark:text-amber-300 mb-0.5 flex items-center gap-1">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 text-sm">
+                  <div className="rounded-lg border border-amber-500/30 bg-amber-500/10 p-3">
+                    <div className="text-xs font-bold text-amber-700 dark:text-amber-300 mb-1 flex items-center gap-1">
                       <Flame className="h-3.5 w-3.5 shrink-0" />
                       <span>{copy.tier300Label}</span>
                     </div>
@@ -1102,8 +1102,8 @@ export function BiweeklyCalendarWidget({
                   </div>
 
                   {tierFilter !== "300" && (
-                    <div className="rounded-lg border border-emerald-500/30 bg-emerald-500/5 p-2.5">
-                      <div className="font-bold text-emerald-700 dark:text-emerald-300 mb-0.5">
+                    <div className="rounded-lg border border-emerald-500/30 bg-emerald-500/5 p-3">
+                      <div className="text-xs font-bold text-emerald-700 dark:text-emerald-300 mb-1">
                         {copy.tier200Label}
                       </div>
                       <RichGuideText
@@ -1114,8 +1114,8 @@ export function BiweeklyCalendarWidget({
                     </div>
                   )}
 
-                  <div className="rounded-lg border border-border/60 bg-muted/30 p-2.5">
-                    <div className="font-bold text-muted-foreground mb-0.5">
+                  <div className="rounded-lg border border-border/60 bg-muted/30 p-3">
+                    <div className="text-xs font-bold text-muted-foreground mb-1">
                       {copy.tier100Label}
                     </div>
                     <RichGuideText
@@ -1125,8 +1125,8 @@ export function BiweeklyCalendarWidget({
                     />
                   </div>
 
-                  <div className="rounded-lg border border-rose-500/30 bg-rose-500/10 p-2.5">
-                    <div className="font-bold text-rose-600 dark:text-rose-300 mb-0.5">
+                  <div className="rounded-lg border border-rose-500/30 bg-rose-500/10 p-3">
+                    <div className="text-xs font-bold text-rose-600 dark:text-rose-300 mb-1">
                       {copy.tier0Label}
                     </div>
                     <RichGuideText

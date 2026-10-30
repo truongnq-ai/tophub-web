@@ -439,18 +439,18 @@ export function AccountTrapsTriageWidget({
     <div
       ref={containerRef}
       data-testid="widget-account-traps-triage"
-      className="relative my-5 rounded-2xl border border-rose-500/35 bg-card/90 dark:bg-slate-950/85 p-4 sm:p-6 space-y-5 shadow-lg shadow-rose-500/5"
+      className="relative my-5 rounded-none sm:rounded-2xl border-y sm:border border-rose-500/35 bg-transparent sm:bg-card/90 dark:sm:bg-slate-950/85 px-0 py-3 sm:p-6 space-y-5 shadow-none sm:shadow-lg sm:shadow-rose-500/5"
     >
       {/* Header */}
       <div className="space-y-1.5 pb-4 border-b border-border/60">
-        <div className="inline-flex items-center gap-1.5 rounded-full bg-rose-500/15 border border-rose-500/30 px-2.5 py-0.5 text-[11px] font-mono font-bold text-rose-600 dark:text-rose-400">
+        <div className="inline-flex items-center gap-1.5 rounded-full bg-rose-500/15 border-0 px-3 py-1 text-xs font-sans font-bold text-rose-600 dark:text-rose-400">
           <Stethoscope className="h-3.5 w-3.5" />
           <span>{copy.badge}</span>
         </div>
         <h3 className="font-heading font-black text-lg sm:text-xl text-foreground">
           {copy.title}
         </h3>
-        <p className="text-xs sm:text-sm text-muted-foreground">
+        <p className="text-sm sm:text-base text-muted-foreground">
           {copy.subtitle}
         </p>
       </div>
@@ -459,12 +459,12 @@ export function AccountTrapsTriageWidget({
       <div
         data-testid="trap-triage-status-banner"
         className={cn(
-          "flex flex-wrap items-center justify-between gap-3 rounded-xl border p-3.5 text-xs sm:text-sm font-medium transition-colors",
+          "flex flex-wrap items-center justify-between gap-3 rounded-xl border-0 sm:border p-3.5 text-sm font-medium transition-colors",
           afflictedCount === 0
-            ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300"
+            ? "sm:border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300"
             : afflictedCount <= 2
-              ? "border-amber-500/40 bg-amber-500/10 text-amber-700 dark:text-amber-300"
-              : "border-rose-500/45 bg-rose-500/15 text-rose-700 dark:text-rose-300"
+              ? "sm:border-amber-500/40 bg-amber-500/10 text-amber-700 dark:text-amber-300"
+              : "sm:border-rose-500/45 bg-rose-500/15 text-rose-700 dark:text-rose-300"
         )}
       >
         <div className="flex items-center gap-2">
@@ -487,7 +487,7 @@ export function AccountTrapsTriageWidget({
             type="button"
             data-testid="trap-reset-triage"
             onClick={() => setExpandedTraps(new Set())}
-            className="inline-flex items-center gap-1 min-h-[36px] px-3 py-1 rounded-lg border border-current/30 bg-background/60 text-xs font-bold hover:bg-background cursor-pointer"
+            className="inline-flex items-center gap-1.5 min-h-[44px] px-3.5 py-2 rounded-xl border-0 bg-background/80 text-xs font-sans font-bold hover:bg-background cursor-pointer"
           >
             <RefreshCcw className="h-3.5 w-3.5" />
             <span>{copy.resetTriageBtn}</span>
@@ -506,21 +506,21 @@ export function AccountTrapsTriageWidget({
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder={copy.searchPlaceholder}
             aria-label={copy.searchPlaceholder}
-            className="w-full min-h-[44px] rounded-xl border border-border/80 bg-background/90 pl-10 pr-10 py-2 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-rose-500/70"
+            className="w-full min-h-[44px] rounded-xl border border-border/80 bg-background/90 pl-10 pr-11 py-2 text-base sm:text-sm font-sans text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-rose-500/70"
           />
           {searchQuery && (
             <button
               type="button"
               onClick={() => setSearchQuery("")}
               aria-label={copy.clearSearch}
-              className="absolute right-2.5 top-1/2 -translate-y-1/2 p-1.5 rounded-lg text-muted-foreground hover:text-foreground cursor-pointer"
+              className="absolute right-1 top-1/2 -translate-y-1/2 min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-lg text-muted-foreground hover:text-foreground cursor-pointer"
             >
               <X className="h-4 w-4" />
             </button>
           )}
         </div>
 
-        <div role="tablist" className="flex flex-wrap items-center gap-2">
+        <div role="tablist" className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 snap-x sm:flex-wrap">
           {(
             [
               "all",
@@ -540,7 +540,7 @@ export function AccountTrapsTriageWidget({
                 data-testid={`trap-group-filter-${grp}`}
                 onClick={() => setGroupFilter(grp)}
                 className={cn(
-                  "min-h-[44px] px-3.5 py-2 rounded-xl border text-xs font-heading font-bold transition-all cursor-pointer inline-flex items-center gap-2",
+                  "snap-start shrink-0 min-h-[44px] px-3.5 py-2 rounded-xl border text-xs font-heading font-bold transition-all cursor-pointer inline-flex items-center gap-2",
                   isActive
                     ? "border-rose-500 bg-rose-500/15 text-rose-700 dark:text-rose-300 shadow-xs"
                     : "border-border/70 bg-background/70 text-muted-foreground hover:text-foreground hover:border-rose-500/40"
@@ -579,7 +579,7 @@ export function AccountTrapsTriageWidget({
 
       {/* 10 Trap Cards Grid */}
       {filteredTraps.length === 0 ? (
-        <div className="rounded-xl border border-border/60 bg-background/50 p-6 text-center text-xs sm:text-sm text-muted-foreground">
+        <div className="rounded-xl border border-border/60 bg-background/50 p-6 text-center text-sm text-muted-foreground">
           {copy.emptyState}
         </div>
       ) : (
@@ -597,26 +597,26 @@ export function AccountTrapsTriageWidget({
                     : "border-border/75 bg-background/75 hover:border-rose-500/40"
                 )}
               >
-                <div className="p-4 space-y-3">
+                <div className="p-3.5 sm:p-4 space-y-3">
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <div className="flex flex-wrap items-center gap-2">
-                      <span className="inline-flex items-center rounded-lg bg-rose-500/15 border border-rose-500/35 px-2.5 py-0.5 font-mono text-xs font-black text-rose-600 dark:text-rose-400">
+                      <span className="inline-flex items-center rounded-lg bg-rose-500/15 border-0 px-2.5 py-1 font-mono text-xs font-black text-rose-600 dark:text-rose-400">
                         {trap.badge}
                       </span>
                       <span
                         className={cn(
-                          "inline-flex items-center rounded-lg border px-2.5 py-0.5 text-[11px] font-semibold",
+                          "inline-flex items-center rounded-lg border-0 px-2.5 py-1 text-xs font-sans font-semibold",
                           trap.severityTone === "rose"
-                            ? "border-rose-500/40 bg-rose-500/10 text-rose-600 dark:text-rose-300"
+                            ? "bg-rose-500/15 text-rose-600 dark:text-rose-300"
                             : trap.severityTone === "emerald"
-                              ? "border-emerald-500/40 bg-emerald-500/10 text-emerald-600 dark:text-emerald-300"
-                              : "border-amber-500/40 bg-amber-500/10 text-amber-600 dark:text-amber-300"
+                              ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-300"
+                              : "bg-amber-500/15 text-amber-600 dark:text-amber-300"
                         )}
                       >
                         {trap.severity}
                       </span>
                     </div>
-                    <span className="text-[11px] font-mono text-muted-foreground">
+                    <span className="text-xs font-sans font-medium text-muted-foreground">
                       {copy.groups[trap.systemGroup]}
                     </span>
                   </div>
@@ -643,7 +643,7 @@ export function AccountTrapsTriageWidget({
                         </div>
                       );
                     })()}
-                    <h4 className="font-heading font-bold text-sm sm:text-base text-foreground leading-snug flex-1">
+                    <h4 className="font-heading font-bold text-base sm:text-lg text-foreground leading-snug flex-1">
                       <RichGuideText
                         text={trap.title}
                         variant="inline"
@@ -651,7 +651,7 @@ export function AccountTrapsTriageWidget({
                         locale={locale}
                       />
                       {TRAP_ENTITY_FOCUS_BY_NUMBER[trap.trapNumber]?.[locale] && (
-                        <span className="mt-1.5 block text-[11px] font-mono font-semibold text-muted-foreground">
+                        <span className="mt-1.5 block text-xs font-sans font-semibold text-muted-foreground">
                           🎯 {TRAP_ENTITY_FOCUS_BY_NUMBER[trap.trapNumber][locale]}
                         </span>
                       )}
@@ -659,8 +659,8 @@ export function AccountTrapsTriageWidget({
                   </div>
 
                   {/* Symptom Preview */}
-                  <div className="rounded-xl border border-border/60 bg-muted/30 p-3 space-y-1.5">
-                    <p className="text-[11px] font-heading font-bold uppercase tracking-wider text-rose-600 dark:text-rose-400">
+                  <div className="rounded-xl border-0 bg-muted/40 p-3.5 space-y-1.5">
+                    <p className="text-xs font-heading font-bold uppercase tracking-wider text-rose-600 dark:text-rose-400">
                       {copy.symptomHeading}
                     </p>
                     {trap.symptoms.map((symp, sIdx) => (
@@ -669,7 +669,7 @@ export function AccountTrapsTriageWidget({
                         text={symp}
                         accentColor="rose"
                         locale={locale}
-                        className="text-xs sm:text-sm text-foreground/90 leading-relaxed"
+                        className="text-sm sm:text-base text-foreground/90 leading-relaxed"
                       />
                     ))}
                   </div>
@@ -682,7 +682,7 @@ export function AccountTrapsTriageWidget({
                       aria-expanded={isExpanded}
                       onClick={() => toggleTrap(trap.trapNumber)}
                       className={cn(
-                        "inline-flex items-center justify-center gap-2 min-h-[44px] w-full sm:w-auto px-4 py-2 rounded-xl border text-xs font-heading font-bold transition-all cursor-pointer",
+                        "inline-flex items-center justify-center gap-2 min-h-[44px] w-full sm:w-auto px-4 py-2 rounded-xl border text-xs sm:text-sm font-heading font-bold transition-all cursor-pointer",
                         isExpanded
                           ? "border-emerald-500 bg-emerald-500/15 text-emerald-700 dark:text-emerald-300"
                           : "border-rose-500/50 bg-rose-500/10 text-rose-700 dark:text-rose-300 hover:bg-rose-500/20"
@@ -706,25 +706,25 @@ export function AccountTrapsTriageWidget({
                 {isExpanded && (
                   <div
                     data-testid={`trap-remedy-panel-${trap.trapNumber}`}
-                    className="border-t border-border/70 bg-card/95 dark:bg-slate-900/90 p-4 sm:p-5 grid grid-cols-1 lg:grid-cols-2 gap-4"
+                    className="border-t border-border/70 bg-transparent sm:bg-card/95 dark:sm:bg-slate-900/90 p-3.5 sm:p-5 grid grid-cols-1 lg:grid-cols-2 gap-3.5 sm:gap-4"
                   >
                     {/* Left Column: Why it ruins + Meta Standard Rule */}
                     <div className="space-y-3">
-                      <div className="rounded-xl border border-amber-500/30 bg-amber-500/5 p-3.5 space-y-1.5">
-                        <p className="text-xs font-heading font-bold text-amber-600 dark:text-amber-400">
+                      <div className="rounded-xl border-0 bg-amber-500/10 p-3.5 space-y-1.5">
+                        <p className="text-xs sm:text-sm font-heading font-bold text-amber-600 dark:text-amber-400">
                           {copy.whyItRuinsHeading}
                         </p>
                         <RichGuideText
                           text={trap.whyItRuins}
                           accentColor="amber"
                           locale={locale}
-                          className="text-xs sm:text-sm text-foreground/90 leading-relaxed"
+                          className="text-sm sm:text-base text-foreground/90 leading-relaxed"
                         />
                       </div>
 
                       {trap.metaRuleContent && (
-                        <div className="rounded-xl border border-emerald-500/35 bg-emerald-500/10 p-3.5 space-y-1.5">
-                          <p className="text-xs font-heading font-bold text-emerald-700 dark:text-emerald-300 flex items-center gap-1.5">
+                        <div className="rounded-xl border-0 bg-emerald-500/10 p-3.5 space-y-1.5">
+                          <p className="text-xs sm:text-sm font-heading font-bold text-emerald-700 dark:text-emerald-300 flex items-center gap-1.5">
                             <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-500" />
                             <span>{copy.metaRuleHeading}</span>
                           </p>
@@ -732,7 +732,7 @@ export function AccountTrapsTriageWidget({
                             text={trap.metaRuleContent}
                             accentColor="emerald"
                             locale={locale}
-                            className="text-xs sm:text-sm font-medium text-foreground leading-relaxed"
+                            className="text-sm sm:text-base font-medium text-foreground leading-relaxed"
                           />
                         </div>
                       )}
@@ -741,9 +741,9 @@ export function AccountTrapsTriageWidget({
                     {/* Right Column: Quantitative Stop-Loss Protocol (PRO-aware) */}
                     <div className="space-y-3">
                       {hasProAccess ? (
-                        <div className="rounded-xl border border-amber-500/40 bg-amber-500/[0.07] p-3.5 space-y-3 h-full">
+                        <div className="rounded-xl border-0 bg-amber-500/10 p-3.5 space-y-3 h-full">
                           <div className="flex items-center justify-between gap-2">
-                            <p className="text-xs font-heading font-bold text-amber-600 dark:text-amber-300 flex items-center gap-1.5">
+                            <p className="text-xs sm:text-sm font-heading font-bold text-amber-600 dark:text-amber-300 flex items-center gap-1.5">
                               <Crown className="h-4 w-4 text-amber-500 shrink-0" />
                               <span>{copy.stopLossHeading}</span>
                             </p>
@@ -753,16 +753,16 @@ export function AccountTrapsTriageWidget({
                             text={trap.stopLossAction}
                             accentColor="amber"
                             locale={locale}
-                            className="text-xs sm:text-sm text-foreground/95 leading-relaxed"
+                            className="text-sm sm:text-base text-foreground/95 leading-relaxed"
                           />
 
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
-                            <div className="rounded-lg border border-border/60 bg-background/80 p-2.5 space-y-1">
-                              <span className="text-[11px] font-mono font-bold text-amber-600 dark:text-amber-400 flex items-center gap-1">
-                                <Clock className="h-3 w-3" />
+                            <div className="rounded-lg border-0 bg-background/85 p-3 space-y-1">
+                              <span className="text-xs font-sans font-bold text-amber-600 dark:text-amber-400 flex items-center gap-1.5">
+                                <Clock className="h-3.5 w-3.5 shrink-0" />
                                 <span>{copy.recoveryTimeLabel}</span>
                               </span>
-                              <p className="text-xs text-foreground/90 leading-snug">
+                              <p className="text-xs sm:text-sm text-foreground/90 leading-snug">
                                 <RichGuideText
                                   text={trap.recoveryTime}
                                   variant="inline"
@@ -772,12 +772,12 @@ export function AccountTrapsTriageWidget({
                               </p>
                             </div>
 
-                            <div className="rounded-lg border border-border/60 bg-background/80 p-2.5 space-y-1">
-                              <span className="text-[11px] font-mono font-bold text-rose-600 dark:text-rose-400 flex items-center gap-1">
-                                <RefreshCcw className="h-3 w-3" />
+                            <div className="rounded-lg border-0 bg-background/85 p-3 space-y-1">
+                              <span className="text-xs font-sans font-bold text-rose-600 dark:text-rose-400 flex items-center gap-1.5">
+                                <RefreshCcw className="h-3.5 w-3.5 shrink-0" />
                                 <span>{copy.rerollThresholdLabel}</span>
                               </span>
-                              <p className="text-xs text-foreground/90 leading-snug">
+                              <p className="text-xs sm:text-sm text-foreground/90 leading-snug">
                                 <RichGuideText
                                   text={trap.rerollThreshold}
                                   variant="inline"
@@ -789,19 +789,19 @@ export function AccountTrapsTriageWidget({
                           </div>
                         </div>
                       ) : (
-                        <div className="rounded-xl border border-amber-500/35 bg-amber-500/5 p-4 flex flex-col justify-between gap-3 h-full">
+                        <div className="rounded-xl border-0 bg-amber-500/10 p-4 flex flex-col justify-between gap-3 h-full">
                           <div className="space-y-1.5">
-                            <div className="inline-flex items-center gap-1.5 text-xs font-heading font-bold text-amber-600 dark:text-amber-400">
+                            <div className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-heading font-bold text-amber-600 dark:text-amber-400">
                               <Lock className="h-3.5 w-3.5" />
                               <span>{copy.proLockedTitle}</span>
                             </div>
-                            <p className="text-xs text-muted-foreground leading-relaxed">
+                            <p className="text-sm text-muted-foreground leading-relaxed">
                               {copy.proLockedDesc}
                             </p>
                           </div>
                           <Link
                             href="#sec-4-account-recovery-protocol"
-                            className="inline-flex items-center justify-center min-h-[40px] px-3.5 py-2 rounded-xl bg-amber-500 text-slate-950 text-xs font-heading font-bold hover:bg-amber-400 transition-colors"
+                            className="inline-flex items-center justify-center min-h-[44px] px-4 py-2.5 rounded-xl bg-amber-500 text-slate-950 text-xs sm:text-sm font-heading font-bold hover:bg-amber-400 transition-colors"
                           >
                             {copy.proUpgradeBtn}
                           </Link>

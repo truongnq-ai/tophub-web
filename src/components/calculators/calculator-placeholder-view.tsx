@@ -20,6 +20,18 @@ import { categoryIcons } from "./calculators-sidebar";
 import { HeroStarsCalculator } from "./hero-stars-calculator";
 import { HeroAwakeningCalculator } from "./hero-awakening-calculator";
 import { HeroTraitsCalculator } from "./hero-traits-calculator";
+import { HeroLevelSpiritCalculator } from "./hero-level-spirit-calculator";
+import { SkillBooksCalculator } from "./skill-books-calculator";
+import { FactionLevelCalculator } from "./faction-level-calculator";
+import { TroopSkinsCalculator } from "./troop-skins-calculator";
+import { SkinHonorCalculator } from "./skin-honor-calculator";
+import { GearEnhanceCalculator } from "./gear-enhance-calculator";
+import { GearPromotionCalculator } from "./gear-promotion-calculator";
+import { ExclusiveWeaponCalculator } from "./exclusive-weapon-calculator";
+import { RunesCalculator } from "./runes-calculator";
+import { RelicsCalculator } from "./relics-calculator";
+import { EventPointsCalculator } from "./event-points-calculator";
+import { VipAndShopsCalculator } from "./vip-and-shops-calculator";
 import { GameAssetFrame } from "@/components/guides/media/game-asset-frame";
 import { GuideCommentsSection } from "@/components/guides/guide-comments-section";
 import { Input } from "@/components/ui/input";
@@ -103,7 +115,91 @@ export function CalculatorPlaceholderView({
           </span>
         </nav>
 
-        {tool.slug === "hero-traits" ? (
+        {tool.slug === "event-points" ? (
+          <EventPointsCalculator
+            zone={zone}
+            category={category}
+            tool={tool}
+            locale={locale}
+          />
+        ) : tool.slug === "vip-and-shops" ? (
+          <VipAndShopsCalculator
+            zone={zone}
+            category={category}
+            tool={tool}
+            locale={locale}
+          />
+        ) : tool.slug === "runes" ? (
+          <RunesCalculator
+            zone={zone}
+            category={category}
+            tool={tool}
+            locale={locale}
+          />
+        ) : tool.slug === "relics" ? (
+          <RelicsCalculator
+            zone={zone}
+            category={category}
+            tool={tool}
+            locale={locale}
+          />
+        ) : tool.slug === "gear-enhance" ? (
+          <GearEnhanceCalculator
+            zone={zone}
+            category={category}
+            tool={tool}
+            locale={locale}
+          />
+        ) : tool.slug === "gear-promotion" ? (
+          <GearPromotionCalculator
+            zone={zone}
+            category={category}
+            tool={tool}
+            locale={locale}
+          />
+        ) : tool.slug === "exclusive-weapon" ? (
+          <ExclusiveWeaponCalculator
+            zone={zone}
+            category={category}
+            tool={tool}
+            locale={locale}
+          />
+        ) : tool.slug === "troop-skins" ? (
+          <TroopSkinsCalculator
+            zone={zone}
+            category={category}
+            tool={tool}
+            locale={locale}
+          />
+        ) : tool.slug === "skin-honor" ? (
+          <SkinHonorCalculator
+            zone={zone}
+            category={category}
+            tool={tool}
+            locale={locale}
+          />
+        ) : tool.slug === "faction-level" ? (
+          <FactionLevelCalculator
+            zone={zone}
+            category={category}
+            tool={tool}
+            locale={locale}
+          />
+        ) : tool.slug === "skill-books" ? (
+          <SkillBooksCalculator
+            zone={zone}
+            category={category}
+            tool={tool}
+            locale={locale}
+          />
+        ) : tool.slug === "hero-level-spirit" ? (
+          <HeroLevelSpiritCalculator
+            zone={zone}
+            category={category}
+            tool={tool}
+            locale={locale}
+          />
+        ) : tool.slug === "hero-traits" ? (
           <HeroTraitsCalculator
             zone={zone}
             category={category}

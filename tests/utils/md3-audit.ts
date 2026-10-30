@@ -14,12 +14,10 @@ export const ALL_SIDE_BORDER_REGEX = /(?:^|\s)border(?=\s|$)/;
 export const VI_DIACRITIC_REGEX =
   /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ]/;
 
-/** Vùng ngoài phạm vi Track 2 hoặc overlay nổi — bị loại khỏi mọi phép đo DOM. */
+/** Vùng khung ảnh vật phẩm hoặc overlay nổi — bị loại khỏi phép đo độ sâu khung. */
 export const DEFAULT_MD3_AUDIT_IGNORE = [
   '[data-testid="game-asset-frame"]',
   '[data-md3-overlay="true"]',
-  '[data-testid="guide-comments-section"]',
-  "#comments",
 ].join(", ");
 
 const CONTAINER_TAGS: ReadonlySet<string> = new Set([
@@ -67,7 +65,7 @@ export function getMaxBorderedContainerDepth(
     const ownDepth = isBorderedContainer(el) ? depth + 1 : depth;
     let maxDepth = ownDepth;
     for (const child of Array.from(el.children)) {
-      if (child.matches(ignoreSelector)) continue;
+      if (ignoreSelector && child.matches(ignoreSelector)) continue;
       maxDepth = Math.max(maxDepth, walk(child, ownDepth));
     }
     return maxDepth;
@@ -81,7 +79,7 @@ export function findMicroTextElements(
 ): Element[] {
   return Array.from(root.querySelectorAll("[class]")).filter(
     (el) =>
-      el.closest(ignoreSelector) === null &&
+      (!ignoreSelector || el.closest(ignoreSelector) === null) &&
       FORBIDDEN_MICRO_TEXT_REGEX.test(classOf(el))
   );
 }
@@ -93,7 +91,7 @@ export function findMonoElementsWithVietnamese(
 ): string[] {
   const offenders: string[] = [];
   root.querySelectorAll(".font-mono").forEach((el) => {
-    if (el.closest(ignoreSelector) !== null) return;
+    if (ignoreSelector && el.closest(ignoreSelector) !== null) return;
     const ownText = Array.from(el.childNodes)
       .filter((node) => node.nodeType === TEXT_NODE_TYPE)
       .map((node) => node.textContent ?? "")

@@ -345,7 +345,7 @@ export function GuideCommentsSection({
       return (
         <Badge
           variant="outline"
-          className="text-[10px] px-1.5 py-0 border-sky-500/40 bg-sky-500/10 text-sky-600 dark:text-sky-400"
+          className="border-0 font-sans text-xs font-semibold px-2 py-0.5 bg-sky-500/15 text-sky-600 dark:text-sky-400"
         >
           {labels.intentQuestion}
         </Badge>
@@ -355,7 +355,7 @@ export function GuideCommentsSection({
       return (
         <Badge
           variant="outline"
-          className="text-[10px] px-1.5 py-0 border-emerald-500/40 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400"
+          className="border-0 font-sans text-xs font-semibold px-2 py-0.5 bg-emerald-500/15 text-emerald-600 dark:text-emerald-400"
         >
           {labels.intentTip}
         </Badge>
@@ -384,12 +384,14 @@ export function GuideCommentsSection({
             <span>{labels.sectionTitle}</span>
             <Badge
               variant="outline"
-              className="font-mono text-xs border-amber-500/30 bg-amber-500/10 text-amber-600 dark:text-amber-400"
+              className="border-0 font-mono text-xs bg-amber-500/15 text-amber-600 dark:text-amber-400"
             >
               {totalCount}
             </Badge>
           </h2>
-          <p className="text-xs text-muted-foreground">{labels.sectionSubtitle}</p>
+          <p className="text-sm font-sans text-muted-foreground leading-relaxed">
+            {labels.sectionSubtitle}
+          </p>
         </div>
 
         <div className="inline-flex items-center gap-1 rounded-xl border border-border/80 bg-card/60 p-1 self-start sm:self-auto">
@@ -397,7 +399,7 @@ export function GuideCommentsSection({
             type="button"
             onClick={() => setSortBy("newest")}
             className={cn(
-              "px-3 py-1.5 rounded-lg text-xs font-heading font-bold transition-colors",
+              "min-h-[44px] px-3.5 py-2 rounded-lg text-xs font-heading font-bold inline-flex items-center justify-center transition-colors",
               sortBy === "newest"
                 ? "bg-amber-500/15 text-amber-600 dark:text-amber-400 border border-amber-500/30"
                 : "text-muted-foreground hover:text-foreground"
@@ -409,7 +411,7 @@ export function GuideCommentsSection({
             type="button"
             onClick={() => setSortBy("most_helpful")}
             className={cn(
-              "px-3 py-1.5 rounded-lg text-xs font-heading font-bold transition-colors",
+              "min-h-[44px] px-3.5 py-2 rounded-lg text-xs font-heading font-bold inline-flex items-center justify-center transition-colors",
               sortBy === "most_helpful"
                 ? "bg-amber-500/15 text-amber-600 dark:text-amber-400 border border-amber-500/30"
                 : "text-muted-foreground hover:text-foreground"
@@ -434,14 +436,14 @@ export function GuideCommentsSection({
               <Lock className="h-4 w-4 text-amber-500 shrink-0" />
               <span>{labels.loginPromptBtn}</span>
             </div>
-            <p className="text-xs text-muted-foreground leading-relaxed">
+            <p className="text-sm font-sans text-muted-foreground leading-relaxed">
               {labels.loginPromptDesc}
             </p>
           </div>
 
           <Link
             href={loginHref}
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-heading font-bold text-xs sm:text-sm px-5 py-2.5 min-h-[42px] shrink-0 transition-all shadow-sm"
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-heading font-bold text-xs sm:text-sm px-5 py-2.5 min-h-[44px] shrink-0 transition-all shadow-sm"
           >
             <Sparkles className="h-4 w-4" />
             <span>{labels.loginPromptBtn}</span>
@@ -457,31 +459,31 @@ export function GuideCommentsSection({
         >
           {/* Active Character Identity Bar (Strictly NO UID displayed) */}
           <div className="flex flex-wrap items-center justify-between gap-2">
-            <div className="flex items-center gap-2 text-xs">
+            <div className="flex flex-wrap items-center gap-2 text-xs font-sans">
               <span className="text-muted-foreground">{labels.commentingAs}</span>
-              <span className="font-heading font-bold text-foreground">
+              <span className="font-heading font-bold text-sm text-foreground">
                 {activeAccount.nickname}
               </span>
               <Badge
                 variant="outline"
-                className="font-mono text-[11px] border-emerald-500/30 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400"
+                className="border-0 font-mono text-xs bg-emerald-500/15 text-emerald-600 dark:text-emerald-400"
               >
                 Server {formatServerCode(activeAccount.server_id)}
               </Badge>
               {activeAccount.active_plan === "PRO" && (
-                <Badge className="bg-amber-500/20 text-amber-600 dark:text-amber-400 border border-amber-500/30 text-[10px]">
+                <Badge className="border-0 bg-amber-500/20 text-amber-600 dark:text-amber-400 font-sans text-xs font-bold">
                   <Crown className="h-3 w-3 mr-1" />
                   PRO
                 </Badge>
               )}
-              <span className="inline-flex items-center gap-1 text-[11px] text-muted-foreground font-mono">
+              <span className="inline-flex items-center gap-1 text-xs text-muted-foreground font-sans font-medium">
                 <ShieldCheck className="h-3.5 w-3.5 text-emerald-500" />
                 {labels.uidHiddenBadge}
               </span>
             </div>
 
             {/* Intent Tag Selector */}
-            <div className="flex items-center gap-1.5">
+            <div className="flex flex-wrap items-center gap-1.5">
               {(["DISCUSSION", "QUESTION", "TIP"] as const).map((tag) => {
                 const tagLabel =
                   tag === "DISCUSSION"
@@ -495,7 +497,7 @@ export function GuideCommentsSection({
                     type="button"
                     onClick={() => setIntentTag(tag)}
                     className={cn(
-                      "px-2.5 py-1 rounded-lg text-[11px] font-heading font-bold border transition-all",
+                      "min-h-[44px] px-3 py-1.5 rounded-xl text-xs font-heading font-bold border transition-all inline-flex items-center justify-center",
                       intentTag === tag
                         ? "border-amber-500/50 bg-amber-500/15 text-amber-600 dark:text-amber-400"
                         : "border-border/70 bg-background/50 text-muted-foreground hover:text-foreground"
@@ -515,18 +517,18 @@ export function GuideCommentsSection({
             value={content}
             onChange={(e) => setContent(e.target.value)}
             placeholder={labels.placeholder}
-            className="w-full rounded-xl border border-input bg-background/80 p-3 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-amber-500/30 focus:border-amber-500 resize-y"
+            className="w-full rounded-xl border border-input bg-background/80 p-3 text-base sm:text-sm font-sans text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-amber-500/30 focus:border-amber-500 resize-y"
           />
 
           <div className="flex items-center justify-between gap-3">
-            <span className="text-[11px] font-mono text-muted-foreground">
+            <span className="text-xs font-mono text-muted-foreground">
               {content.trim().length}/1000
             </span>
             <Button
               type="submit"
               data-testid="comment-root-submit-btn"
               disabled={isSubmitting || content.trim().length < 3}
-              className="btn-tactile-gold h-10 px-5 rounded-xl text-xs font-bold flex items-center gap-2"
+              className="btn-tactile-gold min-h-[44px] h-11 px-5 rounded-xl text-xs sm:text-sm font-bold inline-flex items-center gap-2"
             >
               {isSubmitting ? (
                 <Loader2 className="h-3.5 w-3.5 animate-spin" />
@@ -543,31 +545,31 @@ export function GuideCommentsSection({
       {feedbackMsg && (
         <div
           className={cn(
-            "rounded-xl border p-3.5 text-xs flex items-start gap-2.5",
+            "rounded-xl border p-3.5 text-xs sm:text-sm font-sans flex items-center gap-2.5",
             feedbackMsg.type === "info"
               ? "border-amber-500/40 bg-amber-500/10 text-amber-700 dark:text-amber-300"
               : "border-destructive/40 bg-destructive/10 text-destructive"
           )}
         >
-          <AlertTriangle className="h-4 w-4 shrink-0 mt-0.5" />
-          <span className="flex-1">{feedbackMsg.text}</span>
+          <AlertTriangle className="h-4 w-4 shrink-0" />
+          <span className="flex-1 leading-relaxed">{feedbackMsg.text}</span>
           <button
             type="button"
             onClick={() => setFeedbackMsg(null)}
-            className="text-muted-foreground hover:text-foreground"
+            className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] -my-2 -mr-2 rounded-lg text-muted-foreground hover:text-foreground transition-colors"
           >
-            <X className="h-3.5 w-3.5" />
+            <X className="h-4 w-4" />
           </button>
         </div>
       )}
 
       {/* Comments Thread List (Level 0 + Flattened Level 1 Replies) */}
       {isLoading ? (
-        <div className="py-8 text-center text-xs text-muted-foreground font-mono">
+        <div className="py-8 text-center text-sm font-sans text-muted-foreground">
           {labels.loadingComments}
         </div>
       ) : comments.length === 0 ? (
-        <div className="rounded-2xl border border-dashed border-border/80 bg-card/30 p-8 text-center text-xs sm:text-sm text-muted-foreground">
+        <div className="rounded-2xl border border-dashed border-border/80 bg-card/30 p-6 sm:p-8 text-center text-sm sm:text-base font-sans text-muted-foreground leading-relaxed">
           {labels.emptyComments}
         </div>
       ) : (
@@ -597,20 +599,20 @@ export function GuideCommentsSection({
                     </span>
 
                     {rootComment.is_admin_author ? (
-                      <Badge className="bg-rose-500/20 text-rose-600 dark:text-rose-400 border border-rose-500/30 text-[10px] font-bold">
+                      <Badge className="border-0 bg-rose-500/20 text-rose-600 dark:text-rose-400 font-sans text-xs font-bold">
                         🛡️ {labels.adminBadge}
                       </Badge>
                     ) : (
                       <Badge
                         variant="outline"
-                        className="font-mono text-[10px] px-1.5 py-0 border-border/80 text-muted-foreground"
+                        className="border-0 bg-muted/60 font-mono text-xs px-2 py-0.5 text-muted-foreground"
                       >
                         {formatServerCode(rootComment.author_server_id)}
                       </Badge>
                     )}
 
                     {rootComment.is_pro_author && !rootComment.is_admin_author && (
-                      <Badge className="bg-amber-500/20 text-amber-600 dark:text-amber-400 border border-amber-500/30 text-[10px]">
+                      <Badge className="border-0 bg-amber-500/20 text-amber-600 dark:text-amber-400 font-sans text-xs font-bold">
                         👑 PRO
                       </Badge>
                     )}
@@ -618,38 +620,38 @@ export function GuideCommentsSection({
                     {renderIntentBadge(rootComment.intent_tag)}
 
                     {rootComment.is_pinned && (
-                      <Badge className="bg-amber-500/20 text-amber-600 dark:text-amber-400 border border-amber-500/40 text-[10px]">
-                        <Pin className="h-2.5 w-2.5 mr-1" />
+                      <Badge className="border-0 bg-amber-500/20 text-amber-600 dark:text-amber-400 font-sans text-xs font-semibold">
+                        <Pin className="h-3 w-3 mr-1" />
                         {labels.pinnedBadge}
                       </Badge>
                     )}
 
                     {isPending && (
-                      <Badge className="bg-amber-500/20 text-amber-600 dark:text-amber-400 border border-amber-500/40 text-[10px]">
+                      <Badge className="border-0 bg-amber-500/20 text-amber-600 dark:text-amber-400 font-sans text-xs font-semibold">
                         {labels.pendingBadge}
                       </Badge>
                     )}
                   </div>
 
-                  <span className="text-[11px] font-mono text-muted-foreground flex items-center gap-1">
+                  <span className="text-xs font-mono text-muted-foreground flex items-center gap-1">
                     <Clock className="h-3 w-3" />
                     {formatLocalizedDate(rootComment.created_at, safeLocale)}
                   </span>
                 </div>
 
                 {/* Root Comment Body */}
-                <p className="text-xs sm:text-sm text-foreground/90 whitespace-pre-line leading-relaxed">
+                <p className="text-sm sm:text-base font-sans text-foreground/95 whitespace-pre-line leading-relaxed">
                   {rootComment.content}
                 </p>
 
                 {/* Root Comment Actions */}
-                <div className="flex items-center gap-4 pt-1">
+                <div className="flex flex-wrap items-center gap-2 sm:gap-3 pt-1">
                   <button
                     type="button"
                     disabled={!activeAccount}
                     onClick={() => handleToggleLike(rootComment.id)}
                     className={cn(
-                      "inline-flex items-center gap-1.5 text-xs font-mono transition-colors",
+                      "inline-flex items-center gap-1.5 min-h-[44px] px-2.5 rounded-lg text-xs font-sans font-semibold transition-colors",
                       rootComment.viewer_has_liked
                         ? "text-amber-500 font-bold"
                         : "text-muted-foreground hover:text-foreground"
@@ -674,7 +676,7 @@ export function GuideCommentsSection({
                         });
                         setReplyContent("");
                       }}
-                      className="inline-flex items-center gap-1 text-xs font-heading font-bold text-muted-foreground hover:text-amber-500 transition-colors"
+                      className="inline-flex items-center gap-1.5 min-h-[44px] px-2.5 rounded-lg text-xs font-heading font-bold text-muted-foreground hover:text-amber-500 transition-colors"
                     >
                       <Reply className="h-3.5 w-3.5" />
                       <span>{labels.replyBtn}</span>
@@ -685,7 +687,7 @@ export function GuideCommentsSection({
                     <button
                       type="button"
                       onClick={() => handleDeleteOwn(rootComment.id)}
-                      className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-destructive transition-colors ml-auto"
+                      className="inline-flex items-center gap-1.5 min-h-[44px] px-2.5 rounded-lg text-xs font-sans font-medium text-muted-foreground hover:text-destructive transition-colors ml-auto"
                     >
                       <Trash2 className="h-3.5 w-3.5" />
                       <span>{labels.deleteBtn}</span>
@@ -693,51 +695,51 @@ export function GuideCommentsSection({
                   )}
                 </div>
 
-                {/* Level 1 Replies List (Strictly 1 Level Max) */}
+                {/* Level 1 Replies List (Strictly 1 Level Max — MD3 Flat Thread Branch & Tonal Reply Cards) */}
                 {rootComment.replies && rootComment.replies.length > 0 && (
-                  <div className="mt-3 ml-3 sm:ml-5 rounded-2xl border border-amber-500/25 bg-muted/20 p-3 space-y-3">
+                  <div className="mt-3 ml-2 sm:ml-5 border-l border-amber-500/35 pl-3 sm:pl-4 space-y-2.5">
                     {rootComment.replies.map((reply) => {
                       const isReplyPending = reply.status === "PENDING_REVIEW";
                       return (
                         <div
                           key={reply.id}
                           className={cn(
-                            "rounded-xl border p-3.5 space-y-2",
+                            "rounded-xl border-0 p-3 sm:p-3.5 space-y-2",
                             isReplyPending
-                              ? "border-amber-500/30 bg-amber-500/[0.03] opacity-85"
-                              : "border-border/60 bg-background/50"
+                              ? "bg-amber-500/10 opacity-85"
+                              : "bg-muted/35 dark:bg-muted/25"
                           )}
                         >
                           <div className="flex flex-wrap items-center justify-between gap-2">
                             <div className="flex flex-wrap items-center gap-1.5">
-                              <span className="font-heading font-bold text-xs text-foreground">
+                              <span className="font-heading font-bold text-sm text-foreground">
                                 {reply.author_nickname}
                               </span>
                               {reply.is_admin_author ? (
-                                <Badge className="bg-rose-500/20 text-rose-600 dark:text-rose-400 border border-rose-500/30 text-[10px] font-bold">
+                                <Badge className="border-0 bg-rose-500/20 text-rose-600 dark:text-rose-400 font-sans text-xs font-bold">
                                   🛡️ {labels.adminBadge}
                                 </Badge>
                               ) : (
                                 <Badge
                                   variant="outline"
-                                  className="font-mono text-[10px] px-1.5 py-0 border-border/80 text-muted-foreground"
+                                  className="border-0 bg-background/80 font-mono text-xs px-2 py-0.5 text-muted-foreground"
                                 >
                                   {formatServerCode(reply.author_server_id)}
                                 </Badge>
                               )}
                               {isReplyPending && (
-                                <Badge className="bg-amber-500/20 text-amber-600 dark:text-amber-400 border border-amber-500/40 text-[10px]">
+                                <Badge className="border-0 bg-amber-500/20 text-amber-600 dark:text-amber-400 font-sans text-xs font-semibold">
                                   {labels.pendingBadge}
                                 </Badge>
                               )}
                             </div>
 
-                            <span className="text-[10px] font-mono text-muted-foreground">
+                            <span className="text-xs font-mono text-muted-foreground">
                               {formatLocalizedDate(reply.created_at, safeLocale)}
                             </span>
                           </div>
 
-                          <p className="text-xs text-foreground/90 whitespace-pre-line leading-relaxed">
+                          <p className="text-sm sm:text-base font-sans text-foreground/95 whitespace-pre-line leading-relaxed">
                             {reply.reply_to_nickname && (
                               <span className="inline-flex items-center font-heading font-bold text-amber-600 dark:text-amber-400 mr-1.5">
                                 @{reply.reply_to_nickname}
@@ -750,19 +752,19 @@ export function GuideCommentsSection({
                             {reply.content}
                           </p>
 
-                          <div className="flex items-center gap-4">
+                          <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                             <button
                               type="button"
                               disabled={!activeAccount}
                               onClick={() => handleToggleLike(reply.id)}
                               className={cn(
-                                "inline-flex items-center gap-1 text-[11px] font-mono transition-colors",
+                                "inline-flex items-center gap-1.5 min-h-[44px] px-2.5 rounded-lg text-xs font-sans font-semibold transition-colors",
                                 reply.viewer_has_liked
                                   ? "text-amber-500 font-bold"
                                   : "text-muted-foreground hover:text-foreground"
                               )}
                             >
-                              <ThumbsUp className="h-3 w-3" />
+                              <ThumbsUp className="h-3.5 w-3.5" />
                               <span>
                                 {labels.helpfulBtn} ({reply.helpful_count})
                               </span>
@@ -782,9 +784,9 @@ export function GuideCommentsSection({
                                   });
                                   setReplyContent("");
                                 }}
-                                className="inline-flex items-center gap-1 text-[11px] font-heading font-bold text-muted-foreground hover:text-amber-500 transition-colors"
+                                className="inline-flex items-center gap-1.5 min-h-[44px] px-2.5 rounded-lg text-xs font-heading font-bold text-muted-foreground hover:text-amber-500 transition-colors"
                               >
-                                <Reply className="h-3 w-3" />
+                                <Reply className="h-3.5 w-3.5" />
                                 <span>{labels.replyBtn}</span>
                               </button>
                             )}
@@ -793,9 +795,9 @@ export function GuideCommentsSection({
                               <button
                                 type="button"
                                 onClick={() => handleDeleteOwn(reply.id)}
-                                className="inline-flex items-center gap-1 text-[11px] text-muted-foreground hover:text-destructive transition-colors ml-auto"
+                                className="inline-flex items-center gap-1.5 min-h-[44px] px-2.5 rounded-lg text-xs font-sans font-medium text-muted-foreground hover:text-destructive transition-colors ml-auto"
                               >
-                                <Trash2 className="h-3 w-3" />
+                                <Trash2 className="h-3.5 w-3.5" />
                                 <span>{labels.deleteBtn}</span>
                               </button>
                             )}
@@ -810,9 +812,9 @@ export function GuideCommentsSection({
                 {isReplyingWithinThisThread && replyTarget && (
                   <form
                     onSubmit={handleCreateReply}
-                    className="mt-3 ml-3 sm:ml-5 rounded-2xl border border-amber-500/45 bg-amber-500/[0.04] p-3.5 space-y-2.5"
+                    className="mt-3 ml-2 sm:ml-5 rounded-2xl border-0 sm:border sm:border-amber-500/45 bg-amber-500/10 dark:bg-amber-500/[0.06] p-3.5 space-y-2.5"
                   >
-                    <div className="flex items-center justify-between text-xs">
+                    <div className="flex items-center justify-between gap-2 text-xs">
                       <span className="font-heading font-bold text-amber-600 dark:text-amber-400">
                         {labels.replyingToPrefix} @{replyTarget.replyToNickname}
                         {replyTarget.replyToServerId &&
@@ -823,7 +825,7 @@ export function GuideCommentsSection({
                       <button
                         type="button"
                         onClick={() => setReplyTarget(null)}
-                        className="text-muted-foreground hover:text-foreground text-[11px]"
+                        className="inline-flex items-center justify-center min-h-[44px] px-3 rounded-lg text-xs font-sans font-semibold text-muted-foreground hover:text-foreground transition-colors"
                       >
                         {labels.cancelReplyBtn}
                       </button>
@@ -836,18 +838,17 @@ export function GuideCommentsSection({
                       value={replyContent}
                       onChange={(e) => setReplyContent(e.target.value)}
                       placeholder={labels.replyPlaceholder}
-                      className="w-full rounded-xl border border-input bg-background/90 p-2.5 text-xs text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-amber-500/30"
+                      className="w-full rounded-xl border border-input bg-background/90 p-3 text-base sm:text-sm font-sans text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-amber-500/30"
                     />
 
                     <div className="flex justify-end gap-2">
                       <Button
                         type="submit"
-                        size="sm"
                         data-testid="comment-reply-submit-btn"
                         disabled={
                           isSubmittingReply || replyContent.trim().length < 3
                         }
-                        className="btn-tactile-gold h-8 px-4 rounded-lg text-xs font-bold"
+                        className="btn-tactile-gold min-h-[44px] h-11 px-5 rounded-xl text-xs sm:text-sm font-bold"
                       >
                         {labels.submitReplyBtn}
                       </Button>

@@ -231,6 +231,42 @@ describe("Zone II Part 3 — Suite 2: EventPlaybookExplorerWidget 4-Tab & Day Se
     fireEvent.click(screen.getByTestId("playbook-tab-economy"));
     expect(VI_DIACRITIC_REGEX.test(container.textContent ?? "")).toBe(false);
   });
+
+  it("Task 4: enforces zero sub-12px classes, valid Tailwind v3.4 tokens, >= 44px touch targets across all 4 control groups, horizontal snap scroll for 10 events, and unboxed mobile day stage", () => {
+    const playbookSource = fs.readFileSync(
+      path.resolve(__dirname, "../src/components/guides/widgets/event-playbook-explorer-widget.tsx"),
+      "utf-8"
+    );
+    expect(playbookSource).not.toMatch(/\btext-\[(?:8|9|10|11)px\]/);
+    expect(playbookSource).not.toContain("py-0.2");
+    expect(playbookSource).not.toContain("shadow-xs");
+
+    render(<EventPlaybookExplorerWidget article={mockArticle91} locale="vi" />);
+
+    expect(
+      screen.getByTestId("playbook-season-filter-ALL").className
+    ).toContain("min-h-[44px]");
+    expect(
+      screen.getByTestId("playbook-scope-toggle").className
+    ).toContain("min-h-[44px]");
+    expect(
+      screen.getByTestId("playbook-tab-overview").className
+    ).toContain("min-h-[44px]");
+
+    const firstEventPill = screen.getByTestId("playbook-event-pill-guild-arms-race");
+    expect(firstEventPill.className).toContain("min-w-[240px]");
+    expect(firstEventPill.className).toContain("min-h-[56px]");
+    expect(firstEventPill.parentElement?.className).toContain("overflow-x-auto");
+    expect(firstEventPill.parentElement?.className).toContain("snap-x");
+
+    fireEvent.click(screen.getByTestId("playbook-tab-daily"));
+    const dayPill1 = screen.getByTestId("playbook-day-pill-1");
+    expect(dayPill1.className).toContain("min-h-[44px]");
+
+    const dailyPanel = screen.getByTestId("playbook-panel-daily");
+    const activeDayStageWrapper = dailyPanel.querySelector("div.space-y-3");
+    expect(activeDayStageWrapper?.className).toContain("border-0");
+  });
 });
 
 
