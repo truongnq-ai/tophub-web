@@ -12,7 +12,7 @@ import {
   readSource,
 } from "../../../../tests/utils/md3-audit";
 
-describe("6.3 Nâng sao Bí Bảo — v2.0 4-Zone Architecture, 20-Star (100-Petal) 4-Color Selector, Relic Hall Boost Sync & Dual Shard Cards", () => {
+describe("6.3 Nâng sao Bí Bảo — v2.0 1/3 + 2/3 Single-Viewport Layout, Zone (i) Popovers, 20-Star (100-Petal) 4-Color Selector & Compact Dual Shard Cards", () => {
   const resolved = getCalculatorToolBySlug("runes-relics", "relics")!;
 
   const renderCalculator = (locale: "vi" | "en" = "vi") =>
@@ -25,7 +25,7 @@ describe("6.3 Nâng sao Bí Bảo — v2.0 4-Zone Architecture, 20-Star (100-Pet
       />
     );
 
-  it("renders the 4 symmetrical v2.0 zones, 4 star color tiers (Gold/Red/Silver/Diamond), and matches Screenshot 4 (Nhẫn Đuôi Công Tước 3★ ➔ 3★ 1/5 at Relic Hall Lv.60 = 9,684 ➔ 10,151 ATK, 65,650 ➔ 68,750 HP, 8 Shards)", () => {
+  it("renders the 1/3 + 2/3 layout, 4 star color tiers (Gold/Red/Silver/Diamond), zone (i) popovers, and matches Screenshot 4 (Nhẫn Đuôi Công Tước 3★ ➔ 3★ 1/5 at Relic Hall Lv.60 = 9,684 ➔ 10,151 ATK, 65,650 ➔ 68,750 HP, 8 Shards)", () => {
     const { container } = renderCalculator("vi");
 
     expect(
@@ -55,10 +55,24 @@ describe("6.3 Nâng sao Bí Bảo — v2.0 4-Zone Architecture, 20-Star (100-Pet
     fireEvent.click(screen.getByTestId("relics-to-chip-3"));
     fireEvent.click(screen.getByTestId("relics-to-substep-1"));
 
+    // Open Current (i) popover to verify Current stats (9,684 ATK & 65,650 HP)
+    fireEvent.click(screen.getByTestId("relics-from-info-trigger"));
     expect(screen.getByTestId("relics-from-stat-atk").textContent).toBe("9,684");
-    expect(screen.getByTestId("relics-to-stat-atk").textContent).toBe("10,151");
     expect(screen.getByTestId("relics-from-stat-hp").textContent).toBe("65,650");
+    fireEvent.keyDown(window, { key: "Escape" });
+
+    // Open Target (i) popover to verify Target stats (10,151 ATK & 68,750 HP)
+    fireEvent.click(screen.getByTestId("relics-to-info-trigger"));
+    expect(screen.getByTestId("relics-to-stat-atk").textContent).toBe("10,151");
     expect(screen.getByTestId("relics-to-stat-hp").textContent).toBe("68,750");
+    fireEvent.keyDown(window, { key: "Escape" });
+
+    // Open Avatar (i) popover to verify Delta stats (+467 ATK & +3,100 HP)
+    fireEvent.click(screen.getByTestId("relics-avatar-info-trigger"));
+    expect(screen.getByTestId("relics-delta-atk").textContent).toBe("(+467)");
+    expect(screen.getByTestId("relics-delta-hp").textContent).toBe("(+3,100)");
+    fireEvent.keyDown(window, { key: "Escape" });
+
     expect(screen.getByTestId("relics-required-shards").textContent).toBe("8");
 
     // Enter Screenshot 4 inventory: 7 Specific Shards + 23 Universal Shards

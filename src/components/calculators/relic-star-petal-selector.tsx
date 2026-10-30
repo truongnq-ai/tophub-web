@@ -11,6 +11,7 @@ import {
 import type { CalculatorLocale } from "@/content/calculators/types";
 import { formatExactNumber } from "@/lib/number-format";
 import { cn } from "@/lib/utils";
+import { CalculatorInfoPopover } from "./calculator-info-popover";
 import {
   CALC_MD3,
   CalculatorStepperButton,
@@ -139,10 +140,7 @@ export function RelicStarPetalSelector({
           : `Lv.${snapshot.skillLevel}`;
 
   return (
-    <div
-      data-testid={`relics-${idPrefix}-selector`}
-      className="space-y-3.5"
-    >
+    <div data-testid={`relics-${idPrefix}-selector`} className="space-y-2.5">
       {/* Shared SVG Gradients for 4 Star Tiers: Gold / Red / Silver / Diamond */}
       <svg className="sr-only" aria-hidden="true" width="0" height="0">
         <defs>
@@ -193,60 +191,165 @@ export function RelicStarPetalSelector({
         </defs>
       </svg>
 
-      {/* 1. Header Row: Badge + Title + Star/Petal Readout */}
+      {/* 1. Header Row: Badge + Title + Inline Quick Star Chips + Readout + (i) Popup */}
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <div className="flex items-center gap-2">
-          <span className={cn("inline-flex items-center rounded-lg px-2.5 py-1 font-sans text-xs font-bold", tierTone)}>
+        <div className="flex flex-wrap items-center gap-2">
+          <span
+            className={cn(
+              "inline-flex items-center rounded-lg px-2.5 py-1 font-sans text-xs font-bold",
+              tierTone
+            )}
+          >
             {badgeLabel}
           </span>
           <h2 className={CALC_MD3.sectionTitle}>{title}</h2>
+
+          {/* Inline Quick Star Milestone Chips (0★, 3★, 5★, 8★, 10★, 15★, 20★) */}
+          <div className="flex flex-wrap items-center gap-1">
+            {QUICK_STAR_MILESTONES.map((mStar) => {
+              const isSelected = starLevel === mStar && subStep === 0;
+              return (
+                <button
+                  key={mStar}
+                  type="button"
+                  data-testid={`relics-${idPrefix}-chip-${mStar}`}
+                  onClick={() => handleMilestoneClick(mStar)}
+                  className={cn(
+                    CALC_MD3.chipButton,
+                    "px-2 font-mono text-xs font-bold",
+                    isSelected
+                      ? "bg-amber-500 text-slate-950 shadow-sm"
+                      : "bg-muted/50 text-foreground hover:bg-amber-500/15"
+                  )}
+                >
+                  {`${mStar}★`}
+                </button>
+              );
+            })}
+          </div>
         </div>
-        <div
-          data-testid={`relics-${idPrefix}-readout`}
-          className="inline-flex items-center gap-1.5 rounded-xl bg-muted/60 px-3 py-1.5"
-        >
-          <span className="font-mono text-base font-black text-amber-600 dark:text-amber-400">
-            {`${starLevel}★`}
-          </span>
-          {starLevel < 20 ? (
-            <span className="font-mono text-xs font-bold text-muted-foreground">
-              {`(${subStep}/5)`}
+
+        <div className="flex items-center gap-1.5">
+          <div
+            data-testid={`relics-${idPrefix}-readout`}
+            className="inline-flex items-center gap-1.5 rounded-xl bg-muted/60 px-3 py-1.5"
+          >
+            <span className="font-mono text-base font-black text-amber-600 dark:text-amber-400">
+              {`${starLevel}★`}
             </span>
-          ) : null}
-          <span className="font-mono text-xs font-semibold text-muted-foreground">
-            {`• ${petalIndex}/100`}
-          </span>
+            {starLevel < 20 ? (
+              <span className="font-mono text-xs font-bold text-muted-foreground">
+                {`(${subStep}/5)`}
+              </span>
+            ) : null}
+            <span className="font-mono text-xs font-semibold text-muted-foreground">
+              {`• ${petalIndex}/100`}
+            </span>
+          </div>
+
+          <CalculatorInfoPopover
+            title={
+              isVi
+                ? `Chỉ Số Bí Bảo — ${title} (${starLevel}★ ${subStep}/5)`
+                : `Relic Attributes — ${title} (${starLevel}★ ${subStep}/5)`
+            }
+            subtitle={
+              isVi
+                ? `Cánh sao: ${petalIndex}/100 • Đã đầu tư tích lũy: ${formatExactNumber(snapshot.cumulativeShards)} mảnh`
+                : `Petals: ${petalIndex}/100 • Cumulative invested: ${formatExactNumber(snapshot.cumulativeShards)} shards`
+            }
+            locale={locale}
+            triggerLabel={
+              isVi
+                ? `Xem chỉ số Bí Bảo tại ${title}`
+                : `View Relic attributes at ${title}`
+            }
+            triggerTestId={`relics-${idPrefix}-info-trigger`}
+            dialogTestId={`relics-${idPrefix}-info-dialog`}
+          >
+            <div className="space-y-3">
+              {/* 4 In-Game Relic Attributes & All-Hero Bonus inside Popup (i) */}
+              <div className="grid grid-cols-2 gap-2.5">
+                <div className={cn(CALC_MD3.tonalGroup, "p-3 space-y-0.5")}>
+                  <p className="font-sans text-xs font-semibold text-muted-foreground">
+                    {isVi ? "Tấn công Bí Bảo" : "Relic ATK"}
+                  </p>
+                  <p
+                    data-testid={`relics-${idPrefix}-stat-atk`}
+                    title={
+                      isVi
+                        ? `Gốc: ${formatExactNumber(snapshot.baseAtk)} × ${snapshot.relicHallBoostPercent}%`
+                        : `Base: ${formatExactNumber(snapshot.baseAtk)} × ${snapshot.relicHallBoostPercent}%`
+                    }
+                    className="font-mono text-base font-black text-foreground tabular-nums"
+                  >
+                    {formatExactNumber(snapshot.effectiveAtk)}
+                  </p>
+                  <p className="font-sans text-xs text-muted-foreground">
+                    {isVi
+                      ? `Gốc: ${formatExactNumber(snapshot.baseAtk)} (+${snapshot.relicHallBoostPercent}% Sảnh)`
+                      : `Base: ${formatExactNumber(snapshot.baseAtk)} (+${snapshot.relicHallBoostPercent}% Hall)`}
+                  </p>
+                </div>
+
+                <div className={cn(CALC_MD3.tonalGroup, "p-3 space-y-0.5")}>
+                  <p className="font-sans text-xs font-semibold text-muted-foreground">
+                    {isVi ? "HP Bí Bảo" : "Relic HP"}
+                  </p>
+                  <p
+                    data-testid={`relics-${idPrefix}-stat-hp`}
+                    title={
+                      isVi
+                        ? `Gốc: ${formatExactNumber(snapshot.baseHp)} × ${snapshot.relicHallBoostPercent}%`
+                        : `Base: ${formatExactNumber(snapshot.baseHp)} × ${snapshot.relicHallBoostPercent}%`
+                    }
+                    className="font-mono text-base font-black text-foreground tabular-nums"
+                  >
+                    {formatExactNumber(snapshot.effectiveHp)}
+                  </p>
+                  <p className="font-sans text-xs text-muted-foreground">
+                    {isVi
+                      ? `Gốc: ${formatExactNumber(snapshot.baseHp)} (+${snapshot.relicHallBoostPercent}% Sảnh)`
+                      : `Base: ${formatExactNumber(snapshot.baseHp)} (+${snapshot.relicHallBoostPercent}% Hall)`}
+                  </p>
+                </div>
+
+                <div className={cn(CALC_MD3.tonalGroup, "p-3 space-y-0.5")}>
+                  <p className="font-sans text-xs font-semibold text-muted-foreground">
+                    {bonusLabel}
+                  </p>
+                  <p
+                    data-testid={`relics-${idPrefix}-stat-bonus`}
+                    className="font-mono text-base font-black text-amber-600 dark:text-amber-400 tabular-nums"
+                  >
+                    {bonusValueText}
+                  </p>
+                </div>
+
+                <div className={cn(CALC_MD3.tonalGroup, "p-3 space-y-0.5")}>
+                  <p className="font-sans text-xs font-semibold text-muted-foreground">
+                    {isVi ? "ATK / HP Anh Hùng" : "Hero ATK / HP"}
+                  </p>
+                  <p
+                    data-testid={`relics-${idPrefix}-stat-hero`}
+                    className="font-mono text-base font-black text-emerald-600 dark:text-emerald-400 tabular-nums"
+                  >
+                    {`${snapshot.heroAtkPercent}% / ${snapshot.heroHpPercent}%`}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </CalculatorInfoPopover>
         </div>
       </div>
 
-      {/* 2. Quick Star Milestone Chips (0★, 3★, 5★, 8★, 10★, 15★, 20★) */}
-      <div className="grid grid-cols-7 gap-1">
-        {QUICK_STAR_MILESTONES.map((mStar) => {
-          const isSelected = starLevel === mStar && subStep === 0;
-          return (
-            <button
-              key={mStar}
-              type="button"
-              data-testid={`relics-${idPrefix}-chip-${mStar}`}
-              onClick={() => handleMilestoneClick(mStar)}
-              className={cn(
-                CALC_MD3.chipButton,
-                "px-1.5 font-mono text-xs font-bold",
-                isSelected
-                  ? "bg-amber-500 text-slate-950 shadow-sm"
-                  : "bg-muted/50 text-foreground hover:bg-amber-500/15"
-              )}
-            >
-              {`${mStar}★`}
-            </button>
-          );
-        })}
-      </div>
-
-      {/* 3. 20 Five-Petal Stars Grid: 2 Rows × 2 Color Tiers (10 Stars/Row on sm+) */}
+      {/* 2. 20 Five-Petal Stars Grid: 4 Color Tiers in 1 Row on xl (2×2 on sm+) */}
       <div
         data-testid={`${idPrefix}-star-tier-grid`}
-        className={cn(CALC_MD3.tonalGroup, "grid grid-cols-1 sm:grid-cols-2 gap-2.5")}
+        className={cn(
+          CALC_MD3.tonalGroup,
+          "grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-2 p-2.5"
+        )}
       >
         {RELIC_STAR_TIER_ROWS.map((row) => (
           <div
@@ -256,10 +359,12 @@ export function RelicStarPetalSelector({
             data-testid={`${idPrefix}-star-tier-row-${row.key}`}
             className="space-y-1"
           >
-            <div className={cn("font-sans text-xs font-bold", row.labelClassName)}>
+            <div
+              className={cn("font-sans text-xs font-bold", row.labelClassName)}
+            >
               {row.label[locale]}
             </div>
-            <div className="grid grid-cols-5 gap-1">
+            <div className="grid grid-cols-5 gap-0.5">
               {row.stars.map((overallStar) => {
                 const starStartPetal = (overallStar - 1) * 5;
                 const litPetalsInThisStar = Math.max(
@@ -328,38 +433,14 @@ export function RelicStarPetalSelector({
         ))}
       </div>
 
-      {/* 4. Sub-step Petal Chips (0/5 .. 4/5) + 100-Petal Range Slider with [-]/[+] */}
-      <div className={cn(CALC_MD3.tonalGroup, "space-y-2.5")}>
-        {starLevel < 20 ? (
-          <div className="flex flex-wrap items-center justify-between gap-1.5">
-            <span className="font-sans text-xs font-semibold text-muted-foreground">
-              {isVi ? "Cánh sao lẻ:" : "Sub-step petals:"}
-            </span>
-            <div className="grid grid-cols-5 gap-1">
-              {([0, 1, 2, 3, 4] as const).map((s) => {
-                const active = subStep === s;
-                return (
-                  <button
-                    key={s}
-                    type="button"
-                    data-testid={`relics-${idPrefix}-substep-${s}`}
-                    onClick={() => handleSubStepClick(s)}
-                    className={cn(
-                      "inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-xl px-2 font-mono text-xs font-bold transition-colors cursor-pointer",
-                      active
-                        ? "bg-amber-500 text-slate-950 shadow-sm"
-                        : "bg-background/70 text-muted-foreground hover:bg-amber-500/15 hover:text-foreground"
-                    )}
-                  >
-                    {`${s}/5`}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-        ) : null}
-
-        <div className="flex items-center gap-2">
+      {/* 3. Single-Line Control Bar: [- / Slider / +] + Sub-step Petal Chips (0/5 .. 4/5) */}
+      <div
+        className={cn(
+          CALC_MD3.tonalGroup,
+          "flex flex-col md:flex-row md:items-center justify-between gap-2.5 p-2 sm:px-3"
+        )}
+      >
+        <div className="flex flex-1 items-center gap-2">
           <CalculatorStepperButton
             direction="decrease"
             testId={`relics-${idPrefix}-petal-minus-btn`}
@@ -404,67 +485,35 @@ export function RelicStarPetalSelector({
             }
           />
         </div>
-      </div>
 
-      {/* 5. In-Game Relic Attributes & All-Hero Bonus Summary Well */}
-      <div className="grid grid-cols-2 gap-2">
-        <div className={cn(CALC_MD3.tonalGroup, "p-3 space-y-0.5")}>
-          <p className="font-sans text-xs font-semibold text-muted-foreground">
-            {isVi ? "Tấn công Bí Bảo" : "Relic ATK"}
-          </p>
-          <p
-            data-testid={`relics-${idPrefix}-stat-atk`}
-            title={
-              isVi
-                ? `Gốc: ${formatExactNumber(snapshot.baseAtk)} × ${snapshot.relicHallBoostPercent}%`
-                : `Base: ${formatExactNumber(snapshot.baseAtk)} × ${snapshot.relicHallBoostPercent}%`
-            }
-            className="font-mono text-sm sm:text-base font-black text-foreground tabular-nums"
-          >
-            {formatExactNumber(snapshot.effectiveAtk)}
-          </p>
-        </div>
-
-        <div className={cn(CALC_MD3.tonalGroup, "p-3 space-y-0.5")}>
-          <p className="font-sans text-xs font-semibold text-muted-foreground">
-            {isVi ? "HP Bí Bảo" : "Relic HP"}
-          </p>
-          <p
-            data-testid={`relics-${idPrefix}-stat-hp`}
-            title={
-              isVi
-                ? `Gốc: ${formatExactNumber(snapshot.baseHp)} × ${snapshot.relicHallBoostPercent}%`
-                : `Base: ${formatExactNumber(snapshot.baseHp)} × ${snapshot.relicHallBoostPercent}%`
-            }
-            className="font-mono text-sm sm:text-base font-black text-foreground tabular-nums"
-          >
-            {formatExactNumber(snapshot.effectiveHp)}
-          </p>
-        </div>
-
-        <div className={cn(CALC_MD3.tonalGroup, "p-3 space-y-0.5")}>
-          <p className="font-sans text-xs font-semibold text-muted-foreground">
-            {bonusLabel}
-          </p>
-          <p
-            data-testid={`relics-${idPrefix}-stat-bonus`}
-            className="font-mono text-sm sm:text-base font-black text-amber-600 dark:text-amber-400 tabular-nums"
-          >
-            {bonusValueText}
-          </p>
-        </div>
-
-        <div className={cn(CALC_MD3.tonalGroup, "p-3 space-y-0.5")}>
-          <p className="font-sans text-xs font-semibold text-muted-foreground">
-            {isVi ? "ATK / HP Anh Hùng" : "Hero ATK / HP"}
-          </p>
-          <p
-            data-testid={`relics-${idPrefix}-stat-hero`}
-            className="font-mono text-sm sm:text-base font-black text-emerald-600 dark:text-emerald-400 tabular-nums"
-          >
-            {`${snapshot.heroAtkPercent}% / ${snapshot.heroHpPercent}%`}
-          </p>
-        </div>
+        {starLevel < 20 ? (
+          <div className="flex flex-wrap items-center justify-between md:justify-end gap-1.5 shrink-0">
+            <span className="font-sans text-xs font-semibold text-muted-foreground">
+              {isVi ? "Cánh lẻ:" : "Petals:"}
+            </span>
+            <div className="grid grid-cols-5 gap-1">
+              {([0, 1, 2, 3, 4] as const).map((s) => {
+                const active = subStep === s;
+                return (
+                  <button
+                    key={s}
+                    type="button"
+                    data-testid={`relics-${idPrefix}-substep-${s}`}
+                    onClick={() => handleSubStepClick(s)}
+                    className={cn(
+                      "inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-xl px-2 font-mono text-xs font-bold transition-colors cursor-pointer",
+                      active
+                        ? "bg-amber-500 text-slate-950 shadow-sm"
+                        : "bg-background/70 text-muted-foreground hover:bg-amber-500/15 hover:text-foreground"
+                    )}
+                  >
+                    {`${s}/5`}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        ) : null}
       </div>
     </div>
   );

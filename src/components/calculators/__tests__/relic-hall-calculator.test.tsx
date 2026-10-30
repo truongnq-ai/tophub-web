@@ -12,7 +12,7 @@ import {
   readSource,
 } from "../../../../tests/utils/md3-audit";
 
-describe("6.2 Sảnh Bí Bảo — v2.0 4-Zone Architecture, Lv.1–250 Progress Bar, Construction Discount % & K/M Resources", () => {
+describe("6.2 Sảnh Bí Bảo — v2.0 1/3 + 2/3 Single-Viewport Layout, Zone (i) Popovers, Lv.1–250 Progress Bar & K/M Resources", () => {
   const resolved = getCalculatorToolBySlug("runes-relics", "relic-hall")!;
 
   const renderCalculator = (locale: "vi" | "en" = "vi") =>
@@ -25,7 +25,7 @@ describe("6.2 Sảnh Bí Bảo — v2.0 4-Zone Architecture, Lv.1–250 Progress
       />
     );
 
-  it("renders the 4 symmetrical v2.0 zones and matches Screenshot 1 (Lv.60 ➔ Lv.61 with 5% Construction Cost Reduction = 76 Arcane Crystals & 9.5K Magic Stones)", () => {
+  it("renders the 1/3 + 2/3 layout, zone (i) popovers, and matches Screenshot 1 (Lv.60 ➔ Lv.61 with 5% Construction Cost Reduction = 76 Arcane Crystals & 9.5K Magic Stones)", () => {
     const { container } = renderCalculator("vi");
 
     expect(
@@ -43,6 +43,32 @@ describe("6.2 Sảnh Bí Bảo — v2.0 4-Zone Architecture, Lv.1–250 Progress
     expect(screen.getByText("Cấp Mục Tiêu")).toBeDefined();
     expect(container.textContent ?? "").not.toContain("(X)");
     expect(container.textContent ?? "").not.toContain("(Y)");
+
+    // Open Current (i) popover to verify Lv.60 stats
+    fireEvent.click(screen.getByTestId("relic-hall-from-info-trigger"));
+    expect(screen.getByTestId("relic-hall-from-stat-power").textContent).toBe(
+      "24,400"
+    );
+    expect(screen.getByTestId("relic-hall-from-stat-atk").textContent).toBe(
+      "191.4%"
+    );
+    expect(
+      screen.getByTestId("relic-hall-from-stat-conversion").textContent
+    ).toBe("15.5%");
+    fireEvent.keyDown(window, { key: "Escape" });
+
+    // Open Avatar (i) popover to verify delta comparison
+    fireEvent.click(screen.getByTestId("relic-hall-avatar-info-trigger"));
+    expect(screen.getByTestId("relic-hall-delta-power").textContent).toBe(
+      "(+100)"
+    );
+    expect(screen.getByTestId("relic-hall-delta-boost").textContent).toBe(
+      "(+5%)"
+    );
+    expect(screen.getByTestId("relic-hall-delta-conversion").textContent).toBe(
+      "(+0.5%)"
+    );
+    fireEvent.keyDown(window, { key: "Escape" });
 
     // Select 5% discount preset to match Screenshot 1 (Lv.60 ➔ Lv.61)
     fireEvent.click(screen.getByTestId("relic-hall-discount-chip-5"));

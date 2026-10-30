@@ -85,7 +85,7 @@ export function CalculatorPlaceholderView({
     return (
       <div
         data-testid="calculator-tool-placeholder"
-        className="space-y-6 max-w-5xl"
+        className="space-y-5 w-full"
       >
         {/* Breadcrumb */}
         <nav

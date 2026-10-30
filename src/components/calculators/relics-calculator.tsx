@@ -27,7 +27,6 @@ import {
   RELIC_STAR_TIERS,
   RELIC_UNLOCK_SHARDS_COST,
   calculateRelicStarUpgrade,
-  clampPetalIndex,
   type RelicCatalogItem,
   type RelicRarity,
 } from "@/content/calculators/relics-data";
@@ -285,7 +284,7 @@ export function RelicsCalculator({ tool, locale }: RelicsCalculatorProps) {
     calculation.surplusSpecificShards + calculation.surplusUniversalShards;
 
   return (
-    <div data-testid="relics-calculator" className="space-y-5">
+    <div data-testid="relics-calculator" className="space-y-3.5">
       {/* Header phẳng MD3 + nút (i) sổ tay 20★ & Áp Chế Sao Cam */}
       <CalculatorToolHeader
         code={tool.code}
@@ -321,7 +320,6 @@ export function RelicsCalculator({ tool, locale }: RelicsCalculatorProps) {
               dialogTestId="relics-info-dialog"
             >
               <div className="space-y-4">
-                {/* 1. 4 Bậc Màu Sao & Tổng Mảnh */}
                 <div className={cn(CALC_MD3.tonalGroup, "space-y-2")}>
                   <h5 className="font-heading text-xs sm:text-sm font-bold text-foreground">
                     {isVi
@@ -348,7 +346,6 @@ export function RelicsCalculator({ tool, locale }: RelicsCalculatorProps) {
                   </ul>
                 </div>
 
-                {/* 2. Cơ chế Áp Chế Sao Cam -50% */}
                 <div className={cn(CALC_MD3.tonalGroup, "space-y-2")}>
                   <h5 className="font-heading text-xs sm:text-sm font-bold text-foreground">
                     {isVi
@@ -362,7 +359,6 @@ export function RelicsCalculator({ tool, locale }: RelicsCalculatorProps) {
                   </p>
                 </div>
 
-                {/* 3. Bộ 3 Bí Bảo Trấn Phái Theo Phe */}
                 <div className={cn(CALC_MD3.tonalGroup, "space-y-2")}>
                   <h5 className="font-heading text-xs sm:text-sm font-bold text-foreground">
                     {isVi
@@ -409,36 +405,121 @@ export function RelicsCalculator({ tool, locale }: RelicsCalculatorProps) {
         </div>
       ) : null}
 
-      {/* 3-Column v2.0 Top Workbench: Zone 1 (Current) | Zone 2 (Relic Avatar + Hall Level + Unlock Toggle) | Zone 3 (Target) */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-stretch">
-        {/* ZONE 1 — Sao Hiện Tại */}
-        <section
-          data-testid="relics-zone-current"
-          className={cn(
-            CALC_MD3.surfaceCard,
-            "lg:col-span-4 flex flex-col justify-between"
-          )}
-        >
-          <RelicStarPetalSelector
-            idPrefix="from"
-            title={isVi ? "Sao Hiện Tại" : "Current Star"}
-            badgeLabel={isVi ? "Đang sở hữu" : "Current"}
-            snapshot={fromState}
-            locale={locale}
-            onChangePetalIndex={setFromPetalIndex}
-          />
-        </section>
-
-        {/* ZONE 2 — Central Relic Avatar + 2-Step Picker + Relic Hall Level + Unlock Toggle */}
+      {/* Main 1/3 + 2/3 Workbench on PC: Left 1/3 (Relic Avatar + Ownership + Hall Level + (i) Delta) | Right 2/3 (Row 1: Current Star, Row 2: Target Star) */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-3.5 items-stretch">
+        {/* CỘT 1/3 — Avatar Bí Bảo + Nút (i) So sánh chỉ số + Trạng thái sở hữu + Cấp Sảnh Bí Bảo */}
         <section
           data-testid="relics-zone-avatar"
           className={cn(
             CALC_MD3.surfaceCard,
-            "relative lg:col-span-4 flex flex-col justify-between space-y-4"
+            "relative lg:col-span-4 flex flex-col justify-between space-y-3"
           )}
         >
+          {/* Header cột 1/3: Badge Phẩm chất/Ô + Nút (i) So Sánh Chỉ Số (Hiện Tại ➔ Mục Tiêu) */}
+          <div className="flex items-center justify-between gap-2">
+            <div className="flex flex-wrap items-center gap-1.5">
+              <span className="rounded-lg bg-amber-500/15 px-2.5 py-0.5 font-sans text-xs font-bold text-amber-700 dark:text-amber-300">
+                {calculation.rarityTable.shortName[locale]}
+              </span>
+              <span className="rounded-lg bg-muted/60 px-2.5 py-0.5 font-sans text-xs font-semibold text-muted-foreground">
+                {slotRoleLabel(relic.slotRole)}
+              </span>
+            </div>
+
+            <CalculatorInfoPopover
+              title={
+                isVi
+                  ? `So Sánh Chỉ Số — ${relic.name.vi}`
+                  : `Attribute Comparison — ${relic.name.en}`
+              }
+              subtitle={
+                isVi
+                  ? `${fromState.starLevel}★ (${fromState.subStep}/5) ➔ ${toState.starLevel}★ (${toState.subStep}/5) • Sảnh Lv.${relicHallLevel} (+${fromState.relicHallBoostPercent}%)`
+                  : `${fromState.starLevel}★ (${fromState.subStep}/5) ➔ ${toState.starLevel}★ (${toState.subStep}/5) • Hall Lv.${relicHallLevel} (+${fromState.relicHallBoostPercent}%)`
+              }
+              locale={locale}
+              triggerLabel={
+                isVi
+                  ? "Xem so sánh chỉ số tăng thêm của Bí Bảo"
+                  : "View Relic attribute gain comparison"
+              }
+              triggerTestId="relics-avatar-info-trigger"
+              dialogTestId="relics-avatar-info-dialog"
+            >
+              <div className="space-y-3">
+                <div className={cn(CALC_MD3.tonalGroup, "space-y-2.5")}>
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="font-sans text-xs font-semibold text-muted-foreground">
+                      {isVi ? "Tấn công Bí Bảo" : "Relic ATK"}
+                    </span>
+                    <div className="flex items-center gap-1 font-mono text-xs sm:text-sm font-black">
+                      <span className="text-muted-foreground">
+                        {formatExactNumber(fromState.effectiveAtk)}
+                      </span>
+                      <ArrowRight
+                        className="h-3.5 w-3.5 text-amber-500"
+                        aria-hidden="true"
+                      />
+                      <span className="text-foreground">
+                        {formatExactNumber(toState.effectiveAtk)}
+                      </span>
+                      <span
+                        data-testid="relics-delta-atk"
+                        className="text-emerald-600 dark:text-emerald-400"
+                      >
+                        {`(+${formatExactNumber(calculation.atkDelta)})`}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="font-sans text-xs font-semibold text-muted-foreground">
+                      {isVi ? "HP Bí Bảo" : "Relic HP"}
+                    </span>
+                    <div className="flex items-center gap-1 font-mono text-xs sm:text-sm font-black">
+                      <span className="text-muted-foreground">
+                        {formatExactNumber(fromState.effectiveHp)}
+                      </span>
+                      <ArrowRight
+                        className="h-3.5 w-3.5 text-amber-500"
+                        aria-hidden="true"
+                      />
+                      <span className="text-foreground">
+                        {formatExactNumber(toState.effectiveHp)}
+                      </span>
+                      <span
+                        data-testid="relics-delta-hp"
+                        className="text-emerald-600 dark:text-emerald-400"
+                      >
+                        {`(+${formatExactNumber(calculation.hpDelta)})`}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="font-sans text-xs font-semibold text-muted-foreground">
+                      {isVi ? "Bonus Anh Hùng (ATK / HP)" : "All-Hero Bonus (ATK / HP)"}
+                    </span>
+                    <div className="flex items-center gap-1 font-mono text-xs sm:text-sm font-black">
+                      <span className="text-muted-foreground">
+                        {`${fromState.heroAtkPercent}%/${fromState.heroHpPercent}%`}
+                      </span>
+                      <ArrowRight
+                        className="h-3.5 w-3.5 text-amber-500"
+                        aria-hidden="true"
+                      />
+                      <span className="text-emerald-600 dark:text-emerald-400">
+                        {`${toState.heroAtkPercent}%/${toState.heroHpPercent}%`}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CalculatorInfoPopover>
+          </div>
+
           {/* Central Relic Avatar Button */}
-          <div className="flex flex-col items-center text-center space-y-2.5">
+          <div className="flex flex-col items-center text-center space-y-2">
             <button
               type="button"
               data-testid="relics-central-avatar-btn"
@@ -449,32 +530,24 @@ export function RelicsCalculator({ tool, locale }: RelicsCalculatorProps) {
                   ? `Đổi Bí Bảo (Đang chọn ${relic.name.vi})`
                   : `Change Relic (Selected ${relic.name.en})`
               }
-              className="group relative flex flex-col items-center rounded-3xl bg-gradient-to-b from-amber-500/20 via-amber-500/5 to-muted/40 p-4 transition-transform hover:scale-[1.02] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
+              className="group relative flex flex-col items-center rounded-3xl bg-gradient-to-b from-amber-500/20 via-amber-500/5 to-muted/40 p-3 transition-transform hover:scale-[1.02] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
             >
-              <div className="relative flex h-24 w-24 sm:h-28 sm:w-28 items-center justify-center">
+              <div className="relative flex h-20 w-20 sm:h-24 sm:w-24 items-center justify-center">
                 <Image
                   src={relic.illustrationPath}
                   alt={relic.name[locale]}
-                  width={112}
-                  height={112}
-                  className="h-24 w-24 object-contain drop-shadow-md transition-transform group-hover:scale-105"
+                  width={96}
+                  height={96}
+                  className="h-20 w-20 sm:h-24 sm:w-24 object-contain drop-shadow-md transition-transform group-hover:scale-105"
                 />
               </div>
-              <span className="mt-2 inline-flex items-center gap-1 rounded-full bg-amber-500 px-3 py-1 font-sans text-xs font-black text-slate-950 shadow-sm">
+              <span className="mt-1.5 inline-flex items-center gap-1 rounded-full bg-amber-500 px-3 py-0.5 font-sans text-xs font-black text-slate-950 shadow-sm">
                 <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
                 <span>{isVi ? "Đổi Bí Bảo (29 món)" : "Change Relic (29)"}</span>
               </span>
             </button>
 
-            <div className="space-y-1">
-              <div className="flex flex-wrap items-center justify-center gap-1.5">
-                <span className="rounded-lg bg-amber-500/15 px-2 py-0.5 font-sans text-xs font-bold text-amber-700 dark:text-amber-300">
-                  {calculation.rarityTable.shortName[locale]}
-                </span>
-                <span className="rounded-lg bg-muted/60 px-2 py-0.5 font-sans text-xs font-semibold text-muted-foreground">
-                  {slotRoleLabel(relic.slotRole)}
-                </span>
-              </div>
+            <div className="space-y-0.5">
               <h2 className="font-heading text-base sm:text-lg font-extrabold text-foreground">
                 {relic.name[locale]}
               </h2>
@@ -489,10 +562,7 @@ export function RelicsCalculator({ tool, locale }: RelicsCalculatorProps) {
             <div
               data-testid="relics-avatar-picker-popover"
               data-md3-overlay="true"
-              className={cn(
-                CALC_MD3.overlayCard,
-                "z-30 space-y-3"
-              )}
+              className={cn(CALC_MD3.overlayCard, "z-30 space-y-3")}
             >
               <div className="flex items-center justify-between gap-2">
                 {pickerStep === "relic" ? (
@@ -519,7 +589,9 @@ export function RelicsCalculator({ tool, locale }: RelicsCalculatorProps) {
                   type="button"
                   data-testid="relics-picker-close-btn"
                   onClick={() => setIsPickerOpen(false)}
-                  aria-label={isVi ? "Đóng bộ chọn Bí Bảo" : "Close Relic picker"}
+                  aria-label={
+                    isVi ? "Đóng bộ chọn Bí Bảo" : "Close Relic picker"
+                  }
                   className={cn(
                     CALC_MD3.iconButton,
                     "bg-muted/60 text-muted-foreground hover:bg-muted hover:text-foreground"
@@ -601,19 +673,18 @@ export function RelicsCalculator({ tool, locale }: RelicsCalculatorProps) {
             </div>
           ) : null}
 
-          {/* Toggle "Chưa tìm thấy (+10 mảnh mở khóa)" */}
-          <div className={cn(CALC_MD3.tonalGroup, "space-y-2")}>
-            <div className="flex items-center justify-between gap-2">
-              <div className="min-w-0">
-                <p className="font-sans text-xs font-bold text-foreground">
-                  {isVi ? "Trạng thái sở hữu" : "Ownership Status"}
-                </p>
-                <p className="font-sans text-xs text-muted-foreground">
-                  {isVi
-                    ? `Chưa tìm thấy cần +${RELIC_UNLOCK_SHARDS_COST} mảnh ghép mở khóa`
-                    : `Unowned Relics require +${RELIC_UNLOCK_SHARDS_COST} shards to unlock`}
-                </p>
-              </div>
+          {/* Controls Group at Bottom of Left 1/3 Column: Ownership Toggle + Relic Hall Level */}
+          <div className="space-y-2">
+            {/* Compact 1-Line Toggle "Chưa tìm thấy (+10 mảnh mở khóa)" */}
+            <div
+              className={cn(
+                CALC_MD3.tonalGroup,
+                "flex items-center justify-between gap-2 px-3 py-2"
+              )}
+            >
+              <span className="font-sans text-xs font-bold text-foreground">
+                {isVi ? "Trạng thái sở hữu" : "Ownership"}
+              </span>
               <button
                 type="button"
                 role="switch"
@@ -632,7 +703,9 @@ export function RelicsCalculator({ tool, locale }: RelicsCalculatorProps) {
                   <>
                     <Lock className="h-3.5 w-3.5" aria-hidden="true" />
                     <span>
-                      {isVi ? "Chưa tìm thấy (+10)" : "Not Found (+10)"}
+                      {isVi
+                        ? `Chưa tìm thấy (+${RELIC_UNLOCK_SHARDS_COST})`
+                        : `Not Found (+${RELIC_UNLOCK_SHARDS_COST})`}
                     </span>
                   </>
                 ) : (
@@ -643,188 +716,137 @@ export function RelicsCalculator({ tool, locale }: RelicsCalculatorProps) {
                 )}
               </button>
             </div>
+
+            {/* Đồng bộ Cấp Sảnh Bí Bảo (Lv.1..250 -> Tăng Tỉ Lệ ATK/HP Bí Bảo) */}
+            <div className={cn(CALC_MD3.tonalGroup, "space-y-2 p-2.5 sm:p-3")}>
+              <div className="flex items-center justify-between gap-2">
+                <span className="font-sans text-xs font-bold text-foreground">
+                  {isVi ? "Cấp Sảnh Bí Bảo" : "Relic Hall Level"}
+                </span>
+                <span
+                  data-testid="relics-hall-boost-readout"
+                  className="font-mono text-xs font-black text-amber-600 dark:text-amber-400"
+                >
+                  {`Lv.${relicHallLevel} (+${fromState.relicHallBoostPercent}%)`}
+                </span>
+              </div>
+
+              <div className="grid grid-cols-7 gap-1">
+                {RELIC_HALL_MILESTONE_LEVELS.map((mLv) => {
+                  const active = relicHallLevel === mLv;
+                  return (
+                    <button
+                      key={mLv}
+                      type="button"
+                      data-testid={`relics-hall-chip-${mLv}`}
+                      onClick={() => setRelicHallLevel(mLv)}
+                      className={cn(
+                        CALC_MD3.chipButton,
+                        "px-1 font-mono text-xs font-bold",
+                        active
+                          ? "bg-amber-500 text-slate-950 shadow-sm"
+                          : "bg-background/70 text-foreground hover:bg-amber-500/15"
+                      )}
+                    >
+                      {mLv}
+                    </button>
+                  );
+                })}
+              </div>
+
+              <input
+                type="range"
+                min={RELIC_HALL_MIN_LEVEL}
+                max={RELIC_HALL_MAX_LEVEL}
+                step={1}
+                data-testid="relics-hall-level-slider"
+                value={relicHallLevel}
+                aria-label={
+                  isVi
+                    ? "Chọn Cấp Sảnh Bí Bảo từ 1 đến 250"
+                    : "Select Relic Hall Level from 1 to 250"
+                }
+                onChange={(event) =>
+                  setRelicHallLevel(
+                    clampRelicHallLevel(Number(event.target.value))
+                  )
+                }
+                className="h-2.5 w-full cursor-pointer appearance-none rounded-lg bg-muted accent-amber-500"
+              />
+            </div>
           </div>
+        </section>
 
-          {/* Đồng bộ Cấp Sảnh Bí Bảo (Lv.1..250 -> Tăng Tỉ Lệ ATK/HP Bí Bảo) */}
-          <div className={cn(CALC_MD3.tonalGroup, "space-y-2.5")}>
-            <div className="flex items-center justify-between gap-2">
-              <span className="font-sans text-xs font-bold text-foreground">
-                {isVi
-                  ? "Cấp Sảnh Bí Bảo (Tăng ATK/HP)"
-                  : "Relic Hall Level (ATK/HP Boost)"}
-              </span>
-              <span
-                data-testid="relics-hall-boost-readout"
-                className="font-mono text-xs font-black text-amber-600 dark:text-amber-400"
-              >
-                {`Lv.${relicHallLevel} (+${fromState.relicHallBoostPercent}%)`}
-              </span>
-            </div>
-
-            <div className="grid grid-cols-7 gap-1">
-              {RELIC_HALL_MILESTONE_LEVELS.map((mLv) => {
-                const active = relicHallLevel === mLv;
-                return (
-                  <button
-                    key={mLv}
-                    type="button"
-                    data-testid={`relics-hall-chip-${mLv}`}
-                    onClick={() => setRelicHallLevel(mLv)}
-                    className={cn(
-                      CALC_MD3.chipButton,
-                      "px-1 font-mono text-xs font-bold",
-                      active
-                        ? "bg-amber-500 text-slate-950 shadow-sm"
-                        : "bg-background/70 text-foreground hover:bg-amber-500/15"
-                    )}
-                  >
-                    {mLv}
-                  </button>
-                );
-              })}
-            </div>
-
-            <input
-              type="range"
-              min={RELIC_HALL_MIN_LEVEL}
-              max={RELIC_HALL_MAX_LEVEL}
-              step={1}
-              data-testid="relics-hall-level-slider"
-              value={relicHallLevel}
-              aria-label={
-                isVi
-                  ? "Chọn Cấp Sảnh Bí Bảo từ 1 đến 250"
-                  : "Select Relic Hall Level from 1 to 250"
-              }
-              onChange={(event) =>
-                setRelicHallLevel(clampRelicHallLevel(Number(event.target.value)))
-              }
-              className="h-2.5 w-full cursor-pointer appearance-none rounded-lg bg-muted accent-amber-500"
+        {/* CỘT 2/3 — Chia thành 2 Dòng: Dòng Trên (Sao Hiện Tại) & Dòng Dưới (Sao Mục Tiêu) */}
+        <div className="lg:col-span-8 flex flex-col justify-between gap-3.5">
+          {/* DÒNG TRÊN — Sao Hiện Tại */}
+          <section
+            data-testid="relics-zone-current"
+            className={cn(CALC_MD3.surfaceCard, "flex-1 flex flex-col justify-center")}
+          >
+            <RelicStarPetalSelector
+              idPrefix="from"
+              title={isVi ? "Sao Hiện Tại" : "Current Star"}
+              badgeLabel={isVi ? "Đang sở hữu" : "Current"}
+              snapshot={fromState}
+              locale={locale}
+              onChangePetalIndex={setFromPetalIndex}
             />
-          </div>
+          </section>
 
-          {/* Delta Comparison Well */}
-          <div className={cn(CALC_MD3.tonalGroup, "space-y-2")}>
-            <div className="flex items-center justify-between gap-2">
-              <span className="font-sans text-xs font-semibold text-muted-foreground">
-                {isVi ? "Tấn công Bí Bảo" : "Relic ATK"}
-              </span>
-              <div className="flex items-center gap-1 font-mono text-xs sm:text-sm font-black">
-                <span className="text-muted-foreground">
-                  {formatExactNumber(fromState.effectiveAtk)}
-                </span>
-                <ArrowRight
-                  className="h-3.5 w-3.5 text-amber-500"
-                  aria-hidden="true"
-                />
-                <span className="text-foreground">
-                  {formatExactNumber(toState.effectiveAtk)}
-                </span>
-                <span
-                  data-testid="relics-delta-atk"
-                  className="text-emerald-600 dark:text-emerald-400"
-                >
-                  {`(+${formatExactNumber(calculation.atkDelta)})`}
-                </span>
-              </div>
-            </div>
-
-            <div className="flex items-center justify-between gap-2">
-              <span className="font-sans text-xs font-semibold text-muted-foreground">
-                {isVi ? "HP Bí Bảo" : "Relic HP"}
-              </span>
-              <div className="flex items-center gap-1 font-mono text-xs sm:text-sm font-black">
-                <span className="text-muted-foreground">
-                  {formatExactNumber(fromState.effectiveHp)}
-                </span>
-                <ArrowRight
-                  className="h-3.5 w-3.5 text-amber-500"
-                  aria-hidden="true"
-                />
-                <span className="text-foreground">
-                  {formatExactNumber(toState.effectiveHp)}
-                </span>
-                <span
-                  data-testid="relics-delta-hp"
-                  className="text-emerald-600 dark:text-emerald-400"
-                >
-                  {`(+${formatExactNumber(calculation.hpDelta)})`}
-                </span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ZONE 3 — Sao Mục Tiêu */}
-        <section
-          data-testid="relics-zone-target"
-          className={cn(
-            CALC_MD3.surfaceCard,
-            "lg:col-span-4 flex flex-col justify-between"
-          )}
-        >
-          <RelicStarPetalSelector
-            idPrefix="to"
-            title={isVi ? "Sao Mục Tiêu" : "Target Star"}
-            badgeLabel={isVi ? "Đích đến" : "Target"}
-            snapshot={toState}
-            locale={locale}
-            onChangePetalIndex={setToPetalIndex}
-          />
-        </section>
+          {/* DÒNG DƯỚI — Sao Mục Tiêu */}
+          <section
+            data-testid="relics-zone-target"
+            className={cn(CALC_MD3.surfaceCard, "flex-1 flex flex-col justify-center")}
+          >
+            <RelicStarPetalSelector
+              idPrefix="to"
+              title={isVi ? "Sao Mục Tiêu" : "Target Star"}
+              badgeLabel={isVi ? "Đích đến" : "Target"}
+              snapshot={toState}
+              locale={locale}
+              onChangePetalIndex={setToPetalIndex}
+            />
+          </section>
+        </div>
       </div>
 
-      {/* ZONE 4 — Bảng Kết Quả Mảnh Bí Bảo (2 Cột: Mảnh Bí Bảo Riêng + Mảnh Vạn Năng Bí Bảo) */}
+      {/* ZONE 4 — Hàng Nguyên Liệu Thu Gọn 1 Dòng (Compact Horizontal KPI Strip) */}
       <section
         data-testid="relics-resources-panel"
-        className={cn(CALC_MD3.surfaceCard, "space-y-4")}
+        className={cn(CALC_MD3.surfaceCard, "space-y-2.5")}
       >
-        {/* Top Summary Banner */}
-        <div
-          className={cn(
-            CALC_MD3.tonalGroup,
-            "flex flex-wrap items-center justify-between gap-4"
-          )}
-        >
-          <div className="space-y-1">
+        {/* Compact Header Bar with Inline Total Required & Missing/Surplus Readouts + (i) Popup */}
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <div className="flex flex-wrap items-center gap-2.5">
             <h2 className={CALC_MD3.sectionTitle}>
               {isVi
                 ? "Tổng Kết Mảnh Nâng Sao Bí Bảo"
                 : "Relic Star Upgrade Shard Summary"}
             </h2>
-            <p className="font-sans text-xs text-muted-foreground">
-              {isVi
-                ? "Hệ thống tự động ưu tiên trừ Mảnh Bí Bảo Riêng trước, phần thiếu mới bù bằng Mảnh Vạn Năng"
-                : "Automatically prioritizes Specific Relic Shards first, then fills the remainder with Universal Shards"}
-            </p>
-          </div>
 
-          <div className="flex flex-wrap items-center gap-4">
-            <div className="text-right">
-              <p className="font-sans text-xs font-semibold text-muted-foreground">
-                {isVi ? "Tổng mảnh cần" : "Total Shards Needed"}
-              </p>
+            <div className="inline-flex items-center gap-1.5 rounded-xl bg-muted/60 px-3 py-1">
+              <span className="font-sans text-xs font-semibold text-muted-foreground">
+                {isVi ? "Tổng cần:" : "Required:"}
+              </span>
               <span
                 data-testid="relics-required-shards"
                 title={formatExactNumber(calculation.totalRequiredShards)}
-                className={cn(
-                  CALC_MD3.metricValue,
-                  "text-amber-600 dark:text-amber-400"
-                )}
+                className="font-mono text-base sm:text-lg font-black text-amber-600 dark:text-amber-400 tabular-nums"
               >
                 {formatCompactNumber(calculation.totalRequiredShards)}
               </span>
             </div>
 
-            <div className="rounded-xl bg-background/70 px-3.5 py-2.5 text-right">
-              <p className="font-sans text-xs font-semibold text-muted-foreground">
-                {isVi ? "Trạng thái mảnh" : "Shard Balance"}
-              </p>
+            <div className="inline-flex items-center gap-1.5 rounded-xl bg-muted/60 px-3 py-1">
+              <span className="font-sans text-xs font-semibold text-muted-foreground">
+                {isVi ? "Trạng thái:" : "Balance:"}
+              </span>
               {calculation.missingShards > 0 ? (
                 <span
                   data-testid="relics-missing-shards"
                   title={formatExactNumber(calculation.missingShards)}
-                  className="font-mono text-lg sm:text-xl font-black text-rose-600 dark:text-rose-400 tabular-nums"
+                  className="font-mono text-sm sm:text-base font-black text-rose-600 dark:text-rose-400 tabular-nums"
                 >
                   {formatCompactNumber(calculation.missingShards)}
                 </span>
@@ -832,9 +854,12 @@ export function RelicsCalculator({ tool, locale }: RelicsCalculatorProps) {
                 <span
                   data-testid="relics-missing-shards"
                   title={formatExactNumber(totalSurplusShards)}
-                  className="inline-flex items-center gap-1.5 font-sans text-xs sm:text-sm font-bold text-emerald-600 dark:text-emerald-400"
+                  className="inline-flex items-center gap-1 font-sans text-xs font-bold text-emerald-600 dark:text-emerald-400"
                 >
-                  <CheckCircle2 className="h-4 w-4 shrink-0" aria-hidden="true" />
+                  <CheckCircle2
+                    className="h-3.5 w-3.5 shrink-0"
+                    aria-hidden="true"
+                  />
                   {isVi
                     ? `Đủ nguyên liệu (+Dư ${formatCompactNumber(totalSurplusShards)})`
                     : `Enough materials (+Surplus ${formatCompactNumber(totalSurplusShards)})`}
@@ -842,131 +867,153 @@ export function RelicsCalculator({ tool, locale }: RelicsCalculatorProps) {
               )}
             </div>
           </div>
+
+          <CalculatorInfoPopover
+            title={
+              isVi
+                ? "Quy Tắc Trừ Mảnh Riêng & Bù Mảnh Vạn Năng"
+                : "Specific Shard Priority & Universal Shard Fill Rules"
+            }
+            subtitle={
+              isVi
+                ? `${relic.shardName.vi} + ${universalMaterial.nameVi}`
+                : `${relic.shardName.en} + ${universalMaterial.nameEn}`
+            }
+            locale={locale}
+            triggerLabel={
+              isVi
+                ? "Xem quy tắc ưu tiên trừ mảnh Bí Bảo"
+                : "View Relic shard deduction priority rules"
+            }
+            triggerTestId="relics-resources-info-trigger"
+            dialogTestId="relics-resources-info-dialog"
+          >
+            <div className={cn(CALC_MD3.tonalGroup, "space-y-2")}>
+              <p className="font-sans text-xs text-muted-foreground">
+                {isVi
+                  ? "• Hệ thống tự động ưu tiên trừ Mảnh Bí Bảo Riêng đang có trong túi trước, phần thiếu còn lại mới bù 1:1 bằng Mảnh Vạn Năng Bí Bảo cùng phẩm chất."
+                  : "• Automatically deducts your owned Specific Relic Shards first, then fills any remaining requirement 1:1 using Universal Relic Shards of matching rarity."}
+              </p>
+              <p className="font-sans text-xs text-muted-foreground">
+                {isVi
+                  ? "• Hỗ trợ nhập nhanh đơn vị K / M (ví dụ: 1.5k = 1,500) ở cả 2 ô số lượng đang có."
+                  : "• Supports K / M shorthand inputs (e.g. 1.5k = 1,500) in both inventory fields."}
+              </p>
+            </div>
+          </CalculatorInfoPopover>
         </div>
 
-        {/* 2-Column Resource Cards: Specific Relic Shards & Universal Relic Shards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {/* 2-Column Horizontal Resource Cards: Specific Relic Shards & Universal Relic Shards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {/* Card 1: Mảnh Bí Bảo Riêng */}
-          <div className={cn(CALC_MD3.tonalGroup, "space-y-3.5")}>
-            <div className="flex items-center gap-3">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-amber-500/15 p-1.5">
+          <div className={cn(CALC_MD3.tonalGroup, "space-y-2 p-2.5 sm:p-3")}>
+            <div className="flex items-center gap-2.5">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-amber-500/15 p-1">
                 <Image
                   src={relic.shardIconPath}
                   alt={relic.shardName[locale]}
-                  width={40}
-                  height={40}
-                  className="h-10 w-10 object-contain"
+                  width={32}
+                  height={32}
+                  className="h-7 w-7 object-contain"
                 />
               </div>
-              <div className="min-w-0">
-                <h3 className="font-heading text-sm sm:text-base font-bold text-foreground">
-                  {relic.shardName[locale]}
-                </h3>
-                <p className="font-sans text-xs text-muted-foreground">
-                  {isVi
-                    ? "Mảnh riêng của Bí Bảo (ưu tiên dùng trước & mở khóa)"
-                    : "Specific Relic Shards (used first & for unlocking)"}
-                </p>
+              <h3 className="font-heading text-sm sm:text-base font-bold text-foreground truncate">
+                {relic.shardName[locale]}
+              </h3>
+            </div>
+
+            <div className="grid grid-cols-2 gap-2 items-stretch">
+              <div className="flex flex-col justify-between rounded-xl bg-background/60 px-2.5 py-2">
+                <span className="font-sans text-xs font-semibold text-muted-foreground">
+                  {isVi ? "Mảnh riêng dùng" : "Specific Used"}
+                </span>
+                <span
+                  data-testid="relics-used-specific-shards"
+                  title={formatExactNumber(calculation.specificShardsUsed)}
+                  className="mt-0.5 font-mono text-lg sm:text-xl font-black text-amber-600 dark:text-amber-400 tabular-nums"
+                >
+                  {formatCompactNumber(calculation.specificShardsUsed)}
+                </span>
               </div>
-            </div>
 
-            <div className="flex items-baseline justify-between gap-2 rounded-xl bg-background/60 p-3">
-              <span className="font-sans text-xs font-semibold text-muted-foreground">
-                {isVi ? "Số mảnh riêng sử dụng" : "Specific Shards Used"}
-              </span>
-              <span
-                data-testid="relics-used-specific-shards"
-                title={formatExactNumber(calculation.specificShardsUsed)}
-                className="font-mono text-xl sm:text-2xl font-black text-amber-600 dark:text-amber-400 tabular-nums"
-              >
-                {formatCompactNumber(calculation.specificShardsUsed)}
-              </span>
-            </div>
-
-            <div className="space-y-1.5">
-              <label
-                htmlFor="relics-owned-specific-shards-input"
-                className="block font-sans text-xs font-semibold text-muted-foreground"
-              >
-                {isVi
-                  ? "Mảnh riêng đang có trong túi (ví dụ: 7, 50...)"
-                  : "Specific Shards owned in bag (e.g. 7, 50...)"}
-              </label>
-              <input
-                id="relics-owned-specific-shards-input"
-                type="text"
-                inputMode="text"
-                data-testid="relics-owned-specific-shards-input"
-                value={ownedSpecificText}
-                onChange={(event) => setOwnedSpecificText(event.target.value)}
-                placeholder="0"
-                className={cn(
-                  CALC_MD3.dataInput,
-                  "w-full border-0 bg-background/80 px-3.5 ring-1 ring-border/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
-                )}
-              />
+              <div className="flex flex-col justify-between">
+                <label
+                  htmlFor="relics-owned-specific-shards-input"
+                  className="font-sans text-xs font-semibold text-muted-foreground truncate"
+                >
+                  {isVi ? "Đang có trong túi" : "Owned in bag"}
+                </label>
+                <input
+                  id="relics-owned-specific-shards-input"
+                  type="text"
+                  inputMode="text"
+                  data-testid="relics-owned-specific-shards-input"
+                  value={ownedSpecificText}
+                  onChange={(event) => setOwnedSpecificText(event.target.value)}
+                  placeholder="0"
+                  className={cn(
+                    CALC_MD3.dataInput,
+                    "mt-0.5 w-full border-0 bg-background/80 px-2.5 ring-1 ring-border/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
+                  )}
+                />
+              </div>
             </div>
           </div>
 
           {/* Card 2: Mảnh Vạn Năng Bí Bảo */}
-          <div className={cn(CALC_MD3.tonalGroup, "space-y-3.5")}>
-            <div className="flex items-center gap-3">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-sky-500/15 p-1.5">
+          <div className={cn(CALC_MD3.tonalGroup, "space-y-2 p-2.5 sm:p-3")}>
+            <div className="flex items-center gap-2.5">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-sky-500/15 p-1">
                 <Image
                   src={universalMaterial.iconPath}
                   alt={universalMaterialName}
-                  width={40}
-                  height={40}
-                  className="h-10 w-10 object-contain"
+                  width={32}
+                  height={32}
+                  className="h-7 w-7 object-contain"
                 />
               </div>
-              <div className="min-w-0">
-                <h3 className="font-heading text-sm sm:text-base font-bold text-foreground">
-                  {universalMaterialName}
-                </h3>
-                <p className="font-sans text-xs text-muted-foreground">
-                  {isVi
-                    ? "Mảnh vạn năng cùng phẩm chất bù vào phần còn thiếu"
-                    : "Universal Shards of matching rarity to cover remaining cost"}
-                </p>
+              <h3 className="font-heading text-sm sm:text-base font-bold text-foreground truncate">
+                {universalMaterialName}
+              </h3>
+            </div>
+
+            <div className="grid grid-cols-2 gap-2 items-stretch">
+              <div className="flex flex-col justify-between rounded-xl bg-background/60 px-2.5 py-2">
+                <span className="font-sans text-xs font-semibold text-muted-foreground">
+                  {isVi ? "Vạn năng bù thêm" : "Universal Used"}
+                </span>
+                <span
+                  data-testid="relics-used-universal-shards"
+                  title={formatExactNumber(calculation.universalShardsUsed)}
+                  className="mt-0.5 font-mono text-lg sm:text-xl font-black text-sky-600 dark:text-sky-400 tabular-nums"
+                >
+                  {formatCompactNumber(calculation.universalShardsUsed)}
+                </span>
               </div>
-            </div>
 
-            <div className="flex items-baseline justify-between gap-2 rounded-xl bg-background/60 p-3">
-              <span className="font-sans text-xs font-semibold text-muted-foreground">
-                {isVi ? "Số mảnh vạn năng bù thêm" : "Universal Shards Used"}
-              </span>
-              <span
-                data-testid="relics-used-universal-shards"
-                title={formatExactNumber(calculation.universalShardsUsed)}
-                className="font-mono text-xl sm:text-2xl font-black text-sky-600 dark:text-sky-400 tabular-nums"
-              >
-                {formatCompactNumber(calculation.universalShardsUsed)}
-              </span>
-            </div>
-
-            <div className="space-y-1.5">
-              <label
-                htmlFor="relics-owned-universal-shards-input"
-                className="block font-sans text-xs font-semibold text-muted-foreground"
-              >
-                {isVi
-                  ? "Mảnh vạn năng đang có trong túi (ví dụ: 23, 1k...)"
-                  : "Universal Shards owned in bag (e.g. 23, 1k...)"}
-              </label>
-              <input
-                id="relics-owned-universal-shards-input"
-                type="text"
-                inputMode="text"
-                data-testid="relics-owned-universal-shards-input"
-                value={ownedUniversalText}
-                onChange={(event) => setOwnedUniversalText(event.target.value)}
-                placeholder="0"
-                className={cn(
-                  CALC_MD3.dataInput,
-                  "w-full border-0 bg-background/80 px-3.5 ring-1 ring-border/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
-                )}
-              />
+              <div className="flex flex-col justify-between">
+                <label
+                  htmlFor="relics-owned-universal-shards-input"
+                  className="font-sans text-xs font-semibold text-muted-foreground truncate"
+                >
+                  {isVi ? "Đang có trong túi" : "Owned in bag"}
+                </label>
+                <input
+                  id="relics-owned-universal-shards-input"
+                  type="text"
+                  inputMode="text"
+                  data-testid="relics-owned-universal-shards-input"
+                  value={ownedUniversalText}
+                  onChange={(event) =>
+                    setOwnedUniversalText(event.target.value)
+                  }
+                  placeholder="0"
+                  className={cn(
+                    CALC_MD3.dataInput,
+                    "mt-0.5 w-full border-0 bg-background/80 px-2.5 ring-1 ring-border/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
+                  )}
+                />
+              </div>
             </div>
           </div>
         </div>
