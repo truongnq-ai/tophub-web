@@ -655,7 +655,7 @@ export function RunesCalculator({
                   <div className={cn(CALC_MD3.tonalGroup, "overflow-x-auto p-2")}>
                     <table className="w-full text-left font-sans text-xs">
                       <thead>
-                        <tr className="border-b border-border/60 text-muted-foreground">
+                        <tr className="bg-muted/40 text-muted-foreground dark:bg-muted/25">
                           <th className="py-2 pr-2 font-semibold">
                             {isVi ? "Cấp" : "Lv"}
                           </th>
@@ -673,7 +673,7 @@ export function RunesCalculator({
                           </th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-border/50">
+                      <tbody>
                         {RUNE_LEVEL_COSTS.map((row) => (
                           <tr
                             key={row.level}
@@ -957,7 +957,7 @@ export function RunesCalculator({
                 "absolute top-full left-1/2 z-40 mt-2 w-[min(92vw,380px)] -translate-x-1/2 space-y-3 text-left"
               )}
             >
-              <div className="flex items-center justify-between gap-2 border-b border-border/60 pb-2">
+              <div className="flex items-center justify-between gap-2 rounded-xl bg-muted/40 px-3 py-2 dark:bg-muted/25">
                 <p className="font-sans text-xs font-bold text-foreground">
                   {pickerStep === "faction"
                     ? isVi
@@ -1512,8 +1512,8 @@ export function RunesCalculator({
                         <input
                           id={`fodder-input-${field.key}`}
                           data-testid={`fodder-input-${field.key}`}
-                          type="number"
-                          min={0}
+                          type="text"
+                          inputMode="decimal"
                           value={fodder[field.key]}
                           onChange={(e) =>
                             handleExtraFodderChange(field.key, e.target.value)

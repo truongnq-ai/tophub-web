@@ -142,12 +142,12 @@ describe("6.1 Đá Cổ Ngữ — v2.0 4-Zone Architecture & Component Suite", (
     expect(screen.getByTestId("runes-info-dialog")).toBeDefined();
   });
 
-  it("passes MD3 single-border containment, zero sub-12px micro-text, zero Vietnamese in font-mono, and 100% pure English when locale='en'", () => {
-    expect(
-      countMicroTextOccurrences(
-        readSource("src/components/calculators/runes-calculator.tsx")
-      )
-    ).toBe(0);
+  it("enforces MD3 single-border containment (max depth <= 1), No-Line rule (zero border-b / border-t / divide-y), zero sub-12px micro-text, zero Vietnamese in font-mono, and 100% pure English when locale='en'", () => {
+    const calcSource = readSource(
+      "src/components/calculators/runes-calculator.tsx"
+    );
+    expect(countMicroTextOccurrences(calcSource)).toBe(0);
+    expect(calcSource).not.toMatch(/\bborder-[bt]\b|\bdivide-y\b/);
 
     const { container, unmount } = renderCalculator("vi");
     expect(getMaxBorderedContainerDepth(container)).toBeLessThanOrEqual(1);
@@ -157,6 +157,7 @@ describe("6.1 Đá Cổ Ngữ — v2.0 4-Zone Architecture & Component Suite", (
 
     const { container: enContainer } = renderCalculator("en");
     fireEvent.click(screen.getByTestId("runes-central-avatar-btn"));
+    fireEvent.click(screen.getByTestId("runes-fodder-converter-toggle"));
     fireEvent.click(screen.getByTestId("runes-info-trigger"));
 
     expect(getMaxBorderedContainerDepth(enContainer)).toBeLessThanOrEqual(1);
