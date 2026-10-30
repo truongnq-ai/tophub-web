@@ -3,239 +3,302 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { GearPromotionCalculator } from "../src/components/calculators/gear-promotion-calculator";
 import {
-  GEAR_GOLDEN_SETS,
+  GEAR_PROMOTION_MASTER_RESONANCE_TIERS,
+  GEAR_PROMOTION_MATERIALS,
+  GEAR_PROMOTION_SETS,
+  GEAR_PROMOTION_SLOTS,
+  GEAR_PROMOTION_STAR_SUMMARY_TABLE,
   GEAR_PROMOTION_STEPS,
   MAX_GEAR_PROMOTION_STEP,
   MIN_GEAR_PROMOTION_STEP,
   MYTHIC_MASTER_ATTRIBUTE_TIERS,
-  calculateGearPromotion,
-  clampGearPromotionStep,
+  calculateGearPromotionPlan,
+  clampGearPromotionStepIndex,
+  getGearPromotionItemStatsAtStep,
 } from "../src/content/calculators/gear-promotion-data";
 import { getCalculatorToolBySlug } from "../src/content/calculators/registry";
 import {
+  countMicroTextOccurrences,
   findMonoElementsWithVietnamese,
   getMaxBorderedContainerDepth,
+  readSource,
 } from "./utils/md3-audit";
 
-describe("4.2 Đột Phá Đồ Đỏ — Suite 1: Quantitative SSoT Engine (25 Tiểu Bậc 0★ Cam ➔ 5★ Đỏ)", () => {
-  it("defines 26 step nodes (0..25) matching the exact TopHeroes Tables - Max Hero Gear Promotion matrix", () => {
+describe("4.2 Đột Phá Trang Bị — Suite 1: Registry SSoT & Meta.bytes Quantitative Engine (25 Cánh Sao • 4 Sao Vàng + 1 Sao Đỏ)", () => {
+  it("registers tool 4.2 as '4.2 Đột Phá Trang Bị' ('4.2 Gear Promotion') with 5 ground-truth materials including Ruby in registry.ts", () => {
+    const resolved = getCalculatorToolBySlug("hero-gear", "gear-promotion");
+    expect(resolved).not.toBeNull();
+    expect(resolved?.tool.code).toBe("4.2");
+    expect(resolved?.tool.title.vi).toBe("4.2 Đột Phá Trang Bị");
+    expect(resolved?.tool.title.en).toBe("4.2 Gear Promotion");
+    expect(resolved?.tool.status).toBe("ready");
+    expect(resolved?.tool.materials.map((m) => m.gameId)).toEqual([
+      404100005, // Vàng Thái Dương
+      206, // Rune Cường Hóa Trang Bị
+      151, // Đá Đột Phá Trang Bị Cam
+      152, // Đá Đột Phá Trang Bị Đỏ
+      6, // Ruby
+    ]);
+  });
+
+  it("defines 26 step nodes (0..25) with 4 Gold Stars (steps 1..20) + 1 Red Star (steps 21..25) and exact Meta.bytes costs (24,000,000 Ruby total)", () => {
     expect(MIN_GEAR_PROMOTION_STEP).toBe(0);
     expect(MAX_GEAR_PROMOTION_STEP).toBe(25);
     expect(GEAR_PROMOTION_STEPS).toHaveLength(26);
+    expect(GEAR_PROMOTION_STAR_SUMMARY_TABLE).toHaveLength(5);
+    expect(GEAR_PROMOTION_MASTER_RESONANCE_TIERS).toHaveLength(5);
     expect(MYTHIC_MASTER_ATTRIBUTE_TIERS).toHaveLength(18);
-    expect(Object.keys(GEAR_GOLDEN_SETS)).toEqual([
-      "fury_of_blood",
-      "titans_might",
-      "glorious_light",
-    ]);
 
     // Step 0: Base 0★ Legendary Lv.40
+    expect(GEAR_PROMOTION_STEPS[0].star).toBe(0);
+    expect(GEAR_PROMOTION_STEPS[0].petal).toBe(0);
+    expect(GEAR_PROMOTION_STEPS[0].starColor).toBe("none");
     expect(GEAR_PROMOTION_STEPS[0].cumulativeSolarGold).toBe(0);
-    expect(GEAR_PROMOTION_STEPS[0].cumulativeRunes).toBe(0);
+    expect(GEAR_PROMOTION_STEPS[0].cumulativeEnhanceRune).toBe(0);
+    expect(GEAR_PROMOTION_STEPS[0].cumulativeRuby).toBe(0);
 
-    // Step 1 (1★ Tier 1/5): 150 Solar Gold, 12,500 Runes, 750,000 Meat, 0 Stones
+    // Stars 1★..4★ (steps 1..20) are Gold ("gold")
+    for (let s = 1; s <= 20; s++) {
+      expect(GEAR_PROMOTION_STEPS[s].starColor).toBe("gold");
+      expect(GEAR_PROMOTION_STEPS[s].rarity).toBe("legendary");
+    }
+
+    // Star 5★ (steps 21..25) is Red ("red")
+    for (let s = 21; s <= 25; s++) {
+      expect(GEAR_PROMOTION_STEPS[s].starColor).toBe("red");
+    }
+    expect(GEAR_PROMOTION_STEPS[25].rarity).toBe("mythic");
+    expect(GEAR_PROMOTION_STEPS[25].isMythicAscension).toBe(true);
+
+    // Step 1 (1★ Petal 1/5): 150 Solar Gold, 12,500 Rune, 750,000 Ruby, 0 Stones
     expect(GEAR_PROMOTION_STEPS[1].stepSolarGold).toBe(150);
-    expect(GEAR_PROMOTION_STEPS[1].stepRunes).toBe(12_500);
-    expect(GEAR_PROMOTION_STEPS[1].stepMeat).toBe(750_000);
-    expect(GEAR_PROMOTION_STEPS[1].stepLegendaryStones).toBe(0);
+    expect(GEAR_PROMOTION_STEPS[1].stepEnhanceRune).toBe(12_500);
+    expect(GEAR_PROMOTION_STEPS[1].stepRuby).toBe(750_000);
+    expect(GEAR_PROMOTION_STEPS[1].stepLegendaryStone).toBe(0);
 
-    // Step 5 (1★ Tier 5/5 Breakthrough): 150 Solar Gold, 12,500 Runes, 0 Meat, 5 Legendary Stones
-    expect(GEAR_PROMOTION_STEPS[5].stepMeat).toBe(0);
-    expect(GEAR_PROMOTION_STEPS[5].stepLegendaryStones).toBe(5);
+    // Step 5 (1★ Petal 5/5 Breakthrough): 150 Solar Gold, 12,500 Rune, 0 Ruby, 5 Legendary Stones
+    expect(GEAR_PROMOTION_STEPS[5].stepRuby).toBe(0);
+    expect(GEAR_PROMOTION_STEPS[5].stepLegendaryStone).toBe(5);
     expect(GEAR_PROMOTION_STEPS[5].cumulativeSolarGold).toBe(750);
-    expect(GEAR_PROMOTION_STEPS[5].cumulativeRunes).toBe(62_500);
-    expect(GEAR_PROMOTION_STEPS[5].cumulativeMeat).toBe(3_000_000);
-    expect(GEAR_PROMOTION_STEPS[5].cumulativeLegendaryStones).toBe(5);
+    expect(GEAR_PROMOTION_STEPS[5].cumulativeEnhanceRune).toBe(62_500);
+    expect(GEAR_PROMOTION_STEPS[5].cumulativeRuby).toBe(3_000_000);
+    expect(GEAR_PROMOTION_STEPS[5].cumulativeLegendaryStone).toBe(5);
 
-    // Step 10 (2★ Cam Full): +975 Solar Gold, +81,250 Runes, +3.9M Meat, +10 Legendary Stones
-    expect(GEAR_PROMOTION_STEPS[10].cumulativeSolarGold).toBe(1_725);
-    expect(GEAR_PROMOTION_STEPS[10].cumulativeRunes).toBe(143_750);
-    expect(GEAR_PROMOTION_STEPS[10].cumulativeMeat).toBe(6_900_000);
-    expect(GEAR_PROMOTION_STEPS[10].cumulativeLegendaryStones).toBe(15);
-
-    // Step 15 (3★ Cam Full): +1,200 Solar Gold, +100,000 Runes, +4.8M Meat, +15 Legendary Stones
-    expect(GEAR_PROMOTION_STEPS[15].cumulativeSolarGold).toBe(2_925);
-    expect(GEAR_PROMOTION_STEPS[15].cumulativeRunes).toBe(243_750);
-    expect(GEAR_PROMOTION_STEPS[15].cumulativeMeat).toBe(11_700_000);
-    expect(GEAR_PROMOTION_STEPS[15].cumulativeLegendaryStones).toBe(30);
-
-    // Step 20 (4★ Cam Full): +1,425 Solar Gold, +118,750 Runes, +5.68M Meat, +20 Legendary Stones
+    // Step 16..19 (4★ Petals 1..4): Exact Meta.bytes Ruby cost is 1,425,000 / petal (NOT 1,420,000)
+    expect(GEAR_PROMOTION_STEPS[16].stepRuby).toBe(1_425_000);
     expect(GEAR_PROMOTION_STEPS[20].cumulativeSolarGold).toBe(4_350);
-    expect(GEAR_PROMOTION_STEPS[20].cumulativeRunes).toBe(362_500);
-    expect(GEAR_PROMOTION_STEPS[20].cumulativeMeat).toBe(17_380_000);
-    expect(GEAR_PROMOTION_STEPS[20].cumulativeLegendaryStones).toBe(50);
-    expect(GEAR_PROMOTION_STEPS[20].cumulativeMythicStones).toBe(0);
+    expect(GEAR_PROMOTION_STEPS[20].cumulativeEnhanceRune).toBe(362_500);
+    expect(GEAR_PROMOTION_STEPS[20].cumulativeRuby).toBe(17_400_000);
+    expect(GEAR_PROMOTION_STEPS[20].cumulativeLegendaryStone).toBe(50);
+    expect(GEAR_PROMOTION_STEPS[20].cumulativeMythicStone).toBe(0);
 
-    // Step 25 (5★ Đỏ / Mythic Ascension): +1,650 Solar Gold, +137,500 Runes, +6.6M Meat, +10 Mythic Stones
+    // Step 25 (5★ Đỏ / Mythic Ascension): 6,000 Solar Gold, 500,000 Rune, 24,000,000 Ruby, 50 Leg Stones, 10 Mythic Stones
     expect(GEAR_PROMOTION_STEPS[25].cumulativeSolarGold).toBe(6_000);
-    expect(GEAR_PROMOTION_STEPS[25].cumulativeRunes).toBe(500_000);
-    expect(GEAR_PROMOTION_STEPS[25].cumulativeMeat).toBe(23_980_000);
-    expect(GEAR_PROMOTION_STEPS[25].cumulativeLegendaryStones).toBe(50);
-    expect(GEAR_PROMOTION_STEPS[25].cumulativeMythicStones).toBe(10);
-    expect(GEAR_PROMOTION_STEPS[25].cumulativeLegendaryFodder).toBe(5);
+    expect(GEAR_PROMOTION_STEPS[25].cumulativeEnhanceRune).toBe(500_000);
+    expect(GEAR_PROMOTION_STEPS[25].cumulativeRuby).toBe(24_000_000);
+    expect(GEAR_PROMOTION_STEPS[25].cumulativeLegendaryStone).toBe(50);
+    expect(GEAR_PROMOTION_STEPS[25].cumulativeMythicStone).toBe(10);
 
-    expect(clampGearPromotionStep(-2)).toBe(0);
-    expect(clampGearPromotionStep(99)).toBe(25);
+    expect(clampGearPromotionStepIndex(-5)).toBe(0);
+    expect(clampGearPromotionStepIndex(99)).toBe(25);
   });
 
-  it("calculates exact promotion totals across 1 piece, 4 pieces (1 hero), and 24 pieces (Queue 1), plus optional Lv.0➔40 prerequisite", () => {
-    const onePieceFull = calculateGearPromotion({
-      fromStepIndex: 0,
-      toStepIndex: 25,
-      pieceCount: 1,
-      goldenSetId: "fury_of_blood",
-      includeBaseLv40Enhance: false,
-      ownedSolarGold: 2_000,
-      ownedRunes: 100_000,
-      ownedLegendaryStones: 30,
-      ownedMythicStones: 4,
-      ownedMeat: 10_000_000,
-    });
+  it("catalogs all 4 Equipment Sets × 4 Slots = 16 items with legendaryIconPath and mythicIconPath (break_icon) from Meta.bytes", () => {
+    expect(GEAR_PROMOTION_SETS.map((s) => s.id)).toEqual([
+      "knights_glory",
+      "titans_might",
+      "fury_of_blood",
+      "commanders_set",
+    ]);
+    expect(GEAR_PROMOTION_SLOTS.map((s) => s.id)).toEqual([
+      "weapon",
+      "boots",
+      "armor",
+      "helmet",
+    ]);
 
-    expect(onePieceFull.requiredSolarGold).toBe(6_000);
-    expect(onePieceFull.requiredRunes).toBe(500_000);
-    expect(onePieceFull.requiredLegendaryStones).toBe(50);
-    expect(onePieceFull.requiredMythicStones).toBe(10);
-    expect(onePieceFull.requiredMeat).toBe(23_980_000);
-    expect(onePieceFull.requiredLegendaryFodder).toBe(5);
+    for (const setMeta of GEAR_PROMOTION_SETS) {
+      for (const slotMeta of GEAR_PROMOTION_SLOTS) {
+        const piece = setMeta.items[slotMeta.id];
+        expect(piece.gameId).toBeGreaterThanOrEqual(1501);
+        expect(piece.legendaryIconPath.startsWith("/images/equipment/hero-gear/")).toBe(true);
+        expect(piece.mythicIconPath.startsWith("/images/equipment/hero-gear/")).toBe(true);
+        expect(piece.legendaryIconPath).not.toBe(piece.mythicIconPath);
+      }
+    }
 
-    expect(onePieceFull.missingSolarGold).toBe(4_000);
-    expect(onePieceFull.missingRunes).toBe(400_000);
-    expect(onePieceFull.missingLegendaryStones).toBe(20);
-    expect(onePieceFull.missingMythicStones).toBe(6);
-    expect(onePieceFull.missingMeat).toBe(13_980_000);
-
-    // 4 pieces (1 Hero) WITH Base Lv.0->40 Enhancement prerequisite (+780,000 Runes & +3,744,000 Meat)
-    const heroSetWithBase = calculateGearPromotion({
-      fromStepIndex: 0,
-      toStepIndex: 25,
-      pieceCount: 4,
-      goldenSetId: "titans_might",
-      includeBaseLv40Enhance: true,
-    });
-    expect(heroSetWithBase.requiredSolarGold).toBe(24_000);
-    expect(heroSetWithBase.promotionOnlyRunes).toBe(2_000_000);
-    expect(heroSetWithBase.baseEnhanceRunesAdded).toBe(780_000);
-    expect(heroSetWithBase.requiredRunes).toBe(2_780_000);
-    expect(heroSetWithBase.requiredLegendaryStones).toBe(200);
-    expect(heroSetWithBase.requiredMythicStones).toBe(40);
-    expect(heroSetWithBase.requiredMeat).toBe(95_920_000 + 3_744_000);
-    expect(heroSetWithBase.requiredLegendaryFodder).toBe(20);
-
-    // 24 pieces (Queue 1)
-    const squad24 = calculateGearPromotion({
-      fromStepIndex: 0,
-      toStepIndex: 25,
-      pieceCount: 24,
-      goldenSetId: "glorious_light",
-      includeBaseLv40Enhance: false,
-    });
-    expect(squad24.requiredSolarGold).toBe(144_000);
-    expect(squad24.requiredRunes).toBe(12_000_000);
-    expect(squad24.requiredLegendaryStones).toBe(1_200);
-    expect(squad24.requiredMythicStones).toBe(240);
-    expect(squad24.requiredMeat).toBe(575_520_000);
-    expect(squad24.requiredLegendaryFodder).toBe(120);
+    // Verify Knight's Soul Boots (1533) stats at step 0 vs step 25
+    const step0Stats = getGearPromotionItemStatsAtStep("knights_glory", "boots", 0);
+    const step25Stats = getGearPromotionItemStatsAtStep("knights_glory", "boots", 25);
+    expect(step0Stats.isMythicAscended).toBe(false);
+    expect(step25Stats.isMythicAscended).toBe(true);
+    expect(step25Stats.totalAtk).toBeGreaterThan(step0Stats.totalAtk);
+    expect(step25Stats.totalHp).toBeGreaterThan(step0Stats.totalHp);
   });
 
-  it("verifies all 18 Mythic Master Attribute tiers (60.00% ➔ 95.25%, Defense Break 130 ➔ 2,450) and handles zero-stone sub-tiers without NaN%", () => {
-    const firstAttr = MYTHIC_MASTER_ATTRIBUTE_TIERS[0];
-    expect(firstAttr.tierIndex).toBe(1);
-    expect(firstAttr.masterAttributesPercent).toBe("60.00%");
-    expect(firstAttr.defenseBreak).toBe(130);
-    expect(firstAttr.initialUltCdReduced).toBe("0.20%");
-    expect(firstAttr.enemyUltCdReduced).toBe("0.10%");
-    expect(firstAttr.heroAttackPercent).toBe("1.50%");
-    expect(firstAttr.heroHpPercent).toBe("2.50%");
+  it("calculates single-piece (×1) promotion requirements, owned deductions, surpluses, and invalid range guards across all 5 materials", () => {
+    expect(GEAR_PROMOTION_MATERIALS.map((m) => m.key)).toEqual([
+      "solarGold",
+      "enhanceRune",
+      "legendaryStone",
+      "mythicStone",
+      "ruby",
+    ]);
 
-    const maxAttr = MYTHIC_MASTER_ATTRIBUTE_TIERS[17];
-    expect(maxAttr.tierIndex).toBe(18);
-    expect(maxAttr.masterAttributesPercent).toBe("95.25%");
-    expect(maxAttr.defenseBreak).toBe(2_450);
-    expect(maxAttr.initialUltCdReduced).toBe("3.10%");
-    expect(maxAttr.enemyUltCdReduced).toBe("1.55%");
-    expect(maxAttr.heroAttackPercent).toBe("24.50%");
-    expect(maxAttr.heroHpPercent).toBe("49.00%");
+    const fullPlan = calculateGearPromotionPlan({
+      setId: "knights_glory",
+      slotId: "boots",
+      fromStepIndex: 0,
+      toStepIndex: 25,
+      owned: {
+        solarGold: 2_000,
+        enhanceRune: 600_000,
+        legendaryStone: 30,
+        mythicStone: 4,
+        ruby: 10_000_000,
+      },
+    });
 
-    // Sub-tier 1 -> 4 inside 1★ Cam requires 0 Promotion Stones
-    const subTierOnly = calculateGearPromotion({
+    expect(fullPlan.isInvalidRange).toBe(false);
+    expect(fullPlan.stepDelta).toBe(25);
+    expect(fullPlan.requiredByKey.solarGold).toBe(6_000);
+    expect(fullPlan.requiredByKey.enhanceRune).toBe(500_000);
+    expect(fullPlan.requiredByKey.legendaryStone).toBe(50);
+    expect(fullPlan.requiredByKey.mythicStone).toBe(10);
+    expect(fullPlan.requiredByKey.ruby).toBe(24_000_000);
+
+    expect(fullPlan.missingByKey.solarGold).toBe(4_000);
+    expect(fullPlan.missingByKey.enhanceRune).toBe(0);
+    expect(fullPlan.surplusByKey.enhanceRune).toBe(100_000);
+    expect(fullPlan.missingByKey.legendaryStone).toBe(20);
+    expect(fullPlan.missingByKey.mythicStone).toBe(6);
+    expect(fullPlan.missingByKey.ruby).toBe(14_000_000);
+
+    // Sub-tier 1 -> 4 inside 1★ requires 0 Promotion Stones (100% completion without NaN)
+    const petalsOnly = calculateGearPromotionPlan({
       fromStepIndex: 1,
       toStepIndex: 4,
-      pieceCount: 1,
-      goldenSetId: "fury_of_blood",
     });
-    expect(subTierOnly.isInvalidRange).toBe(false);
-    expect(subTierOnly.requiredSolarGold).toBe(450);
-    expect(subTierOnly.requiredRunes).toBe(37_500);
-    expect(subTierOnly.requiredMeat).toBe(2_250_000);
-    expect(subTierOnly.requiredLegendaryStones).toBe(0);
-    expect(subTierOnly.requiredMythicStones).toBe(0);
-    expect(subTierOnly.legendaryStoneCompletionPercent).toBe(100);
-    expect(subTierOnly.mythicStoneCompletionPercent).toBe(100);
+    expect(petalsOnly.requiredByKey.solarGold).toBe(450);
+    expect(petalsOnly.requiredByKey.enhanceRune).toBe(37_500);
+    expect(petalsOnly.requiredByKey.ruby).toBe(2_250_000);
+    expect(petalsOnly.requiredByKey.legendaryStone).toBe(0);
+    expect(petalsOnly.requiredByKey.mythicStone).toBe(0);
 
     // Invalid range: 20 -> 10
-    const invalid = calculateGearPromotion({
+    const invalidPlan = calculateGearPromotionPlan({
       fromStepIndex: 20,
       toStepIndex: 10,
-      pieceCount: 1,
-      goldenSetId: "fury_of_blood",
     });
-    expect(invalid.isInvalidRange).toBe(true);
-    expect(invalid.requiredSolarGold).toBe(0);
-    expect(invalid.requiredRunes).toBe(0);
+    expect(invalidPlan.isInvalidRange).toBe(true);
+    expect(invalidPlan.requiredByKey.solarGold).toBe(0);
+    expect(invalidPlan.requiredByKey.ruby).toBe(0);
   });
 });
 
-describe("4.2 Đột Phá Đồ Đỏ — Suite 2: MD3 UI Component, Golden Set Switcher & Bilingual Purity", () => {
+describe("4.2 Đột Phá Trang Bị — Suite 2: 4-Section MD3 UI, 2-Step Avatar Picker, Horizontal Material Rows & Info Popover", () => {
   const resolved = getCalculatorToolBySlug("hero-gear", "gear-promotion")!;
   const tool = resolved.tool;
 
-  it("renders default 4 pieces (1 Hero) from 0★ Cam ➔ 5★ Đỏ (24,000 Solar Gold, 2,000,000 Runes, 200 Leg Stones, 40 Mythic Stones, 95,920,000 Meat)", () => {
+  it("renders the 4 core sections (Đột Phá Hiện Tại, Avatar Trang Bị, Đột Phá Mục Tiêu, Tài Nguyên) for 1 single piece with zero scope multipliers", () => {
     render(<GearPromotionCalculator tool={tool} locale="vi" />);
 
     expect(
-      screen.getByRole("heading", { name: /Đột Phá Đồ Đỏ/i })
+      screen.getByRole("heading", { name: /Đột Phá Trang Bị/i })
     ).toBeDefined();
 
-    expect(screen.getAllByText("24,000").length).toBeGreaterThan(0);
-    expect(screen.getAllByText("2,000,000").length).toBeGreaterThan(0);
-    expect(screen.getAllByText("200").length).toBeGreaterThan(0);
-    expect(screen.getAllByText("40").length).toBeGreaterThan(0);
+    // Verify 4 core sections exist
+    expect(screen.getByTestId("gear-promotion-from-container")).toBeDefined();
+    expect(screen.getByTestId("gear-promotion-central-picker-btn")).toBeDefined();
+    expect(screen.getByTestId("gear-promotion-to-container")).toBeDefined();
+    expect(screen.getByTestId("gear-promotion-resources-section")).toBeDefined();
+
+    // Verify old multipliers and +Lv.40 toggle are completely removed
+    expect(screen.queryByTestId("piece-preset-4")).toBeNull();
+    expect(screen.queryByTestId("piece-preset-24")).toBeNull();
+    expect(screen.queryByTestId("toggle-base-lv40-enhance")).toBeNull();
+
+    // Verify default 0/25 -> 25/25 1-piece required totals on the 5 vertical material cards
+    expect(screen.getByTestId("promo-required-solarGold").textContent).toContain("6K");
+    expect(screen.getByTestId("promo-required-enhanceRune").textContent).toContain("500K");
+    expect(screen.getByTestId("promo-required-legendaryStone").textContent).toContain("50");
+    expect(screen.getByTestId("promo-required-mythicStone").textContent).toContain("10");
+    expect(screen.getByTestId("promo-required-ruby").textContent).toContain("24M");
   });
 
-  it("switches Golden Sets (Fury of Blood / Titan's Might / Glorious Light) and toggles Base Lv.0➔40 Enhancement prerequisite", () => {
+  it("switches equipment Set & Slot via the 2-step Central Avatar Popover and toggles Mythic Red break_icon at 25/25", () => {
     render(<GearPromotionCalculator tool={tool} locale="vi" />);
 
-    const titanBtn = screen.getByTestId("golden-set-btn-titans_might");
-    fireEvent.click(titanBtn);
-    expect(screen.getAllByText(/Uy Lực Titan/i).length).toBeGreaterThan(0);
+    const centralBtn = screen.getByTestId("gear-promotion-central-picker-btn");
+    // At default target 25/25 (5★ Đỏ), central avatar uses mythicIconPath (icon_42064.webp for Giày Hồn Kỵ Sĩ)
+    expect(centralBtn.getAttribute("data-gear-rarity")).toBe("mythic");
 
-    // Toggle Base Lv.0->40 Enhancement prerequisite (+780,000 Runes -> 2,780,000 Runes)
-    const baseToggle = screen.getByTestId("toggle-base-lv40-enhance");
-    fireEvent.click(baseToggle);
-    expect(screen.getAllByText("2,780,000").length).toBeGreaterThan(0);
+    // Open 2-step picker -> Step 1: Select Set (Bộ Đại Đế Thần Lực) -> Step 2: Select Slot (Vũ Khí - Búa Đại Đế)
+    fireEvent.click(centralBtn);
+    expect(screen.getByTestId("gear-promotion-picker-popover")).toBeDefined();
+
+    fireEvent.click(screen.getByTestId("picker-set-titans_might"));
+    fireEvent.click(screen.getByTestId("picker-slot-weapon"));
+
+    // Popover closes automatically and updates item name to Búa Đại Đế
+    expect(screen.queryByTestId("gear-promotion-picker-popover")).toBeNull();
+    expect(screen.getAllByText(/Búa Đại Đế/i).length).toBeGreaterThan(0);
+
+    // Lower target step from 25 to 20 (4★ Vàng) -> Central avatar switches to legendary rarity frame
+    fireEvent.click(screen.getByTestId("gear-promotion-to-star-4"));
+    expect(centralBtn.getAttribute("data-gear-rarity")).toBe("legendary");
+    expect(screen.getByTestId("promo-required-solarGold").textContent).toContain("4.35K");
+    expect(screen.getByTestId("promo-required-mythicStone").textContent).toBe("0");
   });
 
-  it("updates piece count (1 piece / 24 pieces) and inspects the 18-tier Mythic Master Attribute matrix", () => {
+  it("supports K/M shorthand input inside the 5 horizontal resource cards and updates Missing / Surplus live", () => {
     render(<GearPromotionCalculator tool={tool} locale="vi" />);
 
-    const onePieceBtn = screen.getByTestId("piece-preset-1");
-    fireEvent.click(onePieceBtn);
-    expect(screen.getAllByText("6,000").length).toBeGreaterThan(0);
-    expect(screen.getAllByText("500,000").length).toBeGreaterThan(0);
+    const solarInput = screen.getByTestId("promo-owned-input-solarGold");
+    const runeInput = screen.getByTestId("promo-owned-input-enhanceRune");
+    const rubyInput = screen.getByTestId("promo-owned-input-ruby");
 
-    const squad24Btn = screen.getByTestId("piece-preset-24");
-    fireEvent.click(squad24Btn);
-    expect(screen.getAllByText("144,000").length).toBeGreaterThan(0);
-    expect(screen.getAllByText("12,000,000").length).toBeGreaterThan(0);
+    fireEvent.change(solarInput, { target: { value: "2.5k" } });
+    fireEvent.change(runeInput, { target: { value: "600k" } });
+    fireEvent.change(rubyInput, { target: { value: "10m" } });
 
-    // Inspect Mythic Master Attribute tier 18 (95.25%, Defense Break 2,450, 3.10%)
+    // 6,000 - 2,500 = 3,500 (3.5K) missing Solar Gold
+    expect(screen.getByTestId("promo-missing-solarGold").textContent).toContain("3.5K");
+    // 600,000 owned vs 500,000 required = +100K surplus Runes
+    expect(screen.getByTestId("promo-missing-enhanceRune").textContent).toContain("+100K");
+    // 24,000,000 - 10,000,000 = 14,000,000 (14M) missing Ruby
+    expect(screen.getByTestId("promo-missing-ruby").textContent).toContain("14M");
+  });
+
+  it("keeps supplementary guides, Golden Set evolution, Star Master resonance, and 18-tier Mythic table inside the (i) popup", () => {
+    render(<GearPromotionCalculator tool={tool} locale="vi" />);
+
+    // Before clicking (i), the 18-tier table is not rendered on the main page
+    expect(screen.queryByText("95.25%")).toBeNull();
+
+    const triggerBtn = screen.getByTestId("gear-promotion-info-trigger");
+    fireEvent.click(triggerBtn);
+
+    expect(screen.getByTestId("gear-promotion-info-dialog")).toBeDefined();
     expect(screen.getAllByText("95.25%").length).toBeGreaterThan(0);
-    expect(screen.getAllByText("2,450").length).toBeGreaterThan(0);
-    expect(screen.getAllByText("3.10%").length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/Cộng Hưởng Bậc Thầy Đột Phá/i).length).toBeGreaterThan(0);
+
+    fireEvent.keyDown(document, { key: "Escape" });
+    expect(screen.queryByTestId("gear-promotion-info-dialog")).toBeNull();
   });
 
-  it("enforces MD3 single-border containment (max depth <= 1) and zero Vietnamese inside font-mono", () => {
+  it("enforces MD3 single-border containment (max depth <= 1), zero micro-text, and zero Vietnamese inside font-mono", () => {
+    expect(
+      countMicroTextOccurrences(
+        readSource("src/components/calculators/gear-promotion-calculator.tsx")
+      )
+    ).toBe(0);
+    expect(
+      countMicroTextOccurrences(
+        readSource("src/components/calculators/gear-promotion-step-selector.tsx")
+      )
+    ).toBe(0);
+
     const { container } = render(
       <GearPromotionCalculator tool={tool} locale="vi" />
     );
@@ -252,7 +315,7 @@ describe("4.2 Đột Phá Đồ Đỏ — Suite 2: MD3 UI Component, Golden Set 
     const text = container.textContent ?? "";
     expect(text).toContain("Solar Gold Ingot");
     expect(text).toContain("Mythic Promotion Stone");
-    expect(text).toContain("Defense Break");
+    expect(text).toContain("Ruby");
 
     const vnDiacriticsRegex =
       /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ]/;

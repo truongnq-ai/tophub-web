@@ -1,16 +1,16 @@
 "use client";
 
 import React from "react";
-import { Sparkles } from "lucide-react";
+import { CheckCircle2, Sparkles } from "lucide-react";
 import {
-  ENHANCEMENT_MASTER_TIERS,
-  MAX_GEAR_ENHANCE_LEVEL,
+  GEAR_ENHANCE_RARITY_CONFIGS,
+  GEAR_SLOTS_BY_RARITY,
   MIN_GEAR_ENHANCE_LEVEL,
   clampGearEnhanceLevel,
   getCumulativeGearEnhanceCost,
   getStepGearEnhanceCost,
-  resolveEnhancementMasterTier,
   type GearEnhanceRarity,
+  type GearEnhanceSlotId,
 } from "@/content/calculators/gear-enhance-data";
 import type { CalculatorLocale } from "@/content/calculators/types";
 import { cn, formatCompactNumber, formatExactNumber } from "@/lib/utils";
@@ -20,8 +20,8 @@ export interface GearEnhanceLevelSelectorProps {
   readonly idPrefix: string;
   readonly title: string;
   readonly level: number;
-  readonly rarity: GearEnhanceRarity;
-  readonly pieceMultiplier: number;
+  readonly rarity?: GearEnhanceRarity;
+  readonly slotId?: GearEnhanceSlotId;
   readonly locale: CalculatorLocale;
   readonly onChangeLevel: (nextLevel: number) => void;
 }
@@ -30,23 +30,21 @@ export function GearEnhanceLevelSelector({
   idPrefix,
   title,
   level,
-  rarity,
-  pieceMultiplier,
+  rarity = "legendary",
+  slotId = "boots",
   locale,
   onChangeLevel,
 }: GearEnhanceLevelSelectorProps) {
-  const safeLevel = clampGearEnhanceLevel(level);
-  const masterTier = resolveEnhancementMasterTier(safeLevel);
-  const stepCost = getStepGearEnhanceCost(
-    Math.min(MAX_GEAR_ENHANCE_LEVEL, safeLevel + 1),
-    rarity
-  );
-  const cumulativeCost = getCumulativeGearEnhanceCost(safeLevel, rarity);
+  const rarityConfig = GEAR_ENHANCE_RARITY_CONFIGS[rarity];
+  const slotMeta = GEAR_SLOTS_BY_RARITY[rarity][slotId];
+  const maxLevel = rarityConfig.maxLevel;
+  const safeLevel = clampGearEnhanceLevel(level, rarity);
 
-  const totalCumulativeRunes = cumulativeCost.runes * pieceMultiplier;
-  const totalCumulativeMeat = cumulativeCost.meat * pieceMultiplier;
-  const nextStepRunes =
-    safeLevel >= MAX_GEAR_ENHANCE_LEVEL ? 0 : stepCost.runes * pieceMultiplier;
+  const cumulativeCost = getCumulativeGearEnhanceCost(safeLevel, rarity);
+  const nextStepCost =
+    safeLevel >= maxLevel
+      ? { runes: 0, ruby: 0 }
+      : getStepGearEnhanceCost(safeLevel + 1, rarity);
 
   const decreaseLabel =
     locale === "vi" ? "Giảm 1 cấp cường hóa" : "Decrease enhancement level by 1";
@@ -65,40 +63,40 @@ export function GearEnhanceLevelSelector({
         </h2>
         <span
           data-testid={`${idPrefix}-level-badge`}
-          className="inline-flex items-center gap-1.5 rounded-xl bg-amber-500/15 px-3 py-1 text-sm font-heading font-black text-amber-700 dark:text-amber-300"
+          className="inline-flex items-center gap-1 rounded-xl bg-amber-500/15 px-3 py-1 text-sm font-mono font-black text-amber-700 dark:text-amber-300"
         >
-          <span>Lv.{safeLevel}</span>
-          {masterTier > 0 ? (
-            <span className="text-xs font-sans font-bold">
-              • {locale === "vi" ? `Bậc Thầy +${masterTier}` : `Master +${masterTier}`}
-            </span>
-          ) : null}
+          <span>
+            Lv.{safeLevel}/{maxLevel}
+          </span>
         </span>
       </div>
 
-      {/* Enhancement Master Quick Milestone Chips (+0, +10, +20, +30, +40) */}
+      {/* Quick Milestone Chips (Dynamic per rarity maxLevel) */}
       <div className="space-y-1.5">
         <div className={cn(CALC_MD3.eyebrow, "text-muted-foreground")}>
-          {locale === "vi"
-            ? "Mốc Cộng Hưởng Bậc Thầy Cường Hóa"
-            : "Enhancement Master Milestones"}
+          {locale === "vi" ? "Chọn Nhanh Mốc Cấp Độ" : "Quick Level Milestones"}
         </div>
-        <div className="grid grid-cols-5 gap-1.5">
-          {ENHANCEMENT_MASTER_TIERS.map((milestone) => {
-            const isSelected = safeLevel === milestone.requiredMinLevel;
-            const isReached =
-              milestone.requiredMinLevel > 0 &&
-              safeLevel >= milestone.requiredMinLevel;
+        <div
+          className={cn(
+            "grid gap-1.5",
+            rarityConfig.quickMilestones.length === 5
+              ? "grid-cols-5"
+              : "grid-cols-4"
+          )}
+        >
+          {rarityConfig.quickMilestones.map((milestoneLv) => {
+            const isSelected = safeLevel === milestoneLv;
+            const isReached = milestoneLv > 0 && safeLevel >= milestoneLv;
 
             return (
               <button
-                key={milestone.tier}
+                key={milestoneLv}
                 type="button"
-                data-testid={`${idPrefix}-milestone-${milestone.requiredMinLevel}-btn`}
+                data-testid={`${idPrefix}-milestone-${milestoneLv}-btn`}
                 aria-pressed={isSelected}
-                onClick={() => onChangeLevel(milestone.requiredMinLevel)}
+                onClick={() => onChangeLevel(milestoneLv)}
                 className={cn(
-                  "flex min-h-[48px] flex-col items-center justify-center rounded-xl px-1.5 py-1.5 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/40",
+                  "flex min-h-[44px] flex-col items-center justify-center rounded-xl px-1.5 py-1.5 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/40",
                   isSelected
                     ? "bg-amber-500 text-slate-950 font-black shadow-sm"
                     : isReached
@@ -107,14 +105,7 @@ export function GearEnhanceLevelSelector({
                 )}
               >
                 <span className="font-mono text-sm font-black">
-                  +{milestone.requiredMinLevel}
-                </span>
-                <span className="text-xs font-sans truncate max-w-full">
-                  {milestone.tier === 0
-                    ? locale === "vi"
-                      ? "Gốc"
-                      : "Base"
-                    : `T${milestone.tier / 10}`}
+                  {milestoneLv === 0 ? "Lv.0" : `+${milestoneLv}`}
                 </span>
               </button>
             );
@@ -130,7 +121,9 @@ export function GearEnhanceLevelSelector({
             testId={`${idPrefix}-level-minus-btn`}
             ariaLabel={decreaseLabel}
             disabled={safeLevel <= MIN_GEAR_ENHANCE_LEVEL}
-            onClick={() => onChangeLevel(clampGearEnhanceLevel(safeLevel - 1))}
+            onClick={() =>
+              onChangeLevel(clampGearEnhanceLevel(safeLevel - 1, rarity))
+            }
           />
 
           <div className="flex-1 space-y-1">
@@ -138,21 +131,23 @@ export function GearEnhanceLevelSelector({
               type="range"
               data-testid={`${idPrefix}-level-slider`}
               min={MIN_GEAR_ENHANCE_LEVEL}
-              max={MAX_GEAR_ENHANCE_LEVEL}
+              max={maxLevel}
               step={1}
               value={safeLevel}
               aria-label={title}
               onChange={(e) =>
-                onChangeLevel(clampGearEnhanceLevel(Number(e.target.value)))
+                onChangeLevel(
+                  clampGearEnhanceLevel(Number(e.target.value), rarity)
+                )
               }
               className="h-2.5 w-full cursor-pointer appearance-none rounded-lg bg-muted accent-amber-500"
             />
             <div className="flex justify-between text-xs font-mono text-muted-foreground">
-              <span>Lv.0</span>
-              <span>+10</span>
-              <span>+20</span>
-              <span>+30</span>
-              <span>Lv.40</span>
+              {rarityConfig.quickMilestones.map((m) => (
+                <span key={m}>
+                  {m === 0 ? "Lv.0" : m === maxLevel ? `Lv.${m}` : `+${m}`}
+                </span>
+              ))}
             </div>
           </div>
 
@@ -160,37 +155,89 @@ export function GearEnhanceLevelSelector({
             direction="increase"
             testId={`${idPrefix}-level-plus-btn`}
             ariaLabel={increaseLabel}
-            disabled={safeLevel >= MAX_GEAR_ENHANCE_LEVEL}
-            onClick={() => onChangeLevel(clampGearEnhanceLevel(safeLevel + 1))}
+            disabled={safeLevel >= maxLevel}
+            onClick={() =>
+              onChangeLevel(clampGearEnhanceLevel(safeLevel + 1, rarity))
+            }
           />
         </div>
       </div>
 
-      {/* Tonal Summary Strip (No inner border to keep depth <= 1) */}
+      {/* Equipment Piece Level Bonus Chips (+10 / +20 / +30 / +40) */}
+      <div className="space-y-1.5">
+        <div className={cn(CALC_MD3.eyebrow, "text-muted-foreground")}>
+          {locale === "vi"
+            ? "Thưởng Theo Cấp Độ Trang Bị"
+            : "Equipment Level Bonus"}
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
+          {slotMeta.levelMilestones.map((m) => {
+            const isUnlocked = safeLevel >= m.level;
+            return (
+              <div
+                key={m.level}
+                data-testid={`${idPrefix}-piece-bonus-${m.level}`}
+                className={cn(
+                  "flex items-center justify-between gap-2 rounded-xl px-2.5 py-1.5 text-xs transition-colors",
+                  isUnlocked
+                    ? "bg-emerald-500/15 text-emerald-800 dark:text-emerald-300 font-semibold"
+                    : "bg-muted/40 text-muted-foreground"
+                )}
+              >
+                <span className="inline-flex items-center gap-1.5 min-w-0">
+                  <span
+                    className={cn(
+                      "inline-flex h-5 min-w-[24px] shrink-0 items-center justify-center rounded-md px-1 font-mono text-xs font-black",
+                      isUnlocked
+                        ? "bg-emerald-600 text-white"
+                        : "bg-muted text-muted-foreground"
+                    )}
+                  >
+                    {m.level}
+                  </span>
+                  <span className="font-sans truncate">
+                    {m.statLabel[locale]}
+                  </span>
+                </span>
+                <span className="inline-flex items-center gap-1 shrink-0">
+                  <span className="font-mono font-bold">{m.bonusValue}</span>
+                  {isUnlocked ? (
+                    <CheckCircle2
+                      className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400"
+                      aria-hidden="true"
+                    />
+                  ) : null}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Tonal Summary Strip (Compact K/M numbers + exact tooltips) */}
       <div
         data-testid={`${idPrefix}-enhance-summary`}
         className={cn(CALC_MD3.tonalGroup, "space-y-1.5")}
       >
         <div className="flex items-center justify-between gap-2 text-xs sm:text-sm">
           <span className="text-muted-foreground font-sans">
-            {locale === "vi"
-              ? "Tích lũy từ Lv.0 đến mốc này:"
-              : "Cumulative from Lv.0 to this level:"}
+            {locale === "vi" ? "Tích lũy từ Lv.0:" : "Cumulative from Lv.0:"}
           </span>
-          <span className="font-mono font-bold text-foreground">
-            {formatExactNumber(totalCumulativeRunes)} Rune
-          </span>
-        </div>
-
-        <div className="flex items-center justify-between gap-2 text-xs sm:text-sm">
-          <span className="text-muted-foreground font-sans">
-            {locale === "vi" ? "Thịt tích lũy:" : "Cumulative Meat:"}
-          </span>
-          <span className="font-sans font-semibold text-muted-foreground">
-            <span className="font-mono">
-              {formatCompactNumber(totalCumulativeMeat)}
+          <span className="font-sans font-bold text-foreground">
+            <span
+              className="font-mono text-amber-700 dark:text-amber-300"
+              title={formatExactNumber(cumulativeCost.runes)}
+            >
+              {formatCompactNumber(cumulativeCost.runes)}
             </span>{" "}
-            <span>{locale === "vi" ? "Thịt" : "Meat"}</span>
+            <span>Rune</span> •{" "}
+            <span
+              className="font-mono text-rose-600 dark:text-rose-400"
+              title={formatExactNumber(cumulativeCost.ruby)}
+            >
+              {formatCompactNumber(cumulativeCost.ruby)}
+            </span>{" "}
+            <span>Ruby</span>
           </span>
         </div>
 
@@ -198,18 +245,31 @@ export function GearEnhanceLevelSelector({
           <span className="inline-flex items-center gap-1 text-amber-700 dark:text-amber-400 font-sans font-semibold">
             <Sparkles className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
             <span>
-              {safeLevel >= MAX_GEAR_ENHANCE_LEVEL
+              {safeLevel >= maxLevel
                 ? locale === "vi"
-                  ? "Đã đạt trần Lv.40 (Sẵn sàng Đột Phá Sao)"
-                  : "Max Lv.40 reached (Ready for Star Promotion)"
+                  ? `Đã đạt trần Lv.${maxLevel}`
+                  : `Max Lv.${maxLevel} reached`
                 : locale === "vi"
-                  ? `Cấp kế tiếp (Lv.${safeLevel + 1}):`
-                  : `Next level (Lv.${safeLevel + 1}):`}
+                  ? `Lên Lv.${safeLevel + 1}:`
+                  : `To Lv.${safeLevel + 1}:`}
             </span>
           </span>
-          {safeLevel < MAX_GEAR_ENHANCE_LEVEL ? (
-            <span className="font-mono font-bold text-amber-700 dark:text-amber-300">
-              +{formatExactNumber(nextStepRunes)} Rune
+          {safeLevel < maxLevel ? (
+            <span className="font-sans font-bold text-foreground">
+              <span
+                className="font-mono text-amber-700 dark:text-amber-300"
+                title={formatExactNumber(nextStepCost.runes)}
+              >
+                {formatCompactNumber(nextStepCost.runes)}
+              </span>{" "}
+              <span>Rune</span> •{" "}
+              <span
+                className="font-mono text-rose-600 dark:text-rose-400"
+                title={formatExactNumber(nextStepCost.ruby)}
+              >
+                {formatCompactNumber(nextStepCost.ruby)}
+              </span>{" "}
+              <span>Ruby</span>
             </span>
           ) : null}
         </div>

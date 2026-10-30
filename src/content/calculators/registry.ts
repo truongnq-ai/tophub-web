@@ -764,7 +764,7 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
             },
             materials: [
               CALCULATOR_MATERIALS.gearEnhanceRune,
-              CALCULATOR_MATERIALS.meat,
+              CALCULATOR_MATERIALS.ruby,
             ],
             exampleCase: {
               vi: {
@@ -792,27 +792,27 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
             categorySlug: "hero-gear",
             phaseNumber: 4,
             title: {
-              vi: "4.2 Đột Phá Đồ Đỏ",
-              en: "4.2 Mythic Promotion",
+              vi: "4.2 Đột Phá Trang Bị",
+              en: "4.2 Gear Promotion",
             },
             fullTitle: {
-              vi: "4.2 Đột Phá Trang Bị Cam Lên Thần Thoại 5★ Đỏ",
-              en: "4.2 Legendary-to-Mythic 5★ Gear Promotion",
+              vi: "4.2 Đột Phá Trang Bị (0★ Cam ➔ 5★ Đỏ Thần Thoại)",
+              en: "4.2 Gear Promotion (0★ Legendary to 5★ Mythic Red)",
             },
             summary: {
-              vi: "Tính Vàng Thái Dương, Đá Đột Phá Trang Bị Cam, Đá Đột Phá Trang Bị Đỏ và số phôi Trang Bị Huyền Thoại cần thiết từ bậc 0★ đến 5★ Đỏ.",
-              en: "Calculate Solar Gold Ingots, Legendary Promotion Stones, Mythic Promotion Stones, and Legendary Gear fodder required from 0★ to 5★ Mythic.",
+              vi: "Tính Vàng Thái Dương, Rune Cường Hóa Trang Bị, Đá Đột Phá Trang Bị Cam, Đá Đột Phá Trang Bị Đỏ và Ruby cần thiết qua 25 cánh sao đột phá (4 Sao Vàng + 1 Sao Đỏ).",
+              en: "Calculate Solar Gold Ingots, Gear Enhance Runes, Legendary Promotion Stones, Mythic Promotion Stones, and Rubies required across all 25 promotion petals (4 Gold Stars + 1 Red Star).",
             },
             dataSourceTab: {
-              vi: "Tab Gear — Ma Trận Đột Phá Trang Bị Đỏ",
-              en: "Gear Tab — Mythic Promotion Matrix",
+              vi: "Tab Gear — Ma Trận Đột Phá Trang Bị (0★ ➔ 5★ Đỏ)",
+              en: "Gear Tab — Gear Promotion Matrix (0★ to 5★ Mythic)",
             },
             materials: [
               CALCULATOR_MATERIALS.solarGoldIngot,
               CALCULATOR_MATERIALS.gearEnhanceRune,
               CALCULATOR_MATERIALS.legendaryPromotionStone,
               CALCULATOR_MATERIALS.mythicPromotionStone,
-              CALCULATOR_MATERIALS.meat,
+              CALCULATOR_MATERIALS.ruby,
             ],
             exampleCase: {
               vi: {

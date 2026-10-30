@@ -2,13 +2,12 @@ import React from "react";
 import { describe, expect, it } from "vitest";
 import { fireEvent, render, screen } from "@testing-library/react";
 import {
-  ENHANCEMENT_MASTER_TIERS,
-  GEAR_ENHANCE_LEVEL_STEPS,
-  GEAR_ROLE_CONFIGS,
+  GEAR_ENHANCE_RARITY_CONFIGS,
+  GEAR_ENHANCE_RARITY_ORDER,
+  GEAR_SLOTS_BY_RARITY,
   GEAR_SLOT_ORDER,
-  MAX_GEAR_ENHANCE_LEVEL,
   MIN_GEAR_ENHANCE_LEVEL,
-  calculateGearEnhancement,
+  calculateGearEnhancePlan,
   clampGearEnhanceLevel,
   getCumulativeGearEnhanceCost,
   getStepGearEnhanceCost,
@@ -25,205 +24,194 @@ import {
   readSource,
 } from "./utils/md3-audit";
 
-describe("4.1 Cường Hóa Trang Bị — Suite 1: Quantitative SSoT Engine (Lv.0 ➔ Lv.40)", () => {
-  it("defines 41 nodes (Lv.0..40) matching the exact TopHeroes Tables - Max ⚔️Gear formula", () => {
+describe("4.1 Cường Hóa Trang Bị — Suite 1: Quantitative SSoT Engine (Meta.bytes v1.0.42532)", () => {
+  it("registers tool 4.1 with Gear Enhance Rune (gameId=206) and Ruby (gameId=6) in registry.ts", () => {
+    const entry = getCalculatorToolBySlug("hero-gear", "gear-enhance");
+    expect(entry).not.toBeNull();
+    expect(entry?.tool.code).toBe("4.1");
+    expect(entry?.tool.status).toBe("ready");
+    expect(entry?.tool.materials.map((m) => m.gameId)).toEqual([206, 6]);
+    expect(entry?.tool.materials.map((m) => m.nameVi)).toEqual([
+      "Rune Cường Hóa Trang Bị",
+      "Ruby",
+    ]);
+  });
+
+  it("defines exact rarity level caps and Rune + Ruby step tables matching Meta.bytes (equipment_star_up)", () => {
     expect(MIN_GEAR_ENHANCE_LEVEL).toBe(0);
-    expect(MAX_GEAR_ENHANCE_LEVEL).toBe(40);
-    expect(GEAR_ENHANCE_LEVEL_STEPS).toHaveLength(41);
-    expect(GEAR_SLOT_ORDER).toEqual(["weapon", "boots", "helmet", "chest"]);
-    expect(ENHANCEMENT_MASTER_TIERS).toHaveLength(5);
+    expect(GEAR_ENHANCE_RARITY_ORDER).toEqual(["legendary", "epic", "rare"]);
+    expect(GEAR_SLOT_ORDER).toEqual(["weapon", "boots", "armor", "helmet"]);
 
-    expect(getStepGearEnhanceCost(0)).toEqual({ runes: 0, meat: 0 });
-    expect(getStepGearEnhanceCost(1)).toEqual({ runes: 1_500, meat: 7_200 });
-    expect(getStepGearEnhanceCost(4)).toEqual({ runes: 1_500, meat: 7_200 });
-    expect(getStepGearEnhanceCost(5)).toEqual({ runes: 2_250, meat: 10_800 });
-    expect(getStepGearEnhanceCost(9)).toEqual({ runes: 3_000, meat: 14_400 });
-    expect(getStepGearEnhanceCost(13)).toEqual({ runes: 3_750, meat: 18_000 });
-    expect(getStepGearEnhanceCost(17)).toEqual({ runes: 4_500, meat: 21_600 });
-    expect(getStepGearEnhanceCost(21)).toEqual({ runes: 5_250, meat: 25_200 });
-    expect(getStepGearEnhanceCost(25)).toEqual({ runes: 6_000, meat: 28_800 });
-    expect(getStepGearEnhanceCost(29)).toEqual({ runes: 6_750, meat: 32_400 });
-    expect(getStepGearEnhanceCost(33)).toEqual({ runes: 7_500, meat: 36_000 });
-    expect(getStepGearEnhanceCost(37)).toEqual({ runes: 8_250, meat: 39_600 });
-    expect(getStepGearEnhanceCost(40)).toEqual({ runes: 8_250, meat: 39_600 });
+    // 1. Legendary (Quality 5, model_id=1501, Max Lv.40)
+    expect(GEAR_ENHANCE_RARITY_CONFIGS.legendary.maxLevel).toBe(40);
+    expect(GEAR_ENHANCE_RARITY_CONFIGS.legendary.totalRuneAtMax).toBe(195_000);
+    expect(GEAR_ENHANCE_RARITY_CONFIGS.legendary.totalRubyAtMax).toBe(936_000);
 
-    // Cumulative milestones per 1 piece (Legendary / Mythic)
-    expect(getCumulativeGearEnhanceCost(0)).toEqual({ runes: 0, meat: 0 });
-    expect(getCumulativeGearEnhanceCost(10)).toEqual({
+    expect(getStepGearEnhanceCost(0, "legendary")).toEqual({
+      runes: 0,
+      ruby: 0,
+    });
+    expect(getStepGearEnhanceCost(1, "legendary")).toEqual({
+      runes: 1_500,
+      ruby: 7_200,
+    });
+    expect(getStepGearEnhanceCost(5, "legendary")).toEqual({
+      runes: 2_250,
+      ruby: 10_800,
+    });
+    // Matches user in-game screenshot at Lv.10/40 (upgrading Lv.10 -> Lv.11 costs 3000 Rune + 14400 Ruby)
+    expect(getStepGearEnhanceCost(11, "legendary")).toEqual({
+      runes: 3_000,
+      ruby: 14_400,
+    });
+    expect(getStepGearEnhanceCost(40, "legendary")).toEqual({
+      runes: 8_250,
+      ruby: 39_600,
+    });
+
+    expect(getCumulativeGearEnhanceCost(10, "legendary")).toEqual({
       runes: 21_000,
-      meat: 100_800,
+      ruby: 100_800,
     });
-    expect(getCumulativeGearEnhanceCost(20)).toEqual({
+    expect(getCumulativeGearEnhanceCost(20, "legendary")).toEqual({
       runes: 60_000,
-      meat: 288_000,
+      ruby: 288_000,
     });
-    expect(getCumulativeGearEnhanceCost(30)).toEqual({
+    expect(getCumulativeGearEnhanceCost(30, "legendary")).toEqual({
       runes: 118_500,
-      meat: 568_800,
+      ruby: 568_800,
     });
-    expect(getCumulativeGearEnhanceCost(40)).toEqual({
+    expect(getCumulativeGearEnhanceCost(40, "legendary")).toEqual({
       runes: 195_000,
-      meat: 936_000,
+      ruby: 936_000,
     });
 
-    expect(clampGearEnhanceLevel(-5)).toBe(0);
-    expect(clampGearEnhanceLevel(99)).toBe(40);
+    // 2. Epic (Quality 4, model_id=1401, Max Lv.30)
+    expect(GEAR_ENHANCE_RARITY_CONFIGS.epic.maxLevel).toBe(30);
+    expect(GEAR_ENHANCE_RARITY_CONFIGS.epic.totalRuneAtMax).toBe(32_500);
+    expect(GEAR_ENHANCE_RARITY_CONFIGS.epic.totalRubyAtMax).toBe(39_000);
+    expect(getStepGearEnhanceCost(1, "epic")).toEqual({
+      runes: 250,
+      ruby: 300,
+    });
+    expect(getStepGearEnhanceCost(10, "epic")).toEqual({
+      runes: 1_000,
+      ruby: 1_200,
+    });
+    expect(getStepGearEnhanceCost(30, "epic")).toEqual({
+      runes: 1_500,
+      ruby: 1_800,
+    });
+    expect(getCumulativeGearEnhanceCost(10, "epic")).toEqual({
+      runes: 5_500,
+      ruby: 6_600,
+    });
+    expect(getCumulativeGearEnhanceCost(20, "epic")).toEqual({
+      runes: 17_500,
+      ruby: 21_000,
+    });
+    expect(getCumulativeGearEnhanceCost(30, "epic")).toEqual({
+      runes: 32_500,
+      ruby: 39_000,
+    });
+
+    // 3. Rare (Quality 3, model_id=1301, Max Lv.15)
+    expect(GEAR_ENHANCE_RARITY_CONFIGS.rare.maxLevel).toBe(15);
+    expect(GEAR_ENHANCE_RARITY_CONFIGS.rare.totalRuneAtMax).toBe(1_800);
+    expect(GEAR_ENHANCE_RARITY_CONFIGS.rare.totalRubyAtMax).toBe(1_440);
+    expect(getCumulativeGearEnhanceCost(10, "rare")).toEqual({
+      runes: 1_050,
+      ruby: 840,
+    });
+    expect(getCumulativeGearEnhanceCost(15, "rare")).toEqual({
+      runes: 1_800,
+      ruby: 1_440,
+    });
+
+    // Clamping per rarity
+    expect(clampGearEnhanceLevel(-5, "legendary")).toBe(0);
+    expect(clampGearEnhanceLevel(99, "legendary")).toBe(40);
+    expect(clampGearEnhanceLevel(40, "epic")).toBe(30);
+    expect(clampGearEnhanceLevel(40, "rare")).toBe(15);
   });
 
-  it("calculates exact costs across single_piece (×1), hero_set_4 (×4), and squad_24 (×24) scopes", () => {
-    const singleMax = calculateGearEnhancement({
-      rarity: "legendary",
-      scopeMode: "single_piece",
-      roleBranch: "dps",
-      fromLevel: 0,
-      toLevel: 40,
-      ownedRunes: 50_000,
-      ownedMeat: 200_000,
-    });
-    expect(singleMax.pieceMultiplier).toBe(1);
-    expect(singleMax.requiredRunes).toBe(195_000);
-    expect(singleMax.requiredMeat).toBe(936_000);
-    expect(singleMax.missingRunes).toBe(145_000);
-    expect(singleMax.missingMeat).toBe(736_000);
-    expect(singleMax.currentMasterTier).toBe(0);
-    expect(singleMax.targetMasterTier).toBe(40);
+  it("defines 4 equipment slots per rarity with Meta.bytes level milestones (e.g., Giày Hồn Kỵ Sĩ)", () => {
+    const legBoots = GEAR_SLOTS_BY_RARITY.legendary.boots;
+    expect(legBoots.gameId).toBe(1533);
+    expect(legBoots.itemName.vi).toBe("Giày Hồn Kỵ Sĩ");
+    expect(legBoots.iconPath).toBe(
+      "/images/equipment/hero-gear/icon_42053.webp"
+    );
+    expect(legBoots.levelMilestones.map((m) => m.level)).toEqual([
+      10, 20, 30, 40,
+    ]);
+    expect(legBoots.levelMilestones[0].bonusValue).toBe("+705");
+    expect(legBoots.levelMilestones[1].bonusValue).toBe("+4.5%");
 
-    const heroSet20To40 = calculateGearEnhancement({
-      rarity: "mythic",
-      scopeMode: "hero_set_4",
-      roleBranch: "tank",
-      fromLevel: 20,
-      toLevel: 40,
-      ownedRunes: 600_000,
-      ownedMeat: 3_000_000,
-    });
-    expect(heroSet20To40.pieceMultiplier).toBe(4);
-    expect(heroSet20To40.alreadyInvestedRunes).toBe(240_000);
-    expect(heroSet20To40.targetCumulativeRunes).toBe(780_000);
-    expect(heroSet20To40.requiredRunes).toBe(540_000);
-    expect(heroSet20To40.requiredMeat).toBe(2_592_000);
-    expect(heroSet20To40.missingRunes).toBe(0);
-    expect(heroSet20To40.surplusRunes).toBe(60_000);
-    expect(heroSet20To40.runeCompletionPercent).toBe(100);
-    expect(heroSet20To40.currentMasterTier).toBe(20);
-    expect(heroSet20To40.targetMasterTier).toBe(40);
+    const epicWeapon = GEAR_SLOTS_BY_RARITY.epic.weapon;
+    expect(epicWeapon.gameId).toBe(1401);
+    expect(epicWeapon.levelMilestones.map((m) => m.level)).toEqual([
+      10, 20, 30,
+    ]);
 
-    const squad24Max = calculateGearEnhancement({
-      rarity: "legendary",
-      scopeMode: "squad_24",
-      roleBranch: "healer",
-      fromLevel: 0,
-      toLevel: 40,
-    });
-    expect(squad24Max.pieceMultiplier).toBe(24);
-    expect(squad24Max.requiredRunes).toBe(4_680_000);
-    expect(squad24Max.requiredMeat).toBe(22_464_000);
+    const rareHelmet = GEAR_SLOTS_BY_RARITY.rare.helmet;
+    expect(rareHelmet.gameId).toBe(1304);
+    expect(rareHelmet.levelMilestones.map((m) => m.level)).toEqual([10]);
   });
 
-  it("applies exact integer rounding for epic rarity (0.5×) without IEEE-754 float drift", () => {
-    const epic0To20 = calculateGearEnhancement({
-      rarity: "epic",
-      scopeMode: "single_piece",
-      roleBranch: "dps",
-      fromLevel: 0,
-      toLevel: 20,
-    });
-    expect(epic0To20.requiredRunes).toBe(30_000);
-    expect(epic0To20.requiredMeat).toBe(144_000);
-    expect(Number.isInteger(epic0To20.requiredRunes)).toBe(true);
-    expect(Number.isInteger(epic0To20.requiredMeat)).toBe(true);
-  });
-
-  it("audits asymmetric 4-slot loadouts (custom_4_slots) and detects bottleneck slots for Enhancement Master", () => {
-    const customAudit = calculateGearEnhancement({
+  it("calculates 1-piece enhancement plans, inventory progress, and clamps to rarity maxLevel", () => {
+    // Legendary Boots Lv.10 -> Lv.40 with 272K Rune and 1.74M Ruby owned (from user screenshot)
+    const leg10To40 = calculateGearEnhancePlan({
       rarity: "legendary",
-      scopeMode: "custom_4_slots",
-      roleBranch: "dps",
+      slotId: "boots",
       fromLevel: 10,
-      toLevel: 20,
-      customSlotLevels: {
-        weapon: { fromLevel: 20, toLevel: 20 },
-        boots: { fromLevel: 20, toLevel: 20 },
-        helmet: { fromLevel: 12, toLevel: 20 },
-        chest: { fromLevel: 10, toLevel: 20 },
-      },
+      toLevel: 40,
+      ownedRunes: 272_000,
+      ownedRuby: 1_740_000,
     });
 
-    expect(customAudit.isInvalidRange).toBe(false);
-    expect(customAudit.currentMinSlotLevel).toBe(10);
-    expect(customAudit.targetMinSlotLevel).toBe(20);
-    expect(customAudit.currentMasterTier).toBe(10);
-    expect(customAudit.targetMasterTier).toBe(20);
-    expect(customAudit.bottleneckSlots).toEqual(["chest", "helmet"]);
-    // helmet: 12 -> 20 = 60,000 - 27,000 = 33,000; chest: 10 -> 20 = 60,000 - 21,000 = 39,000
-    expect(customAudit.requiredRunes).toBe(72_000);
-    expect(customAudit.requiredMeat).toBe(345_600);
-    expect(customAudit.runesToNextMasterMilestone).toBe(72_000);
-  });
+    expect(leg10To40.isInvalidRange).toBe(false);
+    expect(leg10To40.requiredRunes).toBe(174_000);
+    expect(leg10To40.requiredRuby).toBe(835_200);
+    expect(leg10To40.nextStepRunes).toBe(3_000);
+    expect(leg10To40.nextStepRuby).toBe(14_400);
+    expect(leg10To40.missingRunes).toBe(0);
+    expect(leg10To40.surplusRunes).toBe(98_000);
+    expect(leg10To40.missingRuby).toBe(0);
+    expect(leg10To40.surplusRuby).toBe(904_800);
+    expect(leg10To40.runeCompletionPercent).toBe(100);
+    expect(leg10To40.rubyCompletionPercent).toBe(100);
 
-  it("returns role-specific slot upgrade order (Tank: Helmet+Chest first vs DPS/Healer: Weapon+Boots first) and handles invalid ranges safely", () => {
-    expect(GEAR_ROLE_CONFIGS.tank.slotUpgradeOrder).toEqual([
-      "helmet",
-      "chest",
-      "weapon",
-      "boots",
-    ]);
-    expect(GEAR_ROLE_CONFIGS.dps.slotUpgradeOrder).toEqual([
-      "weapon",
-      "boots",
-      "helmet",
-      "chest",
-    ]);
-    expect(GEAR_ROLE_CONFIGS.healer.slotUpgradeOrder).toEqual([
-      "weapon",
-      "boots",
-      "helmet",
-      "chest",
-    ]);
-
-    const zeroDiff = calculateGearEnhancement({
-      rarity: "legendary",
-      scopeMode: "single_piece",
-      roleBranch: "dps",
-      fromLevel: 20,
-      toLevel: 20,
-    });
-    expect(zeroDiff.isInvalidRange).toBe(false);
-    expect(zeroDiff.requiredRunes).toBe(0);
-    expect(zeroDiff.runeCompletionPercent).toBe(100);
-    expect(zeroDiff.meatCompletionPercent).toBe(100);
-
-    const invalidSym = calculateGearEnhancement({
-      rarity: "legendary",
-      scopeMode: "single_piece",
-      roleBranch: "dps",
-      fromLevel: 30,
-      toLevel: 20,
-    });
-    expect(invalidSym.isInvalidRange).toBe(true);
-    expect(invalidSym.requiredRunes).toBe(0);
-    expect(invalidSym.requiredMeat).toBe(0);
-
-    const invalidCustom = calculateGearEnhancement({
-      rarity: "legendary",
-      scopeMode: "custom_4_slots",
-      roleBranch: "tank",
+    // Epic Gear clamps toLevel=40 -> 30 automatically
+    const epicMax = calculateGearEnhancePlan({
+      rarity: "epic",
+      slotId: "weapon",
       fromLevel: 0,
-      toLevel: 20,
-      customSlotLevels: {
-        weapon: { fromLevel: 20, toLevel: 20 },
-        boots: { fromLevel: 20, toLevel: 20 },
-        helmet: { fromLevel: 25, toLevel: 20 },
-        chest: { fromLevel: 10, toLevel: 20 },
-      },
+      toLevel: 40,
+      ownedRunes: 10_000,
+      ownedRuby: 15_000,
     });
-    expect(invalidCustom.isInvalidRange).toBe(true);
-    expect(invalidCustom.invalidSlotKeys).toEqual(["helmet"]);
-    expect(invalidCustom.requiredRunes).toBe(0);
+    expect(epicMax.toLevel).toBe(30);
+    expect(epicMax.requiredRunes).toBe(32_500);
+    expect(epicMax.requiredRuby).toBe(39_000);
+    expect(epicMax.missingRunes).toBe(22_500);
+    expect(epicMax.missingRuby).toBe(24_000);
+    expect(epicMax.bracketBreakdown).toHaveLength(3);
+
+    // Invalid range when fromLevel > toLevel
+    const invalidPlan = calculateGearEnhancePlan({
+      rarity: "legendary",
+      slotId: "boots",
+      fromLevel: 30,
+      toLevel: 10,
+    });
+    expect(invalidPlan.isInvalidRange).toBe(true);
+    expect(invalidPlan.requiredRunes).toBe(0);
+    expect(invalidPlan.requiredRuby).toBe(0);
   });
 });
 
-describe("4.1 Cường Hóa Trang Bị — Suite 2: MD3 UI Component, Custom 4-Slots & Bilingual Purity", () => {
+describe("4.1 Cường Hóa Trang Bị — Suite 2: MD3 UI, Sequential Picker, Unified Materials & Popup Info", () => {
   const resolved = getCalculatorToolBySlug("hero-gear", "gear-enhance")!;
 
   const renderCalculator = (locale: "vi" | "en" = "vi") =>
@@ -249,60 +237,89 @@ describe("4.1 Cường Hóa Trang Bị — Suite 2: MD3 UI Component, Custom 4-S
     ).toBe(0);
   });
 
-  it("renders default 1 Hero (4 pieces) Lv.20 ➔ Lv.40 calculation (540,000 Runes + 2,592,000 Meat) and supports scope/role switching", () => {
+  it("renders clean 1-piece UI without scope/role strips, supports 2-step central picker, compact K/M numbers, unified Materials card, and popup [i] dialog", () => {
     const { container } = renderCalculator("vi");
 
-    expect(screen.getByTestId("calculator-tool-header")).toBeDefined();
-    expect(
-      screen.getByTestId("gear-enhance-total-runes").textContent
-    ).toBe("540,000");
-    expect(
-      screen.getByTestId("gear-enhance-total-meat").textContent
-    ).toBe("2,592,000");
+    // 1. Removed scope switcher & role branch strip
+    expect(screen.queryByTestId("scope-single_piece-btn")).toBeNull();
+    expect(screen.queryByTestId("scope-hero_set_4-btn")).toBeNull();
+    expect(screen.queryByTestId("scope-squad_24-btn")).toBeNull();
+    expect(screen.queryByTestId("scope-custom_4_slots-btn")).toBeNull();
+    expect(screen.queryByTestId("role-dps-btn")).toBeNull();
 
-    // Switch to Squad 24 pieces (Lv.20 -> Lv.40 = 540,000 * 6 = 3,240,000 Runes)
-    fireEvent.click(screen.getByTestId("scope-squad_24-btn"));
-    expect(
-      screen.getByTestId("gear-enhance-total-runes").textContent
-    ).toBe("3,240,000");
+    // 2. Clean selector titles without (X) and (Y)
+    expect(screen.getByText("Cấp Hiện Tại")).toBeDefined();
+    expect(screen.getByText("Cấp Mục Tiêu")).toBeDefined();
+    expect(screen.queryByText("Cấp Hiện Tại (X)")).toBeNull();
+    expect(screen.queryByText("Cấp Mục Tiêu (Y)")).toBeNull();
 
-    // Switch to Single Piece (Lv.20 -> Lv.40 = 135,000 Runes)
-    fireEvent.click(screen.getByTestId("scope-single_piece-btn"));
-    expect(
-      screen.getByTestId("gear-enhance-total-runes").textContent
-    ).toBe("135,000");
+    // 3. Default Legendary Boots Lv.0 -> Lv.40 shows compact K numbers in unified Materials card
+    expect(screen.getByTestId("gear-enhance-result-card")).toBeDefined();
+    expect(screen.getByTestId("gear-enhance-rune-column")).toBeDefined();
+    expect(screen.getByTestId("gear-enhance-ruby-column")).toBeDefined();
+    expect(screen.getByTestId("gear-enhance-total-runes").textContent).toBe(
+      "195K"
+    );
+    expect(screen.getByTestId("gear-enhance-total-ruby").textContent).toBe(
+      "936K"
+    );
 
-    // Switch role to Tank and check slot priority badge
-    fireEvent.click(screen.getByTestId("role-tank-btn"));
-    expect(
-      screen.getByTestId("role-priority-summary").textContent
-    ).toMatch(/Mũ/i);
+    // 4. Supports compact K/M input in inventory fields
+    fireEvent.change(screen.getByTestId("gear-enhance-owned-runes-input"), {
+      target: { value: "272k" },
+    });
+    fireEvent.change(screen.getByTestId("gear-enhance-owned-ruby-input"), {
+      target: { value: "1.74m" },
+    });
+    expect(screen.getByTestId("gear-enhance-missing-runes").textContent).toBe(
+      "+77K"
+    );
+    expect(screen.getByTestId("gear-enhance-missing-ruby").textContent).toBe(
+      "+804K"
+    );
 
-    // Switch to custom_4_slots mode
-    fireEvent.click(screen.getByTestId("scope-custom_4_slots-btn"));
-    expect(screen.getByTestId("custom-slot-helmet-from-minus")).toBeDefined();
+    // 5. Central Gear Avatar sequential 2-step picker (Step 1: Rarity -> Step 2: Slot -> Auto close)
+    fireEvent.click(screen.getByTestId("gear-enhance-central-picker-btn"));
+    expect(screen.getByTestId("gear-enhance-picker-popover")).toBeDefined();
 
-    // Open breakdown table [i] and check MD3 containment depth <= 1
-    fireEvent.click(screen.getByTestId("toggle-gear-enhance-breakdown-btn"));
-    expect(screen.getByTestId("gear-enhance-breakdown-panel")).toBeDefined();
+    // Step 1: Click Epic rarity -> transitions to Step 2 and clamps maxLevel to 30
+    fireEvent.click(screen.getByTestId("gear-rarity-option-epic"));
+    expect(screen.getByTestId("gear-slot-option-weapon")).toBeDefined();
+
+    // Step 2: Click Weapon slot -> selects Kiếm Trưởng Quan Kỵ Sĩ and auto-closes popover
+    fireEvent.click(screen.getByTestId("gear-slot-option-weapon"));
+    expect(screen.queryByTestId("gear-enhance-picker-popover")).toBeNull();
+
+    // Epic Lv.0 -> Lv.30 costs 32.5K Rune and 39K Ruby
+    expect(screen.getByTestId("gear-enhance-total-runes").textContent).toBe(
+      "32.5K"
+    );
+    expect(screen.getByTestId("gear-enhance-total-ruby").textContent).toBe(
+      "39K"
+    );
+
+    // 6. Popup [i] dialog via shared CalculatorInfoPopover
+    expect(screen.queryByTestId("gear-enhance-info-dialog")).toBeNull();
+    fireEvent.click(screen.getByTestId("gear-enhance-info-trigger"));
+    expect(screen.getByTestId("gear-enhance-info-dialog")).toBeDefined();
 
     expect(getMaxBorderedContainerDepth(container)).toBeLessThanOrEqual(1);
     expect(findMicroTextElements(container)).toEqual([]);
     expect(findMonoElementsWithVietnamese(container)).toEqual([]);
   });
 
-  it("renders 100% pure English without any Vietnamese diacritics when locale='en' (including open breakdown table and custom 4 slots)", () => {
+  it("renders 100% pure English without any Vietnamese diacritics when locale='en' (including open picker and open info dialog)", () => {
     const { container } = renderCalculator("en");
 
-    fireEvent.click(screen.getByTestId("scope-custom_4_slots-btn"));
-    fireEvent.click(screen.getByTestId("toggle-gear-enhance-breakdown-btn"));
+    fireEvent.click(screen.getByTestId("gear-enhance-central-picker-btn"));
+    fireEvent.click(screen.getByTestId("gear-enhance-info-trigger"));
 
     expect(getMaxBorderedContainerDepth(container)).toBeLessThanOrEqual(1);
     expect(findMicroTextElements(container)).toEqual([]);
     expect(container.textContent ?? "").not.toMatch(VI_DIACRITIC_REGEX);
   });
 
-  it("renders GearEnhanceLevelSelector with 44px stepper buttons and milestone chips (+0, +10, +20, +30, +40)", () => {
+  it("renders GearEnhanceLevelSelector with rarity-aware milestone chips and equipment level bonus pills", () => {
     let currentLv = 10;
     render(
       <GearEnhanceLevelSelector
@@ -310,7 +327,7 @@ describe("4.1 Cường Hóa Trang Bị — Suite 2: MD3 UI Component, Custom 4-S
         title="Cấp Hiện Tại"
         level={currentLv}
         rarity="legendary"
-        pieceMultiplier={4}
+        slotId="boots"
         locale="vi"
         onChangeLevel={(next) => {
           currentLv = next;

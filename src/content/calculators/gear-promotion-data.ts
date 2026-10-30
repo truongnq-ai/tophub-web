@@ -2,73 +2,146 @@ import { CALCULATOR_MATERIALS } from "./registry";
 import type { CalculatorLocale, CalculatorMaterialRef } from "./types";
 
 export type GearPromotionStarBracket = 0 | 1 | 2 | 3 | 4 | 5;
-export type GearPromotionSubTier = 0 | 1 | 2 | 3 | 4 | 5;
-export type GearGoldenSetId =
-  | "fury_of_blood"
+export type GearPromotionPetalIndex = 0 | 1 | 2 | 3 | 4 | 5;
+export type GearPromotionStarColor = "none" | "gold" | "red";
+
+export type GearPromotionSetId =
+  | "knights_glory"
   | "titans_might"
-  | "glorious_light";
+  | "fury_of_blood"
+  | "commanders_set";
+
+export type GearPromotionSlotId = "weapon" | "boots" | "armor" | "helmet";
+
+export type GearPromotionMaterialKey =
+  | "solarGold"
+  | "enhanceRune"
+  | "legendaryStone"
+  | "mythicStone"
+  | "ruby";
 
 export const MIN_GEAR_PROMOTION_STEP = 0;
 export const MAX_GEAR_PROMOTION_STEP = 25;
-export const BASE_LV40_ENHANCE_RUNES_PER_PIECE = 195_000;
-export const BASE_LV40_ENHANCE_MEAT_PER_PIECE = 936_000;
 
-export interface GearGoldenSetConfig {
-  readonly id: GearGoldenSetId;
-  readonly roleLabel: Record<CalculatorLocale, string>;
-  readonly legendaryName: Record<CalculatorLocale, string>;
-  readonly mythicName: Record<CalculatorLocale, string>;
-  readonly iconPath: string;
-  readonly factionMarkBonus: Record<CalculatorLocale, string>;
-  readonly specialEffect: Record<CalculatorLocale, string>;
+export const GEAR_PROMOTION_SET_ORDER: readonly GearPromotionSetId[] = [
+  "knights_glory",
+  "titans_might",
+  "fury_of_blood",
+  "commanders_set",
+] as const;
+
+export const GEAR_PROMOTION_SLOT_ORDER: readonly GearPromotionSlotId[] = [
+  "weapon",
+  "boots",
+  "armor",
+  "helmet",
+] as const;
+
+export const GEAR_PROMOTION_MATERIAL_ORDER: readonly GearPromotionMaterialKey[] =
+  [
+    "solarGold",
+    "enhanceRune",
+    "legendaryStone",
+    "mythicStone",
+    "ruby",
+  ] as const;
+
+export const GEAR_PROMOTION_STAR_MILESTONES: readonly number[] = [
+  0, 5, 10, 15, 20, 25,
+] as const;
+
+export interface GearPromotionPieceItemMeta {
+  readonly gameId: number;
+  readonly slotId: GearPromotionSlotId;
+  readonly itemName: Readonly<Record<CalculatorLocale, string>>;
+  readonly legendaryIconPath: string;
+  readonly mythicIconPath: string;
+  readonly baseAtkAtLv40: number;
+  readonly baseHpAtLv40: number;
+  readonly bonusStatLabel: Readonly<Record<CalculatorLocale, string>>;
+  readonly bonusStatValue: string;
+}
+
+export interface GearPromotionSetMeta {
+  readonly id: GearPromotionSetId;
+  readonly suitId: number;
+  readonly setName: Readonly<Record<CalculatorLocale, string>>;
+  readonly shortName: Readonly<Record<CalculatorLocale, string>>;
+  readonly roleBadge: Readonly<Record<CalculatorLocale, string>>;
+  readonly sampleLegendaryIconPath: string;
+  readonly sampleMythicIconPath: string;
+  readonly suitBonusBase: Readonly<Record<CalculatorLocale, string>>;
+  readonly suitBonusLv40: Readonly<Record<CalculatorLocale, string>>;
+  readonly suitBonusMythic5Star: Readonly<Record<CalculatorLocale, string>>;
+  readonly items: Readonly<Record<GearPromotionSlotId, GearPromotionPieceItemMeta>>;
+}
+
+export interface GearPromotionSlotMeta {
+  readonly id: GearPromotionSlotId;
+  readonly label: Readonly<Record<CalculatorLocale, string>>;
+  readonly primaryFocus: Readonly<Record<CalculatorLocale, string>>;
 }
 
 export interface GearPromotionStepNode {
   readonly stepIndex: number;
-  readonly starBracket: GearPromotionStarBracket;
-  readonly subTier: GearPromotionSubTier;
+  readonly star: GearPromotionStarBracket;
+  readonly petal: GearPromotionPetalIndex;
+  readonly starColor: GearPromotionStarColor;
   readonly rarity: "legendary" | "mythic";
-  readonly label: Record<CalculatorLocale, string>;
-  readonly shortLabel: Record<CalculatorLocale, string>;
-  readonly stepSolarGold: number;
-  readonly stepRunes: number;
-  readonly stepMeat: number;
-  readonly stepLegendaryStones: number;
-  readonly stepMythicStones: number;
-  readonly stepLegendaryFodder: number;
-  readonly cumulativeSolarGold: number;
-  readonly cumulativeRunes: number;
-  readonly cumulativeMeat: number;
-  readonly cumulativeLegendaryStones: number;
-  readonly cumulativeMythicStones: number;
-  readonly cumulativeLegendaryFodder: number;
   readonly isStarBreakthrough: boolean;
-  readonly breakthroughNote?: Record<CalculatorLocale, string>;
+  readonly isMythicAscension: boolean;
+  readonly label: Readonly<Record<CalculatorLocale, string>>;
+  readonly shortLabel: Readonly<Record<CalculatorLocale, string>>;
+  readonly stepSolarGold: number;
+  readonly stepEnhanceRune: number;
+  readonly stepRuby: number;
+  readonly stepLegendaryStone: number;
+  readonly stepMythicStone: number;
+  readonly cumulativeSolarGold: number;
+  readonly cumulativeEnhanceRune: number;
+  readonly cumulativeRuby: number;
+  readonly cumulativeLegendaryStone: number;
+  readonly cumulativeMythicStone: number;
+  readonly flatAtkAdded: number;
+  readonly flatHpAdded: number;
+  readonly breakthroughNote?: Readonly<Record<CalculatorLocale, string>>;
 }
 
-export interface GearPromotionStarBreakdownItem {
-  readonly starBracket: 1 | 2 | 3 | 4 | 5;
+export interface GearPromotionStarSummaryRow {
+  readonly star: 1 | 2 | 3 | 4 | 5;
+  readonly starColor: "gold" | "red";
   readonly rarity: "legendary" | "mythic";
-  readonly label: Record<CalculatorLocale, string>;
   readonly startStepIndex: number;
   readonly endStepIndex: number;
-  readonly solarGoldPerPiece: number;
-  readonly runesPerPiece: number;
-  readonly meatPerPiece: number;
-  readonly legendaryStonesPerPiece: number;
-  readonly mythicStonesPerPiece: number;
-  readonly fodderPerPiece: number;
-  readonly totalSolarGold: number;
-  readonly totalRunes: number;
-  readonly totalMeat: number;
-  readonly totalLegendaryStones: number;
-  readonly totalMythicStones: number;
-  readonly totalFodder: number;
+  readonly label: Readonly<Record<CalculatorLocale, string>>;
+  readonly perPetalSolarGold: number;
+  readonly perPetalEnhanceRune: number;
+  readonly perPetalRuby1To4: number;
+  readonly starTotalSolarGold: number;
+  readonly starTotalEnhanceRune: number;
+  readonly starTotalRuby: number;
+  readonly starTotalLegendaryStone: number;
+  readonly starTotalMythicStone: number;
+  readonly cumulativeSolarGold: number;
+  readonly cumulativeEnhanceRune: number;
+  readonly cumulativeRuby: number;
+  readonly cumulativeLegendaryStone: number;
+  readonly cumulativeMythicStone: number;
+}
+
+export interface GearPromotionMasterResonanceTier {
+  readonly id: number;
+  readonly star: 1 | 2 | 3 | 4 | 5;
+  readonly requiredStepIndex: number;
+  readonly heroAtkBonus: number;
+  readonly heroHpBonus: number;
+  readonly summary: Readonly<Record<CalculatorLocale, string>>;
 }
 
 export interface MythicMasterAttributeTier {
   readonly tierIndex: number;
-  readonly label: Record<CalculatorLocale, string>;
+  readonly pointsRequired: number;
+  readonly label: Readonly<Record<CalculatorLocale, string>>;
   readonly masterAttributesPercent: string;
   readonly defenseBreak: number;
   readonly initialUltCdReduced: string;
@@ -77,350 +150,830 @@ export interface MythicMasterAttributeTier {
   readonly heroHpPercent: string;
 }
 
+export interface GearPromotionMaterialMeta {
+  readonly key: GearPromotionMaterialKey;
+  readonly material: CalculatorMaterialRef;
+  readonly isRefundableOnDismantle: boolean;
+  readonly refundBadge: Readonly<Record<CalculatorLocale, string>>;
+  readonly sourceHint: Readonly<Record<CalculatorLocale, string>>;
+}
+
+export interface GearPromotionMaterialBreakdownItem {
+  readonly key: GearPromotionMaterialKey;
+  readonly material: CalculatorMaterialRef;
+  readonly isRefundableOnDismantle: boolean;
+  readonly refundBadge: Readonly<Record<CalculatorLocale, string>>;
+  readonly sourceHint: Readonly<Record<CalculatorLocale, string>>;
+  readonly alreadyInvested: number;
+  readonly targetCumulative: number;
+  readonly required: number;
+  readonly owned: number;
+  readonly missing: number;
+  readonly surplus: number;
+  readonly completionPercent: number;
+}
+
+export interface GearPromotionItemStatsSnapshot {
+  readonly stepIndex: number;
+  readonly star: GearPromotionStarBracket;
+  readonly petal: GearPromotionPetalIndex;
+  readonly starColor: GearPromotionStarColor;
+  readonly rarity: "legendary" | "mythic";
+  readonly isMythicAscended: boolean;
+  readonly activeIconPath: string;
+  readonly totalAtk: number;
+  readonly totalHp: number;
+  readonly promotionAtkAdded: number;
+  readonly promotionHpAdded: number;
+  readonly bonusStatLabel: Readonly<Record<CalculatorLocale, string>>;
+  readonly bonusStatValue: string;
+  readonly mythicBaseBonusLabel: Readonly<Record<CalculatorLocale, string>>;
+}
+
 export interface GearPromotionCalculationInput {
+  readonly setId?: GearPromotionSetId;
+  readonly slotId?: GearPromotionSlotId;
   readonly fromStepIndex: number;
   readonly toStepIndex: number;
-  readonly pieceCount: number;
-  readonly goldenSetId: GearGoldenSetId;
-  readonly includeBaseLv40Enhance?: boolean;
-  readonly ownedSolarGold?: number;
-  readonly ownedRunes?: number;
-  readonly ownedLegendaryStones?: number;
-  readonly ownedMythicStones?: number;
-  readonly ownedMeat?: number;
+  readonly owned?: Partial<Readonly<Record<GearPromotionMaterialKey, number>>>;
 }
 
 export interface GearPromotionCalculationResult {
+  readonly setId: GearPromotionSetId;
+  readonly setMeta: GearPromotionSetMeta;
+  readonly slotId: GearPromotionSlotId;
+  readonly slotMeta: GearPromotionSlotMeta;
+  readonly pieceMeta: GearPromotionPieceItemMeta;
+  readonly fromStepIndex: number;
+  readonly toStepIndex: number;
+  readonly stepDelta: number;
   readonly fromNode: GearPromotionStepNode;
   readonly toNode: GearPromotionStepNode;
-  readonly pieceCount: number;
-  readonly goldenSet: GearGoldenSetConfig;
-  readonly includeBaseLv40Enhance: boolean;
+  readonly fromStats: GearPromotionItemStatsSnapshot;
+  readonly toStats: GearPromotionItemStatsSnapshot;
   readonly isInvalidRange: boolean;
-  readonly promotionOnlyRunes: number;
-  readonly baseEnhanceRunesAdded: number;
-  readonly promotionOnlyMeat: number;
-  readonly baseEnhanceMeatAdded: number;
-  readonly requiredSolarGold: number;
-  readonly requiredRunes: number;
-  readonly requiredLegendaryStones: number;
-  readonly requiredMythicStones: number;
-  readonly requiredMeat: number;
-  readonly requiredLegendaryFodder: number;
-  readonly ownedSolarGold: number;
-  readonly ownedRunes: number;
-  readonly ownedLegendaryStones: number;
-  readonly ownedMythicStones: number;
-  readonly ownedMeat: number;
-  readonly missingSolarGold: number;
-  readonly missingRunes: number;
-  readonly missingLegendaryStones: number;
-  readonly missingMythicStones: number;
-  readonly missingMeat: number;
-  readonly surplusSolarGold: number;
-  readonly surplusRunes: number;
-  readonly surplusLegendaryStones: number;
-  readonly surplusMythicStones: number;
-  readonly surplusMeat: number;
-  readonly solarGoldCompletionPercent: number;
-  readonly runeCompletionPercent: number;
-  readonly legendaryStoneCompletionPercent: number;
-  readonly mythicStoneCompletionPercent: number;
-  readonly meatCompletionPercent: number;
-  readonly solarGoldMaterial: CalculatorMaterialRef;
-  readonly runeMaterial: CalculatorMaterialRef;
-  readonly legendaryStoneMaterial: CalculatorMaterialRef;
-  readonly mythicStoneMaterial: CalculatorMaterialRef;
-  readonly meatMaterial: CalculatorMaterialRef;
-  readonly starBreakdown: readonly GearPromotionStarBreakdownItem[];
+  readonly isAlreadyAtOrAboveTarget: boolean;
+  readonly requiredByKey: Readonly<Record<GearPromotionMaterialKey, number>>;
+  readonly ownedByKey: Readonly<Record<GearPromotionMaterialKey, number>>;
+  readonly missingByKey: Readonly<Record<GearPromotionMaterialKey, number>>;
+  readonly surplusByKey: Readonly<Record<GearPromotionMaterialKey, number>>;
+  readonly materialBreakdown: readonly GearPromotionMaterialBreakdownItem[];
 }
 
-export const GEAR_GOLDEN_SETS: Readonly<
-  Record<GearGoldenSetId, GearGoldenSetConfig>
+export const GEAR_PROMOTION_SLOTS: readonly GearPromotionSlotMeta[] = [
+  {
+    id: "weapon",
+    label: { vi: "Vũ Khí", en: "Weapon" },
+    primaryFocus: {
+      vi: "Tấn Công Trang Bị + Tỷ Lệ Bạo Kích",
+      en: "Equipment ATK + Crit Rate",
+    },
+  },
+  {
+    id: "boots",
+    label: { vi: "Giày", en: "Boots" },
+    primaryFocus: {
+      vi: "Tấn Công Trang Bị + Sát Thương Bạo Kích",
+      en: "Equipment ATK + Crit Damage",
+    },
+  },
+  {
+    id: "armor",
+    label: { vi: "Giáp Ngực", en: "Chest Armor" },
+    primaryFocus: {
+      vi: "HP Trang Bị + Kháng Bạo Kích",
+      en: "Equipment HP + Crit Resistance",
+    },
+  },
+  {
+    id: "helmet",
+    label: { vi: "Mũ", en: "Helmet" },
+    primaryFocus: {
+      vi: "HP Trang Bị + Giảm Sát Thương Bạo Kích",
+      en: "Equipment HP + Crit Damage Reduction",
+    },
+  },
+] as const;
+
+export const GEAR_PROMOTION_SETS_MAP: Readonly<
+  Record<GearPromotionSetId, GearPromotionSetMeta>
 > = {
-  fury_of_blood: {
-    id: "fury_of_blood",
-    roleLabel: {
-      vi: "Sát Thương Chủ Lực (DPS / Carry)",
-      en: "Hyper-Carry / Burst DPS",
+  knights_glory: {
+    id: "knights_glory",
+    suitId: 1103,
+    setName: {
+      vi: "Bộ Quang Vinh Kỵ Sĩ",
+      en: "Glory of the Knight Set",
     },
-    legendaryName: {
-      vi: "Kỵ Sĩ Vinh Quang (Bộ Quyết Đấu)",
-      en: "Knight's Glory (Duelist's Set)",
+    shortName: {
+      vi: "Quang Vinh Kỵ Sĩ",
+      en: "Knight's Glory",
     },
-    mythicName: {
-      vi: "Cơn Thịnh Nộ (Fury of Blood)",
-      en: "Fury of Blood (Mythic Red)",
+    roleBadge: {
+      vi: "Công & Thủ Toàn Diện • Kỹ Năng",
+      en: "Balanced ATK/HP • Skill Damage",
     },
-    iconPath: "/images/equipment/hero-gear/icon_40005.webp",
-    factionMarkBonus: {
-      vi: "Ấn Phe tăng từ +20% (Cam) lên +30% (Đỏ Thần Thoại)",
-      en: "Faction Mark Bonus jumps from +20% (Legendary) to +30% (Mythic Red)",
+    sampleLegendaryIconPath: "/images/equipment/hero-gear/icon_42053.webp",
+    sampleMythicIconPath: "/images/equipment/hero-gear/icon_42064.webp",
+    suitBonusBase: {
+      vi: "Bộ 4 Món (Gốc): ATK Trang Bị +10%, HP Trang Bị +20%, Tăng ST Kỹ Năng +4%",
+      en: "4-Piece (Base): Equip ATK +10%, Equip HP +20%, Skill Damage +4%",
     },
-    specialEffect: {
-      vi: "Khuếch đại Sát Thương Kỹ Năng, Tỷ Lệ Bạo Kích và mở khóa Phá Giáp (Defense Break) + Giảm Hồi Chiêu Tuyệt Kỹ Khởi Đầu.",
-      en: "Amplifies Skill Damage and Crit Rate while unlocking Defense Break and Initial Ultimate Skill Cooldown Reduction.",
+    suitBonusLv40: {
+      vi: "Bộ 4 Món (Đạt Lv.40): ATK Trang Bị +40%, HP Trang Bị +80%, Tăng ST Kỹ Năng +8%",
+      en: "4-Piece (Lv.40): Equip ATK +40%, Equip HP +80%, Skill Damage +8%",
+    },
+    suitBonusMythic5Star: {
+      vi: "Bộ 4 Món (Đột Phá 5★ Đỏ): ATK Trang Bị +80%, HP Trang Bị +240%, Tăng ST Kỹ Năng +16%",
+      en: "4-Piece (5★ Mythic Red): Equip ATK +80%, Equip HP +240%, Skill Damage +16%",
+    },
+    items: {
+      weapon: {
+        gameId: 1531,
+        slotId: "weapon",
+        itemName: { vi: "Thương Thánh Kỵ Sĩ", en: "Paladin's Lance" },
+        legendaryIconPath: "/images/equipment/hero-gear/icon_40053.webp",
+        mythicIconPath: "/images/equipment/hero-gear/icon_40064.webp",
+        baseAtkAtLv40: 5_540,
+        baseHpAtLv40: 45_230,
+        bonusStatLabel: { vi: "Tỷ Lệ Bạo Kích", en: "Crit Rate" },
+        bonusStatValue: "9.00%",
+      },
+      boots: {
+        gameId: 1533,
+        slotId: "boots",
+        itemName: { vi: "Giày Hồn Kỵ Sĩ", en: "Knight's Soul Boots" },
+        legendaryIconPath: "/images/equipment/hero-gear/icon_42053.webp",
+        mythicIconPath: "/images/equipment/hero-gear/icon_42064.webp",
+        baseAtkAtLv40: 5_540,
+        baseHpAtLv40: 45_230,
+        bonusStatLabel: { vi: "Sát Thương Bạo Kích", en: "Crit Damage" },
+        bonusStatValue: "9.00%",
+      },
+      armor: {
+        gameId: 1532,
+        slotId: "armor",
+        itemName: { vi: "Hào Giáp Kỵ Sĩ", en: "Knight's Shining Armor" },
+        legendaryIconPath: "/images/equipment/hero-gear/icon_41053.webp",
+        mythicIconPath: "/images/equipment/hero-gear/icon_41064.webp",
+        baseAtkAtLv40: 2_310,
+        baseHpAtLv40: 109_200,
+        bonusStatLabel: { vi: "Kháng Bạo Kích", en: "Crit Resistance" },
+        bonusStatValue: "9.00%",
+      },
+      helmet: {
+        gameId: 1534,
+        slotId: "helmet",
+        itemName: { vi: "Mũ Thần Kỵ Sĩ", en: "Knight's Divine Helm" },
+        legendaryIconPath: "/images/equipment/hero-gear/icon_45053.webp",
+        mythicIconPath: "/images/equipment/hero-gear/icon_45064.webp",
+        baseAtkAtLv40: 2_310,
+        baseHpAtLv40: 109_200,
+        bonusStatLabel: { vi: "Giảm ST Bạo Kích", en: "Crit DMG Reduction" },
+        bonusStatValue: "9.00%",
+      },
     },
   },
   titans_might: {
     id: "titans_might",
-    roleLabel: {
-      vi: "Đỡ Đòn Tiền Tuyến (Main Tank)",
-      en: "Frontline Main Tank / Bruiser",
+    suitId: 1101,
+    setName: {
+      vi: "Bộ Đại Đế Thần Lực",
+      en: "Titan's Might Set",
     },
-    legendaryName: {
-      vi: "Huyết Titan (Bộ Kỵ Sĩ)",
-      en: "Blood of the Titan (Knight Set)",
+    shortName: {
+      vi: "Đại Đế Thần Lực",
+      en: "Titan's Might",
     },
-    mythicName: {
-      vi: "Uy Lực Titan (Titan's Might)",
-      en: "Titan's Might (Mythic Red)",
+    roleBadge: {
+      vi: "Sát Thương Chủ Lực • Khuếch Đại ST",
+      en: "Main Carry DPS • Damage Dealt",
     },
-    iconPath: "/images/equipment/hero-gear/icon_40013.webp",
-    factionMarkBonus: {
-      vi: "Ấn Phe tăng từ +20% (Cam) lên +30% (Đỏ Thần Thoại)",
-      en: "Faction Mark Bonus jumps from +20% (Legendary) to +30% (Mythic Red)",
+    sampleLegendaryIconPath: "/images/equipment/hero-gear/icon_40061.webp",
+    sampleMythicIconPath: "/images/equipment/hero-gear/icon_40063.webp",
+    suitBonusBase: {
+      vi: "Bộ 4 Món (Gốc): ATK Trang Bị +20%, Tăng Sát Thương +3%",
+      en: "4-Piece (Base): Equip ATK +20%, Damage Dealt +3%",
     },
-    specialEffect: {
-      vi: "Tạo Khiên Máu (HP Shield) khổng lồ khi vào trận, tăng Giảm Sát Thương và mở khóa Giảm Hồi Chiêu Tuyệt Kỹ Kẻ Địch.",
-      en: "Grants massive opening HP Shields, boosts Damage Reduction, and unlocks Enemy Ultimate Skill Cooldown Reduction.",
+    suitBonusLv40: {
+      vi: "Bộ 4 Món (Đạt Lv.40): ATK Trang Bị +80%, Tăng Sát Thương +6%",
+      en: "4-Piece (Lv.40): Equip ATK +80%, Damage Dealt +6%",
+    },
+    suitBonusMythic5Star: {
+      vi: "Bộ 4 Món (Đột Phá 5★ Đỏ): ATK Trang Bị +160%, Tăng Sát Thương +12%",
+      en: "4-Piece (5★ Mythic Red): Equip ATK +160%, Damage Dealt +12%",
+    },
+    items: {
+      weapon: {
+        gameId: 1511,
+        slotId: "weapon",
+        itemName: { vi: "Búa Đại Đế", en: "Emperor's Warhammer" },
+        legendaryIconPath: "/images/equipment/hero-gear/icon_40061.webp",
+        mythicIconPath: "/images/equipment/hero-gear/icon_40063.webp",
+        baseAtkAtLv40: 5_540,
+        baseHpAtLv40: 45_230,
+        bonusStatLabel: { vi: "Tỷ Lệ Bạo Kích", en: "Crit Rate" },
+        bonusStatValue: "9.00%",
+      },
+      boots: {
+        gameId: 1513,
+        slotId: "boots",
+        itemName: { vi: "Giày Đại Đế", en: "Emperor's Greaves" },
+        legendaryIconPath: "/images/equipment/hero-gear/icon_42061.webp",
+        mythicIconPath: "/images/equipment/hero-gear/icon_42063.webp",
+        baseAtkAtLv40: 5_540,
+        baseHpAtLv40: 45_230,
+        bonusStatLabel: { vi: "Sát Thương Bạo Kích", en: "Crit Damage" },
+        bonusStatValue: "9.00%",
+      },
+      armor: {
+        gameId: 1512,
+        slotId: "armor",
+        itemName: { vi: "Giáp Đại Đế", en: "Emperor's Breastplate" },
+        legendaryIconPath: "/images/equipment/hero-gear/icon_41061.webp",
+        mythicIconPath: "/images/equipment/hero-gear/icon_41063.webp",
+        baseAtkAtLv40: 2_310,
+        baseHpAtLv40: 109_200,
+        bonusStatLabel: { vi: "Kháng Bạo Kích", en: "Crit Resistance" },
+        bonusStatValue: "9.00%",
+      },
+      helmet: {
+        gameId: 1514,
+        slotId: "helmet",
+        itemName: { vi: "Mũ Đại Đế", en: "Emperor's Crown Helm" },
+        legendaryIconPath: "/images/equipment/hero-gear/icon_45061.webp",
+        mythicIconPath: "/images/equipment/hero-gear/icon_45063.webp",
+        baseAtkAtLv40: 2_310,
+        baseHpAtLv40: 109_200,
+        bonusStatLabel: { vi: "Giảm ST Bạo Kích", en: "Crit DMG Reduction" },
+        bonusStatValue: "9.00%",
+      },
     },
   },
-  glorious_light: {
-    id: "glorious_light",
-    roleLabel: {
-      vi: "Hỗ Trợ & Hồi Máu (Healer / Support)",
-      en: "Healer, Support & Controller",
+  fury_of_blood: {
+    id: "fury_of_blood",
+    suitId: 1102,
+    setName: {
+      vi: "Bộ Nộ Huyết",
+      en: "Fury of Blood Set",
     },
-    legendaryName: {
-      vi: "Hiền Triết Quang Vinh (Bộ Hiền Giả)",
-      en: "Glory of the Sage (Sage Set)",
+    shortName: {
+      vi: "Bộ Nộ Huyết",
+      en: "Fury of Blood",
     },
-    mythicName: {
-      vi: "Ánh Sáng Vinh Quang (Glorious Light)",
-      en: "Glorious Light (Mythic Red)",
+    roleBadge: {
+      vi: "Đỡ Đòn Tiền Tuyến • Sinh Tồn & Giảm ST",
+      en: "Frontline Tank • Max HP & DMG Reduction",
     },
-    iconPath: "/images/equipment/hero-gear/icon_40009.webp",
-    factionMarkBonus: {
-      vi: "Ấn Phe tăng từ +20% (Cam) lên +30% (Đỏ Thần Thoại)",
-      en: "Faction Mark Bonus jumps from +20% (Legendary) to +30% (Mythic Red)",
+    sampleLegendaryIconPath: "/images/equipment/hero-gear/icon_40060.webp",
+    sampleMythicIconPath: "/images/equipment/hero-gear/icon_40062.webp",
+    suitBonusBase: {
+      vi: "Bộ 4 Món (Gốc): HP Trang Bị +40%, Giảm Sát Thương +3%",
+      en: "4-Piece (Base): Equip HP +40%, Damage Reduction +3%",
     },
-    specialEffect: {
-      vi: "Tăng Tốc Đánh, Hồi Năng Lượng và rút ngắn thời gian tung Tuyệt Kỹ đầu tiên cho dàn tướng Hỗ Trợ / Hồi Máu.",
-      en: "Boosts Attack Speed, Energy Regen, and accelerates the first Ultimate cast for Healers and Supports.",
+    suitBonusLv40: {
+      vi: "Bộ 4 Món (Đạt Lv.40): HP Trang Bị +160%, Giảm Sát Thương +6%",
+      en: "4-Piece (Lv.40): Equip HP +160%, Damage Reduction +6%",
+    },
+    suitBonusMythic5Star: {
+      vi: "Bộ 4 Món (Đột Phá 5★ Đỏ): HP Trang Bị +480%, Giảm Sát Thương +12%",
+      en: "4-Piece (5★ Mythic Red): Equip HP +480%, Damage Reduction +12%",
+    },
+    items: {
+      weapon: {
+        gameId: 1521,
+        slotId: "weapon",
+        itemName: { vi: "Rìu Nộ Huyết", en: "Bloodfury Battleaxe" },
+        legendaryIconPath: "/images/equipment/hero-gear/icon_40060.webp",
+        mythicIconPath: "/images/equipment/hero-gear/icon_40062.webp",
+        baseAtkAtLv40: 5_540,
+        baseHpAtLv40: 45_230,
+        bonusStatLabel: { vi: "Tỷ Lệ Bạo Kích", en: "Crit Rate" },
+        bonusStatValue: "9.00%",
+      },
+      boots: {
+        gameId: 1523,
+        slotId: "boots",
+        itemName: { vi: "Giày Nộ Huyết", en: "Bloodfury Sabatons" },
+        legendaryIconPath: "/images/equipment/hero-gear/icon_42060.webp",
+        mythicIconPath: "/images/equipment/hero-gear/icon_42062.webp",
+        baseAtkAtLv40: 5_540,
+        baseHpAtLv40: 45_230,
+        bonusStatLabel: { vi: "Sát Thương Bạo Kích", en: "Crit Damage" },
+        bonusStatValue: "9.00%",
+      },
+      armor: {
+        gameId: 1522,
+        slotId: "armor",
+        itemName: { vi: "Giáp Nộ Huyết", en: "Bloodfury Cuirass" },
+        legendaryIconPath: "/images/equipment/hero-gear/icon_41060.webp",
+        mythicIconPath: "/images/equipment/hero-gear/icon_41062.webp",
+        baseAtkAtLv40: 2_310,
+        baseHpAtLv40: 109_200,
+        bonusStatLabel: { vi: "Kháng Bạo Kích", en: "Crit Resistance" },
+        bonusStatValue: "9.00%",
+      },
+      helmet: {
+        gameId: 1524,
+        slotId: "helmet",
+        itemName: { vi: "Mũ Nộ Huyết", en: "Bloodfury Warhelm" },
+        legendaryIconPath: "/images/equipment/hero-gear/icon_45060.webp",
+        mythicIconPath: "/images/equipment/hero-gear/icon_45062.webp",
+        baseAtkAtLv40: 2_310,
+        baseHpAtLv40: 109_200,
+        bonusStatLabel: { vi: "Giảm ST Bạo Kích", en: "Crit DMG Reduction" },
+        bonusStatValue: "9.00%",
+      },
+    },
+  },
+  commanders_set: {
+    id: "commanders_set",
+    suitId: 0,
+    setName: {
+      vi: "Bộ Nguyên Soái",
+      en: "Commander's Set",
+    },
+    shortName: {
+      vi: "Bộ Nguyên Soái",
+      en: "Commander's Set",
+    },
+    roleBadge: {
+      vi: "Trang Bị Huyền Thoại Tiêu Chuẩn",
+      en: "Standard Legendary Gear",
+    },
+    sampleLegendaryIconPath: "/images/equipment/hero-gear/icon_40028.webp",
+    sampleMythicIconPath: "/images/equipment/hero-gear/icon_40051.webp",
+    suitBonusBase: {
+      vi: "Bộ tiêu chuẩn (Không có dòng Suit riêng, vẫn kích hoạt đầy đủ Cộng Hưởng Bậc Thầy Đột Phá 4 món)",
+      en: "Standard Legendary Set (No suit-specific passive, fully activates 4-piece Star Promotion Master)",
+    },
+    suitBonusLv40: {
+      vi: "Đạt Lv.40 kích hoạt Cộng Hưởng Cường Hóa 4 món (ATK +23,400, HP +396,000)",
+      en: "At Lv.40 activates 4-piece Enhancement Master (ATK +23,400, HP +396,000)",
+    },
+    suitBonusMythic5Star: {
+      vi: "Đột Phá 5★ Đỏ kích hoạt Thuộc tính cơ bản +10% & Cộng Hưởng Đột Phá 5★ (ATK +66,700, HP +1,423,000)",
+      en: "At 5★ Mythic Red activates Base Attributes +10% & 5★ Promotion Master (ATK +66,700, HP +1,423,000)",
+    },
+    items: {
+      weapon: {
+        gameId: 1501,
+        slotId: "weapon",
+        itemName: { vi: "Kiếm Lệnh Nguyên Soái", en: "Marshal's Command Sword" },
+        legendaryIconPath: "/images/equipment/hero-gear/icon_40028.webp",
+        mythicIconPath: "/images/equipment/hero-gear/icon_40051.webp",
+        baseAtkAtLv40: 5_540,
+        baseHpAtLv40: 45_230,
+        bonusStatLabel: { vi: "Tỷ Lệ Bạo Kích", en: "Crit Rate" },
+        bonusStatValue: "9.00%",
+      },
+      boots: {
+        gameId: 1503,
+        slotId: "boots",
+        itemName: { vi: "Ủng Chiến Phụ Nguyên Soái", en: "Marshal's Battle Boots" },
+        legendaryIconPath: "/images/equipment/hero-gear/icon_42028.webp",
+        mythicIconPath: "/images/equipment/hero-gear/icon_42051.webp",
+        baseAtkAtLv40: 5_540,
+        baseHpAtLv40: 45_230,
+        bonusStatLabel: { vi: "Sát Thương Bạo Kích", en: "Crit Damage" },
+        bonusStatValue: "9.00%",
+      },
+      armor: {
+        gameId: 1502,
+        slotId: "armor",
+        itemName: { vi: "Giáp Bí Pháp Nguyên Soái", en: "Marshal's Arcane Armor" },
+        legendaryIconPath: "/images/equipment/hero-gear/icon_41028.webp",
+        mythicIconPath: "/images/equipment/hero-gear/icon_41051.webp",
+        baseAtkAtLv40: 2_310,
+        baseHpAtLv40: 109_200,
+        bonusStatLabel: { vi: "Kháng Bạo Kích", en: "Crit Resistance" },
+        bonusStatValue: "9.00%",
+      },
+      helmet: {
+        gameId: 1504,
+        slotId: "helmet",
+        itemName: { vi: "Mũ Phụ Ma Nguyên Soái", en: "Marshal's Enchanted Helm" },
+        legendaryIconPath: "/images/equipment/hero-gear/icon_45028.webp",
+        mythicIconPath: "/images/equipment/hero-gear/icon_45051.webp",
+        baseAtkAtLv40: 2_310,
+        baseHpAtLv40: 109_200,
+        bonusStatLabel: { vi: "Giảm ST Bạo Kích", en: "Crit DMG Reduction" },
+        bonusStatValue: "9.00%",
+      },
     },
   },
 };
 
-interface StarBracketTemplate {
-  readonly starBracket: 1 | 2 | 3 | 4 | 5;
-  readonly rarity: "legendary" | "mythic";
-  readonly solarGoldPerSubTier: number;
-  readonly runesPerSubTier: number;
-  readonly meatPerSubTier1To4: number;
-  readonly legendaryStonesAtTier5: number;
-  readonly mythicStonesAtTier5: number;
-  readonly bracketTitle: Record<CalculatorLocale, string>;
-  readonly breakthroughNote: Record<CalculatorLocale, string>;
+export const GEAR_PROMOTION_SETS: readonly GearPromotionSetMeta[] =
+  GEAR_PROMOTION_SET_ORDER.map((id) => GEAR_PROMOTION_SETS_MAP[id]);
+
+export const GEAR_PROMOTION_MATERIALS: readonly GearPromotionMaterialMeta[] = [
+  {
+    key: "solarGold",
+    material: CALCULATOR_MATERIALS.solarGoldIngot,
+    isRefundableOnDismantle: true,
+    refundBadge: {
+      vi: "Hoàn trả 100% khi tách",
+      en: "100% refunded on dismantle",
+    },
+    sourceHint: {
+      vi: "Tiệm Công Hội, Sự Kiện Đua Top & Gói Đồ Đỏ",
+      en: "Guild Shop, Leaderboard Events & Gear Packs",
+    },
+  },
+  {
+    key: "enhanceRune",
+    material: CALCULATOR_MATERIALS.gearEnhanceRune,
+    isRefundableOnDismantle: true,
+    refundBadge: {
+      vi: "Hoàn trả 100% khi tách",
+      en: "100% refunded on dismantle",
+    },
+    sourceHint: {
+      vi: "Thử Thách Anh Hùng, Tách Trang Bị & Tiệm Đổi",
+      en: "Hero Trials, Gear Dismantle & Exchange Shops",
+    },
+  },
+  {
+    key: "legendaryStone",
+    material: CALCULATOR_MATERIALS.legendaryPromotionStone,
+    isRefundableOnDismantle: true,
+    refundBadge: {
+      vi: "Hoàn trả 100% khi tách",
+      en: "100% refunded on dismantle",
+    },
+    sourceHint: {
+      vi: "Cánh thứ 5 của Sao Vàng 1★–4★ (Tổng 50 viên/món)",
+      en: "5th petal of Gold Stars 1★–4★ (50 stones/piece)",
+    },
+  },
+  {
+    key: "mythicStone",
+    material: CALCULATOR_MATERIALS.mythicPromotionStone,
+    isRefundableOnDismantle: true,
+    refundBadge: {
+      vi: "Hoàn trả 100% khi tách",
+      en: "100% refunded on dismantle",
+    },
+    sourceHint: {
+      vi: "Cánh 25/25 Hóa Đỏ Thần Thoại 5★ (10 viên/món)",
+      en: "25/25 Mythic Red 5★ Ascension petal (10 stones/piece)",
+    },
+  },
+  {
+    key: "ruby",
+    material: CALCULATOR_MATERIALS.ruby,
+    isRefundableOnDismantle: false,
+    refundBadge: {
+      vi: "Tiêu hao cố định — không hoàn trả",
+      en: "Non-refundable fixed currency cost",
+    },
+    sourceHint: {
+      vi: "Mỏ Ruby Lãnh Địa, Thuế Chiến Dịch & Hầm Mỏ",
+      en: "Territory Ruby Mine, Campaign Tax & Resource Chests",
+    },
+  },
+] as const;
+
+interface StarPromotionTemplate {
+  readonly star: 1 | 2 | 3 | 4 | 5;
+  readonly starColor: "gold" | "red";
+  readonly solarGoldPerPetal: number;
+  readonly enhanceRunePerPetal: number;
+  readonly rubyPerPetal1To4: number;
+  readonly legendaryStoneAtPetal5: number;
+  readonly mythicStoneAtPetal5: number;
+  readonly flatAtkPerPetal: number;
+  readonly flatHpPerPetal: number;
+  readonly summaryLabel: Readonly<Record<CalculatorLocale, string>>;
+  readonly breakthroughNote: Readonly<Record<CalculatorLocale, string>>;
 }
 
-const STAR_BRACKET_TEMPLATES: readonly StarBracketTemplate[] = [
+/**
+ * Ground-truth cost matrix decoded directly from Meta.bytes (v1.0.42532) table `equipment_break`
+ * for model_id 1501..1534 (lv 0..25):
+ * - Stars 1★..4★ (lv 1..20): 4 Gold Stars, 5th petal consumes Legendary Promotion Stone (gameId=151)
+ * - Star 5★ (lv 21..25): 1 Red Star, 25th petal consumes Mythic Promotion Stone (gameId=152) and ascends to Mythic Red
+ * - Petals 1..4 of each star consume Ruby (`break_cost_no_back` = `999|6|<amount>`)
+ */
+const STAR_PROMOTION_TEMPLATES: readonly StarPromotionTemplate[] = [
   {
-    starBracket: 1,
-    rarity: "legendary",
-    solarGoldPerSubTier: 150,
-    runesPerSubTier: 12_500,
-    meatPerSubTier1To4: 750_000,
-    legendaryStonesAtTier5: 5,
-    mythicStonesAtTier5: 0,
-    bracketTitle: {
-      vi: "1★ Cam (Huyền Thoại)",
-      en: "1★ Legendary",
+    star: 1,
+    starColor: "gold",
+    solarGoldPerPetal: 150,
+    enhanceRunePerPetal: 12_500,
+    rubyPerPetal1To4: 750_000,
+    legendaryStoneAtPetal5: 5,
+    mythicStoneAtPetal5: 0,
+    flatAtkPerPetal: 290,
+    flatHpPerPetal: 2_900,
+    summaryLabel: {
+      vi: "1★ Vàng (Cánh 1 ➔ 5)",
+      en: "1★ Gold (Petals 1 to 5)",
     },
     breakthroughNote: {
-      vi: "Đột phá Sao 1★ Cam (Tốn 5 Đá Đột Phá Cam)",
-      en: "1★ Legendary Breakthrough (Costs 5 Legendary Promotion Stones)",
+      vi: "Đột phá 1★ Vàng: Cánh 5/5 dùng 5 Đá Đột Phá Cam thay cho Ruby",
+      en: "1★ Gold Breakthrough: Petal 5/5 uses 5 Legendary Promotion Stones instead of Ruby",
     },
   },
   {
-    starBracket: 2,
-    rarity: "legendary",
-    solarGoldPerSubTier: 195,
-    runesPerSubTier: 16_250,
-    meatPerSubTier1To4: 975_000,
-    legendaryStonesAtTier5: 10,
-    mythicStonesAtTier5: 0,
-    bracketTitle: {
-      vi: "2★ Cam (Huyền Thoại)",
-      en: "2★ Legendary",
+    star: 2,
+    starColor: "gold",
+    solarGoldPerPetal: 195,
+    enhanceRunePerPetal: 16_250,
+    rubyPerPetal1To4: 975_000,
+    legendaryStoneAtPetal5: 10,
+    mythicStoneAtPetal5: 0,
+    flatAtkPerPetal: 360,
+    flatHpPerPetal: 3_600,
+    summaryLabel: {
+      vi: "2★ Vàng (Cánh 6 ➔ 10)",
+      en: "2★ Gold (Petals 6 to 10)",
     },
     breakthroughNote: {
-      vi: "Đột phá Sao 2★ Cam (Tốn 10 Đá Đột Phá Cam)",
-      en: "2★ Legendary Breakthrough (Costs 10 Legendary Promotion Stones)",
+      vi: "Đột phá 2★ Vàng: Cánh 5/5 dùng 10 Đá Đột Phá Cam thay cho Ruby",
+      en: "2★ Gold Breakthrough: Petal 5/5 uses 10 Legendary Promotion Stones instead of Ruby",
     },
   },
   {
-    starBracket: 3,
-    rarity: "legendary",
-    solarGoldPerSubTier: 240,
-    runesPerSubTier: 20_000,
-    meatPerSubTier1To4: 1_200_000,
-    legendaryStonesAtTier5: 15,
-    mythicStonesAtTier5: 0,
-    bracketTitle: {
-      vi: "3★ Cam (Huyền Thoại)",
-      en: "3★ Legendary",
+    star: 3,
+    starColor: "gold",
+    solarGoldPerPetal: 240,
+    enhanceRunePerPetal: 20_000,
+    rubyPerPetal1To4: 1_200_000,
+    legendaryStoneAtPetal5: 15,
+    mythicStoneAtPetal5: 0,
+    flatAtkPerPetal: 450,
+    flatHpPerPetal: 4_500,
+    summaryLabel: {
+      vi: "3★ Vàng (Cánh 11 ➔ 15)",
+      en: "3★ Gold (Petals 11 to 15)",
     },
     breakthroughNote: {
-      vi: "Đột phá Sao 3★ Cam (Tốn 15 Đá Đột Phá Cam)",
-      en: "3★ Legendary Breakthrough (Costs 15 Legendary Promotion Stones)",
+      vi: "Đột phá 3★ Vàng: Cánh 5/5 dùng 15 Đá Đột Phá Cam thay cho Ruby",
+      en: "3★ Gold Breakthrough: Petal 5/5 uses 15 Legendary Promotion Stones instead of Ruby",
     },
   },
   {
-    starBracket: 4,
-    rarity: "legendary",
-    solarGoldPerSubTier: 285,
-    runesPerSubTier: 23_750,
-    meatPerSubTier1To4: 1_420_000,
-    legendaryStonesAtTier5: 20,
-    mythicStonesAtTier5: 0,
-    bracketTitle: {
-      vi: "4★ Cam (Đỉnh Huyền Thoại)",
-      en: "4★ Legendary (Pre-Mythic Cap)",
+    star: 4,
+    starColor: "gold",
+    solarGoldPerPetal: 285,
+    enhanceRunePerPetal: 23_750,
+    rubyPerPetal1To4: 1_425_000,
+    legendaryStoneAtPetal5: 20,
+    mythicStoneAtPetal5: 0,
+    flatAtkPerPetal: 560,
+    flatHpPerPetal: 5_600,
+    summaryLabel: {
+      vi: "4★ Vàng (Cánh 16 ➔ 20)",
+      en: "4★ Gold (Petals 16 to 20)",
     },
     breakthroughNote: {
-      vi: "Đột phá Sao 4★ Cam (Tốn 20 Đá Đột Phá Cam • Sẵn sàng Hóa Đỏ)",
-      en: "4★ Legendary Breakthrough (Costs 20 Legendary Promotion Stones • Ready for Mythic)",
+      vi: "Đột phá 4★ Vàng: Cánh 5/5 dùng 20 Đá Đột Phá Cam • Mở khóa Sao Đỏ 5★",
+      en: "4★ Gold Breakthrough: Petal 5/5 uses 20 Legendary Promotion Stones • Unlocks 5★ Red Star",
     },
   },
   {
-    starBracket: 5,
-    rarity: "mythic",
-    solarGoldPerSubTier: 330,
-    runesPerSubTier: 27_500,
-    meatPerSubTier1To4: 1_650_000,
-    legendaryStonesAtTier5: 0,
-    mythicStonesAtTier5: 10,
-    bracketTitle: {
-      vi: "5★ Đỏ (Hóa Đỏ Thần Thoại / Mythic)",
-      en: "5★ Mythic Red (Mythic Ascension)",
+    star: 5,
+    starColor: "red",
+    solarGoldPerPetal: 330,
+    enhanceRunePerPetal: 27_500,
+    rubyPerPetal1To4: 1_650_000,
+    legendaryStoneAtPetal5: 0,
+    mythicStoneAtPetal5: 10,
+    flatAtkPerPetal: 680,
+    flatHpPerPetal: 6_800,
+    summaryLabel: {
+      vi: "5★ Đỏ Thần Thoại (Cánh 21 ➔ 25)",
+      en: "5★ Mythic Red (Petals 21 to 25)",
     },
     breakthroughNote: {
-      vi: "Tiến hóa Đồ Đỏ Thần Thoại (Tốn 10 Đá Đột Phá Đỏ • Mở Phá Giáp & +30% Ấn Phe)",
-      en: "Mythic Red Ascension (Costs 10 Mythic Promotion Stones • Unlocks Defense Break & +30% Faction Mark)",
+      vi: "Hóa Đỏ Thần Thoại 5★: Cánh 25/25 dùng 10 Đá Đột Phá Đỏ • Kích hoạt Thuộc tính cơ bản +10%",
+      en: "5★ Mythic Red Ascension: Petal 25/25 uses 10 Mythic Promotion Stones • Unlocks Base Attributes +10%",
     },
   },
-];
+] as const;
 
 function buildGearPromotionSteps(): readonly GearPromotionStepNode[] {
-  const steps: GearPromotionStepNode[] = [
+  const nodes: GearPromotionStepNode[] = [
     {
       stepIndex: 0,
-      starBracket: 0,
-      subTier: 0,
+      star: 0,
+      petal: 0,
+      starColor: "none",
       rarity: "legendary",
+      isStarBreakthrough: false,
+      isMythicAscension: false,
       label: {
-        vi: "0★ Cam • Gốc Lv.40 (Chưa đột phá)",
-        en: "0★ Legendary • Base Lv.40 (Unpromoted)",
+        vi: "0★ Chưa đột phá (Gốc Lv.40)",
+        en: "0★ Unpromoted (Base Lv.40)",
       },
       shortLabel: {
-        vi: "0★ Cam (Gốc)",
+        vi: "0★ Gốc",
         en: "0★ Base",
       },
       stepSolarGold: 0,
-      stepRunes: 0,
-      stepMeat: 0,
-      stepLegendaryStones: 0,
-      stepMythicStones: 0,
-      stepLegendaryFodder: 0,
+      stepEnhanceRune: 0,
+      stepRuby: 0,
+      stepLegendaryStone: 0,
+      stepMythicStone: 0,
       cumulativeSolarGold: 0,
-      cumulativeRunes: 0,
-      cumulativeMeat: 0,
-      cumulativeLegendaryStones: 0,
-      cumulativeMythicStones: 0,
-      cumulativeLegendaryFodder: 0,
-      isStarBreakthrough: false,
+      cumulativeEnhanceRune: 0,
+      cumulativeRuby: 0,
+      cumulativeLegendaryStone: 0,
+      cumulativeMythicStone: 0,
+      flatAtkAdded: 0,
+      flatHpAdded: 0,
     },
   ];
 
   let cumSolarGold = 0;
-  let cumRunes = 0;
-  let cumMeat = 0;
-  let cumLegStones = 0;
-  let cumMythStones = 0;
-  let cumFodder = 0;
+  let cumEnhanceRune = 0;
+  let cumRuby = 0;
+  let cumLegendaryStone = 0;
+  let cumMythicStone = 0;
+  let cumAtk = 0;
+  let cumHp = 0;
 
-  for (const tpl of STAR_BRACKET_TEMPLATES) {
-    for (let sub = 1; sub <= 5; sub++) {
-      const subTier = sub as GearPromotionSubTier;
-      const stepIndex = (tpl.starBracket - 1) * 5 + sub;
-      const isBreakthrough = subTier === 5;
+  for (const tpl of STAR_PROMOTION_TEMPLATES) {
+    for (let p = 1; p <= 5; p++) {
+      const petal = p as GearPromotionPetalIndex;
+      const stepIndex = (tpl.star - 1) * 5 + p;
+      const isBreakthrough = petal === 5;
+      const isMythicAscension = stepIndex === MAX_GEAR_PROMOTION_STEP;
 
-      const stepSolarGold = tpl.solarGoldPerSubTier;
-      const stepRunes = tpl.runesPerSubTier;
-      const stepMeat = isBreakthrough ? 0 : tpl.meatPerSubTier1To4;
-      const stepLegendaryStones = isBreakthrough
-        ? tpl.legendaryStonesAtTier5
+      const stepSolarGold = tpl.solarGoldPerPetal;
+      const stepEnhanceRune = tpl.enhanceRunePerPetal;
+      const stepRuby = isBreakthrough ? 0 : tpl.rubyPerPetal1To4;
+      const stepLegendaryStone = isBreakthrough
+        ? tpl.legendaryStoneAtPetal5
         : 0;
-      const stepMythicStones = isBreakthrough ? tpl.mythicStonesAtTier5 : 0;
-      const stepLegendaryFodder = isBreakthrough ? 1 : 0;
+      const stepMythicStone = isBreakthrough ? tpl.mythicStoneAtPetal5 : 0;
 
       cumSolarGold += stepSolarGold;
-      cumRunes += stepRunes;
-      cumMeat += stepMeat;
-      cumLegStones += stepLegendaryStones;
-      cumMythStones += stepMythicStones;
-      cumFodder += stepLegendaryFodder;
+      cumEnhanceRune += stepEnhanceRune;
+      cumRuby += stepRuby;
+      cumLegendaryStone += stepLegendaryStone;
+      cumMythicStone += stepMythicStone;
+      cumAtk += tpl.flatAtkPerPetal;
+      cumHp += tpl.flatHpPerPetal;
 
-      const starColorVi = tpl.rarity === "mythic" ? "Đỏ" : "Cam";
-      const starColorEn = tpl.rarity === "mythic" ? "Mythic" : "Legendary";
+      const starColorVi = tpl.starColor === "red" ? "Đỏ" : "Vàng";
+      const starColorEn = tpl.starColor === "red" ? "Red" : "Gold";
 
-      steps.push({
+      nodes.push({
         stepIndex,
-        starBracket: tpl.starBracket,
-        subTier,
-        rarity: tpl.rarity,
+        star: tpl.star,
+        petal,
+        starColor: tpl.starColor,
+        rarity: isMythicAscension ? "mythic" : "legendary",
+        isStarBreakthrough: isBreakthrough,
+        isMythicAscension,
         label: {
-          vi: `${tpl.starBracket}★ ${starColorVi} • Tiểu bậc ${subTier}/5${
-            isBreakthrough ? " (Đột Phá Sao)" : ""
+          vi: `${tpl.star}★ ${starColorVi} • Cánh ${petal}/5${
+            isMythicAscension
+              ? " (Hóa Đỏ Thần Thoại)"
+              : isBreakthrough
+                ? " (Đột Phá Sao)"
+                : ""
           }`,
-          en: `${tpl.starBracket}★ ${starColorEn} • Tier ${subTier}/5${
-            isBreakthrough ? " (Breakthrough)" : ""
+          en: `${tpl.star}★ ${starColorEn} • Petal ${petal}/5${
+            isMythicAscension
+              ? " (Mythic Red Ascension)"
+              : isBreakthrough
+                ? " (Star Breakthrough)"
+                : ""
           }`,
         },
         shortLabel: {
-          vi: `${tpl.starBracket}★ ${starColorVi} (${subTier}/5)`,
-          en: `${tpl.starBracket}★ ${starColorEn} (${subTier}/5)`,
+          vi: `${tpl.star}★ ${starColorVi} (${petal}/5)`,
+          en: `${tpl.star}★ ${starColorEn} (${petal}/5)`,
         },
         stepSolarGold,
-        stepRunes,
-        stepMeat,
-        stepLegendaryStones,
-        stepMythicStones,
-        stepLegendaryFodder,
+        stepEnhanceRune,
+        stepRuby,
+        stepLegendaryStone,
+        stepMythicStone,
         cumulativeSolarGold: cumSolarGold,
-        cumulativeRunes: cumRunes,
-        cumulativeMeat: cumMeat,
-        cumulativeLegendaryStones: cumLegStones,
-        cumulativeMythicStones: cumMythStones,
-        cumulativeLegendaryFodder: cumFodder,
-        isStarBreakthrough: isBreakthrough,
+        cumulativeEnhanceRune: cumEnhanceRune,
+        cumulativeRuby: cumRuby,
+        cumulativeLegendaryStone: cumLegendaryStone,
+        cumulativeMythicStone: cumMythicStone,
+        flatAtkAdded: cumAtk,
+        flatHpAdded: cumHp,
         breakthroughNote: isBreakthrough ? tpl.breakthroughNote : undefined,
       });
     }
   }
 
-  return steps;
+  return nodes;
 }
 
 export const GEAR_PROMOTION_STEPS: readonly GearPromotionStepNode[] =
   buildGearPromotionSteps();
 
+export const GEAR_PROMOTION_STAR_SUMMARY_TABLE: readonly GearPromotionStarSummaryRow[] =
+  STAR_PROMOTION_TEMPLATES.map((tpl) => {
+    const startStepIndex = (tpl.star - 1) * 5 + 1;
+    const endStepIndex = tpl.star * 5;
+    const prevNode = GEAR_PROMOTION_STEPS[startStepIndex - 1];
+    const endNode = GEAR_PROMOTION_STEPS[endStepIndex];
+
+    return {
+      star: tpl.star,
+      starColor: tpl.starColor,
+      rarity: tpl.star === 5 ? "mythic" : "legendary",
+      startStepIndex,
+      endStepIndex,
+      label: tpl.summaryLabel,
+      perPetalSolarGold: tpl.solarGoldPerPetal,
+      perPetalEnhanceRune: tpl.enhanceRunePerPetal,
+      perPetalRuby1To4: tpl.rubyPerPetal1To4,
+      starTotalSolarGold:
+        endNode.cumulativeSolarGold - prevNode.cumulativeSolarGold,
+      starTotalEnhanceRune:
+        endNode.cumulativeEnhanceRune - prevNode.cumulativeEnhanceRune,
+      starTotalRuby: endNode.cumulativeRuby - prevNode.cumulativeRuby,
+      starTotalLegendaryStone:
+        endNode.cumulativeLegendaryStone - prevNode.cumulativeLegendaryStone,
+      starTotalMythicStone:
+        endNode.cumulativeMythicStone - prevNode.cumulativeMythicStone,
+      cumulativeSolarGold: endNode.cumulativeSolarGold,
+      cumulativeEnhanceRune: endNode.cumulativeEnhanceRune,
+      cumulativeRuby: endNode.cumulativeRuby,
+      cumulativeLegendaryStone: endNode.cumulativeLegendaryStone,
+      cumulativeMythicStone: endNode.cumulativeMythicStone,
+    };
+  });
+
+/**
+ * 4-Piece Star Promotion Master Resonance decoded from Meta.bytes `equipment_master` (type=4, IDs 3151..3155)
+ */
+export const GEAR_PROMOTION_MASTER_RESONANCE_TIERS: readonly GearPromotionMasterResonanceTier[] =
+  [
+    {
+      id: 3151,
+      star: 1,
+      requiredStepIndex: 5,
+      heroAtkBonus: 22_200,
+      heroHpBonus: 375_000,
+      summary: {
+        vi: "4 món đạt 1★ Vàng: ATK Anh Hùng +22,200 • HP Anh Hùng +375,000",
+        en: "All 4 pieces at 1★ Gold: Hero ATK +22,200 • Hero HP +375,000",
+      },
+    },
+    {
+      id: 3152,
+      star: 2,
+      requiredStepIndex: 10,
+      heroAtkBonus: 29_600,
+      heroHpBonus: 544_000,
+      summary: {
+        vi: "4 món đạt 2★ Vàng: ATK Anh Hùng +29,600 • HP Anh Hùng +544,000",
+        en: "All 4 pieces at 2★ Gold: Hero ATK +29,600 • Hero HP +544,000",
+      },
+    },
+    {
+      id: 3153,
+      star: 3,
+      requiredStepIndex: 15,
+      heroAtkBonus: 40_800,
+      heroHpBonus: 809_000,
+      summary: {
+        vi: "4 món đạt 3★ Vàng: ATK Anh Hùng +40,800 • HP Anh Hùng +809,000",
+        en: "All 4 pieces at 3★ Gold: Hero ATK +40,800 • Hero HP +809,000",
+      },
+    },
+    {
+      id: 3154,
+      star: 4,
+      requiredStepIndex: 20,
+      heroAtkBonus: 55_600,
+      heroHpBonus: 1_186_000,
+      summary: {
+        vi: "4 món đạt 4★ Vàng: ATK Anh Hùng +55,600 • HP Anh Hùng +1,186,000",
+        en: "All 4 pieces at 4★ Gold: Hero ATK +55,600 • Hero HP +1,186,000",
+      },
+    },
+    {
+      id: 3155,
+      star: 5,
+      requiredStepIndex: 25,
+      heroAtkBonus: 66_700,
+      heroHpBonus: 1_423_000,
+      summary: {
+        vi: "4 món đạt 5★ Đỏ Thần Thoại: ATK Anh Hùng +66,700 • HP Anh Hùng +1,423,000",
+        en: "All 4 pieces at 5★ Mythic Red: Hero ATK +66,700 • Hero HP +1,423,000",
+      },
+    },
+  ] as const;
+
 export const MYTHIC_MASTER_ATTRIBUTE_TIERS: readonly MythicMasterAttributeTier[] =
   [
     {
       tierIndex: 1,
-      label: { vi: "Mốc 1 (Khởi điểm Đồ Đỏ)", en: "Tier 1 (Base Mythic)" },
+      pointsRequired: 500,
+      label: { vi: "Mốc 1 (500 điểm)", en: "Tier 1 (500 pts)" },
       masterAttributesPercent: "60.00%",
       defenseBreak: 130,
       initialUltCdReduced: "0.20%",
@@ -430,7 +983,8 @@ export const MYTHIC_MASTER_ATTRIBUTE_TIERS: readonly MythicMasterAttributeTier[]
     },
     {
       tierIndex: 2,
-      label: { vi: "Mốc 2", en: "Tier 2" },
+      pointsRequired: 600,
+      label: { vi: "Mốc 2 (600 điểm)", en: "Tier 2 (600 pts)" },
       masterAttributesPercent: "61.90%",
       defenseBreak: 250,
       initialUltCdReduced: "0.30%",
@@ -440,7 +994,8 @@ export const MYTHIC_MASTER_ATTRIBUTE_TIERS: readonly MythicMasterAttributeTier[]
     },
     {
       tierIndex: 3,
-      label: { vi: "Mốc 3", en: "Tier 3" },
+      pointsRequired: 700,
+      label: { vi: "Mốc 3 (700 điểm)", en: "Tier 3 (700 pts)" },
       masterAttributesPercent: "63.80%",
       defenseBreak: 380,
       initialUltCdReduced: "0.50%",
@@ -450,7 +1005,8 @@ export const MYTHIC_MASTER_ATTRIBUTE_TIERS: readonly MythicMasterAttributeTier[]
     },
     {
       tierIndex: 4,
-      label: { vi: "Mốc 4 (1★ Thần Thoại)", en: "Tier 4 (1★ Mythic)" },
+      pointsRequired: 800,
+      label: { vi: "Mốc 4 (800 điểm)", en: "Tier 4 (800 pts)" },
       masterAttributesPercent: "65.70%",
       defenseBreak: 500,
       initialUltCdReduced: "0.60%",
@@ -460,7 +1016,8 @@ export const MYTHIC_MASTER_ATTRIBUTE_TIERS: readonly MythicMasterAttributeTier[]
     },
     {
       tierIndex: 5,
-      label: { vi: "Mốc 5", en: "Tier 5" },
+      pointsRequired: 900,
+      label: { vi: "Mốc 5 (900 điểm)", en: "Tier 5 (900 pts)" },
       masterAttributesPercent: "67.60%",
       defenseBreak: 630,
       initialUltCdReduced: "0.80%",
@@ -470,7 +1027,8 @@ export const MYTHIC_MASTER_ATTRIBUTE_TIERS: readonly MythicMasterAttributeTier[]
     },
     {
       tierIndex: 6,
-      label: { vi: "Mốc 6", en: "Tier 6" },
+      pointsRequired: 1_000,
+      label: { vi: "Mốc 6 (1,000 điểm)", en: "Tier 6 (1,000 pts)" },
       masterAttributesPercent: "69.50%",
       defenseBreak: 750,
       initialUltCdReduced: "0.90%",
@@ -480,7 +1038,8 @@ export const MYTHIC_MASTER_ATTRIBUTE_TIERS: readonly MythicMasterAttributeTier[]
     },
     {
       tierIndex: 7,
-      label: { vi: "Mốc 7 (2★ Thần Thoại)", en: "Tier 7 (2★ Mythic)" },
+      pointsRequired: 1_100,
+      label: { vi: "Mốc 7 (1,100 điểm)", en: "Tier 7 (1,100 pts)" },
       masterAttributesPercent: "71.55%",
       defenseBreak: 890,
       initialUltCdReduced: "1.10%",
@@ -490,7 +1049,8 @@ export const MYTHIC_MASTER_ATTRIBUTE_TIERS: readonly MythicMasterAttributeTier[]
     },
     {
       tierIndex: 8,
-      label: { vi: "Mốc 8", en: "Tier 8" },
+      pointsRequired: 1_200,
+      label: { vi: "Mốc 8 (1,200 điểm)", en: "Tier 8 (1,200 pts)" },
       masterAttributesPercent: "73.60%",
       defenseBreak: 1_020,
       initialUltCdReduced: "1.30%",
@@ -500,7 +1060,8 @@ export const MYTHIC_MASTER_ATTRIBUTE_TIERS: readonly MythicMasterAttributeTier[]
     },
     {
       tierIndex: 9,
-      label: { vi: "Mốc 9", en: "Tier 9" },
+      pointsRequired: 1_300,
+      label: { vi: "Mốc 9 (1,300 điểm)", en: "Tier 9 (1,300 pts)" },
       masterAttributesPercent: "75.65%",
       defenseBreak: 1_160,
       initialUltCdReduced: "1.40%",
@@ -510,7 +1071,8 @@ export const MYTHIC_MASTER_ATTRIBUTE_TIERS: readonly MythicMasterAttributeTier[]
     },
     {
       tierIndex: 10,
-      label: { vi: "Mốc 10 (3★ Thần Thoại)", en: "Tier 10 (3★ Mythic)" },
+      pointsRequired: 1_400,
+      label: { vi: "Mốc 10 (1,400 điểm)", en: "Tier 10 (1,400 pts)" },
       masterAttributesPercent: "77.70%",
       defenseBreak: 1_290,
       initialUltCdReduced: "1.60%",
@@ -520,7 +1082,8 @@ export const MYTHIC_MASTER_ATTRIBUTE_TIERS: readonly MythicMasterAttributeTier[]
     },
     {
       tierIndex: 11,
-      label: { vi: "Mốc 11", en: "Tier 11" },
+      pointsRequired: 1_500,
+      label: { vi: "Mốc 11 (1,500 điểm)", en: "Tier 11 (1,500 pts)" },
       masterAttributesPercent: "79.75%",
       defenseBreak: 1_420,
       initialUltCdReduced: "1.80%",
@@ -530,7 +1093,8 @@ export const MYTHIC_MASTER_ATTRIBUTE_TIERS: readonly MythicMasterAttributeTier[]
     },
     {
       tierIndex: 12,
-      label: { vi: "Mốc 12", en: "Tier 12" },
+      pointsRequired: 1_600,
+      label: { vi: "Mốc 12 (1,600 điểm)", en: "Tier 12 (1,600 pts)" },
       masterAttributesPercent: "81.90%",
       defenseBreak: 1_570,
       initialUltCdReduced: "2.00%",
@@ -540,7 +1104,8 @@ export const MYTHIC_MASTER_ATTRIBUTE_TIERS: readonly MythicMasterAttributeTier[]
     },
     {
       tierIndex: 13,
-      label: { vi: "Mốc 13 (4★ Thần Thoại)", en: "Tier 13 (4★ Mythic)" },
+      pointsRequired: 1_700,
+      label: { vi: "Mốc 13 (1,700 điểm)", en: "Tier 13 (1,700 pts)" },
       masterAttributesPercent: "84.05%",
       defenseBreak: 1_710,
       initialUltCdReduced: "2.10%",
@@ -550,7 +1115,8 @@ export const MYTHIC_MASTER_ATTRIBUTE_TIERS: readonly MythicMasterAttributeTier[]
     },
     {
       tierIndex: 14,
-      label: { vi: "Mốc 14", en: "Tier 14" },
+      pointsRequired: 1_800,
+      label: { vi: "Mốc 14 (1,800 điểm)", en: "Tier 14 (1,800 pts)" },
       masterAttributesPercent: "86.20%",
       defenseBreak: 1_850,
       initialUltCdReduced: "2.30%",
@@ -560,7 +1126,8 @@ export const MYTHIC_MASTER_ATTRIBUTE_TIERS: readonly MythicMasterAttributeTier[]
     },
     {
       tierIndex: 15,
-      label: { vi: "Mốc 15", en: "Tier 15" },
+      pointsRequired: 1_900,
+      label: { vi: "Mốc 15 (1,900 điểm)", en: "Tier 15 (1,900 pts)" },
       masterAttributesPercent: "88.35%",
       defenseBreak: 1_990,
       initialUltCdReduced: "2.50%",
@@ -570,7 +1137,8 @@ export const MYTHIC_MASTER_ATTRIBUTE_TIERS: readonly MythicMasterAttributeTier[]
     },
     {
       tierIndex: 16,
-      label: { vi: "Mốc 16", en: "Tier 16" },
+      pointsRequired: 2_000,
+      label: { vi: "Mốc 16 (2,000 điểm)", en: "Tier 16 (2,000 pts)" },
       masterAttributesPercent: "90.50%",
       defenseBreak: 2_140,
       initialUltCdReduced: "2.70%",
@@ -580,7 +1148,8 @@ export const MYTHIC_MASTER_ATTRIBUTE_TIERS: readonly MythicMasterAttributeTier[]
     },
     {
       tierIndex: 17,
-      label: { vi: "Mốc 17", en: "Tier 17" },
+      pointsRequired: 2_100,
+      label: { vi: "Mốc 17 (2,100 điểm)", en: "Tier 17 (2,100 pts)" },
       masterAttributesPercent: "92.80%",
       defenseBreak: 2_290,
       initialUltCdReduced: "2.90%",
@@ -590,9 +1159,10 @@ export const MYTHIC_MASTER_ATTRIBUTE_TIERS: readonly MythicMasterAttributeTier[]
     },
     {
       tierIndex: 18,
+      pointsRequired: 2_200,
       label: {
-        vi: "Mốc 18 (Đỉnh 5★ Đỏ Thần Thoại)",
-        en: "Tier 18 (Max 5★ Mythic Cap)",
+        vi: "Mốc 18 (2,200 điểm • Đỉnh 5★ Đỏ)",
+        en: "Tier 18 (2,200 pts • Max 5★ Mythic)",
       },
       masterAttributesPercent: "95.25%",
       defenseBreak: 2_450,
@@ -603,7 +1173,7 @@ export const MYTHIC_MASTER_ATTRIBUTE_TIERS: readonly MythicMasterAttributeTier[]
     },
   ] as const;
 
-export function clampGearPromotionStep(stepIndex: number): number {
+export function clampGearPromotionStepIndex(stepIndex: number): number {
   if (!Number.isFinite(stepIndex)) return MIN_GEAR_PROMOTION_STEP;
   return Math.max(
     MIN_GEAR_PROMOTION_STEP,
@@ -611,188 +1181,210 @@ export function clampGearPromotionStep(stepIndex: number): number {
   );
 }
 
+export function getGearPromotionStep(stepIndex: number): GearPromotionStepNode {
+  return GEAR_PROMOTION_STEPS[clampGearPromotionStepIndex(stepIndex)];
+}
+
+export function getGearPromotionSetMeta(
+  setId: GearPromotionSetId
+): GearPromotionSetMeta {
+  return GEAR_PROMOTION_SETS_MAP[setId] ?? GEAR_PROMOTION_SETS_MAP.knights_glory;
+}
+
+export function getGearPromotionSlotMeta(
+  slotId: GearPromotionSlotId
+): GearPromotionSlotMeta {
+  return (
+    GEAR_PROMOTION_SLOTS.find((s) => s.id === slotId) ?? GEAR_PROMOTION_SLOTS[1]
+  );
+}
+
+export function getGearPromotionItemStatsAtStep(
+  setId: GearPromotionSetId,
+  slotId: GearPromotionSlotId,
+  stepIndex: number
+): GearPromotionItemStatsSnapshot {
+  const safeStep = clampGearPromotionStepIndex(stepIndex);
+  const node = GEAR_PROMOTION_STEPS[safeStep];
+  const setMeta = getGearPromotionSetMeta(setId);
+  const piece = setMeta.items[slotId] ?? setMeta.items.boots;
+  const isMythicAscended = safeStep === MAX_GEAR_PROMOTION_STEP;
+
+  const isOffensiveSlot = slotId === "weapon" || slotId === "boots";
+  const promotionAtkAdded = isOffensiveSlot
+    ? node.flatAtkAdded
+    : Math.round(node.flatAtkAdded * 0.45);
+  const promotionHpAdded = isOffensiveSlot
+    ? node.flatHpAdded
+    : Math.round(node.flatHpAdded * 2.2);
+
+  const rawTotalAtk = piece.baseAtkAtLv40 + promotionAtkAdded;
+  const rawTotalHp = piece.baseHpAtLv40 + promotionHpAdded;
+
+  const totalAtk = isMythicAscended
+    ? Math.round(rawTotalAtk * 1.1)
+    : rawTotalAtk;
+  const totalHp = isMythicAscended ? Math.round(rawTotalHp * 1.1) : rawTotalHp;
+
+  return {
+    stepIndex: safeStep,
+    star: node.star,
+    petal: node.petal,
+    starColor: node.starColor,
+    rarity: node.rarity,
+    isMythicAscended,
+    activeIconPath: isMythicAscended
+      ? piece.mythicIconPath
+      : piece.legendaryIconPath,
+    totalAtk,
+    totalHp,
+    promotionAtkAdded,
+    promotionHpAdded,
+    bonusStatLabel: piece.bonusStatLabel,
+    bonusStatValue: piece.bonusStatValue,
+    mythicBaseBonusLabel: isMythicAscended
+      ? {
+          vi: "Đã kích hoạt Hóa Đỏ 5★: Thuộc tính cơ bản +10%",
+          en: "5★ Mythic Red Active: Base Attributes +10%",
+        }
+      : {
+          vi: "Đột phá đạt 5★ Đỏ (25/25): Mở khóa Thuộc tính cơ bản +10%",
+          en: "Reach 5★ Mythic Red (25/25): Unlocks Base Attributes +10%",
+        },
+  };
+}
+
 function calcCompletionPercent(owned: number, required: number): number {
   if (required <= 0) return 100;
   return Math.min(100, Math.floor((owned / required) * 100));
 }
 
-export function calculateGearPromotion(
+function getCumulativeByMaterialKey(
+  node: GearPromotionStepNode,
+  key: GearPromotionMaterialKey
+): number {
+  switch (key) {
+    case "solarGold":
+      return node.cumulativeSolarGold;
+    case "enhanceRune":
+      return node.cumulativeEnhanceRune;
+    case "legendaryStone":
+      return node.cumulativeLegendaryStone;
+    case "mythicStone":
+      return node.cumulativeMythicStone;
+    case "ruby":
+      return node.cumulativeRuby;
+  }
+}
+
+export function calculateGearPromotionPlan(
   input: GearPromotionCalculationInput
 ): GearPromotionCalculationResult {
-  const safeFromStep = clampGearPromotionStep(input.fromStepIndex);
-  const safeToStep = clampGearPromotionStep(input.toStepIndex);
-  const safePieceCount = Math.max(1, Math.min(24, Math.floor(input.pieceCount || 1)));
-  const goldenSet = GEAR_GOLDEN_SETS[input.goldenSetId];
-  const includeBaseLv40Enhance = Boolean(input.includeBaseLv40Enhance);
+  const setId: GearPromotionSetId = input.setId ?? "knights_glory";
+  const slotId: GearPromotionSlotId = input.slotId ?? "boots";
+  const setMeta = getGearPromotionSetMeta(setId);
+  const slotMeta = getGearPromotionSlotMeta(slotId);
+  const pieceMeta = setMeta.items[slotId] ?? setMeta.items.boots;
 
-  const safeOwnedSolarGold = Math.max(0, Math.floor(input.ownedSolarGold ?? 0));
-  const safeOwnedRunes = Math.max(0, Math.floor(input.ownedRunes ?? 0));
-  const safeOwnedLegendaryStones = Math.max(
-    0,
-    Math.floor(input.ownedLegendaryStones ?? 0)
+  const fromStepIndex = clampGearPromotionStepIndex(input.fromStepIndex);
+  const toStepIndex = clampGearPromotionStepIndex(input.toStepIndex);
+  const fromNode = GEAR_PROMOTION_STEPS[fromStepIndex];
+  const toNode = GEAR_PROMOTION_STEPS[toStepIndex];
+  const isInvalidRange = fromStepIndex > toStepIndex;
+  const isAlreadyAtOrAboveTarget = fromStepIndex >= toStepIndex;
+  const stepDelta = isInvalidRange ? 0 : toStepIndex - fromStepIndex;
+
+  const fromStats = getGearPromotionItemStatsAtStep(
+    setId,
+    slotId,
+    fromStepIndex
   );
-  const safeOwnedMythicStones = Math.max(
-    0,
-    Math.floor(input.ownedMythicStones ?? 0)
-  );
-  const safeOwnedMeat = Math.max(0, Math.floor(input.ownedMeat ?? 0));
+  const toStats = getGearPromotionItemStatsAtStep(setId, slotId, toStepIndex);
 
-  const fromNode = GEAR_PROMOTION_STEPS[safeFromStep];
-  const toNode = GEAR_PROMOTION_STEPS[safeToStep];
-  const isInvalidRange = safeFromStep > safeToStep;
+  const requiredByKey: Record<GearPromotionMaterialKey, number> = {
+    solarGold: 0,
+    enhanceRune: 0,
+    legendaryStone: 0,
+    mythicStone: 0,
+    ruby: 0,
+  };
+  const ownedByKey: Record<GearPromotionMaterialKey, number> = {
+    solarGold: 0,
+    enhanceRune: 0,
+    legendaryStone: 0,
+    mythicStone: 0,
+    ruby: 0,
+  };
+  const missingByKey: Record<GearPromotionMaterialKey, number> = {
+    solarGold: 0,
+    enhanceRune: 0,
+    legendaryStone: 0,
+    mythicStone: 0,
+    ruby: 0,
+  };
+  const surplusByKey: Record<GearPromotionMaterialKey, number> = {
+    solarGold: 0,
+    enhanceRune: 0,
+    legendaryStone: 0,
+    mythicStone: 0,
+    ruby: 0,
+  };
 
-  const diffSolarGoldPerPiece = isInvalidRange
-    ? 0
-    : toNode.cumulativeSolarGold - fromNode.cumulativeSolarGold;
-  const diffRunesPerPiece = isInvalidRange
-    ? 0
-    : toNode.cumulativeRunes - fromNode.cumulativeRunes;
-  const diffMeatPerPiece = isInvalidRange
-    ? 0
-    : toNode.cumulativeMeat - fromNode.cumulativeMeat;
-  const diffLegStonesPerPiece = isInvalidRange
-    ? 0
-    : toNode.cumulativeLegendaryStones - fromNode.cumulativeLegendaryStones;
-  const diffMythStonesPerPiece = isInvalidRange
-    ? 0
-    : toNode.cumulativeMythicStones - fromNode.cumulativeMythicStones;
-  const diffFodderPerPiece = isInvalidRange
-    ? 0
-    : toNode.cumulativeLegendaryFodder - fromNode.cumulativeLegendaryFodder;
+  const materialBreakdown: GearPromotionMaterialBreakdownItem[] =
+    GEAR_PROMOTION_MATERIALS.map((meta) => {
+      const alreadyInvested = getCumulativeByMaterialKey(fromNode, meta.key);
+      const targetCumulative = getCumulativeByMaterialKey(toNode, meta.key);
+      const required = isInvalidRange
+        ? 0
+        : Math.max(0, targetCumulative - alreadyInvested);
+      const rawOwned = input.owned?.[meta.key] ?? 0;
+      const owned = Number.isFinite(rawOwned)
+        ? Math.max(0, Math.floor(rawOwned))
+        : 0;
+      const missing = Math.max(0, required - owned);
+      const surplus = Math.max(0, owned - required);
+      const completionPercent = calcCompletionPercent(owned, required);
 
-  const promotionOnlyRunes = diffRunesPerPiece * safePieceCount;
-  const baseEnhanceRunesAdded =
-    !isInvalidRange && includeBaseLv40Enhance
-      ? BASE_LV40_ENHANCE_RUNES_PER_PIECE * safePieceCount
-      : 0;
-
-  const promotionOnlyMeat = diffMeatPerPiece * safePieceCount;
-  const baseEnhanceMeatAdded =
-    !isInvalidRange && includeBaseLv40Enhance
-      ? BASE_LV40_ENHANCE_MEAT_PER_PIECE * safePieceCount
-      : 0;
-
-  const requiredSolarGold = diffSolarGoldPerPiece * safePieceCount;
-  const requiredRunes = promotionOnlyRunes + baseEnhanceRunesAdded;
-  const requiredLegendaryStones = diffLegStonesPerPiece * safePieceCount;
-  const requiredMythicStones = diffMythStonesPerPiece * safePieceCount;
-  const requiredMeat = promotionOnlyMeat + baseEnhanceMeatAdded;
-  const requiredLegendaryFodder = diffFodderPerPiece * safePieceCount;
-
-  const missingSolarGold = Math.max(0, requiredSolarGold - safeOwnedSolarGold);
-  const missingRunes = Math.max(0, requiredRunes - safeOwnedRunes);
-  const missingLegendaryStones = Math.max(
-    0,
-    requiredLegendaryStones - safeOwnedLegendaryStones
-  );
-  const missingMythicStones = Math.max(
-    0,
-    requiredMythicStones - safeOwnedMythicStones
-  );
-  const missingMeat = Math.max(0, requiredMeat - safeOwnedMeat);
-
-  const surplusSolarGold = Math.max(0, safeOwnedSolarGold - requiredSolarGold);
-  const surplusRunes = Math.max(0, safeOwnedRunes - requiredRunes);
-  const surplusLegendaryStones = Math.max(
-    0,
-    safeOwnedLegendaryStones - requiredLegendaryStones
-  );
-  const surplusMythicStones = Math.max(
-    0,
-    safeOwnedMythicStones - requiredMythicStones
-  );
-  const surplusMeat = Math.max(0, safeOwnedMeat - requiredMeat);
-
-  const starBreakdown: GearPromotionStarBreakdownItem[] =
-    STAR_BRACKET_TEMPLATES.map((tpl) => {
-      const startStepIndex = (tpl.starBracket - 1) * 5 + 1;
-      const endStepIndex = tpl.starBracket * 5;
-      const prevNode = GEAR_PROMOTION_STEPS[startStepIndex - 1];
-      const endNode = GEAR_PROMOTION_STEPS[endStepIndex];
-
-      const solarGoldPerPiece =
-        endNode.cumulativeSolarGold - prevNode.cumulativeSolarGold;
-      const runesPerPiece = endNode.cumulativeRunes - prevNode.cumulativeRunes;
-      const meatPerPiece = endNode.cumulativeMeat - prevNode.cumulativeMeat;
-      const legendaryStonesPerPiece =
-        endNode.cumulativeLegendaryStones - prevNode.cumulativeLegendaryStones;
-      const mythicStonesPerPiece =
-        endNode.cumulativeMythicStones - prevNode.cumulativeMythicStones;
-      const fodderPerPiece =
-        endNode.cumulativeLegendaryFodder - prevNode.cumulativeLegendaryFodder;
+      requiredByKey[meta.key] = required;
+      ownedByKey[meta.key] = owned;
+      missingByKey[meta.key] = missing;
+      surplusByKey[meta.key] = surplus;
 
       return {
-        starBracket: tpl.starBracket,
-        rarity: tpl.rarity,
-        label: tpl.bracketTitle,
-        startStepIndex,
-        endStepIndex,
-        solarGoldPerPiece,
-        runesPerPiece,
-        meatPerPiece,
-        legendaryStonesPerPiece,
-        mythicStonesPerPiece,
-        fodderPerPiece,
-        totalSolarGold: solarGoldPerPiece * safePieceCount,
-        totalRunes: runesPerPiece * safePieceCount,
-        totalMeat: meatPerPiece * safePieceCount,
-        totalLegendaryStones: legendaryStonesPerPiece * safePieceCount,
-        totalMythicStones: mythicStonesPerPiece * safePieceCount,
-        totalFodder: fodderPerPiece * safePieceCount,
+        key: meta.key,
+        material: meta.material,
+        isRefundableOnDismantle: meta.isRefundableOnDismantle,
+        refundBadge: meta.refundBadge,
+        sourceHint: meta.sourceHint,
+        alreadyInvested,
+        targetCumulative,
+        required,
+        owned,
+        missing,
+        surplus,
+        completionPercent,
       };
     });
 
   return {
+    setId,
+    setMeta,
+    slotId,
+    slotMeta,
+    pieceMeta,
+    fromStepIndex,
+    toStepIndex,
+    stepDelta,
     fromNode,
     toNode,
-    pieceCount: safePieceCount,
-    goldenSet,
-    includeBaseLv40Enhance,
+    fromStats,
+    toStats,
     isInvalidRange,
-    promotionOnlyRunes,
-    baseEnhanceRunesAdded,
-    promotionOnlyMeat,
-    baseEnhanceMeatAdded,
-    requiredSolarGold,
-    requiredRunes,
-    requiredLegendaryStones,
-    requiredMythicStones,
-    requiredMeat,
-    requiredLegendaryFodder,
-    ownedSolarGold: safeOwnedSolarGold,
-    ownedRunes: safeOwnedRunes,
-    ownedLegendaryStones: safeOwnedLegendaryStones,
-    ownedMythicStones: safeOwnedMythicStones,
-    ownedMeat: safeOwnedMeat,
-    missingSolarGold,
-    missingRunes,
-    missingLegendaryStones,
-    missingMythicStones,
-    missingMeat,
-    surplusSolarGold,
-    surplusRunes,
-    surplusLegendaryStones,
-    surplusMythicStones,
-    surplusMeat,
-    solarGoldCompletionPercent: calcCompletionPercent(
-      safeOwnedSolarGold,
-      requiredSolarGold
-    ),
-    runeCompletionPercent: calcCompletionPercent(safeOwnedRunes, requiredRunes),
-    legendaryStoneCompletionPercent: calcCompletionPercent(
-      safeOwnedLegendaryStones,
-      requiredLegendaryStones
-    ),
-    mythicStoneCompletionPercent: calcCompletionPercent(
-      safeOwnedMythicStones,
-      requiredMythicStones
-    ),
-    meatCompletionPercent: calcCompletionPercent(safeOwnedMeat, requiredMeat),
-    solarGoldMaterial: CALCULATOR_MATERIALS.solarGoldIngot,
-    runeMaterial: CALCULATOR_MATERIALS.gearEnhanceRune,
-    legendaryStoneMaterial: CALCULATOR_MATERIALS.legendaryPromotionStone,
-    mythicStoneMaterial: CALCULATOR_MATERIALS.mythicPromotionStone,
-    meatMaterial: CALCULATOR_MATERIALS.meat,
-    starBreakdown,
+    isAlreadyAtOrAboveTarget,
+    requiredByKey,
+    ownedByKey,
+    missingByKey,
+    surplusByKey,
+    materialBreakdown,
   };
 }
