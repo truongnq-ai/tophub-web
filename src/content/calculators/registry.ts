@@ -1029,8 +1029,6 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
             },
             materials: [
               CALCULATOR_MATERIALS.runeDust,
-              CALCULATOR_MATERIALS.magicStone,
-              CALCULATOR_MATERIALS.arcaneCrystal,
             ],
             exampleCase: {
               vi: {

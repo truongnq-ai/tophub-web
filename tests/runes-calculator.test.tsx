@@ -150,17 +150,19 @@ describe("6.1 Đá Cổ Ngữ — Suite 2: MD3 UI Component & Bilingual Purity G
     ).toBe(0);
   });
 
-  it("renders default 6-Slot Board (Lv.1 ➔ Lv.5 = 48,000 Dust & 480 Lv.1 copies), switches to Single Mode, and passes MD3 DOM gates", () => {
+  it("renders v2.0 4-Zone Single-Rune Default (×1: Lv.1 ➔ Lv.5 = 8K Dust & 80 Lv.1 copies), 2-Step Avatar Picker, and passes MD3 DOM gates", () => {
     const { container } = renderCalculator("vi");
 
     expect(screen.getByTestId("calculator-tool-header")).toBeDefined();
-    expect(screen.getByTestId("runes-total-dust").textContent).toBe("48,000");
-    expect(screen.getByTestId("runes-total-copies").textContent).toBe("480");
-
-    // Switch to Single Slot mode (Lv.1 -> Lv.5 = 8,000 Dust & 80 Lv.1 copies)
-    fireEvent.click(screen.getByTestId("scope-single-btn"));
-    expect(screen.getByTestId("runes-total-dust").textContent).toBe("8,000");
+    expect(screen.queryByTestId("scope-board6-btn")).toBeNull();
+    expect(screen.queryByTestId("scope-single-btn")).toBeNull();
+    expect(screen.getByTestId("runes-total-dust").textContent).toBe("8K");
     expect(screen.getByTestId("runes-total-copies").textContent).toBe("80");
+
+    // Open 2-step Avatar Picker -> pick League -> pick Slot 2
+    fireEvent.click(screen.getByTestId("runes-central-avatar-btn"));
+    fireEvent.click(screen.getByTestId("runes-picker-faction-league"));
+    fireEvent.click(screen.getByTestId("runes-picker-slot-2"));
 
     expect(getMaxBorderedContainerDepth(container)).toBeLessThanOrEqual(1);
     expect(findMicroTextElements(container)).toEqual([]);
@@ -170,8 +172,9 @@ describe("6.1 Đá Cổ Ngữ — Suite 2: MD3 UI Component & Bilingual Purity G
   it("renders 100% pure English without any Vietnamese diacritics when locale='en'", () => {
     const { container } = renderCalculator("en");
 
-    fireEvent.click(screen.getByTestId("scope-single-btn"));
-    fireEvent.click(screen.getByTestId("scope-board6-btn"));
+    fireEvent.click(screen.getByTestId("runes-central-avatar-btn"));
+    fireEvent.click(screen.getByTestId("runes-picker-faction-nature"));
+    fireEvent.click(screen.getByTestId("runes-picker-slot-1"));
 
     expect(getMaxBorderedContainerDepth(container)).toBeLessThanOrEqual(1);
     expect(findMicroTextElements(container)).toEqual([]);
