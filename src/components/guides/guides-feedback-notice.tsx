@@ -77,21 +77,21 @@ export function GuidesFeedbackNotice({
         data-testid="guides-feedback-top-bar"
         role="note"
         className={cn(
-          "mb-4 rounded-2xl border border-amber-500/30 bg-amber-500/[0.06] px-3.5 py-2.5 flex flex-wrap items-center justify-between gap-2.5 text-sm shadow-xs",
+          "mb-4 rounded-2xl border border-amber-500/30 bg-amber-500/[0.06] p-3.5 sm:px-4 sm:py-3 flex flex-col items-center text-center md:flex-row md:items-center md:justify-between md:text-left gap-3 md:gap-4 text-sm shadow-xs",
           className
         )}
       >
-        <div className="flex items-start sm:items-center gap-2 min-w-0 flex-1">
+        <div className="flex flex-col items-center md:items-start xl:flex-row xl:items-center gap-2 xl:gap-2.5 min-w-0 flex-1 w-full">
           <span
             data-testid="guides-feedback-top-bar-badge"
-            className="inline-flex items-center gap-1 rounded-full bg-amber-500/15 px-2.5 py-0.5 font-sans text-xs font-bold text-amber-700 dark:text-amber-400 shrink-0"
+            className="inline-flex items-center justify-center gap-1 rounded-full bg-amber-500/15 px-3 py-1 font-sans text-xs font-bold text-amber-700 dark:text-amber-400 shrink-0"
           >
-            <Sparkles className="h-3.5 w-3.5 text-amber-500" aria-hidden="true" />
+            <Sparkles className="h-3.5 w-3.5 text-amber-500 shrink-0" aria-hidden="true" />
             <span>{labels.topBarBadge}</span>
           </span>
           <p
             data-testid="guides-feedback-top-bar-text"
-            className="text-sm text-muted-foreground leading-snug"
+            className="w-full xl:w-auto xl:flex-1 min-w-0 text-sm text-foreground/90 dark:text-muted-foreground leading-relaxed"
           >
             {labels.topBarText}
           </p>
@@ -101,10 +101,10 @@ export function GuidesFeedbackNotice({
           type="button"
           data-testid="guides-feedback-top-bar-btn"
           onClick={triggerGuideCommentFocus}
-          className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-amber-500/35 bg-amber-500/10 hover:bg-amber-500 hover:text-slate-950 px-3.5 min-h-[44px] font-heading font-bold text-xs sm:text-sm text-amber-700 dark:text-amber-400 transition-all shrink-0 cursor-pointer"
+          className="self-center md:self-auto inline-flex items-center justify-center gap-1.5 rounded-xl border border-amber-500/35 bg-amber-500/10 hover:bg-amber-500 hover:text-slate-950 px-4 min-h-[44px] font-heading font-bold text-xs sm:text-sm text-amber-700 dark:text-amber-400 transition-colors duration-200 shrink-0 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/40"
         >
           <span>{labels.topBarAction}</span>
-          <ArrowDown className="h-3.5 w-3.5" aria-hidden="true" />
+          <ArrowDown className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
         </button>
       </div>
     );
@@ -115,16 +115,16 @@ export function GuidesFeedbackNotice({
       data-testid="guides-feedback-pre-comment"
       role="note"
       className={cn(
-        "rounded-2xl border border-amber-500/35 bg-gradient-to-br from-amber-500/10 via-card/90 to-emerald-500/5 p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm",
+        "rounded-2xl border border-amber-500/35 bg-gradient-to-br from-amber-500/10 via-card/90 to-emerald-500/5 p-4 sm:p-5 flex flex-col items-center text-center md:flex-row md:items-center md:justify-between md:text-left gap-4 shadow-sm",
         className
       )}
     >
-      <div className="flex items-start gap-3.5 min-w-0">
-        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500/15 text-amber-500 shrink-0 mt-0.5">
+      <div className="flex flex-col items-center md:flex-row md:items-start gap-3 md:gap-3.5 min-w-0 flex-1 w-full">
+        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500/15 text-amber-500 shrink-0 md:mt-0.5">
           <BookOpen className="h-5 w-5" aria-hidden="true" />
         </div>
-        <div className="space-y-1 min-w-0">
-          <div className="flex flex-wrap items-center gap-2">
+        <div className="space-y-1 min-w-0 flex-1 w-full">
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-2">
             <span
               data-testid="guides-feedback-pre-comment-badge"
               className="font-sans text-xs font-bold uppercase tracking-wide text-amber-700 dark:text-amber-400"
@@ -148,7 +148,7 @@ export function GuidesFeedbackNotice({
         type="button"
         data-testid="guides-feedback-action-btn"
         onClick={triggerGuideCommentFocus}
-        className="inline-flex items-center justify-center gap-2 rounded-xl border border-amber-500/40 bg-amber-500/15 hover:bg-amber-500 hover:text-slate-950 px-4 py-2.5 min-h-[44px] font-heading font-bold text-sm text-amber-700 dark:text-amber-300 transition-all shrink-0 cursor-pointer shadow-xs"
+        className="self-center md:self-auto inline-flex items-center justify-center gap-2 rounded-xl border border-amber-500/40 bg-amber-500/15 hover:bg-amber-500 hover:text-slate-950 px-4 py-2.5 min-h-[44px] font-heading font-bold text-sm text-amber-700 dark:text-amber-300 transition-colors duration-200 shrink-0 cursor-pointer shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/40"
       >
         <MessageSquarePlus className="h-4 w-4 shrink-0" aria-hidden="true" />
         <span>{labels.preCommentAction}</span>

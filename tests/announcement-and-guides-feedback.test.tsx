@@ -301,4 +301,57 @@ describe("Task 3 — GuidesFeedbackNotice (Dual-Touch Top-Bar & Pre-Comment + 1-
 
     Element.prototype.scrollIntoView = originalScrollIntoView;
   });
+
+  it("applies 3-tier responsive layout on top-bar (mobile vertical centered stack, md/lg 2-column adaptive, xl single row) and mobile centered stack on pre-comment (DEC-FB-01..03)", () => {
+    render(
+      <div>
+        <GuidesFeedbackNotice variant="top-bar" locale="vi" />
+        <GuidesFeedbackNotice variant="pre-comment" locale="vi" />
+      </div>
+    );
+
+    const topBar = screen.getByTestId("guides-feedback-top-bar");
+    const badge = screen.getByTestId("guides-feedback-top-bar-badge");
+    const text = screen.getByTestId("guides-feedback-top-bar-text");
+    const btn = screen.getByTestId("guides-feedback-top-bar-btn");
+
+    // Tier 1 (Mobile <768px): vertical stack, centered items & text
+    expect(topBar.className).toContain("flex-col");
+    expect(topBar.className).toContain("items-center");
+    expect(topBar.className).toContain("text-center");
+
+    // Tier 2 (Tablet/Small PC >=768px): horizontal row with left-aligned text
+    expect(topBar.className).toContain("md:flex-row");
+    expect(topBar.className).toContain("md:text-left");
+
+    // Inner content group stacks badge above text on mobile/tablet/small-PC and goes inline at xl (>=1280px)
+    const innerGroup = badge.parentElement;
+    expect(innerGroup?.className).toContain("flex-col");
+    expect(innerGroup?.className).toContain("items-center");
+    expect(innerGroup?.className).toContain("md:items-start");
+    expect(innerGroup?.className).toContain("xl:flex-row");
+    expect(innerGroup?.className).toContain("xl:items-center");
+
+    // Text spans full width on mobile/tablet and flex-1 on xl with relaxed line-height and text-sm floor
+    expect(text.className).toContain("w-full");
+    expect(text.className).toContain("xl:flex-1");
+    expect(text.className).toContain("text-sm");
+    expect(text.className).toContain("leading-relaxed");
+
+    // Compact centered CTA button on mobile with >=44px touch target
+    expect(btn.className).toContain("self-center");
+    expect(btn.className).toContain("md:self-auto");
+    expect(btn.className).toContain("min-h-[44px]");
+
+    // Pre-comment variant also centers on mobile (<768px) and aligns horizontally on md+
+    const preComment = screen.getByTestId("guides-feedback-pre-comment");
+    const preBtn = screen.getByTestId("guides-feedback-action-btn");
+    expect(preComment.className).toContain("flex-col");
+    expect(preComment.className).toContain("items-center");
+    expect(preComment.className).toContain("text-center");
+    expect(preComment.className).toContain("md:flex-row");
+    expect(preComment.className).toContain("md:text-left");
+    expect(preBtn.className).toContain("self-center");
+    expect(preBtn.className).toContain("md:self-auto");
+  });
 });
