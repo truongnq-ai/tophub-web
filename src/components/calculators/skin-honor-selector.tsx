@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Award, Sparkles } from "lucide-react";
+import { Award, Sparkles, Star } from "lucide-react";
 import {
   SKIN_HONOR_LEVEL_PRESETS,
   SKIN_HONOR_MAX_LEVEL,
@@ -33,6 +33,7 @@ export interface SkinHonorSelectorProps {
   readonly honorLevel: number;
   readonly locale: CalculatorLocale;
   readonly onChangeHonorLevel: (nextHonorLevel: number) => void;
+  readonly warningBanner?: React.ReactNode;
 }
 
 export function SkinHonorSelector({
@@ -42,7 +43,9 @@ export function SkinHonorSelector({
   honorLevel,
   locale,
   onChangeHonorLevel,
-}: SkinHonorSelectorProps) {
+  warningBanner,
+}: SkinHonorSelectorProps): React.JSX.Element {
+  const isVi = locale === "vi";
   const clamped = clampSkinHonorLevel(honorLevel);
   const rarityMeta = TROOP_SKIN_RARITIES[rarity];
   const honorCumulativeMedals = clamped * rarityMeta.honorMedalsPerLevel;
@@ -55,121 +58,171 @@ export function SkinHonorSelector({
   const tier1Steps = Math.floor(Math.min(clamped, 100) / 5);
   const tier2Steps = Math.floor(Math.max(0, clamped - 100) / 5);
   const equivalentCopies = tier1Steps * 1 + tier2Steps * 2;
+  const isMaxHonor = clamped >= SKIN_HONOR_MAX_LEVEL;
 
-  const medalUnit = locale === "vi" ? "Huy Chương" : "Medals";
-  const copyUnit = locale === "vi" ? "Phôi" : "Copies";
+  const medalUnit = isVi ? "Huy Chương" : "Medals";
+  const copyUnit = isVi ? "Phôi" : "Copies";
 
   return (
-    <div
+    <section
       data-testid={`${idPrefix}-skin-honor-selector`}
-      className={cn(CALC_MD3.surfaceCard, "space-y-3")}
+      className={cn(
+        CALC_MD3.surfaceCard,
+        "flex h-full flex-col justify-between space-y-3.5"
+      )}
     >
-      {/* Header + Cumulative Summary Badges */}
-      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border/60 pb-2.5">
-        <div className="flex min-w-0 items-center gap-2">
-          <Award className="h-5 w-5 shrink-0 text-amber-500" aria-hidden="true" />
-          <h3
-            data-testid={`${idPrefix}-skin-honor-title`}
-            className={CALC_MD3.sectionTitle}
-          >
-            {title}
-          </h3>
+      <div className="space-y-3.5">
+        {/* Header + Cumulative Summary Badges (No-Line MD3) */}
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <div className="flex min-w-0 items-center gap-2">
+            <Award
+              className="h-5 w-5 shrink-0 text-amber-500"
+              aria-hidden="true"
+            />
+            <h2
+              data-testid={`${idPrefix}-skin-honor-title`}
+              className={CALC_MD3.sectionTitle}
+            >
+              {title}
+            </h2>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-1.5">
+            <span
+              data-testid={`${idPrefix}-honor-medals-badge`}
+              title={formatExactNumber(honorCumulativeMedals)}
+              className="shrink-0 rounded-lg bg-amber-500/15 px-2.5 py-1 text-xs font-sans font-bold text-amber-700 dark:text-amber-300"
+            >
+              <span className="font-mono tabular-nums">
+                {formatCompactNumber(honorCumulativeMedals)}
+              </span>{" "}
+              <span>{medalUnit}</span>
+            </span>
+
+            <span
+              data-testid={`${idPrefix}-honor-copies-badge`}
+              className="shrink-0 rounded-lg bg-sky-500/15 px-2.5 py-1 text-xs font-sans font-bold text-sky-700 dark:text-sky-300"
+            >
+              <span className="font-mono tabular-nums">
+                {equivalentCopies}/{SKIN_HONOR_TOTAL_COPIES_TO_MAX}
+              </span>{" "}
+              <span>{copyUnit}</span>
+            </span>
+          </div>
         </div>
 
-        <div className="flex flex-wrap items-center gap-1.5">
-          <span
-            data-testid={`${idPrefix}-honor-medals-badge`}
-            title={formatExactNumber(honorCumulativeMedals)}
-            className="shrink-0 rounded-lg bg-amber-500/15 px-2.5 py-1 text-xs font-sans font-bold text-amber-700 dark:text-amber-300"
-          >
-            <span className="font-mono">
-              {formatCompactNumber(honorCumulativeMedals)}
-            </span>{" "}
-            {medalUnit}
-          </span>
-
-          <span
-            data-testid={`${idPrefix}-honor-copies-badge`}
-            className="shrink-0 rounded-lg bg-sky-500/15 px-2.5 py-1 text-xs font-sans font-bold text-sky-700 dark:text-sky-300"
-          >
-            <span className="font-mono">
-              {equivalentCopies}/{SKIN_HONOR_TOTAL_COPIES_TO_MAX}
-            </span>{" "}
-            {copyUnit}
-          </span>
-        </div>
-      </div>
-
-      {/* Hairline Divided List (Single-Layer Containment <= 1 border) */}
-      <ul
-        data-testid={`${idPrefix}-skin-honor-list`}
-        className={CALC_MD3.dividedList}
-      >
-        {/* Row 1: Honor Level Controls (0 -> 150) */}
-        <li
+        {/* Tonal Group 1: Honor Level Controls (Lv.0 -> Lv.150), Quick Chips, Range Slider & Steppers */}
+        <div
           data-testid={`${idPrefix}-honor-level-row`}
-          className="space-y-2.5 px-0 py-3"
+          className={cn(
+            CALC_MD3.tonalGroup,
+            "space-y-3 transition-colors",
+            isMaxHonor ? "ring-1 ring-rose-500/40 bg-rose-500/5" : ""
+          )}
         >
           <div className="flex flex-wrap items-center justify-between gap-2">
-            <div className="flex min-w-0 items-center gap-2">
-              <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-amber-500 font-mono text-xs font-black text-slate-950">
-                1
-              </span>
-              <span className="text-sm font-heading font-bold text-foreground">
-                {locale === "vi"
-                  ? "Cấp Vinh Dự (Honor Lv.0–150)"
-                  : "Honor Level (Lv.0–150)"}
-              </span>
-            </div>
+            <span className="text-sm font-heading font-bold text-foreground">
+              {isVi
+                ? "Cấp Vinh Dự (Honor Lv.0–150)"
+                : "Honor Level (Lv.0–150)"}
+            </span>
 
             <span
               data-testid={`${idPrefix}-honor-level-badge`}
-              className="rounded-md bg-secondary px-2.5 py-0.5 font-mono text-sm font-black text-foreground"
+              className={cn(
+                "rounded-lg px-2.5 py-0.5 font-mono text-sm font-black tabular-nums",
+                isMaxHonor
+                  ? "bg-rose-500/15 text-rose-700 dark:text-rose-300"
+                  : "bg-background/80 text-amber-700 dark:text-amber-300"
+              )}
             >
               Lv.{clamped}/{SKIN_HONOR_MAX_LEVEL}
             </span>
           </div>
 
-          <div className="flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm font-sans text-muted-foreground">
+          <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-sans text-muted-foreground">
             <span>
               {clamped <= 100
-                ? locale === "vi"
+                ? isVi
                   ? "Bậc 1 (Lv.0–100): 1 Phôi = +5 Cấp Vinh Dự"
                   : "Tier 1 (Lv.0–100): 1 Copy = +5 Honor Levels"
-                : locale === "vi"
+                : isVi
                   ? "Bậc 2 (Lv.101–150): 2 Phôi = +5 Cấp Vinh Dự"
                   : "Tier 2 (Lv.101–150): 2 Copies = +5 Honor Levels"}
             </span>
             <span className="font-semibold text-amber-700 dark:text-amber-300">
-              <span className="font-mono">
+              <span className="font-mono tabular-nums">
                 {formatCompactNumber(rarityMeta.honorMedalsPerLevel)}
               </span>{" "}
-              {locale === "vi" ? "Huy Chương/cấp" : "Medals/lv"}
+              <span>{isVi ? "Huy Chương/cấp" : "Medals/lv"}</span>
             </span>
           </div>
 
-          {/* Quick-Pick Presets (0, 25, 50, 75, 100, 125, 150) */}
+          {/* 7 Quick-Pick Milestone Chips (0, 25, 50, 75, 100, 125, 150) */}
           <div className="flex flex-wrap items-center gap-1.5">
             {SKIN_HONOR_LEVEL_PRESETS.map((presetLv) => {
               const isSelected = clamped === presetLv;
+              const isPeak = presetLv === SKIN_HONOR_MAX_LEVEL;
               return (
                 <button
                   key={presetLv}
                   type="button"
                   data-testid={`${idPrefix}-honor-preset-${presetLv}-btn`}
+                  aria-pressed={isSelected}
                   onClick={() => onChangeHonorLevel(presetLv)}
                   className={cn(
                     CALC_MD3.chipButton,
-                    "px-2.5 font-mono text-xs sm:text-sm",
+                    "px-2.5 font-mono text-xs tabular-nums",
                     isSelected
-                      ? "bg-amber-500 text-slate-950 font-black"
-                      : "bg-muted/60 text-muted-foreground hover:bg-muted hover:text-foreground"
+                      ? isPeak
+                        ? "bg-rose-600 text-white font-black shadow-sm"
+                        : "bg-amber-500 text-slate-950 font-black shadow-sm"
+                      : "bg-background/70 text-muted-foreground hover:bg-background hover:text-foreground"
                   )}
                 >
-                  Lv.{presetLv}
+                  <span>Lv.{presetLv}</span>
+                  {isPeak ? (
+                    <Star
+                      className="h-3.5 w-3.5 fill-current"
+                      aria-hidden="true"
+                    />
+                  ) : null}
                 </button>
               );
             })}
+          </div>
+
+          {/* Range Slider (0..150) */}
+          <div className="space-y-1">
+            <input
+              type="range"
+              data-testid={`${idPrefix}-honor-level-slider`}
+              min={SKIN_HONOR_MIN_LEVEL}
+              max={SKIN_HONOR_MAX_LEVEL}
+              step={1}
+              value={clamped}
+              aria-label={
+                isVi ? `Thanh kéo ${title}` : `${title} level slider`
+              }
+              onChange={(e) => {
+                const parsed = Number.parseInt(e.target.value, 10);
+                if (!Number.isNaN(parsed)) {
+                  onChangeHonorLevel(clampSkinHonorLevel(parsed));
+                }
+              }}
+              className={cn(
+                "h-2.5 w-full cursor-pointer appearance-none rounded-lg bg-background/80",
+                isMaxHonor ? "accent-rose-500" : "accent-amber-500"
+              )}
+            />
+            <div className="flex justify-between font-mono text-xs text-muted-foreground tabular-nums">
+              <span>Lv.0</span>
+              <span>Lv.50</span>
+              <span>Lv.100</span>
+              <span className="font-bold text-rose-600 dark:text-rose-400">
+                Lv.150
+              </span>
+            </div>
           </div>
 
           {/* Stepper [-]/[+] + Number Input */}
@@ -180,7 +233,7 @@ export function SkinHonorSelector({
               disabled={clamped <= SKIN_HONOR_MIN_LEVEL}
               onClick={() => onChangeHonorLevel(clampSkinHonorLevel(clamped - 1))}
               ariaLabel={
-                locale === "vi"
+                isVi
                   ? "Giảm 1 cấp Vinh Dự"
                   : "Decrease Honor level by 1"
               }
@@ -192,7 +245,7 @@ export function SkinHonorSelector({
               max={SKIN_HONOR_MAX_LEVEL}
               data-testid={`${idPrefix}-honor-level-input`}
               aria-label={
-                locale === "vi"
+                isVi
                   ? "Nhập cấp Vinh Dự Quân Trang"
                   : "Enter Skin Honor level"
               }
@@ -203,7 +256,10 @@ export function SkinHonorSelector({
                   onChangeHonorLevel(clampSkinHonorLevel(parsed));
                 }
               }}
-              className={cn(CALC_MD3.dataInput, "text-center")}
+              className={cn(
+                CALC_MD3.dataInput,
+                "bg-background/80 text-center tabular-nums"
+              )}
             />
 
             <CalculatorStepperButton
@@ -212,42 +268,51 @@ export function SkinHonorSelector({
               disabled={clamped >= SKIN_HONOR_MAX_LEVEL}
               onClick={() => onChangeHonorLevel(clampSkinHonorLevel(clamped + 1))}
               ariaLabel={
-                locale === "vi"
+                isVi
                   ? "Tăng 1 cấp Vinh Dự"
                   : "Increase Honor level by 1"
               }
             />
           </div>
+        </div>
+      </div>
 
-          {/* Tonal Summary Well (0 Border) */}
-          <div className={cn(CALC_MD3.tonalGroup, "space-y-1.5")}>
-            <div className="flex items-center justify-between gap-2 text-xs sm:text-sm font-sans">
-              <span className="inline-flex items-center gap-1.5 font-medium text-muted-foreground">
-                <Sparkles className="h-3.5 w-3.5 text-amber-500" aria-hidden="true" />
-                {locale === "vi"
+      {/* Bottom Tonal Group 2: Honor Cumulative & Total from Lv.1 + Optional Warning */}
+      <div className="space-y-2.5">
+        <div className={cn(CALC_MD3.tonalGroup, "space-y-1.5")}>
+          <div className="flex items-center justify-between gap-2 text-xs font-sans">
+            <span className="inline-flex items-center gap-1.5 font-medium text-muted-foreground">
+              <Sparkles
+                className="h-3.5 w-3.5 text-amber-500"
+                aria-hidden="true"
+              />
+              <span>
+                {isVi
                   ? "Tích lũy riêng Vinh Dự:"
                   : "Honor-only cumulative:"}
               </span>
-              <span className="font-mono font-bold text-amber-600 dark:text-amber-400">
-                {formatCompactNumber(honorCumulativeMedals)} (
-                {formatExactNumber(honorCumulativeMedals)})
-              </span>
-            </div>
-
-            <div className="flex items-center justify-between gap-2 text-xs sm:text-sm font-sans">
-              <span className="font-medium text-muted-foreground">
-                {locale === "vi"
-                  ? "Tổng gộp từ Lv.1 + Vinh Dự:"
-                  : "Total from Lv.1 + Honor:"}
-              </span>
-              <span className="font-mono font-bold text-foreground">
-                {formatCompactNumber(totalWithLv50Medals)} (
-                {formatExactNumber(totalWithLv50Medals)})
-              </span>
-            </div>
+            </span>
+            <span className="font-mono font-bold text-amber-600 tabular-nums dark:text-amber-400">
+              {formatCompactNumber(honorCumulativeMedals)} (
+              {formatExactNumber(honorCumulativeMedals)})
+            </span>
           </div>
-        </li>
-      </ul>
-    </div>
+
+          <div className="flex items-center justify-between gap-2 text-xs font-sans">
+            <span className="font-medium text-muted-foreground">
+              {isVi
+                ? "Tổng gộp từ Lv.1 + Vinh Dự:"
+                : "Total from Lv.1 + Honor:"}
+            </span>
+            <span className="font-mono font-bold text-foreground tabular-nums">
+              {formatCompactNumber(totalWithLv50Medals)} (
+              {formatExactNumber(totalWithLv50Medals)})
+            </span>
+          </div>
+        </div>
+
+        {warningBanner}
+      </div>
+    </section>
   );
 }

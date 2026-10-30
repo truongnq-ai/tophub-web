@@ -68,7 +68,7 @@ export interface SkinHonorCalculationInput {
   readonly targetHonorLevel: number;
   readonly ownedMedals: number;
   readonly ownedDuplicateCopies: number;
-  readonly rosterCounts: SkinHonorRosterCounts;
+  readonly rosterCounts?: SkinHonorRosterCounts;
 }
 
 export interface SkinHonorCalculationResult {
@@ -434,7 +434,7 @@ export function calculateSkinHonorProgression(
     lv50BaseMedals + effectiveEndHonor * rarityMeta.honorMedalsPerLevel;
 
   const staircase = calculateRosterStaircasePlan(
-    input.rosterCounts,
+    input.rosterCounts ?? { legendary: 2, epic: 4, rare: 2 },
     safeOwnedMedals
   );
 

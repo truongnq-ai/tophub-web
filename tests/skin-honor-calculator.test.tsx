@@ -133,27 +133,27 @@ describe("3.2 Vinh Dự Quân Trang (skin-honor-data) — SSoT Quantitative Engi
   });
 });
 
-describe("3.2 Vinh Dự Quân Trang — MD3 UI, 3-Column Symmetric Layout & Bilingual Purity", () => {
+describe("3.2 Vinh Dự Quân Trang — v2.0 4-Zone Architecture, 2-Step Avatar Picker, Copy Deduction & Bilingual Purity", () => {
   const selection = getCalculatorToolBySlug("troops", "skin-honor")!;
 
-  it("contains zero sub-12px classes in skin-honor-selector.tsx and skin-honor-calculator.tsx", () => {
-    expect(
-      countMicroTextOccurrences(
-        readSource("src/components/calculators/skin-honor-selector.tsx")
-      )
-    ).toBe(0);
-    expect(
-      countMicroTextOccurrences(
-        readSource("src/components/calculators/skin-honor-calculator.tsx")
-      )
-    ).toBe(0);
+  it("contains zero sub-12px classes and zero border-b/t or divide-y lines in skin-honor-selector.tsx and skin-honor-calculator.tsx", () => {
+    const selectorSource = readSource(
+      "src/components/calculators/skin-honor-selector.tsx"
+    );
+    const calcSource = readSource(
+      "src/components/calculators/skin-honor-calculator.tsx"
+    );
+    expect(countMicroTextOccurrences(selectorSource)).toBe(0);
+    expect(countMicroTextOccurrences(calcSource)).toBe(0);
+    expect(selectorSource).not.toMatch(/\bborder-[bt]\b|\bdivide-y\b/);
+    expect(calcSource).not.toMatch(/\bborder-[bt]\b|\bdivide-y\b/);
   });
 
-  it("renders SkinHonorSelector with single-layer border containment (<= 1) and >=44px steppers", () => {
+  it("renders SkinHonorSelector with single-layer border containment (<= 1), range slider, and >=44px steppers", () => {
     const { container } = render(
       <SkinHonorSelector
         idPrefix="from"
-        title="Cấp Vinh Dự Hiện Tại (X)"
+        title="Vinh Dự Hiện Tại"
         rarity="legendary"
         honorLevel={25}
         locale="vi"
@@ -166,11 +166,16 @@ describe("3.2 Vinh Dự Quân Trang — MD3 UI, 3-Column Symmetric Layout & Bili
     expect(findMicroTextElements(container)).toEqual([]);
     expect(findMonoElementsWithVietnamese(container)).toEqual([]);
 
-    expect(screen.getByTestId("from-honor-level-minus-btn").className).toContain("h-11");
-    expect(screen.getByTestId("from-honor-level-plus-btn").className).toContain("h-11");
+    expect(screen.getByTestId("from-honor-level-slider")).toBeDefined();
+    expect(
+      screen.getByTestId("from-honor-level-minus-btn").className
+    ).toContain("h-11");
+    expect(screen.getByTestId("from-honor-level-plus-btn").className).toContain(
+      "h-11"
+    );
   });
 
-  it("renders SkinHonorCalculator, deducts duplicate copies (+5 levels/step), updates Staircase Roster Optimizer, and passes MD3 audit", () => {
+  it("renders SkinHonorCalculator across 4 v2.0 zones, deducts duplicate copies (+5 levels/step), supports 2-step Avatar Picker, and passes MD3 audit", () => {
     const { container } = render(
       <SkinHonorCalculator
         zone={selection.zone}
@@ -200,11 +205,14 @@ describe("3.2 Vinh Dự Quân Trang — MD3 UI, 3-Column Symmetric Layout & Bili
       "10"
     );
 
-    // Switch rarity to Epic (50%) -> pure 3.75M minus 10 copies (50 levels * 25K = 1.25M) = 2.5M
+    // Open 2-step Central Avatar Picker and switch rarity to Epic (50%) -> pure 3.75M minus 10 copies (50 levels * 25K = 1.25M) = 2.5M
+    fireEvent.click(screen.getByTestId("skin-honor-central-avatar-btn"));
     fireEvent.click(screen.getByTestId("skin-honor-rarity-epic-btn"));
     expect(screen.getByTestId("skin-honor-net-medals-value").textContent).toBe(
       "2.5M"
     );
+    fireEvent.click(screen.getByTestId("skin-honor-item-samurai-btn"));
+    expect(screen.queryByTestId("skin-honor-avatar-picker-popover")).toBeNull();
 
     const root = screen.getByTestId("skin-honor-calculator");
     expect(getMaxBorderedContainerDepth(root)).toBeLessThanOrEqual(1);
@@ -221,6 +229,8 @@ describe("3.2 Vinh Dự Quân Trang — MD3 UI, 3-Column Symmetric Layout & Bili
         locale="en"
       />
     );
+    fireEvent.click(screen.getByTestId("skin-honor-central-avatar-btn"));
+    fireEvent.click(screen.getByTestId("skin-honor-info-trigger"));
     expect(container.textContent ?? "").not.toMatch(VI_DIACRITIC_REGEX);
   });
 
