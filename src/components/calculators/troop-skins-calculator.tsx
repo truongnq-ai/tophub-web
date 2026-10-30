@@ -1,20 +1,26 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
+import Image from "next/image";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import {
-  ArrowLeftRight,
-  CheckCircle2,
   AlertTriangle,
+  ArrowLeft,
+  CheckCircle2,
+  ChevronRight,
+  Layers,
   RotateCcw,
   Shield,
   Sparkles,
   Star,
-  Layers,
+  X,
 } from "lucide-react";
 import {
   GLORY_MEDAL_MATERIAL,
+  TROOP_SKIN_MAX_LEVEL,
   TROOP_SKIN_RARITIES,
   TROOP_SKIN_RARITY_ORDER,
+  TROOP_SKIN_TOTAL_COPIES_TO_MAX,
+  TROOP_SKIN_UNIVERSAL_CHEST_ICON,
   calculateTroopSkinProgression,
   formatTroopSkinPointLabel,
   getSkinsByRarity,
@@ -27,83 +33,60 @@ import type {
   CalculatorToolItem,
   CalculatorZone,
 } from "@/content/calculators/types";
-import { GameAssetFrame } from "@/components/guides/media/game-asset-frame";
-import { Input } from "@/components/ui/input";
 import {
   cn,
   formatCompactNumber,
   formatExactNumber,
   parseCompactNumberInput,
 } from "@/lib/utils";
+import { CalculatorInfoPopover } from "./calculator-info-popover";
 import { TroopSkinsSelector } from "./troop-skins-selector";
 import {
   CALC_MD3,
-  CalculatorMetricValue,
   CalculatorToolHeader,
 } from "./calculator-md3-primitives";
 
 export interface TroopSkinsCalculatorProps {
   readonly zone?: CalculatorZone;
-  readonly category: CalculatorCategory;
+  readonly category?: CalculatorCategory;
   readonly tool: CalculatorToolItem;
-  readonly locale: CalculatorLocale;
+  readonly locale?: CalculatorLocale;
 }
 
-const JOURNEY_PRESETS: ReadonlyArray<{
-  readonly id: string;
-  readonly labelVi: string;
-  readonly labelEn: string;
-  readonly fromLevel: number;
-  readonly toLevel: number;
-}> = [
-  {
-    id: "1-10",
-    labelVi: "Lv.1 ➔ Lv.10 ⭐",
-    labelEn: "Lv.1 to Lv.10 ⭐",
-    fromLevel: 1,
-    toLevel: 10,
-  },
-  {
-    id: "10-20",
-    labelVi: "Lv.10 ➔ Lv.20 ⭐⭐",
-    labelEn: "Lv.10 to Lv.20 ⭐⭐",
-    fromLevel: 10,
-    toLevel: 20,
-  },
-  {
-    id: "20-30",
-    labelVi: "Lv.20 ➔ Lv.30 ⭐⭐⭐",
-    labelEn: "Lv.20 to Lv.30 ⭐⭐⭐",
-    fromLevel: 20,
-    toLevel: 30,
-  },
-  {
-    id: "30-40",
-    labelVi: "Lv.30 ➔ Lv.40 ⭐⭐⭐⭐",
-    labelEn: "Lv.30 to Lv.40 ⭐⭐⭐⭐",
-    fromLevel: 30,
-    toLevel: 40,
-  },
-  {
-    id: "40-50",
-    labelVi: "Lv.40 ➔ Lv.50 MAX",
-    labelEn: "Lv.40 to Lv.50 MAX",
-    fromLevel: 40,
-    toLevel: 50,
-  },
-  {
-    id: "1-50",
-    labelVi: "Toàn trình Lv.1 ➔ Lv.50",
-    labelEn: "Full Lv.1 to Lv.50",
-    fromLevel: 1,
-    toLevel: 50,
-  },
-] as const;
+type AvatarPickerStep = "rarity" | "skin";
+
+const AVATAR_STAR_INDICES: readonly (1 | 2 | 3 | 4 | 5 | 6)[] = [
+  1, 2, 3, 4, 5, 6,
+];
+
+const RARITY_BADGE_CLASSES: Readonly<Record<TroopSkinRarity, string>> = {
+  legendary: "bg-amber-500/15 text-amber-700 dark:text-amber-300",
+  epic: "bg-purple-500/15 text-purple-700 dark:text-purple-300",
+  rare: "bg-sky-500/15 text-sky-700 dark:text-sky-300",
+};
+
+const RARITY_AVATAR_FRAME_CLASSES: Readonly<Record<TroopSkinRarity, string>> = {
+  legendary: "ring-2 ring-amber-500/50 bg-amber-500/10",
+  epic: "ring-2 ring-purple-500/50 bg-purple-500/10",
+  rare: "ring-2 ring-sky-500/50 bg-sky-500/10",
+};
+
+function getTroopSkinStarCountAtLevel(level: number): number {
+  if (level >= 50) return 6;
+  if (level >= 45) return 5;
+  if (level >= 40) return 4;
+  if (level >= 30) return 3;
+  if (level >= 20) return 2;
+  if (level >= 10) return 1;
+  return 0;
+}
 
 export function TroopSkinsCalculator({
   tool,
-  locale,
-}: TroopSkinsCalculatorProps) {
+  locale = "vi",
+}: TroopSkinsCalculatorProps): React.JSX.Element {
+  const isVi = locale === "vi";
+
   const [rarity, setRarity] = useState<TroopSkinRarity>("legendary");
   const [selectedSkinId, setSelectedSkinId] = useState<string>("heavy-cavalry");
   const [currentPoint, setCurrentPoint] = useState<TroopSkinPointState>({
@@ -117,12 +100,44 @@ export function TroopSkinsCalculator({
   const [ownedMedalsText, setOwnedMedalsText] = useState<string>("0");
   const [ownedCopiesText, setOwnedCopiesText] = useState<string>("0");
 
+  const [isPickerOpen, setIsPickerOpen] = useState<boolean>(false);
+  const [pickerStep, setPickerStep] = useState<AvatarPickerStep>("rarity");
+  const pickerRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    if (!isPickerOpen) return;
+
+    const handleMouseDown = (event: MouseEvent): void => {
+      if (
+        pickerRef.current &&
+        !pickerRef.current.contains(event.target as Node)
+      ) {
+        setIsPickerOpen(false);
+        setPickerStep("rarity");
+      }
+    };
+
+    const handleKeyDown = (event: KeyboardEvent): void => {
+      if (event.key === "Escape") {
+        setIsPickerOpen(false);
+        setPickerStep("rarity");
+      }
+    };
+
+    document.addEventListener("mousedown", handleMouseDown);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", handleMouseDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isPickerOpen]);
+
   const ownedMedals = useMemo(
-    () => parseCompactNumberInput(ownedMedalsText) ?? 0,
+    () => parseCompactNumberInput(ownedMedalsText),
     [ownedMedalsText]
   );
   const ownedCopies = useMemo(
-    () => parseCompactNumberInput(ownedCopiesText) ?? 0,
+    () => parseCompactNumberInput(ownedCopiesText),
     [ownedCopiesText]
   );
 
@@ -141,189 +156,300 @@ export function TroopSkinsCalculator({
     [rarity, selectedSkinId, currentPoint, targetPoint, ownedMedals, ownedCopies]
   );
 
-  const handleSelectRarity = (nextRarity: TroopSkinRarity) => {
+  const fullJourneyReference = useMemo(
+    () =>
+      calculateTroopSkinProgression({
+        rarity,
+        skinId: selectedSkinId,
+        current: { level: 1, sublevel: 0 },
+        target: { level: TROOP_SKIN_MAX_LEVEL, sublevel: 0 },
+        ownedMedals: 0,
+        ownedCopies: 0,
+      }),
+    [rarity, selectedSkinId]
+  );
+
+  const handleTogglePicker = (): void => {
+    setIsPickerOpen((prev) => {
+      const next = !prev;
+      if (next) {
+        setPickerStep("rarity");
+      }
+      return next;
+    });
+  };
+
+  const handleSelectRarity = (nextRarity: TroopSkinRarity): void => {
     setRarity(nextRarity);
     const list = getSkinsByRarity(nextRarity);
     if (list.length > 0 && !list.some((item) => item.id === selectedSkinId)) {
       setSelectedSkinId(list[0].id);
     }
+    setPickerStep("skin");
   };
 
-  const handleSwapPoints = () => {
-    setCurrentPoint(targetPoint);
-    setTargetPoint(currentPoint);
+  const handleSelectSkin = (nextSkinId: string): void => {
+    setSelectedSkinId(nextSkinId);
+    setIsPickerOpen(false);
+    setPickerStep("rarity");
   };
 
-  const handleReset = () => {
+  const handleReset = (): void => {
     setRarity("legendary");
     setSelectedSkinId("heavy-cavalry");
     setCurrentPoint({ level: 1, sublevel: 0 });
     setTargetPoint({ level: 50, sublevel: 0 });
     setOwnedMedalsText("0");
     setOwnedCopiesText("0");
+    setIsPickerOpen(false);
+    setPickerStep("rarity");
   };
 
-  const medalName =
-    locale === "vi" ? GLORY_MEDAL_MATERIAL.nameVi : GLORY_MEDAL_MATERIAL.nameEn;
+  const medalName = isVi
+    ? GLORY_MEDAL_MATERIAL.nameVi
+    : GLORY_MEDAL_MATERIAL.nameEn;
+  const copyName = isVi
+    ? "Phôi Bản Sao Quân Trang"
+    : "Breakthrough Skin Copies";
+
+  const selectedSkinName = isVi
+    ? result.selectedSkin.nameVi
+    : result.selectedSkin.nameEn;
+  const selectedFactionLabel = isVi
+    ? result.selectedSkin.factionLabelVi
+    : result.selectedSkin.factionLabelEn;
+  const selectedSpecialSkill = isVi
+    ? result.selectedSkin.specialSkillMaxVi
+    : result.selectedSkin.specialSkillMaxEn;
+  const activeRarityShortLabel = isVi
+    ? result.rarityMeta.shortNameVi
+    : result.rarityMeta.shortNameEn;
+
+  const targetStarCount = getTroopSkinStarCountAtLevel(
+    result.normalizedTarget.level
+  );
+  const isPeakLevel50 = result.normalizedTarget.level >= TROOP_SKIN_MAX_LEVEL;
+
+  const medalsCompletionPercent =
+    result.medalsNeeded <= 0
+      ? 100
+      : Math.min(100, Math.floor((ownedMedals / result.medalsNeeded) * 100));
+  const copiesCompletionPercent =
+    result.copiesNeeded <= 0
+      ? 100
+      : Math.min(100, Math.floor((ownedCopies / result.copiesNeeded) * 100));
+
+  const isMedalsSufficient =
+    ownedMedals >= result.medalsNeeded && result.medalsNeeded > 0;
+  const isCopiesSufficient =
+    ownedCopies >= result.copiesNeeded && result.copiesNeeded > 0;
 
   return (
-    <div data-testid="troop-skins-calculator" className="space-y-5">
-      {/* 1. MD3 Tool Header */}
+    <div data-testid="troop-skins-calculator" className="space-y-4">
+      {/* 1. Flat MD3 Tool Header + Shared <CalculatorInfoPopover /> + Reset */}
       <CalculatorToolHeader
         code={tool.code}
-        title={tool.fullTitle[locale]}
+        title={tool.title[locale].replace(`${tool.code} `, "")}
         actions={
-          <button
-            type="button"
-            data-testid="troop-skins-reset-btn"
-            onClick={handleReset}
-            className={cn(
-              CALC_MD3.chipButton,
-              "bg-muted/60 text-muted-foreground hover:bg-muted hover:text-foreground"
-            )}
-          >
-            <RotateCcw className="h-4 w-4" aria-hidden="true" />
-            <span>{locale === "vi" ? "Đặt lại" : "Reset"}</span>
-          </button>
+          <>
+            <CalculatorInfoPopover
+              locale={locale}
+              triggerTestId="troop-skins-info-trigger"
+              dialogTestId="troop-skins-info-dialog"
+              title={
+                isVi
+                  ? "Hướng Dẫn Quân Trang & Bảng Chi Phí Đột Phá Sao SSoT"
+                  : "Troop Skin Guide & SSoT Star Breakthrough Cost Tables"
+              }
+              subtitle={
+                isVi
+                  ? "Cơ chế 50 cấp & 210 vạch nhỏ, tỷ lệ 100% / 50% / 25% và 6 chặng đột phá sao"
+                  : "50 levels & 210 sub-levels mechanics, 100% / 50% / 25% rarity ratio & 6 star stages"
+              }
+            >
+              <div className="space-y-5">
+                {/* Section 1: Mechanics & Rarity Cost Ratio Comparison (100% / 50% / 25%) */}
+                <div className="rounded-2xl bg-amber-500/10 p-4 ring-1 ring-amber-500/30 space-y-3">
+                  <h4 className="font-sans text-sm font-bold text-foreground">
+                    {isVi
+                      ? "1. Cơ Chế Cấp Quân Trang, Vạch Nhỏ (Sub-levels) & Tỷ Lệ Chi Phí Phẩm Chất (100% / 50% / 25%)"
+                      : "1. Troop Skin Levels, Sub-levels & Rarity Cost Ratio (100% / 50% / 25%)"}
+                  </h4>
+                  <ul className="space-y-1.5 font-sans text-xs leading-relaxed text-muted-foreground">
+                    <li>
+                      •{" "}
+                      {isVi
+                        ? "Lộ trình từ Lv.1 lên Lv.50 gồm 49 bước nâng cấp tương ứng với 210 vạch nhỏ (sub-levels). Từ Lv.17 trở đi, mỗi cấp chia thành từ 2 đến 10 vạch nhỏ."
+                        : "Progression from Lv.1 to Lv.50 spans 49 level-ups and 210 sub-level clicks. Starting at Lv.17, each level requires 2 to 10 sub-level bars."}
+                    </li>
+                    <li>
+                      •{" "}
+                      {isVi
+                        ? "Tại 6 mốc đột phá sao (Lv.10 / 20 / 30 / 40 / 45 / 50), ngoài Huy Chương Vinh Dự cần tiêu hao thêm tổng cộng 13 Phôi Bản Sao Quân Trang (1 + 1 + 2 + 3 + 3 + 3)."
+                        : "At the 6 star breakthrough milestones (Lv.10 / 20 / 30 / 40 / 45 / 50), upgrading requires a total of 13 Duplicate Skin Copies (1 + 1 + 2 + 3 + 3 + 3) in addition to Glory Medals."}
+                    </li>
+                  </ul>
+
+                  <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
+                    {TROOP_SKIN_RARITY_ORDER.map((rKey) => {
+                      const meta = TROOP_SKIN_RARITIES[rKey];
+                      const fullCost = fullJourneyReference.rarityComparison[rKey];
+                      const activeRangeCost = result.rarityComparison[rKey];
+                      return (
+                        <div
+                          key={rKey}
+                          className="rounded-xl bg-background/80 p-2.5 space-y-1"
+                        >
+                          <div className="font-sans text-xs font-bold text-foreground">
+                            {isVi ? meta.shortNameVi : meta.shortNameEn}
+                          </div>
+                          <div className="font-mono text-sm font-black text-amber-600 tabular-nums dark:text-amber-400">
+                            {formatCompactNumber(fullCost)}
+                          </div>
+                          <div className="font-mono text-xs text-muted-foreground tabular-nums">
+                            {formatExactNumber(fullCost)}
+                          </div>
+                          <div className="font-sans text-xs text-muted-foreground">
+                            {isVi ? "Chặng đang chọn:" : "Selected range:"}{" "}
+                            <span className="font-mono font-semibold text-foreground tabular-nums">
+                              {formatCompactNumber(activeRangeCost)}
+                            </span>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Section 2: 6 Star Breakthrough Stages Table (Lv.1 -> Lv.50) */}
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between gap-2">
+                    <h4 className="font-sans text-sm font-bold text-foreground">
+                      {isVi
+                        ? `2. Bảng Phân Tách Chi Phí & Số Phôi Theo 6 Chặng Đột Phá Sao (${activeRarityShortLabel})`
+                        : `2. Cost & Copy Breakdown Across 6 Star Breakthrough Stages (${activeRarityShortLabel})`}
+                    </h4>
+                    <Layers
+                      className="h-4 w-4 text-amber-500"
+                      aria-hidden="true"
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    {fullJourneyReference.stageBreakdowns.map((stage) => {
+                      const isFinalMax = stage.starMilestone === 6;
+                      return (
+                        <div
+                          key={stage.id}
+                          className={cn(
+                            CALC_MD3.tonalGroup,
+                            "flex flex-wrap items-center justify-between gap-2",
+                            isFinalMax
+                              ? "ring-1 ring-rose-500/40 bg-rose-500/10"
+                              : ""
+                          )}
+                        >
+                          <div>
+                            <p className="font-sans text-xs font-bold text-foreground">
+                              {isVi ? stage.labelVi : stage.labelEn}
+                            </p>
+                            <p className="font-sans text-xs text-muted-foreground">
+                              <span className="font-mono font-semibold text-foreground tabular-nums">
+                                Lv.{stage.fromLevel} ➔ Lv.{stage.toLevel}
+                              </span>
+                            </p>
+                          </div>
+
+                          <div className="flex items-center gap-2.5 text-right">
+                            <div>
+                              <p className="font-mono text-xs font-bold text-amber-600 tabular-nums dark:text-amber-400">
+                                {formatCompactNumber(stage.medalsRequired)}
+                              </p>
+                              <p className="font-mono text-xs text-muted-foreground tabular-nums">
+                                {formatExactNumber(stage.medalsRequired)}
+                              </p>
+                            </div>
+                            <span
+                              className={cn(
+                                "rounded-lg px-2 py-1 font-sans text-xs font-bold",
+                                isFinalMax
+                                  ? "bg-rose-500/15 text-rose-700 dark:text-rose-300"
+                                  : "bg-sky-500/15 text-sky-700 dark:text-sky-300"
+                              )}
+                            >
+                              <span className="font-mono tabular-nums">
+                                +{stage.copiesRequired}
+                              </span>{" "}
+                              <span>{isVi ? "Phôi" : "Copies"}</span>
+                            </span>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Section 3: Optimal ROI Strategy (Owned All-Soldier Buff vs Equipped Buff) */}
+                <div className="rounded-2xl bg-emerald-500/10 p-4 ring-1 ring-emerald-500/30 space-y-2">
+                  <h4 className="font-sans text-sm font-bold text-foreground">
+                    {isVi
+                      ? "3. Chiến Lược Đầu Tư Quân Trang Tối Ưu (Buff Sở Hữu Toàn Quân vs Buff Đeo Đạo Chính)"
+                      : "3. Optimal Troop Skin Investment Strategy (Owned All-Soldier Buff vs Equipped Buff)"}
+                  </h4>
+                  <ul className="space-y-1.5 font-sans text-xs leading-relaxed text-emerald-900 dark:text-emerald-200">
+                    <li>
+                      •{" "}
+                      <strong>
+                        {isVi
+                          ? "Cộng dồn vĩnh viễn Buff Sở Hữu Toàn Quân:"
+                          : "Permanent Owned All-Soldier Buff Stacking:"}
+                      </strong>{" "}
+                      {isVi
+                        ? "Mọi bộ Quân Trang bạn sở hữu trong kho đều cộng dồn vĩnh viễn chỉ số ATK & HP Toàn Quân cho cả 3 Đạo mà không cần phải mang ra đeo."
+                        : "Every Troop Skin unlocked in your inventory permanently stacks Owned All-Soldier ATK & HP across all queues, even when unequipped."}
+                    </li>
+                    <li>
+                      •{" "}
+                      <strong>
+                        {isVi
+                          ? "Quy tắc nâng bậc thang ROI (Lv.10 ➔ Lv.20):"
+                          : "Staircase ROI Rule (Lv.10 ➔ Lv.20):"}
+                      </strong>{" "}
+                      {isVi
+                        ? "Nâng đồng loạt các bộ Quân Trang Cam, Tím, Lam đang có lên điểm gãy Lv.10 (1★) rồi Lv.20 (2★) để tối đa hóa % ATK/HP trên mỗi 100K Huy Chương Vinh Dự, sau đó mới dồn tài nguyên đẩy 1 bộ Cam chủ lực của Đạo 1 lên Lv.50 để mở khóa Vinh Dự Quân Trang (3.2)."
+                        : "Upgrade all owned Legendary, Epic, and Rare skins in a staircase to Lv.10 (1★) then Lv.20 (2★) to maximize ATK/HP gain per 100K Glory Medals before pushing your primary Queue 1 Legendary skin to Lv.50 to unlock Skin Honor (3.2)."}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </CalculatorInfoPopover>
+
+            <button
+              type="button"
+              data-testid="troop-skins-reset-btn"
+              onClick={handleReset}
+              className={cn(
+                CALC_MD3.chipButton,
+                "bg-muted/50 font-sans text-muted-foreground hover:bg-muted hover:text-foreground"
+              )}
+            >
+              <RotateCcw
+                className="h-4 w-4 text-amber-500"
+                aria-hidden="true"
+              />
+              <span>{isVi ? "Đặt lại" : "Reset"}</span>
+            </button>
+          </>
         }
       />
 
-      {/* 2. Rarity & Troop Skin Catalog Selector Card (Single-Layer Containment) */}
-      <section className={cn(CALC_MD3.surfaceCard, "space-y-4")}>
-        <div className="flex flex-wrap items-center justify-between gap-2">
-          <div className="space-y-0.5">
-            <h2 className={CALC_MD3.sectionTitle}>
-              {locale === "vi"
-                ? "Chọn Phẩm Chất & Bộ Quân Trang"
-                : "Select Rarity & Troop Skin"}
-            </h2>
-            <p className="text-sm font-sans text-muted-foreground">
-              {locale === "vi"
-                ? "Tỷ lệ chi phí cố định toàn game: Cam 100% • Tím 50% • Lam 25%"
-                : "Fixed in-game cost ratio: Legendary 100% • Epic 50% • Rare 25%"}
-            </p>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-2">
-            {TROOP_SKIN_RARITY_ORDER.map((rKey) => {
-              const meta = TROOP_SKIN_RARITIES[rKey];
-              const isSelected = rarity === rKey;
-              return (
-                <button
-                  key={rKey}
-                  type="button"
-                  data-testid={`troop-skins-rarity-${rKey}-btn`}
-                  onClick={() => handleSelectRarity(rKey)}
-                  className={cn(
-                    CALC_MD3.chipButton,
-                    isSelected
-                      ? "bg-amber-500 text-slate-950 font-black"
-                      : "bg-muted/60 text-muted-foreground hover:bg-muted hover:text-foreground"
-                  )}
-                >
-                  <span>
-                    {locale === "vi" ? meta.shortNameVi : meta.shortNameEn}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Horizontal Scrollable Troop Skin Strip (Tonal tiles, 0 inner border) */}
-        <div
-          role="list"
-          aria-label={
-            locale === "vi" ? "Danh sách Quân Trang" : "Troop Skin Catalog"
-          }
-          className="flex overflow-x-auto no-scrollbar snap-x gap-2.5 pb-1"
-        >
-          {skinsForRarity.map((skin) => {
-            const isSelected = result.selectedSkin.id === skin.id;
-            const skinName = locale === "vi" ? skin.nameVi : skin.nameEn;
-            const factionName =
-              locale === "vi" ? skin.factionLabelVi : skin.factionLabelEn;
-            return (
-              <button
-                key={skin.id}
-                type="button"
-                role="listitem"
-                data-testid={`troop-skin-item-${skin.id}-btn`}
-                onClick={() => setSelectedSkinId(skin.id)}
-                className={cn(
-                  CALC_MD3.tonalTile,
-                  "snap-start shrink-0 min-h-[48px] px-3 py-2 flex items-center gap-2.5 text-left",
-                  isSelected && CALC_MD3.tileSelected
-                )}
-              >
-                <GameAssetFrame
-                  src={skin.iconPath}
-                  alt={skinName}
-                  rarity={skin.rarity}
-                  size="sm"
-                />
-                <div className="min-w-0">
-                  <div className="text-sm font-heading font-bold text-foreground truncate">
-                    {skinName}
-                  </div>
-                  <div className="text-xs font-sans font-medium text-muted-foreground truncate">
-                    {factionName}
-                  </div>
-                </div>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Selected Skin Special Skill Highlight (Tonal Well, 0 border) */}
-        <div
-          className={cn(
-            CALC_MD3.tonalGroup,
-            "flex flex-col sm:flex-row sm:items-center justify-between gap-2"
-          )}
-        >
-          <div className="flex items-center gap-2.5">
-            <GameAssetFrame
-              src={result.selectedSkin.iconPath}
-              alt={
-                locale === "vi"
-                  ? result.selectedSkin.nameVi
-                  : result.selectedSkin.nameEn
-              }
-              rarity={result.selectedSkin.rarity}
-              size="md"
-            />
-            <div>
-              <div className="text-base font-heading font-bold text-foreground">
-                {locale === "vi"
-                  ? result.selectedSkin.nameVi
-                  : result.selectedSkin.nameEn}
-              </div>
-              <div className="text-xs sm:text-sm font-sans text-amber-700 dark:text-amber-300 font-semibold">
-                {locale === "vi"
-                  ? result.selectedSkin.specialSkillMaxVi
-                  : result.selectedSkin.specialSkillMaxEn}
-              </div>
-            </div>
-          </div>
-
-          <div className="text-xs sm:text-sm font-sans text-muted-foreground">
-            {locale === "vi"
-              ? result.rarityMeta.costPercentLabelVi
-              : result.rarityMeta.costPercentLabelEn}
-          </div>
-        </div>
-      </section>
-
-      {/* 3. Symmetric 3-Column Control Architecture: [Start (X)] <-> [Center Hub] <-> [Target (Y)] */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
-        {/* Left Column: Start Point (X) */}
-        <div className="lg:col-span-4">
+      {/* 2. Top Row — 3 Symmetrical Zones: [Zone 1: Cấp Hiện Tại] | [Zone 2: Avatar Quân Trang Trung Tâm] | [Zone 3: Cấp Mục Tiêu] */}
+      <div className="grid grid-cols-1 items-stretch gap-4 lg:grid-cols-12">
+        {/* ZONE 1 (Left - 4 cols): Cấp Hiện Tại */}
+        <div className="order-2 lg:order-1 lg:col-span-4">
           <TroopSkinsSelector
             idPrefix="from"
-            title={
-              locale === "vi" ? "Điểm Xuất Phát (X)" : "Starting Point (X)"
-            }
+            title={isVi ? "Cấp Hiện Tại" : "Current Level"}
             rarity={rarity}
             point={currentPoint}
             locale={locale}
@@ -331,329 +457,695 @@ export function TroopSkinsCalculator({
           />
         </div>
 
-        {/* Center Column: Control Hub (Journey Presets + Inventory Inputs) */}
-        <div className="lg:col-span-4">
-          <div className={cn(CALC_MD3.surfaceCard, "space-y-4")}>
-            <div className="flex items-center justify-between gap-2 border-b border-border/60 pb-2.5">
-              <h3 className={CALC_MD3.sectionTitle}>
-                {locale === "vi" ? "Trung Tâm Điều Khiển" : "Control Center"}
-              </h3>
+        {/* ZONE 2 (Center - 4 cols): Avatar Quân Trang Trung Tâm + 2-Step Sequential Picker */}
+        <section
+          ref={pickerRef}
+          data-testid="troop-skins-zone-avatar"
+          className={cn(
+            CALC_MD3.surfaceCard,
+            "relative order-1 flex flex-col items-center justify-between gap-3.5 text-center lg:order-2 lg:col-span-4"
+          )}
+        >
+          <div className="flex w-full items-center justify-between gap-2">
+            <span className="font-sans text-xs font-bold text-muted-foreground">
+              {isVi ? "Quân Trang Đang Chọn" : "Selected Troop Skin"}
+            </span>
+            <span
+              className={cn(
+                "inline-flex items-center gap-1 rounded-lg px-2.5 py-0.5 font-sans text-xs font-bold",
+                RARITY_BADGE_CLASSES[rarity]
+              )}
+            >
+              <span>{activeRarityShortLabel}</span>
+              <span>•</span>
+              <span>{selectedFactionLabel}</span>
+            </span>
+          </div>
 
-              <button
-                type="button"
-                data-testid="troop-skins-swap-btn"
-                onClick={handleSwapPoints}
+          {/* Clickable Central Troop Skin Avatar (112x112px / h-28 w-28) */}
+          <button
+            type="button"
+            data-testid="troop-skins-central-avatar-btn"
+            onClick={handleTogglePicker}
+            aria-expanded={isPickerOpen}
+            aria-haspopup="dialog"
+            aria-label={
+              isVi
+                ? "Bấm để chọn Phẩm chất và Bộ Quân Trang"
+                : "Click to select Rarity and Troop Skin"
+            }
+            className="group flex w-full flex-col items-center justify-center rounded-2xl p-2 transition-transform hover:scale-[1.01] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/40"
+          >
+            <div
+              data-testid="troop-skins-central-avatar-frame"
+              className={cn(
+                "relative flex h-28 w-28 items-center justify-center rounded-2xl p-2.5 shadow-md transition-all",
+                isPeakLevel50
+                  ? "ring-2 ring-rose-500/60 bg-rose-500/15"
+                  : RARITY_AVATAR_FRAME_CLASSES[rarity]
+              )}
+            >
+              <Image
+                src={result.selectedSkin.iconPath}
+                alt={selectedSkinName}
+                width={88}
+                height={88}
+                className="h-22 w-22 object-contain drop-shadow"
+              />
+
+              {/* Bottom-left Target Level Badge */}
+              <span
                 className={cn(
-                  CALC_MD3.chipButton,
-                  "bg-amber-500/15 text-amber-700 dark:text-amber-300 hover:bg-amber-500/25 px-3"
+                  "absolute -bottom-2 -left-2 inline-flex items-center rounded-full px-2.5 py-0.5 font-mono text-xs font-black text-white shadow tabular-nums",
+                  isPeakLevel50 ? "bg-rose-600" : "bg-amber-600"
                 )}
               >
-                <ArrowLeftRight className="h-4 w-4" aria-hidden="true" />
-                <span>{locale === "vi" ? "Đảo X ⟷ Y" : "Swap X ⟷ Y"}</span>
-              </button>
+                +Lv.{result.normalizedTarget.level}
+              </span>
             </div>
 
-            {result.isReversed ? (
-              <div className="rounded-xl bg-amber-500/15 p-3 text-xs sm:text-sm font-sans font-semibold text-amber-700 dark:text-amber-300">
-                {locale === "vi"
-                  ? "Đang tự động tính độ chênh lệch theo chiều tăng dần từ mốc thấp đến mốc cao."
-                  : "Automatically calculating progression delta from the lower point to the higher point."}
-              </div>
-            ) : null}
-
-            {/* Quick Journey Presets */}
-            <div className="space-y-2">
-              <div className={CALC_MD3.eyebrow}>
-                {locale === "vi"
-                  ? "Mốc Hành Trình Đột Phá Sao"
-                  : "Star Breakthrough Journeys"}
-              </div>
-              <div className="grid grid-cols-2 gap-2">
-                {JOURNEY_PRESETS.map((preset) => {
-                  const isActive =
-                    result.effectiveStart.level === preset.fromLevel &&
-                    result.effectiveStart.sublevel === 0 &&
-                    result.effectiveEnd.level === preset.toLevel &&
-                    result.effectiveEnd.sublevel === 0;
-                  return (
-                    <button
-                      key={preset.id}
-                      type="button"
-                      data-testid={`troop-skins-journey-${preset.id}-btn`}
-                      onClick={() => {
-                        setCurrentPoint({ level: preset.fromLevel, sublevel: 0 });
-                        setTargetPoint({ level: preset.toLevel, sublevel: 0 });
-                      }}
-                      className={cn(
-                        CALC_MD3.chipButton,
-                        "text-xs sm:text-sm justify-start px-2.5",
-                        isActive
-                          ? "bg-amber-500 text-slate-950 font-black"
-                          : "bg-muted/60 text-foreground hover:bg-muted"
-                      )}
-                    >
-                      <span>
-                        {locale === "vi" ? preset.labelVi : preset.labelEn}
-                      </span>
-                    </button>
-                  );
-                })}
-              </div>
+            {/* 6 Small Stars (5 Gold + 1 Mythic Red at Lv.50) reflecting Target Star Milestone */}
+            <div
+              className="mt-3 flex items-center justify-center gap-1"
+              aria-hidden="true"
+            >
+              {AVATAR_STAR_INDICES.map((starNum) => {
+                const isRed = starNum === 6;
+                const isFilled = targetStarCount >= starNum;
+                return (
+                  <Star
+                    key={starNum}
+                    className={cn(
+                      "h-4 w-4 transition-transform",
+                      isFilled
+                        ? isRed
+                          ? "text-rose-500 fill-rose-500 scale-110"
+                          : "text-amber-400 fill-amber-400"
+                        : isRed
+                          ? "text-rose-500/35"
+                          : "text-muted-foreground/35"
+                    )}
+                  />
+                );
+              })}
             </div>
 
-            {/* Inventory Inputs (Supports K/M compact shorthand) */}
-            <div className="space-y-3 border-t border-border/60 pt-3">
-              <div className="space-y-1.5">
-                <label
-                  htmlFor="troop-skins-owned-medals-input"
-                  className="block text-sm font-sans font-semibold text-foreground"
-                >
-                  {locale === "vi"
-                    ? "Kho Huy Chương Vinh Dự đang có (hỗ trợ K/M)"
-                    : "Owned Glory Medals (supports K/M)"}
-                </label>
-                <Input
-                  id="troop-skins-owned-medals-input"
-                  data-testid="troop-skins-owned-medals-input"
-                  type="text"
-                  inputMode="text"
-                  value={ownedMedalsText}
-                  onChange={(e) => setOwnedMedalsText(e.target.value)}
-                  placeholder="0, 80.4k, 1.5m"
-                  className={CALC_MD3.dataInput}
-                />
-              </div>
+            <p className="mt-2 font-heading text-base font-black text-foreground group-hover:text-amber-600 dark:group-hover:text-amber-400">
+              {selectedSkinName}
+            </p>
+            <p className="font-sans text-xs font-bold text-amber-700 dark:text-amber-300">
+              {isVi
+                ? result.rarityMeta.costPercentLabelVi
+                : result.rarityMeta.costPercentLabelEn}{" "}
+              • {selectedFactionLabel}
+            </p>
+            <p className="mt-1 line-clamp-2 max-w-xs font-sans text-xs leading-relaxed text-muted-foreground">
+              {selectedSpecialSkill}
+            </p>
 
-              <div className="space-y-1.5">
-                <label
-                  htmlFor="troop-skins-owned-copies-input"
-                  className="block text-sm font-sans font-semibold text-foreground"
-                >
-                  {locale === "vi"
-                    ? "Số Bản Sao Phôi Quân Trang đang có"
-                    : "Owned Duplicate Skin Copies"}
-                </label>
-                <Input
-                  id="troop-skins-owned-copies-input"
-                  data-testid="troop-skins-owned-copies-input"
-                  type="number"
-                  min={0}
-                  max={99}
-                  value={ownedCopiesText}
-                  onChange={(e) => setOwnedCopiesText(e.target.value)}
-                  className={CALC_MD3.dataInput}
+            <span className="mt-2 inline-flex min-h-[44px] items-center gap-1 rounded-xl bg-amber-500/15 px-3 py-1.5 font-sans text-xs font-bold text-amber-700 dark:text-amber-300">
+              <span>
+                {isVi
+                  ? "Bấm đổi Phẩm chất & Quân Trang"
+                  : "Click to change Skin"}
+              </span>
+              <ChevronRight className="h-4 w-4" aria-hidden="true" />
+            </span>
+          </button>
+
+          {/* Summary Box: Global Owned All-Soldier Stat Gain */}
+          <div className={cn(CALC_MD3.tonalGroup, "w-full space-y-1.5")}>
+            <div className="flex items-center justify-between gap-2 text-xs font-sans">
+              <span className="inline-flex items-center gap-1 font-semibold text-muted-foreground">
+                <Shield
+                  className="h-3.5 w-3.5 text-emerald-500"
+                  aria-hidden="true"
                 />
-              </div>
+                <span>
+                  {isVi
+                    ? "Tăng Chỉ Số Sở Hữu Toàn Quân:"
+                    : "Owned All-Soldier Stat Gain:"}
+                </span>
+              </span>
+              <span className="font-mono font-bold text-foreground tabular-nums">
+                {formatTroopSkinPointLabel(result.effectiveStart, locale)} ➔{" "}
+                {formatTroopSkinPointLabel(result.effectiveEnd, locale)}
+              </span>
+            </div>
+
+            <div className="font-mono text-base sm:text-lg font-black text-emerald-600 tabular-nums dark:text-emerald-400">
+              +{result.gainedOwnedAtkPct}% ATK • +{result.gainedOwnedHpPct}% HP
+            </div>
+
+            <div className="text-xs font-sans text-muted-foreground">
+              {isVi ? "Tổng số vạch nhấn:" : "Total sub-level clicks:"}{" "}
+              <span className="font-mono font-bold text-foreground tabular-nums">
+                {formatExactNumber(result.totalSublevelClicks)}
+              </span>
             </div>
           </div>
-        </div>
 
-        {/* Right Column: Target Point (Y) */}
-        <div className="lg:col-span-4">
+          {/* 2-Step Sequential Avatar Picker Popover (Step 1: Rarity -> Step 2: Troop Skin) */}
+          {isPickerOpen ? (
+            <div
+              role="dialog"
+              aria-label={
+                isVi
+                  ? "Chọn Phẩm chất và Bộ Quân Trang"
+                  : "Select Rarity and Troop Skin"
+              }
+              data-testid="troop-skins-avatar-picker-popover"
+              data-md3-overlay="true"
+              className={cn(
+                CALC_MD3.overlayCard,
+                "absolute top-full left-1/2 z-40 mt-2 w-[min(92vw,380px)] -translate-x-1/2 space-y-3 text-left"
+              )}
+            >
+              <div className="flex items-center justify-between gap-2 border-b border-border/60 pb-2">
+                <p className="font-sans text-xs font-bold text-foreground">
+                  {pickerStep === "rarity"
+                    ? isVi
+                      ? "Bước 1/2: Chọn Phẩm Chất Quân Trang"
+                      : "Step 1/2: Select Troop Skin Rarity"
+                    : isVi
+                      ? `Bước 2/2: Chọn Bộ Quân Trang (${activeRarityShortLabel})`
+                      : `Step 2/2: Select Troop Skin (${activeRarityShortLabel})`}
+                </p>
+
+                <button
+                  type="button"
+                  data-testid="troop-skins-picker-close-btn"
+                  aria-label={isVi ? "Đóng bộ chọn" : "Close picker"}
+                  onClick={() => {
+                    setIsPickerOpen(false);
+                    setPickerStep("rarity");
+                  }}
+                  className={cn(
+                    CALC_MD3.iconButton,
+                    "bg-muted/60 text-muted-foreground hover:bg-muted hover:text-foreground"
+                  )}
+                >
+                  <X className="h-4 w-4" aria-hidden="true" />
+                </button>
+              </div>
+
+              {pickerStep === "rarity" ? (
+                <div className="space-y-2">
+                  {TROOP_SKIN_RARITY_ORDER.map((rKey) => {
+                    const meta = TROOP_SKIN_RARITIES[rKey];
+                    const count = getSkinsByRarity(rKey).length;
+                    const isSelectedRarity = rarity === rKey;
+
+                    return (
+                      <button
+                        key={rKey}
+                        type="button"
+                        data-testid={`troop-skins-rarity-${rKey}-btn`}
+                        onClick={() => handleSelectRarity(rKey)}
+                        className={cn(
+                          CALC_MD3.tonalTile,
+                          "flex min-h-[52px] w-full items-center justify-between gap-3 p-3 text-left",
+                          isSelectedRarity && CALC_MD3.tileSelected
+                        )}
+                      >
+                        <div className="min-w-0 flex-1">
+                          <p className="font-heading text-sm font-bold text-foreground">
+                            {isVi ? meta.nameVi : meta.nameEn}
+                          </p>
+                          <p className="font-sans text-xs text-muted-foreground">
+                            {isVi
+                              ? meta.costPercentLabelVi
+                              : meta.costPercentLabelEn}{" "}
+                            •{" "}
+                            <span className="font-mono font-semibold text-amber-600 tabular-nums dark:text-amber-400">
+                              +{meta.maxOwnedSoldierAtkPct}% ATK / +
+                              {meta.maxOwnedSoldierHpPct}% HP
+                            </span>
+                          </p>
+                        </div>
+
+                        <div className="flex shrink-0 items-center gap-1.5">
+                          <span className="rounded-lg bg-background/80 px-2 py-0.5 font-sans text-xs font-bold text-foreground">
+                            <span className="font-mono tabular-nums">
+                              {count}
+                            </span>{" "}
+                            <span>{isVi ? "bộ" : "skins"}</span>
+                          </span>
+                          <ChevronRight
+                            className="h-4 w-4 text-muted-foreground"
+                            aria-hidden="true"
+                          />
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="space-y-2.5">
+                  <button
+                    type="button"
+                    data-testid="troop-skins-picker-back-btn"
+                    onClick={() => setPickerStep("rarity")}
+                    className={cn(
+                      CALC_MD3.chipButton,
+                      "w-full justify-start bg-muted/50 font-sans text-xs font-bold text-amber-700 hover:bg-muted dark:text-amber-300"
+                    )}
+                  >
+                    <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+                    <span>
+                      {isVi ? "← Đổi phẩm chất" : "← Change Rarity"}
+                    </span>
+                  </button>
+
+                  <div className="max-h-72 space-y-1.5 overflow-y-auto pr-1">
+                    {skinsForRarity.map((skin) => {
+                      const isSelectedSkin = result.selectedSkin.id === skin.id;
+                      const skinName = isVi ? skin.nameVi : skin.nameEn;
+                      const factionName = isVi
+                        ? skin.factionLabelVi
+                        : skin.factionLabelEn;
+                      const skillSummary = isVi
+                        ? skin.specialSkillMaxVi
+                        : skin.specialSkillMaxEn;
+
+                      return (
+                        <button
+                          key={skin.id}
+                          type="button"
+                          data-testid={`troop-skin-item-${skin.id}-btn`}
+                          onClick={() => handleSelectSkin(skin.id)}
+                          className={cn(
+                            CALC_MD3.tonalTile,
+                            "flex min-h-[56px] w-full items-center gap-2.5 p-2.5 text-left",
+                            isSelectedSkin && CALC_MD3.tileSelected
+                          )}
+                        >
+                          <Image
+                            src={skin.iconPath}
+                            alt={skinName}
+                            width={40}
+                            height={40}
+                            className="h-10 w-10 shrink-0 rounded-lg object-contain"
+                          />
+                          <div className="min-w-0 flex-1">
+                            <div className="flex items-center justify-between gap-2">
+                              <p className="truncate font-heading text-xs sm:text-sm font-bold text-foreground">
+                                {skinName}
+                              </p>
+                              <span className="shrink-0 rounded-md bg-background/80 px-2 py-0.5 font-sans text-xs font-semibold text-muted-foreground">
+                                {factionName}
+                              </span>
+                            </div>
+                            <p className="truncate font-sans text-xs text-muted-foreground">
+                              {skillSummary}
+                            </p>
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+            </div>
+          ) : null}
+        </section>
+
+        {/* ZONE 3 (Right - 4 cols): Cấp Mục Tiêu */}
+        <div className="order-3 lg:col-span-4">
           <TroopSkinsSelector
             idPrefix="to"
-            title={locale === "vi" ? "Mục Tiêu Đích (Y)" : "Target Point (Y)"}
+            title={isVi ? "Cấp Mục Tiêu" : "Target Level"}
             rarity={rarity}
             point={targetPoint}
             locale={locale}
             onChangePoint={setTargetPoint}
+            warningBanner={
+              result.isReversed ? (
+                <div
+                  role="alert"
+                  data-testid="troop-skins-invalid-range-warning"
+                  className="flex items-start gap-2.5 rounded-xl bg-amber-500/15 p-3 text-amber-800 dark:text-amber-200"
+                >
+                  <AlertTriangle
+                    className="mt-0.5 h-4 w-4 shrink-0 text-amber-600 dark:text-amber-400"
+                    aria-hidden="true"
+                  />
+                  <p className="font-sans text-xs leading-relaxed">
+                    {isVi
+                      ? "Cấp mục tiêu đang thấp hơn cấp hiện tại. Hệ thống tự động tính chênh lệch theo chiều tăng dần từ mốc thấp đến mốc cao."
+                      : "Target level is lower than current level. Automatically calculating progression delta from the lower point to the higher point."}
+                  </p>
+                </div>
+              ) : null
+            }
           />
         </div>
       </div>
 
-      {/* 4. Hero Output Metrics & Rarity Comparison Card (Single-Layer Containment) */}
+      {/* 3. Bottom Row — ZONE 4: Unified Resources Section (2 Vertical Cards × 3 Horizontal Columns) */}
       <section
         data-testid="troop-skins-results-panel"
         className={cn(CALC_MD3.surfaceCard, "space-y-4")}
       >
-        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border/60 pb-3">
-          <div className="flex items-center gap-2">
-            <Sparkles className="h-5 w-5 text-amber-500" aria-hidden="true" />
-            <h2 className={CALC_MD3.sectionTitle}>
-              {locale === "vi"
-                ? `Kết Quả Tài Nguyên Cần Tìm (${formatTroopSkinPointLabel(result.effectiveStart, locale)} ➔ ${formatTroopSkinPointLabel(result.effectiveEnd, locale)})`
-                : `Required Upgrade Resources (${formatTroopSkinPointLabel(result.effectiveStart, locale)} to ${formatTroopSkinPointLabel(result.effectiveEnd, locale)})`}
-            </h2>
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <div className="flex items-center gap-2">
+              <Sparkles
+                className="h-5 w-5 shrink-0 text-amber-500"
+                aria-hidden="true"
+              />
+              <h2 className={CALC_MD3.sectionTitle}>
+                {isVi ? "Tài Nguyên" : "Resources"}
+              </h2>
+            </div>
+            <p className="mt-0.5 font-sans text-xs text-muted-foreground">
+              {isVi
+                ? "Nhập số lượng đang có (hỗ trợ gõ tắt 80.4k, 1.5m, 20m) để tự động tính số lượng còn thiếu hoặc dư"
+                : "Enter owned amounts (supports 80.4k, 1.5m, 20m shorthand) to automatically compute missing or surplus materials"}
+            </p>
           </div>
 
           <span
             data-testid="troop-skins-medals-status-badge"
             className={cn(
-              "inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-sans font-bold",
+              "inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-sans text-xs font-bold",
               result.medalsShortfall === 0
                 ? "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300"
-                : "bg-amber-500/15 text-amber-700 dark:text-amber-300"
+                : "bg-amber-500/15 text-amber-800 dark:text-amber-300"
             )}
           >
-            {result.medalsShortfall === 0 ? (
-              <>
-                <CheckCircle2 className="h-3.5 w-3.5" aria-hidden="true" />
-                <span>
-                  {locale === "vi"
-                    ? `Đủ Huy Chương (Dư ${formatCompactNumber(result.medalsRemainingAfter)})`
-                    : `Enough Medals (Surplus ${formatCompactNumber(result.medalsRemainingAfter)})`}
-                </span>
-              </>
-            ) : (
-              <>
-                <AlertTriangle className="h-3.5 w-3.5" aria-hidden="true" />
-                <span>
-                  {locale === "vi"
-                    ? `Còn thiếu ${formatCompactNumber(result.medalsShortfall)} Huy Chương`
-                    : `Short by ${formatCompactNumber(result.medalsShortfall)} Medals`}
-                </span>
-              </>
-            )}
+            <CheckCircle2 className="h-4 w-4 shrink-0" aria-hidden="true" />
+            <span className="font-mono font-bold tabular-nums">
+              {formatTroopSkinPointLabel(result.effectiveStart, locale)} ➔{" "}
+              {formatTroopSkinPointLabel(result.effectiveEnd, locale)}
+            </span>
           </span>
         </div>
 
-        {/* Dual Primary Metrics: Glory Medals + Duplicate Copies (Tonal Groups, 0 border) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-          {/* Metric 1: Glory Medals */}
-          <div className={cn(CALC_MD3.tonalGroup, "space-y-2")}>
-            <div className="flex items-center gap-2">
-              <GameAssetFrame
-                src={GLORY_MEDAL_MATERIAL.iconPath}
-                alt={medalName}
-                rarity={GLORY_MEDAL_MATERIAL.rarity}
-                size="sm"
-              />
-              <span className="text-sm font-heading font-bold text-foreground">
-                {medalName}
-              </span>
-            </div>
+        <div className="space-y-3">
+          {/* Card 1: Glory Medals (Huy Chương Vinh Dự) */}
+          <div
+            data-testid="troop-skins-resource-card-medals"
+            className={cn(CALC_MD3.tonalGroup, "space-y-3")}
+          >
+            {/* Card Header */}
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <div className="flex min-w-0 items-center gap-3">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-background/90 p-1.5 shadow-sm">
+                  <Image
+                    src={GLORY_MEDAL_MATERIAL.iconPath}
+                    alt={medalName}
+                    width={32}
+                    height={32}
+                    className="h-8 w-8 object-contain"
+                  />
+                </div>
+                <div className="min-w-0">
+                  <h3 className="truncate font-heading text-sm sm:text-base font-bold text-foreground">
+                    {medalName}
+                  </h3>
+                  <p className="font-sans text-xs text-muted-foreground">
+                    <span className="font-mono font-semibold text-foreground tabular-nums">
+                      Lv.{result.effectiveStart.level} ➔ Lv.
+                      {result.effectiveEnd.level}
+                    </span>{" "}
+                    •{" "}
+                    <span>
+                      {isVi ? "Tổng số vạch nhấn:" : "Total sub-level clicks:"}
+                    </span>{" "}
+                    <span className="font-mono font-semibold text-foreground tabular-nums">
+                      {formatExactNumber(result.totalSublevelClicks)}
+                    </span>
+                  </p>
+                </div>
+              </div>
 
-            <CalculatorMetricValue
-              testId="troop-skins-required-medals-value"
-              value={formatCompactNumber(result.medalsNeeded)}
-              unit={locale === "vi" ? "Huy Chương" : "Medals"}
-              toneClassName="text-amber-600 dark:text-amber-400"
-            />
-
-            <div className="text-xs sm:text-sm font-sans text-muted-foreground">
-              {locale === "vi" ? "Chính xác:" : "Exact:"}{" "}
-              <span className="font-mono font-semibold text-foreground">
-                {formatExactNumber(result.medalsNeeded)}
-              </span>
-            </div>
-          </div>
-
-          {/* Metric 2: Duplicate Skin Copies */}
-          <div className={cn(CALC_MD3.tonalGroup, "space-y-2")}>
-            <div className="flex items-center gap-2">
-              <Star className="h-5 w-5 text-sky-500" aria-hidden="true" />
-              <span className="text-sm font-heading font-bold text-foreground">
-                {locale === "vi"
-                  ? "Phôi Bản Sao Đột Phá Sao"
-                  : "Breakthrough Skin Copies"}
-              </span>
-            </div>
-
-            <CalculatorMetricValue
-              testId="troop-skins-required-copies-value"
-              value={formatExactNumber(result.copiesNeeded)}
-              unit={locale === "vi" ? "Bản sao" : "Copies"}
-              toneClassName="text-sky-600 dark:text-sky-400"
-            />
-
-            <div className="text-xs sm:text-sm font-sans text-muted-foreground">
-              {result.copiesShortfall === 0
-                ? locale === "vi"
-                  ? `Đủ phôi đột phá (Dư ${result.copiesRemainingAfter})`
-                  : `Enough copies (Surplus ${result.copiesRemainingAfter})`
-                : locale === "vi"
-                  ? `Còn thiếu ${result.copiesShortfall} bản sao phôi`
-                  : `Missing ${result.copiesShortfall} duplicate copies`}
-            </div>
-          </div>
-
-          {/* Metric 3: Global Owned Stat Gain */}
-          <div className={cn(CALC_MD3.tonalGroup, "space-y-2")}>
-            <div className="flex items-center gap-2">
-              <Shield className="h-5 w-5 text-emerald-500" aria-hidden="true" />
-              <span className="text-sm font-heading font-bold text-foreground">
-                {locale === "vi"
-                  ? "Tăng Chỉ Số Sở Hữu Toàn Quân"
-                  : "Owned All-Soldier Stat Gain"}
-              </span>
-            </div>
-
-            <div className="text-2xl sm:text-3xl font-heading font-black text-emerald-600 dark:text-emerald-400 tabular-nums">
-              +{result.gainedOwnedAtkPct}% ATK • +{result.gainedOwnedHpPct}% HP
-            </div>
-
-            <div className="text-xs sm:text-sm font-sans text-muted-foreground">
-              {locale === "vi" ? "Tổng số vạch nhấn:" : "Total sub-level clicks:"}{" "}
-              <span className="font-mono font-semibold text-foreground">
-                {formatExactNumber(result.totalSublevelClicks)}
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* Rarity Cost Comparison Strip (100% vs 50% vs 25%) */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-          {TROOP_SKIN_RARITY_ORDER.map((rKey) => {
-            const meta = TROOP_SKIN_RARITIES[rKey];
-            const costForRarity = result.rarityComparison[rKey];
-            return (
-              <div
-                key={rKey}
-                className={cn(
-                  CALC_MD3.tonalGroup,
-                  "flex items-center justify-between gap-2"
-                )}
-              >
-                <span className="text-sm font-sans font-semibold text-foreground">
-                  {locale === "vi" ? meta.shortNameVi : meta.shortNameEn}
+              <div className="flex items-center gap-2">
+                <span className="font-sans text-xs text-muted-foreground">
+                  {isVi ? "Tiến độ:" : "Progress:"}
                 </span>
-                <span className="font-mono text-sm font-bold text-amber-600 dark:text-amber-400">
-                  {formatCompactNumber(costForRarity)} (
-                  {formatExactNumber(costForRarity)})
+                <span className="font-mono text-xs font-bold text-foreground tabular-nums">
+                  {medalsCompletionPercent}%
                 </span>
               </div>
-            );
-          })}
-        </div>
-
-        {/* Stage-by-Stage Star Breakthrough Breakdown List */}
-        {result.stageBreakdowns.length > 0 ? (
-          <div className="space-y-2 border-t border-border/60 pt-3">
-            <div className="flex items-center gap-2">
-              <Layers className="h-4 w-4 text-amber-500" aria-hidden="true" />
-              <h3 className="text-sm sm:text-base font-heading font-bold text-foreground">
-                {locale === "vi"
-                  ? "Phân Tách Chi Phí Theo Chặng Đột Phá Sao"
-                  : "Cost Breakdown by Star Breakthrough Stage"}
-              </h3>
             </div>
 
-            <ul className={CALC_MD3.dividedList}>
-              {result.stageBreakdowns.map((stage) => (
-                <li
-                  key={stage.id}
-                  className="flex flex-wrap items-center justify-between gap-2 py-2.5 text-sm font-sans"
+            <div className="h-1.5 w-full overflow-hidden rounded-full bg-background/80">
+              <div
+                className={cn(
+                  "h-full rounded-full transition-all",
+                  isMedalsSufficient ? "bg-emerald-500" : "bg-amber-500"
+                )}
+                style={{ width: `${medalsCompletionPercent}%` }}
+              />
+            </div>
+
+            {/* Card Body: 3 Horizontal Columns */}
+            <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-3">
+              {/* Column 1: Required */}
+              <div className="flex flex-col justify-center rounded-xl bg-background/80 px-3 py-2.5">
+                <span className="font-sans text-xs font-medium text-muted-foreground">
+                  {isVi ? "Số lượng yêu cầu" : "Required"}
+                </span>
+                <span
+                  data-testid="troop-skins-required-medals-value"
+                  title={formatExactNumber(result.medalsNeeded)}
+                  className="mt-0.5 font-mono text-xl font-black text-amber-600 tabular-nums dark:text-amber-400"
                 >
-                  <div className="font-medium text-foreground">
-                    {locale === "vi" ? stage.labelVi : stage.labelEn}
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <span className="font-mono font-bold text-amber-600 dark:text-amber-400">
-                      {formatCompactNumber(stage.medalsRequired)} (
-                      {formatExactNumber(stage.medalsRequired)})
+                  {formatCompactNumber(result.medalsNeeded)}
+                </span>
+                <span className="font-mono text-xs text-muted-foreground tabular-nums">
+                  {formatExactNumber(result.medalsNeeded)}
+                </span>
+              </div>
+
+              {/* Column 2: Owned Input */}
+              <div className="flex flex-col justify-center rounded-xl bg-background/80 px-3 py-2.5">
+                <div className="flex items-center justify-between gap-2">
+                  <label
+                    htmlFor="troop-skins-owned-medals-input"
+                    className="font-sans text-xs font-medium text-muted-foreground"
+                  >
+                    {isVi ? "Số lượng đang có" : "Owned"}
+                  </label>
+                  {ownedMedals > 0 ? (
+                    <span className="font-mono text-xs font-semibold text-amber-600 tabular-nums dark:text-amber-400">
+                      = {formatExactNumber(ownedMedals)}
                     </span>
-                    {stage.copiesRequired > 0 ? (
-                      <span className="rounded-md bg-sky-500/15 px-2 py-0.5 text-xs font-sans font-bold text-sky-700 dark:text-sky-300">
-                        <span className="font-mono">+{stage.copiesRequired}</span>{" "}
-                        {locale === "vi" ? "Phôi" : "Copies"}
-                      </span>
-                    ) : null}
-                  </div>
-                </li>
-              ))}
-            </ul>
+                  ) : null}
+                </div>
+                <input
+                  id="troop-skins-owned-medals-input"
+                  data-testid="troop-skins-owned-medals-input"
+                  type="text"
+                  inputMode="decimal"
+                  placeholder={
+                    isVi ? "VD: 80.4k, 1.5m, 10m" : "e.g. 80.4k, 1.5m, 10m"
+                  }
+                  value={ownedMedalsText}
+                  onChange={(e) => setOwnedMedalsText(e.target.value)}
+                  className={cn(
+                    CALC_MD3.dataInput,
+                    "mt-1 w-full bg-muted/50 px-3 text-foreground focus:outline-none focus:ring-2 focus:ring-amber-500/40"
+                  )}
+                />
+              </div>
+
+              {/* Column 3: Missing / Sufficient */}
+              <div
+                className={cn(
+                  "flex flex-col justify-center rounded-xl px-3 py-2.5",
+                  isMedalsSufficient
+                    ? "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300"
+                    : "bg-amber-500/10 text-amber-800 dark:text-amber-300"
+                )}
+              >
+                <span className="font-sans text-xs font-medium">
+                  {isVi ? "Số lượng còn thiếu" : "Missing"}
+                </span>
+                <div
+                  data-testid="troop-skins-missing-medals-value"
+                  title={formatExactNumber(
+                    isMedalsSufficient
+                      ? result.medalsRemainingAfter
+                      : result.medalsShortfall
+                  )}
+                  className="mt-0.5"
+                >
+                  {isMedalsSufficient ? (
+                    <span className="font-sans text-sm font-bold">
+                      {isVi
+                        ? `Đủ nguyên liệu (+Dư ${formatCompactNumber(result.medalsRemainingAfter)})`
+                        : `Sufficient (+Surplus ${formatCompactNumber(result.medalsRemainingAfter)})`}
+                    </span>
+                  ) : (
+                    <span className="font-mono text-xl font-black tabular-nums">
+                      {formatCompactNumber(result.medalsShortfall)}
+                    </span>
+                  )}
+                </div>
+                {!isMedalsSufficient && result.medalsShortfall >= 1_000 ? (
+                  <span className="font-mono text-xs opacity-80 tabular-nums">
+                    {formatExactNumber(result.medalsShortfall)}
+                  </span>
+                ) : null}
+              </div>
+            </div>
           </div>
-        ) : null}
+
+          {/* Card 2: Breakthrough Skin Copies (Phôi Bản Sao Quân Trang) */}
+          <div
+            data-testid="troop-skins-resource-card-copies"
+            className={cn(CALC_MD3.tonalGroup, "space-y-3")}
+          >
+            {/* Card Header */}
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <div className="flex min-w-0 items-center gap-3">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-background/90 p-1.5 shadow-sm">
+                  <Image
+                    src={TROOP_SKIN_UNIVERSAL_CHEST_ICON}
+                    alt={copyName}
+                    width={32}
+                    height={32}
+                    className="h-8 w-8 object-contain"
+                  />
+                </div>
+                <div className="min-w-0">
+                  <h3 className="truncate font-heading text-sm sm:text-base font-bold text-foreground">
+                    {copyName}
+                  </h3>
+                  <p className="font-sans text-xs text-muted-foreground">
+                    <span>
+                      {isVi
+                        ? "Mốc đột phá sao:"
+                        : "Star breakthrough milestones:"}
+                    </span>{" "}
+                    <span className="font-mono font-semibold text-foreground tabular-nums">
+                      Lv.10 / 20 / 30 / 40 / 45 / 50
+                    </span>{" "}
+                    •{" "}
+                    <span>
+                      {isVi ? "Tối đa" : "Max"}
+                    </span>{" "}
+                    <span className="font-mono font-semibold text-foreground tabular-nums">
+                      {TROOP_SKIN_TOTAL_COPIES_TO_MAX}
+                    </span>{" "}
+                    <span>{isVi ? "Phôi" : "Copies"}</span>
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <span className="font-sans text-xs text-muted-foreground">
+                  {isVi ? "Tiến độ:" : "Progress:"}
+                </span>
+                <span className="font-mono text-xs font-bold text-foreground tabular-nums">
+                  {copiesCompletionPercent}%
+                </span>
+              </div>
+            </div>
+
+            <div className="h-1.5 w-full overflow-hidden rounded-full bg-background/80">
+              <div
+                className={cn(
+                  "h-full rounded-full transition-all",
+                  isCopiesSufficient ? "bg-emerald-500" : "bg-sky-500"
+                )}
+                style={{ width: `${copiesCompletionPercent}%` }}
+              />
+            </div>
+
+            {/* Card Body: 3 Horizontal Columns */}
+            <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-3">
+              {/* Column 1: Required */}
+              <div className="flex flex-col justify-center rounded-xl bg-background/80 px-3 py-2.5">
+                <span className="font-sans text-xs font-medium text-muted-foreground">
+                  {isVi ? "Số lượng yêu cầu" : "Required"}
+                </span>
+                <span
+                  data-testid="troop-skins-required-copies-value"
+                  title={formatExactNumber(result.copiesNeeded)}
+                  className="mt-0.5 font-mono text-xl font-black text-sky-600 tabular-nums dark:text-sky-400"
+                >
+                  {formatCompactNumber(result.copiesNeeded)}
+                </span>
+                <span className="font-mono text-xs text-muted-foreground tabular-nums">
+                  {formatExactNumber(result.copiesNeeded)}
+                </span>
+              </div>
+
+              {/* Column 2: Owned Input */}
+              <div className="flex flex-col justify-center rounded-xl bg-background/80 px-3 py-2.5">
+                <div className="flex items-center justify-between gap-2">
+                  <label
+                    htmlFor="troop-skins-owned-copies-input"
+                    className="font-sans text-xs font-medium text-muted-foreground"
+                  >
+                    {isVi ? "Số lượng đang có" : "Owned"}
+                  </label>
+                  {ownedCopies > 0 ? (
+                    <span className="font-mono text-xs font-semibold text-sky-600 tabular-nums dark:text-sky-400">
+                      = {formatExactNumber(ownedCopies)}
+                    </span>
+                  ) : null}
+                </div>
+                <input
+                  id="troop-skins-owned-copies-input"
+                  data-testid="troop-skins-owned-copies-input"
+                  type="text"
+                  inputMode="decimal"
+                  placeholder={isVi ? "VD: 2, 7, 13" : "e.g. 2, 7, 13"}
+                  value={ownedCopiesText}
+                  onChange={(e) => setOwnedCopiesText(e.target.value)}
+                  className={cn(
+                    CALC_MD3.dataInput,
+                    "mt-1 w-full bg-muted/50 px-3 text-foreground focus:outline-none focus:ring-2 focus:ring-amber-500/40"
+                  )}
+                />
+              </div>
+
+              {/* Column 3: Missing / Sufficient */}
+              <div
+                className={cn(
+                  "flex flex-col justify-center rounded-xl px-3 py-2.5",
+                  isCopiesSufficient
+                    ? "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300"
+                    : "bg-amber-500/10 text-amber-800 dark:text-amber-300"
+                )}
+              >
+                <span className="font-sans text-xs font-medium">
+                  {isVi ? "Số lượng còn thiếu" : "Missing"}
+                </span>
+                <div
+                  data-testid="troop-skins-missing-copies-value"
+                  title={formatExactNumber(
+                    isCopiesSufficient
+                      ? result.copiesRemainingAfter
+                      : result.copiesShortfall
+                  )}
+                  className="mt-0.5"
+                >
+                  {isCopiesSufficient ? (
+                    <span className="font-sans text-sm font-bold">
+                      {isVi
+                        ? `Đủ nguyên liệu (+Dư ${formatCompactNumber(result.copiesRemainingAfter)})`
+                        : `Sufficient (+Surplus ${formatCompactNumber(result.copiesRemainingAfter)})`}
+                    </span>
+                  ) : (
+                    <span className="font-mono text-xl font-black tabular-nums">
+                      {formatCompactNumber(result.copiesShortfall)}
+                    </span>
+                  )}
+                </div>
+                {!isCopiesSufficient && result.copiesShortfall >= 1_000 ? (
+                  <span className="font-mono text-xs opacity-80 tabular-nums">
+                    {formatExactNumber(result.copiesShortfall)}
+                  </span>
+                ) : null}
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   );
