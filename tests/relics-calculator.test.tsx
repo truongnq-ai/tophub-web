@@ -140,6 +140,7 @@ describe("6.2 Bí Bảo — Suite 2: MD3 UI Component & Bilingual Purity Gate", 
         readSource("src/components/calculators/relics-calculator.tsx")
       )
     ).toBe(0);
+    expect(readSource("src/components/calculators/relics-calculator.tsx")).not.toMatch(/\bborder-[bt]\b|\bdivide-y\b/);
   });
 
   it("renders v2.0 4-Zone single-entity (×1) default (0★ ➔ 8★ = 330 Legendary Shards), opens Avatar Picker & Info Popover, and passes MD3 DOM gates", () => {

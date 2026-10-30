@@ -992,7 +992,7 @@ export function RelicsCalculator({
                   <div className="overflow-x-auto rounded-2xl bg-slate-50/90 p-2.5 ring-1 ring-slate-200/80 dark:bg-slate-800/60 dark:ring-slate-700/70">
                     <table className="w-full text-left font-sans text-xs">
                       <thead>
-                        <tr className="border-b border-border/60 text-muted-foreground">
+                        <tr className="bg-muted/40 text-muted-foreground dark:bg-muted/25">
                           <th className="py-2 pr-2 font-semibold">
                             {isVi ? "Cột Mốc" : "Milestone"}
                           </th>
@@ -1010,7 +1010,7 @@ export function RelicsCalculator({
                           </th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-border/40">
+                      <tbody>
                         {[5, 8, 10, 15, 20].map((starNum) => {
                           const leg =
                             RELIC_RARITY_TABLES.legendary.stars[starNum - 1];
@@ -1367,7 +1367,7 @@ export function RelicsCalculator({
                 "absolute top-full left-1/2 z-40 mt-2 w-[min(92vw,390px)] -translate-x-1/2 space-y-3 text-left"
               )}
             >
-              <div className="flex items-center justify-between gap-2 border-b border-border/60 pb-2">
+              <div className="flex items-center justify-between gap-2 rounded-xl bg-muted/40 px-3 py-2 dark:bg-muted/25">
                 <p className="font-sans text-xs font-bold text-foreground">
                   {pickerStep === "group"
                     ? isVi
@@ -1534,7 +1534,7 @@ export function RelicsCalculator({
             locale={locale}
             testIdPrefix="relics-to"
             extraFooter={
-              <div className="flex items-center justify-between gap-2 border-t border-border/50 pt-1.5 text-xs">
+              <div className="flex items-center justify-between gap-2 rounded-lg bg-background/60 px-2.5 py-1.5 text-xs">
                 <span className="font-sans text-muted-foreground">
                   {isVi ? "Tăng thêm so với hiện tại:" : "Net gain vs current:"}
                 </span>

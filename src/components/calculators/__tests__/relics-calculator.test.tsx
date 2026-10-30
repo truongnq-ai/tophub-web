@@ -192,6 +192,7 @@ describe("6.2 Bí Bảo — v2.0 4-Zone Architecture, 2-Step Avatar Picker, 0★
         readSource("src/components/calculators/relics-calculator.tsx")
       )
     ).toBe(0);
+    expect(readSource("src/components/calculators/relics-calculator.tsx")).not.toMatch(/\bborder-[bt]\b|\bdivide-y\b/);
 
     const { container } = renderCalculator("vi");
 
