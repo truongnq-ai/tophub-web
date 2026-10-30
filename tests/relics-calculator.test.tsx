@@ -142,19 +142,28 @@ describe("6.2 Bí Bảo — Suite 2: MD3 UI Component & Bilingual Purity Gate", 
     ).toBe(0);
   });
 
-  it("renders default 3-Relic Trio (8★ + 5★ + 5★ = 590 Legendary Shards & 18★ Queue Stars), switches to Single Mode, and passes MD3 DOM gates", () => {
+  it("renders v2.0 4-Zone single-entity (×1) default (0★ ➔ 8★ = 330 Legendary Shards), opens Avatar Picker & Info Popover, and passes MD3 DOM gates", () => {
     const { container } = renderCalculator("vi");
 
     expect(screen.getByTestId("calculator-tool-header")).toBeDefined();
+    expect(screen.getByTestId("relics-zone-current")).toBeDefined();
+    expect(screen.getByTestId("relics-zone-avatar")).toBeDefined();
+    expect(screen.getByTestId("relics-zone-target")).toBeDefined();
+    expect(screen.getByTestId("relics-resources-panel")).toBeDefined();
     expect(
-      screen.getByTestId("relics-total-legendary-shards").textContent
-    ).toBe("590");
+      screen.getByTestId("relics-required-shards").textContent
+    ).toBe("330");
+    expect(screen.queryByTestId("scope-trio-btn")).toBeNull();
+    expect(screen.queryByTestId("scope-single-btn")).toBeNull();
 
-    // Switch to Single Relic mode (0★ -> 8★ = 330 Legendary Shards)
-    fireEvent.click(screen.getByTestId("scope-single-btn"));
-    expect(screen.getByTestId("relics-single-required-shards").textContent).toBe(
-      "330"
-    );
+    // Open and close 2-step Avatar Picker
+    fireEvent.click(screen.getByTestId("relics-central-avatar-btn"));
+    expect(screen.getByTestId("relics-avatar-picker-popover")).toBeDefined();
+    fireEvent.click(screen.getByTestId("relics-group-epic_standard"));
+    fireEvent.click(screen.getByTestId("relics-slot-offense"));
+    expect(
+      screen.getByTestId("relics-required-shards").textContent
+    ).toBe("340");
 
     expect(getMaxBorderedContainerDepth(container)).toBeLessThanOrEqual(1);
     expect(findMicroTextElements(container)).toEqual([]);
@@ -164,8 +173,17 @@ describe("6.2 Bí Bảo — Suite 2: MD3 UI Component & Bilingual Purity Gate", 
   it("renders 100% pure English without any Vietnamese diacritics when locale='en'", () => {
     const { container } = renderCalculator("en");
 
-    fireEvent.click(screen.getByTestId("scope-single-btn"));
-    fireEvent.click(screen.getByTestId("scope-trio-btn"));
+    fireEvent.click(screen.getByTestId("relics-central-avatar-btn"));
+    expect(screen.getByTestId("relics-avatar-picker-popover")).toBeDefined();
+    expect(container.textContent ?? "").not.toMatch(VI_DIACRITIC_REGEX);
+
+    fireEvent.click(screen.getByTestId("relics-group-legendary_horde"));
+    expect(container.textContent ?? "").not.toMatch(VI_DIACRITIC_REGEX);
+
+    fireEvent.click(screen.getByTestId("relics-slot-defense"));
+
+    fireEvent.click(screen.getByTestId("relics-info-trigger"));
+    expect(screen.getByTestId("relics-info-dialog")).toBeDefined();
 
     expect(getMaxBorderedContainerDepth(container)).toBeLessThanOrEqual(1);
     expect(findMicroTextElements(container)).toEqual([]);
