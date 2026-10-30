@@ -1,6 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import {
@@ -59,6 +59,9 @@ export default function CalculatorToolPage({
   params: { locale, category, slug },
 }: CalculatorToolPageProps) {
   setRequestLocale(locale);
+  if (category === "castle-tech" && slug === "main-castle") {
+    redirect(`/${locale}/calculators/castle-tech/construction`);
+  }
 
   const resolved = getCalculatorToolBySlug(category, slug);
   if (!resolved) {

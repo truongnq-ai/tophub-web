@@ -1276,7 +1276,7 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
         tools: [
           {
             code: "8.1",
-            slug: "main-castle",
+            slug: "construction",
             categorySlug: "castle-tech",
             phaseNumber: 8,
             title: {
@@ -1563,7 +1563,8 @@ export function getCalculatorToolBySlug(
   for (const zone of CALCULATOR_ZONES) {
     for (const category of zone.categories) {
       if (category.slug !== categorySlug) continue;
-      const tool = category.tools.find((item) => item.slug === toolSlug);
+      const normalizedSlug = toolSlug === "main-castle" ? "construction" : toolSlug;
+      const tool = category.tools.find((item) => item.slug === normalizedSlug);
       if (tool) {
         return { zone, category, tool };
       }
@@ -1581,7 +1582,7 @@ export function getAdjacentCalculatorTools(
 } {
   const allTools = getAllCalculatorTools();
   const currentIndex = allTools.findIndex(
-    (item) => item.categorySlug === categorySlug && item.slug === toolSlug
+    (item) => item.categorySlug === categorySlug && item.slug === (toolSlug === "main-castle" ? "construction" : toolSlug)
   );
   if (currentIndex === -1) {
     return { prev: null, next: null };

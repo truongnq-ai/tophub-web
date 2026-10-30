@@ -53,13 +53,6 @@ export interface ConstructionGlobalBuffs {
   readonly costReductionPct: number;
 }
 
-export interface ConstructionWarehouseState {
-  readonly timber: number | null;
-  readonly stone: number | null;
-  readonly ruby: number | null;
-  readonly dragonEssence: number | null;
-}
-
 export interface ConstructionQueueState {
   readonly queueId: string;
   readonly buildingId: number;
@@ -98,9 +91,6 @@ export interface ConstructionQueueResourceStatus {
   readonly icon: string;
   readonly baseRequired: number;
   readonly required: number;
-  readonly owned: number | null;
-  readonly isSufficient: boolean | null;
-  readonly deficit: number;
 }
 
 export interface ConstructionQueuePlan {
@@ -128,7 +118,6 @@ export interface ConstructionGlobalSummary {
   readonly queueCount: number;
   readonly totalDeltaFightforce: number;
   readonly totalDiscountedCosts: ConstructionResourceBreakdown;
-  readonly totalDeficits: ConstructionResourceBreakdown;
   readonly parallelTimeSeconds: number;
   readonly totalSpeedupTimeSeconds: number;
   readonly totalBaseTimeSeconds: number;
@@ -180,13 +169,6 @@ export const DEFAULT_CONSTRUCTION_GLOBAL_BUFFS: ConstructionGlobalBuffs = {
   privilegeMinutes: 10,
   speedBonusPct: 117,
   costReductionPct: 5,
-};
-
-export const DEFAULT_CONSTRUCTION_WAREHOUSE: ConstructionWarehouseState = {
-  timber: 25_600_000,
-  stone: 24_400_000,
-  ruby: 797,
-  dragonEssence: 1_200,
 };
 
 export const DEFAULT_CONSTRUCTION_QUEUES: readonly ConstructionQueueState[] = [
@@ -667,8 +649,7 @@ export function formatBuildingLevelBadge(level: number, locale: "vi" | "en"): st
 
 export function computeQueueUpgradePlan(
   queue: ConstructionQueueState,
-  buffs: ConstructionGlobalBuffs,
-  warehouse: ConstructionWarehouseState
+  buffs: ConstructionGlobalBuffs
 ): ConstructionQueuePlan {
   const building = getBuildingById(queue.buildingId);
   const clampedFrom = Math.max(1, Math.min(building.maxLevel - 1, Math.floor(queue.fromLevel)));
@@ -823,18 +804,12 @@ export function computeQueueUpgradePlan(
     .map((key) => {
       const metaRes = CONSTRUCTION_RESOURCE_META[key];
       const req = discountedCosts[key];
-      const owned = warehouse[key];
-      const isSufficient = owned === null ? null : owned >= req;
-      const deficit = owned === null ? req : Math.max(0, req - owned);
       return {
         key,
         label: metaRes.label,
         icon: metaRes.icon,
         baseRequired: baseCosts[key],
         required: req,
-        owned,
-        isSufficient,
-        deficit,
       };
     });
 
@@ -863,8 +838,7 @@ export function computeQueueUpgradePlan(
 }
 
 export function aggregateConstructionQueues(
-  plans: readonly ConstructionQueuePlan[],
-  warehouse: ConstructionWarehouseState
+  plans: readonly ConstructionQueuePlan[]
 ): ConstructionGlobalSummary {
   let totalDeltaFightforce = 0;
   let timber = 0;
@@ -894,15 +868,6 @@ export function aggregateConstructionQueues(
     queueCount: plans.length,
     totalDeltaFightforce,
     totalDiscountedCosts: { timber, stone, ruby, dragonEssence },
-    totalDeficits: {
-      timber: warehouse.timber === null ? timber : Math.max(0, timber - warehouse.timber),
-      stone: warehouse.stone === null ? stone : Math.max(0, stone - warehouse.stone),
-      ruby: warehouse.ruby === null ? ruby : Math.max(0, ruby - warehouse.ruby),
-      dragonEssence:
-        warehouse.dragonEssence === null
-          ? dragonEssence
-          : Math.max(0, dragonEssence - warehouse.dragonEssence),
-    },
     parallelTimeSeconds,
     totalSpeedupTimeSeconds,
     totalBaseTimeSeconds,

@@ -11,10 +11,8 @@ import {
   Plus,
   RotateCcw,
   Search,
-  ShieldAlert,
   Sparkles,
   TrendingUp,
-  Warehouse,
   X,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -30,7 +28,6 @@ import {
   CONSTRUCTION_RESOURCE_META,
   DEFAULT_CONSTRUCTION_GLOBAL_BUFFS,
   DEFAULT_CONSTRUCTION_QUEUES,
-  DEFAULT_CONSTRUCTION_WAREHOUSE,
   DIAMOND_ICON_PATH,
   PRESET_EXTRA_QUEUE_BUILDINGS,
   aggregateConstructionQueues,
@@ -42,8 +39,6 @@ import {
   type ConstructionBuildingGroupKey,
   type ConstructionGlobalBuffs,
   type ConstructionQueueState,
-  type ConstructionResourceBreakdown,
-  type ConstructionWarehouseState,
 } from "@/content/calculators/construction-data";
 import {
   CALC_MD3,
@@ -64,23 +59,6 @@ export interface ConstructionCalculatorProps {
 const MIN_QUEUES = 1;
 const MAX_QUEUES = 6;
 
-function parseShorthandResourceInput(raw: string): number | null {
-  const cleaned = raw.trim().replace(/,/g, "").toLowerCase();
-  if (!cleaned) return null;
-  const match = cleaned.match(/^(\d+(?:\.\d+)?)\s*([kmb])?$/i);
-  if (!match) {
-    const fallback = Number(cleaned);
-    return Number.isFinite(fallback) && fallback >= 0 ? Math.floor(fallback) : null;
-  }
-  const num = Number(match[1]);
-  if (!Number.isFinite(num) || num < 0) return null;
-  const suffix = match[2]?.toLowerCase();
-  if (suffix === "b") return Math.floor(num * 1_000_000_000);
-  if (suffix === "m") return Math.floor(num * 1_000_000);
-  if (suffix === "k") return Math.floor(num * 1_000);
-  return Math.floor(num);
-}
-
 export function ConstructionCalculator({
   tool,
   locale = "vi",
@@ -90,18 +68,6 @@ export function ConstructionCalculator({
   const [buffs, setBuffs] = React.useState<ConstructionGlobalBuffs>(
     DEFAULT_CONSTRUCTION_GLOBAL_BUFFS
   );
-  const [warehouse, setWarehouse] = React.useState<ConstructionWarehouseState>(
-    DEFAULT_CONSTRUCTION_WAREHOUSE
-  );
-  const [warehouseInputs, setWarehouseInputs] = React.useState<
-    Record<keyof ConstructionResourceBreakdown, string>
-  >({
-    timber: "25.6M",
-    ruby: "797",
-    stone: "24.4M",
-    dragonEssence: "1200",
-  });
-  const [showWarehousePanel, setShowWarehousePanel] = React.useState<boolean>(true);
   const [queues, setQueues] = React.useState<readonly ConstructionQueueState[]>(
     DEFAULT_CONSTRUCTION_QUEUES
   );
@@ -116,50 +82,19 @@ export function ConstructionCalculator({
   const [pickerSearch, setPickerSearch] = React.useState<string>("");
 
   const queuePlans = React.useMemo(
-    () => queues.map((q) => computeQueueUpgradePlan(q, buffs, warehouse)),
-    [queues, buffs, warehouse]
+    () => queues.map((q) => computeQueueUpgradePlan(q, buffs)),
+    [queues, buffs]
   );
 
   const globalSummary = React.useMemo(
-    () => aggregateConstructionQueues(queuePlans, warehouse),
-    [queuePlans, warehouse]
+    () => aggregateConstructionQueues(queuePlans),
+    [queuePlans]
   );
 
   const handleResetAll = (): void => {
     setBuffs(DEFAULT_CONSTRUCTION_GLOBAL_BUFFS);
-    setWarehouse(DEFAULT_CONSTRUCTION_WAREHOUSE);
-    setWarehouseInputs({
-      timber: "25.6M",
-      ruby: "797",
-      stone: "24.4M",
-      dragonEssence: "1200",
-    });
     setQueues(DEFAULT_CONSTRUCTION_QUEUES);
     setActivePickerQueueId(null);
-  };
-
-  const handleClearWarehouse = (): void => {
-    setWarehouse({
-      timber: null,
-      ruby: null,
-      stone: null,
-      dragonEssence: null,
-    });
-    setWarehouseInputs({
-      timber: "",
-      ruby: "",
-      stone: "",
-      dragonEssence: "",
-    });
-  };
-
-  const handleWarehouseInputChange = (
-    key: keyof ConstructionResourceBreakdown,
-    rawVal: string
-  ): void => {
-    setWarehouseInputs((prev) => ({ ...prev, [key]: rawVal }));
-    const parsed = parseShorthandResourceInput(rawVal);
-    setWarehouse((prev) => ({ ...prev, [key]: parsed }));
   };
 
   const handleAddQueue = (): void => {
@@ -352,7 +287,7 @@ export function ConstructionCalculator({
         }
       />
 
-      {/* Section 1: Global Time Buffs (Popup i) & Warehouse Inventory */}
+      {/* Section 1: Global Time Buffs (Popup i) */}
       <section
         data-testid="construction-global-buffs-card"
         className={cn(CALC_MD3.surfaceCard, "space-y-4")}
@@ -375,28 +310,6 @@ export function ConstructionCalculator({
               </p>
             </div>
           </div>
-
-          <button
-            type="button"
-            onClick={() => setShowWarehousePanel((prev) => !prev)}
-            className={cn(
-              CALC_MD3.chipButton,
-              showWarehousePanel
-                ? "bg-amber-500/15 text-amber-700 dark:text-amber-300"
-                : "bg-muted/60 text-muted-foreground hover:text-foreground"
-            )}
-          >
-            <Warehouse className="h-4 w-4" aria-hidden="true" />
-            <span>
-              {showWarehousePanel
-                ? isVi
-                  ? "Ẩn Kho Tài Nguyên"
-                  : "Hide Warehouse Stock"
-                : isVi
-                ? "Nhập Kho Tài Nguyên"
-                : "Enter Warehouse Stock"}
-            </span>
-          </button>
         </div>
 
         {/* 4 Global Buff Controls */}
@@ -667,77 +580,6 @@ export function ConstructionCalculator({
             </div>
           </div>
         </div>
-
-        {/* Collapsible Warehouse Inventory Bar */}
-        {showWarehousePanel ? (
-          <div
-            className={cn(
-              CALC_MD3.tonalGroup,
-              "space-y-3 bg-amber-500/5 dark:bg-amber-500/5 ring-1 ring-amber-500/20"
-            )}
-          >
-            <div className="flex flex-wrap items-center justify-between gap-2">
-              <div className="flex items-center gap-2">
-                <Warehouse
-                  className="h-4 w-4 text-amber-600 dark:text-amber-400"
-                  aria-hidden="true"
-                />
-                <span className="text-xs font-sans font-bold text-foreground">
-                  {isVi
-                    ? "Kho tài nguyên hiện có (Tự động đối chiếu Báo Đỏ / Tích Xanh ✔ ở Cột 3)"
-                    : "Current Warehouse Stock (Auto-highlights Red Deficit / Green Checkmark ✔ in Column 3)"}
-                </span>
-              </div>
-              <button
-                type="button"
-                onClick={handleClearWarehouse}
-                className="inline-flex min-h-[44px] items-center rounded-xl px-3 text-xs font-sans font-semibold text-muted-foreground hover:bg-muted/60 hover:text-foreground cursor-pointer"
-              >
-                {isVi ? "Xóa trống kho" : "Clear Stock"}
-              </button>
-            </div>
-
-            <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-4">
-              {(
-                [
-                  "timber",
-                  "ruby",
-                  "stone",
-                  "dragonEssence",
-                ] as (keyof ConstructionResourceBreakdown)[]
-              ).map((resKey) => {
-                const metaRes = CONSTRUCTION_RESOURCE_META[resKey];
-                return (
-                  <label
-                    key={resKey}
-                    className="flex items-center gap-2.5 rounded-xl bg-card px-3 py-1.5 min-h-[44px] ring-1 ring-slate-200/80 dark:ring-slate-700/70"
-                  >
-                    <img
-                      src={metaRes.icon}
-                      alt={metaRes.label[locale]}
-                      width={28}
-                      height={28}
-                      className="h-7 w-7 shrink-0 object-contain"
-                    />
-                    <span className="text-xs font-sans font-bold text-foreground shrink-0">
-                      {metaRes.label[locale]}:
-                    </span>
-                    <input
-                      type="text"
-                      value={warehouseInputs[resKey]}
-                      placeholder={isVi ? "VD: 25.6M" : "e.g. 25.6M"}
-                      aria-label={metaRes.label[locale]}
-                      onChange={(e) =>
-                        handleWarehouseInputChange(resKey, e.target.value)
-                      }
-                      className="w-full min-w-0 bg-transparent text-right font-mono text-base font-bold text-foreground focus:outline-none"
-                    />
-                  </label>
-                );
-              })}
-            </div>
-          </div>
-        ) : null}
       </section>
 
       {/* Section 2: Queue Count Control Bar */}
@@ -1089,78 +931,36 @@ export function ConstructionCalculator({
                     )}
 
                     {/* Resource Rows (Timber, Ruby, Stone, Dragon Essence) */}
-                    {plan.resourceStatuses.map((res) => {
-                      const hasOwned = res.owned !== null;
-                      const isLack = hasOwned && res.isSufficient === false;
-                      return (
-                        <div
-                          key={res.key}
-                          className="flex items-center justify-between gap-2 py-2.5"
-                        >
-                          <div className="flex min-w-0 items-center gap-2">
-                            <img
-                              src={res.icon}
-                              alt={res.label[locale]}
-                              width={28}
-                              height={28}
-                              className="h-7 w-7 shrink-0 object-contain"
-                            />
-                            <div className="min-w-0">
-                              <div className="flex flex-wrap items-baseline gap-1 font-mono text-sm font-black tabular-nums">
-                                {hasOwned ? (
-                                  <>
-                                    <span
-                                      className={cn(
-                                        isLack
-                                          ? "text-red-600 dark:text-red-400"
-                                          : "text-amber-900 dark:text-amber-200"
-                                      )}
-                                    >
-                                      {formatGameResourceCompact(res.owned ?? 0)}
-                                    </span>
-                                    <span className="text-muted-foreground">/</span>
-                                  </>
-                                ) : null}
-                                <span className="text-foreground">
-                                  {formatGameResourceCompact(res.required)}
-                                </span>
-                              </div>
-                              <div className="text-xs font-sans text-muted-foreground">
-                                {res.label[locale]}
-                              </div>
-                            </div>
-                          </div>
+                    {plan.resourceStatuses.map((res) => (
+                      <div
+                        key={res.key}
+                        className="flex items-center justify-between gap-2 py-2.5"
+                      >
+                        <div className="flex min-w-0 items-center gap-2">
+                          <img
+                            src={res.icon}
+                            alt={res.label[locale]}
+                            width={28}
+                            height={28}
+                            className="h-7 w-7 shrink-0 object-contain"
+                          />
+                          <span className="text-xs sm:text-sm font-sans font-bold text-foreground">
+                            {res.label[locale]}
+                          </span>
+                        </div>
 
-                          {/* Right status: Red "Bổ sung" badge or Green Checkmark ✔ */}
-                          {hasOwned ? (
-                            isLack ? (
-                              <span className="inline-flex items-center gap-1 rounded-lg bg-sky-500/15 px-2.5 py-1 text-xs font-sans font-bold text-sky-700 dark:text-sky-300">
-                                <ShieldAlert
-                                  className="h-3.5 w-3.5 shrink-0 text-red-500"
-                                  aria-hidden="true"
-                                />
-                                <span>
-                                  {isVi ? "Thiếu" : "Short"}{" "}
-                                  <span className="font-mono">
-                                    {formatGameResourceCompact(res.deficit)}
-                                  </span>
-                                </span>
-                              </span>
-                            ) : (
-                              <span
-                                title={isVi ? "Đủ tài nguyên" : "Sufficient stock"}
-                                className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400"
-                              >
-                                <CheckCircle2
-                                  className="h-5 w-5"
-                                  aria-hidden="true"
-                                />
-                              </span>
-                            )
+                        <div className="text-right">
+                          <div className="font-mono text-sm sm:text-base font-black tabular-nums text-amber-900 dark:text-amber-200">
+                            {formatGameResourceCompact(res.required)}
+                          </div>
+                          {res.required >= 10_000 ? (
+                            <div className="font-mono text-xs tabular-nums text-muted-foreground">
+                              {res.required.toLocaleString("en-US")}
+                            </div>
                           ) : null}
                         </div>
-                      );
-                    })}
+                      </div>
+                    ))}
                   </div>
                 </div>
 
@@ -1314,7 +1114,6 @@ export function ConstructionCalculator({
             {(["timber", "stone"] as const).map((key) => {
               const metaRes = CONSTRUCTION_RESOURCE_META[key];
               const totalReq = globalSummary.totalDiscountedCosts[key];
-              const deficit = globalSummary.totalDeficits[key];
               return (
                 <div
                   key={key}
@@ -1336,14 +1135,6 @@ export function ConstructionCalculator({
                     <span className="font-mono font-black tabular-nums text-foreground">
                       {formatGameResourceCompact(totalReq)}
                     </span>
-                    {warehouse[key] !== null && deficit > 0 ? (
-                      <div className="text-xs font-sans text-red-500">
-                        {isVi ? "Thiếu" : "Short"}{" "}
-                        <span className="font-mono">
-                          {formatGameResourceCompact(deficit)}
-                        </span>
-                      </div>
-                    ) : null}
                   </div>
                 </div>
               );
@@ -1363,7 +1154,6 @@ export function ConstructionCalculator({
             {(["ruby", "dragonEssence"] as const).map((key) => {
               const metaRes = CONSTRUCTION_RESOURCE_META[key];
               const totalReq = globalSummary.totalDiscountedCosts[key];
-              const deficit = globalSummary.totalDeficits[key];
               return (
                 <div
                   key={key}
@@ -1385,14 +1175,6 @@ export function ConstructionCalculator({
                     <span className="font-mono font-black tabular-nums text-foreground">
                       {formatGameResourceCompact(totalReq)}
                     </span>
-                    {warehouse[key] !== null && deficit > 0 ? (
-                      <div className="text-xs font-sans text-red-500">
-                        {isVi ? "Thiếu" : "Short"}{" "}
-                        <span className="font-mono">
-                          {formatGameResourceCompact(deficit)}
-                        </span>
-                      </div>
-                    ) : null}
                   </div>
                 </div>
               );
@@ -1601,21 +1383,22 @@ export function ConstructionCalculator({
                     <img
                       src={b.icon}
                       alt={b.name[locale]}
-                      width={48}
-                      height={48}
-                      className="h-12 w-12 shrink-0 object-contain"
+                      width={44}
+                      height={44}
+                      className="h-11 w-11 shrink-0 object-contain"
                     />
                     <div className="min-w-0 flex-1">
-                      <div className="text-sm font-heading font-bold text-foreground truncate">
+                      <div className="truncate text-sm font-heading font-bold text-foreground">
                         {b.name[locale]}
                       </div>
                       <div className="mt-0.5 flex items-center gap-1.5 text-xs font-sans text-muted-foreground">
-                        <span>Max Lv.{b.maxLevel}</span>
-                        {b.maxLevel > 40 ? (
-                          <span className="rounded bg-amber-500/15 px-1.5 py-0.2 text-amber-600 dark:text-amber-300 font-semibold">
-                            {isVi ? "Huy Hoàng" : "Brilliance"}
-                          </span>
-                        ) : null}
+                        <span className="font-mono font-bold text-amber-600 dark:text-amber-400">
+                          Max Lv.{b.maxLevel}
+                        </span>
+                        <span>•</span>
+                        <span className="truncate">
+                          {CONSTRUCTION_GROUP_META[b.group].badge[locale]}
+                        </span>
                       </div>
                     </div>
                   </button>

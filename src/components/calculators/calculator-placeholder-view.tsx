@@ -229,7 +229,7 @@ export function CalculatorPlaceholderView({
             tool={tool}
             locale={locale}
           />
-        ) : tool.slug === "main-castle" ? (
+        ) : tool.slug === "construction" || tool.slug === "main-castle" ? (
           <ConstructionCalculator
             zone={zone}
             category={category}
