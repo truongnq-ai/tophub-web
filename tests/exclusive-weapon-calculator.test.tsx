@@ -17,8 +17,12 @@ import {
 } from "../src/content/calculators/exclusive-weapon-data";
 import { getCalculatorToolBySlug } from "../src/content/calculators/registry";
 import {
+  VI_DIACRITIC_REGEX,
+  countMicroTextOccurrences,
+  findMicroTextElements,
   findMonoElementsWithVietnamese,
   getMaxBorderedContainerDepth,
+  readSource,
 } from "./utils/md3-audit";
 
 describe("4.3 Vũ Khí Độc Quyền — Suite 1: Quantitative SSoT Engine (Lv.0➔20 Shards & 0★➔5★ Meteoric Iron Cores)", () => {
@@ -67,7 +71,7 @@ describe("4.3 Vũ Khí Độc Quyền — Suite 1: Quantitative SSoT Engine (Lv.
     expect(clampExclusiveStarStep(99)).toBe(25);
   });
 
-  it("calculates exact Shards and Meteoric Iron Cores for 1 hero and 6 heroes (Queue 1), plus next milestone distance", () => {
+  it("calculates exact Shards and Meteoric Iron Cores for 1 hero (×1 default), plus next milestone distance", () => {
     const oneHeroMax = calculateExclusiveWeapon({
       fromLevel: 0,
       toLevel: 20,
@@ -85,20 +89,6 @@ describe("4.3 Vũ Khí Độc Quyền — Suite 1: Quantitative SSoT Engine (Lv.
     expect(oneHeroMax.missingShards).toBe(1_000);
     expect(oneHeroMax.missingCores).toBe(800);
     expect(oneHeroMax.shardsToNextMilestone).toBe(0);
-
-    // 6 Heroes (Full Queue 1)
-    const queue6Max = calculateExclusiveWeapon({
-      fromLevel: 0,
-      toLevel: 20,
-      fromStarStep: 0,
-      toStarStep: 25,
-      heroCount: 6,
-      coreProfile: "guide_cumulative_920",
-      selectedHeroId: "tidecaller",
-    });
-
-    expect(queue6Max.requiredShards).toBe(7_110);
-    expect(queue6Max.requiredCores).toBe(5_520);
 
     // Mid-progression Lv.1 -> Lv.10 (275 - 5 = 270 Shards; next milestone Lv.15 = 605 - 275 = 330 Shards)
     const midHero = calculateExclusiveWeapon({
@@ -118,7 +108,6 @@ describe("4.3 Vũ Khí Độc Quyền — Suite 1: Quantitative SSoT Engine (Lv.
   });
 
   it("validates Level range and Star range independently so Level-only or Star-only audits work cleanly", () => {
-    // Level-only upgrade (0★ -> 0★)
     const levelOnly = calculateExclusiveWeapon({
       fromLevel: 0,
       toLevel: 10,
@@ -133,7 +122,6 @@ describe("4.3 Vũ Khí Độc Quyền — Suite 1: Quantitative SSoT Engine (Lv.
     expect(levelOnly.requiredCores).toBe(0);
     expect(levelOnly.coreCompletionPercent).toBe(100);
 
-    // Invalid Level range (15 -> 10) does NOT zero out valid Star range (0 -> 5)
     const invalidLevelValidStar = calculateExclusiveWeapon({
       fromLevel: 15,
       toLevel: 10,
@@ -149,54 +137,73 @@ describe("4.3 Vũ Khí Độc Quyền — Suite 1: Quantitative SSoT Engine (Lv.
   });
 });
 
-describe("4.3 Vũ Khí Độc Quyền — Suite 2: MD3 UI Component, Hero Codex Hub & Bilingual Purity", () => {
+describe("4.3 Vũ Khí Độc Quyền — Suite 2: v2.0 4-Zone Architecture, 2-Step Avatar Picker, 4 Gold + 1 Red Star & Info Popover", () => {
   const resolved = getCalculatorToolBySlug("hero-gear", "exclusive-weapon")!;
   const tool = resolved.tool;
 
-  it("renders default 1 Hero Lv.0 ➔ Lv.20 (1,185 Shards) and 0★ ➔ 5★ (920 Meteoric Iron Cores)", () => {
+  it("renders default 1 Hero Lv.0 ➔ Lv.20 (1.19K / 1,185 Shards) and 0★ ➔ 5★ (920 Meteoric Iron Cores) across 4 v2.0 zones", () => {
     render(<ExclusiveWeaponCalculator tool={tool} locale="vi" />);
 
     expect(
       screen.getByRole("heading", { level: 1, name: /Vũ Khí Độc Quyền/i })
     ).toBeDefined();
 
-    expect(screen.getAllByText("1,185").length).toBeGreaterThan(0);
-    expect(screen.getAllByText("920").length).toBeGreaterThan(0);
+    expect(screen.getByTestId("ew-zone-current")).toBeDefined();
+    expect(screen.getByTestId("ew-zone-avatar")).toBeDefined();
+    expect(screen.getByTestId("ew-zone-target")).toBeDefined();
+    expect(screen.getByTestId("exclusive-weapon-kpi-card")).toBeDefined();
+
+    expect(screen.getByTestId("ew-total-shards").textContent).toBe("1.19K");
+    expect(screen.getByTestId("ew-total-shards").getAttribute("title")).toBe(
+      "1,185"
+    );
+    expect(screen.getByTestId("ew-total-cores").textContent).toBe("920");
   });
 
-  it("switches Hero multiplier (1 ➔ 6 heroes), toggles Core SSoT profile (920 ➔ 2,385), and selects Hero Exclusive Weapon from Codex", () => {
+  it("toggles Core SSoT profile (920 ➔ 2,385) and selects Hero Exclusive Weapon via the 2-step Central Avatar Popover", () => {
     render(<ExclusiveWeaponCalculator tool={tool} locale="vi" />);
 
     // Switch to Raw Subtier profile (2,385 Cores per hero)
     const rawProfileBtn = screen.getByTestId("core-profile-raw_subtier_2385");
     fireEvent.click(rawProfileBtn);
-    expect(screen.getAllByText("2,385").length).toBeGreaterThan(0);
-
-    // Switch back to Guide Cumulative 920 and select 6 Heroes (7,110 Shards & 5,520 Cores)
-    const guideProfileBtn = screen.getByTestId(
-      "core-profile-guide_cumulative_920"
+    expect(screen.getByTestId("ew-total-cores").textContent).toBe("2.38K");
+    expect(screen.getByTestId("ew-total-cores").getAttribute("title")).toBe(
+      "2,385"
     );
-    fireEvent.click(guideProfileBtn);
 
-    const squad6Btn = screen.getByTestId("hero-preset-6");
-    fireEvent.click(squad6Btn);
-    expect(screen.getAllByText("7,110").length).toBeGreaterThan(0);
-    expect(screen.getAllByText("5,520").length).toBeGreaterThan(0);
+    // Open 2-step Central Avatar Picker -> Step 1: Nature -> Step 2: Tidecaller
+    fireEvent.click(screen.getByTestId("ew-central-avatar-btn"));
+    expect(screen.getByTestId("ew-avatar-picker-popover")).toBeDefined();
 
-    // Filter Faction: Nature -> Tidecaller (Coral Fork)
-    const natureBtn = screen.getByTestId("ew-faction-nature");
-    fireEvent.click(natureBtn);
-    const tidecallerBtn = screen.getByTestId("ew-hero-tidecaller");
-    fireEvent.click(tidecallerBtn);
-    expect(screen.getAllByText(/Đinh Ba San Hô|Coral Fork/i).length).toBeGreaterThan(0);
+    fireEvent.click(screen.getByTestId("ew-faction-nature"));
+    fireEvent.click(screen.getByTestId("ew-hero-tidecaller"));
+
+    expect(screen.queryByTestId("ew-avatar-picker-popover")).toBeNull();
+    expect(
+      screen.getAllByText(/Đinh Ba San Hô|Coral Fork/i).length
+    ).toBeGreaterThan(0);
   });
 
-  it("enforces MD3 single-border containment (max depth <= 1) and zero Vietnamese inside font-mono", () => {
+  it("enforces MD3 single-border containment (max depth <= 1), zero sub-12px micro-text, and zero Vietnamese inside font-mono", () => {
+    expect(
+      countMicroTextOccurrences(
+        readSource("src/components/calculators/exclusive-weapon-calculator.tsx")
+      )
+    ).toBe(0);
+    expect(
+      countMicroTextOccurrences(
+        readSource(
+          "src/components/calculators/exclusive-weapon-step-selector.tsx"
+        )
+      )
+    ).toBe(0);
+
     const { container } = render(
       <ExclusiveWeaponCalculator tool={tool} locale="vi" />
     );
 
     expect(getMaxBorderedContainerDepth(container)).toBeLessThanOrEqual(1);
+    expect(findMicroTextElements(container)).toEqual([]);
     expect(findMonoElementsWithVietnamese(container)).toEqual([]);
   });
 
@@ -205,14 +212,14 @@ describe("4.3 Vũ Khí Độc Quyền — Suite 2: MD3 UI Component, Hero Codex 
       <ExclusiveWeaponCalculator tool={tool} locale="en" />
     );
 
+    fireEvent.click(screen.getByTestId("ew-central-avatar-btn"));
+    fireEvent.click(screen.getByTestId("ew-info-trigger"));
+
     const text = container.textContent ?? "";
     expect(text).toContain("Universal Exclusive Gear Shard");
     expect(text).toContain("Meteoric Iron Core");
     expect(text).toContain("Wings of Judgement");
-
-    const vnDiacriticsRegex =
-      /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ]/;
-    expect(vnDiacriticsRegex.test(text)).toBe(false);
+    expect(VI_DIACRITIC_REGEX.test(text)).toBe(false);
   });
 
   it("marks all 3 Phase 4 Hero Gear calculators (4.1, 4.2, 4.3) as status='ready' in registry.ts", () => {

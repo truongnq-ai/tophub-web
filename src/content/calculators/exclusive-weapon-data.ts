@@ -66,7 +66,7 @@ export interface ExclusiveWeaponCalculationInput {
   readonly toLevel: number;
   readonly fromStarStep: number;
   readonly toStarStep: number;
-  readonly heroCount: number;
+  readonly heroCount?: number;
   readonly coreProfile?: ExclusiveCoreProfile;
   readonly selectedHeroId?: string;
   readonly ownedShards?: number;
