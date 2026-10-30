@@ -621,7 +621,7 @@ export function TroopSkinsCalculator({
                 "absolute top-full left-1/2 z-40 mt-2 w-[min(92vw,380px)] -translate-x-1/2 space-y-3 text-left"
               )}
             >
-              <div className="flex items-center justify-between gap-2 border-b border-border/60 pb-2">
+              <div className="flex items-center justify-between gap-2 rounded-xl bg-muted/40 px-3 py-2 dark:bg-muted/25">
                 <p className="font-sans text-xs font-bold text-foreground">
                   {pickerStep === "rarity"
                     ? isVi

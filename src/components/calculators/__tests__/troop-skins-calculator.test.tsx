@@ -211,17 +211,18 @@ describe("3.1 Quân Trang — v2.0 4-Zone Architecture, 2-Step Avatar Picker, Ra
     expect(screen.queryByTestId("troop-skins-info-dialog")).toBeNull();
   });
 
-  it("enforces MD3 single-border containment (max depth <= 1), zero sub-12px micro-text, and zero Vietnamese in font-mono", () => {
-    expect(
-      countMicroTextOccurrences(
-        readSource("src/components/calculators/troop-skins-calculator.tsx")
-      )
-    ).toBe(0);
-    expect(
-      countMicroTextOccurrences(
-        readSource("src/components/calculators/troop-skins-selector.tsx")
-      )
-    ).toBe(0);
+  it("enforces MD3 single-border containment (max depth <= 1), No-Line rule (zero border-b / border-t / divide-y), zero sub-12px micro-text, and zero Vietnamese in font-mono", () => {
+    const calcSource = readSource(
+      "src/components/calculators/troop-skins-calculator.tsx"
+    );
+    const selectorSource = readSource(
+      "src/components/calculators/troop-skins-selector.tsx"
+    );
+
+    expect(countMicroTextOccurrences(calcSource)).toBe(0);
+    expect(countMicroTextOccurrences(selectorSource)).toBe(0);
+    expect(calcSource).not.toMatch(/\bborder-[bt]\b|\bdivide-y\b/);
+    expect(selectorSource).not.toMatch(/\bborder-[bt]\b|\bdivide-y\b/);
 
     const { container } = render(
       <TroopSkinsCalculator
