@@ -14,9 +14,11 @@ import {
   ShieldAlert,
 } from "lucide-react";
 import {
-  DIAMOND_COST_SLOT_4_UNLOCK,
+  DIAMOND_COST_BY_SLOT,
   DIAMOND_COST_TRAIT_SWAP,
+  TOTAL_DIAMOND_UNLOCK_ALL_SLOTS,
   TRAIT_RARITY_CONFIGS,
+  applyTraitSlotLevelChange,
   calculateHeroTraitsUpgrade,
   getTraitHeroesByRarity,
   type TraitLevelsTuple,
@@ -59,13 +61,13 @@ export function HeroTraitsCalculator({
   tool,
   locale,
 }: HeroTraitsCalculatorProps) {
-  // Mặc định hiển thị Đấu Sĩ (Brawler - Epic) với Phễu Kinh Tế chuẩn: 0/0/0/0 -> 15/0/30/0 (450 Mảnh Tím, 0 Kim Cương)
+  // Mặc định hiển thị Đấu Sĩ (Brawler - Epic) với mốc Max Ô 3 chuẩn quy tắc 5 cấp/lượt: 0/0/0/0 -> 25/25/30/25 (1,050 Mảnh Tím, 3,700 Kim Cương)
   const [rarity, setRarity] = useState<HeroStarRarity>("epic");
   const [selectedHeroId, setSelectedHeroId] = useState<string>(
     TRAIT_RARITY_CONFIGS.epic.defaultHeroId
   );
   const [fromLevels, setFromLevels] = useState<TraitLevelsTuple>([0, 0, 0, 0]);
-  const [toLevels, setToLevels] = useState<TraitLevelsTuple>([15, 0, 30, 0]);
+  const [toLevels, setToLevels] = useState<TraitLevelsTuple>([25, 25, 30, 25]);
   const [ownedShardsInput, setOwnedShardsInput] = useState<string>("0");
   const [ownedDiamondsInput, setOwnedDiamondsInput] = useState<string>("0");
   const [includeTraitSwap, setIncludeTraitSwap] = useState<boolean>(false);
@@ -112,19 +114,15 @@ export function HeroTraitsCalculator({
     slotIndex: TraitSlotIndex,
     nextLevel: number
   ) => {
-    setFromLevels((prev) => {
-      const next: [number, number, number, number] = [...prev];
-      next[slotIndex] = nextLevel;
-      return next;
-    });
+    setFromLevels((prev) =>
+      applyTraitSlotLevelChange(prev, slotIndex, nextLevel)
+    );
   };
 
   const handleUpdateToSlot = (slotIndex: TraitSlotIndex, nextLevel: number) => {
-    setToLevels((prev) => {
-      const next: [number, number, number, number] = [...prev];
-      next[slotIndex] = nextLevel;
-      return next;
-    });
+    setToLevels((prev) =>
+      applyTraitSlotLevelChange(prev, slotIndex, nextLevel)
+    );
   };
 
   const result = useMemo(
@@ -202,7 +200,7 @@ export function HeroTraitsCalculator({
               data-testid="traits-reset-econ-btn"
               onClick={() => {
                 setFromLevels([0, 0, 0, 0]);
-                setToLevels([15, 0, 30, 0]);
+                setToLevels([25, 25, 30, 25]);
                 setOwnedShardsInput("0");
                 setOwnedDiamondsInput("0");
                 setIncludeTraitSwap(false);
@@ -213,7 +211,7 @@ export function HeroTraitsCalculator({
               )}
             >
               <RotateCcw className="h-4 w-4 text-amber-500" aria-hidden="true" />
-              <span>{locale === "vi" ? "Phễu Kinh Tế" : "Reset Econ Funnel"}</span>
+              <span>{locale === "vi" ? "Mặc Định (25/25/30/25)" : "Reset (25/25/30/25)"}</span>
             </button>
           </>
         }
@@ -283,6 +281,7 @@ export function HeroTraitsCalculator({
             title={locale === "vi" ? "Cấp Thiên Phú Hiện Tại" : "Current Trait Levels"}
             levels={fromLevels}
             heroProfile={result.heroProfile}
+            rarity={rarity}
             locale={locale}
             onChangeSlotLevel={handleUpdateFromSlot}
             onApplyPreset={setFromLevels}
@@ -457,6 +456,7 @@ export function HeroTraitsCalculator({
             title={locale === "vi" ? "Cấp Thiên Phú Mục Tiêu" : "Target Trait Levels"}
             levels={toLevels}
             heroProfile={result.heroProfile}
+            rarity={rarity}
             locale={locale}
             onChangeSlotLevel={handleUpdateToSlot}
             onApplyPreset={setToLevels}
@@ -476,13 +476,13 @@ export function HeroTraitsCalculator({
             <div className="space-y-1">
               <div className="text-sm sm:text-base font-heading font-black text-rose-700 dark:text-rose-300">
                 {locale === "vi"
-                  ? "Cảnh Báo Bẫy 2,000 Kim Cương (Ô 4 Tướng Kinh Tế Dự Bị)"
-                  : "2,000-Diamond Trap Warning (Slot 4 on Benched Economy Hero)"}
+                  ? "Cảnh Báo Bẫy 2,000 Kim Cương (Ô 4 • HP Anh Hùng II Tướng Kinh Tế Dự Bị)"
+                  : "2,000-Diamond Trap Warning (Slot 4 • Hero HP II on Benched Economy Hero)"}
               </div>
               <p className="text-sm leading-relaxed text-foreground/85">
                 {locale === "vi"
-                  ? "Ô 4 (+90% HP Anh Hùng) chỉ có tác dụng khi tướng trực tiếp xuất trận và tốn 2,000 Kim Cương để mở khóa. Với tướng Kinh Tế 24/7 đứng trong kho, hãy giữ Ô 4 ở Lv.0!"
-                  : "Slot 4 (+90% Hero HP) only applies when deployed in combat and costs 2,000 Diamonds to unlock. Keep Slot 4 at Lv.0 for benched 24/7 Economy heroes!"}
+                  ? "Ô 4 (HP Anh Hùng II) chỉ có tác dụng khi tướng trực tiếp xuất trận và tốn 2,000 Kim Cương để mở khóa. Nếu chưa đủ mảnh nâng Ô 3 quá Lv.5, bạn có thể khóa Ô 4 ở Lv.0 để tiết kiệm 2,000 KC!"
+                  : "Slot 4 (Hero HP II) only applies when deployed in combat and costs 2,000 Diamonds to unlock. If you are keeping Slot 3 at Lv.5 or below, lock Slot 4 at Lv.0 to save 2,000 Diamonds!"}
               </p>
             </div>
           </div>
@@ -506,7 +506,7 @@ export function HeroTraitsCalculator({
         </div>
       ) : null}
 
-      {/* 4B. Prerequisite Bridge Warning (Slot 3 > 0 while Slot 1 < 15) */}
+      {/* 4B. Prerequisite Bridge Warning (5-level step-gate notice) */}
       {result.hasPrerequisiteBridgeWarning ? (
         <div
           data-testid="traits-prerequisite-bridge-warning"
@@ -518,13 +518,13 @@ export function HeroTraitsCalculator({
             <div className="space-y-1">
               <div className="text-sm sm:text-base font-heading font-black text-amber-700 dark:text-amber-300">
                 {locale === "vi"
-                  ? "Lưu Ý Chuỗi Tiên Quyết: Cần Ô 1 Đạt Lv.15 Để Mở Cầu Tới Ô 3 Lv.30"
-                  : "Prerequisite Chain Notice: Slot 1 Lv.15 Bridge Required for Slot 3 Lv.30"}
+                  ? "Lưu Ý Quy Tắc 5 Cấp 1 Lượt (5-Level Step-Gate)"
+                  : "5-Level Step-Gate Prerequisite Notice"}
               </div>
               <p className="text-sm leading-relaxed text-foreground/85">
                 {locale === "vi"
-                  ? "Trong game, các ô Thiên Phú mở trần theo bậc 5 cấp. Để đẩy Ô 3 lên tối đa Lv.30 theo Phễu Kinh Tế, cần nâng Ô 1 đạt tối thiểu Lv.15 (150 Mảnh)."
-                  : "In-game Trait slots unlock in 5-level blocks. To push Slot 3 to Lv.30 via the Economy Funnel, Slot 1 must reach at least Lv.15 (150 Shards)."}
+                  ? "Trong game, các ô Thiên Phú mở khóa và nâng giới hạn theo từng bậc 5 cấp (5 - 10 - 15 - 20 - 25 - 30). Các ô khác cần đạt đủ mốc chia hết cho 5 trước khi nâng vượt bậc."
+                  : "In-game Trait slots unlock and progress in 5-level blocks (5 - 10 - 15 - 20 - 25 - 30). Other slots must reach the corresponding multiple of 5 before advancing further."}
               </p>
             </div>
           </div>
@@ -532,15 +532,15 @@ export function HeroTraitsCalculator({
           <button
             type="button"
             data-testid="apply-slot1-bridge-btn"
-            onClick={() => handleUpdateToSlot(0, 15)}
+            onClick={() => handleUpdateToSlot(2, toLevels[2])}
             className={cn(
               CALC_MD3.chipButton,
               "shrink-0 bg-amber-500 px-4 font-heading font-bold text-slate-950 hover:bg-amber-600"
             )}
           >
             {locale === "vi"
-              ? "Đặt Ô 1 = Lv.15 (+150 Mảnh)"
-              : "Set Slot 1 = Lv.15 (+150 Shards)"}
+              ? "Đồng bộ bậc 5 cấp"
+              : "Sync 5-Level Gate"}
           </button>
         </div>
       ) : null}
@@ -628,7 +628,7 @@ export function HeroTraitsCalculator({
               </div>
             </div>
 
-            {/* Resource 2 (tonal): Diamonds (Slot 4 Unlock 2,000 + Trait Swap 2,000) */}
+            {/* Resource 2 (tonal): Diamonds (Slot 1-4 Unlocks 200/500/1000/2000 + Trait Swap 2,000) */}
             <div className={cn(CALC_MD3.tonalGroup, "space-y-3")}>
               <div className="flex min-w-0 items-center gap-2.5">
                 <GameAssetFrame
@@ -779,8 +779,8 @@ export function HeroTraitsCalculator({
             </span>
             <span>
               {locale === "vi"
-                ? `Mở khóa Ô 4: ${DIAMOND_COST_SLOT_4_UNLOCK.toLocaleString("en-US")} KC • Trao đổi: ${DIAMOND_COST_TRAIT_SWAP.toLocaleString("en-US")} KC`
-                : `Slot 4 Unlock: ${DIAMOND_COST_SLOT_4_UNLOCK.toLocaleString("en-US")} Diamonds • Swap: ${DIAMOND_COST_TRAIT_SWAP.toLocaleString("en-US")} Diamonds`}
+                ? `Mở khóa 4 ô: ${TOTAL_DIAMOND_UNLOCK_ALL_SLOTS.toLocaleString("en-US")} KC (${DIAMOND_COST_BY_SLOT.join("/")}) • Trao đổi: ${DIAMOND_COST_TRAIT_SWAP.toLocaleString("en-US")} KC`
+                : `4-Slot Unlocks: ${TOTAL_DIAMOND_UNLOCK_ALL_SLOTS.toLocaleString("en-US")} Diamonds (${DIAMOND_COST_BY_SLOT.join("/")}) • Swap: ${DIAMOND_COST_TRAIT_SWAP.toLocaleString("en-US")} Diamonds`}
             </span>
           </div>
         </div>

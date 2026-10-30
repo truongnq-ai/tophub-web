@@ -334,8 +334,8 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
               en: "1.1 Hero Star Up",
             },
             fullTitle: {
-              vi: "1.1 Máy Tính Nâng Sao Anh Hùng (0★ ➔ 5★ Trắng)",
-              en: "1.1 Hero Star Upgrade Calculator (0★ to 5★ Silver)",
+              vi: "1.1 Nâng Sao Anh Hùng (0★ ➔ 5★ Trắng)",
+              en: "1.1 Hero Star Upgrade (0★ to 5★ Silver)",
             },
             summary: {
               vi: "Tính chính xác số Mảnh Vạn Năng Anh Hùng Cam / Đỏ (1,000 mảnh), Tím (470 mảnh) và Lam (290 mảnh) cần thiết giữa hai bậc sao và cánh sao bất kỳ (VD: từ 1.2★ Vàng lên 1★ Bạc).",
@@ -380,8 +380,8 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
               en: "1.2 Hero Awakening",
             },
             fullTitle: {
-              vi: "1.2 Máy Tính Thức Tỉnh Anh Hùng Cam Lên Đỏ (Bậc 0 ➔ Bậc 4)",
-              en: "1.2 Legendary-to-Mythic Hero Awakening Calculator (Tier 0 to Tier 4)",
+              vi: "1.2 Thức Tỉnh Anh Hùng Cam Lên Đỏ (Bậc 0 ➔ Bậc 4)",
+              en: "1.2 Legendary-to-Mythic Hero Awakening (Tier 0 to Tier 4)",
             },
             summary: {
               vi: "Tính tổng số Đá Linh Hồn Liên Minh / Bộ Tộc / Thiên Nhiên (9 viên) và Mảnh Anh Hùng tiêu hao qua 4 bậc Thức Tỉnh cùng từng bậc nhỏ bên trong.",
@@ -427,8 +427,8 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
               en: "1.3 Hero Traits",
             },
             fullTitle: {
-              vi: "1.3 Máy Tính Thiên Phú Anh Hùng (4 Ô Lv.0 ➔ Lv.30 & Trao Đổi Thiên Phú)",
-              en: "1.3 Hero Traits Calculator (4 Slots Lv.0 to Lv.30 & Trait Swap)",
+              vi: "1.3 Thiên Phú Anh Hùng (4 Ô Lv.0 ➔ Lv.30 & Trao Đổi Thiên Phú)",
+              en: "1.3 Hero Traits (4 Slots Lv.0 to Lv.30 & Trait Swap)",
             },
             summary: {
               vi: "Tính chính xác số Mảnh Anh Hùng (10 mảnh/cấp, 300 mảnh/ô, 1,200 mảnh/tướng) cho 4 ô Thiên Phú (mở khóa ở 2★ Bạc), tối ưu lộ trình Ô 3 Kinh Tế 24/7 và cảnh báo bẫy 2,000 Kim Cương mở Ô 4.",
@@ -474,8 +474,8 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
               en: "1.4 Hero Level & Spirit",
             },
             fullTitle: {
-              vi: "1.4 Máy Tính Thịt Nâng Cấp Tướng (Lv.1–250) & Mảnh Linh Thể (Lv.1–60)",
-              en: "1.4 Hero Level Meat (Lv.1–250) & Heroic Spirit Shard (Lv.1–60) Calculator",
+              vi: "1.4 Thịt Nâng Cấp Tướng (Lv.1–250) & Mảnh Linh Thể (Lv.1–60)",
+              en: "1.4 Hero Level Meat (Lv.1–250) & Heroic Spirit Shard (Lv.1–60)",
             },
             summary: {
               vi: "Tính lượng Thịt cần để nâng cấp 1 tướng hoặc 5 tướng Đội 1 từ Lv.1 đến Lv.250 theo trần Lâu Đài Chính, kết hợp tính Mảnh Linh Thể Vạn Năng (Lv.1–60).",
@@ -536,8 +536,8 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
               en: "2.1 Skill Books",
             },
             fullTitle: {
-              vi: "2.1 Máy Tính Sách Skill Anh Hùng (Lv.1 ➔ Lv.15)",
-              en: "2.1 Hero Skill Book Calculator (Lv.1 to Lv.15)",
+              vi: "2.1 Sách Skill Anh Hùng (Lv.1 ➔ Lv.15)",
+              en: "2.1 Hero Skill Books (Lv.1 to Lv.15)",
             },
             summary: {
               vi: "Tính chính xác số lượng Sách Skill cần cho 1 kỹ năng (24,700 cuốn ở Lv.15), 1 tướng (4 hoặc 5 kỹ năng) hoặc toàn bộ đội hình 6 tướng.",
@@ -578,8 +578,8 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
               en: "2.2 Faction Level",
             },
             fullTitle: {
-              vi: "2.2 Máy Tính Cấp Phe Phái Liên Minh / Bộ Tộc / Thiên Nhiên (Lv.1 ➔ Lv.80)",
-              en: "2.2 League / Horde / Nature Faction Level Calculator (Lv.1 to Lv.80)",
+              vi: "2.2 Cấp Phe Phái Liên Minh / Bộ Tộc / Thiên Nhiên (Lv.1 ➔ Lv.80)",
+              en: "2.2 League / Horde / Nature Faction Level (Lv.1 to Lv.80)",
             },
             summary: {
               vi: "Tính lượng Thịt và Mảnh Tướng tiêu hao theo từng vạch thanh EXP Phe Phái từ Lv.1 đến Lv.80 cùng các mốc mở khóa chỉ số cộng thêm.",
@@ -641,8 +641,8 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
               en: "3.1 Troop Skins",
             },
             fullTitle: {
-              vi: "3.1 Máy Tính Nâng Cấp Quân Trang Cam / Tím / Lam (Lv.1 ➔ Lv.50)",
-              en: "3.1 Legendary / Epic / Rare Troop Skin Upgrade Calculator (Lv.1 to Lv.50)",
+              vi: "3.1 Nâng Cấp Quân Trang Cam / Tím / Lam (Lv.1 ➔ Lv.50)",
+              en: "3.1 Legendary / Epic / Rare Troop Skin Upgrade (Lv.1 to Lv.50)",
             },
             summary: {
               vi: "Tính tổng Huy Chương Vinh Dự và số bản sao Quân Trang cần thiết ở các mốc Lv.10/20/30/40/50 (Quân Trang Tím tốn 50%, Lam tốn 25% so với Cam).",
@@ -683,8 +683,8 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
               en: "3.2 Skin Honor",
             },
             fullTitle: {
-              vi: "3.2 Máy Tính Cấp Vinh Dự Quân Trang Toàn Đội (Lv.1 ➔ Lv.150)",
-              en: "3.2 Global Troop Skin Honor Level Calculator (Lv.1 to Lv.150)",
+              vi: "3.2 Cấp Vinh Dự Quân Trang Toàn Đội (Lv.1 ➔ Lv.150)",
+              en: "3.2 Global Troop Skin Honor Level (Lv.1 to Lv.150)",
             },
             summary: {
               vi: "Quy hoạch tổng điểm Vinh Dự Quân Trang tích lũy từ nhiều bộ Quân Trang để chạm các mốc cộng chỉ số toàn quân từ Lv.1 đến Lv.150.",
@@ -751,8 +751,8 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
               en: "4.1 Gear Enhancement",
             },
             fullTitle: {
-              vi: "4.1 Máy Tính Rune Cường Hóa Trang Bị Anh Hùng (+0 ➔ +40)",
-              en: "4.1 Hero Gear Enhance Rune Calculator (+0 to +40)",
+              vi: "4.1 Rune Cường Hóa Trang Bị Anh Hùng (+0 ➔ +40)",
+              en: "4.1 Hero Gear Enhance Runes (+0 to +40)",
             },
             summary: {
               vi: "Tính lượng Rune Cường Hóa Trang Bị để đạt các mốc Cộng Hưởng Cường Hóa (+10, +20, +30, +40) cho 1 món, 1 tướng (4 món) hoặc cả đội (24 món).",
@@ -796,8 +796,8 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
               en: "4.2 Mythic Promotion",
             },
             fullTitle: {
-              vi: "4.2 Máy Tính Đột Phá Trang Bị Cam Lên Thần Thoại 5★ Đỏ",
-              en: "4.2 Legendary-to-Mythic 5★ Gear Promotion Calculator",
+              vi: "4.2 Đột Phá Trang Bị Cam Lên Thần Thoại 5★ Đỏ",
+              en: "4.2 Legendary-to-Mythic 5★ Gear Promotion",
             },
             summary: {
               vi: "Tính Vàng Thái Dương, Đá Đột Phá Trang Bị Cam, Đá Đột Phá Trang Bị Đỏ và số phôi Trang Bị Huyền Thoại cần thiết từ bậc 0★ đến 5★ Đỏ.",
@@ -844,8 +844,8 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
               en: "4.3 Exclusive Weapon",
             },
             fullTitle: {
-              vi: "4.3 Máy Tính Vũ Khí Độc Quyền (Lv.1–20) & Đột Phá Sao (1★–5★)",
-              en: "4.3 Exclusive Weapon Level (Lv.1–20) & Star Breakthrough (1★–5★) Calculator",
+              vi: "4.3 Vũ Khí Độc Quyền (Lv.1–20) & Đột Phá Sao (1★–5★)",
+              en: "4.3 Exclusive Weapon Level (Lv.1–20) & Star Breakthrough (1★–5★)",
             },
             summary: {
               vi: "Tính Mảnh Trang Bị Độc Quyền Vạn Năng để mở khóa và nâng cấp Vũ Khí Độc Quyền từ Lv.1 đến Lv.20 cùng Lõi Sắt Thiên Thạch cho bậc 1★–5★.",
@@ -906,8 +906,8 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
               en: "5.1 Lord Gear Upgrade",
             },
             fullTitle: {
-              vi: "5.1 Máy Tính Nguyên Liệu Nâng Cấp 6 Món Trang Bị Chúa Tể (G1 ➔ Đỏ T1 3★)",
-              en: "5.1 6-Slot Lord Gear Material Calculator (Green 1 to Mythic T1 3★)",
+              vi: "5.1 Nguyên Liệu Nâng Cấp 6 Món Trang Bị Chúa Tể (G1 ➔ Đỏ T1 3★)",
+              en: "5.1 6-Slot Lord Gear Upgrade Materials (Green 1 to Mythic T1 3★)",
             },
             summary: {
               vi: "Tính chính xác Kim Loại Tinh Luyện, Sợi Tơ Ma Thuật, Orichalcum và Huyết Rồng cần thiết cho từng món hoặc cả 6 món Trang Bị Chúa Tể.",
@@ -1016,8 +1016,8 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
               en: "6.1 Runes & Dust",
             },
             fullTitle: {
-              vi: "6.1 Máy Tính Ghép Đá Cổ Ngữ & Bụi Cổ Ngữ (Lv.1 ➔ Lv.12)",
-              en: "6.1 Rune Synthesis & Rune Dust Calculator (Lv.1 to Lv.12)",
+              vi: "6.1 Ghép Đá Cổ Ngữ & Bụi Cổ Ngữ (Lv.1 ➔ Lv.12)",
+              en: "6.1 Rune Synthesis & Rune Dust (Lv.1 to Lv.12)",
             },
             summary: {
               vi: "Tính lượng Bụi Cổ Ngữ và số Rương Cổ Ngữ cần ghép theo quy luật lũy thừa 3 (3^(n-1)), kèm kiểm tra mốc đồng bộ Toàn Cổ Ngữ Lv.5 và Lv.8.",
@@ -1062,8 +1062,8 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
               en: "6.2 Relics",
             },
             fullTitle: {
-              vi: "6.2 Máy Tính Nâng Cấp, Đột Phá Sao & Thức Tỉnh Bí Bảo",
-              en: "6.2 Relic Upgrade, Star Promotion & Awakening Calculator",
+              vi: "6.2 Nâng Cấp, Đột Phá Sao & Thức Tỉnh Bí Bảo",
+              en: "6.2 Relic Upgrade, Star Promotion & Awakening",
             },
             summary: {
               vi: "Tính Cuộn Bí Bảo, Mảnh Vạn Năng Bí Bảo Cam / Tím / Lam, Đá Vân Ma Thuật và Pha Lê Bí Thuật cho bộ 3 Bí Bảo chủ lực.",
@@ -1128,8 +1128,8 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
               en: "7.1 Companion Pets",
             },
             fullTitle: {
-              vi: "7.1 Máy Tính Đồ Ăn Thú Cưng, Tinh Chất Thú Cưng & Hệ Số Chuyển Đổi (Lv.1–120)",
-              en: "7.1 Pet Food, Pet Essence & Stat Inheritance Calculator (Lv.1–120)",
+              vi: "7.1 Đồ Ăn Thú Cưng, Tinh Chất Thú Cưng & Hệ Số Chuyển Đổi (Lv.1–120)",
+              en: "7.1 Pet Food, Pet Essence & Stat Inheritance (Lv.1–120)",
             },
             summary: {
               vi: "Tính lượng Đồ Ăn Thú Cưng, Tinh Chất Thú Cưng và số phôi Thú Cưng Lam/Hiệu Lực từ Lv.1 đến Lv.120 kèm tỷ lệ chuyển đổi chỉ số (36% ➔ 104%+).",
@@ -1173,8 +1173,8 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
               en: "7.2 Behemoths",
             },
             fullTitle: {
-              vi: "7.2 Máy Tính Nâng Cấp Cự Thú Hộ Vệ & Mốc Cộng Cấp Anh Hùng (+1 ➔ +9)",
-              en: "7.2 Behemoth Guardian Upgrade & Hero Level Cap Bonus (+1 to +9) Calculator",
+              vi: "7.2 Nâng Cấp Cự Thú Hộ Vệ & Mốc Cộng Cấp Anh Hùng (+1 ➔ +9)",
+              en: "7.2 Behemoth Guardian Upgrade & Hero Level Cap Bonus (+1 to +9)",
             },
             summary: {
               vi: "Tính tài nguyên nâng cấp cấp độ và đột phá sao cho 6 Cự Thú Hộ Vệ cùng các mốc mở khóa giới hạn cấp độ Anh Hùng (+1 ➔ +9).",
@@ -1244,8 +1244,8 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
               en: "8.1 Main Castle",
             },
             fullTitle: {
-              vi: "8.1 Máy Tính Tài Nguyên & Điều Kiện Nâng Lâu Đài Chính (Lv.10–40 & Huy Hoàng 1–6)",
-              en: "8.1 Main Castle Resource & Prerequisite Calculator (Lv.10–40 & Brilliance 1–6)",
+              vi: "8.1 Tài Nguyên & Điều Kiện Nâng Lâu Đài Chính (Lv.10–40 & Huy Hoàng 1–6)",
+              en: "8.1 Main Castle Resources & Prerequisites (Lv.10–40 & Brilliance 1–6)",
             },
             summary: {
               vi: "Tính Gỗ, Đá, Ruby, Tinh Chất Rồng, thời gian xây dựng và dây chuyền công trình điều kiện cho từng cấp Lâu Đài Chính đến Huy Hoàng 6 (B6).",
@@ -1291,8 +1291,8 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
               en: "8.2 Brilliance & Tech",
             },
             fullTitle: {
-              vi: "8.2 Máy Tính Tinh Chất Rồng Viện Huy Hoàng & Lộ Trình Mở Lính T11",
-              en: "8.2 Brilliance Institute Dragon Essence & T11 Troop Unlock Calculator",
+              vi: "8.2 Tinh Chất Rồng Viện Huy Hoàng & Lộ Trình Mở Lính T11",
+              en: "8.2 Brilliance Institute Dragon Essence & T11 Troop Unlock",
             },
             summary: {
               vi: "Tính chính xác lượng Tinh Chất Rồng cần cho Cây Viện Huy Hoàng (5,422 viên) và Cây Quân Đoàn T11 (4,677 viên) để mở khóa binh chủng Bậc 11.",
@@ -1333,8 +1333,8 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
               en: "8.3 Villagers",
             },
             fullTitle: {
-              vi: "8.3 Máy Tính Đào Tạo Dân Làng Xuất Chúng (Lv.1 ➔ Lv.6)",
-              en: "8.3 Excellent Villager Work Guide & Buff Calculator (Lv.1 to Lv.6)",
+              vi: "8.3 Đào Tạo Dân Làng Xuất Chúng (Lv.1 ➔ Lv.6)",
+              en: "8.3 Excellent Villager Work Guide & Buffs (Lv.1 to Lv.6)",
             },
             summary: {
               vi: "Tính số sách Đào Tạo Dân Làng Xuất Chúng cần thiết để nâng cấp Dân Làng từ Lv.1 lên Lv.6 cùng tổng % giảm thời gian xây dựng / nghiên cứu.",
@@ -1392,8 +1392,8 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
               en: "9.1 GAR & KvK Points",
             },
             fullTitle: {
-              vi: "9.1 Máy Tính Điểm Xả Kho 6 Ngày Chạy Đua Vũ Trang (GAR) & Vương Quốc Chiến (KvK)",
-              en: "9.1 6-Day Guild Arms Race (GAR) & Kingdom vs Kingdom (KvK) Point Calculator",
+              vi: "9.1 Điểm Xả Kho 6 Ngày Chạy Đua Vũ Trang (GAR) & Vương Quốc Chiến (KvK)",
+              en: "9.1 6-Day Guild Arms Race (GAR) & Kingdom vs Kingdom (KvK) Points",
             },
             summary: {
               vi: "Nhập số lượng vật phẩm tích trữ trong túi đồ để tính tổng điểm đạt được theo từng ngày chủ đề (Xây Dựng, Khoa Kỹ, Chiêu Mộ, Anh Hùng, Trang Bị, Quân Lính).",
@@ -1439,8 +1439,8 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
               en: "9.2 VIP & Shop Planner",
             },
             fullTitle: {
-              vi: "9.2 Máy Tính Cấp Đặc Quyền VIP (VIP 1–20) & Quy Hoạch Tiệm Vinh Quang Hội",
-              en: "9.2 VIP Privilege Level (VIP 1–20) & Guild Honor Shop Budget Calculator",
+              vi: "9.2 Cấp Đặc Quyền VIP (VIP 1–20) & Quy Hoạch Tiệm Vinh Quang Hội",
+              en: "9.2 VIP Privilege Level (VIP 1–20) & Guild Honor Shop Budget",
             },
             summary: {
               vi: "Tra cứu mốc Điểm VIP / chi phí tích lũy từ VIP 1 đến VIP 20 và tính toán ngân sách Vinh Quang Hội giữ sàn dự phòng an toàn 360,000 xu.",

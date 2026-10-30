@@ -12,7 +12,17 @@ export const SHARDS_PER_TRAIT_LEVEL = 10;
 export const MAX_TRAIT_SLOT_LEVEL = 30;
 export const MAX_SHARDS_PER_SLOT = 300;
 export const MAX_SHARDS_FOUR_SLOTS = 1200;
+export const DIAMOND_COST_SLOT_1_UNLOCK = 200;
+export const DIAMOND_COST_SLOT_2_UNLOCK = 500;
+export const DIAMOND_COST_SLOT_3_UNLOCK = 1000;
 export const DIAMOND_COST_SLOT_4_UNLOCK = 2000;
+export const DIAMOND_COST_BY_SLOT: readonly [number, number, number, number] = [
+  DIAMOND_COST_SLOT_1_UNLOCK,
+  DIAMOND_COST_SLOT_2_UNLOCK,
+  DIAMOND_COST_SLOT_3_UNLOCK,
+  DIAMOND_COST_SLOT_4_UNLOCK,
+];
+export const TOTAL_DIAMOND_UNLOCK_ALL_SLOTS = 3700;
 export const DIAMOND_COST_TRAIT_SWAP = 2000;
 
 export interface HeroTrait3Profile {
@@ -45,6 +55,7 @@ export interface TraitRarityConfig {
 
 export interface TraitSlotBreakdownItem {
   readonly slotNumber: 1 | 2 | 3 | 4;
+  readonly title: Record<CalculatorLocale, string>;
   readonly slotTitle: Record<CalculatorLocale, string>;
   readonly slotEffectSummary: Record<CalculatorLocale, string>;
   readonly fromLevel: number;
@@ -79,6 +90,7 @@ export interface HeroTraitsCalculationResult {
   readonly surplusShards: number;
   readonly shardCompletionPercent: number;
   readonly requiresSlot4UnlockDiamond: boolean;
+  readonly slotUnlockDiamonds: number;
   readonly includeTraitSwap: boolean;
   readonly requiredDiamonds: number;
   readonly ownedDiamonds: number;
@@ -89,6 +101,8 @@ export interface HeroTraitsCalculationResult {
   readonly starUnlockPrerequisiteShards: number;
   readonly slot1CurrentAtkBonusPercent: number;
   readonly slot1TargetAtkBonusPercent: number;
+  readonly slot2CurrentHpBonusPercent: number;
+  readonly slot2TargetHpBonusPercent: number;
   readonly slot4CurrentHpBonusPercent: number;
   readonly slot4TargetHpBonusPercent: number;
   readonly universalShardMaterial: CalculatorMaterialRef;
@@ -1318,6 +1332,95 @@ export function sanitizeTraitLevelsTuple(
   ];
 }
 
+/**
+ * Tính % chỉ số ATK (Ô 1) và HP I / HP II (Ô 2, Ô 4) chuẩn theo bảng `hero_talent_group` trong `Meta.bytes`:
+ * - Tướng Tím (Epic, group 40101/40201/40301) & Lam (Rare): +3%/cấp từ Lv.1..25 (75%), từ Lv.26..30 tăng +5%/cấp (đạt +100% ở Lv.30).
+ * - Tướng Vàng & Đỏ (Legendary & Mythic, group 50101/50201/50301): +6%/cấp xuyên suốt Lv.1..30 (đạt +180% ở Lv.30).
+ */
+export function calculateHeroTraitBaseStatPercent(
+  level: number,
+  rarity: HeroStarRarity
+): number {
+  const safeLevel = clampTraitLevel(level);
+  if (safeLevel === 0) return 0;
+  if (rarity === "legendary" || rarity === "mythic") {
+    return safeLevel * 6;
+  }
+  return safeLevel <= 25 ? safeLevel * 3 : 75 + (safeLevel - 25) * 5;
+}
+
+/**
+ * Áp dụng quy tắc bậc thang 5 cấp 1 lượt (`settings.hero_talent_new_unlock = 5` trong `Meta.bytes`)
+ * theo cơ chế Auto-Sync 2 chiều:
+ * - Chiều tăng:
+ *   1. Nếu mở khóa ô `slotIndex > 0` (`target > 0`), các ô đứng trước (`< slotIndex`) phải đạt tối thiểu Lv.5.
+ *   2. Nếu nâng bất kỳ ô nào vượt mốc 5/10/15/20/25 (`requiredFloor = Math.floor((target - 1) / 5) * 5`),
+ *      cả 4 ô đều được nâng lên tối thiểu bằng `requiredFloor`.
+ * - Chiều giảm:
+ *   1. Nếu hạ 1 ô xuống `target`, sàn tối đa mà 4 ô còn giữ được là `supportedFloor = Math.floor(target / 5) * 5`,
+ *      do đó không ô nào khác được vượt quá `supportedFloor + 5`.
+ *   2. Nếu `target < 5`, các ô đứng sau (`> slotIndex`) chưa đủ điều kiện mở khóa nên tự động hạ về `0`.
+ */
+export function applyTraitSlotLevelChange(
+  prevLevels: TraitLevelsTuple,
+  slotIndex: TraitSlotIndex,
+  rawNextLevel: number
+): TraitLevelsTuple {
+  const safePrev = sanitizeTraitLevelsTuple(prevLevels);
+  const target = clampTraitLevel(rawNextLevel);
+  const current = safePrev[slotIndex];
+  const next: [number, number, number, number] = [...safePrev];
+  next[slotIndex] = target;
+
+  if (target > current) {
+    const requiredFloorAllSlots =
+      target > 0 ? Math.floor((target - 1) / 5) * 5 : 0;
+    for (let i = 0; i < 4; i += 1) {
+      if (i === slotIndex) continue;
+      if (next[i] < requiredFloorAllSlots) {
+        next[i] = requiredFloorAllSlots;
+      }
+      if (target > 0 && i < slotIndex && next[i] < 5) {
+        next[i] = 5;
+      }
+    }
+  } else if (target < current) {
+    const supportedFloor = Math.floor(target / 5) * 5;
+    const maxAllowedAnySlot = supportedFloor + 5;
+    for (let i = 0; i < 4; i += 1) {
+      if (i === slotIndex) continue;
+      if (target < 5 && i > slotIndex) {
+        next[i] = 0;
+      } else if (next[i] > maxAllowedAnySlot) {
+        next[i] = maxAllowedAnySlot;
+      }
+    }
+  }
+
+  return next;
+}
+
+/**
+ * Kiểm tra xem bộ 4 cấp độ Thiên Phú có vi phạm quy tắc bậc thang 5 cấp 1 lượt trong game hay không.
+ */
+export function hasTraitStepGateViolation(levels: TraitLevelsTuple): boolean {
+  const safe = sanitizeTraitLevelsTuple(levels);
+  for (let i = 0; i < 4; i += 1) {
+    const lv = safe[i];
+    if (lv <= 0) continue;
+    for (let prev = 0; prev < i; prev += 1) {
+      if (safe[prev] < 5) return true;
+    }
+    const requiredFloor = Math.floor((lv - 1) / 5) * 5;
+    if (requiredFloor > 0) {
+      for (let other = 0; other < 4; other += 1) {
+        if (safe[other] < requiredFloor) return true;
+      }
+    }
+  }
+  return false;
+}
+
 export function calculateHeroTraitsUpgrade(
   input: HeroTraitsCalculationInput
 ): HeroTraitsCalculationResult {
@@ -1358,10 +1461,30 @@ export function calculateHeroTraitsUpgrade(
 
   const isInvalidRange = hasDecreasedSlot || hasZeroProgress;
 
-  const slot1CurrentAtkBonusPercent = fromLevels[0] * 3;
-  const slot1TargetAtkBonusPercent = toLevels[0] * 3;
-  const slot4CurrentHpBonusPercent = fromLevels[3] * 3;
-  const slot4TargetHpBonusPercent = toLevels[3] * 3;
+  const slot1CurrentAtkBonusPercent = calculateHeroTraitBaseStatPercent(
+    fromLevels[0],
+    input.rarity
+  );
+  const slot1TargetAtkBonusPercent = calculateHeroTraitBaseStatPercent(
+    toLevels[0],
+    input.rarity
+  );
+  const slot2CurrentHpBonusPercent = calculateHeroTraitBaseStatPercent(
+    fromLevels[1],
+    input.rarity
+  );
+  const slot2TargetHpBonusPercent = calculateHeroTraitBaseStatPercent(
+    toLevels[1],
+    input.rarity
+  );
+  const slot4CurrentHpBonusPercent = calculateHeroTraitBaseStatPercent(
+    fromLevels[3],
+    input.rarity
+  );
+  const slot4TargetHpBonusPercent = calculateHeroTraitBaseStatPercent(
+    toLevels[3],
+    input.rarity
+  );
 
   if (isInvalidRange) {
     return {
@@ -1379,6 +1502,7 @@ export function calculateHeroTraitsUpgrade(
       surplusShards: ownedShards,
       shardCompletionPercent: 100,
       requiresSlot4UnlockDiamond: false,
+      slotUnlockDiamonds: 0,
       includeTraitSwap,
       requiredDiamonds: 0,
       ownedDiamonds,
@@ -1389,6 +1513,8 @@ export function calculateHeroTraitsUpgrade(
       starUnlockPrerequisiteShards: rarityCfg.starUnlockPrerequisiteShards,
       slot1CurrentAtkBonusPercent,
       slot1TargetAtkBonusPercent,
+      slot2CurrentHpBonusPercent,
+      slot2TargetHpBonusPercent,
       slot4CurrentHpBonusPercent,
       slot4TargetHpBonusPercent,
       universalShardMaterial: rarityCfg.universalShard,
@@ -1397,54 +1523,46 @@ export function calculateHeroTraitsUpgrade(
     };
   }
 
-  // Ô 4 tốn 2,000 Kim Cương để mở khóa khi bắt đầu nâng từ Lv.0 lên >= Lv.1
+  // Chi phí mở khóa từng ô khi nâng từ Lv.0 lên >= Lv.1 (Meta.bytes hero_talent_new: 200 / 500 / 1,000 / 2,000 KC)
   const requiresSlot4UnlockDiamond = fromLevels[3] === 0 && toLevels[3] > 0;
-  const slot4UnlockCost = requiresSlot4UnlockDiamond
-    ? DIAMOND_COST_SLOT_4_UNLOCK
-    : 0;
-  const traitSwapCost = includeTraitSwap ? DIAMOND_COST_TRAIT_SWAP : 0;
-  const requiredDiamonds = slot4UnlockCost + traitSwapCost;
-
-  // Cảnh báo Bẫy 2,000 Kim Cương nếu tướng thuộc nhóm Kinh tế 24/7 dự bị nhưng người chơi lại mở/nâng Ô 4 (> 0)
-  const isSlot4EconomyTrapWarning =
-    heroProfile.category === "economy_24_7" && toLevels[3] > 0;
-  const hasPrerequisiteBridgeWarning = toLevels[2] > 0 && toLevels[0] < 15;
+  const maxStatLabel =
+    input.rarity === "legendary" || input.rarity === "mythic" ? "+180%" : "+100%";
 
   const slotTitles: ReadonlyArray<Record<CalculatorLocale, string>> = [
     {
-      vi: "Ô 1: Tấn công Anh hùng (+3%/cấp ➔ +90% ATK)",
-      en: "Slot 1: Hero Attack (+3%/lv to +90% ATK)",
+      vi: `Ô 1: Tấn Công Anh Hùng (Tối đa ${maxStatLabel} ATK • Mở khóa 200 KC)`,
+      en: `Slot 1: Hero Attack (Max ${maxStatLabel} ATK • 200 Diamond Unlock)`,
     },
     {
-      vi: "Ô 2: Máu / Chỉ số Binh lính hộ tống",
-      en: "Slot 2: Escort Soldier HP / Stats",
+      vi: `Ô 2: HP Anh Hùng I (Tối đa ${maxStatLabel} HP • Mở khóa 500 KC)`,
+      en: `Slot 2: Hero HP I (Max ${maxStatLabel} HP • 500 Diamond Unlock)`,
     },
     {
-      vi: `Ô 3: ${heroProfile.trait3Title.vi}`,
-      en: `Slot 3: ${heroProfile.trait3Title.en}`,
+      vi: `Ô 3: ${heroProfile.trait3Title.vi} (Mở khóa 1,000 KC)`,
+      en: `Slot 3: ${heroProfile.trait3Title.en} (1,000 Diamond Unlock)`,
     },
     {
-      vi: "Ô 4: HP Anh hùng (+3%/cấp ➔ +90% HP • Mở khóa 2,000 KC)",
-      en: "Slot 4: Hero HP (+3%/lv to +90% HP • 2,000 Diamond Unlock)",
+      vi: `Ô 4: HP Anh Hùng II (Tối đa ${maxStatLabel} HP • Mở khóa 2,000 KC)`,
+      en: `Slot 4: Hero HP II (Max ${maxStatLabel} HP • 2,000 Diamond Unlock)`,
     },
   ];
 
   const slotEffectSummaries: ReadonlyArray<Record<CalculatorLocale, string>> = [
     {
-      vi: `+${slot1CurrentAtkBonusPercent}% ➔ +${slot1TargetAtkBonusPercent}% ATK Anh hùng`,
-      en: `+${slot1CurrentAtkBonusPercent}% to +${slot1TargetAtkBonusPercent}% Hero ATK`,
+      vi: `+${slot1CurrentAtkBonusPercent}% ➔ +${slot1TargetAtkBonusPercent}% Tấn Công Anh Hùng`,
+      en: `+${slot1CurrentAtkBonusPercent}% to +${slot1TargetAtkBonusPercent}% Hero Attack`,
     },
     {
-      vi: `Lv.${fromLevels[1]} ➔ Lv.${toLevels[1]} Chỉ số Binh lính`,
-      en: `Lv.${fromLevels[1]} to Lv.${toLevels[1]} Soldier Stats`,
+      vi: `+${slot2CurrentHpBonusPercent}% ➔ +${slot2TargetHpBonusPercent}% HP Anh Hùng I`,
+      en: `+${slot2CurrentHpBonusPercent}% to +${slot2TargetHpBonusPercent}% Hero HP I`,
     },
     {
       vi: heroProfile.maxBonusLabel.vi,
       en: heroProfile.maxBonusLabel.en,
     },
     {
-      vi: `+${slot4CurrentHpBonusPercent}% ➔ +${slot4TargetHpBonusPercent}% HP Anh hùng`,
-      en: `+${slot4CurrentHpBonusPercent}% to +${slot4TargetHpBonusPercent}% Hero HP`,
+      vi: `+${slot4CurrentHpBonusPercent}% ➔ +${slot4TargetHpBonusPercent}% HP Anh Hùng II`,
+      en: `+${slot4CurrentHpBonusPercent}% to +${slot4TargetHpBonusPercent}% Hero HP II`,
     },
   ];
 
@@ -1452,15 +1570,18 @@ export function calculateHeroTraitsUpgrade(
     [0, 1, 2, 3] as const
   ).map((idx) => {
     const levelsGained = Math.max(0, toLevels[idx] - fromLevels[idx]);
+    const isUnlockingSlot = fromLevels[idx] === 0 && toLevels[idx] > 0;
+    const diamondUnlockCost = isUnlockingSlot ? DIAMOND_COST_BY_SLOT[idx] : 0;
     return {
       slotNumber: (idx + 1) as 1 | 2 | 3 | 4,
+      title: slotTitles[idx],
       slotTitle: slotTitles[idx],
       slotEffectSummary: slotEffectSummaries[idx],
       fromLevel: fromLevels[idx],
       toLevel: toLevels[idx],
       levelsGained,
       requiredShards: levelsGained * SHARDS_PER_TRAIT_LEVEL,
-      diamondUnlockCost: idx === 3 ? slot4UnlockCost : 0,
+      diamondUnlockCost,
     };
   });
 
@@ -1468,6 +1589,18 @@ export function calculateHeroTraitsUpgrade(
     (sum, item) => sum + item.requiredShards,
     0
   );
+  const slotUnlockDiamonds = slotBreakdown.reduce(
+    (sum, item) => sum + item.diamondUnlockCost,
+    0
+  );
+  const traitSwapCost = includeTraitSwap ? DIAMOND_COST_TRAIT_SWAP : 0;
+  const requiredDiamonds = slotUnlockDiamonds + traitSwapCost;
+
+  // Cảnh báo nếu tướng thuộc nhóm Kinh tế 24/7 dự bị mà người chơi mở/nâng Ô 4 (> 0)
+  const isSlot4EconomyTrapWarning =
+    heroProfile.category === "economy_24_7" && toLevels[3] > 0;
+  const hasPrerequisiteBridgeWarning = hasTraitStepGateViolation(toLevels);
+
   const missingShards = Math.max(0, requiredShards - ownedShards);
   const surplusShards = Math.max(0, ownedShards - requiredShards);
   const shardCompletionPercent =
@@ -1493,6 +1626,7 @@ export function calculateHeroTraitsUpgrade(
     surplusShards,
     shardCompletionPercent,
     requiresSlot4UnlockDiamond,
+    slotUnlockDiamonds,
     includeTraitSwap,
     requiredDiamonds,
     ownedDiamonds,
@@ -1503,6 +1637,8 @@ export function calculateHeroTraitsUpgrade(
     starUnlockPrerequisiteShards: rarityCfg.starUnlockPrerequisiteShards,
     slot1CurrentAtkBonusPercent,
     slot1TargetAtkBonusPercent,
+    slot2CurrentHpBonusPercent,
+    slot2TargetHpBonusPercent,
     slot4CurrentHpBonusPercent,
     slot4TargetHpBonusPercent,
     universalShardMaterial: rarityCfg.universalShard,

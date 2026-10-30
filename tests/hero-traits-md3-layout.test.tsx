@@ -2,6 +2,7 @@ import React from "react";
 import { describe, expect, it } from "vitest";
 import { fireEvent, render, screen, within } from "@testing-library/react";
 import {
+  applyTraitSlotLevelChange,
   getHeroTraitProfile,
   type TraitLevelsTuple,
   type TraitSlotIndex,
@@ -22,11 +23,7 @@ function SlotsHarness() {
   const [levels, setLevels] = React.useState<TraitLevelsTuple>([0, 0, 0, 0]);
   const heroProfile = getHeroTraitProfile("hero-brawler", "epic");
   const handleChangeSlot = (slotIndex: TraitSlotIndex, nextLevel: number) => {
-    setLevels((prev) => {
-      const next: [number, number, number, number] = [...prev];
-      next[slotIndex] = nextLevel;
-      return next;
-    });
+    setLevels((prev) => applyTraitSlotLevelChange(prev, slotIndex, nextLevel));
   };
   return (
     <HeroTraitSlotsSelector
@@ -61,7 +58,7 @@ describe("Phase 2.4 / HeroTraitSlotsSelector MD3", () => {
     ).toBe(0);
   });
 
-  it("renders the 4 trait slots as a flat hairline list under an MD3 heading", () => {
+  it("renders the 4 trait slots as a flat hairline list under an MD3 heading with accurate Locale_vi names and Diamond badges", () => {
     render(<SlotsHarness />);
     const title = screen.getByTestId("to-trait-slots-title");
     expect(title.tagName).toBe("H3");
@@ -76,6 +73,14 @@ describe("Phase 2.4 / HeroTraitSlotsSelector MD3", () => {
     for (const row of rows) {
       expect(row.className).not.toMatch(ALL_SIDE_BORDER_REGEX);
     }
+
+    expect(list.textContent).toContain("Ô 1 • Tấn Công Anh Hùng");
+    expect(list.textContent).toContain("Ô 2 • HP Anh Hùng I");
+    expect(list.textContent).toContain("Ô 4 • HP Anh Hùng II");
+    expect(screen.getByTestId("to-slot-1-diamond-badge").textContent).toContain("200");
+    expect(screen.getByTestId("to-slot-2-diamond-badge").textContent).toContain("500");
+    expect(screen.getByTestId("to-slot-3-diamond-badge").textContent).toContain("1,000");
+    expect(screen.getByTestId("to-slot-4-diamond-badge").textContent).toContain("2,000");
   });
 
   it("uses ≥44px presets and steppers", () => {
@@ -97,14 +102,17 @@ describe("Phase 2.4 / HeroTraitSlotsSelector MD3", () => {
     expect(findMonoElementsWithVietnamese(container)).toEqual([]);
   });
 
-  it("preserves preset and stepper behavior", () => {
+  it("preserves preset and stepper behavior with 5-level step-gate auto-sync", () => {
     render(<SlotsHarness />);
     fireEvent.click(screen.getByTestId("to-preset-econ-btn"));
+    expect(screen.getByTestId("to-slot-1-level-badge").textContent).toBe("25/30");
+    expect(screen.getByTestId("to-slot-2-level-badge").textContent).toBe("25/30");
     expect(screen.getByTestId("to-slot-3-level-badge").textContent).toBe("30/30");
-    expect(screen.getByTestId("to-cumulative-shards-badge").textContent).toContain("450");
+    expect(screen.getByTestId("to-slot-4-level-badge").textContent).toBe("25/30");
+    expect(screen.getByTestId("to-cumulative-shards-badge").textContent).toContain("1,050");
 
     fireEvent.click(screen.getByTestId("to-slot-1-plus-btn"));
-    expect(screen.getByTestId("to-slot-1-level-badge").textContent).toBe("16/30");
+    expect(screen.getByTestId("to-slot-1-level-badge").textContent).toBe("26/30");
   });
 });
 
@@ -135,7 +143,7 @@ describe("Phase 2.4 / HeroTraitsCalculator MD3", () => {
     );
 
     const shards = screen.getByTestId("traits-required-shards-value");
-    expect(shards.textContent).toBe("450");
+    expect(shards.textContent).toBe("1,050");
     expect(shards.className).toContain("text-3xl");
     expect(screen.getByTestId("traits-required-diamonds-value").className).toContain(
       "sm:text-4xl"

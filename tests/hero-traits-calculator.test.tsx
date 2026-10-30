@@ -5,10 +5,14 @@ import { NextIntlClientProvider } from "next-intl";
 import viMessages from "../messages/vi.json";
 import enMessages from "../messages/en.json";
 import {
+  DIAMOND_COST_BY_SLOT,
   DIAMOND_COST_SLOT_4_UNLOCK,
   DIAMOND_COST_TRAIT_SWAP,
   HERO_TRAIT_3_PROFILES,
   SHARDS_PER_TRAIT_LEVEL,
+  TOTAL_DIAMOND_UNLOCK_ALL_SLOTS,
+  applyTraitSlotLevelChange,
+  calculateHeroTraitBaseStatPercent,
   calculateHeroTraitsUpgrade,
   clampTraitLevel,
   getHeroTraitProfile,
@@ -18,10 +22,12 @@ import { GAME_ASSET_REGISTRY } from "../src/content/guides/asset-registry";
 import { getCalculatorToolBySlug } from "../src/content/calculators/registry";
 import { HeroTraitsCalculator } from "../src/components/calculators/hero-traits-calculator";
 
-describe("Suite 1 — Hero Traits Quantitative Engine (4 Slots Lv.0..30, 10 Shards/Lv, 1,200 Shards Max & 2,000-Diamond Rules)", () => {
-  it("calculates full 4-slot max (0/0/0/0 -> 30/30/30/30) as 1,200 Shards + 2,000 Diamonds for Slot 4 unlock", () => {
+describe("Suite 1 — Hero Traits Quantitative Engine (4 Slots Lv.0..30, 10 Shards/Lv, 200/500/1000/2000 Diamond Unlocks & 5-Level Step-Gate)", () => {
+  it("calculates full 4-slot max (0/0/0/0 -> 30/30/30/30) as 1,200 Shards + 3,700 Diamonds (200 + 500 + 1,000 + 2,000)", () => {
     expect(SHARDS_PER_TRAIT_LEVEL).toBe(10);
+    expect(DIAMOND_COST_BY_SLOT).toEqual([200, 500, 1000, 2000]);
     expect(DIAMOND_COST_SLOT_4_UNLOCK).toBe(2000);
+    expect(TOTAL_DIAMOND_UNLOCK_ALL_SLOTS).toBe(3700);
     expect(DIAMOND_COST_TRAIT_SWAP).toBe(2000);
 
     const resFull = calculateHeroTraitsUpgrade({
@@ -38,43 +44,92 @@ describe("Suite 1 — Hero Traits Quantitative Engine (4 Slots Lv.0..30, 10 Shar
     expect(resFull.requiredShards).toBe(1200);
     expect(resFull.missingShards).toBe(1000);
     expect(resFull.requiresSlot4UnlockDiamond).toBe(true);
-    expect(resFull.requiredDiamonds).toBe(2000);
-    expect(resFull.missingDiamonds).toBe(1500);
+    expect(resFull.slotUnlockDiamonds).toBe(3700);
+    expect(resFull.requiredDiamonds).toBe(3700);
+    expect(resFull.missingDiamonds).toBe(3200);
     expect(resFull.isSlot4EconomyTrapWarning).toBe(false);
     expect(resFull.slotBreakdown).toHaveLength(4);
+    expect(resFull.slotBreakdown.map((s) => s.diamondUnlockCost)).toEqual([
+      200, 500, 1000, 2000,
+    ]);
   });
 
-  it("calculates the Brawler (Epic) Economy Funnel (0/0/0/0 -> 15/0/30/0) as 450 Epic Shards and 0 Diamonds, and flags the 2,000-Diamond Trap if Slot 4 > 0", () => {
+  it("calculates per-slot Diamond unlock costs when moving any slot from Lv.0 to >0, and 0 when already unlocked (>0)", () => {
+    // Reproduces user screenshot scenario: from [0, 0, 0, 11] to [15, 0, 30, 30]
+    // Slot 1 unlocks (0->15 => 200), Slot 2 stays 0 (0), Slot 3 unlocks (0->30 => 1000), Slot 4 was already 11 (>0 => 0)
+    const userScenario = calculateHeroTraitsUpgrade({
+      rarity: "legendary",
+      heroId: "hero-secret-keeper",
+      fromLevels: [0, 0, 0, 11],
+      toLevels: [15, 0, 30, 30],
+      ownedShards: 0,
+      ownedDiamonds: 0,
+    });
+
+    expect(userScenario.requiredShards).toBe(640);
+    expect(userScenario.slotBreakdown.map((s) => s.diamondUnlockCost)).toEqual([
+      200, 0, 1000, 0,
+    ]);
+    expect(userScenario.slotUnlockDiamonds).toBe(1200);
+    expect(userScenario.requiredDiamonds).toBe(1200);
+  });
+
+  it("enforces bidirectional 5-level step-gate (5/10/15/20/25/30) via applyTraitSlotLevelChange", () => {
+    // Increasing Slot 1 to Lv.7 requires Slots 2, 3, 4 to reach Lv.5
+    expect(applyTraitSlotLevelChange([0, 0, 0, 0], 0, 7)).toEqual([7, 5, 5, 5]);
+
+    // Increasing Slot 3 to Lv.3 requires preceding Slots 1, 2 to reach Lv.5
+    expect(applyTraitSlotLevelChange([0, 0, 0, 0], 2, 3)).toEqual([5, 5, 3, 0]);
+
+    // Increasing Slot 3 to Lv.30 requires all other slots to reach Lv.25
+    expect(applyTraitSlotLevelChange([0, 0, 0, 0], 2, 30)).toEqual([
+      25, 25, 30, 25,
+    ]);
+
+    // Decreasing Slot 4 from 5 to 4 when at [7, 5, 5, 5] pulls Slot 1 down to 5
+    expect(applyTraitSlotLevelChange([7, 5, 5, 5], 3, 4)).toEqual([5, 5, 5, 4]);
+
+    // Decreasing Slot 1 from 5 to 3 when at [5, 5, 5, 5] locks Slots 2, 3, 4 back to 0
+    expect(applyTraitSlotLevelChange([5, 5, 5, 5], 0, 3)).toEqual([3, 0, 0, 0]);
+
+    // Decreasing Slot 2 from 20 to 14 when at [21, 20, 20, 20] pulls all slots down to max 15
+    expect(applyTraitSlotLevelChange([21, 20, 20, 20], 1, 14)).toEqual([
+      15, 14, 15, 15,
+    ]);
+  });
+
+  it("calculates rarity-accurate stat percentages for Slots 1, 2, 4 per Meta.bytes (hero_talent_group)", () => {
+    // Epic: +3%/lv for Lv.1..25 (Lv.21 = 63%, Lv.25 = 75%), then +5%/lv for Lv.26..30 (Lv.30 = 100%)
+    expect(calculateHeroTraitBaseStatPercent(0, "epic")).toBe(0);
+    expect(calculateHeroTraitBaseStatPercent(15, "epic")).toBe(45);
+    expect(calculateHeroTraitBaseStatPercent(21, "epic")).toBe(63);
+    expect(calculateHeroTraitBaseStatPercent(25, "epic")).toBe(75);
+    expect(calculateHeroTraitBaseStatPercent(30, "epic")).toBe(100);
+
+    // Legendary & Mythic: +6%/lv for Lv.1..30 (Lv.15 = 90%, Lv.30 = 180%)
+    expect(calculateHeroTraitBaseStatPercent(1, "legendary")).toBe(6);
+    expect(calculateHeroTraitBaseStatPercent(15, "legendary")).toBe(90);
+    expect(calculateHeroTraitBaseStatPercent(30, "legendary")).toBe(180);
+    expect(calculateHeroTraitBaseStatPercent(30, "mythic")).toBe(180);
+  });
+
+  it("calculates Brawler (Epic) Max Slot 3 Economy Funnel (0/0/0/0 -> 25/25/30/25) as 1,050 Epic Shards and 3,700 Diamonds", () => {
     const econFunnel = calculateHeroTraitsUpgrade({
       rarity: "epic",
       heroId: "hero-brawler",
       fromLevels: [0, 0, 0, 0],
-      toLevels: [15, 0, 30, 0],
+      toLevels: [25, 25, 30, 25],
       ownedShards: 50,
     });
 
-    expect(econFunnel.requiredShards).toBe(450);
-    expect(econFunnel.missingShards).toBe(400);
-    expect(econFunnel.requiredDiamonds).toBe(0);
-    expect(econFunnel.isSlot4EconomyTrapWarning).toBe(false);
+    expect(econFunnel.requiredShards).toBe(1050);
+    expect(econFunnel.missingShards).toBe(1000);
+    expect(econFunnel.requiredDiamonds).toBe(3700);
     expect(econFunnel.heroProfile.category).toBe("economy_24_7");
     expect(econFunnel.heroProfile.maxBonusLabel.vi).toContain("+30%");
-
-    // If user tries to unlock Slot 4 on Brawler (e.g. from the Brawler screenshot 21/20/20/20 -> 25/25/30/25)
-    const brawlerWithSlot4 = calculateHeroTraitsUpgrade({
-      rarity: "epic",
-      heroId: "hero-brawler",
-      fromLevels: [21, 20, 20, 20],
-      toLevels: [25, 20, 30, 20],
-      includeTraitSwap: true,
-    });
-
-    // (25-21)*10 + (30-20)*10 = 40 + 100 = 140 shards
-    expect(brawlerWithSlot4.requiredShards).toBe(140);
-    // Slot 4 was already at 20 (>0), so no new Slot 4 unlock cost, only Trait Swap (+2,000 Diamonds)
-    expect(brawlerWithSlot4.requiresSlot4UnlockDiamond).toBe(false);
-    expect(brawlerWithSlot4.requiredDiamonds).toBe(2000);
-    expect(brawlerWithSlot4.isSlot4EconomyTrapWarning).toBe(true);
+    expect(econFunnel.slotBreakdown[0]?.slotTitle.vi).toContain("Tấn Công Anh Hùng");
+    expect(econFunnel.slotBreakdown[1]?.slotTitle.vi).toContain("HP Anh Hùng I");
+    expect(econFunnel.slotBreakdown[3]?.slotTitle.vi).toContain("HP Anh Hùng II");
   });
 
   it("resolves accurate Individual Trait 3 profiles for Mythic, Legendary Economy, Legendary Combat, and Epic heroes", () => {
@@ -103,7 +158,7 @@ describe("Suite 1 — Hero Traits Quantitative Engine (4 Slots Lv.0..30, 10 Shar
     }
   });
 
-  it("flags hasPrerequisiteBridgeWarning when Slot 3 > 0 while Slot 1 < 15, and exposes starUnlockPrerequisiteShards", () => {
+  it("flags hasPrerequisiteBridgeWarning when 5-level step-gate is violated, and exposes starUnlockPrerequisiteShards", () => {
     const missingBridge = calculateHeroTraitsUpgrade({
       rarity: "epic",
       heroId: "hero-brawler",
@@ -117,7 +172,7 @@ describe("Suite 1 — Hero Traits Quantitative Engine (4 Slots Lv.0..30, 10 Shar
       rarity: "mythic",
       heroId: "hero-wukong",
       fromLevels: [0, 0, 0, 0],
-      toLevels: [15, 0, 30, 0],
+      toLevels: [25, 25, 30, 25],
     });
     expect(validBridge.hasPrerequisiteBridgeWarning).toBe(false);
     expect(validBridge.starUnlockPrerequisiteShards).toBe(600);
@@ -146,7 +201,7 @@ describe("Suite 1 — Hero Traits Quantitative Engine (4 Slots Lv.0..30, 10 Shar
 describe("Suite 2 — Hero Traits UI & Bilingual Purity (AC-CALC-05)", () => {
   const selection = getCalculatorToolBySlug("heroes", "hero-traits")!;
 
-  it("renders Brawler default Economy Funnel (0/0/0/0 -> 15/0/30/0 = 450 Shards, 0 Diamonds) and supports sequential Rarity -> Hero picker, Trait Swap toggle, and [i] Breakdown", () => {
+  it("renders Brawler default Max Slot 3 Economy Funnel (0/0/0/0 -> 25/25/30/25 = 1,050 Shards, 3,700 Diamonds) and supports sequential Rarity -> Hero picker, Trait Swap toggle, and [i] Breakdown", () => {
     render(
       <NextIntlClientProvider locale="vi" messages={viMessages}>
         <HeroTraitsCalculator
@@ -161,31 +216,42 @@ describe("Suite 2 — Hero Traits UI & Bilingual Purity (AC-CALC-05)", () => {
     expect(screen.getByTestId("hero-traits-calculator")).toBeTruthy();
     expect(screen.getByTestId("central-hero-name").textContent).toContain("Đấu Sĩ");
 
-    // Default Economy Funnel on Brawler: 0/0/0/0 -> 15/0/30/0 = 450 Epic Shards, 0 Diamonds
+    // Default Max Slot 3 Funnel on Brawler: 0/0/0/0 -> 25/25/30/25 = 1,050 Epic Shards, 3,700 Diamonds
     expect(screen.getByTestId("traits-required-shards-value").textContent).toBe(
-      "450"
+      "1,050"
     );
     expect(
       screen.getByTestId("traits-required-diamonds-value").textContent
-    ).toBe("0");
+    ).toBe("3,700");
 
-    // Toggle Trait Swap (+2,000 Diamonds)
+    // Verify Diamond unlock badges on all 4 slots (200, 500, 1,000, 2,000)
+    expect(screen.getByTestId("to-slot-1-diamond-badge").textContent).toContain(
+      "200"
+    );
+    expect(screen.getByTestId("to-slot-2-diamond-badge").textContent).toContain(
+      "500"
+    );
+    expect(screen.getByTestId("to-slot-3-diamond-badge").textContent).toContain(
+      "1,000"
+    );
+    expect(screen.getByTestId("to-slot-4-diamond-badge").textContent).toContain(
+      "2,000"
+    );
+
+    // Toggle Trait Swap (+2,000 Diamonds -> 5,700 Diamonds)
     fireEvent.click(screen.getByTestId("traits-swap-toggle-btn"));
     expect(
       screen.getByTestId("traits-required-diamonds-value").textContent
-    ).toBe("2,000");
+    ).toBe("5,700");
 
-    // Click preset Max 30/30/30/30 on Brawler -> triggers 1,200 Shards + 4,000 Diamonds (2,000 Unlock + 2,000 Swap) + Economy Trap Warning
+    // Click preset Max 30/30/30/30 on Brawler -> triggers 1,200 Shards + 5,700 Diamonds (3,700 Unlock + 2,000 Swap)
     fireEvent.click(screen.getByTestId("to-preset-max-btn"));
     expect(screen.getByTestId("traits-required-shards-value").textContent).toBe(
       "1,200"
     );
     expect(
       screen.getByTestId("traits-required-diamonds-value").textContent
-    ).toBe("4,000");
-    expect(
-      screen.getByTestId("traits-slot4-economy-trap-warning")
-    ).toBeTruthy();
+    ).toBe("5,700");
 
     // Open Sequential Picker -> Select Mythic -> Select Desert Prince -> Auto-closes
     fireEvent.click(screen.getByTestId("central-hero-avatar-trigger"));

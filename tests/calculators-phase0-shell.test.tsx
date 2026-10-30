@@ -94,8 +94,8 @@ vi.mock("@/actions/comments", () => ({
 const VI_DIACRITIC_REGEX =
   /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ]/;
 
-describe("Suite 1 — Calculators Registry SSoT (3 Zones, 9 Categories, 21 Tools & Manifest Items)", () => {
-  it("defines exactly 3 Zones, 9 Categories (Phase 1 -> Phase 9), and 21 Sub-Calculators", () => {
+describe("Suite 1 — Calculators Registry SSoT (3 Zones, 9 Categories, 22 Tools & Manifest Items)", () => {
+  it("defines exactly 3 Zones, 9 Categories (Phase 1 -> Phase 9), and 22 Sub-Calculators without redundant 'Máy Tính' / 'Calculator' title prefixes", () => {
     expect(CALCULATOR_ZONES).toHaveLength(3);
     const categories = getAllCalculatorCategories();
     expect(categories).toHaveLength(9);
@@ -109,6 +109,11 @@ describe("Suite 1 — Calculators Registry SSoT (3 Zones, 9 Categories, 21 Tools
     const tools = getAllCalculatorTools();
     expect(tools).toHaveLength(22);
     expect(HOT_CALCULATOR_TAGS).toHaveLength(5);
+
+    for (const tool of tools) {
+      expect(tool.fullTitle.vi).not.toMatch(/Máy Tính/i);
+      expect(tool.fullTitle.en).not.toMatch(/\bCalculator\b/i);
+    }
   });
 
   it("maps 100% of material references with valid gameId, nameVi, nameEn, rarity, and .webp iconPath from manifest.json (DEC-CALC-03 & UX-UPGRADE-02)", () => {
@@ -295,7 +300,7 @@ describe("Suite 4 — CalculatorsShell & CalculatorPlaceholderView (UI/UX Pro Ma
     fireEvent.click(hotTagBtn);
     expect(screen.getByTestId("calculators-hub-search-results")).toBeDefined();
     expect(
-      screen.getByText(/5\.1 Máy Tính Nguyên Liệu Nâng Cấp 6 Món Trang Bị Chúa Tể/i)
+      screen.getByText(/5\.1 Nguyên Liệu Nâng Cấp 6 Món Trang Bị Chúa Tể/i)
     ).toBeDefined();
   });
 

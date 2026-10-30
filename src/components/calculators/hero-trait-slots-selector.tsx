@@ -3,13 +3,16 @@
 import React from "react";
 import { Settings, Gem, Sparkles } from "lucide-react";
 import {
+  DIAMOND_COST_BY_SLOT,
   MAX_TRAIT_SLOT_LEVEL,
   SHARDS_PER_TRAIT_LEVEL,
+  calculateHeroTraitBaseStatPercent,
   clampTraitLevel,
   type HeroTrait3Profile,
   type TraitLevelsTuple,
   type TraitSlotIndex,
 } from "@/content/calculators/hero-traits-data";
+import type { HeroStarRarity } from "@/content/calculators/hero-stars-data";
 import type { CalculatorLocale } from "@/content/calculators/types";
 import { cn } from "@/lib/utils";
 import { CALC_MD3, CalculatorStepperButton } from "./calculator-md3-primitives";
@@ -19,6 +22,7 @@ interface HeroTraitSlotsSelectorProps {
   readonly title: string;
   readonly levels: TraitLevelsTuple;
   readonly heroProfile: HeroTrait3Profile;
+  readonly rarity?: HeroStarRarity;
   readonly locale: CalculatorLocale;
   readonly onChangeSlotLevel: (
     slotIndex: TraitSlotIndex,
@@ -39,6 +43,7 @@ export function HeroTraitSlotsSelector({
   title,
   levels,
   heroProfile,
+  rarity = "epic",
   locale,
   onChangeSlotLevel,
   onApplyPreset,
@@ -49,22 +54,24 @@ export function HeroTraitSlotsSelector({
 
   const getSlotMeta = (slotIndex: TraitSlotIndex) => {
     const lv = levels[slotIndex];
+    const statPercent = calculateHeroTraitBaseStatPercent(lv, rarity);
+
     if (slotIndex === 0) {
       return {
         shortTitle:
-          locale === "vi" ? "Ô 1 • ATK Anh Hùng" : "Slot 1 • Hero ATK",
-        effectText: `+${lv * 3}% ATK`,
+          locale === "vi" ? "Ô 1 • Tấn Công Anh Hùng" : "Slot 1 • Hero Attack",
+        effectText: `+${statPercent}% ATK`,
         isUniqueSlot3: false,
-        isDiamondSlot4: false,
+        diamondUnlockCost: DIAMOND_COST_BY_SLOT[0],
       };
     }
     if (slotIndex === 1) {
       return {
         shortTitle:
-          locale === "vi" ? "Ô 2 • HP Binh Lính" : "Slot 2 • Soldier HP",
-        effectText: locale === "vi" ? `Lv.${lv}/30 Lính` : `Lv.${lv}/30 Troop`,
+          locale === "vi" ? "Ô 2 • HP Anh Hùng I" : "Slot 2 • Hero HP I",
+        effectText: `+${statPercent}% HP`,
         isUniqueSlot3: false,
-        isDiamondSlot4: false,
+        diamondUnlockCost: DIAMOND_COST_BY_SLOT[1],
       };
     }
     if (slotIndex === 2) {
@@ -78,14 +85,15 @@ export function HeroTraitSlotsSelector({
             ? heroProfile.maxBonusLabel[locale]
             : `${heroProfile.perLevelBonusLabel[locale]} (Lv.${lv})`,
         isUniqueSlot3: true,
-        isDiamondSlot4: false,
+        diamondUnlockCost: DIAMOND_COST_BY_SLOT[2],
       };
     }
     return {
-      shortTitle: locale === "vi" ? "Ô 4 • HP Anh Hùng" : "Slot 4 • Hero HP",
-      effectText: `+${lv * 3}% HP`,
+      shortTitle:
+        locale === "vi" ? "Ô 4 • HP Anh Hùng II" : "Slot 4 • Hero HP II",
+      effectText: `+${statPercent}% HP`,
       isUniqueSlot3: false,
-      isDiamondSlot4: true,
+      diamondUnlockCost: DIAMOND_COST_BY_SLOT[3],
     };
   };
 
@@ -125,7 +133,7 @@ export function HeroTraitSlotsSelector({
         <button
           type="button"
           data-testid={`${idPrefix}-preset-econ-btn`}
-          onClick={() => onApplyPreset([15, 0, 30, 0])}
+          onClick={() => onApplyPreset([25, 25, 30, 25])}
           className={cn(
             CALC_MD3.chipButton,
             "bg-emerald-500/10 px-3 font-sans text-emerald-700 hover:bg-emerald-500/20 dark:text-emerald-400"
@@ -133,7 +141,7 @@ export function HeroTraitSlotsSelector({
         >
           <Sparkles className="h-4 w-4" aria-hidden="true" />
           <span>
-            {locale === "vi" ? "Phễu Kinh Tế (15/0/30/0)" : "Econ (15/0/30/0)"}
+            {locale === "vi" ? "Max Ô 3 (25/25/30/25)" : "Max Slot 3 (25/25/30/25)"}
           </span>
         </button>
 
@@ -196,12 +204,13 @@ export function HeroTraitSlotsSelector({
                 </div>
 
                 <div className="flex shrink-0 items-center gap-1.5">
-                  {meta.isDiamondSlot4 ? (
-                    <span className="inline-flex items-center gap-1 rounded-md bg-sky-500/15 px-2 py-0.5 font-mono text-xs font-bold text-sky-700 dark:text-sky-300">
-                      <Gem className="h-3.5 w-3.5" aria-hidden="true" />
-                      <span>2,000</span>
-                    </span>
-                  ) : null}
+                  <span
+                    data-testid={`${idPrefix}-slot-${slotNum}-diamond-badge`}
+                    className="inline-flex items-center gap-1 rounded-md bg-sky-500/15 px-2 py-0.5 font-mono text-xs font-bold text-sky-700 dark:text-sky-300"
+                  >
+                    <Gem className="h-3.5 w-3.5" aria-hidden="true" />
+                    <span>{meta.diamondUnlockCost.toLocaleString("en-US")}</span>
+                  </span>
                   <span
                     data-testid={`${idPrefix}-slot-${slotNum}-level-badge`}
                     className="rounded-md bg-secondary px-2 py-0.5 font-mono text-sm font-black text-foreground"
