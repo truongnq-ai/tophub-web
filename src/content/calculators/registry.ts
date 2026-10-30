@@ -1280,12 +1280,12 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
             categorySlug: "castle-tech",
             phaseNumber: 8,
             title: {
-              vi: "8.1 Lâu Đài Chính",
-              en: "8.1 Main Castle",
+              vi: "8.1 Xây dựng",
+              en: "8.1 Construction",
             },
             fullTitle: {
-              vi: "8.1 Tài Nguyên & Điều Kiện Nâng Lâu Đài Chính (Lv.10–40 & Huy Hoàng 1–6)",
-              en: "8.1 Main Castle Resources & Prerequisites (Lv.10–40 & Brilliance 1–6)",
+              vi: "8.1 Xây Dựng & Quy Hoạch Đa Đội Xây (Lv.1–40 & Huy Hoàng 1–8)",
+              en: "8.1 Construction & Multi-Queue Planner (Lv.1–40 & Brilliance 1–8)",
             },
             summary: {
               vi: "Tính Gỗ, Đá, Ruby, Tinh Chất Rồng, thời gian xây dựng và dây chuyền công trình điều kiện cho từng cấp Lâu Đài Chính đến Huy Hoàng 6 (B6).",
@@ -1319,7 +1319,7 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
                   "Total Timber / Stone / Ruby / Dragon Essence, prerequisite building chain & Speedup days",
               },
             },
-            status: "coming_soon",
+            status: "ready",
           },
           {
             code: "8.2",
