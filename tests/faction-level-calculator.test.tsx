@@ -247,7 +247,7 @@ describe("2.2 Cấp Phe Phái — Interactive UI & Bilingual Purity", () => {
     expect(screen.getByTestId("faction-level-calculator")).toBeTruthy();
   });
 
-  it("supports Faction selection, SSoT vs Extended S1+ mode, milestone presets, and K/M/B inputs", () => {
+  it("supports Faction selection, populated Lv.41-80 extended S1+ progression by default, milestone presets, and K/M/B inputs", () => {
     render(
       <FactionLevelCalculator
         zone={selection.zone}
@@ -257,32 +257,30 @@ describe("2.2 Cấp Phe Phái — Interactive UI & Bilingual Purity", () => {
       />
     );
 
-    // Default: Base (Lv.1 • 0 bars) -> Lv.40 (12/12 bars) = 692.16M Meat & 1,237 Shards
+    // Default: Base (Lv.1 • 0 bars) -> Lv.40 (12/12 bars) = 692.16M Meat & 1,237 Shards (1.24K)
     expect(screen.getByTestId("faction-required-meat-value").textContent).toBe(
       "692.16M"
     );
     expect(
       screen.getByTestId("faction-required-shards-value").textContent
-    ).toBe("1,237");
+    ).toBe("1.24K");
 
-    // Click Target Preset Lv.50 (Table 8.4 SSoT total) -> 1.18B Meat (1,181.162M) & 1,307 Shards
+    // Click Target Preset Lv.50 (Extended S1+ populated by default -> 2,007 Shards = 2.01K)
     fireEvent.click(screen.getByTestId("to-faction-preset-lv50-btn"));
     expect(
       screen.getByTestId("faction-required-shards-value").textContent
-    ).toBe("1,307");
+    ).toBe("2.01K");
 
-    // Switch mode to Extended S1+ -> Lv.50 Shards increases from 1,307 to 2,007
-    fireEvent.click(screen.getByTestId("faction-mode-extended-btn"));
-    expect(
-      Number(
-        screen
-          .getByTestId("faction-required-shards-value")
-          .textContent?.replace(/,/g, "")
-      )
-    ).toBeGreaterThan(1_307);
+    // Click Target Preset Lv.80 -> ensures Lv.51-80 Meat and Lv.42-80 Shards are populated (non-zero)
+    fireEvent.click(screen.getByTestId("to-faction-preset-lv80-btn"));
+    expect(screen.getByTestId("faction-required-meat-value").textContent).not.toBe(
+      "0"
+    );
+    expect(screen.getByTestId("faction-required-shards-value").textContent).not.toBe(
+      "0"
+    );
 
-    // Switch back to SSoT Verified mode and select Lv.40
-    fireEvent.click(screen.getByTestId("faction-mode-ssot-btn"));
+    // Switch back to Lv.40
     fireEvent.click(screen.getByTestId("to-faction-preset-lv40-btn"));
 
     // Enter "500m" into Owned Meat input -> missing = 192.16M

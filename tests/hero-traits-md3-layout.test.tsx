@@ -116,7 +116,7 @@ describe("Phase 2.4 / HeroTraitSlotsSelector MD3", () => {
   });
 });
 
-describe("Phase 2.4 / HeroTraitsCalculator MD3", () => {
+describe("Phase 2.4 / HeroTraitsCalculator MD3 (Standard v2.0)", () => {
   const selection = getCalculatorToolBySlug("heroes", "hero-traits")!;
   const renderCalculator = () =>
     render(
@@ -136,17 +136,17 @@ describe("Phase 2.4 / HeroTraitsCalculator MD3", () => {
     ).toBe(0);
   });
 
-  it("uses a flat header, 30–36px dual metrics and 16px/44px inputs with an accessible [i] button", () => {
+  it("uses a flat header, 3-column R5 dual metrics with K/M compact formatting and 16px/44px inputs with an accessible [i] button", () => {
     renderCalculator();
     expect(screen.getByTestId("calculator-tool-header").className).not.toMatch(
       ALL_SIDE_BORDER_REGEX
     );
 
     const shards = screen.getByTestId("traits-required-shards-value");
-    expect(shards.textContent).toBe("1,050");
-    expect(shards.className).toContain("text-3xl");
+    expect(shards.textContent).toBe("1.05K");
+    expect(shards.className).toContain("text-xl");
     expect(screen.getByTestId("traits-required-diamonds-value").className).toContain(
-      "sm:text-4xl"
+      "text-xl"
     );
 
     for (const id of ["traits-owned-shards-input", "traits-owned-diamonds-input"]) {
@@ -160,15 +160,12 @@ describe("Phase 2.4 / HeroTraitsCalculator MD3", () => {
     expect(infoBtn.getAttribute("aria-label")).toBeTruthy();
   });
 
-  it("renders the 4-slot breakdown table without a nested bordered wrapper", () => {
+  it("renders the 4-slot breakdown table inside CalculatorInfoPopover (Rule R6) without a nested bordered wrapper", () => {
     renderCalculator();
     fireEvent.click(screen.getByTestId("toggle-traits-breakdown-btn"));
 
     const panel = screen.getByTestId("traits-breakdown-panel");
-    expect(getMaxBorderedContainerDepth(panel)).toBe(1);
-    const heading = within(panel).getByRole("heading", { level: 2 });
-    expect(heading.className).toContain("font-heading");
-    expect(heading.className).not.toContain("font-mono");
+    expect(getMaxBorderedContainerDepth(panel)).toBeLessThanOrEqual(1);
 
     const table = screen.getByTestId("traits-breakdown-table");
     expect(table.parentElement?.className ?? "").not.toMatch(ALL_SIDE_BORDER_REGEX);

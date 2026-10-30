@@ -1,15 +1,13 @@
 "use client";
 
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import {
   AlertTriangle,
   CheckCircle2,
-  Info,
   RotateCcw,
   ShieldAlert,
   Sparkles,
   Trophy,
-  X,
 } from "lucide-react";
 import {
   DAILY_MILESTONE_CHESTS,
@@ -42,6 +40,7 @@ import {
   CalculatorStepperButton,
   CalculatorToolHeader,
 } from "./calculator-md3-primitives";
+import { CalculatorInfoPopover } from "./calculator-info-popover";
 
 export interface EventPointsCalculatorProps {
   readonly zone?: CalculatorZone;
@@ -70,17 +69,6 @@ export function EventPointsCalculator({
   const [showAllDaysItems, setShowAllDaysItems] = useState<boolean>(false);
   const [rawInputs, setRawInputs] =
     useState<Record<string, string>>(buildDefaultInputs);
-  const [isMatrixModalOpen, setIsMatrixModalOpen] = useState<boolean>(false);
-
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setIsMatrixModalOpen(false);
-      }
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
 
   const parsedQuantities = useMemo(() => {
     const map: Record<string, number> = {};
@@ -137,31 +125,170 @@ export function EventPointsCalculator({
     });
   };
 
+  const chest9TargetPoints =
+    DAILY_MILESTONE_CHESTS[DAILY_MILESTONE_CHESTS.length - 1]?.requiredPoints ??
+    3_600_000;
+  const missingToChest9 = Math.max(
+    0,
+    chest9TargetPoints - result.totalBuffedPoints
+  );
+
   return (
     <div
       data-testid="event-points-calculator"
       className="space-y-4 pb-8"
     >
-      {/* 1. Compact Header */}
+      {/* 1. Compact Header with Standard CalculatorInfoPopover */}
       <CalculatorToolHeader
         code={tool.code}
         title={tool.title[locale]}
         actions={
           <>
-            <button
-              type="button"
-              data-testid="open-event-matrix-modal"
-              onClick={() => setIsMatrixModalOpen(true)}
-              className={cn(
-                CALC_MD3.chipButton,
-                "border border-border/60 bg-background px-3 text-muted-foreground hover:text-foreground"
-              )}
+            <CalculatorInfoPopover
+              triggerTestId="open-event-matrix-modal"
+              title={
+                locale === "vi"
+                  ? "Ma Trận Đối Chiếu 6 Ngày GAR vs KvK & 9 Rương Mốc"
+                  : "6-Day GAR vs KvK Matrix & 9 Milestone Chests"
+              }
+              locale={locale} triggerLabel={
+                locale === "vi"
+                  ? "Xem ma trận điểm 6 ngày GAR vs KvK và 9 rương mốc"
+                  : "View 6-day GAR vs KvK scoring matrix and 9 milestone chests"
+              }
             >
-              <Info className="mr-1.5 h-3.5 w-3.5 text-amber-500" />
-              <span>
-                {locale === "vi" ? "Bảng Điểm 6 Ngày" : "6-Day Matrix"}
-              </span>
-            </button>
+              <div className="space-y-4">
+                <div className="rounded-xl bg-amber-500/10 p-3 text-sm leading-relaxed text-foreground/90">
+                  {locale === "vi" ? (
+                    <>
+                      <strong>Quy tắc vàng GAR vs KvK:</strong> Với Khoa Kỹ Nhân
+                      Đôi Quà Rương (<span className="font-mono">x2</span>), mở
+                      đủ <span className="font-mono">9/9</span> Rương mỗi ngày (
+                      <span className="font-mono">3.6M</span> điểm) đem về tổng
+                      cộng <span className="font-mono">9,000</span> Kim Cương +{" "}
+                      <span className="font-mono">30</span> Mảnh Tướng Cam Vạn
+                      Năng. Tuyệt đối tránh bẫy xả Đồ Chúa Tể & Trang Bị Anh
+                      Hùng vào Ngày <span className="font-mono">6</span> (
+                      <span className="font-mono">0</span> điểm).
+                    </>
+                  ) : (
+                    <>
+                      <strong>GAR vs KvK Golden Rules:</strong> With Double
+                      Chest Rewards Tech (<span className="font-mono">x2</span>
+                      ), unlocking all <span className="font-mono">9/9</span>{" "}
+                      daily chests (<span className="font-mono">3.6M</span> pts)
+                      yields <span className="font-mono">9,000</span> Diamonds +{" "}
+                      <span className="font-mono">30</span> Universal Legendary
+                      Shards. Never spend Lord Gear or Hero Gear materials on
+                      Day <span className="font-mono">6</span> (
+                      <span className="font-mono">0</span> pts).
+                    </>
+                  )}
+                </div>
+
+                {/* 6-Day GAR vs KvK Reference List */}
+                <div className="space-y-2">
+                  <h4 className="text-sm font-heading font-bold text-foreground">
+                    {locale === "vi"
+                      ? "1. Đối chiếu quy tắc 6 ngày GAR vs KvK"
+                      : "1. 6-Day GAR vs KvK Scoring Rules"}
+                  </h4>
+                  <div className="space-y-2">
+                    {EVENT_DAYS_METADATA.map((d) => (
+                      <div
+                        key={d.day}
+                        className={cn(CALC_MD3.tonalGroup, "space-y-1")}
+                      >
+                        <p className="font-sans text-sm font-bold text-foreground">
+                          {locale === "vi" ? d.titleVi : d.titleEn}
+                        </p>
+                        <p className="font-sans text-xs text-muted-foreground">
+                          {locale === "vi"
+                            ? d.primaryFocusVi
+                            : d.primaryFocusEn}{" "}
+                          •{" "}
+                          {locale === "vi"
+                            ? d.secondaryFocusVi
+                            : d.secondaryFocusEn}
+                        </p>
+                        <p className="font-sans text-xs font-medium text-amber-600 dark:text-amber-400">
+                          {locale === "vi"
+                            ? d.kvkDiffHighlightVi
+                            : d.kvkDiffHighlightEn}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* 9 Milestone Chests Table */}
+                <div className="space-y-2">
+                  <h4 className="text-sm font-heading font-bold text-foreground">
+                    {locale === "vi"
+                      ? "2. Bảng 9 Rương Mốc Cá Nhân (50K ➔ 3.6M Điểm)"
+                      : "2. 9 Personal Milestone Chests (50K ➔ 3.6M Pts)"}
+                  </h4>
+                  <div className="-mx-1 overflow-x-auto">
+                    <table className="w-full min-w-[460px] border-collapse text-left text-sm">
+                      <thead>
+                        <tr className="border-b border-border/70 bg-muted/40 text-xs font-sans font-semibold uppercase tracking-wide text-muted-foreground">
+                          <th className="py-2 px-3">
+                            {locale === "vi" ? "Rương" : "Chest"}
+                          </th>
+                          <th className="py-2 px-3 text-right">
+                            {locale === "vi" ? "Điểm Yêu Cầu" : "Required Pts"}
+                          </th>
+                          <th className="py-2 px-3 text-right">
+                            {locale === "vi"
+                              ? "Kim Cương (x2 Tech)"
+                              : "Diamonds (x2 Tech)"}
+                          </th>
+                          <th className="py-2 px-3 text-right">
+                            {locale === "vi"
+                              ? "Mảnh Cam (x2 Tech)"
+                              : "SSR Shards (x2 Tech)"}
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-border/50 font-sans tabular-nums">
+                        {DAILY_MILESTONE_CHESTS.map((chest) => (
+                          <tr
+                            key={chest.chestIndex}
+                            className="hover:bg-amber-500/[0.04] transition-colors"
+                          >
+                            <td className="py-2 px-3 font-semibold text-foreground">
+                              {locale === "vi" ? chest.labelVi : chest.labelEn}
+                            </td>
+                            <td className="py-2 px-3 text-right font-bold text-amber-600 dark:text-amber-400">
+                              <span
+                                className="font-mono"
+                                title={formatExactNumber(chest.requiredPoints)}
+                              >
+                                {formatCompactNumber(chest.requiredPoints)}
+                              </span>
+                            </td>
+                            <td className="py-2 px-3 text-right text-foreground">
+                              <span className="font-mono">
+                                +{formatExactNumber(chest.baseDiamonds * 2)}
+                              </span>
+                            </td>
+                            <td className="py-2 px-3 text-right font-semibold text-amber-600 dark:text-amber-400">
+                              <span className="font-mono">
+                                +
+                                {formatExactNumber(
+                                  chest.baseUniversalShards * 2
+                                )}
+                              </span>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </CalculatorInfoPopover>
+
             <button
               type="button"
               data-testid="reset-event-points"
@@ -279,10 +406,10 @@ export function EventPointsCalculator({
               })}
             </div>
 
-            {/* Active Day Golden Hour & GAR vs KvK Diff Banner */}
+            {/* Compact Active Day Focus & GAR vs KvK Diff Strip */}
             <div
               data-testid="kvk-vs-gar-diff-banner"
-              className={cn(CALC_MD3.tonalGroup, "space-y-1.5")}
+              className={cn(CALC_MD3.tonalGroup, "space-y-1")}
             >
               <div className="flex items-center gap-2">
                 <Sparkles className="h-4 w-4 shrink-0 text-amber-500" />
@@ -292,14 +419,6 @@ export function EventPointsCalculator({
                     : result.dayMeta.titleEn}
                 </p>
               </div>
-              <p className="font-sans text-xs text-muted-foreground">
-                <strong className="text-foreground">
-                  {locale === "vi" ? "Trọng tâm: " : "Primary: "}
-                </strong>
-                {locale === "vi"
-                  ? result.dayMeta.primaryFocusVi
-                  : result.dayMeta.primaryFocusEn}
-              </p>
               <p className="font-sans text-xs text-amber-700 dark:text-amber-300">
                 <strong>
                   {locale === "vi" ? "GAR vs KvK: " : "GAR vs KvK Diff: "}
@@ -415,8 +534,8 @@ export function EventPointsCalculator({
                 </h2>
                 <p className="text-xs font-sans text-muted-foreground">
                   {locale === "vi"
-                    ? "Hỗ trợ gõ tắt số lượng lớn: 15k = 15,000 • 1.5m = 1,500,000"
-                    : "Supports compact input shorthand: 15k = 15,000 • 1.5m = 1,500,000"}
+                    ? "Hỗ trợ gõ tắt số lượng lớn: 15K = 15,000 • 1.5M = 1,500,000"
+                    : "Supports compact input shorthand: 15K = 15,000 • 1.5M = 1,500,000"}
                 </p>
               </div>
               <button
@@ -443,8 +562,12 @@ export function EventPointsCalculator({
               className={CALC_MD3.dividedList}
             >
               {visibleRows.map((row) => {
-                const { item, activeRule, buffedPoints, isZeroPointTrapOnSelectedDay } =
-                  row;
+                const {
+                  item,
+                  activeRule,
+                  buffedPoints,
+                  isZeroPointTrapOnSelectedDay,
+                } = row;
                 const itemName = locale === "vi" ? item.nameVi : item.nameEn;
                 const unitLabel =
                   locale === "vi" ? item.unitLabelVi : item.unitLabelEn;
@@ -472,19 +595,30 @@ export function EventPointsCalculator({
                         </p>
                         {activeRule ? (
                           <div className="flex flex-wrap items-center gap-1.5 text-xs text-muted-foreground">
-                            <span className="font-mono font-semibold text-foreground">
-                              {formatExactNumber(activeRule.pointsPerBatch)}
+                            <span
+                              className="font-mono font-semibold text-foreground"
+                              title={formatExactNumber(activeRule.pointsPerBatch)}
+                            >
+                              {formatCompactNumber(activeRule.pointsPerBatch)}
                             </span>
                             <span>
                               {locale === "vi" ? "điểm gốc /" : "base pts /"}
                             </span>
-                            <span className="font-mono">
-                              {formatExactNumber(activeRule.batchSize)}
+                            <span
+                              className="font-mono"
+                              title={formatExactNumber(activeRule.batchSize)}
+                            >
+                              {formatCompactNumber(activeRule.batchSize)}
                             </span>
                             <span>{unitLabel}</span>
                             {result.techBuffPercent > 0 && (
-                              <span className="rounded bg-amber-500/15 px-1.5 py-0.5 font-mono text-xs font-semibold text-amber-600 dark:text-amber-400">
-                                ➔ {formatExactNumber(row.buffedPointsPerBatch)}
+                              <span
+                                className="rounded bg-amber-500/15 px-1.5 py-0.5 font-mono text-xs font-semibold text-amber-600 dark:text-amber-400"
+                                title={formatExactNumber(
+                                  row.buffedPointsPerBatch
+                                )}
+                              >
+                                ➔ {formatCompactNumber(row.buffedPointsPerBatch)}
                               </span>
                             )}
                           </div>
@@ -524,6 +658,7 @@ export function EventPointsCalculator({
                       </div>
                       <div className="min-w-[84px] text-right">
                         <p
+                          title={formatExactNumber(buffedPoints)}
                           className={cn(
                             "font-mono text-sm font-bold tabular-nums",
                             buffedPoints > 0
@@ -547,7 +682,7 @@ export function EventPointsCalculator({
 
         {/* RIGHT COLUMN (5/12 Sticky): Hero KPI Summary, 9 Milestone Chests, Trap Alert & Surplus Reserve */}
         <div className="space-y-4 lg:col-span-5 lg:sticky lg:top-20">
-          {/* Hero KPI Summary Card */}
+          {/* Hero KPI Summary Card (3-column R5 Target / Earned / Missing-Surplus + 9 Chests) */}
           <div
             data-testid="event-points-summary-card"
             className={cn(CALC_MD3.surfaceCard, "space-y-4 p-4")}
@@ -559,7 +694,10 @@ export function EventPointsCalculator({
                     ? `TỔNG ĐIỂM THỰC NHẬN • NGÀY ${selectedDay} (${mode.toUpperCase()})`
                     : `TOTAL EFFECTIVE POINTS • DAY ${selectedDay} (${mode.toUpperCase()})`}
                 </p>
-                <div className="mt-1 space-y-1">
+                <div
+                  className="mt-1 space-y-1"
+                  title={formatExactNumber(result.totalBuffedPoints)}
+                >
                   <CalculatorMetricValue
                     testId="event-total-points-value"
                     value={formatCompactNumber(result.totalBuffedPoints)}
@@ -593,6 +731,69 @@ export function EventPointsCalculator({
                 <Trophy className="h-4 w-4" />
                 <span>{result.unlockedChestCount}/9</span>
               </span>
+            </div>
+
+            {/* R5 3-Column Target Chest 9 Bar */}
+            <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-3">
+              <div className="rounded-xl bg-muted/40 p-2.5">
+                <div className={cn(CALC_MD3.eyebrow, "text-muted-foreground")}>
+                  {locale === "vi" ? "Mốc Rương 9" : "Chest 9 Target"}
+                </div>
+                <div
+                  className="mt-1 font-mono text-lg font-black tabular-nums text-foreground"
+                  title={formatExactNumber(chest9TargetPoints)}
+                >
+                  {formatCompactNumber(chest9TargetPoints)}
+                </div>
+              </div>
+
+              <div className="rounded-xl bg-muted/40 p-2.5">
+                <div className={cn(CALC_MD3.eyebrow, "text-muted-foreground")}>
+                  {locale === "vi" ? "Điểm đang có" : "Current Points"}
+                </div>
+                <div
+                  className="mt-1 font-mono text-lg font-black tabular-nums text-amber-600 dark:text-amber-400"
+                  title={formatExactNumber(result.totalBuffedPoints)}
+                >
+                  {formatCompactNumber(result.totalBuffedPoints)}
+                </div>
+              </div>
+
+              <div
+                className={cn(
+                  "rounded-xl p-2.5",
+                  missingToChest9 === 0
+                    ? "bg-emerald-500/15"
+                    : "bg-amber-500/15"
+                )}
+              >
+                <div className={cn(CALC_MD3.eyebrow, "text-muted-foreground")}>
+                  {missingToChest9 === 0
+                    ? locale === "vi"
+                      ? "Điểm vượt dư"
+                      : "Surplus Points"
+                    : locale === "vi"
+                    ? "Thiếu tới Rương 9"
+                    : "Missing to Chest 9"}
+                </div>
+                <div className="mt-1">
+                  {missingToChest9 === 0 ? (
+                    <span
+                      title={formatExactNumber(result.surplusPointsAboveChest9)}
+                      className="font-mono text-lg font-black tabular-nums text-emerald-700 dark:text-emerald-400"
+                    >
+                      +{formatCompactNumber(result.surplusPointsAboveChest9)}
+                    </span>
+                  ) : (
+                    <span
+                      title={formatExactNumber(missingToChest9)}
+                      className="font-mono text-lg font-black tabular-nums text-amber-700 dark:text-amber-300"
+                    >
+                      -{formatCompactNumber(missingToChest9)}
+                    </span>
+                  )}
+                </div>
+              </div>
             </div>
 
             {/* 9 Milestone Chests Grid */}
@@ -654,7 +855,10 @@ export function EventPointsCalculator({
                             ? `Rương ${chest.chestIndex}`
                             : `Chest ${chest.chestIndex}`}
                         </p>
-                        <p className="font-mono text-xs text-muted-foreground">
+                        <p
+                          className="font-mono text-xs text-muted-foreground"
+                          title={formatExactNumber(chest.requiredPoints)}
+                        >
                           {formatCompactNumber(chest.requiredPoints)}
                         </p>
                       </div>
@@ -677,8 +881,11 @@ export function EventPointsCalculator({
                   <p className="font-sans text-xs text-muted-foreground">
                     {locale === "vi" ? "Thưởng Kim Cương" : "Diamond Rewards"}
                   </p>
-                  <p className="font-mono text-sm font-bold text-foreground">
-                    +{formatExactNumber(result.totalEarnedDiamonds)}
+                  <p
+                    className="font-mono text-sm font-bold text-foreground"
+                    title={formatExactNumber(result.totalEarnedDiamonds)}
+                  >
+                    +{formatCompactNumber(result.totalEarnedDiamonds)}
                   </p>
                 </div>
               </div>
@@ -695,8 +902,11 @@ export function EventPointsCalculator({
                   <p className="font-sans text-xs text-muted-foreground">
                     {locale === "vi" ? "Mảnh Tướng Cam" : "Legendary Shards"}
                   </p>
-                  <p className="font-mono text-sm font-bold text-amber-600 dark:text-amber-400">
-                    +{formatExactNumber(result.totalEarnedUniversalShards)}
+                  <p
+                    className="font-mono text-sm font-bold text-amber-600 dark:text-amber-400"
+                    title={formatExactNumber(result.totalEarnedUniversalShards)}
+                  >
+                    +{formatCompactNumber(result.totalEarnedUniversalShards)}
                   </p>
                 </div>
               </div>
@@ -758,7 +968,10 @@ export function EventPointsCalculator({
                       : "Surplus Reserve Planner (Chest 9 Reached)"}
                   </h3>
                 </div>
-                <span className="rounded-lg bg-emerald-500/15 px-2 py-0.5 font-mono text-xs font-bold text-emerald-600 dark:text-emerald-400">
+                <span
+                  title={formatExactNumber(result.surplusPointsAboveChest9)}
+                  className="rounded-lg bg-emerald-500/15 px-2 py-0.5 font-mono text-xs font-bold text-emerald-600 dark:text-emerald-400"
+                >
                   +{formatCompactNumber(result.surplusPointsAboveChest9)}
                 </span>
               </div>
@@ -788,10 +1001,10 @@ export function EventPointsCalculator({
                         </p>
                         <p className="font-sans text-xs text-muted-foreground">
                           {locale === "vi"
-                            ? `Chỉ cần xả: ${formatExactNumber(
+                            ? `Chỉ cần xả: ${formatCompactNumber(
                                 rec.spendQuantity
                               )}`
-                            : `Spend only: ${formatExactNumber(
+                            : `Spend only: ${formatCompactNumber(
                                 rec.spendQuantity
                               )}`}
                         </p>
@@ -800,11 +1013,17 @@ export function EventPointsCalculator({
                     <div className="text-right">
                       <p className="font-sans text-xs font-bold text-emerald-600 dark:text-emerald-400">
                         {locale === "vi" ? "Cất lại " : "Hold "}
-                        <span className="font-mono">
-                          {formatExactNumber(rec.holdbackQuantity)}
+                        <span
+                          className="font-mono"
+                          title={formatExactNumber(rec.holdbackQuantity)}
+                        >
+                          {formatCompactNumber(rec.holdbackQuantity)}
                         </span>
                       </p>
-                      <p className="font-mono text-xs text-muted-foreground">
+                      <p
+                        className="font-mono text-xs text-muted-foreground"
+                        title={formatExactNumber(rec.savedBuffedPoints)}
+                      >
                         -{formatCompactNumber(rec.savedBuffedPoints)}
                       </p>
                     </div>
@@ -815,56 +1034,6 @@ export function EventPointsCalculator({
           )}
         </div>
       </div>
-
-      {/* 3. Modal: 6-Day GAR vs KvK Reference Matrix */}
-      {isMatrixModalOpen && (
-        <div
-          data-md3-overlay="true"
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-xs"
-        >
-          <div
-            className={cn(
-              CALC_MD3.overlayCard,
-              "max-h-[85vh] w-full max-w-3xl overflow-y-auto p-5 space-y-4"
-            )}
-          >
-            <div className="flex items-center justify-between gap-2">
-              <h2 className={CALC_MD3.headline}>
-                {locale === "vi"
-                  ? "Ma Trận Đối Chiếu 6 Ngày GAR vs KvK"
-                  : "6-Day GAR vs KvK Scoring Reference Matrix"}
-              </h2>
-              <button
-                type="button"
-                onClick={() => setIsMatrixModalOpen(false)}
-                aria-label={locale === "vi" ? "Đóng" : "Close"}
-                className={CALC_MD3.iconButton}
-              >
-                <X className="h-4 w-4" />
-              </button>
-            </div>
-
-            <div className="space-y-2.5">
-              {EVENT_DAYS_METADATA.map((d) => (
-                <div key={d.day} className={cn(CALC_MD3.tonalGroup, "space-y-1")}>
-                  <p className="font-sans text-sm font-bold text-foreground">
-                    {locale === "vi" ? d.titleVi : d.titleEn}
-                  </p>
-                  <p className="font-sans text-xs text-muted-foreground">
-                    {locale === "vi" ? d.primaryFocusVi : d.primaryFocusEn} •{" "}
-                    {locale === "vi" ? d.secondaryFocusVi : d.secondaryFocusEn}
-                  </p>
-                  <p className="font-sans text-xs font-medium text-amber-600 dark:text-amber-400">
-                    {locale === "vi"
-                      ? d.kvkDiffHighlightVi
-                      : d.kvkDiffHighlightEn}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

@@ -1,16 +1,14 @@
 "use client";
 
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import {
   AlertTriangle,
   CheckCircle2,
   Crown,
-  Info,
   RotateCcw,
   ShieldAlert,
   ShoppingBag,
   Sparkles,
-  X,
 } from "lucide-react";
 import {
   FACTION_AWAKENING_PLANS,
@@ -45,6 +43,7 @@ import {
   CalculatorStepperButton,
   CalculatorToolHeader,
 } from "./calculator-md3-primitives";
+import { CalculatorInfoPopover } from "./calculator-info-popover";
 
 export interface VipAndShopsCalculatorProps {
   readonly zone?: CalculatorZone;
@@ -75,8 +74,6 @@ export function VipAndShopsCalculator({
   const [toVipLevel, setToVipLevel] = useState<number>(10);
   const [customVipPointsInput, setCustomVipPointsInput] =
     useState<string>("6000");
-  const [isVipTableModalOpen, setIsVipTableModalOpen] =
-    useState<boolean>(false);
 
   // Tab 2: Guild Honor Shop Budget Planner State
   const [currencyEra, setCurrencyEra] =
@@ -90,16 +87,6 @@ export function VipAndShopsCalculator({
   const [ownedSoulStones, setOwnedSoulStones] = useState<number>(3);
   const [cartQuantities, setCartQuantities] =
     useState<Record<string, number>>(buildDefaultCart);
-
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setIsVipTableModalOpen(false);
-      }
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
 
   const parsedCustomVipPoints = useMemo(
     () => parseCompactNumberInput(customVipPointsInput),
@@ -151,7 +138,9 @@ export function VipAndShopsCalculator({
   const handleSelectFromVip = (nextFrom: number) => {
     const clampedFrom = Math.max(0, Math.min(20, nextFrom));
     setFromVipLevel(clampedFrom);
-    setCustomVipPointsInput(String(VIP_LEVEL_TABLE[clampedFrom].cumulativePoints));
+    setCustomVipPointsInput(
+      String(VIP_LEVEL_TABLE[clampedFrom].cumulativePoints)
+    );
     if (toVipLevel < clampedFrom) {
       setToVipLevel(clampedFrom);
     }
@@ -186,7 +175,11 @@ export function VipAndShopsCalculator({
     }
   };
 
-  const handleUpdateCartQty = (itemId: string, delta: number, maxLimit: number) => {
+  const handleUpdateCartQty = (
+    itemId: string,
+    delta: number,
+    maxLimit: number
+  ) => {
     setCartQuantities((prev) => {
       const current = prev[itemId] ?? 0;
       const next = Math.max(0, Math.min(maxLimit, current + delta));
@@ -211,26 +204,144 @@ export function VipAndShopsCalculator({
       data-testid="vip-and-shops-calculator"
       className="space-y-4 pb-8"
     >
-      {/* 1. Compact Header */}
+      {/* 1. Compact Header with Standard CalculatorInfoPopover */}
       <CalculatorToolHeader
         code={tool.code}
         title={tool.title[locale]}
         actions={
           <>
-            <button
-              type="button"
-              data-testid="open-vip-table-modal"
-              onClick={() => setIsVipTableModalOpen(true)}
-              className={cn(
-                CALC_MD3.chipButton,
-                "border border-border/60 bg-background px-3 text-muted-foreground hover:text-foreground"
-              )}
+            <CalculatorInfoPopover
+              triggerTestId="open-vip-table-modal"
+              title={
+                locale === "vi"
+                  ? "Bảng Toàn Tập VIP 0–20 & Kỷ Luật Sàn Đóng Băng 9 Đá"
+                  : "Complete VIP 0–20 Table & 9-Soul-Stone Freeze Floor"
+              }
+              locale={locale} triggerLabel={
+                locale === "vi"
+                  ? "Xem bảng tra cứu VIP 0–20 và quy tắc Tiệm Vinh Quang Hội"
+                  : "View VIP 0–20 reference table and Guild Honor Shop rules"
+              }
             >
-              <Info className="mr-1.5 h-3.5 w-3.5 text-amber-500" />
-              <span>
-                {locale === "vi" ? "Bảng VIP 1–20" : "VIP 1–20 Table"}
-              </span>
-            </button>
+              <div className="space-y-4">
+                <div className="rounded-xl bg-amber-500/10 p-3 text-sm leading-relaxed text-foreground/90">
+                  {locale === "vi" ? (
+                    <>
+                      <strong>Quy tắc Sàn Đóng Băng 9 Đá Linh Hồn:</strong> Luôn
+                      giữ sàn tối thiểu{" "}
+                      <span className="font-mono">360K</span> Vinh Quang Hội (
+                      hoặc <span className="font-mono">54K</span> Xu Vinh Quang
+                      S1) để đảm bảo chuỗi mua{" "}
+                      <span className="font-mono">9</span> Đá Linh Hồn thức tỉnh
+                      1 Tướng Cam lên Đỏ không bao giờ đứt đoạn.{" "}
+                      <strong>Cảnh báo bẫy đỏ:</strong> Tuyệt đối không mua{" "}
+                      <strong>Quân Trang Cam Vạn Năng</strong> (
+                      <span className="font-mono">72K</span> Vinh Quang /{" "}
+                      <span className="font-mono">12K</span> Xu S1) nếu chưa sở
+                      hữu sẵn Quân Trang Cam gốc (vật phẩm này chỉ dùng để nâng
+                      sao, không mở khóa được Quân Trang mới).
+                    </>
+                  ) : (
+                    <>
+                      <strong>9-Soul-Stone Freeze Floor Rule:</strong> Always
+                      maintain a minimum reserve of{" "}
+                      <span className="font-mono">360K</span> Guild Honor (or{" "}
+                      <span className="font-mono">54K</span> S1 Glory Coins) to
+                      protect your 9-Soul-Stone Mythic Awakening chain.{" "}
+                      <strong>Red Trap Warning:</strong> Never buy the{" "}
+                      <strong>Universal Legendary Troop Skin</strong> (
+                      <span className="font-mono">72K</span> Honor /{" "}
+                      <span className="font-mono">12K</span> S1 Coins) expecting
+                      a new skin unlock — it only upgrades stars on already
+                      owned skins.
+                    </>
+                  )}
+                </div>
+
+                {/* Complete 21-Row VIP 0 -> VIP 20 Table */}
+                <div className="space-y-2">
+                  <h4 className="text-sm font-heading font-bold text-foreground">
+                    {locale === "vi"
+                      ? "Bảng Tra Cứu Toàn Tập VIP 0 ➔ VIP 20 ($1 = 6 VIP Pts)"
+                      : "Complete VIP 0 ➔ VIP 20 Reference Table ($1 = 6 VIP Pts)"}
+                  </h4>
+                  <div className="-mx-1 overflow-x-auto">
+                    <table className="w-full min-w-[560px] border-collapse text-left text-sm">
+                      <thead>
+                        <tr className="border-b border-border/70 bg-muted/40 text-xs font-sans font-semibold uppercase tracking-wide text-muted-foreground">
+                          <th className="py-2 px-3">VIP</th>
+                          <th className="py-2 px-3 text-right">
+                            {locale === "vi" ? "Điểm Tích Lũy" : "Cumulative Pts"}
+                          </th>
+                          <th className="py-2 px-3 text-right">
+                            {locale === "vi" ? "Quy Đổi USD" : "USD Equiv."}
+                          </th>
+                          <th className="py-2 px-3 text-right">
+                            {locale === "vi" ? "Mảnh Cam/Ngày" : "Shards/Day"}
+                          </th>
+                          <th className="py-2 px-3">
+                            {locale === "vi"
+                              ? "Đặc Quyền Trọng Tâm"
+                              : "Key Privilege"}
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-border/50 font-sans tabular-nums">
+                        {VIP_LEVEL_TABLE.map((lvl) => (
+                          <tr
+                            key={lvl.level}
+                            className="hover:bg-amber-500/[0.04] transition-colors"
+                          >
+                            <td className="py-2 px-3 font-bold text-foreground">
+                              VIP <span className="font-mono">{lvl.level}</span>
+                            </td>
+                            <td className="py-2 px-3 text-right font-bold text-amber-600 dark:text-amber-400">
+                              <span
+                                className="font-mono"
+                                title={formatExactNumber(lvl.cumulativePoints)}
+                              >
+                                {formatCompactNumber(lvl.cumulativePoints)}
+                              </span>
+                            </td>
+                            <td className="py-2 px-3 text-right text-foreground">
+                              $
+                              <span
+                                className="font-mono"
+                                title={formatExactNumber(lvl.cumulativeUsd)}
+                              >
+                                {formatCompactNumber(lvl.cumulativeUsd)}
+                              </span>
+                            </td>
+                            <td className="py-2 px-3 text-right font-semibold text-emerald-600 dark:text-emerald-400">
+                              <span className="font-mono">
+                                +{lvl.dailyFreeGoldShards}
+                              </span>
+                            </td>
+                            <td className="py-2 px-3 text-xs text-muted-foreground">
+                              {lvl.isGoldenBreakpoint ? (
+                                <span className="mr-1.5 font-semibold text-amber-600 dark:text-amber-400">
+                                  ★{" "}
+                                  {locale === "vi"
+                                    ? lvl.breakpointBadgeVi
+                                    : lvl.breakpointBadgeEn}
+                                  :
+                                </span>
+                              ) : null}
+                              {
+                                (locale === "vi"
+                                  ? lvl.keyPerksVi
+                                  : lvl.keyPerksEn)[0]
+                              }
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </CalculatorInfoPopover>
+
             <button
               type="button"
               data-testid="reset-vip-and-shops"
@@ -247,7 +358,10 @@ export function VipAndShopsCalculator({
       {/* 2. Mode Switcher Tabs: VIP 0-20 Progression vs Guild Honor Shop Planner */}
       <div
         data-testid="vip-shops-mode-tabs"
-        className={cn(CALC_MD3.surfaceCard, "grid grid-cols-1 gap-2 p-2 sm:grid-cols-2")}
+        className={cn(
+          CALC_MD3.surfaceCard,
+          "grid grid-cols-1 gap-2 p-2 sm:grid-cols-2"
+        )}
       >
         <button
           type="button"
@@ -258,7 +372,10 @@ export function VipAndShopsCalculator({
             "justify-between px-4 py-2.5 text-xs",
             activeTab === "vip_progression"
               ? CALC_MD3.tileSelected
-              : cn(CALC_MD3.tonalTile, "text-muted-foreground hover:text-foreground")
+              : cn(
+                  CALC_MD3.tonalTile,
+                  "text-muted-foreground hover:text-foreground"
+                )
           )}
         >
           <span className="flex items-center gap-2 font-sans font-semibold">
@@ -283,7 +400,10 @@ export function VipAndShopsCalculator({
             "justify-between px-4 py-2.5 text-xs",
             activeTab === "guild_honor_shop"
               ? CALC_MD3.tileSelected
-              : cn(CALC_MD3.tonalTile, "text-muted-foreground hover:text-foreground")
+              : cn(
+                  CALC_MD3.tonalTile,
+                  "text-muted-foreground hover:text-foreground"
+                )
           )}
         >
           <span className="flex items-center gap-2 font-sans font-semibold">
@@ -325,7 +445,9 @@ export function VipAndShopsCalculator({
                       onClick={() => handleSelectFromVip(fromVipLevel - 1)}
                       disabled={fromVipLevel <= 0}
                       ariaLabel={
-                        locale === "vi" ? "Giảm VIP hiện tại" : "Decrease current VIP"
+                        locale === "vi"
+                          ? "Giảm VIP hiện tại"
+                          : "Decrease current VIP"
                       }
                     />
                     <div className="text-center">
@@ -335,7 +457,12 @@ export function VipAndShopsCalculator({
                       >
                         VIP {vipResult.fromVip.level}
                       </p>
-                      <p className="font-mono text-xs text-muted-foreground">
+                      <p
+                        className="font-mono text-xs text-muted-foreground"
+                        title={formatExactNumber(
+                          vipResult.fromVip.cumulativePoints
+                        )}
+                      >
                         {formatCompactNumber(
                           vipResult.fromVip.cumulativePoints
                         )}{" "}
@@ -348,7 +475,9 @@ export function VipAndShopsCalculator({
                       onClick={() => handleSelectFromVip(fromVipLevel + 1)}
                       disabled={fromVipLevel >= 20}
                       ariaLabel={
-                        locale === "vi" ? "Tăng VIP hiện tại" : "Increase current VIP"
+                        locale === "vi"
+                          ? "Tăng VIP hiện tại"
+                          : "Increase current VIP"
                       }
                     />
                   </div>
@@ -366,7 +495,9 @@ export function VipAndShopsCalculator({
                       onClick={() => handleSelectToVip(toVipLevel - 1)}
                       disabled={toVipLevel <= fromVipLevel}
                       ariaLabel={
-                        locale === "vi" ? "Giảm VIP mục tiêu" : "Decrease target VIP"
+                        locale === "vi"
+                          ? "Giảm VIP mục tiêu"
+                          : "Decrease target VIP"
                       }
                     />
                     <div className="text-center">
@@ -376,7 +507,12 @@ export function VipAndShopsCalculator({
                       >
                         VIP {vipResult.toVip.level}
                       </p>
-                      <p className="font-mono text-xs text-muted-foreground">
+                      <p
+                        className="font-mono text-xs text-muted-foreground"
+                        title={formatExactNumber(
+                          vipResult.toVip.cumulativePoints
+                        )}
+                      >
                         {formatCompactNumber(vipResult.toVip.cumulativePoints)}{" "}
                         pts
                       </p>
@@ -387,7 +523,9 @@ export function VipAndShopsCalculator({
                       onClick={() => handleSelectToVip(toVipLevel + 1)}
                       disabled={toVipLevel >= 20}
                       ariaLabel={
-                        locale === "vi" ? "Tăng VIP mục tiêu" : "Increase target VIP"
+                        locale === "vi"
+                          ? "Tăng VIP mục tiêu"
+                          : "Increase target VIP"
                       }
                     />
                   </div>
@@ -427,7 +565,10 @@ export function VipAndShopsCalculator({
                           <span className="font-display text-sm font-bold">
                             VIP {bpLevel}
                           </span>
-                          <span className="font-mono text-xs text-muted-foreground">
+                          <span
+                            className="font-mono text-xs text-muted-foreground"
+                            title={formatExactNumber(bpDef.cumulativePoints)}
+                          >
                             {formatCompactNumber(bpDef.cumulativePoints)}
                           </span>
                         </div>
@@ -439,40 +580,6 @@ export function VipAndShopsCalculator({
                       </button>
                     );
                   })}
-                </div>
-              </div>
-
-              {/* Optional Exact Current VIP Points Input */}
-              <div
-                className={cn(
-                  CALC_MD3.tonalGroup,
-                  "flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"
-                )}
-              >
-                <div>
-                  <p className="font-sans text-xs font-semibold text-foreground">
-                    {locale === "vi"
-                      ? "Điểm VIP đang tích lũy thực tế (Tùy chọn)"
-                      : "Exact Current VIP Points (Optional)"}
-                  </p>
-                  <p className="font-sans text-xs text-muted-foreground">
-                    {locale === "vi"
-                      ? "Tỷ giá chuẩn: $1.00 = 6 Điểm VIP • Tiệm Điểm Bang miễn phí: 1,000 Điểm/tuần"
-                      : "Standard rate: $1.00 = 6 VIP Points • Free Guild Shop: 1,000 Pts/week"}
-                  </p>
-                </div>
-                <div className="w-full sm:w-40">
-                  <Input
-                    type="text"
-                    inputMode="decimal"
-                    data-testid="custom-vip-points-input"
-                    aria-label={
-                      locale === "vi" ? "Điểm VIP hiện tại" : "Current VIP Points"
-                    }
-                    value={customVipPointsInput}
-                    onChange={(e) => setCustomVipPointsInput(e.target.value)}
-                    className={CALC_MD3.dataInput}
-                  />
                 </div>
               </div>
             </div>
@@ -509,9 +616,12 @@ export function VipAndShopsCalculator({
                           </span>
                         )}
                       </div>
-                      <span className="font-mono text-xs text-muted-foreground">
-                        {formatExactNumber(lvl.cumulativePoints)} pts ($
-                        {formatExactNumber(lvl.cumulativeUsd)})
+                      <span
+                        className="font-mono text-xs text-muted-foreground"
+                        title={formatExactNumber(lvl.cumulativePoints)}
+                      >
+                        {formatCompactNumber(lvl.cumulativePoints)} pts ($
+                        {formatCompactNumber(lvl.cumulativeUsd)})
                       </span>
                     </div>
                     <ul className="list-disc space-y-1 pl-5 font-sans text-xs text-foreground">
@@ -535,43 +645,107 @@ export function VipAndShopsCalculator({
             </div>
           </div>
 
-          {/* RIGHT COLUMN (5/12 Sticky): VIP Summary KPI Card */}
+          {/* RIGHT COLUMN (5/12 Sticky): VIP Summary KPI Card (R5 3-Column Standard) */}
           <div className="space-y-4 lg:col-span-5 lg:sticky lg:top-20">
             <div
               data-testid="vip-summary-card"
               className={cn(CALC_MD3.surfaceCard, "space-y-4 p-4")}
             >
-              <div className="flex items-start justify-between gap-2">
-                <div>
-                  <p className={CALC_MD3.eyebrow}>
+              <div className="flex items-center gap-2.5">
+                <GameAssetFrame
+                  src={VIP_POINT_ICON_PATH}
+                  alt="VIP Points"
+                  size="sm"
+                  rarity="legendary"
+                />
+                <div className="min-w-0">
+                  <div className="truncate text-sm font-heading font-bold text-foreground">
                     {locale === "vi"
-                      ? `ĐIỂM VIP CẦN BỔ SUNG (VIP ${vipResult.fromVip.level} ➔ VIP ${vipResult.toVip.level})`
-                      : `ADDITIONAL VIP POINTS NEEDED (VIP ${vipResult.fromVip.level} ➔ VIP ${vipResult.toVip.level})`}
-                  </p>
-                  <div className="mt-1 space-y-1">
+                      ? `Điểm VIP (VIP ${vipResult.fromVip.level} ➔ VIP ${vipResult.toVip.level})`
+                      : `VIP Points (VIP ${vipResult.fromVip.level} ➔ VIP ${vipResult.toVip.level})`}
+                  </div>
+                  <div className="text-xs font-sans text-muted-foreground">
+                    {locale === "vi"
+                      ? "Tỷ giá chuẩn: $1.00 = 6 Điểm VIP • Tiệm Bang: 1K/tuần"
+                      : "Standard rate: $1.00 = 6 VIP Pts • Guild Shop: 1K/wk"}
+                  </div>
+                </div>
+              </div>
+
+              {/* Standard R5 3-Column Resource Layout: Target Cumulative | Current Owned Input | Missing Points */}
+              <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-3">
+                {/* Col 1: Target Cumulative VIP Points */}
+                <div className="rounded-xl bg-muted/40 p-2.5">
+                  <div className={cn(CALC_MD3.eyebrow, "text-muted-foreground")}>
+                    {locale === "vi" ? "Mốc đích yêu cầu" : "Target Points"}
+                  </div>
+                  <div
+                    className="mt-1 font-mono text-xl font-black tabular-nums text-foreground"
+                    title={formatExactNumber(vipResult.toVip.cumulativePoints)}
+                  >
+                    {formatCompactNumber(vipResult.toVip.cumulativePoints)}
+                  </div>
+                </div>
+
+                {/* Col 2: Current Owned VIP Points Input */}
+                <div className="rounded-xl bg-muted/40 p-2.5">
+                  <label
+                    htmlFor="custom-vip-points-input"
+                    className={cn(
+                      CALC_MD3.eyebrow,
+                      "block text-muted-foreground"
+                    )}
+                  >
+                    {locale === "vi"
+                      ? "Đang có (hỗ trợ K/M)"
+                      : "Owned (K/M supported)"}
+                  </label>
+                  <div className="mt-1">
+                    <Input
+                      id="custom-vip-points-input"
+                      type="text"
+                      inputMode="decimal"
+                      data-testid="custom-vip-points-input"
+                      aria-label={
+                        locale === "vi"
+                          ? "Điểm VIP hiện tại"
+                          : "Current VIP Points"
+                      }
+                      value={customVipPointsInput}
+                      onChange={(e) => setCustomVipPointsInput(e.target.value)}
+                      className={cn(CALC_MD3.dataInput, "w-full bg-card")}
+                    />
+                  </div>
+                </div>
+
+                {/* Col 3: Missing VIP Points */}
+                <div
+                  className={cn(
+                    "rounded-xl p-2.5",
+                    vipResult.pointsNeeded === 0
+                      ? "bg-emerald-500/15"
+                      : "bg-amber-500/15"
+                  )}
+                >
+                  <div className={cn(CALC_MD3.eyebrow, "text-muted-foreground")}>
+                    {locale === "vi" ? "Còn thiếu" : "Missing"}
+                  </div>
+                  <div
+                    className="mt-1"
+                    title={formatExactNumber(vipResult.pointsNeeded)}
+                  >
                     <CalculatorMetricValue
                       testId="vip-points-needed-value"
                       value={formatCompactNumber(vipResult.pointsNeeded)}
                       unit="VIP Pts"
-                      toneClassName="text-amber-600 dark:text-amber-400"
+                      toneClassName={
+                        vipResult.pointsNeeded === 0
+                          ? "text-emerald-600 dark:text-emerald-400"
+                          : "text-amber-600 dark:text-amber-400"
+                      }
                     />
-                    <p className="text-xs font-sans text-muted-foreground">
-                      {locale === "vi"
-                        ? `Chính xác: ${formatExactNumber(
-                            vipResult.pointsNeeded
-                          )} điểm`
-                        : `Exact: ${formatExactNumber(
-                            vipResult.pointsNeeded
-                          )} points`}
-                    </p>
                   </div>
                 </div>
-                <GameAssetFrame
-                  src={VIP_POINT_ICON_PATH}
-                  alt="VIP Points"
-                  size="md"
-                  rarity="legendary"
-                />
               </div>
 
               <div className={cn(CALC_MD3.tonalGroup, "grid grid-cols-2 gap-3")}>
@@ -583,6 +757,7 @@ export function VipAndShopsCalculator({
                   </p>
                   <p
                     data-testid="vip-usd-needed-value"
+                    title={formatExactNumber(vipResult.equivalentUsdNeeded)}
                     className="font-mono text-base font-bold text-foreground"
                   >
                     ${formatExactNumber(vipResult.equivalentUsdNeeded)}
@@ -693,12 +868,16 @@ export function VipAndShopsCalculator({
 
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 <div className={cn(CALC_MD3.tonalGroup, "space-y-1.5")}>
-                  <label className={CALC_MD3.eyebrow}>
+                  <label
+                    htmlFor="current-honor-input"
+                    className={CALC_MD3.eyebrow}
+                  >
                     {locale === "vi"
-                      ? `SỐ DƯ ĐANG CÓ (${currencyLabel.toUpperCase()})`
-                      : `CURRENT WALLET (${currencyLabel.toUpperCase()})`}
+                      ? `SỐ DƯ ĐANG CÓ (${currencyLabel} • HỖ TRỢ K/M)`
+                      : `CURRENT WALLET (${currencyLabel} • K/M SUPPORTED)`}
                   </label>
                   <Input
+                    id="current-honor-input"
                     type="text"
                     inputMode="decimal"
                     data-testid="current-honor-input"
@@ -708,12 +887,16 @@ export function VipAndShopsCalculator({
                   />
                 </div>
                 <div className={cn(CALC_MD3.tonalGroup, "space-y-1.5")}>
-                  <label className={CALC_MD3.eyebrow}>
+                  <label
+                    htmlFor="weekly-honor-income-input"
+                    className={CALC_MD3.eyebrow}
+                  >
                     {locale === "vi"
-                      ? "THU NHẬP DỰ KIẾN HÀNG TUẦN"
-                      : "EXPECTED WEEKLY INCOME"}
+                      ? "THU NHẬP HÀNG TUẦN (HỖ TRỢ K/M)"
+                      : "EXPECTED WEEKLY INCOME (K/M SUPPORTED)"}
                   </label>
                   <Input
+                    id="weekly-honor-income-input"
                     type="text"
                     inputMode="decimal"
                     data-testid="weekly-honor-income-input"
@@ -859,8 +1042,11 @@ export function VipAndShopsCalculator({
                           </div>
                           <p className="font-sans text-xs text-muted-foreground">
                             {locale === "vi" ? "Đơn giá: " : "Unit cost: "}
-                            <span className="font-mono font-semibold text-foreground">
-                              {formatExactNumber(unitCost)}
+                            <span
+                              className="font-mono font-semibold text-foreground"
+                              title={formatExactNumber(unitCost)}
+                            >
+                              {formatCompactNumber(unitCost)}
                             </span>{" "}
                             <span>•</span>{" "}
                             {locale === "vi" ? "Giới hạn: " : "Weekly cap: "}
@@ -900,7 +1086,10 @@ export function VipAndShopsCalculator({
                           />
                         </div>
                         <div className="min-w-[76px] text-right">
-                          <p className="font-mono text-sm font-bold text-foreground">
+                          <p
+                            title={formatExactNumber(subtotalCost)}
+                            className="font-mono text-sm font-bold text-foreground"
+                          >
                             -{formatCompactNumber(subtotalCost)}
                           </p>
                         </div>
@@ -922,10 +1111,13 @@ export function VipAndShopsCalculator({
                 <div>
                   <p className={CALC_MD3.eyebrow}>
                     {locale === "vi"
-                      ? `SỐ DƯ SAU GIỎ HÀNG (${currencyLabel.toUpperCase()})`
-                      : `REMAINING BALANCE AFTER CART (${currencyLabel.toUpperCase()})`}
+                      ? `SỐ DƯ SAU GIỎ HÀNG (${currencyLabel})`
+                      : `REMAINING BALANCE AFTER CART (${currencyLabel})`}
                   </p>
-                  <div className="mt-1 space-y-1">
+                  <div
+                    className="mt-1 space-y-1"
+                    title={formatExactNumber(honorResult.remainingAfterCart)}
+                  >
                     <CalculatorMetricValue
                       testId="honor-remaining-after-cart-value"
                       value={formatCompactNumber(honorResult.remainingAfterCart)}
@@ -938,19 +1130,6 @@ export function VipAndShopsCalculator({
                           : "text-rose-600 dark:text-rose-400"
                       }
                     />
-                    <p className="text-xs font-sans text-muted-foreground">
-                      {locale === "vi"
-                        ? `Chính xác: ${formatExactNumber(
-                            honorResult.remainingAfterCart
-                          )} (Sàn 9 Đá: ${formatExactNumber(
-                            honorResult.fullAwakeningFloor
-                          )})`
-                        : `Exact: ${formatExactNumber(
-                            honorResult.remainingAfterCart
-                          )} (9-Stone Floor: ${formatExactNumber(
-                            honorResult.fullAwakeningFloor
-                          )})`}
-                    </p>
                   </div>
                 </div>
                 <GameAssetFrame
@@ -959,6 +1138,56 @@ export function VipAndShopsCalculator({
                   size="md"
                   rarity="legendary"
                 />
+              </div>
+
+              {/* Standard R5 3-Column Audit Bar: 9-Stone Freeze Floor | Cart Total | Safe Spendable Surplus */}
+              <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-3">
+                <div className="rounded-xl bg-muted/40 p-2.5">
+                  <div className={cn(CALC_MD3.eyebrow, "text-muted-foreground")}>
+                    {locale === "vi" ? "Sàn đóng băng 9 Đá" : "9-Stone Floor"}
+                  </div>
+                  <div
+                    className="mt-1 font-mono text-lg font-black tabular-nums text-foreground"
+                    title={formatExactNumber(honorResult.fullAwakeningFloor)}
+                  >
+                    {formatCompactNumber(honorResult.fullAwakeningFloor)}
+                  </div>
+                </div>
+
+                <div className="rounded-xl bg-muted/40 p-2.5">
+                  <div className={cn(CALC_MD3.eyebrow, "text-muted-foreground")}>
+                    {locale === "vi" ? "Tổng giỏ hàng" : "Cart Cost"}
+                  </div>
+                  <div
+                    className="mt-1 font-mono text-lg font-black tabular-nums text-amber-600 dark:text-amber-400"
+                    title={formatExactNumber(honorResult.totalCartCost)}
+                  >
+                    -{formatCompactNumber(honorResult.totalCartCost)}
+                  </div>
+                </div>
+
+                <div
+                  className={cn(
+                    "rounded-xl p-2.5",
+                    honorResult.healthStatus === "SAFE_ABOVE_FULL_FLOOR"
+                      ? "bg-emerald-500/15"
+                      : "bg-amber-500/15"
+                  )}
+                >
+                  <div className={cn(CALC_MD3.eyebrow, "text-muted-foreground")}>
+                    {locale === "vi" ? "Lãi trên sàn" : "Safe Surplus"}
+                  </div>
+                  <div
+                    className="mt-1 font-mono text-lg font-black tabular-nums text-emerald-700 dark:text-emerald-400"
+                    title={formatExactNumber(
+                      honorResult.spendableSurplusAboveFullFloor
+                    )}
+                  >
+                    +{formatCompactNumber(
+                      honorResult.spendableSurplusAboveFullFloor
+                    )}
+                  </div>
+                </div>
               </div>
 
               {/* 3-State Safety Floor Banner */}
@@ -996,14 +1225,14 @@ export function VipAndShopsCalculator({
                 </div>
                 <p className="font-sans text-xs">
                   {locale === "vi"
-                    ? `Phần lãi tự do chi tiêu trên sàn 9 Đá: ${formatExactNumber(
+                    ? `Phần lãi tự do chi tiêu trên sàn 9 Đá: ${formatCompactNumber(
                         honorResult.spendableSurplusAboveFullFloor
                       )} ${currencyLabel}. Còn thiếu ${
                         honorResult.remainingSoulStonesForPlan
                       } viên Đá Linh Hồn (${
                         honorResult.weeksToCompleteAwakeningPlan
                       } tuần) cho lộ trình phe.`
-                    : `Spendable surplus above 9-Stone floor: ${formatExactNumber(
+                    : `Spendable surplus above 9-Stone floor: ${formatCompactNumber(
                         honorResult.spendableSurplusAboveFullFloor
                       )} ${currencyLabel}. ${
                         honorResult.remainingSoulStonesForPlan
@@ -1037,70 +1266,6 @@ export function VipAndShopsCalculator({
                   </p>
                 </div>
               )}
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* 4. Modal: Full VIP 0 -> VIP 20 Table */}
-      {isVipTableModalOpen && (
-        <div
-          data-md3-overlay="true"
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-xs"
-        >
-          <div
-            className={cn(
-              CALC_MD3.overlayCard,
-              "max-h-[85vh] w-full max-w-3xl overflow-y-auto p-5 space-y-4"
-            )}
-          >
-            <div className="flex items-center justify-between gap-2">
-              <h2 className={CALC_MD3.headline}>
-                {locale === "vi"
-                  ? "Bảng Tra Cứu Toàn Tập VIP 0 ➔ VIP 20"
-                  : "Complete VIP 0 ➔ VIP 20 Reference Table"}
-              </h2>
-              <button
-                type="button"
-                onClick={() => setIsVipTableModalOpen(false)}
-                aria-label={locale === "vi" ? "Đóng" : "Close"}
-                className={CALC_MD3.iconButton}
-              >
-                <X className="h-4 w-4" />
-              </button>
-            </div>
-
-            <div className="space-y-2">
-              {VIP_LEVEL_TABLE.map((lvl) => (
-                <div
-                  key={lvl.level}
-                  className={cn(
-                    CALC_MD3.tonalGroup,
-                    "flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between"
-                  )}
-                >
-                  <div>
-                    <p className="font-sans text-xs font-bold text-foreground">
-                      VIP {lvl.level}{" "}
-                      {lvl.isGoldenBreakpoint && (
-                        <span className="text-amber-600 dark:text-amber-400">
-                          ★{" "}
-                          {locale === "vi"
-                            ? lvl.breakpointBadgeVi
-                            : lvl.breakpointBadgeEn}
-                        </span>
-                      )}
-                    </p>
-                    <p className="font-sans text-xs text-muted-foreground">
-                      {(locale === "vi" ? lvl.keyPerksVi : lvl.keyPerksEn)[0]}
-                    </p>
-                  </div>
-                  <div className="text-right font-mono text-xs font-semibold text-foreground">
-                    {formatExactNumber(lvl.cumulativePoints)} pts ($
-                    {formatExactNumber(lvl.cumulativeUsd)})
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
         </div>

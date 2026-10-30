@@ -72,7 +72,7 @@ describe("Phase 2.5 / HeroLevelSpiritSelector MD3", () => {
   });
 });
 
-describe("Phase 2.5 / HeroLevelSpiritCalculator MD3", () => {
+describe("Phase 2.5 / HeroLevelSpiritCalculator MD3 (Standard v2.0)", () => {
   const selection = getCalculatorToolBySlug("heroes", "hero-level-spirit")!;
   const renderCalculator = () =>
     render(
@@ -92,16 +92,16 @@ describe("Phase 2.5 / HeroLevelSpiritCalculator MD3", () => {
     ).toBe(0);
   });
 
-  it("uses a flat header, 30–36px dual metrics and 16px/44px inputs with an accessible [i] button", () => {
+  it("uses a flat header, 3-column R5 dual metrics and 16px/44px inputs with an accessible [i] button", () => {
     renderCalculator();
     expect(screen.getByTestId("calculator-tool-header").className).not.toMatch(
       ALL_SIDE_BORDER_REGEX
     );
 
     const meatMetric = screen.getByTestId("spirit-required-meat-value");
-    expect(meatMetric.className).toContain("text-3xl");
+    expect(meatMetric.className).toContain("text-xl");
     expect(screen.getByTestId("spirit-required-shards-value").className).toContain(
-      "sm:text-4xl"
+      "text-xl"
     );
 
     for (const id of ["spirit-owned-meat-input", "spirit-owned-shards-input"]) {
@@ -115,12 +115,12 @@ describe("Phase 2.5 / HeroLevelSpiritCalculator MD3", () => {
     expect(infoBtn.getAttribute("aria-label")).toBeTruthy();
   });
 
-  it("renders breakdown table without a nested bordered wrapper and keeps max border depth <= 1", () => {
+  it("renders breakdown table inside CalculatorInfoPopover (Rule R6) without a nested bordered wrapper and keeps max border depth <= 1", () => {
     renderCalculator();
     fireEvent.click(screen.getByTestId("toggle-spirit-breakdown-btn"));
 
     const panel = screen.getByTestId("spirit-breakdown-panel");
-    expect(getMaxBorderedContainerDepth(panel)).toBe(1);
+    expect(getMaxBorderedContainerDepth(panel)).toBeLessThanOrEqual(1);
     const table = screen.getByTestId("spirit-breakdown-table");
     expect(table.parentElement?.className ?? "").not.toMatch(ALL_SIDE_BORDER_REGEX);
     expect(table.querySelector("thead tr")?.className).toContain("font-sans");

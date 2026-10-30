@@ -7,10 +7,8 @@ import {
   AlertTriangle,
   ChevronDown,
   ArrowLeft,
-  Info,
   X,
   Sparkles,
-  Users,
   Link2,
   Shield,
 } from "lucide-react";
@@ -40,9 +38,9 @@ import {
   parseCompactNumberInput,
 } from "@/lib/utils";
 import { HeroLevelSpiritSelector } from "./hero-level-spirit-selector";
+import { CalculatorInfoPopover } from "./calculator-info-popover";
 import {
   CALC_MD3,
-  CalculatorMetricValue,
   CalculatorToolHeader,
 } from "./calculator-md3-primitives";
 
@@ -60,15 +58,13 @@ const RARITY_ORDER: readonly HeroStarRarity[] = [
   "rare",
 ];
 
-const SQUAD_PRESET_COUNTS = [1, 5, 6] as const;
-
 type SequentialPickerStep = "closed" | "rarity" | "hero";
 
 export function HeroLevelSpiritCalculator({
   tool,
   locale,
 }: HeroLevelSpiritCalculatorProps) {
-  // Mặc định hiển thị Hoàng Tử Sa Mạc (Mythic): Lâu Đài 35 (Lv.190) -> Lâu Đài 40 (Lv.220) cho 6 tướng Đội 1 & Linh Thể Lv.0 -> Lv.60
+  // Chuẩn R1: Tính cho 1 đơn vị chuẩn (1 Tướng — heroCount = 1 cố định)
   const [rarity, setRarity] = useState<HeroStarRarity>("mythic");
   const [selectedHeroId, setSelectedHeroId] = useState<string>(
     HERO_STAR_RARITY_CONFIGS.mythic.defaultHeroId
@@ -76,7 +72,6 @@ export function HeroLevelSpiritCalculator({
   const [viewMode, setViewMode] = useState<LevelSpiritViewMode>("combo");
   const [fromHeroLevel, setFromHeroLevel] = useState<number>(190);
   const [toHeroLevel, setToHeroLevel] = useState<number>(220);
-  const [heroCount, setHeroCount] = useState<number>(6);
   const [fromSpiritLevel, setFromSpiritLevel] = useState<number>(0);
   const [toSpiritLevel, setToSpiritLevel] = useState<number>(60);
   const [ownedMeatInput, setOwnedMeatInput] = useState<string>("0");
@@ -85,13 +80,11 @@ export function HeroLevelSpiritCalculator({
     useState<boolean>(false);
 
   const [pickerStep, setPickerStep] = useState<SequentialPickerStep>("closed");
-  const [isBreakdownOpen, setIsBreakdownOpen] = useState<boolean>(false);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setPickerStep("closed");
-        setIsBreakdownOpen(false);
       }
     };
     window.addEventListener("keydown", handleKeyDown);
@@ -135,7 +128,7 @@ export function HeroLevelSpiritCalculator({
         rarity,
         fromHeroLevel,
         toHeroLevel,
-        heroCount,
+        heroCount: 1,
         fromSpiritLevel,
         toSpiritLevel,
         ownedMeat: parsedOwnedMeat,
@@ -146,7 +139,6 @@ export function HeroLevelSpiritCalculator({
       rarity,
       fromHeroLevel,
       toHeroLevel,
-      heroCount,
       fromSpiritLevel,
       toSpiritLevel,
       parsedOwnedMeat,
@@ -186,7 +178,6 @@ export function HeroLevelSpiritCalculator({
     setViewMode("combo");
     setFromHeroLevel(190);
     setToHeroLevel(220);
-    setHeroCount(6);
     setFromSpiritLevel(0);
     setToSpiritLevel(60);
     setOwnedMeatInput("0");
@@ -196,7 +187,7 @@ export function HeroLevelSpiritCalculator({
 
   return (
     <div data-testid="hero-level-spirit-calculator" className="space-y-4">
-      {/* 1. Flat MD3 Tool Header + Mode Switcher */}
+      {/* 1. Flat MD3 Tool Header + Mode Switcher + Nút (i) CalculatorInfoPopover */}
       <CalculatorToolHeader
         code={tool.code}
         title={tool.title[locale].replace(`${tool.code} `, "")}
@@ -252,6 +243,25 @@ export function HeroLevelSpiritCalculator({
               <span>{locale === "vi" ? "Chỉ Linh Thể" : "Spirit Only"}</span>
             </button>
 
+            {spiritBonusCap > 0 ? (
+              <button
+                type="button"
+                data-testid="apply-spirit-cap-bridge-btn"
+                onClick={() => setToHeroLevel(suggestedCapTargetLevel)}
+                className={cn(
+                  CALC_MD3.chipButton,
+                  "bg-emerald-500/15 font-sans text-emerald-700 hover:bg-emerald-500/25 dark:text-emerald-300"
+                )}
+              >
+                <Link2 className="h-4 w-4 shrink-0" aria-hidden="true" />
+                <span>
+                  {locale === "vi"
+                    ? `+${spiritBonusCap} Trần Cấp (➔ Lv.${suggestedCapTargetLevel})`
+                    : `+${spiritBonusCap} Lv Cap (➔ Lv.${suggestedCapTargetLevel})`}
+                </span>
+              </button>
+            ) : null}
+
             <button
               type="button"
               data-testid="spirit-reset-btn"
@@ -267,85 +277,141 @@ export function HeroLevelSpiritCalculator({
               />
               <span>{locale === "vi" ? "Đặt lại" : "Reset"}</span>
             </button>
+
+            <CalculatorInfoPopover
+              triggerTestId="toggle-spirit-breakdown-btn"
+              title={
+                locale === "vi"
+                  ? `Bảng Chi Tiết Cấp Tướng & Linh Thể (${activeHeroName})`
+                  : `Hero Level & Spirit Breakdown (${activeHeroName})`
+              }
+              triggerLabel={breakdownLabel}
+              locale={locale}
+              dialogTestId="spirit-breakdown-dialog"
+            >
+              <div data-testid="spirit-breakdown-panel" className="space-y-4">
+                <div className={cn(CALC_MD3.tonalGroup, "space-y-1.5 text-xs")}>
+                  <p className="font-heading font-bold text-foreground">
+                    {locale === "vi"
+                      ? "Ghi chú cơ chế Cấp Tướng & Cầu Nối Linh Thể:"
+                      : "Hero Level & Heroic Spirit Resonance Notes:"}
+                  </p>
+                  <ul className="list-disc space-y-1 pl-4 text-muted-foreground">
+                    <li>
+                      {locale === "vi"
+                        ? "Phạm vi đơn vị chuẩn: Công cụ hiển thị chi phí Thịt và Mảnh Linh Thể cho 1 Tướng chuẩn."
+                        : "Single-Hero Scope: All Meat and Heroic Spirit Shard requirements are calculated for 1 hero."}
+                    </li>
+                    <li>
+                      {locale === "vi"
+                        ? "Điều kiện mở khóa Linh Thể: Tướng đạt 5★ Bạc (15★ tối đa). Mỗi 10 cấp Linh Thể (Lv.10, 20, ..., 100) mở khóa +1 Trần Cấp Tướng và +5% Giảm Sát Thương Kỹ Năng (tối đa +10 Cấp & +50% Giảm ST ở Lv.100)."
+                        : "Heroic Spirit Prerequisite: Hero must reach 5★ Silver (Max 15★). Every 10 Spirit levels (Lv.10, 20, ..., 100) grants +1 Hero Level Cap and +5% Skill DMG Reduction (up to +10 Cap & +50% DMG Red at Lv.100)."}
+                    </li>
+                    <li>
+                      {locale === "vi"
+                        ? "Lưu ý Cầu Nối Linh Thể trên thực chiến: Hiệu ứng cộng hưởng đội hình yêu cầu các tướng trong đội hình chính cùng đạt mốc cấp Linh Thể tương ứng."
+                        : "In-Game Resonance Note: Squad-wide Spirit resonance requires deployed heroes in your main queue to reach the corresponding Spirit milestone."}
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="overflow-x-auto">
+                  <table
+                    data-testid="spirit-breakdown-table"
+                    className="w-full min-w-[560px] border-collapse text-left text-xs"
+                  >
+                    <thead>
+                      <tr className="border-b border-border/70 bg-muted/40 font-sans font-semibold text-muted-foreground">
+                        <th className="py-2 px-2.5">
+                          {locale === "vi" ? "Chặng Nâng Cấp" : "Upgrade Stage"}
+                        </th>
+                        <th className="py-2 px-2.5">
+                          {locale === "vi" ? "Khoảng Cấp" : "Level Range"}
+                        </th>
+                        <th className="py-2 px-2.5 text-right">
+                          {locale === "vi" ? "Chi Phí Chặng (1 Tướng)" : "Stage Cost (1 Hero)"}
+                        </th>
+                        <th className="py-2 px-2.5 text-right">
+                          {locale === "vi" ? "Số Nguyên Chính Xác" : "Exact Amount"}
+                        </th>
+                        <th className="py-2 px-2.5">
+                          {locale === "vi"
+                            ? "Mốc Đột Phá / Trần Lâu Đài"
+                            : "Milestone / Castle Cap"}
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-border/50 font-sans tabular-nums">
+                      {result.levelSegmentsBreakdown.map((seg) => (
+                        <tr
+                          key={`lv-${seg.fromLevel}-${seg.toLevel}`}
+                          className="hover:bg-amber-500/[0.04] transition-colors"
+                        >
+                          <td className="py-2 px-2.5 font-bold text-foreground">
+                            {locale === "vi" ? "Cấp Độ Tướng" : "Hero Level"}
+                          </td>
+                          <td className="py-2 px-2.5 text-muted-foreground">
+                            Lv.{seg.fromLevel} ➔ Lv.{seg.toLevel}
+                          </td>
+                          <td className="py-2 px-2.5 text-right font-mono font-bold text-amber-700 dark:text-amber-400">
+                            +{formatCompactNumber(seg.meatPerHero)}
+                          </td>
+                          <td className="py-2 px-2.5 text-right font-mono text-foreground">
+                            {formatExactNumber(seg.meatPerHero)}
+                          </td>
+                          <td className="py-2 px-2.5 text-muted-foreground">
+                            {seg.segmentLabel[locale]}
+                          </td>
+                        </tr>
+                      ))}
+
+                      {result.spiritMilestonesBreakdown.map((band) => (
+                        <tr
+                          key={`sp-${band.fromLevel}-${band.toLevel}`}
+                          className="hover:bg-sky-500/[0.04] transition-colors"
+                        >
+                          <td className="py-2 px-2.5 font-bold text-sky-700 dark:text-sky-300">
+                            {locale === "vi" ? "Linh Thể Anh Hùng" : "Heroic Spirit"}
+                          </td>
+                          <td className="py-2 px-2.5 text-muted-foreground">
+                            Lv.{band.fromLevel} ➔ Lv.{band.toLevel}
+                          </td>
+                          <td className="py-2 px-2.5 text-right font-mono font-bold text-sky-600 dark:text-sky-400">
+                            +{formatExactNumber(band.requiredShardsInBand)}
+                          </td>
+                          <td className="py-2 px-2.5 text-right font-mono text-foreground">
+                            {formatExactNumber(band.cumulativeShardsAtMilestone)}
+                          </td>
+                          <td className="py-2 px-2.5 text-muted-foreground">
+                            {locale === "vi"
+                              ? `+${band.bonusHeroLevelCap} Cấp • +${band.skillDamageReductionPercent}% Giảm ST • +${band.percentAtk}% ATK`
+                              : `+${band.bonusHeroLevelCap} Cap • +${band.skillDamageReductionPercent}% DMG Red • +${band.percentAtk}% ATK`}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+
+                <div className="flex flex-wrap items-center justify-between gap-2 pt-1 text-xs font-sans tabular-nums text-muted-foreground">
+                  <span>
+                    {locale === "vi"
+                      ? `Buff Linh Thể nhận thêm: +${result.gainedPercentAtk}% ATK / +${result.gainedPercentHp}% HP (+${formatExactNumber(result.gainedFlatAtk)} ATK / +${formatExactNumber(result.gainedFlatHp)} HP)`
+                      : `Spirit Stat Gain: +${result.gainedPercentAtk}% ATK / +${result.gainedPercentHp}% HP (+${formatExactNumber(result.gainedFlatAtk)} ATK / +${formatExactNumber(result.gainedFlatHp)} HP)`}
+                  </span>
+                  <span>
+                    {locale === "vi"
+                      ? `Tích lũy Linh Thể đích: ${formatExactNumber(result.toSpiritRow.cumulativeShards)}/3,163 Mảnh`
+                      : `Target Spirit Cumulative: ${formatExactNumber(result.toSpiritRow.cumulativeShards)}/3,163 Shards`}
+                  </span>
+                </div>
+              </div>
+            </CalculatorInfoPopover>
           </>
         }
       />
 
-      {/* 2. Squad Multiplier & Spirit-to-Level Cap Bridge Banner (1 lớp viền) */}
-      <div
-        data-testid="spirit-squad-bridge-banner"
-        className="rounded-2xl border border-amber-500/35 bg-amber-500/[0.06] p-3.5 sm:p-5"
-      >
-        <div className="flex flex-col justify-between gap-3 lg:flex-row lg:items-center">
-          {/* Squad Count Selector */}
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 text-sm font-heading font-bold text-foreground">
-              <Users className="h-4 w-4 text-amber-500" aria-hidden="true" />
-              <span>
-                {locale === "vi"
-                  ? "Quy mô Đội hình tính Thịt:"
-                  : "Squad Size for Meat:"}
-              </span>
-            </span>
-
-            {SQUAD_PRESET_COUNTS.map((cnt) => {
-              const isSelected = heroCount === cnt;
-              const label =
-                cnt === 1
-                  ? locale === "vi"
-                    ? "1 Tướng"
-                    : "1 Hero"
-                  : cnt === 5
-                    ? locale === "vi"
-                      ? "5 Tướng"
-                      : "5 Heroes"
-                    : locale === "vi"
-                      ? "6 Tướng (Đội 1)"
-                      : "6 Heroes (Queue 1)";
-              return (
-                <button
-                  key={cnt}
-                  type="button"
-                  data-testid={`squad-count-${cnt}-btn`}
-                  aria-pressed={isSelected}
-                  onClick={() => setHeroCount(cnt)}
-                  className={cn(
-                    CALC_MD3.chipButton,
-                    "font-sans",
-                    isSelected
-                      ? "bg-amber-500 text-slate-950 font-bold"
-                      : "bg-card/80 text-muted-foreground hover:bg-muted hover:text-foreground"
-                  )}
-                >
-                  <span>{label}</span>
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Spirit-to-Level Cap Bridge Button */}
-          {spiritBonusCap > 0 ? (
-            <button
-              type="button"
-              data-testid="apply-spirit-cap-bridge-btn"
-              onClick={() => setToHeroLevel(suggestedCapTargetLevel)}
-              className={cn(
-                CALC_MD3.chipButton,
-                "bg-emerald-500/15 font-sans text-emerald-700 hover:bg-emerald-500/25 dark:text-emerald-300"
-              )}
-            >
-              <Link2 className="h-4 w-4 shrink-0" aria-hidden="true" />
-              <span>
-                {locale === "vi"
-                  ? `Cộng +${spiritBonusCap} Trần Cấp từ Linh Thể (Đích ➔ Lv.${suggestedCapTargetLevel})`
-                  : `Apply +${spiritBonusCap} Spirit Lv Cap (Target ➔ Lv.${suggestedCapTargetLevel})`}
-              </span>
-            </button>
-          ) : null}
-        </div>
-      </div>
-
-      {/* 3. Main 3-Zone Workspace: [Cấp & Linh Thể Hiện Tại] ⟷ [Avatar Tướng Trung Tâm] ⟷ [Cấp & Linh Thể Mục Tiêu] */}
+      {/* 2. Main 3-Zone Workspace: [Cấp & Linh Thể Hiện Tại] ⟷ [Avatar Tướng Trung Tâm] ⟷ [Cấp & Linh Thể Mục Tiêu] */}
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] items-start gap-3 sm:gap-4">
         {/* Left: Current Hero Level & Spirit */}
         <div className="order-2 lg:order-1 min-w-0">
@@ -546,24 +612,16 @@ export function HeroLevelSpiritCalculator({
         </div>
       </div>
 
-      {/* 4. Dual Result Surface (Meat + Universal Heroic Spirit Shards) */}
-      <div
-        data-testid="hero-level-spirit-result-card"
-        className={cn(
-          CALC_MD3.surfaceCard,
-          "relative overflow-hidden space-y-3 border-amber-500/35"
-        )}
-      >
-        <div
-          aria-hidden="true"
-          className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-amber-500 via-sky-400 to-transparent"
-        />
-
+      {/* 3. Hai Thẻ Nguyên Liệu Xếp Chồng Dọc Chuẩn R5 (3 Cột Ngang + K/M) */}
+      <div data-testid="hero-level-spirit-result-card" className="space-y-3">
         {result.isInvalidRange ? (
-          <div
+          <section
             data-testid="hero-level-spirit-invalid-range-warning"
             role="alert"
-            className="flex items-start gap-2.5 rounded-xl bg-amber-500/10 p-3 text-sm font-medium text-amber-800 dark:text-amber-300"
+            className={cn(
+              CALC_MD3.surfaceCard,
+              "flex items-start gap-2.5 border-amber-500/35 bg-amber-500/10 p-3 text-sm font-medium text-amber-800 dark:text-amber-300"
+            )}
           >
             <AlertTriangle
               className="mt-0.5 h-5 w-5 shrink-0 text-amber-500"
@@ -574,61 +632,74 @@ export function HeroLevelSpiritCalculator({
                 ? "Cấp độ mục tiêu không được thấp hơn cấp hiện tại và phải có ít nhất 1 hệ thống tăng cấp."
                 : "Target levels cannot be lower than current levels and must increase at least one progression track."}
             </span>
-          </div>
+          </section>
         ) : (
-          <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
-            {/* Resource 1 (tonal): Meat (Hero Level) */}
-            <div className={cn(CALC_MD3.tonalGroup, "space-y-3")}>
-              <div className="flex min-w-0 items-center gap-2.5">
-                <GameAssetFrame
-                  src={result.meatMaterial.iconPath}
-                  alt={meatMaterialName}
-                  rarity={result.meatMaterial.rarity}
-                  size="sm"
-                />
-                <div className="min-w-0 space-y-1">
-                  <div
-                    className={cn(
-                      CALC_MD3.eyebrow,
-                      "truncate text-muted-foreground"
-                    )}
-                  >
-                    {locale === "vi"
-                      ? `${meatMaterialName} (×${heroCount} Tướng)`
-                      : `${meatMaterialName} (×${heroCount} Heroes)`}
-                  </div>
-                  <CalculatorMetricValue
-                    testId="spirit-required-meat-value"
-                    value={formatCompactNumber(result.totalRequiredMeat)}
-                    unit={
-                      locale === "vi" ? "Thịt cần thêm" : "Meat needed"
-                    }
-                    toneClassName="text-amber-600 dark:text-amber-400"
+          <>
+            {/* Thẻ 1: Thịt (Nâng Cấp Độ Tướng) */}
+            <section
+              className={cn(
+                CALC_MD3.surfaceCard,
+                "relative overflow-hidden space-y-3 border-amber-500/35"
+              )}
+            >
+              <div
+                aria-hidden="true"
+                className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-amber-500 via-amber-400 to-transparent"
+              />
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <div className="flex items-center gap-3">
+                  <GameAssetFrame
+                    src={result.meatMaterial.iconPath}
+                    alt={meatMaterialName}
+                    rarity={result.meatMaterial.rarity}
+                    size="md"
                   />
-                  <div className="text-xs font-sans text-muted-foreground">
-                    {locale === "vi" ? "1 tướng:" : "Per hero:"}{" "}
-                    <span className="font-mono font-semibold text-foreground">
-                      {formatCompactNumber(result.requiredMeatPerHero)}
-                    </span>{" "}
-                    •{" "}
-                    {locale === "vi" ? "Chính xác:" : "Exact:"}{" "}
-                    <span className="font-mono">
-                      {formatExactNumber(result.totalRequiredMeat)}
-                    </span>
+                  <div>
+                    <div className="text-base font-heading font-black text-foreground">
+                      {meatMaterialName}
+                    </div>
+                    <div className="text-xs font-sans text-muted-foreground">
+                      {locale === "vi"
+                        ? `Nâng cấp 1 Tướng: Lv.${fromHeroLevel} ➔ Lv.${toHeroLevel}`
+                        : `1 Hero Level Upgrade: Lv.${fromHeroLevel} ➔ Lv.${toHeroLevel}`}
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <label
-                  htmlFor="spirit-owned-meat-input"
-                  className="whitespace-nowrap text-sm font-sans font-semibold text-foreground"
-                >
-                  {locale === "vi"
-                    ? "Đang có (VD: 50m, 500k):"
-                    : "Owned (e.g. 50m, 500k):"}
-                </label>
-                <div className="flex items-center gap-2">
+              <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-3">
+                {/* Cột 1: Số lượng yêu cầu */}
+                <div className={cn(CALC_MD3.tonalGroup, "flex flex-col justify-between gap-1")}>
+                  <span className={CALC_MD3.eyebrow}>
+                    {locale === "vi" ? "Số lượng yêu cầu" : "Required"}
+                  </span>
+                  <div className="flex items-baseline gap-1.5">
+                    <span
+                      data-testid="spirit-required-meat-value"
+                      title={formatExactNumber(result.totalRequiredMeat)}
+                      className="font-mono text-xl font-black tabular-nums text-amber-600 dark:text-amber-400"
+                    >
+                      {formatCompactNumber(result.totalRequiredMeat)}
+                    </span>
+                    <span className="text-xs font-sans font-semibold text-muted-foreground">
+                      {locale === "vi" ? "Thịt" : "Meat"}
+                    </span>
+                  </div>
+                  <span className="text-xs font-sans text-muted-foreground">
+                    {locale === "vi"
+                      ? `Chính xác: ${formatExactNumber(result.totalRequiredMeat)}`
+                      : `Exact: ${formatExactNumber(result.totalRequiredMeat)}`}
+                  </span>
+                </div>
+
+                {/* Cột 2: Số lượng đang có */}
+                <div className={cn(CALC_MD3.tonalGroup, "flex flex-col justify-between gap-1.5")}>
+                  <label
+                    htmlFor="spirit-owned-meat-input"
+                    className={CALC_MD3.eyebrow}
+                  >
+                    {locale === "vi" ? "Số lượng đang có" : "Owned"}
+                  </label>
                   <Input
                     id="spirit-owned-meat-input"
                     data-testid="spirit-owned-meat-input"
@@ -636,58 +707,98 @@ export function HeroLevelSpiritCalculator({
                     inputMode="decimal"
                     value={ownedMeatInput}
                     onChange={(e) => setOwnedMeatInput(e.target.value)}
-                    className={cn(CALC_MD3.dataInput, "w-28 bg-card text-center")}
+                    placeholder={locale === "vi" ? "0 (VD: 20M, 500K)" : "0 (e.g. 20M, 500K)"}
+                    className={CALC_MD3.dataInput}
                   />
-                  {result.missingMeat === 0 ? (
-                    <span
-                      data-testid="spirit-missing-meat-badge"
-                      className="inline-flex items-center gap-1 rounded-lg bg-emerald-500/15 px-2.5 py-1 text-sm font-sans font-bold text-emerald-700 dark:text-emerald-400"
-                    >
-                      <CheckCircle2
-                        className="h-4 w-4 shrink-0"
-                        aria-hidden="true"
-                      />
-                      <span>{locale === "vi" ? "Đủ" : "Ready"}</span>
-                    </span>
+                  <span className="text-xs font-sans text-muted-foreground">
+                    {locale === "vi"
+                      ? "Gõ số thường hoặc K / M"
+                      : "Type exact or K / M"}
+                  </span>
+                </div>
+
+                {/* Cột 3: Số lượng còn thiếu */}
+                <div
+                  className={cn(
+                    CALC_MD3.tonalGroup,
+                    "flex flex-col justify-between gap-1",
+                    result.missingMeat > 0
+                      ? "bg-amber-500/10 ring-1 ring-amber-500/35"
+                      : "bg-emerald-500/10 ring-1 ring-emerald-500/35"
+                  )}
+                >
+                  <span className={CALC_MD3.eyebrow}>
+                    {locale === "vi" ? "Số lượng còn thiếu" : "Missing"}
+                  </span>
+                  {result.missingMeat > 0 ? (
+                    <>
+                      <div className="flex items-baseline gap-1.5">
+                        <span
+                          data-testid="spirit-missing-meat-badge"
+                          title={formatExactNumber(result.missingMeat)}
+                          className="font-mono text-xl font-black tabular-nums text-rose-600 dark:text-rose-400"
+                        >
+                          -{formatCompactNumber(result.missingMeat)}
+                        </span>
+                        <span className="text-xs font-sans font-semibold text-rose-600/80 dark:text-rose-300">
+                          {locale === "vi" ? "Thịt" : "Meat"}
+                        </span>
+                      </div>
+                      <span className="text-xs font-sans text-muted-foreground">
+                        {locale === "vi"
+                          ? `Cần bù: ${formatExactNumber(result.missingMeat)}`
+                          : `Need: ${formatExactNumber(result.missingMeat)}`}
+                      </span>
+                    </>
                   ) : (
-                    <span
-                      data-testid="spirit-missing-meat-badge"
-                      title={formatExactNumber(result.missingMeat)}
-                      className="inline-flex items-center rounded-lg bg-amber-500/15 px-2.5 py-1 font-mono text-sm font-bold text-amber-700 dark:text-amber-300"
-                    >
-                      -{formatCompactNumber(result.missingMeat)}
-                    </span>
+                    <>
+                      <div className="flex items-center gap-1.5 text-emerald-700 dark:text-emerald-400">
+                        <CheckCircle2 className="h-4 w-4 shrink-0" aria-hidden="true" />
+                        <span
+                          data-testid="spirit-missing-meat-badge"
+                          className="text-base font-heading font-black tabular-nums"
+                        >
+                          {locale === "vi" ? "Đủ nguyên liệu" : "Sufficient"}
+                        </span>
+                      </div>
+                      <span className="text-xs font-sans text-emerald-700/80 dark:text-emerald-300">
+                        {locale === "vi"
+                          ? `Dư +${formatCompactNumber(Math.max(0, parsedOwnedMeat - result.totalRequiredMeat))}`
+                          : `Surplus +${formatCompactNumber(Math.max(0, parsedOwnedMeat - result.totalRequiredMeat))}`}
+                      </span>
+                    </>
                   )}
                 </div>
               </div>
-            </div>
+            </section>
 
-            {/* Resource 2 (tonal): Universal Heroic Spirit Shards */}
-            <div className={cn(CALC_MD3.tonalGroup, "space-y-3")}>
-              <div className="flex min-w-0 items-center justify-between gap-2">
-                <div className="flex min-w-0 items-center gap-2.5">
+            {/* Thẻ 2: Mảnh Linh Thể Vạn Năng */}
+            <section
+              className={cn(
+                CALC_MD3.surfaceCard,
+                "relative overflow-hidden space-y-3 border-sky-500/35"
+              )}
+            >
+              <div
+                aria-hidden="true"
+                className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-sky-500 via-sky-400 to-transparent"
+              />
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <div className="flex items-center gap-3">
                   <GameAssetFrame
                     src={result.spiritShardMaterial.iconPath}
                     alt={spiritMaterialName}
                     rarity={result.spiritShardMaterial.rarity}
-                    size="sm"
+                    size="md"
                   />
-                  <div className="min-w-0 space-y-1">
-                    <div
-                      className={cn(
-                        CALC_MD3.eyebrow,
-                        "truncate text-muted-foreground"
-                      )}
-                    >
+                  <div>
+                    <div className="text-base font-heading font-black text-foreground">
                       {spiritMaterialName}
                     </div>
-                    <CalculatorMetricValue
-                      testId="spirit-required-shards-value"
-                      value={formatExactNumber(result.totalRequiredSpiritShards)}
-                      unit={locale === "vi" ? "Mảnh Linh Thể" : "Spirit Shards"}
-                      toneClassName="text-sky-600 dark:text-sky-400"
-                    />
                     <div className="flex flex-wrap items-center gap-2 text-xs font-sans text-muted-foreground">
+                      <span>
+                        Lv.{fromSpiritLevel} ➔ Lv.{toSpiritLevel}
+                      </span>
                       <span className="inline-flex items-center gap-1 font-semibold text-emerald-700 dark:text-emerald-300">
                         <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
                         <span>
@@ -708,57 +819,6 @@ export function HeroLevelSpiritCalculator({
 
                 <button
                   type="button"
-                  data-testid="toggle-spirit-breakdown-btn"
-                  onClick={() => setIsBreakdownOpen((prev) => !prev)}
-                  title={breakdownLabel}
-                  aria-label={breakdownLabel}
-                  aria-expanded={isBreakdownOpen}
-                  className={cn(
-                    CALC_MD3.iconButton,
-                    isBreakdownOpen
-                      ? "bg-amber-500 text-slate-950 shadow-sm"
-                      : "bg-amber-500/15 text-amber-700 hover:bg-amber-500/25 dark:text-amber-300"
-                  )}
-                >
-                  <Info className="h-5 w-5" aria-hidden="true" />
-                </button>
-              </div>
-
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <div className="flex items-center gap-2">
-                  <label
-                    htmlFor="spirit-owned-shards-input"
-                    className="whitespace-nowrap text-sm font-sans font-semibold text-foreground"
-                  >
-                    {locale === "vi" ? "Đang có:" : "Owned:"}
-                  </label>
-                  <Input
-                    id="spirit-owned-shards-input"
-                    data-testid="spirit-owned-shards-input"
-                    type="text"
-                    inputMode="numeric"
-                    value={ownedShardsInput}
-                    onChange={(e) => setOwnedShardsInput(e.target.value)}
-                    className={cn(CALC_MD3.dataInput, "w-24 bg-card text-center")}
-                  />
-                  {result.missingSpiritShards === 0 ? (
-                    <span className="inline-flex items-center gap-1 rounded-lg bg-emerald-500/15 px-2.5 py-1 text-sm font-sans font-bold text-emerald-700 dark:text-emerald-400">
-                      <CheckCircle2
-                        className="h-4 w-4 shrink-0"
-                        aria-hidden="true"
-                      />
-                      <span>{locale === "vi" ? "Đủ" : "Ready"}</span>
-                    </span>
-                  ) : (
-                    <span className="inline-flex items-center rounded-lg bg-sky-500/15 px-2.5 py-1 font-mono text-sm font-bold text-sky-700 dark:text-sky-300">
-                      -{formatExactNumber(result.missingSpiritShards)}
-                    </span>
-                  )}
-                </div>
-
-                {/* Toggle 5★ Silver Unlock Prerequisite */}
-                <button
-                  type="button"
                   data-testid="toggle-max-star-prereq-btn"
                   aria-pressed={includeMaxStarPrerequisite}
                   onClick={() => setIncludeMaxStarPrerequisite((prev) => !prev)}
@@ -767,144 +827,124 @@ export function HeroLevelSpiritCalculator({
                     "px-2.5 text-xs font-sans",
                     includeMaxStarPrerequisite
                       ? "bg-amber-500/20 text-amber-800 ring-2 ring-amber-500 dark:text-amber-300"
-                      : "bg-card/80 text-muted-foreground hover:bg-muted hover:text-foreground"
+                      : "bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground"
                   )}
                 >
                   <span>
                     {locale === "vi"
-                      ? `+${formatExactNumber(maxStarPrereqShardsForRarity)} Mảnh mở 5★ Bạc`
-                      : `+${formatExactNumber(maxStarPrereqShardsForRarity)} 5★ Silver Req`}
+                      ? `+${formatCompactNumber(maxStarPrereqShardsForRarity)} Mảnh mở 5★ Bạc`
+                      : `+${formatCompactNumber(maxStarPrereqShardsForRarity)} 5★ Silver Req`}
                   </span>
                 </button>
               </div>
-            </div>
-          </div>
+
+              <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-3">
+                {/* Cột 1: Số lượng yêu cầu */}
+                <div className={cn(CALC_MD3.tonalGroup, "flex flex-col justify-between gap-1")}>
+                  <span className={CALC_MD3.eyebrow}>
+                    {locale === "vi" ? "Số lượng yêu cầu" : "Required"}
+                  </span>
+                  <div className="flex items-baseline gap-1.5">
+                    <span
+                      data-testid="spirit-required-shards-value"
+                      title={formatExactNumber(result.totalRequiredSpiritShards)}
+                      className="font-mono text-xl font-black tabular-nums text-sky-600 dark:text-sky-400"
+                    >
+                      {formatCompactNumber(result.totalRequiredSpiritShards)}
+                    </span>
+                    <span className="text-xs font-sans font-semibold text-muted-foreground">
+                      {locale === "vi" ? "Mảnh Linh Thể" : "Spirit Shards"}
+                    </span>
+                  </div>
+                  <span className="text-xs font-sans text-muted-foreground">
+                    {locale === "vi"
+                      ? `Chính xác: ${formatExactNumber(result.totalRequiredSpiritShards)} mảnh`
+                      : `Exact: ${formatExactNumber(result.totalRequiredSpiritShards)} shards`}
+                  </span>
+                </div>
+
+                {/* Cột 2: Số lượng đang có */}
+                <div className={cn(CALC_MD3.tonalGroup, "flex flex-col justify-between gap-1.5")}>
+                  <label
+                    htmlFor="spirit-owned-shards-input"
+                    className={CALC_MD3.eyebrow}
+                  >
+                    {locale === "vi" ? "Số lượng đang có" : "Owned"}
+                  </label>
+                  <Input
+                    id="spirit-owned-shards-input"
+                    data-testid="spirit-owned-shards-input"
+                    type="text"
+                    inputMode="decimal"
+                    value={ownedShardsInput}
+                    onChange={(e) => setOwnedShardsInput(e.target.value)}
+                    placeholder={locale === "vi" ? "0 (VD: 1.5K)" : "0 (e.g. 1.5K)"}
+                    className={CALC_MD3.dataInput}
+                  />
+                  <span className="text-xs font-sans text-muted-foreground">
+                    {locale === "vi"
+                      ? "Gõ số thường hoặc K / M"
+                      : "Type exact or K / M"}
+                  </span>
+                </div>
+
+                {/* Cột 3: Số lượng còn thiếu */}
+                <div
+                  className={cn(
+                    CALC_MD3.tonalGroup,
+                    "flex flex-col justify-between gap-1",
+                    result.missingSpiritShards > 0
+                      ? "bg-amber-500/10 ring-1 ring-amber-500/35"
+                      : "bg-emerald-500/10 ring-1 ring-emerald-500/35"
+                  )}
+                >
+                  <span className={CALC_MD3.eyebrow}>
+                    {locale === "vi" ? "Số lượng còn thiếu" : "Missing"}
+                  </span>
+                  {result.missingSpiritShards > 0 ? (
+                    <>
+                      <div className="flex items-baseline gap-1.5">
+                        <span
+                          data-testid="spirit-missing-shards-badge"
+                          title={formatExactNumber(result.missingSpiritShards)}
+                          className="font-mono text-xl font-black tabular-nums text-rose-600 dark:text-rose-400"
+                        >
+                          -{formatCompactNumber(result.missingSpiritShards)}
+                        </span>
+                        <span className="text-xs font-sans font-semibold text-rose-600/80 dark:text-rose-300">
+                          {locale === "vi" ? "mảnh" : "shards"}
+                        </span>
+                      </div>
+                      <span className="text-xs font-sans text-muted-foreground">
+                        {locale === "vi"
+                          ? `Cần bù: ${formatExactNumber(result.missingSpiritShards)} mảnh`
+                          : `Need: ${formatExactNumber(result.missingSpiritShards)} shards`}
+                      </span>
+                    </>
+                  ) : (
+                    <>
+                      <div className="flex items-center gap-1.5 text-emerald-700 dark:text-emerald-400">
+                        <CheckCircle2 className="h-4 w-4 shrink-0" aria-hidden="true" />
+                        <span
+                          data-testid="spirit-missing-shards-badge"
+                          className="text-base font-heading font-black tabular-nums"
+                        >
+                          {locale === "vi" ? "Đủ nguyên liệu" : "Sufficient"}
+                        </span>
+                      </div>
+                      <span className="text-xs font-sans text-emerald-700/80 dark:text-emerald-300">
+                        {locale === "vi"
+                          ? `Dư +${formatCompactNumber(Math.max(0, parsedOwnedShards - result.totalRequiredSpiritShards))} mảnh`
+                          : `Surplus +${formatCompactNumber(Math.max(0, parsedOwnedShards - result.totalRequiredSpiritShards))} shards`}
+                      </span>
+                    </>
+                  )}
+                </div>
+              </div>
+            </section>
+          </>
         )}
       </div>
-
-      {/* 5. On-Demand Breakdown Panel (1 lớp surfaceCard, bảng không viền bao) */}
-      {isBreakdownOpen && !result.isInvalidRange ? (
-        <div
-          data-testid="spirit-breakdown-panel"
-          className={cn(CALC_MD3.surfaceCard, "space-y-4")}
-        >
-          <div className="flex items-center justify-between gap-2">
-            <h2 className="text-base sm:text-lg font-heading font-bold text-foreground">
-              {locale === "vi"
-                ? `Bảng Chi Tiết Cấp Tướng & Linh Thể (${activeHeroName})`
-                : `Hero Level & Spirit Breakdown (${activeHeroName})`}
-            </h2>
-            <button
-              type="button"
-              onClick={() => setIsBreakdownOpen(false)}
-              aria-label={
-                locale === "vi" ? "Đóng bảng chi tiết" : "Close breakdown"
-              }
-              className={cn(
-                CALC_MD3.iconButton,
-                "text-muted-foreground hover:bg-muted hover:text-foreground"
-              )}
-            >
-              <X className="h-5 w-5" aria-hidden="true" />
-            </button>
-          </div>
-
-          <div className="-mx-1 overflow-x-auto">
-            <table
-              data-testid="spirit-breakdown-table"
-              className="w-full min-w-[560px] border-collapse text-left text-sm"
-            >
-              <thead>
-                <tr className="border-b border-border/70 bg-muted/40 text-xs font-sans font-semibold uppercase tracking-wide text-muted-foreground">
-                  <th className="py-2.5 px-3">
-                    {locale === "vi" ? "Chặng Nâng Cấp" : "Upgrade Stage"}
-                  </th>
-                  <th className="py-2.5 px-3">
-                    {locale === "vi" ? "Khoảng Cấp" : "Level Range"}
-                  </th>
-                  <th className="py-2.5 px-3 text-right">
-                    {locale === "vi" ? "Chi Phí Chặng" : "Stage Cost"}
-                  </th>
-                  <th className="py-2.5 px-3 text-right">
-                    {locale === "vi" ? "Tổng Tích Lũy" : "Cumulative / Squad"}
-                  </th>
-                  <th className="py-2.5 px-3">
-                    {locale === "vi"
-                      ? "Mốc Đột Phá / Trần Lâu Đài"
-                      : "Milestone / Castle Cap"}
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-border/50 font-sans tabular-nums">
-                {result.levelSegmentsBreakdown.map((seg) => (
-                  <tr
-                    key={`lv-${seg.fromLevel}-${seg.toLevel}`}
-                    className="hover:bg-amber-500/[0.04] transition-colors"
-                  >
-                    <td className="py-2.5 px-3 font-bold text-foreground">
-                      {locale === "vi" ? "Cấp Độ Tướng" : "Hero Level"}
-                    </td>
-                    <td className="py-2.5 px-3 text-muted-foreground">
-                      Lv.{seg.fromLevel} ➔ Lv.{seg.toLevel}
-                    </td>
-                    <td className="py-2.5 px-3 text-right font-bold text-amber-700 dark:text-amber-400">
-                      +{formatCompactNumber(seg.meatPerHero)}{" "}
-                      {locale === "vi" ? "Thịt" : "Meat"}
-                    </td>
-                    <td className="py-2.5 px-3 text-right font-bold text-foreground">
-                      {formatCompactNumber(seg.totalSquadMeat)} (
-                      {formatExactNumber(seg.totalSquadMeat)})
-                    </td>
-                    <td className="py-2.5 px-3 text-muted-foreground">
-                      {seg.segmentLabel[locale]}
-                    </td>
-                  </tr>
-                ))}
-
-                {result.spiritMilestonesBreakdown.map((band) => (
-                  <tr
-                    key={`sp-${band.fromLevel}-${band.toLevel}`}
-                    className="hover:bg-sky-500/[0.04] transition-colors"
-                  >
-                    <td className="py-2.5 px-3 font-bold text-sky-700 dark:text-sky-300">
-                      {locale === "vi" ? "Linh Thể Anh Hùng" : "Heroic Spirit"}
-                    </td>
-                    <td className="py-2.5 px-3 text-muted-foreground">
-                      Lv.{band.fromLevel} ➔ Lv.{band.toLevel}
-                    </td>
-                    <td className="py-2.5 px-3 text-right font-bold text-sky-600 dark:text-sky-400">
-                      +{formatExactNumber(band.requiredShardsInBand)}{" "}
-                      {locale === "vi" ? "Mảnh" : "Shards"}
-                    </td>
-                    <td className="py-2.5 px-3 text-right font-bold text-foreground">
-                      {formatExactNumber(band.cumulativeShardsAtMilestone)}{" "}
-                      {locale === "vi" ? "Mảnh" : "Shards"}
-                    </td>
-                    <td className="py-2.5 px-3 text-muted-foreground">
-                      {locale === "vi"
-                        ? `+${band.bonusHeroLevelCap} Cấp • +${band.skillDamageReductionPercent}% Giảm ST • +${band.percentAtk}% ATK`
-                        : `+${band.bonusHeroLevelCap} Cap • +${band.skillDamageReductionPercent}% DMG Red • +${band.percentAtk}% ATK`}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <div className="flex flex-wrap items-center justify-between gap-2 pt-1 text-xs sm:text-sm font-sans tabular-nums text-muted-foreground">
-            <span>
-              {locale === "vi"
-                ? `Buff Linh Thể nhận thêm: +${result.gainedPercentAtk}% ATK / +${result.gainedPercentHp}% HP (+${formatExactNumber(result.gainedFlatAtk)} ATK / +${formatExactNumber(result.gainedFlatHp)} HP)`
-                : `Spirit Stat Gain: +${result.gainedPercentAtk}% ATK / +${result.gainedPercentHp}% HP (+${formatExactNumber(result.gainedFlatAtk)} ATK / +${formatExactNumber(result.gainedFlatHp)} HP)`}
-            </span>
-            <span>
-              {locale === "vi"
-                ? `Tích lũy Linh Thể đích: ${formatExactNumber(result.toSpiritRow.cumulativeShards)}/3,163 Mảnh`
-                : `Target Spirit Cumulative: ${formatExactNumber(result.toSpiritRow.cumulativeShards)}/3,163 Shards`}
-            </span>
-          </div>
-        </div>
-      ) : null}
     </div>
   );
 }

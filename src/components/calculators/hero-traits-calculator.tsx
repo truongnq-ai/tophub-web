@@ -7,7 +7,6 @@ import {
   AlertTriangle,
   ChevronDown,
   ArrowLeft,
-  Info,
   X,
   ArrowLeftRight,
   Sparkles,
@@ -34,12 +33,17 @@ import type {
 import { GameAssetFrame } from "@/components/guides/media/game-asset-frame";
 import { Input } from "@/components/ui/input";
 import { HeroTraitSlotsSelector } from "./hero-trait-slots-selector";
+import { CalculatorInfoPopover } from "./calculator-info-popover";
 import {
   CALC_MD3,
-  CalculatorMetricValue,
   CalculatorToolHeader,
 } from "./calculator-md3-primitives";
-import { cn } from "@/lib/utils";
+import {
+  cn,
+  formatCompactNumber,
+  formatExactNumber,
+  parseCompactNumberInput,
+} from "@/lib/utils";
 
 interface HeroTraitsCalculatorProps {
   readonly zone?: CalculatorZone;
@@ -73,13 +77,11 @@ export function HeroTraitsCalculator({
   const [includeTraitSwap, setIncludeTraitSwap] = useState<boolean>(false);
 
   const [pickerStep, setPickerStep] = useState<SequentialPickerStep>("closed");
-  const [isBreakdownOpen, setIsBreakdownOpen] = useState<boolean>(false);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setPickerStep("closed");
-        setIsBreakdownOpen(false);
       }
     };
     window.addEventListener("keydown", handleKeyDown);
@@ -125,6 +127,15 @@ export function HeroTraitsCalculator({
     );
   };
 
+  const parsedOwnedShards = useMemo(
+    () => parseCompactNumberInput(ownedShardsInput),
+    [ownedShardsInput]
+  );
+  const parsedOwnedDiamonds = useMemo(
+    () => parseCompactNumberInput(ownedDiamondsInput),
+    [ownedDiamondsInput]
+  );
+
   const result = useMemo(
     () =>
       calculateHeroTraitsUpgrade({
@@ -132,8 +143,8 @@ export function HeroTraitsCalculator({
         heroId: activeHero?.id ?? selectedHeroId,
         fromLevels,
         toLevels,
-        ownedShards: Number(ownedShardsInput) || 0,
-        ownedDiamonds: Number(ownedDiamondsInput) || 0,
+        ownedShards: parsedOwnedShards,
+        ownedDiamonds: parsedOwnedDiamonds,
         includeTraitSwap,
       }),
     [
@@ -142,8 +153,8 @@ export function HeroTraitsCalculator({
       selectedHeroId,
       fromLevels,
       toLevels,
-      ownedShardsInput,
-      ownedDiamondsInput,
+      parsedOwnedShards,
+      parsedOwnedDiamonds,
       includeTraitSwap,
     ]
   );
@@ -166,11 +177,13 @@ export function HeroTraitsCalculator({
 
   const isEconomyHero = result.heroProfile.category === "economy_24_7";
   const breakdownLabel =
-    locale === "vi" ? "Xem bảng chi tiết 4 ô Thiên Phú" : "View 4-slot trait breakdown";
+    locale === "vi"
+      ? "Xem bảng chi tiết 4 ô Thiên Phú & Cẩm nang Phễu Kinh Tế"
+      : "View 4-slot trait breakdown & Economy Funnel guide";
 
   return (
     <div data-testid="hero-traits-calculator" className="space-y-4">
-      {/* 1. Flat MD3 Tool Header */}
+      {/* 1. Flat MD3 Tool Header + Nút (i) CalculatorInfoPopover */}
       <CalculatorToolHeader
         code={tool.code}
         title={tool.title[locale].replace(`${tool.code} `, "")}
@@ -191,7 +204,7 @@ export function HeroTraitsCalculator({
             >
               <ArrowLeftRight className="h-4 w-4 text-sky-500" aria-hidden="true" />
               <span>
-                {locale === "vi" ? "Trao Đổi (+2,000 KC)" : "Trait Swap (+2,000 Diamonds)"}
+                {locale === "vi" ? "Trao Đổi (+2K KC)" : "Trait Swap (+2K Diamonds)"}
               </span>
             </button>
 
@@ -213,63 +226,176 @@ export function HeroTraitsCalculator({
               <RotateCcw className="h-4 w-4 text-amber-500" aria-hidden="true" />
               <span>{locale === "vi" ? "Mặc Định (25/25/30/25)" : "Reset (25/25/30/25)"}</span>
             </button>
+
+            <CalculatorInfoPopover
+              triggerTestId="toggle-traits-breakdown-btn"
+              title={
+                locale === "vi"
+                  ? `Chi Tiết 4 Ô Thiên Phú (${activeHeroName})`
+                  : `4-Slot Trait Breakdown (${activeHeroName})`
+              }
+              triggerLabel={breakdownLabel}
+              locale={locale}
+              dialogTestId="traits-breakdown-dialog"
+            >
+              <div data-testid="traits-breakdown-panel" className="space-y-4">
+                {/* Cẩm nang chiến thuật Phễu Kinh Tế 24/7 & quy tắc bậc thang */}
+                <div className={cn(CALC_MD3.tonalGroup, "space-y-1.5 text-xs")}>
+                  <p className="font-heading font-bold text-foreground">
+                    {locale === "vi"
+                      ? "Cẩm nang Phễu Kinh Tế 24/7 & Quy tắc mở khóa:"
+                      : "24/7 Economy Funnel Guide & Unlock Rules:"}
+                  </p>
+                  <p className="text-foreground/90">
+                    {result.heroProfile.strategicNote[locale]}
+                  </p>
+                  <ul className="list-disc space-y-1 pl-4 text-muted-foreground">
+                    <li>
+                      {locale === "vi"
+                        ? `Điều kiện tiên quyết: Tướng đạt 2★ Bạc (${result.starUnlockPrerequisiteShards} Mảnh tích lũy).`
+                        : `Prerequisite: Hero reaches 2★ Silver (${result.starUnlockPrerequisiteShards} cumulative Shards).`}
+                    </li>
+                    <li>
+                      {locale === "vi"
+                        ? "Chi phí Mảnh: 10 mảnh/cấp × 30 cấp = 300 mảnh/ô (Tổng 4 ô = 1,200 mảnh)."
+                        : "Shard Cost: 10 shards/level × 30 levels = 300 shards/slot (Total 4 slots = 1,200 shards)."}
+                    </li>
+                    <li>
+                      {locale === "vi"
+                        ? "Phí Kim Cương mở khóa từng ô (từ Lv.0 lên >= Lv.1): Ô 1 = 200 KC • Ô 2 = 500 KC • Ô 3 = 1,000 KC • Ô 4 = 2,000 KC (Tổng mở 4 ô = 3,700 KC; Trao đổi Thiên Phú = +2,000 KC)."
+                        : "Diamond Slot Unlock Costs (Lv.0 to >= Lv.1): Slot 1 = 200 • Slot 2 = 500 • Slot 3 = 1,000 • Slot 4 = 2,000 (Total 4 slots = 3,700 Diamonds; Trait Swap = +2,000 Diamonds)."}
+                    </li>
+                    <li>
+                      {locale === "vi"
+                        ? "Mẹo tiết kiệm cho Tướng Kinh Tế dự bị: Không mở Ô 4 (HP Anh Hùng II chỉ có tác dụng khi xuất trận) để tiết kiệm ngay 2,000 Kim Cương!"
+                        : "Economy Hero Saving Tip: Keep Slot 4 locked at Lv.0 on benched economy heroes to save 2,000 Diamonds!"}
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="overflow-x-auto">
+                  <table
+                    data-testid="traits-breakdown-table"
+                    className="w-full min-w-[560px] border-collapse text-left text-xs"
+                  >
+                    <thead>
+                      <tr className="border-b border-border/70 bg-muted/40 font-sans font-semibold text-muted-foreground">
+                        <th className="py-2 px-2.5">{locale === "vi" ? "Ô Thiên Phú" : "Trait Slot"}</th>
+                        <th className="py-2 px-2.5">{locale === "vi" ? "Cấp Độ" : "Levels"}</th>
+                        <th className="py-2 px-2.5 text-right">{locale === "vi" ? "Mảnh Cần" : "Shards"}</th>
+                        <th className="py-2 px-2.5 text-right">{locale === "vi" ? "Kim Cương" : "Diamonds"}</th>
+                        <th className="py-2 px-2.5">{locale === "vi" ? "Hiệu Ứng Chỉ Số" : "Stat Effect"}</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-border/50 font-sans tabular-nums">
+                      {result.slotBreakdown.map((item) => (
+                        <tr key={item.slotNumber} className="hover:bg-amber-500/[0.04] transition-colors">
+                          <td className="py-2 px-2.5 font-bold text-foreground">
+                            {item.slotTitle[locale]}
+                          </td>
+                          <td className="py-2 px-2.5 text-muted-foreground">
+                            Lv.{item.fromLevel} ➔ Lv.{item.toLevel} (+{item.levelsGained})
+                          </td>
+                          <td className="py-2 px-2.5 text-right font-mono font-bold text-amber-700 dark:text-amber-400">
+                            +{formatExactNumber(item.requiredShards)}
+                          </td>
+                          <td className="py-2 px-2.5 text-right font-mono font-bold text-sky-600 dark:text-sky-400">
+                            {item.diamondUnlockCost > 0
+                              ? `+${formatExactNumber(item.diamondUnlockCost)}`
+                              : "—"}
+                          </td>
+                          <td className="py-2 px-2.5 text-muted-foreground">
+                            {item.slotEffectSummary[locale]}
+                          </td>
+                        </tr>
+                      ))}
+                      {result.includeTraitSwap ? (
+                        <tr className="bg-sky-500/[0.05]">
+                          <td colSpan={3} className="py-2 px-2.5 font-bold text-sky-700 dark:text-sky-300">
+                            {locale === "vi"
+                              ? "Chi phí Trao Đổi Thiên Phú (Trait Swap giữa 2 tướng cùng phẩm chất)"
+                              : "Trait Swap Fee (Swap trait levels between 2 same-rarity heroes)"}
+                          </td>
+                          <td className="py-2 px-2.5 text-right font-mono font-bold text-sky-600 dark:text-sky-400">
+                            +{formatExactNumber(DIAMOND_COST_TRAIT_SWAP)}
+                          </td>
+                          <td className="py-2 px-2.5 text-muted-foreground">
+                            {locale === "vi"
+                              ? `Hoán đổi với 1 ${rarityConfig.shortLabel.vi} khác`
+                              : `Swap with another ${rarityConfig.shortLabel.en} hero`}
+                          </td>
+                        </tr>
+                      ) : null}
+                    </tbody>
+                  </table>
+                </div>
+
+                <div className="flex flex-wrap items-center justify-between gap-2 pt-1 text-xs font-sans tabular-nums text-muted-foreground">
+                  <span>
+                    {locale === "vi"
+                      ? `Đã đầu tư: ${result.alreadyInvestedShards} Mảnh • Tích lũy đích: ${result.targetCumulativeShards}/1,200 Mảnh`
+                      : `Already invested: ${result.alreadyInvestedShards} Shards • Target total: ${result.targetCumulativeShards}/1,200 Shards`}
+                  </span>
+                  <span>
+                    {locale === "vi"
+                      ? `Mở khóa 4 ô: ${formatExactNumber(TOTAL_DIAMOND_UNLOCK_ALL_SLOTS)} KC (${DIAMOND_COST_BY_SLOT.join("/")}) • Trao đổi: ${formatExactNumber(DIAMOND_COST_TRAIT_SWAP)} KC`
+                      : `4-Slot Unlocks: ${formatExactNumber(TOTAL_DIAMOND_UNLOCK_ALL_SLOTS)} Diamonds (${DIAMOND_COST_BY_SLOT.join("/")}) • Swap: ${formatExactNumber(DIAMOND_COST_TRAIT_SWAP)} Diamonds`}
+                  </span>
+                </div>
+              </div>
+            </CalculatorInfoPopover>
           </>
         }
       />
 
-      {/* 2. Individual Trait 3 (Slot 3) Strategic Banner — 1 lớp viền */}
+      {/* 2. Compact Slot 3 Trait Badge Bar (Thu gọn 1 dòng thông tin dưới bộ chọn) */}
       <div
         data-testid="hero-trait3-banner"
         className={cn(
-          "rounded-2xl border p-3.5 sm:p-5",
+          CALC_MD3.surfaceCard,
+          "flex flex-wrap items-center justify-between gap-2 px-3.5 py-2.5",
           isEconomyHero
-            ? "border-emerald-500/35 bg-emerald-500/[0.06]"
-            : "border-amber-500/35 bg-amber-500/[0.06]"
+            ? "border-emerald-500/35 bg-emerald-500/[0.05]"
+            : "border-amber-500/35 bg-amber-500/[0.05]"
         )}
       >
-        <div className="min-w-0 space-y-2">
-          <div className="flex flex-wrap items-center gap-2">
-            <span
-              className={cn(
-                "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-sans font-bold",
-                isEconomyHero
-                  ? "bg-emerald-500/20 text-emerald-700 dark:text-emerald-300"
-                  : "bg-amber-500/20 text-amber-700 dark:text-amber-300"
-              )}
-            >
-              <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
-              <span>
-                {isEconomyHero
-                  ? locale === "vi"
-                    ? "Thiên Phú Kinh Tế 24/7 (Có hiệu lực trong kho)"
-                    : "24/7 Economy Trait (Active Without Deployment)"
-                  : locale === "vi"
-                    ? "Thiên Phú Chiến Đấu Đội Hình Chính"
-                    : "Main Queue Combat Trait"}
-              </span>
+        <div className="flex flex-wrap items-center gap-2">
+          <span
+            className={cn(
+              "inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-sans font-bold",
+              isEconomyHero
+                ? "bg-emerald-500/20 text-emerald-700 dark:text-emerald-300"
+                : "bg-amber-500/20 text-amber-700 dark:text-amber-300"
+            )}
+          >
+            <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
+            <span>
+              {isEconomyHero
+                ? locale === "vi"
+                  ? "Kinh Tế 24/7"
+                  : "24/7 Economy"
+                : locale === "vi"
+                  ? "Chiến Đấu"
+                  : "Combat"}
             </span>
+          </span>
 
-            <span className="text-xs sm:text-sm font-sans font-semibold text-muted-foreground">
-              {locale === "vi"
-                ? `Điều kiện mở: 2★ Bạc (${result.starUnlockPrerequisiteShards} Mảnh tích lũy)`
-                : `Unlock Req: 2★ Silver (${result.starUnlockPrerequisiteShards} cumulative Shards)`}
-            </span>
-          </div>
-
-          <div className="text-base sm:text-lg font-heading font-black text-foreground">
+          <span className="text-xs sm:text-sm font-heading font-bold text-foreground">
             {locale === "vi" ? "Ô 3 Độc Quyền:" : "Unique Slot 3:"}{" "}
             <span className="text-amber-700 dark:text-amber-400">
               {result.heroProfile.maxBonusLabel[locale]}
             </span>{" "}
-            <span className="text-sm font-sans font-normal text-muted-foreground">
+            <span className="text-xs font-sans font-normal text-muted-foreground">
               ({result.heroProfile.perLevelBonusLabel[locale]})
             </span>
-          </div>
-
-          <p className="text-sm sm:text-base leading-relaxed text-foreground/85">
-            {result.heroProfile.strategicNote[locale]}
-          </p>
+          </span>
         </div>
+
+        <span className="text-xs font-sans font-semibold text-muted-foreground">
+          {locale === "vi"
+            ? `Mở ở 2★ Bạc (${result.starUnlockPrerequisiteShards} Mảnh)`
+            : `Req: 2★ Silver (${result.starUnlockPrerequisiteShards} Shards)`}
+        </span>
       </div>
 
       {/* 3. Main 3-Zone Workspace: [Cấp Thiên Phú Hiện Tại] ⟷ [Avatar Tướng Trung Tâm] ⟷ [Cấp Thiên Phú Mục Tiêu] */}
@@ -469,20 +595,20 @@ export function HeroTraitsCalculator({
         <div
           data-testid="traits-slot4-economy-trap-warning"
           role="alert"
-          className="flex flex-col justify-between gap-3 rounded-2xl border border-rose-500/45 bg-rose-500/10 p-3.5 sm:flex-row sm:items-center sm:p-5"
+          className="flex flex-col justify-between gap-3 rounded-2xl border border-rose-500/45 bg-rose-500/10 p-3.5 sm:flex-row sm:items-center"
         >
           <div className="flex items-start gap-2.5">
             <ShieldAlert className="mt-0.5 h-5 w-5 shrink-0 text-rose-500" aria-hidden="true" />
-            <div className="space-y-1">
-              <div className="text-sm sm:text-base font-heading font-black text-rose-700 dark:text-rose-300">
+            <div className="space-y-0.5">
+              <div className="text-sm font-heading font-black text-rose-700 dark:text-rose-300">
                 {locale === "vi"
                   ? "Cảnh Báo Bẫy 2,000 Kim Cương (Ô 4 • HP Anh Hùng II Tướng Kinh Tế Dự Bị)"
                   : "2,000-Diamond Trap Warning (Slot 4 • Hero HP II on Benched Economy Hero)"}
               </div>
-              <p className="text-sm leading-relaxed text-foreground/85">
+              <p className="text-xs leading-relaxed text-foreground/85">
                 {locale === "vi"
-                  ? "Ô 4 (HP Anh Hùng II) chỉ có tác dụng khi tướng trực tiếp xuất trận và tốn 2,000 Kim Cương để mở khóa. Nếu chưa đủ mảnh nâng Ô 3 quá Lv.5, bạn có thể khóa Ô 4 ở Lv.0 để tiết kiệm 2,000 KC!"
-                  : "Slot 4 (Hero HP II) only applies when deployed in combat and costs 2,000 Diamonds to unlock. If you are keeping Slot 3 at Lv.5 or below, lock Slot 4 at Lv.0 to save 2,000 Diamonds!"}
+                  ? "Ô 4 chỉ có tác dụng khi tướng trực tiếp xuất trận và tốn 2,000 KC mở khóa. Hãy khóa Ô 4 ở Lv.0 để tiết kiệm 2,000 KC!"
+                  : "Slot 4 only applies when deployed in combat and costs 2,000 Diamonds to unlock. Lock Slot 4 at Lv.0 to save 2,000 Diamonds!"}
               </p>
             </div>
           </div>
@@ -500,8 +626,8 @@ export function HeroTraitsCalculator({
             )}
           >
             {locale === "vi"
-              ? "Khóa Ô 4 (Tiết kiệm 2,000 KC)"
-              : "Lock Slot 4 (Save 2,000 Diamonds)"}
+              ? "Khóa Ô 4 (-2K KC)"
+              : "Lock Slot 4 (-2K Diamonds)"}
           </button>
         </div>
       ) : null}
@@ -511,20 +637,20 @@ export function HeroTraitsCalculator({
         <div
           data-testid="traits-prerequisite-bridge-warning"
           role="alert"
-          className="flex flex-col justify-between gap-3 rounded-2xl border border-amber-500/45 bg-amber-500/10 p-3.5 sm:flex-row sm:items-center sm:p-5"
+          className="flex flex-col justify-between gap-3 rounded-2xl border border-amber-500/45 bg-amber-500/10 p-3.5 sm:flex-row sm:items-center"
         >
           <div className="flex items-start gap-2.5">
             <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-amber-500" aria-hidden="true" />
-            <div className="space-y-1">
-              <div className="text-sm sm:text-base font-heading font-black text-amber-700 dark:text-amber-300">
+            <div className="space-y-0.5">
+              <div className="text-sm font-heading font-black text-amber-700 dark:text-amber-300">
                 {locale === "vi"
                   ? "Lưu Ý Quy Tắc 5 Cấp 1 Lượt (5-Level Step-Gate)"
                   : "5-Level Step-Gate Prerequisite Notice"}
               </div>
-              <p className="text-sm leading-relaxed text-foreground/85">
+              <p className="text-xs leading-relaxed text-foreground/85">
                 {locale === "vi"
-                  ? "Trong game, các ô Thiên Phú mở khóa và nâng giới hạn theo từng bậc 5 cấp (5 - 10 - 15 - 20 - 25 - 30). Các ô khác cần đạt đủ mốc chia hết cho 5 trước khi nâng vượt bậc."
-                  : "In-game Trait slots unlock and progress in 5-level blocks (5 - 10 - 15 - 20 - 25 - 30). Other slots must reach the corresponding multiple of 5 before advancing further."}
+                  ? "Các ô Thiên Phú mở khóa và nâng giới hạn theo từng bậc 5 cấp (5 - 10 - 15 - 20 - 25 - 30)."
+                  : "In-game Trait slots unlock and progress in 5-level blocks (5 - 10 - 15 - 20 - 25 - 30)."}
               </p>
             </div>
           </div>
@@ -545,24 +671,16 @@ export function HeroTraitsCalculator({
         </div>
       ) : null}
 
-      {/* 5. Dual Result Surface (Hero Shards + Diamonds) + [i] Breakdown Button */}
-      <div
-        data-testid="hero-traits-result-card"
-        className={cn(
-          CALC_MD3.surfaceCard,
-          "relative overflow-hidden space-y-3 border-amber-500/35"
-        )}
-      >
-        <div
-          aria-hidden="true"
-          className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-amber-500 via-amber-400 to-transparent"
-        />
-
+      {/* 5. Hai Thẻ Nguyên Liệu Xếp Chồng Dọc Chuẩn R5 (3 Cột Ngang + K/M) */}
+      <div data-testid="hero-traits-result-card" className="space-y-3">
         {result.isInvalidRange ? (
-          <div
+          <section
             data-testid="hero-traits-invalid-range-warning"
             role="alert"
-            className="flex items-start gap-2.5 rounded-xl bg-amber-500/10 p-3 text-sm font-medium text-amber-800 dark:text-amber-300"
+            className={cn(
+              CALC_MD3.surfaceCard,
+              "flex items-start gap-2.5 border-amber-500/35 bg-amber-500/10 p-3 text-sm font-medium text-amber-800 dark:text-amber-300"
+            )}
           >
             <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-amber-500" aria-hidden="true" />
             <span>
@@ -570,221 +688,290 @@ export function HeroTraitsCalculator({
                 ? "Cấp Thiên Phú mục tiêu không được thấp hơn cấp hiện tại và phải có ít nhất 1 ô tăng cấp (hoặc bật Trao Đổi Thiên Phú)."
                 : "Target Trait levels cannot be lower than current levels and must increase at least 1 slot (or enable Trait Swap)."}
             </span>
-          </div>
+          </section>
         ) : (
-          <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
-            {/* Resource 1 (tonal): Hero Shards (10 shards/level) */}
-            <div className={cn(CALC_MD3.tonalGroup, "space-y-3")}>
-              <div className="flex min-w-0 items-center gap-2.5">
-                <GameAssetFrame
-                  src={result.universalShardMaterial.iconPath}
-                  alt={shardMaterialName}
-                  rarity={result.universalShardMaterial.rarity}
-                  size="sm"
-                />
-                <div className="min-w-0 space-y-1">
-                  <div className={cn(CALC_MD3.eyebrow, "truncate text-muted-foreground")}>
-                    {shardMaterialName}
-                  </div>
-                  <CalculatorMetricValue
-                    testId="traits-required-shards-value"
-                    value={result.requiredShards.toLocaleString("en-US")}
-                    unit={locale === "vi" ? "Mảnh cần thêm" : "Shards needed"}
-                    toneClassName="text-amber-600 dark:text-amber-400"
+          <>
+            {/* Thẻ 1: Mảnh Vạn Năng Anh Hùng */}
+            <section
+              className={cn(
+                CALC_MD3.surfaceCard,
+                "relative overflow-hidden space-y-3 border-amber-500/35"
+              )}
+            >
+              <div
+                aria-hidden="true"
+                className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-amber-500 via-amber-400 to-transparent"
+              />
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <div className="flex items-center gap-3">
+                  <GameAssetFrame
+                    src={result.universalShardMaterial.iconPath}
+                    alt={shardMaterialName}
+                    rarity={result.universalShardMaterial.rarity}
+                    size="md"
                   />
+                  <div>
+                    <div className="text-base font-heading font-black text-foreground">
+                      {shardMaterialName}
+                    </div>
+                    <div className="text-xs font-sans text-muted-foreground">
+                      {locale === "vi"
+                        ? `Lộ trình 4 ô: ${fromLevels.join("/")} ➔ ${toLevels.join("/")}`
+                        : `4-Slot Route: ${fromLevels.join("/")} ➔ ${toLevels.join("/")}`}
+                    </div>
+                  </div>
                 </div>
+                <span className="text-xs font-sans tabular-nums text-muted-foreground">
+                  {locale === "vi"
+                    ? `Đã đầu tư: ${result.alreadyInvestedShards}/1,200 Mảnh`
+                    : `Invested: ${result.alreadyInvestedShards}/1,200 Shards`}
+                </span>
               </div>
 
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <label
-                  htmlFor="traits-owned-shards-input"
-                  className="whitespace-nowrap text-sm font-sans font-semibold text-foreground"
-                >
-                  {locale === "vi" ? "Đang có:" : "Owned:"}
-                </label>
-                <div className="flex items-center gap-2">
+              <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-3">
+                {/* Cột 1: Số lượng yêu cầu */}
+                <div className={cn(CALC_MD3.tonalGroup, "flex flex-col justify-between gap-1")}>
+                  <span className={CALC_MD3.eyebrow}>
+                    {locale === "vi" ? "Số lượng yêu cầu" : "Required"}
+                  </span>
+                  <div className="flex items-baseline gap-1.5">
+                    <span
+                      data-testid="traits-required-shards-value"
+                      title={formatExactNumber(result.requiredShards)}
+                      className="font-mono text-xl font-black tabular-nums text-amber-600 dark:text-amber-400"
+                    >
+                      {formatCompactNumber(result.requiredShards)}
+                    </span>
+                    <span className="text-xs font-sans font-semibold text-muted-foreground">
+                      {locale === "vi" ? "Mảnh" : "Shards"}
+                    </span>
+                  </div>
+                  <span className="text-xs font-sans text-muted-foreground">
+                    {locale === "vi"
+                      ? `Chính xác: ${formatExactNumber(result.requiredShards)} mảnh`
+                      : `Exact: ${formatExactNumber(result.requiredShards)} shards`}
+                  </span>
+                </div>
+
+                {/* Cột 2: Số lượng đang có */}
+                <div className={cn(CALC_MD3.tonalGroup, "flex flex-col justify-between gap-1.5")}>
+                  <label
+                    htmlFor="traits-owned-shards-input"
+                    className={CALC_MD3.eyebrow}
+                  >
+                    {locale === "vi" ? "Số lượng đang có" : "Owned"}
+                  </label>
                   <Input
                     id="traits-owned-shards-input"
                     data-testid="traits-owned-shards-input"
-                    type="number"
-                    inputMode="numeric"
-                    min={0}
-                    max={99999}
+                    type="text"
+                    inputMode="decimal"
                     value={ownedShardsInput}
                     onChange={(e) => setOwnedShardsInput(e.target.value)}
-                    className={cn(CALC_MD3.dataInput, "w-24 bg-card text-center")}
+                    placeholder={locale === "vi" ? "0 (VD: 1.2K)" : "0 (e.g. 1.2K)"}
+                    className={CALC_MD3.dataInput}
                   />
-                  {result.missingShards === 0 ? (
-                    <span className="inline-flex items-center gap-1 rounded-lg bg-emerald-500/15 px-2.5 py-1 text-sm font-sans font-bold text-emerald-700 dark:text-emerald-400">
-                      <CheckCircle2 className="h-4 w-4 shrink-0" aria-hidden="true" />
-                      <span>{locale === "vi" ? "Đủ" : "Ready"}</span>
-                    </span>
+                  <span className="text-xs font-sans text-muted-foreground">
+                    {locale === "vi"
+                      ? "Gõ số thường hoặc K / M"
+                      : "Type exact or K / M"}
+                  </span>
+                </div>
+
+                {/* Cột 3: Số lượng còn thiếu */}
+                <div
+                  className={cn(
+                    CALC_MD3.tonalGroup,
+                    "flex flex-col justify-between gap-1",
+                    result.missingShards > 0
+                      ? "bg-amber-500/10 ring-1 ring-amber-500/35"
+                      : "bg-emerald-500/10 ring-1 ring-emerald-500/35"
+                  )}
+                >
+                  <span className={CALC_MD3.eyebrow}>
+                    {locale === "vi" ? "Số lượng còn thiếu" : "Missing"}
+                  </span>
+                  {result.missingShards > 0 ? (
+                    <>
+                      <div className="flex items-baseline gap-1.5">
+                        <span
+                          data-testid="traits-missing-shards-value"
+                          title={formatExactNumber(result.missingShards)}
+                          className="font-mono text-xl font-black tabular-nums text-rose-600 dark:text-rose-400"
+                        >
+                          {formatCompactNumber(result.missingShards)}
+                        </span>
+                        <span className="text-xs font-sans font-semibold text-rose-600/80 dark:text-rose-300">
+                          {locale === "vi" ? "mảnh" : "shards"}
+                        </span>
+                      </div>
+                      <span className="text-xs font-sans text-muted-foreground">
+                        {locale === "vi"
+                          ? `Cần bù: ${formatExactNumber(result.missingShards)} mảnh`
+                          : `Need: ${formatExactNumber(result.missingShards)} shards`}
+                      </span>
+                    </>
                   ) : (
-                    <span className="inline-flex items-center rounded-lg bg-amber-500/15 px-2.5 py-1 font-mono text-sm font-bold text-amber-700 dark:text-amber-300">
-                      -{result.missingShards.toLocaleString("en-US")}
-                    </span>
+                    <>
+                      <div className="flex items-center gap-1.5 text-emerald-700 dark:text-emerald-400">
+                        <CheckCircle2 className="h-4 w-4 shrink-0" aria-hidden="true" />
+                        <span
+                          data-testid="traits-missing-shards-value"
+                          className="text-base font-heading font-black tabular-nums"
+                        >
+                          {locale === "vi" ? "Đủ nguyên liệu" : "Sufficient"}
+                        </span>
+                      </div>
+                      <span className="text-xs font-sans text-emerald-700/80 dark:text-emerald-300">
+                        {locale === "vi"
+                          ? `Dư +${formatCompactNumber(Math.max(0, parsedOwnedShards - result.requiredShards))} mảnh`
+                          : `Surplus +${formatCompactNumber(Math.max(0, parsedOwnedShards - result.requiredShards))} shards`}
+                      </span>
+                    </>
                   )}
                 </div>
               </div>
-            </div>
+            </section>
 
-            {/* Resource 2 (tonal): Diamonds (Slot 1-4 Unlocks 200/500/1000/2000 + Trait Swap 2,000) */}
-            <div className={cn(CALC_MD3.tonalGroup, "space-y-3")}>
-              <div className="flex min-w-0 items-center gap-2.5">
-                <GameAssetFrame
-                  src={result.diamondMaterial.iconPath}
-                  alt={diamondMaterialName}
-                  rarity={result.diamondMaterial.rarity}
-                  size="sm"
-                />
-                <div className="min-w-0 space-y-1">
-                  <div className={cn(CALC_MD3.eyebrow, "truncate text-muted-foreground")}>
-                    {diamondMaterialName}
-                  </div>
-                  <CalculatorMetricValue
-                    testId="traits-required-diamonds-value"
-                    value={result.requiredDiamonds.toLocaleString("en-US")}
-                    unit={locale === "vi" ? "Kim Cương" : "Diamonds"}
-                    toneClassName="text-sky-600 dark:text-sky-400"
+            {/* Thẻ 2: Kim Cương (Mở khóa 4 ô 200/500/1,000/2,000 + Trao đổi 2,000) */}
+            <section
+              className={cn(
+                CALC_MD3.surfaceCard,
+                "relative overflow-hidden space-y-3 border-sky-500/35"
+              )}
+            >
+              <div
+                aria-hidden="true"
+                className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-sky-500 via-sky-400 to-transparent"
+              />
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <div className="flex items-center gap-3">
+                  <GameAssetFrame
+                    src={result.diamondMaterial.iconPath}
+                    alt={diamondMaterialName}
+                    rarity={result.diamondMaterial.rarity}
+                    size="md"
                   />
+                  <div>
+                    <div className="text-base font-heading font-black text-foreground">
+                      {diamondMaterialName}
+                    </div>
+                    <div className="text-xs font-sans text-muted-foreground">
+                      {locale === "vi"
+                        ? "Mở khóa 4 ô (200 / 500 / 1,000 / 2,000 KC) & Trao đổi Thiên Phú"
+                        : "4-Slot Unlocks (200 / 500 / 1,000 / 2,000) & Trait Swap"}
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <label
-                  htmlFor="traits-owned-diamonds-input"
-                  className="whitespace-nowrap text-sm font-sans font-semibold text-foreground"
-                >
-                  {locale === "vi" ? "Đang có:" : "Owned:"}
-                </label>
-                <div className="flex items-center gap-2">
+              <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-3">
+                {/* Cột 1: Số lượng yêu cầu */}
+                <div className={cn(CALC_MD3.tonalGroup, "flex flex-col justify-between gap-1")}>
+                  <span className={CALC_MD3.eyebrow}>
+                    {locale === "vi" ? "Số lượng yêu cầu" : "Required"}
+                  </span>
+                  <div className="flex items-baseline gap-1.5">
+                    <span
+                      data-testid="traits-required-diamonds-value"
+                      title={formatExactNumber(result.requiredDiamonds)}
+                      className="font-mono text-xl font-black tabular-nums text-sky-600 dark:text-sky-400"
+                    >
+                      {formatCompactNumber(result.requiredDiamonds)}
+                    </span>
+                    <span className="text-xs font-sans font-semibold text-muted-foreground">
+                      {locale === "vi" ? "Kim Cương" : "Diamonds"}
+                    </span>
+                  </div>
+                  <span className="text-xs font-sans text-muted-foreground">
+                    {locale === "vi"
+                      ? `Chính xác: ${formatExactNumber(result.requiredDiamonds)} KC`
+                      : `Exact: ${formatExactNumber(result.requiredDiamonds)} Diamonds`}
+                  </span>
+                </div>
+
+                {/* Cột 2: Số lượng đang có */}
+                <div className={cn(CALC_MD3.tonalGroup, "flex flex-col justify-between gap-1.5")}>
+                  <label
+                    htmlFor="traits-owned-diamonds-input"
+                    className={CALC_MD3.eyebrow}
+                  >
+                    {locale === "vi" ? "Số lượng đang có" : "Owned"}
+                  </label>
                   <Input
                     id="traits-owned-diamonds-input"
                     data-testid="traits-owned-diamonds-input"
-                    type="number"
-                    inputMode="numeric"
-                    min={0}
-                    max={999999}
+                    type="text"
+                    inputMode="decimal"
                     value={ownedDiamondsInput}
                     onChange={(e) => setOwnedDiamondsInput(e.target.value)}
-                    className={cn(CALC_MD3.dataInput, "w-28 bg-card text-center")}
+                    placeholder={locale === "vi" ? "0 (VD: 5K)" : "0 (e.g. 5K)"}
+                    className={CALC_MD3.dataInput}
                   />
-                  <button
-                    type="button"
-                    data-testid="toggle-traits-breakdown-btn"
-                    onClick={() => setIsBreakdownOpen((prev) => !prev)}
-                    title={breakdownLabel}
-                    aria-label={breakdownLabel}
-                    aria-expanded={isBreakdownOpen}
-                    className={cn(
-                      CALC_MD3.iconButton,
-                      isBreakdownOpen
-                        ? "bg-amber-500 text-slate-950 shadow-sm"
-                        : "bg-amber-500/15 text-amber-700 hover:bg-amber-500/25 dark:text-amber-300"
-                    )}
-                  >
-                    <Info className="h-5 w-5" aria-hidden="true" />
-                  </button>
+                  <span className="text-xs font-sans text-muted-foreground">
+                    {locale === "vi"
+                      ? "Gõ số thường hoặc K / M"
+                      : "Type exact or K / M"}
+                  </span>
+                </div>
+
+                {/* Cột 3: Số lượng còn thiếu */}
+                <div
+                  className={cn(
+                    CALC_MD3.tonalGroup,
+                    "flex flex-col justify-between gap-1",
+                    result.missingDiamonds > 0
+                      ? "bg-amber-500/10 ring-1 ring-amber-500/35"
+                      : "bg-emerald-500/10 ring-1 ring-emerald-500/35"
+                  )}
+                >
+                  <span className={CALC_MD3.eyebrow}>
+                    {locale === "vi" ? "Số lượng còn thiếu" : "Missing"}
+                  </span>
+                  {result.missingDiamonds > 0 ? (
+                    <>
+                      <div className="flex items-baseline gap-1.5">
+                        <span
+                          data-testid="traits-missing-diamonds-value"
+                          title={formatExactNumber(result.missingDiamonds)}
+                          className="font-mono text-xl font-black tabular-nums text-rose-600 dark:text-rose-400"
+                        >
+                          {formatCompactNumber(result.missingDiamonds)}
+                        </span>
+                        <span className="text-xs font-sans font-semibold text-rose-600/80 dark:text-rose-300">
+                          {locale === "vi" ? "KC" : "Diamonds"}
+                        </span>
+                      </div>
+                      <span className="text-xs font-sans text-muted-foreground">
+                        {locale === "vi"
+                          ? `Cần bù: ${formatExactNumber(result.missingDiamonds)} KC`
+                          : `Need: ${formatExactNumber(result.missingDiamonds)} Diamonds`}
+                      </span>
+                    </>
+                  ) : (
+                    <>
+                      <div className="flex items-center gap-1.5 text-emerald-700 dark:text-emerald-400">
+                        <CheckCircle2 className="h-4 w-4 shrink-0" aria-hidden="true" />
+                        <span
+                          data-testid="traits-missing-diamonds-value"
+                          className="text-base font-heading font-black tabular-nums"
+                        >
+                          {locale === "vi" ? "Đủ nguyên liệu" : "Sufficient"}
+                        </span>
+                      </div>
+                      <span className="text-xs font-sans text-emerald-700/80 dark:text-emerald-300">
+                        {locale === "vi"
+                          ? `Dư +${formatCompactNumber(Math.max(0, parsedOwnedDiamonds - result.requiredDiamonds))} KC`
+                          : `Surplus +${formatCompactNumber(Math.max(0, parsedOwnedDiamonds - result.requiredDiamonds))} Diamonds`}
+                      </span>
+                    </>
+                  )}
                 </div>
               </div>
-            </div>
-          </div>
+            </section>
+          </>
         )}
       </div>
-
-      {/* 6. On-Demand 4-Slot Breakdown Panel (1 lớp viền, bảng không viền bao) */}
-      {isBreakdownOpen && !result.isInvalidRange ? (
-        <div data-testid="traits-breakdown-panel" className={cn(CALC_MD3.surfaceCard, "space-y-3")}>
-          <div className="flex items-center justify-between gap-2">
-            <h2 className="text-base sm:text-lg font-heading font-bold text-foreground">
-              {locale === "vi"
-                ? `Chi Tiết 4 Ô Thiên Phú (${activeHeroName})`
-                : `4-Slot Trait Breakdown (${activeHeroName})`}
-            </h2>
-            <button
-              type="button"
-              onClick={() => setIsBreakdownOpen(false)}
-              aria-label={locale === "vi" ? "Đóng bảng chi tiết" : "Close breakdown"}
-              className={cn(
-                CALC_MD3.iconButton,
-                "text-muted-foreground hover:bg-muted hover:text-foreground"
-              )}
-            >
-              <X className="h-5 w-5" aria-hidden="true" />
-            </button>
-          </div>
-
-          <div className="-mx-1 overflow-x-auto">
-            <table
-              data-testid="traits-breakdown-table"
-              className="w-full min-w-[560px] border-collapse text-left text-sm"
-            >
-              <thead>
-                <tr className="border-b border-border/70 bg-muted/40 text-xs font-sans font-semibold uppercase tracking-wide text-muted-foreground">
-                  <th className="py-2.5 px-3">{locale === "vi" ? "Ô Thiên Phú" : "Trait Slot"}</th>
-                  <th className="py-2.5 px-3">{locale === "vi" ? "Cấp Độ" : "Levels"}</th>
-                  <th className="py-2.5 px-3 text-right">{locale === "vi" ? "Mảnh Cần" : "Shards"}</th>
-                  <th className="py-2.5 px-3 text-right">{locale === "vi" ? "Kim Cương" : "Diamonds"}</th>
-                  <th className="py-2.5 px-3">{locale === "vi" ? "Hiệu Ứng Chỉ Số" : "Stat Effect"}</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-border/50 font-sans tabular-nums">
-                {result.slotBreakdown.map((item) => (
-                  <tr key={item.slotNumber} className="hover:bg-amber-500/[0.04] transition-colors">
-                    <td className="py-2.5 px-3 font-bold text-foreground">
-                      {item.slotTitle[locale]}
-                    </td>
-                    <td className="py-2.5 px-3 text-muted-foreground">
-                      Lv.{item.fromLevel} ➔ Lv.{item.toLevel} (+{item.levelsGained})
-                    </td>
-                    <td className="py-2.5 px-3 text-right font-bold text-amber-700 dark:text-amber-400">
-                      +{item.requiredShards.toLocaleString("en-US")}
-                    </td>
-                    <td className="py-2.5 px-3 text-right font-bold text-sky-600 dark:text-sky-400">
-                      {item.diamondUnlockCost > 0
-                        ? `+${item.diamondUnlockCost.toLocaleString("en-US")}`
-                        : "—"}
-                    </td>
-                    <td className="py-2.5 px-3 text-muted-foreground">
-                      {item.slotEffectSummary[locale]}
-                    </td>
-                  </tr>
-                ))}
-                {result.includeTraitSwap ? (
-                  <tr className="bg-sky-500/[0.05]">
-                    <td colSpan={3} className="py-2.5 px-3 font-bold text-sky-700 dark:text-sky-300">
-                      {locale === "vi"
-                        ? "Chi phí Trao Đổi Thiên Phú (Trait Swap giữa 2 tướng cùng phẩm chất)"
-                        : "Trait Swap Fee (Swap trait levels between 2 same-rarity heroes)"}
-                    </td>
-                    <td className="py-2.5 px-3 text-right font-bold text-sky-600 dark:text-sky-400">
-                      +{DIAMOND_COST_TRAIT_SWAP.toLocaleString("en-US")}
-                    </td>
-                    <td className="py-2.5 px-3 text-muted-foreground">
-                      {locale === "vi"
-                        ? `Hoán đổi với 1 ${rarityConfig.shortLabel.vi} khác`
-                        : `Swap with another ${rarityConfig.shortLabel.en} hero`}
-                    </td>
-                  </tr>
-                ) : null}
-              </tbody>
-            </table>
-          </div>
-
-          <div className="flex flex-wrap items-center justify-between gap-2 pt-1 text-xs sm:text-sm font-sans tabular-nums text-muted-foreground">
-            <span>
-              {locale === "vi"
-                ? `Đã đầu tư: ${result.alreadyInvestedShards} Mảnh • Tích lũy đích: ${result.targetCumulativeShards}/1,200 Mảnh`
-                : `Already invested: ${result.alreadyInvestedShards} Shards • Target total: ${result.targetCumulativeShards}/1,200 Shards`}
-            </span>
-            <span>
-              {locale === "vi"
-                ? `Mở khóa 4 ô: ${TOTAL_DIAMOND_UNLOCK_ALL_SLOTS.toLocaleString("en-US")} KC (${DIAMOND_COST_BY_SLOT.join("/")}) • Trao đổi: ${DIAMOND_COST_TRAIT_SWAP.toLocaleString("en-US")} KC`
-                : `4-Slot Unlocks: ${TOTAL_DIAMOND_UNLOCK_ALL_SLOTS.toLocaleString("en-US")} Diamonds (${DIAMOND_COST_BY_SLOT.join("/")}) • Swap: ${DIAMOND_COST_TRAIT_SWAP.toLocaleString("en-US")} Diamonds`}
-            </span>
-          </div>
-        </div>
-      ) : null}
     </div>
   );
 }

@@ -229,7 +229,7 @@ export function clampFactionLevel(level: number): number {
 
 export function getFactionLevelRow(
   level: number,
-  mode: FactionCalculationMode = "ssot_verified"
+  mode: FactionCalculationMode = "extended_s1"
 ): FactionLevelRow {
   const clamped = clampFactionLevel(level);
   const spec = FACTION_LEVEL_TABLE[clamped - 1] ?? FACTION_LEVEL_TABLE[0]!;
@@ -261,7 +261,7 @@ export function getFactionLevelRow(
 }
 
 export function clampFactionBarsForLevel(level: number, bars: number): number {
-  const row = getFactionLevelRow(level, "ssot_verified");
+  const row = getFactionLevelRow(level, "extended_s1");
   if (!Number.isFinite(bars)) return 0;
   const rounded = Math.round(bars);
   if (rounded < 0) return 0;
@@ -347,7 +347,7 @@ export interface CumulativeFactionState {
  */
 export function getCumulativeFactionState(
   point: FactionProgressPoint,
-  mode: FactionCalculationMode = "ssot_verified"
+  mode: FactionCalculationMode = "extended_s1"
 ): CumulativeFactionState {
   const level = clampFactionLevel(point.level);
   const completedBars = clampFactionBarsForLevel(level, point.completedBars);
@@ -600,7 +600,7 @@ export function calculateFactionLevelUpgrade(
     faction: input.faction,
     factionConfig,
     shardRarity: input.shardRarity,
-    mode: input.mode,
+    mode: input.mode ?? "extended_s1",
     isInvalidRange,
     fromState,
     toState,

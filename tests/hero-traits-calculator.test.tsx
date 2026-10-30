@@ -216,13 +216,13 @@ describe("Suite 2 — Hero Traits UI & Bilingual Purity (AC-CALC-05)", () => {
     expect(screen.getByTestId("hero-traits-calculator")).toBeTruthy();
     expect(screen.getByTestId("central-hero-name").textContent).toContain("Đấu Sĩ");
 
-    // Default Max Slot 3 Funnel on Brawler: 0/0/0/0 -> 25/25/30/25 = 1,050 Epic Shards, 3,700 Diamonds
+    // Default Max Slot 3 Funnel on Brawler: 0/0/0/0 -> 25/25/30/25 = 1,050 Epic Shards (1.05K), 3,700 Diamonds (3.7K)
     expect(screen.getByTestId("traits-required-shards-value").textContent).toBe(
-      "1,050"
+      "1.05K"
     );
     expect(
       screen.getByTestId("traits-required-diamonds-value").textContent
-    ).toBe("3,700");
+    ).toBe("3.7K");
 
     // Verify Diamond unlock badges on all 4 slots (200, 500, 1,000, 2,000)
     expect(screen.getByTestId("to-slot-1-diamond-badge").textContent).toContain(
@@ -238,20 +238,20 @@ describe("Suite 2 — Hero Traits UI & Bilingual Purity (AC-CALC-05)", () => {
       "2,000"
     );
 
-    // Toggle Trait Swap (+2,000 Diamonds -> 5,700 Diamonds)
+    // Toggle Trait Swap (+2,000 Diamonds -> 5,700 Diamonds = 5.7K)
     fireEvent.click(screen.getByTestId("traits-swap-toggle-btn"));
     expect(
       screen.getByTestId("traits-required-diamonds-value").textContent
-    ).toBe("5,700");
+    ).toBe("5.7K");
 
-    // Click preset Max 30/30/30/30 on Brawler -> triggers 1,200 Shards + 5,700 Diamonds (3,700 Unlock + 2,000 Swap)
+    // Click preset Max 30/30/30/30 on Brawler -> triggers 1,200 Shards (1.2K) + 5,700 Diamonds (5.7K)
     fireEvent.click(screen.getByTestId("to-preset-max-btn"));
     expect(screen.getByTestId("traits-required-shards-value").textContent).toBe(
-      "1,200"
+      "1.2K"
     );
     expect(
       screen.getByTestId("traits-required-diamonds-value").textContent
-    ).toBe("5,700");
+    ).toBe("5.7K");
 
     // Open Sequential Picker -> Select Mythic -> Select Desert Prince -> Auto-closes
     fireEvent.click(screen.getByTestId("central-hero-avatar-trigger"));

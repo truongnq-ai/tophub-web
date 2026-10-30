@@ -166,7 +166,7 @@ describe("2.1 Sách Kỹ Năng — Interactive UI & Bilingual Purity", () => {
     expect(screen.getByTestId("skill-books-calculator")).toBeTruthy();
   });
 
-  it("supports switching 4 / 5 / 6 skill slots, squad multiplier (1 / 5 / 6 heroes), and compact K/M/B input parsing", () => {
+  it("supports switching 4 / 5 / 6 skill slots, single-hero scope (Rule R1), and compact K/M/B input parsing", () => {
     render(
       <SkillBooksCalculator
         zone={selection.zone}
@@ -176,36 +176,35 @@ describe("2.1 Sách Kỹ Năng — Interactive UI & Bilingual Purity", () => {
       />
     );
 
-    // Default: Mythic 5 skills, 1 hero, From Lv.10 -> To Lv.15 = 83,500 books
+    // Rule R1: Single-hero scope (no squad multiplier buttons)
+    expect(screen.queryByTestId("skill-squad-count-1-btn")).toBeNull();
+    expect(screen.queryByTestId("skill-squad-count-5-btn")).toBeNull();
+    expect(screen.queryByTestId("skill-squad-count-6-btn")).toBeNull();
+
+    // Default: Mythic 5 skills, 1 hero, From Lv.10 -> To Lv.15 = 83,500 books (83.5K)
     expect(screen.getByTestId("skill-books-required-value").textContent).toBe(
-      "83,500"
+      "83.5K"
     );
 
-    // Click From Preset Lv.1 -> 123,500 books for 5 skills
+    // Click From Preset Lv.1 -> 123,500 books (123.5K) for 5 skills
     fireEvent.click(screen.getByTestId("from-skill-preset-lv1-btn"));
     expect(screen.getByTestId("skill-books-required-value").textContent).toBe(
-      "123,500"
+      "123.5K"
     );
 
-    // Switch slot count to 4 skills -> 98,800 books
+    // Switch slot count to 4 skills -> 98,800 books (98.8K)
     fireEvent.click(screen.getByTestId("skill-slot-count-4-btn"));
     expect(screen.getByTestId("skill-books-required-value").textContent).toBe(
-      "98,800"
+      "98.8K"
     );
 
-    // Switch squad count to 6 heroes -> 592,800 books
-    fireEvent.click(screen.getByTestId("skill-squad-count-6-btn"));
-    expect(screen.getByTestId("skill-books-required-value").textContent).toBe(
-      "592,800"
-    );
-
-    // Enter "192k" into owned input -> missing = 400,800
+    // Enter "32k" into owned input -> missing = 66,800 (-66.8K)
     fireEvent.change(screen.getByTestId("skill-books-owned-input"), {
-      target: { value: "192k" },
+      target: { value: "32k" },
     });
     expect(
       screen.getByTestId("skill-books-missing-badge").textContent
-    ).toContain("-400,800");
+    ).toContain("-66.8K");
   });
 
   it("passes strict English bilingual purity gate with zero Vietnamese diacritics", () => {

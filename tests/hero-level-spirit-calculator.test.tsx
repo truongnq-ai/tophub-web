@@ -109,7 +109,7 @@ describe("1.4 Cấp Tướng & Linh Thể — UI & Bilingual Integration", () =>
     expect(screen.getByTestId("hero-level-spirit-calculator")).toBeTruthy();
   });
 
-  it("supports squad multiplier, spirit-to-level cap bridge, and compact K/M/B input parsing", () => {
+  it("enforces single-hero scope (Rule R1), spirit-to-level cap bridge, and compact K/M/B input parsing", () => {
     render(
       <HeroLevelSpiritCalculator
         zone={selection.zone}
@@ -119,18 +119,17 @@ describe("1.4 Cấp Tướng & Linh Thể — UI & Bilingual Integration", () =>
       />
     );
 
-    // Default: Lv.190 -> Lv.220, 6 heroes Queue 1, Spirit Lv.0 -> Lv.60
+    // Rule R1: Single-hero scope (1 hero hardcoded, no 1 / 5 / 6 squad buttons)
+    expect(screen.queryByTestId("squad-count-1-btn")).toBeNull();
+    expect(screen.queryByTestId("squad-count-5-btn")).toBeNull();
+    expect(screen.queryByTestId("squad-count-6-btn")).toBeNull();
+
+    // Default: Lv.190 -> Lv.220, 1 hero = 28.92M Meat, Spirit Lv.0 -> Lv.60 = 988 Shards
     expect(screen.getByTestId("spirit-required-meat-value").textContent).toBe(
-      "173.52M"
+      "28.92M"
     );
     expect(screen.getByTestId("spirit-required-shards-value").textContent).toBe(
       "988"
-    );
-
-    // Switch squad count to 1 hero -> 28.92M Meat
-    fireEvent.click(screen.getByTestId("squad-count-1-btn"));
-    expect(screen.getByTestId("spirit-required-meat-value").textContent).toBe(
-      "28.92M"
     );
 
     // Enter "20m" into owned Meat input -> missing = 8.92M

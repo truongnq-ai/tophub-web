@@ -7,15 +7,12 @@ import {
   AlertTriangle,
   ChevronDown,
   ArrowLeft,
-  Info,
   X,
-  Sparkles,
-  Users,
   Layers,
 } from "lucide-react";
 import {
+  SKILL_BOOK_LEVEL_TABLE,
   SKILL_SLOT_COUNT_OPTIONS,
-  SKILL_SQUAD_COUNT_OPTIONS,
   calculateHeroSkillBooksUpgrade,
   clampSkillLevel,
   type SkillLevelsTuple,
@@ -42,9 +39,9 @@ import {
   parseCompactNumberInput,
 } from "@/lib/utils";
 import { HeroSkillSlotsSelector } from "./hero-skill-slots-selector";
+import { CalculatorInfoPopover } from "./calculator-info-popover";
 import {
   CALC_MD3,
-  CalculatorMetricValue,
   CalculatorToolHeader,
 } from "./calculator-md3-primitives";
 
@@ -68,13 +65,12 @@ export function SkillBooksCalculator({
   tool,
   locale,
 }: SkillBooksCalculatorProps) {
-  // Mặc định: Hoàng Tử Sa Mạc (Mythic • 5 kỹ năng), 1 tướng, từ Điểm Dừng Vàng Lv.10 -> Kịch trần Lv.15 (83,500 cuốn)
+  // Chuẩn R1: Tính cho 1 đơn vị chuẩn (1 Tướng — heroCount = 1 cố định)
   const [rarity, setRarity] = useState<HeroStarRarity>("mythic");
   const [selectedHeroId, setSelectedHeroId] = useState<string>(
     HERO_STAR_RARITY_CONFIGS.mythic.defaultHeroId
   );
   const [slotCount, setSlotCount] = useState<SkillSlotCount>(5);
-  const [heroCount, setHeroCount] = useState<number>(1);
   const [fromLevels, setFromLevels] = useState<SkillLevelsTuple>([
     10, 10, 10, 10, 10, 10,
   ]);
@@ -84,13 +80,11 @@ export function SkillBooksCalculator({
   const [ownedBooksInput, setOwnedBooksInput] = useState<string>("0");
 
   const [pickerStep, setPickerStep] = useState<SequentialPickerStep>("closed");
-  const [isBreakdownOpen, setIsBreakdownOpen] = useState<boolean>(false);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setPickerStep("closed");
-        setIsBreakdownOpen(false);
       }
     };
     window.addEventListener("keydown", handleKeyDown);
@@ -155,12 +149,12 @@ export function SkillBooksCalculator({
     () =>
       calculateHeroSkillBooksUpgrade({
         slotCount,
-        heroCount,
+        heroCount: 1,
         fromLevels,
         toLevels,
         ownedSkillBooks: parsedOwnedBooks,
       }),
-    [slotCount, heroCount, fromLevels, toLevels, parsedOwnedBooks]
+    [slotCount, fromLevels, toLevels, parsedOwnedBooks]
   );
 
   const bookMaterialName =
@@ -176,12 +170,12 @@ export function SkillBooksCalculator({
 
   const breakdownLabel =
     locale === "vi"
-      ? "Xem bảng phân rã chi phí từng ô kỹ năng"
-      : "View skill slot cost breakdown";
+      ? "Xem bảng tra cứu 15 cấp Sách Kỹ Năng & phân rã từng ô"
+      : "View 15-level Skill Book reference table & slot breakdown";
 
   return (
     <div data-testid="skill-books-calculator" className="space-y-4">
-      {/* 1. Flat MD3 Tool Header */}
+      {/* 1. Flat MD3 Tool Header + Nút (i) CalculatorInfoPopover */}
       <CalculatorToolHeader
         code={tool.code}
         title={tool.title[locale].replace(`${tool.code} `, "")}
@@ -226,7 +220,6 @@ export function SkillBooksCalculator({
               data-testid="skill-books-reset-btn"
               onClick={() => {
                 setSlotCount(5);
-                setHeroCount(1);
                 setFromLevels([10, 10, 10, 10, 10, 10]);
                 setToLevels([15, 15, 15, 15, 15, 15]);
                 setOwnedBooksInput("0");
@@ -242,78 +235,153 @@ export function SkillBooksCalculator({
               />
               <span>{locale === "vi" ? "Đặt lại" : "Reset"}</span>
             </button>
+
+            <CalculatorInfoPopover
+              triggerTestId="toggle-skill-books-breakdown-btn"
+              title={
+                locale === "vi"
+                  ? `Chi Tiết ${slotCount} Ô Kỹ Năng (${activeHeroName})`
+                  : `${slotCount}-Slot Skill Breakdown (${activeHeroName})`
+              }
+              triggerLabel={breakdownLabel}
+              locale={locale}
+              dialogTestId="skill-books-breakdown-dialog"
+            >
+              <div data-testid="skill-books-breakdown-panel" className="space-y-4">
+                <div className={cn(CALC_MD3.tonalGroup, "space-y-1.5 text-xs")}>
+                  <p className="font-heading font-bold text-foreground">
+                    {locale === "vi"
+                      ? "Thuyết minh Điểm Dừng Kinh Tế Vàng Lv.10 (8,000 cuốn):"
+                      : "Golden ROI Sweet Spot Lv.10 (8,000 books) Guide:"}
+                  </p>
+                  <ul className="list-disc space-y-1 pl-4 text-muted-foreground">
+                    <li>
+                      {locale === "vi"
+                        ? "Mốc Vàng Lv.10 chỉ tốn 8,000 cuốn/kỹ năng (32.4% ngân sách tối đa) nhưng đạt ~75% hiệu năng thực chiến."
+                        : "Lv.10 costs only 8,000 books/skill (32.4% of max budget) while delivering ~75% combat effectiveness."}
+                    </li>
+                    <li>
+                      {locale === "vi"
+                        ? "Đoạn Lv.11 ➔ Lv.15 tiêu tốn thêm 16,700 cuốn/kỹ năng (Tổng Lv.15 = 24,700 cuốn). Tổng 1 tướng: 4 kỹ năng = 98.8K • 5 kỹ năng = 123.5K • 6 kỹ năng = 148.2K cuốn."
+                        : "Levels 11 ➔ 15 require an extra 16,700 books/skill (Max Lv.15 = 24,700 books). Total per hero: 4 skills = 98.8K • 5 skills = 123.5K • 6 skills = 148.2K books."}
+                    </li>
+                    <li>
+                      {locale === "vi"
+                        ? `Đoạn Lv.1 ➔ Lv.10 trong lộ trình hiện tại: ${formatExactNumber(result.preLv10BooksTotal)} cuốn • Đoạn Lv.11 ➔ Lv.15: ${formatExactNumber(result.postLv10BooksTotal)} cuốn • Tiết kiệm so với Max Lv.15: +${formatExactNumber(result.booksSavedVsAllMax15)} cuốn.`
+                        : `Current route Lv.1 ➔ Lv.10: ${formatExactNumber(result.preLv10BooksTotal)} books • Lv.11 ➔ Lv.15: ${formatExactNumber(result.postLv10BooksTotal)} books • Saved vs Max Lv.15: +${formatExactNumber(result.booksSavedVsAllMax15)} books.`}
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Bảng phân rã các ô kỹ năng đang chọn */}
+                <div className="space-y-2">
+                  <h4 className="text-sm font-heading font-bold text-foreground">
+                    {locale === "vi"
+                      ? `Phân rã ${slotCount} ô kỹ năng đang chọn`
+                      : `Active ${slotCount}-Slot Breakdown`}
+                  </h4>
+                  <div className="overflow-x-auto">
+                    <table
+                      data-testid="skill-books-breakdown-table"
+                      className="w-full min-w-[520px] border-collapse text-left text-xs"
+                    >
+                      <thead>
+                        <tr className="border-b border-border/70 bg-muted/40 font-sans font-semibold text-muted-foreground">
+                          <th className="py-2 px-2.5">
+                            {locale === "vi" ? "Ô Kỹ Năng" : "Skill Slot"}
+                          </th>
+                          <th className="py-2 px-2.5">
+                            {locale === "vi" ? "Lộ Trình Cấp" : "Level Range"}
+                          </th>
+                          <th className="py-2 px-2.5 text-right">
+                            {locale === "vi" ? "Sách Yêu Cầu" : "Required Books"}
+                          </th>
+                          <th className="py-2 px-2.5">
+                            {locale === "vi" ? "Vai Trò Chiến Thuật" : "Tactical Role"}
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-border/50 font-sans tabular-nums">
+                        {result.slotBreakdown.map((item) => (
+                          <tr
+                            key={item.slotNumber}
+                            className="hover:bg-amber-500/[0.04] transition-colors"
+                          >
+                            <td className="py-2 px-2.5 font-bold text-foreground">
+                              {item.shortTitle[locale]}
+                            </td>
+                            <td className="py-2 px-2.5 text-muted-foreground">
+                              Lv.{item.fromLevel} ➔ Lv.{item.toLevel} (+
+                              {item.levelsGained})
+                            </td>
+                            <td className="py-2 px-2.5 text-right font-mono font-bold text-amber-700 dark:text-amber-400">
+                              +{formatExactNumber(item.requiredBooksPerHero)}
+                            </td>
+                            <td className="py-2 px-2.5 text-muted-foreground">
+                              {item.roleSummary[locale]}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                {/* Bảng tra cứu chuẩn 15 cấp Sách Kỹ Năng */}
+                <div className="space-y-2">
+                  <h4 className="text-sm font-heading font-bold text-foreground">
+                    {locale === "vi"
+                      ? "Bảng Tra Cứu Chuẩn 15 Cấp Sách Kỹ Năng (1 Kỹ năng)"
+                      : "15-Level Skill Book Reference Table (Per Skill)"}
+                  </h4>
+                  <div className="max-h-60 overflow-y-auto overflow-x-auto">
+                    <table className="w-full min-w-[440px] border-collapse text-left text-xs">
+                      <thead>
+                        <tr className="border-b border-border/70 bg-muted/40 font-sans font-semibold text-muted-foreground">
+                          <th className="py-1.5 px-2.5">
+                            {locale === "vi" ? "Cấp" : "Level"}
+                          </th>
+                          <th className="py-1.5 px-2.5 text-right">
+                            {locale === "vi" ? "Sách Từng Cấp" : "Step Cost"}
+                          </th>
+                          <th className="py-1.5 px-2.5 text-right">
+                            {locale === "vi" ? "Cộng Dồn 1 Kỹ Năng" : "Cumulative"}
+                          </th>
+                          <th className="py-1.5 px-2.5 text-right">
+                            {locale === "vi" ? "Tỷ Trọng (%)" : "Budget (%)"}
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-border/50 font-sans tabular-nums">
+                        {SKILL_BOOK_LEVEL_TABLE.map((row) => (
+                          <tr key={row.level} className="hover:bg-muted/30">
+                            <td className="py-1.5 px-2.5 font-bold text-foreground">
+                              Lv.{row.level}
+                            </td>
+                            <td className="py-1.5 px-2.5 text-right font-mono text-muted-foreground">
+                              +{formatExactNumber(row.stepBooks)}
+                            </td>
+                            <td className="py-1.5 px-2.5 text-right font-mono font-bold text-amber-600 dark:text-amber-400">
+                              {formatExactNumber(row.cumulativeBooks)}
+                            </td>
+                            <td className="py-1.5 px-2.5 text-right font-mono text-foreground">
+                              {((row.cumulativeBooks / 24700) * 100).toFixed(1)}%
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </CalculatorInfoPopover>
           </>
         }
       />
 
-      {/* 2. Strategic Pareto 80/20 Breakpoint Banner (1 lớp viền duy nhất) */}
-      <div
-        data-testid="skill-books-strategic-banner"
-        className="rounded-2xl border border-amber-500/35 bg-amber-500/[0.06] p-3.5 sm:p-5 space-y-2"
-      >
-        <div className="flex flex-wrap items-center justify-between gap-2">
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/20 px-2.5 py-1 text-xs font-sans font-bold text-emerald-700 dark:text-emerald-300">
-              <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
-              <span>
-                {locale === "vi"
-                  ? "Điểm Dừng Kinh Tế Vàng: Lv.10 = 8,000 cuốn/kỹ năng (32.4% ngân sách)"
-                  : "Golden ROI Sweet Spot: Lv.10 = 8,000 books/skill (32.4% budget)"}
-              </span>
-            </span>
-            <span className="text-xs sm:text-sm font-sans font-semibold text-muted-foreground">
-              {locale === "vi"
-                ? "Kịch trần Lv.15 = 24,700 cuốn/kỹ năng (+16,700 cuốn cho 5 cấp cuối)"
-                : "Max Cap Lv.15 = 24,700 books/skill (+16,700 books for final 5 levels)"}
-            </span>
-          </div>
-
-          {/* Squad Multiplier (1 / 5 / 6 Heroes) */}
-          <div className="flex flex-wrap items-center gap-1.5">
-            {SKILL_SQUAD_COUNT_OPTIONS.map((cnt) => {
-              const isSelected = heroCount === cnt;
-              return (
-                <button
-                  key={cnt}
-                  type="button"
-                  data-testid={`skill-squad-count-${cnt}-btn`}
-                  aria-pressed={isSelected}
-                  onClick={() => setHeroCount(cnt)}
-                  className={cn(
-                    CALC_MD3.chipButton,
-                    "px-2.5 font-sans text-xs sm:text-sm",
-                    isSelected
-                      ? "bg-amber-500 font-black text-slate-950"
-                      : "bg-background/80 text-muted-foreground hover:bg-muted hover:text-foreground"
-                  )}
-                >
-                  <Users className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
-                  <span>
-                    <span className="font-mono">{cnt}</span>{" "}
-                    {locale === "vi"
-                      ? cnt === 1
-                        ? "Tướng"
-                        : "Tướng (Đội 1)"
-                      : cnt === 1
-                        ? "Hero"
-                        : "Heroes (Queue 1)"}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
-        <p className="text-sm leading-relaxed text-foreground/85">
-          {locale === "vi"
-            ? "Quy tắc Pareto 80/20: Nâng đồng đều cả Đội 1 đạt mốc Lv.10 (32,000 cuốn cho 4 kỹ năng hoặc 40,000 cuốn cho 5 kỹ năng) mang lại ~65% hiệu năng thực chiến chỉ với 1/3 chi phí. Chỉ đẩy lên Lv.15 cho các kỹ năng sát thương cốt lõi của Carry chủ lực!"
-            : "80/20 Pareto Rule: Bringing all Queue 1 heroes to Lv.10 first (32,000 books for 4 skills or 40,000 books for 5 skills) delivers ~65% combat effectiveness at 1/3 cost. Only push Lv.15 on core burst skills of your main Carry!"}
-        </p>
-      </div>
-
-      {/* 3. Main 3-Zone Workspace: [Cấp Kỹ Năng Hiện Tại] ⟷ [Avatar Tướng Trung Tâm] ⟷ [Cấp Kỹ Năng Mục Tiêu] */}
+      {/* 2. Main 3-Zone Workspace: [Cấp Kỹ Năng Hiện Tại] ⟷ [Avatar Tướng Trung Tâm] ⟷ [Cấp Kỹ Năng Mục Tiêu] */}
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] items-start gap-3 sm:gap-4">
-        {/* Left: Current Skill Slots (X) */}
+        {/* Left: Current Skill Slots */}
         <div className="order-2 lg:order-1 min-w-0">
           <HeroSkillSlotsSelector
             idPrefix="from"
@@ -447,11 +515,11 @@ export function SkillBooksCalculator({
                         <div className="truncate text-xs font-sans text-muted-foreground">
                           {rKey === "mythic"
                             ? locale === "vi"
-                              ? "Mặc định 5 kỹ năng (123,500 cuốn)"
-                              : "Default 5 skills (123,500 books)"
+                              ? "Mặc định 5 kỹ năng (123.5K cuốn)"
+                              : "Default 5 skills (123.5K books)"
                             : locale === "vi"
-                              ? "Mặc định 4 kỹ năng (98,800 cuốn)"
-                              : "Default 4 skills (98,800 books)"}
+                              ? "Mặc định 4 kỹ năng (98.8K cuốn)"
+                              : "Default 4 skills (98.8K books)"}
                         </div>
                       </button>
                     );
@@ -502,7 +570,7 @@ export function SkillBooksCalculator({
           ) : null}
         </div>
 
-        {/* Right: Target Skill Slots (Y) */}
+        {/* Right: Target Skill Slots */}
         <div className="order-3 min-w-0">
           <HeroSkillSlotsSelector
             idPrefix="to"
@@ -520,28 +588,28 @@ export function SkillBooksCalculator({
         </div>
       </div>
 
-      {/* 4. Tactical Post-Lv.10 Advisory CTA (Tiết kiệm 16,700 cuốn ở Kỹ năng 3 phụ trợ) */}
+      {/* 3. Tactical Post-Lv.10 Advisory CTA */}
       {result.hasHighCostPostLv10Warning ? (
         <div
           data-testid="skill-books-post-lv10-warning"
           role="alert"
-          className="flex flex-col justify-between gap-3 rounded-2xl border border-amber-500/45 bg-amber-500/10 p-3.5 sm:flex-row sm:items-center sm:p-5"
+          className="flex flex-col justify-between gap-3 rounded-2xl border border-amber-500/45 bg-amber-500/10 p-3.5 sm:flex-row sm:items-center"
         >
           <div className="flex items-start gap-2.5">
             <AlertTriangle
               className="mt-0.5 h-5 w-5 shrink-0 text-amber-500"
               aria-hidden="true"
             />
-            <div className="space-y-1">
-              <div className="text-sm sm:text-base font-heading font-black text-amber-700 dark:text-amber-300">
+            <div className="space-y-0.5">
+              <div className="text-sm font-heading font-black text-amber-700 dark:text-amber-300">
                 {locale === "vi"
-                  ? "Khuyến Nghị Tối Ưu ROI: Dừng Kỹ Năng 3 (Nội Tại Phụ) Ở Lv.10 Tiết Kiệm 16,700 Cuốn/Tướng"
-                  : "ROI Optimization: Parking Skill 3 (Secondary Passive) at Lv.10 Saves 16,700 Books/Hero"}
+                  ? "Khuyến Nghị Tối Ưu ROI: Dừng Kỹ Năng 3 (Nội Tại Phụ) Ở Lv.10 Tiết Kiệm 16.7K Cuốn"
+                  : "ROI Optimization: Parking Skill 3 (Secondary Passive) at Lv.10 Saves 16.7K Books"}
               </div>
-              <p className="text-sm leading-relaxed text-foreground/85">
+              <p className="text-xs leading-relaxed text-foreground/85">
                 {locale === "vi"
-                  ? `Đoạn Lv.11 ➔ Lv.15 đang ngốn ${formatExactNumber(result.postLv10BooksTotal)} cuốn Sách Skill (tương đương ${Math.floor(result.postLv10BooksTotal / 8000)} kỹ năng đạt mốc Lv.10 từ Lv.1). Áp dụng Phễu Carry (15/15/10/15) giúp tiết kiệm ngay 16,700 cuốn mỗi tướng!`
-                  : `Levels 11 ➔ 15 consume ${formatExactNumber(result.postLv10BooksTotal)} Skill Books (equivalent to bringing ${Math.floor(result.postLv10BooksTotal / 8000)} skills from Lv.1 to Lv.10). Applying the Carry Funnel (15/15/10/15) saves 16,700 books per hero!`}
+                  ? "Áp dụng Phễu Carry (15/15/10/15) giúp tiết kiệm 16,700 cuốn Sách Skill ở ô nội tại phụ trợ!"
+                  : "Applying the Carry Funnel (15/15/10/15) saves 16,700 Skill Books on the secondary passive slot!"}
               </p>
             </div>
           </div>
@@ -562,8 +630,8 @@ export function SkillBooksCalculator({
         </div>
       ) : null}
 
-      {/* 5. Result Surface Card + Owned Inventory (K/M/B) + [i] Breakdown Button */}
-      <div
+      {/* 4. Thẻ Nguyên Liệu Sách Skill Chuẩn 3 Cột R5 (1 lớp surfaceCard) */}
+      <section
         data-testid="skill-books-result-card"
         className={cn(
           CALC_MD3.surfaceCard,
@@ -592,260 +660,140 @@ export function SkillBooksCalculator({
             </span>
           </div>
         ) : (
-          <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
-            {/* Tonal Group 1: Required Skill Books & Inventory Comparison */}
-            <div className={cn(CALC_MD3.tonalGroup, "space-y-3")}>
-              <div className="flex min-w-0 items-center gap-2.5">
+          <>
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <div className="flex items-center gap-3">
                 <GameAssetFrame
                   src={result.skillBookMaterial.iconPath}
                   alt={bookMaterialName}
                   rarity={result.skillBookMaterial.rarity}
-                  size="sm"
+                  size="md"
                 />
-                <div className="min-w-0 space-y-1">
-                  <div
-                    className={cn(
-                      CALC_MD3.eyebrow,
-                      "truncate text-muted-foreground"
-                    )}
-                  >
+                <div>
+                  <div className="text-base font-heading font-black text-foreground">
                     {bookMaterialName}
                   </div>
-                  <CalculatorMetricValue
-                    testId="skill-books-required-value"
-                    value={formatExactNumber(result.totalRequiredBooks)}
-                    unit={
-                      locale === "vi" ? "cuốn cần thêm" : "books needed"
-                    }
-                    toneClassName="text-amber-600 dark:text-amber-400"
-                  />
                   <div className="text-xs font-sans text-muted-foreground">
-                    {locale === "vi" ? "1 tướng:" : "Per hero:"}{" "}
-                    <span className="font-mono font-semibold text-foreground">
-                      {formatExactNumber(result.perHeroRequiredBooks)}
-                    </span>{" "}
-                    •{" "}
-                    {locale === "vi" ? "Rút gọn:" : "Compact:"}{" "}
-                    <span className="font-mono">
-                      {formatCompactNumber(result.totalRequiredBooks)}
-                    </span>
+                    {locale === "vi"
+                      ? `1 Tướng • ${slotCount} Kỹ năng (${fromLevels.slice(0, slotCount).join("/")} ➔ ${toLevels.slice(0, slotCount).join("/")})`
+                      : `1 Hero • ${slotCount} Skills (${fromLevels.slice(0, slotCount).join("/")} ➔ ${toLevels.slice(0, slotCount).join("/")})`}
                   </div>
                 </div>
               </div>
 
-              <div className="flex flex-wrap items-center justify-between gap-2">
+              <span className="text-xs font-sans tabular-nums text-muted-foreground">
+                {locale === "vi"
+                  ? `Tiết kiệm vs Max Lv.15: +${formatCompactNumber(result.booksSavedVsAllMax15)} cuốn`
+                  : `Saved vs Max Lv.15: +${formatCompactNumber(result.booksSavedVsAllMax15)} books`}
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-3">
+              {/* Cột 1: Số lượng yêu cầu */}
+              <div className={cn(CALC_MD3.tonalGroup, "flex flex-col justify-between gap-1")}>
+                <span className={CALC_MD3.eyebrow}>
+                  {locale === "vi" ? "Số lượng yêu cầu" : "Required"}
+                </span>
+                <div className="flex items-baseline gap-1.5">
+                  <span
+                    data-testid="skill-books-required-value"
+                    title={formatExactNumber(result.totalRequiredBooks)}
+                    className="font-mono text-xl font-black tabular-nums text-amber-600 dark:text-amber-400"
+                  >
+                    {formatCompactNumber(result.totalRequiredBooks)}
+                  </span>
+                  <span className="text-xs font-sans font-semibold text-muted-foreground">
+                    {locale === "vi" ? "cuốn" : "books"}
+                  </span>
+                </div>
+                <span className="text-xs font-sans text-muted-foreground">
+                  {locale === "vi"
+                    ? `Chính xác: ${formatExactNumber(result.totalRequiredBooks)} cuốn`
+                    : `Exact: ${formatExactNumber(result.totalRequiredBooks)} books`}
+                </span>
+              </div>
+
+              {/* Cột 2: Số lượng đang có */}
+              <div className={cn(CALC_MD3.tonalGroup, "flex flex-col justify-between gap-1.5")}>
                 <label
                   htmlFor="skill-books-owned-input"
-                  className="whitespace-nowrap text-sm font-sans font-semibold text-foreground"
+                  className={CALC_MD3.eyebrow}
                 >
-                  {locale === "vi"
-                    ? "Đang có (VD: 32k, 100k):"
-                    : "Owned (e.g. 32k, 100k):"}
+                  {locale === "vi" ? "Số lượng đang có" : "Owned"}
                 </label>
-                <div className="flex items-center gap-2">
-                  <Input
-                    id="skill-books-owned-input"
-                    data-testid="skill-books-owned-input"
-                    type="text"
-                    inputMode="decimal"
-                    value={ownedBooksInput}
-                    onChange={(e) => setOwnedBooksInput(e.target.value)}
-                    className={cn(
-                      CALC_MD3.dataInput,
-                      "w-28 bg-card text-center"
-                    )}
-                  />
-                  {result.missingSkillBooks === 0 ? (
-                    <span
-                      data-testid="skill-books-missing-badge"
-                      className="inline-flex items-center gap-1 rounded-lg bg-emerald-500/15 px-2.5 py-1 text-sm font-sans font-bold text-emerald-700 dark:text-emerald-400"
-                    >
-                      <CheckCircle2
-                        className="h-4 w-4 shrink-0"
-                        aria-hidden="true"
-                      />
-                      <span>{locale === "vi" ? "Đủ" : "Ready"}</span>
-                    </span>
-                  ) : (
-                    <span
-                      data-testid="skill-books-missing-badge"
-                      className="inline-flex items-center rounded-lg bg-amber-500/15 px-2.5 py-1 font-mono text-sm font-bold text-amber-700 dark:text-amber-300"
-                    >
-                      -{formatExactNumber(result.missingSkillBooks)}
-                    </span>
-                  )}
-                </div>
-              </div>
-            </div>
-
-            {/* Tonal Group 2: Pareto Split (Lv.1-10 vs Lv.11-15) & Savings + [i] Breakdown Toggle */}
-            <div className={cn(CALC_MD3.tonalGroup, "space-y-3")}>
-              <div className="flex items-start justify-between gap-2">
-                <div className="space-y-1">
-                  <div
-                    className={cn(
-                      CALC_MD3.eyebrow,
-                      "text-muted-foreground"
-                    )}
-                  >
-                    {locale === "vi"
-                      ? "Phân Tích Điểm Gãy Kinh Tế (Lv.10 vs Lv.15)"
-                      : "Economic Breakpoint Split (Lv.10 vs Lv.15)"}
-                  </div>
-                  <div className="text-sm font-sans text-foreground">
-                    {locale === "vi" ? "Đoạn Lv.1 ➔ Lv.10:" : "Lv.1 ➔ Lv.10:"}{" "}
-                    <span className="font-mono font-bold text-emerald-700 dark:text-emerald-400">
-                      {formatExactNumber(result.preLv10BooksTotal)}
-                    </span>{" "}
-                    •{" "}
-                    {locale === "vi"
-                      ? "Đoạn Lv.11 ➔ Lv.15:"
-                      : "Lv.11 ➔ Lv.15:"}{" "}
-                    <span className="font-mono font-bold text-amber-700 dark:text-amber-400">
-                      {formatExactNumber(result.postLv10BooksTotal)}
-                    </span>
-                  </div>
-                </div>
-
-                <button
-                  type="button"
-                  data-testid="toggle-skill-books-breakdown-btn"
-                  onClick={() => setIsBreakdownOpen((prev) => !prev)}
-                  title={breakdownLabel}
-                  aria-label={breakdownLabel}
-                  aria-expanded={isBreakdownOpen}
-                  className={cn(
-                    CALC_MD3.iconButton,
-                    isBreakdownOpen
-                      ? "bg-amber-500 text-slate-950 shadow-sm"
-                      : "bg-amber-500/15 text-amber-700 hover:bg-amber-500/25 dark:text-amber-300"
-                  )}
-                >
-                  <Info className="h-5 w-5" aria-hidden="true" />
-                </button>
-              </div>
-
-              <div className="flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm font-sans text-muted-foreground">
-                <span>
+                <Input
+                  id="skill-books-owned-input"
+                  data-testid="skill-books-owned-input"
+                  type="text"
+                  inputMode="decimal"
+                  value={ownedBooksInput}
+                  onChange={(e) => setOwnedBooksInput(e.target.value)}
+                  placeholder={locale === "vi" ? "0 (VD: 32K, 100K)" : "0 (e.g. 32K, 100K)"}
+                  className={CALC_MD3.dataInput}
+                />
+                <span className="text-xs font-sans text-muted-foreground">
                   {locale === "vi"
-                    ? "Tiết kiệm so với Max Lv.15:"
-                    : "Saved vs Max Lv.15:"}{" "}
-                  <span className="font-mono font-bold text-emerald-700 dark:text-emerald-400">
-                    +{formatExactNumber(result.booksSavedVsAllMax15)}
-                  </span>
-                </span>
-                <span>
-                  {locale === "vi"
-                    ? "Tương đương kỹ năng Lv.10:"
-                    : "Equivalent Lv.10 skills:"}{" "}
-                  <span className="font-mono font-bold text-foreground">
-                    {result.equivalentLv10SkillsCount}
-                  </span>
+                    ? "Gõ số thường hoặc K / M"
+                    : "Type exact or K / M"}
                 </span>
               </div>
+
+              {/* Cột 3: Số lượng còn thiếu */}
+              <div
+                className={cn(
+                  CALC_MD3.tonalGroup,
+                  "flex flex-col justify-between gap-1",
+                  result.missingSkillBooks > 0
+                    ? "bg-amber-500/10 ring-1 ring-amber-500/35"
+                    : "bg-emerald-500/10 ring-1 ring-emerald-500/35"
+                )}
+              >
+                <span className={CALC_MD3.eyebrow}>
+                  {locale === "vi" ? "Số lượng còn thiếu" : "Missing"}
+                </span>
+                {result.missingSkillBooks > 0 ? (
+                  <>
+                    <div className="flex items-baseline gap-1.5">
+                      <span
+                        data-testid="skill-books-missing-badge"
+                        title={formatExactNumber(result.missingSkillBooks)}
+                        className="font-mono text-xl font-black tabular-nums text-rose-600 dark:text-rose-400"
+                      >
+                        -{formatCompactNumber(result.missingSkillBooks)}
+                      </span>
+                      <span className="text-xs font-sans font-semibold text-rose-600/80 dark:text-rose-300">
+                        {locale === "vi" ? "cuốn" : "books"}
+                      </span>
+                    </div>
+                    <span className="text-xs font-sans text-muted-foreground">
+                      {locale === "vi"
+                        ? `Cần bù: ${formatExactNumber(result.missingSkillBooks)} cuốn`
+                        : `Need: ${formatExactNumber(result.missingSkillBooks)} books`}
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    <div className="flex items-center gap-1.5 text-emerald-700 dark:text-emerald-400">
+                      <CheckCircle2 className="h-4 w-4 shrink-0" aria-hidden="true" />
+                      <span
+                        data-testid="skill-books-missing-badge"
+                        className="text-base font-heading font-black tabular-nums"
+                      >
+                        {locale === "vi" ? "Đủ nguyên liệu" : "Sufficient"}
+                      </span>
+                    </div>
+                    <span className="text-xs font-sans text-emerald-700/80 dark:text-emerald-300">
+                      {locale === "vi"
+                        ? `Dư +${formatCompactNumber(Math.max(0, parsedOwnedBooks - result.totalRequiredBooks))} cuốn`
+                        : `Surplus +${formatCompactNumber(Math.max(0, parsedOwnedBooks - result.totalRequiredBooks))} books`}
+                    </span>
+                  </>
+                )}
+              </div>
             </div>
-          </div>
+          </>
         )}
-      </div>
-
-      {/* 6. On-Demand Skill Slot Breakdown Panel (1 lớp viền, bảng không viền bao) */}
-      {isBreakdownOpen && !result.isInvalidRange ? (
-        <div
-          data-testid="skill-books-breakdown-panel"
-          className={cn(CALC_MD3.surfaceCard, "space-y-3")}
-        >
-          <div className="flex items-center justify-between gap-2">
-            <h2 className="text-base sm:text-lg font-heading font-bold text-foreground">
-              {locale === "vi"
-                ? `Chi Tiết ${slotCount} Ô Kỹ Năng (${activeHeroName})`
-                : `${slotCount}-Slot Skill Breakdown (${activeHeroName})`}
-            </h2>
-            <button
-              type="button"
-              onClick={() => setIsBreakdownOpen(false)}
-              aria-label={
-                locale === "vi" ? "Đóng bảng chi tiết" : "Close breakdown"
-              }
-              className={cn(
-                CALC_MD3.iconButton,
-                "text-muted-foreground hover:bg-muted hover:text-foreground"
-              )}
-            >
-              <X className="h-5 w-5" aria-hidden="true" />
-            </button>
-          </div>
-
-          <div className="-mx-1 overflow-x-auto">
-            <table
-              data-testid="skill-books-breakdown-table"
-              className="w-full min-w-[560px] border-collapse text-left text-sm"
-            >
-              <thead>
-                <tr className="border-b border-border/70 bg-muted/40 text-xs font-sans font-semibold uppercase tracking-wide text-muted-foreground">
-                  <th className="py-2.5 px-3">
-                    {locale === "vi" ? "Ô Kỹ Năng" : "Skill Slot"}
-                  </th>
-                  <th className="py-2.5 px-3">
-                    {locale === "vi" ? "Lộ Trình Cấp" : "Level Range"}
-                  </th>
-                  <th className="py-2.5 px-3 text-right">
-                    {locale === "vi" ? "1 Tướng" : "Per Hero"}
-                  </th>
-                  <th className="py-2.5 px-3 text-right">
-                    {locale === "vi"
-                      ? `Tổng (${heroCount} Tướng)`
-                      : `Total (${heroCount}x)`}
-                  </th>
-                  <th className="py-2.5 px-3">
-                    {locale === "vi" ? "Vai Trò Chiến Thuật" : "Tactical Role"}
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-border/50 font-sans tabular-nums">
-                {result.slotBreakdown.map((item) => (
-                  <tr
-                    key={item.slotNumber}
-                    className="hover:bg-amber-500/[0.04] transition-colors"
-                  >
-                    <td className="py-2.5 px-3 font-bold text-foreground">
-                      {item.shortTitle[locale]}
-                    </td>
-                    <td className="py-2.5 px-3 text-muted-foreground">
-                      Lv.{item.fromLevel} ➔ Lv.{item.toLevel} (+
-                      {item.levelsGained})
-                    </td>
-                    <td className="py-2.5 px-3 text-right font-bold text-amber-700 dark:text-amber-400">
-                      +{formatExactNumber(item.requiredBooksPerHero)}
-                    </td>
-                    <td className="py-2.5 px-3 text-right font-bold text-foreground">
-                      +
-                      {formatExactNumber(
-                        item.requiredBooksPerHero * result.heroCount
-                      )}
-                    </td>
-                    <td className="py-2.5 px-3 text-muted-foreground">
-                      {item.roleSummary[locale]}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <div className="flex flex-wrap items-center justify-between gap-2 pt-1 text-xs sm:text-sm font-sans tabular-nums text-muted-foreground">
-            <span>
-              {locale === "vi"
-                ? `Đã đầu tư (1 tướng): ${formatExactNumber(result.alreadyInvestedPerHero)} cuốn • Đích tích lũy: ${formatExactNumber(result.targetCumulativePerHero)}/${formatExactNumber(result.maxPossiblePerHeroAt15)} cuốn`
-                : `Already invested (1 hero): ${formatExactNumber(result.alreadyInvestedPerHero)} books • Target total: ${formatExactNumber(result.targetCumulativePerHero)}/${formatExactNumber(result.maxPossiblePerHeroAt15)} books`}
-            </span>
-            <span>
-              {locale === "vi"
-                ? "Mốc chuẩn: Lv.5 = 1,300 • Lv.10 = 8,000 • Lv.12 = 12,900 • Lv.15 = 24,700"
-                : "Benchmarks: Lv.5 = 1,300 • Lv.10 = 8,000 • Lv.12 = 12,900 • Lv.15 = 24,700"}
-            </span>
-          </div>
-        </div>
-      ) : null}
+      </section>
     </div>
   );
 }

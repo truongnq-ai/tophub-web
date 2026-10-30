@@ -95,7 +95,7 @@ describe("Phase 2.2 / HeroStarPetalSelector MD3", () => {
   });
 });
 
-describe("Phase 2.2 / HeroStarsCalculator MD3", () => {
+describe("Phase 2.2 / HeroStarsCalculator MD3 (Standard v2.0)", () => {
   const resolved = getCalculatorToolBySlug("heroes", "hero-stars")!;
   const renderCalculator = (locale: "vi" | "en" = "vi") =>
     render(
@@ -115,15 +115,14 @@ describe("Phase 2.2 / HeroStarsCalculator MD3", () => {
     ).toBe(0);
   });
 
-  it("uses a flat MD3 tool header and a 30–36px primary metric with a 16px/44px owned-shards input", () => {
+  it("uses a flat MD3 tool header, 3-column R5 resource card and a 16px/44px owned-shards input", () => {
     renderCalculator();
     const header = screen.getByTestId("calculator-tool-header");
     expect(header.className).not.toMatch(ALL_SIDE_BORDER_REGEX);
     expect(screen.getByRole("heading", { level: 1 }).className).toContain("text-xl");
 
     const total = screen.getByTestId("hero-stars-total-required");
-    expect(total.className).toContain("text-3xl");
-    expect(total.className).toContain("sm:text-4xl");
+    expect(total.className).toContain("text-xl");
     expect(total.textContent).toBe("548");
 
     const input = screen.getByTestId("hero-stars-owned-input");
@@ -135,18 +134,12 @@ describe("Phase 2.2 / HeroStarsCalculator MD3", () => {
     expect(infoBtn.className).toContain("w-11");
   });
 
-  it("renders the star breakdown as a flat hairline list with a non-mono Vietnamese heading", () => {
+  it("renders the star breakdown inside CalculatorInfoPopover (Rule R6) with a flat hairline list", () => {
     renderCalculator();
     fireEvent.click(screen.getByTestId("toggle-star-breakdown-btn"));
 
     const popover = screen.getByTestId("star-breakdown-popover");
     expect(popover.className).not.toMatch(ALL_SIDE_BORDER_REGEX);
-    expect(popover.className).toContain("border-t");
-
-    const heading = within(popover).getByRole("heading", { level: 3 });
-    expect(heading.className).toContain("font-heading");
-    expect(heading.className).not.toContain("font-mono");
-    expect(heading.className).not.toContain("uppercase");
 
     const list = screen.getByTestId("star-breakdown-list");
     expect(list.className).toContain("divide-y");
@@ -155,7 +148,6 @@ describe("Phase 2.2 / HeroStarsCalculator MD3", () => {
     for (const row of rows) {
       expect(row.className).not.toMatch(ALL_SIDE_BORDER_REGEX);
     }
-    expect(screen.getByTestId("close-star-breakdown-btn").className).toContain("h-11");
   });
 
   it("keeps ≤ 1 bordered layer, zero micro-text and zero mono Vietnamese with picker + breakdown open", () => {

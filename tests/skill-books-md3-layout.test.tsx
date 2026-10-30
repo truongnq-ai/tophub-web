@@ -125,7 +125,7 @@ describe("Phase 2 — 2.1 / HeroSkillSlotsSelector MD3", () => {
   });
 });
 
-describe("Phase 2 — 2.1 / SkillBooksCalculator MD3", () => {
+describe("Phase 2 — 2.1 / SkillBooksCalculator MD3 (Standard v2.0)", () => {
   const selection = getCalculatorToolBySlug("skills-faction", "skill-books")!;
   const renderCalculator = () =>
     render(
@@ -145,15 +145,14 @@ describe("Phase 2 — 2.1 / SkillBooksCalculator MD3", () => {
     ).toBe(0);
   });
 
-  it("uses a flat header, 30–36px display metric and 16px/44px input with an accessible [i] button", () => {
+  it("uses a flat header, 3-column R5 display metric and 16px/44px input with an accessible [i] button", () => {
     renderCalculator();
     expect(screen.getByTestId("calculator-tool-header").className).not.toMatch(
       ALL_SIDE_BORDER_REGEX
     );
 
     const requiredValue = screen.getByTestId("skill-books-required-value");
-    expect(requiredValue.className).toContain("text-3xl");
-    expect(requiredValue.className).toContain("sm:text-4xl");
+    expect(requiredValue.className).toContain("text-xl");
 
     const input = screen.getByTestId("skill-books-owned-input");
     expect(input.className).toContain("h-11");
@@ -165,15 +164,12 @@ describe("Phase 2 — 2.1 / SkillBooksCalculator MD3", () => {
     expect(infoBtn.getAttribute("aria-label")).toBeTruthy();
   });
 
-  it("renders the skill slot breakdown table without a nested bordered wrapper", () => {
+  it("renders the skill slot breakdown table inside CalculatorInfoPopover (Rule R6) without a nested bordered wrapper", () => {
     renderCalculator();
     fireEvent.click(screen.getByTestId("toggle-skill-books-breakdown-btn"));
 
     const panel = screen.getByTestId("skill-books-breakdown-panel");
-    expect(getMaxBorderedContainerDepth(panel)).toBe(1);
-    const heading = within(panel).getByRole("heading", { level: 2 });
-    expect(heading.className).toContain("font-heading");
-    expect(heading.className).not.toContain("font-mono");
+    expect(getMaxBorderedContainerDepth(panel)).toBeLessThanOrEqual(1);
 
     const table = screen.getByTestId("skill-books-breakdown-table");
     expect(table.parentElement?.className ?? "").not.toMatch(

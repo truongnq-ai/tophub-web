@@ -107,7 +107,7 @@ describe("Phase 2.3 / HeroAwakeningStepSelector MD3", () => {
   });
 });
 
-describe("Phase 2.3 / HeroAwakeningCalculator MD3", () => {
+describe("Phase 2.3 / HeroAwakeningCalculator MD3 (Standard v2.0)", () => {
   const resolved = getCalculatorToolBySlug("heroes", "hero-awakening")!;
   const renderCalculator = () =>
     render(
@@ -127,7 +127,7 @@ describe("Phase 2.3 / HeroAwakeningCalculator MD3", () => {
     ).toBe(0);
   });
 
-  it("uses a flat header, 30–36px heading metrics (value-only text) and 16px/44px inputs", () => {
+  it("uses a flat header, 3-column R5 resource cards and 16px/44px inputs", () => {
     renderCalculator();
     expect(screen.getByTestId("calculator-tool-header").className).not.toMatch(
       ALL_SIDE_BORDER_REGEX
@@ -135,9 +135,7 @@ describe("Phase 2.3 / HeroAwakeningCalculator MD3", () => {
 
     const stones = screen.getByTestId("awakening-required-stones");
     expect(stones.textContent).toBe("8");
-    expect(stones.className).toContain("text-3xl");
-    expect(stones.className).toContain("font-heading");
-    expect(stones.className).not.toContain("font-mono");
+    expect(stones.className).toContain("text-xl");
     expect(screen.getByTestId("awakening-required-shards").textContent).toBe("290");
 
     for (const id of ["awakening-owned-stones-input", "awakening-owned-shards-input"]) {
@@ -151,16 +149,15 @@ describe("Phase 2.3 / HeroAwakeningCalculator MD3", () => {
     expect(toggle.getAttribute("aria-label")).toBeTruthy();
   });
 
-  it("renders the awakening breakdown flat with Vietnamese-safe font-sans table text", () => {
+  it("renders the awakening breakdown inside CalculatorInfoPopover (Rule R6) with Vietnamese-safe font-sans table text", () => {
     renderCalculator();
     fireEvent.click(screen.getByTestId("toggle-awakening-breakdown-btn"));
 
     const panel = screen.getByTestId("awakening-steps-breakdown-panel");
     expect(panel.className).not.toMatch(ALL_SIDE_BORDER_REGEX);
-    expect(panel.className).toContain("border-t");
 
     const table = screen.getByTestId("hero-awakening-breakdown-table");
-    expect(table.className).toContain("text-sm");
+    expect(table.className).toContain("text-xs");
     const headRow = table.querySelector("thead tr");
     expect(headRow?.className).toContain("font-sans");
     expect(headRow?.className).not.toContain("font-mono");

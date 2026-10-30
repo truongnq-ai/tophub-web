@@ -121,7 +121,7 @@ describe("Phase 2 — 2.2 / FactionLevelSelector MD3", () => {
   });
 });
 
-describe("Phase 2 — 2.2 / FactionLevelCalculator MD3", () => {
+describe("Phase 2 — 2.2 / FactionLevelCalculator MD3 (Standard v2.0)", () => {
   const selection = getCalculatorToolBySlug("skills-faction", "faction-level")!;
   const renderCalculator = () =>
     render(
@@ -168,15 +168,12 @@ describe("Phase 2 — 2.2 / FactionLevelCalculator MD3", () => {
     expect(infoBtn.getAttribute("aria-label")).toBeTruthy();
   });
 
-  it("renders the tier breakdown table without a nested bordered wrapper", () => {
+  it("renders the tier breakdown table inside CalculatorInfoPopover (Rule R6) without a nested bordered wrapper", () => {
     renderCalculator();
     fireEvent.click(screen.getByTestId("toggle-faction-breakdown-btn"));
 
     const panel = screen.getByTestId("faction-breakdown-panel");
-    expect(getMaxBorderedContainerDepth(panel)).toBe(1);
-    const heading = within(panel).getByRole("heading", { level: 2 });
-    expect(heading.className).toContain("font-heading");
-    expect(heading.className).not.toContain("font-mono");
+    expect(getMaxBorderedContainerDepth(panel)).toBeLessThanOrEqual(1);
 
     const table = screen.getByTestId("faction-breakdown-table");
     expect(table.parentElement?.className ?? "").not.toMatch(

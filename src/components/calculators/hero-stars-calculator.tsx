@@ -7,11 +7,12 @@ import {
   AlertTriangle,
   ChevronDown,
   ArrowLeft,
-  Info,
   X,
 } from "lucide-react";
 import {
   HERO_STAR_RARITY_CONFIGS,
+  HERO_STAR_PETAL_COSTS,
+  HERO_STAR_MILESTONES,
   getHeroesByRarity,
   calculateHeroStarUpgrade,
   formatStarPositionSummary,
@@ -27,12 +28,17 @@ import type {
 import { GameAssetFrame } from "@/components/guides/media/game-asset-frame";
 import { Input } from "@/components/ui/input";
 import { HeroStarPetalSelector } from "./hero-star-petal-selector";
+import { CalculatorInfoPopover } from "./calculator-info-popover";
 import {
   CALC_MD3,
-  CalculatorMetricValue,
   CalculatorToolHeader,
 } from "./calculator-md3-primitives";
-import { cn } from "@/lib/utils";
+import {
+  cn,
+  formatCompactNumber,
+  formatExactNumber,
+  parseCompactNumberInput,
+} from "@/lib/utils";
 
 interface HeroStarsCalculatorProps {
   readonly zone?: CalculatorZone;
@@ -64,15 +70,13 @@ export function HeroStarsCalculator({
   const [toPetalIndex, setToPetalIndex] = useState<number>(55);
   const [ownedInput, setOwnedInput] = useState<string>("0");
 
-  // Trạng thái đóng/mở luồng chọn nối tiếp (Phẩm chất -> Tướng -> Ẩn) & Bảng chi tiết [i]
+  // Trạng thái đóng/mở luồng chọn nối tiếp (Phẩm chất -> Tướng -> Ẩn)
   const [pickerStep, setPickerStep] = useState<SequentialPickerStep>("closed");
-  const [isBreakdownOpen, setIsBreakdownOpen] = useState<boolean>(false);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setPickerStep("closed");
-        setIsBreakdownOpen(false);
       }
     };
     window.addEventListener("keydown", handleKeyDown);
@@ -92,15 +96,18 @@ export function HeroStarsCalculator({
   const handlePickRarityInSequence = (nextRarity: HeroStarRarity) => {
     setRarity(nextRarity);
     setSelectedHeroId(HERO_STAR_RARITY_CONFIGS[nextRarity].defaultHeroId);
-    // Hành động nối tiếp: Chọn xong phẩm chất chuyển ngay sang chọn Avatar tướng
     setPickerStep("hero");
   };
 
   const handlePickHeroInSequence = (heroId: string) => {
     setSelectedHeroId(heroId);
-    // Hành động nối tiếp: Chọn xong tướng tự động ẩn đi
     setPickerStep("closed");
   };
+
+  const parsedOwnedShards = useMemo(
+    () => parseCompactNumberInput(ownedInput),
+    [ownedInput]
+  );
 
   const result = useMemo(
     () =>
@@ -109,10 +116,44 @@ export function HeroStarsCalculator({
         costProfile,
         fromPetalIndex,
         toPetalIndex,
-        ownedShards: Number(ownedInput) || 0,
+        ownedShards: parsedOwnedShards,
       }),
-    [rarity, costProfile, fromPetalIndex, toPetalIndex, ownedInput]
+    [rarity, costProfile, fromPetalIndex, toPetalIndex, parsedOwnedShards]
   );
+
+  const fullStarReferenceRows = useMemo(() => {
+    const petalCosts = HERO_STAR_PETAL_COSTS[rarity][costProfile];
+    let cumulative = 0;
+    return petalCosts.map((costPerPetal, idx) => {
+      const overallStar = idx + 1;
+      const starTotal = costPerPetal * 5;
+      cumulative += starTotal;
+      const tier =
+        overallStar <= 5 ? "gold" : overallStar <= 10 ? "red" : "silver";
+      const numInTier = ((overallStar - 1) % 5) + 1;
+      const label =
+        tier === "gold"
+          ? locale === "vi"
+            ? `${numInTier}★ Vàng`
+            : `${numInTier}★ Gold`
+          : tier === "red"
+            ? locale === "vi"
+              ? `${numInTier}★ Đỏ`
+              : `${numInTier}★ Red`
+            : locale === "vi"
+              ? `${numInTier}★ Bạc`
+              : `${numInTier}★ Silver`;
+      return {
+        overallStar,
+        tier,
+        label,
+        costPerPetal,
+        starTotal,
+        cumulative,
+        milestone: HERO_STAR_MILESTONES[overallStar],
+      };
+    });
+  }, [rarity, costProfile, locale]);
 
   const universalShardName =
     locale === "vi"
@@ -128,12 +169,12 @@ export function HeroStarsCalculator({
   const shardUnitLower = locale === "vi" ? "mảnh" : "shards";
   const breakdownLabel =
     locale === "vi"
-      ? "Xem bảng chi tiết từng ngôi sao"
-      : "View step-by-step star breakdown";
+      ? "Bảng chi tiết 15 bậc sao & ghi chú mốc mở khóa"
+      : "15-star breakdown table & milestone notes";
 
   return (
     <div data-testid="hero-stars-calculator" className="space-y-4">
-      {/* 1. Flat MD3 Tool Header (không card viền, chỉ hairline đáy) */}
+      {/* 1. Flat MD3 Tool Header + Nút (i) CalculatorInfoPopover */}
       <CalculatorToolHeader
         code={tool.code}
         title={tool.title[locale].replace(`${tool.code} `, "")}
@@ -188,6 +229,170 @@ export function HeroStarsCalculator({
               <RotateCcw className="h-4 w-4 text-amber-500" aria-hidden="true" />
               <span>0★ ➔ 15★</span>
             </button>
+
+            <CalculatorInfoPopover
+              triggerTestId="toggle-star-breakdown-btn"
+              title={
+                locale === "vi"
+                  ? `Bảng Chi Tiết 15 Bậc Sao (${rarityConfig.shortLabel.vi})`
+                  : `15-Star Tier Breakdown (${rarityConfig.shortLabel.en})`
+              }
+              triggerLabel={breakdownLabel}
+              locale={locale}
+              dialogTestId="star-breakdown-dialog"
+            >
+              <div data-testid="star-breakdown-popover" className="space-y-4">
+                {/* Ghi chú chiến thuật & mốc mở khóa */}
+                <div className={cn(CALC_MD3.tonalGroup, "space-y-1.5 text-xs")}>
+                  <p className="font-heading font-bold text-foreground">
+                    {locale === "vi"
+                      ? "Ghi chú mốc mở khóa Kỹ năng & Thiên Phú:"
+                      : "Skill & Hero Trait Unlock Milestones:"}
+                  </p>
+                  <ul className="list-disc space-y-1 pl-4 text-muted-foreground">
+                    <li>
+                      {locale === "vi"
+                        ? "1★ Đỏ (Sao thứ 6): Mở khóa kỹ năng đột phá tầng Sao Đỏ."
+                        : "1★ Red (6th Star): Unlocks Red Star breakthrough skill."}
+                    </li>
+                    <li>
+                      {locale === "vi"
+                        ? "2★ Bạc (Sao thứ 12): Mở khóa Thiên Phú thứ 3 (Ô Thiên Phú) — mốc quan trọng cho cả tướng chiến đấu và tướng kinh tế."
+                        : "2★ Silver (12th Star): Unlocks 3rd Hero Talent (Trait Slot) — key milestone for combat and economy heroes."}
+                    </li>
+                    <li>
+                      {locale === "vi"
+                        ? "5★ Bạc (Sao thứ 15 / 75 cánh): Hoàn tất 15★ — Mở khóa Lâu Đài Vinh Quang & Linh Thể Anh Hùng."
+                        : "5★ Silver (15th Star / 75 petals): Max 15★ — Unlocks Castle of Glory & Heroic Spirit."}
+                    </li>
+                    <li>
+                      {locale === "vi"
+                        ? "Tổng mảnh chuẩn từ 0★ ➔ 5★ Bạc: Tướng Đỏ = 1,000 Mảnh Cam • Tướng Vàng = 500 Mảnh Cam • Tướng Tím = 470 Mảnh Tím (hoặc 500 ở bản cũ) • Tướng Lam = 290 Mảnh Lam."
+                        : "Total shards from 0★ to 5★ Silver: Mythic = 1,000 Legendary Shards • Legendary = 500 Legendary Shards • Epic = 470 Epic Shards (or 500 legacy) • Rare = 290 Rare Shards."}
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Chặng đang chọn */}
+                {result.starStepsBreakdown.length > 0 ? (
+                  <div className="space-y-2">
+                    <h4 className="text-sm font-heading font-bold text-foreground">
+                      {locale === "vi"
+                        ? `Lộ trình đang chọn (${formatStarPositionSummary(result.fromState, locale)} ➔ ${formatStarPositionSummary(result.toState, locale)})`
+                        : `Selected Upgrade Route (${formatStarPositionSummary(result.fromState, locale)} ➔ ${formatStarPositionSummary(result.toState, locale)})`}
+                    </h4>
+                    <ol
+                      data-testid="star-breakdown-list"
+                      className={cn(CALC_MD3.dividedList, "max-h-60 overflow-y-auto")}
+                    >
+                      {result.starStepsBreakdown.map((step) => {
+                        const badgeClass =
+                          step.colorTier === "gold"
+                            ? "bg-amber-500/15 text-amber-700 dark:text-amber-300"
+                            : step.colorTier === "red"
+                              ? "bg-rose-500/15 text-rose-700 dark:text-rose-300"
+                              : "bg-slate-200/80 text-slate-800 dark:bg-slate-400/20 dark:text-slate-100";
+                        const formula =
+                          locale === "vi"
+                            ? `${step.petalsUsed}/5 cánh (Cánh ${step.startPetalInStar}➔${step.endPetalInStar}) × ${step.costPerPetal}`
+                            : `${step.petalsUsed}/5 petals (P${step.startPetalInStar}➔${step.endPetalInStar}) × ${step.costPerPetal}`;
+
+                        return (
+                          <li
+                            key={step.overallStarNumber}
+                            className="flex flex-col justify-between gap-1.5 py-2 sm:flex-row sm:items-center"
+                          >
+                            <div className="space-y-1">
+                              <div className="flex flex-wrap items-center gap-2">
+                                <span
+                                  className={cn(
+                                    "rounded-md px-2 py-0.5 text-xs font-sans font-bold",
+                                    badgeClass
+                                  )}
+                                >
+                                  {step.starLabel[locale]}
+                                </span>
+                                <span className="text-xs font-sans text-muted-foreground">
+                                  {formula}
+                                </span>
+                              </div>
+                              {step.milestoneNote ? (
+                                <div className="flex items-start gap-1.5 text-xs font-medium text-emerald-700 dark:text-emerald-400">
+                                  <CheckCircle2
+                                    className="mt-0.5 h-3.5 w-3.5 shrink-0"
+                                    aria-hidden="true"
+                                  />
+                                  <span>{step.milestoneNote[locale]}</span>
+                                </div>
+                              ) : null}
+                            </div>
+                            <div className="shrink-0 text-sm font-heading font-black text-foreground sm:text-right">
+                              <span className="font-mono tabular-nums">
+                                +{formatExactNumber(step.starTotalShards)}
+                              </span>{" "}
+                              {shardUnitLower}
+                            </div>
+                          </li>
+                        );
+                      })}
+                    </ol>
+                  </div>
+                ) : null}
+
+                {/* Bảng chuẩn 15 ngôi sao */}
+                <div className="space-y-2">
+                  <h4 className="text-sm font-heading font-bold text-foreground">
+                    {locale === "vi"
+                      ? "Bảng Tra Cứu Chuẩn 15 Ngôi Sao (0★ ➔ 5★ Bạc)"
+                      : "Full 15-Star Reference Table (0★ ➔ 5★ Silver)"}
+                  </h4>
+                  <div className="overflow-x-auto">
+                    <table className="w-full min-w-[480px] border-collapse text-left text-xs">
+                      <thead>
+                        <tr className="border-b border-border/70 bg-muted/40 font-sans font-semibold text-muted-foreground">
+                          <th className="py-2 px-2.5">
+                            {locale === "vi" ? "Bậc Sao" : "Star Tier"}
+                          </th>
+                          <th className="py-2 px-2.5 text-right">
+                            {locale === "vi" ? "Mảnh / Cánh" : "Per Petal"}
+                          </th>
+                          <th className="py-2 px-2.5 text-right">
+                            {locale === "vi" ? "Tổng 1 Sao (5 Cánh)" : "Star Total"}
+                          </th>
+                          <th className="py-2 px-2.5 text-right">
+                            {locale === "vi" ? "Tích Lũy" : "Cumulative"}
+                          </th>
+                          <th className="py-2 px-2.5">
+                            {locale === "vi" ? "Mốc Mở Khóa" : "Milestone"}
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-border/50 font-sans tabular-nums">
+                        {fullStarReferenceRows.map((row) => (
+                          <tr key={row.overallStar} className="hover:bg-muted/30">
+                            <td className="py-2 px-2.5 font-bold text-foreground">
+                              {row.label}
+                            </td>
+                            <td className="py-2 px-2.5 text-right font-mono text-muted-foreground">
+                              {row.costPerPetal}
+                            </td>
+                            <td className="py-2 px-2.5 text-right font-mono font-bold text-amber-600 dark:text-amber-400">
+                              +{row.starTotal}
+                            </td>
+                            <td className="py-2 px-2.5 text-right font-mono font-bold text-foreground">
+                              {formatExactNumber(row.cumulative)}
+                            </td>
+                            <td className="py-2 px-2.5 text-muted-foreground">
+                              {row.milestone ? row.milestone[locale] : "—"}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </CalculatorInfoPopover>
           </>
         }
       />
@@ -392,7 +597,7 @@ export function HeroStarsCalculator({
         </div>
       </div>
 
-      {/* 3. Result Surface (1 lớp viền duy nhất) + [i] Step-by-Step Star Breakdown */}
+      {/* 3. Thẻ Nguyên Liệu Chuẩn 3 Cột R5 (1 lớp surfaceCard duy nhất) */}
       <section
         data-testid="hero-stars-result-section"
         className={cn(
@@ -432,198 +637,143 @@ export function HeroStarsCalculator({
           </div>
         ) : null}
 
-        <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
-          {/* Card A (tonal): Total Universal Shards Needed + [i] Breakdown */}
-          <div className={cn(CALC_MD3.tonalGroup, "flex items-center gap-3.5")}>
+        {/* Header nguyên liệu */}
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div className="flex items-center gap-3">
             <GameAssetFrame
               src={result.universalShard.iconPath}
               alt={universalShardName}
               rarity={result.universalShard.rarity}
               size="md"
             />
-            <div className="min-w-0 flex-1 space-y-1">
-              <div className={cn(CALC_MD3.eyebrow, "text-amber-700 dark:text-amber-400")}>
-                {locale === "vi" ? "Tổng số mảnh cần dùng" : "Total Shards Required"}
-              </div>
-              <div className="flex items-center gap-2">
-                <CalculatorMetricValue
-                  testId="hero-stars-total-required"
-                  value={result.requiredShards.toLocaleString()}
-                  unit={locale === "vi" ? "Mảnh" : "Shards"}
-                />
-                {result.starStepsBreakdown.length > 0 ? (
-                  <button
-                    type="button"
-                    data-testid="toggle-star-breakdown-btn"
-                    onClick={() => setIsBreakdownOpen((prev) => !prev)}
-                    aria-expanded={isBreakdownOpen}
-                    title={breakdownLabel}
-                    aria-label={breakdownLabel}
-                    className={cn(
-                      CALC_MD3.iconButton,
-                      "rounded-full",
-                      isBreakdownOpen
-                        ? "bg-amber-500 text-slate-950"
-                        : "bg-amber-500/15 text-amber-700 hover:bg-amber-500/25 dark:text-amber-300"
-                    )}
-                  >
-                    <Info className="h-5 w-5" aria-hidden="true" />
-                  </button>
-                ) : null}
-              </div>
+            <div>
               <div
                 data-testid="hero-stars-universal-shard-name"
-                className="truncate text-sm font-sans font-medium text-muted-foreground"
+                className="text-base font-heading font-black text-foreground"
               >
                 {universalShardName}
               </div>
+              <div className="text-xs font-sans text-muted-foreground">
+                {formatStarPositionSummary(result.fromState, locale)} ➔{" "}
+                {formatStarPositionSummary(result.toState, locale)}
+              </div>
             </div>
           </div>
 
-          {/* Card B (tonal): Owned Shards Input -> Missing / Surplus */}
-          <div className={cn(CALC_MD3.tonalGroup, "flex flex-col justify-center gap-2.5")}>
-            <div className="flex items-center justify-between gap-2">
-              <label
-                htmlFor="hero-stars-owned-shards-input"
-                className="text-sm font-heading font-bold text-foreground"
-              >
-                {locale === "vi" ? "Đang có trong túi:" : "In inventory:"}
-              </label>
-              <div className="flex items-baseline gap-1.5">
-                <span className={cn(CALC_MD3.eyebrow, "text-muted-foreground")}>
-                  {result.missingShards > 0
-                    ? locale === "vi"
-                      ? "Thiếu:"
-                      : "Missing:"
-                    : locale === "vi"
-                      ? "Dư:"
-                      : "Surplus:"}
-                </span>
-                <span
-                  data-testid="hero-stars-missing-value"
-                  className={cn(
-                    "text-base font-heading font-black tabular-nums",
-                    result.missingShards > 0
-                      ? "text-rose-600 dark:text-rose-400"
-                      : "text-emerald-600 dark:text-emerald-400"
-                  )}
-                >
-                  {result.missingShards > 0
-                    ? `${result.missingShards.toLocaleString()} ${shardUnitLower}`
-                    : `+${result.surplusShards.toLocaleString()} ${shardUnitLower}`}
-                </span>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <Input
-                id="hero-stars-owned-shards-input"
-                data-testid="hero-stars-owned-input"
-                type="number"
-                inputMode="numeric"
-                min={0}
-                max={999999}
-                value={ownedInput}
-                onChange={(e) => setOwnedInput(e.target.value)}
-                className={cn(CALC_MD3.dataInput, "max-w-[140px]")}
-              />
-              <div className="flex-1 space-y-1">
-                <div className="h-2 w-full overflow-hidden rounded-full bg-secondary">
-                  <div
-                    className="h-full bg-gradient-to-r from-amber-500 to-emerald-500 transition-all duration-300"
-                    style={{ width: `${result.completionPercent}%` }}
-                  />
-                </div>
-                <div className="text-right font-mono text-xs text-muted-foreground">
-                  {result.completionPercent}%
-                </div>
-              </div>
-            </div>
+          <div className="flex items-center gap-2 text-xs font-sans text-muted-foreground">
+            <span>
+              {locale === "vi" ? "Tiến độ kho:" : "Inventory progress:"}
+            </span>
+            <span className="font-mono font-bold text-amber-600 dark:text-amber-400">
+              {result.completionPercent}%
+            </span>
           </div>
         </div>
 
-        {/* Step-by-Step Star Breakdown (phẳng: hairline trên + danh sách divide-y) */}
-        {isBreakdownOpen && result.starStepsBreakdown.length > 0 ? (
-          <div
-            data-testid="star-breakdown-popover"
-            className="space-y-2 border-t border-border/60 pt-3"
-          >
-            <div className="flex items-center justify-between gap-2">
-              <h3 className="text-base font-heading font-bold text-foreground">
-                {locale === "vi"
-                  ? `Bảng Chi Tiết Từng Ngôi Sao (${formatStarPositionSummary(result.fromState, locale)} ➔ ${formatStarPositionSummary(result.toState, locale)})`
-                  : `Step-by-Step Star Breakdown (${formatStarPositionSummary(result.fromState, locale)} ➔ ${formatStarPositionSummary(result.toState, locale)})`}
-              </h3>
-              <button
-                type="button"
-                data-testid="close-star-breakdown-btn"
-                onClick={() => setIsBreakdownOpen(false)}
-                aria-label={locale === "vi" ? "Đóng bảng chi tiết" : "Close breakdown"}
-                className={cn(
-                  CALC_MD3.iconButton,
-                  "text-muted-foreground hover:bg-muted hover:text-foreground"
-                )}
+        {/* 3 cột ngang chuẩn R5: Số lượng yêu cầu | Số lượng đang có | Số lượng còn thiếu */}
+        <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-3">
+          {/* Cột 1: Số lượng yêu cầu */}
+          <div className={cn(CALC_MD3.tonalGroup, "flex flex-col justify-between gap-1")}>
+            <span className={CALC_MD3.eyebrow}>
+              {locale === "vi" ? "Số lượng yêu cầu" : "Required"}
+            </span>
+            <div className="flex items-baseline gap-1.5">
+              <span
+                data-testid="hero-stars-total-required"
+                title={formatExactNumber(result.requiredShards)}
+                className="font-mono text-xl font-black tabular-nums text-amber-600 dark:text-amber-400"
               >
-                <X className="h-5 w-5" aria-hidden="true" />
-              </button>
+                {formatCompactNumber(result.requiredShards)}
+              </span>
+              <span className="text-xs font-sans font-semibold text-muted-foreground">
+                {locale === "vi" ? "Mảnh" : "Shards"}
+              </span>
             </div>
-
-            <ol
-              data-testid="star-breakdown-list"
-              className={cn(CALC_MD3.dividedList, "max-h-80 overflow-y-auto")}
-            >
-              {result.starStepsBreakdown.map((step) => {
-                const badgeClass =
-                  step.colorTier === "gold"
-                    ? "bg-amber-500/15 text-amber-700 dark:text-amber-300"
-                    : step.colorTier === "red"
-                      ? "bg-rose-500/15 text-rose-700 dark:text-rose-300"
-                      : "bg-slate-200/80 text-slate-800 dark:bg-slate-400/20 dark:text-slate-100";
-                const formula =
-                  locale === "vi"
-                    ? `${step.petalsUsed}/5 cánh (Cánh ${step.startPetalInStar}➔${step.endPetalInStar}) × ${step.costPerPetal}`
-                    : `${step.petalsUsed}/5 petals (P${step.startPetalInStar}➔${step.endPetalInStar}) × ${step.costPerPetal}`;
-
-                return (
-                  <li
-                    key={step.overallStarNumber}
-                    className="flex flex-col justify-between gap-1.5 py-2.5 sm:flex-row sm:items-center"
-                  >
-                    <div className="space-y-1">
-                      <div className="flex flex-wrap items-center gap-2">
-                        <span
-                          className={cn(
-                            "rounded-md px-2 py-0.5 text-xs font-sans font-bold",
-                            badgeClass
-                          )}
-                        >
-                          {step.starLabel[locale]}
-                        </span>
-                        <span className="text-sm font-sans text-muted-foreground">
-                          {formula}
-                        </span>
-                      </div>
-
-                      {step.milestoneNote ? (
-                        <div className="flex items-start gap-1.5 text-sm font-medium text-emerald-700 dark:text-emerald-400">
-                          <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
-                          <span>{step.milestoneNote[locale]}</span>
-                        </div>
-                      ) : null}
-                    </div>
-
-                    <div className="shrink-0 text-sm sm:text-base font-heading font-black text-foreground sm:text-right">
-                      <span className="tabular-nums">
-                        +{step.starTotalShards.toLocaleString()}
-                      </span>{" "}
-                      {shardUnitLower}
-                    </div>
-                  </li>
-                );
-              })}
-            </ol>
+            <span className="text-xs font-sans text-muted-foreground">
+              {locale === "vi"
+                ? `Chính xác: ${formatExactNumber(result.requiredShards)} ${shardUnitLower}`
+                : `Exact: ${formatExactNumber(result.requiredShards)} ${shardUnitLower}`}
+            </span>
           </div>
-        ) : null}
+
+          {/* Cột 2: Số lượng đang có */}
+          <div className={cn(CALC_MD3.tonalGroup, "flex flex-col justify-between gap-1.5")}>
+            <label
+              htmlFor="hero-stars-owned-shards-input"
+              className={CALC_MD3.eyebrow}
+            >
+              {locale === "vi" ? "Số lượng đang có" : "Owned"}
+            </label>
+            <Input
+              id="hero-stars-owned-shards-input"
+              data-testid="hero-stars-owned-input"
+              type="text"
+              inputMode="decimal"
+              value={ownedInput}
+              onChange={(e) => setOwnedInput(e.target.value)}
+              placeholder={locale === "vi" ? "0 (VD: 1.5K)" : "0 (e.g. 1.5K)"}
+              className={CALC_MD3.dataInput}
+            />
+            <span className="text-xs font-sans text-muted-foreground">
+              {locale === "vi"
+                ? "Gõ số thường hoặc 1.5K, 2M"
+                : "Type exact or 1.5K, 2M"}
+            </span>
+          </div>
+
+          {/* Cột 3: Số lượng còn thiếu */}
+          <div
+            className={cn(
+              CALC_MD3.tonalGroup,
+              "flex flex-col justify-between gap-1",
+              result.missingShards > 0
+                ? "bg-amber-500/10 ring-1 ring-amber-500/35"
+                : "bg-emerald-500/10 ring-1 ring-emerald-500/35"
+            )}
+          >
+            <span className={CALC_MD3.eyebrow}>
+              {locale === "vi" ? "Số lượng còn thiếu" : "Missing"}
+            </span>
+            {result.missingShards > 0 ? (
+              <>
+                <div className="flex items-baseline gap-1.5">
+                  <span
+                    data-testid="hero-stars-missing-value"
+                    title={formatExactNumber(result.missingShards)}
+                    className="font-mono text-xl font-black tabular-nums text-rose-600 dark:text-rose-400"
+                  >
+                    {formatCompactNumber(result.missingShards)}
+                  </span>
+                  <span className="text-xs font-sans font-semibold text-rose-600/80 dark:text-rose-300">
+                    {shardUnitLower}
+                  </span>
+                </div>
+                <span className="text-xs font-sans text-muted-foreground">
+                  {locale === "vi"
+                    ? `Cần bù: ${formatExactNumber(result.missingShards)} ${shardUnitLower}`
+                    : `Need: ${formatExactNumber(result.missingShards)} ${shardUnitLower}`}
+                </span>
+              </>
+            ) : (
+              <>
+                <div className="flex items-center gap-1.5 text-emerald-700 dark:text-emerald-400">
+                  <CheckCircle2 className="h-4 w-4 shrink-0" aria-hidden="true" />
+                  <span
+                    data-testid="hero-stars-missing-value"
+                    className="text-base font-heading font-black tabular-nums"
+                  >
+                    {locale === "vi" ? "Đủ nguyên liệu" : "Sufficient"}
+                  </span>
+                </div>
+                <span className="text-xs font-sans text-emerald-700/80 dark:text-emerald-300">
+                  {locale === "vi"
+                    ? `Dư +${formatCompactNumber(result.surplusShards)} (${formatExactNumber(result.surplusShards)} ${shardUnitLower})`
+                    : `Surplus +${formatCompactNumber(result.surplusShards)} (${formatExactNumber(result.surplusShards)} ${shardUnitLower})`}
+                </span>
+              </>
+            )}
+          </div>
+        </div>
       </section>
     </div>
   );

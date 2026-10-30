@@ -330,11 +330,11 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
             categorySlug: "heroes",
             phaseNumber: 1,
             title: {
-              vi: "1.1 Nâng Sao Tướng",
+              vi: "1.1 Nâng Sao",
               en: "1.1 Hero Star Up",
             },
             fullTitle: {
-              vi: "1.1 Nâng Sao Anh Hùng (0★ ➔ 5★ Trắng)",
+              vi: "1.1 Nâng Sao (0★ ➔ 5★ Trắng)",
               en: "1.1 Hero Star Upgrade (0★ to 5★ Silver)",
             },
             summary: {
@@ -376,11 +376,11 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
             categorySlug: "heroes",
             phaseNumber: 1,
             title: {
-              vi: "1.2 Thức Tỉnh Tướng",
+              vi: "1.2 Thức Tỉnh",
               en: "1.2 Hero Awakening",
             },
             fullTitle: {
-              vi: "1.2 Thức Tỉnh Anh Hùng Cam Lên Đỏ (Bậc 0 ➔ Bậc 4)",
+              vi: "1.2 Thức Tỉnh (Bậc 0 ➔ Bậc 4)",
               en: "1.2 Legendary-to-Mythic Hero Awakening (Tier 0 to Tier 4)",
             },
             summary: {
@@ -423,11 +423,11 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
             categorySlug: "heroes",
             phaseNumber: 1,
             title: {
-              vi: "1.3 Thiên Phú Tướng",
+              vi: "1.3 Thiên Phú",
               en: "1.3 Hero Traits",
             },
             fullTitle: {
-              vi: "1.3 Thiên Phú Anh Hùng (4 Ô Lv.0 ➔ Lv.30 & Trao Đổi Thiên Phú)",
+              vi: "1.3 Thiên Phú (4 Ô Lv.0 ➔ Lv.30 & Trao Đổi Thiên Phú)",
               en: "1.3 Hero Traits (4 Slots Lv.0 to Lv.30 & Trait Swap)",
             },
             summary: {

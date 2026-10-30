@@ -1,14 +1,11 @@
 "use client";
 
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useMemo } from "react";
 import {
   RotateCcw,
   CheckCircle2,
   AlertTriangle,
-  Info,
-  X,
   Sparkles,
-  Database,
   Shield,
 } from "lucide-react";
 import {
@@ -16,7 +13,6 @@ import {
   calculateFactionLevelUpgrade,
   getCumulativeFactionState,
   getFactionLevelRow,
-  type FactionCalculationMode,
   type FactionId,
   type FactionProgressPoint,
   type FactionShardRarity,
@@ -41,6 +37,7 @@ import {
   CalculatorMetricValue,
   CalculatorToolHeader,
 } from "./calculator-md3-primitives";
+import { CalculatorInfoPopover } from "./calculator-info-popover";
 
 export interface FactionLevelCalculatorProps {
   readonly zone?: CalculatorZone;
@@ -55,11 +52,10 @@ export function FactionLevelCalculator({
   tool,
   locale,
 }: FactionLevelCalculatorProps) {
-  // Mặc định: Phe Bộ Tộc (Horde), Mảnh Cam SSR, Chế độ Chuẩn Bảng Gốc SSoT, Khởi đầu (Lv.1 • 0 vạch) -> Đỉnh Hào Quang Lv.40 (12/12 vạch = 692.162M Thịt & 1,237 Mảnh)
+  // Mặc định: Phe Bộ Tộc (Horde), Mảnh Cam SSR, Full dữ liệu Lv.1–80 (extended_s1)
   const [faction, setFaction] = useState<FactionId>("horde");
   const [shardRarity, setShardRarity] =
     useState<FactionShardRarity>("legendary");
-  const [mode, setMode] = useState<FactionCalculationMode>("ssot_verified");
   const [fromPoint, setFromPoint] = useState<FactionProgressPoint>({
     level: 1,
     completedBars: 0,
@@ -70,22 +66,11 @@ export function FactionLevelCalculator({
   });
   const [ownedMeatInput, setOwnedMeatInput] = useState<string>("0");
   const [ownedShardsInput, setOwnedShardsInput] = useState<string>("0");
-  const [isBreakdownOpen, setIsBreakdownOpen] = useState<boolean>(false);
-
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setIsBreakdownOpen(false);
-      }
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
 
   const handleChangeFromPoint = (nextFrom: FactionProgressPoint) => {
     setFromPoint(nextFrom);
-    const nextFromState = getCumulativeFactionState(nextFrom, mode);
-    const currentToState = getCumulativeFactionState(toPoint, mode);
+    const nextFromState = getCumulativeFactionState(nextFrom, "extended_s1");
+    const currentToState = getCumulativeFactionState(toPoint, "extended_s1");
     if (currentToState.cumulativeBars < nextFromState.cumulativeBars) {
       setToPoint(nextFrom);
     }
@@ -106,7 +91,7 @@ export function FactionLevelCalculator({
       calculateFactionLevelUpgrade({
         faction,
         shardRarity,
-        mode,
+        mode: "extended_s1",
         fromPoint,
         toPoint,
         ownedMeat: parsedOwnedMeat,
@@ -115,7 +100,6 @@ export function FactionLevelCalculator({
     [
       faction,
       shardRarity,
-      mode,
       fromPoint,
       toPoint,
       parsedOwnedMeat,
@@ -133,11 +117,6 @@ export function FactionLevelCalculator({
       ? result.shardMaterial.nameVi
       : result.shardMaterial.nameEn;
 
-  const breakdownLabel =
-    locale === "vi"
-      ? "Xem bảng phân rã chi phí theo từng giai đoạn 10 cấp"
-      : "View 10-level tier cost breakdown";
-
   return (
     <div data-testid="faction-level-calculator" className="space-y-4">
       {/* 1. Flat MD3 Tool Header */}
@@ -146,55 +125,188 @@ export function FactionLevelCalculator({
         title={tool.title[locale].replace(`${tool.code} `, "")}
         actions={
           <>
+            {/* Shard Rarity Selector (Legendary vs Epic Universal Shards) */}
             <div
               role="group"
               aria-label={
                 locale === "vi"
-                  ? "Chế độ dữ liệu bảng gốc"
-                  : "Dataset calculation mode"
+                  ? "Phẩm chất Mảnh Tướng nộp đột phá"
+                  : "Breakthrough Hero Shard rarity"
               }
               className="flex flex-wrap items-center gap-1.5"
             >
               <button
                 type="button"
-                data-testid="faction-mode-ssot-btn"
-                aria-pressed={mode === "ssot_verified"}
-                onClick={() => setMode("ssot_verified")}
+                data-testid="shard-rarity-legendary-btn"
+                aria-pressed={shardRarity === "legendary"}
+                onClick={() => setShardRarity("legendary")}
                 className={cn(
                   CALC_MD3.chipButton,
-                  "font-sans",
-                  mode === "ssot_verified"
+                  "px-2.5 font-sans text-xs sm:text-sm",
+                  shardRarity === "legendary"
                     ? "bg-amber-500 font-black text-slate-950"
                     : "bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground"
                 )}
               >
-                <Database className="h-4 w-4 shrink-0" aria-hidden="true" />
                 <span>
-                  {locale === "vi" ? "Chuẩn SSoT (Bảng 8.4)" : "Verified SSoT"}
+                  {locale === "vi" ? "Mảnh Cam (SSR)" : "Legendary Shard"}
                 </span>
               </button>
-
               <button
                 type="button"
-                data-testid="faction-mode-extended-btn"
-                aria-pressed={mode === "extended_s1"}
-                onClick={() => setMode("extended_s1")}
+                data-testid="shard-rarity-epic-btn"
+                aria-pressed={shardRarity === "epic"}
+                onClick={() => setShardRarity("epic")}
                 className={cn(
                   CALC_MD3.chipButton,
-                  "font-sans",
-                  mode === "extended_s1"
-                    ? "bg-sky-500 font-black text-slate-950"
+                  "px-2.5 font-sans text-xs sm:text-sm",
+                  shardRarity === "epic"
+                    ? "bg-purple-500 font-black text-white"
                     : "bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground"
                 )}
               >
-                <Sparkles className="h-4 w-4 shrink-0" aria-hidden="true" />
-                <span>
-                  {locale === "vi"
-                    ? "Mở Rộng S1+ (Full Lv.80)"
-                    : "Extended S1+ (Lv.80)"}
-                </span>
+                <span>{locale === "vi" ? "Mảnh Tím (SR)" : "Epic Shard"}</span>
               </button>
             </div>
+
+            <CalculatorInfoPopover
+              triggerTestId="toggle-faction-breakdown-btn"
+              title={
+                locale === "vi"
+                  ? "Phân Rã Chi Phí Cấp Phe & Cơ Chế Hào Quang"
+                  : "Faction Level Cost Breakdown & Aura Mechanics"
+              }
+              locale={locale} triggerLabel={
+                locale === "vi"
+                  ? "Xem bảng phân rã chi phí theo từng giai đoạn 10 cấp"
+                  : "View 10-level tier cost breakdown"
+              }
+            >
+              <div data-testid="faction-breakdown-panel" className="space-y-4">
+                <div className="rounded-xl bg-amber-500/10 p-3 text-sm leading-relaxed text-foreground/90">
+                  {locale === "vi" ? (
+                    <>
+                      <strong>Quy luật liên thông & Hào Quang Phe:</strong>{" "}
+                      Trạng thái <span className="font-mono">Lv.L • Đủ vạch</span>{" "}
+                      đồng nhất hoàn toàn với{" "}
+                      <span className="font-mono">Lv.(L+1) • 0 vạch</span>. Mỗi{" "}
+                      <span className="font-mono">10</span> cấp hoàn tất (
+                      <span className="font-mono">Lv.10, 20, 30, 40</span>) mở
+                      khóa <span className="font-mono">+5.00%</span> HP Đội Hình
+                      (tối đa <span className="font-mono">+20.00%</span> Queue HP
+                      tại <span className="font-mono">Lv.40</span>). Chuẩn{" "}
+                      <span className="font-mono">Lv.1–40</span> tốn{" "}
+                      <span className="font-mono">692.162M</span> Thịt &{" "}
+                      <span className="font-mono">1,237</span> Mảnh;{" "}
+                      <span className="font-mono">Lv.41–80</span> tích hợp đầy đủ
+                      dữ liệu mở rộng Season 1+.
+                    </>
+                  ) : (
+                    <>
+                      <strong>Transitivity & Faction Aura:</strong>{" "}
+                      <span className="font-mono">Lv.L • Max bars</span> is
+                      mathematically identical to{" "}
+                      <span className="font-mono">Lv.(L+1) • 0 bars</span>. Every{" "}
+                      <span className="font-mono">10</span> completed levels (
+                      <span className="font-mono">Lv.10, 20, 30, 40</span>)
+                      unlocks <span className="font-mono">+5.00%</span> Queue HP
+                      (up to <span className="font-mono">+20.00%</span> Queue HP
+                      at <span className="font-mono">Lv.40</span>). Completing{" "}
+                      <span className="font-mono">Lv.1–40</span> requires{" "}
+                      <span className="font-mono">692.162M</span> Meat &{" "}
+                      <span className="font-mono">1,237</span> Shards;{" "}
+                      <span className="font-mono">Lv.41–80</span> includes full
+                      Season 1+ progression data.
+                    </>
+                  )}
+                </div>
+
+                {!result.isInvalidRange ? (
+                  <div className="space-y-2">
+                    <h4 className="text-sm font-heading font-bold text-foreground">
+                      {locale === "vi"
+                        ? `Phân Rã Lộ Trình Đang Chọn (${result.factionConfig.name.vi})`
+                        : `Active Route Breakdown (${result.factionConfig.name.en})`}
+                    </h4>
+                    <div className="-mx-1 overflow-x-auto">
+                      <table
+                        data-testid="faction-breakdown-table"
+                        className="w-full min-w-[560px] border-collapse text-left text-sm"
+                      >
+                        <thead>
+                          <tr className="border-b border-border/70 bg-muted/40 text-xs font-sans font-semibold uppercase tracking-wide text-muted-foreground">
+                            <th className="py-2 px-3">
+                              {locale === "vi" ? "Cụm Cấp Phe" : "Level Bracket"}
+                            </th>
+                            <th className="py-2 px-3 text-right">
+                              {locale === "vi" ? "Số Vạch" : "Bars"}
+                            </th>
+                            <th className="py-2 px-3 text-right">
+                              {locale === "vi" ? "Thịt Tiêu Hao" : "Meat Cost"}
+                            </th>
+                            <th className="py-2 px-3 text-right">
+                              {locale === "vi" ? "Mảnh Tướng" : "Hero Shards"}
+                            </th>
+                            <th className="py-2 px-3">
+                              {locale === "vi"
+                                ? "Chỉ Số & Hào Quang"
+                                : "Stats & Queue Aura"}
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-border/50 font-sans tabular-nums">
+                          {result.decadeBreakdown.map((item) => (
+                            <tr
+                              key={`${item.startLevel}-${item.endLevel}`}
+                              className="hover:bg-amber-500/[0.04] transition-colors"
+                            >
+                              <td className="py-2 px-3 font-bold text-foreground">
+                                {item.bracketLabel[locale]}
+                              </td>
+                              <td className="py-2 px-3 text-right text-muted-foreground">
+                                <span className="font-mono">
+                                  {item.barsInBracket}
+                                </span>
+                              </td>
+                              <td className="py-2 px-3 text-right font-bold text-amber-700 dark:text-amber-400">
+                                <span
+                                  className="font-mono"
+                                  title={formatExactNumber(item.meatRequired)}
+                                >
+                                  +{formatCompactNumber(item.meatRequired)}
+                                </span>
+                              </td>
+                              <td className="py-2 px-3 text-right font-bold text-sky-600 dark:text-sky-400">
+                                <span
+                                  className="font-mono"
+                                  title={formatExactNumber(item.shardsRequired)}
+                                >
+                                  +{formatCompactNumber(item.shardsRequired)}
+                                </span>
+                              </td>
+                              <td className="py-2 px-3 text-muted-foreground">
+                                +
+                                <span className="font-mono">
+                                  {formatCompactNumber(item.atkGained)}
+                                </span>{" "}
+                                ATK • +
+                                <span className="font-mono">
+                                  {formatCompactNumber(item.hpGained)}
+                                </span>{" "}
+                                HP
+                                {item.auraGainedPct > 0
+                                  ? ` • ★ +${item.auraGainedPct}% Queue HP`
+                                  : ""}
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                ) : null}
+              </div>
+            </CalculatorInfoPopover>
 
             <button
               type="button"
@@ -202,7 +314,6 @@ export function FactionLevelCalculator({
               onClick={() => {
                 setFaction("horde");
                 setShardRarity("legendary");
-                setMode("ssot_verified");
                 setFromPoint({ level: 1, completedBars: 0 });
                 setToPoint({ level: 40, completedBars: 12 });
                 setOwnedMeatInput("0");
@@ -223,72 +334,34 @@ export function FactionLevelCalculator({
         }
       />
 
-      {/* 2. Strategic Faction Aura Milestones Banner (1 lớp viền duy nhất) */}
+      {/* 2. Compact Faction Aura Summary Strip (1 lớp viền duy nhất) */}
       <div
         data-testid="faction-aura-banner"
-        className="rounded-2xl border border-amber-500/35 bg-amber-500/[0.06] p-3.5 sm:p-5 space-y-2"
+        className="flex flex-wrap items-center justify-between gap-2 rounded-2xl border border-amber-500/35 bg-amber-500/[0.06] px-3.5 py-2.5"
       >
-        <div className="flex flex-wrap items-center justify-between gap-2">
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/20 px-2.5 py-1 text-xs font-sans font-bold text-emerald-700 dark:text-emerald-300">
-              <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
-              <span>
-                {locale === "vi"
-                  ? "Hào Quang Phe: +5.00% HP Đội Hình Mỗi 10 Cấp (Lv.40 = +20.00% Queue HP)"
-                  : "Faction Aura: +5.00% Queue HP Every 10 Levels (Lv.40 = +20.00% Queue HP)"}
-              </span>
-            </span>
-
-            <span className="text-xs sm:text-sm font-sans font-semibold text-muted-foreground">
-              {locale === "vi"
-                ? "Chuẩn SSoT: Lv.1–40 = 692.162M Thịt & 1,237 Mảnh • Lv.1–50 = 1,181.162M Thịt & 1,307 Mảnh"
-                : "SSoT Benchmarks: Lv.1–40 = 692.162M Meat & 1,237 Shards • Lv.1–50 = 1,181.162M Meat & 1,307 Shards"}
-            </span>
-          </div>
-
-          {/* Shard Rarity Selector (Legendary vs Epic Universal Shards) */}
-          <div className="flex flex-wrap items-center gap-1.5">
-            <button
-              type="button"
-              data-testid="shard-rarity-legendary-btn"
-              aria-pressed={shardRarity === "legendary"}
-              onClick={() => setShardRarity("legendary")}
-              className={cn(
-                CALC_MD3.chipButton,
-                "px-2.5 font-sans text-xs sm:text-sm",
-                shardRarity === "legendary"
-                  ? "bg-amber-500 font-black text-slate-950"
-                  : "bg-background/80 text-muted-foreground hover:bg-muted hover:text-foreground"
-              )}
-            >
-              <span>
-                {locale === "vi" ? "Mảnh Cam (SSR)" : "Legendary Shard"}
-              </span>
-            </button>
-            <button
-              type="button"
-              data-testid="shard-rarity-epic-btn"
-              aria-pressed={shardRarity === "epic"}
-              onClick={() => setShardRarity("epic")}
-              className={cn(
-                CALC_MD3.chipButton,
-                "px-2.5 font-sans text-xs sm:text-sm",
-                shardRarity === "epic"
-                  ? "bg-purple-500 font-black text-white"
-                  : "bg-background/80 text-muted-foreground hover:bg-muted hover:text-foreground"
-              )}
-            >
-              <span>{locale === "vi" ? "Mảnh Tím (SR)" : "Epic Shard"}</span>
-            </button>
-          </div>
-        </div>
-
-        <p className="text-sm leading-relaxed text-foreground/85">
-          {result.factionConfig.emblemNote[locale]} •{" "}
-          {locale === "vi"
-            ? "Mỗi cấp Phe gồm 1 đến 12 vạch thanh EXP tiêu thụ Thịt và cộng trực tiếp ATK/HP Anh Hùng; ở vạch đột phá cuối mỗi cấp sẽ nộp Mảnh Tướng dư thừa."
-            : "Each Faction Level contains 1 to 12 EXP bar segments consuming Meat for flat Hero ATK/HP, followed by a Hero Shard breakthrough at the end of the level."}
-        </p>
+        <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/20 px-2.5 py-1 text-xs font-sans font-bold text-emerald-700 dark:text-emerald-300">
+          <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
+          <span>
+            {locale === "vi"
+              ? "Hào Quang Phe: +5.00% HP Đội Hình mỗi 10 cấp (Lv.10/20/30/40 = tối đa +20.00% Queue HP)"
+              : "Faction Aura: +5.00% Queue HP every 10 levels (Lv.10/20/30/40 = max +20.00% Queue HP)"}
+          </span>
+        </span>
+        <span className="text-xs font-sans font-semibold text-muted-foreground">
+          {locale === "vi" ? (
+            <>
+              Mốc chuẩn <span className="font-mono">Lv.1–40</span>:{" "}
+              <span className="font-mono">692.16M</span> Thịt &{" "}
+              <span className="font-mono">1.24K</span> Mảnh
+            </>
+          ) : (
+            <>
+              Benchmark <span className="font-mono">Lv.1–40</span>:{" "}
+              <span className="font-mono">692.16M</span> Meat &{" "}
+              <span className="font-mono">1.24K</span> Shards
+            </>
+          )}
+        </span>
       </div>
 
       {/* 3. Main 3-Zone Workspace: [Cấp Phe Hiện Tại (X)] ⟷ [Biểu Tượng Phe Trung Tâm] ⟷ [Cấp Phe Mục Tiêu (Y)] */}
@@ -303,7 +376,7 @@ export function FactionLevelCalculator({
                 : "Current Faction Level"
             }
             point={fromPoint}
-            mode={mode}
+            mode="extended_s1"
             locale={locale}
             onChangePoint={handleChangeFromPoint}
           />
@@ -376,7 +449,7 @@ export function FactionLevelCalculator({
                 : "Target Faction Level"
             }
             point={toPoint}
-            mode={mode}
+            mode="extended_s1"
             locale={locale}
             onChangePoint={setToPoint}
           />
@@ -414,7 +487,7 @@ export function FactionLevelCalculator({
             data-testid="push-to-next-aura-milestone-btn"
             onClick={() => {
               const targetLv = result.nearAuraMilestoneLevel!;
-              const row = getFactionLevelRow(targetLv, mode);
+              const row = getFactionLevelRow(targetLv, "extended_s1");
               setToPoint({ level: targetLv, completedBars: row.bars });
             }}
             className={cn(
@@ -429,7 +502,7 @@ export function FactionLevelCalculator({
         </div>
       ) : null}
 
-      {/* 5. Dual Result Surface (Meat + Hero Shards) + [i] Breakdown Button */}
+      {/* 5. Dual Resource Result Cards (Standard R5 3-column layout, stacked) */}
       <div
         data-testid="faction-level-result-card"
         className={cn(
@@ -459,100 +532,122 @@ export function FactionLevelCalculator({
             </span>
           </div>
         ) : (
-          <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
-            {/* Resource 1 (tonal): Meat Required */}
-            <div className={cn(CALC_MD3.tonalGroup, "space-y-3")}>
-              <div className="flex min-w-0 items-center gap-2.5">
-                <GameAssetFrame
-                  src={result.meatMaterial.iconPath}
-                  alt={meatMaterialName}
-                  rarity={result.meatMaterial.rarity}
-                  size="sm"
-                />
-                <div className="min-w-0 space-y-1">
-                  <div
-                    className={cn(
-                      CALC_MD3.eyebrow,
-                      "truncate text-muted-foreground"
-                    )}
-                  >
-                    {meatMaterialName}
-                  </div>
-                  <CalculatorMetricValue
-                    testId="faction-required-meat-value"
-                    value={formatCompactNumber(result.requiredMeat)}
-                    unit={
-                      locale === "vi" ? "Thịt cần bơm" : "Meat needed"
-                    }
-                    toneClassName="text-amber-600 dark:text-amber-400"
+          <div className="space-y-3">
+            {/* Resource 1: Meat Required (3-column horizontal card) */}
+            <div className={cn(CALC_MD3.tonalGroup, "space-y-2.5")}>
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <div className="flex min-w-0 items-center gap-2.5">
+                  <GameAssetFrame
+                    src={result.meatMaterial.iconPath}
+                    alt={meatMaterialName}
+                    rarity={result.meatMaterial.rarity}
+                    size="sm"
                   />
-                  <div className="text-xs font-sans text-muted-foreground">
-                    {locale === "vi" ? "Theo triệu (M):" : "In Millions:"}{" "}
-                    <span className="font-mono font-semibold text-foreground">
-                      {(result.requiredMeatK / 1_000).toLocaleString("en-US", {
-                        minimumFractionDigits: 3,
-                        maximumFractionDigits: 3,
-                      })}
-                      M
-                    </span>{" "}
-                    •{" "}
-                    {locale === "vi" ? "Số vạch:" : "Bars:"}{" "}
-                    <span className="font-mono font-semibold text-foreground">
-                      {result.requiredBars}
-                    </span>
+                  <div className="min-w-0">
+                    <div className="truncate text-sm font-heading font-bold text-foreground">
+                      {meatMaterialName}
+                    </div>
+                    <div className="text-xs font-sans text-muted-foreground">
+                      {locale === "vi" ? "Số vạch EXP:" : "EXP Bars:"}{" "}
+                      <span className="font-mono font-semibold text-foreground">
+                        {result.requiredBars}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <label
-                  htmlFor="faction-owned-meat-input"
-                  className="whitespace-nowrap text-sm font-sans font-semibold text-foreground"
-                >
-                  {locale === "vi"
-                    ? "Đang có (VD: 500m, 1.2b):"
-                    : "Owned (e.g. 500m, 1.2b):"}
-                </label>
-                <div className="flex items-center gap-2">
-                  <Input
-                    id="faction-owned-meat-input"
-                    data-testid="faction-owned-meat-input"
-                    type="text"
-                    inputMode="decimal"
-                    value={ownedMeatInput}
-                    onChange={(e) => setOwnedMeatInput(e.target.value)}
+              <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-3">
+                {/* Col 1: Required */}
+                <div className="rounded-xl bg-background/70 p-2.5">
+                  <div className={cn(CALC_MD3.eyebrow, "text-muted-foreground")}>
+                    {locale === "vi" ? "Số lượng yêu cầu" : "Required"}
+                  </div>
+                  <div
+                    className="mt-1"
+                    title={formatExactNumber(result.requiredMeat)}
+                  >
+                    <CalculatorMetricValue
+                      testId="faction-required-meat-value"
+                      value={formatCompactNumber(result.requiredMeat)}
+                      unit={locale === "vi" ? "Thịt" : "Meat"}
+                      toneClassName="text-amber-600 dark:text-amber-400"
+                    />
+                  </div>
+                </div>
+
+                {/* Col 2: Owned */}
+                <div className="rounded-xl bg-background/70 p-2.5">
+                  <label
+                    htmlFor="faction-owned-meat-input"
                     className={cn(
-                      CALC_MD3.dataInput,
-                      "w-28 bg-card text-center"
+                      CALC_MD3.eyebrow,
+                      "block text-muted-foreground"
                     )}
-                  />
-                  {result.missingMeat === 0 ? (
-                    <span
-                      data-testid="faction-missing-meat-badge"
-                      className="inline-flex items-center gap-1 rounded-lg bg-emerald-500/15 px-2.5 py-1 text-sm font-sans font-bold text-emerald-700 dark:text-emerald-400"
-                    >
-                      <CheckCircle2
-                        className="h-4 w-4 shrink-0"
-                        aria-hidden="true"
-                      />
-                      <span>{locale === "vi" ? "Đủ" : "Ready"}</span>
-                    </span>
-                  ) : (
-                    <span
-                      data-testid="faction-missing-meat-badge"
-                      title={formatExactNumber(result.missingMeat)}
-                      className="inline-flex items-center rounded-lg bg-amber-500/15 px-2.5 py-1 font-mono text-sm font-bold text-amber-700 dark:text-amber-300"
-                    >
-                      -{formatCompactNumber(result.missingMeat)}
-                    </span>
+                  >
+                    {locale === "vi"
+                      ? "Đang có (hỗ trợ K/M)"
+                      : "Owned (K/M supported)"}
+                  </label>
+                  <div className="mt-1">
+                    <Input
+                      id="faction-owned-meat-input"
+                      data-testid="faction-owned-meat-input"
+                      type="text"
+                      inputMode="decimal"
+                      placeholder={
+                        locale === "vi" ? "VD: 500M, 1.2B" : "e.g. 500M, 1.2B"
+                      }
+                      value={ownedMeatInput}
+                      onChange={(e) => setOwnedMeatInput(e.target.value)}
+                      className={cn(CALC_MD3.dataInput, "w-full bg-card")}
+                    />
+                  </div>
+                </div>
+
+                {/* Col 3: Missing */}
+                <div
+                  className={cn(
+                    "rounded-xl p-2.5",
+                    result.missingMeat === 0
+                      ? "bg-emerald-500/15"
+                      : "bg-amber-500/15"
                   )}
+                >
+                  <div className={cn(CALC_MD3.eyebrow, "text-muted-foreground")}>
+                    {locale === "vi" ? "Còn thiếu" : "Missing"}
+                  </div>
+                  <div className="mt-1.5 flex items-center">
+                    {result.missingMeat === 0 ? (
+                      <span
+                        data-testid="faction-missing-meat-badge"
+                        className="inline-flex items-center gap-1.5 text-sm font-sans font-bold text-emerald-700 dark:text-emerald-400"
+                      >
+                        <CheckCircle2
+                          className="h-4 w-4 shrink-0"
+                          aria-hidden="true"
+                        />
+                        <span>
+                          {locale === "vi" ? "Đủ nguyên liệu" : "Ready"}
+                        </span>
+                      </span>
+                    ) : (
+                      <span
+                        data-testid="faction-missing-meat-badge"
+                        title={formatExactNumber(result.missingMeat)}
+                        className="font-mono text-xl font-black tabular-nums text-amber-700 dark:text-amber-300"
+                      >
+                        -{formatCompactNumber(result.missingMeat)}
+                      </span>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Resource 2 (tonal): Hero Shards + Stat Gains + [i] Breakdown Toggle */}
-            <div className={cn(CALC_MD3.tonalGroup, "space-y-3")}>
-              <div className="flex min-w-0 items-center justify-between gap-2">
+            {/* Resource 2: Hero Shards Required (3-column horizontal card) */}
+            <div className={cn(CALC_MD3.tonalGroup, "space-y-2.5")}>
+              <div className="flex flex-wrap items-center justify-between gap-2">
                 <div className="flex min-w-0 items-center gap-2.5">
                   <GameAssetFrame
                     src={result.shardMaterial.iconPath}
@@ -560,23 +655,10 @@ export function FactionLevelCalculator({
                     rarity={result.shardMaterial.rarity}
                     size="sm"
                   />
-                  <div className="min-w-0 space-y-1">
-                    <div
-                      className={cn(
-                        CALC_MD3.eyebrow,
-                        "truncate text-muted-foreground"
-                      )}
-                    >
+                  <div className="min-w-0">
+                    <div className="truncate text-sm font-heading font-bold text-foreground">
                       {shardMaterialName}
                     </div>
-                    <CalculatorMetricValue
-                      testId="faction-required-shards-value"
-                      value={formatExactNumber(result.requiredShards)}
-                      unit={
-                        locale === "vi" ? "Mảnh cần nộp" : "Shards needed"
-                      }
-                      toneClassName="text-sky-600 dark:text-sky-400"
-                    />
                     <div className="flex flex-wrap items-center gap-2 text-xs font-sans text-muted-foreground">
                       <span className="font-semibold text-emerald-700 dark:text-emerald-300">
                         Aura:{" "}
@@ -588,185 +670,108 @@ export function FactionLevelCalculator({
                       <span>
                         • ATK{" "}
                         <span className="font-mono font-semibold text-foreground">
-                          +{formatExactNumber(result.gainedAtk)}
+                          +{formatCompactNumber(result.gainedAtk)}
                         </span>{" "}
                         • HP{" "}
                         <span className="font-mono font-semibold text-foreground">
-                          +{formatExactNumber(result.gainedHp)}
+                          +{formatCompactNumber(result.gainedHp)}
                         </span>
                       </span>
                     </div>
                   </div>
                 </div>
-
-                <button
-                  type="button"
-                  data-testid="toggle-faction-breakdown-btn"
-                  onClick={() => setIsBreakdownOpen((prev) => !prev)}
-                  title={breakdownLabel}
-                  aria-label={breakdownLabel}
-                  aria-expanded={isBreakdownOpen}
-                  className={cn(
-                    CALC_MD3.iconButton,
-                    isBreakdownOpen
-                      ? "bg-amber-500 text-slate-950 shadow-sm"
-                      : "bg-amber-500/15 text-amber-700 hover:bg-amber-500/25 dark:text-amber-300"
-                  )}
-                >
-                  <Info className="h-5 w-5" aria-hidden="true" />
-                </button>
               </div>
 
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <label
-                  htmlFor="faction-owned-shards-input"
-                  className="whitespace-nowrap text-sm font-sans font-semibold text-foreground"
-                >
-                  {locale === "vi"
-                    ? "Đang có (VD: 500, 1k):"
-                    : "Owned (e.g. 500, 1k):"}
-                </label>
-                <div className="flex items-center gap-2">
-                  <Input
-                    id="faction-owned-shards-input"
-                    data-testid="faction-owned-shards-input"
-                    type="text"
-                    inputMode="decimal"
-                    value={ownedShardsInput}
-                    onChange={(e) => setOwnedShardsInput(e.target.value)}
+              <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-3">
+                {/* Col 1: Required */}
+                <div className="rounded-xl bg-background/70 p-2.5">
+                  <div className={cn(CALC_MD3.eyebrow, "text-muted-foreground")}>
+                    {locale === "vi" ? "Số lượng yêu cầu" : "Required"}
+                  </div>
+                  <div
+                    className="mt-1"
+                    title={formatExactNumber(result.requiredShards)}
+                  >
+                    <CalculatorMetricValue
+                      testId="faction-required-shards-value"
+                      value={formatCompactNumber(result.requiredShards)}
+                      unit={locale === "vi" ? "Mảnh" : "Shards"}
+                      toneClassName="text-sky-600 dark:text-sky-400"
+                    />
+                  </div>
+                </div>
+
+                {/* Col 2: Owned */}
+                <div className="rounded-xl bg-background/70 p-2.5">
+                  <label
+                    htmlFor="faction-owned-shards-input"
                     className={cn(
-                      CALC_MD3.dataInput,
-                      "w-28 bg-card text-center"
+                      CALC_MD3.eyebrow,
+                      "block text-muted-foreground"
                     )}
-                  />
-                  {result.missingShards === 0 ? (
-                    <span
-                      data-testid="faction-missing-shards-badge"
-                      className="inline-flex items-center gap-1 rounded-lg bg-emerald-500/15 px-2.5 py-1 text-sm font-sans font-bold text-emerald-700 dark:text-emerald-400"
-                    >
-                      <CheckCircle2
-                        className="h-4 w-4 shrink-0"
-                        aria-hidden="true"
-                      />
-                      <span>{locale === "vi" ? "Đủ" : "Ready"}</span>
-                    </span>
-                  ) : (
-                    <span
-                      data-testid="faction-missing-shards-badge"
-                      className="inline-flex items-center rounded-lg bg-sky-500/15 px-2.5 py-1 font-mono text-sm font-bold text-sky-700 dark:text-sky-300"
-                    >
-                      -{formatExactNumber(result.missingShards)}
-                    </span>
+                  >
+                    {locale === "vi"
+                      ? "Đang có (hỗ trợ K/M)"
+                      : "Owned (K/M supported)"}
+                  </label>
+                  <div className="mt-1">
+                    <Input
+                      id="faction-owned-shards-input"
+                      data-testid="faction-owned-shards-input"
+                      type="text"
+                      inputMode="decimal"
+                      placeholder={
+                        locale === "vi" ? "VD: 500, 1.5K" : "e.g. 500, 1.5K"
+                      }
+                      value={ownedShardsInput}
+                      onChange={(e) => setOwnedShardsInput(e.target.value)}
+                      className={cn(CALC_MD3.dataInput, "w-full bg-card")}
+                    />
+                  </div>
+                </div>
+
+                {/* Col 3: Missing */}
+                <div
+                  className={cn(
+                    "rounded-xl p-2.5",
+                    result.missingShards === 0
+                      ? "bg-emerald-500/15"
+                      : "bg-sky-500/15"
                   )}
+                >
+                  <div className={cn(CALC_MD3.eyebrow, "text-muted-foreground")}>
+                    {locale === "vi" ? "Còn thiếu" : "Missing"}
+                  </div>
+                  <div className="mt-1.5 flex items-center">
+                    {result.missingShards === 0 ? (
+                      <span
+                        data-testid="faction-missing-shards-badge"
+                        className="inline-flex items-center gap-1.5 text-sm font-sans font-bold text-emerald-700 dark:text-emerald-400"
+                      >
+                        <CheckCircle2
+                          className="h-4 w-4 shrink-0"
+                          aria-hidden="true"
+                        />
+                        <span>
+                          {locale === "vi" ? "Đủ nguyên liệu" : "Ready"}
+                        </span>
+                      </span>
+                    ) : (
+                      <span
+                        data-testid="faction-missing-shards-badge"
+                        title={formatExactNumber(result.missingShards)}
+                        className="font-mono text-xl font-black tabular-nums text-sky-700 dark:text-sky-300"
+                      >
+                        -{formatCompactNumber(result.missingShards)}
+                      </span>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         )}
       </div>
-
-      {/* 6. On-Demand 10-Level Tier Breakdown Panel (1 lớp viền, bảng không viền bao) */}
-      {isBreakdownOpen && !result.isInvalidRange ? (
-        <div
-          data-testid="faction-breakdown-panel"
-          className={cn(CALC_MD3.surfaceCard, "space-y-3")}
-        >
-          <div className="flex items-center justify-between gap-2">
-            <h2 className="text-base sm:text-lg font-heading font-bold text-foreground">
-              {locale === "vi"
-                ? `Phân Rã Lộ Trình Cấp Phe (${result.factionConfig.name.vi})`
-                : `Faction Progression Breakdown (${result.factionConfig.name.en})`}
-            </h2>
-            <button
-              type="button"
-              onClick={() => setIsBreakdownOpen(false)}
-              aria-label={
-                locale === "vi" ? "Đóng bảng chi tiết" : "Close breakdown"
-              }
-              className={cn(
-                CALC_MD3.iconButton,
-                "text-muted-foreground hover:bg-muted hover:text-foreground"
-              )}
-            >
-              <X className="h-5 w-5" aria-hidden="true" />
-            </button>
-          </div>
-
-          <div className="-mx-1 overflow-x-auto">
-            <table
-              data-testid="faction-breakdown-table"
-              className="w-full min-w-[580px] border-collapse text-left text-sm"
-            >
-              <thead>
-                <tr className="border-b border-border/70 bg-muted/40 text-xs font-sans font-semibold uppercase tracking-wide text-muted-foreground">
-                  <th className="py-2.5 px-3">
-                    {locale === "vi" ? "Cụm Cấp Phe" : "Level Bracket"}
-                  </th>
-                  <th className="py-2.5 px-3 text-right">
-                    {locale === "vi" ? "Số Vạch" : "Bars"}
-                  </th>
-                  <th className="py-2.5 px-3 text-right">
-                    {locale === "vi" ? "Thịt Tiêu Hao" : "Meat Cost"}
-                  </th>
-                  <th className="py-2.5 px-3 text-right">
-                    {locale === "vi" ? "Mảnh Tướng" : "Hero Shards"}
-                  </th>
-                  <th className="py-2.5 px-3">
-                    {locale === "vi"
-                      ? "Chỉ Số & Hào Quang"
-                      : "Stats & Queue Aura"}
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-border/50 font-sans tabular-nums">
-                {result.decadeBreakdown.map((item) => (
-                  <tr
-                    key={`${item.startLevel}-${item.endLevel}`}
-                    className="hover:bg-amber-500/[0.04] transition-colors"
-                  >
-                    <td className="py-2.5 px-3 font-bold text-foreground">
-                      {item.bracketLabel[locale]}
-                    </td>
-                    <td className="py-2.5 px-3 text-right text-muted-foreground">
-                      {item.barsInBracket}
-                    </td>
-                    <td className="py-2.5 px-3 text-right font-bold text-amber-700 dark:text-amber-400">
-                      +{(item.meatRequired / 1_000_000).toFixed(3)}M
-                    </td>
-                    <td className="py-2.5 px-3 text-right font-bold text-sky-600 dark:text-sky-400">
-                      +{formatExactNumber(item.shardsRequired)}
-                    </td>
-                    <td className="py-2.5 px-3 text-muted-foreground">
-                      +{formatExactNumber(item.atkGained)} ATK • +
-                      {formatExactNumber(item.hpGained)} HP
-                      {item.auraGainedPct > 0
-                        ? ` • ★ +${item.auraGainedPct}% Queue HP`
-                        : ""}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <div className="flex flex-wrap items-center justify-between gap-2 pt-1 text-xs sm:text-sm font-sans tabular-nums text-muted-foreground">
-            <span>
-              {locale === "vi"
-                ? `Đã đầu tư: ${formatCompactNumber(result.fromState.exactMeat)} Thịt & ${formatExactNumber(result.fromState.cumulativeShards)} Mảnh • Đích tích lũy: ${formatCompactNumber(result.toState.exactMeat)} Thịt & ${formatExactNumber(result.toState.cumulativeShards)} Mảnh`
-                : `Already invested: ${formatCompactNumber(result.fromState.exactMeat)} Meat & ${formatExactNumber(result.fromState.cumulativeShards)} Shards • Target total: ${formatCompactNumber(result.toState.exactMeat)} Meat & ${formatExactNumber(result.toState.cumulativeShards)} Shards`}
-            </span>
-            <span>
-              {mode === "ssot_verified"
-                ? locale === "vi"
-                  ? "Chế độ: Chuẩn Bảng Gốc SSoT (Khớp Bảng 8.4)"
-                  : "Mode: Verified SSoT Table (Matches Table 8.4)"
-                : locale === "vi"
-                  ? "Chế độ: Mở rộng Season 1+ (Nội suy Lv.41–80)"
-                  : "Mode: Extended Season 1+ (Extrapolated Lv.41–80)"}
-            </span>
-          </div>
-        </div>
-      ) : null}
     </div>
   );
 }
