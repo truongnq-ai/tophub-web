@@ -141,34 +141,64 @@ export function EventEncyclopediaFlatView({
     article?.code?.startsWith("5.") ? article.code : "5.1"
   );
 
-  // Sync from URL `?event=<id>` and custom sidebar event `tophub:select-event`
+  // Sync from URL `?event=<id>` / `?stage=<stage>` and custom sidebar event `tophub:select-event`
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    const params = new URLSearchParams(window.location.search);
-    const initialEvent = params.get("event");
-    if (
-      initialEvent &&
-      EVENT_CATALOG_PLAYBOOKS_DATA.some((e) => e.id === initialEvent)
-    ) {
-      setSelectedEventId(initialEvent);
-    }
+    const applyTargetEvent = (targetId: string): void => {
+      const idx = EVENT_CATALOG_PLAYBOOKS_DATA.findIndex(
+        (ev) => ev.id === targetId
+      );
+      if (idx !== -1) {
+        setSelectedStage("ALL");
+        setSearchQuery("");
+        setSelectedEventId(targetId);
+        setSelectedDay(1);
+        setCurrentPage(Math.floor(idx / 10) + 1);
+      }
+    };
+
+    const syncFromLocation = (): void => {
+      const params = new URLSearchParams(window.location.search);
+      const initialEvent = params.get("event");
+      const initialStage = params.get("stage");
+      if (initialEvent) {
+        applyTargetEvent(initialEvent);
+      } else if (
+        initialStage === "stage_1" ||
+        initialStage === "stage_2" ||
+        initialStage === "stage_3"
+      ) {
+        setSelectedStage(initialStage);
+        setCurrentPage(1);
+        const stageEvents = filterCatalogEvents(
+          EVENT_CATALOG_PLAYBOOKS_DATA,
+          initialStage,
+          ""
+        );
+        if (stageEvents[0]) {
+          setSelectedEventId(stageEvents[0].id);
+          setSelectedDay(1);
+        }
+      }
+    };
+
+    syncFromLocation();
 
     const handleCustomEvent = (e: Event): void => {
       const custom = e as CustomEvent<{ eventId?: string }>;
       const targetId = custom.detail?.eventId;
-      if (
-        targetId &&
-        EVENT_CATALOG_PLAYBOOKS_DATA.some((ev) => ev.id === targetId)
-      ) {
-        setSelectedEventId(targetId);
-        setSelectedDay(1);
+      if (targetId) {
+        applyTargetEvent(targetId);
       }
     };
 
     window.addEventListener("tophub:select-event", handleCustomEvent);
-    return () =>
+    window.addEventListener("popstate", syncFromLocation);
+    return () => {
       window.removeEventListener("tophub:select-event", handleCustomEvent);
+      window.removeEventListener("popstate", syncFromLocation);
+    };
   }, []);
 
   const filteredEvents = useMemo(

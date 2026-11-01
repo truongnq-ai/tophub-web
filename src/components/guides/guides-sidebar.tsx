@@ -140,7 +140,9 @@ function SidebarNavigationTree({
 
   const searchResults = useMemo(() => {
     if (searchQuery.trim().length < 2) return null;
-    return searchGuides(searchQuery, locale);
+    return searchGuides(searchQuery, locale).filter(
+      (article) => article.categorySlug !== "event-playbooks"
+    );
   }, [searchQuery, locale]);
 
   const handleArticleClick = () => {
@@ -346,41 +348,8 @@ function SidebarNavigationTree({
 
                       <AccordionContent className="pb-2 pt-0.5">
                         <div className="space-y-1 pl-2 border-l border-border/70 ml-2.5">
-                          {category.articles.map((article) => {
-                            const href = `/guides/${category.slug}/${article.slug}`;
-                            const isArticleActive = pathname === href;
-                            const cleanMainTitle = splitArticleTitle(
-                              article.title[locale]
-                            ).mainTitle;
-                            const displayCode =
-                              article.displayCode ?? article.code;
-
-                            return (
-                              <Link
-                                key={article.slug}
-                                href={href}
-                                onClick={handleArticleClick}
-                                title={article.title[locale]}
-                                className={cn(
-                                  "flex items-center justify-between gap-1.5 rounded-lg px-2.5 py-2 text-xs sm:text-sm transition-all min-h-[44px]",
-                                  isArticleActive
-                                    ? "bg-amber-500/15 text-amber-600 dark:text-amber-400 font-bold border border-amber-500/30"
-                                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
-                                )}
-                              >
-                                <span className="line-clamp-1 leading-snug min-w-0">
-                                  <strong className="font-mono text-xs text-amber-500 mr-1.5">
-                                    {displayCode}
-                                  </strong>
-                                  {cleanMainTitle}
-                                </span>
-                                {renderArticleIndicator(article.badge)}
-                              </Link>
-                            );
-                          })}
-
-                          {category.slug === "event-playbooks" && (
-                            <div className="pt-2 mt-2 border-t border-border/60 space-y-2">
+                          {category.slug === "event-playbooks" ? (
+                            <div className="space-y-2">
                               {(
                                 [
                                   {
@@ -418,10 +387,11 @@ function SidebarNavigationTree({
                                     </div>
                                     <div className="max-h-44 overflow-y-auto space-y-1 pr-1">
                                       {stageEvents.map((ev) => (
-                                        <button
+                                        <Link
                                           key={ev.id}
-                                          type="button"
+                                          href={`/guides/event-playbooks?event=${ev.id}`}
                                           data-testid={`sidebar-event-item-${ev.id}`}
+                                          title={ev.name[locale]}
                                           onClick={() => {
                                             if (typeof window !== "undefined") {
                                               window.dispatchEvent(
@@ -438,13 +408,46 @@ function SidebarNavigationTree({
                                           <span className="line-clamp-1">
                                             {ev.name[locale]}
                                           </span>
-                                        </button>
+                                        </Link>
                                       ))}
                                     </div>
                                   </div>
                                 );
                               })}
                             </div>
+                          ) : (
+                            category.articles.map((article) => {
+                              const href = `/guides/${category.slug}/${article.slug}`;
+                              const isArticleActive = pathname === href;
+                              const cleanMainTitle = splitArticleTitle(
+                                article.title[locale]
+                              ).mainTitle;
+                              const displayCode =
+                                article.displayCode ?? article.code;
+
+                              return (
+                                <Link
+                                  key={article.slug}
+                                  href={href}
+                                  onClick={handleArticleClick}
+                                  title={article.title[locale]}
+                                  className={cn(
+                                    "flex items-center justify-between gap-1.5 rounded-lg px-2.5 py-2 text-xs sm:text-sm transition-all min-h-[44px]",
+                                    isArticleActive
+                                      ? "bg-amber-500/15 text-amber-600 dark:text-amber-400 font-bold border border-amber-500/30"
+                                      : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                                  )}
+                                >
+                                  <span className="line-clamp-1 leading-snug min-w-0">
+                                    <strong className="font-mono text-xs text-amber-500 mr-1.5">
+                                      {displayCode}
+                                    </strong>
+                                    {cleanMainTitle}
+                                  </span>
+                                  {renderArticleIndicator(article.badge)}
+                                </Link>
+                              );
+                            })
                           )}
                         </div>
                       </AccordionContent>

@@ -190,7 +190,7 @@ describe("GuidesSidebar (Phase 1 Hardened Redesign & Phase 3.1 Google MD3 Audit)
     }
   });
 
-  it("renders sequential menu numbering 1 ➔ 9 without 'Phần 1/2/3 •' prefix and shows '5. Danh sách event' with 6 canonical sub-menus (5.1 ➔ 5.6)", () => {
+  it("renders sequential menu numbering 1 ➔ 9 without 'Phần 1/2/3 •' prefix and shows '5. Danh sách event' with 3 stage groups and zero 5.1–5.6 sub-menus", () => {
     const { container } = render(<GuidesSidebar />);
 
     // Zero 'Phần 1 •' / 'Part 1 •' clutter anywhere in the sidebar
@@ -202,13 +202,19 @@ describe("GuidesSidebar (Phase 1 Hardened Redesign & Phase 3.1 Google MD3 Audit)
     });
     expect(cat5Btn).toBeDefined();
 
-    // Open Category 5 and verify 6 sub-menus 5.1 ➔ 5.6
+    // Open Category 5 and verify zero 5.1 ➔ 5.6 sub-menus and 3 stage groups
     fireEvent.click(cat5Btn);
     expect(cat5Btn.getAttribute("data-state")).toBe("open");
 
     for (const code of ["5.1", "5.2", "5.3", "5.4", "5.5", "5.6"]) {
-      expect(screen.getByRole("link", { name: new RegExp(code) })).toBeDefined();
+      expect(
+        screen.queryByRole("link", {
+          name: new RegExp(`^${code.replace(".", "\\.")}\\b`),
+        })
+      ).toBeNull();
     }
+    expect(container.textContent).not.toContain("Bảng 1 —");
+    expect(container.textContent).not.toContain("Chuyên mục 5 —");
 
     // Verify Zone III categories display as 6, 7, 8, 9
     expect(
@@ -224,9 +230,15 @@ describe("GuidesSidebar (Phase 1 Hardened Redesign & Phase 3.1 Google MD3 Audit)
   });
 });
 
-
 describe("GuidesSidebar — Category 5 Stage-Grouped Event Selector (Task 3)", () => {
-  it("renders 3 Server Stage event groups (stage_1, stage_2, stage_3) inside Category 5 ('5. Danh sách event') and dispatches event selection", () => {
+  it("renders 3 Server Stage event groups (stage_1, stage_2, stage_3) inside Category 5 ('5. Danh sách event') as navigable links to /guides/event-playbooks?event=<id>", () => {
+    const dispatchedEvents: string[] = [];
+    const handler = (e: Event) => {
+      const custom = e as CustomEvent<{ eventId?: string }>;
+      if (custom.detail?.eventId) dispatchedEvents.push(custom.detail.eventId);
+    };
+    window.addEventListener("tophub:select-event", handler);
+
     render(<GuidesSidebar />);
 
     const cat5Btn = screen.getByRole("button", {
@@ -240,6 +252,13 @@ describe("GuidesSidebar — Category 5 Stage-Grouped Event Selector (Task 3)", (
 
     const topLordItem = screen.getByTestId("sidebar-event-item-top-lord");
     expect(topLordItem).toBeDefined();
+    expect(topLordItem.tagName).toBe("A");
+    expect(topLordItem.getAttribute("href")).toBe(
+      "/guides/event-playbooks?event=top-lord"
+    );
     fireEvent.click(topLordItem);
+    expect(dispatchedEvents).toContain("top-lord");
+
+    window.removeEventListener("tophub:select-event", handler);
   });
 });

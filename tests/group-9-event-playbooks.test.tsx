@@ -499,5 +499,16 @@ describe("Zone II Part 3 — Suite 6: 2x5 Paginated Catalog Grid & 6 Concise Sec
     expect(priorityTable.textContent).toContain("Giai đoạn 1: Tân thủ & Pre-Season");
     expect(priorityTable.textContent).toContain("Giai đoạn 2: Giữa Game & Mùa Giải S1–S2");
     expect(priorityTable.textContent).toContain("Giai đoạn 3: Cuối Game & S3+ Endgame");
+
+    // Dispatch tophub:select-event for a Stage 3 Page 9 event (cross-server-champions-league-64) and verify auto-pagination + content sync
+    fireEvent(
+      window,
+      new CustomEvent("tophub:select-event", {
+        detail: { eventId: "cross-server-champions-league-64" },
+      })
+    );
+    expect(
+      screen.getByTestId("catalog-event-card-cross-server-champions-league-64")
+    ).toBeDefined();
   });
 });

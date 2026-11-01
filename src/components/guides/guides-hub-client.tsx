@@ -230,7 +230,9 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
 
   const searchResults = useMemo(() => {
     if (searchQuery.trim().length < 2) return null;
-    return searchGuides(searchQuery, locale);
+    return searchGuides(searchQuery, locale).filter(
+      (article) => article.categorySlug !== "event-playbooks"
+    );
   }, [searchQuery, locale]);
 
   const codexSearchResults = useMemo(() => {
@@ -598,6 +600,7 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
             const firstArticle = category.articles[0];
             const isExpanded = Boolean(expandedCategories[category.slug]);
             const displayOrder = category.displayOrder ?? category.order;
+            const isEventPlaybooks = category.slug === "event-playbooks";
 
             return (
               <div
@@ -623,7 +626,13 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
                       variant="outline"
                       className="font-sans text-xs font-semibold shrink-0"
                     >
-                      {t("articlesCount", { count: category.articles.length })}
+                      {isEventPlaybooks
+                        ? locale === "vi"
+                          ? "90 Sự kiện"
+                          : "90 Events"
+                        : t("articlesCount", {
+                            count: category.articles.length,
+                          })}
                     </Badge>
                   </div>
 
@@ -632,69 +641,149 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
                   </p>
                 </div>
 
-                {/* Primary Entry CTA + Progressive Disclosure Toggle for All Articles */}
+                {/* Primary Entry CTA + Progressive Disclosure Toggle */}
                 <div className="space-y-2.5 pt-3 border-t border-border/60">
-                  {firstArticle && (
-                    <Link
-                      href={`/guides/${category.slug}/${firstArticle.slug}`}
-                      className="group flex items-center justify-between gap-2 rounded-xl border border-amber-500/30 bg-amber-500/10 hover:bg-amber-500/15 px-3.5 py-2.5 text-xs sm:text-sm font-bold text-amber-600 dark:text-amber-400 transition-all min-h-[44px]"
-                    >
-                      <span className="truncate">
-                        🚀{" "}
-                        {t("startWithArticleBtn", {
-                          code: firstArticle.displayCode ?? firstArticle.code,
-                        })}{" "}
-                        — {firstArticle.title[locale]}
-                      </span>
-                      <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5" />
-                    </Link>
-                  )}
+                  {isEventPlaybooks ? (
+                    <>
+                      <Link
+                        href="/guides/event-playbooks"
+                        className="group flex items-center justify-between gap-2 rounded-xl border border-amber-500/30 bg-amber-500/10 hover:bg-amber-500/15 px-3.5 py-2.5 text-xs sm:text-sm font-bold text-amber-600 dark:text-amber-400 transition-all min-h-[44px]"
+                      >
+                        <span className="truncate">
+                          🚀{" "}
+                          {locale === "vi"
+                            ? "Mở Catalog 90 Sự Kiện (Giai đoạn 1–3)"
+                            : "Open 90-Event Catalog (Stages 1–3)"}
+                        </span>
+                        <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5" />
+                      </Link>
 
-                  <button
-                    type="button"
-                    onClick={() => toggleCategoryExpand(category.slug)}
-                    className="w-full flex items-center justify-between px-2.5 py-2 min-h-[44px] rounded-xl text-xs font-sans font-semibold text-muted-foreground hover:text-foreground hover:bg-muted/40 transition-colors"
-                  >
-                    <span>
-                      {isExpanded
-                        ? t("hideMoreArticlesBtn")
-                        : t("showMoreArticlesBtn", {
-                            count: category.articles.length,
-                          })}
-                    </span>
-                    {isExpanded ? (
-                      <ChevronUp className="h-4 w-4" />
-                    ) : (
-                      <ChevronDown className="h-4 w-4" />
-                    )}
-                  </button>
+                      <button
+                        type="button"
+                        onClick={() => toggleCategoryExpand(category.slug)}
+                        className="w-full flex items-center justify-between px-2.5 py-2 min-h-[44px] rounded-xl text-xs font-sans font-semibold text-muted-foreground hover:text-foreground hover:bg-muted/40 transition-colors"
+                      >
+                        <span>
+                          {isExpanded
+                            ? t("hideMoreArticlesBtn")
+                            : locale === "vi"
+                              ? "Xem 3 Giai đoạn Server (28 • 36 • 26)"
+                              : "Browse 3 Server Stages (28 • 36 • 26)"}
+                        </span>
+                        {isExpanded ? (
+                          <ChevronUp className="h-4 w-4" />
+                        ) : (
+                          <ChevronDown className="h-4 w-4" />
+                        )}
+                      </button>
 
-                  {isExpanded && (
-                    <div className="space-y-1 pt-1">
-                      {category.articles.map((article) => (
+                      {isExpanded && (
+                        <div className="space-y-1 pt-1">
+                          {[
+                            {
+                              id: "stage_1",
+                              labelVi:
+                                "Giai đoạn 1: Tân thủ (Ngày 1–39) — 28 Sự kiện",
+                              labelEn:
+                                "Stage 1: Early Server (Days 1–39) — 28 Events",
+                            },
+                            {
+                              id: "stage_2",
+                              labelVi:
+                                "Giai đoạn 2: Chu kỳ Tuần & 10 Tuần — 36 Sự kiện",
+                              labelEn:
+                                "Stage 2: Weekly & 10-Week Cycle — 36 Events",
+                            },
+                            {
+                              id: "stage_3",
+                              labelVi:
+                                "Giai đoạn 3: Mùa S1–S3 & Lễ Hội — 26 Sự kiện",
+                              labelEn:
+                                "Stage 3: Seasons S1–S3 & Festivals — 26 Events",
+                            },
+                          ].map((stageItem) => (
+                            <Link
+                              key={stageItem.id}
+                              href={`/guides/event-playbooks?stage=${stageItem.id}`}
+                              className="group flex items-center justify-between gap-2 rounded-xl px-3 py-2 text-xs sm:text-sm hover:bg-amber-500/10 transition-colors min-h-[44px]"
+                            >
+                              <span className="truncate font-medium text-foreground/90 group-hover:text-amber-500">
+                                {locale === "vi"
+                                  ? stageItem.labelVi
+                                  : stageItem.labelEn}
+                              </span>
+                              <ArrowRight className="h-3.5 w-3.5 text-muted-foreground group-hover:text-amber-500 transition-transform group-hover:translate-x-0.5 shrink-0" />
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </>
+                  ) : (
+                    <>
+                      {firstArticle && (
                         <Link
-                          key={article.slug}
-                          href={`/guides/${category.slug}/${article.slug}`}
-                          className="group flex items-center justify-between gap-2 rounded-xl px-3 py-2 text-xs sm:text-sm hover:bg-amber-500/10 transition-colors min-h-[44px]"
+                          href={`/guides/${category.slug}/${firstArticle.slug}`}
+                          className="group flex items-center justify-between gap-2 rounded-xl border border-amber-500/30 bg-amber-500/10 hover:bg-amber-500/15 px-3.5 py-2.5 text-xs sm:text-sm font-bold text-amber-600 dark:text-amber-400 transition-all min-h-[44px]"
                         >
-                          <span className="truncate font-medium text-foreground/90 group-hover:text-amber-500">
-                            <strong className="font-mono text-xs text-amber-500 mr-1.5">
-                              {article.displayCode ?? article.code}
-                            </strong>
-                            {article.title[locale]}
+                          <span className="truncate">
+                            🚀{" "}
+                            {t("startWithArticleBtn", {
+                              code:
+                                firstArticle.displayCode ?? firstArticle.code,
+                            })}{" "}
+                            — {firstArticle.title[locale]}
                           </span>
-                          <span className="flex items-center gap-1.5 shrink-0">
-                            {article.badge === "PRO" && (
-                              <Crown className="h-3.5 w-3.5 text-amber-500" />
-                            )}
-                            {article.badge === "HOT" && (
-                              <Flame className="h-3.5 w-3.5 text-rose-500" />
-                            )}
-                            <ArrowRight className="h-3.5 w-3.5 text-muted-foreground group-hover:text-amber-500 transition-transform group-hover:translate-x-0.5" />
-                          </span>
+                          <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5" />
                         </Link>
-                      ))}
-                    </div>
+                      )}
+
+                      <button
+                        type="button"
+                        onClick={() => toggleCategoryExpand(category.slug)}
+                        className="w-full flex items-center justify-between px-2.5 py-2 min-h-[44px] rounded-xl text-xs font-sans font-semibold text-muted-foreground hover:text-foreground hover:bg-muted/40 transition-colors"
+                      >
+                        <span>
+                          {isExpanded
+                            ? t("hideMoreArticlesBtn")
+                            : t("showMoreArticlesBtn", {
+                                count: category.articles.length,
+                              })}
+                        </span>
+                        {isExpanded ? (
+                          <ChevronUp className="h-4 w-4" />
+                        ) : (
+                          <ChevronDown className="h-4 w-4" />
+                        )}
+                      </button>
+
+                      {isExpanded && (
+                        <div className="space-y-1 pt-1">
+                          {category.articles.map((article) => (
+                            <Link
+                              key={article.slug}
+                              href={`/guides/${category.slug}/${article.slug}`}
+                              className="group flex items-center justify-between gap-2 rounded-xl px-3 py-2 text-xs sm:text-sm hover:bg-amber-500/10 transition-colors min-h-[44px]"
+                            >
+                              <span className="truncate font-medium text-foreground/90 group-hover:text-amber-500">
+                                <strong className="font-mono text-xs text-amber-500 mr-1.5">
+                                  {article.displayCode ?? article.code}
+                                </strong>
+                                {article.title[locale]}
+                              </span>
+                              <span className="flex items-center gap-1.5 shrink-0">
+                                {article.badge === "PRO" && (
+                                  <Crown className="h-3.5 w-3.5 text-amber-500" />
+                                )}
+                                {article.badge === "HOT" && (
+                                  <Flame className="h-3.5 w-3.5 text-rose-500" />
+                                )}
+                                <ArrowRight className="h-3.5 w-3.5 text-muted-foreground group-hover:text-amber-500 transition-transform group-hover:translate-x-0.5" />
+                              </span>
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </>
                   )}
                 </div>
               </div>
