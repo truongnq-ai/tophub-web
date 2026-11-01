@@ -1,24 +1,28 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import {
   CalendarClock,
   CheckCircle2,
+  ChevronLeft,
+  ChevronRight,
   Coins,
   Flame,
   Layers,
   PackageCheck,
+  Search,
   ShoppingBag,
   Sparkles,
   Wrench,
 } from "lucide-react";
 import {
-  EVENT_PLAYBOOKS_DATA,
-  filterPlaybooksBySeason,
+  EVENT_CATALOG_PLAYBOOKS_DATA,
+  filterCatalogEvents,
+  paginateCatalogEvents,
 } from "@/content/guides/event-playbooks-data";
 import type {
   EventPlaybookRecord,
-  EventSeasonTag,
+  EventServerStageId,
   GuideArticle,
   GuideLocale,
 } from "@/content/guides/types";
@@ -27,17 +31,42 @@ import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 
 interface EventEncyclopediaFlatViewProps {
-  readonly article: GuideArticle;
-  readonly locale: GuideLocale;
+  readonly article?: GuideArticle;
+  readonly locale?: GuideLocale;
 }
 
-const SEASON_FILTERS: readonly EventSeasonTag[] = [
-  "ALL",
-  "S0",
-  "S1",
-  "S2",
-  "S3",
-  "S4",
+const STAGE_FILTERS: readonly {
+  readonly id: EventServerStageId | "ALL";
+  readonly label: { readonly vi: string; readonly en: string };
+}[] = [
+  {
+    id: "ALL",
+    label: {
+      vi: "Tất cả (90)",
+      en: "All Events (90)",
+    },
+  },
+  {
+    id: "stage_1",
+    label: {
+      vi: "GĐ 1: Tân thủ Ngày 1–39 (28)",
+      en: "Stage 1: Days 1–39 (28)",
+    },
+  },
+  {
+    id: "stage_2",
+    label: {
+      vi: "GĐ 2: Chu kỳ Tuần & 10 Tuần (36)",
+      en: "Stage 2: Weekly & 10-Week (36)",
+    },
+  },
+  {
+    id: "stage_3",
+    label: {
+      vi: "GĐ 3: Mùa S1–S3 & Lễ Hội (26)",
+      en: "Stage 3: S1–S3 & Festivals (26)",
+    },
+  },
 ];
 
 interface CanonicalSectionMeta {
@@ -51,74 +80,118 @@ const CANONICAL_SECTIONS: readonly CanonicalSectionMeta[] = [
     code: "5.1",
     anchorId: "sec-5-1",
     label: {
-      vi: "5.1 Trục thời gian & Thể lệ",
-      en: "5.1 Timeline & Rules",
+      vi: "1. Thời gian & Thể lệ",
+      en: "1. Schedule & Rules",
     },
   },
   {
     code: "5.2",
     anchorId: "sec-5-2",
     label: {
-      vi: "5.2 Nhiệm vụ & Mốc điểm",
-      en: "5.2 Tasks & Milestones",
+      vi: "2. Nhiệm vụ & Mốc điểm",
+      en: "2. Missions & Milestones",
     },
   },
   {
     code: "5.3",
     anchorId: "sec-5-3",
     label: {
-      vi: "5.3 Cửa hàng & Vật phẩm rơi",
-      en: "5.3 Shop & Drops",
+      vi: "3. Cửa hàng & Vật phẩm rơi",
+      en: "3. Shop & Item Drops",
     },
   },
   {
     code: "5.4",
     anchorId: "sec-5-4",
     label: {
-      vi: "5.4 Gói nạp & Phân tích ROI",
-      en: "5.4 Packs & ROI",
+      vi: "4. Gói nạp & Phân tích ROI",
+      en: "4. Packs & ROI Analysis",
     },
   },
   {
     code: "5.5",
     anchorId: "sec-5-5",
     label: {
-      vi: "5.5 Kế hoạch Tích trữ",
-      en: "5.5 Hoarding Plan",
+      vi: "5. Kế hoạch tích trữ",
+      en: "5. Hoarding Plan",
     },
   },
   {
     code: "5.6",
     anchorId: "sec-5-6",
     label: {
-      vi: "5.6 Mẹo & Kỹ thuật Cao Thủ",
-      en: "5.6 Pro Mechanics",
+      vi: "6. Mẹo thực hiện",
+      en: "6. Execution Tips",
     },
   },
 ];
 
 export function EventEncyclopediaFlatView({
   article,
-  locale,
+  locale = "vi",
 }: EventEncyclopediaFlatViewProps): React.ReactElement | null {
-  const [selectedSeason, setSelectedSeason] = useState<EventSeasonTag>("ALL");
-  const [selectedEventId, setSelectedEventId] = useState<string>(
-    "guild-arms-race"
-  );
+  const [selectedStage, setSelectedStage] = useState<
+    EventServerStageId | "ALL"
+  >("ALL");
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [selectedEventId, setSelectedEventId] = useState<string>("top-lord");
   const [selectedDay, setSelectedDay] = useState<number>(1);
   const [activeSectionCode, setActiveSectionCode] = useState<string>(
-    article.code.startsWith("5.") ? article.code : "5.1"
+    article?.code?.startsWith("5.") ? article.code : "5.1"
   );
 
-  const visibleEvents = useMemo(
-    () => filterPlaybooksBySeason(EVENT_PLAYBOOKS_DATA, selectedSeason),
-    [selectedSeason]
+  // Sync from URL `?event=<id>` and custom sidebar event `tophub:select-event`
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const params = new URLSearchParams(window.location.search);
+    const initialEvent = params.get("event");
+    if (
+      initialEvent &&
+      EVENT_CATALOG_PLAYBOOKS_DATA.some((e) => e.id === initialEvent)
+    ) {
+      setSelectedEventId(initialEvent);
+    }
+
+    const handleCustomEvent = (e: Event): void => {
+      const custom = e as CustomEvent<{ eventId?: string }>;
+      const targetId = custom.detail?.eventId;
+      if (
+        targetId &&
+        EVENT_CATALOG_PLAYBOOKS_DATA.some((ev) => ev.id === targetId)
+      ) {
+        setSelectedEventId(targetId);
+        setSelectedDay(1);
+      }
+    };
+
+    window.addEventListener("tophub:select-event", handleCustomEvent);
+    return () =>
+      window.removeEventListener("tophub:select-event", handleCustomEvent);
+  }, []);
+
+  const filteredEvents = useMemo(
+    () =>
+      filterCatalogEvents(
+        EVENT_CATALOG_PLAYBOOKS_DATA,
+        selectedStage,
+        searchQuery
+      ),
+    [selectedStage, searchQuery]
+  );
+
+  const paginated = useMemo(
+    () => paginateCatalogEvents(filteredEvents, currentPage, 10),
+    [filteredEvents, currentPage]
   );
 
   const activeEvent: EventPlaybookRecord = useMemo(() => {
-    const found = visibleEvents.find((item) => item.id === selectedEventId);
-    return found ?? visibleEvents[0] ?? EVENT_PLAYBOOKS_DATA[0];
-  }, [visibleEvents, selectedEventId]);
+    const found = EVENT_CATALOG_PLAYBOOKS_DATA.find(
+      (item) => item.id === selectedEventId
+    );
+    return found ?? filteredEvents[0] ?? EVENT_CATALOG_PLAYBOOKS_DATA[0];
+  }, [filteredEvents, selectedEventId]);
 
   const sixTables = activeEvent.sixTables;
   if (!sixTables) return null;
@@ -127,9 +200,19 @@ export function EventEncyclopediaFlatView({
     activeEvent.dailyStages.find((d) => d.dayNumber === selectedDay) ??
     activeEvent.dailyStages[0];
 
+  const handleSelectStage = (stage: EventServerStageId | "ALL"): void => {
+    setSelectedStage(stage);
+    setCurrentPage(1);
+  };
+
   const handleSelectEvent = (eventId: string): void => {
     setSelectedEventId(eventId);
     setSelectedDay(1);
+    if (typeof window !== "undefined") {
+      const url = new URL(window.location.href);
+      url.searchParams.set("event", eventId);
+      window.history.replaceState({}, "", url.toString());
+    }
   };
 
   const handleJumpToSection = (sec: CanonicalSectionMeta): void => {
@@ -147,71 +230,87 @@ export function EventEncyclopediaFlatView({
       data-testid="event-encyclopedia-flat-view"
       className="space-y-6 font-sans text-base text-foreground"
     >
-      {/* STICKY EVENT SELECTOR & 6-SECTION ANCHOR BAR (Single-Layer MD3 Toolbar) */}
+      {/* ====================================================================
+          PAGINATED 2×5 EVENT CATALOG (MAX 10 EVENTS / PAGE)
+      ==================================================================== */}
       <div
         data-testid="flat-event-selector-bar"
-        className="sticky top-16 z-30 -mx-1 px-1 py-3 bg-background/95 backdrop-blur-md border-b border-border/70 space-y-2.5"
+        className="rounded-2xl border border-border/70 bg-card/40 p-4 space-y-4"
       >
-        <div className="flex flex-wrap items-center justify-between gap-2">
-          <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar">
-            {SEASON_FILTERS.map((season) => {
-              const isSelected = selectedSeason === season;
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+          {/* Server Stage Tabs */}
+          <div className="flex flex-wrap items-center gap-1.5">
+            {STAGE_FILTERS.map((stage) => {
+              const isSelected = selectedStage === stage.id;
               return (
                 <button
-                  key={season}
+                  key={stage.id}
                   type="button"
-                  data-testid={`flat-season-filter-${season}`}
-                  onClick={() => setSelectedSeason(season)}
+                  data-testid={`catalog-stage-tab-${stage.id}`}
+                  onClick={() => handleSelectStage(stage.id)}
                   className={cn(
                     "inline-flex items-center justify-center min-h-[44px] px-3 py-1.5 rounded-xl border text-xs font-heading font-bold transition-colors cursor-pointer",
                     isSelected
                       ? "border-amber-500 bg-amber-500 text-slate-950"
-                      : "border-border/70 bg-card/70 text-muted-foreground hover:text-foreground hover:border-amber-500/40"
+                      : "border-border/70 bg-background/70 text-muted-foreground hover:text-foreground hover:border-amber-500/40"
                   )}
                 >
-                  {season === "ALL"
-                    ? locale === "vi"
-                      ? "Tất cả Mùa"
-                      : "All Seasons"
-                    : season}
+                  {stage.label[locale]}
                 </button>
               );
             })}
           </div>
 
-          <span className="text-xs font-mono font-bold text-amber-600 dark:text-amber-400">
-            {locale === "vi"
-              ? `${visibleEvents.length} Sự kiện S0 ➔ GAR`
-              : `${visibleEvents.length} S0 ➔ GAR Events`}
-          </span>
+          {/* Search Input */}
+          <div className="relative min-w-[220px] sm:w-72">
+            <Search className="h-4 w-4 text-muted-foreground absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+            <input
+              type="search"
+              data-testid="catalog-event-search-input"
+              value={searchQuery}
+              onChange={(e) => {
+                setSearchQuery(e.target.value);
+                setCurrentPage(1);
+              }}
+              placeholder={
+                locale === "vi"
+                  ? "Tìm kiếm tên sự kiện..."
+                  : "Search event name..."
+              }
+              className="w-full min-h-[44px] pl-9 pr-3 py-2 rounded-xl border border-border/70 bg-background text-base sm:text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-amber-500"
+            />
+          </div>
         </div>
 
-        {/* Horizontal Event Selector Strip */}
-        <div className="flex items-stretch gap-2 overflow-x-auto snap-x snap-mandatory pb-1 no-scrollbar">
-          {visibleEvents.map((ev) => {
+        {/* 2 Rows × 5 Columns Event Grid (Max 10 Cards Per Page) */}
+        <div
+          data-testid="event-catalog-grid-2x5"
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3"
+        >
+          {paginated.items.map((ev) => {
             const isSelected = ev.id === activeEvent.id;
             return (
               <button
                 key={ev.id}
                 type="button"
-                data-testid={`flat-event-pill-${ev.id}`}
+                data-testid={`catalog-event-card-${ev.id}`}
                 onClick={() => handleSelectEvent(ev.id)}
                 className={cn(
-                  "snap-start shrink-0 min-w-[220px] max-w-[260px] min-h-[56px] rounded-xl border p-2.5 text-left flex items-center gap-2.5 transition-all cursor-pointer",
+                  "min-h-[116px] rounded-2xl border p-3 text-center flex flex-col items-center justify-between gap-2 transition-all cursor-pointer",
                   isSelected
-                    ? "border-amber-500 bg-amber-500/15 text-foreground"
-                    : "border-border/70 bg-card/60 text-muted-foreground hover:text-foreground hover:border-amber-500/40"
+                    ? "border-amber-500 bg-amber-500/15 text-foreground shadow-sm"
+                    : "border-border/70 bg-background/80 text-muted-foreground hover:text-foreground hover:border-amber-500/40"
                 )}
               >
                 <GameAssetFrame
                   src={ev.iconPath}
                   alt={ev.name[locale]}
-                  size="sm"
+                  size="md"
                   rarity={ev.rarity}
                   faction={ev.faction}
                 />
-                <div className="min-w-0 flex-1">
-                  <div className="font-heading font-bold text-xs sm:text-sm text-foreground truncate">
+                <div className="w-full space-y-1">
+                  <div className="font-heading font-bold text-xs sm:text-sm text-foreground line-clamp-2 leading-snug">
                     {ev.name[locale]}
                   </div>
                   <div className="text-xs text-amber-600 dark:text-amber-400 truncate">
@@ -223,8 +322,60 @@ export function EventEncyclopediaFlatView({
           })}
         </div>
 
-        {/* 6 Quick-Jump Section Pills (5.1 ➔ 5.6) */}
-        <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pt-0.5">
+        {/* Pagination Controls (10 Events / Page) */}
+        <div className="flex flex-wrap items-center justify-between gap-2 pt-1 border-t border-border/50">
+          <span className="text-xs font-mono font-semibold text-muted-foreground">
+            {locale === "vi"
+              ? `Hiển thị ${paginated.items.length} / ${paginated.totalItems} sự kiện (Trang ${paginated.currentPage}/${paginated.totalPages})`
+              : `Showing ${paginated.items.length} / ${paginated.totalItems} events (Page ${paginated.currentPage}/${paginated.totalPages})`}
+          </span>
+
+          <div className="flex flex-wrap items-center gap-1">
+            <button
+              type="button"
+              disabled={paginated.currentPage <= 1}
+              onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+              className="inline-flex items-center justify-center min-h-[44px] px-2.5 rounded-xl border border-border/70 bg-background text-xs font-semibold text-foreground disabled:opacity-40 cursor-pointer"
+              aria-label={locale === "vi" ? "Trang trước" : "Previous page"}
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </button>
+
+            {Array.from({ length: paginated.totalPages }, (_, i) => i + 1).map(
+              (pageNum) => (
+                <button
+                  key={pageNum}
+                  type="button"
+                  data-testid={`catalog-page-btn-${pageNum}`}
+                  onClick={() => setCurrentPage(pageNum)}
+                  className={cn(
+                    "inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-2.5 rounded-xl border text-xs font-mono font-bold transition-colors cursor-pointer",
+                    pageNum === paginated.currentPage
+                      ? "border-amber-500 bg-amber-500 text-slate-950"
+                      : "border-border/70 bg-background text-muted-foreground hover:text-foreground"
+                  )}
+                >
+                  {pageNum}
+                </button>
+              )
+            )}
+
+            <button
+              type="button"
+              disabled={paginated.currentPage >= paginated.totalPages}
+              onClick={() =>
+                setCurrentPage((p) => Math.min(paginated.totalPages, p + 1))
+              }
+              className="inline-flex items-center justify-center min-h-[44px] px-2.5 rounded-xl border border-border/70 bg-background text-xs font-semibold text-foreground disabled:opacity-40 cursor-pointer"
+              aria-label={locale === "vi" ? "Trang tiếp" : "Next page"}
+            >
+              <ChevronRight className="h-4 w-4" />
+            </button>
+          </div>
+        </div>
+
+        {/* 6 Quick-Jump Section Pills (1 ➔ 6) */}
+        <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pt-1">
           {CANONICAL_SECTIONS.map((sec) => {
             const isActive = activeSectionCode === sec.code;
             return (
@@ -247,7 +398,7 @@ export function EventEncyclopediaFlatView({
         </div>
       </div>
 
-      {/* ACTIVE EVENT SUMMARY BANNER (Single-Layer Flat Header) */}
+      {/* ACTIVE EVENT SUMMARY BANNER */}
       <div
         data-testid="flat-active-event-header"
         className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-border/60"
@@ -283,7 +434,7 @@ export function EventEncyclopediaFlatView({
       </div>
 
       {/* ====================================================================
-          SECTION 5.1 — BẢNG 1: TRỤC THỜI GIAN & THỂ LỆ CHÍNH
+          SECTION 1 — 1. THỜI GIAN & THỂ LỆ
       ==================================================================== */}
       <section
         id="sec-5-1"
@@ -291,14 +442,9 @@ export function EventEncyclopediaFlatView({
         className="scroll-mt-44 py-5 border-b border-border/50 space-y-4"
       >
         <div className="flex items-center gap-2.5">
-          <span className="inline-flex h-7 items-center justify-center rounded-lg border border-amber-500/30 bg-amber-500/10 px-2 font-mono text-xs font-bold text-amber-600 dark:text-amber-400">
-            5.1
-          </span>
           <CalendarClock className="h-5 w-5 text-amber-500 shrink-0" />
           <h3 className="font-heading font-bold text-lg sm:text-xl text-foreground">
-            {locale === "vi"
-              ? "Bảng 1 — Trục thời gian & Thể lệ chính (take_effect_time & recycle)"
-              : "Table 1 — Timeline, Unlock Conditions & Leftover Item Recycling"}
+            {locale === "vi" ? "1. Thời gian & Thể lệ" : "1. Schedule & Rules"}
           </h3>
         </div>
 
@@ -375,7 +521,7 @@ export function EventEncyclopediaFlatView({
       </section>
 
       {/* ====================================================================
-          SECTION 5.2 — BẢNG 2: NHIỆM VỤ & MỐC ĐIỂM
+          SECTION 2 — 2. NHIỆM VỤ & MỐC ĐIỂM
       ==================================================================== */}
       <section
         id="sec-5-2"
@@ -383,23 +529,20 @@ export function EventEncyclopediaFlatView({
         className="scroll-mt-44 py-5 border-b border-border/50 space-y-4"
       >
         <div className="flex items-center gap-2.5">
-          <span className="inline-flex h-7 items-center justify-center rounded-lg border border-amber-500/30 bg-amber-500/10 px-2 font-mono text-xs font-bold text-amber-600 dark:text-amber-400">
-            5.2
-          </span>
           <Layers className="h-5 w-5 text-amber-500 shrink-0" />
           <h3 className="font-heading font-bold text-lg sm:text-xl text-foreground">
             {locale === "vi"
-              ? "Bảng 2 — Nhiệm vụ & Mốc điểm (activity_task_target & Free vs VIP)"
-              : "Table 2 — Daily/Cumulative Tasks & Milestone Tiers (Free vs VIP)"}
+              ? "2. Nhiệm vụ & Mốc điểm"
+              : "2. Missions & Milestones"}
           </h3>
         </div>
 
-        {/* Multi-Day Stage Selector Pills */}
         {activeEvent.dailyStages.length > 1 && (
           <div className="space-y-3">
             <div className="flex flex-wrap items-center gap-1.5">
               {activeEvent.dailyStages.map((stage) => {
-                const isDaySelected = stage.dayNumber === activeDayStage.dayNumber;
+                const isDaySelected =
+                  stage.dayNumber === activeDayStage.dayNumber;
                 return (
                   <button
                     key={stage.dayNumber}
@@ -428,21 +571,20 @@ export function EventEncyclopediaFlatView({
                   {activeDayStage.label[locale]} — {activeDayStage.theme[locale]} (
                   {activeDayStage.goldenWindow[locale]})
                 </div>
-                <p className="text-foreground/90">{activeDayStage.proTip[locale]}</p>
+                <p className="text-foreground/90">
+                  {activeDayStage.proTip[locale]}
+                </p>
               </div>
             )}
           </div>
         )}
 
-        {/* Tasks Table */}
         <div className="overflow-x-auto rounded-2xl border border-border/70">
           <table className="w-full text-left border-collapse text-sm sm:text-base">
             <thead>
               <tr className="border-b border-border/70 bg-muted/40 text-xs font-heading font-bold uppercase text-muted-foreground">
                 <th className="py-3 px-4">
-                  {locale === "vi"
-                    ? "Nhiệm vụ / Giai đoạn (activity_task_target)"
-                    : "Task / Stage (activity_task_target)"}
+                  {locale === "vi" ? "Nhiệm vụ / Giai đoạn" : "Task / Stage"}
                 </th>
                 <th className="py-3 px-4">
                   {locale === "vi" ? "Nguồn tính điểm" : "Scoring Source"}
@@ -472,15 +614,12 @@ export function EventEncyclopediaFlatView({
           </table>
         </div>
 
-        {/* Milestones (Free vs VIP) Table */}
         <div className="overflow-x-auto rounded-2xl border border-border/70">
           <table className="w-full text-left border-collapse text-sm sm:text-base">
             <thead>
               <tr className="border-b border-border/70 bg-muted/40 text-xs font-heading font-bold uppercase text-muted-foreground">
                 <th className="py-3 px-4">
-                  {locale === "vi"
-                    ? "Cấp mốc (activity_point_mission)"
-                    : "Milestone Tier (activity_point_mission)"}
+                  {locale === "vi" ? "Cấp mốc điểm" : "Milestone Tier"}
                 </th>
                 <th className="py-3 px-4">
                   {locale === "vi" ? "Mục tiêu điểm" : "Target Threshold"}
@@ -518,7 +657,7 @@ export function EventEncyclopediaFlatView({
       </section>
 
       {/* ====================================================================
-          SECTION 5.3 — BẢNG 3: CỬA HÀNG & VẬT PHẨM RƠI
+          SECTION 3 — 3. CỬA HÀNG & VẬT PHẨM RƠI
       ==================================================================== */}
       <section
         id="sec-5-3"
@@ -526,26 +665,20 @@ export function EventEncyclopediaFlatView({
         className="scroll-mt-44 py-5 border-b border-border/50 space-y-4"
       >
         <div className="flex items-center gap-2.5">
-          <span className="inline-flex h-7 items-center justify-center rounded-lg border border-amber-500/30 bg-amber-500/10 px-2 font-mono text-xs font-bold text-amber-600 dark:text-amber-400">
-            5.3
-          </span>
           <ShoppingBag className="h-5 w-5 text-amber-500 shrink-0" />
           <h3 className="font-heading font-bold text-lg sm:text-xl text-foreground">
             {locale === "vi"
-              ? "Bảng 3 — Cửa hàng & Vật phẩm rơi (activity_drop & active_shop)"
-              : "Table 3 — Drop Sources, Hidden Caps & Event Shop Priority"}
+              ? "3. Cửa hàng & Vật phẩm rơi"
+              : "3. Shop & Item Drops"}
           </h3>
         </div>
 
-        {/* Drop Sources Table */}
         <div className="overflow-x-auto rounded-2xl border border-border/70">
           <table className="w-full text-left border-collapse text-sm sm:text-base">
             <thead>
               <tr className="border-b border-border/70 bg-muted/40 text-xs font-heading font-bold uppercase text-muted-foreground">
                 <th className="py-3 px-4">
-                  {locale === "vi"
-                    ? "Nguồn rơi đạo cụ (activity_drop)"
-                    : "Drop Source (activity_drop)"}
+                  {locale === "vi" ? "Nguồn rơi đạo cụ" : "Drop Source"}
                 </th>
                 <th className="py-3 px-4">
                   {locale === "vi" ? "Tỷ lệ rơi" : "Drop Rate"}
@@ -575,15 +708,12 @@ export function EventEncyclopediaFlatView({
           </table>
         </div>
 
-        {/* Shop Items Table */}
         <div className="overflow-x-auto rounded-2xl border border-border/70">
           <table className="w-full text-left border-collapse text-sm sm:text-base">
             <thead>
               <tr className="border-b border-border/70 bg-muted/40 text-xs font-heading font-bold uppercase text-muted-foreground">
                 <th className="py-3 px-4">
-                  {locale === "vi"
-                    ? "Vật phẩm Shop (active_shop)"
-                    : "Shop Item (active_shop)"}
+                  {locale === "vi" ? "Vật phẩm cửa hàng" : "Shop Item"}
                 </th>
                 <th className="py-3 px-4">
                   {locale === "vi" ? "Ưu tiên" : "Tier"}
@@ -641,7 +771,7 @@ export function EventEncyclopediaFlatView({
       </section>
 
       {/* ====================================================================
-          SECTION 5.4 — BẢNG 4: GÓI NẠP & PHẦN THƯỞNG (PHÂN TÍCH ROI)
+          SECTION 4 — 4. GÓI NẠP & PHÂN TÍCH ROI
       ==================================================================== */}
       <section
         id="sec-5-4"
@@ -649,14 +779,11 @@ export function EventEncyclopediaFlatView({
         className="scroll-mt-44 py-5 border-b border-border/50 space-y-4"
       >
         <div className="flex items-center gap-2.5">
-          <span className="inline-flex h-7 items-center justify-center rounded-lg border border-amber-500/30 bg-amber-500/10 px-2 font-mono text-xs font-bold text-amber-600 dark:text-amber-400">
-            5.4
-          </span>
           <Coins className="h-5 w-5 text-amber-500 shrink-0" />
           <h3 className="font-heading font-bold text-lg sm:text-xl text-foreground">
             {locale === "vi"
-              ? "Bảng 4 — Gói nạp & Phần thưởng (Phân tích ROI: exchange & exchange_payid)"
-              : "Table 4 — Pack ROI Breakdown & Hidden Cross-Event Bundles"}
+              ? "4. Gói nạp & Phân tích ROI"
+              : "4. Packs & ROI Analysis"}
           </h3>
         </div>
 
@@ -745,7 +872,7 @@ export function EventEncyclopediaFlatView({
       </section>
 
       {/* ====================================================================
-          SECTION 5.5 — CHUYÊN MỤC 5: KẾ HOẠCH TÍCH TRỮ & CHUẨN BỊ TỪ SỚM
+          SECTION 5 — 5. KẾ HOẠCH TÍCH TRỮ
       ==================================================================== */}
       <section
         id="sec-5-5"
@@ -753,70 +880,75 @@ export function EventEncyclopediaFlatView({
         className="scroll-mt-44 py-5 border-b border-border/50 space-y-4"
       >
         <div className="flex items-center gap-2.5">
-          <span className="inline-flex h-7 items-center justify-center rounded-lg border border-amber-500/30 bg-amber-500/10 px-2 font-mono text-xs font-bold text-amber-600 dark:text-amber-400">
-            5.5
-          </span>
           <PackageCheck className="h-5 w-5 text-amber-500 shrink-0" />
           <h3 className="font-heading font-bold text-lg sm:text-xl text-foreground">
-            {locale === "vi"
-              ? "Chuyên mục 5 — Kế hoạch Tích trữ & Chuẩn bị từ sớm (Ngắn hạn & Dài hạn 1–3 tuần)"
-              : "Section 5 — Short-Term & Long-Term (1–3 Weeks) Hoarding Plan"}
+            {locale === "vi" ? "5. Kế hoạch tích trữ" : "5. Hoarding Plan"}
           </h3>
         </div>
 
-        {/* Short-Term Hoarding Targets */}
-        <div className="overflow-x-auto rounded-2xl border border-border/70">
-          <table className="w-full text-left border-collapse text-sm sm:text-base">
-            <thead>
-              <tr className="border-b border-border/70 bg-muted/40 text-xs font-heading font-bold uppercase text-muted-foreground">
-                <th className="py-3 px-4">
-                  {locale === "vi"
-                    ? "Đạo cụ cần tích trữ"
-                    : "Target Hoarding Item"}
-                </th>
-                <th className="py-3 px-4">
-                  {locale === "vi" ? "Định mức mục tiêu" : "Target Quota"}
-                </th>
-                <th className="py-3 px-4">
-                  {locale === "vi" ? "Kỷ luật đóng băng" : "Freeze Window"}
-                </th>
-                <th className="py-3 px-4">
-                  {locale === "vi" ? "Thời điểm xả kho" : "Dump Timing"}
-                </th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-border/50">
-              {sixTables.section5HoardingPlan.shortTermTargets.map((item) => (
-                <tr key={item.id}>
-                  <td className="py-3 px-4">
-                    <div className="flex items-center gap-2.5">
-                      <GameAssetFrame
-                        src={item.iconPath}
-                        alt={item.name[locale]}
-                        size="sm"
-                        rarity={item.rarity}
-                      />
-                      <span className="font-semibold text-foreground">
-                        {item.name[locale]}
-                      </span>
-                    </div>
-                  </td>
-                  <td className="py-3 px-4 font-mono text-xs sm:text-sm font-bold text-amber-600 dark:text-amber-400">
-                    {item.targetAmount[locale]}
-                  </td>
-                  <td className="py-3 px-4 text-foreground/90">
-                    {item.freezeWindow[locale]}
-                  </td>
-                  <td className="py-3 px-4 text-foreground/90">
-                    {item.dumpTiming[locale]}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        {/* Mandatory Business Rule: Pure-Recharge Budget Saving Advice */}
+        {sixTables.section5HoardingPlan.rechargeSavingAdvice && (
+          <div
+            data-testid="pure-recharge-saving-advice"
+            className="rounded-2xl border border-amber-500/40 bg-amber-500/10 p-4 text-sm sm:text-base text-foreground leading-relaxed"
+          >
+            {sixTables.section5HoardingPlan.rechargeSavingAdvice[locale]}
+          </div>
+        )}
 
-        {/* Long-Term 1-3 Week Roadmap */}
+        {sixTables.section5HoardingPlan.shortTermTargets.length > 0 && (
+          <div className="overflow-x-auto rounded-2xl border border-border/70">
+            <table className="w-full text-left border-collapse text-sm sm:text-base">
+              <thead>
+                <tr className="border-b border-border/70 bg-muted/40 text-xs font-heading font-bold uppercase text-muted-foreground">
+                  <th className="py-3 px-4">
+                    {locale === "vi"
+                      ? "Đạo cụ cần tích trữ"
+                      : "Target Hoarding Item"}
+                  </th>
+                  <th className="py-3 px-4">
+                    {locale === "vi" ? "Định mức mục tiêu" : "Target Quota"}
+                  </th>
+                  <th className="py-3 px-4">
+                    {locale === "vi" ? "Kỷ luật đóng băng" : "Freeze Window"}
+                  </th>
+                  <th className="py-3 px-4">
+                    {locale === "vi" ? "Thời điểm xả kho" : "Dump Timing"}
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-border/50">
+                {sixTables.section5HoardingPlan.shortTermTargets.map((item) => (
+                  <tr key={item.id}>
+                    <td className="py-3 px-4">
+                      <div className="flex items-center gap-2.5">
+                        <GameAssetFrame
+                          src={item.iconPath}
+                          alt={item.name[locale]}
+                          size="sm"
+                          rarity={item.rarity}
+                        />
+                        <span className="font-semibold text-foreground">
+                          {item.name[locale]}
+                        </span>
+                      </div>
+                    </td>
+                    <td className="py-3 px-4 font-mono text-xs sm:text-sm font-bold text-amber-600 dark:text-amber-400">
+                      {item.targetAmount[locale]}
+                    </td>
+                    <td className="py-3 px-4 text-foreground/90">
+                      {item.freezeWindow[locale]}
+                    </td>
+                    <td className="py-3 px-4 text-foreground/90">
+                      {item.dumpTiming[locale]}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+
         <div className="overflow-x-auto rounded-2xl border border-border/70">
           <table className="w-full text-left border-collapse text-sm sm:text-base">
             <thead>
@@ -831,32 +963,34 @@ export function EventEncyclopediaFlatView({
                 </th>
                 <th className="py-3 px-4">
                   {locale === "vi"
-                    ? "Lý do chiến thuật (Nhịn tuần thường dồn tuần x2 / GAR)"
+                    ? "Lý do chiến thuật"
                     : "Strategic Rationale"}
                 </th>
               </tr>
             </thead>
             <tbody className="divide-y divide-border/50">
-              {sixTables.section5HoardingPlan.longTermRoadmap.map((step, idx) => (
-                <tr key={idx}>
-                  <td className="py-3 px-4 font-semibold text-foreground">
-                    {step.horizonLabel[locale]}
-                  </td>
-                  <td className="py-3 px-4 font-mono text-xs sm:text-sm font-bold text-amber-600 dark:text-amber-400">
-                    {step.targetQuota[locale]}
-                  </td>
-                  <td className="py-3 px-4 text-foreground/90">
-                    {step.rationale[locale]}
-                  </td>
-                </tr>
-              ))}
+              {sixTables.section5HoardingPlan.longTermRoadmap.map(
+                (step, idx) => (
+                  <tr key={idx}>
+                    <td className="py-3 px-4 font-semibold text-foreground">
+                      {step.horizonLabel[locale]}
+                    </td>
+                    <td className="py-3 px-4 font-mono text-xs sm:text-sm font-bold text-amber-600 dark:text-amber-400">
+                      {step.targetQuota[locale]}
+                    </td>
+                    <td className="py-3 px-4 text-foreground/90">
+                      {step.rationale[locale]}
+                    </td>
+                  </tr>
+                )
+              )}
             </tbody>
           </table>
         </div>
       </section>
 
       {/* ====================================================================
-          SECTION 5.6 — CHUYÊN MỤC 6: MẸO & KỸ THUẬT CAO THỦ CHUYÊN NGHIỆP
+          SECTION 6 — 6. MẸO THỰC HIỆN
       ==================================================================== */}
       <section
         id="sec-5-6"
@@ -864,16 +998,65 @@ export function EventEncyclopediaFlatView({
         className="scroll-mt-44 py-5 space-y-5"
       >
         <div className="flex items-center gap-2.5">
-          <span className="inline-flex h-7 items-center justify-center rounded-lg border border-amber-500/30 bg-amber-500/10 px-2 font-mono text-xs font-bold text-amber-600 dark:text-amber-400">
-            5.6
-          </span>
           <Wrench className="h-5 w-5 text-amber-500 shrink-0" />
           <h3 className="font-heading font-bold text-lg sm:text-xl text-foreground">
-            {locale === "vi"
-              ? "Chuyên mục 6 — Mẹo & Kỹ thuật Cao Thủ Chuyên Nghiệp (Pro-Player Mechanics & Pre-cooking Tricks)"
-              : "Section 6 — Pro-Player Mechanics & Pre-cooking Tricks"}
+            {locale === "vi" ? "6. Mẹo thực hiện" : "6. Execution Tips"}
           </h3>
         </div>
+
+        {/* Mandatory Business Rule: Shop Purchase Priority by Game Stage */}
+        {sixTables.section6ShopPriorityByStage &&
+          sixTables.section6ShopPriorityByStage.length > 0 && (
+            <div
+              data-testid="shop-priority-by-stage-table"
+              className="overflow-x-auto rounded-2xl border border-border/70"
+            >
+              <table className="w-full text-left border-collapse text-sm sm:text-base">
+                <thead>
+                  <tr className="border-b border-border/70 bg-muted/40 text-xs font-heading font-bold uppercase text-muted-foreground">
+                    <th className="py-3 px-4">
+                      {locale === "vi"
+                        ? "Giai đoạn máy chủ"
+                        : "Server Progression Stage"}
+                    </th>
+                    <th className="py-3 px-4">
+                      {locale === "vi"
+                        ? "Ưu tiên 1 (Mua bắt buộc)"
+                        : "Priority 1 (Must-Buy)"}
+                    </th>
+                    <th className="py-3 px-4">
+                      {locale === "vi"
+                        ? "Ưu tiên 2 (Khi dư xu)"
+                        : "Priority 2 (Surplus)"}
+                    </th>
+                    <th className="py-3 px-4">
+                      {locale === "vi"
+                        ? "Bỏ qua (Bẫy tài nguyên)"
+                        : "Skip (Bait Items)"}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-border/50">
+                  {sixTables.section6ShopPriorityByStage.map((row) => (
+                    <tr key={row.stageId}>
+                      <td className="py-3 px-4 font-semibold text-foreground">
+                        {row.stageLabel[locale]}
+                      </td>
+                      <td className="py-3 px-4 font-medium text-emerald-600 dark:text-emerald-400">
+                        {row.priority1MustBuy[locale]}
+                      </td>
+                      <td className="py-3 px-4 text-amber-600 dark:text-amber-400">
+                        {row.priority2SurplusBuy[locale]}
+                      </td>
+                      <td className="py-3 px-4 text-rose-600 dark:text-rose-400">
+                        {row.skipBaitItems[locale]}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
 
         <div className="divide-y divide-border/50">
           {sixTables.section6ProMechanics.map((mech) => (

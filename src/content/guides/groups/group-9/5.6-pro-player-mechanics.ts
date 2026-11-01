@@ -321,7 +321,7 @@ export const ARTICLE_5_6_PRO_PLAYER_MECHANICS: GuideArticle = {
                 {
                   id: "chk-56-5",
                   label: {
-                    vi: "Đã kiểm tra lịch Ca 4 Tiếng (02:00 / 06:00 / 14:00 UTC) trùng khớp với GAR / KvK và Mini-Rush trước khi xả kho.",
+                    vi: "Đã kiểm tra lịch Ca 4 Tiếng lúc 02:00 UTC (09:00 Giờ VN) hoặc 14:00 UTC (21:00 Giờ VN) trùng khớp với GAR / KvK và Mini-Rush trước khi xả kho.",
                     en: "Verified the 4-Hour Sprint schedule (02:00 / 06:00 / 14:00 UTC) matches GAR / KvK and Mini-Rush before dumping.",
                   },
                   detail: {
@@ -380,8 +380,8 @@ export const ARTICLE_5_6_PRO_PLAYER_MECHANICS: GuideArticle = {
             en: "Case Study: Accidentally Tapping a Castle Lv.30 Gift Box on Sunday Night Before GAR",
           },
           profileSummary: {
-            vi: "Người chơi đã chờ 9 ngày để xây xong Lâu Đài Lv.30 vào lúc 21:00 UTC tối Chủ Nhật (chỉ còn 3 tiếng nữa là mở Ngày 1 của Đua Vũ Trang Bang Hội — GAR), nhưng quen tay bấm luôn vào hộp quà trên nóc Lâu Đài.",
-            en: "A player waited 9 days for Castle Lv.30 to finish at 21:00 UTC on Sunday night (just 3 hours before GAR Day 1 opens), then reflexively tapped the floating Castle gift box.",
+            vi: "Người chơi đã chờ 9 ngày để xây xong Lâu Đài Lv.30 vào lúc 22:00 UTC (05:00 Giờ VN) trước giờ mở Ngày 1 của Đua Vũ Trang Bang Hội (GAR), nhưng quen tay bấm luôn vào hộp quà trên nóc Lâu Đài.",
+            en: "A player waited 9 days for Castle Lv.30 to finish at 22:00 UTC on Sunday night (just 2 hours before GAR Day 1 opens), then reflexively tapped the floating Castle gift box.",
           },
           diagnostics: [
             {

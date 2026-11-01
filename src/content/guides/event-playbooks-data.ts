@@ -2,8 +2,17 @@ import type {
   EventPlaybookArticleCode,
   EventPlaybookRecord,
   EventSeasonTag,
+  EventServerStageId,
 } from "./types";
 import { buildEventSixTablesData } from "./event-six-tables-data";
+import { ADDITIONAL_CATALOG_PLAYBOOKS_DATA } from "./event-catalog-stages-data";
+
+const STAGE_1_CANONICAL_IDS = new Set([
+  "top-lord",
+  "butterfly-catching",
+  "giant-troll-raid",
+  "dark-empire-and-legion",
+]);
 
 /**
  * ZONE II PART 3 — S0 ➔ GAR EVENT PLAYBOOKS SSoT DATA (10 CANONICAL EVENTS)
@@ -2926,7 +2935,15 @@ const PLAYBOOKS_PART_2: readonly EventPlaybookRecord[] = [
 export const EVENT_PLAYBOOKS_DATA: readonly EventPlaybookRecord[] = [
   // PLAYBOOKS_PART_1 merged below
   // PLAYBOOKS_PART_2 merged below
-  ...([...PLAYBOOKS_PART_1, ...PLAYBOOKS_PART_2].map((item) => ({ ...item, sixTables: buildEventSixTablesData(item) }))),
+  ...([...PLAYBOOKS_PART_1, ...PLAYBOOKS_PART_2].map((item) => {
+    const enriched: EventPlaybookRecord = {
+      ...item,
+      serverStage: STAGE_1_CANONICAL_IDS.has(item.id) ? "stage_1" : "stage_2",
+      isPureRecharge: false,
+      hasShop: true,
+    };
+    return { ...enriched, sixTables: buildEventSixTablesData(enriched) };
+  })),
   // end EVENT_PLAYBOOKS_DATA
 ];
 
@@ -2938,7 +2955,7 @@ export function getPlaybooksByArticleCode(
 }
 
 export function getPlaybookById(id: string): EventPlaybookRecord | undefined {
-  return EVENT_PLAYBOOKS_DATA.find((item) => item.id === id);
+  return EVENT_CATALOG_PLAYBOOKS_DATA.find((item) => item.id === id);
 }
 
 export function filterPlaybooksBySeason(
@@ -2947,4 +2964,59 @@ export function filterPlaybooksBySeason(
 ): readonly EventPlaybookRecord[] {
   if (season === "ALL") return playbooks;
   return playbooks.filter((item) => item.seasons.includes(season));
+}
+
+
+export const EVENT_CATALOG_PLAYBOOKS_DATA: readonly EventPlaybookRecord[] = [
+  ...EVENT_PLAYBOOKS_DATA,
+  ...ADDITIONAL_CATALOG_PLAYBOOKS_DATA.map((item) => ({
+    ...item,
+    sixTables: buildEventSixTablesData(item),
+  })),
+];
+
+export function filterCatalogEvents(
+  events: readonly EventPlaybookRecord[],
+  stage: EventServerStageId | "ALL",
+  query: string
+): readonly EventPlaybookRecord[] {
+  const normalized = query.trim().toLowerCase();
+  return events.filter((ev) => {
+    const matchStage =
+      stage === "ALL" || (ev.serverStage ?? "stage_1") === stage;
+    if (!matchStage) return false;
+    if (!normalized) return true;
+    return (
+      ev.name.vi.toLowerCase().includes(normalized) ||
+      ev.name.en.toLowerCase().includes(normalized) ||
+      ev.id.toLowerCase().includes(normalized) ||
+      ev.s0TimingBadge.vi.toLowerCase().includes(normalized) ||
+      ev.s0TimingBadge.en.toLowerCase().includes(normalized)
+    );
+  });
+}
+
+export interface PaginatedCatalogResult {
+  readonly items: readonly EventPlaybookRecord[];
+  readonly totalItems: number;
+  readonly totalPages: number;
+  readonly currentPage: number;
+}
+
+export function paginateCatalogEvents(
+  events: readonly EventPlaybookRecord[],
+  page: number,
+  pageSize = 10
+): PaginatedCatalogResult {
+  const safeSize = Math.max(1, Math.min(10, pageSize));
+  const totalItems = events.length;
+  const totalPages = Math.max(1, Math.ceil(totalItems / safeSize));
+  const currentPage = Math.max(1, Math.min(page, totalPages));
+  const startIdx = (currentPage - 1) * safeSize;
+  return {
+    items: events.slice(startIdx, startIdx + safeSize),
+    totalItems,
+    totalPages,
+    currentPage,
+  };
 }

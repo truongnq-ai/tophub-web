@@ -8,8 +8,12 @@ import {
   getPlaybooksByArticleCode,
   getPlaybookById,
   filterPlaybooksBySeason,
+  EVENT_CATALOG_PLAYBOOKS_DATA,
+  filterCatalogEvents,
+  paginateCatalogEvents,
 } from "../src/content/guides/event-playbooks-data";
 import { EventPlaybookExplorerWidget } from "../src/components/guides/widgets/event-playbook-explorer-widget";
+import { EventEncyclopediaFlatView } from "../src/components/guides/widgets/event-encyclopedia-flat-view";
 import type { GuideArticle } from "../src/content/guides/types";
 import { ARTICLE_3_1_BIWEEKLY_ROTATION } from "../src/content/guides/groups/group-3/3.1-biweekly-rotation";
 import { ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR } from "../src/content/guides/groups/group-4/4.1-preseason-mythic-calendar";
@@ -392,5 +396,108 @@ describe("Zone II Part 3 — Suite 4: Group 9 Category, 3 Articles (9.1..9.3) & 
         ).toBe(false);
       }
     }
+  });
+});
+
+
+describe("Zone II Part 3 — Suite 5: 90-Event Stage-Separated Catalog & Business Rules (Task 1)", () => {
+  it("provides 90 decoded events in EVENT_CATALOG_PLAYBOOKS_DATA separated into stage_1 (28), stage_2 (36), and stage_3 (26)", () => {
+    expect(EVENT_CATALOG_PLAYBOOKS_DATA.length).toBeGreaterThanOrEqual(90);
+
+    const stage1 = filterCatalogEvents(EVENT_CATALOG_PLAYBOOKS_DATA, "stage_1", "");
+    const stage2 = filterCatalogEvents(EVENT_CATALOG_PLAYBOOKS_DATA, "stage_2", "");
+    const stage3 = filterCatalogEvents(EVENT_CATALOG_PLAYBOOKS_DATA, "stage_3", "");
+
+    expect(stage1.length).toBe(28);
+    expect(stage2.length).toBe(36);
+    expect(stage3.length).toBe(26);
+    expect(stage1.length + stage2.length + stage3.length).toBe(EVENT_CATALOG_PLAYBOOKS_DATA.length);
+  });
+
+  it("paginates catalog events at max 10 events per page (2 rows x 5 columns)", () => {
+    const page1 = paginateCatalogEvents(EVENT_CATALOG_PLAYBOOKS_DATA, 1, 10);
+    expect(page1.items).toHaveLength(10);
+    expect(page1.totalPages).toBe(9);
+    expect(page1.currentPage).toBe(1);
+
+    const page9 = paginateCatalogEvents(EVENT_CATALOG_PLAYBOOKS_DATA, 9, 10);
+    expect(page9.items).toHaveLength(10);
+    expect(page9.currentPage).toBe(9);
+  });
+
+  it("enforces Section 5 pure-recharge saving rule and Section 6 stage-based shop purchase priority across all 90 events", () => {
+    const pureRechargeEvents = EVENT_CATALOG_PLAYBOOKS_DATA.filter((e) => e.isPureRecharge);
+    expect(pureRechargeEvents.length).toBeGreaterThanOrEqual(8);
+
+    for (const ev of EVENT_CATALOG_PLAYBOOKS_DATA) {
+      assertValidWebpOnDisk(ev.iconPath, `${ev.id}.iconPath`);
+      expect(ev.sixTables).toBeDefined();
+
+      if (ev.isPureRecharge) {
+        expect(ev.sixTables!.section5HoardingPlan.rechargeSavingAdvice).toBeDefined();
+        expect(ev.sixTables!.section5HoardingPlan.rechargeSavingAdvice!.vi.length).toBeGreaterThan(25);
+        expect(ev.sixTables!.section5HoardingPlan.rechargeSavingAdvice!.en.length).toBeGreaterThan(25);
+      }
+
+      if (ev.hasShop !== false) {
+        const priorities = ev.sixTables!.section6ShopPriorityByStage;
+        expect(priorities).toBeDefined();
+        expect(priorities!.length).toBe(3);
+      }
+
+      const enStrings = collectEnglishStrings(ev);
+      for (const str of enStrings) {
+        expect(
+          VI_DIACRITIC_REGEX.test(str),
+          `Event ${ev.id} EN string has Vietnamese diacritics: ${str}`
+        ).toBe(false);
+      }
+    }
+  });
+});
+
+
+describe("Zone II Part 3 — Suite 6: 2x5 Paginated Catalog Grid & 6 Concise Sections UI (Task 2)", () => {
+  it("renders a 2x5 paginated event catalog (max 10 cards per page) with stage filters and updates 6 concise sections on click", () => {
+    render(<EventEncyclopediaFlatView />);
+
+    const grid = screen.getByTestId("event-catalog-grid-2x5");
+    expect(grid.className).toContain("lg:grid-cols-5");
+
+    const cardsPage1 = screen.getAllByTestId(/^catalog-event-card-/);
+    expect(cardsPage1).toHaveLength(10);
+
+    // Navigate to Page 2
+    const page2Btn = screen.getByTestId("catalog-page-btn-2");
+    fireEvent.click(page2Btn);
+    const cardsPage2 = screen.getAllByTestId(/^catalog-event-card-/);
+    expect(cardsPage2).toHaveLength(10);
+
+    // Filter by Stage 1 (Tân thủ Ngày 1-39) and select Pure Recharge event (first-recharge-gift)
+    const stage1Tab = screen.getByTestId("catalog-stage-tab-stage_1");
+    fireEvent.click(stage1Tab);
+
+    const pureRechargeCard = screen.getByTestId("catalog-event-card-first-recharge-gift");
+    fireEvent.click(pureRechargeCard);
+
+    // Verify 6 concise section headings
+    expect(screen.getByTestId("flat-section-5.1").textContent).toContain("1. Thời gian & Thể lệ");
+    expect(screen.getByTestId("flat-section-5.2").textContent).toContain("2. Nhiệm vụ & Mốc điểm");
+    expect(screen.getByTestId("flat-section-5.3").textContent).toContain("3. Cửa hàng & Vật phẩm rơi");
+    expect(screen.getByTestId("flat-section-5.4").textContent).toContain("4. Gói nạp & Phân tích ROI");
+    expect(screen.getByTestId("flat-section-5.5").textContent).toContain("5. Kế hoạch tích trữ");
+    expect(screen.getByTestId("flat-section-5.6").textContent).toContain("6. Mẹo thực hiện");
+
+    // Verify Section 5 Pure-Recharge Saving Advice is rendered
+    const savingAdvice = screen.getByTestId("pure-recharge-saving-advice");
+    expect(savingAdvice.textContent).toContain("tiết kiệm ngân sách");
+
+    // Select an event with a shop (top-lord) and verify Section 6 Shop Priority By Stage Table
+    const topLordCard = screen.getByTestId("catalog-event-card-top-lord");
+    fireEvent.click(topLordCard);
+    const priorityTable = screen.getByTestId("shop-priority-by-stage-table");
+    expect(priorityTable.textContent).toContain("Giai đoạn 1: Tân thủ & Pre-Season");
+    expect(priorityTable.textContent).toContain("Giai đoạn 2: Giữa Game & Mùa Giải S1–S2");
+    expect(priorityTable.textContent).toContain("Giai đoạn 3: Cuối Game & S3+ Endgame");
   });
 });

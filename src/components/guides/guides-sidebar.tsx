@@ -27,6 +27,10 @@ import {
   getCategoriesInDisplayOrder,
   searchGuides,
 } from "@/content/guides/registry";
+import {
+  EVENT_CATALOG_PLAYBOOKS_DATA,
+  filterCatalogEvents,
+} from "@/content/guides/event-playbooks-data";
 import type {
   GuideBadgeType,
   GuideCategoryIconName,
@@ -374,6 +378,74 @@ function SidebarNavigationTree({
                               </Link>
                             );
                           })}
+
+                          {category.slug === "event-playbooks" && (
+                            <div className="pt-2 mt-2 border-t border-border/60 space-y-2">
+                              {(
+                                [
+                                  {
+                                    id: "stage_1" as const,
+                                    labelVi: "Giai đoạn 1: Tân thủ (Ngày 1–39)",
+                                    labelEn: "Stage 1: Early Server (Days 1–39)",
+                                  },
+                                  {
+                                    id: "stage_2" as const,
+                                    labelVi: "Giai đoạn 2: Chu kỳ Tuần & 10 Tuần",
+                                    labelEn: "Stage 2: Weekly & 10-Week Cycle",
+                                  },
+                                  {
+                                    id: "stage_3" as const,
+                                    labelVi: "Giai đoạn 3: Mùa S1–S3 & Lễ Hội",
+                                    labelEn: "Stage 3: Seasons S1–S3 & Festivals",
+                                  },
+                                ] as const
+                              ).map((stageGroup) => {
+                                const stageEvents = filterCatalogEvents(
+                                  EVENT_CATALOG_PLAYBOOKS_DATA,
+                                  stageGroup.id,
+                                  ""
+                                );
+                                return (
+                                  <div
+                                    key={stageGroup.id}
+                                    data-testid={`sidebar-event-stage-group-${stageGroup.id}`}
+                                    className="space-y-1"
+                                  >
+                                    <div className="px-2 py-1 text-xs font-heading font-bold text-amber-600 dark:text-amber-400">
+                                      {locale === "vi"
+                                        ? `${stageGroup.labelVi} (${stageEvents.length})`
+                                        : `${stageGroup.labelEn} (${stageEvents.length})`}
+                                    </div>
+                                    <div className="max-h-44 overflow-y-auto space-y-1 pr-1">
+                                      {stageEvents.map((ev) => (
+                                        <button
+                                          key={ev.id}
+                                          type="button"
+                                          data-testid={`sidebar-event-item-${ev.id}`}
+                                          onClick={() => {
+                                            if (typeof window !== "undefined") {
+                                              window.dispatchEvent(
+                                                new CustomEvent(
+                                                  "tophub:select-event",
+                                                  { detail: { eventId: ev.id } }
+                                                )
+                                              );
+                                            }
+                                            handleArticleClick();
+                                          }}
+                                          className="w-full text-left flex items-center justify-between gap-1.5 rounded-lg px-2.5 py-1.5 text-xs text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors min-h-[44px] cursor-pointer"
+                                        >
+                                          <span className="line-clamp-1">
+                                            {ev.name[locale]}
+                                          </span>
+                                        </button>
+                                      ))}
+                                    </div>
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          )}
                         </div>
                       </AccordionContent>
                     </AccordionItem>

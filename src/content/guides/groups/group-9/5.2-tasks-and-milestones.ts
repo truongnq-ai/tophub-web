@@ -182,7 +182,7 @@ export const ARTICLE_5_2_TASKS_AND_MILESTONES: GuideArticle = {
                     en: "STEP 2: DUMP HIGH-MULTIPLIER MATERIALS IN GOLDEN WINDOWS",
                   },
                   badge: {
-                    vi: "02:00 / 06:00 UTC",
+                    vi: "02:00 UTC (09:00 Giờ VN)",
                     en: "02:00 / 06:00 UTC",
                   },
                   tone: "gold",

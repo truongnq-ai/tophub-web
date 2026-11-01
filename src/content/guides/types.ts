@@ -457,6 +457,16 @@ export interface CodexFilterState {
 
 export type EventSeasonTag = "ALL" | "S0" | "S1" | "S2" | "S3" | "S4";
 
+export type EventServerStageId = "stage_1" | "stage_2" | "stage_3";
+
+export interface EventStageShopPriorityRow {
+  readonly stageId: "S0" | "S1_S2" | "S3_PLUS";
+  readonly stageLabel: LocalizedText;
+  readonly priority1MustBuy: LocalizedText;
+  readonly priority2SurplusBuy: LocalizedText;
+  readonly skipBaitItems: LocalizedText;
+}
+
 export type EventPlaybookArticleCode =
   | "5.1"
   | "5.2"
@@ -594,14 +604,20 @@ export interface EventEncyclopediaSixTableData {
   readonly section5HoardingPlan: {
     readonly shortTermTargets: readonly EventPlaybookHoardItem[];
     readonly longTermRoadmap: readonly EventLongTermRoadmapStep[];
+    readonly rechargeSavingAdvice?: LocalizedText;
   };
   readonly section6ProMechanics: readonly EventProMechanicItem[];
+  readonly section6ShopPriorityByStage?: readonly EventStageShopPriorityRow[];
 }
 
 export interface EventPlaybookRecord {
   readonly id: string;
   readonly articleCode: EventPlaybookArticleCode;
   readonly seasons: readonly ("S0" | "S1" | "S2" | "S3" | "S4")[];
+  readonly serverStage?: EventServerStageId;
+  readonly isPureRecharge?: boolean;
+  readonly hasShop?: boolean;
+  readonly activityTableId?: string;
   readonly iconPath: string;
   readonly rarity: AssetRarity;
   readonly faction?: AssetFaction;

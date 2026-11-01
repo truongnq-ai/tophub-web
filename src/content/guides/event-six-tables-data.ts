@@ -799,6 +799,27 @@ export function buildEventSixTablesData(
 ): EventEncyclopediaSixTableData {
   const meta =
     EVENT_SPECIFIC_METADATA[record.id] ?? EVENT_SPECIFIC_METADATA["top-lord"];
+  const tierS = record.economy.shopTierList.filter((i) => i.tier === "S");
+  const tierA = record.economy.shopTierList.filter((i) => i.tier === "A");
+  const tierF = record.economy.shopTierList.filter((i) => i.tier === "F");
+  const sNamesVi =
+    tierS.map((i) => i.itemName.vi).join(" + ") ||
+    "Mảnh Tướng Vạn Năng & Vật phẩm giới hạn";
+  const sNamesEn =
+    tierS.map((i) => i.itemName.en).join(" + ") ||
+    "Universal Hero Shards & Capped Core Items";
+  const aNamesVi =
+    tierA.map((i) => i.itemName.vi).join(" + ") ||
+    "Đá Hồn / Orichalcum / Nguyên liệu bậc cao";
+  const aNamesEn =
+    tierA.map((i) => i.itemName.en).join(" + ") ||
+    "Soul Stones / Orichalcum / High-tier Materials";
+  const fNamesVi =
+    tierF.map((i) => i.itemName.vi).join(" + ") ||
+    "Tài nguyên thường (Gỗ/Thịt/Đá) & Mảnh Tím";
+  const fNamesEn =
+    tierF.map((i) => i.itemName.en).join(" + ") ||
+    "Basic Resources (Wood/Meat/Stone) & Purple Shards";
 
   return {
     table1TimelineRules: {
@@ -878,6 +899,12 @@ export function buildEventSixTablesData(
     },
     section5HoardingPlan: {
       shortTermTargets: record.hoardingItems,
+      rechargeSavingAdvice: record.isPureRecharge
+        ? {
+            vi: "Mẹo tối ưu ngân sách nạp: Sự kiện này thuần nạp tiền/mua gói không có đạo cụ tích trữ. Nếu bạn không dư giả, hãy tiết kiệm ngân sách bằng cách nhịn mua những gói nạp lẻ kém hợp lý (pop-up 100%–150% ROI) ở các sự kiện trước đó để dồn ngân sách sang mua gói hiện tại nhằm nhận kép cả thưởng gói lẫn mốc tích nạp sự kiện.",
+            en: "Budget Optimization Tip: This is a pure recharge/pack event with no hoardable tokens. If you are on a tight budget, skip low-efficiency pop-up bundles (100%–150% ROI) in prior events and concentrate your budget into this event's high-ROI packs to double-dip both pack contents and cumulative recharge milestones.",
+          }
+        : undefined,
       longTermRoadmap: [
         {
           horizonLabel: {
@@ -917,6 +944,68 @@ export function buildEventSixTablesData(
         },
       ],
     },
+    section6ShopPriorityByStage:
+      record.hasShop === false
+        ? undefined
+        : [
+            {
+              stageId: "S0",
+              stageLabel: {
+                vi: "Giai đoạn 1: Tân thủ & Pre-Season (S0 — Ngày 1–39)",
+                en: "Stage 1: Early Server & Pre-Season (S0 — Days 1–39)",
+              },
+              priority1MustBuy: {
+                vi: `Ưu tiên 1 (Mua kịch trần): ${sNamesVi}`,
+                en: `Priority 1 (Buy out 100%): ${sNamesEn}`,
+              },
+              priority2SurplusBuy: {
+                vi: `Ưu tiên 2 (Khi dư xu): ${aNamesVi} & Tăng Tốc Nghiên Cứu/Xây Dựng`,
+                en: `Priority 2 (With surplus currency): ${aNamesEn} & Research/Construction Speedups`,
+              },
+              skipBaitItems: {
+                vi: `Bỏ qua tuyệt đối: ${fNamesVi}`,
+                en: `Strictly Skip: ${fNamesEn}`,
+              },
+            },
+            {
+              stageId: "S1_S2",
+              stageLabel: {
+                vi: "Giai đoạn 2: Giữa Game & Mùa Giải S1–S2 (Castle 30–40)",
+                en: "Stage 2: Mid-Game & Seasons S1–S2 (Castle 30–40)",
+              },
+              priority1MustBuy: {
+                vi: `Ưu tiên 1 (Mua kịch trần): Đá Linh Hồn (Soul Stone), Vũ Khí Độc Quyền & ${sNamesVi}`,
+                en: `Priority 1 (Buy out 100%): Soul Stones, Exclusive Weapon Shards & ${sNamesEn}`,
+              },
+              priority2SurplusBuy: {
+                vi: `Ưu tiên 2 (Khi dư xu): Tinh Hoa Rồng (Dragon Essence), Orichalcum & ${aNamesVi}`,
+                en: `Priority 2 (With surplus currency): Dragon Essence, Orichalcum & ${aNamesEn}`,
+              },
+              skipBaitItems: {
+                vi: `Bỏ qua tuyệt đối: Rương Trang Bị Tím/Vàng thường & ${fNamesVi}`,
+                en: `Strictly Skip: Standard Purple/Gold Gear Chests & ${fNamesEn}`,
+              },
+            },
+            {
+              stageId: "S3_PLUS",
+              stageLabel: {
+                vi: "Giai đoạn 3: Cuối Game & S3+ Endgame (Brilliance Lv.1–3)",
+                en: "Stage 3: Late-Game & S3+ Endgame (Brilliance Lv.1–3)",
+              },
+              priority1MustBuy: {
+                vi: `Ưu tiên 1 (Mua kịch trần): Tinh Hoa Rồng, Cổ Vật Thần Thoại, Skin & ${sNamesVi}`,
+                en: `Priority 1 (Buy out 100%): Dragon Essence, Mythic Relics, Skins & ${sNamesEn}`,
+              },
+              priority2SurplusBuy: {
+                vi: `Ưu tiên 2 (Khi dư xu): Đá Cổ Ngữ Cấp 5+, Thức Ăn Thú Cưng Hiếm & ${aNamesVi}`,
+                en: `Priority 2 (With surplus currency): Lv.5+ Runes, Rare Pet Food & ${aNamesEn}`,
+              },
+              skipBaitItems: {
+                vi: `Bỏ qua tuyệt đối: Tăng tốc lẻ giá đắt & ${fNamesVi}`,
+                en: `Strictly Skip: Overpriced loose speedups & ${fNamesEn}`,
+              },
+            },
+          ],
     section6ProMechanics: [
       {
         mechanicId: "pre_building",

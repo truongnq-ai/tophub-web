@@ -223,3 +223,23 @@ describe("GuidesSidebar (Phase 1 Hardened Redesign & Phase 3.1 Google MD3 Audit)
     ).toBeDefined();
   });
 });
+
+
+describe("GuidesSidebar — Category 5 Stage-Grouped Event Selector (Task 3)", () => {
+  it("renders 3 Server Stage event groups (stage_1, stage_2, stage_3) inside Category 5 ('5. Danh sách event') and dispatches event selection", () => {
+    render(<GuidesSidebar />);
+
+    const cat5Btn = screen.getByRole("button", {
+      name: /^5\.\s*Danh sách event$/i,
+    });
+    fireEvent.click(cat5Btn);
+
+    expect(screen.getByTestId("sidebar-event-stage-group-stage_1")).toBeDefined();
+    expect(screen.getByTestId("sidebar-event-stage-group-stage_2")).toBeDefined();
+    expect(screen.getByTestId("sidebar-event-stage-group-stage_3")).toBeDefined();
+
+    const topLordItem = screen.getByTestId("sidebar-event-item-top-lord");
+    expect(topLordItem).toBeDefined();
+    fireEvent.click(topLordItem);
+  });
+});
