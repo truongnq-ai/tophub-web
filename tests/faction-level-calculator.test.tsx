@@ -29,6 +29,15 @@ describe("2.2 Cấp Phe Phái — Quantitative SSoT Engine (Lv.1 ➔ Lv.80)", ()
     expect(FACTION_MAX_LEVEL).toBe(80);
     expect(FACTION_LEVEL_TABLE).toHaveLength(80);
     expect(Object.keys(FACTION_CONFIGS)).toEqual(["league", "horde", "nature"]);
+    expect(FACTION_CONFIGS.league.defaultHeroIconPath).toBe(
+      "/images/heroes/avatars/Head_10033.webp"
+    );
+    expect(FACTION_CONFIGS.horde.defaultHeroIconPath).toBe(
+      "/images/heroes/avatars/Head_10039.webp"
+    );
+    expect(FACTION_CONFIGS.nature.defaultHeroIconPath).toBe(
+      "/images/heroes/avatars/Head_10044.webp"
+    );
 
     const lv1 = getFactionLevelRow(1, "ssot_verified");
     expect(lv1.bars).toBe(1);

@@ -33,7 +33,7 @@ export const FACTION_CONFIGS: Record<FactionId, FactionConfig> = {
       vi: "Phe Liên Minh • Khắc chế Thiên Nhiên (+20% sát thương khắc hệ)",
       en: "League Faction • Counters Nature (+20% counter damage)",
     },
-    defaultHeroIconPath: "/images/heroes/icon_paragon.webp",
+    defaultHeroIconPath: "/images/heroes/avatars/Head_10033.webp",
     soulStoneMaterial: CALCULATOR_MATERIALS.leagueSoulStone,
   },
   horde: {
@@ -43,7 +43,7 @@ export const FACTION_CONFIGS: Record<FactionId, FactionConfig> = {
       vi: "Phe Bộ Tộc • Khắc chế Liên Minh (+20% sát thương khắc hệ)",
       en: "Horde Faction • Counters League (+20% counter damage)",
     },
-    defaultHeroIconPath: "/images/heroes/icon_desert_prince.webp",
+    defaultHeroIconPath: "/images/heroes/avatars/Head_10039.webp",
     soulStoneMaterial: CALCULATOR_MATERIALS.hordeSoulStone,
   },
   nature: {
@@ -53,7 +53,7 @@ export const FACTION_CONFIGS: Record<FactionId, FactionConfig> = {
       vi: "Phe Thiên Nhiên • Khắc chế Bộ Tộc (+20% sát thương khắc hệ)",
       en: "Nature Faction • Counters Horde (+20% counter damage)",
     },
-    defaultHeroIconPath: "/images/heroes/icon_tidecaller.webp",
+    defaultHeroIconPath: "/images/heroes/avatars/Head_10044.webp",
     soulStoneMaterial: CALCULATOR_MATERIALS.natureSoulStone,
   },
 };

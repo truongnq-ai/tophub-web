@@ -4,6 +4,10 @@ import { render, screen, fireEvent, act } from "@testing-library/react";
 import viMessages from "../messages/vi.json";
 import enMessages from "../messages/en.json";
 import { ARTICLE_2_1_ENCYCLOPEDIA } from "../src/content/guides/groups/group-2/2.1-encyclopedia";
+import { ARTICLE_2_2_META_LINEUPS } from "../src/content/guides/groups/group-2/2.2-meta-lineups";
+import { ARTICLE_2_3_FORMATION_COUNTERS } from "../src/content/guides/groups/group-2/2.3-formation-and-counters";
+import { ARTICLE_2_4_SHARDS_SKILL_BOOKS } from "../src/content/guides/groups/group-2/2.4-shards-and-skill-books";
+import { ARTICLE_2_5_EPIC_HERO_TRAITS } from "../src/content/guides/groups/group-2/2.5-epic-hero-traits";
 import { ARTICLE_3_1_BIWEEKLY_ROTATION } from "../src/content/guides/groups/group-3/3.1-biweekly-rotation";
 import { ARTICLE_3_4_DOUBLE_DIP_SCHEDULE } from "../src/content/guides/groups/group-3/3.4-double-dip-schedule";
 import { ARTICLE_8_4_MASTER_DATA_TABLES } from "../src/content/guides/groups/group-8/8.4-master-data-tables";
@@ -769,7 +773,7 @@ describe("Phase 3 — Interactive Widgets & GuideArticleRenderer Integration", (
         expect(slotImgs.length).toBe(4);
         for (const img of slotImgs) {
           const src = img.getAttribute("src") ?? "";
-          expect(src).toMatch(/^\/images\/equipment\/hero-gear\/icon_400\d\d\.webp$/);
+          expect(src).toMatch(/^\/images\/equipment\/hero-gear\/icon_4[0125]0\d\d\.webp$/);
           expect(fs.existsSync(path.join(publicDir, src.replace(/^\//, "")))).toBe(true);
         }
 
@@ -1115,8 +1119,19 @@ describe("Phase 3 — Interactive Widgets & GuideArticleRenderer Integration", (
   });
 
   describe("Suite 4 Tail", () => {
-    it("noop", () => {
-      expect(true).toBe(true);
+    it("verifies all Group 2 articles (2.1..2.5) have zero legacy /images/guides/ paths and zero fake .webp filenames (Step 3 AUD-ART-001..006)", () => {
+      const group2Articles = [
+        ARTICLE_2_1_ENCYCLOPEDIA,
+        ARTICLE_2_2_META_LINEUPS,
+        ARTICLE_2_3_FORMATION_COUNTERS,
+        ARTICLE_2_4_SHARDS_SKILL_BOOKS,
+        ARTICLE_2_5_EPIC_HERO_TRAITS,
+      ];
+      const rawJson = JSON.stringify(group2Articles);
+      expect(rawJson).not.toContain("/images/guides/");
+      expect(rawJson).not.toContain("universal-legendary-shard.webp");
+      expect(rawJson).not.toContain("soul-stone-horde.webp");
+      expect(rawJson).not.toContain("epic-skill-book.webp");
     });
   });
 });

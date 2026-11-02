@@ -26,7 +26,7 @@ const PLAYBOOKS_PART_1: readonly EventPlaybookRecord[] = [
     id: "top-lord",
     articleCode: "9.1",
     seasons: ["S0", "S1", "S2", "S3", "S4"],
-    iconPath: "/images/events/entry-icons/Activity_106.webp",
+    iconPath: "/images/events/entry-icons/Activity_624.webp",
     rarity: "mythic",
     faction: "league",
     name: {
@@ -108,7 +108,7 @@ const PLAYBOOKS_PART_1: readonly EventPlaybookRecord[] = [
           vi: "Mảnh Anh Hùng Vạn Năng (Universal Hero Shard)",
           en: "Universal Hero Shard",
         },
-        iconPath: "/images/items/shards/icon_30175.webp",
+        iconPath: "/images/items/shards/icon_30177.webp",
         rarity: "legendary",
         targetAmount: {
           vi: "50 – 100 Mảnh Vàng dự trữ",
@@ -331,7 +331,7 @@ const PLAYBOOKS_PART_1: readonly EventPlaybookRecord[] = [
             vi: "Mảnh Anh Hùng Vạn Năng (Universal Hero Shard)",
             en: "Universal Hero Shard",
           },
-          iconPath: "/images/items/shards/icon_30175.webp",
+          iconPath: "/images/items/shards/icon_30177.webp",
           rarity: "legendary",
           costAndCap: {
             vi: "Ưu tiên số 1 — Mua kịch trần giới hạn tuần",
@@ -367,7 +367,7 @@ const PLAYBOOKS_PART_1: readonly EventPlaybookRecord[] = [
             vi: "Đá Thăng Cấp / Rương Tài Nguyên Thường",
             en: "Basic Promotion Stone / Common Resource Chests",
           },
-          iconPath: "/images/items/materials/icon_30382.webp",
+          iconPath: "/images/items/chests/icon_30033.webp",
           rarity: "rare",
           costAndCap: {
             vi: "Không giới hạn — Cấm đổi bằng xu hiếm",
@@ -389,7 +389,7 @@ const PLAYBOOKS_PART_1: readonly EventPlaybookRecord[] = [
     id: "guild-race",
     articleCode: "9.1",
     seasons: ["S0", "S1", "S2", "S3", "S4"],
-    iconPath: "/images/events/entry-icons/Activity_109.webp",
+    iconPath: "/images/events/entry-icons/Activity_185.webp",
     rarity: "legendary",
     faction: "neutral",
     name: {
@@ -429,7 +429,7 @@ const PLAYBOOKS_PART_1: readonly EventPlaybookRecord[] = [
           vi: "Bình Thể Lực (Stamina Potions)",
           en: "Stamina Potions",
         },
-        iconPath: "/images/items/consumables/icon_30037.webp",
+        iconPath: "/images/items/currencies/icon_10007.webp",
         rarity: "epic",
         targetAmount: {
           vi: "20 – 40 Bình Thể Lực trong túi",
@@ -450,7 +450,7 @@ const PLAYBOOKS_PART_1: readonly EventPlaybookRecord[] = [
           vi: "Xu Cống Hiến & Tăng Tốc Ngắn Hạn",
           en: "Guild Coins & Short-Duration Speedups",
         },
-        iconPath: "/images/items/currencies/icon_10006.webp",
+        iconPath: "/images/items/currencies/icon_10008.webp",
         rarity: "rare",
         targetAmount: {
           vi: "15 – 25 Giờ Tăng Tốc Tổng Hợp",
@@ -471,7 +471,7 @@ const PLAYBOOKS_PART_1: readonly EventPlaybookRecord[] = [
           vi: "Lượt Nhiệm Vụ Treo Thưởng & Thức Ăn Thú Cưng",
           en: "Bounty Quests & Pet Food Reserves",
         },
-        iconPath: "/images/items/currencies/icon_10035.webp",
+        iconPath: "/images/items/consumables/icon_30468.webp",
         rarity: "epic",
         targetAmount: {
           vi: "10.000+ Thức Ăn Thú Cưng & 6 nhiệm vụ Bounty chờ thu hoạch",
@@ -616,7 +616,7 @@ const PLAYBOOKS_PART_1: readonly EventPlaybookRecord[] = [
             vi: "Mảnh Anh Hùng Vạn Năng (Universal Hero Shard)",
             en: "Universal Hero Shard",
           },
-          iconPath: "/images/items/shards/icon_30175.webp",
+          iconPath: "/images/items/shards/icon_30177.webp",
           rarity: "legendary",
           costAndCap: {
             vi: "Chỉ mua sau khi đã giữ sàn an toàn 6.000 Vinh Dự Bang",
@@ -634,7 +634,7 @@ const PLAYBOOKS_PART_1: readonly EventPlaybookRecord[] = [
             vi: "Rương Trang Bị Tím & Đá Cường Hóa Sơ Cấp",
             en: "Purple Gear Chest & Basic Enhancement Stones",
           },
-          iconPath: "/images/items/materials/icon_30382.webp",
+          iconPath: "/images/items/chests/icon_30255.webp",
           rarity: "rare",
           costAndCap: {
             vi: "Mọi mức giá — Cấm tuyệt đối dùng Vinh Dự Bang để đổi",
@@ -656,7 +656,7 @@ const PLAYBOOKS_PART_1: readonly EventPlaybookRecord[] = [
     id: "guild-arms-race",
     articleCode: "9.1",
     seasons: ["S0", "S1", "S2", "S3", "S4"],
-    iconPath: "/images/events/entry-icons/Activity_101.webp",
+    iconPath: "/images/events/entry-icons/Activity_74.webp",
     rarity: "mythic",
     faction: "horde",
     name: {
@@ -696,7 +696,7 @@ const PLAYBOOKS_PART_1: readonly EventPlaybookRecord[] = [
           vi: "Tinh Hoa Rồng (Dragon Essence) & Tăng Tốc Xây Dựng / Nghiên Cứu",
           en: "Dragon Essence & Construction / Research Speedups",
         },
-        iconPath: "/images/tech/research/icon_30417.webp",
+        iconPath: "/images/items/materials/icon_30417.webp",
         rarity: "mythic",
         targetAmount: {
           vi: "2.000+ Tinh Hoa Rồng & 60+ Giờ Tăng Tốc (Cho Ngày 1 & Ngày 2)",
@@ -738,7 +738,7 @@ const PLAYBOOKS_PART_1: readonly EventPlaybookRecord[] = [
           vi: "Mảnh Storm Maiden / Desert Prince, Mảnh Vạn Năng & Sách Kỹ Năng",
           en: "Storm Maiden / Desert Prince Shards, Universal Shards & Skill Books",
         },
-        iconPath: "/images/items/shards/icon_30175.webp",
+        iconPath: "/images/items/shards/icon_30177.webp",
         rarity: "mythic",
         targetAmount: {
           vi: "150–300 Mảnh Tướng + 200 Sách Kỹ Năng + 200 Vé Chiêu Mộ (Cho Ngày 4)",
@@ -759,7 +759,7 @@ const PLAYBOOKS_PART_1: readonly EventPlaybookRecord[] = [
           vi: "Thức Ăn Thú Cưng, Tinh Hoa Thú Cưng & Lính Chờ Thăng Cấp",
           en: "Pet Food, Pet Essence & Pre-trained Troops",
         },
-        iconPath: "/images/items/currencies/icon_10036.webp",
+        iconPath: "/images/items/consumables/icon_30468.webp",
         rarity: "legendary",
         targetAmount: {
           vi: "30.000+ Thức Ăn Thú Cưng + 3 đạo lính chờ Promote (Cho Ngày 5)",
@@ -982,7 +982,7 @@ const PLAYBOOKS_PART_1: readonly EventPlaybookRecord[] = [
             vi: "Tinh Hoa Rồng (Dragon Essence) & Mảnh Tướng Vạn Năng",
             en: "Dragon Essence & Universal Hero Shards",
           },
-          iconPath: "/images/tech/research/icon_30417.webp",
+          iconPath: "/images/items/materials/icon_30417.webp",
           rarity: "mythic",
           costAndCap: {
             vi: "Ưu tiên số 1 — Mua sạch giới hạn mỗi kỳ GAR",
@@ -1018,7 +1018,7 @@ const PLAYBOOKS_PART_1: readonly EventPlaybookRecord[] = [
             vi: "Thỏi Vàng / Gỗ / Đá / Thịt Lẻ",
             en: "Loose Gold Ingots / Wood / Stone / Meat",
           },
-          iconPath: "/images/items/consumables/icon_30222.webp",
+          iconPath: "/images/items/materials/icon_30370.webp",
           rarity: "common",
           costAndCap: {
             vi: "Không bao giờ dùng Huân Chương Vũ Trang để đổi tài nguyên thô",
@@ -1101,7 +1101,7 @@ const PLAYBOOKS_PART_1: readonly EventPlaybookRecord[] = [
           vi: "Xúc Xắc Kho Báu & Xu Gala Bảo Lưu",
           en: "Hoarded Treasure Dice & Carryover Gala Coins",
         },
-        iconPath: "/images/items/chests/icon_chest_Monopoly_DragonTraining.webp",
+        iconPath: "/images/items/chests/icon_30198.webp",
         rarity: "legendary",
         targetAmount: {
           vi: "60 hoặc 100 Xúc Xắc gom đủ 1 lần xả",
@@ -1122,7 +1122,7 @@ const PLAYBOOKS_PART_1: readonly EventPlaybookRecord[] = [
           vi: "Mảnh Vạn Năng Vàng (Chờ Ngày 4 GAR)",
           en: "Universal Hero Shards (Held for GAR Day 4)",
         },
-        iconPath: "/images/items/shards/icon_30175.webp",
+        iconPath: "/images/items/shards/icon_30177.webp",
         rarity: "legendary",
         targetAmount: {
           vi: "100 – 250 Mảnh Vạn Năng cho Storm Maiden",
@@ -1294,7 +1294,7 @@ const PLAYBOOKS_PART_1: readonly EventPlaybookRecord[] = [
             vi: "Rương Trang Trí Thần Thoại & Đá Linh Hồn Horde",
             en: "Mythic Decoration Chest & Horde Soul Stone",
           },
-          iconPath: "/images/items/shards/icon_30232.webp",
+          iconPath: "/images/items/shards/icon_30233.webp",
           rarity: "mythic",
           costAndCap: {
             vi: "Chỉ đổi khi đã có xác tướng hoặc giữ Xu bảo lưu sang kỳ sau",
@@ -1312,7 +1312,7 @@ const PLAYBOOKS_PART_1: readonly EventPlaybookRecord[] = [
             vi: "Mảnh Tướng Tím / Rương Tài Nguyên / Tăng Tốc Lẻ",
             en: "Purple Hero Shards / Resource Chests / Loose Speedups",
           },
-          iconPath: "/images/items/consumables/icon_30222.webp",
+          iconPath: "/images/items/shards/icon_30176.webp",
           rarity: "rare",
           costAndCap: {
             vi: "Cấm đổi — Hãy để Xu Xúc Xắc tự động bảo lưu sang kỳ sau!",
@@ -1334,7 +1334,7 @@ const PLAYBOOKS_PART_1: readonly EventPlaybookRecord[] = [
     id: "lucky-wheel",
     articleCode: "9.2",
     seasons: ["S0", "S1", "S2", "S3", "S4"],
-    iconPath: "/images/items/chests/icon_30059.webp",
+    iconPath: "/images/events/entry-icons/Activity_26.webp",
     rarity: "mythic",
     faction: "league",
     name: {
@@ -1416,7 +1416,7 @@ const PLAYBOOKS_PART_1: readonly EventPlaybookRecord[] = [
           vi: "Sách Kỹ Năng (Skill Books)",
           en: "Skill Books",
         },
-        iconPath: "/images/items/chests/icon_30032.webp",
+        iconPath: "/images/items/materials/icon_30361.webp",
         rarity: "epic",
         targetAmount: {
           vi: "150 – 300 Sách Kỹ Năng",
@@ -1543,7 +1543,7 @@ const PLAYBOOKS_PART_1: readonly EventPlaybookRecord[] = [
             vi: "Rương Vũ Khí Độc Quyền & Mảnh Tướng Chủ Lực",
             en: "Exclusive Weapon Chest & Core Hero Shards",
           },
-          iconPath: "/images/equipment/exclusive-weapons/equipment_Exclusive003.webp",
+          iconPath: "/images/items/shards/icon_30511.webp",
           rarity: "mythic",
           costAndCap: {
             vi: "Ưu tiên số 1 — Mở khóa kỹ năng trấn phái của tướng",
@@ -1561,7 +1561,7 @@ const PLAYBOOKS_PART_1: readonly EventPlaybookRecord[] = [
             vi: "Mảnh Anh Hùng Vạn Năng (Universal Hero Shard)",
             en: "Universal Hero Shard",
           },
-          iconPath: "/images/items/shards/icon_30175.webp",
+          iconPath: "/images/items/shards/icon_30177.webp",
           rarity: "legendary",
           costAndCap: {
             vi: "Đổi bằng điểm thưởng phụ sau khi đã lấy đủ mảnh tướng chính",
@@ -1579,7 +1579,7 @@ const PLAYBOOKS_PART_1: readonly EventPlaybookRecord[] = [
             vi: "Sách Kỹ Năng Lam & Đá Kinh Nghiệm Tướng",
             en: "Blue Skill Books & Hero EXP Potions",
           },
-          iconPath: "/images/items/materials/icon_30382.webp",
+          iconPath: "/images/items/consumables/icon_30360.webp",
           rarity: "common",
           costAndCap: {
             vi: "Cấm đổi bằng tiền tệ Vòng Quay",
@@ -1664,7 +1664,7 @@ const PLAYBOOKS_PART_2: readonly EventPlaybookRecord[] = [
           vi: "Đá Linh Hồn Horde (Horde Soul Stone)",
           en: "Horde Soul Stone",
         },
-        iconPath: "/images/items/shards/icon_30232.webp",
+        iconPath: "/images/items/shards/icon_30233.webp",
         rarity: "mythic",
         targetAmount: {
           vi: "2 – 4 Viên Đá Linh Hồn dự trữ",
@@ -1685,7 +1685,7 @@ const PLAYBOOKS_PART_2: readonly EventPlaybookRecord[] = [
           vi: "Mảnh Anh Hùng Vạn Năng (Universal Hero Shard)",
           en: "Universal Hero Shard",
         },
-        iconPath: "/images/items/shards/icon_30175.webp",
+        iconPath: "/images/items/shards/icon_30177.webp",
         rarity: "legendary",
         targetAmount: {
           vi: "100+ Mảnh Vạn Năng Vàng",
@@ -1812,7 +1812,7 @@ const PLAYBOOKS_PART_2: readonly EventPlaybookRecord[] = [
             vi: "Mảnh Tướng Tự Chọn / Mảnh Anh Hùng Vạn Năng",
             en: "Selectable Hero Shards / Universal Hero Shards",
           },
-          iconPath: "/images/items/shards/icon_30175.webp",
+          iconPath: "/images/items/shards/icon_30177.webp",
           rarity: "legendary",
           costAndCap: {
             vi: "Ưu tiên số 1 từ Rương Mốc Gacha",
@@ -1830,7 +1830,7 @@ const PLAYBOOKS_PART_2: readonly EventPlaybookRecord[] = [
             vi: "Sách Kỹ Năng Cao Cấp (Epic/Legendary Skill Books)",
             en: "Advanced Skill Books",
           },
-          iconPath: "/images/items/chests/icon_30032.webp",
+          iconPath: "/images/items/materials/icon_30361.webp",
           rarity: "epic",
           costAndCap: {
             vi: "Đổi khi còn dư điểm chiêu mộ phụ",
@@ -1848,7 +1848,7 @@ const PLAYBOOKS_PART_2: readonly EventPlaybookRecord[] = [
             vi: "Mảnh Tướng Lam / Tím & Thuốc Kinh Nghiệm",
             en: "Blue / Purple Hero Shards & EXP Potions",
           },
-          iconPath: "/images/items/materials/icon_30382.webp",
+          iconPath: "/images/items/shards/icon_30175.webp",
           rarity: "common",
           costAndCap: {
             vi: "Cấm chọn trong rương tự chọn",
@@ -1870,7 +1870,7 @@ const PLAYBOOKS_PART_2: readonly EventPlaybookRecord[] = [
     id: "butterfly-catching",
     articleCode: "9.3",
     seasons: ["S0", "S1", "S2", "S3", "S4"],
-    iconPath: "/images/items/chests/icon_chest_Monopoly_DragonTraining.webp",
+    iconPath: "/images/events/entry-icons/Activity_529.webp",
     rarity: "legendary",
     faction: "nature",
     name: {
@@ -1910,7 +1910,7 @@ const PLAYBOOKS_PART_2: readonly EventPlaybookRecord[] = [
           vi: "Bình Thể Lực Dự Trữ (Stamina Potions)",
           en: "Reserved Stamina Potions",
         },
-        iconPath: "/images/items/consumables/icon_30037.webp",
+        iconPath: "/images/items/currencies/icon_10007.webp",
         rarity: "epic",
         targetAmount: {
           vi: "25 – 50 Bình Thể Lực",
@@ -1931,7 +1931,7 @@ const PLAYBOOKS_PART_2: readonly EventPlaybookRecord[] = [
           vi: "Xu Trang Trí & Rương Tự Chọn (Decor Tokens)",
           en: "Decoration Tokens & Selectable Chests",
         },
-        iconPath: "/images/items/currencies/icon_10030.webp",
+        iconPath: "/images/items/currencies/icon_10029.webp",
         rarity: "legendary",
         targetAmount: {
           vi: "Ưu tiên ghép đủ Bộ Trang Trí Thần Thoại (Set Bonus)",
@@ -2079,7 +2079,7 @@ const PLAYBOOKS_PART_2: readonly EventPlaybookRecord[] = [
             vi: "Rương Trang Trí Thần Thoại & Mảnh Tướng Vạn Năng",
             en: "Mythic Decoration Chest & Universal Hero Shards",
           },
-          iconPath: "/images/items/currencies/icon_10030.webp",
+          iconPath: "/images/items/currencies/icon_10029.webp",
           rarity: "mythic",
           costAndCap: {
             vi: "Ưu tiên số 1 — Mua trước mọi vật phẩm khác",
@@ -2097,7 +2097,7 @@ const PLAYBOOKS_PART_2: readonly EventPlaybookRecord[] = [
             vi: "Tinh Hoa Rồng (Dragon Essence) & Orichalcum",
             en: "Dragon Essence & Orichalcum",
           },
-          iconPath: "/images/tech/research/icon_30417.webp",
+          iconPath: "/images/items/materials/icon_30417.webp",
           rarity: "legendary",
           costAndCap: {
             vi: "Đổi bằng xu còn dư sau khi đã lấy Tier S",
@@ -2115,7 +2115,7 @@ const PLAYBOOKS_PART_2: readonly EventPlaybookRecord[] = [
             vi: "Rương Gỗ / Đá / Thịt & Đá Thăng Cấp (Chỉ đổi xu lẻ cuối giờ)",
             en: "Wood / Stone / Meat Chests & Promo Stones (Leftover coins only)",
           },
-          iconPath: "/images/items/materials/icon_30382.webp",
+          iconPath: "/images/items/consumables/icon_30001.webp",
           rarity: "common",
           costAndCap: {
             vi: "Chỉ dùng để tiêu nốt 1–5 xu lẻ cuối cùng trước khi đóng shop",
@@ -2137,7 +2137,7 @@ const PLAYBOOKS_PART_2: readonly EventPlaybookRecord[] = [
     id: "giant-troll-raid",
     articleCode: "9.3",
     seasons: ["S0", "S1", "S2", "S3", "S4"],
-    iconPath: "/images/equipment/exclusive-weapons/equipment_Exclusive003.webp",
+    iconPath: "/images/events/entry-icons/Activity_108.webp",
     rarity: "legendary",
     faction: "neutral",
     name: {
@@ -2177,7 +2177,7 @@ const PLAYBOOKS_PART_2: readonly EventPlaybookRecord[] = [
           vi: "Bình Thể Lực (Dành Cho Người Dẫn Đầu Rally)",
           en: "Stamina Potions (For Rally Leaders)",
         },
-        iconPath: "/images/items/consumables/icon_30037.webp",
+        iconPath: "/images/items/currencies/icon_10007.webp",
         rarity: "epic",
         targetAmount: {
           vi: "15 – 30 Bình Thể Lực",
@@ -2219,7 +2219,7 @@ const PLAYBOOKS_PART_2: readonly EventPlaybookRecord[] = [
           vi: "Mảnh Vũ Khí Độc Quyền Vạn Năng",
           en: "Universal Exclusive Weapon Shards",
         },
-        iconPath: "/images/equipment/exclusive-weapons/equipment_Exclusive003.webp",
+        iconPath: "/images/items/shards/icon_30511.webp",
         rarity: "mythic",
         targetAmount: {
           vi: "10 – 50 Mảnh Vũ Khí Độc Quyền",
@@ -2404,7 +2404,7 @@ const PLAYBOOKS_PART_2: readonly EventPlaybookRecord[] = [
     id: "dark-empire-and-legion",
     articleCode: "9.3",
     seasons: ["S0", "S1", "S2", "S3", "S4"],
-    iconPath: "/images/events/entry-icons/Activity_103.webp",
+    iconPath: "/images/events/entry-icons/Activity_264.webp",
     rarity: "epic",
     faction: "horde",
     name: {
@@ -2465,7 +2465,7 @@ const PLAYBOOKS_PART_2: readonly EventPlaybookRecord[] = [
           vi: "Mảnh Cổ Vật & Nguyên Liệu Nhận Từ Sự Kiện",
           en: "Relic Shards & Siege Reward Materials",
         },
-        iconPath: "/images/items/materials/icon_material_2.webp",
+        iconPath: "/images/items/consumables/icon_30397.webp",
         rarity: "legendary",
         targetAmount: {
           vi: "Toàn bộ rương thưởng hạng Cá Nhân & Bang Hội",
@@ -2486,7 +2486,7 @@ const PLAYBOOKS_PART_2: readonly EventPlaybookRecord[] = [
           vi: "Thể Lực Phản Công Đồn Trú Đế Quốc Hắc Ám",
           en: "Stamina for Dark Empire Stronghold Counter-Attacks",
         },
-        iconPath: "/images/items/consumables/icon_30037.webp",
+        iconPath: "/images/items/currencies/icon_10007.webp",
         rarity: "epic",
         targetAmount: {
           vi: "150 – 200 Điểm Thể Lực",
@@ -2613,7 +2613,7 @@ const PLAYBOOKS_PART_2: readonly EventPlaybookRecord[] = [
             vi: "Mảnh Anh Hùng Vạn Năng & Mảnh Cổ Vật Hiếm",
             en: "Universal Hero Shards & Rare Relic Shards",
           },
-          iconPath: "/images/items/shards/icon_30175.webp",
+          iconPath: "/images/items/shards/icon_30177.webp",
           rarity: "legendary",
           costAndCap: {
             vi: "Phần thưởng cốt lõi từ Rương Xếp Hạng Phòng Thủ",
@@ -2631,7 +2631,7 @@ const PLAYBOOKS_PART_2: readonly EventPlaybookRecord[] = [
             vi: "Xu Bang Hội (Mua Khiên Hòa Bình & Dịch Chuyển)",
             en: "Guild Coins (For Peace Shields & Teleports)",
           },
-          iconPath: "/images/items/currencies/icon_10006.webp",
+          iconPath: "/images/items/currencies/icon_10008.webp",
           rarity: "epic",
           costAndCap: {
             vi: "Luôn trữ sẵn 2 Dịch Chuyển + 2 Khiên 8h trong túi",
@@ -2671,7 +2671,7 @@ const PLAYBOOKS_PART_2: readonly EventPlaybookRecord[] = [
     id: "mini-rushes-and-guild-rush",
     articleCode: "9.3",
     seasons: ["S0", "S1", "S2", "S3", "S4"],
-    iconPath: "/images/events/entry-icons/Activity_104.webp",
+    iconPath: "/images/events/entry-icons/Activity_23.webp",
     rarity: "epic",
     faction: "neutral",
     name: {
@@ -2711,7 +2711,7 @@ const PLAYBOOKS_PART_2: readonly EventPlaybookRecord[] = [
           vi: "Bụi Cổ Ngữ & Rương Cổ Ngữ (Rune Dust & Rune Chests)",
           en: "Rune Dust & Rune Chests",
         },
-        iconPath: "/images/items/currencies/icon_10029.webp",
+        iconPath: "/images/items/currencies/icon_10030.webp",
         rarity: "epic",
         targetAmount: {
           vi: "50.000+ Bụi Cổ Ngữ & 30+ Rương Cổ Ngữ",
@@ -2753,7 +2753,7 @@ const PLAYBOOKS_PART_2: readonly EventPlaybookRecord[] = [
           vi: "Thức Ăn Thú Cưng & Tinh Hoa Thú Cưng",
           en: "Pet Food & Pet Essence",
         },
-        iconPath: "/images/items/currencies/icon_10036.webp",
+        iconPath: "/images/items/consumables/icon_30468.webp",
         rarity: "legendary",
         targetAmount: {
           vi: "30.000+ Thức Ăn Pet & 500+ Tinh Hoa Pet",
@@ -2880,7 +2880,7 @@ const PLAYBOOKS_PART_2: readonly EventPlaybookRecord[] = [
             vi: "Rương Cổ Ngữ Huyền Thoại / Sử Thi & Mảnh Vạn Năng",
             en: "Legendary / Epic Rune Chests & Universal Shards",
           },
-          iconPath: "/images/items/chests/icon_30248.webp",
+          iconPath: "/images/items/chests/icon_30252.webp",
           rarity: "legendary",
           costAndCap: {
             vi: "Phần thưởng mốc rương cuối và Top BXH Mini-Rush",
@@ -2898,7 +2898,7 @@ const PLAYBOOKS_PART_2: readonly EventPlaybookRecord[] = [
             vi: "Tinh Hoa Thú Cưng & Kim Cương Hoàn Trả",
             en: "Pet Essence & Rebate Diamonds",
           },
-          iconPath: "/images/items/currencies/icon_10036.webp",
+          iconPath: "/images/items/consumables/icon_30468.webp",
           rarity: "epic",
           costAndCap: {
             vi: "Nhận tự động khi vượt qua mốc rương 2 và 3",
@@ -2916,7 +2916,7 @@ const PLAYBOOKS_PART_2: readonly EventPlaybookRecord[] = [
             vi: "Xả Kho Nguyên Liệu Vào Tuần Nghỉ Trước GAR",
             en: "Dumping Hoarded Materials in the Off-Week Before GAR",
           },
-          iconPath: "/images/items/consumables/icon_30222.webp",
+          iconPath: "/images/items/consumables/icon_30001.webp",
           rarity: "common",
           costAndCap: {
             vi: "Mất trắng 50% – 75% tổng phần thưởng cộng hưởng",

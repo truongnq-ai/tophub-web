@@ -126,6 +126,38 @@ describe("9.2 Đặc Quyền VIP & Tiệm — Quantitative SSoT Engine", () => {
     });
     expect(trapRes.hasTroopSkinTrapInCart).toBe(true);
     expect(trapRes.totalCartCost).toBe(112_000);
+    expect(trapRes.cartItems[0].item.iconPath).toBe(
+      "/images/items/shards/icon_30233.webp"
+    );
+    expect(trapRes.cartItems[0].item.gameId).toBe(142);
+
+    const natureRes = calculateGuildHonorBudget({
+      currencyEra: "pre_season_honor",
+      currentHonor: 500_000,
+      weeklyIncome: 50_000,
+      safetyFloorMode: "full_awakening_9_stones",
+      factionPlanId: "nature",
+      ownedSoulStones: 0,
+      cartQuantities: { soul_stone_weekly: 1 },
+    });
+    expect(natureRes.cartItems[0].item.iconPath).toBe(
+      "/images/items/shards/icon_30232.webp"
+    );
+    expect(natureRes.cartItems[0].item.gameId).toBe(143);
+
+    const leagueRes = calculateGuildHonorBudget({
+      currencyEra: "pre_season_honor",
+      currentHonor: 500_000,
+      weeklyIncome: 50_000,
+      safetyFloorMode: "full_awakening_9_stones",
+      factionPlanId: "league_dual",
+      ownedSoulStones: 0,
+      cartQuantities: { soul_stone_weekly: 1 },
+    });
+    expect(leagueRes.cartItems[0].item.iconPath).toBe(
+      "/images/items/shards/icon_30231.webp"
+    );
+    expect(leagueRes.cartItems[0].item.gameId).toBe(141);
   });
 });
 

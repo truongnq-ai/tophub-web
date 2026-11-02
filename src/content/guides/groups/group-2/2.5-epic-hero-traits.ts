@@ -515,7 +515,7 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
                 vi: "Khoanh xanh lá cây vào chuỗi nâng cấp chuẩn Trait 1 Lv.15 ➔ Trait 2 ➔ Trait 3 Lv.30 (+30% Speed — Nâng Max) và gạch chéo đỏ cảnh báo tuyệt đối cấm bấm vào Ô Số 4 tốn 2,000 Kim Cương.",
                 en: "Green highlight on the optimal Trait 1 Lv.15 ➔ Trait 2 ➔ Trait 3 Lv.30 (+30% Speed — Max Out) chain and a red cross warning against clicking the 2,000-Diamond 4th Trait Slot.",
               },
-              imageSrc: "/images/guides/epic-traits-annotated-ui.webp",
+
               annotations: [
                 {
                   kind: "do",
@@ -600,7 +600,7 @@ export const ARTICLE_2_5_EPIC_HERO_TRAITS: GuideArticle = {
             vi: "Tổng quan 8 tướng Epic (Brawler, Knight, Ranger, Minister, Priestess, Dancer, Rogue, Outlaw) và 10 tướng Legendary Kinh tế (Bard, Shaman, Hostess, Secret Keeper, Pathfinder, Headhunter, Treeguard, Stonemason, Warlock, Watcher) cộng dồn chỉ số nội tại 24/7.",
             en: "Visual roster of all 8 Epic heroes (Brawler, Knight, Ranger, Minister, Priestess, Dancer, Rogue, Outlaw) and 10 Legendary Economic heroes (Bard, Shaman, Hostess, Secret Keeper, Pathfinder, Headhunter, Treeguard, Stonemason, Warlock, Watcher) stacking 24/7 passive buffs.",
           },
-          imageSrc: "/images/guides/epic-legendary-economy-roster.webp",
+
           annotations: [
             {
               kind: "do",

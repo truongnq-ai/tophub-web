@@ -8,6 +8,7 @@ import { getAllArticles } from "../src/content/guides/registry";
 import type { GuideMediaSpotlightBlock } from "../src/content/guides/types";
 import {
   HERO_VISUAL_PROFILES,
+  DIAGRAM_NODE_ICON_MAP,
   getAssetById,
   getAssetByGlossaryId,
   getHeroVisualProfile,
@@ -122,7 +123,7 @@ describe("Phase 1 — Tier-1 Media Asset Registry & RPG Visual Primitives", () =
         }
       }
 
-      expect(spotlightBlocks).toHaveLength(103);
+      expect(spotlightBlocks).toHaveLength(105);
 
       for (const block of spotlightBlocks) {
         const items = getMediaShowcaseItems(
@@ -166,6 +167,34 @@ describe("Phase 1 — Tier-1 Media Asset Registry & RPG Visual Primitives", () =
         "hero-pyromancer"
       );
       expect(resolveEntityFromCodeToken("Wukong")?.id).toBe("hero-wukong");
+      expect(
+        resolveEntityFromCodeToken("Mảnh Anh Hùng Sử Thi Vạn Năng")?.id
+      ).toBe("item-epic-universal-shard");
+      expect(
+        resolveEntityFromCodeToken("Mảnh Anh Hùng Sử Thi Vạn Năng")?.iconPath
+      ).toBe("/images/items/shards/icon_30176.webp");
+      expect(resolveEntityFromCodeToken("Thịt")?.id).toBe("item-meat");
+      expect(resolveEntityFromTableCell("Vàng (Legendary)")).toBeUndefined();
+      expect(
+        resolveEntityFromTableCell(
+          "Liên Minh (League) — Thẩm Phán / Thẩm Phán Quan (Adjudicator) [Huyền Thoại Vàng ➔ Thần Thoại Đỏ]"
+        )?.id
+      ).toBe("hero-adjudicator");
+      expect(
+        resolveEntityFromTableCell(
+          "21,000 Upgrade Runes + 100,800 Rubies (1,500 ➔ 3,000 Runes/lv)"
+        )?.id
+      ).toBe("item-upgrade-rune");
+      expect(Object.keys(DIAGRAM_NODE_ICON_MAP).length).toBeGreaterThanOrEqual(
+        238
+      );
+      expect(
+        resolveEntityFromDiagramNode({
+          nodeId: "uw-root-node",
+          titleVi: "1,185 Mảnh",
+          titleEn: "1,185 Shards",
+        })?.id
+      ).toBe("gear-exclusive-weapon");
       expect(resolveEntityFromCodeToken("Blood of the Titan")?.id).toBe(
         "gear-set-blood-of-the-titan"
       );

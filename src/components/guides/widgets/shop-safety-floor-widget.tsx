@@ -87,7 +87,7 @@ function resolveShopItemAsset(
       lower
     )
   ) {
-    return getAssetById("troop-skin-samurai");
+    return getAssetById("troop-skin-legendary-chest");
   }
   if (/recruit|chiêu mộ/.test(lower)) {
     return getAssetById("item-recruit-token");
@@ -104,8 +104,28 @@ function resolveShopItemAsset(
   if (/stamina|thể lực/.test(lower)) {
     return getAssetById("item-stamina-potion");
   }
-  if (/shield|khiên|teleport|relocat|dịch chuyển/.test(lower)) {
+  if (/shield|khiên/.test(lower)) {
     return getAssetById("item-peace-shield");
+  }
+  if (/teleport|relocat|dịch chuyển/.test(lower)) {
+    return (
+      getAssetById("item-guild-teleport") ?? {
+        id: "item-guild-teleport",
+        gameId: 30041,
+        glossaryId: null,
+        category: "items",
+        iconPath: "/images/items/consumables/icon_30041.webp",
+        rarity: "epic",
+        faction: "neutral",
+        nameVi: "Thẻ Dịch Chuyển (Teleport Scroll)",
+        nameEn: "Teleport Scroll",
+        inGameNameVi: "Thẻ Dịch Chuyển",
+        inGameNameEn: "Teleport",
+        descVi: "Thẻ Dịch Chuyển Ngẫu Nhiên / Chỉ Định mua tại Tiệm Bang Hội.",
+        descEn: "Random / Targeted Teleport scroll purchased in the Guild Shop.",
+        aliases: ["item-guild-teleport", "Thẻ Dịch Chuyển", "Teleport"],
+      }
+    );
   }
   if (/exclusive|vũ khí độc quyền|vũ khí chuyên dụng/.test(lower)) {
     return getAssetById("gear-exclusive-weapon");
@@ -140,7 +160,27 @@ function resolveShopItemAsset(
   if (/book|sách/.test(lower)) {
     return getAssetById("item-skill-book");
   }
-  if (/meat|wood|stone|ruby|rubies|thịt|gỗ|hồng ngọc/.test(lower)) {
+  if (/rương thịt|raw meat|rương tài nguyên|resource chest|meat|wood|thịt|gỗ/.test(lower)) {
+    return (
+      getAssetById("item-resource-chest") ?? {
+        id: "item-resource-chest",
+        gameId: 30001,
+        glossaryId: null,
+        category: "items",
+        iconPath: "/images/items/consumables/icon_30001.webp",
+        rarity: "common",
+        faction: "neutral",
+        nameVi: "Rương Tài Nguyên Thường (Basic Resource Chest)",
+        nameEn: "Basic Resource Chest",
+        inGameNameVi: "Rương Tài Nguyên",
+        inGameNameEn: "Resource Chest",
+        descVi: "Rương tài nguyên cơ bản (Thịt / Gỗ / Đá) cày miễn phí trên bản đồ thế giới.",
+        descEn: "Basic resource chest (Meat / Wood / Stone) farmable for free on the world map.",
+        aliases: ["item-resource-chest", "Rương Tài Nguyên", "Resource Chest"],
+      }
+    );
+  }
+  if (/ruby|rubies|hồng ngọc/.test(lower)) {
     return getAssetById("item-ruby");
   }
   if (/shard|mảnh/.test(lower)) {

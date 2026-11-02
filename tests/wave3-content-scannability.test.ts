@@ -56,9 +56,9 @@ describe("Wave 3 — Content Restructuring, Scannability & Zero-Emoji Gate (Grou
         "3.3": { free: 3, pro: 2 },
         "3.4": { free: 3, pro: 2 },
         "4.1": { free: 3, pro: 2 },
-        "4.2": { free: 3, pro: 2 },
-        "4.3": { free: 3, pro: 2 },
-        "4.4": { free: 3, pro: 2 },
+        "4.2": { free: 5, pro: 5 },
+        "4.3": { free: 5, pro: 5 },
+        "4.4": { free: 5, pro: 5 },
         "4.5": { free: 3, pro: 2 },
       };
 

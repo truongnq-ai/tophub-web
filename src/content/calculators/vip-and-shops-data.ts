@@ -750,6 +750,16 @@ export interface GuildHonorBudgetResult {
   readonly healthStatus: HonorBudgetHealthStatus;
 }
 
+export function getSoulStoneMaterialForPlan(planId: FactionAwakeningPlan) {
+  if (planId === "horde") {
+    return CALCULATOR_MATERIALS.hordeSoulStone;
+  }
+  if (planId === "nature") {
+    return CALCULATOR_MATERIALS.natureSoulStone;
+  }
+  return CALCULATOR_MATERIALS.leagueSoulStone;
+}
+
 export function calculateGuildHonorBudget(input: {
   readonly currencyEra?: GuildShopCurrencyEra;
   readonly currentHonor: number;
@@ -796,7 +806,16 @@ export function calculateGuildHonorBudget(input: {
   );
   const remainingCurrencyForPlan = remainingSoulStonesForPlan * singleStoneFloor;
 
-  const cartItems = GUILD_HONOR_SHOP_ITEMS.map((item) => {
+  const planSoulStone = getSoulStoneMaterialForPlan(input.factionPlanId);
+  const cartItems = GUILD_HONOR_SHOP_ITEMS.map((baseItem) => {
+    const item: GuildHonorShopItem =
+      baseItem.id === "soul_stone_weekly"
+        ? {
+            ...baseItem,
+            gameId: planSoulStone.gameId,
+            iconPath: planSoulStone.iconPath,
+          }
+        : baseItem;
     const rawQty = input.cartQuantities[item.id] ?? 0;
     const quantity = Math.max(
       0,

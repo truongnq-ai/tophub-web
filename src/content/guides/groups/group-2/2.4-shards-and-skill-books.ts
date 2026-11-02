@@ -88,10 +88,10 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
             en: "The Core Resource Trinity: Universal Legendary Shards, Red Soul Stones & Skill Books",
           },
           description: {
-            vi: "Nhận diện chuẩn xác 3 vật phẩm quyết định trần sức mạnh Đội hình 1: Mảnh Vạn Năng Vàng (universal-legendary-shard.webp), Hồn Đá Đỏ (soul-stone-horde.webp) và Sách Kỹ Năng Cam (epic-skill-book.webp).",
-            en: "Identify the 3 bottleneck items governing Queue 1 ceiling power: Universal Legendary Shard (universal-legendary-shard.webp), Red Soul Stone (soul-stone-horde.webp), and Epic Skill Book (epic-skill-book.webp).",
+            vi: "Nhận diện chuẩn xác 3 vật phẩm quyết định trần sức mạnh Đội hình 1: Mảnh Vạn Năng Vàng (Universal Legendary Shard), Hồn Đá Đỏ (Soul Stone) và Sách Kỹ Năng (Skill Book).",
+            en: "Identify the 3 bottleneck items governing Queue 1 ceiling power: Universal Legendary Shard, Red Soul Stone, and Skill Book.",
           },
-          imageSrc: "/images/guides/2.4-shards-skillbooks-soulstones.webp",
+
           annotations: [
             {
               kind: "do",
@@ -1510,7 +1510,7 @@ export const ARTICLE_2_4_SHARDS_SKILL_BOOKS: GuideArticle = {
                 vi: "Ảnh chụp màn hình giao diện Cây Thức Tỉnh 4 Bậc hiển thị rõ lộ trình tiêu thụ 1 + 2 + 2 + 4 = 9 Hồn Đá Đỏ (Soul Stones) kèm 5 + 65 + 105 + 170 = 345 Mảnh tướng riêng cơ sở (tối đa 385 Mảnh).",
                 en: "Annotated screenshot of the 4-Tier Awakening Tree UI illustrating the exact 1 + 2 + 2 + 4 = 9 Red Soul Stones progression alongside 5 + 65 + 105 + 170 = 345 base hero-specific shards (up to 385 shards).",
               },
-              imageSrc: "/images/guides/2.4-awakening-tree-9-soul-stones.webp",
+
               annotations: [
                 {
                   kind: "info",

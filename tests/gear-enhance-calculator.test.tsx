@@ -137,10 +137,52 @@ describe("4.1 Cường Hóa Trang Bị — Suite 1: Quantitative SSoT Engine (Me
 
   it("defines 4 equipment slots per rarity with Meta.bytes level milestones (e.g., Giày Hồn Kỵ Sĩ)", () => {
     const legBoots = GEAR_SLOTS_BY_RARITY.legendary.boots;
+    expect(GEAR_ENHANCE_RARITY_CONFIGS.legendary.sampleIconPath).toBe(
+      "/images/equipment/hero-gear/icon_42064.webp"
+    );
+    expect(GEAR_ENHANCE_RARITY_CONFIGS.epic.sampleIconPath).toBe(
+      "/images/equipment/hero-gear/icon_40002.webp"
+    );
+    expect(GEAR_ENHANCE_RARITY_CONFIGS.rare.sampleIconPath).toBe(
+      "/images/equipment/hero-gear/icon_40004.webp"
+    );
+    expect(GEAR_SLOTS_BY_RARITY.legendary.weapon.iconPath).toBe(
+      "/images/equipment/hero-gear/icon_40064.webp"
+    );
+    expect(GEAR_SLOTS_BY_RARITY.legendary.armor.iconPath).toBe(
+      "/images/equipment/hero-gear/icon_41064.webp"
+    );
+    expect(GEAR_SLOTS_BY_RARITY.legendary.helmet.iconPath).toBe(
+      "/images/equipment/hero-gear/icon_45064.webp"
+    );
+    expect(GEAR_SLOTS_BY_RARITY.epic.weapon.iconPath).toBe(
+      "/images/equipment/hero-gear/icon_40002.webp"
+    );
+    expect(GEAR_SLOTS_BY_RARITY.epic.boots.iconPath).toBe(
+      "/images/equipment/hero-gear/icon_42020.webp"
+    );
+    expect(GEAR_SLOTS_BY_RARITY.epic.armor.iconPath).toBe(
+      "/images/equipment/hero-gear/icon_41003.webp"
+    );
+    expect(GEAR_SLOTS_BY_RARITY.epic.helmet.iconPath).toBe(
+      "/images/equipment/hero-gear/icon_45003.webp"
+    );
+    expect(GEAR_SLOTS_BY_RARITY.rare.weapon.iconPath).toBe(
+      "/images/equipment/hero-gear/icon_40004.webp"
+    );
+    expect(GEAR_SLOTS_BY_RARITY.rare.boots.iconPath).toBe(
+      "/images/equipment/hero-gear/icon_42010.webp"
+    );
+    expect(GEAR_SLOTS_BY_RARITY.rare.armor.iconPath).toBe(
+      "/images/equipment/hero-gear/icon_41005.webp"
+    );
+    expect(GEAR_SLOTS_BY_RARITY.rare.helmet.iconPath).toBe(
+      "/images/equipment/hero-gear/icon_45022.webp"
+    );
     expect(legBoots.gameId).toBe(1533);
     expect(legBoots.itemName.vi).toBe("Giày Hồn Kỵ Sĩ");
     expect(legBoots.iconPath).toBe(
-      "/images/equipment/hero-gear/icon_42053.webp"
+      "/images/equipment/hero-gear/icon_42064.webp"
     );
     expect(legBoots.levelMilestones.map((m) => m.level)).toEqual([
       10, 20, 30, 40,

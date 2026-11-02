@@ -224,7 +224,7 @@ export const GEAR_ENHANCE_RARITY_CONFIGS: Readonly<
       vi: "Đồ Đỏ Thần Thoại kế thừa trần Lv.40 của Đồ Cam và đột phá sao ở công cụ 4.2",
       en: "Mythic Red Gear inherits Lv.40 from Legendary Gear and promotes stars in tool 4.2",
     },
-    sampleIconPath: "/images/equipment/hero-gear/icon_42053.webp",
+    sampleIconPath: "/images/equipment/hero-gear/icon_42064.webp",
     totalRuneAtMax: 195_000,
     totalRubyAtMax: 936_000,
   },
@@ -246,7 +246,7 @@ export const GEAR_ENHANCE_RARITY_CONFIGS: Readonly<
       vi: "Trang bị Sử Thi có trần cường hóa tối đa Lv.30 (32.5K Rune + 39K Ruby)",
       en: "Epic Gear has a maximum enhancement cap of Lv.30 (32.5K Runes + 39K Rubies)",
     },
-    sampleIconPath: "/images/equipment/hero-gear/icon_40005.webp",
+    sampleIconPath: "/images/equipment/hero-gear/icon_40002.webp",
     totalRuneAtMax: 32_500,
     totalRubyAtMax: 39_000,
   },
@@ -268,7 +268,7 @@ export const GEAR_ENHANCE_RARITY_CONFIGS: Readonly<
       vi: "Trang bị Hiếm đầu game có trần cường hóa tối đa Lv.15 (1.8K Rune + 1.44K Ruby)",
       en: "Early-game Rare Gear has a maximum enhancement cap of Lv.15 (1.8K Runes + 1.44K Rubies)",
     },
-    sampleIconPath: "/images/equipment/hero-gear/icon_40006.webp",
+    sampleIconPath: "/images/equipment/hero-gear/icon_40004.webp",
     totalRuneAtMax: 1_800,
     totalRubyAtMax: 1_440,
   },
@@ -287,7 +287,7 @@ export const GEAR_SLOTS_BY_RARITY: Readonly<
         vi: "Quang Vinh Kỵ Sĩ Bộ (4/4)",
         en: "Knight's Glory Set (4/4)",
       },
-      iconPath: "/images/equipment/hero-gear/icon_40053.webp",
+      iconPath: "/images/equipment/hero-gear/icon_40064.webp",
       baseStatsSummary: {
         vi: "ATK Trang Bị + Tỷ Lệ Bạo Kích",
         en: "Gear ATK + Crit Rate",
@@ -324,7 +324,7 @@ export const GEAR_SLOTS_BY_RARITY: Readonly<
         vi: "Quang Vinh Kỵ Sĩ Bộ (4/4)",
         en: "Knight's Glory Set (4/4)",
       },
-      iconPath: "/images/equipment/hero-gear/icon_42053.webp",
+      iconPath: "/images/equipment/hero-gear/icon_42064.webp",
       baseStatsSummary: {
         vi: "ATK Trang Bị + ST Bạo Kích",
         en: "Gear ATK + Crit DMG",
@@ -361,7 +361,7 @@ export const GEAR_SLOTS_BY_RARITY: Readonly<
         vi: "Quang Vinh Kỵ Sĩ Bộ (4/4)",
         en: "Knight's Glory Set (4/4)",
       },
-      iconPath: "/images/equipment/hero-gear/icon_41053.webp",
+      iconPath: "/images/equipment/hero-gear/icon_41064.webp",
       baseStatsSummary: {
         vi: "HP Trang Bị + Kháng Bạo Kích",
         en: "Gear HP + Crit Resist",
@@ -398,7 +398,7 @@ export const GEAR_SLOTS_BY_RARITY: Readonly<
         vi: "Quang Vinh Kỵ Sĩ Bộ (4/4)",
         en: "Knight's Glory Set (4/4)",
       },
-      iconPath: "/images/equipment/hero-gear/icon_45053.webp",
+      iconPath: "/images/equipment/hero-gear/icon_45064.webp",
       baseStatsSummary: {
         vi: "HP Trang Bị + Giảm ST Bạo Kích",
         en: "Gear HP + Crit DMG Reduction",
@@ -440,7 +440,7 @@ export const GEAR_SLOTS_BY_RARITY: Readonly<
         vi: "Bộ Hợp Kim Kỵ Sĩ (Sử Thi)",
         en: "Knight Alloy Set (Epic)",
       },
-      iconPath: "/images/equipment/hero-gear/icon_40005.webp",
+      iconPath: "/images/equipment/hero-gear/icon_40002.webp",
       baseStatsSummary: {
         vi: "ATK Trang Bị + % ATK",
         en: "Gear ATK + % ATK",
@@ -475,7 +475,7 @@ export const GEAR_SLOTS_BY_RARITY: Readonly<
         vi: "Bộ Hợp Kim Kỵ Sĩ (Sử Thi)",
         en: "Knight Alloy Set (Epic)",
       },
-      iconPath: "/images/equipment/hero-gear/icon_42001.webp",
+      iconPath: "/images/equipment/hero-gear/icon_42020.webp",
       baseStatsSummary: {
         vi: "ATK Trang Bị + % ATK",
         en: "Gear ATK + % ATK",
@@ -510,7 +510,7 @@ export const GEAR_SLOTS_BY_RARITY: Readonly<
         vi: "Bộ Hợp Kim Kỵ Sĩ (Sử Thi)",
         en: "Knight Alloy Set (Epic)",
       },
-      iconPath: "/images/equipment/hero-gear/icon_41001.webp",
+      iconPath: "/images/equipment/hero-gear/icon_41003.webp",
       baseStatsSummary: {
         vi: "HP Trang Bị + % HP",
         en: "Gear HP + % HP",
@@ -542,7 +542,7 @@ export const GEAR_SLOTS_BY_RARITY: Readonly<
         vi: "Bộ Hợp Kim Kỵ Sĩ (Sử Thi)",
         en: "Knight Alloy Set (Epic)",
       },
-      iconPath: "/images/equipment/hero-gear/icon_45008.webp",
+      iconPath: "/images/equipment/hero-gear/icon_45003.webp",
       baseStatsSummary: {
         vi: "HP Trang Bị + % HP",
         en: "Gear HP + % HP",
@@ -576,7 +576,7 @@ export const GEAR_SLOTS_BY_RARITY: Readonly<
         vi: "Bộ Phòng Hộ Binh Sĩ (Hiếm)",
         en: "Soldier's Protective Set (Rare)",
       },
-      iconPath: "/images/equipment/hero-gear/icon_40006.webp",
+      iconPath: "/images/equipment/hero-gear/icon_40004.webp",
       baseStatsSummary: {
         vi: "ATK Trang Bị Cơ Bản",
         en: "Base Gear ATK",
@@ -598,7 +598,7 @@ export const GEAR_SLOTS_BY_RARITY: Readonly<
         vi: "Bộ Phòng Hộ Binh Sĩ (Hiếm)",
         en: "Soldier's Protective Set (Rare)",
       },
-      iconPath: "/images/equipment/hero-gear/icon_42004.webp",
+      iconPath: "/images/equipment/hero-gear/icon_42010.webp",
       baseStatsSummary: {
         vi: "ATK Trang Bị Cơ Bản",
         en: "Base Gear ATK",
@@ -623,7 +623,7 @@ export const GEAR_SLOTS_BY_RARITY: Readonly<
         vi: "Bộ Phòng Hộ Binh Sĩ (Hiếm)",
         en: "Soldier's Protective Set (Rare)",
       },
-      iconPath: "/images/equipment/hero-gear/icon_41004.webp",
+      iconPath: "/images/equipment/hero-gear/icon_41005.webp",
       baseStatsSummary: {
         vi: "HP Trang Bị Cơ Bản",
         en: "Base Gear HP",
@@ -648,7 +648,7 @@ export const GEAR_SLOTS_BY_RARITY: Readonly<
         vi: "Bộ Phòng Hộ Binh Sĩ (Hiếm)",
         en: "Soldier's Protective Set (Rare)",
       },
-      iconPath: "/images/equipment/hero-gear/icon_45004.webp",
+      iconPath: "/images/equipment/hero-gear/icon_45022.webp",
       baseStatsSummary: {
         vi: "HP Trang Bị Cơ Bản",
         en: "Base Gear HP",

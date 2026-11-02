@@ -44,7 +44,7 @@ function collectAllBlocks(article: GuideArticle): GuideContentBlock[] {
 }
 
 describe("Group 4 (roadmap) Standardized v2.0 Content, UI Block Contracts & Quantitative Audit", () => {
-  it("loads all 5 Group 4 articles (4.1 -> 4.5) with structured TL;DR, 3 Free + 2 PRO sections, unique TOC anchor IDs, and resolves legacy horde-pivot-roadmap alias", () => {
+  it("loads all 5 Group 4 articles (4.1 -> 4.5) with structured TL;DR, standardized Free + PRO sections (5+5 for 4.2/4.3 10-Pillar Charter, 3+2 for 4.1/4.4/4.5), unique TOC anchor IDs, and resolves legacy horde-pivot-roadmap alias", () => {
     const category = getCategoryBySlug("roadmap");
     expect(category).toBeDefined();
     expect(category?.order).toBe(4);
@@ -52,11 +52,11 @@ describe("Group 4 (roadmap) Standardized v2.0 Content, UI Block Contracts & Quan
     expect(category?.articles).toHaveLength(5);
 
     const expectedArticles = [
-      { code: "4.1", slug: "preseason-mythic-calendar", titleVi: "Lịch Ra Mắt Anh Hùng Đỏ", titleEn: "Mythic Hero Release Calendar" },
-      { code: "4.2", slug: "league-progression-playbook", titleVi: "Liên Minh", titleEn: "League" },
-      { code: "4.3", slug: "horde-progression-playbook", titleVi: "Bộ Tộc", titleEn: "Horde" },
-      { code: "4.4", slug: "nature-progression-playbook", titleVi: "Thiên Nhiên", titleEn: "Nature" },
-      { code: "4.5", slug: "season-1-to-4-roadmap", titleVi: "Lộ Trình Mùa Giải (S1–S4)", titleEn: "Season 1–4 Roadmap" },
+      { code: "4.1", slug: "preseason-mythic-calendar", titleVi: "Lịch Ra Mắt Anh Hùng Đỏ", titleEn: "Mythic Hero Release Calendar", free: 3, pro: 2 },
+      { code: "4.2", slug: "league-progression-playbook", titleVi: "Liên Minh", titleEn: "League", free: 5, pro: 5 },
+      { code: "4.3", slug: "horde-progression-playbook", titleVi: "Bộ Tộc", titleEn: "Horde", free: 5, pro: 5 },
+      { code: "4.4", slug: "nature-progression-playbook", titleVi: "Thiên Nhiên", titleEn: "Nature", free: 5, pro: 5 },
+      { code: "4.5", slug: "season-1-to-4-roadmap", titleVi: "Lộ Trình Mùa Giải (S1–S4)", titleEn: "Season 1–4 Roadmap", free: 3, pro: 2 },
     ];
 
     for (const item of expectedArticles) {
@@ -72,8 +72,25 @@ describe("Group 4 (roadmap) Standardized v2.0 Content, UI Block Contracts & Quan
       expect(article?.tldr?.immediateAction.en.length).toBeGreaterThan(20);
       expect(article?.tldr?.strictTaboo.vi.length).toBeGreaterThan(20);
       expect(article?.tldr?.strictTaboo.en.length).toBeGreaterThan(20);
-      expect(article?.freeSections).toHaveLength(3);
-      expect(article?.proSections).toHaveLength(2);
+      expect(article?.freeSections).toHaveLength(item.free);
+      expect(article?.proSections).toHaveLength(item.pro);
+
+      if (item.code === "4.2" || item.code === "4.3" || item.code === "4.4") {
+        expect(article?.freeSections.map((s) => s.id)).toEqual([
+          "sec-1-lineup-and-slot-replacement",
+          "sec-2-soul-stones-and-exclusive-weapons",
+          "sec-3-hero-gear-and-faction-mark",
+          "sec-4-relics-trio-f2p-vs-p2w",
+          "sec-5-troop-skins-and-glory-medals",
+        ]);
+        expect(article?.proSections.map((s) => s.id)).toEqual([
+          "sec-6-pets-and-behemoth-progression",
+          "sec-7-runes-and-combat-skill-hunting",
+          "sec-8-lord-gear-and-sacred-codex",
+          "sec-9-buildings-tech-and-decor-sets",
+          "sec-10-shops-events-and-case-study",
+        ]);
+      }
 
       // Verify proSections have isPro: true and all section/subSection IDs are unique valid slugs
       const seenAnchorIds = new Set<string>();
@@ -264,29 +281,83 @@ describe("Group 4 (roadmap) Standardized v2.0 Content, UI Block Contracts & Quan
         expect(t41, `Article 4.1 (${locale}) must contain ${token}`).toContain(token);
       }
 
-      // Article 4.2 (Pure League) benchmarks in both vi and en
+      // Article 4.2 (Pure League — 10-Pillar Master Playbook) benchmarks in both vi and en
       const t42 = extractLocaleText(a42, locale);
       for (const token of [
         "Secret Keeper",
+        "Astrologer",
+        "Bard",
+        "Hostess",
         "Adjudicator",
         "Pyromancer",
+        "Nun",
         "Paragon",
         "Rose Princess",
         "Bishop",
         "Artificer",
-        "27",
-        "360,000",
-        "54,000",
+        "160",
+        "560",
         "1,000",
+        "18",
+        "27",
+        "345",
+        "385",
+        "40,000",
+        "360,000",
+        "6,000",
+        "54,000",
+        "275",
+        "1,185",
+        "Titan's Might",
+        "Fury of Blood",
+        "Glorious Light",
+        "750",
+        "3,000",
+        "18,000",
+        "195,000",
+        "Petrification Staff",
+        "Soul Guard Orb",
+        "Feather of the Pact",
+        "130",
+        "330",
+        "490",
+        "1,100",
+        "Heavy Cavalry",
+        "Desert Knight",
+        "80,400",
+        "15,000",
+        "30,000",
+        "Eggy",
+        "Sparrow",
+        "596,600",
+        "Behemoth",
+        "48,000",
+        "1,350,000",
+        "Combat Skill Level",
+        "958,800",
+        "Sacred Codex",
+        "Legendary T1",
+        "Legendary T2",
+        "5,422",
+        "Lv.35",
+        "Lv.40",
       ]) {
         expect(t42, `Article 4.2 (${locale}) must contain ${token}`).toContain(token);
       }
 
-      // Article 4.3 (Pure Horde) benchmarks in both vi and en
+      // Article 4.3 (Pure Horde — 10-Pillar Master Playbook) benchmarks in both vi and en
       const t43 = extractLocaleText(a43, locale);
       for (const token of [
         "Soulmancer",
         "Warlock",
+        "Desert Prince",
+        "Storm Maiden",
+        "Witch",
+        "Wukong",
+        "Beastmaster",
+        "Shadow Priest",
+        "160",
+        "560",
         "345",
         "385",
         "40,000",
@@ -299,24 +370,102 @@ describe("Group 4 (roadmap) Standardized v2.0 Content, UI Block Contracts & Quan
         "2.8M",
         "400,000",
         "600,000",
+        "275",
+        "1,185",
+        "750",
+        "18,000",
+        "195,000",
+        "Thunder Judgment",
+        "Dragonheart",
+        "Dragonbone Amulet",
+        "130",
+        "330",
+        "490",
+        "1,100",
+        "Heavy Cavalry",
+        "Divine Spirit",
+        "80,400",
+        "15,000",
+        "30,000",
+        "Tiggy",
+        "Howli",
+        "Flickerkit",
+        "Cactini",
+        "596,600",
+        "48,000",
+        "1,350,000",
+        "Combat Skill Level",
+        "958,800",
+        "Sacred Codex",
+        "Legendary T1",
+        "Legendary T2",
+        "5,422",
+        "Lv.35",
+        "Lv.40",
       ]) {
         expect(t43, `Article 4.3 (${locale}) must contain ${token}`).toContain(token);
       }
 
-      // Article 4.4 (Pure Nature) benchmarks in both vi and en
+      // Article 4.4 (Pure Nature — 10-Pillar Master Playbook) benchmarks in both vi and en
       const t44 = extractLocaleText(a44, locale);
       for (const token of [
         "Treeguard",
         "Forest Maiden",
         "Pixie",
+        "Sage",
+        "Druid",
+        "Windwalker",
+        "Watcher",
         "Tidecaller",
         "Monk",
         "Ne Zha",
         "Petalis",
-        "18",
-        "240,000",
-        "36,000",
+        "160",
+        "560",
         "1,000",
+        "18",
+        "27",
+        "345",
+        "385",
+        "40,000",
+        "240,000",
+        "360,000",
+        "6,000",
+        "36,000",
+        "54,000",
+        "2.8M",
+        "275",
+        "1,185",
+        "750",
+        "3,000",
+        "18,000",
+        "195,000",
+        "Vineborne Bow",
+        "Undefeated Crown",
+        "Sacred Scroll",
+        "Moonstone",
+        "130",
+        "330",
+        "490",
+        "1,100",
+        "Heavy Cavalry",
+        "Tree Spirit",
+        "80,400",
+        "15,000",
+        "30,000",
+        "Cactini",
+        "Candy Boo",
+        "596,600",
+        "48,000",
+        "1,350,000",
+        "Combat Skill Level",
+        "958,800",
+        "Sacred Codex",
+        "Legendary T1",
+        "Legendary T2",
+        "5,422",
+        "Lv.35",
+        "Lv.40",
       ]) {
         expect(t44, `Article 4.4 (${locale}) must contain ${token}`).toContain(token);
       }

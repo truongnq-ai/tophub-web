@@ -93,7 +93,7 @@ export const ARTICLE_2_2_META_LINEUPS: GuideArticle = {
             vi: "Sơ đồ bố trí 6 ô chuẩn theo từng hàng (Ô 1–2 Hàng trước, Ô 3–4 Hàng giữa, Ô 5–6 Hàng sau) cho 3 đội hình Chuyển giao (Transition) và 3 đội hình Thuần Hệ Cuối Game (Endgame Pure Meta) của Liên Minh, Bộ Lạc và Thiên Nhiên.",
             en: "Row-by-row 6-slot tactical grid (Slots 1–2 Frontline, Slots 3–4 Midline, Slots 5–6 Backline) covering the 3 Transition setups and 3 Endgame Pure Meta formations for League, Horde, and Nature.",
           },
-          imageSrc: "/images/guides/lineups/three-factions-meta-lineup-cards.webp",
+
           annotations: [
             {
               kind: "do",
@@ -993,7 +993,7 @@ export const ARTICLE_2_2_META_LINEUPS: GuideArticle = {
             vi: "Ảnh chụp màn hình minh họa thao tác kế thừa 24 món Trang bị Vàng (+10/+20) từ các tướng SSR quá độ sang Tướng Đỏ Bộ Lạc ở Ngày 21–41 và điều chuyển tướng quá độ xuống Đội 2.",
             en: "Annotated screenshot illustrating the inheritance of all 24 Legendary Gear pieces (+10/+20) from transitional SSRs onto Horde Mythics on Days 21–41 while rotating transitional SSRs into Queue 2.",
           },
-          imageSrc: "/images/guides/lineups/queue1-to-queue2-hybrid-pivot-ui.webp",
+
           annotations: [
             {
               kind: "do",

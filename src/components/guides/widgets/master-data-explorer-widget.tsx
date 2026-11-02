@@ -122,7 +122,7 @@ const MASTER_TABLE_ICON_BY_CODE: Record<string, string> = {
   "1.3": "item-upgrade-rune",
   "1.4": "troop-rank-4",
   "3.1": "building-castle",
-  "4.1": "item-stamina",
+  "4.1": "item-meat",
   "4.2": "gear-exclusive-weapon",
   "4.3": "gear-lord-sword",
   "4.4": "rune-slot-6",

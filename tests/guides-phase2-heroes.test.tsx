@@ -165,7 +165,7 @@ describe("Phase 2 — Group 2 Heroes & Formations Visual Upgrade", () => {
       const gearSrcs = Array.from(gearBanner.querySelectorAll("img")).map((img) =>
         img.getAttribute("src")
       );
-      expect(gearSrcs).toContain("/images/equipment/hero-gear/icon_40005.webp");
+      expect(gearSrcs).toContain("/images/equipment/hero-gear/icon_40064.webp");
       expect(gearSrcs).toContain("/images/items/shards/icon_30231.webp");
     });
 
@@ -269,7 +269,7 @@ describe("Phase 2 — Group 2 Heroes & Formations Visual Upgrade", () => {
       );
       expect(loadoutSrcs).toContain("/images/heroes/avatars/Head_10047.webp");
       expect(loadoutSrcs).toContain("/images/equipment/exclusive-weapons/equipment_Exclusive006.webp");
-      expect(loadoutSrcs).toContain("/images/equipment/hero-gear/icon_40005.webp");
+      expect(loadoutSrcs).toContain("/images/equipment/hero-gear/icon_40064.webp");
 
       // 3. Switch to nature-endgame
       fireEvent.click(screen.getByTestId("formation-lineup-pill-nature-endgame"));
@@ -340,7 +340,7 @@ describe("Phase 2 — Group 2 Heroes & Formations Visual Upgrade", () => {
         "/images/heroes/avatars/Head_10014.webp", // Ranger
         "/images/heroes/avatars/Head_10003.webp", // Minister
         "/images/heroes/avatars/Head_10013.webp", // Priestess
-        "/images/heroes/avatars/Head_10005.webp", // Dancer
+        "/images/heroes/avatars/Head_10007.webp", // Dancer
         "/images/heroes/avatars/Head_10011.webp", // Rogue
         "/images/heroes/avatars/Head_10015.webp", // Outlaw
       ];

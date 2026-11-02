@@ -13,6 +13,7 @@ import {
   DAILY_MILESTONE_CHESTS,
   EVENT_DAYS_METADATA,
   EVENT_INVENTORY_ITEMS,
+  EVENT_SCORING_MODE_META,
   TECH_BUFF_PRESET_PERCENTS,
   calculateEventPoints,
   clampTechBuffPercent,
@@ -332,8 +333,28 @@ export function EventPointsCalculator({
                   )}
                 >
                   {locale === "vi"
-                    ? "GAR (Chạy Đua Vũ Trang)"
-                    : "Standard GAR"}
+                    ? (
+                        <>
+                          <img
+                            src={EVENT_SCORING_MODE_META.gar.iconPath}
+                            alt=""
+                            aria-hidden="true"
+                            className="mr-1.5 inline-block h-4 w-4 shrink-0 object-contain"
+                          />
+                          <span>{EVENT_SCORING_MODE_META.gar.labelVi}</span>
+                        </>
+                      )
+                    : (
+                        <>
+                          <img
+                            src={EVENT_SCORING_MODE_META.gar.iconPath}
+                            alt=""
+                            aria-hidden="true"
+                            className="mr-1.5 inline-block h-4 w-4 shrink-0 object-contain"
+                          />
+                          <span>{EVENT_SCORING_MODE_META.gar.labelEn}</span>
+                        </>
+                      )}
                 </button>
                 <button
                   type="button"
@@ -348,8 +369,28 @@ export function EventPointsCalculator({
                   )}
                 >
                   {locale === "vi"
-                    ? "KvK (Vương Quốc Chiến)"
-                    : "Kingdom Duel (KvK)"}
+                    ? (
+                        <>
+                          <img
+                            src={EVENT_SCORING_MODE_META.kvk.iconPath}
+                            alt=""
+                            aria-hidden="true"
+                            className="mr-1.5 inline-block h-4 w-4 shrink-0 object-contain"
+                          />
+                          <span>{EVENT_SCORING_MODE_META.kvk.labelVi}</span>
+                        </>
+                      )
+                    : (
+                        <>
+                          <img
+                            src={EVENT_SCORING_MODE_META.kvk.iconPath}
+                            alt=""
+                            aria-hidden="true"
+                            className="mr-1.5 inline-block h-4 w-4 shrink-0 object-contain"
+                          />
+                          <span>{EVENT_SCORING_MODE_META.kvk.labelEn}</span>
+                        </>
+                      )}
                 </button>
               </div>
             </div>

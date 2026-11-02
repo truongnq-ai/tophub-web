@@ -396,7 +396,7 @@ export const EXCLUSIVE_WEAPON_HERO_CATALOG: readonly ExclusiveWeaponHeroEntry[] 
     rarity: "mythic",
     heroName: { vi: "Adjudicator (Phán Quyết)", en: "Adjudicator" },
     weaponName: { vi: "Đôi Cánh Phán Quyết", en: "Wings of Judgement" },
-    weaponIconPath: "/images/codex/equipment/equipment_Exclusive010.webp",
+    weaponIconPath: "/images/equipment/exclusive-weapons/equipment_Exclusive002.webp",
     signatureHighlight: {
       vi: "Kéo dài trạng thái Bất Tử (Unbreakable) và tăng Giảm Sát Thương cho toàn bộ hàng trước.",
       en: "Extends Unbreakable invulnerability and boosts Frontline Damage Reduction.",
@@ -408,7 +408,7 @@ export const EXCLUSIVE_WEAPON_HERO_CATALOG: readonly ExclusiveWeaponHeroEntry[] 
     rarity: "mythic",
     heroName: { vi: "Paragon (Thánh Mẫu)", en: "Paragon" },
     weaponName: { vi: "Thiên Kiếm Tinh Vân", en: "Celestial Blade" },
-    weaponIconPath: "/images/codex/equipment/equipment_Exclusive012.webp",
+    weaponIconPath: "/images/equipment/exclusive-weapons/equipment_Exclusive008.webp",
     signatureHighlight: {
       vi: "Khuếch đại Sát Thương Chuẩn diện rộng và tăng Tỷ Lệ Bạo Kích cho phe Liên Minh.",
       en: "Amplifies AoE True Damage and grants Crit Rate aura to League allies.",
@@ -420,7 +420,7 @@ export const EXCLUSIVE_WEAPON_HERO_CATALOG: readonly ExclusiveWeaponHeroEntry[] 
     rarity: "mythic",
     heroName: { vi: "Rose Princess (Công Chúa Hồng)", en: "Rose Princess" },
     weaponName: { vi: "Hoa Hồng Tinh Khiết", en: "Pure Rose" },
-    weaponIconPath: "/images/codex/equipment/equipment_Exclusive028.webp",
+    weaponIconPath: "/images/equipment/exclusive-weapons/equipment_Exclusive009.webp",
     signatureHighlight: {
       vi: "Cộng dồn Gai Hồng phản sát thương và tạo Khiên bảo hộ cho đồng minh thấp máu nhất.",
       en: "Stacks Rose Thorns counter-damage and shields the lowest-HP ally.",
@@ -432,7 +432,7 @@ export const EXCLUSIVE_WEAPON_HERO_CATALOG: readonly ExclusiveWeaponHeroEntry[] 
     rarity: "mythic",
     heroName: { vi: "Bishop (Giám Mục)", en: "Bishop" },
     weaponName: { vi: "Thánh Điển Quang Minh", en: "Tome of Light" },
-    weaponIconPath: "/images/codex/equipment/equipment_Exclusive027.webp",
+    weaponIconPath: "/images/equipment/exclusive-weapons/equipment_Exclusive011.webp",
     signatureHighlight: {
       vi: "Thanh tẩy hiệu ứng bất lợi và bơm Năng Lượng tức thời cho tướng Sát Thương chủ lực.",
       en: "Cleanses debuffs and injects instant Energy into the main DPS carry.",
@@ -444,7 +444,7 @@ export const EXCLUSIVE_WEAPON_HERO_CATALOG: readonly ExclusiveWeaponHeroEntry[] 
     rarity: "legendary",
     heroName: { vi: "Pyromancer (Hỏa Pháp Sư)", en: "Pyromancer" },
     weaponName: { vi: "Trượng Hỏa Ngục", en: "Inferno Staff" },
-    weaponIconPath: "/images/codex/equipment/equipment_Exclusive003.webp",
+    weaponIconPath: "/images/equipment/exclusive-weapons/equipment_Exclusive001.webp",
     signatureHighlight: {
       vi: "Tăng bán kính vụ nổ Thiên Thạch và gây Thiêu Đốt theo phần trăm máu tối đa.",
       en: "Expands Meteor blast radius and inflicts max-HP percentage Burn.",
@@ -456,7 +456,7 @@ export const EXCLUSIVE_WEAPON_HERO_CATALOG: readonly ExclusiveWeaponHeroEntry[] 
     rarity: "legendary",
     heroName: { vi: "Astrologer (Chiêm Tinh Gia)", en: "Astrologer" },
     weaponName: { vi: "Tinh Cầu Thiên Văn", en: "Astrolabe" },
-    weaponIconPath: "/images/codex/equipment/equipment_Exclusive004.webp",
+    weaponIconPath: "/images/equipment/exclusive-weapons/equipment_Exclusive005.webp",
     signatureHighlight: {
       vi: "Rút ngắn thời gian hồi Tuyệt Kỹ và tăng Xuyên Kháng Phép.",
       en: "Reduces Ultimate cooldown and increases Magic Penetration.",
@@ -469,7 +469,7 @@ export const EXCLUSIVE_WEAPON_HERO_CATALOG: readonly ExclusiveWeaponHeroEntry[] 
     rarity: "mythic",
     heroName: { vi: "Tidecaller (Triệu Hồi Thủy Triều)", en: "Tidecaller" },
     weaponName: { vi: "Đinh Ba San Hô", en: "Coral Fork" },
-    weaponIconPath: "/images/codex/equipment/equipment_Exclusive029.webp",
+    weaponIconPath: "/images/equipment/exclusive-weapons/equipment_Exclusive024.webp",
     signatureHighlight: {
       vi: "Mốc +10 triệu hồi Thủy Tinh khổng lồ vừa đỡ đòn vừa hồi máu toàn đội liên tục.",
       en: "At +10, summons a giant Water Elemental that tanks and heals the entire squad.",
@@ -481,7 +481,7 @@ export const EXCLUSIVE_WEAPON_HERO_CATALOG: readonly ExclusiveWeaponHeroEntry[] 
     rarity: "mythic",
     heroName: { vi: "Monk (Võ Tăng)", en: "Monk" },
     weaponName: { vi: "Hồ Lô Tiên Tửu", en: "Immortal Gourd" },
-    weaponIconPath: "/images/codex/equipment/equipment_Exclusive030.webp",
+    weaponIconPath: "/images/equipment/exclusive-weapons/equipment_Exclusive021.webp",
     signatureHighlight: {
       vi: "Tăng Né Tránh, Kháng Bạo Kích và tự hồi phục khi chịu sát thương dồn.",
       en: "Boosts Dodge, Crit Resistance, and self-healing under burst damage.",
@@ -493,7 +493,7 @@ export const EXCLUSIVE_WEAPON_HERO_CATALOG: readonly ExclusiveWeaponHeroEntry[] 
     rarity: "mythic",
     heroName: { vi: "Pixie (Tiên Nữ Rừng Xanh)", en: "Pixie" },
     weaponName: { vi: "Mầm Sống Nguyên Sinh", en: "Sprout" },
-    weaponIconPath: "/images/codex/equipment/equipment_Exclusive024.webp",
+    weaponIconPath: "/images/equipment/exclusive-weapons/equipment_Exclusive022.webp",
     signatureHighlight: {
       vi: "Khuếch đại sát thương cho toàn bộ Vật Triệu Hồi (Summon) của hệ Tự Nhiên.",
       en: "Amplifies damage dealt by all Nature Summoned units.",
@@ -505,7 +505,7 @@ export const EXCLUSIVE_WEAPON_HERO_CATALOG: readonly ExclusiveWeaponHeroEntry[] 
     rarity: "legendary",
     heroName: { vi: "Forest Maiden (Thánh Nữ Rừng)", en: "Forest Maiden" },
     weaponName: { vi: "Trượng Linh Hồn Rừng", en: "Staff of Wood" },
-    weaponIconPath: "/images/codex/equipment/equipment_Exclusive018.webp",
+    weaponIconPath: "/images/equipment/exclusive-weapons/equipment_Exclusive020.webp",
     signatureHighlight: {
       vi: "Tăng lượng máu hồi phục mỗi giây và buff Giáp cho đồng minh có Vật Triệu Hồi.",
       en: "Increases heal-over-time output and grants Armor to summoned allies.",
@@ -517,7 +517,7 @@ export const EXCLUSIVE_WEAPON_HERO_CATALOG: readonly ExclusiveWeaponHeroEntry[] 
     rarity: "legendary",
     heroName: { vi: "Windwalker (Phong Hành Giả)", en: "Windwalker" },
     weaponName: { vi: "Phong Vũ Phiến", en: "Feather Fan" },
-    weaponIconPath: "/images/codex/equipment/equipment_Exclusive013.webp",
+    weaponIconPath: "/images/equipment/exclusive-weapons/equipment_Exclusive004.webp",
     signatureHighlight: {
       vi: "Tăng Tốc Đánh cực đại và bắn thêm tia Gió Xuyên Thấu hàng sau.",
       en: "Maximizes Attack Speed and fires piercing Wind bolts into the backline.",
@@ -530,7 +530,7 @@ export const EXCLUSIVE_WEAPON_HERO_CATALOG: readonly ExclusiveWeaponHeroEntry[] 
     rarity: "mythic",
     heroName: { vi: "Desert Prince (Hoàng Tử Sa Mạc)", en: "Desert Prince" },
     weaponName: { vi: "Loan Đao Cát Cháy", en: "Scimitar of Scoring" },
-    weaponIconPath: "/images/codex/equipment/equipment_Exclusive021.webp",
+    weaponIconPath: "/images/equipment/exclusive-weapons/equipment_Exclusive013.webp",
     signatureHighlight: {
       vi: "Ám sát hàng sau kẻ địch với Bão Cát Xuyên Giáp và Hút Máu toàn phần.",
       en: "Assassinate enemy backlines with Armor-Piercing Sandstorms and Lifesteal.",
@@ -542,7 +542,7 @@ export const EXCLUSIVE_WEAPON_HERO_CATALOG: readonly ExclusiveWeaponHeroEntry[] 
     rarity: "mythic",
     heroName: { vi: "Storm Maiden (Thần Nữ Bão Tố)", en: "Storm Maiden" },
     weaponName: { vi: "Lông Vũ Lôi Điện", en: "Thunder Feather" },
-    weaponIconPath: "/images/codex/equipment/equipment_Exclusive020.webp",
+    weaponIconPath: "/images/equipment/exclusive-weapons/equipment_Exclusive015.webp",
     signatureHighlight: {
       vi: "Giật Sét dây chuyền gây Choáng diện rộng và giảm Kháng Phép kẻ địch.",
       en: "Chains Lightning strikes to Stun multiple targets and shred Magic Resist.",
@@ -554,7 +554,7 @@ export const EXCLUSIVE_WEAPON_HERO_CATALOG: readonly ExclusiveWeaponHeroEntry[] 
     rarity: "mythic",
     heroName: { vi: "Witch (Phù Thủy Hắc Ám)", en: "Witch" },
     weaponName: { vi: "Búp Bê Nguyền Rủa", en: "Cursed Doll" },
-    weaponIconPath: "/images/codex/equipment/equipment_Exclusive026.webp",
+    weaponIconPath: "/images/equipment/exclusive-weapons/equipment_Exclusive016.webp",
     signatureHighlight: {
       vi: "Gắn Nguyền Rủa giảm 50% Hồi Máu và phát nổ linh hồn khi mục tiêu hạ gục.",
       en: "Inflicts Curse reducing enemy Healing by 50% and triggers Soul Explosion on kill.",
@@ -566,7 +566,7 @@ export const EXCLUSIVE_WEAPON_HERO_CATALOG: readonly ExclusiveWeaponHeroEntry[] 
     rarity: "mythic",
     heroName: { vi: "Wukong (Tề Thiên Đại Thánh)", en: "Wukong" },
     weaponName: { vi: "Như Ý Kim Cô Bổng", en: "Ruyi Jingu Bang" },
-    weaponIconPath: "/images/codex/equipment/equipment_Exclusive035.webp",
+    weaponIconPath: "/images/equipment/exclusive-weapons/equipment_Exclusive006.webp",
     signatureHighlight: {
       vi: "Triệu hồi Phân Thân Hầu Vương kế thừa chỉ số và đập gậy Bạo Kích diện rộng.",
       en: "Summons Monkey Clones inheriting stats and unleashes AoE Critical Staff slams.",
@@ -578,7 +578,7 @@ export const EXCLUSIVE_WEAPON_HERO_CATALOG: readonly ExclusiveWeaponHeroEntry[] 
     rarity: "mythic",
     heroName: { vi: "Beastmaster (Thú Vương)", en: "Beastmaster" },
     weaponName: { vi: "Nỏ Săn Uy Long", en: "Wyrmscale Crossbow" },
-    weaponIconPath: "/images/codex/equipment/equipment_Exclusive036.webp",
+    weaponIconPath: "/images/equipment/exclusive-weapons/equipment_Exclusive018.webp",
     signatureHighlight: {
       vi: "Gọi Chiến Thú cuồng nộ cắn xé mục tiêu có ATK cao nhất của đối phương.",
       en: "Calls frenzied War Beasts to maul the enemy hero with the highest ATK.",

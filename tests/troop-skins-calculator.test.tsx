@@ -6,6 +6,7 @@ import viMessages from "../messages/vi.json";
 import { CalculatorPlaceholderView } from "../src/components/calculators/calculator-placeholder-view";
 import {
   TROOP_SKIN_CATALOG,
+  TROOP_SKIN_UNIVERSAL_CHEST_ICON,
   TROOP_SKIN_LEVEL_PRESETS,
   TROOP_SKIN_MAX_LEVEL,
   TROOP_SKIN_MIN_LEVEL,
@@ -44,6 +45,29 @@ describe("3.1 Quân Trang (troop-skins-data) — SSoT Quantitative Engine", () =
     expect(TROOP_SKIN_LEVEL_PRESETS).toEqual([1, 10, 20, 30, 40, 45, 50]);
 
     expect(TROOP_SKIN_CATALOG).toHaveLength(15);
+    expect(TROOP_SKIN_UNIVERSAL_CHEST_ICON).toBe(
+      "/images/items/consumables/icon_30566.webp"
+    );
+    const expectedAvatars: Record<string, string> = {
+      "heavy-cavalry": "/images/troops/skins-avatars/ArmsHead_10010_1.webp",
+      "divine-spirit": "/images/troops/skins-avatars/ArmsHead_10019_1.webp",
+      "desert-knight": "/images/troops/skins-avatars/ArmsHead_10018_1.webp",
+      "tree-spirit": "/images/troops/skins-avatars/ArmsHead_10017_1.webp",
+      "brave-fighter": "/images/troops/skins-avatars/ArmsHead_10015_1.webp",
+      "skeleton-soldier": "/images/troops/skins-avatars/ArmsHead_10016_1.webp",
+      "honor-guard": "/images/troops/skins-avatars/ArmsHead_10008_1.webp",
+      "siege-vehicle": "/images/troops/skins-avatars/ArmsHead_10013_1.webp",
+      samurai: "/images/troops/skins-avatars/ArmsHead_10007_1.webp",
+      "bearskin-warrior": "/images/troops/skins-avatars/ArmsHead_10006_1.webp",
+      "logistic-follower": "/images/troops/skins-avatars/ArmsHead_10009_1.webp",
+      "drum-corps": "/images/troops/skins-avatars/ArmsHead_10014_1.webp",
+      "elegant-butler": "/images/troops/skins-avatars/ArmsHead_10012_1.webp",
+      "shield-soldier": "/images/troops/skins-avatars/ArmsHead_10001_1.webp",
+      cavalry: "/images/troops/skins-avatars/ArmsHead_10002_1.webp",
+    };
+    for (const skin of TROOP_SKIN_CATALOG) {
+      expect(skin.iconPath).toBe(expectedAvatars[skin.id]);
+    }
     expect(getSkinsByRarity("legendary")).toHaveLength(8);
     expect(getSkinsByRarity("epic")).toHaveLength(5);
     expect(getSkinsByRarity("rare")).toHaveLength(2);

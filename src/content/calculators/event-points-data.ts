@@ -3,6 +3,30 @@ import { CALCULATOR_MATERIALS } from "./registry";
 
 export type EventScoringMode = "gar" | "kvk";
 
+export interface EventScoringModeMeta {
+  readonly id: EventScoringMode;
+  readonly iconPath: string;
+  readonly labelVi: string;
+  readonly labelEn: string;
+}
+
+export const EVENT_SCORING_MODE_META: Readonly<
+  Record<EventScoringMode, EventScoringModeMeta>
+> = {
+  gar: {
+    id: "gar",
+    iconPath: "/images/events/entry-icons/Activity_74.webp",
+    labelVi: "GAR (Chạy Đua Vũ Trang)",
+    labelEn: "Standard GAR",
+  },
+  kvk: {
+    id: "kvk",
+    iconPath: "/images/events/entry-icons/Activity_113.webp",
+    labelVi: "KvK (Vương Quốc Chiến)",
+    labelEn: "Kingdom Duel (KvK)",
+  },
+};
+
 export type EventDayNumber = 1 | 2 | 3 | 4 | 5 | 6;
 
 export interface EventDayMetadata {

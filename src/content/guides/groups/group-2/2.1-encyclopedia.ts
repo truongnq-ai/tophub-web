@@ -289,8 +289,8 @@ export const ARTICLE_2_1_ENCYCLOPEDIA: GuideArticle = {
             en: "Standardized 45+ Hero Portrait Grid Across 3 Factions & 4 Rarity Borders",
           },
           description: {
-            vi: "Bộ khung ảnh chân dung chuẩn hóa 45+ tướng (/images/guides/heroes/{faction}-{hero-slug}.webp, kích thước 128x128px, viền màu theo phẩm chất Đỏ Mythic / Vàng Legendary / Tím Epic / Xanh Rare).",
-            en: "Standardized 45+ hero portrait asset grid (/images/guides/heroes/{faction}-{hero-slug}.webp, 128x128px resolution, color-coded borders for Red Mythic / Yellow Legendary / Purple Epic / Blue Rare).",
+            vi: "Bộ khung ảnh chân dung chuẩn hóa 45+ tướng (kích thước 128x128px, viền màu theo phẩm chất Đỏ Mythic / Vàng Legendary / Tím Epic / Xanh Rare).",
+            en: "Standardized 45+ hero portrait asset grid (128x128px resolution, color-coded borders for Red Mythic / Yellow Legendary / Purple Epic / Blue Rare).",
           },
           annotations: [
             {

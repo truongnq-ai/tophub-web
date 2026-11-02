@@ -134,6 +134,57 @@ describe("4.2 Đột Phá Trang Bị — Suite 1: Registry SSoT & Meta.bytes Qua
     expect(step25Stats.isMythicAscended).toBe(true);
     expect(step25Stats.totalAtk).toBeGreaterThan(step0Stats.totalAtk);
     expect(step25Stats.totalHp).toBeGreaterThan(step0Stats.totalHp);
+
+    const expectedSetIcons: Record<
+      string,
+      { sampleLeg: string; sampleMyth: string; legSuffix: string; mythSuffix: string }
+    > = {
+      knights_glory: {
+        sampleLeg: "/images/equipment/hero-gear/icon_42064.webp",
+        sampleMyth: "/images/equipment/hero-gear/icon_42053.webp",
+        legSuffix: "064",
+        mythSuffix: "053",
+      },
+      titans_might: {
+        sampleLeg: "/images/equipment/hero-gear/icon_40063.webp",
+        sampleMyth: "/images/equipment/hero-gear/icon_40052.webp",
+        legSuffix: "063",
+        mythSuffix: "052",
+      },
+      fury_of_blood: {
+        sampleLeg: "/images/equipment/hero-gear/icon_40062.webp",
+        sampleMyth: "/images/equipment/hero-gear/icon_40059.webp",
+        legSuffix: "062",
+        mythSuffix: "059",
+      },
+      commanders_set: {
+        sampleLeg: "/images/equipment/hero-gear/icon_40060.webp",
+        sampleMyth: "/images/equipment/hero-gear/icon_40051.webp",
+        legSuffix: "060",
+        mythSuffix: "051",
+      },
+    };
+    const slotPrefix: Record<string, string> = {
+      weapon: "40",
+      boots: "42",
+      armor: "41",
+      helmet: "45",
+    };
+    for (const setMeta of GEAR_PROMOTION_SETS) {
+      const exp = expectedSetIcons[setMeta.id];
+      expect(setMeta.sampleLegendaryIconPath).toBe(exp.sampleLeg);
+      expect(setMeta.sampleMythicIconPath).toBe(exp.sampleMyth);
+      for (const slotMeta of GEAR_PROMOTION_SLOTS) {
+        const piece = setMeta.items[slotMeta.id];
+        const pref = slotPrefix[slotMeta.id];
+        expect(piece.legendaryIconPath).toBe(
+          `/images/equipment/hero-gear/icon_${pref}${exp.legSuffix}.webp`
+        );
+        expect(piece.mythicIconPath).toBe(
+          `/images/equipment/hero-gear/icon_${pref}${exp.mythSuffix}.webp`
+        );
+      }
+    }
   });
 
   it("calculates single-piece (×1) promotion requirements, owned deductions, surpluses, and invalid range guards across all 5 materials", () => {

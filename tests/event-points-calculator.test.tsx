@@ -7,6 +7,7 @@ import {
   DAILY_MILESTONE_CHESTS,
   EVENT_DAYS_METADATA,
   EVENT_INVENTORY_ITEMS,
+  EVENT_SCORING_MODE_META,
   calculateEventPoints,
   evaluateItemOnDay,
 } from "../src/content/calculators/event-points-data";
@@ -25,6 +26,12 @@ import {
 describe("9.1 Tính Điểm GAR & KvK — Quantitative SSoT Engine", () => {
   it("contains all 6 event days, 9 milestone chests, and 100% .webp asset paths", () => {
     expect(EVENT_DAYS_METADATA).toHaveLength(6);
+    expect(EVENT_SCORING_MODE_META.gar.iconPath).toBe(
+      "/images/events/entry-icons/Activity_74.webp"
+    );
+    expect(EVENT_SCORING_MODE_META.kvk.iconPath).toBe(
+      "/images/events/entry-icons/Activity_113.webp"
+    );
     expect(DAILY_MILESTONE_CHESTS).toHaveLength(9);
     expect(EVENT_INVENTORY_ITEMS.length).toBeGreaterThanOrEqual(25);
 

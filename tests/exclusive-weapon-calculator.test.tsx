@@ -69,6 +69,29 @@ describe("4.3 Vũ Khí Độc Quyền — Suite 1: Quantitative SSoT Engine (Lv.
     expect(clampExclusiveWeaponLevel(99)).toBe(20);
     expect(clampExclusiveStarStep(-1)).toBe(0);
     expect(clampExclusiveStarStep(99)).toBe(25);
+
+    const expectedWeapons: Record<string, string> = {
+      adjudicator: "/images/equipment/exclusive-weapons/equipment_Exclusive002.webp",
+      paragon: "/images/equipment/exclusive-weapons/equipment_Exclusive008.webp",
+      rose_princess: "/images/equipment/exclusive-weapons/equipment_Exclusive009.webp",
+      bishop: "/images/equipment/exclusive-weapons/equipment_Exclusive011.webp",
+      pyromancer: "/images/equipment/exclusive-weapons/equipment_Exclusive001.webp",
+      astrologer: "/images/equipment/exclusive-weapons/equipment_Exclusive005.webp",
+      tidecaller: "/images/equipment/exclusive-weapons/equipment_Exclusive024.webp",
+      monk: "/images/equipment/exclusive-weapons/equipment_Exclusive021.webp",
+      pixie: "/images/equipment/exclusive-weapons/equipment_Exclusive022.webp",
+      forest_maiden: "/images/equipment/exclusive-weapons/equipment_Exclusive020.webp",
+      windwalker: "/images/equipment/exclusive-weapons/equipment_Exclusive004.webp",
+      desert_prince: "/images/equipment/exclusive-weapons/equipment_Exclusive013.webp",
+      storm_maiden: "/images/equipment/exclusive-weapons/equipment_Exclusive015.webp",
+      witch: "/images/equipment/exclusive-weapons/equipment_Exclusive016.webp",
+      wukong: "/images/equipment/exclusive-weapons/equipment_Exclusive006.webp",
+      beastmaster: "/images/equipment/exclusive-weapons/equipment_Exclusive018.webp",
+    };
+    expect(EXCLUSIVE_WEAPON_HERO_CATALOG).toHaveLength(16);
+    for (const entry of EXCLUSIVE_WEAPON_HERO_CATALOG) {
+      expect(entry.weaponIconPath).toBe(expectedWeapons[entry.heroId]);
+    }
   });
 
   it("calculates exact Shards and Meteoric Iron Cores for 1 hero (×1 default), plus next milestone distance", () => {

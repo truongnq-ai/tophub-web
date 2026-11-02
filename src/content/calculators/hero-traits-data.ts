@@ -865,8 +865,8 @@ export const HERO_TRAIT_3_PROFILES: Readonly<Record<string, HeroTrait3Profile>> 
         en: "+1.00% per level",
       },
       strategicNote: {
-        vi: "Tướng Vàng Liên Minh: Tăng khả năng tự bảo vệ trước sát thương bạo kích.",
-        en: "League Legendary: Improves resilience against critical damage.",
+        vi: "Tướng Đỏ Liên Minh: Tăng khả năng tự bảo vệ trước sát thương bạo kích.",
+        en: "League Mythic: Improves resilience against critical damage.",
       },
     },
     "hero-astrologer": {
@@ -1112,8 +1112,8 @@ export const HERO_TRAIT_3_PROFILES: Readonly<Record<string, HeroTrait3Profile>> 
         en: "+1.00% per level",
       },
       strategicNote: {
-        vi: "Tướng Tím Kinh tế dự bị: Chỉ nâng phễu Ô 1 Lv.15 + Ô 3 Lv.30 bằng mảnh dư, tuyệt đối không mở Ô 4.",
-        en: "Benched Economic Epic: Upgrade Slot 1 Lv.15 + Slot 3 Lv.30 using spare shards; keep Slot 4 locked.",
+        vi: "Tướng Lam dự bị (Thợ Rèn): Chỉ dùng Mảnh Lam dư thừa từ Quán Rượu, tuyệt đối không mở Ô 4.",
+        en: "Benched Rare Hero (Blacksmith): Use excess Blue Shards only; keep Slot 4 locked.",
       },
     },
     // --- 6 TƯỚNG LAM (RARE — KINH TẾ / THU THẬP CƠ BẢN) ---
@@ -1158,8 +1158,8 @@ export const HERO_TRAIT_3_PROFILES: Readonly<Record<string, HeroTrait3Profile>> 
     "hero-wizard": {
       category: "economy_24_7",
       trait3Title: {
-        vi: "Thiên Phú Nội Chính Cơ Bản (Tướng Lam)",
-        en: "Base Economy Trait (Rare Hero)",
+        vi: "Thiên Phú Nội Chính Cơ Bản (Tướng Tím — Pháp Sư Già)",
+        en: "Base Economy Trait (Epic Hero — Wizard)",
       },
       maxBonusLabel: {
         vi: "+20% Chỉ số Nội chính Cơ bản (Lv.30)",
@@ -1215,8 +1215,8 @@ export const HERO_TRAIT_3_PROFILES: Readonly<Record<string, HeroTrait3Profile>> 
     "hero-scout": {
       category: "economy_24_7",
       trait3Title: {
-        vi: "Thiên Phú Trinh Sát & Hành Quân Cơ Bản (Tướng Lam)",
-        en: "Base Scouting & March Trait (Rare Hero)",
+        vi: "Thiên Phú Trinh Sát & Hành Quân Chiến Đấu (Tướng Đỏ — Trinh Sát Rải Nấm)",
+        en: "Combat Scouting & March Trait (Mythic Hero — Acorn Scout)",
       },
       maxBonusLabel: {
         vi: "+20% Tốc độ Hành quân Thu thập Cơ bản (Lv.30)",

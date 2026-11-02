@@ -96,6 +96,19 @@ export function ResponsiveDataTable({
   const showFilterInput = rows.length > FILTER_THRESHOLD;
   const canCollapse = rows.length > COLLAPSE_THRESHOLD;
 
+  const effectiveFallbackAsset = useMemo(() => {
+    if (fallbackRowAsset) return fallbackRowAsset;
+    const contextText = `${caption ?? ""} ${headers.join(" ")}`.toLowerCase();
+    if (
+      contextText.includes("vũ khí độc quyền") ||
+      contextText.includes("exclusive weapon") ||
+      /\buw\s+lv\./i.test(contextText)
+    ) {
+      return getAssetById("gear-exclusive-weapon");
+    }
+    return undefined;
+  }, [fallbackRowAsset, caption, headers]);
+
   const filteredRows = useMemo(() => {
     if (!normalizedQuery) return rows;
     return rows.filter((row) =>
@@ -177,7 +190,7 @@ export function ResponsiveDataTable({
             ) : (
               visibleRows.map((row, rowIdx) => {
                 const isBp = isBreakpointRow(row);
-                const col0Asset = resolveRowCol0Asset(row[0], fallbackRowAsset);
+                const col0Asset = resolveRowCol0Asset(row[0], effectiveFallbackAsset);
 
                 return (
                   <tr
@@ -194,7 +207,7 @@ export function ResponsiveDataTable({
                       const rowAsset =
                         cellIdx === 0
                           ? col0Asset
-                          : cellIdx === 1 && !col0Asset
+                          : cellIdx === 1 && !col0Asset && cell.length <= 95
                             ? resolveEntityFromTableCell(cell)
                             : undefined;
                       const isNumeric = cellIdx > 0 && isPureNumericCell(cell);
