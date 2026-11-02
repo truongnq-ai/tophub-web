@@ -151,25 +151,45 @@ describe("Zone II Part 3 — Suite 1: S0 ➔ GAR Event Playbooks SSoT Data (Task
     expect(s0Events).toHaveLength(10);
   });
 
-  it("populates all 6 canonical Event Encyclopedia tables (5.1 ➔ 5.6) including all 4 Pro-Player Mechanics on every event", () => {
+  it("populates all 6 canonical Event Encyclopedia sections (5.1 ➔ 5.6) with concise bullets, 👉 takeaways, and event-specific pro tips on every event", () => {
     for (const ev of EVENT_PLAYBOOKS_DATA) {
       expect(ev.sixTables, `Missing sixTables on ${ev.id}`).toBeDefined();
       const st = ev.sixTables!;
       expect(st.table1TimelineRules.takeEffectTime.vi.length).toBeGreaterThan(5);
       expect(st.table1TimelineRules.recyclePolicy.vi.length).toBeGreaterThan(10);
+      expect(st.table1TimelineRules.conciseBullets.length).toBeGreaterThanOrEqual(2);
+      expect(st.table1TimelineRules.takeaway.vi).toContain("👉");
+
       expect(st.table2TasksAndMilestones.tasks.length).toBeGreaterThanOrEqual(2);
       expect(st.table2TasksAndMilestones.milestones.length).toBeGreaterThanOrEqual(2);
+      expect(st.table2TasksAndMilestones.conciseBullets.length).toBeGreaterThanOrEqual(2);
+      expect(st.table2TasksAndMilestones.takeaway.vi).toContain("👉");
+
       expect(st.table3ShopAndDrops.dropSources.length).toBeGreaterThanOrEqual(1);
       expect(st.table3ShopAndDrops.shopItems.length).toBeGreaterThanOrEqual(3);
+      expect(st.table3ShopAndDrops.tierSSummary.vi.length).toBeGreaterThan(5);
+      expect(st.table3ShopAndDrops.tierASummary.vi.length).toBeGreaterThan(5);
+      expect(st.table3ShopAndDrops.tierFSummary.vi.length).toBeGreaterThan(5);
+      expect(st.table3ShopAndDrops.takeaway.vi).toContain("👉");
+
       expect(st.table4PacksAndRoi.packs.length).toBeGreaterThanOrEqual(2);
+      expect(st.table4PacksAndRoi.conciseBullets.length).toBeGreaterThanOrEqual(2);
+      expect(st.table4PacksAndRoi.takeaway.vi).toContain("👉");
+
       expect(st.section5HoardingPlan.shortTermTargets.length).toBeGreaterThanOrEqual(2);
-      expect(st.section5HoardingPlan.longTermRoadmap.length).toBeGreaterThanOrEqual(2);
-      expect(st.section6ProMechanics.map((m) => m.mechanicId)).toEqual([
-        "pre_building",
-        "troop_precooking",
-        "pre_gathering_quest_banking",
-        "double_triple_dip",
-      ]);
+      expect(st.section5HoardingPlan.consumedSummary.vi.length).toBeGreaterThan(10);
+      expect(st.section5HoardingPlan.hoardingQuotaSummary.vi.length).toBeGreaterThan(10);
+      expect(st.section5HoardingPlan.takeaway.vi).toContain("👉");
+
+      expect(st.section6ProMechanics.length).toBeGreaterThanOrEqual(2);
+      expect(st.section6ProMechanics.length).toBeLessThanOrEqual(3);
+      expect(st.section6ProMechanics.map((m) => m.mechanicId)).not.toContain(
+        "pre_building"
+      );
+      expect(JSON.stringify(st.section6ProMechanics)).not.toContain(
+        "Kỹ thuật 1 — Ủ Nhà / Giữ Hộp Quà Công Trình"
+      );
+      expect(st.section6Takeaway.vi).toContain("👉");
     }
   });
 });
@@ -425,24 +445,51 @@ describe("Zone II Part 3 — Suite 5: 90-Event Stage-Separated Catalog & Busines
     expect(page9.currentPage).toBe(9);
   });
 
-  it("enforces Section 5 pure-recharge saving rule and Section 6 stage-based shop purchase priority across all 90 events", () => {
+  it("enforces Section 5 pure-recharge saving rule, Section 3 Tier S/A/F shop priority, and zero top-lord boilerplate fallback across all 90 events", () => {
     const pureRechargeEvents = EVENT_CATALOG_PLAYBOOKS_DATA.filter((e) => e.isPureRecharge);
     expect(pureRechargeEvents.length).toBeGreaterThanOrEqual(8);
 
+    const topLord = EVENT_CATALOG_PLAYBOOKS_DATA.find((e) => e.id === "top-lord")!;
+    expect(topLord).toBeDefined();
+
     for (const ev of EVENT_CATALOG_PLAYBOOKS_DATA) {
       assertValidWebpOnDisk(ev.iconPath, `${ev.id}.iconPath`);
-      expect(ev.sixTables).toBeDefined();
+      expect(ev.sixTables, `Missing sixTables on ${ev.id}`).toBeDefined();
+      const st = ev.sixTables!;
 
-      if (ev.isPureRecharge) {
-        expect(ev.sixTables!.section5HoardingPlan.rechargeSavingAdvice).toBeDefined();
-        expect(ev.sixTables!.section5HoardingPlan.rechargeSavingAdvice!.vi.length).toBeGreaterThan(25);
-        expect(ev.sixTables!.section5HoardingPlan.rechargeSavingAdvice!.en.length).toBeGreaterThan(25);
+      expect(st.table1TimelineRules.conciseBullets.length).toBeGreaterThanOrEqual(2);
+      expect(st.table1TimelineRules.takeaway.vi).toContain("👉");
+      expect(st.table2TasksAndMilestones.conciseBullets.length).toBeGreaterThanOrEqual(2);
+      expect(st.table2TasksAndMilestones.takeaway.vi).toContain("👉");
+      expect(st.table3ShopAndDrops.tierSSummary.vi.length).toBeGreaterThan(5);
+      expect(st.table3ShopAndDrops.tierASummary.vi.length).toBeGreaterThan(5);
+      expect(st.table3ShopAndDrops.tierFSummary.vi.length).toBeGreaterThan(5);
+      expect(st.table3ShopAndDrops.takeaway.vi).toContain("👉");
+      expect(st.table4PacksAndRoi.conciseBullets.length).toBeGreaterThanOrEqual(2);
+      expect(st.table4PacksAndRoi.takeaway.vi).toContain("👉");
+      expect(st.section5HoardingPlan.consumedSummary.vi.length).toBeGreaterThan(10);
+      expect(st.section5HoardingPlan.hoardingQuotaSummary.vi.length).toBeGreaterThan(10);
+      expect(st.section5HoardingPlan.takeaway.vi).toContain("👉");
+      expect(st.section6ProMechanics.length).toBeGreaterThanOrEqual(2);
+      expect(st.section6ProMechanics.length).toBeLessThanOrEqual(3);
+      expect(st.section6Takeaway.vi).toContain("👉");
+
+      expect(
+        JSON.stringify(st.section6ProMechanics),
+        `Event ${ev.id} still contains boilerplate Kỹ thuật 1 — Ủ Nhà`
+      ).not.toContain("Kỹ thuật 1 — Ủ Nhà / Giữ Hộp Quà Công Trình");
+
+      if (ev.id !== "top-lord") {
+        expect(
+          st.table1TimelineRules.unlockConditions.vi,
+          `Event ${ev.id} fell back to top-lord unlockConditions`
+        ).not.toBe(topLord.sixTables!.table1TimelineRules.unlockConditions.vi);
       }
 
-      if (ev.hasShop !== false) {
-        const priorities = ev.sixTables!.section6ShopPriorityByStage;
-        expect(priorities).toBeDefined();
-        expect(priorities!.length).toBe(3);
+      if (ev.isPureRecharge) {
+        expect(st.section5HoardingPlan.rechargeSavingAdvice).toBeDefined();
+        expect(st.section5HoardingPlan.rechargeSavingAdvice!.vi.length).toBeGreaterThan(25);
+        expect(st.section5HoardingPlan.rechargeSavingAdvice!.en.length).toBeGreaterThan(25);
       }
 
       const enStrings = collectEnglishStrings(ev);
@@ -492,13 +539,30 @@ describe("Zone II Part 3 — Suite 6: 2x5 Paginated Catalog Grid & 6 Concise Sec
     const savingAdvice = screen.getByTestId("pure-recharge-saving-advice");
     expect(savingAdvice.textContent).toContain("tiết kiệm ngân sách");
 
-    // Select an event with a shop (top-lord) and verify Section 6 Shop Priority By Stage Table
+    // Select an event with a shop (top-lord) and verify Section 3 Tier S/A/F Priority Cards + Section 6 Event-Specific Tips
     const topLordCard = screen.getByTestId("catalog-event-card-top-lord");
     fireEvent.click(topLordCard);
-    const priorityTable = screen.getByTestId("shop-priority-by-stage-table");
-    expect(priorityTable.textContent).toContain("Giai đoạn 1: Tân thủ & Pre-Season");
-    expect(priorityTable.textContent).toContain("Giai đoạn 2: Giữa Game & Mùa Giải S1–S2");
-    expect(priorityTable.textContent).toContain("Giai đoạn 3: Cuối Game & S3+ Endgame");
+
+    for (const secId of [
+      "flat-section-5.1",
+      "flat-section-5.2",
+      "flat-section-5.3",
+      "flat-section-5.4",
+      "flat-section-5.5",
+      "flat-section-5.6",
+    ]) {
+      expect(screen.getByTestId(secId).textContent).toContain("👉");
+    }
+
+    const sec3Text = screen.getByTestId("flat-section-5.3").textContent ?? "";
+    expect(sec3Text).toContain("Tier S");
+    expect(sec3Text).toContain("Tier A");
+    expect(sec3Text).toContain("Tier F");
+
+    const sec6Text = screen.getByTestId("flat-section-5.6").textContent ?? "";
+    expect(sec6Text).not.toContain(
+      "Kỹ thuật 1 — Ủ Nhà / Giữ Hộp Quà Công Trình"
+    );
 
     // Dispatch tophub:select-event for a Stage 3 Page 9 event (cross-server-champions-league-64) and verify auto-pagination + content sync
     fireEvent(

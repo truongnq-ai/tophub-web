@@ -522,6 +522,8 @@ export interface EventTimelineRulesTable {
   readonly unlockConditions: LocalizedText;
   readonly coreFaqRules: readonly LocalizedText[];
   readonly recyclePolicy: LocalizedText;
+  readonly conciseBullets: readonly LocalizedText[];
+  readonly takeaway: LocalizedText;
 }
 
 export interface EventTaskRow {
@@ -575,11 +577,7 @@ export interface EventLongTermRoadmapStep {
 }
 
 export interface EventProMechanicItem {
-  readonly mechanicId:
-    | "pre_building"
-    | "troop_precooking"
-    | "pre_gathering_quest_banking"
-    | "double_triple_dip";
+  readonly mechanicId: string;
   readonly title: LocalizedText;
   readonly whenToApply: LocalizedText;
   readonly stepByStep: LocalizedText;
@@ -591,22 +589,36 @@ export interface EventEncyclopediaSixTableData {
   readonly table2TasksAndMilestones: {
     readonly tasks: readonly EventTaskRow[];
     readonly milestones: readonly EventMilestoneChestRow[];
+    readonly conciseBullets: readonly LocalizedText[];
+    readonly milestoneSummary: LocalizedText;
+    readonly takeaway: LocalizedText;
   };
   readonly table3ShopAndDrops: {
     readonly dropSources: readonly EventDropSourceRow[];
     readonly shopItems: readonly EventShopItemRow[];
+    readonly dropSummary: LocalizedText;
+    readonly tierSSummary: LocalizedText;
+    readonly tierASummary: LocalizedText;
+    readonly tierFSummary: LocalizedText;
+    readonly takeaway: LocalizedText;
   };
   readonly table4PacksAndRoi: {
     readonly preBuyNote: LocalizedText;
     readonly diamondCeiling: LocalizedText;
     readonly packs: readonly EventPackRoiRow[];
+    readonly conciseBullets: readonly LocalizedText[];
+    readonly takeaway: LocalizedText;
   };
   readonly section5HoardingPlan: {
     readonly shortTermTargets: readonly EventPlaybookHoardItem[];
-    readonly longTermRoadmap: readonly EventLongTermRoadmapStep[];
+    readonly longTermRoadmap?: readonly EventLongTermRoadmapStep[];
+    readonly consumedSummary: LocalizedText;
+    readonly hoardingQuotaSummary: LocalizedText;
+    readonly takeaway: LocalizedText;
     readonly rechargeSavingAdvice?: LocalizedText;
   };
   readonly section6ProMechanics: readonly EventProMechanicItem[];
+  readonly section6Takeaway: LocalizedText;
   readonly section6ShopPriorityByStage?: readonly EventStageShopPriorityRow[];
 }
 

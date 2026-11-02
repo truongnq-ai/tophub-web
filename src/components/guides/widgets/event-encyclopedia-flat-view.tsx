@@ -478,76 +478,45 @@ export function EventEncyclopediaFlatView({
           </h3>
         </div>
 
-        <div className="overflow-x-auto rounded-2xl border border-border/70">
-          <table className="w-full text-left border-collapse text-sm sm:text-base">
-            <thead>
-              <tr className="border-b border-border/70 bg-muted/40 text-xs font-heading font-bold uppercase text-muted-foreground">
-                <th className="py-3 px-4 w-1/3">
-                  {locale === "vi" ? "Thông số hệ thống" : "System Parameter"}
-                </th>
-                <th className="py-3 px-4">
-                  {locale === "vi"
-                    ? "Chi tiết áp dụng"
-                    : "Specification & Rules"}
-                </th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-border/50">
-              <tr>
-                <td className="py-3 px-4 font-semibold text-foreground">
-                  {locale === "vi"
-                    ? "Khung mở Server (take_effect_time)"
-                    : "Server Launch Window (take_effect_time)"}
-                </td>
-                <td className="py-3 px-4 text-foreground/90">
-                  {sixTables.table1TimelineRules.takeEffectTime[locale]}
-                </td>
-              </tr>
-              <tr>
-                <td className="py-3 px-4 font-semibold text-foreground">
-                  {locale === "vi"
-                    ? "Thời lượng & Chu kỳ lặp"
-                    : "Duration & Cooldown"}
-                </td>
-                <td className="py-3 px-4 text-foreground/90">
-                  {sixTables.table1TimelineRules.durationAndCooldown[locale]}
-                </td>
-              </tr>
-              <tr>
-                <td className="py-3 px-4 font-semibold text-foreground">
-                  {locale === "vi"
-                    ? "Điều kiện mở khóa"
-                    : "Unlock Conditions"}
-                </td>
-                <td className="py-3 px-4 text-foreground/90">
-                  {sixTables.table1TimelineRules.unlockConditions[locale]}
-                </td>
-              </tr>
-              <tr>
-                <td className="py-3 px-4 font-semibold text-amber-600 dark:text-amber-400">
-                  {locale === "vi"
-                    ? "Cơ chế đạo cụ thừa (recycle)"
-                    : "Leftover Item Recycling (recycle)"}
-                </td>
-                <td className="py-3 px-4 font-medium text-foreground">
-                  {sixTables.table1TimelineRules.recyclePolicy[locale]}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <ul className="space-y-2 pt-1">
-          {sixTables.table1TimelineRules.coreFaqRules.map((rule, idx) => (
+        <ul className="space-y-2">
+          {sixTables.table1TimelineRules.conciseBullets.map((bullet, idx) => (
             <li
               key={idx}
-              className="flex items-start gap-2.5 text-sm sm:text-base text-foreground/90 leading-relaxed"
+              className="flex items-start gap-2.5 text-sm sm:text-base text-foreground/95 leading-relaxed"
             >
               <CheckCircle2 className="h-4 w-4 text-amber-500 shrink-0 mt-1" />
-              <span>{rule[locale]}</span>
+              <span>{bullet[locale]}</span>
             </li>
           ))}
         </ul>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 text-xs sm:text-sm">
+          <div className="rounded-xl border border-border/70 bg-card/50 p-3 space-y-1">
+            <div className="font-heading font-bold text-muted-foreground uppercase text-[11px]">
+              {locale === "vi"
+                ? "Khung mở Server (take_effect_time)"
+                : "Server Launch Window (take_effect_time)"}
+            </div>
+            <div className="text-foreground/90 font-medium">
+              {sixTables.table1TimelineRules.takeEffectTime[locale]}
+            </div>
+          </div>
+          <div className="rounded-xl border border-border/70 bg-card/50 p-3 space-y-1">
+            <div className="font-heading font-bold text-muted-foreground uppercase text-[11px]">
+              {locale === "vi" ? "Điều kiện mở khóa" : "Unlock Conditions"}
+            </div>
+            <div className="text-foreground/90 font-medium">
+              {sixTables.table1TimelineRules.unlockConditions[locale]}
+            </div>
+          </div>
+        </div>
+
+        <div
+          data-testid="flat-takeaway-5.1"
+          className="rounded-xl border border-amber-500/35 bg-amber-500/10 px-3.5 py-2.5 text-sm sm:text-base font-semibold text-foreground leading-relaxed"
+        >
+          {sixTables.table1TimelineRules.takeaway[locale]}
+        </div>
       </section>
 
       {/* ====================================================================
@@ -567,8 +536,28 @@ export function EventEncyclopediaFlatView({
           </h3>
         </div>
 
+        <ul className="space-y-2">
+          {sixTables.table2TasksAndMilestones.conciseBullets.map(
+            (bullet, idx) => (
+              <li
+                key={idx}
+                className="flex items-start gap-2.5 text-sm sm:text-base text-foreground/95 leading-relaxed"
+              >
+                <CheckCircle2 className="h-4 w-4 text-amber-500 shrink-0 mt-1" />
+                <span>{bullet[locale]}</span>
+              </li>
+            )
+          )}
+          <li className="flex items-start gap-2.5 text-sm sm:text-base text-foreground/95 leading-relaxed">
+            <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-1" />
+            <span>
+              {sixTables.table2TasksAndMilestones.milestoneSummary[locale]}
+            </span>
+          </li>
+        </ul>
+
         {activeEvent.dailyStages.length > 1 && (
-          <div className="space-y-3">
+          <div className="space-y-2.5">
             <div className="flex flex-wrap items-center gap-1.5">
               {activeEvent.dailyStages.map((stage) => {
                 const isDaySelected =
@@ -580,7 +569,7 @@ export function EventEncyclopediaFlatView({
                     data-testid={`flat-day-pill-${stage.dayNumber}`}
                     onClick={() => setSelectedDay(stage.dayNumber)}
                     className={cn(
-                      "inline-flex items-center gap-1.5 min-h-[44px] px-3 py-1.5 rounded-xl border text-xs font-heading font-bold transition-colors cursor-pointer",
+                      "inline-flex items-center gap-1.5 min-h-[40px] px-3 py-1 rounded-xl border text-xs font-heading font-bold transition-colors cursor-pointer",
                       isDaySelected
                         ? "border-amber-500 bg-amber-500 text-slate-950"
                         : "border-border/70 bg-card/60 text-muted-foreground hover:text-foreground"
@@ -596,7 +585,7 @@ export function EventEncyclopediaFlatView({
             </div>
 
             {activeDayStage && (
-              <div className="py-2 text-sm sm:text-base space-y-1">
+              <div className="rounded-xl border border-border/70 bg-card/50 p-3 text-xs sm:text-sm space-y-1">
                 <div className="font-heading font-bold text-amber-600 dark:text-amber-400">
                   {activeDayStage.label[locale]} — {activeDayStage.theme[locale]} (
                   {activeDayStage.goldenWindow[locale]})
@@ -610,33 +599,31 @@ export function EventEncyclopediaFlatView({
         )}
 
         <div className="overflow-x-auto rounded-2xl border border-border/70">
-          <table className="w-full text-left border-collapse text-sm sm:text-base">
+          <table className="w-full text-left border-collapse text-xs sm:text-sm">
             <thead>
               <tr className="border-b border-border/70 bg-muted/40 text-xs font-heading font-bold uppercase text-muted-foreground">
-                <th className="py-3 px-4">
-                  {locale === "vi" ? "Nhiệm vụ / Giai đoạn" : "Task / Stage"}
+                <th className="py-2.5 px-3.5">
+                  {locale === "vi" ? "Cấp mốc điểm" : "Milestone Tier"}
                 </th>
-                <th className="py-3 px-4">
-                  {locale === "vi" ? "Nguồn tính điểm" : "Scoring Source"}
+                <th className="py-2.5 px-3.5">
+                  {locale === "vi" ? "Mục tiêu điểm" : "Target Threshold"}
                 </th>
-                <th className="py-3 px-4">
-                  {locale === "vi"
-                    ? "Khung giờ vàng & Cộng hưởng"
-                    : "Golden Window & Overlap"}
+                <th className="py-2.5 px-3.5">
+                  {locale === "vi" ? "Thưởng mốc chính" : "Milestone Rewards"}
                 </th>
               </tr>
             </thead>
             <tbody className="divide-y divide-border/50">
-              {sixTables.table2TasksAndMilestones.tasks.map((task, idx) => (
+              {sixTables.table2TasksAndMilestones.milestones.map((ms, idx) => (
                 <tr key={idx}>
-                  <td className="py-3 px-4 font-semibold text-foreground">
-                    {task.taskName[locale]}
+                  <td className="py-2.5 px-3.5 font-semibold text-foreground">
+                    {ms.tierLabel[locale]}
                   </td>
-                  <td className="py-3 px-4 text-foreground/90">
-                    {task.pointsAwarded[locale]}
+                  <td className="py-2.5 px-3.5 font-mono font-bold text-amber-600 dark:text-amber-400">
+                    {ms.pointsRequired[locale]}
                   </td>
-                  <td className="py-3 px-4 text-muted-foreground">
-                    {task.capOrNote[locale]}
+                  <td className="py-2.5 px-3.5 text-foreground/90">
+                    {ms.freeRewards[locale]}
                   </td>
                 </tr>
               ))}
@@ -644,45 +631,11 @@ export function EventEncyclopediaFlatView({
           </table>
         </div>
 
-        <div className="overflow-x-auto rounded-2xl border border-border/70">
-          <table className="w-full text-left border-collapse text-sm sm:text-base">
-            <thead>
-              <tr className="border-b border-border/70 bg-muted/40 text-xs font-heading font-bold uppercase text-muted-foreground">
-                <th className="py-3 px-4">
-                  {locale === "vi" ? "Cấp mốc điểm" : "Milestone Tier"}
-                </th>
-                <th className="py-3 px-4">
-                  {locale === "vi" ? "Mục tiêu điểm" : "Target Threshold"}
-                </th>
-                <th className="py-3 px-4">
-                  {locale === "vi" ? "Cột Miễn Phí (Free)" : "Free Column"}
-                </th>
-                <th className="py-3 px-4">
-                  {locale === "vi"
-                    ? "Chiến lược & Cột VIP Pass"
-                    : "Strategy & VIP Pass Column"}
-                </th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-border/50">
-              {sixTables.table2TasksAndMilestones.milestones.map((ms, idx) => (
-                <tr key={idx}>
-                  <td className="py-3 px-4 font-semibold text-foreground">
-                    {ms.tierLabel[locale]}
-                  </td>
-                  <td className="py-3 px-4 font-mono text-xs sm:text-sm text-amber-600 dark:text-amber-400 font-bold">
-                    {ms.pointsRequired[locale]}
-                  </td>
-                  <td className="py-3 px-4 text-foreground/90">
-                    {ms.freeRewards[locale]}
-                  </td>
-                  <td className="py-3 px-4 text-foreground/90">
-                    {ms.vipOrPassRewards[locale]}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div
+          data-testid="flat-takeaway-5.2"
+          className="rounded-xl border border-amber-500/35 bg-amber-500/10 px-3.5 py-2.5 text-sm sm:text-base font-semibold text-foreground leading-relaxed"
+        >
+          {sixTables.table2TasksAndMilestones.takeaway[locale]}
         </div>
       </section>
 
@@ -703,55 +656,45 @@ export function EventEncyclopediaFlatView({
           </h3>
         </div>
 
-        <div className="overflow-x-auto rounded-2xl border border-border/70">
-          <table className="w-full text-left border-collapse text-sm sm:text-base">
-            <thead>
-              <tr className="border-b border-border/70 bg-muted/40 text-xs font-heading font-bold uppercase text-muted-foreground">
-                <th className="py-3 px-4">
-                  {locale === "vi" ? "Nguồn rơi đạo cụ" : "Drop Source"}
-                </th>
-                <th className="py-3 px-4">
-                  {locale === "vi" ? "Tỷ lệ rơi" : "Drop Rate"}
-                </th>
-                <th className="py-3 px-4">
-                  {locale === "vi"
-                    ? "Trần giới hạn ẩn / Ngày"
-                    : "Daily Hidden Cap"}
-                </th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-border/50">
-              {sixTables.table3ShopAndDrops.dropSources.map((drop, idx) => (
-                <tr key={idx}>
-                  <td className="py-3 px-4 font-semibold text-foreground">
-                    {drop.sourceName[locale]}
-                  </td>
-                  <td className="py-3 px-4 text-foreground/90">
-                    {drop.dropRate[locale]}
-                  </td>
-                  <td className="py-3 px-4 font-medium text-amber-600 dark:text-amber-400">
-                    {drop.dailyHiddenCap[locale]}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <p className="text-sm sm:text-base text-foreground/95 leading-relaxed">
+          • {sixTables.table3ShopAndDrops.dropSummary[locale]}
+        </p>
+
+        <div
+          data-testid="shop-tier-priority-summary"
+          className="grid grid-cols-1 md:grid-cols-3 gap-2.5 text-xs sm:text-sm"
+        >
+          <div className="rounded-xl border border-emerald-500/35 bg-emerald-500/5 p-3">
+            <p className="text-foreground/95 leading-relaxed">
+              {sixTables.table3ShopAndDrops.tierSSummary[locale]}
+            </p>
+          </div>
+          <div className="rounded-xl border border-amber-500/35 bg-amber-500/5 p-3">
+            <p className="text-foreground/95 leading-relaxed">
+              {sixTables.table3ShopAndDrops.tierASummary[locale]}
+            </p>
+          </div>
+          <div className="rounded-xl border border-rose-500/35 bg-rose-500/5 p-3">
+            <p className="text-foreground/95 leading-relaxed">
+              {sixTables.table3ShopAndDrops.tierFSummary[locale]}
+            </p>
+          </div>
         </div>
 
         <div className="overflow-x-auto rounded-2xl border border-border/70">
-          <table className="w-full text-left border-collapse text-sm sm:text-base">
+          <table className="w-full text-left border-collapse text-xs sm:text-sm">
             <thead>
               <tr className="border-b border-border/70 bg-muted/40 text-xs font-heading font-bold uppercase text-muted-foreground">
-                <th className="py-3 px-4">
+                <th className="py-2.5 px-3.5">
                   {locale === "vi" ? "Vật phẩm cửa hàng" : "Shop Item"}
                 </th>
-                <th className="py-3 px-4">
+                <th className="py-2.5 px-3.5">
                   {locale === "vi" ? "Ưu tiên" : "Tier"}
                 </th>
-                <th className="py-3 px-4">
+                <th className="py-2.5 px-3.5">
                   {locale === "vi" ? "Giá đổi & Giới hạn" : "Cost & Cap"}
                 </th>
-                <th className="py-3 px-4">
+                <th className="py-2.5 px-3.5">
                   {locale === "vi" ? "Đánh giá thực chiến" : "Verdict"}
                 </th>
               </tr>
@@ -759,7 +702,7 @@ export function EventEncyclopediaFlatView({
             <tbody className="divide-y divide-border/50">
               {sixTables.table3ShopAndDrops.shopItems.map((item) => (
                 <tr key={item.id}>
-                  <td className="py-3 px-4">
+                  <td className="py-2.5 px-3.5">
                     <div className="flex items-center gap-2.5">
                       <GameAssetFrame
                         src={item.iconPath}
@@ -772,7 +715,7 @@ export function EventEncyclopediaFlatView({
                       </span>
                     </div>
                   </td>
-                  <td className="py-3 px-4">
+                  <td className="py-2.5 px-3.5">
                     <Badge
                       variant="outline"
                       className={cn(
@@ -787,16 +730,23 @@ export function EventEncyclopediaFlatView({
                       Tier {item.priorityTier}
                     </Badge>
                   </td>
-                  <td className="py-3 px-4 text-foreground/90">
+                  <td className="py-2.5 px-3.5 text-foreground/90">
                     {item.cost[locale]}
                   </td>
-                  <td className="py-3 px-4 text-foreground/90">
+                  <td className="py-2.5 px-3.5 text-foreground/90">
                     {item.verdict[locale]}
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
+        </div>
+
+        <div
+          data-testid="flat-takeaway-5.3"
+          className="rounded-xl border border-amber-500/35 bg-amber-500/10 px-3.5 py-2.5 text-sm sm:text-base font-semibold text-foreground leading-relaxed"
+        >
+          {sixTables.table3ShopAndDrops.takeaway[locale]}
         </div>
       </section>
 
@@ -817,35 +767,32 @@ export function EventEncyclopediaFlatView({
           </h3>
         </div>
 
-        <div className="space-y-1 text-sm sm:text-base">
-          <p className="text-foreground/90">
-            <strong className="text-amber-600 dark:text-amber-400">
-              {locale === "vi" ? "Chiến lược mua sớm: " : "Pre-Buy Strategy: "}
-            </strong>
-            {sixTables.table4PacksAndRoi.preBuyNote[locale]}
-          </p>
-          <p className="text-foreground/90">
-            <strong className="text-amber-600 dark:text-amber-400">
-              {locale === "vi" ? "Trần Kim Cương: " : "Diamond Ceiling: "}
-            </strong>
-            {sixTables.table4PacksAndRoi.diamondCeiling[locale]}
-          </p>
-        </div>
+        <ul className="space-y-2">
+          {sixTables.table4PacksAndRoi.conciseBullets.map((bullet, idx) => (
+            <li
+              key={idx}
+              className="flex items-start gap-2.5 text-sm sm:text-base text-foreground/95 leading-relaxed"
+            >
+              <CheckCircle2 className="h-4 w-4 text-amber-500 shrink-0 mt-1" />
+              <span>{bullet[locale]}</span>
+            </li>
+          ))}
+        </ul>
 
         <div className="overflow-x-auto rounded-2xl border border-border/70">
-          <table className="w-full text-left border-collapse text-sm sm:text-base">
+          <table className="w-full text-left border-collapse text-xs sm:text-sm">
             <thead>
               <tr className="border-b border-border/70 bg-muted/40 text-xs font-heading font-bold uppercase text-muted-foreground">
-                <th className="py-3 px-4">
+                <th className="py-2.5 px-3.5">
                   {locale === "vi" ? "Tên gói nạp" : "Pack Name"}
                 </th>
-                <th className="py-3 px-4">
+                <th className="py-2.5 px-3.5">
                   {locale === "vi" ? "Giá & Giới hạn" : "Price & Limit"}
                 </th>
-                <th className="py-3 px-4">
+                <th className="py-2.5 px-3.5">
                   {locale === "vi" ? "Vật phẩm nhận được" : "Pack Contents"}
                 </th>
-                <th className="py-3 px-4">
+                <th className="py-2.5 px-3.5">
                   {locale === "vi" ? "Xếp hạng ROI" : "ROI Rating"}
                 </th>
               </tr>
@@ -853,7 +800,7 @@ export function EventEncyclopediaFlatView({
             <tbody className="divide-y divide-border/50">
               {sixTables.table4PacksAndRoi.packs.map((pack) => (
                 <tr key={pack.packId}>
-                  <td className="py-3 px-4">
+                  <td className="py-2.5 px-3.5">
                     <div className="space-y-1">
                       <div className="font-semibold text-foreground">
                         {pack.packName[locale]}
@@ -880,7 +827,7 @@ export function EventEncyclopediaFlatView({
                       </div>
                     </div>
                   </td>
-                  <td className="py-3 px-4">
+                  <td className="py-2.5 px-3.5">
                     <div className="font-mono text-xs sm:text-sm font-bold text-amber-600 dark:text-amber-400">
                       {pack.priceUsdVnd[locale]}
                     </div>
@@ -888,16 +835,23 @@ export function EventEncyclopediaFlatView({
                       {pack.purchaseLimit[locale]}
                     </div>
                   </td>
-                  <td className="py-3 px-4 text-foreground/90">
+                  <td className="py-2.5 px-3.5 text-foreground/90">
                     {pack.contentsSummary[locale]}
                   </td>
-                  <td className="py-3 px-4 font-semibold text-foreground">
+                  <td className="py-2.5 px-3.5 font-semibold text-foreground">
                     {pack.roiRating[locale]}
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
+        </div>
+
+        <div
+          data-testid="flat-takeaway-5.4"
+          className="rounded-xl border border-amber-500/35 bg-amber-500/10 px-3.5 py-2.5 text-sm sm:text-base font-semibold text-foreground leading-relaxed"
+        >
+          {sixTables.table4PacksAndRoi.takeaway[locale]}
         </div>
       </section>
 
@@ -926,23 +880,35 @@ export function EventEncyclopediaFlatView({
           </div>
         )}
 
+        <ul className="space-y-2">
+          <li className="flex items-start gap-2.5 text-sm sm:text-base text-foreground/95 leading-relaxed">
+            <CheckCircle2 className="h-4 w-4 text-amber-500 shrink-0 mt-1" />
+            <span>
+              {sixTables.section5HoardingPlan.consumedSummary[locale]}
+            </span>
+          </li>
+          <li className="flex items-start gap-2.5 text-sm sm:text-base text-foreground/95 leading-relaxed">
+            <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-1" />
+            <span>
+              {sixTables.section5HoardingPlan.hoardingQuotaSummary[locale]}
+            </span>
+          </li>
+        </ul>
+
         {sixTables.section5HoardingPlan.shortTermTargets.length > 0 && (
           <div className="overflow-x-auto rounded-2xl border border-border/70">
-            <table className="w-full text-left border-collapse text-sm sm:text-base">
+            <table className="w-full text-left border-collapse text-xs sm:text-sm">
               <thead>
                 <tr className="border-b border-border/70 bg-muted/40 text-xs font-heading font-bold uppercase text-muted-foreground">
-                  <th className="py-3 px-4">
+                  <th className="py-2.5 px-3.5">
                     {locale === "vi"
                       ? "Đạo cụ cần tích trữ"
                       : "Target Hoarding Item"}
                   </th>
-                  <th className="py-3 px-4">
+                  <th className="py-2.5 px-3.5">
                     {locale === "vi" ? "Định mức mục tiêu" : "Target Quota"}
                   </th>
-                  <th className="py-3 px-4">
-                    {locale === "vi" ? "Kỷ luật đóng băng" : "Freeze Window"}
-                  </th>
-                  <th className="py-3 px-4">
+                  <th className="py-2.5 px-3.5">
                     {locale === "vi" ? "Thời điểm xả kho" : "Dump Timing"}
                   </th>
                 </tr>
@@ -950,7 +916,7 @@ export function EventEncyclopediaFlatView({
               <tbody className="divide-y divide-border/50">
                 {sixTables.section5HoardingPlan.shortTermTargets.map((item) => (
                   <tr key={item.id}>
-                    <td className="py-3 px-4">
+                    <td className="py-2.5 px-3.5">
                       <div className="flex items-center gap-2.5">
                         <GameAssetFrame
                           src={item.iconPath}
@@ -963,13 +929,10 @@ export function EventEncyclopediaFlatView({
                         </span>
                       </div>
                     </td>
-                    <td className="py-3 px-4 font-mono text-xs sm:text-sm font-bold text-amber-600 dark:text-amber-400">
+                    <td className="py-2.5 px-3.5 font-mono text-xs sm:text-sm font-bold text-amber-600 dark:text-amber-400">
                       {item.targetAmount[locale]}
                     </td>
-                    <td className="py-3 px-4 text-foreground/90">
-                      {item.freezeWindow[locale]}
-                    </td>
-                    <td className="py-3 px-4 text-foreground/90">
+                    <td className="py-2.5 px-3.5 text-foreground/90">
                       {item.dumpTiming[locale]}
                     </td>
                   </tr>
@@ -979,53 +942,21 @@ export function EventEncyclopediaFlatView({
           </div>
         )}
 
-        <div className="overflow-x-auto rounded-2xl border border-border/70">
-          <table className="w-full text-left border-collapse text-sm sm:text-base">
-            <thead>
-              <tr className="border-b border-border/70 bg-muted/40 text-xs font-heading font-bold uppercase text-muted-foreground">
-                <th className="py-3 px-4">
-                  {locale === "vi"
-                    ? "Khung chuẩn bị dài hạn"
-                    : "Long-Term Horizon"}
-                </th>
-                <th className="py-3 px-4">
-                  {locale === "vi" ? "Định mức tích lũy" : "Quota"}
-                </th>
-                <th className="py-3 px-4">
-                  {locale === "vi"
-                    ? "Lý do chiến thuật"
-                    : "Strategic Rationale"}
-                </th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-border/50">
-              {sixTables.section5HoardingPlan.longTermRoadmap.map(
-                (step, idx) => (
-                  <tr key={idx}>
-                    <td className="py-3 px-4 font-semibold text-foreground">
-                      {step.horizonLabel[locale]}
-                    </td>
-                    <td className="py-3 px-4 font-mono text-xs sm:text-sm font-bold text-amber-600 dark:text-amber-400">
-                      {step.targetQuota[locale]}
-                    </td>
-                    <td className="py-3 px-4 text-foreground/90">
-                      {step.rationale[locale]}
-                    </td>
-                  </tr>
-                )
-              )}
-            </tbody>
-          </table>
+        <div
+          data-testid="flat-takeaway-5.5"
+          className="rounded-xl border border-amber-500/35 bg-amber-500/10 px-3.5 py-2.5 text-sm sm:text-base font-semibold text-foreground leading-relaxed"
+        >
+          {sixTables.section5HoardingPlan.takeaway[locale]}
         </div>
       </section>
 
       {/* ====================================================================
-          SECTION 6 — 6. MẸO THỰC HIỆN
+          SECTION 6 — 6. MẸO THỰC HIỆN (2–3 MẸO CAO THỦ ĐẶC THÙ)
       ==================================================================== */}
       <section
         id="sec-5-6"
         data-testid="flat-section-5.6"
-        className="scroll-mt-44 py-5 space-y-5"
+        className="scroll-mt-44 py-5 space-y-4"
       >
         <div className="flex items-center gap-2.5">
           <Wrench className="h-5 w-5 text-amber-500 shrink-0" />
@@ -1034,70 +965,16 @@ export function EventEncyclopediaFlatView({
           </h3>
         </div>
 
-        {/* Mandatory Business Rule: Shop Purchase Priority by Game Stage */}
-        {sixTables.section6ShopPriorityByStage &&
-          sixTables.section6ShopPriorityByStage.length > 0 && (
-            <div
-              data-testid="shop-priority-by-stage-table"
-              className="overflow-x-auto rounded-2xl border border-border/70"
-            >
-              <table className="w-full text-left border-collapse text-sm sm:text-base">
-                <thead>
-                  <tr className="border-b border-border/70 bg-muted/40 text-xs font-heading font-bold uppercase text-muted-foreground">
-                    <th className="py-3 px-4">
-                      {locale === "vi"
-                        ? "Giai đoạn máy chủ"
-                        : "Server Progression Stage"}
-                    </th>
-                    <th className="py-3 px-4">
-                      {locale === "vi"
-                        ? "Ưu tiên 1 (Mua bắt buộc)"
-                        : "Priority 1 (Must-Buy)"}
-                    </th>
-                    <th className="py-3 px-4">
-                      {locale === "vi"
-                        ? "Ưu tiên 2 (Khi dư xu)"
-                        : "Priority 2 (Surplus)"}
-                    </th>
-                    <th className="py-3 px-4">
-                      {locale === "vi"
-                        ? "Bỏ qua (Bẫy tài nguyên)"
-                        : "Skip (Bait Items)"}
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-border/50">
-                  {sixTables.section6ShopPriorityByStage.map((row) => (
-                    <tr key={row.stageId}>
-                      <td className="py-3 px-4 font-semibold text-foreground">
-                        {row.stageLabel[locale]}
-                      </td>
-                      <td className="py-3 px-4 font-medium text-emerald-600 dark:text-emerald-400">
-                        {row.priority1MustBuy[locale]}
-                      </td>
-                      <td className="py-3 px-4 text-amber-600 dark:text-amber-400">
-                        {row.priority2SurplusBuy[locale]}
-                      </td>
-                      <td className="py-3 px-4 text-rose-600 dark:text-rose-400">
-                        {row.skipBaitItems[locale]}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          )}
-
-        <div className="divide-y divide-border/50">
+        <div className="divide-y divide-border/50 rounded-2xl border border-border/70 bg-card/40 px-4">
           {sixTables.section6ProMechanics.map((mech) => (
             <div
               key={mech.mechanicId}
               data-testid={`flat-mechanic-${mech.mechanicId}`}
-              className="py-4 first:pt-1 last:pb-1 space-y-2"
+              className="py-3.5 space-y-1.5"
             >
               <div className="flex items-center gap-2">
                 <Flame className="h-4 w-4 text-amber-500 shrink-0" />
-                <h4 className="font-heading font-bold text-base sm:text-lg text-foreground">
+                <h4 className="font-heading font-bold text-sm sm:text-base text-foreground">
                   {mech.title[locale]}
                 </h4>
               </div>
@@ -1105,7 +982,7 @@ export function EventEncyclopediaFlatView({
                 <Sparkles className="inline h-3.5 w-3.5 mr-1" />
                 {mech.whenToApply[locale]}
               </p>
-              <p className="text-sm sm:text-base text-foreground/90 leading-relaxed">
+              <p className="text-sm sm:text-base text-foreground/95 leading-relaxed">
                 {mech.stepByStep[locale]}
               </p>
               <p className="text-xs sm:text-sm font-medium text-rose-600 dark:text-rose-400">
@@ -1113,6 +990,13 @@ export function EventEncyclopediaFlatView({
               </p>
             </div>
           ))}
+        </div>
+
+        <div
+          data-testid="flat-takeaway-5.6"
+          className="rounded-xl border border-amber-500/35 bg-amber-500/10 px-3.5 py-2.5 text-sm sm:text-base font-semibold text-foreground leading-relaxed"
+        >
+          {sixTables.section6Takeaway[locale]}
         </div>
       </section>
     </div>

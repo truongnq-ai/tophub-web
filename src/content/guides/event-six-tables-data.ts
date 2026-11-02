@@ -794,11 +794,873 @@ const EVENT_SPECIFIC_METADATA: Record<string, EventSpecificMetadata> = {
   },
 };
 
+const CANONICAL_PRO_MECHANICS: Record<
+  string,
+  readonly EventEncyclopediaSixTableData["section6ProMechanics"][number][]
+> = {
+  "top-lord": [
+    {
+      mechanicId: "tl-daily-theme-lock",
+      title: {
+        vi: "Mẹo 1 — Cơ chế Khóa Chủ Đề Theo Ngày (Ngày 1 Xây Dựng ➔ Ngày 6 Tổng Lực)",
+        en: "Tip 1 — Daily Theme Lock (Day 1 Construction ➔ Day 6 Final Sprint)",
+      },
+      whenToApply: {
+        vi: "Kiểm tra chủ đề mở khóa sau mốc reset 02:00 UTC (09:00 Giờ VN) mỗi ngày",
+        en: "Verify the active theme after the 02:00 UTC daily reset",
+      },
+      stepByStep: {
+        vi: "Mỗi ngày trong 6 ngày của Top Lord chỉ tính điểm cho đúng nhóm hành động của ngày đó (Ngày 1 Xây dựng ➔ Ngày 2 Khoa kỹ ➔ Ngày 3 Chiêu mộ ➔ Ngày 4 Luyện lính ➔ Ngày 5 Trang bị ➔ Ngày 6 Tăng tốc tổng lực). Tuyệt đối không xả Vé Chiêu Mộ ở Ngày 1–2 hoặc đập Orichalcum trước Ngày 5!",
+        en: "Each of Top Lord's 6 days scores strictly on that day's theme (Day 1 Construction ➔ Day 2 Research ➔ Day 3 Recruitment ➔ Day 4 Troops ➔ Day 5 Gear ➔ Day 6 All-Out Speedups). Never spend Recruit Tokens on Days 1–2 or upgrade Gear before Day 5!",
+      },
+      warningNote: {
+        vi: "Xả tài nguyên lệch ngày chủ đề sẽ mất trắng 100% điểm rương mốc ngày.",
+        en: "Spending resources outside the matching theme day forfeits 100% of daily chest points.",
+      },
+    },
+    {
+      mechanicId: "tl-tier3-chest-stop-loss",
+      title: {
+        vi: "Mẹo 2 — Điểm Dừng Rương Mốc Cá Nhân Bậc 3 (Stop-Loss Ceiling)",
+        en: "Tip 2 — Tier 3 Personal Milestone Chest Stop-Loss Ceiling",
+      },
+      whenToApply: {
+        vi: "Ngay khi điểm cá nhân trong ngày vừa chạm ngưỡng mở Rương Bậc 3",
+        en: "Immediately upon reaching the daily Tier 3 Personal Chest threshold",
+      },
+      stepByStep: {
+        vi: "Người chơi F2P và Low-Spender chỉ xả Tăng Tốc và Vé Chiêu Mộ vừa đủ mở Rương Cá Nhân Bậc 3 mỗi ngày để lấy hoàn trả Kim Cương + Mảnh Tướng Vàng, sau đó khóa kho ngay để tích lũy cho Vòng Quay Desert Prince (Ngày 21) và GAR đầu tiên (Ngày 28).",
+        en: "F2P and Low-Spenders should spend Speedups and Recruit Tokens strictly up to the daily Tier 3 Personal Chest for Diamond and Gold Shard rebates, then freeze inventory for Day 21 Desert Prince Wheel and Day 28 GAR.",
+      },
+      warningNote: {
+        vi: "Đua Top 1–10 BXH Tổng với Whale ở Tuần 1 sẽ làm cạn sạch Kim Cương trước khi tướng Đỏ xuất hiện.",
+        en: "Chasing Top 1–10 overall rankings against Whales in Week 1 drains Diamonds right before Mythic banners arrive.",
+      },
+    },
+    {
+      mechanicId: "tl-troop-staircase-promotion",
+      title: {
+        vi: "Mẹo 3 — Thăng Cấp Lính Cầu Thang (T-1 ➔ T) ở Ngày 4 Luyện Quân",
+        en: "Tip 3 — Staircase Troop Promotion (T-1 ➔ T) on Day 4 Troop Day",
+      },
+      whenToApply: {
+        vi: "Huấn luyện sẵn lính cấp T-1 ở Ngày 1–3, bấm Thăng Cấp (Promote) vào Ngày 4",
+        en: "Train Tier T-1 troops on Days 1–3, then tap Promote on Day 4",
+      },
+      stepByStep: {
+        vi: "Trong 3 ngày đầu, hãy huấn luyện sẵn lính thấp hơn 1 bậc so với cấp tối đa của Trại Lính (T-1). Khi bước sang Ngày 4 (Huấn Luyện Lính), chọn tính năng Thăng Cấp (Promote T-1 ➔ T) và xả Tăng Tốc Luyện Lính để nhận lượng điểm trên mỗi phút tăng tốc cao gấp 1.4 lần so với luyện mới.",
+        en: "During Days 1–3, train troops one tier below your Barracks cap (T-1). When Day 4 (Troop Training) opens, use Promote (T-1 ➔ T) with Training Speedups to earn 1.4x more points per speedup minute than training from scratch.",
+      },
+      warningNote: {
+        vi: "Không dùng Tăng Tốc Chung (Universal Speedups) để luyện lính cấp thấp ở Ngày 1–3.",
+        en: "Never spend Universal Speedups training low-tier troops on Days 1–3.",
+      },
+    },
+  ],
+  "guild-race": [
+    {
+      mechanicId: "gr-shared-board-filtering",
+      title: {
+        vi: "Mẹo 1 — Lọc Nhiệm Vụ Cam/Đỏ (250đ ➔ 400đ+) Trên Bảng Chung 9 Ô",
+        en: "Tip 1 — Filtering Legendary/Mythic Tasks (250 ➔ 400+ Pts) on the 9-Slot Shared Board",
+      },
+      whenToApply: {
+        vi: "Trước mỗi lần bấm nhận nhiệm vụ trong giới hạn 8–10 lượt/ngày",
+        en: "Before claiming any task within your 8–10 daily attempt cap",
+      },
+      stepByStep: {
+        vi: "Bảng 9 ô nhiệm vụ (activity_task_target) dùng chung cho cả 50 thành viên Bang hội; hãy nhờ R4/R5 xóa liên tục các nhiệm vụ Trắng/Xanh/Tím (<180đ) mỗi 30 phút và chỉ nhận các nhiệm vụ Cam/Đỏ (Phái Thương Đội, Tập Kết Boss, Xả Tăng Tốc Chuyên Biệt) để đạt trung bình >300 điểm/lượt.",
+        en: "The 9-slot task board (activity_task_target) is shared across all 50 guildmates; have R4/R5 officers purge White/Blue/Purple tasks (<180 pts) every 30 minutes and claim only Orange/Red tasks (>300 pts average per attempt).",
+      },
+      warningNote: {
+        vi: "Nhận nhiệm vụ điểm thấp (<150đ) sẽ làm hụt mốc Rương Cuối của cá nhân và cả Bang hội.",
+        en: "Accepting low-tier tasks (<150 pts) prevents you from hitting the final personal and guild milestone chests.",
+      },
+    },
+    {
+      mechanicId: "gr-non-retroactive-accept",
+      title: {
+        vi: "Mẹo 2 — Cơ Chế Tính Điểm Từ Lúc Bấm Nhận (Non-Retroactive Task Tracking)",
+        en: "Tip 2 — Non-Retroactive Task Tracking (Counted Only After Clicking Accept)",
+      },
+      whenToApply: {
+        vi: "Trước khi bấm phái Thương Đội, tiêu Kim Cương hoặc xả Tăng Tốc",
+        en: "Before dispatching Caravans, spending Diamonds, or using Speedups",
+      },
+      stepByStep: {
+        vi: "Hệ thống chỉ ghi nhận tiến độ sau khi bạn đã bấm nút Nhận (Accept) nhiệm vụ trên bảng Thi Đấu Hội. Hãy găm sẵn Thương Đội, rương Treo Thưởng hoặc mẻ lính hoàn thành, bấm Nhận nhiệm vụ trên bảng rồi mới ấn thu hoạch để hoàn thành trong 5 giây!",
+        en: "Progress registers strictly after clicking Accept on the Guild Race board. Hold your Caravan, completed Bounty Quests, or finished troop batch, click Accept on the board first, and then claim to finish the task in 5 seconds!",
+      },
+      warningNote: {
+        vi: "Chú ý đồng hồ đếm ngược của từng nhiệm vụ; quá hạn chưa xong sẽ mất trắng 1 lượt trong ngày.",
+        en: "Watch each task's countdown timer; letting a task expire forfeits 1 daily attempt.",
+      },
+    },
+    {
+      mechanicId: "gr-honor-18k-safety-floor",
+      title: {
+        vi: "Mẹo 3 — Giữ Sàn An Toàn 18.000 Xu Vinh Dự Bang Đổi Đá Linh Hồn Đỏ",
+        en: "Tip 3 — Maintain an 18,000 Guild Honor Safety Floor for Red Soul Stones",
+      },
+      whenToApply: {
+        vi: "Khi chi tiêu Xu Vinh Dự trong Cửa Hàng Bang Hội hàng tuần",
+        en: "When spending Guild Honor Tokens in the weekly Guild Shop",
+      },
+      stepByStep: {
+        vi: "Tổng Xu Vinh Dự thu về từ rương mốc Guild Race phải ưu tiên giữ lại tối thiểu 18.000 Xu trong túi để mua ngay Đá Linh Hồn Đỏ (Soul Stone) và Mảnh Tướng Vạn Năng Vàng ngay khi Shop Bang Hội reset sáng Thứ Hai.",
+        en: "Always preserve a minimum floor of 18,000 Guild Honor Tokens from Guild Race chests to immediately buy out Red Soul Stones and Universal Legendary Shards upon Monday Guild Shop reset.",
+      },
+      warningNote: {
+        vi: "Không tiêu sạch Xu Vinh Dự vào Tăng Tốc lẻ khiến tuần sau không đủ xu mua Đá Linh Hồn.",
+        en: "Never drain Guild Honor on loose speedups and miss the weekly Soul Stone buyout.",
+      },
+    },
+  ],
+  "guild-arms-race": [
+    {
+      mechanicId: "gar-double-rewards-2x-tech",
+      title: {
+        vi: "Mẹo 1 — Khoa Kỹ 'Double Rewards' Nhân Đôi 9 Rương Cá Nhân (9 ➔ 18 Rương/Ngày)",
+        en: "Tip 1 — 'Double Rewards' Tech Doubling All 9 Personal Chests (9 ➔ 18 Chests/Day)",
+      },
+      whenToApply: {
+        vi: "Ưu tiên nâng tối đa nhánh công nghệ Arms Race Prep ngay từ đầu mùa S0/S1",
+        en: "Max out the Arms Race Prep tech tree branch early in S0/S1",
+      },
+      stepByStep: {
+        vi: "Dồn 100% Tinh Hoa Rồng (Dragon Essence) vào nhánh nghiên cứu Arms Race Prep cho tới khi mở khóa nút cuối cùng 'Double Rewards' — giúp bạn nhận gấp đôi (x2) phần thưởng của toàn bộ 9 mốc rương cá nhân mỗi ngày (tương đương 18 rương/ngày xuyên suốt 6 ngày GAR).",
+        en: "Funnel 100% of Dragon Essence into the Arms Race Prep tech tree until unlocking the final 'Double Rewards' node — permanently doubling (2x) all 9 daily personal milestone chests (18 chests/day across all 6 GAR days).",
+      },
+      warningNote: {
+        vi: "Xả kho lớn khi chưa mở khóa Double Rewards đồng nghĩa với việc đánh mất 50% tổng Kim Cương và Mảnh Vàng hoàn trả.",
+        en: "Dumping hoarded inventory before unlocking Double Rewards permanently costs you 50% of rebate Diamonds and Gold Shards.",
+      },
+    },
+    {
+      mechanicId: "gar-victory-point-111112",
+      title: {
+        vi: "Mẹo 2 — Quy Tắc Điểm Chiến Thắng 1-1-1-1-1-2 & Chiến Thuật Buông Ngày Lệch",
+        en: "Tip 2 — The 1-1-1-1-1-2 Victory Point Rule & Tactical Day Concession",
+      },
+      whenToApply: {
+        vi: "Khi đối đầu Bang hội ngang cơ hoặc mạnh hơn trong 6 ngày ghép cặp",
+        en: "When matched against an equal or stronger Guild across the 6-day bracket",
+      },
+      stepByStep: {
+        vi: "Ngày 1 ➔ Ngày 5 mỗi ngày thắng cho 1 Điểm Chiến Thắng, riêng Ngày 6 cho 2 Điểm Chiến Thắng (tổng 7 điểm). Hãy tập trung thắng 3 ngày thế mạnh (ví dụ Ngày 2 Khoa Kỹ + Ngày 4 Anh Hùng + Ngày 5 Luyện Lính = 3 điểm) và chốt Ngày 6 (+2 điểm = 5/7 điểm) thay vì dàn trải tài nguyên cả 6 ngày.",
+        en: "Days 1 ➔ 5 award 1 Victory Point each while Day 6 awards 2 Victory Points (7 total). Focus on winning 3 core days (e.g., Day 2 Tech + Day 4 Heroes + Day 5 Troops = 3 pts) plus Day 6 (+2 pts = 5/7 pts) instead of spreading resources thin across all 6 days.",
+      },
+      warningNote: {
+        vi: "Nếu ngày nào Bang đối phương xả quá mạnh từ sớm, hãy chỉ lấy đủ 9 rương cá nhân rồi dừng ngay để dồn đạn cho ngày hôm sau.",
+        en: "If the rival guild overspends early on a given day, stop right at your 9th personal chest and save ammo for the next day.",
+      },
+    },
+    {
+      mechanicId: "gar-4h-hourly-window-overlap",
+      title: {
+        vi: "Mẹo 3 — Khớp Khung 4 Tiếng Quân Bị Dũng Sĩ (02:00 / 06:00 / 14:00 UTC)",
+        en: "Tip 3 — Synchronizing 4-Hour Warrior Arms Race Windows (02:00 / 06:00 / 14:00 UTC)",
+      },
+      whenToApply: {
+        vi: "Trước khi xả Tăng Tốc, Mảnh Vàng, Đá Hồn hoặc Orichalcum trong tuần GAR",
+        en: "Before dumping Speedups, Gold Shards, Soul Stones, or Orichalcum during GAR week",
+      },
+      stepByStep: {
+        vi: "Mỗi ngày GAR đều có các ca 4 tiếng của Quân Bị Dũng Sĩ xoay vòng. Luôn đợi đúng ca 4 tiếng trùng chủ đề với ngày GAR (thường mở lúc 02:00 UTC / 09:00 VN hoặc 14:00 UTC / 21:00 VN) mới xả kho để 1 lần tiêu nguyên liệu mở khóa cả 18 rương GAR lẫn 3 rương Quân Bị Dũng Sĩ.",
+        en: "Every GAR day features rotating 4-hour Warrior Arms Race sprints. Always wait for the 4-hour window matching the daily GAR theme (typically 02:00 UTC or 14:00 UTC) so a single resource dump unlocks both 18 GAR chests and 3 Hourly chests.",
+      },
+      warningNote: {
+        vi: "Tránh xả sạch kho ngay lúc 00:05 UTC nếu ca 4 tiếng đầu ngày đang lệch chủ đề!",
+        en: "Never dump your stockpile at 00:05 UTC if the first 4-hour sprint of the day is on a different theme!",
+      },
+    },
+  ],
+  "treasure-dice-storm-maiden": [
+    {
+      mechanicId: "dice-recycle-vs-carryover-rule",
+      title: {
+        vi: "Mẹo 1 — Phân Biệt Xúc Xắc Định Mệnh (#204002 Bảo Lưu) vs Xúc Xắc Ma Thuật (#406181001 Thu Hồi)",
+        en: "Tip 1 — Destiny Dice (#204002 Carryover) vs Magic Dice (#406181001 Auto-Recycle)",
+      },
+      whenToApply: {
+        vi: "Kiểm tra mã đạo cụ trong túi trước ngày kết thúc sự kiện Xúc Xắc",
+        en: "Check item IDs in your bag before the final day of the Dice event",
+      },
+      stepByStep: {
+        vi: "Theo bảng goods trong Meta.bytes: Xúc Xắc Định Mệnh (#204002) có recycle = '' nên được bảo lưu vĩnh viễn sang kỳ sau; ngược lại Xúc Xắc Ma Thuật (#406181001) và Xu Ma Thuật (#406181006) sẽ bị hệ thống thu hồi đổi thành Vàng ngay khi đóng sự kiện — bắt buộc phải đổ hết và đổi sạch Tiệm trước 02:00 UTC (09:00 Giờ VN) ngày cuối!",
+        en: "Per the Meta.bytes goods table: Destiny Dice (#204002) has recycle = '' and carries over indefinitely; however, Magic Dice (#406181001) and Magic Coins (#406181006) are recycled into Gold when the event closes — roll and spend 100% before 02:00 UTC on the final day!",
+      },
+      warningNote: {
+        vi: "Để quên Xu Ma Thuật (#406181006) sau giờ đóng Tiệm sẽ làm mất trắng toàn bộ Mảnh Tướng Đỏ và Vũ Khí Độc Quyền.",
+        en: "Leaving unspent Magic Coins (#406181006) past shop close forfeits your Mythic Shards and Exclusive Weapons.",
+      },
+    },
+    {
+      mechanicId: "dice-exact-milestone-30-60-100",
+      title: {
+        vi: "Mẹo 2 — Chốt Chẵn Mốc Rương Bảo Hiểm Lượt Đổ (30 ➔ 60 ➔ 100 Lượt)",
+        en: "Tip 2 — Stopping Cleanly at Cumulative Roll Milestones (30 ➔ 60 ➔ 100 Rolls)",
+      },
+      whenToApply: {
+        vi: "Khi tính toán số lượng Xúc Xắc mua bằng Kim Cương và gói $0.99",
+        en: "When calculating Dice purchases with Diamonds and $0.99 daily packs",
+      },
+      stepByStep: {
+        vi: "Hơn 60% giá trị mảnh tướng Storm Maiden và Rương Vũ Khí Độc Quyền nằm ở các Rương Mốc Lượt Đổ tích lũy (30 / 60 / 100 lượt). Hãy cộng tổng Xúc Xắc miễn phí từ nhiệm vụ ngày + lượt mua bằng Kim Cương (300 KC/viên) để dừng chính xác tại mốc 30, 60 hoặc 100 lượt.",
+        en: "Over 60% of Storm Maiden shards and Exclusive Weapon Chests come from cumulative roll milestones (30 / 60 / 100 rolls). Sum your free daily task dice + Diamond dice (300 Diamonds each) and stop cleanly at 30, 60, or 100 rolls.",
+      },
+      warningNote: {
+        vi: "Tuyệt đối không dừng lửng lơ ở 45 hay 85 lượt đổ gây lãng phí hàng nghìn Kim Cương mà không chạm rương mốc.",
+        en: "Never stop mid-way at 45 or 85 rolls, wasting thousands of Diamonds without claiming the next chest.",
+      },
+    },
+    {
+      mechanicId: "dice-daily-099-drip-strategy",
+      title: {
+        vi: "Mẹo 3 — Mua Rải Gói Mồi $0.99/Ngày Rẻ Hơn 65% So Với Nạp Gói Lớn Giờ Chót",
+        en: "Tip 3 — Buying Daily $0.99 Packs Saves 65% Compared to Last-Day Bulk Bundles",
+      },
+      whenToApply: {
+        vi: "Mỗi ngày sau mốc reset 02:00 UTC (09:00 Giờ VN) cho người chơi Low-Spender",
+        en: "Daily after the 02:00 UTC reset for Low-Spenders targeting Storm Maiden",
+      },
+      stepByStep: {
+        vi: "Nếu bạn định chi ngân sách nhỏ lấy Storm Maiden, hãy mua đều đặn gói $0.99 mỗi ngày ngay từ Ngày 1 (tổng ~$4.95–$6.93 cho cả kỳ) thay vì đợi ngày cuối mới mua gói $19.99, giúp tiết kiệm 65% chi phí trên mỗi viên Xúc Xắc.",
+        en: "If spending a small budget for Storm Maiden, buy the $0.99 daily pack every day from Day 1 (~$4.95–$6.93 total) instead of buying a $19.99 pack on the final day, cutting cost-per-die by 65%.",
+      },
+      warningNote: {
+        vi: "Gói $0.99 giới hạn đúng 1 lần/ngày và không thể mua bù nếu bỏ lỡ các ngày đầu.",
+        en: "The $0.99 pack is strictly capped at 1/day and cannot be bought retroactively if missed on early days.",
+      },
+    },
+  ],
+  "lucky-wheel": [
+    {
+      mechanicId: "lw-token-carryover-204001",
+      title: {
+        vi: "Mẹo 1 — Bảo Lưu 100% Xu Vòng Quay (#204001 — recycle = '') Qua Nhiều Mùa",
+        en: "Tip 1 — 100% Lucky Wheel Token Carryover (#204001 — recycle = '') Across Seasons",
+      },
+      whenToApply: {
+        vi: "Khi Vòng Quay hiện tại rơi vào tướng lệch hệ (không thuộc đội hình chính)",
+        en: "When the current Lucky Wheel features an off-faction hero outside your main march",
+      },
+      stepByStep: {
+        vi: "Xu Vòng Quay May Mắn (#204001) có thuộc tính recycle rỗng trong Meta.bytes nên không bao giờ hết hạn. Ở các kỳ Vòng Quay tướng phụ, bạn chỉ dùng lượt miễn phí và mua gom Xu giảm giá cất vào túi, đợi đúng kỳ tướng chủ lực hệ Horde (Desert Prince / Wukong / Beastmaster) mới xả 150 lượt một lần!",
+        en: "Lucky Wheel Tokens (#204001) have an empty recycle field in Meta.bytes and never expire. During off-faction banners, use only free spins and bank discounted tokens in your bag until a core Horde banner (Desert Prince / Wukong / Beastmaster) arrives to burst 150 spins at once!",
+      },
+      warningNote: {
+        vi: "Quay dàn trải mỗi tướng Đỏ 20–30 lượt sẽ khiến đội hình của bạn không có tướng nào đủ sao dùng thực chiến.",
+        en: "Spreading 20–30 spins across every Mythic hero leaves your roster with zero usable high-star carries.",
+      },
+    },
+    {
+      mechanicId: "lw-pity-chest-10-25-70-150",
+      title: {
+        vi: "Mẹo 2 — Chốt Đúng Mốc Rương Bảo Hiểm Lượt Quay (10 ➔ 25 ➔ 70 ➔ 150 Lượt)",
+        en: "Tip 2 — Targeting Exact Cumulative Spin Pity Chests (10 ➔ 25 ➔ 70 ➔ 150 Spins)",
+      },
+      whenToApply: {
+        vi: "Trước khi bấm quay bằng Kim Cương trong bảng turntable",
+        en: "Before spending Diamonds on turntable spins",
+      },
+      stepByStep: {
+        vi: "Tỷ lệ rơi mảnh lớn trên bàn xoay chỉ chiếm ~45%, còn 55% lượng mảnh tướng Đỏ chắc chắn nằm trong Rương Mốc Lượt Quay (10 / 25 / 70 / 150 lượt). Luôn kiểm tra quỹ Kim Cương hiện có để dừng chuẩn xác tại mốc 25 lượt (F2P tiết kiệm), 70 lượt (mở khóa tướng + nâng sao) hoặc 150 lượt.",
+        en: "Wheel probability accounts for ~45% of shards while 55% comes from guaranteed Cumulative Spin Chests (10 / 25 / 70 / 150 spins). Always calculate your Diamond reserve in advance and stop cleanly at 25, 70, or 150 spins.",
+      },
+      warningNote: {
+        vi: "Dừng ở 50 lượt hoặc 110 lượt là sai lầm làm bốc hơi 10.000+ Kim Cương mà không nhận được rương bảo hiểm.",
+        en: "Stopping at 50 or 110 spins wastes 10,000+ Diamonds without unlocking the next guaranteed chest.",
+      },
+    },
+    {
+      mechanicId: "lw-wait-final-day-free-spins",
+      title: {
+        vi: "Mẹo 3 — Tận Dụng Hết Lượt Quay Miễn Phí 5 Ngày Trước Khi Mua Bù Ngày Cuối",
+        en: "Tip 3 — Claim All 5 Daily Free Spins Before Buying Remainder Spins on the Final Day",
+      },
+      whenToApply: {
+        vi: "Xuyên suốt 5 ngày mở Vòng Quay May Mắn",
+        en: "Across all 5 days of the Lucky Wheel event",
+      },
+      stepByStep: {
+        vi: "Mỗi ngày sau 02:00 UTC (09:00 Giờ VN) hệ thống tặng 1 lượt quay miễn phí + lượt mua Xu giảm giá. Hãy kiên nhẫn quay lượt miễn phí suốt 4 ngày đầu, đến Ngày 5 mới mua bù đúng số lượt còn thiếu để cán mốc 70 hoặc 150 lượt (tiết kiệm 3.000–4.500 Kim Cương).",
+        en: "Each day after 02:00 UTC grants 1 free spin plus discounted token purchases. Use free spins across the first 4 days and buy only the exact remaining spins needed on Day 5 to hit 70 or 150 (saving 3,000–4,500 Diamonds).",
+      },
+      warningNote: {
+        vi: "Nếu xả chạm mốc 150 lượt ngay từ Ngày 1, 4 lượt miễn phí của Ngày 2–5 sẽ bị vượt mốc lãng phí.",
+        en: "Hitting 150 spins on Day 1 wastes the 4 free daily spins from Days 2–5 beyond the milestone cap.",
+      },
+    },
+  ],
+  "hero-gacha": [
+    {
+      mechanicId: "hg-token-carryover-204015",
+      title: {
+        vi: "Mẹo 1 — Tích Đủ 100 ➔ 300 Vé Chiêu Mộ Đặc Biệt (#204015 Bảo Lưu Vĩnh Viễn)",
+        en: "Tip 1 — Bank 100 ➔ 300 Special Recruit Tokens (#204015 Permanent Carryover)",
+      },
+      whenToApply: {
+        vi: "Khi số lượng Vé Chiêu Mộ trong túi chưa chạm mốc chẵn 100 / 200 / 300 vé",
+        en: "Whenever your Recruit Token stockpile is below the 100 / 200 / 300 milestone thresholds",
+      },
+      stepByStep: {
+        vi: "Vé Chiêu Mộ (#204015) được bảo lưu 100% qua mọi mùa giải. Thay vì mỗi kỳ quay lẻ tẻ 30–40 vé chỉ lấy được rương mốc thấp, hãy nhịn 1–2 chu kỳ để gom đủ 100 ➔ 300 vé rồi xả 1 lần lấy trọn Rương Tự Chọn Mảnh Tướng Đỏ/Vàng và Đá Linh Hồn ở mốc cuối.",
+        en: "Recruit Tokens (#204015) carry over 100% across seasons. Instead of spending 30–40 tokens per cycle on low chests, skip 1–2 rotations to bank 100 ➔ 300 tokens and clear the top Choice Hero Shard & Soul Stone milestone chests in one run.",
+      },
+      warningNote: {
+        vi: "Xả vé khi dưới 50 vé sẽ mất toàn bộ phần thưởng hoàn trả bậc cao.",
+        en: "Pulling with fewer than 50 tokens forfeits all high-tier rebate milestone chests.",
+      },
+    },
+    {
+      mechanicId: "hg-thursday-gar-day4-triple-dip",
+      title: {
+        vi: "Mẹo 2 — Khớp Lệnh Xả Vé Vào Đúng Thứ Năm (Ngày 4 Anh Hùng GAR / KvK)",
+        en: "Tip 2 — Hold All Tavern Pulls Until Thursday (GAR / KvK Day 4 Hero Day)",
+      },
+      whenToApply: {
+        vi: "Đợi đúng 02:00 UTC (09:00 Giờ VN) hoặc 14:00 UTC (21:00 Giờ VN) ngày Thứ Năm",
+        en: "Wait until 02:00 UTC or 14:00 UTC on Thursday (Hero Development Day)",
+      },
+      stepByStep: {
+        vi: "Dù sự kiện Hero Gacha mở từ đầu tuần, hãy giữ nguyên toàn bộ Vé Chiêu Mộ trong túi cho tới đúng Thứ Năm (Ngày 4 Phát Triển Anh Hùng của GAR / KvK) trùng với ca 4 Tiếng Chiêu Mộ để 1 vé quay nổ điểm đồng thời trên cả 3 bảng sự kiện!",
+        en: "Even when Hero Gacha opens earlier in the week, hold 100% of your Recruit Tokens until Thursday (GAR / KvK Day 4 Hero Day) during the 4-Hour Hero Sprint so every single pull scores across 3 events simultaneously!",
+      },
+      warningNote: {
+        vi: "Quay hết vé vào Thứ Ba hoặc Thứ Tư sẽ khiến bạn trắng tay không có điểm ở Ngày 4 GAR.",
+        en: "Spending all tokens on Tuesday or Wednesday leaves you starved for points on GAR Day 4.",
+      },
+    },
+    {
+      mechanicId: "hg-faction-wishlist-lock",
+      title: {
+        vi: "Mẹo 3 — Khóa Danh Sách Ước Nguyện (Wishlist) Đúng Hệ Đội Hình Chính Trước Khi Quay",
+        en: "Tip 3 — Lock Your Main Faction Wishlist Before Executing 10-Pull Batches",
+      },
+      whenToApply: {
+        vi: "Trước lượt quay đầu tiên trong giao diện Quán Rượu Đặc Biệt",
+        en: "Before your very first 10-pull inside the Special Tavern interface",
+      },
+      stepByStep: {
+        vi: "Kiểm tra và chọn cố định tướng chủ lực hệ Horde (hoặc hệ đội hình 1 của bạn) vào ô Ước Nguyện / Định Hướng trước khi bấm quay theo cụm 10 lượt để mọi mảnh nổ bảo hiểm đều dồn vào đúng 1 đội hình duy nhất.",
+        en: "Verify and lock your main Horde (or Team 1) carry heroes into the Wishlist/Target slots before running 10-pull batches so all pity drops funnel into a single core squad.",
+      },
+      warningNote: {
+        vi: "Quên chọn tướng định hướng trước khi quay sẽ làm rơi ngẫu nhiên mảnh tướng lệch hệ.",
+        en: "Forgetting to set your target hero before pulling scatters pity shards onto off-faction units.",
+      },
+    },
+  ],
+  "butterfly-catching": [
+    {
+      mechanicId: "bf-opcode-65-cap-300",
+      title: {
+        vi: "Mẹo 1 — Trần Giới Hạn Ẩn Opcode 65 (Tối Đa 300 Đạo Cụ Rơi Bản Đồ / Kỳ)",
+        en: "Tip 1 — Opcode 65 Hidden Drop Cap (Max 300 Map-Dropped Items / Cycle)",
+      },
+      whenToApply: {
+        vi: "Khi cày quái bản đồ, thu thập mỏ và thu hoạch thành nội trong 5–7 ngày sự kiện",
+        en: "When farming world map monsters, gathering nodes, and harvesting city resources",
+      },
+      stepByStep: {
+        vi: "Trong Meta.bytes (form_list: 65|<itemId>|300|<dropGroup>), tổng số đạo cụ sự kiện rơi từ bản đồ thế giới bị khóa cứng ở trần 300 cái/kỳ (~50–60 cái/ngày). Khi đã nhặt đủ 300 đạo cụ từ bản đồ, hệ thống sẽ ngưng rơi hoàn toàn — lúc này hãy dừng đốt Bình Thể Lực vô ích!",
+        en: "In Meta.bytes (form_list: 65|<itemId>|300|<dropGroup>), total map-dropped event items are hard-capped at 300 per cycle (~50–60/day). Once you hit 300 map drops, the drop rate becomes 0% — stop burning extra Stamina Potions!",
+      },
+      warningNote: {
+        vi: "Nhiều người chơi không biết trần 300 nên đốt hàng chục Bình Thể Lực ở ngày cuối mà không rớt thêm 1 đạo cụ nào.",
+        en: "Players unaware of the 300 hard cap often waste dozens of Stamina Potions on the final day with zero drops.",
+      },
+    },
+    {
+      mechanicId: "bf-auto-rally-50-daily",
+      title: {
+        vi: "Mẹo 2 — Bật Auto-Join Rally 50 Lượt/Ngày Để Vét Trần Rơi Không Tốn Thể Lực",
+        en: "Tip 2 — Enable 50x Daily Auto-Join Rally to Hit Drop Caps Without Spending Stamina",
+      },
+      whenToApply: {
+        vi: "Bật liên tục mỗi ngày ngay sau giờ reset 02:00 UTC (09:00 Giờ VN)",
+        en: "Keep active daily right after the 02:00 UTC server reset",
+      },
+      stepByStep: {
+        vi: "Tham gia 50 lượt Auto-Join Rally đánh Boss cùng Bang hội mỗi ngày kết hợp thu hoạch mỏ tài nguyên trong thành giúp bạn chạm gần sát trần 50–60 đạo cụ rơi/ngày mà vẫn bảo toàn được Bình Thể Lực trong kho.",
+        en: "Completing 50 daily Auto-Join Boss Rallies with your guild plus normal city/map gathering effortlessly reaches the 50–60 daily drop pace while preserving Stamina Potions in your bag.",
+      },
+      warningNote: {
+        vi: "Đảm bảo gia hạn lại nút Auto-Join mỗi 8 tiếng để không bị ngắt quãng khi offline.",
+        en: "Refresh your 8-hour Auto-Join timer before sleeping so offline rally participation never stops.",
+      },
+    },
+    {
+      mechanicId: "bf-final-day-tier-s-redeem",
+      title: {
+        vi: "Mẹo 3 — Chờ Chốt Tổng Xu Ngày Cuối Để Đổi Trọn Rương Trang Trí Đỏ & Mảnh Vàng (Tier S)",
+        en: "Tip 3 — Wait Until Final-Day Token Tally to Redeem Mythic Decor & Gold Shards (Tier S)",
+      },
+      whenToApply: {
+        vi: "Vào ngày cuối của sự kiện trước giờ đóng Tiệm (active_shop)",
+        en: "On the final day of the event before the active_shop closes",
+      },
+      stepByStep: {
+        vi: "Đợi khi đã nhặt kịch trần 300 đạo cụ bản đồ và hoàn tất chuỗi nhiệm vụ 5 ngày để biết tổng số xu thực tế; ưu tiên đổi Rương Trang Trí Thần Thoại (+% ATK/HP sở hữu vĩnh viễn) và Mảnh Tướng Vạn Năng Vàng trước, số xu lẻ còn dư mới đổi sang Orichalcum/Tăng tốc.",
+        en: "Wait until you have capped all 300 map drops and 5-day mission chains to see your exact coin total; buy out the Mythic Decoration Chest (permanent Owned ATK/HP) and Universal Gold Shards first, then spend leftover coins on Orichalcum/Speedups.",
+      },
+      warningNote: {
+        vi: "Đổi các món lặt vặt từ Ngày 1–2 sẽ khiến bạn thiếu vài chục xu mua Rương Trang Trí Đỏ ở ngày cuối!",
+        en: "Buying minor items on Days 1–2 often leaves you just short of the Mythic Decoration Chest on the final day!",
+      },
+    },
+  ],
+  "giant-troll-raid": [
+    {
+      mechanicId: "gtr-50-stamina-free-rallies",
+      title: {
+        vi: "Mẹo 1 — Tận Dụng Tối Đa 50 Lượt Auto-Join Rally Miễn Phí Thể Lực Mỗi Ngày",
+        en: "Tip 1 — Max Out 50 Stamina-Free Auto-Join Rallies Every Single Day",
+      },
+      whenToApply: {
+        vi: "Reset mỗi ngày lúc 02:00 UTC (09:00 Giờ VN)",
+        en: "Resets daily at 02:00 UTC",
+      },
+      stepByStep: {
+        vi: "Hệ thống cho phép nhận thưởng tối đa 50 lượt tham gia tập kết Boss Cự Ma mỗi ngày hoàn toàn không tốn Thể lực khi đi ké Rally của đồng đội. Hãy bật Auto-Join 24/7 để lấy đủ 50 rương Orichalcum + Điểm Pass Cự Ma mỗi ngày miễn phí 100%.",
+        en: "The game grants up to 50 Giant Troll rally join rewards per day at zero Stamina cost when joining guildmates' rallies. Keep Auto-Join active 24/7 to claim all 50 daily Orichalcum + Raid Pass chests completely free.",
+      },
+      warningNote: {
+        vi: "Chỉ tự bỏ Thể lực cá nhân mở Rally khi đã nhận hết 50 lượt ké hoặc cần chạy nhiệm vụ ngày.",
+        en: "Only spend personal Stamina hosting rallies as needed for daily quests after maximizing free joins.",
+      },
+    },
+    {
+      mechanicId: "gtr-5dps-gear-swap-burst",
+      title: {
+        vi: "Mẹo 2 — Tráo Trang Bị Đội 1 & Xếp Đội Hình 4–5 DPS Đơn Mục Tiêu Đánh Boss",
+        en: "Tip 2 — Swap Main Gear & Deploy a 4–5 Single-Target DPS Lineup Against the Boss",
+      },
+      whenToApply: {
+        vi: "Trước khi cử đạo quân chủ lực đánh Boss Cự Ma tính mốc sát thương",
+        en: "Before sending your main march to hit Giant Troll damage milestones",
+      },
+      stepByStep: {
+        vi: "Vì phần thưởng mốc phụ thuộc vào tổng sát thương gây ra trong 1 trận, hãy tháo tướng Tank phòng thủ thuần ra, thay bằng các tướng DPS đơn mục tiêu + tướng giảm giáp/tăng tốc đánh và dồn bộ Trang Bị Vàng/Đỏ +20/+40 mạnh nhất sang cho các tướng DPS đó.",
+        en: "Because milestone chests scale with single-battle damage dealt, swap out pure defensive Tanks for single-target DPS + armor-shred/attack-speed buffers and transfer your best +20/+40 Gold/Mythic gear onto those carries.",
+      },
+      warningNote: {
+        vi: "Nhớ trả lại đội hình chuẩn có Tank trước khi quay lại đánh Đấu Trường PVP hoặc công thành!",
+        en: "Remember to restore your standard Tank lineup before returning to PVP Arena or siege battles!",
+      },
+    },
+    {
+      mechanicId: "gtr-freeze-orichalcum-for-gar",
+      title: {
+        vi: "Mẹo 3 — Đóng Băng 100% Orichalcum & Khuôn Đúc Thu Được Chờ Ngày Trang Bị GAR",
+        en: "Tip 3 — Freeze 100% of Harvested Orichalcum & Blueprints for GAR Gear Day",
+      },
+      whenToApply: {
+        vi: "Sau khi mở rương Boss Cự Ma và nhận thưởng Thẻ Thông Hành Cự Ma",
+        en: "After claiming Giant Troll loot chests and Giant Slayer Pass rewards",
+      },
+      stepByStep: {
+        vi: "Đột Kích Khổng Lồ là nguồn cung Orichalcum và Khuôn Đúc Trang Bị Lãnh Chúa lớn nhất mùa S0–S1. Tuyệt đối không bấm nâng cấp Trang Bị Lãnh Chúa ngay lúc vừa nhận; hãy cất toàn bộ vào kho chờ đúng Ngày 3/Ngày 5 của GAR hoặc Mini-Rush Trang Bị mới xả!",
+        en: "Giant Troll Raid is the #1 source of Orichalcum and Lord Gear Blueprints in S0–S1. Never upgrade Lord Gear immediately upon claiming; bank 100% in your inventory until GAR Gear Day or the Lord Gear Mini-Rush!",
+      },
+      warningNote: {
+        vi: "Đập lẻ Orichalcum ngoài ngày sự kiện làm mất trắng 3 mốc rương hoàn trả.",
+        en: "Spending Orichalcum outside active gear events forfeits 3 tiers of rebate milestone chests.",
+      },
+    },
+  ],
+  "dark-empire-and-legion": [
+    {
+      mechanicId: "del-wave15-20-reinforce-2x",
+      title: {
+        vi: "Mẹo 1 — Gửi Quân Tiếp Viện Đồng Đội Từ Đợt 15 ➔ 20 Ăn Điểm Viện Trợ Nhân Đôi",
+        en: "Tip 1 — Reinforce Guildmates During Waves 15 ➔ 20 for 2x Assist Scoring",
+      },
+      whenToApply: {
+        vi: "Trong 20 đợt quái Quân Đoàn Hắc Ám tấn công Lâu Đài Bang hội",
+        en: "During the 20 Dark Legion monster siege waves attacking guild castles",
+      },
+      stepByStep: {
+        vi: "Từ Đợt 1 ➔ 14 hãy giữ đội hình chính ở nhà để thủ thành. Từ Đợt 15 trở đi (hoặc ngay khi thành bạn vừa thủ xong đợt quái), lập tức cử các đạo quân mạnh nhất sang đồn trú (Reinforce) tại Lâu Đài của thành viên lực chiến thấp và Pháo Đài Bang để gom lượng điểm Viện Trợ gấp đôi!",
+        en: "Keep your main squad home during Waves 1 ➔ 14. From Wave 15 onward (or right after your castle clears its wave), immediately send your strongest marches to Reinforce lower-power guildmates and the Guild Fortress for double assist points!",
+      },
+      warningNote: {
+        vi: "Chỉ để quân nằm im ở nhà mình suốt 20 đợt sẽ không bao giờ đủ điểm lọt Top 10 BXH Phòng Thủ Bang.",
+        en: "Leaving all marches idle inside your own castle for all 20 waves makes it impossible to reach Top 10 Guild Defense.",
+      },
+    },
+    {
+      mechanicId: "del-recall-gathering-marches",
+      title: {
+        vi: "Mẹo 2 — Thu Hồi Toàn Bộ Đạo Quân Đào Mỏ Trước Giờ R4/R5 Phát Động 10 Phút",
+        en: "Tip 2 — Recall All Gathering Marches 10 Minutes Before R4/R5 Launches the Siege",
+      },
+      whenToApply: {
+        vi: "10 phút trước khung giờ hẹn mở sự kiện Phòng Thủ Pháo Đài của Bang hội",
+        en: "10 minutes prior to your guild's scheduled Fortress Defense start time",
+      },
+      stepByStep: {
+        vi: "Rút toàn bộ 4 đạo quân đang đi đào mỏ hoặc đánh quái về thành, lắp lại bộ trang bị mạnh nhất cho Đội 1 và Đội 2 để vừa giữ vững tường thành qua Đợt 20 vừa có sẵn 2–3 đạo quân cơ động đi tiếp viện đồng đội xung quanh.",
+        en: "Recall all 4 gathering marches back to base and equip your best gear on Squads 1 and 2 so your walls survive through Wave 20 while freeing 2–3 mobile marches to reinforce nearby allies.",
+      },
+      warningNote: {
+        vi: "Để Đội 1 kẹt ngoài mỏ tài nguyên khi quái Đợt 16–20 ập tới sẽ khiến thành bị cháy và ngừng tính điểm các đợt sau!",
+        en: "Leaving Squad 1 out gathering during Waves 16–20 causes your castle wall to breach and halts subsequent wave spawns!",
+      },
+    },
+    {
+      mechanicId: "del-clear-hospital-before-boss",
+      title: {
+        vi: "Mẹo 3 — Làm Trống Bệnh Viện Trước Đợt 20 Đánh Boss Pháo Đài Bang",
+        en: "Tip 3 — Empty Your Hospital Before the Wave 20 Guild Fortress Boss",
+      },
+      whenToApply: {
+        vi: "Trước khi bước vào Đợt 18–20 và đợt Boss Pháo Đài cuối cùng",
+        en: "Right before entering Waves 18–20 and the final Guild Fortress Boss wave",
+      },
+      stepByStep: {
+        vi: "Dùng hỗ trợ bấm tay của Bang hội (Guild Help) để chữa lành toàn bộ lính bị thương tích lũy từ các đợt đầu, đảm bảo Bệnh Viện hoàn toàn trống trước khi chạm trán Boss Đợt 20 nhằm tránh tràn viện gây chết lính thật.",
+        en: "Use Guild Help taps to heal wounded troops from earlier waves, keeping your Hospital completely empty before the Wave 20 Boss impact so zero troops overflow into permanent deaths.",
+      },
+      warningNote: {
+        vi: "Tuyệt đối không để Bệnh Viện đầy >80% khi tham gia phòng thủ các đợt cuối.",
+        en: "Never enter the final siege waves with your Hospital above 80% capacity.",
+      },
+    },
+  ],
+  "mini-rushes-and-guild-rush": [
+    {
+      mechanicId: "mr-anti-bait-offweek-freeze",
+      title: {
+        vi: "Mẹo 1 — Kỷ Luật Chống 'Sự Kiện Mồi' (Off-Week Bait) Ngay Trước Tuần GAR / KvK",
+        en: "Tip 1 — Anti-Bait Discipline During the Off-Week Right Before GAR / KvK",
+      },
+      whenToApply: {
+        vi: "Khi Mini-Rush 2 ngày xuất hiện vào tuần nghỉ (Tuần A — không có GAR/KvK)",
+        en: "Whenever a 2-Day Mini-Rush spawns during an off-week (Week A — no GAR/KvK)",
+      },
+      stepByStep: {
+        vi: "Nhà phát hành luôn đặt các kỳ Đua Ngắn 2 Ngày (Đá Hồn, Cổ Vật, Thú Cưng, Cổ Ngữ, Trang Bị) vào tuần nghỉ ngay trước GAR để dụ người chơi xả sạch kho. Ở tuần nghỉ, chỉ tiêu lượng nhỏ vừa chạm Rương 1–2 và bắt buộc giữ lại 85%–90% nguyên liệu cho tuần GAR kế tiếp!",
+        en: "The publisher deliberately schedules 2-Day Mini-Rushes (Soul Stones, Relics, Pets, Runes, Gear) during the off-week before GAR to bait inventory dumps. During off-weeks, claim only Chest 1–2 and preserve 85%–90% of your stockpile for GAR week!",
+      },
+      warningNote: {
+        vi: "Xả cạn Đá Hồn và Orichalcum vào Mini-Rush tuần nghỉ sẽ khiến bạn mất trắng 18 rương nhân đôi ở tuần GAR sau đó.",
+        en: "Draining Soul Stones and Orichalcum in an off-week Mini-Rush costs you 18 doubled chests the following GAR week.",
+      },
+    },
+    {
+      mechanicId: "mr-triple-dip-gar-alignment",
+      title: {
+        vi: "Mẹo 2 — Gộp Ba Tầng Thưởng (Triple-Dip: Mini-Rush 2 Ngày + GAR + Ca 4 Giờ)",
+        en: "Tip 2 — Triple-Dipping 3 Reward Tracks (2-Day Mini-Rush + GAR + 4-Hour Sprint)",
+      },
+      whenToApply: {
+        vi: "Khi Mini-Rush 2 ngày mở trùng đúng ngày chủ đề của GAR / KvK",
+        en: "When a 2-Day Mini-Rush overlaps the matching GAR / KvK theme day",
+      },
+      stepByStep: {
+        vi: "Khi Mini-Rush 2 Ngày rơi vào tuần lễ GAR/KvK, hãy đợi đúng khung giờ 4 tiếng của Quân Bị Dũng Sĩ trùng chủ đề (02:00 UTC hoặc 14:00 UTC) rồi xả dứt điểm nguyên liệu để 1 lần nâng cấp ăn trọn cả 3 hệ thống rương mốc (hiệu suất 300% ROI).",
+        en: "When a 2-Day Mini-Rush lands inside GAR/KvK week, wait for the matching 4-Hour Warrior Arms Race window (02:00 UTC or 14:00 UTC) and dump once to clear all 3 milestone tracks simultaneously (300% ROI).",
+      },
+      warningNote: {
+        vi: "Luôn kiểm tra kỹ bảng lịch 4 tiếng trong ngày trước khi bấm nâng cấp hàng loạt.",
+        en: "Always verify the daily 4-hour schedule table before executing batch upgrades.",
+      },
+    },
+    {
+      mechanicId: "mr-chest3-hard-stop",
+      title: {
+        vi: "Mẹo 3 — Dừng Tuyệt Đối Ngay Tại Rương Mốc Cá Nhân Số 3 (Hard Stop at Chest 3)",
+        en: "Tip 3 — Hard Stop Immediately Upon Unlocking Personal Milestone Chest #3",
+      },
+      whenToApply: {
+        vi: "Ngay giây phút thanh điểm cá nhân Mini-Rush vừa chạm mốc Rương 3",
+        en: "The exact moment your personal Mini-Rush progress bar hits Chest #3",
+      },
+      stepByStep: {
+        vi: "Trong cấu trúc thưởng của Mini-Rush 2 Ngày, Rương Mốc Cá Nhân 1 ➔ 3 hoàn trả tới 25%–35% nguyên liệu và Kim Cương, nhưng phần thưởng đua Top BXH lại rất thấp so với lượng tài nguyên phải đốt thêm. Chạm Rương 3 là dừng 100% để tích cho kỳ sau!",
+        en: "In 2-Day Mini-Rushes, Personal Chests 1 ➔ 3 refund 25%–35% of materials and Diamonds, whereas leaderboard ranking rewards offer terrible marginal return. Stop 100% at Chest #3 and bank the rest for the next cycle!",
+      },
+      warningNote: {
+        vi: "Mọi nguyên liệu xả vượt quá mốc Rương 3 đều có tỷ lệ hoàn vốn bằng 0.",
+        en: "Every single material spent beyond Personal Chest #3 yields 0% milestone rebate.",
+      },
+    },
+  ],
+};
+
+function resolveDynamicMetadata(record: EventPlaybookRecord): EventSpecificMetadata {
+  const explicit = EVENT_SPECIFIC_METADATA[record.id];
+  if (explicit) return explicit;
+
+  const isPureRecharge = Boolean(record.isPureRecharge);
+  const stageLabelVi =
+    record.serverStage === "stage_1"
+      ? "Giai đoạn 1 (Tân thủ Ngày 1–39)"
+      : record.serverStage === "stage_2"
+      ? "Giai đoạn 2 (Mùa Giải S1 — Ngày 40–90)"
+      : "Giai đoạn 3 (Mùa Giải S2+ & Endgame)";
+  const stageLabelEn =
+    record.serverStage === "stage_1"
+      ? "Stage 1 (Rookie Days 1–39)"
+      : record.serverStage === "stage_2"
+      ? "Stage 2 (Season 1 — Days 40–90)"
+      : "Stage 3 (Season 2+ & Endgame)";
+
+  return {
+    unlockConditions: {
+      vi: `Mở khóa tại ${stageLabelVi} • Khung lịch: ${record.s0TimingBadge.vi} (${record.name.vi})`,
+      en: `Unlocks in ${stageLabelEn} • Window: ${record.s0TimingBadge.en} (${record.name.en})`,
+    },
+    dropSources: isPureRecharge
+      ? [
+          {
+            sourceName: {
+              vi: `Mốc Tích Lũy Giao Dịch & Gói Ưu Đãi (${record.name.vi})`,
+              en: `Cumulative Top-Up & Bundle Milestones (${record.name.en})`,
+            },
+            dropRate: {
+              vi: "100% kích hoạt tức thì khi hoàn tất gói trong bảng exchange",
+              en: "100% instant activation upon completing eligible exchange bundles",
+            },
+            dailyHiddenCap: {
+              vi: `Giới hạn theo mốc gói ngày / kỳ sự kiện (Reset 02:00 UTC / 09:00 Giờ VN)`,
+              en: `Capped by daily / cycle bundle limits (Resets at 02:00 UTC)`,
+            },
+          },
+        ]
+      : record.id.includes("festival") || record.id.includes("collab")
+      ? [
+          {
+            sourceName: {
+              vi: `Đánh Quái Bản Đồ, Đào Mỏ & Chuỗi Nhiệm Vụ 5 Ngày (${record.name.vi})`,
+              en: `World Map Monsters, Gathering & 5-Day Task Chain (${record.name.en})`,
+            },
+            dropRate: {
+              vi: "100% từ nhiệm vụ mốc + Xác suất rơi từ quái và mỏ tài nguyên (activity_drop)",
+              en: "100% from task milestones + World map monster/gathering drops (activity_drop)",
+            },
+            dailyHiddenCap: {
+              vi: "Trần giới hạn ẩn Opcode 65: Tối đa 300 đạo cụ rơi bản đồ / Kỳ (~50–60 cái/ngày)",
+              en: "Opcode 65 hidden cap: Max 300 map-dropped items / Cycle (~50–60/day)",
+            },
+          },
+        ]
+      : [
+          {
+            sourceName: {
+              vi: `Chuỗi Nhiệm Vụ Điểm Mốc & Rương Tích Lũy (${record.name.vi})`,
+              en: `Point Mission Chain & Milestone Chests (${record.name.en})`,
+            },
+            dropRate: {
+              vi: "100% nhận trực tiếp khi hoàn thành các mốc tiến độ A ➔ B",
+              en: "100% guaranteed upon clearing A ➔ B progression milestones",
+            },
+            dailyHiddenCap: {
+              vi: `Giới hạn theo tổng mốc rương của kỳ ${record.cadenceBadge.vi} (Reset 02:00 UTC)`,
+              en: `Capped by cycle milestone tiers across ${record.cadenceBadge.en} (02:00 UTC reset)`,
+            },
+          },
+        ],
+    packs: [
+      {
+        packId: `${record.id}-pack-starter`,
+        packName: {
+          vi: `Gói Khởi Động / Ngày ${record.name.vi} ($0.99 – $1.99)`,
+          en: `${record.name.en} Daily Starter Pack ($0.99 – $1.99)`,
+        },
+        priceUsdVnd: {
+          vi: "$0.99 – $1.99 (~25.000đ – 49.000đ)",
+          en: "$0.99 – $1.99 USD",
+        },
+        purchaseLimit: {
+          vi: "1 lần / Ngày (Reset 02:00 UTC / 09:00 Giờ VN)",
+          en: "1 / Day (Resets at 02:00 UTC)",
+        },
+        contentsSummary: {
+          vi: isPureRecharge
+            ? "Kim Cương + Quà Mốc Nạp Ngày + Mảnh Tướng Vạn Năng Vàng"
+            : "Kim Cương + Đạo Cụ Sự Kiện Giá Chiết Khấu + Nguyên Liệu Cốt Lõi",
+          en: isPureRecharge
+            ? "Diamonds + Daily Top-Up Milestone Rewards + Universal Legendary Shards"
+            : "Diamonds + Discounted Event Tokens + Core Upgrade Materials",
+        },
+        roiRating: {
+          vi: "ROI 380%+ — Gói tối ưu nhất cho Low-Spender chạm mốc chẵn",
+          en: "380%+ ROI — Best value micro-pack for Low-Spenders hitting exact milestones",
+        },
+        isBestValue: true,
+        isHiddenCrossEvent: false,
+      },
+      {
+        packId: `${record.id}-pack-pass`,
+        packName: {
+          vi: `Thẻ Thông Hành / Gói Tăng Tốc ${record.name.vi} ($4.99 – $19.99)`,
+          en: `${record.name.en} Battle Pass / Booster Bundle ($4.99 – $19.99)`,
+        },
+        priceUsdVnd: {
+          vi: "$4.99 – $19.99 (~125.000đ – 500.000đ)",
+          en: "$4.99 – $19.99 USD",
+        },
+        purchaseLimit: {
+          vi: "1 lần / Kỳ sự kiện",
+          en: "1 / Event cycle",
+        },
+        contentsSummary: {
+          vi: "Mở khóa nhánh thưởng cao cấp (Mảnh Tướng Đỏ / Đá Linh Hồn / Orichalcum / Vũ Khí Độc Quyền)",
+          en: "Unlocks premium reward track (Mythic Shards / Soul Stones / Orichalcum / Exclusive Weapons)",
+        },
+        roiRating: {
+          vi: "ROI 320% — Chỉ mua khi đã cày tối đa điểm nhiệm vụ trong kỳ",
+          en: "320% ROI — Buy only after maximizing active event mission progress",
+        },
+        isBestValue: false,
+        isHiddenCrossEvent: true,
+      },
+    ],
+  };
+}
+
+function resolveEventProMechanics(
+  record: EventPlaybookRecord
+): readonly EventEncyclopediaSixTableData["section6ProMechanics"][number][] {
+  const canonical = CANONICAL_PRO_MECHANICS[record.id];
+  if (canonical) return canonical;
+
+  if (record.isPureRecharge) {
+    return [
+      {
+        mechanicId: `${record.id}-stagger-topup-streak`,
+        title: {
+          vi: "Mẹo 1 — Tách Nhỏ Giao Dịch $0.99/Ngày Thay Vì Mua Dồn Một Lần",
+          en: "Tip 1 — Stagger $0.99 Daily Purchases Instead of Buying All Packs on Day 1",
+        },
+        whenToApply: {
+          vi: `Áp dụng xuyên suốt kỳ ${record.cadenceBadge.vi} sau mốc reset 02:00 UTC (09:00 Giờ VN)`,
+          en: `Apply across ${record.cadenceBadge.en} after the 02:00 UTC daily reset`,
+        },
+        stepByStep: {
+          vi: `${record.overview.goldenRule.vi} Khi chia nhỏ nhu cầu mua (Thợ Xây $1.99, Thẻ Tháng, Battle Pass $4.99) ra từng ngày riêng biệt, bạn kích hoạt đồng thời cả quà gói lẫn chuỗi Tích Nạp Liên Tiếp.`,
+          en: `${record.overview.goldenRule.en} By staggering planned purchases (2nd Builder, Monthly Card, Battle Pass) across separate days, you double-dip both bundle contents and Consecutive Top-Up streak chests.`,
+        },
+        warningNote: {
+          vi: "Tuyệt đối không nạp lẻ vào ngày thường khi không có sự kiện tích nạp hoặc hoàn trả đi kèm!",
+          en: "Never make standalone purchases on off-days without an active cumulative recharge rebate!",
+        },
+      },
+      {
+        mechanicId: `${record.id}-grind-before-unlock`,
+        title: {
+          vi: "Mẹo 2 — Cày Đạt Mốc Tối Đa Trước Khi Bấm Mua Mở Khóa Quỹ / Pass",
+          en: "Tip 2 — Reach Maximum Milestone Tier Before Purchasing Fund or Pass Unlocks",
+        },
+        whenToApply: {
+          vi: "Khi tham gia các sự kiện Quỹ Trưởng Thành, Thẻ Thông Hành hoặc Hộp Quà VIP",
+          en: "When evaluating Growth Funds, Battle Passes, or VIP Rebate Chests",
+        },
+        stepByStep: {
+          vi: `${record.overview.coreLoop.vi} Chỉ bấm thanh toán mở khóa nhánh VIP khi bạn đã hoàn thành đủ cấp độ mốc mục tiêu và trùng vào ngày mở sự kiện Hoàn Trả Nạp để tối ưu 200%–500% ROI.`,
+          en: `${record.overview.coreLoop.en} Purchase the VIP unlock strictly after reaching the target milestone level on an active Top-Up Rebate day to lock in 200%–500% ROI.`,
+        },
+        warningNote: {
+          vi: "Bỏ qua 100% các gói pop-up ngẫu nhiên có tỷ lệ hoàn vốn thấp (<150% ROI).",
+          en: "Skip 100% of random pop-up bundles with low efficiency (<150% ROI).",
+        },
+      },
+    ];
+  }
+
+  if (record.id.includes("festival") || record.id.includes("collab")) {
+    return [
+      {
+        mechanicId: `${record.id}-non-retroactive-5day-tasks`,
+        title: {
+          vi: "Mẹo 1 — Cơ Chế Tính Từ Lúc Mở Ngày & Dư Biên Độ Điểm Nhiệm Vụ (750đ vs Mốc Cuối 600đ)",
+          en: "Tip 1 — Daily Unlock Task Tracking & 150-Point Surplus Buffer (750 Max vs 600 Chest Cap)",
+        },
+        whenToApply: {
+          vi: "Trong chuỗi nhiệm vụ mở khóa theo 5 ngày (Reset 02:00 UTC / 09:00 Giờ VN)",
+          en: "Across the 5-day staged mission chain (02:00 UTC daily reset)",
+        },
+        stepByStep: {
+          vi: "Các nhiệm vụ Tăng tốc Xây/Nghiên cứu (Ngày 3), Đánh quái/Tập kết/Cống hiến (Ngày 4) và Chiêu mộ/Luyện lính/Thể lực (Ngày 5) chỉ bắt đầu tính khi ngày đó đã mở khóa. Ngoài ra, tổng 75 nhiệm vụ cho tối đa 750 điểm trong khi rương cuối chỉ cần 600 điểm — bạn được phép bỏ qua 15 mốc nhiệm vụ khó (như mốc 3.000p Tăng tốc) mà vẫn lấy trọn 100% rương mốc!",
+          en: "Speedup tasks (Day 3), Monster/Rally/Donation tasks (Day 4), and Recruit/Troop/Stamina tasks (Day 5) only track once that specific day unlocks. Furthermore, 75 tasks grant 750 max points while the final chest requires only 600 points — letting you skip up to 15 expensive tasks and still claim 100% of milestone chests!",
+        },
+        warningNote: {
+          vi: "Tuyệt đối không xả sớm Tăng Tốc hay Vé Chiêu Mộ ở Ngày 1–2 của sự kiện lễ hội!",
+          en: "Never dump Speedups or Recruit Tokens prematurely on Days 1–2 of a festival event!",
+        },
+      },
+      {
+        mechanicId: `${record.id}-opcode65-cap-and-shop`,
+        title: {
+          vi: "Mẹo 2 — Trần Rơi Bản Đồ 300 Đạo Cụ (Opcode 65) & Ưu Tiên Quét Sạch Tier S Trước Giờ Thu Hồi",
+          en: "Tip 2 — 300 Map Drop Cap (Opcode 65) & Clearing Tier S Before Token Recycle",
+        },
+        whenToApply: {
+          vi: "Khi cày đạo cụ rơi từ quái bản đồ và đổi thưởng ngày cuối",
+          en: "When farming map drops and redeeming shop rewards on the final day",
+        },
+        stepByStep: {
+          vi: `${record.overview.goldenRule.vi} Lưu ý tổng đạo cụ rơi từ bản đồ bị khóa ở trần 300 cái/kỳ (Opcode 65); hãy chạy 50 lượt Auto-Join Rally mỗi ngày để lấy đủ trần miễn phí và đổi sạch Mảnh Tướng Đỏ/Vàng + Đá Hồn trước khi hệ thống thu hồi xu thừa.`,
+          en: `${record.overview.goldenRule.en} Note that world map item drops are hard-capped at 300 per cycle (Opcode 65); run 50 daily Auto-Join Rallies to cap free drops and redeem all Mythic/Gold Shards + Soul Stones before leftover tokens expire.`,
+        },
+        warningNote: {
+          vi: "Đạo cụ lễ hội và Collab sẽ bị thu hồi (recycle) ngay khi đóng Tiệm — không được để tồn đọng!",
+          en: "Festival and Collab tokens expire immediately when the Shop closes — leave zero unspent coins!",
+        },
+      },
+    ];
+  }
+
+  return [
+    {
+      mechanicId: `${record.id}-core-mechanic-execution`,
+      title: {
+        vi: `Mẹo 1 — Quy Tắc Thực Chiến Cốt Lõi: ${record.name.vi}`,
+        en: `Tip 1 — Core Tactical Execution: ${record.name.en}`,
+      },
+      whenToApply: {
+        vi: `Thực hiện trong khung mở ${record.s0TimingBadge.vi} (Reset 02:00 UTC / 09:00 Giờ VN)`,
+        en: `Execute during ${record.s0TimingBadge.en} (02:00 UTC daily reset)`,
+      },
+      stepByStep: {
+        vi: `${record.overview.coreLoop.vi} ${record.overview.goldenRule.vi}`,
+        en: `${record.overview.coreLoop.en} ${record.overview.goldenRule.en}`,
+      },
+      warningNote: {
+        vi: "Luôn dừng xả tài nguyên ngay khi vừa chạm mốc rương bảo hiểm mục tiêu để bảo toàn thanh khoản.",
+        en: "Always stop spending immediately upon hitting your target guaranteed milestone chest to preserve liquidity.",
+      },
+    },
+    {
+      mechanicId: `${record.id}-window-sync-and-stop-loss`,
+      title: {
+        vi: "Mẹo 2 — Đồng Bộ Khung Giờ Cộng Hưởng & Kiểm Soát Điểm Dừng Hoàn Vốn",
+        en: "Tip 2 — Golden Window Synchronization & Rebate Milestone Stop-Loss",
+      },
+      whenToApply: {
+        vi: "Căn đúng ca 02:00 UTC (09:00 Giờ VN) hoặc 14:00 UTC (21:00 Giờ VN)",
+        en: "Align with the 02:00 UTC or 14:00 UTC golden windows",
+      },
+      stepByStep: {
+        vi: "Kiểm tra bảng sự kiện song hành trước khi thao tác: chỉ xả nguyên liệu hoặc lượt khiêu chiến khi có thể ăn điểm kép (Double-Dip) cùng Nhiệm vụ Bang hội / GAR / KvK, và ưu tiên đổi 100% vật phẩm giới hạn Tier S trong Cửa hàng.",
+        en: "Check concurrent event boards before acting: spend materials or challenge attempts strictly when double-dipping with Guild Tasks / GAR / KvK, and clear 100% of capped Tier S shop items first.",
+      },
+      warningNote: {
+        vi: "Không đốt Kim Cương đua Top BXH nếu phần thưởng chênh lệch thấp hơn chi phí bỏ ra.",
+        en: "Never burn Diamonds chasing leaderboard ranks when marginal rewards are worth less than the cost.",
+      },
+    },
+  ];
+}
+
 export function buildEventSixTablesData(
   record: EventPlaybookRecord
 ): EventEncyclopediaSixTableData {
-  const meta =
-    EVENT_SPECIFIC_METADATA[record.id] ?? EVENT_SPECIFIC_METADATA["top-lord"];
+  const meta = resolveDynamicMetadata(record);
+  const proMechanics = resolveEventProMechanics(record);
   const tierS = record.economy.shopTierList.filter((i) => i.tier === "S");
   const tierA = record.economy.shopTierList.filter((i) => i.tier === "A");
   const tierF = record.economy.shopTierList.filter((i) => i.tier === "F");
@@ -821,12 +1683,27 @@ export function buildEventSixTablesData(
     tierF.map((i) => i.itemName.en).join(" + ") ||
     "Basic Resources (Wood/Meat/Stone) & Purple Shards";
 
+  const hoardSummaryVi =
+    record.hoardingItems.length > 0
+      ? record.hoardingItems
+          .map((h) => `${h.name.vi} (${h.targetAmount.vi})`)
+          .join(" | ")
+      : "Không tiêu hao đạo cụ tích trữ (Tính theo gói nạp trực tiếp trong thời gian mở sự kiện)";
+  const hoardSummaryEn =
+    record.hoardingItems.length > 0
+      ? record.hoardingItems
+          .map((h) => `${h.name.en} (${h.targetAmount.en})`)
+          .join(" | ")
+      : "No hoardable tokens consumed (Tracked via direct top-up bundles during the active window)";
+
+  const firstDrop = meta.dropSources[0];
+
   return {
     table1TimelineRules: {
       takeEffectTime: record.s0TimingBadge,
       durationAndCooldown: {
-        vi: `${record.cadenceBadge.vi} • Reset mốc ngày lúc 00:00 UTC (07:00 Giờ VN)`,
-        en: `${record.cadenceBadge.en} • Daily reset at 00:00 UTC`,
+        vi: `${record.cadenceBadge.vi} • Reset mốc ngày lúc 02:00 UTC (09:00 Giờ VN)`,
+        en: `${record.cadenceBadge.en} • Daily reset at 02:00 UTC`,
       },
       unlockConditions: meta.unlockConditions,
       coreFaqRules: [
@@ -835,6 +1712,24 @@ export function buildEventSixTablesData(
         record.overview.goldenRule,
       ],
       recyclePolicy: record.overview.carryoverRule,
+      conciseBullets: [
+        {
+          vi: `Lịch mở & Chu kỳ: ${record.s0TimingBadge.vi} ➔ ${record.cadenceBadge.vi} (Reset 02:00 UTC / 09:00 Giờ VN).`,
+          en: `Schedule & Cadence: ${record.s0TimingBadge.en} ➔ ${record.cadenceBadge.en} (02:00 UTC daily reset).`,
+        },
+        {
+          vi: `Cơ chế cốt lõi: ${record.overview.coreLoop.vi}`,
+          en: `Core Mechanic: ${record.overview.coreLoop.en}`,
+        },
+        {
+          vi: `Quy tắc bảo lưu / thu hồi (recycle): ${record.overview.carryoverRule.vi}`,
+          en: `Carryover / Recycle Rule: ${record.overview.carryoverRule.en}`,
+        },
+      ],
+      takeaway: {
+        vi: `👉 Mục tiêu cốt lõi: ${record.overview.goldenRule.vi}`,
+        en: `👉 Core Objective: ${record.overview.goldenRule.en}`,
+      },
     },
     table2TasksAndMilestones: {
       tasks: record.dailyStages.map((stage, idx) => ({
@@ -861,6 +1756,18 @@ export function buildEventSixTablesData(
         },
         vipOrPassRewards: tier.strategy,
       })),
+      conciseBullets: record.dailyStages.map((stage) => ({
+        vi: `${stage.label.vi} (${stage.goldenWindow.vi}): ${stage.theme.vi} ➔ ${stage.primaryScoring.vi}`,
+        en: `${stage.label.en} (${stage.goldenWindow.en}): ${stage.theme.en} ➔ ${stage.primaryScoring.en}`,
+      })),
+      milestoneSummary: {
+        vi: `Mốc rương tích điểm (${record.economy.budgetTiers[0]?.targetMilestone.vi ?? "Mốc 1"} ➔ ${record.economy.budgetTiers[record.economy.budgetTiers.length - 1]?.targetMilestone.vi ?? "Mốc cuối"}): Hoàn trả Kim Cương, đạo cụ sự kiện và nguyên liệu nâng cấp đội hình chính.`,
+        en: `Milestone Chest Progression (${record.economy.budgetTiers[0]?.targetMilestone.en ?? "Tier 1"} ➔ ${record.economy.budgetTiers[record.economy.budgetTiers.length - 1]?.targetMilestone.en ?? "Max Tier"}): Refunds Diamonds, event tokens, and core upgrade materials.`,
+      },
+      takeaway: {
+        vi: `👉 Chốt mốc F2P / Low-Spender: Tập trung hoàn thành ${record.economy.budgetTiers[0]?.targetMilestone.vi ?? "Rương Mốc Cá Nhân Bậc 3"} để nhận tối đa quà miễn phí và dừng đúng điểm rơi hoàn vốn!`,
+        en: `👉 F2P / Low-Spender Target: Clear ${record.economy.budgetTiers[0]?.targetMilestone.en ?? "Tier 3 Personal Milestone Chests"} for maximum free rewards and stop cleanly at the rebate breakpoint!`,
+      },
     },
     table3ShopAndDrops: {
       dropSources: meta.dropSources,
@@ -870,219 +1777,100 @@ export function buildEventSixTablesData(
         iconPath: item.iconPath,
         rarity: item.rarity,
         quantityPerPurchase: {
-          vi: item.tier === "S" ? "1 – 5 Vật phẩm / Lượt" : "1 Vật phẩm / Lượt",
-          en: item.tier === "S" ? "1 – 5 Items / Purchase" : "1 Item / Purchase",
+          vi: item.tier === "S" ? "1 ➔ 5 Vật phẩm / Lượt" : "1 Vật phẩm / Lượt",
+          en: item.tier === "S" ? "1 ➔ 5 Items / Purchase" : "1 Item / Purchase",
         },
         cost: item.costAndCap,
         purchaseLimit: {
           vi:
             item.tier === "S"
-              ? "Giới hạn nghiêm ngặt theo kỳ (Mua kịch trần)"
+              ? "Giới hạn nghiêm ngặt theo kỳ (Mua bắt buộc)"
               : item.tier === "A"
-              ? "Giới hạn theo tuần / kỳ sự kiện"
-              : "Không giới hạn (Cấm đổi)",
+              ? "Giới hạn theo tuần / kỳ sự kiện (Khi dư xu)"
+              : "Không giới hạn (Bẫy cần tránh)",
           en:
             item.tier === "S"
-              ? "Strictly capped per cycle (Buy out 100%)"
+              ? "Strictly capped per cycle (Mandatory buy)"
               : item.tier === "A"
-              ? "Capped per week / event cycle"
-              : "Unlimited (Never buy)",
+              ? "Capped per week / event cycle (With surplus coins)"
+              : "Unlimited (Trap to avoid)",
         },
         priorityTier: item.tier,
         verdict: item.verdict,
       })),
+      dropSummary: {
+        vi: `Nguồn rơi & Trần giới hạn: ${firstDrop.sourceName.vi} ➔ ${firstDrop.dailyHiddenCap.vi}.`,
+        en: `Drop Source & Hidden Cap: ${firstDrop.sourceName.en} ➔ ${firstDrop.dailyHiddenCap.en}.`,
+      },
+      tierSSummary: {
+        vi: `Tier S (Mua bắt buộc): ${sNamesVi} — Mua kịch trần giới hạn trước tiên.`,
+        en: `Tier S (Mandatory Buy): ${sNamesEn} — Clear the purchase cap first.`,
+      },
+      tierASummary: {
+        vi: `Tier A (Khi dư xu): ${aNamesVi} — Đổi sau khi đã vét sạch toàn bộ Tier S.`,
+        en: `Tier A (Surplus Buy): ${aNamesEn} — Redeem only after clearing all Tier S items.`,
+      },
+      tierFSummary: {
+        vi: `Tier F (Bẫy cần tránh): ${fNamesVi} — Tuyệt đối không đổi, tránh lãng phí xu sự kiện.`,
+        en: `Tier F (Trap to Avoid): ${fNamesEn} — Strictly skip to avoid wasting event currency.`,
+      },
+      takeaway: {
+        vi: `👉 Thứ tự ưu tiên Tiệm: Vét sạch 100% ${sNamesVi} (Tier S) ➔ Dư xu mới đổi ${aNamesVi} (Tier A) ➔ Bỏ qua hoàn toàn ${fNamesVi} (Tier F)!`,
+        en: `👉 Shop Priority Order: Buy out 100% of ${sNamesEn} (Tier S) ➔ Spend surplus on ${aNamesEn} (Tier A) ➔ Strictly skip ${fNamesEn} (Tier F)!`,
+      },
     },
     table4PacksAndRoi: {
       preBuyNote: record.economy.preBuyStrategy,
       diamondCeiling: record.economy.diamondCeiling,
       packs: meta.packs,
+      conciseBullets: [
+        ...meta.packs.map((p) => ({
+          vi: `${p.packName.vi} (${p.priceUsdVnd.vi} | ${p.purchaseLimit.vi}): ${p.contentsSummary.vi} ➔ ${p.roiRating.vi}.`,
+          en: `${p.packName.en} (${p.priceUsdVnd.en} | ${p.purchaseLimit.en}): ${p.contentsSummary.en} ➔ ${p.roiRating.en}.`,
+        })),
+        {
+          vi: `${record.economy.diamondCeiling.vi}`,
+          en: `${record.economy.diamondCeiling.en}`,
+        },
+      ],
+      takeaway: {
+        vi: `👉 Chốt chiến thuật gói nạp & Kim Cương: ${record.economy.preBuyStrategy.vi}`,
+        en: `👉 Pack & Diamond ROI Takeaway: ${record.economy.preBuyStrategy.en}`,
+      },
     },
     section5HoardingPlan: {
       shortTermTargets: record.hoardingItems,
+      consumedSummary: {
+        vi: `Tiêu thụ trực tiếp: ${hoardSummaryVi}.`,
+        en: `Direct Consumption: ${hoardSummaryEn}.`,
+      },
+      hoardingQuotaSummary: {
+        vi: record.isPureRecharge
+          ? "Khuyến nghị ngân sách: Nhịn các gói pop-up lẻ (<150% ROI) ở tuần thường để dồn ngân sách vào đúng kỳ sự kiện này."
+          : `Khuyến nghị tích trữ ngay: ${record.hoardingItems.map((h) => `${h.targetAmount.vi} (${h.freezeWindow.vi})`).join(" ➔ ")}.`,
+        en: record.isPureRecharge
+          ? "Budget Recommendation: Skip low-value pop-up bundles (<150% ROI) on off-days to concentrate budget into this active event."
+          : `Recommended Pre-Event Hoard: ${record.hoardingItems.map((h) => `${h.targetAmount.en} (${h.freezeWindow.en})`).join(" ➔ ")}.`,
+      },
+      takeaway: {
+        vi: record.isPureRecharge
+          ? "👉 Sự kiện thuần nạp (isPureRecharge): Không cần tích đạo cụ — chỉ gộp lịch mua Thẻ Tháng / Pass / Gói $0.99 vào đúng ngày mở sự kiện để ăn thưởng kép!"
+          : `👉 Kỷ luật tích trữ: Đóng băng tài nguyên trước sự kiện và chỉ xả vào đúng khung giờ vàng (${record.dailyStages[0]?.goldenWindow.vi ?? "02:00 UTC / 09:00 Giờ VN"}) vừa chạm mốc rương bảo hiểm!`,
+        en: record.isPureRecharge
+          ? "👉 Pure Recharge Event: No token hoarding required — simply align Monthly Card / Pass / $0.99 purchases with this window for double milestone rewards!"
+          : `👉 Hoarding Discipline: Freeze core materials ahead of launch and dump strictly inside the golden window (${record.dailyStages[0]?.goldenWindow.en ?? "02:00 UTC"}) up to guaranteed milestone chests!`,
+      },
       rechargeSavingAdvice: record.isPureRecharge
         ? {
             vi: "Mẹo tối ưu ngân sách nạp: Sự kiện này thuần nạp tiền/mua gói không có đạo cụ tích trữ. Nếu bạn không dư giả, hãy tiết kiệm ngân sách bằng cách nhịn mua những gói nạp lẻ kém hợp lý (pop-up 100%–150% ROI) ở các sự kiện trước đó để dồn ngân sách sang mua gói hiện tại nhằm nhận kép cả thưởng gói lẫn mốc tích nạp sự kiện.",
             en: "Budget Optimization Tip: This is a pure recharge/pack event with no hoardable tokens. If you are on a tight budget, skip low-efficiency pop-up bundles (100%–150% ROI) in prior events and concentrate your budget into this event's high-ROI packs to double-dip both pack contents and cumulative recharge milestones.",
           }
         : undefined,
-      longTermRoadmap: [
-        {
-          horizonLabel: {
-            vi: "Trước 2 – 3 Tuần (Giai đoạn Tích Lũy Nền Tảng)",
-            en: "2 – 3 Weeks Prior (Foundation Stockpiling Phase)",
-          },
-          focusItems: {
-            vi: "Kim Cương, Mảnh Anh Hùng Vạn Năng Vàng, Xu Vinh Dự Bang Hội & Tinh Hoa Rồng",
-            en: "Diamonds, Universal Legendary Hero Shards, Guild Honor Tokens & Dragon Essence",
-          },
-          targetQuota: {
-            vi: "Tối thiểu 15.000 – 30.000 Kim Cương + 100 Mảnh Vạn Năng + 18.000 Xu Vinh Dự",
-            en: "Minimum 15,000 – 30,000 Diamonds + 100 Universal Shards + 18,000 Guild Honor",
-          },
-          rationale: {
-            vi: "Nhịn tiêu thụ ở các tuần thường và Mini-Rush lẻ để dồn 100% thanh khoản cho tuần có Niềm Vui Nhân Đôi (Double Rewards x2), GAR hoặc Banner tướng chủ lực Horde.",
-            en: "Hold spending during off-weeks and isolated Mini-Rushes to concentrate 100% of liquidity into Double Rewards (2x), GAR, or core Horde Mythic banners.",
-          },
-        },
-        {
-          horizonLabel: {
-            vi: "Trước 7 Ngày (Tuần Đóng Băng Kho Tuyệt Đối — Hard Freeze)",
-            en: "7 Days Prior (Strict Inventory Hard Freeze Week)",
-          },
-          focusItems: {
-            vi: "Tăng Tốc (Xây Dựng / Nghiên Cứu / Luyện Lính), Orichalcum, Vé Chiêu Mộ & Đá Linh Hồn",
-            en: "Speedups (Construction / Research / Training), Orichalcum, Recruit Tokens & Soul Stones",
-          },
-          targetQuota: {
-            vi: "80 – 150 Giờ Tăng Tốc + 100% Orichalcum / Mảnh Cổ Vật / Đá Cổ Ngữ trong túi",
-            en: "80 – 150 Hours of Speedups + 100% of Orichalcum / Relic Shards / Runes in bag",
-          },
-          rationale: {
-            vi: "Khóa toàn bộ nâng cấp ngoài nhiệm vụ hàng ngày bắt buộc; chuẩn bị sẵn các công trình và mẻ lính thời gian dài để bước vào giai đoạn Ủ (Pre-cooking).",
-            en: "Lock all upgrades outside mandatory daily quests; queue long-duration buildings and troop batches to enter the Pre-cooking window.",
-          },
-        },
-      ],
     },
-    section6ShopPriorityByStage:
-      record.hasShop === false
-        ? undefined
-        : [
-            {
-              stageId: "S0",
-              stageLabel: {
-                vi: "Giai đoạn 1: Tân thủ & Pre-Season (S0 — Ngày 1–39)",
-                en: "Stage 1: Early Server & Pre-Season (S0 — Days 1–39)",
-              },
-              priority1MustBuy: {
-                vi: `Ưu tiên 1 (Mua kịch trần): ${sNamesVi}`,
-                en: `Priority 1 (Buy out 100%): ${sNamesEn}`,
-              },
-              priority2SurplusBuy: {
-                vi: `Ưu tiên 2 (Khi dư xu): ${aNamesVi} & Tăng Tốc Nghiên Cứu/Xây Dựng`,
-                en: `Priority 2 (With surplus currency): ${aNamesEn} & Research/Construction Speedups`,
-              },
-              skipBaitItems: {
-                vi: `Bỏ qua tuyệt đối: ${fNamesVi}`,
-                en: `Strictly Skip: ${fNamesEn}`,
-              },
-            },
-            {
-              stageId: "S1_S2",
-              stageLabel: {
-                vi: "Giai đoạn 2: Giữa Game & Mùa Giải S1–S2 (Castle 30–40)",
-                en: "Stage 2: Mid-Game & Seasons S1–S2 (Castle 30–40)",
-              },
-              priority1MustBuy: {
-                vi: `Ưu tiên 1 (Mua kịch trần): Đá Linh Hồn (Soul Stone), Vũ Khí Độc Quyền & ${sNamesVi}`,
-                en: `Priority 1 (Buy out 100%): Soul Stones, Exclusive Weapon Shards & ${sNamesEn}`,
-              },
-              priority2SurplusBuy: {
-                vi: `Ưu tiên 2 (Khi dư xu): Tinh Hoa Rồng (Dragon Essence), Orichalcum & ${aNamesVi}`,
-                en: `Priority 2 (With surplus currency): Dragon Essence, Orichalcum & ${aNamesEn}`,
-              },
-              skipBaitItems: {
-                vi: `Bỏ qua tuyệt đối: Rương Trang Bị Tím/Vàng thường & ${fNamesVi}`,
-                en: `Strictly Skip: Standard Purple/Gold Gear Chests & ${fNamesEn}`,
-              },
-            },
-            {
-              stageId: "S3_PLUS",
-              stageLabel: {
-                vi: "Giai đoạn 3: Cuối Game & S3+ Endgame (Brilliance Lv.1–3)",
-                en: "Stage 3: Late-Game & S3+ Endgame (Brilliance Lv.1–3)",
-              },
-              priority1MustBuy: {
-                vi: `Ưu tiên 1 (Mua kịch trần): Tinh Hoa Rồng, Cổ Vật Thần Thoại, Skin & ${sNamesVi}`,
-                en: `Priority 1 (Buy out 100%): Dragon Essence, Mythic Relics, Skins & ${sNamesEn}`,
-              },
-              priority2SurplusBuy: {
-                vi: `Ưu tiên 2 (Khi dư xu): Đá Cổ Ngữ Cấp 5+, Thức Ăn Thú Cưng Hiếm & ${aNamesVi}`,
-                en: `Priority 2 (With surplus currency): Lv.5+ Runes, Rare Pet Food & ${aNamesEn}`,
-              },
-              skipBaitItems: {
-                vi: `Bỏ qua tuyệt đối: Tăng tốc lẻ giá đắt & ${fNamesVi}`,
-                en: `Strictly Skip: Overpriced loose speedups & ${fNamesEn}`,
-              },
-            },
-          ],
-    section6ProMechanics: [
-      {
-        mechanicId: "pre_building",
-        title: {
-          vi: "Kỹ thuật 1 — Ủ Nhà / Giữ Hộp Quà Công Trình (Pre-building & Unopened Gift Box Banking)",
-          en: "Technique 1 — Pre-building & Unopened Building Gift Box Banking",
-        },
-        whenToApply: {
-          vi: "Bắt đầu bấm nâng cấp công trình lớn từ 2 – 4 ngày trước khi mở sự kiện (hoặc trước Ngày 1 Xây Dựng lúc 00:00 UTC / 07:00 Giờ VN)",
-          en: "Start upgrading major buildings 2 – 4 days before event launch (or prior to Construction Day at 00:00 UTC)",
-        },
-        stepByStep: {
-          vi: "Bấm nâng cấp Lâu Đài Chính / Trại Lính / Viện Nghiên Cứu từ nhiều ngày trước. Khi thanh thời gian chạy xong 100%, TUYỆT ĐỐI KHÔNG ấn vào biểu tượng Hộp Quà hoàn thành lơ lửng trên nóc nhà. Đợi đúng giờ mở sự kiện (hoặc ca 4 Giờ Xây Dựng lúc 02:00 UTC / 09:00 Giờ VN) mới bấm mở toàn bộ hộp quà để nổ hàng trăm nghìn điểm Lực Chiến công trình trong 1 giây.",
-          en: "Start upgrading your Main Castle, Barracks, or Research Institute days in advance. Once the timer reaches 100%, DO NOT tap the floating completion Gift Box icon on the roof. Wait until the exact event start (or the 02:00 UTC 4-Hour Construction window) before tapping all gift boxes to burst hundreds of thousands of building power points in 1 second.",
-        },
-        warningNote: {
-          vi: "Cảnh báo thao tác: Khi di chuyển camera trong thành phố, tránh chạm nhầm vào nóc công trình đang treo hộp quà trước giờ mở sự kiện!",
-          en: "Execution warning: When panning your camera inside the city, avoid accidentally tapping rooftops holding completed gift boxes before the scoring window opens!",
-        },
-      },
-      {
-        mechanicId: "troop_precooking",
-        title: {
-          vi: "Kỹ thuật 2 — Ủ Lính & Nâng Bậc Lính Cầu Thang (Troop Pre-cooking & Tier T-1 ➔ T Promotion)",
-          en: "Technique 2 — Troop Pre-cooking & Tier T-1 ➔ T Staircase Promotion",
-        },
-        whenToApply: {
-          vi: "Chuẩn bị sẵn hàng vạn lính cấp T-1 trong tuần thường và bấm ủ mẻ lính dài nhất 12 – 24 giờ trước Ngày Luyện Lính (Ngày 4 Top Lord / Ngày 5 GAR)",
-          en: "Stockpile tens of thousands of Tier T-1 troops during off-weeks and start your longest 12 – 24h training batch before Troop Day (Top Lord Day 4 / GAR Day 5)",
-        },
-        stepByStep: {
-          vi: "Bước 1: Huấn luyện xong mẻ lính lớn ở tất cả các Trại Lính nhưng KHÔNG ấn thu hoạch trên nóc trại cho đến khi bước vào giờ mở sự kiện. Bước 2: Trong ngày thường, chỉ huấn luyện lính cấp thấp hơn 1 bậc (T-1, ví dụ T7/T8). Khi vào đúng khung giờ Đua Vũ Trang / KvK, chọn chức năng 'Thăng Cấp Lính' (Promote T-1 ➔ T tối đa) và xả Tăng Tốc Luyện Lính để nhận tỷ lệ Điểm / Phút Tăng Tốc cao gấp 1.4 lần so với luyện mới từ đầu.",
-          en: "Step 1: Complete large troop batches across all Barracks without tapping the harvest icon until the event opens. Step 2: During off-days, train units one tier below your max (Tier T-1). Once inside the GAR / KvK Troop window, use 'Promote Troops' (T-1 ➔ Max Tier T) and dump Training Speedups to earn ~1.4x higher Points-per-Speedup-Minute than training from scratch.",
-        },
-        warningNote: {
-          vi: "Không bao giờ dùng Tăng Tốc Chung (Universal Speedups) để luyện lính cấp thấp ngoài ngày sự kiện.",
-          en: "Never spend Universal Speedups to train low-tier troops outside active event scoring days.",
-        },
-      },
-      {
-        mechanicId: "pre_gathering_quest_banking",
-        title: {
-          vi: "Kỹ thuật 3 — Ủ Nghiên Cứu / Cắm Mỏ Ruby Qua Đêm / Treo Thưởng Chờ Nhận (Pre-gathering & Quest Banking)",
-          en: "Technique 3 — Tech Pre-cooking, Overnight Ruby Pre-gathering & Bounty Quest Banking",
-        },
-        stepByStep: {
-          vi: "1) Cắm Mỏ Ruby: Từ 18:00 – 22:00 UTC (01:00 – 05:00 Giờ VN) đêm trước ngày sự kiện, cử toàn bộ 4 đạo quân đi đào mỏ Ruby/Tài nguyên cấp 6–8 trên bản đồ sao cho quân rút về thành đúng sau 00:00 UTC (07:00 Giờ VN) sáng hôm sau. 2) Treo Thưởng (Bounty Quests): Hoàn thành các nhiệm vụ Treo Thưởng và Nhiệm Vụ Radar nhưng giữ trạng thái 'Claim/Nhận thưởng' chưa bấm cho đến khi mở sự kiện rơi đạo cụ. 3) Thể lực: Giữ nguyên bình Thể lực để chạy 50 lượt Auto-Join Rally.",
-          en: "1) Overnight Ruby Pre-gathering: Between 18:00 – 22:00 UTC the night before the event, dispatch all 4 marches to Lv.6–8 Ruby/Resource nodes so they return right after 00:00 UTC reset. 2) Bounty & Radar Quest Banking: Complete Bounty and Radar tasks the day prior, leaving the 'Claim' button untouched until the drop event opens. 3) Stamina: Bank all Stamina bottles for 50x daily Auto-Join Rallies.",
-        },
-        whenToApply: {
-          vi: "Thực hiện vào buổi tối trước ngày mở sự kiện (18:00 – 23:50 UTC / 01:00 – 06:50 Giờ VN)",
-          en: "Execute on the evening prior to event reset (18:00 – 23:50 UTC)",
-        },
-        warningNote: {
-          vi: "Canh chuẩn tốc độ khai thác để đoàn xe không tự động quay về thành trước mốc 00:00 UTC (07:00 Giờ VN)!",
-          en: "Verify gathering speed buffs so your marches do not return to the castle before the 00:00 UTC reset!",
-        },
-      },
-      {
-        mechanicId: "double_triple_dip",
-        title: {
-          vi: "Kỹ thuật 4 — Gộp Trùng 3 – 4 Sự Kiện (Double-Dip / Triple-Dip 4-Hour Window Alignment)",
-          en: "Technique 4 — Double-Dip / Triple-Dip (Synchronizing 3–4 Concurrent Events)",
-        },
-        whenToApply: {
-          vi: "Căn chính xác khung giờ 4 tiếng của Quân Bị Dũng Sĩ (02:00 UTC / 09:00 Giờ VN hoặc 14:00 UTC / 21:00 Giờ VN) trùng với ngày chủ đề GAR / KvK",
-          en: "Align the exact 4-hour Arms Race window (02:00 UTC or 14:00 UTC) with the matching GAR / KvK theme day",
-        },
-        stepByStep: {
-          vi: "Trước khi bấm xả bất kỳ Tăng Tốc, Mảnh Tướng Vàng hay Orichalcum nào, hãy kiểm tra bảng sự kiện để khớp 4 tầng cùng lúc: (1) Ngày chủ đề của Đua Vũ Trang Bang Hội (GAR / KvK) có bật Double Rewards x2 + (2) Khung giờ 4 tiếng của Quân Bị Dũng Sĩ trùng đúng chủ đề + (3) Sự kiện Mini-Rush 2 ngày hoặc Hero Gacha cùng nhánh + (4) Nhiệm vụ Thẻ Thông Hành / Thi Đấu Hội đang nhận trên bảng. Xả 1 lần duy nhất để ăn trọn 3 – 4 đầu phần thưởng!",
-          en: "Before spending any Speedups, Universal Shards, or Orichalcum, verify that 4 reward layers align simultaneously: (1) Matching GAR / KvK theme day with Double Rewards 2x active + (2) Matching 4-Hour Arms Race window + (3) Concurrent 2-Day Mini-Rush or Hero Gacha of the same category + (4) Active Guild Race / Battle Pass task claimed on your board. Dump once to collect 3–4 reward streams simultaneously!",
-        },
-        warningNote: {
-          vi: "Tuyệt đối không xả ngay lúc 00:05 UTC (07:05 Giờ VN) nếu ca 4 Giờ đầu tiên trong ngày đang là chủ đề lệch pha!",
-          en: "Never dump immediately at 00:05 UTC if the first 4-Hour window of the day is on a mismatched theme!",
-        },
-      },
-    ],
+    section6ProMechanics: proMechanics,
+    section6Takeaway: {
+      vi: `👉 Nguyên tắc sống còn: ${proMechanics[0]?.warningNote.vi ?? record.overview.goldenRule.vi}`,
+      en: `👉 Golden Execution Rule: ${proMechanics[0]?.warningNote.en ?? record.overview.goldenRule.en}`,
+    },
   };
 }

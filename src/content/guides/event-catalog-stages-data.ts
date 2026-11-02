@@ -34,6 +34,42 @@ interface CatalogEventSeed {
   readonly shopANameEn?: string;
 }
 
+function resolveSeedCarryoverRule(seed: CatalogEventSeed, isPureRecharge: boolean): {
+  readonly vi: string;
+  readonly en: string;
+} {
+  if (isPureRecharge) {
+    return {
+      vi: "Sự kiện thuần nạp / gói ưu đãi (exchange): Tiến độ tích nạp chỉ tính trong thời gian mở sự kiện và tự động reset về 0 sau mốc 02:00 UTC (09:00 Giờ VN) ngày kết thúc.",
+      en: "Pure recharge / bundle event (exchange): Cumulative top-up progress counts only while the event is live and resets to 0 after 02:00 UTC on the closing day.",
+    };
+  }
+  if (seed.id.includes("wheel") || seed.id.includes("tavern") || seed.id.includes("recruit")) {
+    return {
+      vi: "Bảo lưu 100% đạo cụ quay (recycle = ''): Xu Vòng Quay (#204001) và Vé Chiêu Mộ (#204015) chưa dùng được giữ nguyên trong túi đồ sang các chu kỳ tiếp theo.",
+      en: "100% token carryover (recycle = ''): Unused Wheel Tokens (#204001) and Recruit Tokens (#204015) remain in your inventory for future cycles.",
+    };
+  }
+  if (
+    seed.id.includes("festival") ||
+    seed.id.includes("collab") ||
+    seed.id.includes("pinball") ||
+    seed.id.includes("bingo") ||
+    seed.id.includes("fishing") ||
+    seed.id.includes("box-gacha") ||
+    seed.id.includes("dice")
+  ) {
+    return {
+      vi: "Thu hồi đạo cụ sự kiện khi đóng Tiệm (recycle có hiệu lực): Đạo cụ rơi và xu đổi thưởng của kỳ này sẽ tự động thu hồi đổi sang Vàng/Tài nguyên thường khi kết thúc — bắt buộc đổi sạch Tiệm trước giờ chốt!",
+      en: "Event tokens expire when the Shop closes (active recycle rule): Event drops and exchange coins convert into Gold/basic resources at event end — clear the Shop before reset!",
+    };
+  }
+  return {
+    vi: "Điểm đua mốc và BXH reset khi kết thúc kỳ lúc 02:00 UTC (09:00 Giờ VN); các nguyên liệu nâng cấp trong túi đồ (Mảnh Vàng, Đá Hồn, Orichalcum, Tăng Tốc) được bảo lưu 100%.",
+    en: "Milestone and leaderboard points reset when the cycle closes at 02:00 UTC; all upgrade materials in your bag (Gold Shards, Soul Stones, Orichalcum, Speedups) carry over 100%.",
+  };
+}
+
 function buildCatalogEventRecord(seed: CatalogEventSeed): EventPlaybookRecord {
   const isPureRecharge = Boolean(seed.isPureRecharge);
   const hasShop = seed.hasShop ?? !isPureRecharge;
@@ -54,98 +90,112 @@ function buildCatalogEventRecord(seed: CatalogEventSeed): EventPlaybookRecord {
     overview: {
       summary: { vi: seed.summaryVi, en: seed.summaryEn },
       coreLoop: { vi: seed.coreLoopVi, en: seed.coreLoopEn },
-      carryoverRule: {
-        vi: isPureRecharge
-          ? "Sự kiện thuần nạp tiền/mua gói: Mốc tích nạp reset khi kết thúc kỳ sự kiện."
-          : "Điểm bảng xếp hạng reset sau mỗi kỳ; đạo cụ và nguyên liệu trong túi được bảo lưu sang chu kỳ kế tiếp.",
-        en: isPureRecharge
-          ? "Pure recharge/pack event: Cumulative recharge milestones reset when the event window closes."
-          : "Leaderboard points reset after each cycle; unused tokens and materials in your bag carry over to the next rotation.",
-      },
+      carryoverRule: resolveSeedCarryoverRule(seed, isPureRecharge),
       goldenRule: { vi: seed.goldenRuleVi, en: seed.goldenRuleEn },
     },
     hoardingItems: isPureRecharge
       ? []
       : [
           {
-            id: `${seed.id}-hoard-core`,
+            id: `${seed.id}-hoard-primary`,
             name: {
-              vi: "Kim Cương, Tăng Tốc & Mảnh Anh Hùng Vạn Năng",
-              en: "Diamonds, Speedups & Universal Hero Shards",
+              vi: `Nguyên liệu & Đạo cụ trọng tâm: ${seed.nameVi}`,
+              en: `Core Materials & Tokens: ${seed.nameEn}`,
             },
             iconPath: "/images/items/shards/icon_30175.webp",
-            rarity: "legendary",
+            rarity: seed.rarity,
             targetAmount: {
-              vi: "Dự trữ tối thiểu 15.000 Kim Cương & 50 Giờ Tăng Tốc",
-              en: "Reserve at least 15,000 Diamonds & 50 Hours of Speedups",
+              vi: seed.coreLoopVi,
+              en: seed.coreLoopEn,
             },
             freezeWindow: {
-              vi: "Đóng băng kho 5–7 ngày trước khi sự kiện mở",
-              en: "Freeze inventory spending 5–7 days prior to event launch",
+              vi: "Khóa tiêu thụ 5–7 ngày trước giờ mở sự kiện (Reset 02:00 UTC / 09:00 Giờ VN)",
+              en: "Freeze consumption 5–7 days before event launch (02:00 UTC reset)",
             },
             dumpTiming: {
-              vi: "Xả đúng khung giờ trùng với Quân Bị Dũng Sĩ 4 Giờ hoặc GAR",
-              en: "Dump strictly during overlapping 4-Hour Arms Race or GAR windows",
+              vi: seed.goldenRuleVi,
+              en: seed.goldenRuleEn,
+            },
+          },
+          {
+            id: `${seed.id}-hoard-secondary`,
+            name: {
+              vi: "Quỹ Kim Cương & Bình Thể Lực Dự Phòng",
+              en: "Reserve Diamonds & Stamina Bottles",
+            },
+            iconPath: "/images/items/currencies/icon_10036.webp",
+            rarity: "legendary",
+            targetAmount: {
+              vi: "Dự trữ 2.500 ➔ 15.000 Kim Cương & 20 ➔ 50 Bình Thể Lực",
+              en: "Reserve 2,500 ➔ 15,000 Diamonds & 20 ➔ 50 Stamina Bottles",
+            },
+            freezeWindow: {
+              vi: "Duy trì quỹ an toàn xuyên suốt chu kỳ",
+              en: "Maintain safety reserve throughout the rotation",
+            },
+            dumpTiming: {
+              vi: "Chỉ bù Kim Cương/Thể lực khi thiếu 5%–10% điểm chạm rương mốc chẵn",
+              en: "Spend Diamonds/Stamina only when 5%–10% short of an exact milestone chest",
             },
           },
         ],
     dailyStages: [
       {
         dayNumber: 1,
-        label: { vi: "Giai đoạn Mở màn", en: "Opening Phase" },
+        label: { vi: "Giai đoạn Khởi động & Tích điểm", en: "Opening & Point Accumulation" },
         theme: { vi: seed.nameVi, en: seed.nameEn },
         goldenWindow: {
-          vi: "00:00 – 04:00 UTC (07:00 – 11:00 Giờ VN)",
-          en: "00:00 – 04:00 UTC",
+          vi: "Sau reset 02:00 UTC (09:00 Giờ VN) ➔ Ca 14:00 UTC (21:00 Giờ VN)",
+          en: "Post-02:00 UTC Reset ➔ 14:00 UTC Golden Window",
         },
         primaryScoring: { vi: seed.coreLoopVi, en: seed.coreLoopEn },
         proTip: { vi: seed.goldenRuleVi, en: seed.goldenRuleEn },
         doubleDipTarget: {
-          vi: "Gộp điểm cùng Quân Bị Dũng Sĩ (4h) và Thẻ Thông Hành",
-          en: "Overlap scoring with 4-Hour Warrior Arms Race and Battle Pass",
+          vi: "Khớp lệnh cùng Quân Bị Dũng Sĩ (Ca 4h) & Nhiệm vụ Hội",
+          en: "Synchronize with 4-Hour Arms Race & Guild Tasks",
         },
       },
       {
         dayNumber: 2,
-        label: { vi: "Giai đoạn Nước rút & Chốt mốc", en: "Sprint & Milestone Close" },
+        label: { vi: "Giai đoạn Chốt mốc & Đổi thưởng", en: "Milestone Close & Shop Clear" },
         theme: {
-          vi: "Chốt rương mốc điểm cá nhân & Đổi cửa hàng sự kiện",
-          en: "Claim personal milestone chests & Clear event shop",
+          vi: `Chốt mốc rương cá nhân & tất toán đạo cụ ${seed.nameVi}`,
+          en: `Claim personal milestone chests & settle ${seed.nameEn} tokens`,
         },
         goldenWindow: {
-          vi: "14:00 – 23:50 UTC (21:00 – 06:50 Giờ VN)",
-          en: "14:00 – 23:50 UTC",
+          vi: "Trước giờ đóng sự kiện 02:00 UTC (09:00 Giờ VN)",
+          en: "Before 02:00 UTC event closing reset",
         },
         primaryScoring: {
-          vi: "Hoàn tất mốc rương mục tiêu, dừng xả ngay khi đạt ngưỡng tối ưu",
-          en: "Complete target milestone chests and stop spending once optimal threshold is hit",
+          vi: "Kiểm tra biên độ điểm còn thiếu, dừng xả ngay khi chạm rương mốc mục tiêu",
+          en: "Check remaining point buffer and stop spending immediately upon hitting target chest",
         },
         proTip: {
-          vi: "Không đốt tài nguyên vượt quá rương mốc cá nhân cuối cùng nếu không đua Top 3",
-          en: "Never burn resources past the final personal milestone chest unless chasing Top 3",
+          vi: "Đổi sạch vật phẩm Tier S trong Tiệm trước khi hệ thống thu hồi đạo cụ thừa",
+          en: "Redeem all Tier S shop items before leftover event tokens expire",
         },
         doubleDipTarget: {
-          vi: "Bảo toàn tài nguyên dư cho chu kỳ GAR / KvK kế tiếp",
-          en: "Preserve surplus inventory for the upcoming GAR / KvK cycle",
+          vi: "Giữ lại toàn bộ tài nguyên vượt mốc cho chu kỳ GAR / KvK kế tiếp",
+          en: "Bank all surplus materials beyond the milestone for the next GAR / KvK cycle",
         },
       },
     ],
     economy: {
       preBuyStrategy: {
         vi: isPureRecharge
-          ? "Nhịn các gói pop-up lẻ ở sự kiện trước để dồn ngân sách mua gói chính trong sự kiện này."
-          : "Ưu tiên mua các gói khởi động $0.99 – $4.99 có ROI > 300% trong ngày đầu sự kiện.",
+          ? "Gộp nhu cầu mua gói vào đúng ngày mở sự kiện để ăn kép cả vật phẩm trong gói lẫn mốc tích nạp."
+          : "Ưu tiên cày full mốc nhiệm vụ miễn phí trước; chỉ mua gói mồi $0.99 ➔ $4.99 khi cần chạm mốc rương bảo hiểm chẵn.",
         en: isPureRecharge
-          ? "Skip low-value pop-up packs in prior events to concentrate budget into this event's core bundles."
-          : "Prioritize $0.99 – $4.99 starter bundles with >300% ROI on Day 1 of the event.",
+          ? "Consolidate planned purchases into active event days to double-dip pack contents and top-up milestones."
+          : "Clear all free mission milestones first; buy $0.99 ➔ $4.99 starter packs only to hit exact guaranteed chests.",
       },
       diamondCeiling: {
         vi: isPureRecharge
-          ? "Trần Kim Cương: 0 Kim Cương (Sự kiện tính theo gói nạp trực tiếp)."
-          : "Trần Kim Cương: 3.000 – 12.000 Kim Cương vừa đủ chạm mốc rương hoàn vốn.",
+          ? "Trần Kim Cương: 0 KC (Sự kiện tính theo giao dịch nạp / gói trực tiếp trong bảng exchange)."
+          : "Trần Kim Cương: 2.500 ➔ 12.000 KC (Chỉ chi tiêu vừa đủ chạm rương mốc hoàn vốn).",
         en: isPureRecharge
-          ? "Diamond Ceiling: 0 Diamonds (Direct pack purchase / recharge event)."
-          : "Diamond Ceiling: 3,000 – 12,000 Diamonds strictly to hit rebate milestone chests.",
+          ? "Diamond Ceiling: 0 Diamonds (Tracked via direct pack/top-up transactions in the exchange table)."
+          : "Diamond Ceiling: 2,500 ➔ 12,000 Diamonds (Spend strictly to reach rebate milestone chests).",
       },
       budgetTiers: [
         {
@@ -154,41 +204,41 @@ function buildCatalogEventRecord(seed: CatalogEventSeed): EventPlaybookRecord {
           budgetRange: { vi: "$0", en: "$0" },
           strategy: {
             vi: isPureRecharge
-              ? "Nhận quà điểm danh miễn phí mỗi ngày trong giao diện sự kiện."
-              : "Hoàn thành nhiệm vụ ngày và xả tài nguyên tích trữ đúng mốc rương cá nhân.",
+              ? "Nhận rương điểm danh miễn phí mỗi ngày trong giao diện sự kiện."
+              : seed.coreLoopVi,
             en: isPureRecharge
-              ? "Claim free daily check-in chests inside the event menu."
-              : "Complete daily tasks and spend hoarded resources up to personal milestone chests.",
+              ? "Claim free daily check-in chests inside the event interface."
+              : seed.coreLoopEn,
           },
           targetMilestone: {
-            vi: isPureRecharge ? "Quà miễn phí ngày" : "Rương Mốc Cá Nhân Bậc 2–3",
-            en: isPureRecharge ? "Free Daily Check-in" : "Tier 2–3 Personal Milestone Chests",
+            vi: isPureRecharge ? "Quà điểm danh miễn phí" : "Mốc Rương Cá Nhân Bậc 2 ➔ Bậc 3",
+            en: isPureRecharge ? "Free Daily Check-in" : "Tier 2 ➔ Tier 3 Personal Milestone Chests",
           },
         },
         {
           tierId: "low_mid",
-          label: { vi: "Low-Mid ($1 – $15)", en: "Low-Mid ($1 – $15)" },
+          label: { vi: "Low-Mid ($0.99 – $14.99)", en: "Low-Mid ($0.99 – $14.99)" },
           budgetRange: { vi: "$0.99 – $14.99", en: "$0.99 – $14.99" },
           strategy: {
-            vi: "Chỉ mua gói $0.99 – $4.99 có hoàn trả Kim Cương và vé sự kiện cao nhất.",
-            en: "Buy only $0.99 – $4.99 bundles offering the highest Diamond rebate and event tokens.",
+            vi: "Mua gói ngày $0.99 hoặc Pass sự kiện $4.99 có tỷ lệ hoàn vốn >300% ROI.",
+            en: "Purchase $0.99 daily packs or the $4.99 Event Pass offering >300% ROI.",
           },
           targetMilestone: {
-            vi: "Full Rương Cá Nhân + Tối ưu ROI cửa hàng",
-            en: "Full Personal Chests + Optimal Shop ROI",
+            vi: "100% Rương Mốc Cá Nhân + Quét sạch Tier S Cửa Hàng",
+            en: "100% Personal Milestone Chests + Full Tier S Shop Clear",
           },
         },
         {
           tierId: "whale",
-          label: { vi: "Whale ($50+)", en: "Whale ($50+)" },
+          label: { vi: "Whale ($49.99+)", en: "Whale ($49.99+)" },
           budgetRange: { vi: "$49.99+", en: "$49.99+" },
           strategy: {
-            vi: "Mua trọn gói giới hạn để lấy mảnh tướng Đỏ, Vũ Khí Độc Quyền và Skin sự kiện.",
-            en: "Clear capped bundles to secure Mythic Shards, Exclusive Weapons, and Event Skins.",
+            vi: "Mua trọn các gói giới hạn để lấy Mảnh Tướng Đỏ, Vũ Khí Độc Quyền và Ngoại Trang cộng chỉ số vĩnh viễn.",
+            en: "Clear capped bundles for Mythic Shards, Exclusive Weapons, and permanent-stat Cosmetics.",
           },
           targetMilestone: {
-            vi: "Top 1–10 BXH & Quét sạch vật phẩm bậc S",
-            en: "Top 1–10 Leaderboard & Full S-Tier Shop Clear",
+            vi: "Mốc Tối Đa & Top 1 ➔ Top 10 BXH",
+            en: "Max Milestone & Top 1 ➔ Top 10 Leaderboard",
           },
         },
       ],
@@ -197,54 +247,54 @@ function buildCatalogEventRecord(seed: CatalogEventSeed): EventPlaybookRecord {
           id: `${seed.id}-shop-s`,
           tier: "S",
           itemName: {
-            vi: seed.shopSNameVi ?? "Mảnh Anh Hùng Đỏ / Vạn Năng Vàng & Đá Linh Hồn",
-            en: seed.shopSNameEn ?? "Mythic / Universal Legendary Shards & Soul Stones",
+            vi: seed.shopSNameVi ?? "Mảnh Tướng Đỏ / Vạn Năng Vàng, Đá Linh Hồn & Vũ Khí Độc Quyền",
+            en: seed.shopSNameEn ?? "Mythic / Universal Legendary Shards, Soul Stones & Exclusive Weapons",
           },
           iconPath: "/images/items/shards/icon_30175.webp",
           rarity: "mythic",
           costAndCap: {
-            vi: "Giới hạn mua mỗi kỳ — Ưu tiên số 1",
-            en: "Strictly capped per cycle — #1 Priority",
+            vi: "Giới hạn 1 ➔ 5 lượt/kỳ — Ưu tiên Mua Bắt Buộc (Tier S)",
+            en: "Capped 1 ➔ 5 per cycle — Mandatory Buy Out (Tier S)",
           },
           verdict: {
-            vi: "MUA KỊCH TRẦN: Vật phẩm cốt lõi quyết định sức mạnh đội hình chính.",
-            en: "BUY OUT 100%: Core progression bottleneck for your main march.",
+            vi: "MUA BẮT BUỘC (Tier S): Vật phẩm giới hạn quyết định đột phá sức mạnh đội hình 1.",
+            en: "MANDATORY BUY (Tier S): Strictly capped bottleneck items for Main Squad progression.",
           },
         },
         {
           id: `${seed.id}-shop-a`,
           tier: "A",
           itemName: {
-            vi: seed.shopANameVi ?? "Orichalcum, Tinh Hoa Rồng & Cổ Vật Huyền Thoại",
-            en: seed.shopANameEn ?? "Orichalcum, Dragon Essence & Legendary Relics",
+            vi: seed.shopANameVi ?? "Orichalcum, Tinh Hoa Rồng, Pha Lê Bí Thuật & Cổ Vật",
+            en: seed.shopANameEn ?? "Orichalcum, Dragon Essence, Mystic Crystals & Relics",
           },
           iconPath: "/images/items/currencies/icon_10036.webp",
           rarity: "legendary",
           costAndCap: {
-            vi: "Mua khi đã đổi hết toàn bộ vật phẩm bậc S",
-            en: "Purchase after clearing all S-Tier items",
+            vi: "Đổi khi còn dư xu sau khi đã vét sạch Tier S",
+            en: "Redeem with surplus currency after clearing Tier S",
           },
           verdict: {
-            vi: "ƯU TIÊN SỐ 2: Gia tăng chỉ số trang bị và công nghệ dài hạn.",
-            en: "PRIORITY #2: Boosts long-term gear and tech stats.",
+            vi: "MUA KHI DƯ XU (Tier A): Nguyên liệu nâng cấp công nghệ và trang bị dài hạn.",
+            en: "SURPLUS BUY (Tier A): High-value materials for long-term tech and gear scaling.",
           },
         },
         {
           id: `${seed.id}-shop-f`,
           tier: "F",
           itemName: {
-            vi: "Rương Tài Nguyên Thường (Gỗ/Thịt/Đá) & EXP Tướng",
-            en: "Basic Resource Chests (Wood/Meat/Stone) & Hero EXP",
+            vi: "Rương Tài Nguyên Thường (Gỗ/Thịt/Đá), EXP Tướng & Mảnh Tím",
+            en: "Basic Resource Chests (Wood/Meat/Stone), Hero EXP & Purple Shards",
           },
           iconPath: "/images/items/consumables/icon_30222.webp",
           rarity: "common",
           costAndCap: {
-            vi: "Không giới hạn — Bẫy tiêu xu",
-            en: "Unlimited — Currency trap",
+            vi: "Không giới hạn — Bẫy lãng phí xu sự kiện (Tier F)",
+            en: "Unlimited — Event currency trap (Tier F)",
           },
           verdict: {
-            vi: "BỎ QUA TUYỆT ĐỐI: Có thể cày miễn phí từ bản đồ thế giới.",
-            en: "STRICTLY SKIP: Farmable for free on the world map.",
+            vi: "BẪY CẦN TRÁNH (Tier F): Tỷ lệ quy đổi cực thấp, có thể cày miễn phí trên bản đồ.",
+            en: "TRAP TO AVOID (Tier F): Terrible exchange rate; farmable for free on the world map.",
           },
         },
       ],
