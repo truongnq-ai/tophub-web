@@ -492,7 +492,7 @@ export function EventEncyclopediaFlatView({
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 text-xs sm:text-sm">
           <div className="rounded-xl border border-border/70 bg-card/50 p-3 space-y-1">
-            <div className="font-heading font-bold text-muted-foreground uppercase text-[11px]">
+            <div className="font-heading font-bold text-muted-foreground uppercase text-xs">
               {locale === "vi"
                 ? "Khung mở Server (take_effect_time)"
                 : "Server Launch Window (take_effect_time)"}
@@ -502,7 +502,7 @@ export function EventEncyclopediaFlatView({
             </div>
           </div>
           <div className="rounded-xl border border-border/70 bg-card/50 p-3 space-y-1">
-            <div className="font-heading font-bold text-muted-foreground uppercase text-[11px]">
+            <div className="font-heading font-bold text-muted-foreground uppercase text-xs">
               {locale === "vi" ? "Điều kiện mở khóa" : "Unlock Conditions"}
             </div>
             <div className="text-foreground/90 font-medium">

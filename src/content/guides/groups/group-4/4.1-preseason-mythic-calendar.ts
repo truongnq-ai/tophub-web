@@ -20,8 +20,8 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
       en: "**Mythic Hero release dates are strictly programmed by Server Age in days.**\n• **Diamond Reserve Discipline:** Knowing exact drop dates lets F2P/Low-Spender players save `30,000 – 50,000` Diamonds to unlock core Mythics on Day 1.",
     },
     immediateAction: {
-      vi: "**Kiểm tra tuổi Server qua Thành tựu Đăng nhập hoặc Event ➔ Lịch Event (cột `02:00 UTC / 09:00 Giờ VN` Thứ Hai).**\n• **Khóa Kho 20 Ngày Đầu:** Đóng băng `100%` Kim Cương và Mảnh Vạn Năng để đón sóng Bộ Lạc từ `Ngày 21` (Desert Prince) ➔ `Ngày 27` (Storm Maiden).",
-      en: "**Check your Server Age via Login Achievements or the Weekly Event Schedule (Monday `02:00 UTC` column).**\n• **20-Day Resource Lock:** Freeze `100%` of Diamonds and Universal Shards to greet the Horde wave on `Day 21` (Desert Prince) ➔ `Day 27` (Storm Maiden).",
+      vi: "**Kiểm tra tuổi Server qua Thành tựu Đăng nhập hoặc Event ➔ Lịch Event (cột `02:00 UTC / 09:00 Giờ VN` Thứ Hai) và chốt cứng 1 Phe Chủ Lực từ Ngày 1 (4.2 Liên Minh / 4.3 Bộ Tộc / 4.4 Thiên Nhiên).**\n• **Khóa Kho Chờ Tướng Đỏ Hệ Chính:** Đóng băng `100%` Kim Cương và Mảnh Vạn Năng khỏi tướng quá độ để đón đúng đợt Tướng Đỏ của phe đã chọn (`Ngày 21–41` Bộ Tộc, `Ngày 35–46` Liên Minh, `Ngày 42–65` Thiên Nhiên).",
+      en: "**Check your Server Age via Login Achievements or the Weekly Event Schedule (Monday `02:00 UTC` column) and lock in 1 Main Faction from Day 1 (4.2 League / 4.3 Horde / 4.4 Nature).**\n• **Resource Lock for Your Main Faction Wave:** Freeze `100%` of Diamonds and Universal Shards away from transitional heroes to pull your chosen faction's Mythic wave (`Days 21–41` Horde, `Days 35–46` League, `Days 42–65` Nature).",
     },
     strictTaboo: {
       vi: "**Tuyệt đối KHÔNG xả Kim Cương vào Vòng Quay (Lucky Wheel) hoặc Xúc Xắc (Treasure Dice) trái Hệ Đội 1.**\n• **Kỷ Luật Lượt Quay & Xu Lẻ:** Chỉ quay lượt miễn phí ở banner trái hệ và KHÔNG tiêu Xu lẻ vì Xu Wheel/Dice được bảo lưu xuyên kỳ (`150–300` Xu).",
@@ -312,8 +312,8 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
                     },
                   ],
                   outcome: {
-                    vi: "Chuyển Đội 1 sang Thuần Bộ Lạc từ Ngày 41, thống trị Đấu Trường và KvK.",
-                    en: "Transitions Queue 1 to Pure Horde by Day 41, dominating Arena and KvK.",
+                    vi: "Hoàn tất bộ khung Thuần Bộ Lạc từ Ngày 41 (chỉ tốn 9 Hồn Đá Đỏ), thống trị Đấu Trường và KvK.",
+                    en: "Completes the Pure Horde core by Day 41 (costing only 9 Soul Stones), dominating Arena and KvK.",
                   },
                 },
                 {

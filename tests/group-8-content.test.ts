@@ -558,7 +558,7 @@ describe("Track 4 Phase 3H (Final): Group 8 (infrastructure 8.1 -> 8.4) Standard
     const adj84 = getAdjacentArticles("infrastructure", "master-data-tables");
     expect(adj84.prev?.slug).toBe("research-and-baiting");
     expect(adj84.next?.categorySlug).toBe("event-playbooks");
-    expect(adj84.next?.slug).toBe("s0-major-point-races");
+    expect(adj84.next?.slug).toBe("timeline-and-rules");
 
     // Verify searchGuides hits all 4 Group 8 routes in both vi and en under 50ms
     const start = performance.now();
@@ -604,6 +604,6 @@ describe("Track 4 Phase 3H (Final): Group 8 (infrastructure 8.1 -> 8.4) Standard
     for (const pattern of forbidden) {
       expect(raw).not.toMatch(pattern);
     }
-    expect(getAllArticles()).toHaveLength(34);
+    expect(getAllArticles()).toHaveLength(39);
   });
 });

@@ -11,13 +11,13 @@ import {
   normalizeSearchText,
 } from "../src/content/guides/registry";
 
-describe("Guides Hub Registry Architecture (3 Zones - 9 Groups - 37 Pages)", () => {
-  it("should contain exactly 3 Zones, 9 Level-1 Categories, and 37 Level-2 Articles", () => {
+describe("Guides Hub Registry Architecture (3 Zones - 9 Groups - 39 Pages)", () => {
+  it("should contain exactly 3 Zones, 9 Level-1 Categories, and 39 Level-2 Articles", () => {
     expect(GUIDE_ZONES).toHaveLength(3);
     const categories = getAllCategories();
     expect(categories).toHaveLength(9);
     const articles = getAllArticles();
-    expect(articles).toHaveLength(37);
+    expect(articles).toHaveLength(39);
   });
 
   it("should expose getCategoriesInDisplayOrder() ordered sequentially 1 ➔ 9 with Category 5 'Danh sách event' and 6 canonical sub-menus (5.1 ➔ 5.6)", () => {
@@ -84,6 +84,9 @@ describe("Guides Hub Registry Architecture (3 Zones - 9 Groups - 37 Pages)", () 
     expect(
       getArticleBySlug("event-list", "timeline-and-rules")?.code
     ).toBe("5.1");
+    expect(
+      getArticleBySlug("roadmap", "horde-pivot-roadmap")?.slug
+    ).toBe("horde-progression-playbook");
   });
 
   it("should have unique category/article slug pairs and non-empty Free/PRO sections", () => {

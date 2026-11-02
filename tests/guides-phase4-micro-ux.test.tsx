@@ -289,6 +289,17 @@ describe("Phase 4 — Category Micro-UX Widgets & GuideArticleRenderer Integrati
       expect(screen.getByTestId("pivot-soulstone-meter").textContent).toMatch(
         /9.*27/
       );
+
+      // Switch to Pure League and Pure Nature tabs and verify faction-specific progression
+      fireEvent.click(screen.getByTestId("stepper-faction-tab-league"));
+      expect(screen.getByTestId("pivot-active-stage-panel").textContent).toMatch(
+        /Paragon|Rose Princess|Bishop|Artificer|Secret Keeper/i
+      );
+
+      fireEvent.click(screen.getByTestId("stepper-faction-tab-nature"));
+      expect(screen.getByTestId("pivot-active-stage-panel").textContent).toMatch(
+        /Tidecaller|Monk|Ne Zha|Petalis|Treeguard/i
+      );
     });
   });
 

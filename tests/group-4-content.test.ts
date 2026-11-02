@@ -44,17 +44,19 @@ function collectAllBlocks(article: GuideArticle): GuideContentBlock[] {
 }
 
 describe("Group 4 (roadmap) Standardized v2.0 Content, UI Block Contracts & Quantitative Audit", () => {
-  it("loads all 3 Group 4 articles (4.1 -> 4.3) with structured TL;DR, 3 Free + 2 PRO sections, and unique TOC anchor IDs", () => {
+  it("loads all 5 Group 4 articles (4.1 -> 4.5) with structured TL;DR, 3 Free + 2 PRO sections, unique TOC anchor IDs, and resolves legacy horde-pivot-roadmap alias", () => {
     const category = getCategoryBySlug("roadmap");
     expect(category).toBeDefined();
     expect(category?.order).toBe(4);
     expect(category?.zoneId).toBe("zone_events_roadmap");
-    expect(category?.articles).toHaveLength(3);
+    expect(category?.articles).toHaveLength(5);
 
     const expectedArticles = [
       { code: "4.1", slug: "preseason-mythic-calendar" },
-      { code: "4.2", slug: "horde-pivot-roadmap" },
-      { code: "4.3", slug: "season-1-to-4-roadmap" },
+      { code: "4.2", slug: "league-progression-playbook" },
+      { code: "4.3", slug: "horde-progression-playbook" },
+      { code: "4.4", slug: "nature-progression-playbook" },
+      { code: "4.5", slug: "season-1-to-4-roadmap" },
     ];
 
     for (const item of expectedArticles) {
@@ -87,29 +89,45 @@ describe("Group 4 (roadmap) Standardized v2.0 Content, UI Block Contracts & Quan
         }
       }
     }
+
+    // Legacy slug alias resolution
+    const legacyHorde = getArticleBySlug("roadmap", "horde-pivot-roadmap");
+    expect(legacyHorde).toBeDefined();
+    expect(legacyHorde?.code).toBe("4.3");
+    expect(legacyHorde?.slug).toBe("horde-progression-playbook");
   });
 
-  it("navigates sequentially across Group 3 -> Group 4 -> Group 5 boundaries without broken links", () => {
+  it("navigates sequentially across Group 3 -> Group 4 (4.1 -> 4.5) -> Group 5 boundaries without broken links", () => {
     const adj41 = getAdjacentArticles("roadmap", "preseason-mythic-calendar");
     expect(adj41.prev?.categorySlug).toBe("events");
     expect(adj41.prev?.code).toBe("3.4");
     expect(adj41.next?.code).toBe("4.2");
 
-    const adj42 = getAdjacentArticles("roadmap", "horde-pivot-roadmap");
+    const adj42 = getAdjacentArticles("roadmap", "league-progression-playbook");
     expect(adj42.prev?.code).toBe("4.1");
     expect(adj42.next?.code).toBe("4.3");
 
-    const adj43 = getAdjacentArticles("roadmap", "season-1-to-4-roadmap");
+    const adj43 = getAdjacentArticles("roadmap", "horde-progression-playbook");
     expect(adj43.prev?.code).toBe("4.2");
-    expect(adj43.next?.categorySlug).toBe("gear");
-    expect(adj43.next?.code).toBe("5.1");
+    expect(adj43.next?.code).toBe("4.4");
+
+    const adj44 = getAdjacentArticles("roadmap", "nature-progression-playbook");
+    expect(adj44.prev?.code).toBe("4.3");
+    expect(adj44.next?.code).toBe("4.5");
+
+    const adj45 = getAdjacentArticles("roadmap", "season-1-to-4-roadmap");
+    expect(adj45.prev?.code).toBe("4.4");
+    expect(adj45.next?.categorySlug).toBe("gear");
+    expect(adj45.next?.code).toBe("5.1");
   });
 
-  it("enforces deep AST contracts for MediaSpotlight, VisualDiagram, Table, Checklist & CaseStudy blocks (12 Media Codes)", () => {
+  it("enforces deep AST contracts for MediaSpotlight, VisualDiagram, Table, Checklist & CaseStudy blocks (20 Media Codes across 4.1 -> 4.5)", () => {
     const expectedMediaBySlug: Record<string, string[]> = {
       "preseason-mythic-calendar": ["MED-4.1-01", "MED-4.1-02", "MED-4.1-03", "MED-4.1-04"],
-      "horde-pivot-roadmap": ["MED-4.2-01", "MED-4.2-02", "MED-4.2-03", "MED-4.2-04"],
-      "season-1-to-4-roadmap": ["MED-4.3-01", "MED-4.3-02", "MED-4.3-03", "MED-4.3-04"],
+      "league-progression-playbook": ["MED-4.2-01", "MED-4.2-02", "MED-4.2-03", "MED-4.2-04"],
+      "horde-progression-playbook": ["MED-4.3-01", "MED-4.3-02", "MED-4.3-03", "MED-4.3-04"],
+      "nature-progression-playbook": ["MED-4.4-01", "MED-4.4-02", "MED-4.4-03", "MED-4.4-04"],
+      "season-1-to-4-roadmap": ["MED-4.5-01", "MED-4.5-02", "MED-4.5-03", "MED-4.5-04"],
     };
 
     for (const [slug, codes] of Object.entries(expectedMediaBySlug)) {
@@ -178,19 +196,25 @@ describe("Group 4 (roadmap) Standardized v2.0 Content, UI Block Contracts & Quan
       }
     }
 
-    // Verify isolated checklistIds in 4.1, 4.2, and 4.3
+    // Verify isolated checklistIds in 4.1, 4.2, 4.3, 4.4, and 4.5
     expect(JSON.stringify(getArticleBySlug("roadmap", "preseason-mythic-calendar"))).toContain(
       "preseason-s0-weekly-discipline-v2"
     );
-    expect(JSON.stringify(getArticleBySlug("roadmap", "horde-pivot-roadmap"))).toContain(
+    expect(JSON.stringify(getArticleBySlug("roadmap", "league-progression-playbook"))).toContain(
+      "league-progression-readiness-v2"
+    );
+    expect(JSON.stringify(getArticleBySlug("roadmap", "horde-progression-playbook"))).toContain(
       "horde-pivot-readiness-v2"
+    );
+    expect(JSON.stringify(getArticleBySlug("roadmap", "nature-progression-playbook"))).toContain(
+      "nature-progression-readiness-v2"
     );
     expect(JSON.stringify(getArticleBySlug("roadmap", "season-1-to-4-roadmap"))).toContain(
       "pre-s1-hoarding-readiness-v2"
     );
   });
 
-  it("eliminates all 4 legacy v1 errors and preserves 100% of v2.0 quantitative benchmarks independently in BOTH vi and en", () => {
+  it("eliminates all 4 legacy v1 errors and preserves 100% of v2.0 quantitative benchmarks independently in BOTH vi and en across all 5 articles (4.1 -> 4.5)", () => {
     const category = getCategoryBySlug("roadmap")!;
     const serialized = JSON.stringify(category);
 
@@ -203,10 +227,12 @@ describe("Group 4 (roadmap) Standardized v2.0 Content, UI Block Contracts & Quan
     expect(serialized).not.toContain("Thức tỉnh Shaman lên Đỏ (9 Đá Linh Hồn)");
     expect(serialized).not.toContain("Awaken Shaman to Mythic Red (9 Soul Stones)");
 
-    // 2. Bilingual parity check across BOTH locales (vi and en) for 4.1, 4.2, and 4.3
+    // 2. Bilingual parity check across BOTH locales (vi and en) for 4.1 -> 4.5
     const a41 = getArticleBySlug("roadmap", "preseason-mythic-calendar")!;
-    const a42 = getArticleBySlug("roadmap", "horde-pivot-roadmap")!;
-    const a43 = getArticleBySlug("roadmap", "season-1-to-4-roadmap")!;
+    const a42 = getArticleBySlug("roadmap", "league-progression-playbook")!;
+    const a43 = getArticleBySlug("roadmap", "horde-progression-playbook")!;
+    const a44 = getArticleBySlug("roadmap", "nature-progression-playbook")!;
+    const a45 = getArticleBySlug("roadmap", "season-1-to-4-roadmap")!;
 
     for (const locale of ["vi", "en"] as const) {
       // Article 4.1 benchmarks in both vi and en
@@ -236,8 +262,26 @@ describe("Group 4 (roadmap) Standardized v2.0 Content, UI Block Contracts & Quan
         expect(t41, `Article 4.1 (${locale}) must contain ${token}`).toContain(token);
       }
 
-      // Article 4.2 benchmarks in both vi and en
+      // Article 4.2 (Pure League) benchmarks in both vi and en
       const t42 = extractLocaleText(a42, locale);
+      for (const token of [
+        "Secret Keeper",
+        "Adjudicator",
+        "Pyromancer",
+        "Paragon",
+        "Rose Princess",
+        "Bishop",
+        "Artificer",
+        "27",
+        "360,000",
+        "54,000",
+        "1,000",
+      ]) {
+        expect(t42, `Article 4.2 (${locale}) must contain ${token}`).toContain(token);
+      }
+
+      // Article 4.3 (Pure Horde) benchmarks in both vi and en
+      const t43 = extractLocaleText(a43, locale);
       for (const token of [
         "Soulmancer",
         "Warlock",
@@ -254,11 +298,29 @@ describe("Group 4 (roadmap) Standardized v2.0 Content, UI Block Contracts & Quan
         "400,000",
         "600,000",
       ]) {
-        expect(t42, `Article 4.2 (${locale}) must contain ${token}`).toContain(token);
+        expect(t43, `Article 4.3 (${locale}) must contain ${token}`).toContain(token);
       }
 
-      // Article 4.3 benchmarks in both vi and en
-      const t43 = extractLocaleText(a43, locale);
+      // Article 4.4 (Pure Nature) benchmarks in both vi and en
+      const t44 = extractLocaleText(a44, locale);
+      for (const token of [
+        "Treeguard",
+        "Forest Maiden",
+        "Pixie",
+        "Tidecaller",
+        "Monk",
+        "Ne Zha",
+        "Petalis",
+        "18",
+        "240,000",
+        "36,000",
+        "1,000",
+      ]) {
+        expect(t44, `Article 4.4 (${locale}) must contain ${token}`).toContain(token);
+      }
+
+      // Article 4.5 (S1-S4) benchmarks in both vi and en
+      const t45 = extractLocaleText(a45, locale);
       for (const token of [
         "The Spring",
         "Spring Water",
@@ -280,22 +342,26 @@ describe("Group 4 (roadmap) Standardized v2.0 Content, UI Block Contracts & Quan
         "480",
         "8.5M",
       ]) {
-        expect(t43, `Article 4.3 (${locale}) must contain ${token}`).toContain(token);
+        expect(t45, `Article 4.5 (${locale}) must contain ${token}`).toContain(token);
       }
     }
   });
 
-  it("supports searching Group 4 articles by mythic schedule, horde pivot, and seasonal mechanics in both locales under 50ms", () => {
+  it("supports searching Group 4 articles by mythic schedule, 3 faction playbooks, and seasonal mechanics in both locales under 50ms", () => {
     const start = performance.now();
     const princeResults = searchGuides("Desert Prince", "en");
-    const pivotResults = searchGuides("Soulmancer", "vi");
+    const leagueResults = searchGuides("Artificer", "en");
+    const hordeResults = searchGuides("Soulmancer", "vi");
+    const natureResults = searchGuides("Tidecaller", "en");
     const brillianceResults = searchGuides("Viện Huy Hoàng", "vi");
     const brillianceEnResults = searchGuides("Brilliance Institute", "en");
     const elapsed = performance.now() - start;
 
     expect(elapsed).toBeLessThan(50);
     expect(princeResults.some((a) => a.slug === "preseason-mythic-calendar")).toBe(true);
-    expect(pivotResults.some((a) => a.slug === "horde-pivot-roadmap")).toBe(true);
+    expect(leagueResults.some((a) => a.slug === "league-progression-playbook")).toBe(true);
+    expect(hordeResults.some((a) => a.slug === "horde-progression-playbook")).toBe(true);
+    expect(natureResults.some((a) => a.slug === "nature-progression-playbook")).toBe(true);
     expect(brillianceResults.some((a) => a.slug === "season-1-to-4-roadmap")).toBe(true);
     expect(brillianceEnResults.some((a) => a.slug === "season-1-to-4-roadmap")).toBe(true);
   });

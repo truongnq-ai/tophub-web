@@ -194,6 +194,7 @@ export type GuideWidgetType =
   | "account_traps_triage"
   | "tactical_formation_board"
   | "horde_pivot_stepper"
+  | "faction_progression_stepper"
   | "blacksmith_anvil_matrix"
   | "shop_safety_floor_explorer"
   | "event_playbook_explorer";

@@ -330,7 +330,7 @@ describe("Phase 7 — Guides Hub v4.0 Final E2E Asset/Codex Integrity & Producti
 
     it("verifies all 94 MediaSpotlightBlocks, 39 VisualDiagramBlocks, and 123 ResponsiveDataTables across 34 articles resolve to valid >64-byte .webp files", () => {
       const articles = getAllArticles();
-      expect(articles).toHaveLength(37);
+      expect(articles).toHaveLength(39);
 
       const spotlights: GuideMediaSpotlightBlock[] = [];
       const diagrams: GuideVisualDiagramBlock[] = [];
@@ -353,9 +353,9 @@ describe("Phase 7 — Guides Hub v4.0 Final E2E Asset/Codex Integrity & Producti
         }
       }
 
-      expect(spotlights).toHaveLength(97);
-      expect(diagrams).toHaveLength(42);
-      expect(tables).toHaveLength(129);
+      expect(spotlights).toHaveLength(103);
+      expect(diagrams).toHaveLength(44);
+      expect(tables).toHaveLength(133);
 
       for (const sp of spotlights) {
         expect(
@@ -435,7 +435,8 @@ describe("Phase 7 — Guides Hub v4.0 Final E2E Asset/Codex Integrity & Producti
       const validArticleRouteSet = new Set(
         getAllArticles().map((a) => `${a.categorySlug}/${a.slug}`)
       );
-      expect(validArticleRouteSet.size).toBe(37);
+      expect(validArticleRouteSet.size).toBe(39);
+      validArticleRouteSet.add("roadmap/horde-pivot-roadmap");
 
       const searchIndexPath = path.join(CODEX_DATA_DIR, "search-index.json");
       expect(
@@ -998,7 +999,7 @@ describe("Phase 7 — Guides Hub v4.0 Final E2E Asset/Codex Integrity & Producti
     it("verifies exact SSoT counts: 9 categories, 34 articles, 9 interactive widget bindings, and 34 PRO-extended articles", () => {
       const allArticles = getAllArticles();
       expect(GUIDE_CATEGORIES).toHaveLength(9);
-      expect(allArticles).toHaveLength(37);
+      expect(allArticles).toHaveLength(39);
 
       const articlesWithPro = allArticles.filter(
         (a) => Array.isArray(a.proSections) && a.proSections.length > 0

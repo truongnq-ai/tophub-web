@@ -22,6 +22,7 @@ const ARTICLE_SLUG_ALIASES: Readonly<Record<string, string>> = {
   "s0-major-point-races": "timeline-and-rules",
   "s0-gacha-mythic-banners": "tasks-and-milestones",
   "s0-satellites-and-raids": "shop-and-drops",
+  "horde-pivot-roadmap": "horde-progression-playbook",
 };
 
 /**

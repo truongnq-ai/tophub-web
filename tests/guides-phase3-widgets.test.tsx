@@ -663,6 +663,15 @@ describe("Phase 3 — Interactive Widgets & GuideArticleRenderer Integration", (
         expect(q2Avatars0.querySelectorAll("img").length).toBeGreaterThanOrEqual(2);
       }
 
+      // Switch across all 3 Faction Tabs (League, Horde, Nature) and verify 6 Queue 1 hero avatars in each
+      for (const factionTab of ["league", "horde", "nature"] as const) {
+        fireEvent.click(screen.getByTestId(`stepper-faction-tab-${factionTab}`));
+        for (let slot = 0; slot < 6; slot++) {
+          const q1Avatars = screen.getByTestId(`pivot-q1-avatars-${slot}`);
+          expect(q1Avatars.querySelectorAll("img").length).toBeGreaterThanOrEqual(2);
+        }
+      }
+
       unmount();
     });
 

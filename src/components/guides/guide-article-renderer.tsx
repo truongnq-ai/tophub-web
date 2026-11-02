@@ -97,6 +97,7 @@ const CONSOLIDATED_SUBSECTIONS_BY_SLUG: Record<string, ReadonlySet<string>> = {
   ]),
   "formation-and-counters": new Set(["sub-4-1-four-arena-swaps"]),
   "horde-pivot-roadmap": new Set(["sub-4-2-zero-loss-pivot-matrix"]),
+  "horde-progression-playbook": new Set(["sub-4-2-zero-loss-pivot-matrix"]),
   "golden-gear-sets": new Set([
     "sub-1-1-three-golden-sets-decoded-table",
     "sub-4-1-tank-bruiser-bis-table",
@@ -295,6 +296,7 @@ function renderBlock(
             />
           );
         case "horde_pivot_stepper":
+        case "faction_progression_stepper":
           return (
             <HordePivotStepperWidget
               key={idx}

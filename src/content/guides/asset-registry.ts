@@ -8811,6 +8811,342 @@ export const MEDIA_SHOWCASE_BY_CODE: Readonly<Record<string, readonly MediaShowc
       "rarity": "legendary"
     }
   ],
+  "MED-4.4-02": [
+    {
+      "assetId": "hero-tidecaller",
+      "badgeText": "NATURE MYTHIC",
+      "faction": "nature",
+      "iconPath": "/images/heroes/avatars/Head_10035.webp",
+      "labelEn": "Tidecaller (S0/S1 Mythic Core)",
+      "labelVi": "Triệu Hồi Thủy (Tidecaller — Trụ Cột Thiên Nhiên)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "hero-monk",
+      "badgeText": "NATURE MYTHIC",
+      "faction": "nature",
+      "iconPath": "/images/heroes/avatars/Head_10037.webp",
+      "labelEn": "Monk (S0/S1 Mythic Tank)",
+      "labelVi": "Thánh Tăng (Monk — Đỡ Đòn Thiên Nhiên)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "hero-nezha",
+      "badgeText": "S1 MYTHIC",
+      "faction": "nature",
+      "iconPath": "/images/heroes/avatars/Head_10049.webp",
+      "labelEn": "Ne Zha (S1 Mythic Carry)",
+      "labelVi": "Na Tra (Ne Zha — Chủ Lực S1)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "hero-petalis",
+      "badgeText": "S3 MYTHIC",
+      "faction": "nature",
+      "iconPath": "/images/heroes/avatars/Head_10054.webp",
+      "labelEn": "Petalis (S3 Mythic Support)",
+      "labelVi": "Tinh Linh Hoa (Petalis — Hỗ Trợ Đỉnh Cao S3)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "hero-pixie",
+      "badgeText": "CORE AWAKEN",
+      "faction": "nature",
+      "iconPath": "/images/heroes/avatars/Head_10031.webp",
+      "labelEn": "Pixie (Awakened SSR Core)",
+      "labelVi": "Hoa Tiên (Pixie — SSR Thức Tỉnh Đỏ)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "hero-forest-maiden",
+      "badgeText": "CORE AWAKEN",
+      "faction": "nature",
+      "iconPath": "/images/heroes/avatars/Head_10025.webp",
+      "labelEn": "Forest Maiden (Awakened SSR Healer)",
+      "labelVi": "Thiếu Nữ Rừng Xanh (Forest Maiden — Hồi Phục & Triệu Hồi)",
+      "rarity": "legendary"
+    }
+  ],
+  "MED-4.4-03": [
+    {
+      "assetId": "item-soul-stone",
+      "badgeText": "18 STONES (2 SSR)",
+      "faction": "nature",
+      "iconPath": "/images/items/shards/icon_30231.webp",
+      "labelEn": "Nature Soul Stone (40,000 Guild Honor / 6,000 Glory Coins)",
+      "labelVi": "Đá Linh Hồn Thiên Nhiên (40,000 Vinh Dự / 6,000 Xu Vinh Quang)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "currency-guild-honor",
+      "badgeText": "240,000 HONOR",
+      "faction": "neutral",
+      "iconPath": "/images/items/currencies/icon_10011.webp",
+      "labelEn": "Guild Honor (40,000 Wallet Floor)",
+      "labelVi": "Điểm Vinh Dự Bang (Sàn Ví 40,000 Điểm)",
+      "rarity": "epic"
+    },
+    {
+      "assetId": "currency-guild-glory-coin",
+      "badgeText": "36,000 COINS",
+      "faction": "neutral",
+      "iconPath": "/images/items/currencies/icon_10012.webp",
+      "labelEn": "Guild Glory Coins (6,000 / Stone)",
+      "labelVi": "Xu Vinh Quang Hội (6,000 Xu / Viên)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "item-uni-hero-shard",
+      "badgeText": "560 MYTHIC SHARDS",
+      "faction": "neutral",
+      "iconPath": "/images/items/currencies/icon_10006.webp",
+      "labelEn": "Universal Legendary Hero Shard",
+      "labelVi": "Mảnh Anh Hùng Huyền Thoại Vạn Năng",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "gear-set-sage",
+      "badgeText": "NATURE MARK +30%",
+      "faction": "nature",
+      "iconPath": "/images/equipment/hero-gear/icon_40017.webp",
+      "labelEn": "Sage Set (Glorious Light Mythic)",
+      "labelVi": "Bộ Hiền Giả (Ánh Sáng Vinh Quang — Dấu Thiên Nhiên)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "building-nature-barracks",
+      "badgeText": "NATURE BARRACKS",
+      "faction": "nature",
+      "iconPath": "/images/buildings/structures/icon_building_Radiance.webp",
+      "labelEn": "Nature Barracks (Queue 1 Priority)",
+      "labelVi": "Doanh Trại Thiên Nhiên (Ưu Tiên Đội 1)",
+      "rarity": "epic"
+    }
+  ],
+  "MED-4.4-04": [
+    {
+      "assetId": "hero-treeguard",
+      "badgeText": "TRANSITIONAL TANK",
+      "faction": "nature",
+      "iconPath": "/images/heroes/avatars/Head_10023.webp",
+      "labelEn": "Treeguard (0 Universal Shards — Replaced by Monk/Ne Zha)",
+      "labelVi": "Vệ Thần Rừng (Treeguard — Tướng Quá Độ 0 Mảnh Vạn Năng)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "hero-druid",
+      "badgeText": "TRANSITIONAL HEAL",
+      "faction": "nature",
+      "iconPath": "/images/heroes/avatars/Head_10024.webp",
+      "labelEn": "Druid (0 Universal Shards — Replaced by Tidecaller)",
+      "labelVi": "Tu Sĩ Rừng (Druid — Tướng Quá Độ Chờ Thay Thế)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "hero-windwalker",
+      "badgeText": "TRANSITIONAL DPS",
+      "faction": "nature",
+      "iconPath": "/images/heroes/avatars/Head_10026.webp",
+      "labelEn": "Windwalker (0 Universal Shards — Replaced by Pixie/Ne Zha)",
+      "labelVi": "Phong Hành Giả (Windwalker — Tướng Quá Độ Chờ Thay Thế)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "hero-watcher",
+      "badgeText": "TRANSITIONAL SUB",
+      "faction": "nature",
+      "iconPath": "/images/heroes/avatars/Head_10029.webp",
+      "labelEn": "Watcher (0 Universal Shards — Replaced in S0/S1)",
+      "labelVi": "Người Giám Sát (Watcher — Tướng Quá Độ Chờ Thay Thế)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "hero-panda",
+      "badgeText": "OPTIONAL TANK",
+      "faction": "nature",
+      "iconPath": "/images/heroes/avatars/Head_10036.webp",
+      "labelEn": "Panda (Situational Frontline Sub)",
+      "labelVi": "Gấu Trúc (Panda — Đỡ Đòn Phụ Trợ Theo Mùa)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "hero-sage",
+      "badgeText": "FLEX AWAKEN",
+      "faction": "nature",
+      "iconPath": "/images/heroes/avatars/Head_10028.webp",
+      "labelEn": "Sage (Pre-S3 Frontline / Replaced by Petalis)",
+      "labelVi": "Hiền Giả (Sage — Chống Chịu Trước S3 / Nhường Chỗ Petalis)",
+      "rarity": "legendary"
+    }
+  ],
+  "MED-4.5-02": [
+    {
+      "assetId": "season-s1",
+      "badgeText": "S1 SPRING WATER",
+      "faction": "nature",
+      "iconPath": "/images/events/seasons/icon_castleS1.webp",
+      "labelEn": "Season 1: World Tree & Spring Water",
+      "labelVi": "Mùa Giải S1: Cây Thế Giới & Nước Xuân (Spring Water)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "season-s2",
+      "badgeText": "S2 FURNACE >30C",
+      "faction": "horde",
+      "iconPath": "/images/events/seasons/icon_castleS2.webp",
+      "labelEn": "Season 2: Frozen Flame & Personal Furnace",
+      "labelVi": "Mùa Giải S2: Lục Địa Băng Giá & Lò Sưởi (>30°C)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "season-s3",
+      "badgeText": "S3 SACRED CODEX",
+      "faction": "league",
+      "iconPath": "/images/events/seasons/icon_castleS3.webp",
+      "labelEn": "Season 3: Twilight City & Sacred Codex",
+      "labelVi": "Mùa Giải S3: Thành Phố Chạng Vạng & Sách Thánh",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "season-s4",
+      "badgeText": "S4 SEA GIANT",
+      "faction": "neutral",
+      "iconPath": "/images/events/seasons/icon_castleS4.webp",
+      "labelEn": "Season 4: Oxygen Tide & Sea Giant",
+      "labelVi": "Mùa Giải S4: Thủy Triều Oxy & Khổng Lồ Biển",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "building-spring-s1",
+      "badgeText": "S1 SPRING LV.35",
+      "faction": "nature",
+      "iconPath": "/images/events/seasons/icon_guild_spring.webp",
+      "labelEn": "The Spring (Lv.35 — S1)",
+      "labelVi": "Suối Nguồn Mùa Xuân (The Spring Lv.35 — S1)",
+      "rarity": "epic"
+    },
+    {
+      "assetId": "building-furnace-s2",
+      "badgeText": "S2 FURNACE",
+      "faction": "horde",
+      "iconPath": "/images/events/seasons/icon_guild_furnace.webp",
+      "labelEn": "Personal Furnace (S2 >30°C)",
+      "labelVi": "Lò Sưởi Cá Nhân (Personal Furnace >30°C — S2)",
+      "rarity": "epic"
+    }
+  ],
+  "MED-4.5-03": [
+    {
+      "assetId": "season-s1",
+      "badgeText": "S1 WORLD TREE",
+      "faction": "nature",
+      "iconPath": "/images/events/seasons/icon_castleS1.webp",
+      "labelEn": "Season 1: Evergreens Awakening",
+      "labelVi": "Mùa Giải S1: Rừng Già Thức Tỉnh (Evergreens Awakening)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "season-s2",
+      "badgeText": "S2 FROST",
+      "faction": "horde",
+      "iconPath": "/images/events/seasons/icon_castleS2.webp",
+      "labelEn": "Season 2: Eternal Frost",
+      "labelVi": "Mùa Giải S2: Băng Giá Vĩnh Cửu (Eternal Frost)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "season-s3",
+      "badgeText": "S3 STARLIGHT",
+      "faction": "league",
+      "iconPath": "/images/events/seasons/icon_castleS3.webp",
+      "labelEn": "Season 3: Starlight Crusade",
+      "labelVi": "Mùa Giải S3: Thánh Chiến Tinh Quang (Starlight Crusade)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "season-s4",
+      "badgeText": "S4 SOVEREIGN",
+      "faction": "neutral",
+      "iconPath": "/images/events/seasons/icon_castleS4.webp",
+      "labelEn": "Season 4: Apex Sovereign",
+      "labelVi": "Mùa Giải S4: Đỉnh Cao Vương Giả (Apex Sovereign)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "building-spring-s1",
+      "badgeText": "S1 SPRING TECH",
+      "faction": "nature",
+      "iconPath": "/images/events/seasons/icon_guild_spring.webp",
+      "labelEn": "Spring of Nature (S1)",
+      "labelVi": "Suối Nguồn Mùa Xuân (S1 Spring)",
+      "rarity": "epic"
+    },
+    {
+      "assetId": "building-furnace-s2",
+      "badgeText": "S2 FURNACE",
+      "faction": "horde",
+      "iconPath": "/images/events/seasons/icon_guild_furnace.webp",
+      "labelEn": "Guild Furnace (S2)",
+      "labelVi": "Lò Sưởi Bang Hội (S2 Guild Furnace)",
+      "rarity": "epic"
+    }
+  ],
+  "MED-4.5-04": [
+    {
+      "assetId": "item-golden-root-s1",
+      "badgeText": "S1 GOLDEN ROOT",
+      "faction": "nature",
+      "iconPath": "/images/events/seasons/icon_30527.webp",
+      "labelEn": "Golden Root (S1)",
+      "labelVi": "Rễ Cây Vàng S1 (Golden Root)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "item-obsidian-s2",
+      "badgeText": "S2 OBSIDIAN",
+      "faction": "horde",
+      "iconPath": "/images/events/seasons/icon_30604.webp",
+      "labelEn": "Obsidian (S2)",
+      "labelVi": "Hắc Diện Thạch S2 (Obsidian)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "item-shining-crystal-s3",
+      "badgeText": "S3 CRYSTAL",
+      "faction": "league",
+      "iconPath": "/images/events/seasons/icon_30721.webp",
+      "labelEn": "Shining Crystal (S3)",
+      "labelVi": "Pha Lê Ánh Sáng S3 (Shining Crystal)",
+      "rarity": "legendary"
+    },
+    {
+      "assetId": "system-brilliance-institute",
+      "badgeText": "BRILLIANCE TECH",
+      "faction": "neutral",
+      "iconPath": "/images/buildings/structures/icon_building_Radiance.webp",
+      "labelEn": "Brilliance Institute",
+      "labelVi": "Viện Huy Hoàng (Brilliance Institute)",
+      "rarity": "mythic"
+    },
+    {
+      "assetId": "system-sacred-codex",
+      "badgeText": "3V3 CODEX",
+      "faction": "neutral",
+      "iconPath": "/images/items/consumables/icon_lord_7.webp",
+      "labelEn": "Sacred Codex",
+      "labelVi": "Thánh Điển (Sacred Codex)",
+      "rarity": "epic"
+    },
+    {
+      "assetId": "event-kvk",
+      "badgeText": "CROSS-SVR WAR",
+      "faction": "neutral",
+      "iconPath": "/images/events/banners/ActivityBG_KingdomMigration_Boss.webp",
+      "labelEn": "Kingdom vs Kingdom (KvK / Four Nations League)",
+      "labelVi": "Chiến Tranh Vương Quốc (Kingdom vs Kingdom — KvK)",
+      "rarity": "legendary"
+    }
+  ],
   "MED-5.1-01": [
     {
       "assetId": "gear-slot-weapon-knight",

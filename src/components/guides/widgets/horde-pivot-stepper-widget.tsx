@@ -29,6 +29,8 @@ import {
 import type { HeroVisualProfile } from "@/content/guides/types";
 import { GameAssetFrame } from "@/components/guides/media/game-asset-frame";
 
+export type StepperFactionId = "league" | "horde" | "nature";
+
 function resolvePivotHeroProfiles(rawName: string): readonly HeroVisualProfile[] {
   const direct = resolveSlotHeroProfiles(rawName);
   if (direct.length > 0) return direct;
@@ -57,6 +59,12 @@ export interface HordePivotStepperWidgetProps {
   forceUnlockPro?: boolean;
 }
 
+interface HeroSlotEntry {
+  name: string;
+  faction: StepperFactionId;
+  note: { vi: string; en: string };
+}
+
 interface ParsedPivotStage {
   stageNumber: 1 | 2 | 3 | 4;
   dayRangeBadge: { vi: string; en: string };
@@ -67,36 +75,24 @@ interface ParsedPivotStage {
   shardAndBookRule: string;
   gearAndBuildingRule: string;
   leagueRosterRole: string;
-  queue1Heroes: {
-    name: string;
-    faction: "league" | "horde";
-    note: { vi: string; en: string };
-  }[];
-  queue2Heroes: {
-    name: string;
-    faction: "league" | "horde";
-    note: { vi: string; en: string };
-  }[];
+  queue1Heroes: HeroSlotEntry[];
+  queue2Heroes: HeroSlotEntry[];
 }
 
-const STAGE_META: Record<
-  1 | 2 | 3 | 4,
-  {
-    dayRangeBadge: { vi: string; en: string };
-    shortTitle: { vi: string; en: string };
-    auraBadge: { vi: string; en: string };
-    queue1Heroes: {
-      name: string;
-      faction: "league" | "horde";
-      note: { vi: string; en: string };
-    }[];
-    queue2Heroes: {
-      name: string;
-      faction: "league" | "horde";
-      note: { vi: string; en: string };
-    }[];
-  }
-> = {
+interface StaticStageConfig {
+  dayRangeBadge: { vi: string; en: string };
+  shortTitle: { vi: string; en: string };
+  auraBadge: { vi: string; en: string };
+  stageAndMilestone: { vi: string; en: string };
+  queue1Lineup: { vi: string; en: string };
+  shardAndBookRule: { vi: string; en: string };
+  gearAndBuildingRule: { vi: string; en: string };
+  leagueRosterRole: { vi: string; en: string };
+  queue1Heroes: HeroSlotEntry[];
+  queue2Heroes: HeroSlotEntry[];
+}
+
+const HORDE_STAGE_META: Record<1 | 2 | 3 | 4, StaticStageConfig> = {
   1: {
     dayRangeBadge: { vi: "Ngày 1 ➔ 20", en: "Days 1 ➔ 20" },
     shortTitle: {
@@ -106,6 +102,26 @@ const STAGE_META: Record<
     auraBadge: {
       vi: "6 Liên Minh (+35% Aura) • 0 Mảnh Vạn Năng",
       en: "6 League (+35% Aura) • 0 Universal Shards",
+    },
+    stageAndMilestone: {
+      vi: "Giai đoạn 1 (Ngày 1 ➔ 20): Tích Trữ Trước Ngày 21",
+      en: "Stage 1 (Days 1 ➔ 20): Pre-Day 21 Hoarding",
+    },
+    queue1Lineup: {
+      vi: "6 SSR Tạm Thời (Secret Keeper, Adjudicator, Pyromancer, Astrologer, Bard, Nun)",
+      en: "6 Temporary SSRs (Secret Keeper, Adjudicator, Pyromancer, Astrologer, Bard, Nun)",
+    },
+    shardAndBookRule: {
+      vi: "Dùng 0 Mảnh Vàng Vạn Năng và 0 Sách Kỹ Năng lên tướng quá độ; dồn toàn bộ cho Desert Prince & Storm Maiden ở Ngày 21.",
+      en: "Spend 0 Universal Gold Shards and 0 Skill Books on transitional heroes; save 100% for Desert Prince & Storm Maiden on Day 21.",
+    },
+    gearAndBuildingRule: {
+      vi: "Đúc Đồ Vàng Cột 2 (Dấu Hệ Bộ Tộc +30% từ Ngày 1) và ưu tiên Doanh trại Bộ Tộc.",
+      en: "Craft Column 2 Golden Gear (Horde Faction Mark +30% from Day 1) and prioritize Horde Barracks.",
+    },
+    leagueRosterRole: {
+      vi: "Nuôi sẵn 6 SSR Bộ Tộc ở Lv.135–150 chờ tiếp quản Đội 1.",
+      en: "Park 6 Horde SSRs at Lv.135–150 ready to take over Queue 1.",
     },
     queue1Heroes: [
       {
@@ -151,6 +167,26 @@ const STAGE_META: Record<
     auraBadge: {
       vi: "4 Liên Minh + 2 Bộ Lạc (+15% Aura) • 1★ Đỏ (160 Mảnh)",
       en: "4 League + 2 Horde (+15% Aura) • 1-Red Star (160 Shards)",
+    },
+    stageAndMilestone: {
+      vi: "Giai đoạn 2 (Ngày 21 ➔ 35): Mở Khóa Cặp Đôi Mythic Bộ Tộc",
+      en: "Stage 2 (Days 21 ➔ 35): Dual Horde Mythic Unlock",
+    },
+    queue1Lineup: {
+      vi: "Desert Prince + Storm Maiden (1★ Đỏ / 160 Mảnh) + 4 Tướng Phụ Trợ",
+      en: "Desert Prince + Storm Maiden (1★ Red / 160 Shards) + 4 Support Slots",
+    },
+    shardAndBookRule: {
+      vi: "Dồn 320 Mảnh Vàng (160 mỗi tướng) đưa Desert Prince và Storm Maiden lên 1★ Đỏ ngay tuần mở banner.",
+      en: "Invest 320 Universal Shards (160 each) to push Desert Prince and Storm Maiden to 1★ Red during launch week.",
+    },
+    gearAndBuildingRule: {
+      vi: "Chuyển bộ Đồ Vàng +10/+20 sang Desert Prince (Titan) và Storm Maiden (Destroyer).",
+      en: "Equip +10/+20 Golden Gear on Desert Prince (Titan) and Storm Maiden (Destroyer).",
+    },
+    leagueRosterRole: {
+      vi: "Secret Keeper và Astrologer lùi xuống Đội 2 làm đội hình đào mỏ và giữ cứ điểm.",
+      en: "Secret Keeper and Astrologer move to Queue 2 for resource node defense.",
     },
     queue1Heroes: [
       {
@@ -198,6 +234,26 @@ const STAGE_META: Record<
     auraBadge: {
       vi: "6 Bộ Lạc Đội 1 (+35%) • Đội 2 Liên Minh 2.8M",
       en: "6 Horde Queue 1 (+35%) • 2.8M League Queue 2",
+    },
+    stageAndMilestone: {
+      vi: "Giai đoạn 3 (Ngày 36 ➔ 45): Kích Hoạt 6 Bộ Tộc Thuần (+35% Aura)",
+      en: "Stage 3 (Days 36 ➔ 45): Full 6-Horde Activation (+35% Aura)",
+    },
+    queue1Lineup: {
+      vi: "Desert Prince + Storm Maiden (1★ Bạc / 560 Mảnh) + Witch (Ngày 41) + 3 SSR Bộ Tộc",
+      en: "Desert Prince + Storm Maiden (1★ Silver / 560 Shards) + Witch (Day 41) + 3 Horde SSRs",
+    },
+    shardAndBookRule: {
+      vi: "Đẩy Desert Prince & Storm Maiden chạm mốc 560 Mảnh (1★ Trắng/Bạc) và mở khóa Witch ở Ngày 41.",
+      en: "Push Desert Prince & Storm Maiden to 560 Shards (1★ White/Silver) and unlock Witch on Day 41.",
+    },
+    gearAndBuildingRule: {
+      vi: "Kích hoạt 100% Dấu Hệ Bộ Tộc (+30% chỉ số) cho toàn bộ 6 vị trí Đội 1.",
+      en: "Activate 100% Horde Faction Marks (+30% stats) across all 6 Queue 1 slots.",
+    },
+    leagueRosterRole: {
+      vi: "6 SSR Liên Minh tạo thành Đội 2 hoàn chỉnh cho Đấu Trường 3v3.",
+      en: "6 League SSRs form a complete Queue 2 for 3v3 Apex Arena.",
     },
     queue1Heroes: [
       {
@@ -280,6 +336,26 @@ const STAGE_META: Record<
       vi: "5 Mythic + 1 SSR Thức Tỉnh (9 Hồn Đá Đỏ vs 27)",
       en: "5 Mythics + 1 Awakened SSR (9 vs 27 Soul Stones)",
     },
+    stageAndMilestone: {
+      vi: "Giai đoạn 4 (Season 1 ➔ Season 4): Đỉnh Cao 5 Mythic Bộ Tộc",
+      en: "Stage 4 (Season 1 ➔ Season 4): 5-Mythic Horde Exodia",
+    },
+    queue1Lineup: {
+      vi: "Beastmaster + Desert Prince + Wukong + Storm Maiden + Witch + Soulmancer (Awakened)",
+      en: "Beastmaster + Desert Prince + Wukong + Storm Maiden + Witch + Soulmancer (Awakened)",
+    },
+    shardAndBookRule: {
+      vi: "Chỉ tốn đúng 9 Hồn Đá Đỏ (120,000 Điểm Vinh Dự / 18,000 Xu) để thức tỉnh Soulmancer, hoàn thiện đội hình 5 Mythic ở S2.",
+      en: "Requires only 9 Soul Stones (120,000 Guild Honor / 18,000 Glory Coins) to awaken Soulmancer, completing the 5-Mythic lineup in S2.",
+    },
+    gearAndBuildingRule: {
+      vi: "Đẩy Vũ Khí Độc Quyền Wukong & Desert Prince lên +10/+20 và nâng Viện Huy Hoàng Lv.40.",
+      en: "Push Wukong & Desert Prince Exclusive Weapons to +10/+20 and upgrade Brilliance Institute to Lv.40.",
+    },
+    leagueRosterRole: {
+      vi: "Đội 2 & Đội 3 phục vụ 3v3 Apex Arena và phòng thủ mỏ tài nguyên.",
+      en: "Queue 2 & Queue 3 serve in 3v3 Apex Arena and resource node defense.",
+    },
     queue1Heroes: [
       {
         name: "Beastmaster",
@@ -333,6 +409,630 @@ const STAGE_META: Record<
   },
 };
 
+const LEAGUE_STAGE_META: Record<1 | 2 | 3 | 4, StaticStageConfig> = {
+  1: {
+    dayRangeBadge: { vi: "Ngày 1 ➔ 34", en: "Days 1 ➔ 34" },
+    shortTitle: {
+      vi: "GĐ 1: Khởi Đầu 6 SSR Liên Minh",
+      en: "Stage 1: 6 League SSR Starter",
+    },
+    auraBadge: {
+      vi: "6 Liên Minh (+35% Aura) • Tích 45,000+ Kim Cương",
+      en: "6 League (+35% Aura) • Bank 45,000+ Diamonds",
+    },
+    stageAndMilestone: {
+      vi: "Giai đoạn 1 (Ngày 1 ➔ 34): Khung 6 SSR Liên Minh & Tích Trữ Chờ Paragon",
+      en: "Stage 1 (Days 1 ➔ 34): 6 League SSR Core & Hoarding for Paragon",
+    },
+    queue1Lineup: {
+      vi: "Adjudicator + Secret Keeper + Pyromancer + Nun + Bard + Astrologer",
+      en: "Adjudicator + Secret Keeper + Pyromancer + Nun + Bard + Astrologer",
+    },
+    shardAndBookRule: {
+      vi: "Cấm đút Mảnh Vàng Vạn Năng cho Secret Keeper, Bard, Astrologer. Chỉ mua mảnh Pyromancer ở Tiệm Đấu Trường.",
+      en: "Never feed Universal Shards to Secret Keeper, Bard, or Astrologer. Buy Pyromancer shards exclusively in the Arena Shop.",
+    },
+    gearAndBuildingRule: {
+      vi: "Đúc Đồ Vàng Cột 1 (Dấu Hệ Liên Minh +30%) ngay từ món đầu tiên và nâng Doanh trại Liên Minh.",
+      en: "Craft Column 1 Golden Gear (League Faction Mark +30%) from piece #1 and upgrade League Barracks.",
+    },
+    leagueRosterRole: {
+      vi: "Bỏ qua hoàn toàn banner Bộ Tộc (Ngày 21–27) để bảo toàn 45,000+ Kim Cương.",
+      en: "Skip Horde banners (Days 21–27) completely to preserve 45,000+ Diamonds.",
+    },
+    queue1Heroes: [
+      {
+        name: "Adjudicator",
+        faction: "league",
+        note: { vi: "Core Tank (Giữ tới S4)", en: "Core Tank (Keep to S4)" },
+      },
+      {
+        name: "Secret Keeper",
+        faction: "league",
+        note: { vi: "Quá độ (0 Mảnh)", en: "Transitional (0 Shards)" },
+      },
+      {
+        name: "Pyromancer",
+        faction: "league",
+        note: { vi: "Core AoE Carry", en: "Core AoE Carry" },
+      },
+      {
+        name: "Astrologer",
+        faction: "league",
+        note: { vi: "Quá độ (Chờ Paragon)", en: "Transitional (Wait Paragon)" },
+      },
+      {
+        name: "Bard",
+        faction: "league",
+        note: { vi: "Quá độ (Chờ Bishop)", en: "Transitional (Wait Bishop)" },
+      },
+      {
+        name: "Nun",
+        faction: "league",
+        note: { vi: "Core Healer", en: "Core Healer" },
+      },
+    ],
+    queue2Heroes: [
+      {
+        name: "6 SSR Horde (Parked Lv.135–150)",
+        faction: "horde",
+        note: {
+          vi: "Đội 2 Đào Mỏ Tự Nhiên",
+          en: "Natural Queue 2 Gatherers",
+        },
+      },
+    ],
+  },
+  2: {
+    dayRangeBadge: { vi: "Ngày 35 ➔ 45", en: "Days 35 ➔ 45" },
+    shortTitle: {
+      vi: "GĐ 2: Đón Paragon (Ngày 35)",
+      en: "Stage 2: Unlock Paragon (Day 35)",
+    },
+    auraBadge: {
+      vi: "6 Liên Minh (+35% Aura) • Paragon 1★ Đỏ (160 Mảnh)",
+      en: "6 League (+35% Aura) • Paragon 1★ Red (160 Shards)",
+    },
+    stageAndMilestone: {
+      vi: "Giai đoạn 2 (Ngày 35 ➔ 45): Mở Khóa Chủ Lực Mythic Paragon",
+      en: "Stage 2 (Days 35 ➔ 45): Unlock Mythic Carry Paragon",
+    },
+    queue1Lineup: {
+      vi: "Adjudicator + Secret Keeper + Paragon (1★ Đỏ) + Pyromancer + Bard + Nun",
+      en: "Adjudicator + Secret Keeper + Paragon (1★ Red) + Pyromancer + Bard + Nun",
+    },
+    shardAndBookRule: {
+      vi: "Dùng 160 Mảnh Vàng Vạn Năng nâng Paragon lên 1★ Đỏ ngay Ngày 35, thay thế Astrologer.",
+      en: "Spend 160 Universal Shards to push Paragon to 1★ Red on Day 35, replacing Astrologer.",
+    },
+    gearAndBuildingRule: {
+      vi: "Chuyển bộ Đồ Vàng Cột 1 (Fury of the Destroyer +20) của Astrologer sang cho Paragon.",
+      en: "Transfer Astrologer's Column 1 Golden Gear (Fury of the Destroyer +20) directly to Paragon.",
+    },
+    leagueRosterRole: {
+      vi: "Astrologer lùi xuống Đội 2 nguyên vẹn cấp độ, không mất tài nguyên.",
+      en: "Astrologer rotates down to Queue 2 with zero resource loss.",
+    },
+    queue1Heroes: [
+      {
+        name: "Adjudicator",
+        faction: "league",
+        note: { vi: "Core Tank", en: "Core Tank" },
+      },
+      {
+        name: "Secret Keeper",
+        faction: "league",
+        note: { vi: "Chờ Rose Princess", en: "Waiting Rose Princess" },
+      },
+      {
+        name: "Paragon",
+        faction: "league",
+        note: { vi: "Ngày 35 • 1★ Đỏ (160 Mảnh)", en: "Day 35 • 1★ Red (160 Shards)" },
+      },
+      {
+        name: "Pyromancer",
+        faction: "league",
+        note: { vi: "Sub-Carry AoE", en: "AoE Sub-Carry" },
+      },
+      {
+        name: "Bard",
+        faction: "league",
+        note: { vi: "Chờ Bishop (Ngày 46)", en: "Waiting Bishop (Day 46)" },
+      },
+      {
+        name: "Nun",
+        faction: "league",
+        note: { vi: "Core Healer", en: "Core Healer" },
+      },
+    ],
+    queue2Heroes: [
+      {
+        name: "Astrologer",
+        faction: "league",
+        note: { vi: "Chuyển xuống Đội 2", en: "Rotated to Queue 2" },
+      },
+    ],
+  },
+  3: {
+    dayRangeBadge: { vi: "Ngày 46 ➔ 65", en: "Days 46 ➔ 65" },
+    shortTitle: {
+      vi: "GĐ 3: Rose Princess & Bishop",
+      en: "Stage 3: Rose Princess & Bishop",
+    },
+    auraBadge: {
+      vi: "3 Mythic + 3 SSR Liên Minh (+35% Aura)",
+      en: "3 Mythics + 3 League SSRs (+35% Aura)",
+    },
+    stageAndMilestone: {
+      vi: "Giai đoạn 3 (Ngày 46 ➔ 65): Hoàn Thiện Bộ Ba Mythic Liên Minh S0",
+      en: "Stage 3 (Days 46 ➔ 65): Complete S0 League Mythic Trio",
+    },
+    queue1Lineup: {
+      vi: "Rose Princess + Adjudicator + Paragon (1★ Bạc) + Bishop + Pyromancer + Nun",
+      en: "Rose Princess + Adjudicator + Paragon (1★ Silver) + Bishop + Pyromancer + Nun",
+    },
+    shardAndBookRule: {
+      vi: "Mở khóa Rose Princess & Bishop ở Ngày 46 (160 mảnh mỗi tướng lên 1★ Đỏ) và đẩy Paragon lên 1★ Bạc (560 mảnh).",
+      en: "Unlock Rose Princess & Bishop on Day 46 (160 shards each to 1★ Red) and push Paragon to 1★ Silver (560 shards).",
+    },
+    gearAndBuildingRule: {
+      vi: "Trang bị Blood of the Titan (Cột 1) cho Rose Princess & Adjudicator; tích trữ Điểm Vinh Dự Bang chờ S1.",
+      en: "Equip Blood of the Titan (Column 1) on Rose Princess & Adjudicator; hoard Guild Honor for S1.",
+    },
+    leagueRosterRole: {
+      vi: "Secret Keeper, Bard và Astrologer hợp thành khung Đội 2 Liên Minh.",
+      en: "Secret Keeper, Bard, and Astrologer form the core of Queue 2.",
+    },
+    queue1Heroes: [
+      {
+        name: "Rose Princess",
+        faction: "league",
+        note: { vi: "Ngày 46 • 1★ Đỏ (160 Mảnh)", en: "Day 46 • 1★ Red (160 Shards)" },
+      },
+      {
+        name: "Adjudicator",
+        faction: "league",
+        note: { vi: "Main Tank", en: "Main Tank" },
+      },
+      {
+        name: "Paragon",
+        faction: "league",
+        note: { vi: "1★ Bạc (560 Mảnh)", en: "1★ Silver (560 Shards)" },
+      },
+      {
+        name: "Bishop",
+        faction: "league",
+        note: { vi: "Ngày 46 • Khắc chế Triệu hồi", en: "Day 46 • Anti-Summon" },
+      },
+      {
+        name: "Pyromancer",
+        faction: "league",
+        note: { vi: "Chuẩn bị Thức tỉnh S1", en: "Prep S1 Awakening" },
+      },
+      {
+        name: "Nun",
+        faction: "league",
+        note: { vi: "Core Healer", en: "Core Healer" },
+      },
+    ],
+    queue2Heroes: [
+      {
+        name: "Secret Keeper",
+        faction: "league",
+        note: { vi: "Tank Đội 2", en: "Queue 2 Tank" },
+      },
+      {
+        name: "Bard",
+        faction: "league",
+        note: { vi: "Support Đội 2", en: "Queue 2 Support" },
+      },
+      {
+        name: "Astrologer",
+        faction: "league",
+        note: { vi: "DPS Đội 2", en: "Queue 2 DPS" },
+      },
+    ],
+  },
+  4: {
+    dayRangeBadge: { vi: "Season 1 ➔ S4", en: "Season 1 ➔ S4" },
+    shortTitle: {
+      vi: "GĐ 4: Artificer & Thức Tỉnh SSR",
+      en: "Stage 4: Artificer & Awakened SSRs",
+    },
+    auraBadge: {
+      vi: "4 Mythic + 2 SSR Thức Tỉnh (18–27 Hồn Đá Đỏ)",
+      en: "4 Mythics + 2 Awakened SSRs (18–27 Soul Stones)",
+    },
+    stageAndMilestone: {
+      vi: "Giai đoạn 4 (Season 1 ➔ Season 4): Đội Hình Endgame Thuần Liên Minh",
+      en: "Stage 4 (Season 1 ➔ Season 4): Pure League Endgame Lineup",
+    },
+    queue1Lineup: {
+      vi: "Rose Princess + Adjudicator (Awakened) + Paragon + Artificer (S3) + Bishop + Pyromancer/Nun (Awakened)",
+      en: "Rose Princess + Adjudicator (Awakened) + Paragon + Artificer (S3) + Bishop + Pyromancer/Nun (Awakened)",
+    },
+    shardAndBookRule: {
+      vi: "Thức tỉnh Adjudicator & Pyromancer ở S1 (18 Hồn Đá Đỏ = 240,000 Vinh Dự + 36,000 Xu) và đón Artificer ở Season 3.",
+      en: "Awaken Adjudicator & Pyromancer in S1 (18 Soul Stones = 240,000 Honor + 36,000 Coins) and pull Artificer in Season 3.",
+    },
+    gearAndBuildingRule: {
+      vi: "Nâng Vũ Khí Độc Quyền Paragon & Rose Princess lên +10/+20 và Viện Huy Hoàng Lv.40.",
+      en: "Upgrade Paragon & Rose Princess Exclusive Weapons to +10/+20 and Brilliance Institute to Lv.40.",
+    },
+    leagueRosterRole: {
+      vi: "Khắc chế cứng mọi đội hình Thiên Nhiên (Tidecaller / Ne Zha) trong KvK và GvG.",
+      en: "Hard-counters all Nature lineups (Tidecaller / Ne Zha) in KvK and GvG.",
+    },
+    queue1Heroes: [
+      {
+        name: "Rose Princess",
+        faction: "league",
+        note: { vi: "Mythic Tank • UW +20", en: "Mythic Tank • UW +20" },
+      },
+      {
+        name: "Adjudicator",
+        faction: "league",
+        note: { vi: "Awakened (9 Hồn Đá Đỏ)", en: "Awakened (9 Soul Stones)" },
+      },
+      {
+        name: "Paragon",
+        faction: "league",
+        note: { vi: "Main Carry • UW +20", en: "Main Carry • UW +20" },
+      },
+      {
+        name: "Artificer",
+        faction: "league",
+        note: { vi: "S3 Mythic Buffer", en: "S3 Mythic Buffer" },
+      },
+      {
+        name: "Bishop",
+        faction: "league",
+        note: { vi: "Mythic Anti-Summon", en: "Mythic Anti-Summon" },
+      },
+      {
+        name: "Pyromancer",
+        faction: "league",
+        note: { vi: "Awakened (9 Hồn Đá Đỏ)", en: "Awakened (9 Soul Stones)" },
+      },
+    ],
+    queue2Heroes: [
+      {
+        name: "Nun",
+        faction: "league",
+        note: { vi: "Flex Healer (PvE / GvG)", en: "Flex Healer (PvE / GvG)" },
+      },
+      {
+        name: "Secret Keeper",
+        faction: "league",
+        note: { vi: "Đội 2 3v3 Arena", en: "3v3 Arena Queue 2" },
+      },
+    ],
+  },
+};
+
+const NATURE_STAGE_META: Record<1 | 2 | 3 | 4, StaticStageConfig> = {
+  1: {
+    dayRangeBadge: { vi: "Ngày 1 ➔ 41", en: "Days 1 ➔ 41" },
+    shortTitle: {
+      vi: "GĐ 1: Nhịn Nhục Tích Trữ 41 Ngày",
+      en: "Stage 1: 41-Day Discipline Hoard",
+    },
+    auraBadge: {
+      vi: "6 Thiên Nhiên (+35% Aura) • Tích 60,000+ Kim Cương",
+      en: "6 Nature (+35% Aura) • Bank 60,000+ Diamonds",
+    },
+    stageAndMilestone: {
+      vi: "Giai đoạn 1 (Ngày 1 ➔ 41): Sinh Tồn Bằng 6 SSR Thiên Nhiên & Khoán Trắng Mảnh Vàng",
+      en: "Stage 1 (Days 1 ➔ 41): 6 Nature SSR Survival & Strict Shard Freeze",
+    },
+    queue1Lineup: {
+      vi: "Treeguard + Sage + Pixie + Forest Maiden + Druid + Windwalker",
+      en: "Treeguard + Sage + Pixie + Forest Maiden + Druid + Windwalker",
+    },
+    shardAndBookRule: {
+      vi: "Dùng 0 Mảnh Vàng Vạn Năng suốt 41 ngày đầu. Tích lũy tối thiểu 560+ Mảnh Vàng chờ Tidecaller.",
+      en: "Spend 0 Universal Gold Shards during the first 41 days. Bank at least 560+ Universal Shards for Tidecaller.",
+    },
+    gearAndBuildingRule: {
+      vi: "Đúc Đồ Vàng Cột 3 (Dấu Hệ Thiên Nhiên +30%) ngay từ Ngày 1 và nâng Doanh trại Thiên Nhiên.",
+      en: "Craft Column 3 Golden Gear (Nature Faction Mark +30%) from Day 1 and upgrade Nature Barracks.",
+    },
+    leagueRosterRole: {
+      vi: "Bỏ qua toàn bộ banner Bộ Tộc (Ngày 21) và Liên Minh (Ngày 35) để dồn 60,000+ Kim Cương.",
+      en: "Skip all Horde (Day 21) and League (Day 35) banners to bank 60,000+ Diamonds.",
+    },
+    queue1Heroes: [
+      {
+        name: "Treeguard",
+        faction: "nature",
+        note: { vi: "Tank Quá độ (0 Mảnh)", en: "Transitional Tank (0 Shards)" },
+      },
+      {
+        name: "Sage",
+        faction: "nature",
+        note: { vi: "Sub-Tank Quá độ", en: "Transitional Sub-Tank" },
+      },
+      {
+        name: "Pixie",
+        faction: "nature",
+        note: { vi: "Core AoE DPS (Giữ tới S4)", en: "Core AoE DPS (Keep to S4)" },
+      },
+      {
+        name: "Forest Maiden",
+        faction: "nature",
+        note: { vi: "Core Summon Buffer", en: "Core Summon Buffer" },
+      },
+      {
+        name: "Druid",
+        faction: "nature",
+        note: { vi: "Healer Quá độ (0 Sách)", en: "Transitional Healer (0 Books)" },
+      },
+      {
+        name: "Windwalker",
+        faction: "nature",
+        note: { vi: "DPS Quá độ (0 Mảnh)", en: "Transitional DPS (0 Shards)" },
+      },
+    ],
+    queue2Heroes: [
+      {
+        name: "Pure League Queue 2 (6 Heroes)",
+        faction: "league",
+        note: {
+          vi: "Đội 2 Đào Mỏ Tự Nhiên",
+          en: "Natural Queue 2 Gatherers",
+        },
+      },
+    ],
+  },
+  2: {
+    dayRangeBadge: { vi: "Ngày 42 ➔ 65", en: "Days 42 ➔ 65" },
+    shortTitle: {
+      vi: "GĐ 2: Bùng Nổ Tidecaller & Monk",
+      en: "Stage 2: Tidecaller & Monk Power Spike",
+    },
+    auraBadge: {
+      vi: "6 Thiên Nhiên (+35% Aura) • Tidecaller 1★ Bạc (560 Mảnh)",
+      en: "6 Nature (+35% Aura) • Tidecaller 1★ Silver (560 Shards)",
+    },
+    stageAndMilestone: {
+      vi: "Giai đoạn 2 (Ngày 42 ➔ 65): Mở Khóa Tidecaller & Monk — Đảo Chiều Meta",
+      en: "Stage 2 (Days 42 ➔ 65): Unlock Tidecaller & Monk — Meta Reversal",
+    },
+    queue1Lineup: {
+      vi: "Monk (1★ Đỏ) + Treeguard + Tidecaller (1★ Bạc / 560 Mảnh) + Pixie + Forest Maiden + Sage",
+      en: "Monk (1★ Red) + Treeguard + Tidecaller (1★ Silver / 560 Shards) + Pixie + Forest Maiden + Sage",
+    },
+    shardAndBookRule: {
+      vi: "Bung kho 560 Mảnh Vàng đưa Tidecaller lên thẳng 1★ Bạc (+30% Skill Thủy Triều) và 160 mảnh cho Monk (1★ Đỏ).",
+      en: "Unload 560 Universal Shards to rush Tidecaller straight to 1★ Silver (+30% Tidal Skill) and 160 shards for Monk (1★ Red).",
+    },
+    gearAndBuildingRule: {
+      vi: "Đóng bộ Fury of the Destroyer +20/+30 (Cột 3) cho Tidecaller và Blood of the Titan cho Monk.",
+      en: "Equip +20/+30 Fury of the Destroyer (Column 3) on Tidecaller and Blood of the Titan on Monk.",
+    },
+    leagueRosterRole: {
+      vi: "Windwalker và Druid lùi xuống Đội 2 sau khi hoàn thành nhiệm vụ quá độ.",
+      en: "Windwalker and Druid rotate to Queue 2 after completing their transitional role.",
+    },
+    queue1Heroes: [
+      {
+        name: "Monk",
+        faction: "nature",
+        note: { vi: "Mythic Tank • 1★ Đỏ (160 Mảnh)", en: "Mythic Tank • 1★ Red (160 Shards)" },
+      },
+      {
+        name: "Treeguard",
+        faction: "nature",
+        note: { vi: "Chờ Ne Zha (S1)", en: "Waiting Ne Zha (S1)" },
+      },
+      {
+        name: "Tidecaller",
+        faction: "nature",
+        note: { vi: "God Carry • 1★ Bạc (560 Mảnh)", en: "God Carry • 1★ Silver (560 Shards)" },
+      },
+      {
+        name: "Pixie",
+        faction: "nature",
+        note: { vi: "Core AoE Burst", en: "Core AoE Burst" },
+      },
+      {
+        name: "Forest Maiden",
+        faction: "nature",
+        note: { vi: "Cộng hưởng Triệu hồi", en: "Summon Synergy" },
+      },
+      {
+        name: "Sage",
+        faction: "nature",
+        note: { vi: "Chờ Petalis", en: "Waiting Petalis" },
+      },
+    ],
+    queue2Heroes: [
+      {
+        name: "Druid",
+        faction: "nature",
+        note: { vi: "Lùi xuống Đội 2", en: "Moved to Queue 2" },
+      },
+      {
+        name: "Windwalker",
+        faction: "nature",
+        note: { vi: "Lùi xuống Đội 2", en: "Moved to Queue 2" },
+      },
+    ],
+  },
+  3: {
+    dayRangeBadge: { vi: "Season 1", en: "Season 1" },
+    shortTitle: {
+      vi: "GĐ 3: Đón Ne Zha & 18 Hồn Đá Đỏ",
+      en: "Stage 3: Ne Zha & 18 Soul Stones",
+    },
+    auraBadge: {
+      vi: "3 Mythic + 2 Awakened SSR (18 Hồn Đá Đỏ)",
+      en: "3 Mythics + 2 Awakened SSRs (18 Soul Stones)",
+    },
+    stageAndMilestone: {
+      vi: "Giai đoạn 3 (Season 1 — World Tree): Mở Khóa Ne Zha & Thức Tỉnh Pixie + Forest Maiden",
+      en: "Stage 3 (Season 1 — World Tree): Unlock Ne Zha & Awaken Pixie + Forest Maiden",
+    },
+    queue1Lineup: {
+      vi: "Monk + Ne Zha (1★ Bạc) + Tidecaller + Pixie (Awakened) + Forest Maiden (Awakened) + Sage",
+      en: "Monk + Ne Zha (1★ Silver) + Tidecaller + Pixie (Awakened) + Forest Maiden (Awakened) + Sage",
+    },
+    shardAndBookRule: {
+      vi: "Mở khóa Ne Zha thay thế Treeguard, đồng thời dùng 18 Hồn Đá Đỏ (240,000 Vinh Dự + 36,000 Xu) thức tỉnh Pixie và Forest Maiden.",
+      en: "Unlock Ne Zha to replace Treeguard, and spend 18 Soul Stones (240,000 Honor + 36,000 Coins) to awaken Pixie and Forest Maiden.",
+    },
+    gearAndBuildingRule: {
+      vi: "Nâng Vũ Khí Độc Quyền Tidecaller lên +10/+20 và ưu tiên nhánh Cây Thế Giới S1.",
+      en: "Upgrade Tidecaller Exclusive Weapon to +10/+20 and prioritize S1 World Tree research.",
+    },
+    leagueRosterRole: {
+      vi: "Áp đảo hoàn toàn các đội hình Bộ Tộc (Wukong / Desert Prince) nhờ khắc hệ +20%.",
+      en: "Dominates Horde lineups (Wukong / Desert Prince) via +20% faction counter advantage.",
+    },
+    queue1Heroes: [
+      {
+        name: "Monk",
+        faction: "nature",
+        note: { vi: "Mythic Tank", en: "Mythic Tank" },
+      },
+      {
+        name: "Ne Zha",
+        faction: "nature",
+        note: { vi: "S1 Mythic Bruiser (560 Mảnh)", en: "S1 Mythic Bruiser (560 Shards)" },
+      },
+      {
+        name: "Tidecaller",
+        faction: "nature",
+        note: { vi: "UW +10 ➔ +20", en: "UW +10 ➔ +20" },
+      },
+      {
+        name: "Pixie",
+        faction: "nature",
+        note: { vi: "Awakened (9 Hồn Đá Đỏ)", en: "Awakened (9 Soul Stones)" },
+      },
+      {
+        name: "Forest Maiden",
+        faction: "nature",
+        note: { vi: "Awakened (9 Hồn Đá Đỏ)", en: "Awakened (9 Soul Stones)" },
+      },
+      {
+        name: "Sage",
+        faction: "nature",
+        note: { vi: "Slot 6 Tạm thời", en: "Temporary Slot 6" },
+      },
+    ],
+    queue2Heroes: [
+      {
+        name: "Treeguard",
+        faction: "nature",
+        note: { vi: "Tank Đội 2", en: "Queue 2 Tank" },
+      },
+      {
+        name: "Druid",
+        faction: "nature",
+        note: { vi: "Healer Đội 2", en: "Queue 2 Healer" },
+      },
+    ],
+  },
+  4: {
+    dayRangeBadge: { vi: "Season 2 ➔ S4", en: "Season 2 ➔ S4" },
+    shortTitle: {
+      vi: "GĐ 4: Đón Petalis & 4 Mythic",
+      en: "Stage 4: Petalis & 4-Mythic Core",
+    },
+    auraBadge: {
+      vi: "4 Mythic + 2 SSR Thức Tỉnh (18 Hồn Đá Đỏ)",
+      en: "4 Mythics + 2 Awakened SSRs (18 Soul Stones)",
+    },
+    stageAndMilestone: {
+      vi: "Giai đoạn 4 (Season 2 ➔ Season 4): Hoàn Thiện Đế Chế Triệu Hồi Thuần Thiên Nhiên",
+      en: "Stage 4 (Season 2 ➔ Season 4): Complete Pure Nature Summon Empire",
+    },
+    queue1Lineup: {
+      vi: "Monk + Ne Zha + Tidecaller (Max 1,000 Mảnh) + Petalis (S3) + Pixie (Awakened) + Forest Maiden (Awakened)",
+      en: "Monk + Ne Zha + Tidecaller (Max 1,000 Shards) + Petalis (S3) + Pixie (Awakened) + Forest Maiden (Awakened)",
+    },
+    shardAndBookRule: {
+      vi: "Nhịn banner S2 để max Tidecaller (1,000 mảnh), sau đó mở khóa Petalis ở Season 3 thay thế Sage.",
+      en: "Skip S2 banners to max Tidecaller (1,000 shards), then pull Petalis in Season 3 to replace Sage.",
+    },
+    gearAndBuildingRule: {
+      vi: "Hoàn thành Viện Huy Hoàng Lv.40 (5,422 Tinh Hoa Rồng) mở khóa Lính Lv.11 (T11).",
+      en: "Complete Brilliance Institute Lv.40 (5,422 Dragon Essence) to unlock Lv.11 (T11) Troops.",
+    },
+    leagueRosterRole: {
+      vi: "Giữ vững vị thế Vua PvE Thế Giới và khắc tinh số 1 của Bộ Tộc từ S1 đến S4.",
+      en: "Reigns as the #1 World Boss PvE team and the ultimate Horde counter from S1 through S4.",
+    },
+    queue1Heroes: [
+      {
+        name: "Monk",
+        faction: "nature",
+        note: { vi: "Mythic Tank • UW +10", en: "Mythic Tank • UW +10" },
+      },
+      {
+        name: "Ne Zha",
+        faction: "nature",
+        note: { vi: "Mythic Frontline • UW +20", en: "Mythic Frontline • UW +20" },
+      },
+      {
+        name: "Tidecaller",
+        faction: "nature",
+        note: { vi: "Max 5★ Bạc (1,000 Mảnh)", en: "Max 5★ Silver (1,000 Shards)" },
+      },
+      {
+        name: "Petalis",
+        faction: "nature",
+        note: { vi: "S3 Mythic Control/Support", en: "S3 Mythic Control/Support" },
+      },
+      {
+        name: "Pixie",
+        faction: "nature",
+        note: { vi: "Awakened AoE Carry", en: "Awakened AoE Carry" },
+      },
+      {
+        name: "Forest Maiden",
+        faction: "nature",
+        note: { vi: "Awakened Summon Engine", en: "Awakened Summon Engine" },
+      },
+    ],
+    queue2Heroes: [
+      {
+        name: "Sage",
+        faction: "nature",
+        note: { vi: "Chuyển xuống Đội 2", en: "Rotated to Queue 2" },
+      },
+      {
+        name: "Treeguard",
+        faction: "nature",
+        note: { vi: "Tank Đội 2 3v3", en: "3v3 Queue 2 Tank" },
+      },
+    ],
+  },
+};
+
+const FACTION_TABS: {
+  id: StepperFactionId;
+  label: { vi: string; en: string };
+  soulStoneBadge: { vi: string; en: string };
+}[] = [
+  {
+    id: "league",
+    label: { vi: "🔵 Liên Minh (League)", en: "🔵 Pure League" },
+    soulStoneBadge: { vi: "18–27 Đá Hồn", en: "18–27 Soul Stones" },
+  },
+  {
+    id: "horde",
+    label: { vi: "🔴 Bộ Tộc (Horde)", en: "🔴 Pure Horde" },
+    soulStoneBadge: { vi: "9 Đá Hồn (-67%)", en: "9 Soul Stones (-67%)" },
+  },
+  {
+    id: "nature",
+    label: { vi: "🟢 Thiên Nhiên (Nature)", en: "🟢 Pure Nature" },
+    soulStoneBadge: { vi: "18 Đá Hồn", en: "18 Soul Stones" },
+  },
+];
+
 export function HordePivotStepperWidget({
   article,
   locale = "vi",
@@ -345,14 +1045,64 @@ export function HordePivotStepperWidget({
   const hasProAccess =
     forceUnlockPro || !isLockEnabled || activeAccount?.active_plan === "PRO";
 
+  const initialFaction: StepperFactionId =
+    article?.slug === "league-progression-playbook"
+      ? "league"
+      : article?.slug === "nature-progression-playbook"
+        ? "nature"
+        : "horde";
+
+  const [activeFaction, setActiveFaction] =
+    useState<StepperFactionId>(initialFaction);
+  const [activeStageNumber, setActiveStageNumber] = useState<1 | 2 | 3 | 4>(1);
+
   const sourceArticle =
-    article?.slug === "horde-pivot-roadmap"
+    article?.slug === "horde-pivot-roadmap" ||
+    article?.slug === "horde-progression-playbook"
       ? article
       : ARTICLE_4_2_HORDE_PIVOT_ROADMAP;
 
-  const [activeStageNumber, setActiveStageNumber] = useState<1 | 2 | 3 | 4>(1);
-
   const stages = useMemo<ParsedPivotStage[]>(() => {
+    const stageNums: (1 | 2 | 3 | 4)[] = [1, 2, 3, 4];
+
+    if (activeFaction === "league") {
+      return stageNums.map((num) => {
+        const meta = LEAGUE_STAGE_META[num];
+        return {
+          stageNumber: num,
+          dayRangeBadge: meta.dayRangeBadge,
+          shortTitle: meta.shortTitle,
+          auraBadge: meta.auraBadge,
+          stageAndMilestone: meta.stageAndMilestone[locale],
+          queue1Lineup: meta.queue1Lineup[locale],
+          shardAndBookRule: meta.shardAndBookRule[locale],
+          gearAndBuildingRule: meta.gearAndBuildingRule[locale],
+          leagueRosterRole: meta.leagueRosterRole[locale],
+          queue1Heroes: meta.queue1Heroes,
+          queue2Heroes: meta.queue2Heroes,
+        };
+      });
+    }
+
+    if (activeFaction === "nature") {
+      return stageNums.map((num) => {
+        const meta = NATURE_STAGE_META[num];
+        return {
+          stageNumber: num,
+          dayRangeBadge: meta.dayRangeBadge,
+          shortTitle: meta.shortTitle,
+          auraBadge: meta.auraBadge,
+          stageAndMilestone: meta.stageAndMilestone[locale],
+          queue1Lineup: meta.queue1Lineup[locale],
+          shardAndBookRule: meta.shardAndBookRule[locale],
+          gearAndBuildingRule: meta.gearAndBuildingRule[locale],
+          leagueRosterRole: meta.leagueRosterRole[locale],
+          queue1Heroes: meta.queue1Heroes,
+          queue2Heroes: meta.queue2Heroes,
+        };
+      });
+    }
+
     const allSections = [
       ...(sourceArticle.freeSections ?? []),
       ...(sourceArticle.proSections ?? []),
@@ -367,26 +1117,25 @@ export function HordePivotStepperWidget({
       (b): b is GuideTableBlock => b.type === "table"
     );
 
-    const stageNums: (1 | 2 | 3 | 4)[] = [1, 2, 3, 4];
-
     return stageNums.map((num, idx) => {
       const row = tableBlock?.rows[idx];
-      const meta = STAGE_META[num];
+      const meta = HORDE_STAGE_META[num];
       return {
         stageNumber: num,
         dayRangeBadge: meta.dayRangeBadge,
         shortTitle: meta.shortTitle,
         auraBadge: meta.auraBadge,
-        stageAndMilestone: row?.[0]?.[locale] ?? meta.shortTitle[locale],
-        queue1Lineup: row?.[1]?.[locale] ?? "",
-        shardAndBookRule: row?.[2]?.[locale] ?? "",
-        gearAndBuildingRule: row?.[3]?.[locale] ?? "",
-        leagueRosterRole: row?.[4]?.[locale] ?? "",
+        stageAndMilestone: row?.[0]?.[locale] ?? meta.stageAndMilestone[locale],
+        queue1Lineup: row?.[1]?.[locale] ?? meta.queue1Lineup[locale],
+        shardAndBookRule: row?.[2]?.[locale] ?? meta.shardAndBookRule[locale],
+        gearAndBuildingRule:
+          row?.[3]?.[locale] ?? meta.gearAndBuildingRule[locale],
+        leagueRosterRole: row?.[4]?.[locale] ?? meta.leagueRosterRole[locale],
         queue1Heroes: meta.queue1Heroes,
         queue2Heroes: meta.queue2Heroes,
       };
     });
-  }, [sourceArticle, locale]);
+  }, [activeFaction, sourceArticle, locale]);
 
   useEffect(() => {
     const handleTocNavigate = (event: Event) => {
@@ -430,8 +1179,8 @@ export function HordePivotStepperWidget({
             <Flame className="h-3.5 w-3.5 text-amber-400" />
             <span>
               {locale === "vi"
-                ? "Lộ Trình Chuyển Giao Zero-Loss • Ngày 1 ➔ S3"
-                : "Zero-Loss Pivot Protocol • Day 1 ➔ S3"}
+                ? "Playbook Lộ Trình 3 Phe Thuần • Ngày 1 ➔ S4"
+                : "3-Faction Pure Progression Playbook • Day 1 ➔ S4"}
             </span>
           </div>
           <h3 className="text-lg sm:text-xl font-bold text-foreground dark:text-white">
@@ -476,8 +1225,14 @@ export function HordePivotStepperWidget({
                 ? "Horde: 9 Hồn Đá Đỏ (1 SSR)"
                 : "Horde: 9 Soul Stones (1 SSR)"}
             </span>
-            <span>vs</span>
-            <span className="rounded bg-blue-500/20 px-2 py-0.5 text-blue-800 dark:text-blue-200 line-through opacity-80">
+            <span>•</span>
+            <span className="rounded bg-emerald-500/20 px-2 py-0.5 font-semibold text-emerald-800 dark:text-emerald-200">
+              {locale === "vi"
+                ? "Nature: 18 Hồn Đá Đỏ (2 SSR)"
+                : "Nature: 18 Soul Stones (2 SSR)"}
+            </span>
+            <span>•</span>
+            <span className="rounded bg-blue-500/20 px-2 py-0.5 text-blue-800 dark:text-blue-200">
               {locale === "vi"
                 ? "League: 27 Hồn Đá Đỏ (3 SSR)"
                 : "League: 27 Soul Stones (3 SSR)"}
@@ -486,11 +1241,44 @@ export function HordePivotStepperWidget({
         </div>
       </div>
 
+      {/* 3-Faction Selector Tabs */}
+      <div
+        role="tablist"
+        aria-label={
+          locale === "vi" ? "Chọn Phe Đội Hình" : "Select Faction Playbook"
+        }
+        className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-3"
+      >
+        {FACTION_TABS.map((tab) => {
+          const isSelected = activeFaction === tab.id;
+          return (
+            <button
+              key={tab.id}
+              type="button"
+              role="tab"
+              aria-selected={isSelected}
+              data-testid={`stepper-faction-tab-${tab.id}`}
+              onClick={() => setActiveFaction(tab.id)}
+              className={`min-h-[44px] flex items-center justify-between gap-2 rounded-xl border px-3.5 py-2.5 text-xs font-bold transition-all cursor-pointer ${
+                isSelected
+                  ? "border-amber-400/70 bg-amber-500/15 text-foreground dark:text-white shadow-[0_0_16px_rgba(245,158,11,0.18)]"
+                  : "border-border/75 dark:border-white/10 bg-muted/30 dark:bg-white/[0.03] text-muted-foreground dark:text-slate-300 hover:border-amber-500/35 hover:bg-muted/60"
+              }`}
+            >
+              <span>{tab.label[locale]}</span>
+              <span className="rounded-md bg-background/85 dark:bg-black/40 px-2 py-0.5 font-mono text-xs text-amber-700 dark:text-amber-300">
+                {tab.soulStoneBadge[locale]}
+              </span>
+            </button>
+          );
+        })}
+      </div>
+
       {/* 4-Stage Stepper Bar */}
       <div
         role="tablist"
         aria-label={t("widgetPivotTitle")}
-        className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-4"
+        className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-4"
       >
         {stages.map((stage) => {
           const isActive = stage.stageNumber === activeStageNumber;
@@ -581,7 +1369,9 @@ export function HordePivotStepperWidget({
                     className={`flex items-center justify-between gap-2 rounded-lg border px-2.5 py-2 text-xs ${
                       hero.faction === "horde"
                         ? "border-rose-500/35 bg-rose-500/10 text-rose-900 dark:text-rose-100"
-                        : "border-blue-500/35 bg-blue-500/10 text-blue-900 dark:text-blue-100"
+                        : hero.faction === "nature"
+                          ? "border-emerald-500/35 bg-emerald-500/10 text-emerald-900 dark:text-emerald-100"
+                          : "border-blue-500/35 bg-blue-500/10 text-blue-900 dark:text-blue-100"
                     }`}
                   >
                     <span className="inline-flex items-center gap-2 font-bold min-w-0">
@@ -593,7 +1383,11 @@ export function HordePivotStepperWidget({
                           <GameAssetFrame
                             key={prof.id}
                             src={prof.avatarPath}
-                            alt={locale === "vi" ? prof.inGameNameVi : prof.inGameNameEn}
+                            alt={
+                              locale === "vi"
+                                ? prof.inGameNameVi
+                                : prof.inGameNameEn
+                            }
                             size="md"
                             rarity={prof.rarity}
                             faction={prof.faction}
@@ -603,7 +1397,11 @@ export function HordePivotStepperWidget({
                         ))}
                       </span>
                       <span className="truncate">
-                        {hero.faction === "horde" ? "🔴 " : "🔵 "}
+                        {hero.faction === "horde"
+                          ? "🔴 "
+                          : hero.faction === "nature"
+                            ? "🟢 "
+                            : "🔵 "}
                         {hero.name}
                       </span>
                     </span>
@@ -642,7 +1440,11 @@ export function HordePivotStepperWidget({
                             <GameAssetFrame
                               key={prof.id}
                               src={prof.avatarPath}
-                              alt={locale === "vi" ? prof.inGameNameVi : prof.inGameNameEn}
+                              alt={
+                                locale === "vi"
+                                  ? prof.inGameNameVi
+                                  : prof.inGameNameEn
+                              }
                               size="sm"
                               rarity={prof.rarity}
                               faction={prof.faction}
@@ -749,3 +1551,5 @@ export function HordePivotStepperWidget({
     </div>
   );
 }
+
+export const FactionProgressionStepperWidget = HordePivotStepperWidget;
