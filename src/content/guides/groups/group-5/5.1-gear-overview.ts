@@ -367,8 +367,8 @@ export const ARTICLE_5_1_GEAR_OVERVIEW: GuideArticle = {
         {
           id: "sub-2-1-queue1-24-golden-pieces-roadmap",
           title: {
-            vi: "2.1. Nguyên Tắc \"24 Món Vàng Đội 1 Trước Khi Nhìn Sang Đội 2\" & Mẹo Chuyển Hệ Bộ Lạc",
-            en: "2.1. The \"24 Queue 1 Golden Pieces Before Touching Queue 2\" Rule & Horde Pivot Trick",
+            vi: "2.1. Nguyên Tắc \"24 Món Vàng Đội 1 Trước Khi Nhìn Sang Đội 2\" & Kế Thừa Giữa Tướng Quá Độ Và Tướng Đỏ",
+            en: "2.1. The \"24 Queue 1 Golden Pieces Before Touching Queue 2\" Rule & Transitional-to-Mythic Gear Swap",
           },
           badge: {
             vi: "Lộ Trình 24 Món Vàng",
@@ -416,20 +416,20 @@ export const ARTICLE_5_1_GEAR_OVERVIEW: GuideArticle = {
                 },
                 {
                   badge: {
-                    vi: "Giai đoạn 3 (Chuyển Giao)",
-                    en: "Stage 3 (Faction Pivot)",
+                    vi: "Giai đoạn 3 (Kế Thừa)",
+                    en: "Stage 3 (Gear Inheritance)",
                   },
                   title: {
-                    vi: "Mẹo Đúc Sẵn Dấu Ấn Bộ Lạc (Cột 2) Cho Lộ Trình Khởi Đầu Liên Minh ➔ Bộ Lạc Ngày 21+",
-                    en: "Pre-Crafting Column 2 Horde Marks for the League Starter ➔ Day 21+ Horde Pivot",
+                    vi: "Đúc Đúng Dấu Ấn Phe Chủ Lực Từ Ngày 1 & Kế Thừa Sang Tướng Đỏ Gốc Ngày 21+",
+                    en: "Forge Your Main Faction Mark From Day 1 & Inherit Onto Native Mythics on Day 21+",
                   },
                   timing: {
                     vi: "Từ Tuần 3 Máy Chủ",
                     en: "Starting Server Week 3",
                   },
                   description: {
-                    vi: "**Đúc trước Dấu Ấn Bộ Lạc (Cột 2) từ Tuần 3:**\n• **Mặc tạm trên tướng Liên Minh:** Pyromancer hay Adjudicator vẫn nhận đủ `100%` chỉ số gốc và Hiệu ứng Bộ `4` món.\n• **Chuyển giao tốn `0` Thỏi Vàng:** Khi mở khóa Desert Prince & Storm Maiden, tháo đồ sang là bật ngay `+30%` chỉ số hệ.",
-                    en: "**Pre-select the Horde Faction Mark (Column 2) starting Week 3:**\n• **Temporary League wearers:** Pyromancer or Adjudicator still get `100%` base stats and full `4`-piece Set Bonuses.\n• **Zero-cost Horde pivot:** Transferring the gear onto Desert Prince & Storm Maiden immediately activates the `+30%` faction bonus.",
+                    vi: "**Đúc đúng Dấu Ấn Phe chủ lực (Cột 1/2/3) ngay từ món đầu tiên:**\n• **Mặc trên tướng SSR quá độ:** Tướng quá độ cùng phe nhận đủ `100%` chỉ số gốc, Hiệu ứng Bộ `4` món và `+30%` chỉ số hệ.\n• **Kế thừa tốn `0` Thỏi Vàng:** Khi mở khóa Tướng Đỏ gốc (Desert Prince, Storm Maiden, Paragon, Tidecaller), tháo đồ sang là kế thừa nguyên vẹn `+30%` chỉ số hệ.",
+                    en: "**Select your main Faction Mark (Column 1/2/3) from the very first piece:**\n• **Transitional SSR wearers:** Same-faction transitional SSRs receive `100%` base stats, `4`-piece Set Bonuses, and the `+30%` faction bonus.\n• **Zero-cost Mythic inheritance:** Transferring the gear onto Native Mythics (Desert Prince, Storm Maiden, Paragon, Tidecaller) preserves the full `+30%` faction bonus.",
                   },
                 },
               ],

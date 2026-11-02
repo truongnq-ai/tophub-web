@@ -11,8 +11,8 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
     en: "Complete Overview & 90-Day Meta Roadmap",
   },
   summary: {
-    vi: "Kiến trúc 7 trụ cột sức mạnh trong Top Heroes, cách phân biệt Lực chiến thật vs Lực chiến ảo và lộ trình 90 ngày chuyển giao Liên Minh sang Bộ Lạc tối ưu cho F2P/Low-Spender.",
-    en: "The 7-pillar power architecture in Top Heroes, Combat Power vs. Inflated Power analysis, and the 90-day League-to-Horde transition roadmap for F2P/Low-Spenders.",
+    vi: "Kiến trúc 7 trụ cột sức mạnh trong Top Heroes, cách phân biệt Lực chiến thật vs Lực chiến ảo và lộ trình 90 ngày phát triển thuần 1 phe (Liên Minh / Bộ Lạc / Thiên Nhiên) ngay từ Ngày 1 tối ưu cho F2P/Low-Spender.",
+    en: "The 7-pillar power architecture in Top Heroes, Combat Power vs. Inflated Power analysis, and the 90-day Day 1 pure-faction progression roadmap (League / Horde / Nature) for F2P/Low-Spenders.",
   },
   tldr: {
     coreRule: {
@@ -20,8 +20,8 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
       en: "**Real combat effectiveness is dictated 100% by `Queue 1 Combat Power` rather than account-wide `Total Influence`.**\n• **Combat Reality:** A `15M` total influence account with a `6.0M` Queue 1 effortlessly crushes a `20M` account whose Queue 1 is only `4.0M`.",
     },
     immediateAction: {
-      vi: "**Gia nhập Bang hội `Top 1–3` của máy chủ ngay khi Lâu đài đạt `Cấp 7` (`Castle Lv.7`).**\n• **Đội hình & Tích trữ:** Khởi đầu bằng đội Liên Minh dễ kiếm mảnh, đồng thời đóng băng 100% `Mảnh Tướng Vàng Vạn Năng` và `Kim Cương` chờ làn sóng Tướng Đỏ từ `Ngày 21`.",
-      en: "**Join a `Top 1–3` Server Guild immediately upon reaching `Castle Lv.7`.**\n• **Roster & Hoarding:** Start with an easily farmable League lineup and freeze 100% of `Universal Legendary Hero Shards` and `Diamonds` for the Mythic Hero wave on `Day 21`.",
+      vi: "**Gia nhập Bang hội `Top 1–3` của máy chủ ngay khi Lâu đài đạt `Cấp 7` (`Castle Lv.7`).**\n• **Đội hình & Tích trữ:** Chốt 1 Phe chủ lực từ `Ngày 1` (ưu tiên `Bộ Lạc` cho F2P), dùng 6 SSR cùng phe kích `+35% ATK & HP` và đóng băng 100% `Mảnh Tướng Vàng Vạn Năng` + `Kim Cương` chờ Tướng Đỏ `Ngày 21`.",
+      en: "**Join a `Top 1–3` Server Guild immediately upon reaching `Castle Lv.7`.**\n• **Roster & Hoarding:** Commit to 1 Faction from `Day 1` (`Pure Horde` for F2P), run 6 same-faction SSRs (`+35% ATK & HP`), and freeze 100% of `Universal Legendary Hero Shards` + `Diamonds` for `Day 21` Mythics.",
     },
     strictTaboo: {
       vi: "**Tuyệt đối không đốt `Kim Cương` vào Quán Rượu (`Tavern`) và không chia tài nguyên cho Đội 2 / Đội 3.**\n• **Kỷ luật Lịch Event (`02:00 UTC` / `09:00 Giờ VN` Thứ Hai):** Luôn mở Lịch kiểm tra chế độ tuần (Chế độ 1: Thi Đấu Hội nối tiếp đầu Pre-Season hay Chế độ 2: `GAR / KvK` 6 ngày) trước khi xả vật phẩm.",
@@ -34,8 +34,8 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
       en: "**The `7 Strategic Pillars` Architecture:** `Queue 1` (your 6 main heroes) drives `35%` of total PvP combat impact.\n• **Event Multiplier:** The Dynamic Event Schedule (`Guild Race / GAR / KvK`) acts as a `2x–3x` account progression multiplier.",
     },
     {
-      vi: "**Lộ trình Chuyển giao Bộ Lạc `3 Bước`:** Ngày 1–20 Liên Minh ➔ Ngày 21–40 Đội Lai (`4 Liên Minh + 2 Bộ Lạc`) ➔ Ngày 41+ Thuần Bộ Lạc.\n• **Tối ưu Thức tỉnh:** Giúp F2P sở hữu `5 Tướng Đỏ` và chỉ tốn `9 Hồn Đá Đỏ` + `345–385` Mảnh để thức tỉnh 1 Tướng Vàng (thay vì `27 Đá` như Liên Minh).",
-      en: "**The `3-Step` Meta Horde Pivot:** Days 1–20 League ➔ Days 21–40 Hybrid (`4 League + 2 Horde`) ➔ Day 41+ Pure Horde.\n• **Awakening Efficiency:** Lets F2P field `5 Mythic` heroes while needing only `9 Soul Stones` + `345–385` Shards to awaken 1 Legendary (vs. `27 Soul Stones` for League).",
+      vi: "**Lộ trình Thuần Phe Ngay Từ Ngày 1 (`3 Cột Mốc`):** Ngày 1–20 (6 SSR Quá Độ cùng phe) ➔ Ngày 21–45 (Thay Tướng Đỏ gốc vào thế chỗ Tướng Quá Độ) ➔ Season 1+ (Thức tỉnh SSR Trụ Cột).\n• **Tối ưu Thức tỉnh:** Chơi Thuần Bộ Lạc giúp F2P sở hữu `5 Tướng Đỏ` và chỉ tốn `9 Hồn Đá Đỏ` + `345–385` Mảnh để thức tỉnh 1 Tướng Vàng (thay vì `27 Đá` như Liên Minh).",
+      en: "**Day 1 Pure-Faction Progression (`3 Milestones`):** Days 1–20 (6 Transitional SSRs) ➔ Days 21–45 (Replace Transitional SSRs with Native Mythics) ➔ Season 1+ (Awaken Core SSR).\n• **Awakening Efficiency:** Pure Horde lets F2P field `5 Mythic` heroes while needing only `9 Soul Stones` + `345–385` Shards to awaken 1 Legendary (vs. `27 Soul Stones` for League).",
     },
     {
       vi: "**Quy chuẩn Hệ thống `15 Sao` (3 Màu Sao):** Điểm dừng ROI tối ưu đầu tiên cho mỗi Tướng Đỏ là `1 Sao Trắng` (`11 Sao` = `560` Mảnh Mythic / `280` Mảnh Leg).\n• **Động cơ Kinh tế Tím:** Đẩy `Brawler` và `Knight` đạt `2 Sao Trắng` (`12 Sao` = `300` Mảnh) để mở khóa `+30%` Tốc độ Nghiên cứu & Huấn luyện.",
@@ -61,7 +61,7 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
     "bộ lạc",
     "liên minh",
     "thiên nhiên",
-    "horde pivot",
+    "3-faction playbooks",
     "desert prince",
     "storm maiden",
     "witch",
@@ -485,10 +485,10 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
       ],
     },
     {
-      id: "sec-2-factions-and-pivot",
+      id: "sec-2-factions-and-progression",
       title: {
-        vi: "2. Chiến thuật Tối ưu cho F2P & Low-Spender: Định Hướng 3 Phe Phái & Lộ Trình Chuyển Giao",
-        en: "2. F2P & Low-Spender Strategy: 3-Faction Analysis & The Meta Horde Pivot",
+        vi: "2. Chiến thuật Tối ưu cho F2P & Low-Spender: Chọn Phe Ngay Từ Ngày 1 & 3 Giáo Án Thuần Hệ",
+        en: "2. F2P & Low-Spender Strategy: Day 1 Faction Selection & 3 Pure-Faction Playbooks",
       },
       blocks: [
         {
@@ -553,8 +553,8 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
                     en: "In Endgame, standard League lineups only have 3 Mythic heroes (Paragon, Rose Princess, Bishop), forcing you to awaken 3 Legendary heroes (costing 3 × 9 = 27 Soul Stones + 345–385 Shards/hero). Furthermore, 80% of new server players run League, making it heavily countered.",
                   },
                   {
-                    vi: "Người chơi khởi đầu Ngày 1–20; hoặc người nạp tầm trung–cao (Dolphin/Whale) thích dồn sát thương phép.",
-                    en: "Early-game starters (Days 1–20); or Mid-to-High spenders (Dolphins/Whales) who prefer magic burst.",
+                    vi: "Người chơi yêu thích sát thương phép diện rộng (AoE Burst) hoặc nạp tầm trung–cao (Dolphin/Whale) chấp nhận đầu tư 27 Hồn Đá Đỏ (Xem Giáo án 4.2).",
+                    en: "Players who love AoE magic burst or Mid-to-High spenders (Dolphins/Whales) willing to invest 27 Soul Stones (See Playbook 4.2).",
                   },
                 ],
                 [
@@ -572,8 +572,8 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
                     en: "During Days 1–20, starter Legendary Horde heroes (Barbarian, Wilderness Hunter, Shaman) are relatively weak and lack AoE waveclear.",
                   },
                   {
-                    vi: "Khuyên dùng số 1 cho F2P & Low-Spender thực hiện chiến thuật Chuyển giao từ Ngày 21+.",
-                    en: "#1 Recommended choice for F2P & Low-Spenders executing the Meta Horde Pivot from Day 21+.",
+                    vi: "Khuyên dùng số 1 cho F2P & Low-Spender kiên định Thuần Bộ Lạc ngay từ Ngày 1 (Xem Giáo án 4.3).",
+                    en: "#1 Recommended choice for F2P & Low-Spenders committing to Pure Horde from Day 1 (See Playbook 4.3).",
                   },
                 ],
                 [
@@ -600,21 +600,21 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
           ],
         },
         {
-          id: "sub-2-2-horde-pivot",
+          id: "sub-2-2-pure-faction-progression",
           title: {
-            vi: "2.2. Chiến thuật \"Khởi Đầu Liên Minh ➔ Chuyển Giao Bộ Lạc (Ngày 21–41)\" (The Meta Horde Pivot)",
-            en: "2.2. The \"League Start ➔ Horde Pivot (Days 21–41)\" Strategy (The Meta Horde Pivot)",
+            vi: "2.2. Kỷ Luật \"Chọn 1 Phe Ngay Từ Ngày 1 & Thay Thế Tướng Quá Độ\" (Day 1 Pure-Faction Discipline)",
+            en: "2.2. The \"Day 1 Pure-Faction Commitment & Transitional Replacement\" Discipline",
           },
           badge: {
-            vi: "LỘ TRÌNH CHUYỂN GIAO 3 BƯỚC",
-            en: "3-STEP PIVOT ROADMAP",
+            vi: "LỘ TRÌNH THUẦN PHE 3 BƯỚC",
+            en: "3-STEP PURE PROGRESSION",
           },
           blocks: [
             {
               type: "paragraph",
               text: {
-                vi: "**Lộ trình thông minh nhất cho F2P và Low-Spender là chiến thuật Chuyển giao `3 Bước` (`3-Step Pivot`).**\n• **Tránh 2 thái cực sai lầm:** Không cố chấp chơi thuần Bộ Lạc từ Ngày 1 (thọt PvE/PvP 3 tuần đầu) và không lún quá sâu vào Liên Minh (bị kẹt bức tường `27 Hồn Đá Đỏ` ở Season 1).",
-                en: "**The smartest progression path for F2P and Low-Spenders is the `3-Step Pivot` (`League ➔ Horde`).**\n• **Avoid Both Extremes:** Do not force pure Horde on Day 1 (weak early PvE/PvP for 3 weeks) or over-invest in League (getting trapped by a `27 Soul Stone` wall in Season 1).",
+                vi: "**Lộ trình thông minh nhất cho mọi người chơi là chốt 1 Phe chủ lực ngay từ `Ngày 1` và nâng cấp theo `3 Bước` (`Giáo án 4.2 Liên Minh / 4.3 Bộ Lạc / 4.4 Thiên Nhiên`).**\n• **Nguyên tắc cốt lõi:** Không bao giờ đút Mảnh Vạn Năng cho các Tướng Quá Độ chờ thay thế, và nếu là F2P/Low-Spender hãy ưu tiên `Thuần Bộ Lạc` để tránh bức tường `27 Hồn Đá Đỏ` ở Season 1.",
+                en: "**The smartest progression path is committing to 1 primary Faction from `Day 1` across `3 Milestones` (`Playbooks 4.2 League / 4.3 Horde / 4.4 Nature`).**\n• **Core Rule:** Never spend Universal Shards on Transitional SSRs scheduled for replacement, and prioritize `Pure Horde` as F2P/Low-Spender to avoid the `27 Soul Stone` wall in Season 1.",
               },
             },
             {
@@ -623,31 +623,31 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
                 {
                   badge: { vi: "BƯỚC 1", en: "STEP 1" },
                   title: {
-                    vi: "Giai đoạn 1: Khởi đầu bằng Đội 1 Liên Minh",
-                    en: "Phase 1: Start with a Pure League Queue 1",
+                    vi: "Giai đoạn 1: Khởi đầu bằng 6 SSR Thuần Phe Quá Độ (+35% ATK/HP)",
+                    en: "Phase 1: Start with 6 Same-Faction Transitional SSRs (+35% ATK/HP)",
                   },
                   timing: {
                     vi: "Ngày 1 – Ngày 20",
                     en: "Day 1 – Day 20",
                   },
                   description: {
-                    vi: "**Dùng mảnh tướng rơi tự nhiên từ Quán Rượu lắp đội hình `6 tướng Vàng Liên Minh` (`Adjudicator`, `Secret Keeper`, `Pyromancer`, `Astrologer`, `Nun`, `Bard`).**\n• **Kỷ luật Tích trữ:** Tuyệt đối đóng băng `100% Mảnh Vạn Năng Vàng` bắt đầu từ đầu `Tuần 3`.",
-                    en: "**Use natural hero-specific shards from the Tavern to assemble a `6-Legendary League` lineup (`Adjudicator`, `Secret Keeper`, `Pyromancer`, `Astrologer`, `Nun`, `Bard`).**\n• **Hoarding Discipline:** Strictly freeze `100% of Universal Legendary Shards` starting at `Week 3`.",
+                    vi: "**Dùng mảnh tướng rơi tự nhiên từ Quán Rượu lắp đội hình `6 tướng Vàng cùng phe` (`Swordmaster, Barbarian, Boar, Wilderness Hunter, Headhunter, Soulmancer` với Bộ Lạc hoặc bộ 6 Liên Minh/Thiên Nhiên).**\n• **Kỷ luật Tích trữ:** Tuyệt đối đóng băng `100% Mảnh Vạn Năng Vàng` khỏi các tướng quá độ chờ thay thế.",
+                    en: "**Use natural hero-specific shards from the Tavern to assemble a `6-Legendary same-faction` lineup (`Swordmaster, Barbarian, Boar, Wilderness Hunter, Headhunter, Soulmancer` for Horde or 6 League/Nature SSRs).**\n• **Hoarding Discipline:** Strictly freeze `100% of Universal Legendary Shards` away from transitional heroes.",
                   },
                 },
                 {
                   badge: { vi: "BƯỚC 2", en: "STEP 2" },
                   title: {
-                    vi: "Giai đoạn 2: Lắp Đội hình Lai (4 Liên Minh + 2 Bộ Lạc)",
-                    en: "Phase 2: Deploy the Hybrid Lineup (4 League + 2 Horde)",
+                    vi: "Giai đoạn 2: Thay Tướng Quá Độ Bằng Cặp Đôi Tướng Đỏ Mở Màn",
+                    en: "Phase 2: Replace Transitional SSRs With Your Opening Mythic Duo",
                   },
                   timing: {
                     vi: "Ngày 21 – Ngày 40",
                     en: "Day 21 – Day 40",
                   },
                   description: {
-                    vi: "**Dùng Kim Cương tích trữ mở khóa ngay `Desert Prince` (`Ngày 21`) và `Storm Maiden` (`Ngày 27`) khi sự kiện ra mắt.**\n• **Đột phá Đội Lai:** Dồn Mảnh Vạn Năng đẩy cả hai lên `1 Sao Trắng` (`11 Sao` = `560` Mảnh Quy Đổi) và đưa vào Đội 1 thay thế `Secret Keeper` cùng `Astrologer`.",
-                    en: "**Spend saved Diamonds to immediately unlock `Desert Prince` (`Day 21`) and `Storm Maiden` (`Day 27`) upon release.**\n• **Hybrid Breakthrough:** Funnel Universal Shards to push both to `1 White Star` (`11 Stars` = `560` Shards) and slot them into Queue 1 replacing `Secret Keeper` and `Astrologer`.",
+                    vi: "**Dùng Kim Cương tích trữ mở khóa ngay `Desert Prince` (`Ngày 21`) và `Storm Maiden` (`Ngày 27`) khi sự kiện ra mắt (hoặc `Paragon`/`Tidecaller` theo phe đã chọn).**\n• **Giữ trọn 6/6 Aura:** Dồn Mảnh Vạn Năng đẩy cả hai lên `1 Sao Trắng` (`11 Sao` = `560` Mảnh Quy Đổi) và đưa vào Đội 1 thay thế `Boar` cùng `Headhunter`.",
+                    en: "**Spend saved Diamonds to immediately unlock `Desert Prince` (`Day 21`) and `Storm Maiden` (`Day 27`) upon release (or `Paragon`/`Tidecaller` for your chosen faction).**\n• **Retain 6/6 Aura:** Funnel Universal Shards to push both to `1 White Star` (`11 Stars` = `560` Shards) and slot them into Queue 1 replacing `Boar` and `Headhunter`.",
                   },
                 },
                 {
@@ -661,8 +661,8 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
                     en: "Day 41 Onward",
                   },
                   description: {
-                    vi: "**Khi `Witch` ra mắt vào `Ngày 41`, lấy làm Healer chủ lực và chuyển toàn bộ Đội 1 sang `6 tướng Bộ Lạc` thuần hệ.**\n• **Đội hình Bộ Lạc:** Gồm `Desert Prince`, `Swordmaster/Beastmaster`, `Storm Maiden`, `Wilderness Hunter/Wukong`, `Witch`, và `Soulmancer/Warlock`.\n• **Thừa kế 0 Đồng:** Chuyển toàn bộ Đồ Vàng `+10/+20` sang tướng Bộ Lạc và đẩy `6 tướng Liên Minh` cũ xuống làm Đội 2 hoàn chỉnh miễn phí!",
-                    en: "**When `Witch` arrives on `Day 41`, claim her as your main Healer and convert Queue 1 into `6 pure Horde` heroes.**\n• **Pure Horde Lineup:** Field `Desert Prince`, `Swordmaster/Beastmaster`, `Storm Maiden`, `Wilderness Hunter/Wukong`, `Witch`, and `Soulmancer/Warlock`.\n• **Zero-Cost Inheritance:** Transfer all `+10/+20` Legendary Gear onto Horde and push your `6 old League` heroes down to form Queue 2 for free!",
+                    vi: "**Khi `Witch` ra mắt vào `Ngày 41`, lấy làm Healer chủ lực thay `Shaman` để hoàn thiện khung 3 Mythic + 3 SSR Bộ Lạc.**\n• **Đội hình Bộ Lạc:** Gồm `Desert Prince`, `Swordmaster/Beastmaster`, `Storm Maiden`, `Wilderness Hunter/Wukong`, `Witch`, và `Soulmancer/Warlock`.\n• **Thừa kế 0 Đồng:** Chuyển toàn bộ Đồ Vàng `+10/+20` từ tướng quá độ sang Tướng Đỏ và đưa các tướng quá độ rút ra xuống làm Đội 2 miễn phí!",
+                    en: "**When `Witch` arrives on `Day 41`, claim her as your main Healer replacing `Shaman` to complete the 3-Mythic + 3-SSR Horde core.**\n• **Pure Horde Lineup:** Field `Desert Prince`, `Swordmaster/Beastmaster`, `Storm Maiden`, `Wilderness Hunter/Wukong`, `Witch`, and `Soulmancer/Warlock`.\n• **Zero-Cost Inheritance:** Transfer all `+10/+20` Legendary Gear from transitional SSRs onto your Mythics and rotate displaced SSRs down to Queue 2 for free!",
                   },
                 },
               ],
@@ -708,8 +708,8 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
                     en: "Castle Lv.1 ➔ Lv.30, Tavern, basic Relics, Legendary Gear Blacksmith, Dynamic Event Schedule: continuous weekly Guild Race (from Monday 02:00 UTC ➔ Monday 02:00 UTC climbing Guild Rank D ➔ C ➔ B ➔ A ➔ S alongside Giant Raid & Dark Legion Challenge) before transitioning into alternating Guild Race ⇄ GAR / KvK.",
                   },
                   {
-                    vi: "Ra mắt Desert Prince (Ngày 21), Storm Maiden (Ngày 27), Paragon (Ngày 35), Witch (Ngày 41), Rose Princess (Ngày 46). Chuyển giao Liên Minh ➔ Bộ Lạc.",
-                    en: "Releases Desert Prince (Day 21), Storm Maiden (Day 27), Paragon (Day 35), Witch (Day 41), Rose Princess (Day 46). Execute League ➔ Horde Pivot.",
+                    vi: "Ra mắt Desert Prince (Ngày 21), Storm Maiden (Ngày 27), Paragon (Ngày 35), Witch (Ngày 41), Rose Princess (Ngày 46). Thay thế tướng quá độ bằng Tướng Đỏ gốc.",
+                    en: "Releases Desert Prince (Day 21), Storm Maiden (Day 27), Paragon (Day 35), Witch (Day 41), Rose Princess (Day 46). Replace transitional SSRs with Native Mythics.",
                   },
                 ],
                 [
@@ -854,20 +854,20 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
             en: "First 90-Day New Server Progression Flowchart (Pre-Season S0 ➔ Season 1)",
           },
           subtitle: {
-            vi: "Chuỗi cột mốc định lượng từ Ngày 1 (Khởi động Liên Minh) ➔ Ngày 21–41 (Chuyển dịch Bộ Lạc) ➔ Ngày 66–90 (Thức tỉnh Season 1)",
-            en: "Quantitative milestone progression from Day 1 (League Start) ➔ Days 21–41 (Horde Pivot) ➔ Days 66–90 (Season 1 Awakening)",
+            vi: "Chuỗi cột mốc định lượng từ Ngày 1 (Khung 6 SSR Thuần Phe) ➔ Ngày 21–46 (Thay Tướng Đỏ Gốc) ➔ Ngày 66–90 (Thức tỉnh Season 1)",
+            en: "Quantitative milestone progression from Day 1 (6-SSR Pure Faction Core) ➔ Days 21–46 (Native Mythic Replacement) ➔ Days 66–90 (Season 1 Awakening)",
           },
           nodes: [
             {
               id: "phase-1-onboarding",
               badge: { vi: "GIAI ĐOẠN 1 • NGÀY 1–20", en: "PHASE 1 • DAYS 1–20" },
               title: {
-                vi: "Giai Đoạn 1: Khởi Động Liên Minh & Tích Trữ Đáy Ví (Ngày 1 – 20)",
-                en: "Phase 1: League Onboarding & Iron Reserve Building (Days 1 – 20)",
+                vi: "Giai Đoạn 1: Chốt Phe Chủ Lực & Tích Trữ Đáy Ví (Ngày 1 – 20)",
+                en: "Phase 1: Day 1 Faction Commitment & Iron Reserve Building (Days 1 – 20)",
               },
               subtitle: {
-                vi: "Ngày 1–7: Vào Bang Top 1–3 & Mở Queue 1 Liên Minh. Ngày 8–20: Rush Lâu Đài Lv.22–25, đóng băng Mảnh Vạn Năng từ đầu Tuần 3 & tích đáy 30,000+ KC.",
-                en: "Days 1–7: Join Top 1–3 Guild & build League Queue 1. Days 8–20: Rush Castle Lv.22–25, freeze Universal Shards at Week 3 & build a 30,000+ KC floor.",
+                vi: "Ngày 1–7: Vào Bang Top 1–3 & Mở Queue 1 Thuần Phe. Ngày 8–20: Rush Lâu Đài Lv.22–25, đóng băng Mảnh Vạn Năng khỏi tướng quá độ & tích đáy 30,000+ KC.",
+                en: "Days 1–7: Join Top 1–3 Guild & build Pure-Faction Queue 1. Days 8–20: Rush Castle Lv.22–25, freeze Universal Shards on transitional SSRs & build a 30,000+ KC floor.",
               },
               metrics: [
                 { vi: "Đáy ví: 30,000+ KC", en: "Floor: 30,000+ Diamonds" },
@@ -876,15 +876,15 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
               tone: "blue",
             },
             {
-              id: "phase-2-horde-pivot",
+              id: "phase-2-mythic-replacement",
               badge: { vi: "GIAI ĐOẠN 2 • NGÀY 21–45", en: "PHASE 2 • DAYS 21–45" },
               title: {
-                vi: "Giai Đoạn 2: Chuyển Dịch Bộ Lạc (Ngày 21 – 45)",
-                en: "Phase 2: The Meta Horde Pivot (Days 21 – 45)",
+                vi: "Giai Đoạn 2: Thay Thế Tướng Đỏ Gốc Theo Phe (Ngày 21 – 45)",
+                en: "Phase 2: Native Mythic Replacement (Days 21 – 45)",
               },
               subtitle: {
-                vi: "Ngày 21: Lấy Desert Prince (Vòng Quay/Xúc Xắc) ➔ Ngày 27: Lấy Storm Maiden (Ghép Đội Lai 4 LM + 2 BL, đẩy 1 Sao Trắng = 560 Mảnh) ➔ Ngày 41: Lấy Witch (Hoàn tất Đội 1 Thuần Bộ Lạc).",
-                en: "Day 21: Unlock Desert Prince (Wheel/Dice) ➔ Day 27: Unlock Storm Maiden (4 League + 2 Horde Hybrid, push 1 White Star = 560 Shards) ➔ Day 41: Unlock Witch (Complete Pure Horde Queue 1).",
+                vi: "Ngày 21: Lấy Desert Prince (Vòng Quay/Xúc Xắc) ➔ Ngày 27: Lấy Storm Maiden (Thay Boar & Headhunter, đẩy 1 Sao Trắng = 560 Mảnh) ➔ Ngày 41: Lấy Witch thay Shaman (Hoàn tất Đội 1 Thuần Bộ Lạc).",
+                en: "Day 21: Unlock Desert Prince (Wheel/Dice) ➔ Day 27: Unlock Storm Maiden (Replace Boar & Headhunter, push 1 White Star = 560 Shards) ➔ Day 41: Unlock Witch replacing Shaman (Complete Pure Horde Queue 1).",
               },
               metrics: [
                 { vi: "Ngày 21: Desert Prince", en: "Day 21: Desert Prince" },
@@ -1200,12 +1200,12 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
             {
               stepNumber: "3",
               title: {
-                vi: "Chuẩn bị Hạ tầng Chuyển giao Bộ Lạc",
-                en: "Pre-Build Horde Transition Infrastructure",
+                vi: "Đồng bộ Hạ tầng Đơn Hệ Bộ Lạc",
+                en: "Synchronize Single-Faction Horde Infrastructure",
               },
               detail: {
-                vi: "**Đưa Doanh Trại Bộ Lạc (`Horde Barracks`) và Tượng Bộ Lạc (`Horde Statue`) vào danh sách ưu tiên xây dựng ngang với Lâu đài từ cuối Tuần 3.**\n• **Sẵn sàng Chuyển dịch:** Đảm bảo cung cấp lính Bộ Lạc bậc cao nhất ngay khi Đội 1 chuyển giao ở `Ngày 21–27`.",
-                en: "**Elevate `Horde Barracks` and `Horde Statue` to top construction priority alongside your Castle starting in late Week 3.**\n• **Transition Readiness:** Ensure highest-tier Horde troops are ready the moment Queue 1 pivots during `Days 21–27`.",
+                vi: "**Đưa Doanh Trại Bộ Lạc (`Horde Barracks`) và Tượng Bộ Lạc (`Horde Statue`) vào danh sách ưu tiên xây dựng ngang với Lâu đài ngay từ Ngày 1.**\n• **Sẵn sàng Đón Tướng Đỏ:** Đảm bảo cung cấp lính Bộ Lạc bậc cao nhất ngay khi mở khóa `Desert Prince` & `Storm Maiden` ở `Ngày 21–27`.",
+                en: "**Elevate `Horde Barracks` and `Horde Statue` to top construction priority alongside your Castle right from Day 1.**\n• **Mythic Readiness:** Ensure highest-tier Horde troops are ready the moment `Desert Prince` & `Storm Maiden` unlock during `Days 21–27`.",
               },
               impactBadge: {
                 vi: "Horde Barracks & Statue Ready",

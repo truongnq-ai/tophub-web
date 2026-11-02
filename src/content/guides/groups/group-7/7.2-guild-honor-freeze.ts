@@ -1103,8 +1103,8 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
             en: "Comparing Two F2P Accounts Hitting Castle Lv.30 on Day 55 & Entering Season 1 on Day 65",
           },
           profileSummary: {
-            vi: "**Đối chiếu 2 tài khoản F2P xuất phát Ngày 1:** Tài khoản A tiêu sạch Điểm Vinh Dự mỗi tuần và dính bẫy Universal Legendary Troop Skin `12,000` Xu khi chơi Liên Minh.\n• **Tài khoản B (Chuẩn Đóng Băng):** Thực thi nghiêm ngặt Lệnh Đóng Băng `40,000` Điểm / `18,000` Xu và chuyển giao sang Đội 1 Bộ Lạc (5 Native Mythics + Soulmancer).",
-            en: "**Side-by-side audit of two Day-1 F2P accounts:** Account A drained Guild Honor weekly and fell for the `12,000`-Coin Universal Legendary Troop Skin trap while running League.\n• **Account B (Freeze Standard):** Enforced the `40,000` Honor / `18,000` Coin Freeze and transitioned to Queue 1 Horde (5 Native Mythics + Soulmancer).",
+            vi: "**Đối chiếu 2 tài khoản F2P xuất phát Ngày 1:** Tài khoản A tiêu sạch Điểm Vinh Dự mỗi tuần và dính bẫy Universal Legendary Troop Skin `12,000` Xu khi chơi Liên Minh.\n• **Tài khoản B (Chuẩn Đóng Băng):** Thực thi nghiêm ngặt Lệnh Đóng Băng `40,000` Điểm / `18,000` Xu và chơi thuần Đội 1 Bộ Lạc từ Ngày 1 (5 Native Mythics + Soulmancer).",
+            en: "**Side-by-side audit of two Day-1 F2P accounts:** Account A drained Guild Honor weekly and fell for the `12,000`-Coin Universal Legendary Troop Skin trap while running League.\n• **Account B (Freeze Standard):** Enforced the `40,000` Honor / `18,000` Coin Freeze and committed to Pure Horde Queue 1 from Day 1 (5 Native Mythics + Soulmancer).",
           },
           metrics: [
             {
@@ -1168,8 +1168,8 @@ export const ARTICLE_7_2_GUILD_HONOR_FREEZE: GuideArticle = {
               en: "**Double penalty from 'Hidden Shelf' & `12,000`-Coin trap:** Account A drained Guild Honor from Lv.15–Lv.29 and wasted `12,000` Coins on Universal Legendary Troop Skin without a base Gold skin.\n• **League Burden:** Running League required `18–27` Soul Stones (`720,000` – `1,080,000` Guild Honor or `108,000` – `162,000` Guild Coins), locking shop liquidity for 4 months.",
             },
             {
-              vi: "**Đòn bẩy kinh tế 5 Mythic gốc của Bộ Lạc:** Đóng băng `40,000` Điểm từ Ngày 15–55 và chuyển sang Bộ Lạc (Desert Prince, Wukong, Storm Maiden, Beastmaster, Witch + 1 Awakened SSR là Soulmancer hoặc Warlock).\n• **Tối giản Ngân sách:** Tài khoản B chỉ cần đúng `9` Hồn Đá Đỏ + `345–385` Mảnh Tướng (`360,000` Điểm hoặc `54,000` Xu) để khép kín đội hình 6 Tướng Đỏ.",
-              en: "**Horde's 5-Native-Mythic economic leverage:** Froze `40,000`+ Guild Honor from Day 15–55 and pivoted to Horde (Desert Prince, Wukong, Storm Maiden, Beastmaster, Witch + Soulmancer or Warlock).\n• **Minimal Budget:** Account B needed only `9` Soul Stones + `345–385` Hero Shards (`360,000` Honor or `54,000` Coins) to complete a full 6-Mythic lineup.",
+              vi: "**Đòn bẩy kinh tế 5 Mythic gốc của Bộ Lạc:** Đóng băng `40,000` Điểm từ Ngày 15–55 và kiên định với Đội 1 Thuần Bộ Lạc (Desert Prince, Wukong, Storm Maiden, Beastmaster, Witch + Soulmancer hoặc Warlock).\n• **Tối giản Ngân sách:** Tài khoản B chỉ cần đúng `9` Hồn Đá Đỏ + `345–385` Mảnh Tướng (`360,000` Điểm hoặc `54,000` Xu) để khép kín đội hình 6 Tướng Đỏ.",
+              en: "**Horde's 5-Native-Mythic economic leverage:** Froze `40,000`+ Guild Honor from Day 15–55 and built Pure Horde Queue 1 (Desert Prince, Wukong, Storm Maiden, Beastmaster, Witch + Soulmancer or Warlock).\n• **Minimal Budget:** Account B needed only `9` Soul Stones + `345–385` Hero Shards (`360,000` Honor or `54,000` Coins) to complete a full 6-Mythic lineup.",
             },
           ],
           recoverySteps: [

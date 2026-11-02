@@ -38,7 +38,7 @@ function assertMaxLineLength(
 describe("Wave 3 — Content Restructuring, Scannability & Zero-Emoji Gate (Groups 1–4, 16 Articles)", () => {
   it("AC-W3-05: preserves exact category, article, section, subsection, and widget counts across Groups 1–4", () => {
     expect(WAVE3_CATEGORIES.length).toBe(4);
-    expect(WAVE3_ARTICLES.length).toBe(16);
+    expect(WAVE3_ARTICLES.length).toBe(18);
 
     const expectedSectionCounts: Record<string, { free: number; pro: number }> =
       {
@@ -58,6 +58,8 @@ describe("Wave 3 — Content Restructuring, Scannability & Zero-Emoji Gate (Grou
         "4.1": { free: 3, pro: 2 },
         "4.2": { free: 3, pro: 2 },
         "4.3": { free: 3, pro: 2 },
+        "4.4": { free: 3, pro: 2 },
+        "4.5": { free: 3, pro: 2 },
       };
 
     for (const art of WAVE3_ARTICLES) {

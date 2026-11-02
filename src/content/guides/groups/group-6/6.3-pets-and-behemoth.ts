@@ -341,12 +341,12 @@ export const ARTICLE_6_3_PETS_AND_BEHEMOTH: GuideArticle = {
           type: "callout",
           variant: "warning",
           title: {
-            vi: "Chiến Thuật Chuyển Giao Liên Minh ➔ Bộ Lạc (Horde Pivot): Phân Biệt Rõ Tiggy vs Cactini!",
-            en: "League ➔ Horde Pivot Strategy: Never Confuse Tiggy (Horde) with Cactini (Nature)!",
+            vi: "Chiến Thuật Nuôi Thú Cưng Phe Bộ Lạc (Pure Horde): Phân Biệt Rõ Tiggy vs Cactini!",
+            en: "Pure Horde Pet Strategy: Never Confuse Tiggy (Horde) with Cactini (Nature)!",
           },
           content: {
-            vi: "• **Khóa phôi từ Ngày 1:** Nếu khởi đầu bằng Liên Minh trước khi rẽ sang Bộ Lạc (**Horde Pivot**), hãy khóa chặt bản sao `Tiggy` / `Howli` (và `Flickerkit` ở S2+) ngay từ Ngày 1 mở Chuồng Thú.\n• **Tránh bẫy lệch hệ:** Tuyệt đối không nuôi nhầm `Cactini` (hệ Thiên Nhiên Nature)! Chỉ nâng cầm chừng `Eggy` / `Sparrow` rồi dồn `100%` Pet Food đẩy `Tiggy` / `Howli` lên `Lv.45` ➔ `Lv.75` ➔ `Lv.90`.",
-            en: "• **Lock Fodder from Day 1:** If starting with League before executing a **Horde Pivot**, lock every copy of `Tiggy` / `Howli` (and `Flickerkit` in S2+) from Day 1 of the Season 1 Pet Kennel.\n• **Avoid Faction Mismatch:** Never mistakenly raise `Cactini` (Nature faction)! Keep `Eggy` / `Sparrow` minimal, then funnel `100%` of Pet Food into `Tiggy` / `Howli` (`Lv.45` ➔ `Lv.75` ➔ `Lv.90`).",
+            vi: "• **Khóa phôi từ Ngày 1:** Nếu đi theo lộ trình Thuần Bộ Lạc (**Pure Horde**), hãy khóa chặt bản sao `Tiggy` / `Howli` (và `Flickerkit` ở S2+) ngay từ Ngày 1 mở Chuồng Thú.\n• **Tránh bẫy lệch hệ:** Tuyệt đối không nuôi nhầm `Cactini` (hệ Thiên Nhiên Nature)! Chỉ nâng cầm chừng `Eggy` / `Sparrow` cho Đội 2 rồi dồn `100%` Pet Food đẩy `Tiggy` / `Howli` lên `Lv.45` ➔ `Lv.75` ➔ `Lv.90`.",
+            en: "• **Lock Fodder from Day 1:** If running a **Pure Horde** Queue 1, lock every copy of `Tiggy` / `Howli` (and `Flickerkit` in S2+) from Day 1 of the Season 1 Pet Kennel.\n• **Avoid Faction Mismatch:** Never mistakenly raise `Cactini` (Nature faction)! Keep `Eggy` / `Sparrow` minimal for Queue 2, then funnel `100%` of Pet Food into `Tiggy` / `Howli` (`Lv.45` ➔ `Lv.75` ➔ `Lv.90`).",
           },
         },
         {

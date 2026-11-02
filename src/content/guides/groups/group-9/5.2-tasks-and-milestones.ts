@@ -76,7 +76,7 @@ export const ARTICLE_5_2_TASKS_AND_MILESTONES: GuideArticle = {
         },
         {
           type: "media_spotlight",
-          mediaCode: "MED-5.2-01",
+          mediaCode: "MED-9.2-01",
           tier: "tier2_annotated_ui",
           title: {
             vi: "Cấu Trúc Bảng Nhiệm Vụ & Đối Chiếu Mốc Rương Free vs. VIP / Double Rewards",

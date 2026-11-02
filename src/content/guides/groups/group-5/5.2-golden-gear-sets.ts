@@ -21,8 +21,8 @@ export const ARTICLE_5_2_GOLDEN_GEAR_SETS: GuideArticle = {
       en: "**Always equip a full `4`-piece matching set from the `3` standardized Golden-to-Mythic Gear sets:**\n• **`Knight Set` ➔ `Titan's Might` (`Blood of the Titan`):** Grants `+160%` Gear HP & `+6%` Damage Reduction for Pure Tanks/Sustain.\n• **`Sage Set` ➔ `Glorious Light` (`Glory of the Sage` / `Glory of the Knight`):** Grants `+40%` ATK, `+80%` HP, Crit Resistance & `+8%` Skill Damage Amplify for Supports/Controllers/Bruisers.\n• **`Duelist's Set` ➔ `Fury of Blood` (`Knight's Glory` / `Berserker's Wrath`):** Grants `+80%` ATK, Crit & `+6%` Damage Increase for Burst DPS & Hyper-Carries.",
     },
     immediateAction: {
-      vi: "**Bắt buộc chọn đúng Cột Dấu Hệ (`+30%`) khi rèn đồ Vàng trong Lò Rèn:**\n• **Ngân sách cơ sở (`750` / `3,000` / `18,000` Thỏi Vàng):** Tốn `750` Thỏi Vàng/món ➔ `3,000` Thỏi Vàng/tướng (`4` món) ➔ `18,000` Thỏi Vàng cho `24` món Đội 1.\n• **Chọn Cột 1/2/3 (`+30%` miễn phí):** Chọn Cột 1 Liên Minh, Cột 2 Bộ Lạc hoặc Cột 3 Thiên Nhiên; nếu chuyển sang Bộ Lạc ở Ngày 21+, hãy đúc Cột 2 Bộ Lạc ngay từ món đầu tiên.",
-      en: "**Always select the matching Faction Mark Column (`+30%`) when forging Golden Gear at the Blacksmith:**\n• **Base benchmark (`750` / `3,000` / `18,000` Gold Ingots):** Costs `750` Gold Ingots/piece ➔ `3,000` Gold Ingots/hero (`4` pieces) ➔ `18,000` Gold Ingots across `24` Queue 1 pieces.\n• **Select Column 1/2/3 (free `+30%`):** Pick Column 1 League, Column 2 Horde, or Column 3 Nature; if pivoting to Horde on Day 21+, pre-select Column 2 Horde Mark from piece #1.",
+      vi: "**Bắt buộc chọn đúng Cột Dấu Hệ (`+30%`) khi rèn đồ Vàng trong Lò Rèn:**\n• **Ngân sách cơ sở (`750` / `3,000` / `18,000` Thỏi Vàng):** Tốn `750` Thỏi Vàng/món ➔ `3,000` Thỏi Vàng/tướng (`4` món) ➔ `18,000` Thỏi Vàng cho `24` món Đội 1.\n• **Chọn Cột 1/2/3 (`+30%` miễn phí):** Chọn Cột 1 Liên Minh, Cột 2 Bộ Lạc hoặc Cột 3 Thiên Nhiên theo đúng phe Đội 1 đã chốt từ Ngày 1.",
+      en: "**Always select the matching Faction Mark Column (`+30%`) when forging Golden Gear at the Blacksmith:**\n• **Base benchmark (`750` / `3,000` / `18,000` Gold Ingots):** Costs `750` Gold Ingots/piece ➔ `3,000` Gold Ingots/hero (`4` pieces) ➔ `18,000` Gold Ingots across `24` Queue 1 pieces.\n• **Select Column 1/2/3 (free `+30%`):** Pick Column 1 League, Column 2 Horde, or Column 3 Nature matching your committed Day 1 main faction.",
     },
     strictTaboo: {
       vi: "**Tuyệt đối cấm rèn Cột 4 Không Hệ hoặc phối đồ lai tạp `2+2` dài hạn:**\n• **Cấm đúc Cột 4 (Unmarked Gear):** Chi phí đúc bằng nhau `100%` (`750` Thỏi Vàng/món) nhưng mất vĩnh viễn `+30%` chỉ số Hệ.\n• **Cấm phối lai `2+2` lâu dài:** Phối `2+2` làm mất trắng hiệu ứng Bộ `4` món (`+6%` Giảm ST, `+8%` Skill Amp hoặc `+6%` Tăng ST).",
@@ -261,12 +261,12 @@ export const ARTICLE_5_2_GOLDEN_GEAR_SETS: GuideArticle = {
             {
               kind: "info",
               label: {
-                vi: "Mẹo Mượn Đồ Khác Hệ Khi Chuyển Giao (Horde Pivot Day 1–20)",
-                en: "Cross-Faction Borrowing Trick During Faction Pivot (Days 1–20)",
+                vi: "Kế Thừa Đồ Vàng Cùng Hệ Giữa Tướng Quá Độ & Tướng Đỏ Gốc",
+                en: "Same-Faction Gear Inheritance From Transitional SSRs to Native Mythics",
               },
               detail: {
-                vi: "Tướng Liên Minh mặc tạm đồ có Dấu Hệ Bộ Lạc vẫn nhận 100% chỉ số gốc + Hiệu ứng Bộ 4 món + Bậc Thầy Cường Hóa (chỉ tạm ẩn +30% cho đến khi trao lại cho tướng Bộ Lạc).",
-                en: "A League hero borrowing Horde-marked gear still receives 100% base stats + 4-Piece Set Bonus + Enhancement Master (only the +30% faction line waits until a Horde hero equips it).",
+                vi: "Tướng SSR quá độ mặc đồ có Dấu Hệ chuẩn của phe mình nhận đủ 100% chỉ số gốc + Hiệu ứng Bộ 4 món + Bậc Thầy Cường Hóa + 30% chỉ số Hệ, rồi trao lại nguyên vẹn cho Tướng Đỏ gốc.",
+                en: "Transitional SSRs wearing their faction-marked gear get 100% base stats + 4-Piece Set Bonus + Enhancement Master + 30% faction bonus, then pass the set directly to Native Mythics.",
               },
             },
           ],
@@ -396,18 +396,18 @@ export const ARTICLE_5_2_GOLDEN_GEAR_SETS: GuideArticle = {
                   },
                 },
                 {
-                  id: "pre-select-column-2-horde-mark-pivot",
+                  id: "pre-select-column-2-horde-mark-main",
                   label: {
-                    vi: "Định hướng trước Cột 2 (Dấu Hệ Bộ Lạc) nếu theo lộ trình chuyển hệ",
-                    en: "Pre-select Column 2 (Horde Mark) if planning a Day 21+ Horde Pivot",
+                    vi: "Đóng đồng bộ 100% Dấu Hệ theo đúng phe chủ lực của Đội 1 ngay từ Ngày 1",
+                    en: "Synchronize 100% of Faction Marks with your committed Day 1 Queue 1 faction",
                   },
                   detail: {
-                    vi: "Nếu đang ở Ngày 1–20 dùng tạm Liên Minh nhưng dự định chuyển sang Bộ Lạc ở Ngày 21+, hãy bấm chọn Cột 2 (Dấu Hệ Bộ Lạc) ngay từ món đồ Vàng đầu tiên tự rèn.",
-                    en: "If running a starter League lineup during Days 1–20 with plans to pivot to Horde at Day 21+, forge Column 2 (Horde Mark) from your very first crafted piece.",
+                    vi: "Chốt phe chủ lực từ Ngày 1 (Cột 1 Liên Minh, Cột 2 Bộ Lạc hoặc Cột 3 Thiên Nhiên) và đúc toàn bộ 24 món đồ Vàng Đội 1 theo đúng cột đó để kế thừa trọn đời.",
+                    en: "Commit to your main faction on Day 1 (Column 1 League, Column 2 Horde, or Column 3 Nature) and forge all 24 Queue 1 Golden Gear pieces in that column for permanent inheritance.",
                   },
                   badge: {
-                    vi: "Zero-Loss Pivot",
-                    en: "Zero-Loss Pivot",
+                    vi: "+30% Đồng Hệ",
+                    en: "+30% Faction Sync",
                   },
                 },
                 {

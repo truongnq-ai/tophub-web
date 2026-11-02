@@ -11,45 +11,44 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
     en: "Pure Horde Full Progression Playbook (Day 1 to Season 4)",
   },
   summary: {
-    vi: "Giải mã lý do 90% cao thủ F2P/Low-Spender khởi đầu bằng Liên Minh trong 20 ngày đầu rồi bẻ lái sang Bộ Lạc từ Ngày 21–41 qua Đội hình Lai 4-2 để khắc chế +20% trước 75% dân số máy chủ và tiết kiệm gấp 3 lần Hồn Đá Đỏ (9 viên cho Soulmancer/Warlock vs 18–27 viên).",
-    en: "Why 90% of top F2P/Low-Spender players start with League for 20 days then pivot to Horde between Days 21–41 via the 4-2 Hybrid Bridge to counter 75% of the server (+20% DMG) and save 3x Soul Stones (9 stones for Soulmancer/Warlock vs 18–27 stones).",
+    vi: "Giáo án thực chiến chơi thuần Phe Bộ Tộc (Pure Horde) ngay từ Ngày 1 đến Season 4: Danh mục 4 Tướng Quá Độ chờ thay thế (cấm đút Mảnh Vạn Năng), 7 Tướng Trụ Cột Endgame, lộ trình nâng cấp 6/6 Bộ Tộc vào Ngày 21–41 khắc chế +20% trước 75% máy chủ và tiết kiệm gấp 3 lần Hồn Đá Đỏ (9 viên cho Soulmancer/Warlock vs 18–27 viên).",
+    en: "Complete Day 1 to Season 4 Pure Horde progression playbook: 4 Transitional heroes to freeze Universal Shards on, 7 Core Endgame heroes, the Day 21–41 6/6 Pure Horde replacement schedule countering 75% of the server (+20% DMG), and 3x Soul Stone savings (9 stones for Soulmancer/Warlock vs 18–27 stones).",
   },
   tldr: {
     coreRule: {
-      vi: "**Dùng 6 SSR Liên Minh (League) trong `20` ngày đầu để cày ải PvE nhưng tuyệt đối KHÔNG đút Mảnh Vàng Vạn Năng cho Liên Minh.**\n• **Thời điểm chuyển giao:** Từ `Ngày 21` ➔ `Ngày 41`, chuyển sang Bộ Lạc (Horde) ngay khi mở khóa Desert Prince, Storm Maiden và Witch.",
-      en: "**Run a 6-SSR League lineup during the first `20` days for fast PvE progression, spending `0` Universal Shards on League.**\n• **Pivot Window:** Between `Day 21` and `Day 41`, pivot to Horde as soon as you unlock Desert Prince, Storm Maiden, and Witch.",
+      vi: "**Chốt chơi Thuần Bộ Tộc (Pure Horde) từ `Ngày 1` với 6 SSR Bộ Tộc (`+35% ATK & HP`), khóa `100%` Mảnh Vạn Năng và Sách Kỹ Năng Cam khỏi nhóm Tướng Quá Độ (`Boar`, `Headhunter`, `Shaman`, `Wilderness Hunter`).**\n• **Lịch thay thế Tướng Đỏ:** Đón `Desert Prince` (`Ngày 21`), `Storm Maiden` (`Ngày 27`) và `Witch` (`Ngày 41`) thế chỗ các mắt xích quá độ để giữ trọn Hào quang `6/6` Bộ Tộc.",
+      en: "**Commit to Pure Horde from `Day 1` with 6 Horde SSRs (`+35% ATK & HP`), locking `100%` of Universal Shards and Skill Books away from Transitional SSRs (`Boar`, `Headhunter`, `Shaman`, `Wilderness Hunter`).**\n• **Mythic Replacement Schedule:** Unlock `Desert Prince` (`Day 21`), `Storm Maiden` (`Day 27`), and `Witch` (`Day 41`) to replace transitional slots while keeping the `6/6` Horde Aura.",
     },
     immediateAction: {
-      vi: "**Từ Tuần 3 (`Ngày 15`), dùng Thợ xây số 2 kéo cấp độ Doanh trại Bộ Lạc và Tượng Đài Bộ Lạc đuổi kịp Lâu Đài.**\n• **Chuẩn bị Trang bị:** Giữ nguyên Rương Đồ Vàng Tự Chọn hoặc chọn sẵn Dấu Hệ Bộ Lạc (`Horde Mark`) để kích hoạt `+30%` chỉ số Hệ từ `Ngày 21+`.",
-      en: "**Starting in Server Week 3 (`Day 15`), use Builder #2 to bring Horde Barracks and the Horde Monument up to Castle level.**\n• **Gear Preparation:** Keep Golden Gear Choice Chests sealed or pre-select the Horde Faction Mark (`+30%` faction bonus from `Day 21+`).",
+      vi: "**Ngay từ `Ngày 1`, dồn tài nguyên hạ tầng nâng Doanh trại Bộ Lạc (`Horde Barracks`) và Tượng Đài Bộ Lạc (`Horde Monument`) bám sát cấp Lâu Đài.**\n• **Trang bị & Ví Điểm Vinh Dự:** Đóng sẵn Dấu Hệ Bộ Lạc (`Horde Mark` `+30%` chỉ số Hệ) cho toàn bộ 24 món Đồ Vàng Đội 1 và giữ sàn ví `40,000` Điểm Vinh Dự Bang mỗi tuần.",
+      en: "**From `Day 1`, focus infrastructure resources on keeping Horde Barracks and the Horde Monument synced with your Castle level.**\n• **Gear & Guild Honor Floor:** Stamp the Horde Faction Mark (`+30%` faction bonus) on all 24 Queue 1 Golden Gear pieces and maintain the `40,000` Guild Honor weekly wallet floor.",
     },
     strictTaboo: {
-      vi: "**Tuyệt đối KHÔNG chuyển sang Bộ Lạc khi chỉ mới có 6 tướng Vàng (SSR) Bộ Lạc vì dàn SSR Bộ Lạc đầu game yếu hơn hẳn Liên Minh.**\n• **Điều kiện Bắc cầu Lai 4-2:** Chỉ gài tướng Bộ Lạc vào Đội 1 khi đã có cặp đôi Desert Prince + Storm Maiden đạt `1★ Đỏ` (`160` mảnh Mythic).",
-      en: "**NEVER switch to Horde using 6 Legendary SSR Horde heroes early on because pure SSR Horde is far weaker than SSR League.**\n• **4-2 Hybrid Bridge Condition:** Only slot Horde into Queue 1 once Desert Prince and Storm Maiden reach `1★ Red` (`160` Mythic shards).",
+      vi: "**Tuyệt đối KHÔNG đút Mảnh Vạn Năng hay Sách Cam cho `Boar`, `Headhunter`, `Shaman`, `Wilderness Hunter`, `Swordmaster`, `Barbarian` vì các vị trí này sẽ được thay bằng `5–6` Tướng Đỏ gốc.**\n• **Điểm gãy ra trận:** Chỉ đưa `Desert Prince`, `Storm Maiden` và `Witch` vào Đội 1 khi đạt tối thiểu `1★ Đỏ` (`160` mảnh Mythic), hướng thẳng tới `1★ Trắng/Bạc` (`560` mảnh Mythic).",
+      en: "**NEVER feed Universal Shards or Skill Books to `Boar`, `Headhunter`, `Shaman`, `Wilderness Hunter`, `Swordmaster`, or `Barbarian` as these slots are replaced by `5–6` Native Mythics.**\n• **Deployment Breakpoint:** Slot `Desert Prince`, `Storm Maiden`, and `Witch` into Queue 1 once they reach at least `1★ Red` (`160` Mythic shards), pushing toward `1★ White/Silver` (`560` Mythic shards).",
     },
   },
   keyTakeaways: [
     {
-      vi: "**Lợi thế Khắc chế 75% dân số Server:** Hưởng trực tiếp `+20%` Sát thương gây ra / `-20%` Sát thương nhận vào vì đa số người chơi giữ nguyên đội Liên Minh đầu game theo quán tính.",
-      en: "**Hard-Counter 75% of the Server:** Gain `+20%` DMG Dealt / `-20%` DMG Taken automatically since most players stay on their starter League lineup by inertia.",
+      vi: "**Lợi thế Khắc chế 75% dân số Server:** Hưởng trực tiếp `+20%` Sát thương gây ra / `-20%` Sát thương nhận vào trước số đông người chơi chọn phe Liên Minh trong Đấu Trường và Chiến sự KvK.",
+      en: "**Hard-Counter 75% of the Server:** Gain `+20%` DMG Dealt / `-20%` DMG Taken automatically against the majority of server players running League in Arena and KvK.",
     },
     {
-      vi: "**Tiết kiệm gấp 3 lần Hồn Đá Đỏ (Soul Stone Economy):** Bộ Lạc có `5–6` Mythic gốc nên chỉ thức tỉnh `1` SSR (Soulmancer hoặc Warlock) tốn `9 Hồn Đá Đỏ` + 345–385 Mảnh (`360,000` Điểm Vinh Dự / `54,000` Xu).\n• **Đối chiếu chi phí:** Giữ sàn ví `40,000` Điểm; Liên Minh tốn `27` Hồn Đá Đỏ + 1,035–1,155 Mảnh, còn Thiên Nhiên tốn `18–27` Hồn Đá Đỏ + 690–1,155 Mảnh.",
-      en: "**Save 3x on Soul Stone Economy:** Horde fields `5–6` Native Mythics and only awakens `1` SSR (Soulmancer or Warlock) costing `9` Soul Stones + 345–385 Shards (`360,000` Honor / `54,000` Coins).\n• **Cost Comparison:** Keep the `40,000` Honor floor; League demands `27` Soul Stones + 1,035–1,155 Shards, while Nature demands `18–27` Soul Stones + 690–1,155 Shards.",
+      vi: "**Tiết kiệm gấp 3 lần Hồn Đá Đỏ (Soul Stone Economy):** Bộ Tộc có `5–6` Mythic gốc nên chỉ thức tỉnh `1` SSR (`Soulmancer` hoặc `Warlock`) tốn `9 Hồn Đá Đỏ` + 345–385 Mảnh (`360,000` Điểm Vinh Dự / `54,000` Xu).\n• **Đối chiếu chi phí:** Giữ sàn ví `40,000` Điểm; Liên Minh tốn `27` Hồn Đá Đỏ + 1,035–1,155 Mảnh, còn Thiên Nhiên tốn `18–27` Hồn Đá Đỏ + 690–1,155 Mảnh.",
+      en: "**Save 3x on Soul Stone Economy:** Horde fields `5–6` Native Mythics and only awakens `1` SSR (`Soulmancer` or `Warlock`) costing `9` Soul Stones + 345–385 Shards (`360,000` Honor / `54,000` Coins).\n• **Cost Comparison:** Keep the `40,000` Honor floor; League demands `27` Soul Stones + 1,035–1,155 Shards, while Nature demands `18–27` Soul Stones + 690–1,155 Shards.",
     },
     {
-      vi: "**Phác đồ 4 Giai đoạn Zero-Loss Pivot bảo toàn `100%` tài nguyên:** `Ngày 1–20` (6 SSR Liên Minh) ➔ `Ngày 21–35` (Lai 4 Liên Minh + 2 Bộ Lạc Desert Prince & Storm Maiden).\n• **Chốt Đội 1 & Đội 2:** `Ngày 36–45` chuyển Đội 1 sang Thuần Bộ Lạc & đẩy nguyên vẹn 6 Liên Minh `2.8M` xuống Đội 2 ➔ `Ngày 46+` S1–S3 thức tỉnh Soulmancer/Warlock & đón Wukong, Beastmaster, Shadow Priest.",
-      en: "**The 4-Stage Zero-Loss Pivot Protocol preserves `100%` of investments:** `Days 1–20` (6 SSR League) ➔ `Days 21–35` (4 League + 2 Horde Hybrid with Desert Prince & Storm Maiden).\n• **Queue 1 & Queue 2 Lock:** `Days 36–45` Pure Horde Queue 1 & intact `2.8M` League moved to Queue 2 ➔ `Day 46+` S1–S3 awaken Soulmancer/Warlock & add Wukong, Beastmaster, Shadow Priest.",
+      vi: "**Phác đồ 4 Giai đoạn Thay thế Nội bộ bảo toàn `100%` tài nguyên:** `Ngày 1–20` (6 SSR Bộ Tộc quá độ) ➔ `Ngày 21–35` (`Desert Prince` & `Storm Maiden` thay `Boar` & `Headhunter`).\n• **Chốt Đội 1 & Đội 2:** `Ngày 36–65` thêm `Witch` thay `Shaman` & hoàn thiện Đội 2 phụ trợ `2.8M` ➔ `Season 1–4` thức tỉnh `Soulmancer`/`Warlock` & đón `Wukong`, `Beastmaster`, `Shadow Priest`.",
+      en: "**The 4-Stage Same-Faction Replacement Protocol preserves `100%` of investments:** `Days 1–20` (6 Transitional Horde SSRs) ➔ `Days 21–35` (`Desert Prince` & `Storm Maiden` replace `Boar` & `Headhunter`).\n• **Queue 1 & Queue 2 Lock:** `Days 36–65` add `Witch` replacing `Shaman` & build a `2.8M` secondary Queue 2 ➔ `Seasons 1–4` awaken `Soulmancer`/`Warlock` & add `Wukong`, `Beastmaster`, `Shadow Priest`.",
     },
   ],
   keywords: [
-    "horde pivot",
-    "chuyển hệ bộ lạc",
-    "chuyen he bo lac",
-    "league to horde",
-    "zero-loss pivot",
-    "đội hình lai 4-2",
-    "hybrid 4-2",
+    "pure horde",
+    "lộ trình bộ tộc",
+    "lo trinh bo toc",
+    "horde progression playbook",
+    "zero-loss replacement",
+    "6/6 horde aura",
     "soulmancer",
     "warlock",
     "soul stone",
@@ -69,10 +68,10 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
   ],
   freeSections: [
     {
-      id: "sec-1-why-league-to-horde-is-king",
+      id: "sec-1-why-pure-horde-is-king",
       title: {
-        vi: "1. Giải thích Cơ chế Cốt lõi: Tại Sao \"Khởi Đầu Liên Minh ➔ Chuyển Giao Bộ Lạc\" Là Lộ Trình Vua?",
-        en: "1. Core Mechanics: Why \"League Start to Horde Pivot\" Is the Ultimate F2P/Low-Spender Meta Strategy",
+        vi: "1. Giải thích Cơ chế Cốt lõi: Tại Sao Lộ Trình Thuần Bộ Tộc Từ Ngày 1 Là Giáo Án Vua Cho F2P & Low-Spender?",
+        en: "1. Core Mechanics: Why Day 1 Pure Horde Is the Ultimate F2P/Low-Spender Meta Strategy",
       },
       blocks: [
         {
@@ -82,17 +81,17 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "**Trong Top Heroes, mỗi Phe phái (Liên Minh, Bộ Lạc, Thiên Nhiên) có một đường cong sức mạnh hoàn toàn khác nhau theo tuổi máy chủ.**\n• **Lộ trình tối ưu số 1:** Chiến lược `League Start to Horde Pivot` giúp F2P/Low-Spender khai thác trọn vẹn mảnh miễn phí đầu game lẫn lợi thế khắc chế `+20%` và kinh tế `9 Hồn Đá Đỏ` về dài hạn.",
-            en: "**In Top Heroes, each Faction (League, Horde, Nature) follows a vastly different power curve as the server ages.**\n• **The #1 Progression Path:** The `League Start to Horde Pivot` strategy maximizes free early-game shards while securing `+20%` faction counter and `9` Soul Stone economic advantages.",
+            vi: "**Trong Top Heroes, mỗi Phe phái (Liên Minh, Bộ Tộc, Thiên Nhiên) sở hữu cấu trúc Tướng Đỏ gốc và chi phí Thức tỉnh hoàn toàn khác nhau theo tuổi máy chủ.**\n• **Lộ trình kinh tế số 1:** Kiên định `Thuần Bộ Tộc (Pure Horde)` từ `Ngày 1` giúp F2P đồng bộ `100%` công trình, trang bị, nghiên cứu kèm khắc chế `+20%` và kinh tế `9 Hồn Đá Đỏ` rẻ gấp 3 lần.",
+            en: "**In Top Heroes, each Faction (League, Horde, Nature) has a distinct Native Mythic count and Awakening cost structure as the server ages.**\n• **The #1 Economic Path:** Committing to `Pure Horde` from `Day 1` lets F2P accounts sync `100%` of buildings, gear marks, and research while securing `+20%` counter and `9` Soul Stone advantages.",
           },
         },
       ],
       subSections: [
         {
-          id: "sub-1-1-why-league-first-20-days",
+          id: "sub-1-1-horde-transitional-vs-core-roster",
           title: {
-            vi: "1.1. Tại sao 20 ngày đầu bắt buộc phải dùng Liên Minh (League)?",
-            en: "1.1. Why You Must Run League During the First 20 Days",
+            vi: "1.1. Phân loại Tướng Quá Độ (Cấm đút mảnh chung) vs Tướng Trụ Cột Endgame (Ngày 1 ➔ S4)",
+            en: "1.1. Transitional Heroes (Universal Shard Freeze) vs Core Endgame Roster (Day 1 to S4)",
           },
           badge: {
             vi: "Ngày 1 ➔ Ngày 20",
@@ -104,26 +103,26 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
               ordered: true,
               items: [
                 {
-                  vi: "**Nguồn mảnh miễn phí dồi dào nhất:** Từ `Ngày 1`, Quán Rượu, Nhiệm vụ Tân thủ, Shop Đấu Trường và gói `$0.99` Pyromancer tặng sẵn bộ 6 SSR Liên Minh: Adjudicator, Secret Keeper, Pyromancer, Astrologer, Nun, Bard.",
-                  en: "**Most abundant free shard supply:** From `Day 1`, Tavern, Quests, Arena Shop, and the `$0.99` Pyromancer pack provide a complete 6-SSR League core: Adjudicator, Secret Keeper, Pyromancer, Astrologer, Nun, and Bard.",
+                  vi: "**Khung 6 SSR Bộ Tộc Ngày 1–20 (`+35% ATK & HP`):** Hàng trước `Swordmaster` + `Barbarian`/`Boar` | Giữa `Wilderness Hunter` + `Headhunter` | Sau `Shaman` + `Soulmancer`/`Warlock` (nâng bằng Thịt & mảnh Quán Rượu).",
+                  en: "**Day 1–20 6-SSR Pure Horde Core (`+35% ATK & HP`):** Front `Swordmaster` + `Barbarian`/`Boar` | Mid `Wilderness Hunter` + `Headhunter` | Back `Shaman` + `Soulmancer`/`Warlock` (level with Meat & Tavern shards).",
                 },
                 {
-                  vi: "**Tối ưu tốc độ đẩy bản đồ (PvE Progression):** Nhờ sát thương diện rộng của Pyromancer, giảm hồi chiêu của Bard và hồi máu của Nun, đội Liên Minh dọn sạch sương mù, vượt Tháp và ăn mốc Boss với `0` Mảnh Vạn Năng.",
-                  en: "**Maximum PvE progression speed:** With Pyromancer's AoE burst, Bard's cooldown reduction, and Nun's healing, starter League clears map fog, climbs Trial Tower, and hits Boss milestones using `0` Universal Shards.",
+                  vi: "**Nhóm Tướng Quá Độ (`0` Mảnh Vạn Năng & `0` Sách Cam):** `Boar` & `Headhunter` thay ở `Ngày 21–27`; `Shaman` thay ở `Ngày 41`; `Wilderness Hunter` & `Swordmaster`/`Barbarian` thay ở đầu `Season 2`.",
+                  en: "**Transitional Heroes (`0` Universal Shards & `0` Skill Books):** `Boar` & `Headhunter` rotate out on `Days 21–27`; `Shaman` on `Day 41`; `Wilderness Hunter` & `Swordmaster`/`Barbarian` in early `Season 2`.",
                 },
                 {
-                  vi: "**Dàn SSR Bộ Lạc đầu game rất yếu:** Cố xếp 6 SSR Bộ Lạc (Barbarian, Headhunter, Boar, Shaman, Wilderness Hunter, Soulmancer) vào Đội 1 từ `Ngày 1` sẽ khiến tài khoản kẹt ải nặng suốt 3 tuần đầu.",
-                  en: "**Early SSR Horde heroes are weak:** Forcing 6 SSR Horde heroes (Barbarian, Headhunter, Boar, Shaman, Wilderness Hunter, Soulmancer) into Queue 1 from `Day 1` causes severe PvE stage walls across the first 3 weeks.",
+                  vi: "**Tướng SSR Duy Nhất Giữ Đến Endgame:** Chỉ có `Soulmancer` (hoặc `Warlock`) là SSR trụ lại Đội 1 đến cuối game và được ưu tiên tích mảnh riêng để Thức tỉnh Đỏ ở `Season 1`.",
+                  en: "**The Only SSR Retained in Endgame:** Only `Soulmancer` (or `Warlock`) stays in Queue 1 through endgame and should have specific shards saved for `Season 1` Mythic Awakening.",
                 },
               ],
             },
           ],
         },
         {
-          id: "sub-1-2-why-horde-pivot-days-21-41",
+          id: "sub-1-2-why-horde-dominates-days-21-41",
           title: {
-            vi: "1.2. Tại sao từ Ngày 21–41 phải bẻ lái sang Bộ Lạc (Horde)?",
-            en: "1.2. Why You Must Pivot to Horde Between Days 21 and 41",
+            vi: "1.2. Tại sao từ Ngày 21–41 Đội 1 Thuần Bộ Tộc bùng nổ thống trị Server?",
+            en: "1.2. Why Pure Horde Queue 1 Dominates the Server From Days 21 to 41",
           },
           badge: {
             vi: "Ngày 21 ➔ Ngày 41",
@@ -135,16 +134,16 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
               ordered: true,
               items: [
                 {
-                  vi: "**Khắc chế `70%–80%` (`75%`) dân số Server:** Đa số người chơi giữ Đội 1 Liên Minh theo quán tính; chuyển sang Bộ Lạc giúp bạn nhận ngay `+20%` Sát thương gây ra và `-20%` Sát thương nhận vào trước họ!",
-                  en: "**Counter `70%–80%` (`75%`) of the server:** Because most players keep maining League by inertia, pivoting to Horde automatically grants `+20%` DMG Dealt and `-20%` DMG Taken against most opponents!",
+                  vi: "**Khắc chế `70%–80%` (`75%`) dân số Server:** Đa số người chơi đầu tư sâu vào Liên Minh; chơi Thuần Bộ Tộc giúp bạn nhận ngay `+20%` Sát thương gây ra và `-20%` Sát thương nhận vào trước họ!",
+                  en: "**Counter `70%–80%` (`75%`) of the server:** Because most players invest heavily in League, running Pure Horde automatically grants `+20%` DMG Dealt and `-20%` DMG Taken against most opponents!",
                 },
                 {
-                  vi: "**Sức mạnh của `5–6` Tướng Đỏ gốc (Native Mythics):** Bộ Lạc có 5–6 Mythic gốc phủ mọi vị trí: Desert Prince & Beastmaster (Tank), Storm Maiden & Wukong (DPS), Witch (Hỗ trợ) và Shadow Priest (S3).",
-                  en: "**Overwhelming `5–6` Native Mythics:** Horde boasts 5–6 Native Mythics across all roles: Desert Prince & Beastmaster (tanks), Storm Maiden & Wukong (hyper-carries), Witch (support), and Shadow Priest (S3).",
+                  vi: "**Sức mạnh của `5–6` Tướng Đỏ gốc (Native Mythics):** Bộ Tộc có 5–6 Mythic gốc phủ mọi vị trí: `Desert Prince` & `Beastmaster` (Tank), `Storm Maiden` & `Wukong` (DPS), `Witch` (Hỗ trợ) và `Shadow Priest` (S3).",
+                  en: "**Overwhelming `5–6` Native Mythics:** Horde boasts 5–6 Native Mythics across all roles: `Desert Prince` & `Beastmaster` (tanks), `Storm Maiden` & `Wukong` (hyper-carries), `Witch` (support), and `Shadow Priest` (S3).",
                 },
                 {
-                  vi: "**Kinh tế Hồn Đá Đỏ (Rẻ gấp 3 lần):** Bộ Lạc chỉ thức tỉnh `1` SSR (Soulmancer/Warlock) tốn `9 Hồn Đá Đỏ` + `345`–`385` Mảnh (`360,000` Điểm / `54,000` Xu), so với `27` Đá + `1,035`–`1,155` Mảnh của Liên Minh.",
-                  en: "**Soul Stone Economy (3x Cheaper):** Horde awakens only `1` SSR (Soulmancer/Warlock) for `9` Soul Stones + `345`–`385` Shards (`360,000` Honor / `54,000` Coins), versus `27` Stones + `1,035`–`1,155` Shards for League.",
+                  vi: "**Kinh tế Hồn Đá Đỏ (Rẻ gấp 3 lần):** Bộ Tộc chỉ thức tỉnh `1` SSR (`Soulmancer`/`Warlock`) tốn `9 Hồn Đá Đỏ` + `345`–`385` Mảnh (`360,000` Điểm / `54,000` Xu), so với `27` Đá + `1,035`–`1,155` Mảnh của Liên Minh.",
+                  en: "**Soul Stone Economy (3x Cheaper):** Horde awakens `1` SSR (`Soulmancer`/`Warlock`) for `9` Soul Stones + `345`–`385` Shards (`360,000` Honor / `54,000` Coins), vs. `27` Stones + `1,035`–`1,155` Shards for League.",
                 },
               ],
             },
@@ -153,8 +152,8 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
         {
           id: "sub-1-3-three-pathway-comparison-table",
           title: {
-            vi: "1.3. Bảng So Sánh 3 Lộ Trình: Thuần Liên Minh vs Thuần Thiên Nhiên vs Chuyển Giao Bộ Lạc",
-            en: "1.3. 3-Pathway Comparison Matrix: Pure League vs Pure Nature vs Horde Pivot",
+            vi: "1.3. Bảng So Sánh 3 Lộ Trình Thuần Phe Từ Ngày 1: Thuần Liên Minh vs Thuần Thiên Nhiên vs Thuần Bộ Tộc",
+            en: "1.3. 3-Faction Day 1 Comparison Matrix: Pure League vs Pure Nature vs Pure Horde",
           },
           badge: {
             vi: "Ma Trận So Sánh",
@@ -164,8 +163,8 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
             {
               type: "table",
               caption: {
-                vi: "Bảng đối chiếu chi phí Hồn Đá Đỏ (Soul Stones), số lượng Tướng Đỏ gốc và tương quan khắc chế giữa 3 lộ trình",
-                en: "Comparison of Soul Stone awakening costs, Native Mythic counts, and Arena counter matchups across all 3 pathways",
+                vi: "Bảng đối chiếu chi phí Hồn Đá Đỏ (Soul Stones), số lượng Tướng Đỏ gốc và tương quan khắc chế giữa 3 lộ trình thuần phe từ Ngày 1",
+                en: "Comparison of Soul Stone awakening costs, Native Mythic counts, and Arena counter matchups across all 3 Day 1 pure-faction pathways",
               },
               headers: [
                 {
@@ -181,27 +180,27 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
                   en: "Pure Nature",
                 },
                 {
-                  vi: "Chuyển Giao Bộ Lạc (Horde Pivot)",
-                  en: "Horde Pivot",
+                  vi: "Thuần Bộ Tộc (Pure Horde)",
+                  en: "Pure Horde",
                 },
               ],
               rows: [
                 [
                   {
-                    vi: "Sức mạnh Ngày 1 – Ngày 20",
-                    en: "Power Days 1 – 20",
+                    vi: "Chiến thuật Ngày 1 – Ngày 20",
+                    en: "Days 1 – 20 Strategy",
                   },
                   {
-                    vi: "5/5 ★ (Mạnh nhất, sẵn mảnh miễn phí & gói $0.99 Pyromancer)",
-                    en: "5/5 ★ (Strongest early, abundant free shards & $0.99 Pyromancer)",
+                    vi: "5/5 ★ (Sẵn mảnh Quán Rượu & gói $0.99 Pyromancer, khóa mảnh chung chờ Ngày 35)",
+                    en: "5/5 ★ (Abundant Tavern shards & $0.99 Pyromancer, freeze Universal Shards until Day 35)",
                   },
                   {
-                    vi: "2/5 ★ (Thiếu sát thương diện rộng đầu game)",
-                    en: "2/5 ★ (Lacks early-game AoE burst damage)",
+                    vi: "3/5 ★ (Đánh nhây 2 Tank + 2 Healer vượt ải, khóa mảnh chung chờ Ngày 42)",
+                    en: "3/5 ★ (Sustain 2-Tank + 2-Healer PvE clear, freeze Universal Shards until Day 42)",
                   },
                   {
-                    vi: "5/5 ★ (Mượn khung 6 SSR Liên Minh với 0 Mảnh Vạn Năng)",
-                    en: "5/5 ★ (Borrows 6-SSR League core with 0 Universal Shards)",
+                    vi: "4/5 ★ (Dùng 6 SSR Bộ Tộc kích +35% ATK/HP, khóa 100% Mảnh Vạn Năng chờ Ngày 21)",
+                    en: "4/5 ★ (Run 6 Horde SSRs for +35% ATK/HP aura, freeze 100% Universal Shards until Day 21)",
                   },
                 ],
                 [
@@ -283,17 +282,17 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
       ],
     },
     {
-      id: "sec-2-three-step-hybrid-bridge",
+      id: "sec-2-three-step-horde-replacement",
       title: {
-        vi: "2. Chiến thuật Tối ưu cho F2P & Low-Spender: 3 Bước Bắc Cầu Đội Hình Lai (4-2 Hybrid Bridge) Không Rớt Lực Chiến",
-        en: "2. F2P & Low-Spender Strategy: The 3-Step 4-2 Hybrid Bridge Without Losing Arena Power",
+        vi: "2. Chiến thuật Tối ưu cho F2P & Low-Spender: 3 Cột Mốc Thay Thế Tướng Quá Độ Giữ Trọn Hào Quang 6/6 Bộ Tộc",
+        en: "2. F2P & Low-Spender Strategy: The 3-Milestone Same-Faction Replacement Protocol Retaining 6/6 Horde Aura",
       },
       blocks: [
         {
           type: "paragraph",
           text: {
-            vi: "Sai lầm lớn nhất khi chuyển hệ là đập đi xây lại đột ngột làm tụt hạng Đấu Trường. Để lực chiến chỉ tăng chứ không giảm, hãy thực thi lộ trình Bắc Cầu Đội Hình Lai (`4-2 Hybrid Bridge`) qua 3 cột mốc:",
-            en: "The biggest mistake during a faction pivot is an abrupt teardown that tanks your Arena rank. To transition smoothly so your combat power only increases, execute the 3-milestone `4-2 Hybrid Bridge` below:",
+            vi: "Chìa khóa để chơi Thuần Bộ Tộc từ `Ngày 1` không bao giờ bị hụt hơi là giữ vững Hào quang `6/6` Bộ Tộc (`+35% ATK & HP`) và thay thế từng cặp Tướng Quá Độ ngay khi mở khóa Tướng Đỏ gốc qua 3 cột mốc:",
+            en: "The key to running Pure Horde from `Day 1` without power dips is maintaining the `6/6` Horde Faction Aura (`+35% ATK & HP`) and replacing Transitional SSRs in pairs as Native Mythics unlock across 3 milestones:",
           },
         },
         {
@@ -301,45 +300,45 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
           mediaCode: "MED-4.3-02",
           tier: "tier2_annotated_ui",
           title: {
-            vi: "Sơ Đồ Trực Quan 3 Đội Hình Qua 3 Cột Mốc Chuyển Giao (Ngày 1–20 ➔ Ngày 21–40 ➔ Ngày 41+ & S2)",
-            en: "Visual Lineup Progression Across 3 Pivot Milestones (Days 1–20 ➔ Days 21–40 ➔ Day 41+ & S2)",
+            vi: "Sơ Đồ Trực Quan 3 Đội Hình Thuần Bộ Tộc Qua 3 Cột Mốc Thay Thế (Ngày 1–20 ➔ Ngày 21–40 ➔ Ngày 41+ & S2)",
+            en: "Visual Pure Horde Lineup Progression Across 3 Replacement Milestones (Days 1–20 ➔ Days 21–40 ➔ Day 41+ & S2)",
           },
           description: {
-            vi: "Đối chiếu trực quan đội hình 6 SSR Liên Minh đầu game, cấu hình Bắc cầu Lai 4 Liên Minh + 2 Bộ Lạc ở Tuần 4–5 và Đội 1 Thuần Bộ Lạc từ Ngày 41+ đến Endgame Season 2.",
-            en: "Side-by-side visual comparison of the Day 1–20 6-SSR League starter team, the Weeks 4–5 4-2 Hybrid Bridge, and the Day 41+ to Season 2 Pure Horde Queue 1.",
+            vi: "Đối chiếu trực quan đội hình 6 SSR Bộ Tộc quá độ đầu game, cấu hình đón cặp đôi Desert Prince + Storm Maiden ở Tuần 4–5 và Đội 1 Thuần Bộ Tộc hoàn chỉnh từ Ngày 41+ đến Endgame Season 2.",
+            en: "Side-by-side visual comparison of the Day 1–20 6-SSR Horde starter lineup, the Weeks 4–5 Desert Prince + Storm Maiden upgrade, and the Day 41+ to Season 2 Endgame Pure Horde Queue 1.",
           },
           annotations: [
             {
               kind: "info",
               label: {
-                vi: "Mốc 1 — Ngày 1–20 (Đội 6 SSR Liên Minh)",
-                en: "Milestone 1 — Days 1–20 (6-SSR League Starter)",
+                vi: "Mốc 1 — Ngày 1–20 (Đội 6 SSR Bộ Tộc Quá Độ)",
+                en: "Milestone 1 — Days 1–20 (6-SSR Transitional Horde Starter)",
               },
               detail: {
-                vi: "Hàng trước Secret Keeper + Adjudicator | Hàng giữa Pyromancer + Astrologer | Hàng sau Bard + Nun. Chỉ nâng Sao bằng mảnh Quán Rượu tự nhiên, khóa 100% Mảnh Vàng Vạn Năng.",
-                en: "Front: Secret Keeper + Adjudicator | Mid: Pyromancer + Astrologer | Back: Bard + Nun. Upgrade stars strictly via natural Tavern shards while locking 100% of Universal Shards.",
+                vi: "Hàng trước Swordmaster + Barbarian (hoặc Boar) | Hàng giữa Wilderness Hunter + Headhunter | Hàng sau Shaman + Soulmancer. Chỉ nâng Sao bằng mảnh Quán Rượu tự nhiên, khóa 100% Mảnh Vàng Vạn Năng.",
+                en: "Front: Swordmaster + Barbarian (or Boar) | Mid: Wilderness Hunter + Headhunter | Back: Shaman + Soulmancer. Upgrade stars strictly via natural Tavern shards while locking 100% of Universal Shards.",
               },
             },
             {
               kind: "do",
               label: {
-                vi: "Mốc 2 — Ngày 21–40 (Đội Hình Lai 4 Liên Minh + 2 Bộ Lạc)",
-                en: "Milestone 2 — Days 21–40 (4 League + 2 Horde Hybrid Bridge)",
+                vi: "Mốc 2 — Ngày 21–40 (Thế Chỗ Desert Prince + Storm Maiden Vào Đội 1)",
+                en: "Milestone 2 — Days 21–40 (Slot Desert Prince + Storm Maiden Into Queue 1)",
               },
               detail: {
-                vi: "Khi Desert Prince (Ngày 21) & Storm Maiden (Ngày 27) đạt 1 Sao Đỏ (6 Sao / 160 mảnh Mythic), rút Secret Keeper & Astrologer ra để ghép Hàng trước Desert Prince + Adjudicator | Hàng giữa Storm Maiden + Pyromancer | Hàng sau Bard + Nun.",
-                en: "Once Desert Prince (Day 21) & Storm Maiden (Day 27) hit 1-Red Star (6 Stars / 160 Mythic shards), bench Secret Keeper & Astrologer to field Front: Desert Prince + Adjudicator | Mid: Storm Maiden + Pyromancer | Back: Bard + Nun.",
+                vi: "Khi Desert Prince (Ngày 21) & Storm Maiden (Ngày 27) đạt 1 Sao Đỏ (6 Sao / 160 mảnh Mythic), rút Boar & Headhunter ra để xếp Hàng trước Desert Prince + Swordmaster/Barbarian | Hàng giữa Storm Maiden + Wilderness Hunter | Hàng sau Shaman + Soulmancer.",
+                en: "Once Desert Prince (Day 21) & Storm Maiden (Day 27) hit 1-Red Star (6 Stars / 160 Mythic shards), bench Boar & Headhunter to field Front: Desert Prince + Swordmaster/Barbarian | Mid: Storm Maiden + Wilderness Hunter | Back: Shaman + Soulmancer.",
               },
             },
             {
               kind: "do",
               label: {
-                vi: "Mốc 3 — Ngày 41+ & Endgame S2 (Thuần Bộ Lạc Đội 1 + Liên Minh Đội 2)",
-                en: "Milestone 3 — Day 41+ & Endgame S2 (Pure Horde Queue 1 + League Queue 2)",
+                vi: "Mốc 3 — Ngày 41+ & Endgame S2 (Đón Witch Ngày 41 & Wukong + Beastmaster S2)",
+                en: "Milestone 3 — Day 41+ & Endgame S2 (Add Witch on Day 41 & Wukong + Beastmaster in S2)",
               },
               detail: {
-                vi: "Mở khóa Witch vào Ngày 41 để hoàn tất Thuần Bộ Lạc Đội 1 (và đón Wukong + Beastmaster ở S2), tháo lắp miễn phí 24 món Đồ Vàng (+10/+20) sang Đội 1 Bộ Lạc và đẩy nguyên vẹn 6 tướng Liên Minh xuống làm Đội 2 (2.8M Lực chiến).",
-                en: "Unlock Witch on Day 41 to complete Pure Horde Queue 1 (adding Wukong + Beastmaster in S2), freely transfer all 24 Golden Gear pieces (+10/+20) to Horde Queue 1, and move the intact 6-League lineup into Queue 2 (2.8M Power).",
+                vi: "Mở khóa Witch vào Ngày 41 thay Shaman ở Hàng sau (và đón Wukong + Beastmaster ở S2 thay Wilderness Hunter + Swordmaster), kế thừa miễn phí 24 món Đồ Vàng (+10/+20) mang Dấu Hệ Bộ Tộc và xây dựng Đội 2 đạt 2.8M Lực chiến từ mảnh tự nhiên.",
+                en: "Unlock Witch on Day 41 to replace Shaman in the backline (adding Wukong + Beastmaster in S2 over Wilderness Hunter + Swordmaster), inherit all 24 Horde-marked Golden Gear pieces (+10/+20) at zero cost, and field a 2.8M Power Queue 2 from natural shards.",
               },
             },
           ],
@@ -347,14 +346,14 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
       ],
       subSections: [
         {
-          id: "sub-2-1-hybrid-bridge-roadmap",
+          id: "sub-2-1-horde-replacement-roadmap",
           title: {
-            vi: "2.1. Lộ Trình 3 Bước Bắc Cầu Đội Hình Lai (4-2 Hybrid Bridge)",
-            en: "2.1. The 3-Step 4-2 Hybrid Bridge Progression",
+            vi: "2.1. Lộ Trình 3 Bước Thay Thế Tướng Quá Độ Nội Bộ Phe Bộ Tộc",
+            en: "2.1. The 3-Step Internal Horde Replacement Progression",
           },
           badge: {
             vi: "Lộ Trình 3 Bước",
-            en: "3-Step Bridge",
+            en: "3-Step Upgrade",
           },
           blocks: [
             {
@@ -366,16 +365,16 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
                     en: "Step 1",
                   },
                   title: {
-                    vi: "Tích Lũy Ngầm (Silent Accumulation)",
-                    en: "Silent Accumulation",
+                    vi: "Tích Lũy Ngầm Trên Nền 6 SSR Bộ Tộc (Silent Accumulation)",
+                    en: "Silent Accumulation on 6 Horde SSRs",
                   },
                   timing: {
                     vi: "Ngày 1 ➔ Ngày 20",
                     en: "Days 1 to 20",
                   },
                   description: {
-                    vi: "**Ra trận Đội 1 bằng 6 SSR Liên Minh (Secret Keeper, Adjudicator, Pyromancer, Astrologer, Bard, Nun) với `0` Mảnh Vạn Năng:**\n• **Quản trị Đội 2:** Xếp sẵn 6 SSR Bộ Lạc (Wilderness Hunter, Soulmancer, Warlock, Barbarian, Swordmaster, Shaman) ở Đội 2 và ngưng đút Thịt ở `Lv.135–150`.",
-                    en: "**Field 6 SSR League heroes (Secret Keeper, Adjudicator, Pyromancer, Astrologer, Bard, Nun) in Queue 1 using `0` Universal Shards:**\n• **Queue 2 Staging:** Park 6 SSR Horde heroes (Wilderness Hunter, Soulmancer, Warlock, Barbarian, Swordmaster, Shaman) in Queue 2 capped at `Lv.135–150`.",
+                    vi: "**Ra trận Đội 1 bằng 6 SSR Bộ Tộc (`Swordmaster`, `Barbarian`/`Boar`, `Wilderness Hunter`, `Headhunter`, `Shaman`, `Soulmancer`) với `0` Mảnh Vạn Năng:**\n• **Quản trị Đội 2:** Xếp các tướng SSR khác hệ rơi tự nhiên vào Đội 2 làm đội thu thập và ngưng đút Thịt ở `Lv.135–150`.",
+                    en: "**Field 6 SSR Horde heroes (`Swordmaster`, `Barbarian`/`Boar`, `Wilderness Hunter`, `Headhunter`, `Shaman`, `Soulmancer`) in Queue 1 using `0` Universal Shards:**\n• **Queue 2 Staging:** Park natural off-faction SSR drops in Queue 2 for gathering, capped at `Lv.135–150`.",
                   },
                 },
                 {
@@ -384,16 +383,16 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
                     en: "Step 2",
                   },
                   title: {
-                    vi: "Bắc Cầu Đội Hình Lai 4 Liên Minh + 2 Bộ Lạc (4-2 Hybrid Bridge)",
-                    en: "4 League + 2 Horde Hybrid Bridge",
+                    vi: "Thay Thế Boar & Headhunter Bằng Desert Prince & Storm Maiden",
+                    en: "Replace Boar & Headhunter With Desert Prince & Storm Maiden",
                   },
                   timing: {
                     vi: "Ngày 21 ➔ Ngày 40",
                     en: "Days 21 to 40",
                   },
                   description: {
-                    vi: "**Mở khóa Desert Prince (`Ngày 21`) & Storm Maiden (`Ngày 27`) lên `1★ Đỏ` (`160` mảnh Mythic) hướng tới `1★ Trắng` (`560` mảnh):**\n• **Cấu hình Lai 4-2:** Rút Secret Keeper & Astrologer ra để xếp Hàng trước Desert Prince + Adjudicator | Hàng giữa Storm Maiden + Pyromancer | Hàng sau Bard + Nun.",
-                    en: "**Unlock Desert Prince (`Day 21`) & Storm Maiden (`Day 27`) to `1★ Red` (`160` Mythic shards) heading toward `1★ White` (`560` shards):**\n• **4-2 Hybrid Lineup:** Bench Secret Keeper & Astrologer to field Front: Desert Prince + Adjudicator | Mid: Storm Maiden + Pyromancer | Back: Bard + Nun.",
+                    vi: "**Mở khóa `Desert Prince` (`Ngày 21`) & `Storm Maiden` (`Ngày 27`) lên `1★ Đỏ` (`160` mảnh Mythic) hướng tới `1★ Trắng` (`560` mảnh):**\n• **Giữ Hào quang 6/6 Bộ Tộc:** Rút `Boar` & `Headhunter` ra, xếp Hàng trước `Desert Prince` + `Swordmaster` | Giữa `Storm Maiden` + `Wilderness Hunter` | Sau `Shaman` + `Soulmancer`.",
+                    en: "**Unlock `Desert Prince` (`Day 21`) & `Storm Maiden` (`Day 27`) to `1★ Red` (`160` Mythic shards) heading toward `1★ White` (`560` shards):**\n• **Retain 6/6 Horde Aura:** Bench `Boar` & `Headhunter` to field Front: `Desert Prince` + `Swordmaster`/`Barbarian` | Mid: `Storm Maiden` + `Wilderness Hunter` | Back: `Shaman` + `Soulmancer`.",
                   },
                 },
                 {
@@ -402,16 +401,16 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
                     en: "Step 3",
                   },
                   title: {
-                    vi: "Hoàn Tất Thuần Bộ Lạc 100% & Luân Chuyển Đội 2 (Queue 2 Rotation)",
-                    en: "100% Pure Horde Completion & Queue 2 Rotation",
+                    vi: "Đón Witch (Ngày 41) & Hoàn Thiện 5–6 Mythic (Season 1–3)",
+                    en: "Add Witch (Day 41) & Complete 5–6 Native Mythics (Seasons 1–3)",
                   },
                   timing: {
                     vi: "Từ Ngày 41+",
                     en: "Day 41+ Onwards",
                   },
                   description: {
-                    vi: "**Vào `Ngày 41`, mở khóa Witch và rút toàn bộ tướng Liên Minh khỏi Đội 1:**\n• **Tháo lắp Đồ Vàng miễn phí:** Chuyển 24 món Đồ Vàng (`+10/+20`) sang 6 tướng Bộ Lạc ở Đội 1 và đưa nguyên bộ 6 tướng Liên Minh xuống làm Đội 2 đánh `3v3 Apex Arena` & KvK.",
-                    en: "**On `Day 41`, unlock Witch and withdraw all League heroes from Queue 1:**\n• **Free Golden Gear Swap:** Transfer all 24 Golden Gear pieces (`+10/+20`) to your 6 Horde heroes in Queue 1 and move the intact 6-League lineup into Queue 2 for `3v3 Apex Arena` & KvK.",
+                    vi: "**Vào `Ngày 41`, mở khóa `Witch` thay thế `Shaman` ở Hàng sau:**\n• **Tháo lắp Đồ Vàng miễn phí:** Chuyển nguyên bộ Đồ Vàng (`+10/+20`) mang Dấu Hệ Bộ Tộc từ tướng quá độ sang các Tướng Đỏ gốc, thức tỉnh `Soulmancer`/`Warlock` ở S1 và đón `Wukong` + `Beastmaster` ở S2.",
+                    en: "**On `Day 41`, unlock `Witch` to replace `Shaman` in the backline:**\n• **Free Golden Gear Swap:** Transfer Horde-marked Golden Gear pieces (`+10/+20`) from transitional SSRs onto your Native Mythics, awaken `Soulmancer`/`Warlock` in S1, and add `Wukong` + `Beastmaster` in S2.",
                   },
                 },
               ],
@@ -419,10 +418,10 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
           ],
         },
         {
-          id: "sub-2-2-horde-pivot-checklist",
+          id: "sub-2-2-horde-progression-checklist",
           title: {
-            vi: "2.2. Checklist Kiểm Tra Sẵn Sàng Chuyển Hệ Bộ Lạc (Horde Pivot Readiness)",
-            en: "2.2. Interactive Horde Pivot Readiness Checklist",
+            vi: "2.2. Checklist Kiểm Tra Kỷ Luật Nuôi Đội 1 Thuần Bộ Tộc (Pure Horde Readiness)",
+            en: "2.2. Interactive Pure Horde Progression Readiness Checklist",
           },
           badge: {
             vi: "Checklist Kỷ Luật",
@@ -433,12 +432,12 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
               type: "checklist",
               checklistId: "horde-pivot-readiness-v2",
               title: {
-                vi: "4 Điều Kiện Bắt Buộc Trước Khi Bẻ Lái Sang Bộ Lạc (Ngày 15 ➔ Ngày 41)",
-                en: "4 Mandatory Readiness Checkpoints Before Pivoting to Horde (Day 15 to Day 41)",
+                vi: "4 Điều Kiện Bắt Buộc Khi Xây Dựng Đội 1 Thuần Bộ Tộc (Ngày 1 ➔ Ngày 41)",
+                en: "4 Mandatory Checkpoints for Building Pure Horde Queue 1 (Day 1 to Day 41)",
               },
               description: {
-                vi: "Đánh dấu từng hạng mục dưới đây để đảm bảo quá trình chuyển giao từ Liên Minh sang Bộ Lạc không làm sụt giảm lực chiến Đấu Trường:",
-                en: "Check off each requirement below to guarantee a zero-loss transition from League to Horde without dropping Arena power:",
+                vi: "Đánh dấu từng hạng mục dưới đây để đảm bảo quá trình thay thế tướng quá độ sang Tướng Đỏ Bộ Tộc đạt hiệu suất tối đa:",
+                en: "Check off each requirement below to guarantee maximum efficiency as you replace transitional SSRs with Horde Mythics:",
               },
               items: [
                 {
@@ -448,8 +447,8 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
                     en: "Lock 100% of Universal Legendary Hero Shards during the first 20 days",
                   },
                   detail: {
-                    vi: "Chỉ nâng Sao cho 6 tướng SSR Liên Minh bằng mảnh định danh từ Quán Rượu; để dành tối thiểu 240–320+ Mảnh Vạn Năng đút cho Desert Prince (Ngày 21) và Storm Maiden (Ngày 27) lên 1 Sao Đỏ (160 mảnh Mythic).",
-                    en: "Upgrade your 6 SSR League heroes strictly with specific Tavern shards; bank at least 240–320+ Universal Shards to push Desert Prince (Day 21) and Storm Maiden (Day 27) to 1-Red Star (160 Mythic shards).",
+                    vi: "Chỉ nâng Sao cho 6 SSR Bộ Tộc bằng mảnh Quán Rượu; để dành 240–320+ Mảnh Vạn Năng đút cho Desert Prince (Ngày 21) và Storm Maiden (Ngày 27) lên 1 Sao Đỏ (160 mảnh Mythic).",
+                    en: "Upgrade your 6 starter SSR Horde heroes strictly via Tavern shards; bank 240–320+ Universal Shards to push Desert Prince (Day 21) and Storm Maiden (Day 27) to 1-Red Star (160 Mythic shards).",
                   },
                   badge: {
                     vi: "Ngày 1–20",
@@ -459,27 +458,27 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
                 {
                   id: "sync-horde-barracks-day15",
                   label: {
-                    vi: "Đồng bộ Doanh trại Bộ Lạc (Horde Barracks) & Tượng Bộ Lạc từ Ngày 15",
-                    en: "Sync Horde Barracks & Horde Monument levels starting on Day 15",
+                    vi: "Ưu tiên nâng Doanh trại Bộ Lạc (Horde Barracks) & Tượng Bộ Lạc từ Ngày 1",
+                    en: "Prioritize Horde Barracks & Horde Monument levels starting on Day 1",
                   },
                   detail: {
-                    vi: "Từ giữa Tuần 3, giao Thợ xây số 2 kéo cấp độ Doanh trại Bộ Lạc và Tượng Đài Bộ Lạc đuổi kịp cấp Lâu Đài để sẵn sàng lính bậc cao nhất cho Desert Prince vào Ngày 21.",
-                    en: "Starting mid-Week 3, assign Builder #2 to bring Horde Barracks and the Horde Monument up to your Castle level so top-tier troops are ready for Desert Prince on Day 21.",
+                    vi: "Luôn giữ cấp độ Doanh trại Bộ Lạc và Tượng Đài Bộ Lạc bám sát cấp Lâu Đài để mở khóa lính Bộ Tộc bậc cao nhất cho Desert Prince và Storm Maiden ngay khi ra mắt.",
+                    en: "Keep Horde Barracks and the Horde Monument synced with your Castle level so top-tier Horde troops are ready for Desert Prince and Storm Maiden on release.",
                   },
                   badge: {
-                    vi: "Ngày 15–21",
-                    en: "Days 15–21",
+                    vi: "Hạ Tầng Bộ Tộc",
+                    en: "Horde Infrastructure",
                   },
                 },
                 {
                   id: "preselect-horde-gear-mark",
                   label: {
-                    vi: "Giữ nguyên Rương Đồ Vàng Tự Chọn hoặc chọn sẵn Dấu Hệ Bộ Lạc (Horde Mark)",
-                    en: "Keep Golden Gear Choice Chests sealed or pre-select the Horde Faction Mark",
+                    vi: "Đóng Dấu Hệ Bộ Lạc (Horde Mark) cho toàn bộ 24 món Đồ Vàng Đội 1",
+                    en: "Stamp the Horde Faction Mark on all 24 Queue 1 Golden Gear pieces",
                   },
                   detail: {
-                    vi: "**Cấm đóng Dấu Hệ Liên Minh ở Tuần 1–2:**\n• Tướng Liên Minh mặc tạm đồ Vàng mang Dấu Hệ Bộ Lạc vẫn nhận `100%` chỉ số gốc, và từ `Ngày 21+` tướng Bộ Lạc kích hoạt ngay `+30%` chỉ số Hệ.",
-                    en: "**Never stamp League Faction Marks in Weeks 1–2:**\n• League heroes wearing Horde-marked Golden Gear still receive `100%` base stats, and from `Day 21+` Horde heroes activate the `+30%` faction bonus.",
+                    vi: "**Đồng bộ 100% Dấu Hệ Bộ Tộc ngay từ đầu:**\n• Toàn bộ 6 tướng Bộ Tộc Đội 1 kích hoạt ngay `+30%` chỉ số Hệ trên Trang bị Vàng, và khi thay Tướng Đỏ vào chỉ cần tháo lắp sang với `0` chi phí.",
+                    en: "**Synchronize 100% Horde Faction Marks from Day 1:**\n• All 6 Queue 1 Horde heroes immediately activate the `+30%` faction gear bonus, and new Mythics inherit the sets at `0` unequip cost.",
                   },
                   badge: {
                     vi: "+30% Chỉ Số Hệ",
@@ -508,17 +507,17 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
       ],
     },
     {
-      id: "sec-3-horde-pivot-pitfalls",
+      id: "sec-3-horde-progression-pitfalls",
       title: {
-        vi: "3. Những Cạm bẫy Phổ biến & Cách Phòng tránh (Common Pitfalls)",
-        en: "3. Common Faction Pivot Pitfalls & Prevention Rules",
+        vi: "3. Những Cạm bẫy Phổ biến Khi Nuôi Đội Hình Bộ Tộc & Cách Phòng tránh (Common Pitfalls)",
+        en: "3. Common Pure Horde Progression Pitfalls & Prevention Rules",
       },
       blocks: [
         {
           type: "table",
           caption: {
-            vi: "4 sai lầm kinh điển khiến tài khoản kẹt lực chiến khi chuyển từ Liên Minh sang Bộ Lạc và giải pháp khắc phục triệt để",
-            en: "4 classic account traps that stall combat power when pivoting from League to Horde and their min-max solutions",
+            vi: "4 sai lầm kinh điển khiến tài khoản Thuần Bộ Tộc kẹt lực chiến và giải pháp khắc phục triệt để",
+            en: "4 classic account traps that stall Pure Horde combat power and their min-max solutions",
           },
           headers: [
             {
@@ -533,32 +532,32 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
           rows: [
             [
               {
-                vi: "1. Đút Mảnh Vàng Vạn Năng cho Pyromancer và Adjudicator ở Tuần 1–2: Vì muốn leo thêm vài tầng tháp ở tuần đầu mà tiêu mất 300–400 Mảnh Vạn Năng vào tướng Liên Minh, dẫn đến khi Desert Prince và Storm Maiden ra mắt thì bị kẹt ở 0 Sao.",
-                en: "1. Feeding 300–400 Universal Shards to Pyromancer and Adjudicator in Weeks 1–2: Chasing a few extra early tower floors drains your shard bank, leaving Desert Prince and Storm Maiden stuck at 0 Stars when they drop.",
+                vi: "1. Đút Mảnh Vàng Vạn Năng cho Boar, Headhunter hoặc Wilderness Hunter ở Tuần 1–3: Vì muốn leo thêm vài tầng tháp đầu game mà tiêu mất 300–400 Mảnh Vạn Năng vào tướng SSR quá độ, dẫn đến khi Desert Prince và Storm Maiden ra mắt thì bị kẹt ở 0 Sao.",
+                en: "1. Feeding 300–400 Universal Shards to Boar, Headhunter, or Wilderness Hunter in Weeks 1–3: Chasing a few extra early tower floors drains your shard bank, leaving Desert Prince and Storm Maiden stuck at 0 Stars when they drop.",
               },
               {
-                vi: "Khóa 100% Mảnh Vạn Năng trong 20 ngày đầu: Tướng Liên Minh chỉ được nâng Sao bằng mảnh định danh rơi từ Quán Rượu và Cửa hàng Đổi điểm. Mảnh Vạn Năng là tài sản độc quyền của Tướng Đỏ Bộ Lạc.",
-                en: "Lock 100% of Universal Shards for the first 20 days: Upgrade League heroes strictly using specific shards from the Tavern and exchange shops. Universal Shards are reserved exclusively for Horde Mythic heroes.",
-              },
-            ],
-            [
-              {
-                vi: "2. Rèn Đồ Vàng gắn Dấu Hệ Liên Minh (League Faction Mark) quá sớm: Mở các Rương Trang Bị Vàng Tự Chọn và chọn dòng cộng +30% chỉ số cho hệ Liên Minh ngay ở Tuần 2.",
-                en: "2. Crafting Golden Gear with League Faction Marks too early: Opening Golden Gear Choice Chests in Week 2 and stamping the +30% League faction bonus.",
-              },
-              {
-                vi: "Ưu tiên Dấu Hệ Bộ Lạc (Horde Mark): Khi mặc đồ Vàng cho tướng Liên Minh ở Ngày 1–40, hãy dùng đồ Vàng rơi ngẫu nhiên hoặc chọn sẵn Dấu Hệ Bộ Lạc ngay từ đầu (tướng Liên Minh mặc tạm vẫn nhận đủ 100% chỉ số gốc, và từ Ngày 21+ tướng Bộ Lạc sẽ kích hoạt ngay +30% chỉ số Hệ).",
-                en: "Prioritize the Horde Mark from Day 1: When equipping Golden Gear on League heroes during Days 1–40, use random drops or pre-select the Horde Faction Mark (League heroes wearing it temporarily still get 100% base stats, and from Day 21+ your Horde heroes immediately unlock the +30% faction bonus).",
+                vi: "Khóa 100% Mảnh Vạn Năng trong 20 ngày đầu: Tướng SSR quá độ chỉ được nâng Sao bằng mảnh định danh rơi từ Quán Rượu. Mảnh Vạn Năng là tài sản độc quyền của Tướng Đỏ Bộ Lạc.",
+                en: "Lock 100% of Universal Shards for the first 20 days: Upgrade transitional SSRs strictly using specific shards from the Tavern. Universal Shards are reserved exclusively for Horde Mythic heroes.",
               },
             ],
             [
               {
-                vi: "3. Bỏ bê Doanh trại Bộ Lạc (Horde Barracks) ở cấp thấp: Chỉ nâng mỗi Doanh trại Liên Minh lên Lv.25–28 trong khi để Doanh trại Bộ Lạc ở Lv.15, khiến khi chuyển sang Bộ Lạc thì tướng Đỏ phải dắt lính cấp thấp yếu ớt.",
-                en: "3. Neglecting Horde Barracks at low levels: Pushing only League Barracks to Lv.25–28 while leaving Horde Barracks at Lv.15, forcing your new Horde Mythics to march with weak low-tier troops.",
+                vi: "2. Mở Rương Trang Bị Vàng Tự Chọn nhưng lấy nhầm Dấu Hệ khác: Không kiểm tra kỹ dẫn đến rèn đồ Vàng mang Dấu Hệ Liên Minh hoặc Thiên Nhiên làm mất trắng +30% chỉ số Hệ cho Đội 1 Bộ Tộc.",
+                en: "2. Selecting the wrong Faction Mark on Golden Gear Choice Chests: Crafting Golden Gear with League or Nature marks forfeits the +30% faction stat bonus on your Horde Queue 1.",
               },
               {
-                vi: "Đồng bộ Hạ tầng từ Ngày 15: Ngay từ giữa Tuần 3, dùng Thợ xây số 2 kéo cấp độ Doanh trại Bộ Lạc và Tượng Bộ Lạc đuổi kịp cấp Lâu Đài để sẵn sàng lính bậc cao nhất cho Desert Prince vào Ngày 21.",
-                en: "Sync infrastructure starting Day 15: From mid-Week 3, assign Builder #2 to push Horde Barracks and the Horde Monument up to your Castle level so your highest-tier troops are ready for Desert Prince on Day 21.",
+                vi: "Chọn 100% Dấu Hệ Bộ Lạc (Horde Mark) ngay từ Ngày 1: Mọi Rương Đồ Vàng Tự Chọn và Bản vẽ rèn đồ cho Đội 1 đều phải đóng Dấu Hệ Bộ Lạc để kích hoạt trọn vẹn +30% chỉ số Hệ xuyên suốt từ Ngày 1 đến Season 4.",
+                en: "Select 100% Horde Marks from Day 1: Every Golden Gear Choice Chest and forge blueprint for Queue 1 must carry the Horde Faction Mark to activate the full +30% faction bonus from Day 1 through Season 4.",
+              },
+            ],
+            [
+              {
+                vi: "3. Nâng dàn trải cả 3 Doanh trại Liên Minh, Bộ Lạc, Thiên Nhiên cùng lúc: Chia nhỏ Gỗ/Đá cho cả 3 hệ khiến Doanh trại Bộ Lạc bị tụt cấp so với Lâu Đài, làm lính Bộ Tộc yếu thế trong PvP.",
+                en: "3. Spreading Wood and Stone across all 3 Faction Barracks equally: Upgrading all 3 barracks simultaneously leaves Horde Barracks under-leveled relative to your Castle.",
+              },
+              {
+                vi: "Tập trung Hạ tầng Đơn Hệ Bộ Lạc: Dồn ưu tiên số 1 cho Doanh trại Bộ Lạc và Tượng Đài Bộ Lạc bám sát cấp Lâu Đài; hai Doanh trại phụ chỉ nâng cầm chừng khi thừa tài nguyên hoặc làm nhiệm vụ.",
+                en: "Single-Faction Horde Infrastructure Focus: Prioritize Horde Barracks and the Horde Monument at Castle level; only upgrade off-faction barracks minimally for quests.",
               },
             ],
             [
@@ -578,18 +577,18 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
   ],
   proSections: [
     {
-      id: "sec-4-zero-loss-pivot-protocol",
+      id: "sec-4-zero-loss-progression-protocol",
       isPro: true,
       title: {
-        vi: "4. Phân tích Định lượng & Điểm gãy: Phác Đồ 4 Giai Đoạn Chuyển Giao Không Đau Đớn (4-Stage Zero-Loss Pivot Protocol)",
-        en: "4. Quantitative Analysis: The 4-Stage Zero-Loss Pivot Protocol & Alternative Faction Branches",
+        vi: "4. Phân tích Định lượng & Điểm gãy: Phác Đồ 4 Giai Đoạn Phát Triển Thuần Bộ Tộc (4-Stage Pure Horde Protocol)",
+        en: "4. Quantitative Analysis: The 4-Stage Pure Horde Progression Protocol & Secondary Queue Strategy",
       },
       blocks: [
         {
           type: "paragraph",
           text: {
-            vi: "**Kỷ luật Chuyển giao 100% Zero-Loss:** Không làm thất thoát dù chỉ `1` mảnh tướng, `1` cuốn sách kỹ năng hay `1` viên đá rèn bằng cách thực thi nghiêm ngặt Phác đồ 4 Giai đoạn và Ma trận dưới đây:",
-            en: "**100% Zero-Loss Transition Discipline:** Waste `0` hero shards, skill books, or gear enhancement stones by strictly executing the 4-Stage Protocol and Execution Matrix below:",
+            vi: "**Kỷ luật Thay thế Tướng Quá Độ 100% Zero-Loss:** Không làm thất thoát dù chỉ `1` mảnh tướng, `1` cuốn sách kỹ năng hay `1` viên đá rèn bằng cách thực thi nghiêm ngặt Phác đồ 4 Giai đoạn và Ma trận dưới đây:",
+            en: "**100% Zero-Loss Replacement Discipline:** Waste `0` hero shards, skill books, or gear enhancement stones by strictly executing the 4-Stage Pure Horde Protocol and Execution Matrix below:",
           },
         },
       ],
@@ -597,8 +596,8 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
         {
           id: "sub-4-1-four-stage-state-diagram",
           title: {
-            vi: "4.1. Sơ Đồ Trạng Thái 4 Giai Đoạn Chuyển Giao Không Đau Đớn (Zero-Loss State Diagram)",
-            en: "4.1. 4-Stage Zero-Loss Transition State Diagram",
+            vi: "4.1. Sơ Đồ Trạng Thái 4 Giai Đoạn Thay Thế Tướng Quá Độ Bộ Tộc (Pure Horde State Diagram)",
+            en: "4.1. 4-Stage Pure Horde Replacement State Diagram",
           },
           badge: {
             vi: "PRO State Diagram",
@@ -610,12 +609,12 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
               mediaCode: "MED-4.3-01",
               variant: "timeline_phases",
               title: {
-                vi: "Sơ Đồ Trạng Thái 4 Giai Đoạn Chuyển Giao Không Đau Đớn (Zero-Loss Pivot Protocol: Ngày 1 ➔ S3)",
-                en: "4-Stage Zero-Loss Pivot Protocol State Diagram (Day 1 to Season 3)",
+                vi: "Sơ Đồ Trạng Thái 4 Giai Đoạn Phát Triển Thuần Bộ Tộc (Pure Horde Protocol: Ngày 1 ➔ S3)",
+                en: "4-Stage Pure Horde Progression State Diagram (Day 1 to Season 3)",
               },
               subtitle: {
-                vi: "Chuỗi chuyển trạng thái Đội 1 & Đội 2 bảo toàn 100% Mảnh Vạn Năng, Sách Kỹ Năng Cam, 24 món Đồ Vàng và Quỹ Hồn Đá Đỏ",
-                en: "Queue 1 & Queue 2 state transitions preserving 100% of Universal Shards, Skill Books, 24 Golden Gear pieces, and Soul Stones",
+                vi: "Chuỗi nâng cấp Đội 1 Thuần Bộ Tộc bảo toàn 100% Mảnh Vạn Năng, Sách Kỹ Năng Cam, 24 món Đồ Vàng và Quỹ Hồn Đá Đỏ",
+                en: "Queue 1 Pure Horde upgrade chain preserving 100% of Universal Shards, Skill Books, 24 Golden Gear pieces, and Soul Stones",
               },
               centerNode: {
                 id: "stage-1-soft-freeze",
@@ -624,12 +623,12 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
                   en: "Stage 1: Days 1–20",
                 },
                 title: {
-                  vi: "ĐÓNG BĂNG ĐẦU TƯ MỀM (6 SSR Liên Minh Đội 1)",
-                  en: "SOFT INVESTMENT FREEZE (6-SSR League Queue 1)",
+                  vi: "KHÓA MẢNH VẠN NĂNG (6 SSR Bộ Tộc Quá Độ Đội 1)",
+                  en: "UNIVERSAL SHARD FREEZE (6-SSR Transitional Horde Queue 1)",
                 },
                 subtitle: {
-                  vi: "0 Mảnh Vạn Năng & 0 Sách Kỹ Năng Cam cho tướng quá độ (Secret Keeper, Astrologer). Cường hóa 24 món Đồ Vàng lên +10/+20 mang Dấu Hệ Bộ Lạc.",
-                  en: "0 Universal Shards & 0 Legendary Skill Books on transitional heroes (Secret Keeper, Astrologer). Enhance 24 Golden Gear pieces to +10/+20 with Horde Marks.",
+                  vi: "0 Mảnh Vạn Năng & 0 Sách Kỹ Năng Cam cho tướng quá độ (Boar, Headhunter, Shaman, Wilderness Hunter). Cường hóa 24 món Đồ Vàng lên +10/+20 mang Dấu Hệ Bộ Lạc.",
+                  en: "0 Universal Shards & 0 Legendary Skill Books on transitional heroes (Boar, Headhunter, Shaman, Wilderness Hunter). Enhance 24 Golden Gear pieces to +10/+20 with Horde Marks.",
                 },
                 metrics: [
                   {
@@ -646,8 +645,8 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
               branches: [
                 {
                   title: {
-                    vi: "Giai đoạn 2: Mở Khóa Khung Xương Horde (Hybrid 4-2)",
-                    en: "Stage 2: Unlock Horde Core Skeleton (4-2 Hybrid Bridge)",
+                    vi: "Giai đoạn 2: Đón Cặp Đôi Desert Prince & Storm Maiden (6/6 Horde)",
+                    en: "Stage 2: Unlock Desert Prince & Storm Maiden Core Duo (6/6 Horde)",
                   },
                   badge: {
                     vi: "Ngày 21 ➔ Ngày 35",
@@ -666,21 +665,21 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
                         en: "Unlock Desert Prince & Storm Maiden to 1-Red Star (160 Mythic Shards)",
                       },
                       subtitle: {
-                        vi: "Xả Mảnh Vạn Năng vào Thứ Năm Tuần 4 (GAR Day 4) đưa cả hai lên 1 Sao Đỏ (6 Sao / 160 mảnh Mythic), dồn Sách Kỹ Năng Cam và chuyển 8 món Đồ Vàng +20 sang.",
-                        en: "Spend Universal Shards on Week 4 Thursday (GAR Day 4) to reach 1-Red Star (6 Stars / 160 Mythic shards), max their skills, and transfer 8 +20 Golden Gear pieces.",
+                        vi: "Xả Mảnh Vạn Năng vào Thứ Năm Tuần 4 (GAR Day 4) đưa cả hai lên 1 Sao Đỏ (6 Sao / 160 mảnh Mythic), thay thế Boar & Headhunter, dồn Sách Cam và chuyển 8 món Đồ Vàng +20 sang.",
+                        en: "Spend Universal Shards on Week 4 Thursday (GAR Day 4) to reach 1-Red Star (6 Stars / 160 Mythic shards), replace Boar & Headhunter, max their skills, and transfer 8 +20 Golden Gear pieces.",
                       },
                       tone: "gold",
                     },
                   ],
                   outcome: {
-                    vi: "Đội hình Lai 4 Liên Minh + 2 Bộ Lạc đánh bại các đội Thuần Liên Minh cao hơn 400,000 – 600,000 lực chiến hiển thị.",
-                    en: "4 League + 2 Horde Hybrid defeats Pure League lineups with 400,000 – 600,000 higher displayed power.",
+                    vi: "Đội 1 Thuần Bộ Tộc 6/6 (+35% ATK/HP + 20% Khắc chế) đánh bại các đội Thuần Liên Minh cao hơn 400,000 – 600,000 lực chiến hiển thị.",
+                    en: "6/6 Pure Horde Queue 1 (+35% ATK/HP + 20% Counter) defeats Pure League lineups with 400,000 – 600,000 higher displayed power.",
                   },
                 },
                 {
                   title: {
-                    vi: "Giai đoạn 3: Chuyển Giao Đội 1 Hoàn Toàn & Đẩy League Xuống Đội 2",
-                    en: "Stage 3: Full Horde Queue 1 & Intact League Moved to Queue 2",
+                    vi: "Giai đoạn 3: Mở Khóa Witch Thay Shaman & Hoàn Thiện Đội 2 Phụ Trợ",
+                    en: "Stage 3: Unlock Witch Replacing Shaman & Build Secondary Queue 2",
                   },
                   badge: {
                     vi: "Ngày 36 ➔ Ngày 45",
@@ -695,19 +694,19 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
                         en: "Day 41",
                       },
                       title: {
-                        vi: "Mở Khóa Witch (1 Sao Đỏ / 160 Mảnh) & Đổi 24 Món Đồ Vàng Miễn Phí",
-                        en: "Unlock Witch (1-Red Star / 160 Shards) & Free 24-Piece Gear Swap",
+                        vi: "Mở Khóa Witch (1 Sao Đỏ / 160 Mảnh) & Kế Thừa 24 Món Đồ Vàng Miễn Phí",
+                        en: "Unlock Witch (1-Red Star / 160 Shards) & Free 24-Piece Gear Inheritance",
                       },
                       subtitle: {
-                        vi: "Đưa bộ 3 Storm Maiden, Desert Prince, Witch tiến lên 1 Sao Trắng / Bạc (11 Sao / 560 mảnh Mythic); chuyển Pet sang hệ Bộ Lạc (Howli / Tiger / Cactini).",
-                        en: "Push Storm Maiden, Desert Prince, and Witch toward 1-White/Silver Star (11 Stars / 560 Mythic shards); switch main Pet to Horde (Howli / Tiger / Cactini).",
+                        vi: "Đưa bộ 3 Storm Maiden, Desert Prince, Witch tiến lên 1 Sao Trắng / Bạc (11 Sao / 560 mảnh Mythic); nuôi Pet chính hệ Bộ Lạc (Howli / Tiger / Cactini).",
+                        en: "Push Storm Maiden, Desert Prince, and Witch toward 1-White/Silver Star (11 Stars / 560 Mythic shards); raise your main Horde Pet (Howli / Tiger / Cactini).",
                       },
                       tone: "gold",
                     },
                   ],
                   outcome: {
-                    vi: "Đội 1 Thuần Bộ Lạc 100% + Đội 2 Thuần Liên Minh giữ nguyên 2.8M lực chiến với 0 chi phí phát sinh.",
-                    en: "100% Pure Horde Queue 1 + intact 2.8M Power Pure League Queue 2 at 0 extra cost.",
+                    vi: "Đội 1 Thuần Bộ Tộc 3 Mythic + 3 SSR đạt đỉnh Pre-Season + Đội 2 phụ trợ đạt 2.8M lực chiến từ mảnh tự nhiên với 0 chi phí phát sinh.",
+                    en: "3-Mythic + 3-SSR Pure Horde Queue 1 peaks in Pre-Season + 2.8M Power secondary Queue 2 built from natural shards at 0 extra cost.",
                   },
                 },
                 {
@@ -754,23 +753,23 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
               mediaCode: "MED-4.3-03",
               tier: "tier2_annotated_ui",
               title: {
-                vi: "Giao Diện Tháo Lắp Trang Bị Vàng (Gear Swap) & Thức Tỉnh Soulmancer/Warlock (9 vs 27 Hồn Đá Đỏ)",
-                en: "Golden Gear Swap Interface & Soulmancer/Warlock Soul Stone Awakening (9 vs 27 Soul Stones)",
+                vi: "Giao Diện Kế Thừa Trang Bị Vàng (Gear Swap) & Thức Tỉnh Soulmancer/Warlock (9 vs 27 Hồn Đá Đỏ)",
+                en: "Golden Gear Inheritance Interface & Soulmancer/Warlock Soul Stone Awakening (9 vs 27 Soul Stones)",
               },
               description: {
-                vi: "Minh họa thao tác tháo lắp miễn phí 100% bộ 24 món Đồ Vàng (+10/+20) và bảng chi phí Thức Tỉnh Đỏ (Soul Stone Awakening) của Soulmancer/Warlock so với hệ Liên Minh và Thiên Nhiên.",
-                en: "Annotated UI breakdown of the 100% free 24-piece Golden Gear (+10/+20) swap and the Soul Stone Awakening cost comparison for Soulmancer/Warlock versus League and Nature.",
+                vi: "Minh họa thao tác tháo lắp miễn phí 100% bộ 24 món Đồ Vàng (+10/+20) từ tướng SSR quá độ sang Tướng Đỏ Bộ Tộc và bảng chi phí Thức Tỉnh Đỏ (Soul Stone Awakening) của Soulmancer/Warlock so với hệ Liên Minh và Thiên Nhiên.",
+                en: "Annotated UI breakdown of the 100% free 24-piece Golden Gear (+10/+20) inheritance from transitional SSRs onto Horde Mythics and the Soul Stone Awakening cost comparison for Soulmancer/Warlock versus League and Nature.",
               },
               annotations: [
                 {
                   kind: "do",
                   label: {
-                    vi: "Tháo Lắp Đồ Vàng Miễn Phí 100% (Zero-Loss Gear Swap)",
-                    en: "100% Free Golden Gear Unequip & Swap (Zero-Loss Gear Swap)",
+                    vi: "Kế Thừa Đồ Vàng Miễn Phí 100% (Zero-Loss Gear Inheritance)",
+                    en: "100% Free Golden Gear Unequip & Inheritance (Zero-Loss Gear Swap)",
                   },
                   detail: {
-                    vi: "Toàn bộ cấp cường hóa (+10/+20/+30) trên 24 món Đồ Vàng của tướng Liên Minh được tháo và lắp trực tiếp sang Desert Prince, Storm Maiden, Witch mà không tốn 1 viên đá rèn nào.",
-                    en: "All enhancement levels (+10/+20/+30) across your 24 Golden Gear pieces on League heroes can be unequipped and transferred directly to Desert Prince, Storm Maiden, and Witch at zero cost.",
+                    vi: "Toàn bộ cấp cường hóa (+10/+20/+30) trên 24 món Đồ Vàng mang Dấu Hệ Bộ Tộc của tướng SSR quá độ được tháo và lắp trực tiếp sang Desert Prince, Storm Maiden, Witch mà không tốn 1 viên đá rèn nào.",
+                    en: "All enhancement levels (+10/+20/+30) across your 24 Horde-marked Golden Gear pieces on transitional SSRs can be unequipped and transferred directly to Desert Prince, Storm Maiden, and Witch at zero cost.",
                   },
                 },
                 {
@@ -787,12 +786,12 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
                 {
                   kind: "dont",
                   label: {
-                    vi: "Tránh Bẫy 27 Hồn Đá Đỏ + 1,035–1,155 Mảnh Của Thuần Liên Minh F2P",
-                    en: "Avoid the 27 Soul Stones + 1,035–1,155 Shards Trap of F2P Pure League",
+                    vi: "Đối Chiếu Gánh Nặng 27 Hồn Đá Đỏ + 1,035–1,155 Mảnh Của Hệ Liên Minh",
+                    en: "Contrast With the 27 Soul Stones + 1,035–1,155 Shards Burden of Pure League",
                   },
                   detail: {
-                    vi: "Nếu giữ nguyên Thuần Liên Minh, bạn buộc phải thức tỉnh cả 3 tướng SSR (Pyromancer, Adjudicator, Nun), tiêu tốn tới 27 Hồn Đá Đỏ và 1,035–1,155 Mảnh Tướng — gấp 3 lần chi phí của Bộ Lạc!",
-                    en: "Staying Pure League forces you to awaken 3 SSR heroes (Pyromancer, Adjudicator, Nun), draining 27 Soul Stones and 1,035–1,155 Hero Shards—3x the cost of Horde!",
+                    vi: "Trong khi hệ Liên Minh buộc phải thức tỉnh cả 3 tướng SSR (Pyromancer, Adjudicator, Nun) tiêu tốn tới 27 Hồn Đá Đỏ và 1,035–1,155 Mảnh Tướng, người chơi Bộ Tộc tiết kiệm được 18 Hồn Đá Đỏ để dồn cho Tướng Đỏ gốc!",
+                    en: "While Pure League must awaken 3 SSR heroes (Pyromancer, Adjudicator, Nun) draining 27 Soul Stones and 1,035–1,155 Hero Shards, Pure Horde players save 18 Soul Stones to invest in Native Mythics!",
                   },
                 },
               ],
@@ -800,10 +799,10 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
           ],
         },
         {
-          id: "sub-4-2-zero-loss-pivot-matrix",
+          id: "sub-4-2-zero-loss-progression-matrix",
           title: {
-            vi: "4.2. Bảng Ma Trận Thực Thi 4 Giai Đoạn Chuyển Giao (Zero-Loss Pivot Matrix)",
-            en: "4.2. 4-Stage Zero-Loss Pivot Execution Matrix",
+            vi: "4.2. Bảng Ma Trận Thực Thi 4 Giai Đoạn Phát Triển Thuần Bộ Tộc (Pure Horde Execution Matrix)",
+            en: "4.2. 4-Stage Pure Horde Progression Execution Matrix",
           },
           badge: {
             vi: "Ma Trận Thực Thi",
@@ -813,8 +812,8 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
             {
               type: "table",
               caption: {
-                vi: "Quy tắc quản trị Đội 1, Mảnh Vạn Năng, Sách Kỹ Năng, Trang bị Vàng (+10/+20/+30), Pet và vai trò của dàn tướng Liên Minh qua 4 giai đoạn",
-                en: "Rules governing Queue 1 lineup, Universal Shards, Skill Books, Golden Gear (+10/+20/+30), Pets, and the League roster across all 4 stages",
+                vi: "Quy tắc quản trị Đội 1 Thuần Bộ Tộc, Mảnh Vạn Năng, Sách Kỹ Năng, Trang bị Vàng (+10/+20/+30), Pet và lịch thay thế tướng quá độ qua 4 giai đoạn",
+                en: "Rules governing Pure Horde Queue 1 lineup, Universal Shards, Skill Books, Golden Gear (+10/+20/+30), Pets, and transitional hero replacement across all 4 stages",
               },
               headers: [
                 {
@@ -822,8 +821,8 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
                   en: "Stage & Day Milestone",
                 },
                 {
-                  vi: "Cấu Hình Đội 1 (Main Queue)",
-                  en: "Queue 1 Lineup Configuration",
+                  vi: "Cấu Hình Đội 1 Thuần Bộ Tộc (Main Queue)",
+                  en: "Pure Horde Queue 1 Configuration",
                 },
                 {
                   vi: "Quy Tắc Quản Trị Mảnh Vạn Năng & Sách Kỹ Năng",
@@ -834,75 +833,75 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
                   en: "Gear, Building & Pet Rules",
                 },
                 {
-                  vi: "Vai Trò Của Dàn Tướng Liên Minh",
-                  en: "Role of the League Roster",
+                  vi: "Lịch Thay Thế Tướng Quá Độ & Quản Trị Đội 2",
+                  en: "Transitional Hero Replacement & Queue 2 Role",
                 },
               ],
               rows: [
                 [
                   {
-                    vi: "Giai đoạn 1: Đóng Băng Đầu Tư Mềm (Ngày 1 ➔ Ngày 20)",
-                    en: "Stage 1: Soft Investment Freeze (Days 1 to 20)",
+                    vi: "Giai đoạn 1: Khóa Kho Tích Lũy (Ngày 1 ➔ Ngày 20)",
+                    en: "Stage 1: Vault Freeze & Accumulation (Days 1 to 20)",
                   },
                   {
-                    vi: "6 SSR Vàng Liên Minh: Secret Keeper + Adjudicator | Pyromancer + Astrologer | Bard + Nun",
-                    en: "6 SSR League: Secret Keeper + Adjudicator | Pyromancer + Astrologer | Bard + Nun",
+                    vi: "6 SSR Vàng Bộ Tộc: Swordmaster + Barbarian/Boar | Wilderness Hunter + Headhunter | Shaman + Soulmancer/Warlock",
+                    en: "6 SSR Horde: Swordmaster + Barbarian/Boar | Wilderness Hunter + Headhunter | Shaman + Soulmancer/Warlock",
                   },
                   {
-                    vi: "• 0 Mảnh Vạn Năng cho Liên Minh. • 0 Sách Kỹ Năng Cam cho tướng quá độ (Secret Keeper, Astrologer). • Chỉ nâng cấp độ (Level) bằng Thịt.",
-                    en: "• 0 Universal Shards on League. • 0 Legendary Skill Books on transitional heroes (Secret Keeper, Astrologer). • Only level up with Meat.",
+                    vi: "• 0 Mảnh Vạn Năng cho tướng SSR quá độ. • 0 Sách Kỹ Năng Cam cho Boar, Headhunter, Shaman, Wilderness Hunter. • Chỉ nâng cấp độ (Level) bằng Thịt.",
+                    en: "• 0 Universal Shards on transitional SSRs. • 0 Legendary Skill Books on Boar, Headhunter, Shaman, Wilderness Hunter. • Only level up with Meat.",
                   },
                   {
-                    vi: "• Cường hóa bộ 24 món Đồ Vàng Đội 1 lên mốc đồng bộ +10 / +20 (tháo lắp miễn phí). • Giữ nguyên Rương Đồ Vàng Tự Chọn hoặc chọn sẵn Dấu Hệ Bộ Lạc.",
-                    en: "• Enhance all 24 Queue 1 Golden Gear pieces to +10 / +20 Resonance (free unequip). • Keep Golden Gear Choice Chests sealed or pre-select Horde Marks.",
+                    vi: "• Cường hóa bộ 24 món Đồ Vàng Đội 1 lên mốc đồng bộ +10 / +20 (tháo lắp miễn phí). • Đóng sẵn Dấu Hệ Bộ Lạc (+30% chỉ số Hệ) và nâng Doanh trại Bộ Lạc theo sát Lâu Đài.",
+                    en: "• Enhance all 24 Queue 1 Golden Gear pieces to +10 / +20 Resonance (free unequip). • Stamp Horde Marks (+30% faction bonus) and keep Horde Barracks at Castle level.",
                   },
                   {
-                    vi: "Gánh 100% hoạt động PvE, Mở bản đồ, Leo Tháp và Đấu Trường. (6 tướng Vàng Bộ Lạc xếp chờ ở Đội 2 ở mốc Lv.135–150).",
-                    en: "Carries 100% of PvE, map fog clearing, Trial Tower, and Arena. (6 SSR Horde heroes parked in Queue 2 capped at Lv.135–150).",
+                    vi: "6 SSR Bộ Tộc kích hoạt +35% ATK & HP gánh 100% hoạt động PvE, Mở bản đồ và Leo Tháp. (Các tướng SSR rơi tự nhiên xếp ở Đội 2 ở mốc Lv.135–150).",
+                    en: "6 Horde SSRs activate +35% ATK & HP to clear PvE, map fog, and Trial Tower. (Natural off-faction SSR drops sit in Queue 2 capped at Lv.135–150).",
                   },
                 ],
                 [
                   {
-                    vi: "Giai đoạn 2: Mở Khóa Khung Xương Horde (Ngày 21 ➔ Ngày 35)",
-                    en: "Stage 2: Unlock Horde Skeleton (Days 21 to 35)",
+                    vi: "Giai đoạn 2: Đón Cặp Đôi Mở Màn Mythic (Ngày 21 ➔ Ngày 35)",
+                    en: "Stage 2: Unlock Opening Mythic Duo (Days 21 to 35)",
                   },
                   {
-                    vi: "Đội Hình Lai 4 Liên Minh + 2 Bộ Lạc: Desert Prince + Adjudicator | Storm Maiden + Pyromancer | Bard + Nun",
-                    en: "4 League + 2 Horde Hybrid: Desert Prince + Adjudicator | Storm Maiden + Pyromancer | Bard + Nun",
+                    vi: "Thuần 6 Bộ Tộc (2 Mythic + 4 SSR): Desert Prince + Swordmaster/Barbarian | Storm Maiden + Wilderness Hunter | Shaman + Soulmancer/Warlock",
+                    en: "Pure 6 Horde (2 Mythics + 4 SSRs): Desert Prince + Swordmaster/Barbarian | Storm Maiden + Wilderness Hunter | Shaman + Soulmancer/Warlock",
                   },
                   {
                     vi: "• Xả Mảnh Vạn Năng vào Thứ Năm Tuần 4 (GAR Day 4) đẩy Desert Prince & Storm Maiden lên 1 Sao Đỏ (6 Sao / 160 mảnh Mythic). • Dồn Sách Kỹ Năng Cam nâng max chiêu của 2 tướng Đỏ này.",
                     en: "• Spend Universal Shards on Week 4 Thursday (GAR Day 4) to push Desert Prince & Storm Maiden to 1-Red Star (6 Stars / 160 Mythic shards). • Funnel Legendary Skill Books to max both Mythics.",
                   },
                   {
-                    vi: "• Kéo Doanh trại Bộ Lạc và Tượng Bộ Lạc ngang bằng cấp Lâu Đài. • Chuyển 8 món Đồ Vàng tốt nhất (+20) từ Secret Keeper & Astrologer sang Desert Prince & Storm Maiden.",
-                    en: "• Bring Horde Barracks and Horde Monument even with Castle level. • Transfer the 8 best Golden Gear pieces (+20) from Secret Keeper & Astrologer to Desert Prince & Storm Maiden.",
+                    vi: "• Giữ Doanh trại Bộ Lạc và Tượng Bộ Lạc ngang bằng cấp Lâu Đài. • Chuyển 8 món Đồ Vàng tốt nhất (+20) từ Boar & Headhunter sang Desert Prince & Storm Maiden.",
+                    en: "• Keep Horde Barracks and Horde Monument even with Castle level. • Transfer the 8 best Golden Gear pieces (+20) from Boar & Headhunter to Desert Prince & Storm Maiden.",
                   },
                   {
-                    vi: "Secret Keeper và Astrologer lùi xuống Đội 2; 4 tướng Liên Minh còn lại (Adjudicator, Pyromancer, Bard, Nun) làm khung phụ trợ kích Hào quang 4-2.",
-                    en: "Secret Keeper and Astrologer move to Queue 2; the remaining 4 League heroes (Adjudicator, Pyromancer, Bard, Nun) anchor the 4-2 Faction Aura.",
+                    vi: "Boar và Headhunter hoàn thành sứ mệnh quá độ và rút khỏi Đội 1; Đội 1 giữ nguyên Hào quang 6/6 Bộ Tộc (+35% ATK & HP + 20% Khắc chế).",
+                    en: "Boar and Headhunter complete their transitional duty and exit Queue 1; Queue 1 retains the full 6/6 Horde Aura (+35% ATK & HP + 20% Counter).",
                   },
                 ],
                 [
                   {
-                    vi: "Giai đoạn 3: Chuyển Giao Đội 1 Hoàn Toàn (Ngày 36 ➔ Ngày 45)",
-                    en: "Stage 3: Complete Queue 1 Transition (Days 36 to 45)",
+                    vi: "Giai đoạn 3: Mở Khóa Witch & Hoàn Thiện Khung S0 (Ngày 36 ➔ Ngày 45)",
+                    en: "Stage 3: Unlock Witch & Complete S0 Core (Days 36 to 45)",
                   },
                   {
-                    vi: "Thuần 6 Bộ Lạc (Giai đoạn 1): Desert Prince + Swordmaster/Barbarian | Storm Maiden + Wilderness Hunter | Witch + Soulmancer/Warlock",
-                    en: "Pure 6 Horde (Phase 1): Desert Prince + Swordmaster/Barbarian | Storm Maiden + Wilderness Hunter | Witch + Soulmancer/Warlock",
+                    vi: "Thuần 6 Bộ Tộc (3 Mythic + 3 SSR): Desert Prince + Swordmaster/Barbarian | Storm Maiden + Wilderness Hunter | Witch + Soulmancer/Warlock",
+                    en: "Pure 6 Horde (3 Mythics + 3 SSRs): Desert Prince + Swordmaster/Barbarian | Storm Maiden + Wilderness Hunter | Witch + Soulmancer/Warlock",
                   },
                   {
                     vi: "• Ngày 41 mở khóa Witch và đẩy lên 1 Sao Đỏ (6 Sao / 160 mảnh Mythic). • Tiếp tục dồn 100% Mảnh Vạn Năng đưa bộ 3 Storm Maiden, Desert Prince, Witch lên 1 Sao Trắng / Bạc (11 Sao / 560 mảnh Mythic) ➔ 2 Sao Trắng / Bạc.",
                     en: "• Unlock Witch on Day 41 and push to 1-Red Star (6 Stars / 160 Mythic shards). • Funnel 100% of Universal Shards to bring Storm Maiden, Desert Prince, and Witch to 1-White/Silver Star (11 Stars / 560 Mythic shards) ➔ 2-White/Silver Stars.",
                   },
                   {
-                    vi: "• Tháo toàn bộ 24 món Đồ Vàng (+20/+30) chuyển sang Đội 1 Bộ Lạc; Đội 2 Liên Minh mặc lại bộ Đồ Tím thừa (+0/+10). • Chuyển Pet chính sang hệ Bộ Lạc (Howli / Tiger / Cactini).",
-                    en: "• Swap all 24 Golden Gear pieces (+20/+30) to Horde Queue 1; equip leftover Epic gear (+0/+10) on League Queue 2. • Switch main Pet to Horde (Howli / Tiger / Cactini).",
+                    vi: "• Chuyển bộ Đồ Vàng (+20) của Shaman sang Witch; trang bị Đồ Tím/Vàng dư (+0/+10) cho Đội 2. • Nuôi Pet chính hệ Bộ Lạc (Howli / Tiger / Cactini).",
+                    en: "• Transfer Shaman's Golden Gear (+20) onto Witch; equip leftover Epic/Legendary gear (+0/+10) on Queue 2. • Raise your main Horde Pet (Howli / Tiger / Cactini).",
                   },
                   {
-                    vi: "Chuyển nguyên vẹn 6 tướng Liên Minh xuống làm Đội 2 (Queue 2) giữ nguyên 2.8M lực chiến để đánh 3v3 Apex Arena và giữ mỏ!",
-                    en: "Move all 6 League heroes intact into Queue 2 retaining 2.8M Power to dominate 3v3 Apex Arena and defend resource nodes!",
+                    vi: "Shaman rút khỏi Đội 1; dàn tướng SSR phụ trợ rơi tự nhiên hợp thành Đội 2 (Queue 2) đạt 2.8M lực chiến để đánh 3v3 Apex Arena và giữ mỏ!",
+                    en: "Shaman exits Queue 1; natural off-faction SSR drops form a secondary Queue 2 reaching 2.8M Power for 3v3 Apex Arena and node defense!",
                   },
                 ],
                 [
@@ -915,16 +914,16 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
                     en: "Endgame Horde: Beastmaster + Desert Prince | Wukong + Storm Maiden | Witch + Soulmancer/Warlock (Awakened) (or Shadow Priest in S3)",
                   },
                   {
-                    vi: "• Nhịn toàn bộ 3 tướng Thiên Nhiên ở S1. • Tích 300–500+ Mảnh Vạn Năng cuối S1 để đút thẳng cho Wukong và Beastmaster ngay tuần đầu S2.",
-                    en: "• Skip all 3 S1 Nature heroes. • Bank 300–500+ Universal Shards at the end of S1 to immediately invest in Wukong and Beastmaster in Week 1 of S2.",
+                    vi: "• Nhịn toàn bộ 3 tướng Thiên Nhiên ở S1. • Tích 300–500+ Mảnh Vạn Năng cuối S1 để đút thẳng cho Wukong và Beastmaster ngay tuần đầu S2 (thay Wilderness Hunter và Swordmaster/Barbarian).",
+                    en: "• Skip all 3 S1 Nature heroes. • Bank 300–500+ Universal Shards at the end of S1 to immediately invest in Wukong and Beastmaster in Week 1 of S2 (replacing Wilderness Hunter and Swordmaster/Barbarian).",
                   },
                   {
                     vi: "• Mua đủ 9 Hồn Đá Đỏ Bộ Lạc (Horde Soul Stones) + 345–385 Mảnh Tướng (40,000 Điểm Vinh Dự/viên = 360,000 Điểm, hoặc 6,000 Xu Vinh Quang/viên = 54,000 Xu ở S1) để Thức tỉnh Soulmancer hoặc Warlock lên Đỏ. • Nâng Vũ khí Độc quyền Wukong, Storm Maiden, Desert Prince lên +10 ➔ +20.",
                     en: "• Purchase all 9 Horde Soul Stones + 345–385 Hero Shards (40,000 Guild Honor/stone = 360,000 Honor, or 6,000 Guild Glory Coins/stone = 54,000 Coins in S1) to Awaken Soulmancer or Warlock to Mythic Red. • Push Wukong, Storm Maiden, and Desert Prince Exclusive Weapons to +10 ➔ +20.",
                   },
                   {
-                    vi: "Đội 2 (Thuần Liên Minh) và Đội 3 (Thuần Thiên Nhiên) hoàn thiện đội hình 3 Hàng đợi từ mảnh rơi tự nhiên.",
-                    en: "Queue 2 (Pure League) and Queue 3 (Pure Nature) round out your 3-queue roster purely from natural shard drops.",
+                    vi: "Wilderness Hunter và Swordmaster/Barbarian rút xuống hỗ trợ PVE; Đội 2 và Đội 3 hoàn thiện đội hình 3 Hàng đợi từ mảnh rơi tự nhiên.",
+                    en: "Wilderness Hunter and Swordmaster/Barbarian rotate out; Queue 2 and Queue 3 round out your 3-queue roster purely from natural shard drops.",
                   },
                 ],
               ],
@@ -932,21 +931,21 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
           ],
         },
         {
-          id: "sub-4-3-stay-league-or-nature-pivot",
+          id: "sub-4-3-cross-faction-playbooks-reference",
           title: {
-            vi: "4.3. Nhánh Tham Chiếu: Khi Nào Nên Giữ Nguyên Thuần Liên Minh (Stay League) Hoặc Rẽ Sang Thiên Nhiên (Nature Pivot)?",
-            en: "4.3. Reference Branches: When to Stay Pure League or Execute a Nature Pivot",
+            vi: "4.3. Tham Chiếu Ngang: Khi Nào Nên Chọn Giáo Án Thuần Liên Minh (Bài 4.2) Hoặc Thuần Thiên Nhiên (Bài 4.4)?",
+            en: "4.3. Cross-Reference: When to Choose Pure League (Article 4.2) or Pure Nature (Article 4.4)",
           },
           badge: {
-            vi: "Nhánh Thay Thế",
-            en: "Alternative Branches",
+            vi: "Đối Chiếu 3 Phe",
+            en: "3-Faction Reference",
           },
           blocks: [
             {
               type: "paragraph",
               text: {
-                vi: "Mặc dù lộ trình chuyển giao sang Bộ Lạc mang lại lợi thế kinh tế lớn nhất cho đa số người chơi, trong 2 trường hợp đặc biệt dưới đây, bạn có thể chọn nhánh rẽ thay thế:",
-                en: "Although pivoting to Horde offers the highest economic return for the vast majority of players, you may opt for one of two alternative branches in the following specialized scenarios:",
+                vi: "Nếu bạn chưa chốt phe ở `Ngày 1` hoặc muốn tham khảo chi tiết lộ trình của 2 phe còn lại, hãy đối chiếu nhanh đặc thù của từng giáo án:",
+                en: "If you are comparing factions on `Day 1` or want to review the other two progression playbooks, compare their core profiles below:",
               },
             },
             {
@@ -954,12 +953,12 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
               ordered: true,
               items: [
                 {
-                  vi: "**Nhánh Giữ Nguyên Thuần Liên Minh (Stay Pure League):** Dành cho ai đã đút `500+` Mảnh Vạn Năng cho Pyromancer/Adjudicator; cần gom `18–27` Hồn Đá Đỏ Liên Minh (`1,035–1,155` Mảnh Tướng cho 3 tướng).",
-                  en: "**Stay Pure League Branch:** For players who spent `500+` Universal Shards on Pyromancer/Adjudicator; requires `18–27` League Soul Stones (`1,035–1,155` Hero Shards across 3 heroes) to awaken your core.",
+                  vi: "**Giáo Án Thuần Liên Minh (Bài 4.2 — Pure League):** Hợp người thích sốc sát thương phép diện rộng (`Paragon` + `Pyromancer` + `Bishop`) và chấp nhận tích `27` Hồn Đá Đỏ (`1,035–1,155` Mảnh cho 3 SSR).",
+                  en: "**Pure League Playbook (Article 4.2):** Ideal for AoE magic burst fans (`Paragon` + `Pyromancer` + `Bishop`) prepared to accumulate `27` League Soul Stones (`1,035–1,155` Hero Shards across 3 SSRs).",
                 },
                 {
-                  vi: "**Nhánh Rẽ Sang Thuần Thiên Nhiên (Nature Pivot):** Giữ khung Liên Minh đến `Ngày 41`, gom `50,000+` Kim Cương & `400+` Mảnh Vạn Năng bung lấy Tidecaller + Monk + Ne Zha ở S1 để khắc chế Bộ Lạc `+20%`.",
-                  en: "**Pure Nature Pivot Branch:** Keep your SSR League core until `Day 41`, hoard `50,000+` Diamonds & `400+` Universal Shards to unlock Tidecaller + Monk + Ne Zha in S1 for `+20%` anti-Horde counter.",
+                  vi: "**Giáo Án Thuần Thiên Nhiên (Bài 4.4 — Pure Nature):** Hợp người kiên nhẫn tích `50,000+` Kim Cương & `400+` Mảnh Vạn Năng đón `Tidecaller` (`Ngày 42`), `Monk` (`Ngày 55`) và `Ne Zha` (S1) khắc chế Bộ Tộc `+20%`.",
+                  en: "**Pure Nature Playbook (Article 4.4):** Built for patient players who hoard `50,000+` Diamonds & `400+` Universal Shards for `Tidecaller` (`Day 42`), `Monk` (`Day 55`), and `Ne Zha` (S1) to counter Horde by `+20%`.",
                 },
               ],
             },
@@ -968,15 +967,15 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
               mediaCode: "MED-4.3-04",
               tier: "tier4_youtube_ref",
               title: {
-                vi: "Video Phân Tích Quốc Tế: Tại Sao Mọi Cao Thủ Đều Bẻ Lái Sang Bộ Lạc & Cách Chuyển Giao Mượt Mà",
-                en: "International Video Breakdown: Why Everyone Pivots to Horde in Top Heroes & How to Transition Smoothly",
+                vi: "Video Phân Tích Quốc Tế: Giải Mã Sức Mạnh Đội Hình Thuần Bộ Tộc & Bài Toán 9 Hồn Đá Đỏ",
+                en: "International Video Breakdown: Pure Horde Progression & The 9 Soul Stone Economy Math",
               },
               description: {
-                vi: "Phân tích chuyên sâu từ kênh RedBaron Gaming về bài toán tiết kiệm gấp 3 lần Hồn Đá Đỏ (9 viên vs 27 viên), lợi thế khắc chế +20% trước Meta Liên Minh và kỹ thuật Bắc cầu Đội hình Lai 4-2.",
-                en: "In-depth analysis by RedBaron Gaming covering the 3x Soul Stone savings math (9 vs 27 stones), the +20% counter advantage against the League meta, and the 4-2 Hybrid Bridge transition.",
+                vi: "Phân tích chuyên sâu từ kênh RedBaron Gaming về bài toán tiết kiệm gấp 3 lần Hồn Đá Đỏ (9 viên vs 27 viên), lợi thế khắc chế +20% trước Meta Liên Minh và lịch thay thế tướng Bộ Tộc từ Ngày 21 đến Season 2.",
+                en: "In-depth analysis by RedBaron Gaming covering the 3x Soul Stone savings math (9 vs 27 stones), the +20% counter advantage against the League meta, and the Horde Mythic replacement schedule from Day 21 to Season 2.",
               },
               videoChannel: "RedBaron Gaming",
-              videoTitle: "Why Everyone Pivots to Horde in Top Heroes & How to Transition Smoothly",
+              videoTitle: "Top Heroes Pure Horde Guide & 9 Soul Stone Economy Breakdown",
               videoTimestamp: "01:45 – 13:20",
             },
           ],
@@ -984,26 +983,26 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
       ],
     },
     {
-      id: "sec-5-day27-and-41-pivot-case-study",
+      id: "sec-5-day27-and-41-horde-case-study",
       isPro: true,
       title: {
-        vi: "5. Kịch bản Thực chiến Nâng cao: Chuyển Đổi Thực Tế Đội Hình Tại Ngày 27 & Ngày 41 (3.2M Đội 1 & Giữ Nguyên 2.8M Đội 2 Liên Minh)",
-        en: "5. Advanced Tactical Case Study: Live Lineup Transition on Day 27 & Day 41 (+400,000–600,000 Power Giant-Killing & Instant 2.8M Queue 2)",
+        vi: "5. Kịch bản Thực chiến Nâng cao: Nâng Cấp Đội 1 Thuần Bộ Tộc Tại Ngày 27 & Ngày 41 (Đánh Thắng Vượt +400,000–600,000 Lực Chiến & Đội 2 2.8M)",
+        en: "5. Advanced Tactical Case Study: Pure Horde Queue 1 Upgrade on Day 27 & Day 41 (+400,000–600,000 Power Giant-Killing & 2.8M Queue 2)",
       },
       blocks: [
         {
           type: "case_study",
           badge: {
             vi: "Case Study Thực Chiến Ngày 20 ➔ Ngày 41",
-            en: "Live Pivot Case Study: Day 20 to Day 41",
+            en: "Live Pure Horde Case Study: Day 20 to Day 41",
           },
           title: {
-            vi: "Chuyển Đổi Thực Tế Đội Hình Tại Ngày 27 và Ngày 41 (Từ 6 Liên Minh 3.2M Sang Lai 4-2 và Thuần Bộ Lạc + Đội 2 Liên Minh 2.8M)",
-            en: "Live Lineup Transition on Day 27 and Day 41 (From 3.2M 6-League to 4-2 Hybrid & Pure Horde + Instant 2.8M League Queue 2)",
+            vi: "Nâng Cấp Thực Tế Đội 1 Thuần Bộ Tộc Tại Ngày 27 và Ngày 41 (Thay Boar, Headhunter, Shaman Bằng 3 Mythic Gốc & Xây Đội 2 2.8M)",
+            en: "Live Pure Horde Queue 1 Upgrade on Day 27 and Day 41 (Replacing Boar, Headhunter & Shaman With 3 Native Mythics + 2.8M Queue 2)",
           },
           profileSummary: {
-            vi: "**Trạng thái trước khi chuyển giao (Ngày 20 — Cuối Tuần 3):** Đội 1 đạt `Lv.160` — 3.2M Lực chiến gồm Pyromancer, Adjudicator, Secret Keeper, Astrologer, Nun, Bard nâng bằng mảnh Quán Rượu tự nhiên.\n• **Kho dự trữ khóa chặt:** `260` Mảnh Vàng Vạn Năng, `2,800` Sách Kỹ Năng Cam, `32,000` Kim Cương và bộ `24 món Đồ Vàng` đạt Cộng hưởng `+10` (8 món của DPS và Tank chính đạt `+20`).",
-            en: "**Pre-pivot baseline (Day 20 — End of Week 3):** Queue 1 sits at `Lv.160` — 3.2M Power featuring Pyromancer, Adjudicator, Secret Keeper, Astrologer, Nun, and Bard upgraded purely via natural Tavern shards.\n• **Locked reserve inventory:** `260` Universal Legendary Shards, `2,800` Legendary Skill Books, `32,000` Diamonds, and a `24-piece Golden Gear` set at `+10` Resonance (8 core pieces at `+20`).",
+            vi: "**Trạng thái ở Ngày 20 (Cuối Tuần 3):** Đội 1 đạt `Lv.160` — 3.2M Lực chiến gồm 6 SSR Bộ Tộc (`Swordmaster`, `Barbarian`, `Boar`, `Wilderness Hunter`, `Headhunter`, `Soulmancer`) nâng từ mảnh Quán Rượu.\n• **Kho dự trữ khóa chặt:** `260` Mảnh Vàng Vạn Năng, `2,800` Sách Kỹ Năng Cam, `32,000` Kim Cương và bộ `24 món Đồ Vàng` Dấu Hệ Bộ Tộc Cộng hưởng `+10` (8 món chính đạt `+20`).",
+            en: "**Baseline on Day 20 (End of Week 3):** Queue 1 sits at `Lv.160` — 3.2M Power with 6 Horde SSRs (`Swordmaster`, `Barbarian`, `Boar`, `Wilderness Hunter`, `Headhunter`, `Soulmancer`) from Tavern shards.\n• **Locked reserve inventory:** `260` Universal Legendary Shards, `2,800` Legendary Skill Books, `32,000` Diamonds, and a `24-piece Golden Gear` set with Horde Marks at `+10` Resonance (8 core pieces at `+20`).",
           },
           metrics: [
             {
@@ -1012,12 +1011,12 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
                 en: "Arena Head-to-Head Matchup (Day 27)",
               },
               before: {
-                vi: "Đội 1 Thuần Liên Minh 3.2M (Ngang kèo 50/50 cùng lực chiến)",
-                en: "3.2M Pure League Queue 1 (50/50 mirror matchups at equal power)",
+                vi: "Đội 1 6 SSR Bộ Tộc Quá Độ 3.2M (Thiếu sát thương kết liễu)",
+                en: "3.2M 6-SSR Transitional Horde Queue 1 (Lacking burst finisher)",
               },
               after: {
-                vi: "Đội Lai 4-2 thắng 100% đội Thuần Liên Minh cao hơn +400,000 – 600,000 lực chiến",
-                en: "4-2 Hybrid beats 100% of Pure League teams with +400,000 – 600,000 higher power",
+                vi: "Đội 1 6/6 Bộ Tộc có Desert Prince + Storm Maiden thắng 100% đội Liên Minh cao hơn +400,000 – 600,000 lực chiến",
+                en: "6/6 Pure Horde with Desert Prince + Storm Maiden beats 100% of League teams with +400,000 – 600,000 higher power",
               },
               delta: {
                 vi: "Vượt +400,000 – 600,000 Lực chiến hiển thị",
@@ -1030,12 +1029,12 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
                 en: "Queue 2 Combat Power (Day 41)",
               },
               before: {
-                vi: "Đội 2 Tướng Vàng Bộ Lạc tạm thời (~1.4M Lực chiến)",
-                en: "Temporary SSR Horde Queue 2 (~1.4M Power)",
+                vi: "Đội 2 thu thập tạm thời (~1.4M Lực chiến)",
+                en: "Temporary gathering Queue 2 (~1.4M Power)",
               },
               after: {
-                vi: "Đội 2 Thuần Liên Minh hoàn chỉnh giữ nguyên 2.8M Lực chiến (0 chi phí thêm)",
-                en: "Intact 6-SSR Pure League Queue 2 retaining 2.8M Power (0 extra cost)",
+                vi: "Đội 2 phụ trợ hoàn chỉnh từ mảnh tự nhiên & tướng quá độ rút xuống đạt 2.8M Lực chiến (0 chi phí thêm)",
+                en: "Secondary Queue 2 built from natural shards & rotated transitional SSRs reaching 2.8M Power (0 extra cost)",
               },
               delta: {
                 vi: "Sở hữu ngay Đội 2 đạt 2.8M cho 3v3 & KvK",
@@ -1048,8 +1047,8 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
                 en: "Soul Stone Awakening Cost (Season 1)",
               },
               before: {
-                vi: "27 Hồn Đá Đỏ + 1,035–1,155 Mảnh nếu giữ nguyên 3 SSR Liên Minh",
-                en: "27 Soul Stones + 1,035–1,155 Shards if staying on 3 League SSRs",
+                vi: "27 Hồn Đá Đỏ + 1,035–1,155 Mảnh nếu phải thức tỉnh 3 tướng SSR như hệ Liên Minh",
+                en: "27 Soul Stones + 1,035–1,155 Shards if awakening 3 SSRs like Pure League",
               },
               after: {
                 vi: "Chỉ 9 Hồn Đá Đỏ + 345–385 Mảnh (360,000 Điểm Vinh Dự / 54,000 Xu) cho Soulmancer/Warlock",
@@ -1063,12 +1062,12 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
           ],
           diagnostics: [
             {
-              vi: "Kỷ luật khóa kho 20 ngày đầu hoàn hảo: Tài khoản đạt 3.2M lực chiến ở Ngày 20 bằng mảnh Quán Rượu tự nhiên mà vẫn giữ nguyên vẹn 260 Mảnh Vàng Vạn Năng, 2,800 Sách Kỹ Năng Cam và 32,000 Kim Cương.",
-              en: "Flawless 20-day resource freeze: Reached 3.2M Power on Day 20 using natural Tavern shards while keeping 260 Universal Shards, 2,800 Legendary Skill Books, and 32,000 Diamonds completely untouched.",
+              vi: "Kỷ luật khóa kho 20 ngày đầu hoàn hảo: Tài khoản đạt 3.2M lực chiến ở Ngày 20 bằng 6 SSR Bộ Tộc nâng từ mảnh Quán Rượu tự nhiên mà vẫn giữ nguyên vẹn 260 Mảnh Vàng Vạn Năng, 2,800 Sách Kỹ Năng Cam và 32,000 Kim Cương.",
+              en: "Flawless 20-day resource freeze: Reached 3.2M Power on Day 20 with 6 Horde SSRs using natural Tavern shards while keeping 260 Universal Shards, 2,800 Legendary Skill Books, and 32,000 Diamonds completely untouched.",
             },
             {
-              vi: "Chuẩn bị sẵn 24 món Đồ Vàng Cộng hưởng +10 (8 món chính +20) và đồng bộ Doanh trại Bộ Lạc từ Ngày 15 giúp việc tháo lắp đồ sang Desert Prince và Storm Maiden diễn ra tức thì với 0 hao hụt.",
-              en: "Pre-building a 24-piece +10 Golden Gear set (8 core pieces at +20) and syncing Horde Barracks from Day 15 enabled an instant zero-loss gear swap onto Desert Prince and Storm Maiden.",
+              vi: "Chuẩn bị 24 món Đồ Vàng Dấu Hệ Bộ Tộc Cộng hưởng +10 (8 món chính +20) và nâng Doanh trại Bộ Lạc sát Lâu Đài từ Ngày 1 giúp chuyển đồ từ Boar & Headhunter sang Desert Prince và Storm Maiden với 0 hao hụt.",
+              en: "Pre-building 24 +10 Horde-marked Golden Gear pieces (8 core pieces at +20) and keeping Horde Barracks at Castle level from Day 1 enabled a zero-loss gear swap onto Desert Prince and Storm Maiden.",
             },
             {
               vi: "**Giữ vững Ngưỡng Đóng Băng Ví 40,000 Điểm Vinh Dự Bang:** Duy trì quỹ điểm mỗi tuần hướng tới mục tiêu 360,000 Điểm Vinh Dự (40,000 Điểm/viên) hoặc 54,000 Xu Vinh Quang (6,000 Xu/viên).\n• **Mục tiêu Thức tỉnh S1:** Kết hợp 345–385 Mảnh Tướng để thức tỉnh Soulmancer hoặc Warlock lên phẩm chất Thần Thoại Đỏ ngay trong Season 1.",
@@ -1079,12 +1078,12 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
             {
               stepNumber: "01",
               title: {
-                vi: "Ngày 20 (Cuối Tuần 3) — Khóa Kho Tài Nguyên Trên Nền Đội 1 Liên Minh 3.2M",
-                en: "Day 20 (End of Week 3) — Lock Resource Vault on a 3.2M League Queue 1 Baseline",
+                vi: "Ngày 20 (Cuối Tuần 3) — Khóa Kho Tài Nguyên Trên Nền Đội 1 6 SSR Bộ Tộc 3.2M",
+                en: "Day 20 (End of Week 3) — Lock Resource Vault on a 3.2M 6-SSR Horde Queue 1 Baseline",
               },
               detail: {
-                vi: "Duy trì Đội 1 Liên Minh ở Lv.160 (3.2M Lực chiến), ngưng đút Thịt cho Đội 2 Bộ Lạc ở Lv.135–150 và chốt kho dự trữ 260 Mảnh Vạn Năng + 2,800 Sách Kỹ Năng Cam + 32,000 Kim Cương trước Thứ Hai Tuần 4.",
-                en: "Hold League Queue 1 at Lv.160 (3.2M Power), cap Horde Queue 2 Meat at Lv.135–150, and lock in 260 Universal Shards + 2,800 Legendary Skill Books + 32,000 Diamonds before entering Week 4 Monday.",
+                vi: "Duy trì Đội 1 6 SSR Bộ Tộc ở Lv.160 (3.2M), ngưng đút Thịt cho Đội 2 ở Lv.135–150 và chốt kho 260 Mảnh Vạn Năng + 2,800 Sách Cam + 32,000 Kim Cương trước Thứ Hai Tuần 4.",
+                en: "Hold your 6-SSR Horde Queue 1 at Lv.160 (3.2M Power), cap Queue 2 Meat at Lv.135–150, and lock in 260 Universal Shards + 2,800 Legendary Skill Books + 32,000 Diamonds before entering Week 4 Monday.",
               },
               impactBadge: {
                 vi: "260 Mảnh + 32,000 KC",
@@ -1094,12 +1093,12 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
             {
               stepNumber: "02",
               title: {
-                vi: "Bước Nhảy 1 (Ngày 27) — Ghép Đội Hình Lai 4-2 Đánh Thắng Đối Thủ Cao Hơn +400,000 – 600,000 Lực Chiến",
-                en: "Jump 1 (Day 27) — Assemble 4-2 Hybrid Bridge to Beat Opponents +400,000 – 600,000 Higher Power",
+                vi: "Bước Nhảy 1 (Ngày 27) — Thay Boar & Headhunter Bằng Desert Prince & Storm Maiden Thắng Vượt +400,000 – 600,000 Lực Chiến",
+                en: "Jump 1 (Day 27) — Replace Boar & Headhunter With Desert Prince & Storm Maiden to Beat +400,000 – 600,000 Higher Power",
               },
               detail: {
-                vi: "**Mở khóa & Nâng Sao:** Dùng Kim Cương mở Desert Prince (Ngày 21) và Storm Maiden (Ngày 27), xuất Mảnh Vạn Năng đưa cả hai đạt `1 Sao Đỏ` (`160` mảnh Mythic) hướng tới `1 Sao Trắng / Bạc` (`560` mảnh).\n• **Chuyển đồ & Vượt cấp:** Lắp 8 món Đồ Vàng `+20` từ Secret Keeper & Astrologer sang 2 tướng Đỏ; Đội Lai 4-2 đánh thắng `100%` đội Thuần Liên Minh cao hơn +400,000 – 600,000 lực chiến!",
-                en: "**Unlock & Star Up:** Spend Diamonds to unlock Desert Prince (Day 21) and Storm Maiden (Day 27), using Universal Shards to hit `1-Red Star` (`160` Mythic shards) toward `1-White/Silver Star` (`560` shards).\n• **Gear Swap & Giant-Killing:** Equip the 8 `+20` Golden Gear pieces onto both Mythics; the 4-2 Hybrid wins `100%` of Arena fights against Pure League teams with +400,000 – 600,000 higher power!",
+                vi: "**Mở khóa & Nâng Sao:** Dùng Kim Cương mở Desert Prince (Ngày 21) và Storm Maiden (Ngày 27), xuất Mảnh Vạn Năng đưa cả hai đạt `1 Sao Đỏ` (`160` mảnh Mythic) hướng tới `1 Sao Trắng / Bạc` (`560` mảnh).\n• **Kế thừa đồ & Vượt cấp:** Lắp 8 món Đồ Vàng `+20` từ Boar & Headhunter sang 2 tướng Đỏ; Đội 1 giữ trọn `6/6` Bộ Tộc đánh thắng `100%` đội Liên Minh cao hơn +400,000 – 600,000 lực chiến!",
+                en: "**Unlock & Star Up:** Spend Diamonds to unlock Desert Prince (Day 21) and Storm Maiden (Day 27), using Universal Shards to hit `1-Red Star` (`160` Mythic shards) toward `1-White/Silver Star` (`560` shards).\n• **Gear Swap & Giant-Killing:** Equip the 8 `+20` Golden Gear pieces from Boar & Headhunter onto both Mythics; your `6/6` Pure Horde Queue 1 beats `100%` of League teams with +400,000 – 600,000 higher power!",
               },
               impactBadge: {
                 vi: "Thắng Vượt +400,000–600,000",
@@ -1109,22 +1108,22 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
             {
               stepNumber: "03",
               title: {
-                vi: "Bước Nhảy 2 (Ngày 41) — Chốt Đội 1 Thuần Bộ Lạc & Nhận Ngay Đội 2 Liên Minh 2.8M Miễn Phí",
-                en: "Jump 2 (Day 41) — Finalize Pure Horde Queue 1 & Claim an Instant 2.8M League Queue 2 for Free",
+                vi: "Bước Nhảy 2 (Ngày 41) — Mở Khóa Witch Thay Shaman & Hoàn Thiện Đội 2 2.8M Miễn Phí",
+                en: "Jump 2 (Day 41) — Unlock Witch Replacing Shaman & Complete a 2.8M Queue 2 for Free",
               },
               detail: {
-                vi: "**Hoàn tất Đội 1 Bộ Lạc:** Mở khóa Witch vào `Ngày 41`, tháo nốt 16 món Đồ Vàng từ Adjudicator, Pyromancer, Bard, Nun chuyển sang cho Witch, Wilderness Hunter, Soulmancer và Swordmaster.\n• **Nhận Đội 2 Miễn Phí:** Đẩy nguyên vẹn 6 tướng Liên Minh xuống làm Đội 2 giữ nguyên 2.8M lực chiến cho 3v3 và KvK 1 mà tốn `0` đá cường hóa hay mảnh vạn năng!",
-                en: "**Finalize Horde Queue 1:** Unlock Witch on `Day 41`, transferring the remaining 16 Golden Gear pieces from Adjudicator, Pyromancer, Bard, and Nun onto Witch, Wilderness Hunter, Soulmancer, and Swordmaster.\n• **Claim Free Queue 2:** Move all 6 League heroes intact into Queue 2 retaining 2.8M Power for 3v3 Apex Arena and KvK 1 with `0` extra enhancement stones or Universal Shards spent!",
+                vi: "**Hoàn tất Bộ 3 Mythic S0:** Mở khóa Witch vào `Ngày 41`, chuyển bộ Đồ Vàng từ Shaman sang Witch để hoàn thiện Đội 1 gồm `Desert Prince`, `Swordmaster`, `Storm Maiden`, `Wilderness Hunter`, `Witch`, `Soulmancer`.\n• **Hoàn thiện Đội 2 Miễn Phí:** Kết hợp tướng quá độ vừa rút ra cùng tướng SSR tự nhiên tạo thành Đội 2 đạt 2.8M lực chiến cho 3v3 và KvK 1 mà tốn `0` đá cường hóa hay mảnh vạn năng!",
+                en: "**Finalize S0 Mythic Trio:** Unlock Witch on `Day 41`, transferring Shaman's Golden Gear onto Witch to complete Queue 1 (`Desert Prince`, `Swordmaster`, `Storm Maiden`, `Wilderness Hunter`, `Witch`, `Soulmancer`).\n• **Complete Free Queue 2:** Combine rotated transitional SSRs with natural SSR drops into a 2.8M Power Queue 2 for 3v3 and KvK 1 with `0` extra enhancement stones or Universal Shards!",
               },
               impactBadge: {
-                vi: "Đội 2 Giữ Nguyên 2.8M",
-                en: "Instant 2.8M Queue 2",
+                vi: "Đội 2 Đạt 2.8M",
+                en: "2.8M Power Queue 2",
               },
             },
           ],
           conclusion: {
-            vi: "**Tổng kết:** Nhờ Bắc cầu Đội hình Lai 4-2 (`Ngày 21–40`) và Zero-Loss Pivot (`Ngày 41+`), tài khoản vừa khắc chế `75%` dân số Liên Minh, vừa có sẵn Đội 2 đạt 2.8M lực chiến miễn phí.\n• **Hiệu quả Hồn Đá Đỏ:** Tiết kiệm `18 Hồn Đá Đỏ` (chỉ tốn `9 Hồn Đá Đỏ` + 345–385 Mảnh Tướng cho Soulmancer/Warlock thay vì `27 Hồn Đá Đỏ` + 1,035–1,155 Mảnh).",
-            en: "**Bottom line:** By executing the 4-2 Hybrid Bridge (`Days 21–40`) and Zero-Loss Pivot (`Day 41+`), the account counters the `75%` League meta and gains an instant 2.8M Power Queue 2 for free.\n• **Soul Stone Efficiency:** Saves `18 Soul Stones` (needing only `9 Soul Stones` + 345–385 Shards for Soulmancer/Warlock instead of `27 Soul Stones` + 1,035–1,155 Shards).",
+            vi: "**Tổng kết:** Nhờ kiên định Thuần Bộ Tộc từ `Ngày 1` và thay thế tướng quá độ đúng nhịp (`Ngày 21–41`), tài khoản vừa khắc chế `75%` dân số Liên Minh, vừa có sẵn Đội 2 đạt 2.8M lực chiến miễn phí.\n• **Hiệu quả Hồn Đá Đỏ:** Tiết kiệm `18 Hồn Đá Đỏ` (chỉ tốn `9 Hồn Đá Đỏ` + 345–385 Mảnh Tướng cho Soulmancer/Warlock thay vì `27 Hồn Đá Đỏ` + 1,035–1,155 Mảnh).",
+            en: "**Bottom line:** By committing to Pure Horde from `Day 1` and replacing transitional SSRs on schedule (`Days 21–41`), the account counters the `75%` League meta and gains a 2.8M Power Queue 2 for free.\n• **Soul Stone Efficiency:** Saves `18 Soul Stones` (needing only `9 Soul Stones` + 345–385 Shards for Soulmancer/Warlock instead of `27 Soul Stones` + 1,035–1,155 Shards).",
           },
         },
       ],

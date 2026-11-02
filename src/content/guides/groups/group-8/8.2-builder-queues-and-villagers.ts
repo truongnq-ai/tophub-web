@@ -326,8 +326,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                   en: "Priority #1 (Builder 1 & Builder 2)",
                 },
                 {
-                  vi: "Ưu Tiên Số 2 (Thợ 3 — Hỗ Trợ & Chuẩn Bị Pivot)",
-                  en: "Priority #2 (Builder 3 — Support & Pivot Prep)",
+                  vi: "Ưu Tiên Số 2 (Thợ 3 — Hỗ Trợ & Công Trình Điều Kiện)",
+                  en: "Priority #2 (Builder 3 — Support & Prerequisites)",
                 },
                 {
                   vi: "Ưu Tiên Số 3 (Xây Khi Kẹt Tài Nguyên)",
@@ -349,8 +349,8 @@ export const ARTICLE_8_2_BUILDER_QUEUES_AND_VILLAGERS: GuideArticle = {
                     en: "• Castle (Lv.1 ➔ Lv.25)\n• Active Main Barracks (typically League Lv.1 ➔ Lv.25 to unlock T8 Troops)\n• Training Ground & Guild Lv.25",
                   },
                   {
-                    vi: "• Viện Nghiên Cứu (Research Cottage) & Bệnh Viện (Hospital) Lv.24 ➔ Lv.25\n• (Nếu theo lộ trình Horde Pivot): Kéo Doanh Trại Bộ Lạc đuổi theo lên Lv.23 ➔ Lv.25 trước Ngày 21!",
-                    en: "• Research Cottage & Hospital Lv.24 ➔ Lv.25\n• (If executing Horde Pivot): Push Horde Barracks up to Lv.23 ➔ Lv.25 before Day 21!",
+                    vi: "• Viện Nghiên Cứu (Research Cottage) & Bệnh Viện (Hospital) Lv.24 ➔ Lv.25\n• Đẩy Doanh Trại Phe chủ lực Đội 1 chạm mốc Lv.25 trước Ngày 21!",
+                    en: "• Research Cottage & Hospital Lv.24 ➔ Lv.25\n• Push your Queue 1 Main Faction Barracks to Lv.25 before Day 21!",
                   },
                   {
                     vi: "• Tượng Phe Phái Chính (Lv.20 ➔ Lv.25)\n• Sảnh Tập Kết (Rally Hall Lv.10 ➔ Lv.15)\n• Mỏ Quặng Cường Hóa",

@@ -122,7 +122,7 @@ describe("Phase 1 — Tier-1 Media Asset Registry & RPG Visual Primitives", () =
         }
       }
 
-      expect(spotlightBlocks).toHaveLength(97);
+      expect(spotlightBlocks).toHaveLength(103);
 
       for (const block of spotlightBlocks) {
         const items = getMediaShowcaseItems(

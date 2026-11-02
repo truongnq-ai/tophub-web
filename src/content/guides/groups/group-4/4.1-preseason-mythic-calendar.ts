@@ -21,7 +21,7 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
     },
     immediateAction: {
       vi: "**Kiểm tra tuổi Server qua Thành tựu Đăng nhập hoặc Event ➔ Lịch Event (cột `02:00 UTC / 09:00 Giờ VN` Thứ Hai) và chốt cứng 1 Phe Chủ Lực từ Ngày 1 (4.2 Liên Minh / 4.3 Bộ Tộc / 4.4 Thiên Nhiên).**\n• **Khóa Kho Chờ Tướng Đỏ Hệ Chính:** Đóng băng `100%` Kim Cương và Mảnh Vạn Năng khỏi tướng quá độ để đón đúng đợt Tướng Đỏ của phe đã chọn (`Ngày 21–41` Bộ Tộc, `Ngày 35–46` Liên Minh, `Ngày 42–65` Thiên Nhiên).",
-      en: "**Check your Server Age via Login Achievements or the Weekly Event Schedule (Monday `02:00 UTC` column) and lock in 1 Main Faction from Day 1 (4.2 League / 4.3 Horde / 4.4 Nature).**\n• **Resource Lock for Your Main Faction Wave:** Freeze `100%` of Diamonds and Universal Shards away from transitional heroes to pull your chosen faction's Mythic wave (`Days 21–41` Horde, `Days 35–46` League, `Days 42–65` Nature).",
+      en: "**Check your Server Age via Login Achievements or the Weekly Event Schedule (Monday `02:00 UTC` column) and lock in 1 Main Faction from Day 1 (4.2 League / 4.3 Horde / 4.4 Nature).**\n• **Main Faction Wave Lock:** Freeze `100%` of Diamonds and Universal Shards away from transitional SSRs to pull your chosen faction's Mythic wave (`Days 21–41` Horde, `Days 35–46` League, `Days 42–65` Nature).",
     },
     strictTaboo: {
       vi: "**Tuyệt đối KHÔNG xả Kim Cương vào Vòng Quay (Lucky Wheel) hoặc Xúc Xắc (Treasure Dice) trái Hệ Đội 1.**\n• **Kỷ Luật Lượt Quay & Xu Lẻ:** Chỉ quay lượt miễn phí ở banner trái hệ và KHÔNG tiêu Xu lẻ vì Xu Wheel/Dice được bảo lưu xuyên kỳ (`150–300` Xu).",
@@ -249,7 +249,7 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
                       id: "wave-1-step-1",
                       title: {
                         vi: "Ngày 1–20: Khung 6 SSR Vàng Liên Minh",
-                        en: "Days 1–20: 6-SSR League Starter Core",
+                        en: "Days 1–20: 6-SSR Pure League Core",
                       },
                       subtitle: {
                         vi: "Pyromancer ($0.99), Adjudicator, Nun, Secret Keeper, Bard, Astrologer",
@@ -1164,8 +1164,8 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
             en: "Deploying 28,500 ➔ 33,000 Diamonds & 240 Universal Shards Across the Horde Mythic Wave (Day 18 to Day 41)",
           },
           profileSummary: {
-            vi: "**Tài khoản F2P/Low-Spender chuẩn ở `Ngày 18` (Giữa Tuần 3 Pre-Season, hướng tới `~6.0M` lực chiến ở `Ngày 42`):**\n• **Đội hình hiện tại:** Đang dùng Đội 1 gồm 6 tướng Vàng Liên Minh (Pyromancer, Adjudicator, Secret Keeper, Astrologer, Nun, Bard) ở `Lv.160`.\n• **Kho dự trữ khóa chặt:** Có sẵn `28,500` Kim Cương, `240` Mảnh Vạn Năng và `18` Vé Wheel/Dice để chuyển sang Bộ Lạc (Horde).",
-            en: "**Standard F2P/Low-Spender account at Server `Day 18` (mid-Week 3 Pre-Season, scaling to `~6.0M` Power by `Day 42`):**\n• **Current Lineup:** Running a `Lv.160` 6-SSR League Queue 1 (Pyromancer, Adjudicator, Secret Keeper, Astrologer, Nun, Bard).\n• **Locked Reserve:** Holding `28,500` Diamonds, `240` Universal Shards, and `18` Wheel/Dice tickets to pivot to Horde.",
+            vi: "**Tài khoản F2P/Low-Spender chuẩn ở `Ngày 18` (Giữa Tuần 3 Pre-Season, hướng tới `~6.0M` lực chiến ở `Ngày 42`):**\n• **Đội hình hiện tại:** Đang dùng Đội 1 gồm 6 tướng Vàng Bộ Tộc quá độ (Swordmaster, Barbarian, Boar, Wilderness Hunter, Headhunter, Soulmancer) ở `Lv.160`.\n• **Kho dự trữ khóa chặt:** Có sẵn `28,500` Kim Cương, `240` Mảnh Vạn Năng và `18` Vé Wheel/Dice để đón sóng Tướng Đỏ Bộ Lạc (Horde).",
+            en: "**Standard F2P/Low-Spender account at Server `Day 18` (mid-Week 3 Pre-Season, scaling to `~6.0M` Power by `Day 42`):**\n• **Current Lineup:** Running a `Lv.160` 6-SSR Pure Horde Queue 1 (Swordmaster, Barbarian, Boar, Wilderness Hunter, Headhunter, Soulmancer).\n• **Locked Reserve:** Holding `28,500` Diamonds, `240` Universal Shards, and `18` Wheel/Dice tickets for the Horde Mythic wave.",
           },
           metrics: [
             {
@@ -1290,8 +1290,8 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
                 en: "Day 27 (Storm Maiden Drop): Spend 15,000 Diamonds & Pair for +35% Combat Power",
               },
               detail: {
-                vi: "**Mở khóa Storm Maiden & Kích hoạt Đội hình Lai:**\n• Chi `15,000` Kim Cương mở khóa Storm Maiden, lập tức ghép cặp Desert Prince + Storm Maiden vào Đội 1 (thay Secret Keeper & Astrologer) giúp lực chiến thực chiến tăng vọt `+35%`.",
-                en: "**Unlock Storm Maiden & Activate Hybrid Lineup:**\n• Spend `15,000` Diamonds to unlock Storm Maiden and immediately slot Desert Prince + Storm Maiden into Queue 1 (replacing Secret Keeper and Astrologer) for `+35%` combat power.",
+                vi: "**Mở khóa Storm Maiden & Thay thế Tướng Quá Độ:**\n• Chi `15,000` Kim Cương mở khóa Storm Maiden, lập tức ghép cặp Desert Prince + Storm Maiden vào Đội 1 (thay Boar & Headhunter) giúp lực chiến thực chiến tăng vọt `+35%`.",
+                en: "**Unlock Storm Maiden & Replace Transitional Heroes:**\n• Spend `15,000` Diamonds to unlock Storm Maiden and immediately slot Desert Prince + Storm Maiden into Queue 1 (replacing Boar and Headhunter) for `+35%` combat power.",
               },
               impactBadge: {
                 vi: "+35% Thực Chiến",

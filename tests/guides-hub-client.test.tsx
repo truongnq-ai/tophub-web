@@ -98,7 +98,7 @@ describe("GuidesHubClient (4-Layer Smart Command Hub — Hardened & Phase 3.1 Go
 
   it("filters articles in both VI and EN locales when clicking a localized Hot Keyword Tag chip (GAP-02 fix)", () => {
     const { unmount } = render(<GuidesHubClient locale="vi" />);
-    fireEvent.click(screen.getByRole("button", { name: /#HordePivot/i }));
+    fireEvent.click(screen.getByRole("button", { name: /#BộLạc5Mythic/i }));
     expect(screen.getByText(/kết quả/i)).toBeDefined();
     unmount();
 
@@ -112,7 +112,7 @@ describe("GuidesHubClient (4-Layer Smart Command Hub — Hardened & Phase 3.1 Go
     const expandBtns = screen.getAllByRole("button", {
       name: /Xem đầy đủ/i,
     });
-    expect(expandBtns.length).toBe(9);
+    expect(expandBtns.length).toBe(8);
 
     fireEvent.click(expandBtns[0]);
     expect(

@@ -463,8 +463,8 @@ export const ARTICLE_1_2_STRICT_ONE_QUEUE: GuideArticle = {
               ordered: false,
               items: [
                 {
-                  vi: "**Thừa kế Nhân sự (Roster Inheritance):** Khởi đầu bằng 6 tướng Liên Minh ở Đội 1 (Ngày 1–20) rồi xoay sang Bộ Lạc (Ngày 21–41), dàn tướng Liên Minh `Lv.160` tự động lùi xuống làm Đội 2 tốn `0 Thịt`.",
-                  en: "**Hero Roster Inheritance:** Starting with 6 League heroes in Queue 1 (Days 1–20) and pivoting to Horde (Days 21–41) rotates your `Lv.160` League lineup into a complete Pure-League Queue 2 for `0 Meat`.",
+                  vi: "**Thừa kế Nhân sự (Roster Inheritance):** Khi mở khóa Tướng Đỏ gốc (Ngày 21–46) thay thế các tướng SSR quá độ ở Đội 1, dàn tướng SSR quá độ `Lv.160` tự động lùi xuống làm Đội 2 tốn `0 Thịt`.",
+                  en: "**Hero Roster Inheritance:** As Native Mythics unlock (Days 21–46) and replace Transitional SSRs in Queue 1, your `Lv.160` Transitional SSRs rotate down into Queue 2 for `0 Meat`.",
                 },
                 {
                   vi: "**Thừa kế Trang bị (Gear Inheritance):** Mỗi khi rèn được Đồ Vàng có Dấu Hệ (`+30% Bonus`) cho Đội 1, món Đồ Vàng không dấu hoặc Đồ Tím đang mặc sẽ tháo ra chuyển xuống cho tướng tương ứng ở Đội 2.",

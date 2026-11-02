@@ -56,8 +56,8 @@ export const SYSTEM_ANNOUNCEMENTS: SystemAnnouncement[] = [
       en: "NEW UPDATE",
     },
     message: {
-      vi: "Ra mắt chuyên trang Cẩm Nang Chiến Thuật Top Heroes! Mở quyển sách tri thức với 31 bài viết chuyên sâu (S0 ➔ S4), lộ trình xoay trục Bộ Lạc, khung giờ vàng Double-Dip & 8 công cụ tra cứu tương tác — Khám phá ngay!",
-      en: "Introducing the Top Heroes Tactical Guides Hub! Open the knowledge tome featuring 31 in-depth guides (S0 -> S4), Horde Pivot roadmaps, Double-Dip schedules & 8 interactive lookup tools — Explore now!",
+      vi: "Ra mắt chuyên trang Cẩm Nang Chiến Thuật Top Heroes! Mở quyển sách tri thức với 33 bài viết chuyên sâu (S0 ➔ S4), Playbook 3 Phe Thuần từ Ngày 1, khung giờ vàng Double-Dip & 8 công cụ tra cứu tương tác — Khám phá ngay!",
+      en: "Introducing the Top Heroes Tactical Guides Hub! Open the knowledge tome featuring 33 in-depth guides (S0 -> S4), 3-Faction Pure Playbooks, Double-Dip schedules & 8 interactive lookup tools — Explore now!",
     },
     ctaLabel: {
       vi: "Mở Cẩm Nang",

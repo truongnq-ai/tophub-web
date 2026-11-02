@@ -94,8 +94,8 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
       en: "League Starter (Days 1–20)",
     },
     fullTitle: {
-      vi: "1. Đội Hình Khởi Đầu & Chuyển Tiếp Liên Minh (Ngày 1–20 S0)",
-      en: "1. League Starter & Transition Formation (Days 1–20 S0)",
+      vi: "1. Đội Hình Khởi Đầu Thuần Liên Minh 6 SSR (Ngày 1–20 S0)",
+      en: "1. Pure League 6-SSR Starter Formation (Days 1–20 S0)",
     },
     stageTiming: {
       vi: "Ngày 1 – Ngày 20 (Cầu nối trước khi mở Tướng Đỏ)",
@@ -386,20 +386,20 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
     tocSubSectionId: "sub-2-1-horde-hybrid-and-early",
     faction: "horde",
     shortLabel: {
-      vi: "Cầu Nối Lai 4-2 (Ngày 21–40)",
-      en: "4-2 Hybrid Bridge (Days 21–40)",
+      vi: "Bộ Lạc Sơ Kỳ S0 (Ngày 21–40)",
+      en: "Early S0 Pure Horde (Days 21–40)",
     },
     fullTitle: {
-      vi: "3. Đội Hình Cầu Nối Lai 4 Liên Minh + 2 Bộ Lạc (Ngày 21–40 S0)",
-      en: "3. 4 League + 2 Horde Hybrid Bridge Lineup (Days 21–40 S0)",
+      vi: "3. Đội Hình Thuần Bộ Lạc Sơ Kỳ S0: 2 Tướng Đỏ + 4 Vàng (Ngày 21–40)",
+      en: "3. Early S0 Pure Horde Lineup: 2 Mythics + 4 SSRs (Days 21–40)",
     },
     stageTiming: {
       vi: "Ngày 21 – Ngày 40 (Khi vừa mở Hoàng Tử Sa Mạc & Nữ Thần Bão Tố)",
       en: "Days 21 – 40 (Upon unlocking Desert Prince & Storm Maiden)",
     },
     auraBonus: {
-      vi: "Hào quang 4+2: +15% ATK & HP + Sức mạnh vượt trội của 2 Tướng Đỏ",
-      en: "4+2 Hybrid Aura: +15% ATK & HP + Dual Mythic Power Spike",
+      vi: "Hào quang 6/6 Bộ Lạc: +35% ATK & HP + Sức mạnh vượt trội của 2 Tướng Đỏ",
+      en: "6/6 Pure Horde Aura: +35% ATK & HP + Dual Mythic Power Spike",
     },
     soulStoneBudget: {
       vi: "0 Đá Linh Hồn (Hồn Đá Đỏ / Soul Stone) — Đang tích lũy đủ 9 viên Đá Linh Hồn (360,000 Điểm Vinh Dự Bang / 54,000 Xu Vinh Quang Hội) chờ Thức tỉnh Thuật Sĩ Linh Hồn (Soulmancer) hoặc Pháp Sư Bóng Tối (Warlock).",
@@ -421,12 +421,12 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
         rarity: "mythic",
         roleBadge: { vi: "🔴 Mythic Bruiser Tank", en: "🔴 Mythic Bruiser Tank" },
         mvsSweetSpot: {
-          vi: "1 Sao Đỏ (160 Mảnh — Ra trận ngay thay Người Giữ Bí Mật) ➔ 1 Sao Trắng (560 Mảnh)",
-          en: "1★ Red (160 Shards — Replaces Secret Keeper) ➔ 1★ White (560 Shards)",
+          vi: "1 Sao Đỏ (160 Mảnh — Ra trận ngay thay Chiến Binh Man Rợ) ➔ 1 Sao Trắng (560 Mảnh)",
+          en: "1★ Red (160 Shards — Replaces Barbarian) ➔ 1★ White (560 Shards)",
         },
         slotReason: {
-          vi: "Thay thế trực tiếp Người Giữ Bí Mật (Secret Keeper) ở Ô 1 ngay khi đạt 1 Sao Đỏ (160 Mảnh Anh Hùng Huyền Thoại Vạn Năng); mặc Bộ Đồ Titan / Huyết Titan (Titan's Might / Blood of the Titan) đem lại khả năng bất tử ngắn hạn và sát thương chuẩn vượt trội.",
-          en: "Directly replaces Secret Keeper in Slot 1 upon reaching 1 Red Star (160 Universal Legendary Shards); wears Titan's Might / Blood of the Titan Set for short-term invulnerability and massive True Damage.",
+          vi: "Thay thế trực tiếp Chiến Binh Man Rợ (Barbarian) ở Ô 1 ngay khi đạt 1 Sao Đỏ (160 Mảnh Anh Hùng Huyền Thoại Vạn Năng); mặc Bộ Đồ Titan / Huyết Titan (Titan's Might / Blood of the Titan) đem lại khả năng bất tử ngắn hạn và sát thương chuẩn vượt trội.",
+          en: "Directly replaces Barbarian in Slot 1 upon reaching 1 Red Star (160 Universal Legendary Shards); wears Titan's Might / Blood of the Titan Set for short-term invulnerability and massive True Damage.",
         },
       },
       {
@@ -438,14 +438,14 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
           en: "Adjudicator",
         },
         rarity: "legendary",
-        roleBadge: { vi: "🔵 Cầu Nối Liên Minh", en: "🔵 League Bridge Tank" },
+        roleBadge: { vi: "🟠 Off-Tank Cầu Nối Bộ Lạc", en: "🟠 Horde Transitional Off-Tank" },
         mvsSweetSpot: {
           vi: "1 Sao Trắng (Giữ nguyên cấp cũ, 0 Mảnh Vạn Năng)",
           en: "1★ White (Keep existing investment, 0 Universal Shards)",
         },
         slotReason: {
-          vi: "Đứng Ô 2 mặc Bộ Đồ Titan / Huyết Titan (Titan's Might / Blood of the Titan) làm trụ đỡ đòn phụ và góp đủ mốc 4 Tướng Liên Minh để giữ hào quang +15% ATK/HP trong lúc chờ Thú Tướng (Beastmaster).",
-          en: "Holds Slot 2 in Titan's Might / Blood of the Titan Set as secondary tank and preserves the 4-League (+15% ATK/HP) aura while awaiting Beastmaster.",
+          vi: "Đứng Ô 2 mặc Bộ Đồ Titan / Huyết Titan (Titan's Might / Blood of the Titan) làm trụ đỡ đòn phụ và góp đủ mốc 6/6 Tướng Bộ Lạc để giữ hào quang +35% ATK/HP trong lúc chờ Thú Tướng (Beastmaster).",
+          en: "Holds Slot 2 in Titan's Might / Blood of the Titan Set as secondary tank and preserves the 6/6 Pure Horde (+35% ATK/HP) aura while awaiting Beastmaster.",
         },
       },
       {
@@ -463,8 +463,8 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
           en: "1★ Red (160 Shards — Unlocks 5th Skill) ➔ 1★ White (560 Shards — +30% Boost)",
         },
         slotReason: {
-          vi: "Thay thế trực tiếp Chiêm Tinh Gia (Astrologer) ở Ô 3 Vùng An Toàn sau lưng Hoàng Tử Sa Mạc; mặc Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ / Kỵ Sĩ Vinh Quang (Duelist's Set ➔ Fury of Blood / Knight's Glory) và ưu tiên nhận toàn bộ Sách Kỹ Năng cùng Mảnh Anh Hùng Huyền Thoại Vạn Năng (Universal Legendary Shard).",
-          en: "Replaces Astrologer in Safe Slot 3 behind Desert Prince; wears Duelist's Set ➔ Fury of Blood (Knight's Glory Set) and receives 100% of Skill Books and Universal Legendary Shards.",
+          vi: "Thay thế trực tiếp Thợ Săn Đầu Người (Headhunter) ở Ô 3 Vùng An Toàn sau lưng Hoàng Tử Sa Mạc; mặc Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ / Kỵ Sĩ Vinh Quang (Duelist's Set ➔ Fury of Blood / Knight's Glory) và ưu tiên nhận toàn bộ Sách Kỹ Năng cùng Mảnh Anh Hùng Huyền Thoại Vạn Năng (Universal Legendary Shard).",
+          en: "Replaces Headhunter in Safe Slot 3 behind Desert Prince; wears Duelist's Set ➔ Fury of Blood (Knight's Glory Set) and receives 100% of Skill Books and Universal Legendary Shards.",
         },
       },
       {
@@ -476,14 +476,14 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
           en: "Pyromancer",
         },
         rarity: "legendary",
-        roleBadge: { vi: "🔵 Cầu Nối DPS Phụ", en: "🔵 Bridge Sub-DPS" },
+        roleBadge: { vi: "🟠 DPS Phụ Cầu Nối Bộ Lạc", en: "🟠 Horde Transitional Sub-DPS" },
         mvsSweetSpot: {
-          vi: "1 Sao Trắng (Dùng tiếp từ giai đoạn Ngày 1–20, chờ chuyển xuống Đội 2)",
-          en: "1★ White (Carryover from Days 1–20, ready for Queue 2)",
+          vi: "3 Sao Vàng ➔ 1 Sao Trắng (0 Mảnh Vạn Năng, chờ thay bằng Wukong ở S2)",
+          en: "3★ Gold ➔ 1★ White (0 Universal Shards, awaits Wukong in S2)",
         },
         slotReason: {
-          vi: "Đứng Ô 4 mặc Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ / Kỵ Sĩ Vinh Quang (Duelist's Set ➔ Fury of Blood / Knight's Glory) phụ sát thương dọn lính cùng Nữ Thần Bão Tố (Storm Maiden) cho đến Ngày 41 rồi chuyển nguyên vẹn xuống làm Chủ lực Đội 2.",
-          en: "Stands in Slot 4 with Duelist's Set ➔ Fury of Blood (Knight's Glory Set) providing secondary AoE alongside Storm Maiden until Day 41 before moving intact to anchor Queue 2.",
+          vi: "Đứng Ô 4 mặc Bộ Đồ Quyết Đấu ➔ Cơn Thịnh Nộ / Kỵ Sĩ Vinh Quang (Duelist's Set ➔ Fury of Blood / Knight's Glory) phụ sát thương dọn mục tiêu cùng Nữ Thần Bão Tố (Storm Maiden) trước khi bàn giao vị trí cho Ngộ Không (Wukong) ở Season 2.",
+          en: "Stands in Slot 4 with Duelist's Set ➔ Fury of Blood (Knight's Glory Set) providing secondary physical DPS alongside Storm Maiden until Wukong arrives in Season 2.",
         },
       },
       {
@@ -495,14 +495,14 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
           en: "Nun",
         },
         rarity: "legendary",
-        roleBadge: { vi: "🔵 Cầu Nối Hồi Máu", en: "🔵 Bridge Healer" },
+        roleBadge: { vi: "🟠 Hồi Máu Cầu Nối + Kinh Tế", en: "🟠 Transitional Healer + Economy" },
         mvsSweetSpot: {
           vi: "3 Sao Vàng ➔ 1 Sao Trắng (Giữ nguyên chờ Phù Thủy / Witch ở Ngày 41)",
           en: "3★ Gold ➔ 1★ White (Hold until Witch unlocks on Day 41)",
         },
         slotReason: {
           vi: "Giữ nhịp hồi máu ở Ô 5 với Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang / Hiền Triết Quang Vinh (Sage Set ➔ Glorious Light / Glory of the Sage) trong lúc chờ Phù Thủy (Witch — Tướng Đỏ hồi máu hệ Bộ Lạc) ra mắt ở Ngày 41.",
-          en: "Sustains the 4-2 Hybrid squad from Slot 5 in Sage Set ➔ Glorious Light (Glory of the Sage Set) until Witch (Horde Mythic healer) unlocks on Day 41.",
+          en: "Sustains the Pure Horde squad from Slot 5 in Sage Set ➔ Glorious Light (Glory of the Sage Set) until Witch (Horde Mythic healer) unlocks on Day 41.",
         },
       },
       {
@@ -514,14 +514,14 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
           en: "Bard",
         },
         rarity: "legendary",
-        roleBadge: { vi: "🔵 Cầu Nối Hồi Nộ", en: "🔵 Bridge Cooldown Buffer" },
+        roleBadge: { vi: "🟠 Trụ Cột Chia Sẻ Sát Thương", en: "🟠 Damage-Link Core Support" },
         mvsSweetSpot: {
           vi: "3 Sao Vàng ➔ 2 Sao Trắng (Giữ nguyên cấp sao hiện có)",
           en: "3★ Gold ➔ 2★ White (Keep existing star level)",
         },
         slotReason: {
-          vi: "Đứng Ô 6 mặc Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang / Hiền Triết Quang Vinh (Sage Set ➔ Glorious Light / Glory of the Sage) bơm tốc độ đánh và giảm hồi chiêu cho Hoàng Tử Sa Mạc (Desert Prince) & Nữ Thần Bão Tố (Storm Maiden), hoàn tất mảnh ghép thứ 4 của hào quang Liên Minh.",
-          en: "Stands in Slot 6 with Sage Set ➔ Glorious Light (Glory of the Sage Set) accelerating ultimates for Desert Prince & Storm Maiden while completing the 4-League aura bridge.",
+          vi: "Đứng Ô 6 mặc Bộ Hiền Giả ➔ Ánh Sáng Vinh Quang / Hiền Triết Quang Vinh (Sage Set ➔ Glorious Light / Glory of the Sage) chia sẻ sát thương cho Hoàng Tử Sa Mạc (Desert Prince) & Nữ Thần Bão Tố (Storm Maiden), hoàn tất hào quang 6/6 Thuần Bộ Lạc.",
+          en: "Stands in Slot 6 with Sage Set ➔ Glorious Light (Glory of the Sage Set) linking damage mitigation for Desert Prince & Storm Maiden while completing the 6/6 Pure Horde aura.",
         },
       },
     ],
@@ -539,8 +539,8 @@ const LINEUP_PRESETS: FormationLineupPreset[] = [
       en: "4. Pure Horde 5-Mythic + 1 Awakened Endgame Lineup (#1 Optimal F2P/Low-Spender Meta)",
     },
     stageTiming: {
-      vi: "Ngày 41+ đến Season 1–4 (Hoàn tất Xoay Trục Bộ Lạc)",
-      en: "Day 41+ through Season 1–4 (Full Horde Pivot Complete)",
+      vi: "Ngày 41+ đến Season 1–4 (Hoàn thiện Đội Hình 5 Tướng Đỏ Bộ Lạc)",
+      en: "Day 41+ through Season 1–4 (Full 5-Mythic Pure Horde Complete)",
     },
     auraBonus: {
       vi: "6/6 Bộ Lạc: +35% ATK & HP + +20% DMG khắc chế Liên Minh",

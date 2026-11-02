@@ -98,13 +98,13 @@ GLOSSARY_ICON_OVERRIDES: Dict[str, Tuple[str, Optional[str], str, Optional[str]]
         "neutral",
     ),
     "gear-set-blood-of-the-titan": (
-        "/images/equipment/hero-gear/icon_40013.webp",
+        "/images/equipment/hero-gear/icon_equip_1_5_4.webp",
         None,
         "mythic",
         "horde",
     ),
     "gear-set-knights-glory": (
-        "/images/equipment/hero-gear/icon_40005.webp",
+        "/images/equipment/hero-gear/icon_equip_2_5_1.webp",
         None,
         "mythic",
         "league",
@@ -128,11 +128,114 @@ GLOSSARY_ICON_OVERRIDES: Dict[str, Tuple[str, Optional[str], str, Optional[str]]
         "neutral",
     ),
     "gear-set-glory-of-the-sage": (
-        "/images/equipment/hero-gear/icon_40009.webp",
+        "/images/equipment/hero-gear/icon_equip_3_5_3.webp",
         None,
         "mythic",
         "nature",
     ),
+    "item-universal-shard": (
+        "/images/items/hero-shards/icon_10018.webp",
+        None,
+        "legendary",
+        "neutral",
+    ),
+    "item-skill-book": (
+        "/images/items/books-scrolls/icon_book_tongyong_1.webp",
+        None,
+        "legendary",
+        "neutral",
+    ),
+    "item-guild-coins": (
+        "/images/items/currencies/icon_10035.webp",
+        None,
+        "legendary",
+        "neutral",
+    ),
+    "item-guild-honor": (
+        "/images/items/currencies/icon_10023.webp",
+        None,
+        "legendary",
+        "neutral",
+    ),
+    "event-dark-empire-invasion": (
+        "/images/events/entry-icons/Activity_202.webp",
+        None,
+        "legendary",
+        "neutral",
+    ),
+    "event-dark-legion-challenge": (
+        "/images/events/entry-icons/Activity_201.webp",
+        None,
+        "legendary",
+        "neutral",
+    ),
+    "event-dice-of-fate": (
+        "/images/events/entry-icons/Activity_106.webp",
+        None,
+        "mythic",
+        "neutral",
+    ),
+    "event-fortune-wheel": (
+        "/images/events/entry-icons/Activity_105.webp",
+        None,
+        "mythic",
+        "neutral",
+    ),
+    "event-giant-raid": (
+        "/images/events/entry-icons/Activity_103.webp",
+        None,
+        "legendary",
+        "neutral",
+    ),
+    "event-guild-arms-race": (
+        "/images/events/entry-icons/Activity_109.webp",
+        None,
+        "mythic",
+        "neutral",
+    ),
+    "event-guild-race": (
+        "/images/events/entry-icons/Activity_104.webp",
+        None,
+        "legendary",
+        "neutral",
+    ),
+    "event-guild-rush": (
+        "/images/events/entry-icons/Activity_108.webp",
+        None,
+        "legendary",
+        "neutral",
+    ),
+    "event-kvk": (
+        "/images/events/entry-icons/Activity_134.webp",
+        None,
+        "mythic",
+        "neutral",
+    ),
+    "tier-yellow-stars": (
+        "/images/items/hero-shards/icon_10018.webp",
+        None,
+        "legendary",
+        "neutral",
+    ),
+    "tier-red-stars": (
+        "/images/items/hero-shards/icon_10019.webp",
+        None,
+        "mythic",
+        "neutral",
+    ),
+    "tier-white-stars": (
+        "/images/items/awakening-stones/icon_30222.webp",
+        None,
+        "mythic",
+        "neutral",
+    ),
+}
+
+GLOSSARY_GAME_ID_OVERRIDES: Dict[str, Optional[int]] = {
+    "item-universal-shard": 10018,
+    "item-skill-book": 30016,
+    "item-guild-coins": 10035,
+    "item-guild-honor": 10023,
 }
 
 # Supplementary non-glossary tactical assets frequently referenced in articles/tables/spotlights

@@ -353,7 +353,7 @@ export const ARTICLE_8_3_RESEARCH_AND_BAITING: GuideArticle = {
               items: [
                 {
                   vi: "**Người chơi Hệ Bộ Lạc (Horde)**: Từ Tuần 4 trở đi, dồn `100%` điểm nghiên cứu hệ vào `Horde Soldier ATK/HP`, `Horde Hero ATK/HP` và Quy mô Hành quân Bộ Lạc (`Full Horde March Size`).",
-                  en: "**Horde Commanders (or League ➔ Horde Pivot)**: From Week 4 onward, funnel `100%` of faction research into `Horde Soldier ATK/HP`, `Horde Hero ATK/HP`, and `Full Horde March Size`.",
+                  en: "**Horde Commanders**: From Week 4 onward, funnel `100%` of faction research into `Horde Soldier ATK/HP`, `Horde Hero ATK/HP`, and `Full Horde March Size`.",
                 },
                 {
                   vi: "**Người chơi Hệ Liên Minh (League)**: Tập trung tối đa vào nhánh `League Soldier / Hero` và các node tăng sát thương khắc chế hệ (`Damage on Counter`).",

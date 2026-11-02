@@ -78,7 +78,7 @@ export const ARTICLE_5_4_PACKS_AND_ROI: GuideArticle = {
         },
         {
           type: "media_spotlight",
-          mediaCode: "MED-5.4-01",
+          mediaCode: "MED-9.4-01",
           tier: "tier2_annotated_ui",
           title: {
             vi: "Tháp Hiệu Suất Gói Nạp (ROI Pyramid) & Nghệ Thuật Kẹp Gói Liên Thông",

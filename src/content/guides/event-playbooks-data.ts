@@ -1624,8 +1624,8 @@ const PLAYBOOKS_PART_2: readonly EventPlaybookRecord[] = [
         en: "The third pillar of the 3-week banner rotation, allowing players to dump hoarded Recruit Tokens and set a Faction/Hero Wishlist to claim high-tier milestone chests.",
       },
       coreLoop: {
-        vi: "Cài đặt Tướng Tâm Nguyện (ưu tiên Horde khi chuyển trục) rồi xả Vé Chiêu Mộ Anh Hùng theo cụm 10 lượt để mở khóa mốc tích lũy 50 / 100 / 200 / 300 lượt.",
-        en: "Set your Hero Wishlist (prioritizing Horde for your faction pivot) and spend Hero Recruit Tokens in 10-pulls to hit 50 / 100 / 200 / 300 cumulative summon milestones.",
+        vi: "Cài đặt Tướng Tâm Nguyện (ưu tiên đúng phe chủ lực đã chọn từ Ngày 1) rồi xả Vé Chiêu Mộ Anh Hùng theo cụm 10 lượt để mở khóa mốc tích lũy 50 / 100 / 200 / 300 lượt.",
+        en: "Set your Hero Wishlist (prioritizing your Day-1 committed primary faction) and spend Hero Recruit Tokens in 10-pulls to hit 50 / 100 / 200 / 300 cumulative summon milestones.",
       },
       carryoverRule: {
         vi: "Vé Chiêu Mộ Anh Hùng và Xu Gacha đặc biệt được bảo lưu 100%; nhưng mốc đếm tổng lượt quay trong tuần sự kiện sẽ reset khi kết thúc.",
@@ -1675,8 +1675,8 @@ const PLAYBOOKS_PART_2: readonly EventPlaybookRecord[] = [
           en: "Never awaken transitional SSR heroes like Secret Keeper or Astrologer",
         },
         dumpTiming: {
-          vi: "Dùng để thức tỉnh tướng SSR cốt lõi được phép lên Đỏ theo lộ trình chuyển trục Horde",
-          en: "Use exclusively to awaken core SSR heroes approved in the Horde pivot roadmap",
+          vi: "Dùng để thức tỉnh duy nhất 1 tướng SSR cốt lõi (Soulmancer hoặc Warlock) theo lộ trình Thuần Bộ Lạc",
+          en: "Use exclusively to awaken the single core SSR hero (Soulmancer or Warlock) in the Pure Horde progression roadmap",
         },
       },
       {

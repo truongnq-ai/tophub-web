@@ -55,7 +55,7 @@ export const GUIDE_CATEGORIES: GuideCategory[] = [
   GROUP_3_EVENTS_AND_CALENDAR_CATEGORY,
 
   // ============================================================================
-  // GROUP 4: LỘ TRÌNH SERVER (S0➔S4) & CHUYỂN HỆ (3 TRANG — MODULE HÓA CHUẨN V2.0)
+  // GROUP 4: LỘ TRÌNH SERVER (S0➔S4) & PLAYBOOK 3 PHE (5 TRANG — MODULE HÓA CHUẨN V2.0)
   // ============================================================================
   GROUP_4_SERVER_ROADMAP_CATEGORY,
 

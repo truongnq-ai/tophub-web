@@ -77,7 +77,7 @@ export const ARTICLE_5_3_SHOP_AND_DROPS: GuideArticle = {
         },
         {
           type: "media_spotlight",
-          mediaCode: "MED-5.3-01",
+          mediaCode: "MED-9.3-01",
           tier: "tier2_annotated_ui",
           title: {
             vi: "Hệ Thống Rơi Đạo Cụ Bản Đồ & Thứ Tự Ưu Tiên Đổi Cửa Hàng Sự Kiện (Tier S ➔ F)",

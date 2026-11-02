@@ -96,20 +96,20 @@ const HORDE_STAGE_META: Record<1 | 2 | 3 | 4, StaticStageConfig> = {
   1: {
     dayRangeBadge: { vi: "Ngày 1 ➔ 20", en: "Days 1 ➔ 20" },
     shortTitle: {
-      vi: "GĐ 1: Đóng Băng Đầu Tư Mềm",
-      en: "Stage 1: Soft Freeze",
+      vi: "GĐ 1: Khởi Đầu 6 SSR Bộ Tộc",
+      en: "Stage 1: 6 Horde SSR Starter",
     },
     auraBadge: {
-      vi: "6 Liên Minh (+35% Aura) • 0 Mảnh Vạn Năng",
-      en: "6 League (+35% Aura) • 0 Universal Shards",
+      vi: "6 Bộ Tộc (+35% Aura) • 0 Mảnh Vạn Năng",
+      en: "6 Horde (+35% Aura) • 0 Universal Shards",
     },
     stageAndMilestone: {
       vi: "Giai đoạn 1 (Ngày 1 ➔ 20): Tích Trữ Trước Ngày 21",
       en: "Stage 1 (Days 1 ➔ 20): Pre-Day 21 Hoarding",
     },
     queue1Lineup: {
-      vi: "6 SSR Tạm Thời (Secret Keeper, Adjudicator, Pyromancer, Astrologer, Bard, Nun)",
-      en: "6 Temporary SSRs (Secret Keeper, Adjudicator, Pyromancer, Astrologer, Bard, Nun)",
+      vi: "6 SSR Bộ Tộc (Swordmaster, Barbarian, Boar, Wilderness Hunter, Headhunter, Shaman/Soulmancer)",
+      en: "6 Horde SSRs (Swordmaster, Barbarian, Boar, Wilderness Hunter, Headhunter, Shaman/Soulmancer)",
     },
     shardAndBookRule: {
       vi: "Dùng 0 Mảnh Vàng Vạn Năng và 0 Sách Kỹ Năng lên tướng quá độ; dồn toàn bộ cho Desert Prince & Storm Maiden ở Ngày 21.",
@@ -120,40 +120,48 @@ const HORDE_STAGE_META: Record<1 | 2 | 3 | 4, StaticStageConfig> = {
       en: "Craft Column 2 Golden Gear (Horde Faction Mark +30% from Day 1) and prioritize Horde Barracks.",
     },
     leagueRosterRole: {
-      vi: "Nuôi sẵn 6 SSR Bộ Tộc ở Lv.135–150 chờ tiếp quản Đội 1.",
-      en: "Park 6 Horde SSRs at Lv.135–150 ready to take over Queue 1.",
+      vi: "6 SSR Liên Minh rơi tự nhiên ở Lv.100–120 làm Đội 2 đào mỏ.",
+      en: "6 natural League SSR drops at Lv.100–120 serve as Queue 2 gatherers.",
     },
     queue1Heroes: [
       {
-        name: "Secret Keeper",
-        faction: "league",
-        note: { vi: "Tank (0 Mảnh)", en: "Tank (0 Shards)" },
+        name: "Swordmaster",
+        faction: "horde",
+        note: { vi: "Sub-Tank (0 Mảnh)", en: "Sub-Tank (0 Shards)" },
       },
       {
-        name: "Adjudicator",
-        faction: "league",
-        note: { vi: "Tank", en: "Tank" },
+        name: "Barbarian",
+        faction: "horde",
+        note: { vi: "Sub-Tank (0 Mảnh)", en: "Sub-Tank (0 Shards)" },
       },
       {
-        name: "Pyromancer",
-        faction: "league",
-        note: { vi: "Main Carry", en: "Main Carry" },
+        name: "Boar",
+        faction: "horde",
+        note: { vi: "Quá độ (Chờ DP Ngày 21)", en: "Transitional (Wait DP Day 21)" },
       },
       {
-        name: "Astrologer",
-        faction: "league",
-        note: { vi: "Burst (0 Sách)", en: "Burst (0 Books)" },
+        name: "Wilderness Hunter",
+        faction: "horde",
+        note: { vi: "Sub-DPS / Tốc Đánh", en: "Sub-DPS / ATK Speed" },
       },
-      { name: "Bard", faction: "league", note: { vi: "Buffer", en: "Buffer" } },
-      { name: "Nun", faction: "league", note: { vi: "Healer", en: "Healer" } },
+      {
+        name: "Headhunter",
+        faction: "horde",
+        note: { vi: "Quá độ (Chờ SM Ngày 27)", en: "Transitional (Wait SM Day 27)" },
+      },
+      {
+        name: "Shaman / Soulmancer",
+        faction: "horde",
+        note: { vi: "Healer & Chia Sát Thương", en: "Healer & Damage Link" },
+      },
     ],
     queue2Heroes: [
       {
-        name: "6 SSR Horde (Parked Lv.135–150)",
-        faction: "horde",
+        name: "Pure League Queue 2 (6 Heroes)",
+        faction: "league",
         note: {
-          vi: "Chờ tiếp quản Đội 1",
-          en: "Waiting to take over Queue 1",
+          vi: "Đội 2 Đào Mỏ Tự Nhiên",
+          en: "Natural Queue 2 Gatherers",
         },
       },
     ],
@@ -161,20 +169,20 @@ const HORDE_STAGE_META: Record<1 | 2 | 3 | 4, StaticStageConfig> = {
   2: {
     dayRangeBadge: { vi: "Ngày 21 ➔ 35", en: "Days 21 ➔ 35" },
     shortTitle: {
-      vi: "GĐ 2: Cầu Nối Lai 4L + 2H",
-      en: "Stage 2: 4L + 2H Hybrid Bridge",
+      vi: "GĐ 2: Desert Prince & Storm Maiden",
+      en: "Stage 2: Desert Prince & Storm Maiden",
     },
     auraBadge: {
-      vi: "4 Liên Minh + 2 Bộ Lạc (+15% Aura) • 1★ Đỏ (160 Mảnh)",
-      en: "4 League + 2 Horde (+15% Aura) • 1-Red Star (160 Shards)",
+      vi: "6 Bộ Tộc (+35% Aura) • 1★ Đỏ (160 Mảnh)",
+      en: "6 Horde (+35% Aura) • 1-Red Star (160 Shards)",
     },
     stageAndMilestone: {
       vi: "Giai đoạn 2 (Ngày 21 ➔ 35): Mở Khóa Cặp Đôi Mythic Bộ Tộc",
       en: "Stage 2 (Days 21 ➔ 35): Dual Horde Mythic Unlock",
     },
     queue1Lineup: {
-      vi: "Desert Prince + Storm Maiden (1★ Đỏ / 160 Mảnh) + 4 Tướng Phụ Trợ",
-      en: "Desert Prince + Storm Maiden (1★ Red / 160 Shards) + 4 Support Slots",
+      vi: "Desert Prince + Storm Maiden (1★ Đỏ / 160 Mảnh) + 4 SSR Bộ Tộc",
+      en: "Desert Prince + Storm Maiden (1★ Red / 160 Shards) + 4 Horde SSRs",
     },
     shardAndBookRule: {
       vi: "Dồn 320 Mảnh Vàng (160 mỗi tướng) đưa Desert Prince và Storm Maiden lên 1★ Đỏ ngay tuần mở banner.",
@@ -185,8 +193,8 @@ const HORDE_STAGE_META: Record<1 | 2 | 3 | 4, StaticStageConfig> = {
       en: "Equip +10/+20 Golden Gear on Desert Prince (Titan) and Storm Maiden (Destroyer).",
     },
     leagueRosterRole: {
-      vi: "Secret Keeper và Astrologer lùi xuống Đội 2 làm đội hình đào mỏ và giữ cứ điểm.",
-      en: "Secret Keeper and Astrologer move to Queue 2 for resource node defense.",
+      vi: "Boar và Headhunter lùi xuống Đội 2 làm đội hình đào mỏ và giữ cứ điểm.",
+      en: "Boar and Headhunter move to Queue 2 for resource node defense.",
     },
     queue1Heroes: [
       {
@@ -195,8 +203,8 @@ const HORDE_STAGE_META: Record<1 | 2 | 3 | 4, StaticStageConfig> = {
         note: { vi: "1★ Đỏ (160 Mảnh)", en: "1★ Red (160 Shards)" },
       },
       {
-        name: "Adjudicator",
-        faction: "league",
+        name: "Swordmaster / Barbarian",
+        faction: "horde",
         note: { vi: "Sub-Tank", en: "Sub-Tank" },
       },
       {
@@ -205,22 +213,30 @@ const HORDE_STAGE_META: Record<1 | 2 | 3 | 4, StaticStageConfig> = {
         note: { vi: "1★ Đỏ (160 Mảnh)", en: "1★ Red (160 Shards)" },
       },
       {
-        name: "Pyromancer",
-        faction: "league",
-        note: { vi: "Sub-Carry", en: "Sub-Carry" },
+        name: "Wilderness Hunter",
+        faction: "horde",
+        note: { vi: "Sub-DPS / Tốc Đánh", en: "Sub-DPS / ATK Speed" },
       },
-      { name: "Bard", faction: "league", note: { vi: "Buffer", en: "Buffer" } },
-      { name: "Nun", faction: "league", note: { vi: "Healer", en: "Healer" } },
+      {
+        name: "Shaman",
+        faction: "horde",
+        note: { vi: "Chờ Witch (Ngày 41)", en: "Waiting Witch (Day 41)" },
+      },
+      {
+        name: "Soulmancer / Warlock",
+        faction: "horde",
+        note: { vi: "Chia sẻ Sát thương", en: "Damage Link Support" },
+      },
     ],
     queue2Heroes: [
       {
-        name: "Secret Keeper",
-        faction: "league",
+        name: "Boar",
+        faction: "horde",
         note: { vi: "Lùi xuống Đội 2", en: "Moved to Queue 2" },
       },
       {
-        name: "Astrologer",
-        faction: "league",
+        name: "Headhunter",
+        faction: "horde",
         note: { vi: "Lùi xuống Đội 2", en: "Moved to Queue 2" },
       },
     ],
@@ -228,8 +244,8 @@ const HORDE_STAGE_META: Record<1 | 2 | 3 | 4, StaticStageConfig> = {
   3: {
     dayRangeBadge: { vi: "Ngày 36 ➔ 45", en: "Days 36 ➔ 45" },
     shortTitle: {
-      vi: "GĐ 3: Chuyển Giao Đội 1 Hoàn Toàn",
-      en: "Stage 3: Full Horde Queue 1",
+      vi: "GĐ 3: Đón Witch & Đỉnh Cao S0",
+      en: "Stage 3: Witch & S0 Peak",
     },
     auraBadge: {
       vi: "6 Bộ Lạc Đội 1 (+35%) • Đội 2 Liên Minh 2.8M",

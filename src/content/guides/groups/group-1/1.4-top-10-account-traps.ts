@@ -812,8 +812,8 @@ export const ARTICLE_1_4_TOP_10_TRAPS: GuideArticle = {
                 en: "2 – 3 Cycles (4 – 6 Weeks) hitting full `Guild Race` milestones to recover 9 `Soul Stone` items (40,000 Guild Honor/stone = 360,000 or 6,000 Guild Glory Coins/stone = 54,000 in S1) + 345–385 Hero Shards.",
               },
               {
-                vi: "Không cần Reroll; tập trung chuyển sang đội hình Bộ Lạc (`Horde`) vì Bộ Lạc chỉ cần thức tỉnh 1 tướng Vàng duy nhất (`9 Hồn Đá Đỏ` + 345–385 Mảnh) thay vì 27 viên như Liên Minh!",
-                en: "No Reroll needed; pivot to `Horde` since Endgame Horde only requires awakening 1 Legendary hero (9 `Soul Stone` items + 345–385 Shards) instead of 27 Soul Stones like League!",
+                vi: "Không cần Reroll; ưu tiên chọn lộ trình Thuần Bộ Lạc (`Pure Horde`) vì Bộ Lạc chỉ cần thức tỉnh 1 tướng Vàng duy nhất (`9 Hồn Đá Đỏ` + 345–385 Mảnh) thay vì 27 viên như Liên Minh!",
+                en: "No Reroll needed; commit to `Pure Horde` since Endgame Horde only requires awakening 1 Legendary hero (9 `Soul Stone` items + 345–385 Shards) instead of 27 Soul Stones like League!",
               },
             ],
             [

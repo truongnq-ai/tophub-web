@@ -1227,8 +1227,8 @@ export const ARTICLE_7_3_EXCHANGE_AND_VIP_SHOPS: GuideArticle = {
       id: "pro-execution-playbook",
       isPro: true,
       title: {
-        vi: "5. Kịch bản Thực chiến Nâng cao: Chuyển Giao Đội 1 Thuần Bộ Lạc Ngày 21 ➔ Ngày 41 Với Quỹ 42,000 KC & 300 Xu",
-        en: "5. Pro Execution Playbook: Day 21 ➔ Day 41 Pure Horde Transition With a 42,000-Diamond Buffer & 300 Coins",
+        vi: "5. Kịch bản Thực chiến Nâng cao: Nâng Cấp Đội 1 Thuần Bộ Lạc Ngày 21 ➔ Ngày 41 Với Quỹ 42,000 KC & 300 Xu",
+        en: "5. Pro Execution Playbook: Day 21 ➔ Day 41 Pure Horde Progression With a 42,000-Diamond Buffer & 300 Coins",
       },
       blocks: [
         {
@@ -1242,8 +1242,8 @@ export const ARTICLE_7_3_EXCHANGE_AND_VIP_SHOPS: GuideArticle = {
             en: "Managing a 42,000-Diamond Reserve & 3-Cycle 300-Coin Hoard to Unlock Desert Prince, Storm Maiden, Witch + Exclusive Weapon",
           },
           profileSummary: {
-            vi: "**Hồ sơ F2P / Low-Spender**: Ngân sách chỉ mua Gói Tháng `$4.99` và Thợ Xây `$0.99`, chuẩn bị chuyển giao sang Đội 1 Thuần Bộ Lạc từ Ngày 21 đến Ngày 41.\n• **Mục tiêu kép**: Đẩy Kỵ Sĩ (Knight) lên `15 Sao` (`500` Mảnh) mở khóa Exchange Shop và cán mốc `VIP 6` (`1,000 pts` / `$166.70`) bằng Điểm VIP miễn phí.",
-            en: "**F2P / Low-Spender Profile**: Budget limited to the `$4.99` Monthly Pass and `$0.99` Builder queue, preparing for a Pure Horde Queue 1 transition on Days 21–41.\n• **Dual Milestones**: Push Knight to `15 Stars` (`500` Shards) to unlock the Exchange Shop and hit `VIP 6` (`1,000 pts` / `$166.70`) via free Guild Shop VIP Points.",
+            vi: "**Hồ sơ F2P / Low-Spender**: Ngân sách chỉ mua Gói Tháng `$4.99` và Thợ Xây `$0.99`, chuẩn bị mở khóa 3 Tướng Đỏ Đội 1 Thuần Bộ Lạc từ Ngày 21 đến Ngày 41.\n• **Mục tiêu kép**: Đẩy Kỵ Sĩ (Knight) lên `15 Sao` (`500` Mảnh) mở khóa Exchange Shop và cán mốc `VIP 6` (`1,000 pts` / `$166.70`) bằng Điểm VIP miễn phí.",
+            en: "**F2P / Low-Spender Profile**: Budget limited to the `$4.99` Monthly Pass and `$0.99` Builder queue, preparing to unlock all 3 Pre-Season Mythics for a Pure Horde Queue 1 on Days 21–41.\n• **Dual Milestones**: Push Knight to `15 Stars` (`500` Shards) to unlock the Exchange Shop and hit `VIP 6` (`1,000 pts` / `$166.70`) via free Guild Shop VIP Points.",
           },
           metrics: [
             {

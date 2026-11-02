@@ -105,7 +105,7 @@ describe("Phase 4 — Category Micro-UX Widgets & GuideArticleRenderer Integrati
       ).toBe(true);
 
       const a42Sec1 = ARTICLE_4_2_HORDE_PIVOT_ROADMAP.freeSections.find(
-        (s) => s.id === "sec-1-why-league-to-horde-is-king"
+        (s) => s.id === "sec-1-why-pure-horde-is-king"
       );
       expect(
         a42Sec1?.blocks.some(
@@ -266,7 +266,7 @@ describe("Phase 4 — Category Micro-UX Widgets & GuideArticleRenderer Integrati
 
       // Stage 1 default: 6 SSR League, 0 Universal Shards spent
       expect(screen.getByTestId("pivot-active-stage-panel").textContent).toMatch(
-        /Secret Keeper|Adjudicator|Pyromancer/i
+        /Swordmaster|Barbarian|Wilderness Hunter|Soulmancer/i
       );
 
       // Stage 2: Days 21-35 Hybrid 4 League + 2 Horde (Desert Prince & Storm Maiden 1-Red Star / 160 shards)

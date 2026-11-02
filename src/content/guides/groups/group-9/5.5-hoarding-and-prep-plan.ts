@@ -78,7 +78,7 @@ export const ARTICLE_5_5_HOARDING_AND_PREP_PLAN: GuideArticle = {
         },
         {
           type: "media_spotlight",
-          mediaCode: "MED-5.5-01",
+          mediaCode: "MED-9.5-01",
           tier: "tier2_annotated_ui",
           title: {
             vi: "Bản Đồ Tích Trữ 2 Tầng: Ngắn Hạn (3–5 Ngày) & Dài Hạn (1–3 Tuần Trước Đại Sự Kiện)",

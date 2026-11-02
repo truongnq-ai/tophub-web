@@ -443,8 +443,8 @@ export const ARTICLE_8_4_MASTER_DATA_TABLES: GuideArticle = {
                   { vi: "Lâu Đài Lv.25", en: "Castle Lv.25" },
                   { vi: "Lv.140", en: "Lv.140" },
                   {
-                    vi: "Điểm gãy Pre-Season: Tăng vọt độ trâu bò cho Đội 1 trước khi sang Bộ Lạc.",
-                    en: "Pre-Season Breakpoint: Massive durability surge for Queue 1 prior to the Horde pivot.",
+                    vi: "Điểm gãy Pre-Season: Tăng vọt độ trâu bò cho Đội 1 trước làn sóng Tướng Đỏ Ngày 21+.",
+                    en: "Pre-Season Breakpoint: Massive durability surge for Queue 1 ahead of the Day 21+ Mythic wave.",
                   },
                 ],
                 [

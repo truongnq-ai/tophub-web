@@ -79,7 +79,7 @@ export const ARTICLE_5_6_PRO_PLAYER_MECHANICS: GuideArticle = {
         },
         {
           type: "media_spotlight",
-          mediaCode: "MED-5.6-01",
+          mediaCode: "MED-9.6-01",
           tier: "tier2_annotated_ui",
           title: {
             vi: "4 Kỹ Thuật Thực Chiến Cốt Lõi Của Người Chơi Kỳ Cựu (Pre-Cook & Triple-Dip)",

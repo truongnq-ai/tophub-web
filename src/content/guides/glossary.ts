@@ -470,8 +470,8 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
     term: { vi: "Vu Nữ / Phù Thủy (Witch)", en: "Witch" },
     heroMeta: { faction: "horde", rarity: "mythic" },
     definition: {
-      vi: "Mythic Healer / CC ra mắt Ngày 41, mảnh ghép bắt buộc để xoay trục sang Bộ Lạc.",
-      en: "Mythic Healer and crowd-controller releasing on Day 41; mandatory cornerstone for the Horde Pivot.",
+      vi: "Mythic Healer / CC ra mắt Ngày 41, mảnh ghép bắt buộc để hoàn thiện Đội 1 Thuần Bộ Lạc.",
+      en: "Mythic Healer and crowd-controller releasing on Day 41; mandatory cornerstone for a Pure Horde Queue 1.",
     },
   },
   {
@@ -1170,11 +1170,11 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "meta-horde-pivot",
     category: "meta_slang",
-    term: { vi: "Xoay Trục Bộ Lạc (Horde Pivot)", en: "Horde Pivot" },
-    aliases: { vi: ["Chuyển Hệ Bộ Lạc Ngày 41"], en: ["Day 41 Horde Transition"] },
+    term: { vi: "Lộ Trình Thuần Bộ Lạc 5 Mythic (Pure Horde Progression)", en: "Pure Horde 5-Mythic Progression" },
+    aliases: { vi: ["Đội Hình 5 Tướng Đỏ Bộ Lạc"], en: ["5-Mythic Pure Horde Meta"] },
     definition: {
-      vi: "Chiến thuật khởi đầu bằng Liên Minh 0 Mảnh ở Ngày 1–20 rồi chuyển toàn bộ tài nguyên sang Bộ Lạc khi mở khóa Desert Prince, Storm Maiden và Witch.",
-      en: "Starting with a zero-shard League bridge in Days 1–20, then pivoting 100% of hoarded resources into Horde once Desert Prince, Storm Maiden, and Witch unlock.",
+      vi: "Chiến thuật chơi thuần Bộ Lạc từ Ngày 1 (6 SSR quá độ 0 Mảnh Vạn Năng) rồi thay thế tuần tự bằng Desert Prince, Storm Maiden, Witch, Wukong và Beastmaster, chỉ tốn đúng 9 Hồn Đá Đỏ cho 1 SSR Thức tỉnh (Soulmancer/Warlock).",
+      en: "Starting with a 6-SSR Pure Horde transitional roster on Day 1 (0 Universal Shards) and sequentially slotting in Desert Prince, Storm Maiden, Witch, Wukong, and Beastmaster, requiring only 9 Soul Stones for 1 Awakened SSR (Soulmancer/Warlock).",
     },
   },
   {

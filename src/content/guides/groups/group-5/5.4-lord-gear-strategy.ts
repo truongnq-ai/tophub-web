@@ -429,12 +429,12 @@ export const ARTICLE_5_4_LORD_GEAR_STRATEGY: GuideArticle = {
             {
               id: "lg-audit-5",
               label: {
-                vi: "5. Định hướng sớm cho lộ trình Chuyển Hệ (Horde Pivot) & Mốc Season 3",
-                en: "5. Align early with Horde Pivot & Season 3 Y1/Y2 unlock milestones",
+                vi: "5. Định hướng sớm theo Phe chủ lực đã chọn từ Ngày 1 & Mốc Season 3",
+                en: "5. Align early with your Day-1 Primary Faction & Season 3 Y1/Y2 unlock milestones",
               },
               detail: {
-                vi: "Nếu dùng tạm Liên Minh ở Ngày 1–20 nhưng xác định chuyển sang Bộ Lạc ở Ngày 21+, hãy ưu tiên dẫn trước 2 món Bộ Lạc và hướng tới mốc 6 món đạt Y1 (Ô Thứ 7) & Y2 (Sacred Codex).",
-                en: "If running temporary League on Days 1–20 before pivoting to Horde on Day 21+, lead with the 2 Horde pieces and target all 6 pieces at Y1 (7th Slot) & Y2 (Sacred Codex) for Season 3.",
+                vi: "Khi nâng cấp vượt bậc, hãy ưu tiên dẫn trước 2 món cộng chỉ số cho Phe chủ lực Đội 1 đã chọn từ Ngày 1 (ví dụ: 2 món Bộ Lạc cho Pure Horde) và hướng tới mốc 6 món đạt Y1 (Ô Thứ 7) & Y2 (Sacred Codex).",
+                en: "When stepping up tiers, lead with the 2 pieces boosting your Day-1 Queue 1 primary faction (e.g., the 2 Horde pieces for Pure Horde) and target all 6 pieces at Y1 (7th Slot) & Y2 (Sacred Codex) for Season 3.",
               },
               badge: {
                 vi: "SEASON 3 UNLOCK",

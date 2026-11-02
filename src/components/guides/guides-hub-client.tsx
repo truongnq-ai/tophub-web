@@ -92,7 +92,7 @@ const HOT_TAGS: HotTagItem[] = [
   },
   {
     id: "horde-pivot",
-    label: { vi: "#HordePivot", en: "#HordePivot" },
+    label: { vi: "#BộLạc5Mythic", en: "#PureHorde" },
     query: { vi: "Bộ Lạc", en: "Horde" },
   },
   {

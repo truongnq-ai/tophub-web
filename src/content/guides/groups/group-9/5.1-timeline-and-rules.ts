@@ -77,7 +77,7 @@ export const ARTICLE_5_1_TIMELINE_AND_RULES: GuideArticle = {
         },
         {
           type: "media_spotlight",
-          mediaCode: "MED-5.1-01",
+          mediaCode: "MED-9.1-01",
           tier: "tier2_annotated_ui",
           title: {
             vi: "Trục Thời Gian Sự Kiện S0 ➔ GAR & Quy Tắc Bảo Lưu Đạo Cụ",

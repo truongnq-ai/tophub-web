@@ -38,7 +38,7 @@ export const ARTICLE_2_3_FORMATION_COUNTERS: GuideArticle = {
       en: "**3-Faction Counter Triangle:** `League ➔ Nature ➔ Horde ➔ League` grants `+20% DMG Dealt` and `-20% DMG Taken`, stacking with the `4/5/6` same-faction Aura (`+15% / +25% / +35% ATK & HP`).",
     },
     {
-      vi: "**Đội hình Lai `5+1 Hybrid`:** Chấp nhận giảm `-10% Aura` (từ `+35%` xuống `+25% ATK/HP`) mang lại lợi tức thực chiến vượt trội khi kẹp **Tidecaller** (`1★ Trắng + UW`), **Witch** hoặc **Wukong**.",
+      vi: "**Đội hình Kẹp `5+1 Flex`:** Chấp nhận giảm `-10% Aura` (từ `+35%` xuống `+25% ATK/HP`) mang lại lợi tức thực chiến vượt trội khi kẹp **Tidecaller** (`1★ Trắng + UW`), **Witch** hoặc **Wukong**.",
       en: "**Intentional `5+1 Hybrid` Lineup:** Trading `-10% Aura` (from `+35%` down to `+25% ATK/HP`) yields superior net combat value when flexing **Tidecaller** (`1★ White + UW`), **Witch**, or **Wukong**.",
     },
     {
@@ -425,15 +425,15 @@ export const ARTICLE_2_3_FORMATION_COUNTERS: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "Đội hình Lai 4–2 (Hybrid Pivot)",
-                    en: "4–2 Hybrid Pivot",
+                    vi: "Mốc Hào Quang 4 Tướng (4-Hero Faction Aura)",
+                    en: "4-Hero Faction Aura Milestone",
                   },
                   { vi: "4 tướng cùng phe", en: "4 same-faction" },
                   { vi: "+15% ATK", en: "+15% ATK" },
                   { vi: "+15% HP", en: "+15% HP" },
                   {
-                    vi: "Cấu hình tiêu chuẩn khi chuyển giao ở Ngày 21–40",
-                    en: "Standard transition setup during Days 21–40",
+                    vi: "Mốc kích hoạt Hào quang cơ bản khi mới mở khóa 4 tướng cùng phe tuần đầu",
+                    en: "Base Faction Aura milestone when fielding 4 same-faction heroes in Week 1",
                   },
                 ],
                 [
@@ -469,8 +469,8 @@ export const ARTICLE_2_3_FORMATION_COUNTERS: GuideArticle = {
         {
           id: "sub-2-3-hybrid-formations-box",
           title: {
-            vi: "2.3. Hộp So Sánh Chiến Thuật: Khi Nào Nên Dùng Đội Hình Lai Có Chủ Đích (5+1 / 4+2)?",
-            en: "2.3. Tactical Comparison: When to Run Intentional 5+1 / 4+2 Hybrid Formations",
+            vi: "2.3. Hộp So Sánh Chiến Thuật: Khi Nào Nên Dùng Đội Hình Kẹp Ngoại Hệ Có Chủ Đích (5+1 Flex)?",
+            en: "2.3. Tactical Comparison: When to Run Intentional 5+1 Flex Formations",
           },
           blocks: [
             {
@@ -488,11 +488,11 @@ export const ARTICLE_2_3_FORMATION_COUNTERS: GuideArticle = {
             {
               type: "table",
               caption: {
-                vi: "Ba Cấu Hình Đội Hình Lai Có Chủ Đích (5+1 & 4+2 Hybrid Meta)",
-                en: "Three Intentional Hybrid Formations (5+1 & 4+2 Hybrid Meta)",
+                vi: "Ba Cấu Hình Đội Hình Kẹp Ngoại Hệ Có Chủ Đích (5+1 Flex Meta)",
+                en: "Three Intentional Flex Formations (5+1 Flex Meta)",
               },
               headers: [
-                { vi: "Cấu Hình Đội Hình Lai", en: "Hybrid Formation Setup" },
+                { vi: "Cấu Hình Đội Hình Kẹp", en: "Flex Formation Setup" },
                 { vi: "Tướng Ngoại Hệ Kẹp Vào", en: "Flexed Off-Faction Hero" },
                 {
                   vi: "Đánh Đổi Hào Quang (Aura Trade-off)",
@@ -542,20 +542,20 @@ export const ARTICLE_2_3_FORMATION_COUNTERS: GuideArticle = {
                 ],
                 [
                   {
-                    vi: "4+2 Chuyển Giao S0 (4 Liên Minh + Hoàng Tử Sa Mạc / Desert Prince & Nữ Thần Bão Tố / Storm Maiden)",
-                    en: "4+2 S0 Transition (4 League + Desert Prince & Storm Maiden)",
+                    vi: "5+1 Kẹp Ngộ Không / Wukong (5 Liên Minh / 5 Thiên Nhiên + Wukong S2)",
+                    en: "5+1 with Wukong (5 League / 5 Nature + Wukong S2)",
                   },
                   {
-                    vi: "Cặp đôi Tướng Đỏ Hoàng Tử Sa Mạc (Desert Prince) + Nữ Thần Bão Tố (Storm Maiden) (Ngày 21–40)",
-                    en: "Mythic duo Desert Prince + Storm Maiden (Days 21–40)",
+                    vi: "Tề Thiên Đại Thánh (Wukong — 1★ Trắng + Vũ khí Độc quyền) thay DPS phụ ở Season 2",
+                    en: "Wukong (1★ White + Exclusive Weapon) replacing secondary DPS in Season 2",
                   },
                   {
-                    vi: "Giữ +15% ATK/HP của 4 Liên Minh",
-                    en: "Retains +15% ATK/HP from 4 League",
+                    vi: "Giảm từ +35% ➔ +25% ATK/HP (-10%)",
+                    en: "Drops from +35% ➔ +25% ATK/HP (-10%)",
                   },
                   {
-                    vi: "Tận dụng ngay sức mạnh áp chế cấp sao của 2 tướng Đỏ Bộ Lạc ở Ngày 27–40 trong lúc chờ Phù Thủy (Witch) ra mắt ở Ngày 41 để hoàn tất 6/6 Bộ Lạc.",
-                    en: "Immediately leverages star-level suppression from 2 Horde Mythics on Days 27–40 while waiting for Witch on Day 41 to complete 6/6 Horde.",
+                    vi: "Bổ sung ngay sát thương bộc phát vật lý diện rộng và phân thân phá vỡ khiên chắn hàng trước đối phương trong các kèo đấu đỉnh cao.",
+                    en: "Adds massive AoE physical burst and clone pressure to shatter enemy frontline shields in high-stakes matchups.",
                   },
                 ],
               ],

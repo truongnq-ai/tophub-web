@@ -25,8 +25,8 @@ export const ARTICLE_7_4_TROOP_SKINS_AND_MEDALS: GuideArticle = {
       en: "**Maintain a `15,000–30,000` Glory Medals Safety Floor**: Reserve in the Medal Shop to unlock Rare (`15,000` Shield Soldier, Cavalry) and Epic (`30,000` Bearskin Warrior) skins.\n• **Staircase `Lv.10` / `Lv.20` Breakpoints**: Push all owned skins evenly to `Lv.10` (`80,400` / `40,200` / `20,100`) and `Lv.20` (`948,400–1,155,400` / `474,200–577,700`).",
     },
     strictTaboo: {
-      vi: "**CẤM đập lẻ 1 Skin Vàng thẳng lên `Lv.40–Lv.50`**: Tốn `10,960,400` ➔ `20,845,400` Medals trong khi các Skin khác vẫn nằm ở `Lv.1`.\n• **Cấm chọn sớm Desert Knight**: Nếu định xoay Đội 1 sang Bộ Lạc (Divine Spirit) hoặc Thiên Nhiên (Tree Spirit), bắt buộc chọn Heavy Cavalry đầu tiên!",
-      en: "**NEVER rush 1 Legendary Skin straight to `Lv.40–Lv.50`**: Costs `10,960,400` ➔ `20,845,400` Medals while leaving other owned skins at `Lv.1`.\n• **Never pick Desert Knight early**: If pivoting Queue 1 to Horde (Divine Spirit) or Nature (Tree Spirit), always pick Heavy Cavalry first!",
+      vi: "**CẤM đập lẻ 1 Skin Vàng thẳng lên `Lv.40–Lv.50`**: Tốn `10,960,400` ➔ `20,845,400` Medals trong khi các Skin khác vẫn nằm ở `Lv.1`.\n• **Cấm chọn sớm Desert Knight**: Nếu chơi Đội 1 Bộ Lạc (Divine Spirit) hoặc Thiên Nhiên (Tree Spirit), bắt buộc chọn Heavy Cavalry đầu tiên!",
+      en: "**NEVER rush 1 Legendary Skin straight to `Lv.40–Lv.50`**: Costs `10,960,400` ➔ `20,845,400` Medals while leaving other owned skins at `Lv.1`.\n• **Never pick Desert Knight early**: If maining Queue 1 Horde (Divine Spirit) or Nature (Tree Spirit), always pick Heavy Cavalry first!",
     },
   },
   keyTakeaways: [
@@ -147,12 +147,12 @@ export const ARTICLE_7_4_TROOP_SKINS_AND_MEDALS: GuideArticle = {
             {
               kind: "dont",
               label: {
-                vi: "Không chọn Desert Knight (Liên Minh) ở Rương Tự Chọn Vàng đầu tiên nếu định xoay hệ",
-                en: "Never Pick Desert Knight (League) from Your First Legendary Choice Chest If Pivoting",
+                vi: "Không chọn Desert Knight (Liên Minh) ở Rương Tự Chọn Vàng đầu tiên nếu không chơi Thuần Liên Minh",
+                en: "Never Pick Desert Knight (League) from Your First Legendary Choice Chest Unless Maining Pure League",
               },
               detail: {
-                vi: "Rương Tự Chọn Quân Trang Vàng đầu tiên bắt buộc phải chọn Heavy Cavalry (đa dụng S++ cho cả 3 hệ). Nếu chọn sớm Desert Knight rồi sang Giữa Game đổi sang Bộ Lạc (Divine Spirit) hoặc Thiên Nhiên (Tree Spirit), dòng +16.8% HP Lính Liên Minh khi đeo sẽ bị vô hiệu hóa hoàn toàn.",
-                en: "Your first Legendary Troop Skin Choice Chest must always go to Heavy Cavalry (S++ universal across all 3 factions). Picking Desert Knight early and later pivoting to Horde (Divine Spirit) or Nature (Tree Spirit) completely wastes its League-locked +16.8% Soldier HP active effect.",
+                vi: "Rương Tự Chọn Quân Trang Vàng đầu tiên bắt buộc phải chọn Heavy Cavalry (đa dụng S++ cho cả 3 hệ). Nếu chọn nhầm Desert Knight khi đang chơi Đội 1 Bộ Lạc (Divine Spirit) hoặc Thiên Nhiên (Tree Spirit), dòng +16.8% HP Lính Liên Minh khi đeo sẽ bị vô hiệu hóa hoàn toàn.",
+                en: "Your first Legendary Troop Skin Choice Chest must always go to Heavy Cavalry (S++ universal across all 3 factions). Picking Desert Knight while maining Horde (Divine Spirit) or Nature (Tree Spirit) completely wastes its League-locked +16.8% Soldier HP active effect.",
               },
             },
           ],
@@ -186,8 +186,8 @@ export const ARTICLE_7_4_TROOP_SKINS_AND_MEDALS: GuideArticle = {
                 en: "Equipped queue: +28% ATK, +56% HP; +11.2% siege damage when attacking castles; +70% PvP march speed.",
               },
               {
-                vi: "TOP 1 ĐA DỤNG TOÀN GAME (S++ Tier): Dùng hoàn hảo cho mọi Phe phái (Liên Minh, Bộ Lạc, Thiên Nhiên). Có Rương Tự Chọn Vàng đầu tiên bắt buộc chọn Heavy Cavalry vì đổi hệ Đội 1 cũng không bao giờ bị phế!",
-                en: "#1 UNIVERSAL SKIN IN THE GAME (S++ Tier): Works flawlessly for every faction (League, Horde, Nature). Always pick Heavy Cavalry from your first Legendary Choice Chest — it never becomes obsolete even if you switch factions!",
+                vi: "TOP 1 ĐA DỤNG TOÀN GAME (S++ Tier): Dùng hoàn hảo cho mọi Phe phái (Liên Minh, Bộ Lạc, Thiên Nhiên). Có Rương Tự Chọn Vàng đầu tiên bắt buộc chọn Heavy Cavalry vì dùng chung được cho cả 3 Đội hình!",
+                en: "#1 UNIVERSAL SKIN IN THE GAME (S++ Tier): Works flawlessly for every faction (League, Horde, Nature). Always pick Heavy Cavalry from your first Legendary Choice Chest — it serves any of your 3 queues without faction lock!",
               },
             ],
             [
@@ -224,8 +224,8 @@ export const ARTICLE_7_4_TROOP_SKINS_AND_MEDALS: GuideArticle = {
                 en: "Equipped League soldiers: +28% ATK, +56% HP, +4.2% Morale; deploying 6 League heroes grants an additional +16.8% League Soldier HP.",
               },
               {
-                vi: "CHUYÊN BIỆT LIÊN MINH (S Tier cho Pure League): Rất mạnh nếu kiên định chơi Thuần Liên Minh đến cuối game. Cấm chọn nếu định chuyển sang Bộ Lạc ở Ngày 21–41!",
-                en: "LEAGUE SPECIALIST (S Tier for Pure League): Extremely strong for dedicated Pure League mains. Never pick if you plan to pivot to Horde at Day 21–41!",
+                vi: "CHUYÊN BIỆT LIÊN MINH (S Tier cho Pure League): Rất mạnh nếu kiên định chơi Thuần Liên Minh đến cuối game. Tuyệt đối không chọn cho Đội 1 nếu chơi Thuần Bộ Lạc hoặc Thuần Thiên Nhiên!",
+                en: "LEAGUE SPECIALIST (S Tier for Pure League): Extremely strong for dedicated Pure League mains. Never pick for Queue 1 if you main Pure Horde or Pure Nature!",
               },
             ],
             [

@@ -31,15 +31,15 @@ export const ARTICLE_4_4_NATURE_PROGRESSION_PLAYBOOK: GuideArticle = {
   keyTakeaways: [
     {
       vi: "**Khắc chế cứng 70% dân số Bộ Tộc (`+20%` Sát thương):** Khi đa số người chơi trên máy chủ đổ xô chơi Bộ Tộc, đội hình Thuần Thiên Nhiên xoay quanh `Tidecaller` + `Monk` + `Ne Zha` hưởng trọn `+20%` sát thương khắc hệ.",
-      en: "**Hard-Counter 70% of Horde Mains (`+20%` DMG):** While the majority of the server crowds into Horde, a Pure Nature lineup built around `Tidecaller` + `Monk` + `Ne Zha` enjoys an automatic `+20%` faction counter advantage.",
+      en: "**Hard-Counter 70% of Horde Mains (`+20%` DMG):** While most of the server crowds into Horde, a Pure Nature lineup built around `Tidecaller` + `Monk` + `Ne Zha` enjoys an automatic `+20%` counter advantage.",
     },
     {
-      vi: "**Kinh tế `18` Hồn Đá Đỏ (Soul Stones) Cân Bằng:** Thiên Nhiên có `4` Mythic gốc (`Tidecaller`, `Monk`, `Ne Zha`, `Petalis`) nên chỉ cần thức tỉnh `2` SSR (`Pixie` và `Forest Maiden`), tốn tổng cộng `18` Đá Hồn (`240,000` Điểm Vinh Dự + `36,000` Xu Vinh Quang).\n• **Mốc Đột Phá `Tidecaller`:** Đẩy `Tidecaller` chạm `1★ Bạc` (`560` mảnh) ➔ `5★ Bạc` (`1,000` mảnh) ngay ở cuối S0 / đầu S1 là điều kiện tiên quyết để vận hành Biển Triệu Hồi.",
-      en: "**Balanced `18` Soul Stone Economy:** Nature fields `4` Native Mythics (`Tidecaller`, `Monk`, `Ne Zha`, `Petalis`) and only awakens `2` SSRs (`Pixie` and `Forest Maiden`), requiring `18` Soul Stones (`240,000` Guild Honor + `36,000` Glory Coins).\n• **`Tidecaller` Power Spike:** Pushing `Tidecaller` to `1★ Silver` (`560` shards) ➔ `5★ Silver` (`1,000` shards) in late S0 / early S1 is the mandatory catalyst for the Summon Meta.",
+      vi: "**Kinh tế `18` Hồn Đá Đỏ Cân Bằng:** Thiên Nhiên có `4` Mythic gốc (`Tidecaller`, `Monk`, `Ne Zha`, `Petalis`) nên chỉ thức tỉnh `2` SSR (`Pixie`, `Forest Maiden`), tốn `18` Đá Hồn (`240,000` Vinh Dự + `36,000` Xu).\n• **Mốc Đột Phá `Tidecaller`:** Đẩy `Tidecaller` chạm `1★ Bạc` (`560` mảnh) ➔ `5★ Bạc` (`1,000` mảnh) ngay ở cuối S0 / đầu S1 là điều kiện tiên quyết để vận hành Biển Triệu Hồi.",
+      en: "**Balanced `18` Soul Stone Economy:** Nature fields `4` Mythics (`Tidecaller`, `Monk`, `Ne Zha`, `Petalis`) and awakens `2` SSRs (`Pixie`, `Forest Maiden`), costing `18` Stones (`240,000` Honor + `36,000` Coins).\n• **`Tidecaller` Power Spike:** Pushing `Tidecaller` to `1★ Silver` (`560` shards) ➔ `5★ Silver` (`1,000` shards) in late S0 / early S1 is the mandatory catalyst for the Summon Meta.",
     },
     {
-      vi: "**Đồng bộ Hạ tầng, Trang bị Cột 3 & Nhánh Trái Lord Gear:** Đúc 100% Đồ Vàng Cột 3 Dấu Thiên Nhiên (`Bộ Kỵ Sĩ` cho `Monk` & `Ne Zha`, `Bộ Quyết Đấu` cho `Tidecaller` & `Pixie`, `Bộ Hiền Giả` cho `Forest Maiden` & `Petalis`).\n• **Đồ Chúa Tể Nhánh Trái:** Ưu tiên nâng 3 món bên Trái (Vũ khí, Mũ, Nhẫn cộng chỉ số Lính Thiên Nhiên) trước khi nâng đều mở Ô #7 và `Sacred Codex` ở S3.",
-      en: "**Synchronized Infrastructure, Column 3 Gear & Left-Side Lord Gear:** Craft 100% Column 3 Nature-marked Golden Gear (`Knight Set` for `Monk` & `Ne Zha`, `Duelist's Set` for `Tidecaller` & `Pixie`, `Sage Set` for `Forest Maiden` & `Petalis`).\n• **Left-Side Lord Gear Priority:** Upgrade the 3 Left-Side Lord Gear pieces (Nature Weapon, Helmet, Ring) first before balancing all 6 pieces for Slot #7 and `Sacred Codex` in S3.",
+      vi: "**Đồng bộ Trang bị Cột 3 & Lord Gear:** Đúc 100% Đồ Vàng Cột 3 Dấu Thiên Nhiên (`Bộ Kỵ Sĩ` cho `Monk`/`Ne Zha`, `Bộ Quyết Đấu` cho `Tidecaller`/`Pixie`, `Bộ Hiền Giả` cho `Forest Maiden`/`Petalis`).\n• **Đồ Chúa Tể Nhánh Trái:** Ưu tiên nâng 3 món bên Trái (Vũ khí, Mũ, Nhẫn cộng chỉ số Lính Thiên Nhiên) trước khi nâng đều mở Ô #7 và `Sacred Codex` ở S3.",
+      en: "**Synchronized Column 3 Gear & Left-Side Lord Gear:** Craft 100% Column 3 Nature Golden Gear (`Knight Set` on `Monk`/`Ne Zha`, `Duelist's Set` on `Tidecaller`/`Pixie`, `Sage Set` on `Forest Maiden`/`Petalis`).\n• **Left-Side Lord Gear Priority:** Upgrade the 3 Left-Side Lord Gear pieces (Nature Weapon, Helmet, Ring) first before balancing all 6 pieces for Slot #7 and `Sacred Codex` in S3.",
     },
   ],
   keywords: [
@@ -78,8 +78,8 @@ export const ARTICLE_4_4_NATURE_PROGRESSION_PLAYBOOK: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "**Thiên Nhiên (`Nature`) là ông vua của lối đánh Biển Triệu Hồi (`Summon Swarm`) + Hồi phục bất tận, đồng thời khắc chế trực tiếp `+20%` sát thương trước đại đa số người chơi Bộ Tộc (`Horde`) trên máy chủ.**\n• **Kỷ luật phân loại tướng:** Tuyệt đối không đút mảnh vạn năng vào dàn tướng giữ chỗ đầu game (`Treeguard`, `Druid`, `Windwalker`, `Watcher`) để dồn toàn lực cho `Tidecaller`, `Monk`, `Ne Zha`, `Petalis`, `Pixie` và `Forest Maiden`.",
-            en: "**`Nature` reigns supreme as the `Summon Swarm` and infinite-sustain powerhouse while dealing `+20%` faction counter damage against the server's `Horde` majority.**\n• **Hero Classification Discipline:** Spend zero Universal Shards on early-game placeholders (`Treeguard`, `Druid`, `Windwalker`, `Watcher`) so you can go all-in on `Tidecaller`, `Monk`, `Ne Zha`, `Petalis`, `Pixie`, and `Forest Maiden`.",
+            vi: "**Thiên Nhiên (`Nature`) là ông vua của lối đánh Biển Triệu Hồi (`Summon Swarm`) + Hồi phục bất tận, đồng thời khắc chế trực tiếp `+20%` sát thương trước đại đa số người chơi Bộ Tộc (`Horde`) trên máy chủ.**\n• **Kỷ luật phân loại tướng:** Không đút mảnh vạn năng vào tướng giữ chỗ (`Treeguard`, `Druid`, `Windwalker`, `Watcher`) để dồn toàn lực cho `Tidecaller`, `Monk`, `Ne Zha`, `Petalis`, `Pixie` và `Forest Maiden`.",
+            en: "**`Nature` reigns supreme as the `Summon Swarm` and infinite-sustain powerhouse while dealing `+20%` faction counter damage against the server's `Horde` majority.**\n• **Hero Classification:** Spend zero Universal Shards on placeholders (`Treeguard`, `Druid`, `Windwalker`, `Watcher`) to go all-in on `Tidecaller`, `Monk`, `Ne Zha`, `Petalis`, `Pixie`, and `Forest Maiden`.",
           },
         },
         {
@@ -230,8 +230,8 @@ export const ARTICLE_4_4_NATURE_PROGRESSION_PLAYBOOK: GuideArticle = {
           ordered: true,
           items: [
             {
-              vi: "**Giai đoạn 1 (`Ngày 1 – Ngày 41`):** Dùng khung SSR Thiên Nhiên (`Treeguard`, `Forest Maiden`, `Pixie`, `Sage`, `Druid`, `Windwalker`). Tiêu `0` Mảnh Vạn Năng cho `Treeguard`/`Druid`/`Windwalker` và tích `50,000+` Kim Cương.",
-              en: "**Stage 1 (`Days 1 – 41`):** Run starter Nature SSRs (`Treeguard`, `Forest Maiden`, `Pixie`, `Sage`, `Druid`, `Windwalker`). Spend `0` Universal Shards on `Treeguard`/`Druid`/`Windwalker` and bank `50,000+` Diamonds.",
+              vi: "**Giai đoạn 1 (`Ngày 1 – 41`):** Dùng khung SSR Thiên Nhiên (`Treeguard`, `Forest Maiden`, `Pixie`, `Sage`, `Druid`, `Windwalker`). Tiêu `0` Mảnh Vạn Năng cho `Treeguard`/`Druid` và tích `50,000+` Kim Cương.",
+              en: "**Stage 1 (`Days 1 – 41`):** Run starter Nature SSRs (`Treeguard`, `Forest Maiden`, `Pixie`, `Sage`, `Druid`, `Windwalker`). Spend `0` Universal Shards on `Treeguard`/`Druid` and bank `50,000+` Diamonds.",
             },
             {
               vi: "**Giai đoạn 2 (`Ngày 42 – Ngày 65`):** Bung kho Kim Cương & Mảnh Vạn Năng mở khóa `Tidecaller` và `Monk`, đẩy `Tidecaller` chạm mốc `1★ Bạc` (`560` mảnh Mythic) sớm nhất có thể.",
@@ -242,8 +242,8 @@ export const ARTICLE_4_4_NATURE_PROGRESSION_PLAYBOOK: GuideArticle = {
               en: "**Stage 3 (`Season 1 — World Tree`):** Unlock `Ne Zha` to permanently replace `Treeguard`, while spending `18` Soul Stones (`240,000` Honor + `36,000` Coins) to awaken `Pixie` and `Forest Maiden`.",
             },
             {
-              vi: "**Giai đoạn 4 (`Season 2 ➔ Season 4`):** Nhịn banner S2 để nâng max `Tidecaller` (`1,000` mảnh) và Viện Huy Hoàng Lv.40 (`5,422` Dragon Essence), sau đó đón `Petalis` ở Season 3 hoàn tất đội hình 4 Mythic + 2 Awakened SSR.",
-              en: "**Stage 4 (`Season 2 ➔ Season 4`):** Skip S2 banners to max `Tidecaller` (`1,000` shards) and Lv.40 Brilliance Institute (`5,422` Dragon Essence), then pull `Petalis` in Season 3 to complete your 4 Mythic + 2 Awakened SSR lineup.",
+              vi: "**Giai đoạn 4 (`Season 2 ➔ S4`):** Nhịn banner S2 để nâng max `Tidecaller` (`1,000` mảnh) và Viện Huy Hoàng Lv.40 (`5,422` Dragon Essence), rồi đón `Petalis` ở S3 hoàn tất 4 Mythic + 2 Awakened SSR.",
+              en: "**Stage 4 (`Season 2 ➔ S4`):** Skip S2 banners to max `Tidecaller` (`1,000` shards) and Lv.40 Brilliance Institute (`5,422` Dragon Essence), then pull `Petalis` in S3 for 4 Mythic + 2 Awakened SSRs.",
             },
           ],
         },
@@ -264,8 +264,8 @@ export const ARTICLE_4_4_NATURE_PROGRESSION_PLAYBOOK: GuideArticle = {
             en: "3 Fatal Traps That Derail Pure Nature Accounts Before Day 42",
           },
           content: {
-            vi: "1. **Đút Mảnh Vạn Năng hoặc Đá Hồn cho `Treeguard` và `Druid`:** Vì 41 ngày đầu chưa có Mythic Thiên Nhiên, nhiều người nôn nóng đút mảnh vạn năng cho `Treeguard` khiến lúc `Tidecaller`, `Monk` và `Ne Zha` ra mắt thì cạn sạch kho.\n2. **Bỏ qua mốc `560` mảnh (`1★ Bạc`) của `Tidecaller`:** Dàn trải mảnh đều cho nhiều tướng thay vì dồn `Tidecaller` lên `1★ Bạc` (`+30%` sức mạnh kỹ năng Thủy Triều).\n3. **Đúc nhầm Cột Dấu Hệ Trang bị Vàng:** Người chơi Thiên Nhiên bắt buộc phải chọn **Cột 3 (Dấu Hệ Thiên Nhiên `+30%`)** tại Lò Rèn ngay từ món Đồ Vàng đầu tiên.",
-            en: "1. **Feeding Universal Shards or Soul Stones to `Treeguard` and `Druid`:** Because Nature Mythics arrive on Days 42–65, impatient players waste Universal Shards on `Treeguard`, leaving their vault empty when `Tidecaller`, `Monk`, and `Ne Zha` drop.\n2. **Missing `Tidecaller`'s `560`-Shard (`1★ Silver`) Breakpoint:** Spreading shards thin across multiple heroes instead of rushing `Tidecaller` to `1★ Silver` (`+30%` skill power).\n3. **Crafting the Wrong Golden Gear Faction Column:** Pure Nature commanders must lock in **Column 3 (Nature Faction Mark `+30%`)** at the Blacksmith from their very first Golden Gear piece.",
+            vi: "1. **Đút Mảnh Vạn Năng cho `Treeguard` và `Druid`:** Vì 41 ngày đầu chưa có Mythic Thiên Nhiên, đút mảnh vạn năng cho `Treeguard` khiến lúc `Tidecaller`, `Monk` và `Ne Zha` ra mắt thì cạn sạch kho.\n2. **Bỏ qua mốc `560` mảnh (`1★ Bạc`) của `Tidecaller`:** Dàn trải mảnh đều cho nhiều tướng thay vì dồn `Tidecaller` lên `1★ Bạc` (`+30%` sức mạnh kỹ năng Thủy Triều).\n3. **Đúc nhầm Cột Dấu Hệ Trang bị Vàng:** Người chơi Thiên Nhiên bắt buộc phải chọn **Cột 3 (Dấu Hệ Thiên Nhiên `+30%`)** tại Lò Rèn ngay từ món Đồ Vàng đầu tiên.",
+            en: "1. **Feeding Universal Shards to `Treeguard` and `Druid`:** Since Nature Mythics arrive on Days 42–65, wasting Universal Shards on `Treeguard` leaves your vault empty when `Tidecaller`, `Monk`, and `Ne Zha` drop.\n2. **Missing `Tidecaller`'s `560`-Shard (`1★ Silver`) Breakpoint:** Spreading shards thin across multiple heroes instead of rushing `Tidecaller` to `1★ Silver` (`+30%` skill power).\n3. **Crafting the Wrong Golden Gear Faction Column:** Pure Nature commanders must lock in **Column 3 (Nature Faction Mark `+30%`)** at the Blacksmith from their very first Golden Gear piece.",
           },
         },
       ],
@@ -544,12 +544,12 @@ export const ARTICLE_4_4_NATURE_PROGRESSION_PLAYBOOK: GuideArticle = {
           ],
           diagnostics: [
             {
-              vi: "**Nguyên nhân sụp đổ của Người chơi B (Đầu tư vào tướng bị thay ở S1):** Ngay khi `Monk` và `Ne Zha` ra mắt ở cuối S0 và đầu S1, `Treeguard` và `Windwalker` lập tức bị đẩy xuống Đội 2, khiến `400` Mảnh Vạn Năng biến thành lực chiến ảo vô dụng.",
-              en: "**Root Cause of Player B's Collapse (Investing in Heroes Replaced in S1):** As soon as `Monk` and `Ne Zha` arrived in late S0 and early S1, `Treeguard` and `Windwalker` were benched to Queue 2, turning `400` Universal Shards into dead combat power.",
+              vi: "**Nguyên nhân sụp đổ của Người chơi B (Bẫy tướng S1):** Khi `Monk` và `Ne Zha` ra mắt ở cuối S0 và đầu S1, `Treeguard` và `Windwalker` bị đẩy xuống Đội 2, khiến `400` Mảnh Vạn Năng biến thành lực chiến ảo.",
+              en: "**Root Cause of Player B's Collapse (S1 Replacement Trap):** When `Monk` and `Ne Zha` arrived in late S0 and S1, `Treeguard` and `Windwalker` were benched to Queue 2, turning `400` Universal Shards into dead power.",
             },
             {
-              vi: "**Đòn bẩy chiến thắng của Người chơi A (Điểm gãy 1★ Bạc của Tidecaller):** Đạt `1★ Bạc` (`560` mảnh) mở khóa đột phá `+30%` kỹ năng cho `Tidecaller`, kết hợp cùng `Pixie` và `Forest Maiden` thức tỉnh (`18` Đá Hồn) tạo ra Biển Triệu Hồi nghiền nát mọi đội hình Bộ Tộc.",
-              en: "**Player A's Winning Leverage (Tidecaller's 1★ Silver Breakpoint):** Reaching `1★ Silver` (`560` shards) unlocked `Tidecaller`'s `+30%` skill power spike, which paired with awakened `Pixie` and `Forest Maiden` (`18` Soul Stones) to overwhelm every Horde lineup.",
+              vi: "**Đòn bẩy chiến thắng của Người chơi A (Mốc 1★ Bạc Tidecaller):** Đạt `1★ Bạc` (`560` mảnh) mở khóa `+30%` kỹ năng cho `Tidecaller`, kết hợp `Pixie` và `Forest Maiden` thức tỉnh (`18` Đá Hồn) nghiền nát Bộ Tộc.",
+              en: "**Player A's Winning Leverage (Tidecaller 1★ Silver):** Hitting `1★ Silver` (`560` shards) unlocked `Tidecaller`'s `+30%` skill spike, pairing with awakened `Pixie` and `Forest Maiden` (`18` Stones) to crush Horde.",
             },
           ],
           recoverySteps: [
@@ -560,7 +560,7 @@ export const ARTICLE_4_4_NATURE_PROGRESSION_PLAYBOOK: GuideArticle = {
                 en: "Universal Shard Lockdown on Transitional SSRs",
               },
               detail: {
-                vi: "Dừng ngay việc đút mảnh cho `Treeguard`, `Druid`, `Windwalker` và dồn 100% mảnh kiếm được vào `Tidecaller` cho tới khi chạm mốc `560` mảnh (`1★ Bạc`) ➔ `1,000` mảnh (`5★ Bạc`).",
+                vi: "Dừng đút mảnh cho `Treeguard`, `Druid`, `Windwalker` và dồn 100% mảnh kiếm được vào `Tidecaller` cho tới khi chạm mốc `560` mảnh (`1★ Bạc`) ➔ `1,000` mảnh (`5★ Bạc`).",
                 en: "Immediately stop feeding shards to `Treeguard`, `Druid`, and `Windwalker`, funneling 100% of incoming shards into `Tidecaller` until hitting `560` shards (`1★ Silver`) ➔ `1,000` shards (`5★ Silver`).",
               },
               impactBadge: {

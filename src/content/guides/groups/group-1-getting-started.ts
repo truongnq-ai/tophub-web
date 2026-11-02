@@ -15,8 +15,8 @@ export const GROUP_1_GETTING_STARTED_CATEGORY: GuideCategory = {
     en: "Getting Started & Survival Rules",
   },
   description: {
-    vi: "Bản đồ 7 trụ cột sức mạnh, lộ trình 90 ngày chuyển giao Bộ Lạc, Quy tắc 1 Đội hình khắc nghiệt, quản trị Kim Cương S-Tier và 10 cạm bẫy phế acc kèm phác đồ cấp cứu.",
-    en: "The 7-pillar power architecture, 90-day Horde Pivot roadmap, Strict 1-Queue Rule, S-Tier Diamond management, and the Top 10 account-ruining traps with recovery protocols.",
+    vi: "Bản đồ 7 trụ cột sức mạnh, lộ trình 90 ngày phát triển 3 phe thuần từ Ngày 1, Quy tắc 1 Đội hình khắc nghiệt, quản trị Kim Cương S-Tier và 10 cạm bẫy phế acc kèm phác đồ cấp cứu.",
+    en: "The 7-pillar power architecture, 90-day 3-Faction progression roadmap, Strict 1-Queue Rule, S-Tier Diamond management, and the Top 10 account-ruining traps with recovery protocols.",
   },
   articles: [
     ARTICLE_1_1_OVERVIEW,

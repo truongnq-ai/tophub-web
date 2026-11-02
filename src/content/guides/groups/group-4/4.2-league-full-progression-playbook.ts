@@ -17,7 +17,7 @@ export const ARTICLE_4_2_LEAGUE_PROGRESSION_PLAYBOOK: GuideArticle = {
   tldr: {
     coreRule: {
       vi: "**Chốt cứng Đội 1 Thuần Liên Minh từ `Ngày 1`, tuyệt đối KHÔNG đút `Mảnh Vàng Vạn Năng` cho nhóm Tướng Quá Độ chờ Replace (`Secret Keeper`, `Astrologer`, `Bard`).**\n• **Tập trung Hạt Nhân:** Mọi mảnh vạn năng và sách kỹ năng phải khóa chờ bộ tứ Tướng Đỏ (`Paragon` Ngày 35, `Rose Princess` & `Bishop` Ngày 46, `Artificer` S3) cùng bộ đôi SSR Thức tỉnh (`Adjudicator`, `Pyromancer`).",
-      en: "**Lock Queue 1 into Pure League from `Day 1`, and spend `0 Universal Shards` on transitional replaceable heroes (`Secret Keeper`, `Astrologer`, `Bard`).**\n• **Core Investment Discipline:** Bank all Universal Shards and Skill Books for your four Native Mythics (`Paragon` Day 35, `Rose Princess` & `Bishop` Day 46, `Artificer` S3) plus awakened SSR pillars (`Adjudicator`, `Pyromancer`).",
+      en: "**Lock Queue 1 into Pure League from `Day 1`, and spend `0 Universal Shards` on transitional replaceable heroes (`Secret Keeper`, `Astrologer`, `Bard`).**\n• **Core Investment:** Bank all Universal Shards and Skill Books for your 4 Native Mythics (`Paragon` Day 35, `Rose Princess` & `Bishop` Day 46, `Artificer` S3) and awakened SSRs (`Adjudicator`, `Pyromancer`).",
     },
     immediateAction: {
       vi: "**Khóa cứng Doanh Trại Liên Minh, Tượng Đài Liên Minh và Cột 1 Dấu Hệ Liên Minh (`+30%` chỉ số) ngay từ Tuần 1.**\n• **Kỷ luật Quỹ Kim Cương:** Nhịn quay các banner lệch hệ Ngày 21–27, tích lũy `45,000 – 60,000 Kim Cương` để đón `Paragon` (`Ngày 35`) và cặp đôi `Rose Princess` + `Bishop` (`Ngày 46`).",
@@ -39,7 +39,7 @@ export const ARTICLE_4_2_LEAGUE_PROGRESSION_PLAYBOOK: GuideArticle = {
     },
     {
       vi: "**Đồng bộ Hạ tầng, Trang bị & Khắc chế:** Đúc 100% Đồ Vàng Cột 1 Dấu Liên Minh (`Bộ Kỵ Sĩ` cho `Adjudicator` & `Rose Princess`, `Bộ Quyết Đấu` cho `Paragon` & `Pyromancer`, `Bộ Hiền Giả` cho `Bishop` & `Artificer`).\n• **Chiếm ưu thế PvE & Đấu Trường:** Liên Minh đẩy ải PvE nhanh số 1 đầu game và khắc chế trực tiếp `+20%` sát thương trước mọi đội hình Thiên Nhiên (`Tidecaller`).",
-      en: "**Synchronized Infrastructure, Gear & Counters:** Craft 100% Column 1 League-marked Golden Gear (`Knight Set` for `Adjudicator` & `Rose Princess`, `Duelist's Set` for `Paragon` & `Pyromancer`, `Sage Set` for `Bishop` & `Artificer`).\n• **PvE & Arena Edge:** Pure League clears early PvE stages fastest and deals `+20%` counter damage against all Nature (`Tidecaller`) lineups.",
+      en: "**Synchronized Gear & Counters:** Craft 100% Column 1 League Golden Gear (`Knight Set` on `Adjudicator`/`Rose Princess`, `Duelist's Set` on `Paragon`/`Pyromancer`, `Sage Set` on `Bishop`/`Artificer`).\n• **PvE & Arena Edge:** Pure League clears early PvE stages fastest and deals `+20%` counter damage against all Nature (`Tidecaller`) lineups.",
     },
   ],
   keywords: [
@@ -236,8 +236,8 @@ export const ARTICLE_4_2_LEAGUE_PROGRESSION_PLAYBOOK: GuideArticle = {
           ordered: true,
           items: [
             {
-              vi: "**Giai đoạn 1 (`Ngày 1 – Ngày 34`):** Chạy 6 SSR Liên Minh (`Adjudicator`, `Secret Keeper`, `Pyromancer`, `Nun`, `Bard`, `Astrologer`). Tiêu `0` Mảnh Vạn Năng, gom mảnh `Pyromancer` trong Tiệm Đấu Trường và tích `45,000+` Kim Cương.",
-              en: "**Stage 1 (`Days 1 – 34`):** Run 6 League SSRs (`Adjudicator`, `Secret Keeper`, `Pyromancer`, `Nun`, `Bard`, `Astrologer`). Spend `0` Universal Shards, buy `Pyromancer` shards in the Arena Shop, and bank `45,000+` Diamonds.",
+              vi: "**Giai đoạn 1 (`Ngày 1 – 34`):** Chạy 6 SSR Liên Minh (`Adjudicator`, `Secret Keeper`, `Pyromancer`, `Nun`, `Bard`, `Astrologer`). Tiêu `0` Mảnh Vạn Năng, mua mảnh `Pyromancer` Tiệm Đấu Trường và tích `45,000+` KC.",
+              en: "**Stage 1 (`Days 1 – 34`):** Run 6 League SSRs (`Adjudicator`, `Secret Keeper`, `Pyromancer`, `Nun`, `Bard`, `Astrologer`). Spend `0` Universal Shards, buy Arena Shop `Pyromancer` shards, and bank `45,000+` Diamonds.",
             },
             {
               vi: "**Giai đoạn 2 (`Ngày 35 – Ngày 45`):** Mở khóa `Paragon` ở `Ngày 35`, thay thế `Astrologer` và nâng `Paragon` lên tối thiểu `1★ Đỏ` (`160` mảnh Mythic).",
@@ -507,8 +507,8 @@ export const ARTICLE_4_2_LEAGUE_PROGRESSION_PLAYBOOK: GuideArticle = {
             en: "Comparing Two VIP 5 Pure League Accounts at Day 50: Saving Shards for Paragon/Rose Princess vs Maxing Secret Keeper",
           },
           profileSummary: {
-            vi: "Cả hai người chơi cùng chọn Liên Minh từ Ngày 1 với mức nạp tương đương, nhưng Người chơi A giữ 100% Mảnh Vạn Năng cho Paragon và Rose Princess, trong khi Người chơi B đút 450 Mảnh Vạn Năng vào Secret Keeper và Astrologer trong 3 tuần đầu.",
-            en: "Both VIP 5 players locked in Pure League on Day 1 with identical spending, but Player A saved 100% of Universal Shards for Paragon and Rose Princess, whereas Player B dumped 450 Universal Shards into Secret Keeper and Astrologer during Weeks 1–3.",
+            vi: "Hai tài khoản VIP 5 chọn Liên Minh từ Ngày 1: Người chơi A khóa 100% Mảnh Vạn Năng chờ Paragon và Rose Princess, còn Người chơi B đút 450 Mảnh Vạn Năng vào Secret Keeper và Astrologer ở Tuần 1–3.",
+            en: "Two VIP 5 Pure League players started on Day 1: Player A saved 100% of Universal Shards for Paragon and Rose Princess, while Player B spent 450 Universal Shards on Secret Keeper and Astrologer in Weeks 1–3.",
           },
           metrics: [
             {
@@ -550,12 +550,12 @@ export const ARTICLE_4_2_LEAGUE_PROGRESSION_PLAYBOOK: GuideArticle = {
           ],
           diagnostics: [
             {
-              vi: "**Nguyên nhân thất bại của Người chơi B (Bẫy tướng quá độ 34 ngày đầu):** Đút `450` Mảnh Vạn Năng vào `Secret Keeper` và `Astrologer` giúp thắng nhẹ ở Tuần 2, nhưng đến `Ngày 46` khi `Rose Princess` và `Paragon` ra mắt, `450` mảnh đó bị đẩy xuống Đội 2 làm Đội 1 thiếu hụt `30%` sát thương kỹ năng.",
-              en: "**Root Cause of Player B's Deficit (34-Day Transitional Hero Trap):** Dumping `450` Universal Shards into `Secret Keeper` and `Astrologer` gave a minor Week 2 boost, but by `Day 46` when `Rose Princess` and `Paragon` arrived, those `450` shards were relegated to Queue 2, costing Queue 1 `+30%` skill power.",
+              vi: "**Nguyên nhân thất bại của Người chơi B (Bẫy tướng quá độ):** Đút `450` Mảnh Vạn Năng vào `Secret Keeper` và `Astrologer` ở Tuần 2 khiến đến `Ngày 46`, lượng mảnh đó bị đẩy xuống Đội 2 làm Đội 1 hụt `30%` sát thương.",
+              en: "**Root Cause of Player B's Deficit (Transitional Trap):** Spending `450` Universal Shards on `Secret Keeper` and `Astrologer` relegated those shards to Queue 2 on `Day 46`, costing Queue 1 `+30%` skill power.",
             },
             {
-              vi: "**Chìa khóa chiến thắng của Người chơi A (Chạm mốc 560 mảnh ngay Ngày 46):** Nhờ chỉ dùng mảnh Quán Rượu cho `Secret Keeper`/`Bard` và khóa kho Mảnh Vạn Năng, Người chơi A đẩy thẳng `Paragon` lên `1★ Bạc` (`560` mảnh) và `Rose Princess` lên `1★ Đỏ` (`160` mảnh) ngay tuần ra mắt.",
-              en: "**Key to Player A's Victory (Hitting 560 Shards on Day 46):** By using only free Tavern shards on `Secret Keeper`/`Bard` and locking Universal Shards, Player A pushed `Paragon` straight to `1★ Silver` (`560` shards) and `Rose Princess` to `1★ Red` (`160` shards) on release week.",
+              vi: "**Chìa khóa chiến thắng của Người chơi A (Mốc 560 mảnh Ngày 46):** Chỉ dùng mảnh Quán Rượu cho `Secret Keeper`/`Bard`, giúp đẩy thẳng `Paragon` lên `1★ Bạc` (`560` mảnh) và `Rose Princess` lên `1★ Đỏ` (`160` mảnh).",
+              en: "**Key to Player A's Victory (560 Shards on Day 46):** Using only Tavern shards on `Secret Keeper`/`Bard` let Player A push `Paragon` to `1★ Silver` (`560` shards) and `Rose Princess` to `1★ Red` (`160` shards).",
             },
           ],
           recoverySteps: [
@@ -592,7 +592,7 @@ export const ARTICLE_4_2_LEAGUE_PROGRESSION_PLAYBOOK: GuideArticle = {
           ],
           conclusion: {
             vi: "Chơi Thuần Liên Minh từ Ngày 1 đòi hỏi kỷ luật thép trong 34 ngày đầu: Dùng tướng quá độ miễn phí để cày ải, và chỉ bung Mảnh Vạn Năng khi bộ tứ Mythic (Paragon, Rose Princess, Bishop, Artificer) xuất hiện!",
-            en: "Playing Pure League from Day 1 demands iron discipline across the first 34 days: clear PvE with free transitional SSRs, and only unload Universal Shards once your four Native Mythics (Paragon, Rose Princess, Bishop, Artificer) arrive!",
+            en: "Playing Pure League from Day 1 demands iron discipline for 34 days: clear PvE with free transitional SSRs, and unload Universal Shards only on your 4 Native Mythics (Paragon, Rose Princess, Bishop, Artificer)!",
           },
         },
       ],

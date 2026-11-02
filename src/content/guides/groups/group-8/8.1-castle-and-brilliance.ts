@@ -260,12 +260,12 @@ export const ARTICLE_8_1_CASTLE_AND_BRILLIANCE: GuideArticle = {
                   en: "**Pure League Path**: Focus `100%` on `League Barracks` and `League Statue` from `Lv.1 ➔ Lv.40`; keep Horde and Nature Barracks `5–10 levels` behind (only tapping `Lv.20 / Lv.25` for Monday points).",
                 },
                 {
-                  vi: "**Lộ trình Liên Minh ➔ Bộ Lạc (Horde Pivot)**: Tuần 1–3 nâng `League Barracks Lv.25` và kéo `Horde Barracks Lv.25`; từ Ngày 21+ (`Desert Prince`, `Witch`), đảo ưu tiên Số 1 sang `Horde Barracks Lv.30 ➔ Lv.35`.",
-                  en: "**League Start to Horde Pivot Path**: Weeks 1–3 push `League Barracks Lv.25` while pulling `Horde Barracks` to `Lv.25`; from Day 21+ (`Desert Prince`, `Witch`), make `Horde Barracks Lv.30 ➔ Lv.35` Priority #1.",
+                  vi: "**Lộ trình Thuần Bộ Lạc (Pure Horde Path)**: Dồn ưu tiên Số 1 vào `Horde Barracks` và `Horde Statue` từ `Lv.1 ➔ Lv.25` (Tuần 1–3) và đẩy thẳng lên `Lv.30 ➔ Lv.35` từ Ngày 21+ (`Desert Prince`, `Witch`).",
+                  en: "**Pure Horde Path**: Make `Horde Barracks` and `Horde Statue` Priority #1 from `Lv.1 ➔ Lv.25` (Weeks 1–3) and push straight to `Lv.30 ➔ Lv.35` from Day 21+ (`Desert Prince`, `Witch`).",
                 },
                 {
-                  vi: "**Lộ trình Chuyển giao Thiên Nhiên (Nature Path)**: Kéo `Nature Barracks` và `Nature Statue` ngang cấp Lâu Đài trước kỳ ra mắt `Tidecaller + Monk` (Ngày 42–65 / đầu Season 1) để tối đa hóa máu đội hình triệu hồi.",
-                  en: "**Nature Pivot Path**: Pull `Nature Barracks` and `Nature Statue` to match your Castle level ahead of the `Tidecaller + Monk` window (Days 42–65 / early Season 1) to maximize HP for summon lineups.",
+                  vi: "**Lộ trình Thuần Thiên Nhiên (Pure Nature Path)**: Kéo `Nature Barracks` và `Nature Statue` ngang cấp Lâu Đài từ Ngày 1 đón `Tidecaller + Monk` (Ngày 42–65 / đầu Season 1) để tối đa hóa máu đội hình triệu hồi.",
+                  en: "**Pure Nature Path**: Pull `Nature Barracks` and `Nature Statue` to match your Castle level from Day 1 ahead of the `Tidecaller + Monk` window (Days 42–65 / early Season 1) to maximize HP for summon lineups.",
                 },
               ],
             },
@@ -1150,26 +1150,26 @@ export const ARTICLE_8_1_CASTLE_AND_BRILLIANCE: GuideArticle = {
       ],
     },
     {
-      id: "sec-5-day18-lv24-horde-pivot-castle-case-study",
+      id: "sec-5-day18-lv24-horde-castle-case-study",
       isPro: true,
       title: {
-        vi: "5. Kịch bản Thực chiến Nâng cao (Case Study: Đột phá Lv.24 ➔ Lv.25 & Chuyển giao Hạ tầng Bộ Lạc Ngày 18–20)",
-        en: "5. Advanced Combat Case Study (Lv.24 ➔ Lv.25 Breakthrough & Day 18–20 Horde Infrastructure Pivot)",
+        vi: "5. Kịch bản Thực chiến Nâng cao (Case Study: Đột phá Lv.24 ➔ Lv.25 & Tăng tốc Hạ tầng Thuần Bộ Lạc Ngày 18–20)",
+        en: "5. Advanced Combat Case Study (Lv.24 ➔ Lv.25 Breakthrough & Day 18–20 Pure Horde Infrastructure Sprint)",
       },
       blocks: [
         {
           type: "case_study",
           badge: {
-            vi: "CASE STUDY HẠ TẦNG & CHUYỂN GIAO BỘ LẠC",
-            en: "INFRASTRUCTURE & HORDE PIVOT CASE STUDY",
+            vi: "CASE STUDY HẠ TẦNG THUẦN BỘ LẠC",
+            en: "PURE HORDE INFRASTRUCTURE CASE STUDY",
           },
           title: {
-            vi: "Tài khoản Ngày 18–20 (Lâu Đài Lv.24): Đột phá Mốc Lv.25 & Đảo Chiều Doanh Trại Đón Desert Prince",
-            en: "Day 18–20 Account (Castle Lv.24): Breaking Lv.25 & Flipping Barracks Priority for Desert Prince",
+            vi: "Tài khoản Ngày 18–20 (Lâu Đài Lv.24): Đột phá Mốc Lv.25 & Tăng Tốc Doanh Trại Bộ Lạc Đón Desert Prince",
+            en: "Day 18–20 Account (Castle Lv.24): Breaking Lv.25 & Accelerating Horde Barracks for Desert Prince",
           },
           profileSummary: {
-            vi: "Tài khoản Ngày 18–20 (`Castle Lv.24`, `League Barracks Lv.24`, `Horde Barracks Lv.21`, 3 Thợ Xây) chuẩn bị bước vào kỳ **Chuyển giao Bộ Lạc** (`Horde Pivot`) từ Ngày 21 (`Desert Prince`) đến Ngày 41 (`Witch`).",
-            en: "Account at Days 18–20 (`Castle Lv.24`, `League Barracks Lv.24`, `Horde Barracks Lv.21`, 3 Builder Queues) preparing for the **Horde Pivot** window from Day 21 (`Desert Prince`) through Day 41 (`Witch`).",
+            vi: "Tài khoản Ngày 18–20 (`Castle Lv.24`, `Horde Barracks Lv.24`, 3 Thợ Xây) chuẩn bị bước vào kỳ **Mở khóa Tướng Đỏ Bộ Lạc** từ Ngày 21 (`Desert Prince`) đến Ngày 41 (`Witch`).",
+            en: "Account at Days 18–20 (`Castle Lv.24`, `Horde Barracks Lv.24`, 3 Builder Queues) preparing for the **Horde Mythic Launch** window from Day 21 (`Desert Prince`) through Day 41 (`Witch`).",
           },
           diagnostics: [
             {
@@ -1207,8 +1207,8 @@ export const ARTICLE_8_1_CASTLE_AND_BRILLIANCE: GuideArticle = {
             {
               stepNumber: "03",
               title: {
-                vi: "Chuyển trọng tâm Hạ tầng sang Bộ Lạc từ Ngày 21",
-                en: "Pivot Infrastructure to Horde from Day 21",
+                vi: "Đẩy Doanh Trại Bộ Lạc thẳng lên Lv.30 từ Ngày 21",
+                en: "Push Horde Barracks Straight to Lv.30 from Day 21",
               },
               detail: {
                 vi: "Cố định Thợ 2 vào `Horde Barracks` (`Lv.21 ➔ Lv.25 ➔ Lv.30`) và `Horde Statue` để trước Ngày 41 (khi `Witch` hoàn tất đội 5 Bộ Lạc), toàn bộ lính Bộ Lạc đã đạt **Bậc 9** (`T9 — Lv.30`).",
@@ -1233,8 +1233,8 @@ export const ARTICLE_8_1_CASTLE_AND_BRILLIANCE: GuideArticle = {
             },
             {
               label: {
-                vi: "Đích Đến Ngày 41 (Horde Pivot)",
-                en: "Day 41 Target (Horde Pivot)",
+                vi: "Đích Đến Ngày 41 (Pure Horde)",
+                en: "Day 41 Target (Pure Horde)",
               },
               before: {
                 vi: "Horde Barracks Lv.21 (Lính T7)",
