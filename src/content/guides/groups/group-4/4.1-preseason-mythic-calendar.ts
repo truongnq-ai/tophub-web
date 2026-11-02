@@ -7,8 +7,8 @@ export const ARTICLE_4_1_PRESEASON_MYTHIC_CALENDAR: GuideArticle = {
   badge: "HOT",
   readingMinutes: 11,
   title: {
-    vi: "Lịch Ra Mắt Tướng Đỏ Tiền Mùa Giải (Pre-Season S0 Mythic Calendar: Ngày 1 ➔ Ngày 65)",
-    en: "Pre-Season (S0) Mythic Hero Release Calendar (Day 1 to Day 65)",
+    vi: "Lịch Ra Mắt Anh Hùng Đỏ",
+    en: "Mythic Hero Release Calendar",
   },
   summary: {
     vi: "Cách xác định chính xác tuổi máy chủ, lịch mở khóa 3 đợt Tướng Đỏ (Liên Minh, Bộ Lạc, Thiên Nhiên: Desert Prince Ngày 21, Storm Maiden Ngày 27, Paragon Ngày 35, Witch Ngày 41, Rose Princess & Bishop Ngày 46, Tidecaller & Monk Ngày 42–65) và chiến thuật quản trị ngân sách Kim Cương cho Vòng Quay & Xúc Xắc.",

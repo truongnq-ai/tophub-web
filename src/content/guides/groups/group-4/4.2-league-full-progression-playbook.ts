@@ -7,8 +7,8 @@ export const ARTICLE_4_2_LEAGUE_PROGRESSION_PLAYBOOK: GuideArticle = {
   badge: "PRO",
   readingMinutes: 11,
   title: {
-    vi: "Giáo Án Lộ Trình Thuần Phe Liên Minh Từ Ngày 1 ➔ Season 4 (Pure League Full Progression Playbook)",
-    en: "Pure League Full Progression Playbook (Day 1 to Season 4)",
+    vi: "Liên Minh",
+    en: "League",
   },
   summary: {
     vi: "Cẩm nang toàn diện cho người chơi chọn Phe Liên Minh (League) làm Đội 1 từ Ngày 1: Ma trận phân loại Tướng Quá Độ chờ Replace (Secret Keeper, Astrologer, Bard, Hostess — 0 Mảnh Vạn Năng) vs Tướng Trụ Cột Endgame (Adjudicator, Pyromancer, Nun, Paragon, Rose Princess, Bishop, Artificer), lộ trình 27 Hồn Đá Đỏ và kế hoạch nâng Doanh trại / Trang bị đồng bộ.",

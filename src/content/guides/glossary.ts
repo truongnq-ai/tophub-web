@@ -424,22 +424,23 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "hero-guardsman",
     category: "heroes",
-    term: { vi: "Vệ Binh (Guardsman)", en: "Guardsman" },
-    aliases: { en: ["Guard"] },
+    term: { vi: "Hộ Vệ (Guard)", en: "Guard" },
+    aliases: { vi: ["Vệ Binh", "Vệ Binh (Guardsman)"], en: ["Guardsman", "Guard"] },
     heroMeta: { faction: "league", rarity: "rare" },
     definition: {
-      vi: "Tướng Xanh tân thủ phe Liên Minh; giữ ở ghế dự bị để kích Liên kết Tướng.",
-      en: "League Rare starter hero; kept on the bench strictly for Hero Bonds.",
+      vi: "Tướng Xanh tân thủ phe Bộ Lạc; giữ ở ghế dự bị để kích Liên kết Tướng.",
+      en: "Horde Rare starter hero; kept on the bench strictly for Hero Bonds.",
     },
   },
   {
     id: "hero-crossbowman",
     category: "heroes",
-    term: { vi: "Nỏ Thủ (Crossbowman)", en: "Crossbowman" },
+    term: { vi: "Cung Thủ (Archer)", en: "Archer" },
+    aliases: { vi: ["Nỏ Thủ", "Nỏ Thủ (Crossbowman)"], en: ["Crossbowman", "Archer"] },
     heroMeta: { faction: "league", rarity: "rare" },
     definition: {
-      vi: "Tướng Xanh tân thủ phe Liên Minh; giữ ở ghế dự bị để kích Liên kết Tướng.",
-      en: "League Rare starter hero; kept on the bench strictly for Hero Bonds.",
+      vi: "Tướng Xanh tân thủ hệ Thiên Nhiên; giữ ở ghế dự bị để kích Liên kết Tướng.",
+      en: "Nature Rare starter hero; kept on the bench strictly for Hero Bonds.",
     },
   },
 
@@ -558,11 +559,12 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "hero-wanderer",
     category: "heroes",
-    term: { vi: "Lãng Khách / Kẻ Lang Thang (Wanderer)", en: "Wanderer" },
+    term: { vi: "Người Chăn Cừu (Shepherd)", en: "Shepherd" },
+    aliases: { vi: ["Lãng Khách", "Kẻ Lang Thang", "Lãng Khách / Kẻ Lang Thang (Wanderer)"], en: ["Wanderer", "Shepherd"] },
     heroMeta: { faction: "horde", rarity: "legendary" },
     definition: {
-      vi: "Tướng Vàng sát thương đơn mục tiêu lên Boss PvE của phe Bộ Lạc.",
-      en: "Low-cost single-target PvE Boss DPS Legendary hero for Horde.",
+      vi: "Tướng Vàng sát thương đơn mục tiêu lên Boss PvE.",
+      en: "Low-cost single-target PvE Boss DPS Legendary hero.",
     },
   },
   {
@@ -630,12 +632,12 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "hero-grunt",
     category: "heroes",
-    term: { vi: "Lính Đánh Thuê (Grunt)", en: "Grunt" },
-    aliases: { en: ["Mercenary"] },
+    term: { vi: "Chiến Binh (Warrior)", en: "Warrior" },
+    aliases: { vi: ["Lính Đánh Thuê", "Lính Đánh Thuê (Grunt)"], en: ["Grunt", "Warrior", "Mercenary"] },
     heroMeta: { faction: "horde", rarity: "rare" },
     definition: {
-      vi: "Tướng Xanh tân thủ phe Bộ Lạc; giữ ở ghế dự bị để kích Liên kết Tướng.",
-      en: "Horde Rare starter hero; kept on the bench strictly for Hero Bonds.",
+      vi: "Tướng Xanh tân thủ phe Liên Minh; giữ ở ghế dự bị để kích Liên kết Tướng.",
+      en: "League Rare starter hero; kept on the bench strictly for Hero Bonds.",
     },
   },
 
@@ -783,7 +785,8 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "hero-dancer",
     category: "heroes",
-    term: { vi: "Vũ Nữ / Vũ Công (Dancer)", en: "Dancer" },
+    term: { vi: "Vũ Công (Dancer)", en: "Dancer" },
+    aliases: { vi: ["Vũ Nữ", "Vũ Nữ / Vũ Công (Dancer)"], en: ["Dancer"] },
     heroMeta: { faction: "nature", rarity: "epic", isEconomyPassive: true },
     definition: {
       vi: "Tướng Tím Kinh tế ưu tiên #8: Mở khóa +30% Tốc độ Chữa thương Bệnh viện ở 2 Sao Trắng.",
@@ -793,12 +796,12 @@ export const GUIDE_GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: "hero-scout",
     category: "heroes",
-    term: { vi: "Trinh Sát Rừng (Scout)", en: "Scout" },
-    aliases: { en: ["Forest Scout"] },
+    term: { vi: "Trinh Sát Rải Nấm (Acorn Scout)", en: "Acorn Scout" },
+    aliases: { vi: ["Trinh Sát Rừng", "Trinh Sát Rừng (Scout)"], en: ["Scout", "Forest Scout", "Acorn Scout"] },
     heroMeta: { faction: "nature", rarity: "rare" },
     definition: {
-      vi: "Tướng Xanh tân thủ hệ Thiên Nhiên; giữ ở ghế dự bị để kích Liên kết Tướng.",
-      en: "Nature Rare starter hero; kept on the bench strictly for Hero Bonds.",
+      vi: "Tướng hệ Thiên Nhiên; hỗ trợ trinh sát và kích Liên kết Tướng.",
+      en: "Nature scout hero; supports reconnaissance and Hero Bonds.",
     },
   },
 

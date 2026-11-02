@@ -52,17 +52,19 @@ describe("Group 4 (roadmap) Standardized v2.0 Content, UI Block Contracts & Quan
     expect(category?.articles).toHaveLength(5);
 
     const expectedArticles = [
-      { code: "4.1", slug: "preseason-mythic-calendar" },
-      { code: "4.2", slug: "league-progression-playbook" },
-      { code: "4.3", slug: "horde-progression-playbook" },
-      { code: "4.4", slug: "nature-progression-playbook" },
-      { code: "4.5", slug: "season-1-to-4-roadmap" },
+      { code: "4.1", slug: "preseason-mythic-calendar", titleVi: "Lịch Ra Mắt Anh Hùng Đỏ", titleEn: "Mythic Hero Release Calendar" },
+      { code: "4.2", slug: "league-progression-playbook", titleVi: "Liên Minh", titleEn: "League" },
+      { code: "4.3", slug: "horde-progression-playbook", titleVi: "Bộ Tộc", titleEn: "Horde" },
+      { code: "4.4", slug: "nature-progression-playbook", titleVi: "Thiên Nhiên", titleEn: "Nature" },
+      { code: "4.5", slug: "season-1-to-4-roadmap", titleVi: "Lộ Trình Mùa Giải (S1–S4)", titleEn: "Season 1–4 Roadmap" },
     ];
 
     for (const item of expectedArticles) {
       const article = getArticleBySlug("roadmap", item.slug);
       expect(article, `Article ${item.slug} should exist`).toBeDefined();
       expect(article?.code).toBe(item.code);
+      expect(article?.title.vi).toBe(item.titleVi);
+      expect(article?.title.en).toBe(item.titleEn);
       expect(article?.tldr).toBeDefined();
       expect(article?.tldr?.coreRule.vi.length).toBeGreaterThan(20);
       expect(article?.tldr?.coreRule.en.length).toBeGreaterThan(20);

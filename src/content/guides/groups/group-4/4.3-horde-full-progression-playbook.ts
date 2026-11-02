@@ -7,8 +7,8 @@ export const ARTICLE_4_3_HORDE_PROGRESSION_PLAYBOOK: GuideArticle = {
   badge: "PRO",
   readingMinutes: 10,
   title: {
-    vi: "Giáo Án Lộ Trình Thuần Phe Bộ Tộc Từ Ngày 1 ➔ Season 4 (Pure Horde Full Progression Playbook)",
-    en: "Pure Horde Full Progression Playbook (Day 1 to Season 4)",
+    vi: "Bộ Tộc",
+    en: "Horde",
   },
   summary: {
     vi: "Giáo án thực chiến chơi thuần Phe Bộ Tộc (Pure Horde) ngay từ Ngày 1 đến Season 4: Danh mục 4 Tướng Quá Độ chờ thay thế (cấm đút Mảnh Vạn Năng), 7 Tướng Trụ Cột Endgame, lộ trình nâng cấp 6/6 Bộ Tộc vào Ngày 21–41 khắc chế +20% trước 75% máy chủ và tiết kiệm gấp 3 lần Hồn Đá Đỏ (9 viên cho Soulmancer/Warlock vs 18–27 viên).",

@@ -7,8 +7,8 @@ export const ARTICLE_4_4_NATURE_PROGRESSION_PLAYBOOK: GuideArticle = {
   badge: "PRO",
   readingMinutes: 11,
   title: {
-    vi: "Giáo Án Lộ Trình Thuần Phe Thiên Nhiên Từ Ngày 1 ➔ Season 4 (Pure Nature Full Progression Playbook)",
-    en: "Pure Nature Full Progression Playbook (Day 1 to Season 4)",
+    vi: "Thiên Nhiên",
+    en: "Nature",
   },
   summary: {
     vi: "Cẩm nang toàn diện cho người chơi chọn Phe Thiên Nhiên (Nature) làm Đội 1 từ Ngày 1: Ma trận Tướng Quá Độ chờ Replace (Treeguard, Druid, Windwalker, Watcher — 0 Mảnh Vạn Năng) vs Tướng Trụ Cột Endgame (Pixie, Forest Maiden, Tidecaller, Monk, Ne Zha, Petalis), lộ trình 18 Hồn Đá Đỏ (240,000 Điểm Vinh Dự / 36,000 Xu) và cách thống trị Biển Triệu Hồi.",

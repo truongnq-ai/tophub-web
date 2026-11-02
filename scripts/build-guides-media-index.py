@@ -98,15 +98,15 @@ GLOSSARY_ICON_OVERRIDES: Dict[str, Tuple[str, Optional[str], str, Optional[str]]
         "neutral",
     ),
     "gear-set-blood-of-the-titan": (
-        "/images/equipment/hero-gear/icon_equip_1_5_4.webp",
+        "/images/equipment/hero-gear/icon_40063.webp",
         None,
-        "mythic",
+        "legendary",
         "horde",
     ),
     "gear-set-knights-glory": (
-        "/images/equipment/hero-gear/icon_equip_2_5_1.webp",
+        "/images/equipment/hero-gear/icon_40064.webp",
         None,
-        "mythic",
+        "legendary",
         "league",
     ),
     "system-research-cottage": (
@@ -128,103 +128,103 @@ GLOSSARY_ICON_OVERRIDES: Dict[str, Tuple[str, Optional[str], str, Optional[str]]
         "neutral",
     ),
     "gear-set-glory-of-the-sage": (
-        "/images/equipment/hero-gear/icon_equip_3_5_3.webp",
+        "/images/equipment/hero-gear/icon_40060.webp",
         None,
-        "mythic",
+        "legendary",
         "nature",
     ),
     "item-universal-shard": (
-        "/images/items/hero-shards/icon_10018.webp",
+        "/images/items/shards/icon_30177.webp",
         None,
         "legendary",
         "neutral",
     ),
     "item-skill-book": (
-        "/images/items/books-scrolls/icon_book_tongyong_1.webp",
+        "/images/items/materials/icon_30361.webp",
         None,
-        "legendary",
+        "rare",
         "neutral",
     ),
     "item-guild-coins": (
-        "/images/items/currencies/icon_10035.webp",
+        "/images/items/currencies/icon_10008.webp",
         None,
-        "legendary",
+        "rare",
         "neutral",
     ),
     "item-guild-honor": (
-        "/images/items/currencies/icon_10023.webp",
+        "/images/items/currencies/icon_10025.webp",
         None,
         "legendary",
         "neutral",
     ),
     "event-dark-empire-invasion": (
-        "/images/events/entry-icons/Activity_202.webp",
+        "/images/events/entry-icons/Activity_264.webp",
         None,
-        "legendary",
+        "epic",
         "neutral",
     ),
     "event-dark-legion-challenge": (
-        "/images/events/entry-icons/Activity_201.webp",
+        "/images/events/entry-icons/Activity_116.webp",
         None,
-        "legendary",
+        "epic",
         "neutral",
     ),
     "event-dice-of-fate": (
-        "/images/events/entry-icons/Activity_106.webp",
+        "/images/events/entry-icons/Activity_11.webp",
         None,
-        "mythic",
+        "legendary",
         "neutral",
     ),
     "event-fortune-wheel": (
-        "/images/events/entry-icons/Activity_105.webp",
+        "/images/events/entry-icons/Activity_26.webp",
         None,
-        "mythic",
+        "legendary",
         "neutral",
     ),
     "event-giant-raid": (
-        "/images/events/entry-icons/Activity_103.webp",
+        "/images/events/entry-icons/Activity_108.webp",
         None,
-        "legendary",
+        "epic",
         "neutral",
     ),
     "event-guild-arms-race": (
-        "/images/events/entry-icons/Activity_109.webp",
+        "/images/events/entry-icons/Activity_74.webp",
         None,
-        "mythic",
+        "legendary",
         "neutral",
     ),
     "event-guild-race": (
-        "/images/events/entry-icons/Activity_104.webp",
+        "/images/events/entry-icons/Activity_185.webp",
         None,
-        "legendary",
+        "epic",
         "neutral",
     ),
     "event-guild-rush": (
-        "/images/events/entry-icons/Activity_108.webp",
+        "/images/events/entry-icons/Activity_23.webp",
         None,
-        "legendary",
+        "epic",
         "neutral",
     ),
     "event-kvk": (
-        "/images/events/entry-icons/Activity_134.webp",
+        "/images/events/entry-icons/Activity_113.webp",
         None,
         "mythic",
         "neutral",
     ),
     "tier-yellow-stars": (
-        "/images/items/hero-shards/icon_10018.webp",
+        "/images/items/shards/icon_30177.webp",
         None,
         "legendary",
         "neutral",
     ),
     "tier-red-stars": (
-        "/images/items/hero-shards/icon_10019.webp",
+        "/images/items/shards/icon_30177.webp",
         None,
         "mythic",
         "neutral",
     ),
     "tier-white-stars": (
-        "/images/items/awakening-stones/icon_30222.webp",
+        "/images/items/shards/icon_30231.webp",
         None,
         "mythic",
         "neutral",
@@ -232,10 +232,25 @@ GLOSSARY_ICON_OVERRIDES: Dict[str, Tuple[str, Optional[str], str, Optional[str]]
 }
 
 GLOSSARY_GAME_ID_OVERRIDES: Dict[str, Optional[int]] = {
-    "item-universal-shard": 10018,
-    "item-skill-book": 30016,
-    "item-guild-coins": 10035,
-    "item-guild-honor": 10023,
+    "gear-set-blood-of-the-titan": 1511,
+    "gear-set-glory-of-the-sage": 1401,
+    "gear-set-knights-glory": 1531,
+    "item-universal-shard": 220005,
+    "item-skill-book": 250,
+    "item-guild-coins": 13,
+    "item-guild-honor": 505,
+    "event-dark-empire-invasion": 411002,
+    "event-dark-legion-challenge": 411001,
+    "event-dice-of-fate": 11,
+    "event-fortune-wheel": 411008,
+    "event-giant-raid": 301,
+    "event-guild-arms-race": 74,
+    "event-guild-race": 404101,
+    "event-guild-rush": 100101,
+    "event-kvk": 100201,
+    "tier-yellow-stars": 220005,
+    "tier-red-stars": 220006,
+    "tier-white-stars": 141,
 }
 
 # Supplementary non-glossary tactical assets frequently referenced in articles/tables/spotlights
@@ -290,19 +305,19 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "behemoth-bear": {
         "id": "behemoth-bear",
-        "gameId": None,
+        "gameId": 1001,
         "glossaryId": None,
         "category": "pets-behemoths",
         "iconPath": "/images/behemoths/SacredBeast_001.webp",
-        "rarity": "mythic",
-        "faction": "neutral",
-        "nameVi": "Cự Thú Hộ Vệ (Guardian Behemoth)",
-        "nameEn": "Guardian Behemoth",
-        "inGameNameVi": "Cự Thú",
-        "inGameNameEn": "Behemoth",
-        "descVi": "Thần thú khổng lồ gia tăng chỉ số toàn đội và kỹ năng dẫm đạp diện rộng.",
-        "descEn": "Colossal war beast providing queue-wide stat amplification and AoE shockwaves.",
-        "aliases": ["behemoth-bear", "Cự Thú", "Behemoth", "Thần Thú"],
+        "rarity": "legendary",
+        "faction": "league",
+        "nameVi": "Liên Minh — Hoàng Hậu Huyết Nguyệt (Bloodmoon Queen Behemoth)",
+        "nameEn": "Bloodmoon Queen (League Behemoth)",
+        "inGameNameVi": "Hoàng Hậu Huyết Nguyệt",
+        "inGameNameEn": "Bloodmoon Queen",
+        "descVi": "Thần thú Liên Minh (#1001 — Hoàng Hậu Huyết Nguyệt) gia tăng chỉ số toàn đội và kỹ năng diện rộng.",
+        "descEn": "League Sacred Beast (#1001 — Bloodmoon Queen) providing queue-wide stat amplification and AoE shockwaves.",
+        "aliases": ["behemoth-bear", "Hoàng Hậu Huyết Nguyệt", "Bloodmoon Queen", "Cự Thú", "Behemoth", "Thần Thú"],
     },
     "item-speedup": {
         "id": "item-speedup",
@@ -322,10 +337,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "item-recruit-token": {
         "id": "item-recruit-token",
-        "gameId": None,
+        "gameId": 201,
         "glossaryId": None,
         "category": "items",
-        "iconPath": "/images/ui/rarities/icon_recruit.webp",
+        "iconPath": "/images/items/consumables/icon_30003.webp",
         "rarity": "legendary",
         "faction": "neutral",
         "nameVi": "Vé Chiêu Mộ (Recruit Tokens)",
@@ -499,10 +514,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     # Phase 4 — Group 5: Golden Gear Slots, Promotion Stones, Lord Gear & Materials
     "gear-slot-weapon-knight": {
         "id": "gear-slot-weapon-knight",
-        "gameId": 40005,
+        "gameId": 1531,
         "glossaryId": None,
         "category": "equipment",
-        "iconPath": "/images/equipment/hero-gear/icon_40005.webp",
+        "iconPath": "/images/equipment/hero-gear/icon_40064.webp",
         "rarity": "mythic",
         "faction": "league",
         "nameVi": "Kiếm Kỵ Sĩ Vinh Quang (Knight's Glory Sword)",
@@ -515,10 +530,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "gear-slot-boots-knight": {
         "id": "gear-slot-boots-knight",
-        "gameId": 40006,
+        "gameId": 2531,
         "glossaryId": None,
         "category": "equipment",
-        "iconPath": "/images/equipment/hero-gear/icon_40006.webp",
+        "iconPath": "/images/equipment/hero-gear/icon_42064.webp",
         "rarity": "mythic",
         "faction": "league",
         "nameVi": "Giày Kỵ Sĩ Vinh Quang (Knight's Glory Boots)",
@@ -531,10 +546,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "gear-slot-helmet-knight": {
         "id": "gear-slot-helmet-knight",
-        "gameId": 40007,
+        "gameId": 4531,
         "glossaryId": None,
         "category": "equipment",
-        "iconPath": "/images/equipment/hero-gear/icon_40007.webp",
+        "iconPath": "/images/equipment/hero-gear/icon_45064.webp",
         "rarity": "mythic",
         "faction": "league",
         "nameVi": "Mũ Kỵ Sĩ Vinh Quang (Knight's Glory Helmet)",
@@ -547,10 +562,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "gear-slot-armor-knight": {
         "id": "gear-slot-armor-knight",
-        "gameId": 40008,
+        "gameId": 3531,
         "glossaryId": None,
         "category": "equipment",
-        "iconPath": "/images/equipment/hero-gear/icon_40008.webp",
+        "iconPath": "/images/equipment/hero-gear/icon_41064.webp",
         "rarity": "mythic",
         "faction": "league",
         "nameVi": "Giáp Kỵ Sĩ Vinh Quang (Knight's Glory Armor)",
@@ -563,10 +578,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "gear-slot-weapon-sage": {
         "id": "gear-slot-weapon-sage",
-        "gameId": 40009,
+        "gameId": 1401,
         "glossaryId": None,
         "category": "equipment",
-        "iconPath": "/images/equipment/hero-gear/icon_40009.webp",
+        "iconPath": "/images/equipment/hero-gear/icon_40060.webp",
         "rarity": "mythic",
         "faction": "nature",
         "nameVi": "Trượng Hiền Triết Quang Vinh (Glory of the Sage Staff)",
@@ -579,10 +594,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "gear-slot-boots-sage": {
         "id": "gear-slot-boots-sage",
-        "gameId": 40010,
+        "gameId": 2401,
         "glossaryId": None,
         "category": "equipment",
-        "iconPath": "/images/equipment/hero-gear/icon_40010.webp",
+        "iconPath": "/images/equipment/hero-gear/icon_42060.webp",
         "rarity": "mythic",
         "faction": "nature",
         "nameVi": "Giày Hiền Triết Quang Vinh (Glory of the Sage Boots)",
@@ -595,10 +610,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "gear-slot-helmet-sage": {
         "id": "gear-slot-helmet-sage",
-        "gameId": 40011,
+        "gameId": 4401,
         "glossaryId": None,
         "category": "equipment",
-        "iconPath": "/images/equipment/hero-gear/icon_40011.webp",
+        "iconPath": "/images/equipment/hero-gear/icon_45060.webp",
         "rarity": "mythic",
         "faction": "nature",
         "nameVi": "Mũ Hiền Triết Quang Vinh (Glory of the Sage Helmet)",
@@ -611,10 +626,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "gear-slot-armor-sage": {
         "id": "gear-slot-armor-sage",
-        "gameId": 40012,
+        "gameId": 3401,
         "glossaryId": None,
         "category": "equipment",
-        "iconPath": "/images/equipment/hero-gear/icon_40012.webp",
+        "iconPath": "/images/equipment/hero-gear/icon_41060.webp",
         "rarity": "mythic",
         "faction": "nature",
         "nameVi": "Giáp Hiền Triết Quang Vinh (Glory of the Sage Armor)",
@@ -627,10 +642,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "gear-slot-weapon-titan": {
         "id": "gear-slot-weapon-titan",
-        "gameId": 40013,
+        "gameId": 1511,
         "glossaryId": None,
         "category": "equipment",
-        "iconPath": "/images/equipment/hero-gear/icon_40013.webp",
+        "iconPath": "/images/equipment/hero-gear/icon_40063.webp",
         "rarity": "mythic",
         "faction": "horde",
         "nameVi": "Rìu Huyết Titan (Blood of the Titan Axe)",
@@ -643,10 +658,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "gear-slot-boots-titan": {
         "id": "gear-slot-boots-titan",
-        "gameId": 40014,
+        "gameId": 2511,
         "glossaryId": None,
         "category": "equipment",
-        "iconPath": "/images/equipment/hero-gear/icon_40014.webp",
+        "iconPath": "/images/equipment/hero-gear/icon_42063.webp",
         "rarity": "mythic",
         "faction": "horde",
         "nameVi": "Giày Huyết Titan (Blood of the Titan Greaves)",
@@ -659,10 +674,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "gear-slot-helmet-titan": {
         "id": "gear-slot-helmet-titan",
-        "gameId": 40015,
+        "gameId": 4511,
         "glossaryId": None,
         "category": "equipment",
-        "iconPath": "/images/equipment/hero-gear/icon_40015.webp",
+        "iconPath": "/images/equipment/hero-gear/icon_45063.webp",
         "rarity": "mythic",
         "faction": "horde",
         "nameVi": "Mũ Huyết Titan (Blood of the Titan Helm)",
@@ -675,10 +690,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "gear-slot-armor-titan": {
         "id": "gear-slot-armor-titan",
-        "gameId": 40016,
+        "gameId": 3511,
         "glossaryId": None,
         "category": "equipment",
-        "iconPath": "/images/equipment/hero-gear/icon_40016.webp",
+        "iconPath": "/images/equipment/hero-gear/icon_41063.webp",
         "rarity": "mythic",
         "faction": "horde",
         "nameVi": "Giáp Huyết Titan (Blood of the Titan Chestplate)",
@@ -691,10 +706,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "item-gold-ingot": {
         "id": "item-gold-ingot",
-        "gameId": 30222,
+        "gameId": 404100005,
         "glossaryId": None,
         "category": "items",
-        "iconPath": "/images/items/consumables/icon_30222.webp",
+        "iconPath": "/images/items/materials/icon_30370.webp",
         "rarity": "legendary",
         "faction": "neutral",
         "nameVi": "Thỏi Vàng Rèn Đồ (Gold Ingots / Titan Iron)",
@@ -707,10 +722,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "item-upgrade-rune": {
         "id": "item-upgrade-rune",
-        "gameId": 10018,
+        "gameId": 206,
         "glossaryId": None,
         "category": "items",
-        "iconPath": "/images/items/currencies/icon_10018.webp",
+        "iconPath": "/images/items/consumables/icon_30095.webp",
         "rarity": "epic",
         "faction": "neutral",
         "nameVi": "Quặng Cường Hóa Trang Bị (Upgrade Runes / Enhancement Ore)",
@@ -723,10 +738,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "item-ruby": {
         "id": "item-ruby",
-        "gameId": 10005,
+        "gameId": 6,
         "glossaryId": None,
         "category": "items",
-        "iconPath": "/images/items/currencies/icon_10005.webp",
+        "iconPath": "/images/items/currencies/icon_10004.webp",
         "rarity": "rare",
         "faction": "neutral",
         "nameVi": "Hồng Ngọc (Rubies)",
@@ -771,99 +786,99 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "gear-lord-sword": {
         "id": "gear-lord-sword",
-        "gameId": None,
-        "glossaryId": None,
-        "category": "equipment",
-        "iconPath": "/images/items/consumables/icon_lord_1.webp",
-        "rarity": "mythic",
-        "faction": "horde",
-        "nameVi": "Kiếm Chúa Tể — Bộ Lạc (Lord Sword — Horde)",
-        "nameEn": "Lord Sword (Horde Branch)",
-        "inGameNameVi": "Kiếm Chúa Tể",
-        "inGameNameEn": "Lord Sword",
-        "descVi": "Ô Trang bị Chúa Tể #1 (Nhánh Trái): Gia tăng trực tiếp % ATK và % HP cho toàn bộ tướng Bộ Lạc.",
-        "descEn": "Lord Gear Slot #1 (Left Branch): Directly amplifies % ATK and % HP for all Horde heroes.",
-        "aliases": ["gear-lord-sword", "Kiếm Chúa Tể", "Lord Sword"],
-    },
-    "gear-lord-wand": {
-        "id": "gear-lord-wand",
-        "gameId": None,
+        "gameId": 201,
         "glossaryId": None,
         "category": "equipment",
         "iconPath": "/images/items/consumables/icon_lord_2.webp",
         "rarity": "mythic",
         "faction": "horde",
-        "nameVi": "Quyền Trượng Chúa Tể — Bộ Lạc (Lord Wand — Horde)",
-        "nameEn": "Lord Wand (Horde Branch)",
-        "inGameNameVi": "Trượng Chúa Tể",
-        "inGameNameEn": "Lord Wand",
-        "descVi": "Ô Trang bị Chúa Tể #2 (Nhánh Phải): Cộng hưởng chỉ số tấn công/phòng thủ cho hệ Bộ Lạc.",
-        "descEn": "Lord Gear Slot #2 (Right Branch): Amplifies offensive and defensive stats for Horde heroes.",
-        "aliases": ["gear-lord-wand", "Quyền Trượng Chúa Tể", "Lord Wand"],
+        "nameVi": "Ngọn Giáo Man Rợ — Chúa Tể (Savage Spear)",
+        "nameEn": "Savage Spear (Lord Weapon)",
+        "inGameNameVi": "Ngọn Giáo Man Rợ",
+        "inGameNameEn": "Savage Spear",
+        "descVi": "Ô Trang bị Chúa Tể #2 (Ngọn Giáo Man Rợ): Gia tăng trực tiếp % ATK và % HP cho toàn bộ tướng Bộ Lạc.",
+        "descEn": "Lord Gear Slot #2 (Savage Spear): Directly amplifies % ATK and % HP for all Horde heroes.",
+        "aliases": ["gear-lord-sword", "Ngọn Giáo Man Rợ", "Savage Spear", "Kiếm Chúa Tể", "Lord Sword"],
+    },
+    "gear-lord-wand": {
+        "id": "gear-lord-wand",
+        "gameId": 601,
+        "glossaryId": None,
+        "category": "equipment",
+        "iconPath": "/images/items/consumables/icon_lord_6.webp",
+        "rarity": "mythic",
+        "faction": "horde",
+        "nameVi": "Vật Tổ Sinh Mệnh — Chúa Tể (Life Totem)",
+        "nameEn": "Life Totem (Lord Wand)",
+        "inGameNameVi": "Vật Tổ Sinh Mệnh",
+        "inGameNameEn": "Life Totem",
+        "descVi": "Ô Trang bị Chúa Tể #6 (Vật Tổ Sinh Mệnh): Cộng hưởng chỉ số tấn công/phòng thủ cho hệ Bộ Lạc.",
+        "descEn": "Lord Gear Slot #6 (Life Totem): Amplifies offensive and defensive stats for Horde heroes.",
+        "aliases": ["gear-lord-wand", "Vật Tổ Sinh Mệnh", "Life Totem", "Quyền Trượng Chúa Tể", "Lord Wand"],
     },
     "gear-lord-chest": {
         "id": "gear-lord-chest",
-        "gameId": None,
+        "gameId": 301,
         "glossaryId": None,
         "category": "equipment",
         "iconPath": "/images/items/consumables/icon_lord_3.webp",
         "rarity": "mythic",
         "faction": "nature",
-        "nameVi": "Giáp Chúa Tể — Thiên Nhiên (Lord Armor — Nature)",
-        "nameEn": "Lord Armor (Nature Branch)",
-        "inGameNameVi": "Giáp Chúa Tể",
-        "inGameNameEn": "Lord Armor",
-        "descVi": "Ô Trang bị Chúa Tể #3 (Nhánh Trái): Gia tăng % ATK và % HP cho toàn bộ tướng Thiên Nhiên.",
-        "descEn": "Lord Gear Slot #3 (Left Branch): Boosts % ATK and % HP across all Nature faction heroes.",
-        "aliases": ["gear-lord-chest", "Giáp Chúa Tể", "Lord Armor"],
+        "nameVi": "Khiên Dây Leo — Chúa Tể (Vine Shield)",
+        "nameEn": "Vine Shield (Lord Chestplate)",
+        "inGameNameVi": "Khiên Dây Leo",
+        "inGameNameEn": "Vine Shield",
+        "descVi": "Ô Trang bị Chúa Tể #3 (Khiên Dây Leo): Gia tăng % ATK và % HP cho toàn bộ tướng Thiên Nhiên.",
+        "descEn": "Lord Gear Slot #3 (Vine Shield): Boosts % ATK and % HP across all Nature faction heroes.",
+        "aliases": ["gear-lord-chest", "Khiên Dây Leo", "Vine Shield", "Giáp Chúa Tể", "Lord Armor"],
     },
     "gear-lord-greaves": {
         "id": "gear-lord-greaves",
-        "gameId": None,
-        "glossaryId": None,
-        "category": "equipment",
-        "iconPath": "/images/items/consumables/icon_lord_4.webp",
-        "rarity": "mythic",
-        "faction": "nature",
-        "nameVi": "Giày Chúa Tể — Thiên Nhiên (Lord Greaves — Nature)",
-        "nameEn": "Lord Greaves (Nature Branch)",
-        "inGameNameVi": "Giày Chúa Tể",
-        "inGameNameEn": "Lord Greaves",
-        "descVi": "Ô Trang bị Chúa Tể #4 (Nhánh Phải): Gia tăng chỉ số chiến đấu cho hệ Thiên Nhiên.",
-        "descEn": "Lord Gear Slot #4 (Right Branch): Enhances combat attributes for Nature faction heroes.",
-        "aliases": ["gear-lord-greaves", "Giày Chúa Tể", "Lord Greaves"],
-    },
-    "gear-lord-helm": {
-        "id": "gear-lord-helm",
-        "gameId": None,
+        "gameId": 501,
         "glossaryId": None,
         "category": "equipment",
         "iconPath": "/images/items/consumables/icon_lord_5.webp",
         "rarity": "mythic",
+        "faction": "nature",
+        "nameVi": "Vòng Cổ Răng Nanh — Chúa Tể (Fang Necklace)",
+        "nameEn": "Fang Necklace (Lord Greaves)",
+        "inGameNameVi": "Vòng Cổ Răng Nanh",
+        "inGameNameEn": "Fang Necklace",
+        "descVi": "Ô Trang bị Chúa Tể #5 (Vòng Cổ Răng Nanh): Gia tăng chỉ số chiến đấu cho hệ Thiên Nhiên.",
+        "descEn": "Lord Gear Slot #5 (Fang Necklace): Enhances combat attributes for Nature faction heroes.",
+        "aliases": ["gear-lord-greaves", "Vòng Cổ Răng Nanh", "Fang Necklace", "Giày Chúa Tể", "Lord Greaves"],
+    },
+    "gear-lord-helm": {
+        "id": "gear-lord-helm",
+        "gameId": 101,
+        "glossaryId": None,
+        "category": "equipment",
+        "iconPath": "/images/items/consumables/icon_lord_1.webp",
+        "rarity": "mythic",
         "faction": "league",
-        "nameVi": "Vương Miện Chúa Tể — Liên Minh (Lord Helm — League)",
-        "nameEn": "Lord Helm (League Branch)",
-        "inGameNameVi": "Mũ Chúa Tể",
-        "inGameNameEn": "Lord Helm",
-        "descVi": "Ô Trang bị Chúa Tể #5 (Nhánh Trái): Gia tăng % ATK và % HP cho toàn bộ tướng Liên Minh.",
-        "descEn": "Lord Gear Slot #5 (Left Branch): Increases % ATK and % HP for all League faction heroes.",
-        "aliases": ["gear-lord-helm", "Vương Miện Chúa Tể", "Lord Helm"],
+        "nameVi": "Vương Miện Thống Trị — Chúa Tể (Dominion Crown)",
+        "nameEn": "Dominion Crown (Lord Helm)",
+        "inGameNameVi": "Vương Miện Thống Trị",
+        "inGameNameEn": "Dominion Crown",
+        "descVi": "Ô Trang bị Chúa Tể #1 (Vương Miện Thống Trị): Gia tăng % ATK và % HP cho toàn bộ tướng Liên Minh.",
+        "descEn": "Lord Gear Slot #1 (Dominion Crown): Increases % ATK and % HP for all League faction heroes.",
+        "aliases": ["gear-lord-helm", "Vương Miện Thống Trị", "Dominion Crown", "Vương Miện Chúa Tể", "Lord Helm"],
     },
     "gear-lord-ring": {
         "id": "gear-lord-ring",
-        "gameId": None,
+        "gameId": 401,
         "glossaryId": None,
         "category": "equipment",
-        "iconPath": "/images/items/consumables/icon_lord_6.webp",
+        "iconPath": "/images/items/consumables/icon_lord_4.webp",
         "rarity": "mythic",
         "faction": "league",
-        "nameVi": "Nhẫn Chúa Tể — Liên Minh (Lord Ring — League)",
-        "nameEn": "Lord Ring (League Branch)",
-        "inGameNameVi": "Nhẫn Chúa Tể",
-        "inGameNameEn": "Lord Ring",
-        "descVi": "Ô Trang bị Chúa Tể #6 (Nhánh Phải): Cộng hưởng chỉ số toàn diện cho hệ Liên Minh.",
-        "descEn": "Lord Gear Slot #6 (Right Branch): Provides comprehensive stat resonance for League heroes.",
-        "aliases": ["gear-lord-ring", "Nhẫn Chúa Tể", "Lord Ring"],
+        "nameVi": "Nhẫn Hoàng Gia — Chúa Tể (Royal Ring)",
+        "nameEn": "Royal Ring (Lord Ring)",
+        "inGameNameVi": "Nhẫn Hoàng Gia",
+        "inGameNameEn": "Royal Ring",
+        "descVi": "Ô Trang bị Chúa Tể #4 (Nhẫn Hoàng Gia): Cộng hưởng chỉ số toàn diện cho hệ Liên Minh.",
+        "descEn": "Lord Gear Slot #4 (Royal Ring): Provides comprehensive stat resonance for League heroes.",
+        "aliases": ["gear-lord-ring", "Nhẫn Hoàng Gia", "Royal Ring", "Nhẫn Chúa Tể", "Lord Ring"],
     },
     "item-lord-refined-metal": {
         "id": "item-lord-refined-metal",
@@ -1044,10 +1059,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "item-rune-chest-epic": {
         "id": "item-rune-chest-epic",
-        "gameId": 30242,
+        "gameId": 401081004,
         "glossaryId": None,
         "category": "items",
-        "iconPath": "/images/items/chests/icon_30242.webp",
+        "iconPath": "/images/items/chests/icon_30251.webp",
         "rarity": "epic",
         "faction": "neutral",
         "nameVi": "Rương Cổ Ngữ Tím (Epic Rune Chest)",
@@ -1060,10 +1075,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "item-rune-chest-legendary": {
         "id": "item-rune-chest-legendary",
-        "gameId": 30248,
+        "gameId": 401081005,
         "glossaryId": None,
         "category": "items",
-        "iconPath": "/images/items/chests/icon_30248.webp",
+        "iconPath": "/images/items/chests/icon_30252.webp",
         "rarity": "legendary",
         "faction": "neutral",
         "nameVi": "Rương Cổ Ngữ Vàng Tự Chọn (Legendary Choice Rune Chest)",
@@ -1092,10 +1107,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "relic-dragons-might": {
         "id": "relic-dragons-might",
-        "gameId": 50002,
+        "gameId": 50007,
         "glossaryId": None,
         "category": "relics",
-        "iconPath": "/images/relics/illustrations/Artifact_50002.webp",
+        "iconPath": "/images/relics/illustrations/Artifact_50007.webp",
         "rarity": "mythic",
         "faction": "horde",
         "nameVi": "Thánh Vật Uy Lực Của Rồng (Dragon's Might)",
@@ -1108,10 +1123,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "relic-eternal-wings": {
         "id": "relic-eternal-wings",
-        "gameId": 50001,
+        "gameId": 50004,
         "glossaryId": None,
         "category": "relics",
-        "iconPath": "/images/relics/illustrations/Artifact_50001.webp",
+        "iconPath": "/images/relics/illustrations/Artifact_50004.webp",
         "rarity": "mythic",
         "faction": "league",
         "nameVi": "Thánh Vật Đôi Cánh Vĩnh Hằng (Eternal Wings)",
@@ -1124,10 +1139,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "relic-undefeated-crown": {
         "id": "relic-undefeated-crown",
-        "gameId": 50003,
+        "gameId": 50019,
         "glossaryId": None,
         "category": "relics",
-        "iconPath": "/images/relics/illustrations/Artifact_50003.webp",
+        "iconPath": "/images/relics/illustrations/Artifact_50019.webp",
         "rarity": "legendary",
         "faction": "league",
         "nameVi": "Vương Miện Bất Bại (Undefeated Crown)",
@@ -1140,10 +1155,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "relic-scale-of-injustice": {
         "id": "relic-scale-of-injustice",
-        "gameId": 50004,
+        "gameId": 50006,
         "glossaryId": None,
         "category": "relics",
-        "iconPath": "/images/relics/illustrations/Artifact_50004.webp",
+        "iconPath": "/images/relics/illustrations/Artifact_50006.webp",
         "rarity": "legendary",
         "faction": "horde",
         "nameVi": "Cán Cân Phán Quyết (Scale of Injustice)",
@@ -1156,10 +1171,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "relic-philosophers-stone": {
         "id": "relic-philosophers-stone",
-        "gameId": 50005,
+        "gameId": 40005,
         "glossaryId": None,
         "category": "relics",
-        "iconPath": "/images/relics/illustrations/Artifact_50005.webp",
+        "iconPath": "/images/relics/illustrations/Artifact_40005.webp",
         "rarity": "mythic",
         "faction": "nature",
         "nameVi": "Hòn Đá Hiền Triết (Philosopher's Stone)",
@@ -1172,10 +1187,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "relic-sacred-scroll": {
         "id": "relic-sacred-scroll",
-        "gameId": 50006,
+        "gameId": 50012,
         "glossaryId": None,
         "category": "relics",
-        "iconPath": "/images/relics/illustrations/Artifact_50006.webp",
+        "iconPath": "/images/relics/illustrations/Artifact_50012.webp",
         "rarity": "legendary",
         "faction": "league",
         "nameVi": "Cuộn Thánh Thư (Sacred Scroll / Arcane Vault)",
@@ -1188,10 +1203,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "relic-moonstone": {
         "id": "relic-moonstone",
-        "gameId": 50007,
+        "gameId": 50010,
         "glossaryId": None,
         "category": "relics",
-        "iconPath": "/images/relics/illustrations/Artifact_50007.webp",
+        "iconPath": "/images/relics/illustrations/Artifact_50010.webp",
         "rarity": "legendary",
         "faction": "nature",
         "nameVi": "Nguyệt Thạch Rừng Thiêng (Oath of the Sacred Forest / Moonstone)",
@@ -1204,10 +1219,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "relic-feather-of-pact": {
         "id": "relic-feather-of-pact",
-        "gameId": 50008,
+        "gameId": 50015,
         "glossaryId": None,
         "category": "relics",
-        "iconPath": "/images/relics/illustrations/Artifact_50008.webp",
+        "iconPath": "/images/relics/illustrations/Artifact_50015.webp",
         "rarity": "legendary",
         "faction": "nature",
         "nameVi": "Lông Vũ Khế Ước (Feather of Pact)",
@@ -1220,10 +1235,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "relic-scroll-exp": {
         "id": "relic-scroll-exp",
-        "gameId": None,
+        "gameId": 30397,
         "glossaryId": None,
         "category": "relics",
-        "iconPath": "/images/relics/shards-and-scrolls/icon_art_1101.webp",
+        "iconPath": "/images/items/consumables/icon_30397.webp",
         "rarity": "legendary",
         "faction": "neutral",
         "nameVi": "Cuộn Kinh Nghiệm Thánh Vật (Relic EXP Scroll)",
@@ -1236,10 +1251,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "pet-cactini": {
         "id": "pet-cactini",
-        "gameId": 70001,
+        "gameId": 830002,
         "glossaryId": None,
         "category": "pets-behemoths",
-        "iconPath": "/images/pets/avatars/Head_pet_1001.webp",
+        "iconPath": "/images/pets/avatars/Head_pet_801.webp",
         "rarity": "legendary",
         "faction": "nature",
         "nameVi": "Thú Cưng Xương Rồng (Cactini — Nature Pet)",
@@ -1252,10 +1267,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "pet-howli": {
         "id": "pet-howli",
-        "gameId": 70004,
+        "gameId": 830001,
         "glossaryId": None,
         "category": "pets-behemoths",
-        "iconPath": "/images/pets/avatars/Head_pet_101.webp",
+        "iconPath": "/images/pets/avatars/Head_pet_301.webp",
         "rarity": "legendary",
         "faction": "horde",
         "nameVi": "Thú Cưng Sói Con (Howli / Wolf — Horde Pet)",
@@ -1268,10 +1283,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "pet-flickerkit": {
         "id": "pet-flickerkit",
-        "gameId": 70007,
+        "gameId": 840002,
         "glossaryId": None,
         "category": "pets-behemoths",
-        "iconPath": "/images/pets/avatars/Head_pet_1101.webp",
+        "iconPath": "/images/pets/avatars/Head_pet_1001.webp",
         "rarity": "mythic",
         "faction": "horde",
         "nameVi": "Thú Cưng Mèo Lửa / Hổ Con (Flickerkit / Tiger — Horde BiS Pet)",
@@ -1284,10 +1299,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "pet-eggribird": {
         "id": "pet-eggribird",
-        "gameId": 70010,
+        "gameId": 840001,
         "glossaryId": None,
         "category": "pets-behemoths",
-        "iconPath": "/images/pets/avatars/Head_pet_1201.webp",
+        "iconPath": "/images/pets/avatars/Head_pet_601.webp",
         "rarity": "mythic",
         "faction": "league",
         "nameVi": "Thú Cưng Chim Ưng / Trứng Nộ (Eggribird / Sparrow — League BiS Pet)",
@@ -1300,10 +1315,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "pet-ignispal": {
         "id": "pet-ignispal",
-        "gameId": 70016,
+        "gameId": 840014,
         "glossaryId": None,
         "category": "pets-behemoths",
-        "iconPath": "/images/pets/avatars/Head_pet_1301.webp",
+        "iconPath": "/images/pets/avatars/Head_pet_1801.webp",
         "rarity": "mythic",
         "faction": "horde",
         "nameVi": "Thú Cưng Hỏa Linh (Ignispal — Flame Companion)",
@@ -1316,10 +1331,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "pet-florapuff": {
         "id": "pet-florapuff",
-        "gameId": 70022,
+        "gameId": 840003,
         "glossaryId": None,
         "category": "pets-behemoths",
-        "iconPath": "/images/pets/avatars/Head_pet_1401.webp",
+        "iconPath": "/images/pets/avatars/Head_pet_1101.webp",
         "rarity": "mythic",
         "faction": "nature",
         "nameVi": "Thú Cưng Hoa Mây (Florapuff / Bear — Nature BiS Pet)",
@@ -1348,10 +1363,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "item-pet-food": {
         "id": "item-pet-food",
-        "gameId": 10035,
+        "gameId": 284,
         "glossaryId": None,
         "category": "items",
-        "iconPath": "/images/items/currencies/icon_10035.webp",
+        "iconPath": "/images/items/consumables/icon_30468.webp",
         "rarity": "epic",
         "faction": "neutral",
         "nameVi": "Thức Ăn Thú Cưng (Pet Food)",
@@ -1364,10 +1379,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "item-pet-essence": {
         "id": "item-pet-essence",
-        "gameId": 10036,
+        "gameId": 289,
         "glossaryId": None,
         "category": "items",
-        "iconPath": "/images/items/currencies/icon_10036.webp",
+        "iconPath": "/images/items/consumables/icon_30651.webp",
         "rarity": "legendary",
         "faction": "neutral",
         "nameVi": "Tinh Chất Thú Cưng (Pet Essence)",
@@ -1380,107 +1395,107 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "behemoth-lion": {
         "id": "behemoth-lion",
-        "gameId": None,
+        "gameId": 2001,
         "glossaryId": None,
         "category": "pets-behemoths",
         "iconPath": "/images/behemoths/SacredBeast_002.webp",
-        "rarity": "mythic",
-        "faction": "league",
-        "nameVi": "Thần Thú Sư Tử Ánh Sáng (Sacred Lion Behemoth)",
-        "nameEn": "Sacred Lion Behemoth",
-        "inGameNameVi": "Thần Thú Sư Tử",
-        "inGameNameEn": "Sacred Lion",
-        "descVi": "Cự Thú Thần Thú số 2 hộ vệ đội hình Liên Minh và cộng hưởng +Hero Level Cap.",
-        "descEn": "Sacred Beast #2 fortifying League formations and raising the global Hero Level Cap.",
-        "aliases": ["behemoth-lion", "Thần Thú Sư Tử", "Sacred Lion Behemoth"],
+        "rarity": "legendary",
+        "faction": "horde",
+        "nameVi": "Bộ Tộc — Thống Lĩnh Ngân Nguyệt (Silvermoon Commander Behemoth)",
+        "nameEn": "Silvermoon Commander (Horde Behemoth)",
+        "inGameNameVi": "Thống Lĩnh Ngân Nguyệt",
+        "inGameNameEn": "Silvermoon Commander",
+        "descVi": "Thần thú số 2 (#2001 — Thống Lĩnh Ngân Nguyệt) hộ vệ đội hình và cộng hưởng +Hero Level Cap.",
+        "descEn": "Sacred Beast #2 (#2001 — Silvermoon Commander) fortifying formations and raising the global Hero Level Cap.",
+        "aliases": ["behemoth-lion", "Thống Lĩnh Ngân Nguyệt", "Silvermoon Commander", "Thần Thú Sư Tử", "Sacred Lion Behemoth"],
     },
     "behemoth-tiger": {
         "id": "behemoth-tiger",
-        "gameId": None,
+        "gameId": 3001,
         "glossaryId": None,
         "category": "pets-behemoths",
         "iconPath": "/images/behemoths/SacredBeast_003.webp",
-        "rarity": "mythic",
-        "faction": "horde",
-        "nameVi": "Thần Thú Chiến Hổ (Sacred Tiger Behemoth)",
-        "nameEn": "Sacred Tiger Behemoth",
-        "inGameNameVi": "Thần Thú Chiến Hổ",
-        "inGameNameEn": "Sacred Tiger",
-        "descVi": "Cự Thú Thần Thú số 3 gia tăng sát thương bạo kích diện rộng cho đội hình Bộ Lạc.",
-        "descEn": "Sacred Beast #3 unleashing AoE critical shockwaves for Horde lineups.",
-        "aliases": ["behemoth-tiger", "Thần Thú Chiến Hổ", "Sacred Tiger Behemoth"],
+        "rarity": "legendary",
+        "faction": "nature",
+        "nameVi": "Thiên Nhiên — Bạo Chúa Địa Ngục (Inferno Tyrant Behemoth)",
+        "nameEn": "Inferno Tyrant (Nature Behemoth)",
+        "inGameNameVi": "Bạo Chúa Địa Ngục",
+        "inGameNameEn": "Inferno Tyrant",
+        "descVi": "Thần thú số 3 (#3001 — Bạo Chúa Địa Ngục) gia tăng sát thương bạo kích diện rộng.",
+        "descEn": "Sacred Beast #3 (#3001 — Inferno Tyrant) unleashing AoE critical shockwaves.",
+        "aliases": ["behemoth-tiger", "Bạo Chúa Địa Ngục", "Inferno Tyrant", "Thần Thú Chiến Hổ", "Sacred Tiger Behemoth"],
     },
     "behemoth-gorilla": {
         "id": "behemoth-gorilla",
-        "gameId": None,
+        "gameId": 4001,
         "glossaryId": None,
         "category": "pets-behemoths",
         "iconPath": "/images/behemoths/SacredBeast_004.webp",
-        "rarity": "mythic",
-        "faction": "horde",
-        "nameVi": "Thần Thú Khỉ Đột Khổng Lồ (Sacred Gorilla Behemoth)",
-        "nameEn": "Sacred Gorilla Behemoth",
-        "inGameNameVi": "Thần Thú Khỉ Đột",
-        "inGameNameEn": "Sacred Gorilla",
-        "descVi": "Cự Thú Thần Thú số 4 gây choáng diện rộng và phá vỡ đội hình tuyến đầu đối phương.",
-        "descEn": "Sacred Beast #4 delivering AoE stun slams and frontline disruption.",
-        "aliases": ["behemoth-gorilla", "Thần Thú Khỉ Đột", "Sacred Gorilla Behemoth"],
+        "rarity": "legendary",
+        "faction": "league",
+        "nameVi": "Liên Minh — Cuồng Đao Á Môn (Frenzied Blade Almon Behemoth)",
+        "nameEn": "Frenzied Blade Almon (League Behemoth)",
+        "inGameNameVi": "Cuồng Đao Á Môn",
+        "inGameNameEn": "Frenzied Blade Almon",
+        "descVi": "Thần thú số 4 (#4001 — Cuồng Đao Á Môn) gây choáng diện rộng và phá vỡ đội hình tuyến đầu đối phương.",
+        "descEn": "Sacred Beast #4 (#4001 — Frenzied Blade Almon) delivering AoE stun slams and frontline disruption.",
+        "aliases": ["behemoth-gorilla", "Cuồng Đao Á Môn", "Frenzied Blade Almon", "Thần Thú Khỉ Đột", "Sacred Gorilla Behemoth"],
     },
     "behemoth-boar": {
         "id": "behemoth-boar",
-        "gameId": None,
+        "gameId": 5001,
         "glossaryId": None,
         "category": "pets-behemoths",
         "iconPath": "/images/behemoths/SacredBeast_005.webp",
-        "rarity": "mythic",
-        "faction": "nature",
-        "nameVi": "Thần Thú Lợn Rừng Cổ Đại (Sacred Boar Behemoth)",
-        "nameEn": "Sacred Boar Behemoth",
-        "inGameNameVi": "Thần Thú Lợn Rừng",
-        "inGameNameEn": "Sacred Boar",
-        "descVi": "Cự Thú Thần Thú số 5 húc xuyên hàng thủ và tăng sức chống chịu cho đội hình.",
-        "descEn": "Sacred Beast #5 charging enemy frontlines while granting team-wide tenacity.",
-        "aliases": ["behemoth-boar", "Thần Thú Lợn Rừng", "Sacred Boar Behemoth"],
+        "rarity": "legendary",
+        "faction": "horde",
+        "nameVi": "Bộ Tộc — Bọ Cạp Vàng (Golden Scorpion Behemoth)",
+        "nameEn": "Golden Scorpion (Horde Behemoth)",
+        "inGameNameVi": "Bọ Cạp Vàng",
+        "inGameNameEn": "Golden Scorpion",
+        "descVi": "Thần thú số 5 (#5001 — Bọ Cạp Vàng) xuyên phá hàng thủ và tăng sức chống chịu cho đội hình.",
+        "descEn": "Sacred Beast #5 (#5001 — Golden Scorpion) charging enemy frontlines while granting team-wide tenacity.",
+        "aliases": ["behemoth-boar", "Bọ Cạp Vàng", "Golden Scorpion", "Thần Thú Lợn Rừng", "Sacred Boar Behemoth"],
     },
     "behemoth-rhino": {
         "id": "behemoth-rhino",
-        "gameId": None,
+        "gameId": 6001,
         "glossaryId": None,
         "category": "pets-behemoths",
         "iconPath": "/images/behemoths/SacredBeast_006.webp",
-        "rarity": "mythic",
+        "rarity": "legendary",
         "faction": "nature",
-        "nameVi": "Thần Thú Tê Giác Thiết Giáp (Sacred Rhino Behemoth)",
-        "nameEn": "Sacred Rhino Behemoth",
-        "inGameNameVi": "Thần Thú Tê Giác",
-        "inGameNameEn": "Sacred Rhino",
-        "descVi": "Cự Thú Thần Thú số 6 mở khóa giới hạn cấp độ Anh Hùng (+1 ➔ +9 Hero Level Cap) ở Mùa 3.",
-        "descEn": "Sacred Beast #6 unlocking the Season 3 Covenant Seal +1 to +9 Hero Level Cap.",
-        "aliases": ["behemoth-rhino", "Thần Thú Tê Giác", "Sacred Rhino Behemoth"],
+        "nameVi": "Thiên Nhiên — Phượng Hoàng Băng (Icy Phoenix Behemoth)",
+        "nameEn": "Icy Phoenix (Nature Behemoth)",
+        "inGameNameVi": "Phượng Hoàng Băng",
+        "inGameNameEn": "Icy Phoenix",
+        "descVi": "Thần thú số 6 (#6001 — Phượng Hoàng Băng) mở khóa giới hạn cấp độ Anh Hùng (+1 ➔ +9 Hero Level Cap) ở Mùa 3.",
+        "descEn": "Sacred Beast #6 (#6001 — Icy Phoenix) unlocking the Season 3 Covenant Seal +1 to +9 Hero Level Cap.",
+        "aliases": ["behemoth-rhino", "Phượng Hoàng Băng", "Icy Phoenix", "Thần Thú Tê Giác", "Sacred Rhino Behemoth"],
     },
     "elf-guardian-1": {
         "id": "elf-guardian-1",
-        "gameId": None,
+        "gameId": 1,
         "glossaryId": None,
         "category": "pets-behemoths",
         "iconPath": "/images/elves/bg_elves_Role001.webp",
-        "rarity": "mythic",
+        "rarity": "common",
         "faction": "nature",
-        "nameVi": "Tinh Linh Hộ Vệ Rừng Xanh (Sacred Forest Elf)",
-        "nameEn": "Sacred Forest Elf",
-        "inGameNameVi": "Tinh Linh Rừng Xanh",
-        "inGameNameEn": "Sacred Elf",
+        "nameVi": "Tiểu Tinh Linh Đốm Lửa (Flamy — Guardian Elf)",
+        "nameEn": "Flamy (Guardian Elf)",
+        "inGameNameVi": "Đốm Lửa",
+        "inGameNameEn": "Flamy",
         "descVi": "Tinh Linh đồng hành trợ chiến gia tăng chỉ số cộng hưởng và hồi phục theo mùa giải.",
-        "descEn": "Companion Spirit Elf providing seasonal combat resonance and team-wide sustain.",
-        "aliases": ["elf-guardian-1", "Tinh Linh", "Sacred Forest Elf", "Elves"],
+        "descEn": "Companion Spirit Elf (Flamy) providing seasonal combat resonance and team-wide sustain.",
+        "aliases": ["elf-guardian-1", "Đốm Lửa", "Flamy", "Tinh Linh", "Sacred Forest Elf", "Elves"],
     },
     # Phase 4 — Group 7: Shops, Currencies, VIP & Troop Skins
     "shop-arena-star": {
         "id": "shop-arena-star",
-        "gameId": 10012,
+        "gameId": 14,
         "glossaryId": None,
         "category": "items",
-        "iconPath": "/images/items/currencies/icon_10012.webp",
+        "iconPath": "/images/items/currencies/icon_10010.webp",
         "rarity": "legendary",
         "faction": "neutral",
         "nameVi": "Sao Đấu Trường (Arena Stars)",
@@ -1509,10 +1524,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "shop-valor-coin": {
         "id": "shop-valor-coin",
-        "gameId": 10014,
+        "gameId": 202,
         "glossaryId": None,
         "category": "items",
-        "iconPath": "/images/items/currencies/icon_10014.webp",
+        "iconPath": "/images/items/currencies/icon_10016.webp",
         "rarity": "legendary",
         "faction": "neutral",
         "nameVi": "Xu Dũng Khí Chiến Trường (Combat Valor Coins)",
@@ -1525,10 +1540,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "shop-clash-coin": {
         "id": "shop-clash-coin",
-        "gameId": 10023,
+        "gameId": 204,
         "glossaryId": None,
         "category": "items",
-        "iconPath": "/images/items/currencies/icon_10023.webp",
+        "iconPath": "/images/items/currencies/icon_10020.webp",
         "rarity": "legendary",
         "faction": "neutral",
         "nameVi": "Xu Chiến Đấu 4 Quốc Gia (4 Nations / Citadel Clash Coins)",
@@ -1557,10 +1572,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "item-soul-stone-horde": {
         "id": "item-soul-stone-horde",
-        "gameId": 30232,
+        "gameId": 142,
         "glossaryId": None,
         "category": "items",
-        "iconPath": "/images/items/shards/icon_30232.webp",
+        "iconPath": "/images/items/shards/icon_30233.webp",
         "rarity": "mythic",
         "faction": "horde",
         "nameVi": "Hồn Đá Đỏ Bộ Lạc (Horde Soul Stone)",
@@ -1573,10 +1588,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "item-soul-stone-nature": {
         "id": "item-soul-stone-nature",
-        "gameId": 30233,
+        "gameId": 143,
         "glossaryId": None,
         "category": "items",
-        "iconPath": "/images/items/shards/icon_30233.webp",
+        "iconPath": "/images/items/shards/icon_30232.webp",
         "rarity": "mythic",
         "faction": "nature",
         "nameVi": "Hồn Đá Đỏ Thiên Nhiên (Nature Soul Stone)",
@@ -1621,10 +1636,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "item-kingdom-emblem": {
         "id": "item-kingdom-emblem",
-        "gameId": 10040,
+        "gameId": 205,
         "glossaryId": None,
         "category": "items",
-        "iconPath": "/images/items/currencies/icon_10040.webp",
+        "iconPath": "/images/items/currencies/icon_10014.webp",
         "rarity": "mythic",
         "faction": "neutral",
         "nameVi": "Huy Hiệu Vương Quốc (Kingdom Emblems)",
@@ -1637,10 +1652,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "item-invasion-coin": {
         "id": "item-invasion-coin",
-        "gameId": 10016,
+        "gameId": 207,
         "glossaryId": None,
         "category": "items",
-        "iconPath": "/images/items/currencies/icon_10016.webp",
+        "iconPath": "/images/items/currencies/icon_10022.webp",
         "rarity": "legendary",
         "faction": "neutral",
         "nameVi": "Xu Xâm Lăng Rồng Đen / Yeti (Invasion Coins)",
@@ -1653,10 +1668,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "item-peace-shield": {
         "id": "item-peace-shield",
-        "gameId": 30041,
+        "gameId": 301001,
         "glossaryId": None,
         "category": "items",
-        "iconPath": "/images/items/consumables/icon_30041.webp",
+        "iconPath": "/images/items/consumables/icon_30056.webp",
         "rarity": "epic",
         "faction": "neutral",
         "nameVi": "Khiên Hòa Bình 8h / 24h (Peace Shield)",
@@ -1669,10 +1684,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "item-stamina-potion": {
         "id": "item-stamina-potion",
-        "gameId": 30037,
+        "gameId": 7,
         "glossaryId": None,
         "category": "items",
-        "iconPath": "/images/items/consumables/icon_30037.webp",
+        "iconPath": "/images/items/currencies/icon_10007.webp",
         "rarity": "epic",
         "faction": "neutral",
         "nameVi": "Bình Thể Lực 25 (Stamina Potion 25)",
@@ -1701,10 +1716,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "troop-skin-samurai": {
         "id": "troop-skin-samurai",
-        "gameId": 80006,
+        "gameId": 80007,
         "glossaryId": None,
         "category": "items",
-        "iconPath": "/images/troops/skins-avatars/ArmsHead_10006_1.webp",
+        "iconPath": "/images/troops/skins-avatars/ArmsHead_10007_1.webp",
         "rarity": "legendary",
         "faction": "horde",
         "nameVi": "Quân Trang Võ Sĩ Samurai (Samurai Warrior Troop Skin)",
@@ -1717,10 +1732,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "troop-skin-bear": {
         "id": "troop-skin-bear",
-        "gameId": 80007,
+        "gameId": 80006,
         "glossaryId": None,
         "category": "items",
-        "iconPath": "/images/troops/skins-avatars/ArmsHead_10007_1.webp",
+        "iconPath": "/images/troops/skins-avatars/ArmsHead_10006_1.webp",
         "rarity": "legendary",
         "faction": "nature",
         "nameVi": "Quân Trang Giáp Gấu Rừng (Bearskin Guard Troop Skin)",
@@ -1733,10 +1748,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "troop-skin-drum": {
         "id": "troop-skin-drum",
-        "gameId": 80015,
+        "gameId": 80014,
         "glossaryId": None,
         "category": "items",
-        "iconPath": "/images/troops/skins-avatars/ArmsHead_10015_1.webp",
+        "iconPath": "/images/troops/skins-avatars/ArmsHead_10014_1.webp",
         "rarity": "mythic",
         "faction": "horde",
         "nameVi": "Quân Trang Trống Chiến Bộ Lạc (War Drum Troop Skin)",
@@ -1765,10 +1780,10 @@ SUPPLEMENTARY_ASSETS: Dict[str, Dict[str, Any]] = {
     },
     "troop-skin-legendary-chest": {
         "id": "troop-skin-legendary-chest",
-        "gameId": 30255,
+        "gameId": 30566,
         "glossaryId": None,
         "category": "items",
-        "iconPath": "/images/items/chests/icon_30255.webp",
+        "iconPath": "/images/items/consumables/icon_30566.webp",
         "rarity": "legendary",
         "faction": "neutral",
         "nameVi": "Rương Quân Trang Vàng Vạn Năng (Universal Legendary Troop Skin)",
@@ -2367,7 +2382,7 @@ def scan_media_spotlights() -> List[Dict[str, str]]:
                     "titleEn": (t_en.group(1) or t_en.group(2) or "") if t_en else "",
                 }
             )
-    assert len(spotlights) in (91, 94), f"Expected 91 or 94 media_spotlight blocks, got {len(spotlights)}"
+    assert len(spotlights) in (91, 94, 100, 103, 106), f"Expected 91..106 media_spotlight blocks, got {len(spotlights)}"
     return spotlights
 
 
@@ -2534,7 +2549,7 @@ def select_showcase_for_spotlight(
         ],
         "MED-1.1-03": [
             make_item("faction-league", "DAYS 1-20 S0"),
-            make_item("faction-horde", "DAY 21+ PIVOT"),
+            make_item("faction-horde", "DAY 21+ HORDE"),
             make_item("faction-nature", "S1 COUNTER"),
             make_item("hero-pyromancer", "STARTER CARRY"),
             make_item("hero-desert-prince", "HORDE CORE"),
@@ -2748,11 +2763,19 @@ def select_showcase_for_spotlight(
             make_item("item-guild-honor", "360K HONOR"),
             make_item("item-guild-coins", "54K COINS"),
             make_item("hero-soulmancer", "AWAKEN AT S1"),
-            make_item("meta-horde-pivot", "DAY 21 PIVOT"),
+            make_item("meta-horde-pivot", "DAY 21 MYTHIC"),
+        ],
+        "MED-4.2-01": [
+            make_item("hero-rose-princess", "LEAGUE MYTHIC"),
+            make_item("hero-paragon", "LEAGUE MYTHIC"),
+            make_item("hero-bishop", "S1 MYTHIC"),
+            make_item("hero-artificer", "S3 MYTHIC"),
+            make_item("hero-adjudicator", "CORE AWAKEN"),
+            make_item("hero-pyromancer", "CORE AWAKEN"),
         ],
         "MED-4.2-03": [
             make_item("hero-secret-keeper", "S1: 6 LEAGUE"),
-            make_item("hero-desert-prince", "S2: 4L+2H BRIDGE"),
+            make_item("hero-desert-prince", "S2: 6/6 HORDE"),
             make_item("hero-storm-maiden", "S2: 1★ RED MVS"),
             make_item("hero-witch", "S3: 6 HORDE Q1"),
             make_item("hero-wukong", "S4: 5 UR + 1 SSR"),
@@ -2774,6 +2797,14 @@ def select_showcase_for_spotlight(
             make_item("hero-witch", "Q1 SLOT 5"),
             make_item("hero-soulmancer", "Q1 SLOT 6"),
         ],
+        "MED-4.3-01": [
+            make_item("hero-beastmaster", "HORDE TANK"),
+            make_item("hero-desert-prince", "HORDE BRUISER"),
+            make_item("hero-wukong", "HORDE CARRY"),
+            make_item("hero-storm-maiden", "HORDE AOE"),
+            make_item("hero-witch", "HORDE HEAL"),
+            make_item("hero-soulmancer", "CORE AWAKEN"),
+        ],
         "MED-4.3-03": [
             make_item("season-s1", "S1 SPRING"),
             make_item("season-s2", "S2 FROZEN"),
@@ -2791,6 +2822,70 @@ def select_showcase_for_spotlight(
             make_item("hero-petalis", "S3 NATURE UR"),
         ],
         "MED-4.3-04": [
+            make_item("item-golden-root-s1", "S1 GOLDEN ROOT"),
+            make_item("item-obsidian-s2", "S2 OBSIDIAN"),
+            make_item("item-shining-crystal-s3", "S3 CRYSTAL"),
+            make_item("system-brilliance-institute", "BRILLIANCE TECH"),
+            make_item("system-sacred-codex", "3V3 CODEX"),
+            make_item("event-kvk", "CROSS-SVR WAR"),
+        ],
+        "MED-4.4-01": [
+            make_item("hero-tidecaller", "NATURE MYTHIC"),
+            make_item("hero-monk", "NATURE MYTHIC"),
+            make_item("hero-ne-zha", "S1 MYTHIC"),
+            make_item("hero-petalis", "S3 MYTHIC"),
+            make_item("hero-pixie", "CORE AWAKEN"),
+            make_item("hero-forest-maiden", "CORE AWAKEN"),
+        ],
+        "MED-4.4-02": [
+            make_item("hero-tidecaller", "NATURE MYTHIC"),
+            make_item("hero-monk", "NATURE MYTHIC"),
+            make_item("hero-ne-zha", "S1 MYTHIC"),
+            make_item("hero-petalis", "S3 MYTHIC"),
+            make_item("hero-pixie", "CORE AWAKEN"),
+            make_item("hero-forest-maiden", "CORE AWAKEN"),
+        ],
+        "MED-4.4-03": [
+            make_item("item-soul-stone-nature", "18 STONES (2 SSR)"),
+            make_item("item-guild-honor", "240,000 HONOR"),
+            make_item("item-guild-coins", "36,000 COINS"),
+            make_item("item-universal-shard", "560 MYTHIC SHARDS"),
+            make_item("gear-set-glory-of-the-sage", "NATURE MARK +30%"),
+            make_item("building-barracks-nature", "NATURE BARRACKS"),
+        ],
+        "MED-4.4-04": [
+            make_item("hero-treeguard", "TRANSITIONAL TANK"),
+            make_item("hero-druid", "TRANSITIONAL HEAL"),
+            make_item("hero-windwalker", "TRANSITIONAL DPS"),
+            make_item("hero-watcher", "TRANSITIONAL SUB"),
+            make_item("hero-monk", "MYTHIC TANK"),
+            make_item("hero-sage", "FLEX AWAKEN"),
+        ],
+        "MED-4.5-01": [
+            make_item("season-s1", "S1 SPRING WATER"),
+            make_item("season-s2", "S2 FURNACE >30C"),
+            make_item("season-s3", "S3 SACRED CODEX"),
+            make_item("season-s4", "S4 SEA GIANT"),
+            make_item("building-spring-s1", "S1 SPRING LV.35"),
+            make_item("building-furnace-s2", "S2 FURNACE"),
+        ],
+        "MED-4.5-02": [
+            make_item("season-s1", "S1 SPRING WATER"),
+            make_item("season-s2", "S2 FURNACE >30C"),
+            make_item("season-s3", "S3 SACRED CODEX"),
+            make_item("season-s4", "S4 SEA GIANT"),
+            make_item("building-spring-s1", "S1 SPRING LV.35"),
+            make_item("building-furnace-s2", "S2 FURNACE"),
+        ],
+        "MED-4.5-03": [
+            make_item("season-s1", "S1 WORLD TREE"),
+            make_item("season-s2", "S2 FROST"),
+            make_item("season-s3", "S3 STARLIGHT"),
+            make_item("season-s4", "S4 SOVEREIGN"),
+            make_item("building-spring-s1", "S1 SPRING TECH"),
+            make_item("building-furnace-s2", "S2 FURNACE"),
+        ],
+        "MED-4.5-04": [
             make_item("item-golden-root-s1", "S1 GOLDEN ROOT"),
             make_item("item-obsidian-s2", "S2 OBSIDIAN"),
             make_item("item-shining-crystal-s3", "S3 CRYSTAL"),
@@ -3298,6 +3393,30 @@ def select_showcase_for_spotlight(
             make_item("gear-exclusive-weapon", "UW CHEST"),
             make_item("item-soul-stone", "9 SOUL STONES"),
         ],
+        "MED-9.4-01": [
+            make_item("event-dark-empire-invasion", "DARK EMPIRE"),
+            make_item("event-dark-legion-challenge", "LEGION BOSS"),
+            make_item("event-giant-raid", "GIANT RAID"),
+            make_item("item-invasion-coin", "INVASION COIN"),
+            make_item("item-stamina", "RALLY STAMINA"),
+            make_item("item-universal-shard", "BOSS REWARDS"),
+        ],
+        "MED-9.5-01": [
+            make_item("event-guild-race", "GUILD RACE"),
+            make_item("event-guild-rush", "GUILD RUSH"),
+            make_item("item-guild-honor", "40K HONOR"),
+            make_item("item-guild-coins", "6K COINS"),
+            make_item("item-soul-stone", "SOUL STONE"),
+            make_item("meta-double-dip", "300% OVERLAP"),
+        ],
+        "MED-9.6-01": [
+            make_item("event-guild-arms-race", "GAR BURST"),
+            make_item("event-kvk", "KVK WAR"),
+            make_item("meta-double-dip", "TRIPLE-DIP"),
+            make_item("meta-staircase-promotion", "STAIRCASE T10"),
+            make_item("item-peace-shield", "PEACE SHIELD"),
+            make_item("item-speedup", "SPEEDUP HOARD"),
+        ],
     }
 
     if code in group2_bespoke:
@@ -3381,7 +3500,17 @@ def main() -> None:
     hero_profiles: Dict[str, Dict[str, Any]] = {}
     used_hero_gids = set()
 
-    # 1. Build 51 SSoT Glossary Heroes first (with GUARD-P1-05 Wukong=10047 vs Wanderer=10029)
+    # 1. Build 51 SSoT Glossary Heroes first (with GUARD-P1-05 Wukong=10047 vs Wanderer=10029 & Dancer=10007)
+    hero_meta_bytes_overrides: Dict[str, Tuple[str, str]] = {
+        "hero-grunt": ("league", "rare"),
+        "hero-crossbowman": ("nature", "rare"),
+        "hero-guardsman": ("horde", "rare"),
+        "hero-scout": ("nature", "mythic"),
+        "hero-wanderer": ("league", "legendary"),
+        "hero-dancer": ("nature", "epic"),
+        "hero-knight": ("league", "epic"),
+        "hero-petalis": ("nature", "mythic"),
+    }
     for term in glossary_terms:
         if term["category"] != "heroes":
             continue
@@ -3393,6 +3522,8 @@ def main() -> None:
             gid = 10047
         elif tid == "hero-wanderer":
             gid = 10029
+        elif tid == "hero-dancer":
+            gid = 10007
         elif tid == "hero-boar":
             gid = 60008
         else:
@@ -3402,6 +3533,7 @@ def main() -> None:
 
         used_hero_gids.add(gid)
         hm = term.get("heroMeta") or {"faction": "league", "rarity": "legendary", "isAwakenable": False, "isEconomyPassive": False}
+        faction, rarity = hero_meta_bytes_overrides.get(tid, (hm["faction"], hm["rarity"]))
         avatar_path = f"/images/heroes/avatars/Head_{gid}.webp"
         portrait_path = f"/images/heroes/portraits/Lihui_{gid}.webp" if gid != 60008 else avatar_path
         assert_file_exists(avatar_path, f"Hero[{tid}].avatarPath")
@@ -3418,8 +3550,8 @@ def main() -> None:
             "id": tid,
             "gameId": gid,
             "glossaryId": tid,
-            "faction": hm["faction"],
-            "rarity": hm["rarity"],
+            "faction": faction,
+            "rarity": rarity,
             "nameVi": term["vi"],
             "nameEn": term["en"],
             "inGameNameVi": term["inGameVi"],
@@ -3440,19 +3572,21 @@ def main() -> None:
         hero_profiles[tid] = profile_obj
 
     # Add remaining client heroes from 10001..10054 so all 54 Lihui portraits + Boar (60008) = 55 profiles exist
-    extra_hero_names: Dict[int, Tuple[str, str, str, str, str]] = {
-        10006: ("hero-wizard", "league", "rare", "Pháp Sư Già (Wizard)", "Wizard"),
-        10007: ("hero-archer", "nature", "rare", "Dược Sư (Pharmacist)", "Pharmacist"),
-        10009: ("hero-inventor", "league", "epic", "Thợ Rèn (Blacksmith)", "Blacksmith"),
-        10026: ("hero-butcher", "nature", "legendary", "Thợ Đá (Stonemason)", "Stonemason"),
-        10053: ("hero-storm-oracle", "league", "legendary", "Nữ Hầu Ly Ly (Lilia Maid)", "Lilia Maid"),
+    extra_hero_names: Dict[int, Tuple[str, str, str, str, str, List[str]]] = {
+        10005: ("hero-archer", "nature", "rare", "Dược Sư (Pharmacist)", "Pharmacist", ["Archer", "Cung Thủ", "Pharmacist", "Dược Sư"]),
+        10006: ("hero-wizard", "nature", "epic", "Pháp Sư Già (Wizard)", "Wizard", ["Wizard", "Pháp Sư", "Pháp Sư Già"]),
+        10009: ("hero-inventor", "horde", "rare", "Thợ Rèn (Blacksmith)", "Blacksmith", ["Inventor", "Nhà Phát Minh", "Blacksmith", "Thợ Rèn"]),
+        10026: ("hero-butcher", "nature", "legendary", "Thợ Đá (Stonemason)", "Stonemason", ["Butcher", "Đồ Tể", "Stonemason", "Thợ Đá"]),
+        10053: ("hero-storm-oracle", "league", "mythic", "Nữ Hầu Ly Ly (Lilia Maid)", "Lilia Maid", ["Storm Oracle", "Tiên Tri Bão Tố", "Lilia Maid", "Nữ Hầu Ly Ly"]),
     }
+    extra_hero_aliases: Dict[str, List[str]] = {}
     for gid in range(10001, 10055):
         if gid in used_hero_gids:
             continue
-        extra_id, faction, rarity, name_vi, name_en = extra_hero_names.get(
-            gid, (f"hero-unit-{gid}", "league", "epic", f"Anh Hùng #{gid}", f"Hero #{gid}")
+        extra_id, faction, rarity, name_vi, name_en, ex_aliases = extra_hero_names.get(
+            gid, (f"hero-unit-{gid}", "league", "epic", f"Anh Hùng #{gid}", f"Hero #{gid}", [])
         )
+        extra_hero_aliases[extra_id] = ex_aliases
         avatar_path = f"/images/heroes/avatars/Head_{gid}.webp"
         portrait_path = f"/images/heroes/portraits/Lihui_{gid}.webp"
         assert_file_exists(avatar_path, f"ExtraHero[{extra_id}].avatarPath")
@@ -3497,14 +3631,14 @@ def main() -> None:
             game_id = hp["gameId"]
         elif tid in GLOSSARY_ICON_OVERRIDES:
             icon_path, portrait_path, rarity, faction = GLOSSARY_ICON_OVERRIDES[tid]
-            game_id = None
+            game_id = GLOSSARY_GAME_ID_OVERRIDES.get(tid)
         else:
             g_idx = glossary_index.get(tid, {})
             icon_path = g_idx.get("primary_image", "/images/items/currencies/icon_10002.webp")
             portrait_path = None
             rarity = infer_rarity_from_term(tid, term["category"])
             faction = "neutral"
-            game_id = None
+            game_id = GLOSSARY_GAME_ID_OVERRIDES.get(tid)
 
         assert_file_exists(icon_path, f"Glossary[{tid}].iconPath")
         if portrait_path:
@@ -3562,7 +3696,18 @@ def main() -> None:
                 "inGameNameEn": hp["inGameNameEn"],
                 "descVi": hp["nameVi"],
                 "descEn": hp["nameEn"],
-                "aliases": [hero_id, hp["nameVi"], hp["nameEn"], hp["inGameNameVi"], hp["inGameNameEn"]],
+                "aliases": list(
+                    dict.fromkeys(
+                        [
+                            hero_id,
+                            hp["nameVi"],
+                            hp["nameEn"],
+                            hp["inGameNameVi"],
+                            hp["inGameNameEn"],
+                            *extra_hero_aliases.get(hero_id, []),
+                        ]
+                    )
+                ),
             }
 
     for sup_id, sup_obj in SUPPLEMENTARY_ASSETS.items():
@@ -3576,7 +3721,7 @@ def main() -> None:
     media_showcase_by_code: Dict[str, List[Dict[str, Any]]] = {}
     for sp in spotlights:
         media_showcase_by_code[sp["mediaCode"]] = select_showcase_for_spotlight(sp, asset_registry)
-    for diag_code in ["MED-5.1-03", "MED-5.2-03", "MED-5.3-03", "MED-5.4-03", "MED-6.1-03", "MED-6.2-03", "MED-6.3-03", "MED-7.1-03", "MED-7.2-03", "MED-7.3-03", "MED-7.4-03", "MED-8.1-01", "MED-8.2-01", "MED-8.3-02", "MED-8.4-01", "MED-9.1-01", "MED-9.2-01", "MED-9.3-01"]:
+    for diag_code in ["MED-5.1-03", "MED-5.2-03", "MED-5.3-03", "MED-5.4-03", "MED-6.1-03", "MED-6.2-03", "MED-6.3-03", "MED-7.1-03", "MED-7.2-03", "MED-7.3-03", "MED-7.4-03", "MED-8.1-01", "MED-8.2-01", "MED-8.3-02", "MED-8.4-01", "MED-9.1-01", "MED-9.2-01", "MED-9.3-01", "MED-9.4-01", "MED-9.5-01", "MED-9.6-01"]:
         if diag_code not in media_showcase_by_code:
             media_showcase_by_code[diag_code] = select_showcase_for_spotlight({"mediaCode": diag_code, "articleCode": diag_code.split("-")[1], "titleVi": "", "titleEn": "", "descVi": "", "descEn": ""}, asset_registry)
 
@@ -4047,11 +4192,6 @@ def main() -> None:
         "  for (const candidate of candidates) {",
         "    const exact = resolveEntityFromCodeToken(candidate);",
         "    if (exact) return exact;",
-        "  }",
-        "  const code = typeof input === 'string' ? legacyMediaCode : input.mediaCode;",
-        "  if (code && MEDIA_SHOWCASE_BY_CODE[code]?.length) {",
-        "    const fallbackAssetId = MEDIA_SHOWCASE_BY_CODE[code][0].assetId;",
-        "    return GAME_ASSET_REGISTRY[fallbackAssetId];",
         "  }",
         "  return undefined;",
         "}",
@@ -4594,8 +4734,8 @@ def load_meta_enrichment() -> Dict[str, Any]:
                     if cand_b not in body_paths:
                         body_paths.append(cand_b)
 
-        primary_path = head_paths[-1] if head_paths else "/images/pets/avatars/Head_pet_1904.webp"
-        portrait_path = body_paths[-1] if body_paths else primary_path
+        primary_path = head_paths[0] if head_paths else "/images/pets/avatars/Head_pet_1904.webp"
+        portrait_path = body_paths[0] if body_paths else "/images/pets/illustrations/pet_1904.webp"
         gallery_paths = list(dict.fromkeys([*head_paths, *body_paths]))
 
         result["companion_pets"].append(
@@ -4614,22 +4754,25 @@ def load_meta_enrichment() -> Dict[str, Any]:
 
     # 3. 6 Equipment Suits (equipment_suit)
     suit_visual_map = {
-        103: ("legendary", "horde", "/images/equipment/hero-gear/icon_40013.webp", ["/images/equipment/hero-gear/icon_40013.webp", "/images/equipment/hero-gear/icon_40014.webp", "/images/equipment/hero-gear/icon_40015.webp", "/images/equipment/hero-gear/icon_40016.webp"]),
-        104: ("legendary", "league", "/images/equipment/hero-gear/icon_40005.webp", ["/images/equipment/hero-gear/icon_40005.webp", "/images/equipment/hero-gear/icon_40006.webp", "/images/equipment/hero-gear/icon_40007.webp", "/images/equipment/hero-gear/icon_40008.webp"]),
-        105: ("legendary", "nature", "/images/equipment/hero-gear/icon_40009.webp", ["/images/equipment/hero-gear/icon_40009.webp", "/images/equipment/hero-gear/icon_40010.webp", "/images/equipment/hero-gear/icon_40011.webp", "/images/equipment/hero-gear/icon_40012.webp"]),
-        1101: ("mythic", "neutral", "/images/equipment/hero-gear/icon_40001.webp", ["/images/equipment/hero-gear/icon_40001.webp", "/images/equipment/hero-gear/icon_40002.webp", "/images/equipment/hero-gear/icon_40003.webp", "/images/equipment/hero-gear/icon_40004.webp"]),
-        1102: ("mythic", "horde", "/images/equipment/hero-gear/icon_40016.webp", ["/images/equipment/hero-gear/icon_40013.webp", "/images/equipment/hero-gear/icon_40014.webp", "/images/equipment/hero-gear/icon_40015.webp", "/images/equipment/hero-gear/icon_40016.webp"]),
-        1103: ("mythic", "league", "/images/equipment/hero-gear/icon_40008.webp", ["/images/equipment/hero-gear/icon_40005.webp", "/images/equipment/hero-gear/icon_40006.webp", "/images/equipment/hero-gear/icon_40007.webp", "/images/equipment/hero-gear/icon_40008.webp"]),
+        103: ("legendary", "horde", "/images/equipment/hero-gear/icon_40063.webp", ["/images/equipment/hero-gear/icon_40063.webp", "/images/equipment/hero-gear/icon_41063.webp", "/images/equipment/hero-gear/icon_42063.webp", "/images/equipment/hero-gear/icon_45063.webp"]),
+        104: ("legendary", "league", "/images/equipment/hero-gear/icon_40064.webp", ["/images/equipment/hero-gear/icon_40064.webp", "/images/equipment/hero-gear/icon_41064.webp", "/images/equipment/hero-gear/icon_42064.webp", "/images/equipment/hero-gear/icon_45064.webp"]),
+        105: ("legendary", "nature", "/images/equipment/hero-gear/icon_40060.webp", ["/images/equipment/hero-gear/icon_40060.webp", "/images/equipment/hero-gear/icon_41060.webp", "/images/equipment/hero-gear/icon_42060.webp", "/images/equipment/hero-gear/icon_45060.webp"]),
+        1101: ("mythic", "neutral", "/images/equipment/hero-gear/icon_40052.webp", ["/images/equipment/hero-gear/icon_40052.webp", "/images/equipment/hero-gear/icon_41052.webp", "/images/equipment/hero-gear/icon_42052.webp", "/images/equipment/hero-gear/icon_45052.webp"]),
+        1102: ("mythic", "horde", "/images/equipment/hero-gear/icon_40053.webp", ["/images/equipment/hero-gear/icon_40053.webp", "/images/equipment/hero-gear/icon_41053.webp", "/images/equipment/hero-gear/icon_42053.webp", "/images/equipment/hero-gear/icon_45053.webp"]),
+        1103: ("mythic", "league", "/images/equipment/hero-gear/icon_40059.webp", ["/images/equipment/hero-gear/icon_40059.webp", "/images/equipment/hero-gear/icon_41059.webp", "/images/equipment/hero-gear/icon_42059.webp", "/images/equipment/hero-gear/icon_45059.webp"]),
     }
+    seen_suit_ids = set()
     for es in sorted(tables.get("equipment_suit", []), key=lambda x: int(x.get("id", 0))):
-        sid = int(es["id"])
-        if sid not in suit_visual_map:
+        name_key = str(es.get("name") or es.get("suit_name") or "")
+        m_suit = re.match(r"^equipment_suit_(\d+)$", name_key)
+        sid = int(m_suit.group(1)) if m_suit else int(es.get("suit_id") or es.get("id") or 0)
+        if sid not in suit_visual_map or sid in seen_suit_ids:
             continue
-        name_key = str(es.get("suit_name") or "")
         n_vi = str(loc_vi.get(name_key) or "").strip()
         n_en = str(loc_en.get(name_key) or "").strip()
         if not n_en or VI_DIACRITIC_REGEX.search(n_en):
             continue
+        seen_suit_ids.add(sid)
         s_rarity, s_faction, s_path, s_gallery = suit_visual_map[sid]
         result["equipment_suits"].append(
             {
@@ -4647,13 +4790,13 @@ def load_meta_enrichment() -> Dict[str, Any]:
 
     # 4. 7 Lord Equipment slots (lord_equipment_name01..07)
     lord_slot_configs = [
-        (900001, "lord_equip_name01", "horde", "/images/items/consumables/icon_lord_1.webp", "gear-lord-sword"),
-        (900002, "lord_equip_name02", "horde", "/images/items/consumables/icon_lord_2.webp", "gear-lord-wand"),
-        (900003, "lord_equip_name03", "nature", "/images/items/consumables/icon_lord_3.webp", "gear-lord-chest"),
-        (900004, "lord_equip_name04", "nature", "/images/items/consumables/icon_lord_4.webp", "gear-lord-greaves"),
-        (900005, "lord_equip_name05", "league", "/images/items/consumables/icon_lord_5.webp", "gear-lord-helm"),
-        (900006, "lord_equip_name06", "league", "/images/items/consumables/icon_lord_6.webp", "gear-lord-ring"),
-        (900007, "lord_equip_name07", "neutral", "/images/items/consumables/icon_lord_6.webp", None),
+        (900001, "lord_equip_name03", "league", "/images/items/consumables/icon_lord_1.webp", "gear-lord-helm"),
+        (900002, "lord_equip_name05", "horde", "/images/items/consumables/icon_lord_2.webp", "gear-lord-sword"),
+        (900003, "lord_equip_name01", "nature", "/images/items/consumables/icon_lord_3.webp", "gear-lord-chest"),
+        (900004, "lord_equip_name04", "league", "/images/items/consumables/icon_lord_4.webp", "gear-lord-ring"),
+        (900005, "lord_equip_name06", "horde", "/images/items/consumables/icon_lord_5.webp", "gear-lord-greaves"),
+        (900006, "lord_equip_name02", "nature", "/images/items/consumables/icon_lord_6.webp", "gear-lord-wand"),
+        (900007, "lord_equip_name07", "neutral", "/images/items/consumables/icon_lord_7.webp", None),
     ]
     for l_gid, l_key, l_faction, l_path, sup_id in lord_slot_configs:
         n_vi = str(loc_vi.get(l_key) or "").strip()
@@ -4966,11 +5109,11 @@ def build_codex_shards(
     # D. Process Remaining `manifest["assets"]` with Canonical SubCategories
     # -------------------------------------------------------------------------
     rune_tier_labels = {
-        "1": ("Bậc I — Thường", "Tier I — Common", "common"),
-        "2": ("Bậc II — Khá", "Tier II — Uncommon", "uncommon"),
-        "3": ("Bậc III — Hiếm", "Tier III — Rare", "rare"),
-        "4": ("Bậc IV — Sử Thi", "Tier IV — Epic", "epic"),
-        "5": ("Bậc V — Huyền Thoại", "Tier V — Legendary", "legendary"),
+        "1": ("Bậc I — Khá", "Tier I — Uncommon", "uncommon"),
+        "2": ("Bậc II — Hiếm", "Tier II — Rare", "rare"),
+        "3": ("Bậc III — Sử Thi", "Tier III — Epic", "epic"),
+        "4": ("Bậc IV — Huyền Thoại", "Tier IV — Legendary", "legendary"),
+        "5": ("Bậc V — Thần Thoại", "Tier V — Mythic", "mythic"),
     }
 
     for img in raw_images:
@@ -5042,7 +5185,7 @@ def build_codex_shards(
             t_vi, t_en, t_rarity = rune_tier_labels[m_rune.group(2)]
             raw_name_vi = f"{raw_name_vi} [{t_vi}]"
             raw_name_en = f"{raw_name_en} [{t_en}]"
-            rarity = t_rarity
+            rarity = str(img.get("quality") or t_rarity)
 
         # Fix inverted faction from old manifest if present
         manifest_faction = str(img.get("faction") or "")

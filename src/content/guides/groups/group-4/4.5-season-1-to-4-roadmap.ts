@@ -7,8 +7,8 @@ export const ARTICLE_4_5_SEASON_1_TO_4_ROADMAP: GuideArticle = {
   badge: "PRO",
   readingMinutes: 12,
   title: {
-    vi: "Bản Đồ Lộ Trình Season 1 ➔ Season 4 & Checklist Tích Trữ Trước Mùa Giải (Macro Season Roadmap)",
-    en: "Season 1 to Season 4 Macro Roadmap & Pre-Season 1 Hoarding Checklist",
+    vi: "Lộ Trình Mùa Giải (S1–S4)",
+    en: "Season 1–4 Roadmap",
   },
   summary: {
     vi: "Tổng quan toàn bộ cơ chế bản đồ, công trình mùa giải (Suối Nguồn The Spring Lv.35, Lò Sưởi 30°C, Viện Huy Hoàng Lv.40 & 5,422 Dragon Essence mở Lính T11, Ô Đồ Chúa Tể #7, Sách Thánh Sacred Codex, Behemoth, Sea Giant 8,200), sự dịch chuyển Meta từ Season 1 đến Season 4 và Bảng 7 nhóm tài nguyên tích trữ trước Ngày 1 Season 1.",
