@@ -1475,16 +1475,16 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
             categorySlug: "events-vip",
             phaseNumber: 9,
             title: {
-              vi: "9.2 Đặc Quyền VIP & Tiệm",
-              en: "9.2 VIP & Shop Planner",
+              vi: "9.2 VIP Level",
+              en: "9.2 VIP Level",
             },
             fullTitle: {
-              vi: "9.2 Cấp Đặc Quyền VIP (VIP 1–20) & Quy Hoạch Tiệm Vinh Quang Hội",
-              en: "9.2 VIP Privilege Level (VIP 1–20) & Guild Honor Shop Budget",
+              vi: "9.2 VIP Level",
+              en: "9.2 VIP Level",
             },
             summary: {
-              vi: "Tra cứu mốc Điểm VIP / chi phí tích lũy từ VIP 1 đến VIP 20 và tính toán ngân sách Vinh Quang Hội giữ sàn dự phòng an toàn 360,000 xu.",
-              en: "Look up VIP Point thresholds from VIP 1 to VIP 20 and plan weekly Guild Honor shop purchases while maintaining the 360,000 safety floor.",
+              vi: "Tra cứu chính xác đặc quyền cộng dồn từ VIP 1 đến VIP 16 (và mở rộng VIP 17–20) theo dữ liệu game cache, kéo chọn từng điểm VIP và tính toán số điểm còn thiếu quy đổi ra USD & Khối Vàng VNĐ.",
+              en: "Look up exact cumulative VIP privileges from VIP 1 to VIP 16 (plus extended VIP 17-20) from game cache data, drag to select individual VIP points, and calculate missing points in USD and regional Gold Bricks.",
             },
             dataSourceTab: {
               vi: "Tab VIP cost USD & Tab Shops",
