@@ -24,6 +24,12 @@ import type {
   AdminPaymentSyncJobState,
   AdminSystemParamItem,
   AdminSystemParamsListResponse,
+  AdminProxyItem,
+  AdminProxySettings,
+  AdminProxiesListResponse,
+  AdminProxyCreateResult,
+  AdminProxyTestResult,
+  AdminRecoveryReplayResult,
 } from "@/types/api";
 
 const ADMIN_COOKIE_NAME = "tophub_admin_token";
@@ -339,3 +345,62 @@ export async function deleteAdminSystemParamAction(
   if ("errorResponse" in auth) return auth.errorResponse;
   return apiClient.deleteAdminSystemParam(auth.token, id);
 }
+
+export async function getAdminProxiesAction(): Promise<
+  ApiResponse<AdminProxiesListResponse>
+> {
+  const auth = getAdminTokenOrUnauthorized<AdminProxiesListResponse>();
+  if ("errorResponse" in auth) return auth.errorResponse;
+  return apiClient.getAdminProxies(auth.token);
+}
+
+export async function createAdminProxiesAction(payload: {
+  raw: string;
+  label?: string;
+}): Promise<ApiResponse<AdminProxyCreateResult>> {
+  const auth = getAdminTokenOrUnauthorized<AdminProxyCreateResult>();
+  if ("errorResponse" in auth) return auth.errorResponse;
+  return apiClient.createAdminProxies(auth.token, payload);
+}
+
+export async function updateAdminProxyAction(
+  id: string,
+  payload: { enabled?: boolean; label?: string | null }
+): Promise<ApiResponse<AdminProxyItem>> {
+  const auth = getAdminTokenOrUnauthorized<AdminProxyItem>();
+  if ("errorResponse" in auth) return auth.errorResponse;
+  return apiClient.updateAdminProxy(auth.token, id, payload);
+}
+
+export async function deleteAdminProxyAction(
+  id: string
+): Promise<ApiResponse<{ id: string }>> {
+  const auth = getAdminTokenOrUnauthorized<{ id: string }>();
+  if ("errorResponse" in auth) return auth.errorResponse;
+  return apiClient.deleteAdminProxy(auth.token, id);
+}
+
+export async function testAdminProxyAction(
+  id: string
+): Promise<ApiResponse<AdminProxyTestResult>> {
+  const auth = getAdminTokenOrUnauthorized<AdminProxyTestResult>();
+  if ("errorResponse" in auth) return auth.errorResponse;
+  return apiClient.testAdminProxy(auth.token, id);
+}
+
+export async function updateAdminProxySettingsAction(
+  payload: Partial<AdminProxySettings>
+): Promise<ApiResponse<AdminProxySettings>> {
+  const auth = getAdminTokenOrUnauthorized<AdminProxySettings>();
+  if ("errorResponse" in auth) return auth.errorResponse;
+  return apiClient.updateAdminProxySettings(auth.token, payload);
+}
+
+export async function replayAdminFailedRecordsAction(payload: {
+  dry_run: boolean;
+}): Promise<ApiResponse<AdminRecoveryReplayResult>> {
+  const auth = getAdminTokenOrUnauthorized<AdminRecoveryReplayResult>();
+  if ("errorResponse" in auth) return auth.errorResponse;
+  return apiClient.replayAdminFailedRecords(auth.token, payload);
+}
+

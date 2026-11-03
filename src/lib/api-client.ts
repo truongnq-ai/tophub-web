@@ -37,6 +37,12 @@ import type {
   AdminPaymentSyncJobState,
   AdminSystemParamItem,
   AdminSystemParamsListResponse,
+  AdminProxyItem,
+  AdminProxySettings,
+  AdminProxiesListResponse,
+  AdminProxyCreateResult,
+  AdminProxyTestResult,
+  AdminRecoveryReplayResult,
 } from "@/types/api";
 
 
@@ -478,6 +484,74 @@ export const apiClient = {
         headers: { Authorization: `Bearer ${token}` },
       }
     ),
+
+  getAdminProxies: (token: string) =>
+    apiFetch<AdminProxiesListResponse>("/api/v1/admin/proxies", {
+      headers: { Authorization: `Bearer ${token}` },
+      cache: "no-store",
+    }),
+
+  createAdminProxies: (
+    token: string,
+    payload: { raw: string; label?: string }
+  ) =>
+    apiFetch<AdminProxyCreateResult>("/api/v1/admin/proxies", {
+      method: "POST",
+      headers: { Authorization: `Bearer ${token}` },
+      body: JSON.stringify(payload),
+    }),
+
+  updateAdminProxy: (
+    token: string,
+    id: string,
+    payload: { enabled?: boolean; label?: string | null }
+  ) =>
+    apiFetch<AdminProxyItem>(
+      `/api/v1/admin/proxies/${encodeURIComponent(id)}`,
+      {
+        method: "PATCH",
+        headers: { Authorization: `Bearer ${token}` },
+        body: JSON.stringify(payload),
+      }
+    ),
+
+  deleteAdminProxy: (token: string, id: string) =>
+    apiFetch<{ id: string }>(
+      `/api/v1/admin/proxies/${encodeURIComponent(id)}`,
+      {
+        method: "DELETE",
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    ),
+
+  testAdminProxy: (token: string, id: string) =>
+    apiFetch<AdminProxyTestResult>(
+      `/api/v1/admin/proxies/${encodeURIComponent(id)}/test`,
+      {
+        method: "POST",
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    ),
+
+  updateAdminProxySettings: (
+    token: string,
+    payload: Partial<AdminProxySettings>
+  ) =>
+    apiFetch<AdminProxySettings>("/api/v1/admin/proxies/settings", {
+      method: "PATCH",
+      headers: { Authorization: `Bearer ${token}` },
+      body: JSON.stringify(payload),
+    }),
+
+  replayAdminFailedRecords: (
+    token: string,
+    payload: { dry_run: boolean }
+  ) =>
+    apiFetch<AdminRecoveryReplayResult>("/api/v1/admin/recovery/replay", {
+      method: "POST",
+      headers: { Authorization: `Bearer ${token}` },
+      body: JSON.stringify(payload),
+    }),
 
   getAdminWeeklyTimeline: (token: string) =>
     apiFetch<AdminWeeklyTimelineItem[]>("/api/v1/admin/checkins/weekly-timeline", {

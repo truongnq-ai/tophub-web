@@ -23,6 +23,7 @@ import {
   getAdminGiftcodesAction,
   getAdminRedemptionsAction,
   getAdminCheckinsAction,
+  getAdminProxiesAction,
 } from "@/actions/admin";
 import type { AdminAccountItem, AdminAccountsSummary } from "@/types/api";
 import { extractPaginatedResult } from "./admin/types";
@@ -34,6 +35,7 @@ import { TabRedemptions } from "./admin/tab-redemptions";
 import { TabCheckins } from "./admin/tab-checkins";
 import { TabComments } from "./admin/tab-comments";
 import { TabSystemParams } from "./admin/tab-system-params";
+import { TabProxies } from "./admin/tab-proxies";
 import { AccountPaymentsDialog } from "./admin/account-payments-dialog";
 
 interface AdminManagerProps {
@@ -61,6 +63,9 @@ export function AdminManager({
   const [failedRedemptionsCount, setFailedRedemptionsCount] = useState(0);
   const [checkinsCount, setCheckinsCount] = useState(0);
   const [systemParamsCount, setSystemParamsCount] = useState<number | undefined>(undefined);
+  const [proxySummary, setProxySummary] = useState<{ healthy: number; total: number } | undefined>(
+    undefined
+  );
   const [isRefreshingStats, setIsRefreshingStats] = useState(false);
 
   // Filter states for Accounts CRM
@@ -80,7 +85,7 @@ export function AdminManager({
   const loadStats = React.useCallback(async () => {
     try {
       setIsRefreshingStats(true);
-      const [accRes, gcRes, redRes, chkRes] = await Promise.allSettled([
+      const [accRes, gcRes, redRes, chkRes, proxyRes] = await Promise.allSettled([
         typeof getAdminAccountsAction === "function"
           ? getAdminAccountsAction({ page: 1, limit: 1 })
           : Promise.resolve({ success: false } as const),
@@ -92,6 +97,9 @@ export function AdminManager({
           : Promise.resolve({ success: false } as const),
         typeof getAdminCheckinsAction === "function"
           ? getAdminCheckinsAction({ page: 1, limit: 1 })
+          : Promise.resolve({ success: false } as const),
+        typeof getAdminProxiesAction === "function"
+          ? getAdminProxiesAction()
           : Promise.resolve({ success: false } as const),
       ]);
 
@@ -130,6 +138,13 @@ export function AdminManager({
       if (chkRes.status === "fulfilled" && chkRes.value?.success && chkRes.value.data) {
         const normChk = extractPaginatedResult(chkRes.value.data, 1, 1);
         setCheckinsCount(normChk.summary?.total_checkins ?? normChk.total);
+      }
+
+      if (proxyRes.status === "fulfilled" && proxyRes.value?.success && proxyRes.value.data) {
+        setProxySummary({
+          healthy: proxyRes.value.data.pool.healthy,
+          total: proxyRes.value.data.pool.total,
+        });
       }
     } catch {
       // Fallback
@@ -431,6 +446,8 @@ export function AdminManager({
             failedRedemptionsCount: failedRedemptionsCount,
             checkinsCount: checkinsCount,
             systemParamsCount: systemParamsCount,
+            proxiesHealthy: proxySummary?.healthy,
+            proxiesTotal: proxySummary?.total,
           }}
         />
 
@@ -470,6 +487,10 @@ export function AdminManager({
 
           {activeTab === "system-params" && (
             <TabSystemParams onParamsCountChange={setSystemParamsCount} />
+          )}
+
+          {activeTab === "proxies" && (
+            <TabProxies onSummaryChange={setProxySummary} />
           )}
         </div>
       </div>

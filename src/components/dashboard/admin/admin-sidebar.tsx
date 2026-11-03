@@ -9,6 +9,7 @@ import {
   CalendarCheck,
   MessageSquare,
   SlidersHorizontal,
+  Network,
   PanelLeftClose,
   PanelLeftOpen,
   Menu,
@@ -31,7 +32,8 @@ export type AdminTabId =
   | "redemptions"
   | "checkins"
   | "comments"
-  | "system-params";
+  | "system-params"
+  | "proxies";
 
 export interface AdminSidebarBadges {
   accountsCount?: number;
@@ -43,6 +45,8 @@ export interface AdminSidebarBadges {
   failedCheckinsCount?: number;
   pendingCommentsCount?: number;
   systemParamsCount?: number;
+  proxiesHealthy?: number;
+  proxiesTotal?: number;
 }
 
 export interface AdminNavItemConfig {
@@ -159,6 +163,22 @@ export function buildAdminNavGroups(badges: AdminSidebarBadges): AdminNavGroupCo
           icon: SlidersHorizontal,
           badgeValue: badges.systemParamsCount,
           badgeTone: "default",
+        },
+        {
+          id: "proxies",
+          label: "Proxy",
+          shortDesc:
+            "Quản lý proxy pool gọi API game: bật/tắt, thêm/xoá, kiểm tra sức khoẻ, chạy lại lượt lỗi",
+          icon: Network,
+          badgeValue:
+            badges.proxiesTotal !== undefined
+              ? `${badges.proxiesHealthy ?? 0}/${badges.proxiesTotal}`
+              : undefined,
+          badgeTone:
+            badges.proxiesTotal !== undefined &&
+            (badges.proxiesHealthy ?? 0) === 0
+              ? "rose"
+              : "emerald",
         },
       ],
     },
@@ -390,7 +410,7 @@ export function AdminSidebar({ activeTab, onSelectTab, badges }: AdminSidebarPro
                   Điều Hướng
                 </p>
                 <p className="text-[11px] text-slate-400 truncate">
-                  4 nhóm • 7 chức năng
+                  4 nhóm • 8 chức năng
                 </p>
               </div>
             )}

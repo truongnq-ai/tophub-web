@@ -560,3 +560,76 @@ export interface AdminSystemParamsListResponse {
   items: AdminSystemParamItem[];
   groups: string[];
 }
+
+export type AdminProxyRuntimeStatus =
+  | "DISABLED"
+  | "COOLDOWN"
+  | "HEALTHY"
+  | "BLOCKED"
+  | "ERROR"
+  | "UNKNOWN";
+
+export interface AdminProxyItem {
+  id: string;
+  label: string | null;
+  protocol: string;
+  host: string;
+  port: number;
+  username: string | null;
+  has_password: boolean;
+  enabled: boolean;
+  last_status: string;
+  last_error: string | null;
+  last_exit_ip: string | null;
+  last_latency_ms: number | null;
+  last_checked_at: string | null;
+  runtime_status: AdminProxyRuntimeStatus;
+  cooldown_until: string | null;
+  success_count: number;
+  failure_count: number;
+  created_at: string;
+}
+
+export interface AdminProxySettings {
+  allow_direct_fallback: boolean;
+  min_interval_ms: number;
+}
+
+export interface AdminProxiesListResponse {
+  items: AdminProxyItem[];
+  settings: AdminProxySettings;
+  pool: {
+    total: number;
+    healthy: number;
+    cooling: number;
+    disabled: number;
+  };
+}
+
+export interface AdminProxyCreateResult {
+  created: AdminProxyItem[];
+  skipped: Array<{ line: number; raw: string; reason: string }>;
+}
+
+export interface AdminProxyTestResult {
+  result: {
+    status: "HEALTHY" | "BLOCKED" | "ERROR";
+    exitIp: string | null;
+    latencyMs: number | null;
+    upstreamStatus: number | null;
+    error: string | null;
+  };
+  proxy: AdminProxyItem;
+}
+
+export interface AdminRecoveryReplayResult {
+  dry_run: boolean;
+  accounts: { restorable: number; restored: number; uids: string[] };
+  redemptions: {
+    matched: number;
+    enqueued: number;
+    by_code: Record<string, number>;
+  };
+  checkins: { game_day: string; failed: number; triggered: boolean };
+}
+

@@ -280,6 +280,14 @@ const mockCreateAdminSystemParamAction = vi.fn().mockResolvedValue({
 });
 const mockUpdateAdminSystemParamAction = vi.fn().mockResolvedValue({ success: true, data: {} });
 const mockDeleteAdminSystemParamAction = vi.fn().mockResolvedValue({ success: true, data: { id: "sp-1" } });
+const mockGetAdminProxiesAction = vi.fn().mockResolvedValue({
+  success: true,
+  data: {
+    items: [],
+    settings: { allow_direct_fallback: false, min_interval_ms: 8000 },
+    pool: { total: 0, healthy: 0, cooling: 0, disabled: 0 },
+  },
+});
 
 vi.mock("@/actions/admin", () => ({
   updateAdminAccountAction: (...args: any[]) => mockUpdateAdminAccountAction(...args),
@@ -307,6 +315,7 @@ vi.mock("@/actions/admin", () => ({
   createAdminSystemParamAction: (...args: any[]) => mockCreateAdminSystemParamAction(...args),
   updateAdminSystemParamAction: (...args: any[]) => mockUpdateAdminSystemParamAction(...args),
   deleteAdminSystemParamAction: (...args: any[]) => mockDeleteAdminSystemParamAction(...args),
+  getAdminProxiesAction: (...args: any[]) => mockGetAdminProxiesAction(...args),
 }));
 
 vi.mock("@/hooks/use-toast", () => ({
@@ -576,6 +585,32 @@ describe("AdminManager Component", () => {
       fireEvent.click(retryAllBtn);
     });
     expect(mockRetryAllAdminCheckinsAction).toHaveBeenCalled();
+  });
+
+  it("keeps FAILED status when retryAllAdminCheckinsAction fails (does not fake optimistic SUCCESS)", async () => {
+    mockRetryAllAdminCheckinsAction.mockResolvedValueOnce({
+      success: false,
+      error: {
+        code: "CHECKIN_DAY_NOT_TODAY",
+        message: "Chỉ điểm danh lại được ngày hiện tại (2026-11-03)",
+      },
+    });
+    await renderAdminManager();
+
+    const checkinsTab = screen.getByRole("tab", { name: /Lịch Sử Điểm Danh/i });
+    await act(async () => {
+      fireEvent.mouseDown(checkinsTab, { button: 0 });
+    });
+
+    const retryAllBtn = screen.getByRole("button", {
+      name: /Điểm Danh Lại Lỗi/i,
+    });
+    await act(async () => {
+      fireEvent.click(retryAllBtn);
+    });
+
+    expect(mockRetryAllAdminCheckinsAction).toHaveBeenCalled();
+    expect(screen.getAllByText(/FAILED|THẤT BẠI|Lỗi/i).length).toBeGreaterThan(0);
   });
 
   it("should open Add Giftcode dialog and submit createAdminGiftcodeAction", async () => {

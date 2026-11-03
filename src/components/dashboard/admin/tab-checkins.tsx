@@ -45,6 +45,7 @@ export function TabCheckins() {
   const [filterDay, setFilterDay] = useState<string>("ALL");
   const [retryingId, setRetryingId] = useState<string | null>(null);
   const [isRetryingAll, setIsRetryingAll] = useState(false);
+  const [reloadToken, setReloadToken] = useState(0);
 
   // Pagination & Server summary state
   const [currentPage, setCurrentPage] = useState(1);
@@ -119,7 +120,7 @@ export function TabCheckins() {
     return () => {
       active = false;
     };
-  }, [currentPage, pageSize, filterStatus, filterDay, debouncedSearch]);
+  }, [currentPage, pageSize, filterStatus, filterDay, debouncedSearch, reloadToken]);
 
   const uniqueDays = useMemo(() => {
     if (summary?.distinct_days && summary.distinct_days.length > 0) {
@@ -234,52 +235,26 @@ export function TabCheckins() {
     setIsRetryingAll(true);
     try {
       const res = await retryAllAdminCheckinsAction(filterDay !== "ALL" ? filterDay : undefined);
-      const count = res.success && res.data ? res.data.retried_count : (failedCount || failedCheckins.length);
-
-      setCheckins((prev) =>
-        prev.map((c) =>
-          c.status === "FAILED" && (filterDay === "ALL" || c.game_day === filterDay)
-            ? {
-                ...c,
-                status: "SUCCESS",
-                created_at: new Date().toISOString(),
-              }
-            : c
-        )
-      );
-
-      if (summary) {
-        setSummary((prev) =>
-          prev
-            ? {
-                ...prev,
-                success_count: prev.success_count + prev.failed_count,
-                failed_count: 0,
-              }
-            : prev
-        );
+      if (!res.success) {
+        toast({
+          title: "Không thể điểm danh lại",
+          description: res.error?.message || "Máy chủ từ chối yêu cầu điểm danh lại.",
+          variant: "destructive",
+        });
+        return;
       }
-
       toast({
-        title: "Đã điểm danh lại hàng loạt",
-        description: `Đã hoàn tất điểm danh bù cho ${count} tài khoản bị lỗi.`,
+        title: "Đã kích hoạt điểm danh lại",
+        description:
+          res.data?.message ??
+          `Đang điểm danh lại ${res.data?.retried_count ?? 0} tài khoản lỗi; danh sách sẽ tự làm mới.`,
       });
+      setTimeout(() => setReloadToken((n) => n + 1), 15_000);
     } catch {
-      // Fallback
-      setCheckins((prev) =>
-        prev.map((c) =>
-          c.status === "FAILED"
-            ? {
-                ...c,
-                status: "SUCCESS",
-                created_at: new Date().toISOString(),
-              }
-            : c
-        )
-      );
       toast({
-        title: "Đã điểm danh lại hàng loạt",
-        description: `Đã hoàn tất điểm danh bù cho ${failedCount || failedCheckins.length} tài khoản bị lỗi.`,
+        title: "Không thể điểm danh lại",
+        description: "Không thể kết nối tới máy chủ để điểm danh lại.",
+        variant: "destructive",
       });
     } finally {
       setIsRetryingAll(false);
@@ -598,7 +573,7 @@ export function TabCheckins() {
                         ) : (
                           <span className="inline-flex items-center gap-1 text-[11px] text-rose-600 dark:text-rose-400 font-semibold bg-rose-500/10 px-2 py-0.5 rounded-full border border-rose-500/20">
                             <XCircle className="h-3 w-3" />
-                            THẤT BÀI
+                            THẤT BẠI
                           </span>
                         )}
                       </td>
