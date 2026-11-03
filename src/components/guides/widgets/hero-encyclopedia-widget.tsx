@@ -821,6 +821,7 @@ export function HeroEncyclopediaWidget({
                         rarity={hero.rarity}
                         faction={hero.faction}
                         size="lg"
+                        shape="hero"
                       />
                       <div className="min-w-0">
                         <h4 className="font-heading font-extrabold text-base text-foreground flex flex-wrap items-center gap-1.5">
@@ -916,14 +917,13 @@ export function HeroEncyclopediaWidget({
                       {hero.isAwakenable && (
                         <span className="inline-flex items-center gap-1 rounded-md border border-rose-500/30 bg-rose-500/10 px-2 py-0.5 text-xs font-bold text-rose-600 dark:text-rose-300">
                           {soulStoneAsset && (
-                            <img
+                            <GameAssetFrame
                               src={soulStoneAsset.iconPath}
                               alt=""
-                              width={14}
-                              height={14}
-                              loading="lazy"
-                              decoding="async"
-                              className="h-3.5 w-3.5 object-contain shrink-0"
+                              rarity="mythic"
+                              size="xs"
+                              shape="item"
+                              showFactionBadge={false}
                             />
                           )}
                           <span>{copy.awakenBadge}</span>
@@ -983,6 +983,7 @@ export function HeroEncyclopediaWidget({
                             rarity="mythic"
                             faction={hero.faction}
                             size="sm"
+                            shape="item"
                           />
                           <div className="min-w-0">
                             <span className="block text-xs font-sans uppercase tracking-wider text-amber-600 dark:text-amber-400 font-bold">
@@ -1008,15 +1009,14 @@ export function HeroEncyclopediaWidget({
                           </span>
                         </div>
                         <div className="flex justify-between gap-2">
-                          <span className="inline-flex items-center gap-1 text-muted-foreground font-medium">
-                            <img
+                          <span className="inline-flex items-center gap-1.5 text-muted-foreground font-medium">
+                            <GameAssetFrame
                               src="/images/items/shards/icon_30176.webp"
                               alt=""
-                              width={14}
-                              height={14}
-                              loading="lazy"
-                              decoding="async"
-                              className="h-3.5 w-3.5 object-contain shrink-0"
+                              rarity="legendary"
+                              size="xs"
+                              shape="item"
+                              showFactionBadge={false}
                             />
                             <span>{copy.mvsLabel}</span>
                           </span>
@@ -1030,15 +1030,14 @@ export function HeroEncyclopediaWidget({
                           </span>
                         </div>
                         <div className="flex justify-between gap-2">
-                          <span className="inline-flex items-center gap-1 text-muted-foreground font-medium">
-                            <img
+                          <span className="inline-flex items-center gap-1.5 text-muted-foreground font-medium">
+                            <GameAssetFrame
                               src="/images/items/shards/icon_30176.webp"
                               alt=""
-                              width={14}
-                              height={14}
-                              loading="lazy"
-                              decoding="async"
-                              className="h-3.5 w-3.5 object-contain shrink-0"
+                              rarity="legendary"
+                              size="xs"
+                              shape="item"
+                              showFactionBadge={false}
                             />
                             <span>{copy.sweetSpotLabel}</span>
                           </span>
@@ -1063,14 +1062,13 @@ export function HeroEncyclopediaWidget({
                                 key={gearSet.id}
                                 className="inline-flex items-center gap-1.5 rounded-lg border border-amber-500/35 bg-background/80 px-2.5 py-1 text-xs font-semibold text-foreground"
                               >
-                                <img
+                                <GameAssetFrame
                                   src={gearSet.iconPath}
                                   alt=""
-                                  width={16}
-                                  height={16}
-                                  loading="lazy"
-                                  decoding="async"
-                                  className="h-4 w-4 rounded-sm object-contain shrink-0"
+                                  rarity={gearSet.rarity}
+                                  size="xs"
+                                  shape="item"
+                                  showFactionBadge={false}
                                 />
                                 <span>
                                   {locale === "vi"
@@ -1081,14 +1079,13 @@ export function HeroEncyclopediaWidget({
                             ))}
                             {soulStoneAsset && (
                               <span className="inline-flex items-center gap-1.5 rounded-lg border border-rose-500/35 bg-rose-500/10 px-2.5 py-1 text-xs font-semibold text-rose-600 dark:text-rose-300">
-                                <img
+                                <GameAssetFrame
                                   src={soulStoneAsset.iconPath}
                                   alt=""
-                                  width={16}
-                                  height={16}
-                                  loading="lazy"
-                                  decoding="async"
-                                  className="h-4 w-4 rounded-sm object-contain shrink-0"
+                                  rarity="mythic"
+                                  size="xs"
+                                  shape="item"
+                                  showFactionBadge={false}
                                 />
                                 <span>{copy.soulStoneChipLabel}</span>
                               </span>

@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import React, { useMemo, useState } from "react";
+import { GameAssetFrame } from "@/components/guides/media/game-asset-frame";
 import {
   AlertTriangle,
   ArrowRight,
@@ -481,15 +481,15 @@ export function RelicHallCalculator({
 
           {/* Building Illustration & Transition Pill */}
           <div className="flex flex-col items-center text-center space-y-2">
-            <div className="relative flex h-24 w-24 sm:h-28 sm:w-28 items-center justify-center rounded-3xl bg-gradient-to-b from-amber-500/20 via-amber-500/5 to-muted/40 p-2.5 shadow-inner">
-              <Image
+            <div className="relative inline-flex items-center justify-center">
+              <GameAssetFrame
                 src="/images/buildings/structures/Building_mibaodating.webp"
                 alt={isVi ? "Công trình Sảnh Bí Bảo" : "Relic Hall Building"}
-                width={96}
-                height={96}
-                className="h-20 w-20 sm:h-24 sm:w-24 object-contain drop-shadow-md"
+                rarity="legendary"
+                size="2xl"
+                shape="item"
               />
-              <span className="absolute -bottom-2 inline-flex items-center gap-1 rounded-full bg-amber-500 px-3 py-0.5 font-mono text-xs font-black text-slate-950 shadow-sm">
+              <span className="absolute -bottom-2 z-20 inline-flex items-center gap-1 rounded-full bg-amber-500 px-3 py-0.5 font-mono text-xs font-black text-slate-950 shadow-sm">
                 <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
                 {`Lv.${calculation.fromState.level} ➔ Lv.${calculation.toState.level}`}
               </span>
@@ -670,15 +670,13 @@ export function RelicHallCalculator({
           {/* Card 1: Pha Lê Bí Thuật (Arcane Crystal) — Compact Horizontal KPI Strip */}
           <div className={cn(CALC_MD3.tonalGroup, "space-y-2 p-2.5 sm:p-3")}>
             <div className="flex items-center gap-2.5">
-              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-amber-500/15 p-1">
-                <Image
-                  src={crystalMaterial.iconPath}
-                  alt={crystalName}
-                  width={32}
-                  height={32}
-                  className="h-7 w-7 object-contain"
-                />
-              </div>
+              <GameAssetFrame
+                src={crystalMaterial.iconPath}
+                alt={crystalName}
+                rarity={crystalMaterial.rarity}
+                size="md"
+                shape="item"
+              />
               <h3 className="font-heading text-sm sm:text-base font-bold text-foreground truncate">
                 {crystalName}
               </h3>
@@ -770,15 +768,13 @@ export function RelicHallCalculator({
           {/* Card 2: Đá Vân Ma Thuật (Magic Stone) — Compact Horizontal KPI Strip */}
           <div className={cn(CALC_MD3.tonalGroup, "space-y-2 p-2.5 sm:p-3")}>
             <div className="flex items-center gap-2.5">
-              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-sky-500/15 p-1">
-                <Image
-                  src={stoneMaterial.iconPath}
-                  alt={stoneName}
-                  width={32}
-                  height={32}
-                  className="h-7 w-7 object-contain"
-                />
-              </div>
+              <GameAssetFrame
+                src={stoneMaterial.iconPath}
+                alt={stoneName}
+                rarity={stoneMaterial.rarity}
+                size="md"
+                shape="item"
+              />
               <h3 className="font-heading text-sm sm:text-base font-bold text-foreground truncate">
                 {stoneName}
               </h3>

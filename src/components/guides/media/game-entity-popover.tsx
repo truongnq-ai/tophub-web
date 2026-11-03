@@ -57,7 +57,9 @@ export function GameEntityPopover({ entity, locale }: GameEntityPopoverProps) {
     >
       <span className="flex items-start gap-2.5">
         <GameAssetFrame
+          asset={entity}
           src={entity.iconPath}
+          category={entity.category}
           rarity={entity.rarity}
           faction={entity.faction}
           size="md"

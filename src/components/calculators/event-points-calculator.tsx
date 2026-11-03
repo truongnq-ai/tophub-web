@@ -335,22 +335,28 @@ export function EventPointsCalculator({
                   {locale === "vi"
                     ? (
                         <>
-                          <img
+                          <GameAssetFrame
                             src={EVENT_SCORING_MODE_META.gar.iconPath}
                             alt=""
-                            aria-hidden="true"
-                            className="mr-1.5 inline-block h-4 w-4 shrink-0 object-contain"
+                            rarity="legendary"
+                            size="xs"
+                            shape="item"
+                            showFactionBadge={false}
+                            className="mr-1.5"
                           />
                           <span>{EVENT_SCORING_MODE_META.gar.labelVi}</span>
                         </>
                       )
                     : (
                         <>
-                          <img
+                          <GameAssetFrame
                             src={EVENT_SCORING_MODE_META.gar.iconPath}
                             alt=""
-                            aria-hidden="true"
-                            className="mr-1.5 inline-block h-4 w-4 shrink-0 object-contain"
+                            rarity="legendary"
+                            size="xs"
+                            shape="item"
+                            showFactionBadge={false}
+                            className="mr-1.5"
                           />
                           <span>{EVENT_SCORING_MODE_META.gar.labelEn}</span>
                         </>
@@ -371,22 +377,28 @@ export function EventPointsCalculator({
                   {locale === "vi"
                     ? (
                         <>
-                          <img
+                          <GameAssetFrame
                             src={EVENT_SCORING_MODE_META.kvk.iconPath}
                             alt=""
-                            aria-hidden="true"
-                            className="mr-1.5 inline-block h-4 w-4 shrink-0 object-contain"
+                            rarity="mythic"
+                            size="xs"
+                            shape="item"
+                            showFactionBadge={false}
+                            className="mr-1.5"
                           />
                           <span>{EVENT_SCORING_MODE_META.kvk.labelVi}</span>
                         </>
                       )
                     : (
                         <>
-                          <img
+                          <GameAssetFrame
                             src={EVENT_SCORING_MODE_META.kvk.iconPath}
                             alt=""
-                            aria-hidden="true"
-                            className="mr-1.5 inline-block h-4 w-4 shrink-0 object-contain"
+                            rarity="mythic"
+                            size="xs"
+                            shape="item"
+                            showFactionBadge={false}
+                            className="mr-1.5"
                           />
                           <span>{EVENT_SCORING_MODE_META.kvk.labelEn}</span>
                         </>

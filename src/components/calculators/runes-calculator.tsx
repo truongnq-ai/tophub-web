@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import React, { useEffect, useMemo, useRef, useState } from "react";
+import { GameAssetFrame } from "@/components/guides/media/game-asset-frame";
 import {
   AlertTriangle,
   ArrowLeft,
@@ -820,29 +820,27 @@ export function RunesCalculator({
             <div
               data-testid="runes-central-avatar-frame"
               className={cn(
-                "relative flex h-28 w-28 items-center justify-center rounded-2xl p-2.5 shadow-md transition-all",
-                isGrandAscended
-                  ? "ring-2 ring-rose-500/50 bg-rose-500/10"
-                  : "ring-2 ring-amber-500/45 bg-amber-500/10"
+                "relative inline-flex items-center justify-center rounded-xl",
+                isGrandAscended ? "ring-rose-500/50" : "ring-amber-500/40"
               )}
             >
-              <Image
+              <GameAssetFrame
                 src={CALCULATOR_MATERIALS.runeDust.iconPath}
                 alt={singleResult.slot.name[locale]}
-                width={80}
-                height={80}
-                className="h-20 w-20 object-contain drop-shadow"
+                rarity={isGrandAscended ? "mythic" : "legendary"}
+                size="xl"
+                shape="item"
               />
 
               {/* Top-right Slot Index Badge */}
-              <span className="absolute -top-2 -right-2 inline-flex items-center rounded-full bg-slate-900 px-2.5 py-0.5 font-sans text-xs font-bold text-amber-400 shadow">
+              <span className="absolute -top-2 -right-2 z-20 inline-flex items-center rounded-full bg-slate-900 px-2.5 py-0.5 font-sans text-xs font-bold text-amber-400 shadow">
                 {isVi ? `Ô #${selectedSlot}` : `Slot #${selectedSlot}`}
               </span>
 
               {/* Bottom-left Target Level Badge */}
               <span
                 className={cn(
-                  "absolute -bottom-2 -left-2 inline-flex items-center rounded-full px-2.5 py-0.5 font-mono text-xs font-black text-white shadow tabular-nums",
+                  "absolute -bottom-2 -left-2 z-20 inline-flex items-center rounded-full px-2.5 py-0.5 font-mono text-xs font-black text-white shadow tabular-nums",
                   isGrandAscended ? "bg-rose-600" : "bg-amber-600"
                 )}
               >
@@ -1175,15 +1173,13 @@ export function RunesCalculator({
             {/* Card Header */}
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div className="flex min-w-0 items-center gap-3">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-background/90 p-1.5 shadow-sm">
-                  <Image
-                    src={CALCULATOR_MATERIALS.runeDust.iconPath}
-                    alt={runeDustName}
-                    width={32}
-                    height={32}
-                    className="h-8 w-8 object-contain"
-                  />
-                </div>
+                <GameAssetFrame
+                  src={CALCULATOR_MATERIALS.runeDust.iconPath}
+                  alt={runeDustName}
+                  rarity={CALCULATOR_MATERIALS.runeDust.rarity}
+                  size="md"
+                  shape="item"
+                />
                 <div className="min-w-0">
                   <h3 className="truncate font-heading text-sm font-bold text-foreground sm:text-base">
                     {runeDustName}
@@ -1326,19 +1322,17 @@ export function RunesCalculator({
             {/* Card Header */}
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div className="flex min-w-0 items-center gap-3">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-background/90 p-1.5 shadow-sm">
-                  <Image
-                    src="/images/events/entry-icons/icon_Runes.webp"
-                    alt={
-                      isVi
-                        ? "Phôi Đá Cổ Ngữ Lv.1 (Quy đổi 3^(n-1))"
-                        : "Lv.1 Rune Copies (3^(n-1) Equivalent)"
-                    }
-                    width={32}
-                    height={32}
-                    className="h-8 w-8 object-contain"
-                  />
-                </div>
+                <GameAssetFrame
+                  src="/images/events/entry-icons/icon_Runes.webp"
+                  alt={
+                    isVi
+                      ? "Phôi Đá Cổ Ngữ Lv.1 (Quy đổi 3^(n-1))"
+                      : "Lv.1 Rune Copies (3^(n-1) Equivalent)"
+                  }
+                  rarity="epic"
+                  size="md"
+                  shape="item"
+                />
                 <div className="min-w-0">
                   <h3 className="truncate font-heading text-sm font-bold text-foreground sm:text-base">
                     {isVi

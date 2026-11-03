@@ -461,6 +461,7 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
                           size="md"
                           rarity={entity.rarity}
                           faction={entity.faction}
+                          category={entity.category}
                         />
                         <div className="min-w-0 flex-1 space-y-0.5">
                           <div className="flex items-center justify-between gap-1">

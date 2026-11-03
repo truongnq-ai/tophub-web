@@ -87,6 +87,7 @@ export function CodexEntityDrawer({
               size="xl"
               rarity={entity.rarity}
               faction={entity.faction}
+              category={entity.category}
             />
             <div className="min-w-0 space-y-1">
               <div className="flex flex-wrap items-center gap-1.5">
@@ -141,9 +142,21 @@ export function CodexEntityDrawer({
           </Button>
         </div>
 
-        {/* Full Portrait Preview (if available for Heroes) — Flat Tonal Surface */}
+        {/* Full Portrait Preview (if available for Heroes) — Rarity Tonal Backdrop Surface */}
         {entity.portraitPath ? (
-          <div className="rounded-2xl bg-muted/45 dark:bg-slate-950/60 border-0 p-3.5 flex items-center justify-center">
+          <div
+            className={
+              entity.rarity === "mythic"
+                ? "rounded-2xl bg-gradient-to-b from-rose-500/25 via-rose-600/15 to-rose-950/35 border-0 p-3.5 flex items-center justify-center"
+                : entity.rarity === "legendary"
+                  ? "rounded-2xl bg-gradient-to-b from-amber-400/25 via-amber-500/15 to-amber-950/35 border-0 p-3.5 flex items-center justify-center"
+                  : entity.rarity === "epic"
+                    ? "rounded-2xl bg-gradient-to-b from-purple-500/25 via-purple-600/15 to-purple-950/35 border-0 p-3.5 flex items-center justify-center"
+                    : entity.rarity === "rare"
+                      ? "rounded-2xl bg-gradient-to-b from-sky-500/25 via-sky-600/15 to-sky-950/35 border-0 p-3.5 flex items-center justify-center"
+                      : "rounded-2xl bg-muted/45 dark:bg-slate-950/60 border-0 p-3.5 flex items-center justify-center"
+            }
+          >
             <img
               src={entity.portraitPath}
               alt={primaryName}
@@ -173,6 +186,7 @@ export function CodexEntityDrawer({
                   size="md"
                   rarity={entity.rarity}
                   faction={entity.faction}
+                  category={entity.category}
                 />
               ))}
             </div>

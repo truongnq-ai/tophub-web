@@ -91,25 +91,25 @@ describe("Phase 2 — Group 2 Heroes & Formations Visual Upgrade", () => {
         "/images/factions/race_nature.webp"
       );
 
-      // Verify GUARD-P1-05 (Wukong = 10047 vs Wanderer = 10029) & key hero cards
+      // Verify GUARD-P1-05 (Wukong = 10047 vs Wanderer = 10029) & key hero cards (size="lg" auto-upgrades to Lihui portraits)
       const wukongCard = screen.getByTestId("hero-card-wukong");
       expect(
         Array.from(wukongCard.querySelectorAll("img")).some(
-          (img) => img.getAttribute("src") === "/images/heroes/avatars/Head_10047.webp"
+          (img) => img.getAttribute("src") === "/images/heroes/portraits/Lihui_10047.webp"
         )
       ).toBe(true);
 
       const wandererCard = screen.getByTestId("hero-card-wanderer");
       expect(
         Array.from(wandererCard.querySelectorAll("img")).some(
-          (img) => img.getAttribute("src") === "/images/heroes/avatars/Head_10029.webp"
+          (img) => img.getAttribute("src") === "/images/heroes/portraits/Lihui_10029.webp"
         )
       ).toBe(true);
 
       const pyroCard = screen.getByTestId("hero-card-pyromancer");
       expect(
         Array.from(pyroCard.querySelectorAll("img")).some(
-          (img) => img.getAttribute("src") === "/images/heroes/avatars/Head_10025.webp"
+          (img) => img.getAttribute("src") === "/images/heroes/portraits/Lihui_10025.webp"
         )
       ).toBe(true);
 
@@ -202,13 +202,13 @@ describe("Phase 2 — Group 2 Heroes & Formations Visual Upgrade", () => {
         expect(imgs.length).toBeGreaterThanOrEqual(1);
       }
 
-      // League Starter Slot 4 is "Paragon / Astrologer" -> overlapping dual-option avatars
+      // League Starter Slot 4 is "Paragon / Astrologer" -> overlapping dual-option avatars (size="md" Lihui portraits)
       const slot4Avatars = screen.getByTestId("formation-slot-avatars-4");
       const slot4Srcs = Array.from(slot4Avatars.querySelectorAll("img")).map((i) =>
         i.getAttribute("src")
       );
-      expect(slot4Srcs).toContain("/images/heroes/avatars/Head_10033.webp");
-      expect(slot4Srcs).toContain("/images/heroes/avatars/Head_10024.webp");
+      expect(slot4Srcs).toContain("/images/heroes/portraits/Lihui_10033.webp");
+      expect(slot4Srcs).toContain("/images/heroes/portraits/Lihui_10024.webp");
 
       // Inspector shows visual loadout strip with avatar + exclusive weapon + gear set
       const inspectorLoadout = screen.getByTestId("formation-inspector-loadout");
@@ -223,8 +223,8 @@ describe("Phase 2 — Group 2 Heroes & Formations Visual Upgrade", () => {
       const slot6Srcs = Array.from(slot6Avatars.querySelectorAll("img")).map((i) =>
         i.getAttribute("src")
       );
-      expect(slot6Srcs).toContain("/images/heroes/avatars/Head_10038.webp");
-      expect(slot6Srcs).toContain("/images/heroes/avatars/Head_10028.webp");
+      expect(slot6Srcs).toContain("/images/heroes/portraits/Lihui_10038.webp");
+      expect(slot6Srcs).toContain("/images/heroes/portraits/Lihui_10028.webp");
 
       // Switch to Arena Counter-Swaps mode
       fireEvent.click(screen.getByTestId("formation-mode-swaps"));

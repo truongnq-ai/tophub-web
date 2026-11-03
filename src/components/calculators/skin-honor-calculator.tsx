@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import React, { useEffect, useMemo, useRef, useState } from "react";
+import { GameAssetFrame } from "@/components/guides/media/game-asset-frame";
 import {
   AlertTriangle,
   ArrowLeft,
@@ -501,25 +501,20 @@ export function SkinHonorCalculator({
           >
             <div
               data-testid="skin-honor-central-avatar-frame"
-              className={cn(
-                "relative flex h-28 w-28 items-center justify-center rounded-2xl p-2.5 shadow-md transition-all",
-                isPeakHonor150
-                  ? "ring-2 ring-rose-500/60 bg-rose-500/15"
-                  : RARITY_AVATAR_FRAME_CLASSES[rarity]
-              )}
+              className="relative inline-flex items-center justify-center"
             >
-              <Image
+              <GameAssetFrame
                 src={selectedSkin.iconPath}
                 alt={selectedSkinName}
-                width={88}
-                height={88}
-                className="h-22 w-22 object-contain drop-shadow"
+                rarity={isPeakHonor150 ? "mythic" : rarity}
+                size="xl"
+                shape="hero"
               />
 
               {/* Bottom-left Target Honor Level Badge */}
               <span
                 className={cn(
-                  "absolute -bottom-2 -left-2 inline-flex items-center rounded-full px-2.5 py-0.5 font-mono text-xs font-black text-white shadow tabular-nums",
+                  "absolute -bottom-2 -left-2 z-20 inline-flex items-center rounded-full px-2.5 py-0.5 font-mono text-xs font-black text-white shadow tabular-nums",
                   isPeakHonor150 ? "bg-rose-600" : "bg-amber-600"
                 )}
               >
@@ -753,12 +748,12 @@ export function SkinHonorCalculator({
                             isSelectedSkin && CALC_MD3.tileSelected
                           )}
                         >
-                          <Image
+                          <GameAssetFrame
                             src={skin.iconPath}
                             alt={skinName}
-                            width={40}
-                            height={40}
-                            className="h-10 w-10 shrink-0 rounded-lg object-contain"
+                            rarity={skin.rarity}
+                            size="md"
+                            shape="hero"
                           />
                           <div className="min-w-0 flex-1">
                             <div className="flex items-center justify-between gap-2">
@@ -863,15 +858,13 @@ export function SkinHonorCalculator({
             {/* Card Header */}
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div className="flex min-w-0 items-center gap-3">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-background/90 p-1.5 shadow-sm">
-                  <Image
-                    src={GLORY_MEDAL_MATERIAL.iconPath}
-                    alt={medalName}
-                    width={32}
-                    height={32}
-                    className="h-8 w-8 object-contain"
-                  />
-                </div>
+                <GameAssetFrame
+                  src={GLORY_MEDAL_MATERIAL.iconPath}
+                  alt={medalName}
+                  rarity={GLORY_MEDAL_MATERIAL.rarity}
+                  size="md"
+                  shape="item"
+                />
                 <div className="min-w-0">
                   <h3 className="truncate font-heading text-sm sm:text-base font-bold text-foreground">
                     {medalName}
@@ -1022,15 +1015,13 @@ export function SkinHonorCalculator({
             {/* Card Header */}
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div className="flex min-w-0 items-center gap-3">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-background/90 p-1.5 shadow-sm">
-                  <Image
-                    src={TROOP_SKIN_UNIVERSAL_CHEST_ICON}
-                    alt={copyName}
-                    width={32}
-                    height={32}
-                    className="h-8 w-8 object-contain"
-                  />
-                </div>
+                <GameAssetFrame
+                  src={TROOP_SKIN_UNIVERSAL_CHEST_ICON}
+                  alt={copyName}
+                  rarity="legendary"
+                  size="md"
+                  shape="item"
+                />
                 <div className="min-w-0">
                   <h3 className="truncate font-heading text-sm sm:text-base font-bold text-foreground">
                     {copyName}

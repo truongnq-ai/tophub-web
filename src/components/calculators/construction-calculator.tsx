@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { GameAssetFrame } from "@/components/guides/media/game-asset-frame";
 import {
   CheckCircle2,
   Clock,
@@ -730,18 +731,15 @@ export function ConstructionCalculator({
 
                     {/* Building Avatar + Level Pill */}
                     <div className="flex items-center gap-3.5">
-                      <div
-                        data-testid="game-asset-frame"
-                        className="relative flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl border border-amber-500/40 bg-gradient-to-br from-amber-500/20 via-amber-500/5 to-transparent p-2 shadow-sm"
-                      >
-                        <img
+                      <div className="relative inline-flex shrink-0 items-center justify-center">
+                        <GameAssetFrame
                           src={plan.building.icon}
                           alt={plan.building.name[locale]}
-                          width={64}
-                          height={64}
-                          className="h-16 w-16 object-contain drop-shadow"
+                          rarity={plan.toLevel > 40 ? "mythic" : "legendary"}
+                          size="xl"
+                          shape="item"
                         />
-                        <span className="absolute -bottom-1.5 inset-x-1.5 rounded-md bg-slate-900/90 px-1.5 py-0.5 text-center font-mono text-xs font-black text-amber-300">
+                        <span className="absolute -bottom-1.5 inset-x-1.5 z-20 rounded-md bg-slate-900/90 px-1.5 py-0.5 text-center font-mono text-xs font-black text-amber-300">
                           Lv.{plan.fromLevel}
                         </span>
                       </div>
@@ -883,12 +881,13 @@ export function ConstructionCalculator({
                           className="flex items-center justify-between gap-2 py-2"
                         >
                           <div className="flex min-w-0 items-center gap-2">
-                            <img
+                            <GameAssetFrame
                               src={pre.buildingIcon}
                               alt={pre.buildingName[locale]}
-                              width={32}
-                              height={32}
-                              className="h-8 w-8 shrink-0 object-contain"
+                              rarity="legendary"
+                              size="sm"
+                              shape="item"
+                              showFactionBadge={false}
                             />
                             <span className="text-xs sm:text-sm font-sans font-bold text-red-600 dark:text-red-400 leading-tight">
                               {isVi
@@ -937,12 +936,13 @@ export function ConstructionCalculator({
                         className="flex items-center justify-between gap-2 py-2.5"
                       >
                         <div className="flex min-w-0 items-center gap-2">
-                          <img
+                          <GameAssetFrame
                             src={res.icon}
                             alt={res.label[locale]}
-                            width={28}
-                            height={28}
-                            className="h-7 w-7 shrink-0 object-contain"
+                            rarity={res.key === "dragonEssence" ? "legendary" : "rare"}
+                            size="sm"
+                            shape="item"
+                            showFactionBadge={false}
                           />
                           <span className="text-xs sm:text-sm font-sans font-bold text-foreground">
                             {res.label[locale]}
@@ -1009,12 +1009,13 @@ export function ConstructionCalculator({
                         data-testid={`queue-${idx + 1}-instant-diamonds`}
                         className="mt-1 flex items-center justify-center gap-1.5 font-mono text-base sm:text-lg font-black tabular-nums"
                       >
-                        <img
+                        <GameAssetFrame
                           src={DIAMOND_ICON_PATH}
                           alt="Diamond"
-                          width={20}
-                          height={20}
-                          className="h-5 w-5 shrink-0 object-contain"
+                          rarity="legendary"
+                          size="xs"
+                          shape="item"
+                          showFactionBadge={false}
                         />
                         <span>{plan.instantDiamonds.toLocaleString("en-US")}</span>
                       </div>
@@ -1120,12 +1121,13 @@ export function ConstructionCalculator({
                   className="flex items-center justify-between gap-2 text-sm"
                 >
                   <div className="flex items-center gap-2">
-                    <img
+                    <GameAssetFrame
                       src={metaRes.icon}
                       alt={metaRes.label[locale]}
-                      width={22}
-                      height={22}
-                      className="h-5 w-5 object-contain"
+                      rarity="rare"
+                      size="xs"
+                      shape="item"
+                      showFactionBadge={false}
                     />
                     <span className="font-sans font-semibold text-foreground">
                       {metaRes.label[locale]}:
@@ -1160,12 +1162,13 @@ export function ConstructionCalculator({
                   className="flex items-center justify-between gap-2 text-sm"
                 >
                   <div className="flex items-center gap-2">
-                    <img
+                    <GameAssetFrame
                       src={metaRes.icon}
                       alt={metaRes.label[locale]}
-                      width={22}
-                      height={22}
-                      className="h-5 w-5 object-contain"
+                      rarity={key === "dragonEssence" ? "legendary" : "rare"}
+                      size="xs"
+                      shape="item"
+                      showFactionBadge={false}
                     />
                     <span className="font-sans font-semibold text-foreground">
                       {metaRes.label[locale]}:
@@ -1204,12 +1207,13 @@ export function ConstructionCalculator({
                 {isVi ? "Tổng KC nâng ngay:" : "Total Instant Diamonds:"}
               </span>
               <span className="inline-flex items-center gap-1 font-mono font-black tabular-nums text-sky-600 dark:text-sky-400">
-                <img
+                <GameAssetFrame
                   src={DIAMOND_ICON_PATH}
                   alt="Diamond"
-                  width={16}
-                  height={16}
-                  className="h-4 w-4 object-contain"
+                  rarity="legendary"
+                  size="xs"
+                  shape="item"
+                  showFactionBadge={false}
                 />
                 {globalSummary.totalInstantDiamonds.toLocaleString("en-US")}
               </span>
@@ -1380,12 +1384,13 @@ export function ConstructionCalculator({
                       isSelected ? CALC_MD3.tileSelected : ""
                     )}
                   >
-                    <img
+                    <GameAssetFrame
                       src={b.icon}
                       alt={b.name[locale]}
-                      width={44}
-                      height={44}
-                      className="h-11 w-11 shrink-0 object-contain"
+                      rarity={b.maxLevel > 40 ? "mythic" : "legendary"}
+                      size="md"
+                      shape="item"
+                      showFactionBadge={false}
                     />
                     <div className="min-w-0 flex-1">
                       <div className="truncate text-sm font-heading font-bold text-foreground">

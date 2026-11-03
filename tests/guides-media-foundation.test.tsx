@@ -251,6 +251,92 @@ describe("Phase 1 — Tier-1 Media Asset Registry & RPG Visual Primitives", () =
       ).not.toBeNull();
     });
 
+    it("enforces In-Game Icon/Image Standard: rectangular portrait frame for Heroes/Troops (1A, 2A), square 1:1 frame + shard badge for Items/Shards (4A), and 6-tier high-saturation rarity backdrop (3A)", () => {
+      const { container: heroContainer } = render(
+        <GameAssetFrame
+          src="/images/heroes/avatars/Head_10047.webp"
+          rarity="mythic"
+          faction="horde"
+          size="lg"
+          alt="Wukong"
+        />
+      );
+      const heroFrame = heroContainer.querySelector("[data-testid='game-asset-frame']")!;
+      expect(heroFrame.getAttribute("data-shape")).toBe("hero");
+      const heroImg = heroFrame.querySelector("img")!;
+      expect(heroImg.getAttribute("src")).toBe("/images/heroes/portraits/Lihui_10047.webp");
+      expect(Number(heroImg.getAttribute("width"))).toBe(56);
+      expect(Number(heroImg.getAttribute("height"))).toBe(78);
+
+      // Trigger onError -> switches cleanly to inline SVG fallback
+      fireEvent.error(heroImg);
+      expect(
+        heroContainer.querySelector("[data-testid='asset-frame-fallback']")
+      ).not.toBeNull();
+
+      // 2. Hero without Lihui file on disk (Boar 60008) keeps Head_60008.webp safely in shape='hero'
+      const { container: boarContainer } = render(
+        <GameAssetFrame
+          src="/images/heroes/avatars/Head_60008.webp"
+          rarity="legendary"
+          faction="horde"
+          size="lg"
+          alt="Boar"
+        />
+      );
+      expect(
+        boarContainer.querySelector("img")?.getAttribute("src")
+      ).toBe("/images/heroes/avatars/Head_60008.webp");
+
+      // 3. Specific Hero Shard (explicit shape='item' + showShardBadge) stays Square 1:1 with Head_*.webp and renders shard puzzle badge
+      const { container: shardContainer } = render(
+        <GameAssetFrame
+          src="/images/heroes/avatars/Head_10047.webp"
+          shape="item"
+          showShardBadge={true}
+          rarity="mythic"
+          size="lg"
+          alt="Wukong Shard"
+        />
+      );
+      const shardFrame = shardContainer.querySelector("[data-testid='game-asset-frame']")!;
+      expect(shardFrame.getAttribute("data-shape")).toBe("item");
+      const shardImg = shardFrame.querySelector("img")!;
+      expect(shardImg.getAttribute("src")).toBe("/images/heroes/avatars/Head_10047.webp");
+      expect(Number(shardImg.getAttribute("width"))).toBe(56);
+      expect(Number(shardImg.getAttribute("height"))).toBe(56);
+      expect(
+        shardFrame.querySelector("[data-testid='asset-shard-badge']")
+      ).not.toBeNull();
+
+      // 4. Troop Skin at size='lg' upgrades ArmsHead_10010_1.webp -> ArmsLihui_10010.webp, while 10014 stays ArmsHead_10014_1.webp
+      const { container: troopContainer } = render(
+        <div>
+          <GameAssetFrame
+            src="/images/troops/skins-avatars/ArmsHead_10010_1.webp"
+            shape="hero"
+            rarity="legendary"
+            size="lg"
+            alt="Heavy Cavalry"
+          />
+          <GameAssetFrame
+            src="/images/troops/skins-avatars/ArmsHead_10014_1.webp"
+            shape="hero"
+            rarity="epic"
+            size="lg"
+            alt="Drum Corps"
+          />
+        </div>
+      );
+      const troopImgs = troopContainer.querySelectorAll("img");
+      expect(troopImgs[0]?.getAttribute("src")).toBe(
+        "/images/troops/skins-portraits/ArmsLihui_10010.webp"
+      );
+      expect(troopImgs[1]?.getAttribute("src")).toBe(
+        "/images/troops/skins-avatars/ArmsHead_10014_1.webp"
+      );
+    });
+
     it("enforces Per-Paragraph Deduplication (including inside nested **bold** and structured-brief) and preserves exact code.textContent (GAP-02, GUARD-P1-08)", () => {
       const { container } = render(
         <RichGuideText

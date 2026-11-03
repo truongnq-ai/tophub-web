@@ -109,7 +109,7 @@ describe("Phase 6.1 — Multi-Device Responsive & Zero Overflow Invariants", () 
     const thumbImg = firstCell?.querySelector("img");
     expect(thumbImg).not.toBeNull();
     expect(thumbImg?.getAttribute("width")).toBe("28");
-    expect(thumbImg?.getAttribute("height")).toBe("28");
+    expect(thumbImg?.getAttribute("height")).toBe("38");
   });
 
   it("ensures VisualShowcaseDeck cards have min-w-0 and overflow-hidden to prevent horizontal bleed on 375px screens", () => {

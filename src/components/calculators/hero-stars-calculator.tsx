@@ -433,6 +433,7 @@ export function HeroStarsCalculator({
                 rarity={rarity}
                 faction={activeHero.faction}
                 size="lg"
+                shape="hero"
               />
             ) : null}
 
@@ -525,6 +526,7 @@ export function HeroStarsCalculator({
                           alt={shardName}
                           rarity={cfg.universalShard.rarity}
                           size="sm"
+                          shape="item"
                         />
                         <div className="min-w-0">
                           <div className="truncate text-sm font-heading font-bold text-foreground">
@@ -568,7 +570,8 @@ export function HeroStarsCalculator({
                             alt={hName}
                             rarity={h.rarity}
                             faction={h.faction}
-                            size="sm"
+                            size="md"
+                            shape="hero"
                           />
                           <span className="w-full truncate text-center text-xs font-medium text-foreground">
                             {hName}
@@ -645,6 +648,7 @@ export function HeroStarsCalculator({
               alt={universalShardName}
               rarity={result.universalShard.rarity}
               size="md"
+              shape="item"
             />
             <div>
               <div

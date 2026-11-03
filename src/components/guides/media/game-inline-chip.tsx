@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import type { GameAssetEntry, GuideLocale } from "@/content/guides/types";
 import { cn } from "@/lib/utils";
+import { GameAssetFrame } from "./game-asset-frame";
 import { GameEntityPopover } from "./game-entity-popover";
 
 export interface GameInlineChipProps {
@@ -21,7 +22,6 @@ export function GameInlineChip({
   children,
 }: GameInlineChipProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [imgError, setImgError] = useState(false);
   const chipRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -66,17 +66,15 @@ export function GameInlineChip({
         codeClassName
       )}
     >
-      {showIcon && !imgError && entity.iconPath ? (
-        <img
+      {showIcon && entity.iconPath ? (
+        <GameAssetFrame
+          asset={entity}
           src={entity.iconPath}
+          category={entity.category}
+          rarity={entity.rarity}
+          size="xs"
+          showFactionBadge={false}
           alt=""
-          aria-hidden="true"
-          loading="lazy"
-          decoding="async"
-          width={16}
-          height={16}
-          onError={() => setImgError(true)}
-          className="h-4 w-4 shrink-0 rounded-sm object-contain"
         />
       ) : null}
       {children}

@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import React from "react";
 import { Sparkles } from "lucide-react";
+import { GameAssetFrame } from "@/components/guides/media/game-asset-frame";
 import {
   GEAR_PROMOTION_STEPS,
   MAX_GEAR_PROMOTION_STEP,
@@ -437,35 +437,38 @@ export function GearPromotionStepSelector({
         {nextNode ? (
           <div className="flex flex-wrap items-center gap-2.5">
             <span className="inline-flex items-center gap-1 font-mono text-xs font-bold text-foreground tabular-nums">
-              <Image
+              <GameAssetFrame
                 src={CALCULATOR_MATERIALS.solarGoldIngot.iconPath}
                 alt="Solar Gold"
-                width={16}
-                height={16}
-                className="h-4 w-4 object-contain"
+                rarity={CALCULATOR_MATERIALS.solarGoldIngot.rarity}
+                size="xs"
+                shape="item"
+                showFactionBadge={false}
               />
               {formatCompactNumber(nextNode.stepSolarGold)}
             </span>
 
             <span className="inline-flex items-center gap-1 font-mono text-xs font-bold text-foreground tabular-nums">
-              <Image
+              <GameAssetFrame
                 src={CALCULATOR_MATERIALS.gearEnhanceRune.iconPath}
                 alt="Rune"
-                width={16}
-                height={16}
-                className="h-4 w-4 object-contain"
+                rarity={CALCULATOR_MATERIALS.gearEnhanceRune.rarity}
+                size="xs"
+                shape="item"
+                showFactionBadge={false}
               />
               {formatCompactNumber(nextNode.stepEnhanceRune)}
             </span>
 
             {nextNode.stepRuby > 0 ? (
               <span className="inline-flex items-center gap-1 font-mono text-xs font-bold text-rose-600 tabular-nums dark:text-rose-400">
-                <Image
+                <GameAssetFrame
                   src={CALCULATOR_MATERIALS.ruby.iconPath}
                   alt="Ruby"
-                  width={16}
-                  height={16}
-                  className="h-4 w-4 object-contain"
+                  rarity={CALCULATOR_MATERIALS.ruby.rarity}
+                  size="xs"
+                  shape="item"
+                  showFactionBadge={false}
                 />
                 {formatCompactNumber(nextNode.stepRuby)}
               </span>
@@ -473,12 +476,13 @@ export function GearPromotionStepSelector({
 
             {nextNode.stepLegendaryStone > 0 ? (
               <span className="inline-flex items-center gap-1 font-mono text-xs font-bold text-amber-600 tabular-nums dark:text-amber-400">
-                <Image
+                <GameAssetFrame
                   src={CALCULATOR_MATERIALS.legendaryPromotionStone.iconPath}
                   alt="Legendary Stone"
-                  width={16}
-                  height={16}
-                  className="h-4 w-4 object-contain"
+                  rarity={CALCULATOR_MATERIALS.legendaryPromotionStone.rarity}
+                  size="xs"
+                  shape="item"
+                  showFactionBadge={false}
                 />
                 {nextNode.stepLegendaryStone}
               </span>
@@ -486,12 +490,13 @@ export function GearPromotionStepSelector({
 
             {nextNode.stepMythicStone > 0 ? (
               <span className="inline-flex items-center gap-1 font-mono text-xs font-bold text-rose-600 tabular-nums dark:text-rose-400">
-                <Image
+                <GameAssetFrame
                   src={CALCULATOR_MATERIALS.mythicPromotionStone.iconPath}
                   alt="Mythic Stone"
-                  width={16}
-                  height={16}
-                  className="h-4 w-4 object-contain"
+                  rarity={CALCULATOR_MATERIALS.mythicPromotionStone.rarity}
+                  size="xs"
+                  shape="item"
+                  showFactionBadge={false}
                 />
                 {nextNode.stepMythicStone}
               </span>

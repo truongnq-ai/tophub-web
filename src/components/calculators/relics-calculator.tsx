@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import React, { useMemo, useState } from "react";
+import { GameAssetFrame } from "@/components/guides/media/game-asset-frame";
 import {
   AlertTriangle,
   ArrowLeft,
@@ -532,15 +532,13 @@ export function RelicsCalculator({ tool, locale }: RelicsCalculatorProps) {
               }
               className="group relative flex flex-col items-center rounded-3xl bg-gradient-to-b from-amber-500/20 via-amber-500/5 to-muted/40 p-3 transition-transform hover:scale-[1.02] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
             >
-              <div className="relative flex h-20 w-20 sm:h-24 sm:w-24 items-center justify-center">
-                <Image
-                  src={relic.illustrationPath}
-                  alt={relic.name[locale]}
-                  width={96}
-                  height={96}
-                  className="h-20 w-20 sm:h-24 sm:w-24 object-contain drop-shadow-md transition-transform group-hover:scale-105"
-                />
-              </div>
+              <GameAssetFrame
+                src={relic.illustrationPath}
+                alt={relic.name[locale]}
+                rarity={relic.rarity}
+                size="2xl"
+                shape="item"
+              />
               <span className="mt-1.5 inline-flex items-center gap-1 rounded-full bg-amber-500 px-3 py-0.5 font-sans text-xs font-black text-slate-950 shadow-sm">
                 <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
                 <span>{isVi ? "Đổi Bí Bảo (29 món)" : "Change Relic (29)"}</span>
@@ -650,12 +648,12 @@ export function RelicsCalculator({ tool, locale }: RelicsCalculatorProps) {
                           isSelected ? CALC_MD3.tileSelected : ""
                         )}
                       >
-                        <Image
+                        <GameAssetFrame
                           src={item.illustrationPath}
                           alt={item.name[locale]}
-                          width={40}
-                          height={40}
-                          className="h-10 w-10 shrink-0 object-contain"
+                          rarity={item.rarity}
+                          size="md"
+                          shape="item"
                         />
                         <div className="min-w-0 flex-1">
                           <p className="truncate font-heading text-xs sm:text-sm font-bold text-foreground">
@@ -908,15 +906,14 @@ export function RelicsCalculator({ tool, locale }: RelicsCalculatorProps) {
           {/* Card 1: Mảnh Bí Bảo Riêng */}
           <div className={cn(CALC_MD3.tonalGroup, "space-y-2 p-2.5 sm:p-3")}>
             <div className="flex items-center gap-2.5">
-              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-amber-500/15 p-1">
-                <Image
-                  src={relic.shardIconPath}
-                  alt={relic.shardName[locale]}
-                  width={32}
-                  height={32}
-                  className="h-7 w-7 object-contain"
-                />
-              </div>
+              <GameAssetFrame
+                src={relic.shardIconPath}
+                alt={relic.shardName[locale]}
+                rarity={relic.rarity}
+                size="md"
+                shape="item"
+                showShardBadge={true}
+              />
               <h3 className="font-heading text-sm sm:text-base font-bold text-foreground truncate">
                 {relic.shardName[locale]}
               </h3>
@@ -963,15 +960,13 @@ export function RelicsCalculator({ tool, locale }: RelicsCalculatorProps) {
           {/* Card 2: Mảnh Vạn Năng Bí Bảo */}
           <div className={cn(CALC_MD3.tonalGroup, "space-y-2 p-2.5 sm:p-3")}>
             <div className="flex items-center gap-2.5">
-              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-sky-500/15 p-1">
-                <Image
-                  src={universalMaterial.iconPath}
-                  alt={universalMaterialName}
-                  width={32}
-                  height={32}
-                  className="h-7 w-7 object-contain"
-                />
-              </div>
+              <GameAssetFrame
+                src={universalMaterial.iconPath}
+                alt={universalMaterialName}
+                rarity={universalMaterial.rarity}
+                size="md"
+                shape="item"
+              />
               <h3 className="font-heading text-sm sm:text-base font-bold text-foreground truncate">
                 {universalMaterialName}
               </h3>

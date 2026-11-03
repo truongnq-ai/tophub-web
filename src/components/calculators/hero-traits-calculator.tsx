@@ -435,6 +435,7 @@ export function HeroTraitsCalculator({
                 rarity={activeHero.rarity}
                 faction={activeHero.faction}
                 size="lg"
+                shape="hero"
               />
             ) : null}
 
@@ -560,7 +561,8 @@ export function HeroTraitsCalculator({
                             alt={hName}
                             rarity={hero.rarity}
                             faction={hero.faction}
-                            size="sm"
+                            size="md"
+                            shape="hero"
                           />
                           <span className="w-full truncate text-center text-xs font-medium text-foreground">
                             {hName}
@@ -709,6 +711,7 @@ export function HeroTraitsCalculator({
                     alt={shardMaterialName}
                     rarity={result.universalShardMaterial.rarity}
                     size="md"
+                    shape="item"
                   />
                   <div>
                     <div className="text-base font-heading font-black text-foreground">
@@ -851,6 +854,7 @@ export function HeroTraitsCalculator({
                     alt={diamondMaterialName}
                     rarity={result.diamondMaterial.rarity}
                     size="md"
+                    shape="item"
                   />
                   <div>
                     <div className="text-base font-heading font-black text-foreground">

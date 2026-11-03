@@ -1498,14 +1498,13 @@ export function TacticalFormationBoardWidget({
                             )}
                           >
                             {primaryWeaponPath && (
-                              <img
+                              <GameAssetFrame
                                 src={primaryWeaponPath}
                                 alt=""
-                                width={14}
-                                height={14}
-                                loading="lazy"
-                                decoding="async"
-                                className="h-3.5 w-3.5 rounded-xs object-contain shrink-0"
+                                rarity="mythic"
+                                size="xs"
+                                shape="item"
+                                showFactionBadge={false}
                               />
                             )}
                             <span>{slot.mvsSweetSpot[locale]}</span>
@@ -1531,6 +1530,7 @@ export function TacticalFormationBoardWidget({
                                   activeLineup.faction
                                 }
                                 size="lg"
+                                shape="hero"
                               />
                             ) : (
                               slotProfiles.slice(0, 2).map((prof, pIdx) => (
@@ -1547,6 +1547,7 @@ export function TacticalFormationBoardWidget({
                                     rarity={prof.rarity}
                                     faction={prof.faction}
                                     size="md"
+                                    shape="hero"
                                   />
                                 </div>
                               ))
@@ -1597,6 +1598,7 @@ export function TacticalFormationBoardWidget({
                       rarity={prof.rarity}
                       faction={prof.faction}
                       size="sm"
+                      shape="hero"
                     />
                     <span>
                       {locale === "vi" ? prof.nameVi : prof.nameEn}
@@ -1604,14 +1606,13 @@ export function TacticalFormationBoardWidget({
                   </span>
                   {prof.exclusiveWeaponPath && (
                     <span className="inline-flex items-center gap-1.5 rounded-xl border border-rose-500/35 bg-rose-500/10 px-2.5 py-1.5 text-xs font-bold text-rose-600 dark:text-rose-300">
-                      <img
+                      <GameAssetFrame
                         src={prof.exclusiveWeaponPath}
                         alt={copy.exclusiveWeaponChip}
-                        width={20}
-                        height={20}
-                        loading="lazy"
-                        decoding="async"
-                        className="h-5 w-5 rounded-sm object-contain shrink-0"
+                        rarity="mythic"
+                        size="xs"
+                        shape="item"
+                        showFactionBadge={false}
                       />
                       <span>
                         {locale === "vi"
@@ -1630,14 +1631,13 @@ export function TacticalFormationBoardWidget({
                   key={gear.id}
                   className="inline-flex items-center gap-1.5 rounded-xl border border-emerald-500/35 bg-emerald-500/10 px-2.5 py-1.5 text-xs font-bold text-emerald-700 dark:text-emerald-300"
                 >
-                  <img
+                  <GameAssetFrame
                     src={gear.iconPath}
                     alt={copy.gearSetChip}
-                    width={20}
-                    height={20}
-                    loading="lazy"
-                    decoding="async"
-                    className="h-5 w-5 rounded-sm object-contain shrink-0"
+                    rarity={gear.rarity}
+                    size="xs"
+                    shape="item"
+                    showFactionBadge={false}
                   />
                   <span>
                     {locale === "vi" ? gear.inGameNameVi : gear.inGameNameEn}
@@ -1725,6 +1725,7 @@ export function TacticalFormationBoardWidget({
                           rarity={prof.rarity}
                           faction={prof.faction}
                           size="md"
+                          shape="hero"
                         />
                         <div className="text-xs">
                           <p className="font-heading font-bold text-foreground">

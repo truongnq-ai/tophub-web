@@ -419,6 +419,7 @@ export function SkillBooksCalculator({
                 rarity={activeHero.rarity}
                 faction={activeHero.faction}
                 size="lg"
+                shape="hero"
               />
             ) : null}
 
@@ -555,7 +556,8 @@ export function SkillBooksCalculator({
                             alt={hName}
                             rarity={hero.rarity}
                             faction={hero.faction}
-                            size="sm"
+                            size="md"
+                            shape="hero"
                           />
                           <span className="w-full truncate text-center text-xs font-medium text-foreground">
                             {hName}
@@ -668,6 +670,7 @@ export function SkillBooksCalculator({
                   alt={bookMaterialName}
                   rarity={result.skillBookMaterial.rarity}
                   size="md"
+                  shape="item"
                 />
                 <div>
                   <div className="text-base font-heading font-black text-foreground">

@@ -356,6 +356,7 @@ export function HeroAwakeningCalculator({
                 rarity={result.toNode.majorTier === 4 ? "mythic" : "legendary"}
                 faction={activeHero.faction}
                 size="lg"
+                shape="hero"
               />
             ) : null}
 
@@ -445,6 +446,7 @@ export function HeroAwakeningCalculator({
                           rarity={cfg.soulStone.rarity}
                           faction={cfg.soulStone.faction}
                           size="sm"
+                          shape="item"
                         />
                         <div className="min-w-0 flex-1">
                           <div className="truncate text-sm font-heading font-bold text-foreground">
@@ -488,7 +490,8 @@ export function HeroAwakeningCalculator({
                             alt={hName}
                             rarity="legendary"
                             faction={h.faction}
-                            size="sm"
+                            size="md"
+                            shape="hero"
                           />
                           <span className="w-full truncate text-center text-xs font-medium text-foreground">
                             {hName}
@@ -570,6 +573,7 @@ export function HeroAwakeningCalculator({
                     rarity={result.soulStoneMaterial.rarity}
                     faction={result.soulStoneMaterial.faction}
                     size="md"
+                    shape="item"
                   />
                   <div>
                     <div className="text-base font-heading font-black text-foreground">
@@ -716,6 +720,7 @@ export function HeroAwakeningCalculator({
                     alt={universalShardName}
                     rarity={result.universalShardMaterial.rarity}
                     size="md"
+                    shape="item"
                   />
                   <div>
                     <div className="text-base font-heading font-black text-foreground">

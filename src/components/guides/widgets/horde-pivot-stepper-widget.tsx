@@ -1405,10 +1405,10 @@ export function HordePivotStepperWidget({
                                 : prof.inGameNameEn
                             }
                             size="md"
+                            shape="hero"
                             rarity={prof.rarity}
                             faction={prof.faction}
                             showFactionBadge={true}
-                            className="h-12 w-12"
                           />
                         ))}
                       </span>
@@ -1462,6 +1462,7 @@ export function HordePivotStepperWidget({
                                   : prof.inGameNameEn
                               }
                               size="sm"
+                              shape="hero"
                               rarity={prof.rarity}
                               faction={prof.faction}
                               showFactionBadge={true}

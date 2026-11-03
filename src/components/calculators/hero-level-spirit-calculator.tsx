@@ -452,6 +452,7 @@ export function HeroLevelSpiritCalculator({
                 rarity={activeHero.rarity}
                 faction={activeHero.faction}
                 size="lg"
+                shape="hero"
               />
             ) : null}
 
@@ -578,7 +579,8 @@ export function HeroLevelSpiritCalculator({
                             alt={hName}
                             rarity={hero.rarity}
                             faction={hero.faction}
-                            size="sm"
+                            size="md"
+                            shape="hero"
                           />
                           <span className="w-full truncate text-center text-xs font-medium text-foreground">
                             {hName}
@@ -653,6 +655,7 @@ export function HeroLevelSpiritCalculator({
                     alt={meatMaterialName}
                     rarity={result.meatMaterial.rarity}
                     size="md"
+                    shape="item"
                   />
                   <div>
                     <div className="text-base font-heading font-black text-foreground">
@@ -790,6 +793,7 @@ export function HeroLevelSpiritCalculator({
                     alt={spiritMaterialName}
                     rarity={result.spiritShardMaterial.rarity}
                     size="md"
+                    shape="item"
                   />
                   <div>
                     <div className="text-base font-heading font-black text-foreground">

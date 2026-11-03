@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import React, { useEffect, useMemo, useRef, useState } from "react";
+import { GameAssetFrame } from "@/components/guides/media/game-asset-frame";
 import {
   AlertTriangle,
   ArrowRight,
@@ -482,25 +482,18 @@ export function GearPromotionCalculator({
             aria-haspopup="dialog"
             className="group relative flex min-h-[104px] w-full flex-col items-center justify-center rounded-2xl p-2 transition-transform hover:scale-[1.02] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/40"
           >
-            <div
-              className={cn(
-                "relative flex h-24 w-24 items-center justify-center rounded-2xl p-2 shadow-md transition-all",
-                isTargetMythic
-                  ? "bg-gradient-to-br from-rose-500/25 via-red-600/20 to-amber-500/25 ring-2 ring-rose-500"
-                  : "bg-gradient-to-br from-amber-500/25 via-orange-500/15 to-yellow-500/20 ring-2 ring-amber-500"
-              )}
-            >
-              <Image
+            <div className="relative inline-flex items-center justify-center">
+              <GameAssetFrame
                 src={activeAvatarIcon}
                 alt={result.pieceMeta.itemName[locale]}
-                width={76}
-                height={76}
-                className="h-18 w-18 object-contain drop-shadow"
+                rarity={isTargetMythic ? "mythic" : "legendary"}
+                size="xl"
+                shape="item"
               />
 
               <span
                 className={cn(
-                  "absolute -top-2 -right-2 inline-flex items-center gap-0.5 rounded-full px-2 py-0.5 font-mono text-xs font-black text-white shadow tabular-nums",
+                  "absolute -top-2 -right-2 z-20 inline-flex items-center gap-0.5 rounded-full px-2 py-0.5 font-mono text-xs font-black text-white shadow tabular-nums",
                   isTargetMythic ? "bg-rose-600" : "bg-amber-600"
                 )}
               >
@@ -592,16 +585,16 @@ export function GearPromotionCalculator({
                               : "bg-slate-50 hover:bg-slate-100 dark:bg-slate-800/60 dark:hover:bg-slate-800"
                           )}
                         >
-                          <Image
+                          <GameAssetFrame
                             src={
                               isTargetMythic
                                 ? s.sampleMythicIconPath
                                 : s.sampleLegendaryIconPath
                             }
                             alt={s.setName[locale]}
-                            width={36}
-                            height={36}
-                            className="h-9 w-9 shrink-0 rounded-lg object-contain"
+                            rarity={isTargetMythic ? "mythic" : "legendary"}
+                            size="md"
+                            shape="item"
                           />
                           <div className="min-w-0 flex-1">
                             <p className="truncate font-sans text-xs font-bold text-foreground">
@@ -659,16 +652,16 @@ export function GearPromotionCalculator({
                               : "bg-slate-50 hover:bg-slate-100 dark:bg-slate-800/60 dark:hover:bg-slate-800"
                           )}
                         >
-                          <Image
+                          <GameAssetFrame
                             src={
                               isTargetMythic
                                 ? item.mythicIconPath
                                 : item.legendaryIconPath
                             }
                             alt={item.itemName[locale]}
-                            width={36}
-                            height={36}
-                            className="h-9 w-9 object-contain"
+                            rarity={isTargetMythic ? "mythic" : "legendary"}
+                            size="md"
+                            shape="item"
                           />
                           <span className="font-sans text-xs font-bold text-foreground">
                             {slot.label[locale]}
@@ -774,15 +767,13 @@ export function GearPromotionCalculator({
                 <div className="grid grid-cols-1 items-center gap-3 lg:grid-cols-12">
                   {/* Column 1 (4 cols): Material Identity + Refund Rule + Progress Bar */}
                   <div className="flex items-center gap-3 lg:col-span-4">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-background/90 p-1.5 shadow-sm">
-                      <Image
-                        src={item.material.iconPath}
-                        alt={matName}
-                        width={36}
-                        height={36}
-                        className="h-9 w-9 object-contain"
-                      />
-                    </div>
+                    <GameAssetFrame
+                      src={item.material.iconPath}
+                      alt={matName}
+                      rarity={item.material.rarity}
+                      size="md"
+                      shape="item"
+                    />
                     <div className="min-w-0 flex-1 space-y-1">
                       <div className="flex flex-wrap items-center gap-1.5">
                         <p className="truncate font-sans text-sm font-bold text-foreground">

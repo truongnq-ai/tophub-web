@@ -394,6 +394,7 @@ export function FactionLevelCalculator({
               rarity="mythic"
               faction={faction}
               size="lg"
+              shape="item"
             />
             <div className="text-center">
               <div
@@ -542,6 +543,7 @@ export function FactionLevelCalculator({
                     alt={meatMaterialName}
                     rarity={result.meatMaterial.rarity}
                     size="sm"
+                    shape="item"
                   />
                   <div className="min-w-0">
                     <div className="truncate text-sm font-heading font-bold text-foreground">
@@ -654,6 +656,7 @@ export function FactionLevelCalculator({
                     alt={shardMaterialName}
                     rarity={result.shardMaterial.rarity}
                     size="sm"
+                    shape="item"
                   />
                   <div className="min-w-0">
                     <div className="truncate text-sm font-heading font-bold text-foreground">

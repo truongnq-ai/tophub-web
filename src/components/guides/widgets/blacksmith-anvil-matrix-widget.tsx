@@ -642,7 +642,7 @@ export function BlacksmithAnvilMatrixWidget({
                         data-testid={`bis-hero-avatar-${row.index}`}
                         className="shrink-0"
                       >
-                        <GameAssetFrame asset={heroAsset} size="sm" />
+                        <GameAssetFrame asset={heroAsset} size="sm" shape="hero" />
                       </span>
                     )}
                     <div className="text-sm sm:text-base font-heading font-bold text-foreground dark:text-white">

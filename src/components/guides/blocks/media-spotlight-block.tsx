@@ -106,6 +106,7 @@ export function MediaSpotlightBlock({
                   src="/images/factions/race_horde.webp"
                   rarity="mythic"
                   size="sm"
+                  shape="item"
                   showFactionBadge={false}
                   alt=""
                 />
@@ -118,6 +119,7 @@ export function MediaSpotlightBlock({
                 rarity="mythic"
                 faction="horde"
                 size="sm"
+                shape="hero"
                 alt=""
               />
             </div>
@@ -135,6 +137,7 @@ export function MediaSpotlightBlock({
                   src="/images/factions/race_alliance.webp"
                   rarity="mythic"
                   size="sm"
+                  shape="item"
                   showFactionBadge={false}
                   alt=""
                 />
@@ -147,6 +150,7 @@ export function MediaSpotlightBlock({
                 rarity="mythic"
                 faction="league"
                 size="sm"
+                shape="hero"
                 alt=""
               />
             </div>
@@ -164,6 +168,7 @@ export function MediaSpotlightBlock({
                   src="/images/factions/race_nature.webp"
                   rarity="mythic"
                   size="sm"
+                  shape="item"
                   showFactionBadge={false}
                   alt=""
                 />
@@ -176,6 +181,7 @@ export function MediaSpotlightBlock({
                 rarity="mythic"
                 faction="nature"
                 size="sm"
+                shape="hero"
                 alt=""
               />
             </div>

@@ -299,4 +299,38 @@ describe("Suite 2 — Compact v2.1 UI: 15 Integrated 5-Petal Stars, 12h Top CCW 
     fireEvent.click(screen.getByTestId("toggle-star-breakdown-btn"));
     expect(container.textContent ?? "").not.toMatch(VI_DIACRITIC_REGEX);
   });
+
+  it("renders central hero & picker heroes with data-shape='hero' (portrait Lihui) and universal shards with data-shape='item'", () => {
+    const resolved = getCalculatorToolBySlug("heroes", "hero-stars")!;
+    render(
+      <CalculatorPlaceholderView
+        mode="tool"
+        zone={resolved.zone}
+        category={resolved.category}
+        tool={resolved.tool}
+      />
+    );
+
+    const centralTrigger = screen.getByTestId("central-hero-avatar-trigger");
+    const centralFrame = centralTrigger.querySelector("[data-testid='game-asset-frame']");
+    expect(centralFrame?.getAttribute("data-shape")).toBe("hero");
+    expect(centralFrame?.querySelector("img")?.getAttribute("src")).toContain("Lihui_");
+
+    const resultSection = screen.getByTestId("hero-stars-result-section");
+    const shardFrame = resultSection.querySelector("[data-testid='game-asset-frame']");
+    expect(shardFrame?.getAttribute("data-shape")).toBe("item");
+
+    // Open picker -> Step 1 Rarity (shard frames = item) -> Step 2 Hero (hero frames = hero)
+    fireEvent.click(centralTrigger);
+    const rarityCard = screen.getByTestId("rarity-card-mythic");
+    expect(
+      rarityCard.querySelector("[data-testid='game-asset-frame']")?.getAttribute("data-shape")
+    ).toBe("item");
+
+    fireEvent.click(rarityCard);
+    const pickerOverlay = screen.getByTestId("hero-sequential-picker");
+    const pickerHeroFrame = pickerOverlay.querySelector("[data-testid='game-asset-frame']");
+    expect(pickerHeroFrame?.getAttribute("data-shape")).toBe("hero");
+    expect(pickerHeroFrame?.querySelector("img")?.getAttribute("src")).toContain("Lihui_");
+  });
 });

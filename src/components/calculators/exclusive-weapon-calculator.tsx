@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import React, { useEffect, useMemo, useRef, useState } from "react";
+import { GameAssetFrame } from "@/components/guides/media/game-asset-frame";
 import {
   AlertTriangle,
   ArrowLeft,
@@ -506,25 +506,21 @@ export function ExclusiveWeaponCalculator({
           >
             <div
               data-testid="ew-central-avatar-frame"
-              className={cn(
-                "relative flex h-28 w-28 items-center justify-center rounded-2xl p-2.5 shadow-md transition-all",
-                isPeakAscended
-                  ? "ring-2 ring-rose-500/50 bg-rose-500/10"
-                  : "ring-2 ring-amber-500/45 bg-amber-500/10"
-              )}
+              className="relative inline-flex items-center justify-center"
             >
-              <Image
+              <GameAssetFrame
                 src={result.selectedHero.weaponIconPath}
                 alt={result.selectedHero.weaponName[locale]}
-                width={88}
-                height={88}
-                className="h-22 w-22 object-contain drop-shadow"
+                rarity={isPeakAscended ? "mythic" : result.selectedHero.rarity}
+                faction={result.selectedHero.faction}
+                size="xl"
+                shape="item"
               />
 
               {/* Bottom-left Target Level Badge */}
               <span
                 className={cn(
-                  "absolute -bottom-2 -left-2 inline-flex items-center rounded-full px-2.5 py-0.5 font-mono text-xs font-black text-white shadow tabular-nums",
+                  "absolute -bottom-2 -left-2 z-20 inline-flex items-center rounded-full px-2.5 py-0.5 font-mono text-xs font-black text-white shadow tabular-nums",
                   isPeakAscended ? "bg-rose-600" : "bg-amber-600"
                 )}
               >
@@ -739,12 +735,13 @@ export function ExclusiveWeaponCalculator({
                             isSelectedHero && CALC_MD3.tileSelected
                           )}
                         >
-                          <Image
+                          <GameAssetFrame
                             src={hero.weaponIconPath}
                             alt={hero.weaponName[locale]}
-                            width={38}
-                            height={38}
-                            className="h-9 w-9 shrink-0 rounded-lg object-contain"
+                            rarity={hero.rarity}
+                            faction={hero.faction}
+                            size="md"
+                            shape="item"
                           />
                           <div className="min-w-0 flex-1">
                             <p className="truncate font-sans text-xs font-bold text-foreground">
@@ -911,15 +908,13 @@ export function ExclusiveWeaponCalculator({
             {/* Card Header */}
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div className="flex items-center gap-3 min-w-0">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-background/90 p-1.5 shadow-sm">
-                  <Image
-                    src={result.shardMaterial.iconPath}
-                    alt={shardName}
-                    width={32}
-                    height={32}
-                    className="h-8 w-8 object-contain"
-                  />
-                </div>
+                <GameAssetFrame
+                  src={result.shardMaterial.iconPath}
+                  alt={shardName}
+                  rarity={result.shardMaterial.rarity}
+                  size="md"
+                  shape="item"
+                />
                 <div className="min-w-0">
                   <h3 className="truncate font-heading text-sm sm:text-base font-bold text-foreground">
                     {shardName}
@@ -1053,15 +1048,13 @@ export function ExclusiveWeaponCalculator({
             {/* Card Header */}
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div className="flex items-center gap-3 min-w-0">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-background/90 p-1.5 shadow-sm">
-                  <Image
-                    src={result.coreMaterial.iconPath}
-                    alt={coreName}
-                    width={32}
-                    height={32}
-                    className="h-8 w-8 object-contain"
-                  />
-                </div>
+                <GameAssetFrame
+                  src={result.coreMaterial.iconPath}
+                  alt={coreName}
+                  rarity={result.coreMaterial.rarity}
+                  size="md"
+                  shape="item"
+                />
                 <div className="min-w-0">
                   <h3 className="truncate font-heading text-sm sm:text-base font-bold text-foreground">
                     {coreName}

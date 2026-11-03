@@ -846,6 +846,7 @@ export function GameCodexClient({
                       size="lg"
                       rarity={item.rarity}
                       faction={item.faction}
+                      category={item.category}
                     />
                     <div className="min-w-0 flex-1 space-y-1">
                       <div className="flex items-center justify-between gap-1.5">

@@ -16,6 +16,7 @@ export type CalculatorMaterialRarity =
   | "legendary"
   | "epic"
   | "rare"
+  | "uncommon"
   | "common";
 
 export type CalculatorMaterialFaction =
