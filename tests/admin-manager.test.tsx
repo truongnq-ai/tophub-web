@@ -826,4 +826,88 @@ describe("AdminManager Component", () => {
 
     expect(mockVerifyAdminGiftcodeAction).toHaveBeenCalled();
   });
+
+  it("renders INELIGIBLE (CHƯA ĐỦ ĐK) badge & filter in TabRedemptions and api_message in TabCheckins", async () => {
+    mockGetAdminRedemptionsAction.mockResolvedValue({
+      success: true,
+      data: {
+        items: [
+          {
+            id: "red-ineligible-1",
+            game_account_id: "acc-1",
+            uid: "2492959501023",
+            nickname: "Rimuru",
+            server_id: "S10975",
+            gift_code: "GB1102FE829D",
+            status: "INELIGIBLE",
+            api_message: "This account is not eligible to claim the reward.",
+            created_at: "2026-11-03T05:40:55Z",
+          },
+        ],
+        total: 1,
+        page: 1,
+        limit: 20,
+        total_pages: 1,
+        summary: {
+          total_redemptions: 1,
+          failed_count: 0,
+          ineligible_count: 1,
+          distinct_codes: ["GB1102FE829D"],
+        },
+      },
+    });
+
+    mockGetAdminCheckinsAction.mockResolvedValue({
+      success: true,
+      data: {
+        items: [
+          {
+            id: "chk-ineligible-1",
+            game_account_id: "acc-1",
+            uid: "2492959501023",
+            nickname: "Rimuru",
+            server_id: "S10975",
+            game_day: "2026-11-03",
+            status: "INELIGIBLE",
+            api_message: "This account is not eligible to claim the reward.",
+            created_at: "2026-11-03T06:00:00Z",
+          },
+        ],
+        total: 1,
+        page: 1,
+        limit: 20,
+        total_pages: 1,
+        summary: {
+          total_checkins: 1,
+          failed_count: 0,
+          ineligible_count: 1,
+          pending_count: 0,
+          already_checked_count: 0,
+          success_count: 0,
+          distinct_days: ["2026-11-03"],
+        },
+      },
+    });
+
+    await renderAdminManager();
+
+    // Switch to Redemptions Tab
+    const redemptionsTab = screen.getByRole("tab", { name: /Lịch Sử Đổi Mã/i });
+    await act(async () => {
+      fireEvent.mouseDown(redemptionsTab, { button: 0 });
+    });
+
+    expect(screen.getAllByText(/CHƯA ĐỦ ĐK/i).length).toBeGreaterThan(0);
+    expect(screen.getByText(/Chưa đủ ĐK \(1\)/i)).toBeDefined();
+
+    // Switch to Checkins Tab
+    const checkinsTab = screen.getByRole("tab", { name: /Lịch Sử Điểm Danh/i });
+    await act(async () => {
+      fireEvent.mouseDown(checkinsTab, { button: 0 });
+    });
+
+    expect(screen.getAllByText(/Phản Hồi Hệ Thống Game/i).length).toBeGreaterThan(0);
+    expect(screen.getByText("This account is not eligible to claim the reward.")).toBeDefined();
+    expect(screen.getAllByText(/CHƯA ĐỦ ĐK/i).length).toBeGreaterThan(0);
+  });
 });

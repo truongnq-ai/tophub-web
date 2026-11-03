@@ -11,6 +11,7 @@ import {
   Loader2,
   Calendar,
   Sparkles,
+  AlertCircle,
 } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -40,7 +41,7 @@ export function TabCheckins() {
   const [search, setSearch] = useState("");
   const [debouncedSearch, setDebouncedSearch] = useState("");
   const [filterStatus, setFilterStatus] = useState<
-    "ALL" | "SUCCESS" | "ALREADY_CHECKED" | "PENDING" | "FAILED"
+    "ALL" | "SUCCESS" | "ALREADY_CHECKED" | "INELIGIBLE" | "PENDING" | "FAILED"
   >("ALL");
   const [filterDay, setFilterDay] = useState<string>("ALL");
   const [retryingId, setRetryingId] = useState<string | null>(null);
@@ -136,10 +137,14 @@ export function TabCheckins() {
     try {
       const res = await retryAdminCheckinAction(item.id);
       const returnedStatus = res.data?.status;
-      const isSuccess = res.success && (returnedStatus === "SUCCESS" || returnedStatus === "ALREADY_CHECKED");
+      const isSuccess =
+        res.success && (returnedStatus === "SUCCESS" || returnedStatus === "ALREADY_CHECKED");
+      const isIneligible = res.success && returnedStatus === "INELIGIBLE";
       const newStatus: AdminCheckin["status"] = isSuccess
         ? (returnedStatus as "SUCCESS" | "ALREADY_CHECKED") || "SUCCESS"
-        : "FAILED";
+        : isIneligible
+          ? "INELIGIBLE"
+          : "FAILED";
 
       setCheckins((prev) =>
         prev.map((c) =>
@@ -147,6 +152,7 @@ export function TabCheckins() {
             ? {
                 ...c,
                 status: newStatus,
+                api_message: res.data?.api_message ?? c.api_message,
                 created_at: new Date().toISOString(),
               }
             : c
@@ -175,29 +181,22 @@ export function TabCheckins() {
         title: isAlready
           ? "Đã điểm danh trước đó"
           : isSuccess
-          ? "Điểm danh lại thành công"
-          : "Điểm danh thất bại",
-        description: isAlready
-          ? `Tài khoản ${item.nickname} (${item.uid}) đã tự điểm danh trong game trước đó.`
-          : `Tài khoản ${item.nickname} (${item.uid}) ngày ${item.game_day}`,
+            ? "Điểm danh lại thành công"
+            : isIneligible
+              ? "Chưa đủ điều kiện điểm danh"
+              : "Điểm danh thất bại",
+        description:
+          res.data?.api_message ||
+          (isAlready
+            ? `Tài khoản ${item.nickname} (${item.uid}) đã tự điểm danh trong game trước đó.`
+            : `Tài khoản ${item.nickname} (${item.uid}) ngày ${item.game_day}`),
         variant: isSuccess ? "default" : "destructive",
       });
     } catch {
-      // Optimistic fallback for resilient offline mode
-      setCheckins((prev) =>
-        prev.map((c) =>
-          c.id === item.id
-            ? {
-                ...c,
-                status: "SUCCESS",
-                created_at: new Date().toISOString(),
-              }
-            : c
-        )
-      );
       toast({
-        title: "Điểm danh lại thành công",
-        description: `Tài khoản ${item.nickname} (${item.uid}) đã được điểm danh ngày ${item.game_day}`,
+        title: "Không thể điểm danh lại",
+        description: "Không thể kết nối tới máy chủ để điểm danh lại.",
+        variant: "destructive",
       });
     } finally {
       setRetryingId(null);
@@ -207,12 +206,12 @@ export function TabCheckins() {
   const failedCount = isServerPaginated && summary
     ? summary.failed_count
     : checkins.filter((c) => c.status === "FAILED").length;
+  const ineligibleCount = isServerPaginated && summary && summary.ineligible_count !== undefined
+    ? summary.ineligible_count
+    : checkins.filter((c) => c.status === "INELIGIBLE").length;
   const pendingCount = isServerPaginated && summary
     ? summary.pending_count
     : checkins.filter((c) => c.status === "PENDING").length;
-  const alreadyCheckedCount = isServerPaginated && summary
-    ? summary.already_checked_count
-    : checkins.filter((c) => c.status === "ALREADY_CHECKED").length;
   const successCount = isServerPaginated && summary
     ? summary.success_count + summary.already_checked_count
     : checkins.filter((c) => c.status === "SUCCESS" || c.status === "ALREADY_CHECKED").length;
@@ -323,6 +322,11 @@ export function TabCheckins() {
                   {failedCount} lỗi
                 </Badge>
               )}
+              {ineligibleCount > 0 && (
+                <Badge className="bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20 text-[10px] font-semibold">
+                  {ineligibleCount} chưa đủ ĐK
+                </Badge>
+              )}
               {pendingCount > 0 && (
                 <Badge className="bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20 text-[10px] font-semibold">
                   {pendingCount} chờ điểm danh
@@ -414,6 +418,20 @@ export function TabCheckins() {
                 }`}
               >
                 Tự điểm danh
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setFilterStatus("INELIGIBLE");
+                  setCurrentPage(1);
+                }}
+                className={`px-2.5 py-1 rounded-md font-bold transition-all ${
+                  filterStatus === "INELIGIBLE"
+                    ? "bg-amber-600 text-white shadow-sm"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                Chưa đủ ĐK {ineligibleCount > 0 ? `(${ineligibleCount})` : ""}
               </button>
               <button
                 type="button"
@@ -517,6 +535,7 @@ export function TabCheckins() {
                 <th className="px-4 py-3">Máy Chủ</th>
                 <th className="px-4 py-3">Ngày Điểm Danh</th>
                 <th className="px-4 py-3">Trạng Thái</th>
+                <th className="px-4 py-3">Phản Hồi Hệ Thống Game</th>
                 <th className="px-4 py-3">Thời Gian Thực Hiện</th>
                 <th className="px-4 py-3 text-right">Thao Tác</th>
               </tr>
@@ -565,6 +584,11 @@ export function TabCheckins() {
                             <CheckCircle2 className="h-3 w-3" />
                             ĐÃ ĐIỂM DANH TRƯỚC
                           </span>
+                        ) : item.status === "INELIGIBLE" ? (
+                          <span className="inline-flex items-center gap-1 text-[11px] text-amber-600 dark:text-amber-400 font-semibold bg-amber-500/10 px-2 py-0.5 rounded-full border border-amber-500/20">
+                            <AlertCircle className="h-3 w-3" />
+                            CHƯA ĐỦ ĐK
+                          </span>
                         ) : item.status === "PENDING" ? (
                           <span className="inline-flex items-center gap-1 text-[11px] text-amber-600 dark:text-amber-400 font-semibold bg-amber-500/10 px-2 py-0.5 rounded-full border border-amber-500/20">
                             <Clock className="h-3 w-3" />
@@ -578,13 +602,32 @@ export function TabCheckins() {
                         )}
                       </td>
 
+                      <td className="px-4 py-3.5 max-w-xs text-xs text-muted-foreground">
+                        {item.api_message ? (
+                          <div className="flex items-center gap-1.5">
+                            {item.status === "FAILED" ? (
+                              <AlertCircle className="h-3.5 w-3.5 text-rose-500 shrink-0" />
+                            ) : item.status === "INELIGIBLE" ? (
+                              <AlertCircle className="h-3.5 w-3.5 text-amber-500 shrink-0" />
+                            ) : item.status === "ALREADY_CHECKED" ? (
+                              <AlertCircle className="h-3.5 w-3.5 text-sky-500 shrink-0" />
+                            ) : null}
+                            <span className="truncate" title={item.api_message}>
+                              {item.api_message}
+                            </span>
+                          </div>
+                        ) : (
+                          <span className="text-muted-foreground/40">—</span>
+                        )}
+                      </td>
+
                       <td className="px-4 py-3.5 font-mono text-xs text-muted-foreground">
                         {formatLocalizedTimeWithTz(item.created_at, "vi")}{" "}
                         {formatLocalizedDate(item.created_at, "vi")}
                       </td>
 
                       <td className="px-4 py-3.5 text-right">
-                        {item.status === "FAILED" ? (
+                        {item.status === "FAILED" || item.status === "INELIGIBLE" ? (
                           <Button
                             variant="outline"
                             size="sm"
@@ -618,7 +661,7 @@ export function TabCheckins() {
                 })
               ) : isLoading ? (
                 <tr>
-                  <td colSpan={6} className="px-4 py-12 text-center text-muted-foreground text-xs">
+                  <td colSpan={7} className="px-4 py-12 text-center text-muted-foreground text-xs">
                     <div className="flex flex-col items-center justify-center gap-2">
                       <Loader2 className="h-6 w-6 animate-spin text-primary" />
                       <p className="font-medium text-sm">Đang tải lịch sử điểm danh...</p>
@@ -627,7 +670,7 @@ export function TabCheckins() {
                 </tr>
               ) : (
                 <tr>
-                  <td colSpan={6} className="p-0">
+                  <td colSpan={7} className="p-0">
                     <AdminEmptyState
                       title="Không tìm thấy lịch sử điểm danh"
                       description="Không có bản ghi điểm danh nào khớp với tiêu chí tìm kiếm hoặc ngày được chọn."

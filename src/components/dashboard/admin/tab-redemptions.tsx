@@ -2,7 +2,6 @@
 
 import React, { useState, useMemo } from "react";
 import {
-  Zap,
   Search,
   RotateCcw,
   CheckCircle2,
@@ -10,7 +9,6 @@ import {
   Loader2,
   AlertCircle,
   Clock,
-  Info,
 } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -44,7 +42,9 @@ export function TabRedemptions() {
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [debouncedSearch, setDebouncedSearch] = useState("");
-  const [filterStatus, setFilterStatus] = useState<"ALL" | "SUCCESS" | "ALREADY_REDEEMED" | "EXPIRED" | "FAILED">("ALL");
+  const [filterStatus, setFilterStatus] = useState<
+    "ALL" | "SUCCESS" | "ALREADY_REDEEMED" | "EXPIRED" | "INELIGIBLE" | "FAILED"
+  >("ALL");
   const [filterCode, setFilterCode] = useState<string>("ALL");
   const [retryingId, setRetryingId] = useState<string | null>(null);
   const [isRetryingAll, setIsRetryingAll] = useState(false);
@@ -120,10 +120,30 @@ export function TabRedemptions() {
     setRetryingId(item.id);
     try {
       const res = await retryAdminRedemptionAction(item.id);
+      if (res.success && Boolean(res.data?.queued)) {
+        toast({
+          title: "Đã đưa vào hàng đợi ưu tiên",
+          description:
+            res.data?.api_message ||
+            `Đã đẩy mã ${item.gift_code} cho ${item.nickname} (${item.uid}) vào hàng đợi bot worker.`,
+        });
+        setTimeout(() => fetchRedemptions(), 4000);
+        return;
+      }
+
       const isSuccess = res.success && res.data?.status === "SUCCESS";
       const isAlready = res.success && res.data?.status === "ALREADY_REDEEMED";
       const isExpired = res.success && res.data?.status === "EXPIRED";
-      const newStatus = isSuccess ? "SUCCESS" : isAlready ? "ALREADY_REDEEMED" : isExpired ? "EXPIRED" : "FAILED";
+      const isIneligible = res.success && res.data?.status === "INELIGIBLE";
+      const newStatus: AdminRedemption["status"] = isSuccess
+        ? "SUCCESS"
+        : isAlready
+          ? "ALREADY_REDEEMED"
+          : isExpired
+            ? "EXPIRED"
+            : isIneligible
+              ? "INELIGIBLE"
+              : "FAILED";
       const apiMessage =
         res.data?.api_message ||
         (isSuccess
@@ -132,7 +152,9 @@ export function TabRedemptions() {
             ? "Đã nhận quà từ trước"
             : isExpired
               ? "Mã quà tặng đã hết hạn"
-              : "Đổi mã thất bại");
+              : isIneligible
+                ? "Tài khoản chưa đủ điều kiện nhận quà từ máy chủ game"
+                : "Đổi mã thất bại");
 
       setRedemptions((prev) =>
         prev.map((r) =>
@@ -148,27 +170,23 @@ export function TabRedemptions() {
       );
 
       toast({
-        title: isSuccess ? "Kích hoạt thành công" : isAlready ? "Đã có quà từ trước" : isExpired ? "Mã hết hạn" : "Thử lại thất bại",
+        title: isSuccess
+          ? "Kích hoạt thành công"
+          : isAlready
+            ? "Đã có quà từ trước"
+            : isExpired
+              ? "Mã hết hạn"
+              : isIneligible
+                ? "Chưa đủ điều kiện nhận quà"
+                : "Thử lại thất bại",
         description: `Mã ${item.gift_code} cho tài khoản ${item.nickname} (${item.uid}): ${apiMessage}`,
-        variant: isSuccess ? "default" : isAlready ? "default" : "destructive",
+        variant: isSuccess || isAlready ? "default" : "destructive",
       });
     } catch {
-      // Optimistic fallback for resilient offline mode
-      setRedemptions((prev) =>
-        prev.map((r) =>
-          r.id === item.id
-            ? {
-                ...r,
-                status: "SUCCESS",
-                api_message: "Thành công: Đã kích hoạt lại qua bot worker",
-                created_at: new Date().toISOString(),
-              }
-            : r
-        )
-      );
       toast({
-        title: "Kích hoạt lại thành công",
-        description: `Đã đổi thành công mã ${item.gift_code} cho tài khoản ${item.nickname} (${item.uid})`,
+        title: "Không thể thử lại",
+        description: "Không thể kết nối tới máy chủ để thử lại mã quà tặng.",
+        variant: "destructive",
       });
     } finally {
       setRetryingId(null);
@@ -177,6 +195,8 @@ export function TabRedemptions() {
 
   const failedCount =
     summary?.failed_count ?? redemptions.filter((r) => r.status === "FAILED").length;
+  const ineligibleCount =
+    summary?.ineligible_count ?? redemptions.filter((r) => r.status === "INELIGIBLE").length;
 
   const handleRetryAllFailed = async () => {
     const failedItems = redemptions.filter((r) => r.status === "FAILED");
@@ -191,43 +211,27 @@ export function TabRedemptions() {
     setIsRetryingAll(true);
     try {
       const res = await retryAllAdminRedemptionsAction(filterCode !== "ALL" ? filterCode : undefined);
-      const count = res.success && res.data ? res.data.retried_count : Math.max(failedCount, failedItems.length);
-
-      setRedemptions((prev) =>
-        prev.map((r) =>
-          r.status === "FAILED" && (filterCode === "ALL" || r.gift_code === filterCode)
-            ? {
-                ...r,
-                status: "SUCCESS",
-                api_message: "Thành công: Đã kích hoạt lại hàng loạt",
-                created_at: new Date().toISOString(),
-              }
-            : r
-        )
-      );
-      setSummary((prev) => (prev ? { ...prev, failed_count: 0 } : prev));
-
+      if (!res.success) {
+        toast({
+          title: "Không thể thử lại hàng loạt",
+          description: res.error?.message || "Máy chủ từ chối yêu cầu thử lại.",
+          variant: "destructive",
+        });
+        return;
+      }
+      const count = res.data?.retried_count ?? Math.max(failedCount, failedItems.length);
       toast({
-        title: "Đã kích hoạt lại toàn bộ mã lỗi",
-        description: `Đã xử lý lại ${count} lượt đổi quà bị thất bại tới hệ thống bot.`,
+        title: "Đã đưa mã lỗi vào hàng đợi",
+        description:
+          res.data?.message ||
+          `Đã đưa ${count} lượt đổi quà bị thất bại vào hàng đợi bot worker.`,
       });
+      setTimeout(() => fetchRedemptions(), 5000);
     } catch {
-      // Fallback
-      setRedemptions((prev) =>
-        prev.map((r) =>
-          r.status === "FAILED"
-            ? {
-                ...r,
-                status: "SUCCESS",
-                api_message: "Thành công: Đã kích hoạt lại hàng loạt",
-                created_at: new Date().toISOString(),
-              }
-            : r
-        )
-      );
       toast({
-        title: "Đã kích hoạt lại toàn bộ mã lỗi",
-        description: `Đã gửi lệnh xử lý lại ${Math.max(failedCount, failedItems.length)} lượt đổi quà bị thất bại tới hệ thống bot.`,
+        title: "Không thể thử lại hàng loạt",
+        description: "Không thể kết nối tới máy chủ.",
+        variant: "destructive",
       });
     } finally {
       setIsRetryingAll(false);
@@ -283,6 +287,11 @@ export function TabRedemptions() {
               {failedCount > 0 && (
                 <Badge className="bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20 text-[10px] font-semibold">
                   {failedCount} mã lỗi
+                </Badge>
+              )}
+              {ineligibleCount > 0 && (
+                <Badge className="bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20 text-[10px] font-semibold">
+                  {ineligibleCount} chưa đủ ĐK
                 </Badge>
               )}
             </div>
@@ -386,6 +395,20 @@ export function TabRedemptions() {
               <button
                 type="button"
                 onClick={() => {
+                  setFilterStatus("INELIGIBLE");
+                  setCurrentPage(1);
+                }}
+                className={`px-2.5 py-1 rounded-md font-bold transition-all ${
+                  filterStatus === "INELIGIBLE"
+                    ? "bg-amber-600 text-white shadow-sm"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                Chưa đủ ĐK ({ineligibleCount})
+              </button>
+              <button
+                type="button"
+                onClick={() => {
                   setFilterStatus("FAILED");
                   setCurrentPage(1);
                 }}
@@ -444,7 +467,6 @@ export function TabRedemptions() {
             <tbody className="divide-y divide-border/30 text-card-foreground">
               {paginatedRedemptions.length > 0 ? (
                 paginatedRedemptions.map((item) => {
-                  const isSuccess = item.status === "SUCCESS";
                   return (
                     <tr
                       key={item.id}
@@ -490,6 +512,11 @@ export function TabRedemptions() {
                             <Clock className="h-3 w-3" />
                             HẾT HẠN
                           </span>
+                        ) : item.status === "INELIGIBLE" ? (
+                          <span className="inline-flex items-center gap-1 text-[11px] text-amber-600 dark:text-amber-400 font-semibold bg-amber-500/10 px-2 py-0.5 rounded-full border border-amber-500/20">
+                            <AlertCircle className="h-3 w-3" />
+                            CHƯA ĐỦ ĐK
+                          </span>
                         ) : (
                           <span className="inline-flex items-center gap-1 text-[11px] text-rose-600 dark:text-rose-400 font-semibold bg-rose-500/10 px-2 py-0.5 rounded-full border border-rose-500/20">
                             <XCircle className="h-3 w-3" />
@@ -502,7 +529,7 @@ export function TabRedemptions() {
                         <div className="flex items-center gap-1.5">
                           {item.status === "FAILED" ? (
                             <AlertCircle className="h-3.5 w-3.5 text-rose-500 shrink-0" />
-                          ) : item.status === "ALREADY_REDEEMED" ? (
+                          ) : item.status === "ALREADY_REDEEMED" || item.status === "INELIGIBLE" ? (
                             <AlertCircle className="h-3.5 w-3.5 text-amber-500 shrink-0" />
                           ) : item.status === "EXPIRED" ? (
                             <Clock className="h-3.5 w-3.5 text-slate-400 shrink-0" />
@@ -519,7 +546,7 @@ export function TabRedemptions() {
                       </td>
 
                       <td className="px-4 py-3.5 text-right">
-                        {item.status === "FAILED" ? (
+                        {item.status === "FAILED" || item.status === "INELIGIBLE" ? (
                           <Button
                             variant="outline"
                             size="sm"

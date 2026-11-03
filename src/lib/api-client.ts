@@ -265,7 +265,7 @@ export const apiClient = {
   },
 
   retryAdminRedemption: (token: string, id: string) =>
-    apiFetch<{ id: string; status: string; api_message?: string }>(
+    apiFetch<{ id: string; status: string; api_message?: string; queued?: boolean }>(
       `/api/v1/admin/redemptions/${id}/retry`,
       {
         method: "POST",
@@ -298,7 +298,7 @@ export const apiClient = {
   },
 
   retryAdminCheckin: (token: string, id: string) =>
-    apiFetch<{ id: string; status: string }>(`/api/v1/admin/checkins/${id}/retry`, {
+    apiFetch<{ id: string; status: string; api_message?: string }>(`/api/v1/admin/checkins/${id}/retry`, {
       method: "POST",
       headers: { Authorization: `Bearer ${token}` },
     }),

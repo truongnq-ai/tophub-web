@@ -184,8 +184,8 @@ export async function getAdminRedemptionsAction(query?: {
 
 export async function retryAdminRedemptionAction(
   id: string
-): Promise<ApiResponse<{ id: string; status: string; api_message?: string }>> {
-  const auth = getAdminTokenOrUnauthorized<{ id: string; status: string; api_message?: string }>();
+): Promise<ApiResponse<{ id: string; status: string; api_message?: string; queued?: boolean }>> {
+  const auth = getAdminTokenOrUnauthorized<{ id: string; status: string; api_message?: string; queued?: boolean }>();
   if ("errorResponse" in auth) return auth.errorResponse;
   return apiClient.retryAdminRedemption(auth.token, id);
 }
@@ -212,8 +212,8 @@ export async function getAdminCheckinsAction(query?: {
 
 export async function retryAdminCheckinAction(
   id: string
-): Promise<ApiResponse<{ id: string; status: string }>> {
-  const auth = getAdminTokenOrUnauthorized<{ id: string; status: string }>();
+): Promise<ApiResponse<{ id: string; status: string; api_message?: string }>> {
+  const auth = getAdminTokenOrUnauthorized<{ id: string; status: string; api_message?: string }>();
   if ("errorResponse" in auth) return auth.errorResponse;
   return apiClient.retryAdminCheckin(auth.token, id);
 }

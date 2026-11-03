@@ -51,7 +51,7 @@ export function AccountRedemptionsDialog({
   const [search, setSearch] = useState("");
   const [debouncedSearch, setDebouncedSearch] = useState("");
   const [filterStatus, setFilterStatus] = useState<
-    "ALL" | "SUCCESS" | "ALREADY_REDEEMED" | "EXPIRED" | "FAILED"
+    "ALL" | "SUCCESS" | "ALREADY_REDEEMED" | "EXPIRED" | "INELIGIBLE" | "FAILED"
   >("ALL");
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
 
@@ -198,7 +198,7 @@ export function AccountRedemptionsDialog({
   }, [redemptions.length, isServerPaginated, summary]);
 
   const getTabStatusCount = (
-    statusId: "SUCCESS" | "ALREADY_REDEEMED" | "EXPIRED" | "FAILED"
+    statusId: "SUCCESS" | "ALREADY_REDEEMED" | "EXPIRED" | "INELIGIBLE" | "FAILED"
   ) => {
     if (isServerPaginated && summary) {
       if (statusId === "SUCCESS" && summary.success_count !== undefined) {
@@ -212,6 +212,9 @@ export function AccountRedemptionsDialog({
       }
       if (statusId === "EXPIRED" && summary.expired_count !== undefined) {
         return summary.expired_count;
+      }
+      if (statusId === "INELIGIBLE" && summary.ineligible_count !== undefined) {
+        return summary.ineligible_count;
       }
       if (statusId === "FAILED") {
         return summary.failed_count;
@@ -238,9 +241,16 @@ export function AccountRedemptionsDialog({
         );
       case "EXPIRED":
         return (
+          <Badge className="bg-slate-500/10 text-slate-600 dark:text-slate-400 border border-slate-500/30 gap-1 text-[10px] font-bold">
+            <Clock className="h-3 w-3" />
+            HẾT HẠN
+          </Badge>
+        );
+      case "INELIGIBLE":
+        return (
           <Badge className="bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/30 gap-1 text-[10px] font-bold">
             <AlertCircle className="h-3 w-3" />
-            HẾT HẠN
+            CHƯA ĐỦ ĐK
           </Badge>
         );
       case "FAILED":
@@ -303,6 +313,7 @@ export function AccountRedemptionsDialog({
                   { id: "SUCCESS", label: "Thành công" },
                   { id: "ALREADY_REDEEMED", label: "Đã nhận" },
                   { id: "EXPIRED", label: "Hết hạn" },
+                  { id: "INELIGIBLE", label: "Chưa đủ ĐK" },
                   { id: "FAILED", label: "Lỗi" },
                 ] as const
               ).map((tab) => (

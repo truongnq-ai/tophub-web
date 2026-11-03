@@ -108,7 +108,7 @@ export interface PlayerStatusResponse {
   token_status: string;
   recent_redemptions: Array<{
     code: string;
-    status: "SUCCESS" | "ALREADY_REDEEMED" | "EXPIRED" | "FAILED" | string;
+    status: "SUCCESS" | "ALREADY_REDEEMED" | "EXPIRED" | "INELIGIBLE" | "FAILED" | string;
     redeemed_at: string;
   }>;
 }
@@ -181,7 +181,7 @@ export interface AdminRedemptionItem {
   nickname: string;
   server_id: string;
   gift_code: string;
-  status: "SUCCESS" | "ALREADY_REDEEMED" | "EXPIRED" | "FAILED";
+  status: "SUCCESS" | "ALREADY_REDEEMED" | "EXPIRED" | "INELIGIBLE" | "FAILED";
   api_message: string;
   created_at: string;
 }
@@ -193,7 +193,8 @@ export interface AdminCheckinItem {
   nickname: string;
   server_id: string;
   game_day: string;
-  status: "SUCCESS" | "ALREADY_CHECKED" | "FAILED" | "PENDING";
+  status: "SUCCESS" | "ALREADY_CHECKED" | "INELIGIBLE" | "FAILED" | "PENDING";
+  api_message?: string;
   created_at: string;
 }
 
@@ -320,6 +321,7 @@ export interface AdminRedemptionsSummary {
   success_count?: number;
   already_redeemed_count?: number;
   expired_count?: number;
+  ineligible_count?: number;
   failed_count: number;
   distinct_codes: string[];
 }
@@ -327,6 +329,7 @@ export interface AdminRedemptionsSummary {
 export interface AdminCheckinsSummary {
   total_checkins: number;
   failed_count: number;
+  ineligible_count?: number;
   pending_count: number;
   already_checked_count: number;
   success_count: number;
