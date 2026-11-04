@@ -157,8 +157,8 @@
     "switchLocale": "Đổi ngôn ngữ"
   },
   "Footer": {
-    "title": "TopHub Companion",
-    "brandDesc": "Nền tảng hỗ trợ game thủ Top Heroes tự động hóa săn giftcode, điểm danh hàng ngày và theo dõi sự kiện nhanh chóng.",
+    "title": "Top Hero Hub",
+    "brandDesc": "Nền tảng tiện ích hỗ trợ game thủ Top Heroes: Tự động săn giftcode 24/7, điểm danh hàng ngày và tính toán nguyên liệu chuẩn dữ liệu gốc.",
     "disclaimer": "Lưu ý: TopHub là công cụ hỗ trợ cộng đồng độc lập, không thuộc sở hữu hay liên kết chính thức với nhà phát hành game Top Heroes.",
     "featuredFeatures": "Tính năng nổi bật",
     "botStatusLookup": "Tra Cứu Trạng Thái UID",
@@ -167,8 +167,8 @@
     "terms": "Điều Khoản Dịch Vụ",
     "privacy": "Chính Sách Bảo Mật",
     "discordCommunity": "Cộng Đồng Discord Top Heroes",
-    "copyright": "© {year} TopHub Companion. Bản quyền thuộc về cộng đồng người chơi.",
-    "builtWithLove": "Phát triển với dành cho Top Heroes gamers"
+    "copyright": "© {year} Top Hero Hub. Bản quyền thuộc về cộng đồng người chơi.",
+    "builtWithLove": "Phát triển với tâm huyết dành cho cộng đồng Top Heroes"
   },
   "Privacy": {
     "title": "Chính Sách Bảo Mật",

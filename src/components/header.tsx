@@ -9,7 +9,6 @@ import {
   LogOut,
   Home,
   ChevronDown,
-  BookOpen,
   Calculator,
 } from "lucide-react";
 import { BrandLogo } from "@/components/brand-logo";
@@ -56,13 +55,6 @@ export function Header() {
       icon: Calculator,
       badge: tNav("calculatorsNewBadge"),
       badgeTestId: "header-calculators-new-badge",
-    },
-    {
-      name: tNav("guides"),
-      href: "/guides",
-      icon: BookOpen,
-      badge: null as string | null,
-      badgeTestId: undefined as string | undefined,
     },
   ];
 

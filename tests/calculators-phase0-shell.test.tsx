@@ -212,7 +212,7 @@ describe("Suite 2 — Header Navigation Order & Badge Migration (AC-CALC-01 & AC
     mockPathname.mockReturnValue("/");
   });
 
-  it("places /calculators strictly between Home (/) and Guides (/guides) and attaches the NEW badge only to /calculators", () => {
+  it("renders Home (/) and Calculators (/calculators) with the NEW badge while hiding Guides (/guides) across Desktop and Mobile Header navigation", () => {
     const { container } = render(<Header />);
     const desktopNav = container.querySelector("nav.hidden.md\\:flex");
     expect(desktopNav).not.toBeNull();
@@ -221,12 +221,21 @@ describe("Suite 2 — Header Navigation Order & Badge Migration (AC-CALC-01 & AC
     expect(navLinks.map((a) => a.getAttribute("href"))).toEqual([
       "/",
       "/calculators",
-      "/guides",
     ]);
 
     const calcBadge = screen.getByTestId("header-calculators-new-badge");
     expect(calcBadge.textContent).toBe("MỚI");
     expect(screen.queryByTestId("header-guides-new-badge")).toBeNull();
+
+    const mobileTrigger = screen.getByRole("button", {
+      name: /Toggle navigation menu/i,
+    });
+    fireEvent.click(mobileTrigger);
+
+    const allRenderedLinks = Array.from(document.querySelectorAll("a")).map(
+      (a) => a.getAttribute("href")
+    );
+    expect(allRenderedLinks).not.toContain("/guides");
   });
 });
 

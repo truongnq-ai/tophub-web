@@ -157,8 +157,8 @@
     "switchLocale": "Switch language"
   },
   "Footer": {
-    "title": "TopHub Companion",
-    "brandDesc": "Companion platform for Top Heroes players: automated giftcode claims, daily check-in, and fast event updates.",
+    "title": "Top Hero Hub",
+    "brandDesc": "Utility hub for Top Heroes players: 24/7 automated giftcode claims, daily check-in, and precision resource calculators.",
     "disclaimer": "Disclaimer: TopHub is an independent community project and is not affiliated with or endorsed by the publisher of Top Heroes.",
     "featuredFeatures": "Features",
     "botStatusLookup": "UID Status Lookup",
@@ -167,8 +167,8 @@
     "terms": "Terms of Service",
     "privacy": "Privacy Policy",
     "discordCommunity": "Discord Community",
-    "copyright": "© {year} TopHub Companion. Created for the gaming community.",
-    "builtWithLove": "Crafted for Top Heroes gamers"
+    "copyright": "© {year} Top Hero Hub. Created for the gaming community.",
+    "builtWithLove": "Crafted with love for Top Heroes gamers"
   },
   "Privacy": {
     "title": "Privacy Policy",

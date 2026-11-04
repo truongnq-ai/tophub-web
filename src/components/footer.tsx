@@ -15,17 +15,13 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand info */}
           <div className="space-y-3">
-            <Link href="/" className="flex items-center gap-2.5 group">
-              <BrandLogo
-                size="xs"
-                showSubtitle={false}
-                titleOverride={tFooter("title")}
-              />
+            <Link href="/" className="inline-flex items-center gap-2.5 group">
+              <BrandLogo size="sm" />
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
               {tFooter("brandDesc")}
             </p>
-            <p className="text-xs text-muted-foreground leading-relaxed border-l-2 border-amber-500/50 pl-2.5 py-1.5 bg-amber-500/5 rounded-r">
+            <p className="text-xs text-muted-foreground leading-relaxed rounded-xl border border-amber-500/20 bg-amber-500/5 px-3 py-2">
               {tFooter("disclaimer")}
             </p>
           </div>
@@ -38,10 +34,16 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
-                  href="/guides"
-                  className="inline-flex items-center min-h-[44px] sm:min-h-0 py-1 text-muted-foreground hover:text-amber-500 dark:hover:text-amber-400 transition-colors font-semibold"
+                  href="/calculators"
+                  className="inline-flex items-center gap-2 min-h-[44px] sm:min-h-0 py-1 text-muted-foreground hover:text-amber-500 dark:hover:text-amber-400 transition-colors font-semibold"
                 >
-                  {tNav("guides")} (S0 ➔ S4)
+                  <span>{tNav("calculators")}</span>
+                  <span
+                    data-testid="footer-calculators-new-badge"
+                    className="rounded-full bg-amber-500/20 border border-amber-500/40 px-2 py-0.5 font-sans text-xs font-bold uppercase leading-none text-amber-600 dark:text-amber-400"
+                  >
+                    {tNav("calculatorsNewBadge")}
+                  </span>
                 </Link>
               </li>
               <li>
@@ -101,9 +103,9 @@ export function Footer() {
 
         <div className="mt-8 pt-6 border-t border-border/40 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
           <p>{tFooter("copyright", { year: currentYear })}</p>
-          <p className="flex items-center gap-1">
+          <p className="flex items-center gap-1.5">
             <span>{tFooter("builtWithLove")}</span>
-            <Heart className="h-3.5 w-3.5 text-rose-500 fill-rose-500" />
+            <Heart className="h-3.5 w-3.5 text-rose-500 fill-rose-500 shrink-0" />
           </p>
         </div>
       </div>

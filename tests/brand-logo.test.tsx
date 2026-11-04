@@ -5,7 +5,10 @@ import { describe, expect, it, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { BrandLogo, BRAND_LOGO_SRC } from "../src/components/brand-logo";
 import { Header } from "../src/components/header";
+import { Footer } from "../src/components/footer";
 import { LogoAnimated } from "../src/components/logo-animated";
+import viMessages from "../messages/vi.json";
+import enMessages from "../messages/en.json";
 
 vi.mock("@/i18n/routing", () => ({
   Link: ({
@@ -38,10 +41,18 @@ vi.mock("@/hooks/use-uid-session", () => ({
 
 vi.mock("next-intl", () => ({
   useLocale: () => "vi",
-  useTranslations: () => (key: string) => {
-    if (key === "calculatorsNewBadge") return "MỚI";
-    return key;
-  },
+  useTranslations:
+    (ns?: string) => (key: string, params?: Record<string, unknown>) => {
+      const dict = (
+        viMessages as unknown as Record<string, Record<string, string>>
+      )[ns ?? ""];
+      const raw = dict?.[key] ?? (key === "calculatorsNewBadge" ? "MỚI" : key);
+      if (!params) return raw;
+      return Object.entries(params).reduce(
+        (acc, [k, v]) => acc.replace(`{${k}}`, String(v)),
+        raw
+      );
+    },
 }));
 
 describe("BrandLogo & Top Hero Hub Brand Identity", () => {
@@ -93,5 +104,38 @@ describe("BrandLogo & Top Hero Hub Brand Identity", () => {
     expect(screen.getAllByText("TopHub").length).toBeGreaterThanOrEqual(2);
     expect(screen.getAllByText("Top Hero Hub").length).toBeGreaterThanOrEqual(2);
     expect(container.textContent).not.toContain("Top Heroes Companion");
+  });
+
+  it("updates Footer to display 'TopHub' + 'Top Hero Hub', link to '/calculators' with NEW badge, hide '/guides', and fix VI/EN copywriting", () => {
+    const { container } = render(<Footer />);
+
+    expect(screen.getByText("TopHub")).toBeTruthy();
+    expect(screen.getByText("Top Hero Hub")).toBeTruthy();
+    expect(screen.getByTestId("footer-calculators-new-badge").textContent).toBe(
+      "MỚI"
+    );
+
+    const links = Array.from(container.querySelectorAll("a")).map((a) =>
+      a.getAttribute("href")
+    );
+    expect(links).toContain("/calculators");
+    expect(links).toContain("/giftcodes");
+    expect(links).not.toContain("/guides");
+
+    expect(container.textContent).not.toContain("TopHub Companion");
+    expect(container.textContent).not.toContain("Phát triển với dành cho");
+    expect(container.textContent).toContain(
+      "Phát triển với tâm huyết dành cho cộng đồng Top Heroes"
+    );
+
+    expect(viMessages.Footer.title).toBe("Top Hero Hub");
+    expect(enMessages.Footer.title).toBe("Top Hero Hub");
+    expect(viMessages.Footer.copyright).toContain("Top Hero Hub");
+    expect(enMessages.Footer.copyright).toContain("Top Hero Hub");
+    expect(viMessages.Footer.brandDesc).toContain("tính toán nguyên liệu");
+    expect(enMessages.Footer.brandDesc).toContain("resource calculators");
+    expect(enMessages.Footer.builtWithLove).toBe(
+      "Crafted with love for Top Heroes gamers"
+    );
   });
 });
