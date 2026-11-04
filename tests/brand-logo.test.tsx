@@ -45,15 +45,28 @@ vi.mock("next-intl", () => ({
 }));
 
 describe("BrandLogo & Top Hero Hub Brand Identity", () => {
-  it("stores the generated brand logo assets in public/images/brand/", () => {
+  it("stores the generated brand logo assets in public/images/brand/ and syncs favicon/app-icons", () => {
     const publicDir = path.resolve(__dirname, "../public");
+    const appDir = path.resolve(__dirname, "../src/app");
     const pngPath = path.join(publicDir, "images/brand/tophub-logo.png");
     const webpPath = path.join(publicDir, "images/brand/tophub-logo.webp");
+    const publicFaviconPath = path.join(publicDir, "favicon.ico");
+    const appFaviconPath = path.join(appDir, "favicon.ico");
+    const appIconPath = path.join(appDir, "icon.png");
+    const appleIconPath = path.join(appDir, "apple-icon.png");
 
     expect(fs.existsSync(pngPath)).toBe(true);
     expect(fs.existsSync(webpPath)).toBe(true);
+    expect(fs.existsSync(publicFaviconPath)).toBe(true);
+    expect(fs.existsSync(appFaviconPath)).toBe(true);
+    expect(fs.existsSync(appIconPath)).toBe(true);
+    expect(fs.existsSync(appleIconPath)).toBe(true);
+
     expect(fs.statSync(pngPath).size).toBeGreaterThan(1024);
     expect(fs.statSync(webpPath).size).toBeGreaterThan(1024);
+    expect(fs.statSync(appIconPath).size).toBeGreaterThan(1024);
+    expect(fs.statSync(appleIconPath).size).toBeGreaterThan(1024);
+    expect(fs.readFileSync(publicFaviconPath).equals(fs.readFileSync(appFaviconPath))).toBe(true);
   });
 
   it("renders BrandLogo with new emblem image, 'TopHub' title, and 'Top Hero Hub' subtitle", () => {
