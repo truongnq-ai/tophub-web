@@ -114,6 +114,56 @@ export function HomeAnnouncementTicker({
     </div>
   );
 
+  const linkClassName =
+    "group container mx-auto max-w-7xl px-3 sm:px-6 h-11 min-h-[44px] flex items-center justify-between gap-2.5 sm:gap-4 overflow-hidden cursor-pointer";
+
+  const innerContent = (
+    <>
+      {/* Left RPG Broadcast Bell / Loudspeaker Badge */}
+      <div
+        data-testid="announcement-left-badge"
+        className="relative flex items-center gap-1.5 rounded-full bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-400 text-slate-950 px-2.5 sm:px-3 py-1 text-xs font-heading font-black tracking-wide uppercase shadow-sm shadow-amber-500/30 ring-1 ring-amber-300/60 shrink-0"
+      >
+        <GameBroadcastBellIcon
+          data-testid="announcement-megaphone-icon"
+          className="h-3.5 w-3.5"
+        />
+        <span className="sm:hidden">{compactMobileBadge}</span>
+        <span className="hidden sm:inline">{spotItem.badge[safeLocale]}</span>
+      </div>
+
+      {/* Center Right-to-Left Marquee Viewport */}
+      <div className="relative flex-1 overflow-hidden mask-linear-fade">
+        <div
+          data-testid="announcement-marquee-track"
+          style={{ animationDuration: `${marqueeDurationSeconds}s` }}
+          className="flex w-max animate-marquee group-hover:[animation-play-state:paused] group-focus-visible:[animation-play-state:paused] active:[animation-play-state:paused] motion-reduce:animate-none"
+        >
+          {renderTrackItems(false)}
+          {renderTrackItems(true)}
+        </div>
+      </div>
+
+      {/* Right Contextual Game Action CTA (Calculator jumping numbers / Open Book / Gift / Trophy) */}
+      <div
+        data-testid="announcement-right-cta"
+        className="flex items-center gap-1.5 rounded-full border border-amber-500/45 bg-gradient-to-r from-amber-500/15 via-amber-500/10 to-amber-500/20 group-hover:from-amber-500 group-hover:to-amber-400 group-hover:text-slate-950 px-2.5 sm:px-3 py-1 text-xs font-heading font-bold text-amber-700 dark:text-amber-300 shadow-sm transition-all shrink-0"
+      >
+        <AnnouncementContextIcon
+          kind={spotVisualKind}
+          showLiveDigits={spotVisualKind === "calculator"}
+          className="h-3.5 w-3.5 shrink-0"
+        />
+        <span className="hidden sm:inline">
+          {spotItem.ctaLabel[safeLocale]}
+        </span>
+        <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 shrink-0" />
+      </div>
+    </>
+  );
+
+  const isExternalHref = /^https?:\/\//i.test(spotItem.href);
+
   return (
     <div
       data-testid="home-announcement-ticker"
@@ -128,51 +178,15 @@ export function HomeAnnouncementTicker({
         className
       )}
     >
-      <Link
-        href={spotItem.href}
-        className="group container mx-auto max-w-7xl px-3 sm:px-6 h-11 min-h-[44px] flex items-center justify-between gap-2.5 sm:gap-4 overflow-hidden cursor-pointer"
-      >
-        {/* Left RPG Broadcast Bell / Loudspeaker Badge */}
-        <div
-          data-testid="announcement-left-badge"
-          className="relative flex items-center gap-1.5 rounded-full bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-400 text-slate-950 px-2.5 sm:px-3 py-1 text-xs font-heading font-black tracking-wide uppercase shadow-sm shadow-amber-500/30 ring-1 ring-amber-300/60 shrink-0"
-        >
-          <GameBroadcastBellIcon
-            data-testid="announcement-megaphone-icon"
-            className="h-3.5 w-3.5"
-          />
-          <span className="sm:hidden">{compactMobileBadge}</span>
-          <span className="hidden sm:inline">{spotItem.badge[safeLocale]}</span>
-        </div>
-
-        {/* Center Right-to-Left Marquee Viewport */}
-        <div className="relative flex-1 overflow-hidden mask-linear-fade">
-          <div
-            data-testid="announcement-marquee-track"
-            style={{ animationDuration: `${marqueeDurationSeconds}s` }}
-            className="flex w-max animate-marquee group-hover:[animation-play-state:paused] group-focus-visible:[animation-play-state:paused] active:[animation-play-state:paused] motion-reduce:animate-none"
-          >
-            {renderTrackItems(false)}
-            {renderTrackItems(true)}
-          </div>
-        </div>
-
-        {/* Right Contextual Game Action CTA (Calculator jumping numbers / Open Book / Gift / Trophy) */}
-        <div
-          data-testid="announcement-right-cta"
-          className="flex items-center gap-1.5 rounded-full border border-amber-500/45 bg-gradient-to-r from-amber-500/15 via-amber-500/10 to-amber-500/20 group-hover:from-amber-500 group-hover:to-amber-400 group-hover:text-slate-950 px-2.5 sm:px-3 py-1 text-xs font-heading font-bold text-amber-700 dark:text-amber-300 shadow-sm transition-all shrink-0"
-        >
-          <AnnouncementContextIcon
-            kind={spotVisualKind}
-            showLiveDigits={spotVisualKind === "calculator"}
-            className="h-3.5 w-3.5 shrink-0"
-          />
-          <span className="hidden sm:inline">
-            {spotItem.ctaLabel[safeLocale]}
-          </span>
-          <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 shrink-0" />
-        </div>
-      </Link>
+      {isExternalHref ? (
+        <a href={spotItem.href} className={linkClassName}>
+          {innerContent}
+        </a>
+      ) : (
+        <Link href={spotItem.href} className={linkClassName}>
+          {innerContent}
+        </Link>
+      )}
     </div>
   );
 }

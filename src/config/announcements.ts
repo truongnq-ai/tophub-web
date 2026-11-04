@@ -54,6 +54,27 @@ export function resolveAnnouncementVisualKind(
 
 export const SYSTEM_ANNOUNCEMENTS: SystemAnnouncement[] = [
   {
+    id: "ann-official-domain-launch-2026",
+    type: "EVENT",
+    isActive: true,
+    href: "https://topherohub.com",
+    startsAt: null,
+    endsAt: null,
+    badge: {
+      vi: "DIỆN MẠO MỚI",
+      en: "NEW DOMAIN",
+    },
+    message: {
+      vi: "🎉 Tự hào diện mạo mới! TopHub (Top Hero Hub) chính thức chuyển đổi tên miền từ tophero.vercel.app sang https://topherohub.com/ — Cổng tiện ích Nhận Quà, Tính Toán & Cẩm Nang chiến thuật số 1 dành cho Chỉ Huy Top Heroes!",
+      en: "🎉 Proudly unveiling our new home! TopHub (Top Hero Hub) has officially moved from tophero.vercel.app to https://topherohub.com/ — The #1 Giftcode, Calculator & Tactical Guides Hub for Top Heroes Commanders!",
+    },
+    ctaLabel: {
+      vi: "Truy Cập Ngay",
+      en: "Visit Now",
+    },
+    sortOrder: 0,
+  },
+  {
     id: "ann-calculators-launch-2026",
     type: "FEATURE",
     isActive: true,
@@ -72,7 +93,7 @@ export const SYSTEM_ANNOUNCEMENTS: SystemAnnouncement[] = [
       vi: "Mở Tính Toán",
       en: "Open Calculators",
     },
-    sortOrder: 0,
+    sortOrder: 1,
   },
   {
     id: "ann-guides-launch-2026",
@@ -93,7 +114,7 @@ export const SYSTEM_ANNOUNCEMENTS: SystemAnnouncement[] = [
       vi: "Mở Cẩm Nang",
       en: "Open Guides",
     },
-    sortOrder: 1,
+    sortOrder: 2,
   },
 ];
 

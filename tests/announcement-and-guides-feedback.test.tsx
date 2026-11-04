@@ -71,22 +71,32 @@ describe("Task 1 — SystemAnnouncement Schema, Date Boundaries & i18n Parity", 
     vi.restoreAllMocks();
   });
 
-  it("defines default Calculators launch announcement as primary active announcement with valid bilingual fields and zero Vietnamese leaks in .en", () => {
-    expect(SYSTEM_ANNOUNCEMENTS.length).toBeGreaterThanOrEqual(2);
-    const calcAnn = SYSTEM_ANNOUNCEMENTS.find(
-      (a) => a.id === "ann-calculators-launch-2026"
+  it("defines Official Domain launch (topherohub.com), Calculators, and Guides announcements with valid bilingual fields and zero Vietnamese leaks in .en", () => {
+    expect(SYSTEM_ANNOUNCEMENTS.length).toBeGreaterThanOrEqual(3);
+
+    const domainAnn = SYSTEM_ANNOUNCEMENTS.find(
+      (a) => a.id === "ann-official-domain-launch-2026"
     );
-    expect(calcAnn).toBeDefined();
-    expect(calcAnn?.type).toBe("FEATURE");
-    expect(calcAnn?.href).toBe("/calculators");
-    expect(calcAnn?.isActive).toBe(true);
-    expect(VI_DIACRITIC_REGEX.test(calcAnn?.message.vi ?? "")).toBe(true);
-    expect(VI_DIACRITIC_REGEX.test(calcAnn?.message.en ?? "")).toBe(false);
-    expect(VI_DIACRITIC_REGEX.test(calcAnn?.badge.en ?? "")).toBe(false);
-    expect(VI_DIACRITIC_REGEX.test(calcAnn?.ctaLabel.en ?? "")).toBe(false);
+    expect(domainAnn).toBeDefined();
+    expect(domainAnn?.type).toBe("EVENT");
+    expect(domainAnn?.href).toBe("https://topherohub.com");
+    expect(domainAnn?.isActive).toBe(true);
+    expect(domainAnn?.message.vi).toContain("tophero.vercel.app");
+    expect(domainAnn?.message.vi).toContain("https://topherohub.com/");
+    expect(domainAnn?.message.en).toContain("tophero.vercel.app");
+    expect(domainAnn?.message.en).toContain("https://topherohub.com/");
+
+    for (const ann of SYSTEM_ANNOUNCEMENTS) {
+      expect(VI_DIACRITIC_REGEX.test(ann.message.vi)).toBe(true);
+      expect(VI_DIACRITIC_REGEX.test(ann.message.en)).toBe(false);
+      expect(VI_DIACRITIC_REGEX.test(ann.badge.en)).toBe(false);
+      expect(VI_DIACRITIC_REGEX.test(ann.ctaLabel.en)).toBe(false);
+    }
 
     const active = getActiveAnnouncements();
-    expect(active[0]?.id).toBe("ann-calculators-launch-2026");
+    expect(active[0]?.id).toBe("ann-official-domain-launch-2026");
+    expect(active[1]?.id).toBe("ann-calculators-launch-2026");
+    expect(active[2]?.id).toBe("ann-guides-launch-2026");
   });
 
   it("evaluates isAnnouncementActive accurately across active flags, date ranges, and invalid dates (GAP-06)", () => {
@@ -191,7 +201,7 @@ describe("Task 2 — HomeAnnouncementTicker (Marquee R-to-L, Icons, A11y & Bilin
     mockLocale = "vi";
   });
 
-  it("renders Wiggle Bell/Megaphone, Animated Calculator (jumping digits) & Open Book icons, links to /calculators, and marks clone track aria-hidden (GAP-05)", () => {
+  it("renders Wiggle Bell/Megaphone, Trophy, Animated Calculator (jumping digits) & Open Book icons, links to https://topherohub.com initially, and marks clone track aria-hidden (GAP-05)", () => {
     render(<HomeAnnouncementTicker locale="vi" />);
 
     const ticker = screen.getByTestId("home-announcement-ticker");
@@ -202,11 +212,11 @@ describe("Task 2 — HomeAnnouncementTicker (Marquee R-to-L, Icons, A11y & Bilin
     expect(bellIcon.getAttribute("class") ?? "").toContain("animate-wiggle-bell");
 
     expect(
+      screen.getAllByTestId("announcement-trophy-icon").length
+    ).toBeGreaterThanOrEqual(1);
+    expect(
       screen.getAllByTestId("announcement-calculator-icon").length
     ).toBeGreaterThanOrEqual(1);
-    const calcDigits = screen.getByTestId("announcement-calculator-digits");
-    expect(calcDigits.className).toContain("font-mono");
-
     expect(
       screen.getAllByTestId("announcement-book-icon").length
     ).toBeGreaterThanOrEqual(1);
@@ -216,29 +226,36 @@ describe("Task 2 — HomeAnnouncementTicker (Marquee R-to-L, Icons, A11y & Bilin
     expect(primaryTrack.getAttribute("aria-hidden")).not.toBe("true");
     expect(cloneTrack.getAttribute("aria-hidden")).toBe("true");
 
+    expect(primaryTrack.textContent).toContain("topherohub.com");
     expect(primaryTrack.textContent).toContain("Tính Toán");
 
     const link = ticker.querySelector("a");
-    expect(link?.getAttribute("href")).toBe("/calculators");
+    expect(link?.getAttribute("href")).toBe("https://topherohub.com");
+
+    // Hover over the second announcement (Calculators) to verify live jumping LED digits appear on right CTA
+    const items = primaryTrack.querySelectorAll(":scope > span");
+    fireEvent.mouseEnter(items[1]!);
+    const calcDigits = screen.getByTestId("announcement-calculator-digits");
+    expect(calcDigits.className).toContain("font-mono");
   });
 
-  it("computes UX-optimal marquee duration proportional to announcement length (~41s for 1 item, ~83s for 2 items) to prevent fast scrolling", () => {
+  it("computes UX-optimal marquee duration proportional to announcement length (~41s for 1 item, ~120s for 3 items) to prevent fast scrolling", () => {
     const singleItemDuration = computeMarqueeDurationSeconds(
       [SYSTEM_ANNOUNCEMENTS[0]!],
       "vi"
     );
-    const twoItemsDuration = computeMarqueeDurationSeconds(
+    const threeItemsDuration = computeMarqueeDurationSeconds(
       SYSTEM_ANNOUNCEMENTS,
       "vi"
     );
 
     expect(singleItemDuration).toBeGreaterThanOrEqual(38);
-    expect(twoItemsDuration).toBeGreaterThanOrEqual(75);
-    expect(twoItemsDuration).toBeGreaterThan(singleItemDuration);
+    expect(threeItemsDuration).toBeGreaterThanOrEqual(110);
+    expect(threeItemsDuration).toBeGreaterThan(singleItemDuration);
 
     render(<HomeAnnouncementTicker locale="vi" />);
     const marqueeTrack = screen.getByTestId("announcement-marquee-track");
-    expect(marqueeTrack.style.animationDuration).toBe(`${twoItemsDuration}s`);
+    expect(marqueeTrack.style.animationDuration).toBe(`${threeItemsDuration}s`);
   });
 
   it("synchronizes Left Badge and Right CTA icon/link when hovering over a Guide announcement item", () => {
@@ -251,14 +268,20 @@ describe("Task 2 — HomeAnnouncementTicker (Marquee R-to-L, Icons, A11y & Bilin
     expect(
       resolveAnnouncementVisualKind({ type: "GIFTCODE", href: "/" })
     ).toBe("giftcode");
+    expect(
+      resolveAnnouncementVisualKind({
+        type: "EVENT",
+        href: "https://topherohub.com",
+      })
+    ).toBe("event");
 
     render(<HomeAnnouncementTicker locale="vi" />);
     const primaryTrack = screen.getByTestId("announcement-track-primary");
     const items = primaryTrack.querySelectorAll(":scope > span");
-    expect(items.length).toBeGreaterThanOrEqual(2);
+    expect(items.length).toBeGreaterThanOrEqual(3);
 
-    // Hover over the second announcement (Guides)
-    fireEvent.mouseEnter(items[1]!);
+    // Hover over the third announcement (Guides at index 2)
+    fireEvent.mouseEnter(items[2]!);
 
     const ticker = screen.getByTestId("home-announcement-ticker");
     const link = ticker.querySelector("a");
@@ -271,6 +294,7 @@ describe("Task 2 — HomeAnnouncementTicker (Marquee R-to-L, Icons, A11y & Bilin
   it("renders 100% pure English in locale='en' and hides cleanly when no announcements are active", () => {
     const { container, unmount } = render(<HomeAnnouncementTicker locale="en" />);
     expect(container.textContent ?? "").not.toMatch(VI_DIACRITIC_REGEX);
+    expect(container.textContent).toContain("topherohub.com");
     expect(container.textContent).toContain("Calculators Hub");
     unmount();
 
