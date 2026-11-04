@@ -1,5 +1,10 @@
+import React from "react";
 import { motion } from "framer-motion";
-import { Shield } from "lucide-react";
+import {
+  BRAND_LOGO_SRC,
+  BRAND_SUBTITLE,
+  BRAND_TITLE,
+} from "@/components/brand-logo";
 
 type LogoAnimatedProps = {
   invert?: boolean;
@@ -16,12 +21,18 @@ export function LogoAnimated({ invert = false }: LogoAnimatedProps) {
   return (
     <div className="mt-auto flex items-center gap-3">
       <motion.div
-        className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-tr from-amber-500 via-amber-400 to-yellow-300 text-slate-950 shadow-lg shadow-amber-500/30 border border-amber-300/40"
+        className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-slate-950 ring-1 ring-amber-400/60 shadow-lg shadow-amber-500/30"
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
       >
-        <Shield className="h-6 w-6 fill-current" />
+        <img
+          src={BRAND_LOGO_SRC}
+          alt="TopHub - Top Hero Hub Logo"
+          width={48}
+          height={48}
+          className="h-full w-full object-cover select-none"
+        />
       </motion.div>
       <div className="space-y-0.5">
         <motion.p
@@ -30,7 +41,7 @@ export function LogoAnimated({ invert = false }: LogoAnimatedProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          TopHub
+          {BRAND_TITLE}
         </motion.p>
         <motion.p
           className={`text-xs font-extrabold font-heading uppercase tracking-wider ${textMutedClass}`}
@@ -38,7 +49,7 @@ export function LogoAnimated({ invert = false }: LogoAnimatedProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          Top Heroes Companion
+          {BRAND_SUBTITLE}
         </motion.p>
       </div>
     </div>

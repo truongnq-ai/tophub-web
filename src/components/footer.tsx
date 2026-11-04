@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
-import { Shield, Heart } from "lucide-react";
+import { Heart } from "lucide-react";
+import { BrandLogo } from "@/components/brand-logo";
 
 export function Footer() {
   const tNav = useTranslations("Navigation");
@@ -15,12 +16,11 @@ export function Footer() {
           {/* Brand info */}
           <div className="space-y-3">
             <Link href="/" className="flex items-center gap-2.5 group">
-              <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-tr from-amber-500 to-amber-600 text-slate-950 font-bold shadow-sm shadow-amber-500/20 group-hover:scale-105 transition-transform">
-                <Shield className="h-4 w-4 fill-current" />
-              </div>
-              <span className="font-heading font-black text-lg text-foreground tracking-tight group-hover:text-amber-500 transition-colors">
-                {tFooter("title")}
-              </span>
+              <BrandLogo
+                size="xs"
+                showSubtitle={false}
+                titleOverride={tFooter("title")}
+              />
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
               {tFooter("brandDesc")}
@@ -37,17 +37,26 @@ export function Footer() {
             </h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/guides" className="inline-flex items-center min-h-[44px] sm:min-h-0 py-1 text-muted-foreground hover:text-amber-500 dark:hover:text-amber-400 transition-colors font-semibold">
+                <Link
+                  href="/guides"
+                  className="inline-flex items-center min-h-[44px] sm:min-h-0 py-1 text-muted-foreground hover:text-amber-500 dark:hover:text-amber-400 transition-colors font-semibold"
+                >
                   {tNav("guides")} (S0 ➔ S4)
                 </Link>
               </li>
               <li>
-                <Link href="/giftcodes" className="inline-flex items-center min-h-[44px] sm:min-h-0 py-1 text-muted-foreground hover:text-amber-500 dark:hover:text-amber-400 transition-colors">
+                <Link
+                  href="/giftcodes"
+                  className="inline-flex items-center min-h-[44px] sm:min-h-0 py-1 text-muted-foreground hover:text-amber-500 dark:hover:text-amber-400 transition-colors"
+                >
                   {tNav("giftcodes")} 2026
                 </Link>
               </li>
               <li>
-                <Link href="/" className="inline-flex items-center min-h-[44px] sm:min-h-0 py-1 text-muted-foreground hover:text-amber-500 dark:hover:text-amber-400 transition-colors">
+                <Link
+                  href="/"
+                  className="inline-flex items-center min-h-[44px] sm:min-h-0 py-1 text-muted-foreground hover:text-amber-500 dark:hover:text-amber-400 transition-colors"
+                >
                   {tFooter("autoCheckin247")}
                 </Link>
               </li>
@@ -61,12 +70,18 @@ export function Footer() {
             </h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/terms" className="inline-flex items-center min-h-[44px] sm:min-h-0 py-1 text-muted-foreground hover:text-amber-500 dark:hover:text-amber-400 transition-colors">
+                <Link
+                  href="/terms"
+                  className="inline-flex items-center min-h-[44px] sm:min-h-0 py-1 text-muted-foreground hover:text-amber-500 dark:hover:text-amber-400 transition-colors"
+                >
                   {tFooter("terms")}
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="inline-flex items-center min-h-[44px] sm:min-h-0 py-1 text-muted-foreground hover:text-amber-500 dark:hover:text-amber-400 transition-colors">
+                <Link
+                  href="/privacy"
+                  className="inline-flex items-center min-h-[44px] sm:min-h-0 py-1 text-muted-foreground hover:text-amber-500 dark:hover:text-amber-400 transition-colors"
+                >
                   {tFooter("privacy")}
                 </Link>
               </li>

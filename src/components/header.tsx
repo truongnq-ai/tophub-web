@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { Link, usePathname } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import {
-  Shield,
   Menu,
   User,
   LogOut,
@@ -13,6 +12,7 @@ import {
   BookOpen,
   Calculator,
 } from "lucide-react";
+import { BrandLogo } from "@/components/brand-logo";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -39,7 +39,8 @@ export function Header() {
   const pathname = usePathname();
   const tNav = useTranslations("Navigation");
   const tHeader = useTranslations("Header");
-  const { activeAccount, savedAccounts, selectAccount, logout, isLoaded } = useUidSession();
+  const { activeAccount, savedAccounts, selectAccount, logout, isLoaded } =
+    useUidSession();
 
   const navigationItems = [
     {
@@ -83,16 +84,13 @@ export function Header() {
                   <span className="sr-only">Toggle navigation menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="left" className="w-[300px] bg-card/95 backdrop-blur-2xl border-border/80 p-6">
+              <SheetContent
+                side="left"
+                className="w-[300px] bg-card/95 backdrop-blur-2xl border-border/80 p-6"
+              >
                 <SheetHeader>
                   <SheetTitle className="flex items-center gap-2.5 text-left">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-tr from-amber-500 via-amber-400 to-yellow-300 text-slate-950 shadow-md shadow-amber-500/25 border border-amber-300/30">
-                      <Shield className="h-5 w-5 fill-current" />
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="font-heading font-black text-xl tracking-tight text-foreground">TopHub</span>
-                      <span className="text-xs text-amber-500 dark:text-amber-400 font-heading font-extrabold uppercase tracking-wider">Top Heroes Companion</span>
-                    </div>
+                    <BrandLogo size="sm" />
                   </SheetTitle>
                 </SheetHeader>
                 <nav className="mt-8 flex flex-col space-y-1.5">
@@ -101,7 +99,8 @@ export function Header() {
                     const isActive =
                       item.href === "/"
                         ? pathname === "/"
-                        : pathname === item.href || pathname.startsWith(`${item.href}/`);
+                        : pathname === item.href ||
+                          pathname.startsWith(`${item.href}/`);
                     return (
                       <Link
                         key={item.href}
@@ -116,11 +115,11 @@ export function Header() {
                       >
                         <Icon className="h-4 w-4" />
                         <span>{item.name}</span>
-                        {item.badge && (
+                        {item.badge ? (
                           <span className="ml-auto rounded-full bg-amber-500/20 border border-amber-500/40 px-2 py-0.5 font-sans text-xs font-bold uppercase text-amber-600 dark:text-amber-400">
                             {item.badge}
                           </span>
-                        )}
+                        ) : null}
                       </Link>
                     );
                   })}
@@ -131,17 +130,7 @@ export function Header() {
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-tr from-amber-500 via-amber-400 to-yellow-300 text-slate-950 shadow-md shadow-amber-500/25 border border-amber-300/30 group-hover:scale-105 transition-transform duration-200">
-              <Shield className="h-5 w-5 fill-current" />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-heading font-black text-xl sm:text-2xl leading-none tracking-tight text-foreground group-hover:text-amber-500 dark:group-hover:text-amber-400 transition-colors">
-                TopHub
-              </span>
-              <span className="text-xs text-amber-600/90 dark:text-amber-400/90 font-heading font-extrabold uppercase tracking-wider mt-0.5">
-                Top Heroes Companion
-              </span>
-            </div>
+            <BrandLogo size="md" />
           </Link>
         </div>
 
@@ -166,14 +155,14 @@ export function Header() {
               >
                 <Icon className="h-4 w-4" />
                 <span>{item.name}</span>
-                {item.badge && (
+                {item.badge ? (
                   <span
                     data-testid={item.badgeTestId}
                     className="rounded-full bg-amber-500/20 border border-amber-500/40 px-2 py-0.5 font-sans text-xs font-bold uppercase leading-none text-amber-600 dark:text-amber-400"
                   >
                     {item.badge}
                   </span>
-                )}
+                ) : null}
               </Link>
             );
           })}
@@ -185,7 +174,7 @@ export function Header() {
           <ThemeSwitcher />
 
           {/* Active Account Dropdown (If selected on this device) */}
-          {isLoaded && activeAccount && (
+          {isLoaded && activeAccount ? (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button
@@ -193,7 +182,9 @@ export function Header() {
                   className="flex items-center gap-2 px-3 py-1.5 h-11 min-h-[44px] rounded-full border border-amber-500/30 bg-amber-500/10 hover:border-amber-500/50 hover:bg-amber-500/15 transition-all shadow-sm shadow-amber-500/10"
                 >
                   <div className="flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-tr from-amber-500 to-amber-600 text-slate-950 text-xs font-bold font-mono shadow-sm">
-                    {activeAccount.nickname ? activeAccount.nickname.charAt(0).toUpperCase() : "U"}
+                    {activeAccount.nickname
+                      ? activeAccount.nickname.charAt(0).toUpperCase()
+                      : "U"}
                   </div>
                   <div className="flex flex-col text-left">
                     <span className="hidden sm:inline-block max-w-[110px] truncate text-xs font-bold text-foreground leading-tight">
@@ -206,14 +197,18 @@ export function Header() {
                   <ChevronDown className="h-3.5 w-3.5 text-muted-foreground ml-0.5" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-64 bg-card/95 backdrop-blur-xl border-border/80 shadow-2xl">
+              <DropdownMenuContent
+                align="end"
+                className="w-64 bg-card/95 backdrop-blur-xl border-border/80 shadow-2xl"
+              >
                 <DropdownMenuLabel className="font-normal pb-2">
                   <div className="flex flex-col space-y-1">
                     <p className="text-sm font-bold text-foreground font-heading">
                       {activeAccount.nickname}
                     </p>
                     <p className="text-xs text-muted-foreground font-mono">
-                      UID: {activeAccount.uid} (Server {formatServerCode(activeAccount.server_id)})
+                      UID: {activeAccount.uid} (Server{" "}
+                      {formatServerCode(activeAccount.server_id)})
                     </p>
                     <div className="pt-1.5">
                       <span className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-500 dark:text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/25">
@@ -229,7 +224,8 @@ export function Header() {
                 <DropdownMenuSeparator />
 
                 {/* Quick Switch to other saved accounts on this device */}
-                {savedAccounts.filter((a) => a.uid !== activeAccount.uid).length > 0 && (
+                {savedAccounts.filter((a) => a.uid !== activeAccount.uid)
+                  .length > 0 ? (
                   <>
                     <div className="px-2 py-1.5 text-xs font-bold text-muted-foreground uppercase tracking-wider">
                       {tHeader("switchAccount")}
@@ -244,7 +240,9 @@ export function Header() {
                         >
                           <div className="flex items-center gap-2 overflow-hidden">
                             <User className="h-4 w-4 text-amber-500 shrink-0" />
-                            <span className="font-medium truncate">{acc.nickname}</span>
+                            <span className="font-medium truncate">
+                              {acc.nickname}
+                            </span>
                           </div>
                           <span className="text-xs text-muted-foreground font-mono ml-2 shrink-0">
                             {formatServerCode(acc.server_id)}
@@ -253,18 +251,20 @@ export function Header() {
                       ))}
                     <DropdownMenuSeparator />
                   </>
-                )}
+                ) : null}
 
                 <DropdownMenuItem
                   onClick={() => logout()}
                   className="cursor-pointer text-destructive focus:text-destructive flex items-center gap-2 py-2.5 min-h-[44px]"
                 >
                   <LogOut className="h-4 w-4" />
-                  <span className="font-medium text-sm">{tHeader("logoutAccount")}</span>
+                  <span className="font-medium text-sm">
+                    {tHeader("logoutAccount")}
+                  </span>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-          )}
+          ) : null}
         </div>
       </div>
     </header>
