@@ -10,7 +10,10 @@ import {
   resolveAnnouncementVisualKind,
   type SystemAnnouncement,
 } from "../src/config/announcements";
-import { HomeAnnouncementTicker } from "../src/components/home/home-announcement-ticker";
+import {
+  HomeAnnouncementTicker,
+  computeMarqueeDurationSeconds,
+} from "../src/components/home/home-announcement-ticker";
 import { GuidesFeedbackNotice } from "../src/components/guides/guides-feedback-notice";
 import { GuideCommentsSection } from "../src/components/guides/guide-comments-section";
 
@@ -217,6 +220,25 @@ describe("Task 2 — HomeAnnouncementTicker (Marquee R-to-L, Icons, A11y & Bilin
 
     const link = ticker.querySelector("a");
     expect(link?.getAttribute("href")).toBe("/calculators");
+  });
+
+  it("computes UX-optimal marquee duration proportional to announcement length (~41s for 1 item, ~83s for 2 items) to prevent fast scrolling", () => {
+    const singleItemDuration = computeMarqueeDurationSeconds(
+      [SYSTEM_ANNOUNCEMENTS[0]!],
+      "vi"
+    );
+    const twoItemsDuration = computeMarqueeDurationSeconds(
+      SYSTEM_ANNOUNCEMENTS,
+      "vi"
+    );
+
+    expect(singleItemDuration).toBeGreaterThanOrEqual(38);
+    expect(twoItemsDuration).toBeGreaterThanOrEqual(75);
+    expect(twoItemsDuration).toBeGreaterThan(singleItemDuration);
+
+    render(<HomeAnnouncementTicker locale="vi" />);
+    const marqueeTrack = screen.getByTestId("announcement-marquee-track");
+    expect(marqueeTrack.style.animationDuration).toBe(`${twoItemsDuration}s`);
   });
 
   it("synchronizes Left Badge and Right CTA icon/link when hovering over a Guide announcement item", () => {

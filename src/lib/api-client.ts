@@ -63,6 +63,27 @@ async function apiFetch<T>(endpoint: string, options: RequestInit = {}): Promise
         ...(options.headers || {}),
       },
     });
+    if (typeof res.text === "function") {
+      const rawText = await res.text();
+      try {
+        const parsed = rawText ? JSON.parse(rawText) : {};
+        if (parsed && typeof parsed === "object") {
+          return parsed as ApiResponse<T>;
+        }
+      } catch {
+        // Non-JSON response body (e.g., plain text "404 Not Found" or HTML 502)
+      }
+      return {
+        success: false,
+        error: {
+          code: `HTTP_${res.status || 500}`,
+          message:
+            res.status === 404
+              ? `Không tìm thấy API endpoint (${endpoint}) trên máy chủ (HTTP 404).`
+              : `Máy chủ API trả về phản hồi không phải JSON (HTTP ${res.status || 500}).`,
+        },
+      };
+    }
     const data = await res.json();
     return data as ApiResponse<T>;
   } catch (err: any) {

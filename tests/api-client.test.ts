@@ -168,4 +168,31 @@ describe("Typed API Client", () => {
       })
     );
   });
+
+  it("handles plain-text '404 Not Found' or HTML gateway responses gracefully without throwing Unexpected non-whitespace character after JSON at position 4", async () => {
+    global.fetch = vi.fn().mockResolvedValueOnce(
+      new Response("404 Not Found", {
+        status: 404,
+        headers: { "Content-Type": "text/plain; charset=UTF-8" },
+      })
+    );
+
+    const res404 = await apiClient.getAdminAnnouncements("admin-jwt");
+    expect(res404.success).toBe(false);
+    expect(res404.error?.code).toBe("HTTP_404");
+    expect(res404.error?.message).not.toContain(
+      "Unexpected non-whitespace character after JSON at position 4"
+    );
+
+    global.fetch = vi.fn().mockResolvedValueOnce(
+      new Response("<html><body>502 Bad Gateway</body></html>", {
+        status: 502,
+        headers: { "Content-Type": "text/html" },
+      })
+    );
+
+    const res502 = await apiClient.getAdminAnnouncements("admin-jwt");
+    expect(res502.success).toBe(false);
+    expect(res502.error?.code).toBe("HTTP_502");
+  });
 });

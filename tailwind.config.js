@@ -113,9 +113,9 @@ module.exports = {
   			'shimmer': 'shimmer 2.5s infinite',
   			'radar': 'radar 2s cubic-bezier(0, 0, 0.2, 1) infinite',
   			'pulse-glow': 'pulse-glow 3s ease-in-out infinite',
-  			'marquee': 'marquee 28s linear infinite',
-  			'wiggle-bell': 'wiggle-bell 2.2s ease-in-out infinite',
-  			'page-flip': 'page-flip 2.4s ease-in-out infinite'
+  			'marquee': 'marquee 40s linear infinite',
+  			'wiggle-bell': 'wiggle-bell 2.8s ease-in-out infinite',
+  			'page-flip': 'page-flip 3s ease-in-out infinite'
   		}
   	}
   },

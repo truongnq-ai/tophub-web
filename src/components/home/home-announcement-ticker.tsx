@@ -21,6 +21,26 @@ interface HomeAnnouncementTickerProps {
   className?: string;
 }
 
+/**
+ * Computes a calm, UX-optimal marquee cycle duration in seconds proportional
+ * to the total character length of active announcements (~32-35 px/s reading velocity).
+ * Minimum floor: 38s for a single announcement, ~76-84s for 2 announcements.
+ */
+export function computeMarqueeDurationSeconds(
+  items: SystemAnnouncement[],
+  locale: "vi" | "en"
+): number {
+  const totalChars = items.reduce(
+    (sum, item) =>
+      sum +
+      (item.message[locale]?.length ?? 0) +
+      (item.badge[locale]?.length ?? 0) +
+      16,
+    0
+  );
+  return Math.max(38, Math.round(totalChars * 0.18));
+}
+
 export function HomeAnnouncementTicker({
   locale: propLocale,
   announcements,
@@ -48,7 +68,7 @@ export function HomeAnnouncementTicker({
     if (activeList.length <= 1 || isPaused) return;
     const timer = setInterval(() => {
       setSpotIndex((prev) => (prev + 1) % activeList.length);
-    }, 6000);
+    }, 10000);
     return () => clearInterval(timer);
   }, [activeList.length, isPaused]);
 
@@ -59,6 +79,10 @@ export function HomeAnnouncementTicker({
   const spotItem = activeList[spotIndex] ?? activeList[0]!;
   const spotVisualKind = resolveAnnouncementVisualKind(spotItem);
   const compactMobileBadge = safeLocale === "en" ? "NEW" : "MỚI";
+  const marqueeDurationSeconds = computeMarqueeDurationSeconds(
+    activeList,
+    safeLocale
+  );
 
   const renderTrackItems = (isClone: boolean) => (
     <div
@@ -123,7 +147,11 @@ export function HomeAnnouncementTicker({
 
         {/* Center Right-to-Left Marquee Viewport */}
         <div className="relative flex-1 overflow-hidden mask-linear-fade">
-          <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused] group-focus-visible:[animation-play-state:paused] active:[animation-play-state:paused] motion-reduce:animate-none">
+          <div
+            data-testid="announcement-marquee-track"
+            style={{ animationDuration: `${marqueeDurationSeconds}s` }}
+            className="flex w-max animate-marquee group-hover:[animation-play-state:paused] group-focus-visible:[animation-play-state:paused] active:[animation-play-state:paused] motion-reduce:animate-none"
+          >
             {renderTrackItems(false)}
             {renderTrackItems(true)}
           </div>

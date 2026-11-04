@@ -71,7 +71,7 @@ export function AnimatedCalculatorIcon({
   useEffect(() => {
     const timer = setInterval(() => {
       setStep((prev) => (prev + 1) % CALCULATOR_DIGITS.length);
-    }, 850);
+    }, 1400);
     return () => clearInterval(timer);
   }, []);
 
