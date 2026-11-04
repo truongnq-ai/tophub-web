@@ -91,6 +91,20 @@ module.exports = {
   			'marquee': {
   				'0%': { transform: 'translate3d(0%, 0, 0)' },
   				'100%': { transform: 'translate3d(-50%, 0, 0)' }
+  			},
+  			'wiggle-bell': {
+  				'0%, 100%': { transform: 'rotate(0deg) scale(1)' },
+  				'10%': { transform: 'rotate(-16deg) scale(1.08)' },
+  				'20%': { transform: 'rotate(14deg) scale(1.08)' },
+  				'30%': { transform: 'rotate(-12deg) scale(1.05)' },
+  				'40%': { transform: 'rotate(10deg) scale(1.04)' },
+  				'50%': { transform: 'rotate(-6deg) scale(1.02)' },
+  				'60%': { transform: 'rotate(4deg) scale(1)' },
+  				'70%': { transform: 'rotate(0deg) scale(1)' }
+  			},
+  			'page-flip': {
+  				'0%, 100%': { transform: 'scaleX(1) translateY(0px)', opacity: '0.95' },
+  				'50%': { transform: 'scaleX(-0.35) translateY(-1px)', opacity: '0.65' }
   			}
   		},
   		animation: {
@@ -99,7 +113,9 @@ module.exports = {
   			'shimmer': 'shimmer 2.5s infinite',
   			'radar': 'radar 2s cubic-bezier(0, 0, 0.2, 1) infinite',
   			'pulse-glow': 'pulse-glow 3s ease-in-out infinite',
-  			'marquee': 'marquee 28s linear infinite'
+  			'marquee': 'marquee 28s linear infinite',
+  			'wiggle-bell': 'wiggle-bell 2.2s ease-in-out infinite',
+  			'page-flip': 'page-flip 2.4s ease-in-out infinite'
   		}
   	}
   },

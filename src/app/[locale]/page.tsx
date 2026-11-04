@@ -4,6 +4,7 @@ import Index from "./Index";
 
 import { apiClient } from "@/lib/api-client";
 import { buildPageAlternates } from "@/config/constants";
+import type { SystemAnnouncement } from "@/config/announcements";
 
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
@@ -28,10 +29,15 @@ export async function generateMetadata({
 export default async function IndexPage({ params: { locale } }: IndexPageProps) {
   setRequestLocale(locale);
   let initialActiveCodes: Array<{ code: string; status: string }> = [];
+  let initialAnnouncements: SystemAnnouncement[] | undefined = undefined;
 
-  try {
-    const response = await apiClient.getPublicGiftcodes(1, 50);
+  const [codesSettled, annSettled] = await Promise.allSettled([
+    apiClient.getPublicGiftcodes(1, 50),
+    apiClient.getPublicAnnouncements(),
+  ]);
 
+  if (codesSettled.status === "fulfilled") {
+    const response = codesSettled.value;
     if (response.success && response.data?.items) {
       const now = new Date();
       initialActiveCodes = response.data.items
@@ -53,9 +59,19 @@ export default async function IndexPage({ params: { locale } }: IndexPageProps) 
           status: item.status,
         }));
     }
-  } catch {
-    initialActiveCodes = [];
   }
 
-  return <Index initialActiveCodes={initialActiveCodes} />;
+  if (annSettled.status === "fulfilled") {
+    const annRes = annSettled.value;
+    if (annRes.success && Array.isArray(annRes.data?.items)) {
+      initialAnnouncements = annRes.data.items;
+    }
+  }
+
+  return (
+    <Index
+      initialActiveCodes={initialActiveCodes}
+      initialAnnouncements={initialAnnouncements}
+    />
+  );
 }

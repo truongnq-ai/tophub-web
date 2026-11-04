@@ -7,6 +7,7 @@ import {
   SYSTEM_ANNOUNCEMENTS,
   isAnnouncementActive,
   getActiveAnnouncements,
+  resolveAnnouncementVisualKind,
   type SystemAnnouncement,
 } from "../src/config/announcements";
 import { HomeAnnouncementTicker } from "../src/components/home/home-announcement-ticker";
@@ -187,13 +188,22 @@ describe("Task 2 — HomeAnnouncementTicker (Marquee R-to-L, Icons, A11y & Bilin
     mockLocale = "vi";
   });
 
-  it("renders Megaphone and Open Book icons, links to /calculators, and marks clone track aria-hidden (GAP-05)", () => {
+  it("renders Wiggle Bell/Megaphone, Animated Calculator (jumping digits) & Open Book icons, links to /calculators, and marks clone track aria-hidden (GAP-05)", () => {
     render(<HomeAnnouncementTicker locale="vi" />);
 
     const ticker = screen.getByTestId("home-announcement-ticker");
     expect(ticker).toBeTruthy();
 
-    expect(screen.getByTestId("announcement-megaphone-icon")).toBeTruthy();
+    const bellIcon = screen.getByTestId("announcement-megaphone-icon");
+    expect(bellIcon).toBeTruthy();
+    expect(bellIcon.getAttribute("class") ?? "").toContain("animate-wiggle-bell");
+
+    expect(
+      screen.getAllByTestId("announcement-calculator-icon").length
+    ).toBeGreaterThanOrEqual(1);
+    const calcDigits = screen.getByTestId("announcement-calculator-digits");
+    expect(calcDigits.className).toContain("font-mono");
+
     expect(
       screen.getAllByTestId("announcement-book-icon").length
     ).toBeGreaterThanOrEqual(1);
@@ -207,6 +217,33 @@ describe("Task 2 — HomeAnnouncementTicker (Marquee R-to-L, Icons, A11y & Bilin
 
     const link = ticker.querySelector("a");
     expect(link?.getAttribute("href")).toBe("/calculators");
+  });
+
+  it("synchronizes Left Badge and Right CTA icon/link when hovering over a Guide announcement item", () => {
+    expect(
+      resolveAnnouncementVisualKind({ type: "CALCULATOR", href: "/calculators" })
+    ).toBe("calculator");
+    expect(
+      resolveAnnouncementVisualKind({ type: "GUIDE", href: "/guides" })
+    ).toBe("guide");
+    expect(
+      resolveAnnouncementVisualKind({ type: "GIFTCODE", href: "/" })
+    ).toBe("giftcode");
+
+    render(<HomeAnnouncementTicker locale="vi" />);
+    const primaryTrack = screen.getByTestId("announcement-track-primary");
+    const items = primaryTrack.querySelectorAll(":scope > span");
+    expect(items.length).toBeGreaterThanOrEqual(2);
+
+    // Hover over the second announcement (Guides)
+    fireEvent.mouseEnter(items[1]!);
+
+    const ticker = screen.getByTestId("home-announcement-ticker");
+    const link = ticker.querySelector("a");
+    expect(link?.getAttribute("href")).toBe("/guides");
+    expect(screen.getByTestId("announcement-right-cta").textContent).toContain(
+      "Mở Cẩm Nang"
+    );
   });
 
   it("renders 100% pure English in locale='en' and hides cleanly when no announcements are active", () => {

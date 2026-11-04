@@ -1,13 +1,18 @@
 "use client";
 
-import React from "react";
-import { Megaphone, BookOpen, ArrowRight, Sparkles } from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/routing";
 import {
   getActiveAnnouncements,
+  resolveAnnouncementVisualKind,
   type SystemAnnouncement,
 } from "@/config/announcements";
+import {
+  AnnouncementContextIcon,
+  GameBroadcastBellIcon,
+} from "@/components/home/announcement-game-icons";
 import { cn } from "@/lib/utils";
 
 interface HomeAnnouncementTickerProps {
@@ -25,12 +30,34 @@ export function HomeAnnouncementTicker({
   const safeLocale: "vi" | "en" =
     propLocale ?? (rawLocale === "en" ? "en" : "vi");
 
-  const activeList = announcements ?? getActiveAnnouncements();
+  const activeList =
+    announcements !== undefined
+      ? getActiveAnnouncements(new Date(), announcements)
+      : getActiveAnnouncements();
+
+  const [spotIndex, setSpotIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    if (spotIndex >= activeList.length && activeList.length > 0) {
+      setSpotIndex(0);
+    }
+  }, [activeList.length, spotIndex]);
+
+  useEffect(() => {
+    if (activeList.length <= 1 || isPaused) return;
+    const timer = setInterval(() => {
+      setSpotIndex((prev) => (prev + 1) % activeList.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, [activeList.length, isPaused]);
+
   if (activeList.length === 0) {
     return null;
   }
 
-  const primary = activeList[0]!;
+  const spotItem = activeList[spotIndex] ?? activeList[0]!;
+  const spotVisualKind = resolveAnnouncementVisualKind(spotItem);
   const compactMobileBadge = safeLocale === "en" ? "NEW" : "MỚI";
 
   const renderTrackItems = (isClone: boolean) => (
@@ -41,21 +68,25 @@ export function HomeAnnouncementTicker({
       aria-hidden={isClone ? "true" : undefined}
       className="flex shrink-0 items-center gap-8 pr-8"
     >
-      {activeList.map((item) => (
-        <span
-          key={`${item.id}-${isClone ? "clone" : "main"}`}
-          className="inline-flex items-center gap-2.5 text-sm font-medium text-foreground/95 whitespace-nowrap"
-        >
-          <span className="inline-flex h-5 w-5 items-center justify-center rounded-md bg-amber-500/20 border border-amber-500/40 text-amber-600 dark:text-amber-400 shrink-0">
-            <BookOpen
-              data-testid="announcement-book-icon"
-              className="h-3.5 w-3.5"
-            />
+      {activeList.map((item, idx) => {
+        const itemKind = resolveAnnouncementVisualKind(item);
+        return (
+          <span
+            key={`${item.id}-${isClone ? "clone" : "main"}`}
+            onMouseEnter={() => setSpotIndex(idx)}
+            className="inline-flex items-center gap-2.5 text-sm font-sans font-medium text-foreground/95 whitespace-nowrap"
+          >
+            <span className="inline-flex h-6 w-6 items-center justify-center rounded-md bg-gradient-to-br from-amber-500/25 via-amber-500/15 to-yellow-500/25 border border-amber-500/45 text-amber-600 dark:text-amber-400 shadow-sm shrink-0">
+              <AnnouncementContextIcon
+                kind={itemKind}
+                className="h-3.5 w-3.5"
+              />
+            </span>
+            <span>{item.message[safeLocale]}</span>
+            <Sparkles className="h-3.5 w-3.5 text-amber-500 animate-pulse motion-reduce:animate-none shrink-0" />
           </span>
-          <span>{item.message[safeLocale]}</span>
-          <Sparkles className="h-3.5 w-3.5 text-amber-500 shrink-0" />
-        </span>
-      ))}
+        );
+      })}
     </div>
   );
 
@@ -66,23 +97,28 @@ export function HomeAnnouncementTicker({
       aria-label={
         safeLocale === "en" ? "System Announcement" : "Thông báo hệ thống"
       }
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
       className={cn(
-        "w-full border-b border-amber-500/30 bg-gradient-to-r from-amber-500/15 via-amber-500/[0.07] to-amber-500/15 backdrop-blur-md",
+        "relative w-full border-b border-amber-500/35 bg-gradient-to-r from-amber-500/20 via-amber-500/[0.08] to-amber-500/20 backdrop-blur-md",
         className
       )}
     >
       <Link
-        href={primary.href}
+        href={spotItem.href}
         className="group container mx-auto max-w-7xl px-3 sm:px-6 h-11 min-h-[44px] flex items-center justify-between gap-2.5 sm:gap-4 overflow-hidden cursor-pointer"
       >
-        {/* Left Fixed Loudspeaker Badge */}
-        <div className="flex items-center gap-1.5 rounded-full bg-gradient-to-r from-amber-500 to-amber-400 text-slate-950 px-2.5 py-0.5 text-xs font-heading font-black tracking-wide uppercase shadow-sm shadow-amber-500/20 shrink-0">
-          <Megaphone
+        {/* Left RPG Broadcast Bell / Loudspeaker Badge */}
+        <div
+          data-testid="announcement-left-badge"
+          className="relative flex items-center gap-1.5 rounded-full bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-400 text-slate-950 px-2.5 sm:px-3 py-1 text-xs font-heading font-black tracking-wide uppercase shadow-sm shadow-amber-500/30 ring-1 ring-amber-300/60 shrink-0"
+        >
+          <GameBroadcastBellIcon
             data-testid="announcement-megaphone-icon"
-            className="h-3.5 w-3.5 fill-current animate-pulse shrink-0"
+            className="h-3.5 w-3.5"
           />
           <span className="sm:hidden">{compactMobileBadge}</span>
-          <span className="hidden sm:inline">{primary.badge[safeLocale]}</span>
+          <span className="hidden sm:inline">{spotItem.badge[safeLocale]}</span>
         </div>
 
         {/* Center Right-to-Left Marquee Viewport */}
@@ -93,11 +129,20 @@ export function HomeAnnouncementTicker({
           </div>
         </div>
 
-        {/* Right Quick Action CTA */}
-        <div className="flex items-center gap-1.5 rounded-full border border-amber-500/40 bg-amber-500/10 group-hover:bg-amber-500 group-hover:text-slate-950 px-2.5 sm:px-3 py-1 text-xs font-heading font-bold text-amber-600 dark:text-amber-400 transition-all shrink-0">
-          <BookOpen className="hidden sm:inline-block h-3.5 w-3.5 shrink-0" />
-          <span className="hidden sm:inline">{primary.ctaLabel[safeLocale]}</span>
-          <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+        {/* Right Contextual Game Action CTA (Calculator jumping numbers / Open Book / Gift / Trophy) */}
+        <div
+          data-testid="announcement-right-cta"
+          className="flex items-center gap-1.5 rounded-full border border-amber-500/45 bg-gradient-to-r from-amber-500/15 via-amber-500/10 to-amber-500/20 group-hover:from-amber-500 group-hover:to-amber-400 group-hover:text-slate-950 px-2.5 sm:px-3 py-1 text-xs font-heading font-bold text-amber-700 dark:text-amber-300 shadow-sm transition-all shrink-0"
+        >
+          <AnnouncementContextIcon
+            kind={spotVisualKind}
+            showLiveDigits={spotVisualKind === "calculator"}
+            className="h-3.5 w-3.5 shrink-0"
+          />
+          <span className="hidden sm:inline">
+            {spotItem.ctaLabel[safeLocale]}
+          </span>
+          <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 shrink-0" />
         </div>
       </Link>
     </div>

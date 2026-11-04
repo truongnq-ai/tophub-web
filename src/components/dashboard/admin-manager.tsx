@@ -24,6 +24,7 @@ import {
   getAdminRedemptionsAction,
   getAdminCheckinsAction,
   getAdminProxiesAction,
+  getAdminAnnouncementsAction,
 } from "@/actions/admin";
 import type { AdminAccountItem, AdminAccountsSummary } from "@/types/api";
 import { extractPaginatedResult } from "./admin/types";
@@ -36,6 +37,7 @@ import { TabCheckins } from "./admin/tab-checkins";
 import { TabComments } from "./admin/tab-comments";
 import { TabSystemParams } from "./admin/tab-system-params";
 import { TabProxies } from "./admin/tab-proxies";
+import { TabAnnouncements } from "./admin/tab-announcements";
 import { AccountPaymentsDialog } from "./admin/account-payments-dialog";
 
 interface AdminManagerProps {
@@ -66,6 +68,9 @@ export function AdminManager({
   const [proxySummary, setProxySummary] = useState<{ healthy: number; total: number } | undefined>(
     undefined
   );
+  const [announcementsSummary, setAnnouncementsSummary] = useState<
+    { active: number; total: number } | undefined
+  >(undefined);
   const [isRefreshingStats, setIsRefreshingStats] = useState(false);
 
   // Filter states for Accounts CRM
@@ -85,7 +90,7 @@ export function AdminManager({
   const loadStats = React.useCallback(async () => {
     try {
       setIsRefreshingStats(true);
-      const [accRes, gcRes, redRes, chkRes, proxyRes] = await Promise.allSettled([
+      const [accRes, gcRes, redRes, chkRes, proxyRes, annRes] = await Promise.allSettled([
         typeof getAdminAccountsAction === "function"
           ? getAdminAccountsAction({ page: 1, limit: 1 })
           : Promise.resolve({ success: false } as const),
@@ -101,6 +106,15 @@ export function AdminManager({
         typeof getAdminProxiesAction === "function"
           ? getAdminProxiesAction()
           : Promise.resolve({ success: false } as const),
+        (async () => {
+          try {
+            return typeof getAdminAnnouncementsAction === "function"
+              ? await getAdminAnnouncementsAction()
+              : ({ success: false } as const);
+          } catch {
+            return { success: false } as const;
+          }
+        })(),
       ]);
 
       if (accRes.status === "fulfilled" && accRes.value?.success && accRes.value.data) {
@@ -144,6 +158,13 @@ export function AdminManager({
         setProxySummary({
           healthy: proxyRes.value.data.pool.healthy,
           total: proxyRes.value.data.pool.total,
+        });
+      }
+
+      if (annRes.status === "fulfilled" && annRes.value?.success && annRes.value.data) {
+        setAnnouncementsSummary({
+          active: annRes.value.data.summary.active,
+          total: annRes.value.data.summary.total,
         });
       }
     } catch {
@@ -448,6 +469,8 @@ export function AdminManager({
             systemParamsCount: systemParamsCount,
             proxiesHealthy: proxySummary?.healthy,
             proxiesTotal: proxySummary?.total,
+            announcementsActiveCount: announcementsSummary?.active,
+            announcementsTotalCount: announcementsSummary?.total,
           }}
         />
 
@@ -491,6 +514,10 @@ export function AdminManager({
 
           {activeTab === "proxies" && (
             <TabProxies onSummaryChange={setProxySummary} />
+          )}
+
+          {activeTab === "announcements" && (
+            <TabAnnouncements onSummaryChange={setAnnouncementsSummary} />
           )}
         </div>
       </div>

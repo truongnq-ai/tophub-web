@@ -636,3 +636,57 @@ export interface AdminRecoveryReplayResult {
   checkins: { game_day: string; failed: number; triggered: boolean };
 }
 
+export type AdminAnnouncementType =
+  | "CALCULATOR"
+  | "FEATURE"
+  | "GUIDE"
+  | "GIFTCODE"
+  | "EVENT"
+  | "MAINTENANCE";
+
+export interface AdminAnnouncementLocaleText {
+  vi: string;
+  en: string;
+}
+
+export interface AdminAnnouncementItem {
+  id: string;
+  type: AdminAnnouncementType;
+  isActive: boolean;
+  href: string;
+  startsAt?: string | null;
+  endsAt?: string | null;
+  badge: AdminAnnouncementLocaleText;
+  message: AdminAnnouncementLocaleText;
+  ctaLabel: AdminAnnouncementLocaleText;
+  sortOrder?: number;
+  updatedAt?: string;
+}
+
+export interface PublicAnnouncementsListResponse {
+  items: AdminAnnouncementItem[];
+  total: number;
+}
+
+export interface AdminAnnouncementsListResponse {
+  items: AdminAnnouncementItem[];
+  summary: {
+    total: number;
+    active: number;
+  };
+}
+
+export interface AdminCreateAnnouncementInput {
+  type: AdminAnnouncementType;
+  isActive?: boolean;
+  href: string;
+  startsAt?: string | null;
+  endsAt?: string | null;
+  badge: AdminAnnouncementLocaleText;
+  message: AdminAnnouncementLocaleText;
+  ctaLabel: AdminAnnouncementLocaleText;
+}
+
+export type AdminUpdateAnnouncementInput = Partial<AdminCreateAnnouncementInput> & {
+  sortOrder?: number;
+};

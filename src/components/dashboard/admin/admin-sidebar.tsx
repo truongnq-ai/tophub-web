@@ -10,6 +10,7 @@ import {
   MessageSquare,
   SlidersHorizontal,
   Network,
+  Megaphone,
   PanelLeftClose,
   PanelLeftOpen,
   Menu,
@@ -33,7 +34,8 @@ export type AdminTabId =
   | "checkins"
   | "comments"
   | "system-params"
-  | "proxies";
+  | "proxies"
+  | "announcements";
 
 export interface AdminSidebarBadges {
   accountsCount?: number;
@@ -47,6 +49,8 @@ export interface AdminSidebarBadges {
   systemParamsCount?: number;
   proxiesHealthy?: number;
   proxiesTotal?: number;
+  announcementsActiveCount?: number;
+  announcementsTotalCount?: number;
 }
 
 export interface AdminNavItemConfig {
@@ -179,6 +183,18 @@ export function buildAdminNavGroups(badges: AdminSidebarBadges): AdminNavGroupCo
             (badges.proxiesHealthy ?? 0) === 0
               ? "rose"
               : "emerald",
+        },
+        {
+          id: "announcements",
+          label: "Thông Báo",
+          shortDesc:
+            "Cấu hình thanh thông báo chạy ngang trang chủ, hiệu ứng chuông lắc và icon game",
+          icon: Megaphone,
+          badgeValue:
+            badges.announcementsTotalCount !== undefined
+              ? `${badges.announcementsActiveCount ?? 0}/${badges.announcementsTotalCount}`
+              : undefined,
+          badgeTone: "amber",
         },
       ],
     },
@@ -410,7 +426,7 @@ export function AdminSidebar({ activeTab, onSelectTab, badges }: AdminSidebarPro
                   Điều Hướng
                 </p>
                 <p className="text-[11px] text-slate-400 truncate">
-                  4 nhóm • 8 chức năng
+                  4 nhóm • 9 chức năng
                 </p>
               </div>
             )}

@@ -43,6 +43,11 @@ import type {
   AdminProxyCreateResult,
   AdminProxyTestResult,
   AdminRecoveryReplayResult,
+  AdminAnnouncementItem,
+  PublicAnnouncementsListResponse,
+  AdminAnnouncementsListResponse,
+  AdminCreateAnnouncementInput,
+  AdminUpdateAnnouncementInput,
 } from "@/types/api";
 
 
@@ -720,4 +725,68 @@ export const apiClient = {
       headers: { Authorization: `Bearer ${token}` },
       body: JSON.stringify({ words }),
     }),
+
+  // System Announcements Public & Admin Endpoints
+  getPublicAnnouncements: () =>
+    apiFetch<PublicAnnouncementsListResponse>("/api/v1/announcements/public", {
+      cache: "no-store",
+    }),
+
+  getAdminAnnouncements: (token: string) =>
+    apiFetch<AdminAnnouncementsListResponse>("/api/v1/admin/announcements", {
+      headers: { Authorization: `Bearer ${token}` },
+      cache: "no-store",
+    }),
+
+  createAdminAnnouncement: (
+    token: string,
+    payload: AdminCreateAnnouncementInput
+  ) =>
+    apiFetch<AdminAnnouncementItem>("/api/v1/admin/announcements", {
+      method: "POST",
+      headers: { Authorization: `Bearer ${token}` },
+      body: JSON.stringify(payload),
+    }),
+
+  updateAdminAnnouncement: (
+    token: string,
+    id: string,
+    payload: AdminUpdateAnnouncementInput
+  ) =>
+    apiFetch<AdminAnnouncementItem>(
+      `/api/v1/admin/announcements/${encodeURIComponent(id)}`,
+      {
+        method: "PATCH",
+        headers: { Authorization: `Bearer ${token}` },
+        body: JSON.stringify(payload),
+      }
+    ),
+
+  deleteAdminAnnouncement: (token: string, id: string) =>
+    apiFetch<{ id: string }>(
+      `/api/v1/admin/announcements/${encodeURIComponent(id)}`,
+      {
+        method: "DELETE",
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    ),
+
+  reorderAdminAnnouncements: (token: string, ids: string[]) =>
+    apiFetch<{ items: AdminAnnouncementItem[] }>(
+      "/api/v1/admin/announcements/reorder",
+      {
+        method: "PUT",
+        headers: { Authorization: `Bearer ${token}` },
+        body: JSON.stringify({ ids }),
+      }
+    ),
+
+  resetAdminAnnouncements: (token: string) =>
+    apiFetch<{ items: AdminAnnouncementItem[] }>(
+      "/api/v1/admin/announcements/reset",
+      {
+        method: "POST",
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    ),
 };

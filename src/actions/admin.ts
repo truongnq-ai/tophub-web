@@ -1,6 +1,7 @@
 "use server";
 
 import { cookies } from "next/headers";
+import { revalidatePath } from "next/cache";
 import { apiClient } from "@/lib/api-client";
 import type {
   ApiResponse,
@@ -30,6 +31,10 @@ import type {
   AdminProxyCreateResult,
   AdminProxyTestResult,
   AdminRecoveryReplayResult,
+  AdminAnnouncementItem,
+  AdminAnnouncementsListResponse,
+  AdminCreateAnnouncementInput,
+  AdminUpdateAnnouncementInput,
 } from "@/types/api";
 
 const ADMIN_COOKIE_NAME = "tophub_admin_token";
@@ -404,3 +409,71 @@ export async function replayAdminFailedRecordsAction(payload: {
   return apiClient.replayAdminFailedRecords(auth.token, payload);
 }
 
+function revalidateHomepageAnnouncements(): void {
+  try {
+    revalidatePath("/", "layout");
+    revalidatePath("/vi");
+    revalidatePath("/en");
+  } catch {
+    // Safe no-op in unit test environment outside Next.js request context
+  }
+}
+
+export async function getAdminAnnouncementsAction(): Promise<
+  ApiResponse<AdminAnnouncementsListResponse>
+> {
+  const auth = getAdminTokenOrUnauthorized<AdminAnnouncementsListResponse>();
+  if ("errorResponse" in auth) return auth.errorResponse;
+  return apiClient.getAdminAnnouncements(auth.token);
+}
+
+export async function createAdminAnnouncementAction(
+  payload: AdminCreateAnnouncementInput
+): Promise<ApiResponse<AdminAnnouncementItem>> {
+  const auth = getAdminTokenOrUnauthorized<AdminAnnouncementItem>();
+  if ("errorResponse" in auth) return auth.errorResponse;
+  const res = await apiClient.createAdminAnnouncement(auth.token, payload);
+  if (res.success) revalidateHomepageAnnouncements();
+  return res;
+}
+
+export async function updateAdminAnnouncementAction(
+  id: string,
+  payload: AdminUpdateAnnouncementInput
+): Promise<ApiResponse<AdminAnnouncementItem>> {
+  const auth = getAdminTokenOrUnauthorized<AdminAnnouncementItem>();
+  if ("errorResponse" in auth) return auth.errorResponse;
+  const res = await apiClient.updateAdminAnnouncement(auth.token, id, payload);
+  if (res.success) revalidateHomepageAnnouncements();
+  return res;
+}
+
+export async function deleteAdminAnnouncementAction(
+  id: string
+): Promise<ApiResponse<{ id: string }>> {
+  const auth = getAdminTokenOrUnauthorized<{ id: string }>();
+  if ("errorResponse" in auth) return auth.errorResponse;
+  const res = await apiClient.deleteAdminAnnouncement(auth.token, id);
+  if (res.success) revalidateHomepageAnnouncements();
+  return res;
+}
+
+export async function reorderAdminAnnouncementsAction(
+  ids: string[]
+): Promise<ApiResponse<{ items: AdminAnnouncementItem[] }>> {
+  const auth = getAdminTokenOrUnauthorized<{ items: AdminAnnouncementItem[] }>();
+  if ("errorResponse" in auth) return auth.errorResponse;
+  const res = await apiClient.reorderAdminAnnouncements(auth.token, ids);
+  if (res.success) revalidateHomepageAnnouncements();
+  return res;
+}
+
+export async function resetAdminAnnouncementsAction(): Promise<
+  ApiResponse<{ items: AdminAnnouncementItem[] }>
+> {
+  const auth = getAdminTokenOrUnauthorized<{ items: AdminAnnouncementItem[] }>();
+  if ("errorResponse" in auth) return auth.errorResponse;
+  const res = await apiClient.resetAdminAnnouncements(auth.token);
+  if (res.success) revalidateHomepageAnnouncements();
+  return res;
+}

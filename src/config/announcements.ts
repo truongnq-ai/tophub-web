@@ -1,4 +1,17 @@
-export type AnnouncementType = "GUIDE" | "FEATURE" | "EVENT" | "MAINTENANCE";
+export type AnnouncementType =
+  | "CALCULATOR"
+  | "FEATURE"
+  | "GUIDE"
+  | "GIFTCODE"
+  | "EVENT"
+  | "MAINTENANCE";
+
+export type AnnouncementVisualKind =
+  | "calculator"
+  | "guide"
+  | "giftcode"
+  | "event"
+  | "maintenance";
 
 export interface LocalizedAnnouncementText {
   vi: string;
@@ -6,10 +19,9 @@ export interface LocalizedAnnouncementText {
 }
 
 /**
- * Future-proof SystemAnnouncement schema.
- * Phase 1: Loaded from static configuration (`SYSTEM_ANNOUNCEMENTS`).
- * Phase 2: Hydrated from Admin Dashboard & Database (`system_announcements` table)
- * without requiring any UI component refactoring.
+ * SystemAnnouncement schema.
+ * Hydrated dynamically from Admin Dashboard (`app_configs.key = "system:announcements"`)
+ * with automatic fallback to `SYSTEM_ANNOUNCEMENTS`.
  */
 export interface SystemAnnouncement {
   id: string;
@@ -21,6 +33,23 @@ export interface SystemAnnouncement {
   badge: LocalizedAnnouncementText;
   message: LocalizedAnnouncementText;
   ctaLabel: LocalizedAnnouncementText;
+  sortOrder?: number;
+  updatedAt?: string;
+}
+
+export function resolveAnnouncementVisualKind(
+  item: Pick<SystemAnnouncement, "type" | "href">
+): AnnouncementVisualKind {
+  if (item.type === "CALCULATOR") return "calculator";
+  if (item.type === "GUIDE") return "guide";
+  if (item.type === "GIFTCODE") return "giftcode";
+  if (item.type === "EVENT") return "event";
+  if (item.type === "MAINTENANCE") return "maintenance";
+
+  const cleanHref = (item.href || "").trim().toLowerCase();
+  if (cleanHref.startsWith("/guides")) return "guide";
+  if (cleanHref.startsWith("/calculators")) return "calculator";
+  return "calculator";
 }
 
 export const SYSTEM_ANNOUNCEMENTS: SystemAnnouncement[] = [
@@ -43,17 +72,18 @@ export const SYSTEM_ANNOUNCEMENTS: SystemAnnouncement[] = [
       vi: "Mở Tính Toán",
       en: "Open Calculators",
     },
+    sortOrder: 0,
   },
   {
     id: "ann-guides-launch-2026",
     type: "GUIDE",
-    isActive: false,
+    isActive: true,
     href: "/guides",
     startsAt: null,
     endsAt: null,
     badge: {
-      vi: "THÔNG BÁO MỚI",
-      en: "NEW UPDATE",
+      vi: "CẨM NANG",
+      en: "GUIDES",
     },
     message: {
       vi: "Ra mắt chuyên trang Cẩm Nang Chiến Thuật Top Heroes! Mở quyển sách tri thức với 33 bài viết chuyên sâu (S0 ➔ S4), Playbook 3 Phe Thuần từ Ngày 1, khung giờ vàng Double-Dip & 8 công cụ tra cứu tương tác — Khám phá ngay!",
@@ -63,6 +93,7 @@ export const SYSTEM_ANNOUNCEMENTS: SystemAnnouncement[] = [
       vi: "Mở Cẩm Nang",
       en: "Open Guides",
     },
+    sortOrder: 1,
   },
 ];
 
@@ -100,5 +131,7 @@ export function getActiveAnnouncements(
   now: Date = new Date(),
   source: SystemAnnouncement[] = SYSTEM_ANNOUNCEMENTS
 ): SystemAnnouncement[] {
-  return source.filter((item) => isAnnouncementActive(item, now));
+  return source
+    .filter((item) => isAnnouncementActive(item, now))
+    .sort((a, b) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0));
 }

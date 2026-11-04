@@ -5,22 +5,27 @@ import { useUidSession } from "@/hooks/use-uid-session";
 import { UidEnrollForm } from "@/components/home/uid-enroll-form";
 import { UidControlDashboard } from "@/components/home/uid-control-dashboard";
 import { HomeAnnouncementTicker } from "@/components/home/home-announcement-ticker";
+import type { SystemAnnouncement } from "@/config/announcements";
 import { Loader2 } from "lucide-react";
 
 import { useTranslations } from "next-intl";
 
 interface LandingPageProps {
   initialActiveCodes?: Array<{ code: string; status: string }>;
+  initialAnnouncements?: SystemAnnouncement[];
 }
 
-export default function LandingPage({ initialActiveCodes }: LandingPageProps) {
+export default function LandingPage({
+  initialActiveCodes,
+  initialAnnouncements,
+}: LandingPageProps) {
   const t = useTranslations("Home");
   const { activeAccount, isLoaded } = useUidSession();
 
   return (
     <div className="relative overflow-hidden min-h-[calc(100vh-8rem)]">
       {/* Full-width RPG Broadcast Announcement Ticker under Header (DEC-ANN-01) */}
-      <HomeAnnouncementTicker />
+      <HomeAnnouncementTicker announcements={initialAnnouncements} />
 
       {/* Background ambient campfire light */}
       <div className="absolute top-6 left-1/2 -translate-x-1/2 w-[650px] sm:w-[800px] h-[420px] bg-gradient-to-tr from-amber-500/20 via-amber-600/10 to-transparent blur-[140px] rounded-full pointer-events-none -z-10" />
