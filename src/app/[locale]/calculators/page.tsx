@@ -1,6 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { buildPageAlternates } from "@/config/constants";
 import { CalculatorPlaceholderView } from "@/components/calculators/calculator-placeholder-view";
 
 interface CalculatorsHubPageProps {
@@ -17,6 +18,7 @@ export async function generateMetadata({
   return {
     title: t("metaTitle"),
     description: t("metaDescription"),
+    alternates: buildPageAlternates(locale, "/calculators"),
     openGraph: {
       title: t("metaTitle"),
       description: t("metaDescription"),

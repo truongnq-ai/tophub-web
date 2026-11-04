@@ -24,13 +24,13 @@ describe("Middleware Public vs Auth Route Guard Regression Suite", () => {
 
   it("allows unauthenticated access to /calculators and all sub-calculator routes (/vi & /en) without redirecting to Admin login", () => {
     const publicCalculatorUrls = [
-      "https://tophero.vercel.app/calculators",
-      "https://tophero.vercel.app/vi/calculators",
-      "https://tophero.vercel.app/en/calculators",
-      "https://tophero.vercel.app/calculators/heroes/hero-stars",
-      "https://tophero.vercel.app/vi/calculators/heroes/hero-stars",
-      "https://tophero.vercel.app/en/calculators/heroes/hero-stars",
-      "https://tophero.vercel.app/vi/calculators/lord-gear/lord-gear-upgrade",
+      "https://topherohub.com/calculators",
+      "https://topherohub.com/vi/calculators",
+      "https://topherohub.com/en/calculators",
+      "https://topherohub.com/calculators/heroes/hero-stars",
+      "https://topherohub.com/vi/calculators/heroes/hero-stars",
+      "https://topherohub.com/en/calculators/heroes/hero-stars",
+      "https://topherohub.com/vi/calculators/lord-gear/lord-gear-upgrade",
     ];
 
     for (const url of publicCalculatorUrls) {
@@ -43,7 +43,7 @@ describe("Middleware Public vs Auth Route Guard Regression Suite", () => {
   });
 
   it("continues to protect private /dashboard route with authMiddleware when unauthenticated", () => {
-    const req = new NextRequest("https://tophero.vercel.app/vi/dashboard");
+    const req = new NextRequest("https://topherohub.com/vi/dashboard");
     const res = middleware(req);
 
     expect(res).toEqual({ type: "AUTH_REDIRECT_TO_LOGIN" });

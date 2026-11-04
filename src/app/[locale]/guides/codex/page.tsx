@@ -1,6 +1,7 @@
 import React, { Suspense } from "react";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
+import { buildPageAlternates } from "@/config/constants";
 import type { GuideLocale } from "@/content/guides/types";
 import { GameCodexClient } from "@/components/guides/codex/game-codex-client";
 
@@ -25,6 +26,7 @@ export async function generateMetadata({
   return {
     title,
     description,
+    alternates: buildPageAlternates(locale, "/guides/codex"),
     openGraph: {
       title,
       description,

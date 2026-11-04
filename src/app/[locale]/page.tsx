@@ -1,13 +1,27 @@
 import React from "react";
+import type { Metadata } from "next";
 import Index from "./Index";
 
 import { apiClient } from "@/lib/api-client";
+import { buildPageAlternates } from "@/config/constants";
 
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 interface IndexPageProps {
   params: {
     locale: string;
+  };
+}
+
+export async function generateMetadata({
+  params: { locale },
+}: IndexPageProps): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: "LocaleLayout" });
+
+  return {
+    title: t("title"),
+    description: t("metaDescription"),
+    alternates: buildPageAlternates(locale, ""),
   };
 }
 

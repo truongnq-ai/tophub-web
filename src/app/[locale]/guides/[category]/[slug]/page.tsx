@@ -2,6 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
+import { buildPageAlternates } from "@/config/constants";
 import { routing } from "@/i18n/routing";
 import {
   getAdjacentArticles,
@@ -50,6 +51,10 @@ export async function generateMetadata({
     title,
     description,
     keywords: article.keywords,
+    alternates: buildPageAlternates(
+      safeLocale,
+      `/guides/${article.categorySlug}/${article.slug}`
+    ),
     openGraph: {
       title,
       description,

@@ -2,6 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Gift, Sparkles, BookOpen, Smartphone, UserCircle, Settings, Award } from "lucide-react";
+import { buildPageAlternates } from "@/config/constants";
 import { apiClient } from "@/lib/api-client";
 import { GiftcodeList } from "@/components/giftcode/giftcode-list";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -22,6 +23,7 @@ export async function generateMetadata({ params: { locale } }: GiftcodesPageProp
   return {
     title,
     description,
+    alternates: buildPageAlternates(locale, "/giftcodes"),
     openGraph: {
       title,
       description,

@@ -2,6 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
+import { buildPageAlternates } from "@/config/constants";
 import { routing } from "@/i18n/routing";
 import {
   GUIDE_CATEGORIES,
@@ -41,10 +42,15 @@ export async function generateMetadata({
   const safeLocale: GuideLocale = locale === "en" ? "en" : "vi";
   const title = `${categoryObj.displayOrder}. ${categoryObj.title[safeLocale]} | TopHub`;
   const description = categoryObj.description[safeLocale];
+  const firstArticle = categoryObj.articles[0];
+  const canonicalSubPath = firstArticle
+    ? `/guides/${categoryObj.slug}/${firstArticle.slug}`
+    : `/guides/${categoryObj.slug}`;
 
   return {
     title,
     description,
+    alternates: buildPageAlternates(safeLocale, canonicalSubPath),
     openGraph: {
       title,
       description,

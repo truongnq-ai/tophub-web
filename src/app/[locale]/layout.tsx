@@ -4,6 +4,7 @@ import { getMessages, getTranslations, setRequestLocale } from "next-intl/server
 import { ReactNode } from "react";
 import type { Metadata } from "next";
 import { routing } from "@/i18n/routing";
+import { getSiteUrl } from "@/config/constants";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/auth";
 import { Providers } from "@/components/providers";
@@ -43,12 +44,15 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "LocaleLayout" });
+  const siteUrl = getSiteUrl();
   return {
+    metadataBase: new URL(siteUrl),
     title: t("title"),
     description: t("metaDescription"),
     openGraph: {
       title: t("title"),
       description: t("metaDescription"),
+      siteName: "TopHub",
       locale: locale === "vi" ? "vi_VN" : "en_US",
       type: "website",
     },

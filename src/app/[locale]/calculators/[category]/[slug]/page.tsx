@@ -2,6 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
+import { buildPageAlternates } from "@/config/constants";
 import { routing } from "@/i18n/routing";
 import {
   getAllCalculatorTools,
@@ -46,6 +47,10 @@ export async function generateMetadata({
   return {
     title,
     description,
+    alternates: buildPageAlternates(
+      safeLocale,
+      `/calculators/${resolved.category.slug}/${resolved.tool.slug}`
+    ),
     openGraph: {
       title,
       description,
