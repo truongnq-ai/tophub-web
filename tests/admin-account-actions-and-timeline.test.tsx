@@ -346,6 +346,24 @@ describe("Admin Account Actions and Weekly Timeline", () => {
               completed_at: "2026-10-26 10:00:00",
               duration_seconds: null,
             },
+            {
+              id: "STORE-9002",
+              channel: "OFFICIAL_STORE",
+              txn_no: "STORE-9002",
+              order_no: "9002",
+              description: "Hoàn tiền Official Store (-1,000 Pts)",
+              amount: 250000,
+              raw_amount: 1000,
+              currency: "STORE_POINT",
+              amount_vnd_est: 250000,
+              method: "OFFICIAL_STORE",
+              acquirer: "Official Store",
+              status: "REFUNDED" as any,
+              is_success: false,
+              created_at: "2026-10-27 10:00:00",
+              completed_at: "2026-10-27 10:00:00",
+              duration_seconds: null,
+            },
           ],
           total: 1,
           page: 1,
@@ -384,6 +402,8 @@ describe("Admin Account Actions and Weekly Timeline", () => {
 
       expect(await screen.findByText(/MEGA WHALE/i)).toBeDefined();
       expect(screen.getByText(/\+5\.000 Pts/i)).toBeDefined();
+      expect(screen.getByText(/-1\.000 Pts/i)).toBeDefined();
+      expect(screen.getByText("HOÀN TIỀN")).toBeDefined();
       expect(screen.getByText(/Official Store: 5\.000 Pts/i)).toBeDefined();
     });
 

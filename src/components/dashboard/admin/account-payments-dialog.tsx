@@ -564,7 +564,10 @@ export function AccountPaymentsDialog({
             <div className="divide-y divide-border/30 rounded-xl border border-border/40 overflow-hidden bg-muted/10">
               {orders.map((item) => {
                 const isOfficialStore =
-                  item.channel === "OFFICIAL_STORE" || item.currency === "PTS";
+                  item.channel === "OFFICIAL_STORE" ||
+                  item.currency === "PTS" ||
+                  item.currency === "STORE_POINT";
+                const isRefunded = String(item.status).toUpperCase() === "REFUNDED";
                 const vndEst = item.amount_vnd_est ?? item.amount;
                 const isHighValue = vndEst >= 449000;
                 return (
@@ -584,7 +587,12 @@ export function AccountPaymentsDialog({
                         ) : (
                           getMethodBadge(item.method)
                         )}
-                        {item.is_success ? (
+                        {isRefunded ? (
+                          <Badge className="bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/30 gap-1 text-[10px] font-bold">
+                            <AlertTriangle className="h-3 w-3" />
+                            HOÀN TIỀN
+                          </Badge>
+                        ) : item.is_success ? (
                           <Badge className="bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 gap-1 text-[10px] font-bold">
                             <CheckCircle2 className="h-3 w-3" />
                             THÀNH CÔNG
@@ -624,22 +632,37 @@ export function AccountPaymentsDialog({
                     <div className="flex sm:flex-col items-center sm:items-end justify-between gap-1 shrink-0">
                       {isOfficialStore ? (
                         <div className="text-right">
-                          <div className="font-mono text-sm font-black text-purple-400">
-                            +{((item.raw_amount ?? item.amount) || 0).toLocaleString("vi-VN")} Pts
+                          <div
+                            className={`font-mono text-sm font-black ${
+                              isRefunded
+                                ? "text-rose-500 dark:text-rose-400"
+                                : "text-purple-400"
+                            }`}
+                          >
+                            {isRefunded ? "-" : "+"}
+                            {((item.raw_amount ?? item.amount) || 0).toLocaleString("vi-VN")} Pts
                           </div>
-                          <div className="font-mono text-[10px] text-amber-400">
-                            ≈ {formatVndCurrency(vndEst)}
+                          <div
+                            className={`font-mono text-[10px] ${
+                              isRefunded ? "text-rose-400/90" : "text-amber-400"
+                            }`}
+                          >
+                            ≈ {isRefunded ? "-" : ""}
+                            {formatVndCurrency(vndEst)}
                           </div>
                         </div>
                       ) : (
                         <div
                           className={`font-mono text-sm font-black ${
-                            isHighValue
-                              ? "text-amber-500"
-                              : "text-emerald-600 dark:text-emerald-400"
+                            isRefunded
+                              ? "text-rose-500 dark:text-rose-400"
+                              : isHighValue
+                                ? "text-amber-500"
+                                : "text-emerald-600 dark:text-emerald-400"
                           }`}
                         >
-                          +{formatVndCurrency(item.amount)}
+                          {isRefunded ? "-" : "+"}
+                          {formatVndCurrency(item.amount)}
                         </div>
                       )}
                       <div className="text-[11px] text-muted-foreground font-mono flex items-center gap-1">
