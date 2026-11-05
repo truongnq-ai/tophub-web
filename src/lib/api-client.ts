@@ -519,7 +519,7 @@ export const apiClient = {
 
   createAdminProxies: (
     token: string,
-    payload: { raw: string; label?: string }
+    payload: { raw: string; label?: string; expires_at?: string | null }
   ) =>
     apiFetch<AdminProxyCreateResult>("/api/v1/admin/proxies", {
       method: "POST",
@@ -530,7 +530,7 @@ export const apiClient = {
   updateAdminProxy: (
     token: string,
     id: string,
-    payload: { enabled?: boolean; label?: string | null }
+    payload: { enabled?: boolean; label?: string | null; expires_at?: string | null }
   ) =>
     apiFetch<AdminProxyItem>(
       `/api/v1/admin/proxies/${encodeURIComponent(id)}`,

@@ -362,6 +362,7 @@ export async function getAdminProxiesAction(): Promise<
 export async function createAdminProxiesAction(payload: {
   raw: string;
   label?: string;
+  expires_at?: string | null;
 }): Promise<ApiResponse<AdminProxyCreateResult>> {
   const auth = getAdminTokenOrUnauthorized<AdminProxyCreateResult>();
   if ("errorResponse" in auth) return auth.errorResponse;
@@ -370,7 +371,7 @@ export async function createAdminProxiesAction(payload: {
 
 export async function updateAdminProxyAction(
   id: string,
-  payload: { enabled?: boolean; label?: string | null }
+  payload: { enabled?: boolean; label?: string | null; expires_at?: string | null }
 ): Promise<ApiResponse<AdminProxyItem>> {
   const auth = getAdminTokenOrUnauthorized<AdminProxyItem>();
   if ("errorResponse" in auth) return auth.errorResponse;

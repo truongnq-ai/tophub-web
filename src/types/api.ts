@@ -566,6 +566,7 @@ export interface AdminSystemParamsListResponse {
 
 export type AdminProxyRuntimeStatus =
   | "DISABLED"
+  | "EXPIRED"
   | "COOLDOWN"
   | "HEALTHY"
   | "BLOCKED"
@@ -581,6 +582,7 @@ export interface AdminProxyItem {
   username: string | null;
   has_password: boolean;
   enabled: boolean;
+  expires_at?: string | null;
   last_status: string;
   last_error: string | null;
   last_exit_ip: string | null;
@@ -606,6 +608,7 @@ export interface AdminProxiesListResponse {
     healthy: number;
     cooling: number;
     disabled: number;
+    expired?: number;
   };
 }
 

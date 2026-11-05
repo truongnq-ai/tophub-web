@@ -1,7 +1,15 @@
 "use client";
 
 import React, { useCallback, useEffect, useState } from "react";
-import { Network, Plus, Trash2, RefreshCw, Activity, RotateCcw } from "lucide-react";
+import {
+  Network,
+  Plus,
+  Trash2,
+  RefreshCw,
+  Activity,
+  RotateCcw,
+  CalendarClock,
+} from "lucide-react";
 import {
   Card,
   CardContent,
@@ -45,15 +53,38 @@ import type {
   AdminProxyCreateResult,
   AdminRecoveryReplayResult,
 } from "@/types/api";
+import {
+  buildPresetExpiryInput,
+  formatProxyExpiryDateTime,
+  getProxyExpiryCountdown,
+  parseProxyExpiryInput,
+} from "./proxy-expiry-utils";
 
 const STATUS_STYLE: Record<string, string> = {
   HEALTHY: "bg-emerald-500/15 text-emerald-300 border-emerald-500/35",
   COOLDOWN: "bg-amber-500/15 text-amber-300 border-amber-500/35",
+  EXPIRED: "bg-rose-500/15 text-rose-300 border-rose-500/35",
   BLOCKED: "bg-rose-500/15 text-rose-300 border-rose-500/35",
   ERROR: "bg-rose-500/15 text-rose-300 border-rose-500/35",
   DISABLED: "bg-slate-800 text-slate-400 border-slate-700",
   UNKNOWN: "bg-slate-800 text-slate-300 border-slate-700",
 };
+
+const EXPIRY_COUNTDOWN_STYLE: Record<string, string> = {
+  SAFE: "bg-emerald-500/15 text-emerald-300 border-emerald-500/35",
+  WARNING: "bg-amber-500/15 text-amber-300 border-amber-500/35",
+  DANGER: "bg-rose-500/15 text-rose-300 border-rose-500/40 animate-pulse",
+};
+
+const TABLE_HEADERS = [
+  "Proxy",
+  "Trạng thái",
+  "Ngày hết hạn",
+  "Độ trễ",
+  "OK / Lỗi",
+  "Bật",
+  "",
+] as const;
 
 interface TabProxiesProps {
   onSummaryChange?: (s: { healthy: number; total: number }) => void;
@@ -63,12 +94,26 @@ export function TabProxies({ onSummaryChange }: TabProxiesProps = {}) {
   const [data, setData] = useState<AdminProxiesListResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [nowMs, setNowMs] = useState<number>(() => Date.now());
+
+  // Add dialog state
   const [addOpen, setAddOpen] = useState(false);
   const [raw, setRaw] = useState("");
   const [label, setLabel] = useState("");
+  const [expiryInput, setExpiryInput] = useState("");
+  const [expiryError, setExpiryError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
   const [createResult, setCreateResult] =
     useState<AdminProxyCreateResult | null>(null);
+
+  // Edit expiry dialog state
+  const [editingExpiryProxy, setEditingExpiryProxy] =
+    useState<AdminProxyItem | null>(null);
+  const [editExpiryInput, setEditExpiryInput] = useState("");
+  const [editExpiryApplyAll, setEditExpiryApplyAll] = useState(false);
+  const [editExpiryError, setEditExpiryError] = useState<string | null>(null);
+  const [savingExpiry, setSavingExpiry] = useState(false);
+
   const [deleting, setDeleting] = useState<AdminProxyItem | null>(null);
   const [testingId, setTestingId] = useState<string | null>(null);
   const [intervalInput, setIntervalInput] = useState("8000");
@@ -76,6 +121,13 @@ export function TabProxies({ onSummaryChange }: TabProxiesProps = {}) {
     useState<AdminRecoveryReplayResult | null>(null);
   const [replayDone, setReplayDone] =
     useState<AdminRecoveryReplayResult | null>(null);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setNowMs(Date.now());
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -115,17 +167,32 @@ export function TabProxies({ onSummaryChange }: TabProxiesProps = {}) {
 
   const save = async (e: React.FormEvent) => {
     e.preventDefault();
+    setExpiryError(null);
+    let expiresAtIso: string | undefined;
+    if (expiryInput.trim()) {
+      const parsed = parseProxyExpiryInput(expiryInput);
+      if (!parsed) {
+        setExpiryError(
+          "Định dạng ngày hết hạn không hợp lệ (VD: 2026-11-06 09:57 hoặc 09:57:00 6/11/2026)."
+        );
+        return;
+      }
+      expiresAtIso = parsed.iso;
+    }
+
     setSaving(true);
     try {
       const r = await createAdminProxiesAction({
         raw,
         label: label.trim() || undefined,
+        expires_at: expiresAtIso,
       });
       if (r?.success && r.data) {
         setCreateResult(r.data);
         if (r.data.skipped.length === 0) {
           setAddOpen(false);
           setRaw("");
+          setExpiryInput("");
         }
         await load();
       } else {
@@ -133,6 +200,48 @@ export function TabProxies({ onSummaryChange }: TabProxiesProps = {}) {
       }
     } finally {
       setSaving(false);
+    }
+  };
+
+  const openEditExpiry = (p: AdminProxyItem) => {
+    setEditingExpiryProxy(p);
+    setEditExpiryInput(formatProxyExpiryDateTime(p.expires_at) ?? "");
+    setEditExpiryApplyAll(false);
+    setEditExpiryError(null);
+  };
+
+  const saveEditExpiry = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!editingExpiryProxy) return;
+    setEditExpiryError(null);
+
+    let nextExpiresAt: string | null = null;
+    if (editExpiryInput.trim()) {
+      const parsed = parseProxyExpiryInput(editExpiryInput);
+      if (!parsed) {
+        setEditExpiryError(
+          "Định dạng ngày hết hạn không hợp lệ (VD: 2026-11-06 09:57 hoặc 09:57:00 6/11/2026)."
+        );
+        return;
+      }
+      nextExpiresAt = parsed.iso;
+    }
+
+    setSavingExpiry(true);
+    try {
+      const targets =
+        editExpiryApplyAll && data?.items.length
+          ? data.items
+          : [editingExpiryProxy];
+      await Promise.all(
+        targets.map((item) =>
+          updateAdminProxyAction(item.id, { expires_at: nextExpiresAt })
+        )
+      );
+      setEditingExpiryProxy(null);
+      await load();
+    } finally {
+      setSavingExpiry(false);
     }
   };
 
@@ -179,7 +288,9 @@ export function TabProxies({ onSummaryChange }: TabProxiesProps = {}) {
             </CardTitle>
             <CardDescription className="text-slate-400 mt-1">
               {pool
-                ? `${pool.healthy}/${pool.total} khả dụng • ${pool.cooling} đang tạm nghỉ • ${pool.disabled} đã tắt`
+                ? `${pool.healthy}/${pool.total} khả dụng • ${pool.cooling} đang tạm nghỉ • ${pool.disabled} đã tắt${
+                    pool.expired ? ` • ${pool.expired} đã hết hạn` : ""
+                  }`
                 : "Đang tải..."}
             </CardDescription>
           </div>
@@ -201,6 +312,7 @@ export function TabProxies({ onSummaryChange }: TabProxiesProps = {}) {
               size="sm"
               onClick={() => {
                 setCreateResult(null);
+                setExpiryError(null);
                 setAddOpen(true);
               }}
               className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold"
@@ -292,16 +404,7 @@ export function TabProxies({ onSummaryChange }: TabProxiesProps = {}) {
             <Table>
               <TableHeader className="bg-slate-950/80">
                 <TableRow className="border-slate-800">
-                  {[
-                    "Proxy",
-                    "Tài khoản",
-                    "Trạng thái",
-                    "IP thoát",
-                    "Độ trễ",
-                    "OK / Lỗi",
-                    "Bật",
-                    "",
-                  ].map((h) => (
+                  {TABLE_HEADERS.map((h) => (
                     <TableHead key={h} className="text-slate-400">
                       {h}
                     </TableHead>
@@ -312,7 +415,7 @@ export function TabProxies({ onSummaryChange }: TabProxiesProps = {}) {
                 {loading && !data ? (
                   <TableRow>
                     <TableCell
-                      colSpan={8}
+                      colSpan={7}
                       className="py-8 text-center text-sm text-slate-400"
                     >
                       Đang tải proxy...
@@ -321,7 +424,7 @@ export function TabProxies({ onSummaryChange }: TabProxiesProps = {}) {
                 ) : (data?.items.length ?? 0) === 0 ? (
                   <TableRow>
                     <TableCell
-                      colSpan={8}
+                      colSpan={7}
                       className="py-8 text-center text-sm text-slate-400"
                     >
                       Chưa có proxy nào.
@@ -330,12 +433,24 @@ export function TabProxies({ onSummaryChange }: TabProxiesProps = {}) {
                 ) : (
                   data!.items.map((p) => {
                     const name = `${p.host}:${p.port}`;
+                    const expiry = getProxyExpiryCountdown(p.expires_at, nowMs);
+                    const effectiveStatus =
+                      p.enabled && expiry.level === "EXPIRED"
+                        ? "EXPIRED"
+                        : p.runtime_status;
+                    const tooltipInfo = `Tài khoản: ${
+                      p.username ? `${p.username}:••••` : "—"
+                    } • IP thoát: ${p.last_exit_ip ?? "—"}`;
+
                     return (
                       <TableRow
                         key={p.id}
                         className="border-slate-800/70 hover:bg-slate-800/40"
                       >
-                        <TableCell className="font-mono text-xs text-white">
+                        <TableCell
+                          className="font-mono text-xs text-white"
+                          title={tooltipInfo}
+                        >
                           {name}
                           {p.label ? (
                             <div className="text-[11px] text-slate-400">
@@ -343,17 +458,14 @@ export function TabProxies({ onSummaryChange }: TabProxiesProps = {}) {
                             </div>
                           ) : null}
                         </TableCell>
-                        <TableCell className="font-mono text-xs text-slate-300">
-                          {p.username ? `${p.username}:••••` : "—"}
-                        </TableCell>
                         <TableCell>
                           <span
                             className={`inline-flex rounded-full border px-2.5 py-0.5 text-[11px] font-semibold ${
-                              STATUS_STYLE[p.runtime_status] ??
+                              STATUS_STYLE[effectiveStatus] ??
                               STATUS_STYLE.UNKNOWN
                             }`}
                           >
-                            {p.runtime_status}
+                            {effectiveStatus}
                           </span>
                           {p.cooldown_until && (
                             <div className="text-[10px] text-amber-300 mt-0.5">
@@ -372,8 +484,46 @@ export function TabProxies({ onSummaryChange }: TabProxiesProps = {}) {
                             </div>
                           )}
                         </TableCell>
-                        <TableCell className="font-mono text-xs text-slate-300">
-                          {p.last_exit_ip ?? "—"}
+                        <TableCell>
+                          <button
+                            type="button"
+                            title="Cập nhật ngày hết hạn"
+                            onClick={() => openEditExpiry(p)}
+                            className="group text-left focus:outline-none"
+                          >
+                            {expiry.formattedDate ? (
+                              <div className="space-y-1">
+                                <div
+                                  data-testid={`proxy-expiry-date-${p.id}`}
+                                  className={`font-mono text-xs tabular-nums group-hover:underline ${
+                                    expiry.level === "EXPIRED"
+                                      ? "font-semibold text-rose-400"
+                                      : "text-slate-200"
+                                  }`}
+                                >
+                                  {expiry.formattedDate}
+                                </div>
+                                {expiry.countdownText && (
+                                  <div>
+                                    <span
+                                      data-testid={`proxy-countdown-${p.id}`}
+                                      className={`inline-flex items-center rounded-md border px-1.5 py-0.5 text-[10px] font-medium tabular-nums ${
+                                        EXPIRY_COUNTDOWN_STYLE[expiry.level] ??
+                                        ""
+                                      }`}
+                                    >
+                                      {expiry.countdownText}
+                                    </span>
+                                  </div>
+                                )}
+                              </div>
+                            ) : (
+                              <span className="inline-flex items-center gap-1 text-xs text-slate-500 hover:text-amber-300">
+                                <CalendarClock className="h-3.5 w-3.5" />
+                                Đặt hạn dùng
+                              </span>
+                            )}
+                          </button>
                         </TableCell>
                         <TableCell className="text-xs text-slate-300">
                           {p.last_latency_ms != null
@@ -429,6 +579,7 @@ export function TabProxies({ onSummaryChange }: TabProxiesProps = {}) {
         </CardContent>
       </Card>
 
+      {/* Dialog Thêm Proxy */}
       <Dialog open={addOpen} onOpenChange={setAddOpen}>
         <DialogContent className="bg-slate-950 border-slate-800 text-slate-100 sm:max-w-lg">
           <DialogHeader>
@@ -445,7 +596,7 @@ export function TabProxies({ onSummaryChange }: TabProxiesProps = {}) {
               </Label>
               <Textarea
                 id="proxy-raw"
-                rows={6}
+                rows={5}
                 value={raw}
                 onChange={(e) => setRaw(e.target.value)}
                 required
@@ -454,18 +605,69 @@ export function TabProxies({ onSummaryChange }: TabProxiesProps = {}) {
                 className="bg-slate-900 border-slate-800 font-mono text-xs"
               />
             </div>
-            <div className="space-y-1.5">
-              <Label htmlFor="proxy-label" className="text-xs text-slate-300">
-                Nhãn (tuỳ chọn)
-              </Label>
-              <Input
-                id="proxy-label"
-                value={label}
-                onChange={(e) => setLabel(e.target.value)}
-                maxLength={100}
-                className="bg-slate-900 border-slate-800 text-xs"
-              />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="space-y-1.5">
+                <Label htmlFor="proxy-label" className="text-xs text-slate-300">
+                  Nhãn (tuỳ chọn)
+                </Label>
+                <Input
+                  id="proxy-label"
+                  placeholder="VD: US-ProxyPool"
+                  value={label}
+                  onChange={(e) => setLabel(e.target.value)}
+                  maxLength={100}
+                  className="bg-slate-900 border-slate-800 text-xs"
+                />
+              </div>
+              <div className="space-y-1.5">
+                <Label
+                  htmlFor="proxy-expiry"
+                  className="text-xs text-slate-300"
+                >
+                  Ngày hết hạn
+                </Label>
+                <Input
+                  id="proxy-expiry"
+                  type="text"
+                  placeholder="yyyy-MM-dd HH:mm hoặc 09:57:00 6/11/2026"
+                  value={expiryInput}
+                  onChange={(e) => {
+                    setExpiryInput(e.target.value);
+                    setExpiryError(null);
+                  }}
+                  onBlur={() => {
+                    const parsed = parseProxyExpiryInput(expiryInput);
+                    if (parsed) setExpiryInput(parsed.display);
+                  }}
+                  className="bg-slate-900 border-slate-800 font-mono text-xs"
+                />
+              </div>
             </div>
+            <div className="flex flex-wrap items-center gap-1.5">
+              <span className="text-[11px] text-slate-400 mr-1">
+                Chọn nhanh hạn dùng:
+              </span>
+              {[3, 7, 30].map((d) => (
+                <Button
+                  key={d}
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  onClick={() => {
+                    setExpiryInput(buildPresetExpiryInput(d));
+                    setExpiryError(null);
+                  }}
+                  className="h-6 px-2 text-[11px] border-slate-800 bg-slate-900 text-slate-300 hover:text-amber-300"
+                >
+                  +{d} ngày
+                </Button>
+              ))}
+            </div>
+            {expiryError && (
+              <div className="rounded-lg border border-rose-500/40 bg-rose-500/10 p-2 text-xs text-rose-300">
+                {expiryError}
+              </div>
+            )}
             {createResult && (
               <div className="rounded-lg border border-slate-800 p-2.5 text-xs space-y-1">
                 <div className="text-emerald-300">
@@ -493,6 +695,113 @@ export function TabProxies({ onSummaryChange }: TabProxiesProps = {}) {
                 className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold"
               >
                 {saving ? "Đang lưu..." : "Lưu proxy"}
+              </Button>
+            </DialogFooter>
+          </form>
+        </DialogContent>
+      </Dialog>
+
+      {/* Dialog Cập nhật / Gia hạn Ngày hết hạn */}
+      <Dialog
+        open={Boolean(editingExpiryProxy)}
+        onOpenChange={(o) => {
+          if (!o) setEditingExpiryProxy(null);
+        }}
+      >
+        <DialogContent className="bg-slate-950 border-slate-800 text-slate-100 sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-white">
+              Cập nhật ngày hết hạn
+            </DialogTitle>
+            <DialogDescription className="text-slate-400 text-xs">
+              Proxy{" "}
+              <strong className="text-amber-300 font-mono">
+                {editingExpiryProxy?.host}:{editingExpiryProxy?.port}
+              </strong>
+              . Có thể nhập theo định dạng <code>yyyy-MM-dd HH:mm</code> hoặc dán
+              trực tiếp chuỗi <code>09:57:00 6/11/2026</code> từ trang mua proxy.
+            </DialogDescription>
+          </DialogHeader>
+          <form onSubmit={saveEditExpiry} className="space-y-3">
+            <div className="space-y-1.5">
+              <Label
+                htmlFor="edit-proxy-expiry"
+                className="text-xs text-slate-300"
+              >
+                Ngày hết hạn mới
+              </Label>
+              <Input
+                id="edit-proxy-expiry"
+                type="text"
+                placeholder="yyyy-MM-dd HH:mm hoặc 09:57:00 6/11/2026"
+                value={editExpiryInput}
+                onChange={(e) => {
+                  setEditExpiryInput(e.target.value);
+                  setEditExpiryError(null);
+                }}
+                onBlur={() => {
+                  const parsed = parseProxyExpiryInput(editExpiryInput);
+                  if (parsed) setEditExpiryInput(parsed.display);
+                }}
+                className="bg-slate-900 border-slate-800 font-mono text-xs"
+              />
+            </div>
+            <div className="flex flex-wrap items-center gap-1.5">
+              <span className="text-[11px] text-slate-400 mr-1">
+                Gia hạn nhanh:
+              </span>
+              {[3, 7, 30].map((d) => (
+                <Button
+                  key={d}
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  onClick={() => {
+                    setEditExpiryInput(buildPresetExpiryInput(d));
+                    setEditExpiryError(null);
+                  }}
+                  className="h-6 px-2 text-[11px] border-slate-800 bg-slate-900 text-slate-300 hover:text-amber-300"
+                >
+                  +{d} ngày
+                </Button>
+              ))}
+            </div>
+            {(data?.items.length ?? 0) > 1 && (
+              <div className="flex items-center gap-2 pt-1">
+                <Switch
+                  id="apply-all-expiry"
+                  checked={editExpiryApplyAll}
+                  onCheckedChange={setEditExpiryApplyAll}
+                />
+                <Label
+                  htmlFor="apply-all-expiry"
+                  className="text-xs text-slate-300"
+                >
+                  Áp dụng cùng hạn dùng này cho toàn bộ {data?.items.length}{" "}
+                  proxy trong danh sách
+                </Label>
+              </div>
+            )}
+            {editExpiryError && (
+              <div className="rounded-lg border border-rose-500/40 bg-rose-500/10 p-2 text-xs text-rose-300">
+                {editExpiryError}
+              </div>
+            )}
+            <DialogFooter>
+              <Button
+                type="button"
+                variant="outline"
+                onClick={() => setEditingExpiryProxy(null)}
+                className="border-slate-700 bg-slate-900 text-slate-300"
+              >
+                Huỷ
+              </Button>
+              <Button
+                type="submit"
+                disabled={savingExpiry}
+                className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold"
+              >
+                {savingExpiry ? "Đang lưu..." : "Lưu hạn dùng"}
               </Button>
             </DialogFooter>
           </form>
