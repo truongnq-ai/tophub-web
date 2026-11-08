@@ -86,7 +86,7 @@ describe("8.1 Xây dựng (Construction Multi-Queue Planner)", () => {
     expect(plan.instantDiamonds).toBe(38661);
   });
 
-  it("renders default 2 construction queues, omits the warehouse inventory panel, and passes MD3 guardrails", () => {
+  it("renders default 2 construction queues, standardized 4-column headers without 'Cột X •', omits the warehouse inventory panel, and passes MD3 guardrails", () => {
     const found = getCalculatorToolBySlug("castle-tech", "construction")!;
     const { container } = render(
       <ConstructionCalculator
@@ -100,6 +100,16 @@ describe("8.1 Xây dựng (Construction Multi-Queue Planner)", () => {
     expect(screen.getAllByTestId("construction-queue-card").length).toBe(2);
     expect(screen.queryByText(/Kho tài nguyên hiện có/i)).toBeNull();
     expect(screen.queryByText(/Nhập Kho Tài Nguyên/i)).toBeNull();
+
+    // Standardized 4 column headers without "Cột 1..4 •" prefixes
+    expect(screen.queryByText(/Cột 1 •/i)).toBeNull();
+    expect(screen.queryByText(/Cột 2 •/i)).toBeNull();
+    expect(screen.queryByText(/Cột 3 •/i)).toBeNull();
+    expect(screen.queryByText(/Cột 4 •/i)).toBeNull();
+    expect(screen.getAllByText("Công trình").length).toBeGreaterThanOrEqual(2);
+    expect(screen.getAllByText("Uy Thế & Thuộc Tính").length).toBeGreaterThanOrEqual(2);
+    expect(screen.getAllByText("Điều Kiện").length).toBeGreaterThanOrEqual(2);
+    expect(screen.getAllByText("Thời Gian").length).toBeGreaterThanOrEqual(2);
 
     const addBtn = screen.getByTestId("add-construction-queue-btn");
     fireEvent.click(addBtn);

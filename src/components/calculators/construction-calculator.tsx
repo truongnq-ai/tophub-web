@@ -722,7 +722,7 @@ export function ConstructionCalculator({
                   <div className="space-y-3">
                     <div className="flex items-center justify-between gap-2">
                       <span className="text-xs font-sans font-bold uppercase tracking-wide text-muted-foreground">
-                        {isVi ? "Cột 1 • Công trình" : "Col 1 • Building"}
+                        {isVi ? "Công trình" : "Building"}
                       </span>
                       <span className="rounded-md bg-amber-500/15 px-2 py-0.5 text-xs font-sans font-bold text-amber-700 dark:text-amber-300">
                         Max Lv.{plan.building.maxLevel}
@@ -792,8 +792,8 @@ export function ConstructionCalculator({
                   <div className="flex items-center justify-between gap-2">
                     <span className="text-xs font-sans font-bold uppercase tracking-wide text-muted-foreground">
                       {isVi
-                        ? "Cột 2 • Uy Thế & Thuộc Tính"
-                        : "Col 2 • Power & Attributes"}
+                        ? "Uy Thế & Thuộc Tính"
+                        : "Power & Attributes"}
                     </span>
                     <TrendingUp
                       className="h-4 w-4 text-emerald-500"
@@ -863,7 +863,7 @@ export function ConstructionCalculator({
                 >
                   <div className="flex items-center justify-between rounded-lg bg-amber-500/15 px-3 py-1.5">
                     <span className="text-xs font-sans font-black uppercase tracking-wide text-amber-900 dark:text-amber-200">
-                      {isVi ? "Cột 3 • Điều Kiện" : "Col 3 • Requirements"}
+                      {isVi ? "Điều Kiện" : "Requirements"}
                     </span>
                     {buffs.costReductionPct > 0 ? (
                       <span className="font-mono text-xs font-bold text-amber-700 dark:text-amber-300">
@@ -974,7 +974,7 @@ export function ConstructionCalculator({
                   <div className="space-y-2.5">
                     <div className="flex items-center justify-between gap-2">
                       <span className="text-xs font-sans font-bold uppercase tracking-wide text-muted-foreground">
-                        {isVi ? "Cột 4 • Thời Gian" : "Col 4 • Build Time"}
+                        {isVi ? "Thời Gian" : "Build Time"}
                       </span>
                       <Clock
                         className="h-4 w-4 text-sky-500"

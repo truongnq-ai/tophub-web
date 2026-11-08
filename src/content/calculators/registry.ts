@@ -1323,16 +1323,16 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
           },
           {
             code: "8.2",
-            slug: "tech-brilliance",
+            slug: "technology",
             categorySlug: "castle-tech",
             phaseNumber: 8,
             title: {
-              vi: "8.2 Viện Huy Hoàng & Khoa Kỹ",
-              en: "8.2 Brilliance & Tech",
+              vi: "8.2 Công nghệ",
+              en: "8.2 Technology",
             },
             fullTitle: {
-              vi: "8.2 Tinh Chất Rồng Viện Huy Hoàng & Lộ Trình Mở Lính T11",
-              en: "8.2 Brilliance Institute Dragon Essence & T11 Troop Unlock",
+              vi: "8.2 Công Nghệ & Quy Hoạch 2 Đội Nghiên Cứu (8 Nhánh • 190 Node)",
+              en: "8.2 Technology & Dual-Queue Research Planner (8 Branches • 190 Nodes)",
             },
             summary: {
               vi: "Tính chính xác lượng Tinh Chất Rồng cần cho Cây Viện Huy Hoàng (5,422 viên) và Cây Quân Đoàn T11 (4,677 viên) để mở khóa binh chủng Bậc 11.",
@@ -1342,7 +1342,11 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
               vi: "Tab DE-Dust — Cây Viện Huy Hoàng & Khoa Kỹ T11",
               en: "DE-Dust Tab — Brilliance & T11 Tech Trees",
             },
-            materials: [CALCULATOR_MATERIALS.dragonEssence],
+            materials: [
+              CALCULATOR_MATERIALS.timber,
+              CALCULATOR_MATERIALS.stone,
+              CALCULATOR_MATERIALS.ruby,
+            ],
             exampleCase: {
               vi: {
                 question:
@@ -1361,7 +1365,7 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
                   "Dragon Essence spent vs. remaining to T11 unlock & estimated completion weeks",
               },
             },
-            status: "coming_soon",
+            status: "ready",
           },
           {
             code: "8.3",
@@ -1563,7 +1567,7 @@ export function getCalculatorToolBySlug(
   for (const zone of CALCULATOR_ZONES) {
     for (const category of zone.categories) {
       if (category.slug !== categorySlug) continue;
-      const normalizedSlug = toolSlug === "main-castle" ? "construction" : toolSlug;
+      const normalizedSlug = toolSlug === "main-castle" ? "construction" : toolSlug === "tech-brilliance" ? "technology" : toolSlug;
       const tool = category.tools.find((item) => item.slug === normalizedSlug);
       if (tool) {
         return { zone, category, tool };
@@ -1582,7 +1586,7 @@ export function getAdjacentCalculatorTools(
 } {
   const allTools = getAllCalculatorTools();
   const currentIndex = allTools.findIndex(
-    (item) => item.categorySlug === categorySlug && item.slug === (toolSlug === "main-castle" ? "construction" : toolSlug)
+    (item) => item.categorySlug === categorySlug && item.slug === (toolSlug === "main-castle" ? "construction" : toolSlug === "tech-brilliance" ? "technology" : toolSlug)
   );
   if (currentIndex === -1) {
     return { prev: null, next: null };

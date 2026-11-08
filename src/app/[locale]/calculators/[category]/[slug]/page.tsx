@@ -67,6 +67,9 @@ export default function CalculatorToolPage({
   if (category === "castle-tech" && slug === "main-castle") {
     redirect(`/${locale}/calculators/castle-tech/construction`);
   }
+  if (category === "castle-tech" && slug === "tech-brilliance") {
+    redirect(`/${locale}/calculators/castle-tech/technology`);
+  }
 
   const resolved = getCalculatorToolBySlug(category, slug);
   if (!resolved) {
