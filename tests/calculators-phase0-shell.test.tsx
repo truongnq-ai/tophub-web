@@ -116,6 +116,9 @@ describe("Suite 1 — Calculators Registry SSoT (3 Zones, 9 Categories, 22 Tools
     expect(relicStarTool?.tool.code).toBe("6.3");
     expect(relicStarTool?.tool.title.vi).toBe("6.3 Nâng sao Bí Bảo");
     expect(relicStarTool?.tool.title.en).toBe("6.3 Relic Star-Up");
+    const cat8 = getCalculatorCategoryBySlug("castle-tech");
+    expect(cat8?.title.vi).toBe("8. Xây dựng & Công nghệ");
+    expect(cat8?.title.en).toBe("8. Construction & Tech");
     expect(HOT_CALCULATOR_TAGS).toHaveLength(5);
 
     for (const tool of tools) {

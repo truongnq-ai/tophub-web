@@ -1266,8 +1266,8 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
         zoneId: "zone-3",
         iconName: "Castle",
         title: {
-          vi: "8. Lâu Đài & Khoa Kỹ",
-          en: "8. Castle & Tech",
+          vi: "8. Xây dựng & Công nghệ",
+          en: "8. Construction & Tech",
         },
         description: {
           vi: "Tính Gỗ, Đá, Ruby, Tinh Chất Rồng nâng Lâu Đài Chính (Lv.10–40 & B1–B6), Viện Huy Hoàng mở Lính T11 và Dân Làng.",

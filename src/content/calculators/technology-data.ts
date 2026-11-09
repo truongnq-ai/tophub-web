@@ -6,16 +6,26 @@
 
 import type { CalculatorLocale } from "./types";
 import {
+  ALLIANCE_HELP_MIN_SECONDS,
+  ALLIANCE_HELP_RATE,
   CONSTRUCTION_RESOURCE_META,
+  DEFAULT_ALLIANCE_HELP_COUNT,
   DIAMOND_ICON_PATH,
+  MAX_ALLIANCE_HELP_COUNT,
+  applyAllianceHelpsToStep,
   formatAttributeValue,
   formatBuildDuration,
   formatGameResourceCompact,
 } from "./construction-data";
 
 export {
+  ALLIANCE_HELP_MIN_SECONDS,
+  ALLIANCE_HELP_RATE,
   CONSTRUCTION_RESOURCE_META,
+  DEFAULT_ALLIANCE_HELP_COUNT,
   DIAMOND_ICON_PATH,
+  MAX_ALLIANCE_HELP_COUNT,
+  applyAllianceHelpsToStep,
   formatAttributeValue,
   formatBuildDuration,
   formatGameResourceCompact,
@@ -72,6 +82,7 @@ export interface TechnologyNodeMeta {
 export interface TechnologyGlobalBuffs {
   readonly researchSpeedPct: number;
   readonly costReductionPct: number;
+  readonly helpCount?: number;
 }
 
 export interface TechnologyQueueState {
@@ -123,6 +134,7 @@ export interface TechnologyQueueUpgradePlan {
   readonly resourceStatuses: readonly TechnologyResourceStatus[];
   readonly baseTimeSeconds: number;
   readonly effectiveTimeSeconds: number;
+  readonly helpedTimeSeconds: number;
   readonly savedTimeSeconds: number;
   readonly instantDiamonds: number;
 }
@@ -141,6 +153,7 @@ export interface TechnologyGlobalSummary {
 export const DEFAULT_TECH_GLOBAL_BUFFS: TechnologyGlobalBuffs = {
   researchSpeedPct: 80,
   costReductionPct: 5,
+  helpCount: DEFAULT_ALLIANCE_HELP_COUNT,
 };
 
 export const DEFAULT_TECH_QUEUES: readonly TechnologyQueueState[] = [
@@ -19084,7 +19097,9 @@ export function computeTechQueueUpgradePlan(
 
   let baseTimeSeconds = 0;
   let effectiveTimeSeconds = 0;
+  let helpedTimeSeconds = 0;
   const speedDivisor = 1 + Math.max(0, buffs.researchSpeedPct) / 100;
+  const effectiveHelpCount = buffs.helpCount ?? DEFAULT_ALLIANCE_HELP_COUNT;
 
   for (const step of activeSteps) {
     baseCosts.timber += step.timber;
@@ -19096,10 +19111,15 @@ export function computeTechQueueUpgradePlan(
     discountedCosts.ruby += Math.ceil(step.ruby * costMultiplier);
 
     baseTimeSeconds += step.timeSec;
-    effectiveTimeSeconds += Math.floor(step.timeSec / speedDivisor);
+    const stepEffective = Math.floor(step.timeSec / speedDivisor);
+    effectiveTimeSeconds += stepEffective;
+    helpedTimeSeconds += applyAllianceHelpsToStep(
+      stepEffective,
+      effectiveHelpCount
+    );
   }
 
-  const savedTimeSeconds = Math.max(0, baseTimeSeconds - effectiveTimeSeconds);
+  const savedTimeSeconds = Math.max(0, baseTimeSeconds - helpedTimeSeconds);
   const instantDiamonds = Math.ceil(effectiveTimeSeconds / 3);
 
   const resourceKeys: readonly TechnologyResourceKey[] = [
@@ -19134,6 +19154,7 @@ export function computeTechQueueUpgradePlan(
     resourceStatuses,
     baseTimeSeconds,
     effectiveTimeSeconds,
+    helpedTimeSeconds,
     savedTimeSeconds,
     instantDiamonds,
   };
@@ -19170,10 +19191,10 @@ export function aggregateTechQueues(
 
     totalDeltaFightforce += plan.deltaFightforce;
     totalInstantDiamonds += plan.instantDiamonds;
-    if (plan.effectiveTimeSeconds > parallelTimeSeconds) {
-      parallelTimeSeconds = plan.effectiveTimeSeconds;
+    if (plan.helpedTimeSeconds > parallelTimeSeconds) {
+      parallelTimeSeconds = plan.helpedTimeSeconds;
     }
-    totalSpeedupTimeSeconds += plan.effectiveTimeSeconds;
+    totalSpeedupTimeSeconds += plan.helpedTimeSeconds;
     if (plan.requiredCottageLevel > maxRequiredCottageLevel) {
       maxRequiredCottageLevel = plan.requiredCottageLevel;
     }

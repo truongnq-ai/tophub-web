@@ -71,7 +71,7 @@ describe("8.2 Công nghệ (Technology Dual-Queue Research Planner)", () => {
         fromLevel: 0,
         toLevel: 5,
       },
-      { researchSpeedPct: 0, costReductionPct: 0 }
+      { researchSpeedPct: 0, costReductionPct: 0, helpCount: 2 }
     );
 
     expect(planSingle.currentFightforce).toBe(0);
@@ -80,8 +80,24 @@ describe("8.2 Công nghệ (Technology Dual-Queue Research Planner)", () => {
     expect(planSingle.discountedCosts.stone).toBe(3300);
     expect(planSingle.discountedCosts.ruby).toBe(6632);
     expect(planSingle.baseTimeSeconds).toBe(300 + 360 + 480 + 600 + 780);
+    expect(planSingle.effectiveTimeSeconds).toBe(2520);
+    // 5 steps reduced by 2 helps * 60s = 120s each -> 2520 - 600 = 1920s
+    expect(planSingle.helpedTimeSeconds).toBe(1920);
+    expect(planSingle.savedTimeSeconds).toBe(600);
     expect(planSingle.attributeGains[0]?.currentValue).toBe(0);
     expect(planSingle.attributeGains[0]?.deltaValue).toBe(5);
+
+    const planWith20Helps = computeTechQueueUpgradePlan(
+      {
+        queueId: "tech-q1",
+        nodeId: 213001,
+        fromLevel: 0,
+        toLevel: 5,
+      },
+      { researchSpeedPct: 0, costReductionPct: 0, helpCount: 20 }
+    );
+    expect(planWith20Helps.helpedTimeSeconds).toBe(0);
+    expect(planWith20Helps.savedTimeSeconds).toBe(2520);
 
     // Node 213004: Tốc độ Nghiên Cứu I (col=2 converging node requiring 213002 & 213003)
     const planConverge = computeTechQueueUpgradePlan(
@@ -132,6 +148,15 @@ describe("8.2 Công nghệ (Technology Dual-Queue Research Planner)", () => {
     expect(screen.getAllByText("Điều Kiện").length).toBeGreaterThanOrEqual(2);
     expect(screen.getAllByText("Thời Gian").length).toBeGreaterThanOrEqual(2);
 
+    // Effective Time & Alliance Help Time assertions
+    expect(screen.getAllByText("Thời gian thực tế").length).toBe(2);
+    expect(screen.queryByText(/Nghiên cứu \(Thời gian thực tế\)/i)).toBeNull();
+    expect(screen.getAllByText("Sau trợ giúp 20/20").length).toBe(2);
+    expect(screen.getByTestId("tech-queue-1-helped-time")).not.toBeNull();
+
+    fireEvent.click(screen.getByTestId("tech-buff-help-increase"));
+    expect(screen.getAllByText("Sau trợ giúp 21/21").length).toBe(2);
+
     // Open Tech Tree Picker Modal for Queue 1
     fireEvent.click(screen.getByTestId("tech-queue-1-open-picker-btn"));
     expect(screen.getByTestId("technology-picker-modal")).not.toBeNull();
@@ -166,6 +191,8 @@ describe("8.2 Công nghệ (Technology Dual-Queue Research Planner)", () => {
 
     const text = container.textContent ?? "";
     expect(VI_DIACRITIC_REGEX.test(text)).toBe(false);
+    expect(screen.getAllByText("Effective Time").length).toBe(2);
+    expect(screen.getAllByText("After Help 20/20").length).toBe(2);
     expect(getMaxBorderedContainerDepth(container)).toBeLessThanOrEqual(1);
   });
 });

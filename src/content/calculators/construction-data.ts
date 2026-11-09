@@ -51,6 +51,7 @@ export interface ConstructionGlobalBuffs {
   readonly privilegeMinutes: number;
   readonly speedBonusPct: number;
   readonly costReductionPct: number;
+  readonly helpCount?: number;
 }
 
 export interface ConstructionQueueState {
@@ -108,6 +109,7 @@ export interface ConstructionQueuePlan {
   readonly resourceStatuses: readonly ConstructionQueueResourceStatus[];
   readonly baseTimeSeconds: number;
   readonly effectiveTimeSeconds: number;
+  readonly helpedTimeSeconds: number;
   readonly savedTimeSeconds: number;
   readonly instantDiamonds: number;
   readonly totalStepsCount: number;
@@ -164,11 +166,17 @@ export const CONSTRUCTION_RESOURCE_META: Readonly<
 
 export const DIAMOND_ICON_PATH = "/images/items/currencies/icon_10002.webp";
 
+export const DEFAULT_ALLIANCE_HELP_COUNT = 20;
+export const MAX_ALLIANCE_HELP_COUNT = 50;
+export const ALLIANCE_HELP_MIN_SECONDS = 60;
+export const ALLIANCE_HELP_RATE = 0.01;
+
 export const DEFAULT_CONSTRUCTION_GLOBAL_BUFFS: ConstructionGlobalBuffs = {
   freeMinutes: 5,
   privilegeMinutes: 10,
   speedBonusPct: 117,
   costReductionPct: 5,
+  helpCount: DEFAULT_ALLIANCE_HELP_COUNT,
 };
 
 export const DEFAULT_CONSTRUCTION_QUEUES: readonly ConstructionQueueState[] = [
@@ -647,6 +655,31 @@ export function formatBuildingLevelBadge(level: number, locale: "vi" | "en"): st
     : `Lv.${level} (Brilliance ${brillianceTier})`;
 }
 
+export function applyAllianceHelpsToStep(
+  stepEffectiveSeconds: number,
+  helpCount: number = DEFAULT_ALLIANCE_HELP_COUNT
+): number {
+  if (!Number.isFinite(stepEffectiveSeconds) || stepEffectiveSeconds <= 0) {
+    return 0;
+  }
+  let remaining = Math.max(0, Math.floor(stepEffectiveSeconds));
+  const rawHelps = Number.isFinite(helpCount)
+    ? helpCount
+    : DEFAULT_ALLIANCE_HELP_COUNT;
+  const safeHelps = Math.max(
+    0,
+    Math.min(MAX_ALLIANCE_HELP_COUNT, Math.floor(rawHelps))
+  );
+  for (let i = 0; i < safeHelps && remaining > 0; i += 1) {
+    const reduction = Math.max(
+      ALLIANCE_HELP_MIN_SECONDS,
+      Math.floor(remaining * ALLIANCE_HELP_RATE)
+    );
+    remaining = Math.max(0, remaining - reduction);
+  }
+  return remaining;
+}
+
 export function computeQueueUpgradePlan(
   queue: ConstructionQueueState,
   buffs: ConstructionGlobalBuffs
@@ -720,6 +753,7 @@ export function computeQueueUpgradePlan(
   let discDragonEssence = 0;
   let baseTimeSeconds = 0;
   let effectiveTimeSeconds = 0;
+  let helpedTimeSeconds = 0;
   let totalStepsCount = 0;
   let hasBrillianceSteps = false;
 
@@ -727,6 +761,7 @@ export function computeQueueUpgradePlan(
   const discountFactor = Math.max(0, 1 - Math.max(0, Math.min(80, buffs.costReductionPct)) / 100);
   const speedDivisor = 1 + Math.max(0, buffs.speedBonusPct) / 100;
   const freeSecondsPerStep = Math.max(0, buffs.freeMinutes + buffs.privilegeMinutes) * 60;
+  const effectiveHelpCount = buffs.helpCount ?? DEFAULT_ALLIANCE_HELP_COUNT;
 
   for (let lv = clampedFrom; lv < clampedTo; lv++) {
     const stepRow = levelMap.get(lv);
@@ -757,6 +792,8 @@ export function computeQueueUpgradePlan(
     const stepAfterSpeed = Math.floor(stepBaseTime / speedDivisor);
     const stepEffective = Math.max(0, stepAfterSpeed - freeSecondsPerStep);
     effectiveTimeSeconds += stepEffective * multiplier;
+    const stepHelped = applyAllianceHelpsToStep(stepEffective, effectiveHelpCount);
+    helpedTimeSeconds += stepHelped * multiplier;
 
     const preList = queue.useNewServerPrerequisites ? stepRow[7] : stepRow[6];
     for (const [preBid, preLv] of preList) {
@@ -830,7 +867,8 @@ export function computeQueueUpgradePlan(
     resourceStatuses,
     baseTimeSeconds,
     effectiveTimeSeconds,
-    savedTimeSeconds: Math.max(0, baseTimeSeconds - effectiveTimeSeconds),
+    helpedTimeSeconds,
+    savedTimeSeconds: Math.max(0, baseTimeSeconds - helpedTimeSeconds),
     instantDiamonds,
     totalStepsCount,
     hasBrillianceSteps,
@@ -856,10 +894,10 @@ export function aggregateConstructionQueues(
     stone += p.discountedCosts.stone;
     ruby += p.discountedCosts.ruby;
     dragonEssence += p.discountedCosts.dragonEssence;
-    if (p.effectiveTimeSeconds > parallelTimeSeconds) {
-      parallelTimeSeconds = p.effectiveTimeSeconds;
+    if (p.helpedTimeSeconds > parallelTimeSeconds) {
+      parallelTimeSeconds = p.helpedTimeSeconds;
     }
-    totalSpeedupTimeSeconds += p.effectiveTimeSeconds;
+    totalSpeedupTimeSeconds += p.helpedTimeSeconds;
     totalBaseTimeSeconds += p.baseTimeSeconds;
     totalInstantDiamonds += p.instantDiamonds;
   }

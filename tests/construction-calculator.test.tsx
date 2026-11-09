@@ -8,6 +8,7 @@ import {
 import {
   CONSTRUCTION_BUILDINGS,
   DEFAULT_CONSTRUCTION_GLOBAL_BUFFS,
+  applyAllianceHelpsToStep,
   computeQueueUpgradePlan,
   formatBuildDuration,
 } from "@/content/calculators/construction-data";
@@ -48,6 +49,18 @@ describe("8.1 Xây dựng (Construction Multi-Queue Planner)", () => {
     expect(tavern?.maxLevel).toBe(40);
   });
 
+  it("applies per-step alliance help formula (1% current progress, min 60s per help) accurately", () => {
+    // 1. Long step (> 6000s): 1% compounding reduction per help
+    expect(applyAllianceHelpsToStep(115983, 20)).toBe(94873);
+    expect(applyAllianceHelpsToStep(115983, 21)).toBe(93925);
+    // 2. Medium step (<= 6000s): minimum 60s reduction per help
+    expect(applyAllianceHelpsToStep(3600, 20)).toBe(2400);
+    // 3. Short step: clamps at 0 without going negative
+    expect(applyAllianceHelpsToStep(500, 20)).toBe(0);
+    // 4. Zero helps: returns exact effective time
+    expect(applyAllianceHelpsToStep(115983, 0)).toBe(115983);
+  });
+
   it("matches 100% of the in-game numbers for Quán Rượu Lv.33 ➔ Lv.34 without warehouse state", () => {
     const plan = computeQueueUpgradePlan(
       {
@@ -83,6 +96,10 @@ describe("8.1 Xây dựng (Construction Multi-Queue Planner)", () => {
     expect(formatBuildDuration(plan.baseTimeSeconds, "vi")).toBe("2Ngày 22:27:18");
     expect(plan.effectiveTimeSeconds).toBe(115983);
     expect(formatBuildDuration(plan.effectiveTimeSeconds, "vi")).toBe("1Ngày 08:13:03");
+    expect(plan.helpedTimeSeconds).toBe(94873);
+    expect(formatBuildDuration(plan.helpedTimeSeconds, "vi")).toBe("1Ngày 02:21:13");
+    expect(plan.savedTimeSeconds).toBe(253638 - 94873);
+    expect(formatBuildDuration(plan.savedTimeSeconds, "vi")).toBe("1Ngày 20:06:05");
     expect(plan.instantDiamonds).toBe(38661);
   });
 
@@ -111,6 +128,20 @@ describe("8.1 Xây dựng (Construction Multi-Queue Planner)", () => {
     expect(screen.getAllByText("Điều Kiện").length).toBeGreaterThanOrEqual(2);
     expect(screen.getAllByText("Thời Gian").length).toBeGreaterThanOrEqual(2);
 
+    // Effective Time & Alliance Help Time assertions
+    expect(screen.getAllByText("Thời gian thực tế").length).toBe(2);
+    expect(screen.queryByText(/Bắt đầu \(Thời gian thực tế\)/i)).toBeNull();
+    expect(screen.getAllByText("Sau trợ giúp 20/20").length).toBe(2);
+    expect(screen.getByTestId("queue-1-helped-time").textContent).toBe(
+      "1Ngày 02:21:13"
+    );
+
+    fireEvent.click(screen.getByTestId("buff-help-count-increase"));
+    expect(screen.getAllByText("Sau trợ giúp 21/21").length).toBe(2);
+    expect(screen.getByTestId("queue-1-helped-time").textContent).toBe(
+      "1Ngày 02:05:25"
+    );
+
     const addBtn = screen.getByTestId("add-construction-queue-btn");
     fireEvent.click(addBtn);
     expect(screen.getAllByTestId("construction-queue-card").length).toBe(3);
@@ -137,6 +168,8 @@ describe("8.1 Xây dựng (Construction Multi-Queue Planner)", () => {
 
     const text = container.textContent ?? "";
     expect(VI_DIACRITIC_REGEX.test(text)).toBe(false);
+    expect(screen.getAllByText("Effective Time").length).toBe(2);
+    expect(screen.getAllByText("After Help 20/20").length).toBe(2);
     expect(getMaxBorderedContainerDepth(container)).toBeLessThanOrEqual(1);
   });
 });

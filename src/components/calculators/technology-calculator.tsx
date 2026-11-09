@@ -8,6 +8,7 @@ import {
   Clock,
   FlaskConical,
   GitBranch,
+  Handshake,
   Heart,
   Info,
   RotateCcw,
@@ -26,9 +27,11 @@ import type {
 } from "@/content/calculators/types";
 import {
   CONSTRUCTION_RESOURCE_META,
+  DEFAULT_ALLIANCE_HELP_COUNT,
   DEFAULT_TECH_GLOBAL_BUFFS,
   DEFAULT_TECH_QUEUES,
   DIAMOND_ICON_PATH,
+  MAX_ALLIANCE_HELP_COUNT,
   RESEARCH_COTTAGE_ICON_PATH,
   TECHNOLOGY_BRANCHES,
   TECHNOLOGY_NODES,
@@ -68,6 +71,7 @@ export function TechnologyCalculator({
   const [buffs, setBuffs] = React.useState<TechnologyGlobalBuffs>(
     DEFAULT_TECH_GLOBAL_BUFFS
   );
+  const activeHelpCount = buffs.helpCount ?? DEFAULT_ALLIANCE_HELP_COUNT;
   // Fixed 2 Research Queues matching in-game Viện Nghiên Cứu
   const [queues, setQueues] = React.useState<readonly TechnologyQueueState[]>(
     DEFAULT_TECH_QUEUES
@@ -234,6 +238,11 @@ export function TechnologyCalculator({
                         ? "Kim Cương Nghiên Cứu Ngay = ceil( Thời gian thực tế (giây) / 3 )."
                         : "Instant Research Diamonds = ceil( Effective Seconds / 3 )."}
                     </li>
+                    <li>
+                      {isVi
+                        ? "Thời gian sau trợ giúp mỗi bậc = giảm lũy tiến N lượt, mỗi lượt giảm max( 60 giây, floor(1% × Thời gian hiện tại) )."
+                        : "Time after Alliance Help per step = compounded over N helps, each reducing max( 60s, floor(1% × current remaining time) )."}
+                    </li>
                   </ul>
                 </div>
 
@@ -292,7 +301,7 @@ export function TechnologyCalculator({
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
           {/* 1. Research Speed Bonus (%) */}
           <div
             className={cn(
@@ -435,6 +444,87 @@ export function TechnologyCalculator({
                   setBuffs((prev) => ({
                     ...prev,
                     costReductionPct: Math.min(80, prev.costReductionPct + 1),
+                  }))
+                }
+              />
+            </div>
+          </div>
+
+          {/* 3. Alliance Help Count */}
+          <div
+            className={cn(
+              CALC_MD3.tonalGroup,
+              "flex flex-col justify-between gap-2.5 bg-slate-50/90 dark:bg-slate-800/50 ring-1 ring-slate-200/80 dark:ring-slate-700/60"
+            )}
+          >
+            <div className="flex items-center justify-between gap-2">
+              <span className="text-xs font-sans font-bold text-muted-foreground">
+                {isVi ? "Số lượng trợ giúp" : "Alliance Helps"}
+              </span>
+              <span className="rounded-md bg-teal-500/15 px-2 py-0.5 font-mono text-xs font-bold text-teal-700 dark:text-teal-300">
+                {activeHelpCount}/{activeHelpCount}
+              </span>
+            </div>
+            <div className="flex items-center justify-between gap-2">
+              <CalculatorStepperButton
+                direction="decrease"
+                testId="tech-buff-help-decrease"
+                ariaLabel={
+                  isVi ? "Giảm số lượng trợ giúp" : "Decrease alliance helps"
+                }
+                disabled={activeHelpCount <= 0}
+                onClick={() =>
+                  setBuffs((prev) => ({
+                    ...prev,
+                    helpCount: Math.max(
+                      0,
+                      (prev.helpCount ?? DEFAULT_ALLIANCE_HELP_COUNT) - 1
+                    ),
+                  }))
+                }
+              />
+              <div className="flex flex-1 items-center justify-center gap-1.5 rounded-xl bg-card px-3 h-11 min-h-[44px]">
+                <input
+                  type="number"
+                  min={0}
+                  max={MAX_ALLIANCE_HELP_COUNT}
+                  data-testid="tech-buff-help-input"
+                  value={activeHelpCount}
+                  aria-label={
+                    isVi ? "Số lượng trợ giúp (lượt)" : "Alliance helps (count)"
+                  }
+                  onChange={(e) =>
+                    setBuffs((prev) => ({
+                      ...prev,
+                      helpCount: Math.max(
+                        0,
+                        Math.min(
+                          MAX_ALLIANCE_HELP_COUNT,
+                          Math.floor(Number(e.target.value) || 0)
+                        )
+                      ),
+                    }))
+                  }
+                  className="w-16 bg-transparent text-center font-mono text-base font-black text-foreground focus:outline-none"
+                />
+                <span className="text-xs font-sans font-semibold text-muted-foreground">
+                  {isVi ? "lượt" : "helps"}
+                </span>
+              </div>
+              <CalculatorStepperButton
+                direction="increase"
+                testId="tech-buff-help-increase"
+                ariaLabel={
+                  isVi ? "Tăng số lượng trợ giúp" : "Increase alliance helps"
+                }
+                disabled={activeHelpCount >= MAX_ALLIANCE_HELP_COUNT}
+                onClick={() =>
+                  setBuffs((prev) => ({
+                    ...prev,
+                    helpCount: Math.min(
+                      MAX_ALLIANCE_HELP_COUNT,
+                      (prev.helpCount ?? DEFAULT_ALLIANCE_HELP_COUNT) + 1
+                    ),
                   }))
                 }
               />
@@ -801,12 +891,10 @@ export function TechnologyCalculator({
                       />
                     </div>
 
-                    {/* Blue "Nghiên cứu (Thời gian thực tế)" Card */}
+                    {/* Blue "Thời gian thực tế" Card */}
                     <div className="rounded-xl bg-gradient-to-b from-sky-500 to-sky-600 p-3 text-white shadow-sm">
                       <div className="text-center text-xs font-sans font-black uppercase tracking-wider opacity-95">
-                        {isVi
-                          ? "Nghiên cứu (Thời gian thực tế)"
-                          : "Research (Effective Time)"}
+                        {isVi ? "Thời gian thực tế" : "Effective Time"}
                       </div>
                       <div
                         data-testid={`tech-queue-${idx + 1}-effective-time`}
@@ -815,6 +903,24 @@ export function TechnologyCalculator({
                         <Clock className="h-4 w-4 shrink-0" aria-hidden="true" />
                         <span>
                           {formatBuildDuration(plan.effectiveTimeSeconds, locale)}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Teal "Sau trợ giúp N/N" Card (Between Effective Time and Original Time) */}
+                    <div className="rounded-xl bg-gradient-to-b from-teal-500 to-cyan-600 p-3 text-white shadow-sm">
+                      <div className="text-center text-xs font-sans font-black uppercase tracking-wider opacity-95">
+                        {isVi
+                          ? `Sau trợ giúp ${activeHelpCount}/${activeHelpCount}`
+                          : `After Help ${activeHelpCount}/${activeHelpCount}`}
+                      </div>
+                      <div
+                        data-testid={`tech-queue-${idx + 1}-helped-time`}
+                        className="mt-1 flex items-center justify-center gap-1.5 text-base sm:text-lg font-sans font-black tabular-nums"
+                      >
+                        <Handshake className="h-4 w-4 shrink-0" aria-hidden="true" />
+                        <span>
+                          {formatBuildDuration(plan.helpedTimeSeconds, locale)}
                         </span>
                       </div>
                     </div>
