@@ -300,19 +300,20 @@ describe("Suite 4 — CalculatorsShell & CalculatorPlaceholderView (UI/UX Pro Ma
     mockPathname.mockReturnValue("/calculators");
   });
 
-  it("renders Hub with Hero Instant Search, Hot Tags, GameAssetFrame strips, and GuideCommentsSection (#comments)", () => {
+  it("renders Hub without top-bar notice while preserving bottom pre-comment feedback callout and GuideCommentsSection (#comments)", () => {
     render(
       <CalculatorsShell locale="vi">
         <CalculatorPlaceholderView mode="hub" />
       </CalculatorsShell>
     );
 
-    expect(screen.getByTestId("guides-feedback-top-bar")).toBeDefined();
+    expect(screen.queryByTestId("guides-feedback-top-bar")).toBeNull();
     expect(screen.getByTestId("calculators-hub-placeholder")).toBeDefined();
     expect(
       screen.getByTestId("calculator-under-development-banner")
     ).toBeDefined();
     expect(screen.getByTestId("guide-comments-section")).toBeDefined();
+    expect(screen.getByTestId("guides-feedback-pre-comment")).toBeDefined();
     expect(screen.getAllByTestId("game-asset-frame").length).toBeGreaterThan(10);
 
     // Click Hot Tag "#SợiTơMaThuật" to trigger instant Hero search
@@ -324,7 +325,7 @@ describe("Suite 4 — CalculatorsShell & CalculatorPlaceholderView (UI/UX Pro Ma
     ).toBeDefined();
   });
 
-  it("renders a specific Tool placeholder with Example Preview, GameAssetFrame materials, Comments, and 100% pure English when locale='en'", () => {
+  it("renders a specific Tool placeholder without top-bar notice, keeps bottom pre-comment notice, and maintains 100% pure English when locale='en'", () => {
     mockLocale = "en";
     mockPathname.mockReturnValue("/calculators/lord-gear/lord-gear-upgrade");
     const resolved = getCalculatorToolBySlug("lord-gear", "lord-gear-upgrade")!;
@@ -340,9 +341,11 @@ describe("Suite 4 — CalculatorsShell & CalculatorPlaceholderView (UI/UX Pro Ma
       </CalculatorsShell>
     );
 
+    expect(screen.queryByTestId("guides-feedback-top-bar")).toBeNull();
     expect(screen.getByTestId("calculator-tool-placeholder")).toBeDefined();
     expect(screen.getByTestId("calculator-example-preview")).toBeDefined();
     expect(screen.getByTestId("guide-comments-section")).toBeDefined();
+    expect(screen.getByTestId("guides-feedback-pre-comment")).toBeDefined();
     expect(screen.getByText("Refined Metal")).toBeDefined();
     expect(screen.getByText("Magic Thread")).toBeDefined();
     expect(screen.getByText("Orichalcum")).toBeDefined();
@@ -350,5 +353,35 @@ describe("Suite 4 — CalculatorsShell & CalculatorPlaceholderView (UI/UX Pro Ma
 
     // Strict Bilingual Purity Gate (AC-CALC-05): zero Vietnamese diacritics in English DOM
     expect(container.textContent ?? "").not.toMatch(VI_DIACRITIC_REGEX);
+  });
+
+  it("renders live tool 6.3 Relics (Nâng sao Bí Bảo) inside CalculatorsShell without top-bar notice while keeping bottom pre-comment callout interactive", () => {
+    mockLocale = "vi";
+    mockPathname.mockReturnValue("/calculators/runes-relics/relics");
+    const resolved = getCalculatorToolBySlug("runes-relics", "relics")!;
+
+    render(
+      <CalculatorsShell locale="vi">
+        <CalculatorPlaceholderView
+          mode="tool"
+          zone={resolved.zone}
+          category={resolved.category}
+          tool={resolved.tool}
+        />
+      </CalculatorsShell>
+    );
+
+    // Top-bar notice is removed
+    expect(screen.queryByTestId("guides-feedback-top-bar")).toBeNull();
+
+    // Bottom pre-comment notice and CTA button remain intact and clickable
+    const preCommentNotice = screen.getByTestId("guides-feedback-pre-comment");
+    expect(preCommentNotice).toBeDefined();
+    expect(preCommentNotice.textContent).toContain(
+      "Cẩm Nang Đang Hoàn Thiện • Lắng Nghe Cộng Đồng"
+    );
+
+    const feedbackActionBtn = screen.getByTestId("guides-feedback-action-btn");
+    expect(() => fireEvent.click(feedbackActionBtn)).not.toThrow();
   });
 });

@@ -153,7 +153,7 @@ describe("GuidesSidebar (Phase 1 Hardened Redesign & Phase 3.1 Google MD3 Audit)
   it("renders clean main titles without English parenthetical clutter in the w-64 sidebar while preserving full title tooltip", () => {
     render(<GuidesSidebar />);
     const articleLink = screen.getByRole("link", { name: /4\.1/i });
-    expect(articleLink.getAttribute("title")).toContain("(");
+    expect(articleLink.getAttribute("title")).toBe("Lịch Ra Mắt Anh Hùng Đỏ");
     expect(articleLink.textContent).not.toContain("(");
   });
 
@@ -164,10 +164,11 @@ describe("GuidesSidebar (Phase 1 Hardened Redesign & Phase 3.1 Google MD3 Audit)
       </GuidesShell>
     );
 
-    // 1. GuidesShell outer container uses px-3 sm:px-6 for maximum 375px mobile reading width
+    // 1. GuidesShell outer container uses px-3 sm:px-6 for maximum 375px mobile reading width and does not render top-bar feedback notice
     const shellRoot = container.firstElementChild as HTMLElement;
     expect(shellRoot.className).toContain("px-3");
     expect(shellRoot.className).toContain("sm:px-6");
+    expect(screen.queryByTestId("guides-feedback-top-bar")).toBeNull();
 
     // 2. Search input uses text-base sm:text-sm and h-11 / min-h-[44px] (prevents iOS Safari auto-zoom)
     const searchInput = screen.getByPlaceholderText(/Tìm tướng, sự kiện/i);
