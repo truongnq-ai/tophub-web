@@ -215,6 +215,55 @@ describe("5.1 & 5.2 Lord Gear Calculators — Suite 1: 5.1 LordGearUpgradeCalcul
     expect(parsed.currentLevels).toHaveProperty("league_crown");
     expect(parsed.currentLevels.league_crown).toBe(3);
   });
+
+  it("renders 6 slots grouped by 3 Faction Pairs in order (Nature -> League -> Horde) and supports Mobile Faction Tabs", () => {
+    const { container } = render(
+      <LordGearUpgradeCalculator
+        zone={resolved51.zone}
+        category={resolved51.category}
+        tool={resolved51.tool}
+        locale="vi"
+      />
+    );
+
+    // Verify DOM order: Nature pair -> League pair -> Horde pair
+    const slotElements = container.querySelectorAll(
+      "[data-testid^='lord-gear-slot-']",
+    );
+    expect(slotElements).toHaveLength(6);
+    expect(slotElements[0].getAttribute("data-testid")).toBe(
+      "lord-gear-slot-nature_shield",
+    );
+    expect(slotElements[1].getAttribute("data-testid")).toBe(
+      "lord-gear-slot-nature_totem",
+    );
+    expect(slotElements[2].getAttribute("data-testid")).toBe(
+      "lord-gear-slot-league_crown",
+    );
+    expect(slotElements[3].getAttribute("data-testid")).toBe(
+      "lord-gear-slot-league_ring",
+    );
+    expect(slotElements[4].getAttribute("data-testid")).toBe(
+      "lord-gear-slot-horde_spear",
+    );
+    expect(slotElements[5].getAttribute("data-testid")).toBe(
+      "lord-gear-slot-horde_collar",
+    );
+
+    // Click Faction Tab: Nature -> only 2 nature slots visible
+    const natureTab = screen.getByTestId("faction-tab-nature");
+    fireEvent.click(natureTab);
+    expect(screen.getByTestId("lord-gear-slot-nature_shield")).toBeDefined();
+    expect(screen.getByTestId("lord-gear-slot-nature_totem")).toBeDefined();
+    expect(screen.queryByTestId("lord-gear-slot-league_crown")).toBeNull();
+    expect(screen.queryByTestId("lord-gear-slot-horde_spear")).toBeNull();
+
+    // Click Faction Tab: All -> all 6 slots restored
+    const allTab = screen.getByTestId("faction-tab-all");
+    fireEvent.click(allTab);
+    expect(screen.getByTestId("lord-gear-slot-league_crown")).toBeDefined();
+    expect(screen.getByTestId("lord-gear-slot-horde_spear")).toBeDefined();
+  });
 });
 
 describe("5.1 & 5.2 Lord Gear Calculators — Suite 2: 5.2 LordGearResonanceCalculator & Mastery Table", () => {

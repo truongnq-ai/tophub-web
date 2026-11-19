@@ -168,14 +168,16 @@ export function LordGearSlotCard({
       </div>
 
       {/* Level Selectors: Current -> Target */}
-      <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-        <div className="space-y-1">
-          <label
-            htmlFor={`from-select-${slot.id}`}
-            className="block text-xs font-semibold text-muted-foreground"
-          >
-            {isVi ? "Cấp hiện tại" : "Current Level"}
-          </label>
+      <div className="grid grid-cols-1 gap-2.5 min-[420px]:grid-cols-2">
+        <div className="space-y-1.5">
+          <div className="flex h-6 items-center justify-between">
+            <label
+              htmlFor={`from-select-${slot.id}`}
+              className="block text-xs font-semibold text-muted-foreground"
+            >
+              {isVi ? "Cấp hiện tại" : "Current Level"}
+            </label>
+          </div>
           <div className="flex items-center gap-1">
             <CalculatorStepperButton
               direction="decrease"
@@ -207,11 +209,11 @@ export function LordGearSlotCard({
           </div>
         </div>
 
-        <div className="space-y-1">
-          <div className="flex items-center justify-between gap-1">
+        <div className="space-y-1.5">
+          <div className="flex h-6 items-center justify-between gap-1.5">
             <label
               htmlFor={`to-select-${slot.id}`}
-              className="block text-xs font-semibold text-amber-600 dark:text-amber-400"
+              className="shrink-0 text-xs font-semibold text-amber-600 dark:text-amber-400"
             >
               {isVi ? "Cấp mục tiêu" : "Target Level"}
             </label>
@@ -219,7 +221,7 @@ export function LordGearSlotCard({
               aria-label={isVi ? "Chọn nhanh mốc phẩm chất" : "Quick milestone"}
               value=""
               onChange={handleSelectMilestone}
-              className="rounded-md border border-amber-500/30 bg-amber-500/10 px-1.5 py-0.5 text-xs font-semibold text-amber-700 dark:text-amber-300"
+              className="h-6 w-28 sm:w-32 max-w-[130px] min-w-0 truncate rounded-md border border-amber-500/30 bg-amber-500/10 px-1.5 text-xs font-semibold text-amber-700 dark:text-amber-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-amber-500/40"
             >
               <option value="">{isVi ? "Mốc nhanh..." : "Milestone..."}</option>
               {availableMilestones.map((m) => (

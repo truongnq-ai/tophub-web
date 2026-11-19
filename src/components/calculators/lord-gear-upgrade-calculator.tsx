@@ -110,6 +110,37 @@ const MATERIAL_CARDS = [
   },
 ] as const;
 
+interface FactionPairGroup {
+  readonly faction: "nature" | "league" | "horde";
+  readonly title: { readonly vi: string; readonly en: string };
+  readonly badgeStyle: string;
+  readonly slotIds: readonly [LordGearSlotId, LordGearSlotId];
+}
+
+const FACTION_PAIRS: readonly FactionPairGroup[] = [
+  {
+    faction: "nature",
+    title: { vi: "Phe Thiên Nhiên", en: "Nature Faction" },
+    badgeStyle:
+      "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border-emerald-500/30",
+    slotIds: ["nature_shield", "nature_totem"],
+  },
+  {
+    faction: "league",
+    title: { vi: "Phe Liên Minh", en: "League Faction" },
+    badgeStyle:
+      "bg-sky-500/15 text-sky-700 dark:text-sky-300 border-sky-500/30",
+    slotIds: ["league_crown", "league_ring"],
+  },
+  {
+    faction: "horde",
+    title: { vi: "Phe Bộ Tộc", en: "Horde Faction" },
+    badgeStyle:
+      "bg-rose-500/15 text-rose-700 dark:text-rose-300 border-rose-500/30",
+    slotIds: ["horde_spear", "horde_collar"],
+  },
+] as const;
+
 export function LordGearUpgradeCalculator({
   tool,
   locale = "vi",
@@ -117,6 +148,9 @@ export function LordGearUpgradeCalculator({
   const isVi = locale === "vi";
 
   const [showExtended, setShowExtended] = useState<boolean>(false);
+  const [activeFactionTab, setActiveFactionTab] = useState<
+    "all" | "nature" | "league" | "horde"
+  >("all");
   const [slotRanges, setSlotRanges] =
     useState<SlotRangeRecord>(DEFAULT_SLOT_RANGES);
   const [tomeRange, setTomeRange] = useState<{
@@ -378,7 +412,7 @@ export function LordGearUpgradeCalculator({
             className="h-11 rounded-xl border border-border/70 bg-background px-3 text-xs sm:text-sm font-semibold text-foreground"
           >
             <option value="all">
-              {isVi ? "Tất cả 6 món Chúa Tể" : "All 6 Lord Gear Slots"}
+              {isVi ? "Tất cả 6 món Lãnh Chúa" : "All 6 Lord Gear Slots"}
             </option>
             <option value="right_offense">
               {isVi
@@ -467,17 +501,117 @@ export function LordGearUpgradeCalculator({
           </span>
         </div>
 
-        <div className="grid grid-cols-1 gap-3 lg:grid-cols-2">
-          {plan.slotResults.map((slotRes) => (
-            <LordGearSlotCard
-              key={slotRes.slot.id}
-              result={slotRes}
-              maxAllowedLevel={maxAllowedLevel}
-              showExtended={showExtended}
-              locale={locale}
-              onChangeRange={handleChangeSlotRange}
-            />
-          ))}
+        {/* Faction Filter Tabs (Mobile & Desktop) */}
+        <div className="flex flex-wrap items-center gap-1.5 border-b border-border/50 pb-2">
+          <span className="text-xs font-semibold text-muted-foreground mr-1">
+            {isVi ? "Xem theo phe:" : "Filter faction:"}
+          </span>
+          <button
+            type="button"
+            data-testid="faction-tab-all"
+            onClick={() => setActiveFactionTab("all")}
+            className={cn(
+              "h-8 rounded-lg px-2.5 text-xs font-bold transition-colors cursor-pointer",
+              activeFactionTab === "all"
+                ? "bg-amber-500 text-slate-950 font-black shadow-sm"
+                : "bg-muted/60 text-muted-foreground hover:text-foreground",
+            )}
+          >
+            {isVi ? "Tất cả (6 món)" : "All (6 pcs)"}
+          </button>
+          <button
+            type="button"
+            data-testid="faction-tab-nature"
+            onClick={() => setActiveFactionTab("nature")}
+            className={cn(
+              "h-8 rounded-lg px-2.5 text-xs font-bold transition-colors cursor-pointer",
+              activeFactionTab === "nature"
+                ? "bg-emerald-500 text-white font-black shadow-sm"
+                : "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-500/20",
+            )}
+          >
+            🌿 {isVi ? "Thiên Nhiên (2)" : "Nature (2)"}
+          </button>
+          <button
+            type="button"
+            data-testid="faction-tab-league"
+            onClick={() => setActiveFactionTab("league")}
+            className={cn(
+              "h-8 rounded-lg px-2.5 text-xs font-bold transition-colors cursor-pointer",
+              activeFactionTab === "league"
+                ? "bg-sky-500 text-white font-black shadow-sm"
+                : "bg-sky-500/10 text-sky-700 dark:text-sky-300 hover:bg-sky-500/20",
+            )}
+          >
+            👑 {isVi ? "Liên Minh (2)" : "League (2)"}
+          </button>
+          <button
+            type="button"
+            data-testid="faction-tab-horde"
+            onClick={() => setActiveFactionTab("horde")}
+            className={cn(
+              "h-8 rounded-lg px-2.5 text-xs font-bold transition-colors cursor-pointer",
+              activeFactionTab === "horde"
+                ? "bg-rose-500 text-white font-black shadow-sm"
+                : "bg-rose-500/10 text-rose-700 dark:text-rose-300 hover:bg-rose-500/20",
+            )}
+          >
+            🐺 {isVi ? "Bộ Tộc (2)" : "Horde (2)"}
+          </button>
+        </div>
+
+        {/* 3 Faction Rows: Nature (Top) -> League (Middle) -> Horde (Bottom) */}
+        <div className="space-y-4">
+          {FACTION_PAIRS.filter(
+            (group) =>
+              activeFactionTab === "all" || activeFactionTab === group.faction,
+          ).map((group) => {
+            const leftRes = plan.slotResults.find(
+              (r) => r.slot.id === group.slotIds[0],
+            );
+            const rightRes = plan.slotResults.find(
+              (r) => r.slot.id === group.slotIds[1],
+            );
+
+            return (
+              <div key={group.faction} className="space-y-2.5">
+                <div className="flex items-center gap-2">
+                  <span
+                    className={cn(
+                      "inline-flex items-center gap-1.5 rounded-lg border px-2.5 py-0.5 text-xs font-bold tracking-wide",
+                      group.badgeStyle,
+                    )}
+                  >
+                    {group.title[locale]}
+                  </span>
+                  <div className="h-px flex-1 bg-border/40" />
+                </div>
+
+                <div className="grid grid-cols-1 gap-3 lg:grid-cols-2">
+                  {leftRes ? (
+                    <LordGearSlotCard
+                      key={leftRes.slot.id}
+                      result={leftRes}
+                      maxAllowedLevel={maxAllowedLevel}
+                      showExtended={showExtended}
+                      locale={locale}
+                      onChangeRange={handleChangeSlotRange}
+                    />
+                  ) : null}
+                  {rightRes ? (
+                    <LordGearSlotCard
+                      key={rightRes.slot.id}
+                      result={rightRes}
+                      maxAllowedLevel={maxAllowedLevel}
+                      showExtended={showExtended}
+                      locale={locale}
+                      onChangeRange={handleChangeSlotRange}
+                    />
+                  ) : null}
+                </div>
+              </div>
+            );
+          })}
         </div>
 
         {/* Optional 7th Slot: Sacred Tome (Thiên Thư) */}
@@ -564,7 +698,7 @@ export function LordGearUpgradeCalculator({
             </span>
             <h2 className={CALC_MD3.sectionTitle}>
               {isVi
-                ? "4 Nguyên Liệu Đồ Chúa Tể & Chênh Lệch Lực Chiến"
+                ? "4 Nguyên Liệu Trang Bị Lãnh Chúa & Chênh Lệch Lực Chiến"
                 : "4 Lord Gear Materials & Power Delta"}
             </h2>
           </div>
@@ -594,7 +728,7 @@ export function LordGearUpgradeCalculator({
           <div className={cn(CALC_MD3.tonalGroup, "space-y-1")}>
             <span className="text-xs font-semibold text-muted-foreground">
               {isVi
-                ? "Tổng Lực Chiến Đồ Chúa Tể (Gồm Cộng Hưởng)"
+                ? "Tổng Lực Chiến Trang Bị Lãnh Chúa (Gồm Cộng Hưởng)"
                 : "Total Lord Gear Power (Incl. Mastery)"}
             </span>
             <CalculatorMetricValue
@@ -761,7 +895,7 @@ export function LordGearUpgradeCalculator({
           </p>
           <p className="text-muted-foreground">
             {isVi
-              ? "Chỉ bấm nút Cường Hóa Đồ Chúa Tể vào Ngày 3 hoặc Ngày 4 của sự kiện Đua Vũ Trang (GAR) / KvK khi nhiệm vụ yêu cầu tiêu thụ Sợi Tơ Ma Thuật, Orichalcum hoặc Huyết Rồng. Tuyệt đối KHÔNG xả vào Thứ Bảy (Ngày 6 War Day — chỉ tính điểm tiêu tăng tốc & diệt quân)."
+              ? "Chỉ bấm nút Cường Hóa Trang Bị Lãnh Chúa vào Ngày 3 hoặc Ngày 4 của sự kiện Đua Vũ Trang (GAR) / KvK khi nhiệm vụ yêu cầu tiêu thụ Sợi Tơ Ma Thuật, Orichalcum hoặc Huyết Rồng. Tuyệt đối KHÔNG xả vào Thứ Bảy (Ngày 6 War Day — chỉ tính điểm tiêu tăng tốc & diệt quân)."
               : "Only upgrade Lord Gear on Day 3 or Day 4 of Guild Arms Race (GAR) / KvK when tasks score Magic Thread, Orichalcum, and Dragon Blood. Never spend Lord Gear materials on Saturday (Day 6 War Day)."}
           </p>
         </div>

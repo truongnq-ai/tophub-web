@@ -888,11 +888,11 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
         zoneId: "zone-2",
         iconName: "Crown",
         title: {
-          vi: "5. Đồ Chúa Tể",
+          vi: "5. Trang bị Lãnh Chúa",
           en: "5. Lord Gear",
         },
         description: {
-          vi: "Tính Kim Loại Tinh Luyện, Sợi Tơ Ma Thuật, Orichalcum, Huyết Rồng cho 6 món Trang Bị Chúa Tể và tối ưu Chu trình 4 Bước.",
+          vi: "Tính Kim Loại Tinh Luyện, Sợi Tơ Ma Thuật, Orichalcum, Huyết Rồng cho 6 món Trang bị Lãnh Chúa và tối ưu Chu trình 4 Bước.",
           en: "Calculate Refined Metal, Magic Thread, Orichalcum, and Dragon Blood across all 6 Lord Gear slots and optimize the 4-Step Resonance Cycle.",
         },
         tools: [
@@ -902,15 +902,15 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
             categorySlug: "lord-gear",
             phaseNumber: 5,
             title: {
-              vi: "5.1 Trang Bị Chúa Tể",
+              vi: "5.1 Trang bị Lãnh Chúa",
               en: "5.1 Lord Gear Upgrade",
             },
             fullTitle: {
-              vi: "5.1 Nguyên Liệu Nâng Cấp 6 Món Trang Bị Chúa Tể (G1 ➔ Đỏ T1 3★)",
+              vi: "5.1 Nguyên Liệu Nâng Cấp 6 Món Trang bị Lãnh Chúa (G1 ➔ Đỏ T1 3★)",
               en: "5.1 6-Slot Lord Gear Upgrade Materials (Green 1 to Mythic T1 3★)",
             },
             summary: {
-              vi: "Tính chính xác Kim Loại Tinh Luyện, Sợi Tơ Ma Thuật, Orichalcum và Huyết Rồng cần thiết cho từng món hoặc cả 6 món Trang Bị Chúa Tể.",
+              vi: "Tính chính xác Kim Loại Tinh Luyện, Sợi Tơ Ma Thuật, Orichalcum và Huyết Rồng cần thiết cho từng món hoặc cả 6 món Trang bị Lãnh Chúa.",
               en: "Calculate exact Refined Metal, Magic Thread, Orichalcum, and Dragon Blood needed for any individual piece or all 6 Lord Gear pieces.",
             },
             dataSourceTab: {
@@ -926,7 +926,7 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
             exampleCase: {
               vi: {
                 question:
-                  "Nâng 2 món Trang Bị Chúa Tể phe Bộ Tộc từ Tím 2 (P2) lên Vàng 2 (Y2) để mở khóa Thánh Điển tốn bao nhiêu Sợi Tơ Ma Thuật và Orichalcum?",
+                  "Nâng 2 món Trang bị Lãnh Chúa phe Bộ Tộc từ Tím 2 (P2) lên Vàng 2 (Y2) để mở khóa Thánh Điển tốn bao nhiêu Sợi Tơ Ma Thuật và Orichalcum?",
                 inputPreview:
                   "Số món: 2 món Bộ Tộc • Đang ở: P2 (Tím 2) ➔ Mục tiêu: Y2 (Vàng 2)",
                 outputPreview:
@@ -972,7 +972,7 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
             exampleCase: {
               vi: {
                 question:
-                  "Với 6 món Trang Bị Chúa Tể hiện tại, bước nâng cấp tiếp theo nào giữ được Cộng Hưởng 6 món mà không làm hụt Sợi Tơ Ma Thuật?",
+                  "Với 6 món Trang bị Lãnh Chúa hiện tại, bước nâng cấp tiếp theo nào giữ được Cộng Hưởng 6 món mà không làm hụt Sợi Tơ Ma Thuật?",
                 inputPreview:
                   "Phe chính: Bộ Tộc • Cấu hình 6 ô hiện tại ➔ Kiểm tra Chu trình Lệch Pha 4 Bước",
                 outputPreview:
