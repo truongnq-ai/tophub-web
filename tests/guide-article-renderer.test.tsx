@@ -24,13 +24,6 @@ vi.mock("next-intl", () => ({
       sourceFilesLabel: "Nguồn dữ liệu chuẩn hóa",
       prevArticle: "Bài trước",
       nextArticle: "Bài tiếp theo",
-      proPreviewHeader: "Chiến Thuật Nâng Cao (PRO)",
-      proPreviewSubtext: "Trải nghiệm sớm",
-      viewModeTabCore: "1. Cốt lõi & Chiến thuật",
-      viewModeTabData: "2. Bảng số liệu & Điểm gãy",
-      viewModeTabAction: "3. Phẫu thuật & Checklist",
-      viewModeTabAll: "Xem toàn bộ",
-      viewModeNextTabPrefix: "Tiếp theo:",
     };
     return map[key] ?? key;
   },
@@ -54,7 +47,7 @@ vi.mock("@/i18n/routing", () => ({
 
 let mockActiveAccount: { uid: string; active_plan: "PRO" | "FREE" } | null = {
   uid: "100001",
-  active_plan: "PRO",
+  active_plan: "FREE",
 };
 
 vi.mock("@/hooks/use-uid-session", () => ({
@@ -63,7 +56,7 @@ vi.mock("@/hooks/use-uid-session", () => ({
   }),
 }));
 
-describe("GuideArticleRenderer v3.0 (Compact Header, Unified Brief, 3-Tab View Mode & Phase 3.1 Google MD3 Audit)", () => {
+describe("GuideArticleRenderer v3.0 (100% Free Single-Flow Reading, Zero Tab Bar, Zero ProContentGate & Zero Beta Notices)", () => {
   const category = getCategoryBySlug("getting-started")!;
 
   beforeEach(() => {
@@ -83,25 +76,17 @@ describe("GuideArticleRenderer v3.0 (Compact Header, Unified Brief, 3-Tab View M
     expect(res2.subTitle).toBeNull();
   });
 
-  it("classifies all 5 standard sections deterministically across core, data, and action tabs", () => {
+  it("retains classifySectionTab helper for backward compatibility", () => {
     expect(
       classifySectionTab(ARTICLE_1_1_OVERVIEW.freeSections[0], 0, false)
     ).toBe("core");
     expect(
-      classifySectionTab(ARTICLE_1_1_OVERVIEW.freeSections[1], 1, false)
-    ).toBe("core");
-    expect(
-      classifySectionTab(ARTICLE_1_1_OVERVIEW.freeSections[2], 2, false)
-    ).toBe("action");
-    expect(
       classifySectionTab(ARTICLE_1_1_OVERVIEW.proSections[0], 0, true)
     ).toBe("data");
-    expect(
-      classifySectionTab(ARTICLE_1_1_OVERVIEW.proSections[1], 1, true)
-    ).toBe("action");
   });
 
-  it("defaults to 'core' tab, hides non-core sections and empty ProContentGate, and switches tabs cleanly", () => {
+  it("renders all 5 sections (freeSections + proSections) in a unified single-flow DOM with zero tab switcher, zero ProContentGate, and zero beta notices", () => {
+    mockActiveAccount = null;
     render(
       <GuideArticleRenderer
         category={category}
@@ -111,46 +96,35 @@ describe("GuideArticleRenderer v3.0 (Compact Header, Unified Brief, 3-Tab View M
       />
     );
 
-    const sec1 = document.getElementById(
-      ARTICLE_1_1_OVERVIEW.freeSections[0].id
-    )!;
-    const sec2 = document.getElementById(
-      ARTICLE_1_1_OVERVIEW.freeSections[1].id
-    )!;
-    const sec3 = document.getElementById(
-      ARTICLE_1_1_OVERVIEW.freeSections[2].id
-    )!;
-    const sec4 = document.getElementById(
-      ARTICLE_1_1_OVERVIEW.proSections[0].id
-    )!;
-    const sec5 = document.getElementById(
-      ARTICLE_1_1_OVERVIEW.proSections[1].id
-    )!;
-    const proGateWrapper = screen.getByTestId("article-pro-gate-wrapper");
+    // 1. All 5 sections (3 free + 2 pro) are immediately visible in 1 flow
+    const allSections = [
+      ...ARTICLE_1_1_OVERVIEW.freeSections,
+      ...ARTICLE_1_1_OVERVIEW.proSections,
+    ];
+    for (const sec of allSections) {
+      const secEl = document.getElementById(sec.id)!;
+      expect(secEl).not.toBeNull();
+      expect(secEl.getAttribute("data-tab-hidden")).toBe("false");
+      expect(secEl.className).not.toContain("hidden");
+    }
 
-    // Default tab is 'core': Sec 1 & 2 visible, Sec 3, 4, 5 & ProGate hidden
-    expect(sec1.getAttribute("data-tab-hidden")).toBe("false");
-    expect(sec2.getAttribute("data-tab-hidden")).toBe("false");
-    expect(sec3.getAttribute("data-tab-hidden")).toBe("true");
-    expect(sec4.getAttribute("data-tab-hidden")).toBe("true");
-    expect(sec5.getAttribute("data-tab-hidden")).toBe("true");
-    expect(proGateWrapper.getAttribute("data-tab-hidden")).toBe("true");
+    // 2. Zero 4-Tab switcher buttons
+    expect(screen.queryByTestId("article-view-mode-tabs")).toBeNull();
+    expect(screen.queryByTestId("article-tab-core")).toBeNull();
+    expect(screen.queryByTestId("article-tab-data")).toBeNull();
+    expect(screen.queryByTestId("article-tab-action")).toBeNull();
+    expect(screen.queryByTestId("article-tab-all")).toBeNull();
 
-    // Switch to 'data' tab -> Sec 4 and ProGate become visible
-    fireEvent.click(screen.getByTestId("article-tab-data"));
-    expect(sec1.getAttribute("data-tab-hidden")).toBe("true");
-    expect(sec4.getAttribute("data-tab-hidden")).toBe("false");
-    expect(proGateWrapper.getAttribute("data-tab-hidden")).toBe("false");
+    // 3. Zero ProContentGate wrapper or paywall UI
+    expect(screen.queryByTestId("article-pro-gate-wrapper")).toBeNull();
+    expect(screen.queryByTestId("pro-content-gate")).toBeNull();
 
-    // Switch to 'all' tab -> all 5 sections visible
-    fireEvent.click(screen.getByTestId("article-tab-all"));
-    expect(sec1.getAttribute("data-tab-hidden")).toBe("false");
-    expect(sec3.getAttribute("data-tab-hidden")).toBe("false");
-    expect(sec4.getAttribute("data-tab-hidden")).toBe("false");
-    expect(sec5.getAttribute("data-tab-hidden")).toBe("false");
+    // 4. Zero Beta Feedback Notices on /guides articles
+    expect(screen.queryByTestId("guides-feedback-top-bar")).toBeNull();
+    expect(screen.queryByTestId("guides-feedback-pre-comment")).toBeNull();
   });
 
-  it("automatically switches to the target tab when receiving 'tophub:toc-navigate' from GuidesToc", () => {
+  it("scrolls smoothly to target section when receiving 'tophub:toc-navigate' from GuidesToc", () => {
     render(
       <GuideArticleRenderer
         category={category}
@@ -162,7 +136,7 @@ describe("GuideArticleRenderer v3.0 (Compact Header, Unified Brief, 3-Tab View M
 
     const sec5Id = ARTICLE_1_1_OVERVIEW.proSections[1].id;
     const sec5 = document.getElementById(sec5Id)!;
-    expect(sec5.getAttribute("data-tab-hidden")).toBe("true");
+    expect(sec5.getAttribute("data-tab-hidden")).toBe("false");
 
     act(() => {
       window.dispatchEvent(
@@ -195,7 +169,7 @@ describe("GuideArticleRenderer v3.0 (Compact Header, Unified Brief, 3-Tab View M
     }
   });
 
-  it("renders article 2.2-meta-lineups with semantic <strong> and <code> tags and zero raw ** or ` tokens", () => {
+  it("renders article 2.2-meta-lineups with semantic <strong> and <code> tags and zero raw ** or ` tokens in single-flow mode", () => {
     const heroesCategory = getCategoryBySlug("heroes")!;
     const { container } = render(
       <GuideArticleRenderer
@@ -206,8 +180,6 @@ describe("GuideArticleRenderer v3.0 (Compact Header, Unified Brief, 3-Tab View M
       />
     );
 
-    // Switch to "all" tab and expand all tables so every section and row is active in DOM
-    fireEvent.click(screen.getByTestId("article-tab-all"));
     const expandButtons = screen.queryAllByTestId("table-expand-toggle");
     for (const btn of expandButtons) {
       fireEvent.click(btn);
@@ -270,12 +242,9 @@ describe("GuideArticleRenderer v3.0 (Compact Header, Unified Brief, 3-Tab View M
       />
     );
 
-    fireEvent.click(screen.getByTestId("article-tab-all"));
-
     const searchInputs = screen.getAllByTestId("table-filter-input");
     expect(searchInputs.length).toBeGreaterThan(0);
 
-    // Last table in 2.2-meta-lineups has cell: "Thiếu `Paragon` hoặc `Bishop` (Mythic DPS)"
     const lastTableInput = searchInputs[searchInputs.length - 1];
     fireEvent.change(lastTableInput, { target: { value: "thiếu paragon" } });
 
@@ -304,14 +273,7 @@ describe("GuideArticleRenderer v3.0 (Compact Header, Unified Brief, 3-Tab View M
     expect(unnumbered.cleanTitle).toBe("Tổng Quan Chiến Thuật");
   });
 
-  it("renders H2 and H3 with monospace index badges, zero border-l-4/border-l-2 classes, and dispatches tophub:tab-change when switching tabs", () => {
-    const tabChangeEvents: string[] = [];
-    const listener = (e: Event) => {
-      const custom = e as CustomEvent<{ tab: string }>;
-      if (custom.detail?.tab) tabChangeEvents.push(custom.detail.tab);
-    };
-    window.addEventListener("tophub:tab-change", listener);
-
+  it("renders H2 and H3 with monospace index badges and zero border-l-4/border-l-2 classes across all 5 unified sections", () => {
     const { container } = render(
       <GuideArticleRenderer
         category={category}
@@ -333,14 +295,10 @@ describe("GuideArticleRenderer v3.0 (Compact Header, Unified Brief, 3-Tab View M
     );
     expect(h2Badges[0].textContent).toBe("01");
     expect(h2Badges[3].textContent).toBe("04");
-
-    fireEvent.click(screen.getByTestId("article-tab-data"));
-    expect(tabChangeEvents).toContain("data");
-
-    window.removeEventListener("tophub:tab-change", listener);
+    expect(h2Badges[4].textContent).toBe("05");
   });
 
-  it("enforces Google MD3 Phase 3.1 standards: 16px fixed body prose, 14px-16px article summary, flat mobile SubSection (de-boxed on mobile), 44px tab buttons, and zero sub-12px classes", () => {
+  it("enforces Google MD3 Phase 3.1 standards: 16px fixed body prose, 14px-16px article summary, flat mobile SubSection, and zero sub-12px classes", () => {
     const { container } = render(
       <GuideArticleRenderer
         category={category}
@@ -350,18 +308,6 @@ describe("GuideArticleRenderer v3.0 (Compact Header, Unified Brief, 3-Tab View M
       />
     );
 
-    // 1. All 4 tab buttons enforce min-h-[44px] touch target
-    for (const tabTestId of [
-      "article-tab-core",
-      "article-tab-data",
-      "article-tab-action",
-      "article-tab-all",
-    ]) {
-      const tabBtn = screen.getByTestId(tabTestId);
-      expect(tabBtn.className).toContain("min-h-[44px]");
-    }
-
-    // 2. SubSections are de-boxed on mobile (border-0 bg-transparent p-0 ... sm:rounded-2xl sm:border)
     const firstSubBadge = container.querySelector(
       "[data-testid='subsection-index-badge']"
     ) as HTMLElement;
@@ -375,10 +321,7 @@ describe("GuideArticleRenderer v3.0 (Compact Header, Unified Brief, 3-Tab View M
     expect(subSectionContainer.className).toContain("border-0");
     expect(subSectionContainer.className).toContain("bg-transparent");
     expect(subSectionContainer.className).toContain("p-0");
-    expect(subSectionContainer.className).not.toContain("sm:rounded-2xl");
-    expect(subSectionContainer.className).not.toContain("sm:border");
 
-    // 3. Static source scan: 16px body prose and zero sub-12px classes
     const source = fs.readFileSync(
       path.resolve(
         __dirname,
@@ -392,65 +335,7 @@ describe("GuideArticleRenderer v3.0 (Compact Header, Unified Brief, 3-Tab View M
     );
   });
 
-  it("enforces Google MD3 Phase 3.6 ProContentGate standards: flat mobile divider when unlocked (px-0 border-t-2 sm:rounded-3xl sm:border) and 14px-16px description with 44px CTAs when locked", () => {
-    // 1. Unlocked state (hasProAccess === true)
-    mockActiveAccount = { uid: "100001", active_plan: "PRO" };
-    const { unmount } = render(
-      <GuideArticleRenderer
-        category={category}
-        article={ARTICLE_1_1_OVERVIEW}
-        prevArticle={null}
-        nextArticle={null}
-      />
-    );
-
-    fireEvent.click(screen.getByTestId("article-tab-all"));
-
-    const proGateWrapper = screen.getByTestId("article-pro-gate-wrapper");
-    const unlockedSection = proGateWrapper.querySelector("section")!;
-    expect(unlockedSection).not.toBeNull();
-    expect(unlockedSection.className).toContain("border-t-2");
-    expect(unlockedSection.className).toContain("bg-transparent");
-    expect(unlockedSection.className).toContain("px-0");
-    expect(unlockedSection.className).toContain("sm:rounded-3xl");
-    expect(unlockedSection.className).toContain("sm:border");
-    expect(unlockedSection.className).toContain("sm:p-7");
-
-    const previewSubtext = screen.getByText("Trải nghiệm sớm");
-    expect(previewSubtext.className).toContain("text-sm");
-    expect(previewSubtext.className).toContain("sm:text-base");
-    unmount();
-
-    // 2. Locked paywall state (NEXT_PUBLIC_ENABLE_PRO_CONTENT_LOCK="true" & non-PRO user)
-    vi.stubEnv("NEXT_PUBLIC_ENABLE_PRO_CONTENT_LOCK", "true");
-    mockActiveAccount = null;
-    try {
-      render(
-        <GuideArticleRenderer
-          category={category}
-          article={ARTICLE_1_1_OVERVIEW}
-          prevArticle={null}
-          nextArticle={null}
-        />
-      );
-      fireEvent.click(screen.getByTestId("article-tab-all"));
-
-      const lockedWrapper = screen.getByTestId("article-pro-gate-wrapper");
-      const lockedDesc = screen.getByText("proLockedDesc");
-      expect(lockedDesc.className).toContain("text-sm");
-      expect(lockedDesc.className).toContain("sm:text-base");
-
-      const checkUidLink = lockedWrapper.querySelector('a[href="/"]')!;
-      const upgradeLink = lockedWrapper.querySelector('a[href="/pricing"]')!;
-      expect(checkUidLink.className).toContain("min-h-[44px]");
-      expect(upgradeLink.className).toContain("min-h-[44px]");
-    } finally {
-      vi.unstubAllEnvs();
-      mockActiveAccount = { uid: "100001", active_plan: "PRO" };
-    }
-  });
-
-  it("renders EventEncyclopediaFlatView on event-playbooks articles (5.1..5.6) without TldrActionBox, KeyTakeaways, or 3-Tab view mode bars", () => {
+  it("renders EventEncyclopediaFlatView on event-playbooks articles (5.1..5.6) without TldrActionBox, KeyTakeaways, or tab bars", () => {
     const eventCategory = getCategoryBySlug("event-playbooks")!;
     const article51 = eventCategory.articles[0];
 
@@ -472,7 +357,5 @@ describe("GuideArticleRenderer v3.0 (Compact Header, Unified Brief, 3-Tab View M
     expect(screen.getByTestId("flat-section-5.4")).toBeDefined();
     expect(screen.getByTestId("flat-section-5.5")).toBeDefined();
     expect(screen.getByTestId("flat-section-5.6")).toBeDefined();
-    if (Boolean(container)) {
-    }
   });
 });

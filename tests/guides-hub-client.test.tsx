@@ -6,6 +6,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { GuidesHubClient } from "../src/components/guides/guides-hub-client";
 
 vi.mock("next-intl", () => ({
+  useLocale: () => "vi",
   useTranslations: () => (key: string, params?: Record<string, unknown>) => {
     if (key === "startWithArticleBtn" && params)
       return `Bắt đầu: Bài ${params.code}`;
@@ -17,7 +18,7 @@ vi.mock("next-intl", () => ({
     const map: Record<string, string> = {
       hubBadge: "Bách Khoa Chiến Thuật Top Heroes (S0 ➔ S4)",
       hubTitle: "Cẩm Nang Chiến Thuật & Bảng Số Liệu Min-Max",
-      hubDescription: "Hệ thống 8 nhóm chuyên đề và 31 cẩm nang thực chiến.",
+      hubDescription: "Hệ thống cẩm nang thực chiến miễn phí 100%.",
       searchPlaceholder: "Tìm tướng, sự kiện...",
       clearSearch: "Xóa bộ lọc tìm kiếm",
       searchNoResults: "Không tìm thấy bài viết nào.",
@@ -43,7 +44,7 @@ vi.mock("next-intl", () => ({
       hubSearchArticlesHeading: "Bài Viết Cẩm Nang Khớp Từ Khóa",
       hubSearchCodexHeading: "Thực Thể & Vật Phẩm Trong Kho Đồ Giám",
       hubSearchOpenCodexBtn: "Mở Kho Đồ Giám đầy đủ →",
-      categoriesGridTitle: "8 Nhóm Chuyên Đề Chiến Thuật (S0 ➔ S4)",
+      categoriesGridTitle: "Danh Mục Chuyên Đề Chiến Thuật",
       hideMoreArticlesBtn: "Thu gọn danh sách bài",
     };
     return map[key] ?? key;
@@ -65,8 +66,14 @@ vi.mock("@/i18n/routing", () => ({
   ),
 }));
 
-describe("GuidesHubClient (4-Layer Smart Command Hub — Hardened & Phase 3.1 Google MD3 Audit)", () => {
-  it("renders all 4 layers: Hero + Hot Tags, 3-Stage Tabs, 4 Tools Strip, and 8 Bento Category Cards", () => {
+vi.mock("@/hooks/use-uid-session", () => ({
+  useUidSession: () => ({
+    activeAccount: null,
+  }),
+}));
+
+describe("GuidesHubClient v3.0 (Phase 1 Lean Hub, Published-Only Filtering, Zero PRO Badges & Google MD3 Audit)", () => {
+  it("renders Hero + Hot Tags and ONLY published Category 1 (Article 1.1) while auto-hiding unpublished stage tabs, quick tools, Codex, PRO badges, and beta notices", () => {
     render(<GuidesHubClient locale="vi" />);
 
     // Layer 1: Hero & Hot Tags
@@ -75,44 +82,41 @@ describe("GuidesHubClient (4-Layer Smart Command Hub — Hardened & Phase 3.1 Go
     ).toBeDefined();
     expect(screen.getByRole("button", { name: /#DoubleDip/i })).toBeDefined();
 
-    // Layer 2: 3-Stage Server Selector Tabs
+    // Layer 2 & 3 auto-hidden in Phase 1 because Pivot/Season stages and Quick Tools target unpublished guides/Codex
     expect(
-      screen.getByRole("tab", { name: /Tân Thủ \(Ngày 1–20\)/i })
-    ).toBeDefined();
-    expect(
-      screen.getByRole("tab", { name: /Chuyển Hệ \(Ngày 21–45\)/i })
-    ).toBeDefined();
-    expect(
-      screen.getByRole("tab", { name: /Chiến Sự \(Season 1–4\)/i })
-    ).toBeDefined();
+      screen.queryByRole("tab", { name: /Chuyển Hệ \(Ngày 21–45\)/i })
+    ).toBeNull();
+    expect(screen.queryByTestId("hub-tool-codex")).toBeNull();
+    expect(screen.queryByTestId("hub-tool-2.1")).toBeNull();
+    expect(screen.queryByTestId("hub-tool-3.1")).toBeNull();
 
-    // Layer 3: 4 Interactive Tools Strip
-    expect(screen.getByText("Bách Khoa 45+ Tướng")).toBeDefined();
-    expect(screen.getByText("Lộ Trình Sự Kiện Server")).toBeDefined();
-    expect(screen.getByText("Xếp Hạng 13 Cửa Hàng")).toBeDefined();
-    expect(screen.getByText("12 Bảng Số Liệu Gốc")).toBeDefined();
-
-    // Layer 4: Clean 8-Category Bento Grid with Primary Start CTA
+    // Layer 4: Only Group 1 ("Nhập Môn & Luật Sống Còn") with Article 1.1 CTA is rendered
     expect(screen.getByText(/Bắt đầu: Bài 1\.1/i)).toBeDefined();
+    expect(screen.queryByText(/TOPIC 02/i)).toBeNull();
+    expect(screen.queryByText(/TOPIC 04/i)).toBeNull();
+
+    // Zero Beta Feedback Notice on /guides hub
+    expect(screen.queryByTestId("guides-feedback-pre-comment")).toBeNull();
   });
 
-  it("filters articles in both VI and EN locales when clicking a localized Hot Keyword Tag chip (GAP-02 fix)", () => {
+  it("filters published articles in both VI and EN locales when clicking a localized Hot Keyword Tag chip", () => {
     const { unmount } = render(<GuidesHubClient locale="vi" />);
     fireEvent.click(screen.getByRole("button", { name: /#BộLạc5Mythic/i }));
-    expect(screen.getByText(/kết quả/i)).toBeDefined();
+    expect(screen.getByText(/1 kết quả/i)).toBeDefined();
+    expect(screen.queryByTestId("hub-search-codex-section")).toBeNull();
     unmount();
 
     render(<GuidesHubClient locale="en" />);
     fireEvent.click(screen.getByRole("button", { name: /#9SoulStones/i }));
-    expect(screen.getByText(/kết quả/i)).toBeDefined();
+    expect(screen.getByText(/1 kết quả/i)).toBeDefined();
   });
 
-  it("expands and collapses category article list on demand in Bento Grid", () => {
+  it("expands and collapses the published Group 1 category article list on demand in Bento Grid with zero PRO badges", () => {
     render(<GuidesHubClient locale="vi" />);
     const expandBtns = screen.getAllByRole("button", {
       name: /Xem đầy đủ/i,
     });
-    expect(expandBtns.length).toBe(8);
+    expect(expandBtns.length).toBe(1);
 
     fireEvent.click(expandBtns[0]);
     expect(
@@ -120,7 +124,7 @@ describe("GuidesHubClient (4-Layer Smart Command Hub — Hardened & Phase 3.1 Go
     ).toBeDefined();
   });
 
-  it("enforces Google MD3 Phase 3.1 standards: 16px mobile search input, 44px touch targets on Hot Tags and Stage Tabs, and zero sub-12px classes", () => {
+  it("enforces Google MD3 Phase 3.1 standards: 16px mobile search input, 44px touch targets on Hot Tags, and zero sub-12px classes", () => {
     render(<GuidesHubClient locale="vi" />);
 
     const searchInput = screen.getByPlaceholderText(/Tìm tướng, sự kiện/i);
@@ -130,9 +134,6 @@ describe("GuidesHubClient (4-Layer Smart Command Hub — Hardened & Phase 3.1 Go
     const hotTagBtn = screen.getByRole("button", { name: /#DoubleDip/i });
     expect(hotTagBtn.className).toContain("min-h-[44px]");
     expect(hotTagBtn.className).toContain("font-sans");
-
-    const earlyTab = screen.getByRole("tab", { name: /Tân Thủ \(Ngày 1–20\)/i });
-    expect(earlyTab.className).toContain("min-h-[44px]");
 
     const source = fs.readFileSync(
       path.resolve(

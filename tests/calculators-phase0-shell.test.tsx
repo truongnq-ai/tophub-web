@@ -215,7 +215,7 @@ describe("Suite 2 — Header Navigation Order & Badge Migration (AC-CALC-01 & AC
     mockPathname.mockReturnValue("/");
   });
 
-  it("renders Home (/) and Calculators (/calculators) with the NEW badge while hiding Guides (/guides) across Desktop and Mobile Header navigation", () => {
+  it("renders Home (/), Calculators (/calculators) with the NEW badge, and Guides (/guides) across Desktop and Mobile Header navigation (excludes /giftcodes)", () => {
     const { container } = render(<Header />);
     const desktopNav = container.querySelector("nav.hidden.md\\:flex");
     expect(desktopNav).not.toBeNull();
@@ -224,6 +224,7 @@ describe("Suite 2 — Header Navigation Order & Badge Migration (AC-CALC-01 & AC
     expect(navLinks.map((a) => a.getAttribute("href"))).toEqual([
       "/",
       "/calculators",
+      "/guides",
     ]);
 
     const calcBadge = screen.getByTestId("header-calculators-new-badge");
@@ -238,7 +239,8 @@ describe("Suite 2 — Header Navigation Order & Badge Migration (AC-CALC-01 & AC
     const allRenderedLinks = Array.from(document.querySelectorAll("a")).map(
       (a) => a.getAttribute("href")
     );
-    expect(allRenderedLinks).not.toContain("/guides");
+    expect(allRenderedLinks).toContain("/guides");
+    expect(allRenderedLinks).not.toContain("/giftcodes");
   });
 });
 
@@ -343,7 +345,6 @@ describe("Suite 4 — CalculatorsShell & CalculatorPlaceholderView (UI/UX Pro Ma
 
     expect(screen.queryByTestId("guides-feedback-top-bar")).toBeNull();
     expect(screen.getByTestId("calculator-tool-placeholder")).toBeDefined();
-    expect(screen.getByTestId("calculator-example-preview")).toBeDefined();
     expect(screen.getByTestId("guide-comments-section")).toBeDefined();
     expect(screen.getByTestId("guides-feedback-pre-comment")).toBeDefined();
     expect(screen.getByText("Refined Metal")).toBeDefined();

@@ -35,7 +35,6 @@ import { generateMetadata as generateGuidesHubMetadata } from "@/app/[locale]/gu
 import { generateMetadata as generateGuidesCodexMetadata } from "@/app/[locale]/guides/codex/page";
 import { generateMetadata as generateGuideCategoryMetadata } from "@/app/[locale]/guides/[category]/page";
 import { generateMetadata as generateGuideArticleMetadata } from "@/app/[locale]/guides/[category]/[slug]/page";
-import { generateMetadata as generateGiftcodesMetadata } from "@/app/[locale]/giftcodes/page";
 import robots from "@/app/robots";
 import sitemap from "@/app/sitemap";
 
@@ -117,7 +116,7 @@ describe("TopHeroHub Domain & Per-Route Canonical Metadata SSoT", () => {
     expect(homeEnMeta.alternates?.canonical).toBe("/en");
   });
 
-  it("resolves canonical URLs for hubs, calculator tools, guide category aliases, guide article aliases, and giftcodes", async () => {
+  it("resolves canonical URLs for hubs, calculator tools, guide category aliases, and guide article aliases", async () => {
     const calcHubMeta = await generateCalcHubMetadata({
       params: { locale: "vi" },
     });
@@ -134,11 +133,13 @@ describe("TopHeroHub Domain & Per-Route Canonical Metadata SSoT", () => {
       params: { locale: "en" },
     });
     expect(guidesHubMeta.alternates?.canonical).toBe("/en/guides");
+    expect(String(guidesHubMeta.title)).toContain("Top Heroes");
 
     const codexMeta = await generateGuidesCodexMetadata({
       params: { locale: "vi" },
     });
     expect(codexMeta.alternates?.canonical).toBe("/guides/codex");
+    expect(String(codexMeta.title)).toContain("Top Heroes");
 
     const catMeta = await generateGuideCategoryMetadata({
       params: { locale: "vi", category: "getting-started" },
@@ -146,6 +147,18 @@ describe("TopHeroHub Domain & Per-Route Canonical Metadata SSoT", () => {
     expect(catMeta.alternates?.canonical).toBe(
       "/guides/getting-started/overview"
     );
+    expect(String(catMeta.title)).toContain("Top Heroes");
+    expect(String(catMeta.title)).not.toMatch(/^\d+\.\s/);
+
+    const overviewArticleMeta = await generateGuideArticleMetadata({
+      params: {
+        locale: "vi",
+        category: "getting-started",
+        slug: "overview",
+      },
+    });
+    expect(String(overviewArticleMeta.title)).toContain("Top Heroes");
+    expect(String(overviewArticleMeta.title)).not.toMatch(/^1\.1\b/);
 
     const aliasArticleMeta = await generateGuideArticleMetadata({
       params: {
@@ -168,11 +181,6 @@ describe("TopHeroHub Domain & Per-Route Canonical Metadata SSoT", () => {
     expect(aliasCatAndArtMeta.alternates?.canonical).toBe(
       "/en/guides/event-playbooks/timeline-and-rules"
     );
-
-    const giftcodesMeta = await generateGiftcodesMetadata({
-      params: { locale: "en" },
-    });
-    expect(giftcodesMeta.alternates?.canonical).toBe("/en/giftcodes");
   });
 });
 
@@ -208,13 +216,21 @@ describe("TopHeroHub robots.txt and deduplicated sitemap.xml generation", () => 
     expect(urls).toContain("https://topherohub.com/en");
     expect(urls).toContain("https://topherohub.com/calculators");
     expect(urls).toContain("https://topherohub.com/guides");
-    expect(urls).toContain("https://topherohub.com/guides/codex");
-    expect(urls).toContain("https://topherohub.com/giftcodes");
+    expect(urls).not.toContain("https://topherohub.com/guides/codex");
+    expect(urls).not.toContain("https://topherohub.com/pricing");
+    expect(urls).not.toContain("https://topherohub.com/giftcodes");
+    expect(urls).not.toContain("https://topherohub.com/en/giftcodes");
     expect(urls).toContain(
       "https://topherohub.com/calculators/heroes/hero-stars"
     );
     expect(urls).toContain(
       "https://topherohub.com/guides/getting-started/overview"
+    );
+    expect(urls).not.toContain(
+      "https://topherohub.com/guides/getting-started/terminology-and-stats"
+    );
+    expect(urls).not.toContain(
+      "https://topherohub.com/guides/heroes/tier-list"
     );
     expect(urls).not.toContain(
       "https://topherohub.com/guides/getting-started"

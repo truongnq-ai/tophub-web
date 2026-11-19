@@ -1,7 +1,9 @@
 import React, { Suspense } from "react";
 import type { Metadata } from "next";
+import { redirect } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { buildPageAlternates } from "@/config/constants";
+import { isCodexPublished } from "@/content/guides/registry";
 import type { GuideLocale } from "@/content/guides/types";
 import { GameCodexClient } from "@/components/guides/codex/game-codex-client";
 
@@ -17,8 +19,8 @@ export async function generateMetadata({
 }: GuidesCodexPageProps): Promise<Metadata> {
   const isVi = locale === "vi";
   const title = isVi
-    ? "Kho Đồ Giám & Từ Điển Vật Phẩm Song Ngữ | TopHub"
-    : "Bilingual Game Codex & Item Encyclopedia | TopHub";
+    ? "Kho Đồ Giám Top Heroes & Từ Điển Vật Phẩm Song Ngữ | TopHub"
+    : "Top Heroes Bilingual Game Codex & Item Encyclopedia | TopHub";
   const description = isVi
     ? "Tra cứu hơn 3,400 Anh hùng, Trang bị, Cổ ngữ, Thánh vật, Thú cưng, Công trình và Vật phẩm sự kiện Top Heroes song ngữ Anh – Việt."
     : "Explore 3,400+ Top Heroes characters, gear, runes, relics, pets, buildings, and event items with linked strategy guides.";
@@ -43,8 +45,10 @@ export default async function GuidesCodexPage({
   setRequestLocale(locale);
   const safeLocale: GuideLocale = locale === "en" ? "en" : "vi";
 
-  // GAP-P5-04: Do not re-wrap in GuidesShell because src/app/[locale]/guides/layout.tsx already wraps children.
-  // GAP-P5-09: Wrap in Suspense and pass initialSearchParams for Next.js 14 production build compatibility.
+  if (!isCodexPublished()) {
+    redirect(safeLocale === "en" ? "/en/guides" : "/guides");
+  }
+
   return (
     <Suspense
       fallback={

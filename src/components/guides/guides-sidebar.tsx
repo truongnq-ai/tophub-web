@@ -14,7 +14,6 @@ import {
   X,
   BookOpen,
   Flame,
-  Crown,
   PanelLeftClose,
   PanelLeftOpen,
   Database,
@@ -23,9 +22,10 @@ import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/routing";
 import { useUidSession } from "@/hooks/use-uid-session";
 import {
-  GUIDE_ZONES,
-  getCategoriesInDisplayOrder,
-  searchGuides,
+  getPublishedCategories,
+  getPublishedGuideZones,
+  isCodexPublished,
+  searchPublishedGuides,
 } from "@/content/guides/registry";
 import {
   EVENT_CATALOG_PLAYBOOKS_DATA,
@@ -80,16 +80,6 @@ function renderArticleIndicator(badge: GuideBadgeType) {
       </span>
     );
   }
-  if (badge === "PRO") {
-    return (
-      <span
-        title="PRO"
-        className="inline-flex items-center justify-center rounded-md bg-amber-500/15 border border-amber-500/30 px-1.5 py-0.5 text-xs font-sans font-bold text-amber-600 dark:text-amber-400 shrink-0"
-      >
-        <Crown className="h-3 w-3 fill-current" />
-      </span>
-    );
-  }
   return null;
 }
 
@@ -110,6 +100,8 @@ function SidebarNavigationTree({
   const rawLocale = useLocale();
   const locale: GuideLocale = rawLocale === "en" ? "en" : "vi";
   const pathname = usePathname();
+  const publishedZones = useMemo(() => getPublishedGuideZones(), []);
+  const codexPublished = isCodexPublished();
 
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -140,7 +132,7 @@ function SidebarNavigationTree({
 
   const searchResults = useMemo(() => {
     if (searchQuery.trim().length < 2) return null;
-    return searchGuides(searchQuery, locale).filter(
+    return searchPublishedGuides(searchQuery, locale).filter(
       (article) => article.categorySlug !== "event-playbooks"
     );
   }, [searchQuery, locale]);
@@ -208,27 +200,29 @@ function SidebarNavigationTree({
         <span>{t("backToHub")}</span>
       </Link>
 
-      {/* Tier-2 Game Codex & Item Compendium Link (GAP-05 / GAP-P5-06) */}
-      <Link
-        href="/guides/codex"
-        data-testid="sidebar-codex-link"
-        aria-current={isCodexRoute ? "page" : undefined}
-        onClick={onNavigate}
-        className={cn(
-          "flex items-center justify-between gap-2 px-3 py-2.5 rounded-xl text-sm font-bold transition-all min-h-[44px] border",
-          isCodexRoute
-            ? "bg-amber-500/15 text-amber-600 dark:text-amber-400 border-amber-500/35 shadow-sm"
-            : "border-border/60 bg-card/40 text-muted-foreground hover:text-foreground hover:bg-muted/50"
-        )}
-      >
-        <span className="flex items-center gap-2.5 min-w-0">
-          <Database className="h-4 w-4 text-amber-500 shrink-0" />
-          <span className="truncate">{t("sidebarCodexLink")}</span>
-        </span>
-        <span className="rounded-md bg-amber-500/15 border border-amber-500/30 px-2 py-0.5 font-mono text-xs font-bold text-amber-500 shrink-0">
-          3.4K+
-        </span>
-      </Link>
+      {/* Tier-2 Game Codex & Item Compendium Link (Only when published) */}
+      {codexPublished && (
+        <Link
+          href="/guides/codex"
+          data-testid="sidebar-codex-link"
+          aria-current={isCodexRoute ? "page" : undefined}
+          onClick={onNavigate}
+          className={cn(
+            "flex items-center justify-between gap-2 px-3 py-2.5 rounded-xl text-sm font-bold transition-all min-h-[44px] border",
+            isCodexRoute
+              ? "bg-amber-500/15 text-amber-600 dark:text-amber-400 border-amber-500/35 shadow-sm"
+              : "border-border/60 bg-card/40 text-muted-foreground hover:text-foreground hover:bg-muted/50"
+          )}
+        >
+          <span className="flex items-center gap-2.5 min-w-0">
+            <Database className="h-4 w-4 text-amber-500 shrink-0" />
+            <span className="truncate">{t("sidebarCodexLink")}</span>
+          </span>
+          <span className="rounded-md bg-amber-500/15 border border-amber-500/30 px-2 py-0.5 font-mono text-xs font-bold text-amber-500 shrink-0">
+            3.4K+
+          </span>
+        </Link>
+      )}
 
       {/* Instant Search Results View */}
       {searchResults !== null ? (
@@ -296,7 +290,7 @@ function SidebarNavigationTree({
           )}
         </div>
       ) : (
-        /* 3 Zones -> 9 Categories Single-Accordion -> 37 Articles */
+        /* Published Zones & Categories Single-Accordion */
         <Accordion
           type="single"
           collapsible
@@ -304,7 +298,7 @@ function SidebarNavigationTree({
           onValueChange={setOpenCategory}
           className="space-y-4"
         >
-          {GUIDE_ZONES.map((zone) => (
+          {publishedZones.map((zone) => (
             <div key={zone.id} className="space-y-1.5">
               <div className="px-2 text-xs font-sans font-bold uppercase tracking-wider text-amber-600/90 dark:text-amber-400/90">
                 {zone.title[locale]}
@@ -476,7 +470,8 @@ export function GuidesSidebar() {
     string | null
   >(null);
   const prevPathnameRef = useRef<string>(pathname);
-  const categories = getCategoriesInDisplayOrder();
+  const categories = getPublishedCategories();
+  const codexPublished = isCodexPublished();
 
   useEffect(() => {
     try {
@@ -501,7 +496,6 @@ export function GuidesSidebar() {
     }
   };
 
-  // GAP-v31-05: Auto-collapse when navigating to a new article route after mount
   useEffect(() => {
     if (prevPathnameRef.current !== pathname) {
       prevPathnameRef.current = pathname;
@@ -542,7 +536,7 @@ export function GuidesSidebar() {
                 {isLoaded && activeAccount && (
                   <span className="inline-flex items-center gap-1 rounded-md bg-emerald-500/15 px-2 py-0.5 font-sans text-xs font-bold text-emerald-600 dark:text-emerald-400">
                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                    {activeAccount.active_plan === "PRO" ? "PRO" : "Bot"}
+                    Bot
                   </span>
                 )}
                 <span className="font-sans text-xs font-semibold text-amber-600 dark:text-amber-400">
@@ -603,19 +597,21 @@ export function GuidesSidebar() {
                 <BookOpen className="h-4 w-4" />
               </Link>
 
-              <Link
-                href="/guides/codex"
-                data-testid="sidebar-rail-codex-link"
-                title={t("sidebarCodexLink")}
-                className={cn(
-                  "flex h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center rounded-xl border transition-colors",
-                  pathname.startsWith("/guides/codex")
-                    ? "border-amber-500/40 bg-amber-500/15 text-amber-500"
-                    : "border-transparent text-muted-foreground hover:bg-muted/60 hover:text-foreground"
-                )}
-              >
-                <Database className="h-4 w-4" />
-              </Link>
+              {codexPublished && (
+                <Link
+                  href="/guides/codex"
+                  data-testid="sidebar-rail-codex-link"
+                  title={t("sidebarCodexLink")}
+                  className={cn(
+                    "flex h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center rounded-xl border transition-colors",
+                    pathname.startsWith("/guides/codex")
+                      ? "border-amber-500/40 bg-amber-500/15 text-amber-500"
+                      : "border-transparent text-muted-foreground hover:bg-muted/60 hover:text-foreground"
+                  )}
+                >
+                  <Database className="h-4 w-4" />
+                </Link>
+              )}
 
               <div className="h-px w-8 bg-border/70 my-0.5" />
 

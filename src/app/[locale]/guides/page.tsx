@@ -15,7 +15,10 @@ export async function generateMetadata({
   params: { locale },
 }: GuidesHubPageProps): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "Guides" });
-  const title = `${t("hubTitle")} | TopHub`;
+  const isVi = locale === "vi";
+  const title = isVi
+    ? "Cẩm Nang Top Heroes Toàn Tập — Chiến Thuật, Đội Hình & Lộ Trình Chuẩn Meta | TopHub"
+    : "Top Heroes Complete Strategy Guides — Meta Lineups, Tier List & Server Roadmap | TopHub";
   const description = t("hubDescription");
 
   return {
@@ -26,7 +29,7 @@ export async function generateMetadata({
       title,
       description,
       type: "website",
-      locale: locale === "vi" ? "vi_VN" : "en_US",
+      locale: isVi ? "vi_VN" : "en_US",
     },
   };
 }

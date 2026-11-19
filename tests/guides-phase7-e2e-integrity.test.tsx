@@ -916,15 +916,14 @@ describe("Phase 7 — Guides Hub v4.0 Final E2E Asset/Codex Integrity & Producti
       }
       unmountTable();
 
-      // GAP-05: GuidesSidebar on /guides/codex highlights Codex link and keeps group-1 open
+      // Phase 1 v3.0: GuidesSidebar hides /guides/codex while isCodexPublished() === false
       mockPathname.mockReturnValue("/guides/codex");
       const { container: sidebarContainer, unmount: unmountSidebar } = render(
         <GuidesSidebar />
       );
       expect(sidebarContainer.innerHTML).not.toMatch(/\bborder-l-[24]\b|\brounded-l-sm\b/);
       const activeCodexLink = sidebarContainer.querySelector('a[href="/guides/codex"]');
-      expect(activeCodexLink).not.toBeNull();
-      expect(activeCodexLink?.getAttribute("aria-current")).toBe("page");
+      expect(activeCodexLink).toBeNull();
       unmountSidebar();
 
       // GAP-05: GameAssetFrame onError switches cleanly to inline SVG fallback
@@ -1042,18 +1041,10 @@ describe("Phase 7 — Guides Hub v4.0 Final E2E Asset/Codex Integrity & Producti
             `Article ${article.code} (${article.slug}) contains GAP-03 left-border stripe`
           ).toBe(0);
 
-          // 3. If article has proSections, verify ProContentGate is rendered and de-boxed on mobile
-          if (article.categorySlug !== "event-playbooks" && article.proSections && article.proSections.length > 0) {
-            const proGateWrapper = screen.getByTestId("article-pro-gate-wrapper");
-            const proGateSection = proGateWrapper.querySelector("section");
-            expect(proGateSection).not.toBeNull();
-            expect(proGateSection!.className).toContain("border-t-2");
-            expect(proGateSection!.className).toContain("px-0");
-          }
-
-          // 4. Verify GuideCommentsSection and pre-comment GuidesFeedbackNotice are mounted
+          // 3. Guides v3.0 (100% Free Single-Flow): verify ProContentGate and Beta notices are removed while GuideCommentsSection remains mounted
+          expect(screen.queryByTestId("article-pro-gate-wrapper")).toBeNull();
           expect(screen.getByTestId("guide-comments-section")).not.toBeNull();
-          expect(screen.getByTestId("guides-feedback-pre-comment")).not.toBeNull();
+          expect(screen.queryByTestId("guides-feedback-pre-comment")).toBeNull();
 
           unmount();
         }

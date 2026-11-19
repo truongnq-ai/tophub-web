@@ -6,14 +6,14 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { GuidesShell } from "../src/components/guides/guides-shell";
 import { GuidesSidebar } from "../src/components/guides/guides-sidebar";
 
-const mockPathname = vi.fn(() => "/guides/roadmap/horde-pivot-roadmap");
+const mockPathname = vi.fn(() => "/guides/getting-started/overview");
 const mockUidSession = vi.fn(() => ({
   activeAccount: {
     uid: "1000000000001",
     nickname: "CommanderVN",
     server_id: "105",
     added_at: 1700000000000,
-    active_plan: "PRO" as const,
+    active_plan: "FREE" as const,
   },
   isLoaded: true,
 }));
@@ -28,10 +28,10 @@ vi.mock("next-intl", () => ({
       clearSearch: "Xóa bộ lọc tìm kiếm",
       backToHub: "Tổng quan Cẩm Nang",
       sidebarCodexLink: "Kho Đồ Giám (Codex)",
-      mobileMenuBtn: "Danh Mục Cẩm Nang (8 Nhóm)",
+      mobileMenuBtn: "Danh Mục Cẩm Nang",
       collapseSidebar: "Thu gọn danh mục",
       expandSidebar: "Mở rộng danh mục",
-      uidPillLinkAccount: "Liên kết Game UID • Bật Bot & PRO",
+      uidPillLinkAccount: "Liên kết Game UID • Bật Bot",
       uidPillManageBot: "Quản lý Bot",
       searchNoResults: "Không tìm thấy bài viết nào.",
     };
@@ -68,10 +68,10 @@ vi.mock("@/hooks/use-uid-session", () => ({
   useUidSession: () => mockUidSession(),
 }));
 
-describe("GuidesSidebar (Phase 1 Hardened Redesign & Phase 3.1 Google MD3 Audit)", () => {
+describe("GuidesSidebar v3.0 (Phase 1 Published Visibility Filter, Zero PRO Badges & Google MD3 Audit)", () => {
   beforeEach(() => {
     window.localStorage.clear();
-    mockPathname.mockReturnValue("/guides/roadmap/horde-pivot-roadmap");
+    mockPathname.mockReturnValue("/guides/getting-started/overview");
   });
 
   it("renders CompactUidStatusPill with active account details", () => {
@@ -80,23 +80,33 @@ describe("GuidesSidebar (Phase 1 Hardened Redesign & Phase 3.1 Google MD3 Audit)
     expect(screen.getAllByText(/S105/i).length).toBeGreaterThan(0);
   });
 
-  it("enforces Single-Accordion behavior: only active category is open initially, and clicking another category closes the previous one", () => {
-    render(<GuidesSidebar />);
+  it("renders only published Zone I and Group 1 ('1. Nhập Môn & Luật Sống Còn') with Article 1.1 in Phase 1 while hiding unpublished groups and Codex", () => {
+    const { container } = render(<GuidesSidebar />);
 
-    const group4Btn = screen.getByRole("button", {
-      name: /4\. Lộ Trình Server & Chuyển Giao Mùa/i,
-    });
     const group1Btn = screen.getByRole("button", {
       name: /1\. Nhập Môn & Luật Sống Còn/i,
     });
-
-    expect(group4Btn.getAttribute("data-state")).toBe("open");
-    expect(group1Btn.getAttribute("data-state")).toBe("closed");
-
-    // Click Group 1 -> Group 1 opens, Group 4 closes
-    fireEvent.click(group1Btn);
     expect(group1Btn.getAttribute("data-state")).toBe("open");
-    expect(group4Btn.getAttribute("data-state")).toBe("closed");
+
+    // Only 1.1 is rendered; 1.2..1.4 and Groups 2..9 are hidden in Phase 1
+    expect(screen.getByRole("link", { name: /1\.1/i })).toBeDefined();
+    expect(screen.queryByRole("link", { name: /1\.2/i })).toBeNull();
+    expect(
+      screen.queryByRole("button", { name: /2\. Anh Hùng/i })
+    ).toBeNull();
+    expect(
+      screen.queryByRole("button", { name: /4\. Lộ Trình Server/i })
+    ).toBeNull();
+    expect(
+      screen.queryByRole("button", { name: /5\. Danh sách event/i })
+    ).toBeNull();
+
+    // Codex link is hidden while isCodexPublished() === false
+    expect(screen.queryByTestId("sidebar-codex-link")).toBeNull();
+    expect(screen.queryByTestId("sidebar-rail-codex-link")).toBeNull();
+
+    // Zero PRO badges in sidebar
+    expect(container.querySelector('[title="PRO"]')).toBeNull();
   });
 
   it("toggles desktop sidebar collapsed rail and persists state to localStorage", () => {
@@ -114,16 +124,14 @@ describe("GuidesSidebar (Phase 1 Hardened Redesign & Phase 3.1 Google MD3 Audit)
     ).toBeDefined();
   });
 
-  it("automatically collapses the desktop sidebar to w-14 icon rail when an article link is clicked", () => {
+  it("automatically collapses the desktop sidebar to w-14 icon rail when Article 1.1 link is clicked", () => {
     render(<GuidesSidebar />);
 
-    // Click an article inside the open Group 4 accordion
     const articleLink = screen.getByRole("link", {
-      name: /4\.1/i,
+      name: /1\.1/i,
     });
     fireEvent.click(articleLink);
 
-    // Desktop sidebar immediately collapses to w-14 and persists "1"
     expect(
       window.localStorage.getItem("tophub_guides_sidebar_collapsed")
     ).toBe("1");
@@ -132,7 +140,7 @@ describe("GuidesSidebar (Phase 1 Hardened Redesign & Phase 3.1 Google MD3 Audit)
     ).toBeDefined();
   });
 
-  it("expands the sidebar to the clicked category when a category icon button is clicked in the collapsed w-14 rail", () => {
+  it("expands the sidebar to Group 1 when its category icon button is clicked in the collapsed w-14 rail", () => {
     window.localStorage.setItem("tophub_guides_sidebar_collapsed", "1");
     render(<GuidesSidebar />);
 
@@ -152,9 +160,20 @@ describe("GuidesSidebar (Phase 1 Hardened Redesign & Phase 3.1 Google MD3 Audit)
 
   it("renders clean main titles without English parenthetical clutter in the w-64 sidebar while preserving full title tooltip", () => {
     render(<GuidesSidebar />);
-    const articleLink = screen.getByRole("link", { name: /4\.1/i });
-    expect(articleLink.getAttribute("title")).toBe("Lịch Ra Mắt Anh Hùng Đỏ");
+    const articleLink = screen.getByRole("link", { name: /1\.1/i });
+    expect(articleLink.getAttribute("title")).toContain(
+      "Bản Đồ Tổng Quan & Lộ Trình Khởi Đầu Chuẩn Meta"
+    );
     expect(articleLink.textContent).not.toContain("(");
+  });
+
+  it("searches only published articles via searchPublishedGuides in Phase 1", () => {
+    render(<GuidesSidebar />);
+    const searchInput = screen.getByPlaceholderText(/Tìm tướng, sự kiện/i);
+
+    fireEvent.change(searchInput, { target: { value: "Desert Prince" } });
+    expect(screen.getByText(/1 kết quả/i)).toBeDefined();
+    expect(screen.getByRole("link", { name: /1\.1/i })).toBeDefined();
   });
 
   it("enforces Google MD3 Phase 3.1 standards: px-3 sm:px-6 mobile shell gutter, 44px touch targets, 16px mobile search input, and zero sub-12px classes across GuidesShell, CompactUidStatusPill, and GuidesSidebar", () => {
@@ -164,22 +183,15 @@ describe("GuidesSidebar (Phase 1 Hardened Redesign & Phase 3.1 Google MD3 Audit)
       </GuidesShell>
     );
 
-    // 1. GuidesShell outer container uses px-3 sm:px-6 for maximum 375px mobile reading width and does not render top-bar feedback notice
     const shellRoot = container.firstElementChild as HTMLElement;
     expect(shellRoot.className).toContain("px-3");
     expect(shellRoot.className).toContain("sm:px-6");
     expect(screen.queryByTestId("guides-feedback-top-bar")).toBeNull();
 
-    // 2. Search input uses text-base sm:text-sm and h-11 / min-h-[44px] (prevents iOS Safari auto-zoom)
     const searchInput = screen.getByPlaceholderText(/Tìm tướng, sự kiện/i);
     expect(searchInput.className).toContain("text-base");
     expect(searchInput.className).toContain("h-11");
 
-    // 3. Hub & Codex navigation links and UID status pill enforce min-h-[44px]
-    const codexLink = screen.getByTestId("sidebar-codex-link");
-    expect(codexLink.className).toContain("min-h-[44px]");
-
-    // 4. Static source scan: zero sub-12px classes (text-[8px..11px]) in all 3 files
     const filesToAudit = [
       "../src/components/guides/guides-shell.tsx",
       "../src/components/guides/compact-uid-status-pill.tsx",
@@ -189,77 +201,5 @@ describe("GuidesSidebar (Phase 1 Hardened Redesign & Phase 3.1 Google MD3 Audit)
       const source = fs.readFileSync(path.resolve(__dirname, relPath), "utf8");
       expect(source).not.toMatch(/text-\[(8|9|10|11)px\]/);
     }
-  });
-
-  it("renders sequential menu numbering 1 ➔ 9 without 'Phần 1/2/3 •' prefix and shows '5. Danh sách event' with 3 stage groups and zero 5.1–5.6 sub-menus", () => {
-    const { container } = render(<GuidesSidebar />);
-
-    // Zero 'Phần 1 •' / 'Part 1 •' clutter anywhere in the sidebar
-    expect(container.textContent).not.toMatch(/Phần\s+[123]\s*•/i);
-    expect(container.textContent).not.toMatch(/Part\s+[123]\s*•/i);
-
-    const cat5Btn = screen.getByRole("button", {
-      name: /^5\.\s*Danh sách event$/i,
-    });
-    expect(cat5Btn).toBeDefined();
-
-    // Open Category 5 and verify zero 5.1 ➔ 5.6 sub-menus and 3 stage groups
-    fireEvent.click(cat5Btn);
-    expect(cat5Btn.getAttribute("data-state")).toBe("open");
-
-    for (const code of ["5.1", "5.2", "5.3", "5.4", "5.5", "5.6"]) {
-      expect(
-        screen.queryByRole("link", {
-          name: new RegExp(`^${code.replace(".", "\\.")}\\b`),
-        })
-      ).toBeNull();
-    }
-    expect(container.textContent).not.toContain("Bảng 1 —");
-    expect(container.textContent).not.toContain("Chuyên mục 5 —");
-
-    // Verify Zone III categories display as 6, 7, 8, 9
-    expect(
-      screen.getByRole("button", {
-        name: /^6\.\s*Trang Bị, Lãnh Chúa & Vũ Khí$/i,
-      })
-    ).toBeDefined();
-    expect(
-      screen.getByRole("button", {
-        name: /^9\.\s*Hạ Tầng, Công Nghệ & Bảng Số Liệu$/i,
-      })
-    ).toBeDefined();
-  });
-});
-
-describe("GuidesSidebar — Category 5 Stage-Grouped Event Selector (Task 3)", () => {
-  it("renders 3 Server Stage event groups (stage_1, stage_2, stage_3) inside Category 5 ('5. Danh sách event') as navigable links to /guides/event-playbooks?event=<id>", () => {
-    const dispatchedEvents: string[] = [];
-    const handler = (e: Event) => {
-      const custom = e as CustomEvent<{ eventId?: string }>;
-      if (custom.detail?.eventId) dispatchedEvents.push(custom.detail.eventId);
-    };
-    window.addEventListener("tophub:select-event", handler);
-
-    render(<GuidesSidebar />);
-
-    const cat5Btn = screen.getByRole("button", {
-      name: /^5\.\s*Danh sách event$/i,
-    });
-    fireEvent.click(cat5Btn);
-
-    expect(screen.getByTestId("sidebar-event-stage-group-stage_1")).toBeDefined();
-    expect(screen.getByTestId("sidebar-event-stage-group-stage_2")).toBeDefined();
-    expect(screen.getByTestId("sidebar-event-stage-group-stage_3")).toBeDefined();
-
-    const topLordItem = screen.getByTestId("sidebar-event-item-top-lord");
-    expect(topLordItem).toBeDefined();
-    expect(topLordItem.tagName).toBe("A");
-    expect(topLordItem.getAttribute("href")).toBe(
-      "/guides/event-playbooks?event=top-lord"
-    );
-    fireEvent.click(topLordItem);
-    expect(dispatchedEvents).toContain("top-lord");
-
-    window.removeEventListener("tophub:select-event", handler);
   });
 });

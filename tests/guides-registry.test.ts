@@ -9,6 +9,16 @@ import {
   getAdjacentArticles,
   searchGuides,
   normalizeSearchText,
+  PUBLISHED_GUIDE_CONFIG,
+  isCodexPublished,
+  isGuideCategoryPublished,
+  isGuideArticlePublished,
+  getPublishedCategories,
+  getPublishedCategoryBySlug,
+  getPublishedGuideZones,
+  getPublishedArticles,
+  getPublishedAdjacentArticles,
+  searchPublishedGuides,
 } from "../src/content/guides/registry";
 
 describe("Guides Hub Registry Architecture (3 Zones - 9 Groups - 39 Pages)", () => {
@@ -152,5 +162,48 @@ describe("Guides Hub Registry Architecture (3 Zones - 9 Groups - 39 Pages)", () 
     expect(unaccentedResults.length).toBe(accentedResults.length);
     expect(guildRaceResults.some((a) => a.categorySlug === "events")).toBe(true);
     expect(runeResults.some((a) => a.categorySlug === "power-systems")).toBe(true);
+  });
+
+  it("exposes Phase 1 Published Guides Visibility Layer filtering UI to Group 1 Article 1.1 while preserving raw SSoT helpers", () => {
+    expect(getAllCategories()).toHaveLength(9);
+    expect(getAllArticles()).toHaveLength(39);
+
+    expect(PUBLISHED_GUIDE_CONFIG.codexPublished).toBe(false);
+    expect(isCodexPublished()).toBe(false);
+
+    expect(isGuideCategoryPublished("getting-started")).toBe(true);
+    expect(isGuideCategoryPublished("heroes")).toBe(false);
+    expect(isGuideArticlePublished("getting-started", "overview")).toBe(true);
+    expect(isGuideArticlePublished("getting-started", "terminology")).toBe(false);
+    expect(isGuideArticlePublished("heroes", "tier-list")).toBe(false);
+
+    const publishedCategories = getPublishedCategories();
+    expect(publishedCategories).toHaveLength(1);
+    expect(publishedCategories[0].slug).toBe("getting-started");
+    expect(publishedCategories[0].articles).toHaveLength(1);
+    expect(publishedCategories[0].articles[0].slug).toBe("overview");
+
+    expect(getPublishedCategoryBySlug("getting-started")?.articles).toHaveLength(1);
+    expect(getPublishedCategoryBySlug("heroes")).toBeUndefined();
+
+    const publishedZones = getPublishedGuideZones();
+    expect(publishedZones).toHaveLength(1);
+    expect(publishedZones[0].id).toBe("zone_onboarding_meta");
+    expect(publishedZones[0].categories.map((c) => c.slug)).toEqual(["getting-started"]);
+
+    const publishedArticles = getPublishedArticles();
+    expect(publishedArticles).toHaveLength(1);
+    expect(publishedArticles[0].code).toBe("1.1");
+
+    const adj = getPublishedAdjacentArticles("getting-started", "overview");
+    expect(adj.prev).toBeNull();
+    expect(adj.next).toBeNull();
+
+    const searchHits = searchPublishedGuides("Desert Prince", "vi");
+    expect(searchHits).toHaveLength(1);
+    expect(searchHits[0].slug).toBe("overview");
+
+    const hiddenSearchHits = searchPublishedGuides("Behemoth", "vi");
+    expect(hiddenSearchHits.every((a) => a.slug === "overview")).toBe(true);
   });
 });

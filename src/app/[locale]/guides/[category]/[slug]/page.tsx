@@ -1,14 +1,16 @@
 import React from "react";
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { buildPageAlternates } from "@/config/constants";
 import { routing } from "@/i18n/routing";
 import {
-  getAdjacentArticles,
-  getAllArticles,
   getArticleBySlug,
   getCategoryBySlug,
+  getPublishedAdjacentArticles,
+  getPublishedArticles,
+  getPublishedCategoryBySlug,
+  isGuideArticlePublished,
 } from "@/content/guides/registry";
 import type { GuideLocale } from "@/content/guides/types";
 import { GuideArticleRenderer } from "@/components/guides/guide-article-renderer";
@@ -23,7 +25,7 @@ interface GuideArticlePageProps {
 }
 
 export function generateStaticParams() {
-  const articles = getAllArticles();
+  const articles = getPublishedArticles();
   return routing.locales.flatMap((locale) =>
     articles.map((article) => ({
       locale,
@@ -39,12 +41,19 @@ export async function generateMetadata({
   const article = getArticleBySlug(category, slug);
   if (!article) {
     return {
-      title: "Not Found | TopHub Guides",
+      title: "Not Found | Top Heroes Guides",
     };
   }
 
   const safeLocale: GuideLocale = locale === "en" ? "en" : "vi";
-  const title = `${article.code} ${article.title[safeLocale]} | TopHub`;
+  const cleanArticleTitle =
+    safeLocale === "vi"
+      ? article.title.vi.replace(/\s*\([^)]*\)\s*$/, "").trim()
+      : article.title.en.trim();
+  const title =
+    safeLocale === "en"
+      ? `${cleanArticleTitle} — Top Heroes Guide | TopHub`
+      : `${cleanArticleTitle} — Cẩm Nang Top Heroes | TopHub`;
   const description = article.summary[safeLocale];
 
   return {
@@ -68,21 +77,27 @@ export default function GuideArticlePage({
   params: { locale, category, slug },
 }: GuideArticlePageProps) {
   setRequestLocale(locale);
+  const safeLocale: GuideLocale = locale === "en" ? "en" : "vi";
 
-  const categoryObj = getCategoryBySlug(category);
+  const rawCategory = getCategoryBySlug(category);
   const article = getArticleBySlug(category, slug);
 
-  if (!categoryObj || !article) {
+  if (!rawCategory || !article) {
     notFound();
   }
 
-  const { prev, next } = getAdjacentArticles(category, slug);
+  if (!isGuideArticlePublished(category, slug)) {
+    redirect(safeLocale === "en" ? "/en/guides" : "/guides");
+  }
+
+  const publishedCategory = getPublishedCategoryBySlug(category) ?? rawCategory;
+  const { prev, next } = getPublishedAdjacentArticles(category, slug);
 
   return (
     <div className="relative min-w-0 w-full">
       <GuidesToc article={article} />
       <GuideArticleRenderer
-        category={categoryObj}
+        category={publishedCategory}
         article={article}
         prevArticle={prev}
         nextArticle={next}

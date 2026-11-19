@@ -1301,7 +1301,7 @@ export const ARTICLE_4_2_LEAGUE_PROGRESSION_PLAYBOOK: GuideArticle = {
         {
           type: "paragraph",
           text: {
-            vi: "**Kỷ luật quản lý 13 Tiệm mua sắm và canh lịch xả 6 ngày của `GAR/KvK` kết hợp `Thi Đấu Hội` giúp F2P Thuần Liên Minh sở hữu dàn tướng `1★ Bạc (560 mảnh)` và `27` Hồn Đá Đỏ ngang người nạp tiền.**\n• **Nguyên tắc cốt lõi:** Luôn duy trì **Ngưỡng Đóng Băng Ví (`Wallet Safety Floor`)** trước `00:00 UTC` Thứ Hai và chỉ xả kho vào ngày chấm điểm trùng khớp.",
+            vi: "**Kỷ luật quản lý 13 Tiệm mua sắm và canh lịch xả 6 ngày của `GAR/KvK` kết hợp `Thi Đấu Hội` giúp F2P Thuần Liên Minh sở hữu dàn tướng `1★ Bạc (560 mảnh)` và `27` Hồn Đá Đỏ ngang người nạp tiền.**\n• **Nguyên tắc cốt lõi:** Luôn duy trì **Ngưỡng Đóng Băng Ví (`Wallet Safety Floor`)** trước `00:00 UTC` (`07:00 VN`) Thứ Hai và chỉ xả kho vào ngày chấm điểm trùng khớp.",
             en: "**Disciplined management across all 13 Shops and the 6-day `GAR/KvK` + `Guild Race` dump calendar lets F2P Pure League accounts build `1★ Silver (560 shards)` Mythics and `27` Soul Stones on par with spenders.**\n• **Core Principle:** Always preserve your **Wallet Safety Floor** before Monday `00:00 UTC` reset and dump inventory strictly on matching scoring days.",
           },
         },

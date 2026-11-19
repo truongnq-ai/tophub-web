@@ -206,3 +206,114 @@ export function searchGuides(query: string, locale: GuideLocale): GuideArticle[]
     );
   });
 }
+
+
+export interface PublishedGuideConfig {
+  /** Whether /guides/codex is visible and accessible to end users */
+  readonly codexPublished: boolean;
+  /**
+   * Map of canonical categorySlug -> array of published canonical articleSlugs (or "*" for all articles in that category).
+   * Categories omitted or mapped to an empty array are hidden from the UI and Sitemap.
+   */
+  readonly categories: Readonly<Record<string, readonly string[] | "*">>;
+}
+
+/**
+ * Phase 1 Rollout Configuration (v3.0):
+ * Only Group 1 ("getting-started") -> Article 1.1 ("overview") is published as the Golden Reference.
+ * Groups 2..9 and /guides/codex remain hidden until their Phase 2..4 content audits complete.
+ */
+export const PUBLISHED_GUIDE_CONFIG: PublishedGuideConfig = {
+  codexPublished: false,
+  categories: {
+    "getting-started": ["overview"],
+  },
+};
+
+export function isCodexPublished(): boolean {
+  return PUBLISHED_GUIDE_CONFIG.codexPublished;
+}
+
+export function isGuideArticlePublished(
+  categorySlug: string,
+  articleSlug: string
+): boolean {
+  const canonicalCatSlug = CATEGORY_SLUG_ALIASES[categorySlug] ?? categorySlug;
+  const canonicalArtSlug = ARTICLE_SLUG_ALIASES[articleSlug] ?? articleSlug;
+  const rule = PUBLISHED_GUIDE_CONFIG.categories[canonicalCatSlug];
+  if (!rule) return false;
+  const articleExists = Boolean(getArticleBySlug(canonicalCatSlug, canonicalArtSlug));
+  if (!articleExists) return false;
+  if (rule === "*") return true;
+  return rule.includes(canonicalArtSlug);
+}
+
+export function isGuideCategoryPublished(categorySlug: string): boolean {
+  const category = getCategoryBySlug(categorySlug);
+  if (!category) return false;
+  return category.articles.some((art) =>
+    isGuideArticlePublished(category.slug, art.slug)
+  );
+}
+
+export function getPublishedCategories(): GuideCategory[] {
+  return getCategoriesInDisplayOrder()
+    .map((category) => ({
+      ...category,
+      articles: category.articles.filter((article) =>
+        isGuideArticlePublished(category.slug, article.slug)
+      ),
+    }))
+    .filter((category) => category.articles.length > 0);
+}
+
+export function getPublishedCategoryBySlug(
+  categorySlug: string
+): GuideCategory | undefined {
+  const canonicalSlug = CATEGORY_SLUG_ALIASES[categorySlug] ?? categorySlug;
+  return getPublishedCategories().find((cat) => cat.slug === canonicalSlug);
+}
+
+export function getPublishedGuideZones(): GuideZone[] {
+  const publishedMap = new Map<string, GuideCategory>(
+    getPublishedCategories().map((cat) => [cat.slug, cat])
+  );
+  return GUIDE_ZONES.map((zone) => ({
+    ...zone,
+    categories: zone.categories
+      .map((cat) => publishedMap.get(cat.slug))
+      .filter((cat): cat is GuideCategory => Boolean(cat)),
+  })).filter((zone) => zone.categories.length > 0);
+}
+
+export function getPublishedArticles(): GuideArticle[] {
+  return getPublishedCategories().flatMap((category) => category.articles);
+}
+
+export function getPublishedAdjacentArticles(
+  categorySlug: string,
+  articleSlug: string
+): { prev: GuideArticle | null; next: GuideArticle | null } {
+  const canonicalCatSlug = CATEGORY_SLUG_ALIASES[categorySlug] ?? categorySlug;
+  const canonicalArtSlug = ARTICLE_SLUG_ALIASES[articleSlug] ?? articleSlug;
+  const all = getPublishedArticles();
+  const idx = all.findIndex(
+    (art) => art.categorySlug === canonicalCatSlug && art.slug === canonicalArtSlug
+  );
+  if (idx === -1) {
+    return { prev: null, next: null };
+  }
+  return {
+    prev: idx > 0 ? all[idx - 1] : null,
+    next: idx < all.length - 1 ? all[idx + 1] : null,
+  };
+}
+
+export function searchPublishedGuides(
+  query: string,
+  locale: GuideLocale
+): GuideArticle[] {
+  return searchGuides(query, locale).filter((article) =>
+    isGuideArticlePublished(article.categorySlug, article.slug)
+  );
+}

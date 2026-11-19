@@ -41,6 +41,7 @@ interface GuideCommentsSectionProps {
   pageKey: string;
   locale?: GuideLocale;
   className?: string;
+  showFeedbackNotice?: boolean;
 }
 
 const COPY = {
@@ -118,6 +119,7 @@ export function GuideCommentsSection({
   pageKey,
   locale = "vi",
   className,
+  showFeedbackNotice = true,
 }: GuideCommentsSectionProps) {
   const safeLocale: GuideLocale = locale === "en" ? "en" : "vi";
   const labels = COPY[safeLocale];
@@ -373,8 +375,9 @@ export function GuideCommentsSection({
         className
       )}
     >
-      {/* Touch 2: Heartfelt Soft Beta & Feedback Callout right before Comments (DEC-GNF-01) */}
-      <GuidesFeedbackNotice variant="pre-comment" locale={safeLocale} />
+      {showFeedbackNotice && (
+        <GuidesFeedbackNotice variant="pre-comment" locale={safeLocale} />
+      )}
 
       {/* Header & Sort Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">

@@ -12,7 +12,6 @@ import {
   Castle,
   BookOpen,
   Flame,
-  Crown,
   ArrowRight,
   Search,
   X,
@@ -26,9 +25,11 @@ import {
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import {
-  getCategoriesInDisplayOrder,
   getArticleBySlug,
-  searchGuides,
+  getPublishedCategories,
+  isCodexPublished,
+  isGuideArticlePublished,
+  searchPublishedGuides,
 } from "@/content/guides/registry";
 import type {
   CodexEntityRecord,
@@ -73,7 +74,6 @@ interface HotTagItem {
   query: LocalizedText;
 }
 
-// GAP-02 Fix: Bilingual Hot Tags with high-precision search queries for both vi and en
 const HOT_TAGS: HotTagItem[] = [
   {
     id: "560-shards",
@@ -104,7 +104,8 @@ const HOT_TAGS: HotTagItem[] = [
 
 export function GuidesHubClient({ locale }: GuidesHubClientProps) {
   const t = useTranslations("Guides");
-  const categories = useMemo(() => getCategoriesInDisplayOrder(), []);
+  const categories = useMemo(() => getPublishedCategories(), []);
+  const codexPublished = isCodexPublished();
 
   const [searchQuery, setSearchQuery] = useState("");
   const [expandedCategories, setExpandedCategories] = useState<
@@ -121,6 +122,7 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
   const stageArticles = useMemo(() => {
     const resolveList = (pairs: Array<[string, string]>): GuideArticle[] =>
       pairs
+        .filter(([cat, slug]) => isGuideArticlePublished(cat, slug))
         .map(([cat, slug]) => getArticleBySlug(cat, slug))
         .filter((a): a is GuideArticle => Boolean(a));
 
@@ -143,11 +145,21 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
     };
   }, []);
 
-  const quickTools = useMemo(
-    () => [
+  const hasMultipleStagesPublished = useMemo(() => {
+    const nonEmptyStages = [
+      stageArticles.early.length > 0,
+      stageArticles.pivot.length > 0,
+      stageArticles.season.length > 0,
+    ].filter(Boolean);
+    return nonEmptyStages.length >= 2;
+  }, [stageArticles]);
+
+  const quickTools = useMemo(() => {
+    const allTools = [
       {
         code: "CODEX",
         href: "/guides/codex",
+        isPublished: codexPublished,
         icon: Database,
         title: t("toolCodexTitle"),
         desc: t("toolCodexDesc"),
@@ -157,6 +169,7 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
       {
         code: "2.1",
         href: "/guides/heroes/encyclopedia",
+        isPublished: isGuideArticlePublished("heroes", "encyclopedia"),
         icon: ShieldAlert,
         title: t("toolEncyclopediaTitle"),
         desc: t("toolEncyclopediaDesc"),
@@ -166,6 +179,7 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
       {
         code: "3.1",
         href: "/guides/events/biweekly-rotation",
+        isPublished: isGuideArticlePublished("events", "biweekly-rotation"),
         icon: CalendarClock,
         title: t("toolCalendarTitle"),
         desc: t("toolCalendarDesc"),
@@ -175,6 +189,7 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
       {
         code: "7.1",
         href: "/guides/economy/shops-tier-list",
+        isPublished: isGuideArticlePublished("economy", "shops-tier-list"),
         icon: ShoppingBag,
         title: t("toolShopsTitle"),
         desc: t("toolShopsDesc"),
@@ -184,21 +199,26 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
       {
         code: "8.4",
         href: "/guides/infrastructure/master-data-tables",
+        isPublished: isGuideArticlePublished(
+          "infrastructure",
+          "master-data-tables"
+        ),
         icon: Table2,
         title: t("toolMasterTablesTitle"),
         desc: t("toolMasterTablesDesc"),
         accent: "text-sky-500 bg-sky-500/10 border-sky-500/25",
         testId: "hub-tool-8.4",
       },
-    ],
-    [t]
-  );
+    ];
+    return allTools.filter((tool) => tool.isPublished);
+  }, [codexPublished, t]);
 
   const [codexPool, setCodexPool] = useState<
     readonly (CodexEntityRecord | CodexSearchIndexItem)[]
   >(() => getInitialCodexSeedRecords());
 
   useEffect(() => {
+    if (!codexPublished) return;
     if (searchQuery.trim().length < 2) return;
     if (
       typeof navigator !== "undefined" &&
@@ -226,24 +246,24 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
       mounted = false;
       controller.abort();
     };
-  }, [searchQuery]);
+  }, [codexPublished, searchQuery]);
 
   const searchResults = useMemo(() => {
     if (searchQuery.trim().length < 2) return null;
-    return searchGuides(searchQuery, locale).filter(
+    return searchPublishedGuides(searchQuery, locale).filter(
       (article) => article.categorySlug !== "event-playbooks"
     );
   }, [searchQuery, locale]);
 
   const codexSearchResults = useMemo(() => {
-    if (searchQuery.trim().length < 2) return [];
+    if (!codexPublished || searchQuery.trim().length < 2) return [];
     return filterCodexEntities(codexPool, {
       category: "all",
       rarity: "all",
       faction: "all",
       query: searchQuery,
     }).slice(0, 6);
-  }, [codexPool, searchQuery]);
+  }, [codexPool, codexPublished, searchQuery]);
 
   const renderStageCards = (articles: GuideArticle[]) => (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
@@ -262,12 +282,6 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
                 <Badge className="bg-rose-500/15 text-rose-500 border-rose-500/30 text-xs font-sans font-bold">
                   <Flame className="h-3 w-3 mr-1 fill-current" />
                   HOT
-                </Badge>
-              )}
-              {art.badge === "PRO" && (
-                <Badge className="bg-amber-500/15 text-amber-500 border-amber-500/30 text-xs font-sans font-bold">
-                  <Crown className="h-3 w-3 mr-1 fill-current" />
-                  PRO
                 </Badge>
               )}
             </div>
@@ -360,7 +374,7 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
           </div>
         </div>
 
-        {/* Instant Search Results Panel inside Hero (Unified: (1) Articles & (2) Game Codex Entities) */}
+        {/* Instant Search Results Panel inside Hero */}
         {searchResults !== null && (
           <div className="rounded-2xl border border-amber-500/30 bg-background/80 p-4 space-y-4">
             <div className="flex items-center justify-between">
@@ -378,7 +392,7 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
               </button>
             </div>
 
-            {/* Section (1): Matching Guide Articles */}
+            {/* Section (1): Matching Published Guide Articles */}
             <div
               data-testid="hub-search-articles-section"
               className="space-y-2"
@@ -420,176 +434,194 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
               )}
             </div>
 
-            {/* Section (2): Matching Game Codex Entities with .webp Thumbnails */}
-            <div
-              data-testid="hub-search-codex-section"
-              className="space-y-2 pt-2 border-t border-border/60"
-            >
-              <div className="flex items-center justify-between gap-2">
-                <span className="text-xs font-sans font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
-                  <Database className="h-3.5 w-3.5 text-amber-500" />
-                  <span>{t("hubSearchCodexHeading")}</span>
-                </span>
-                <Link
-                  href={`/guides/codex?q=${encodeURIComponent(
-                    searchQuery.trim()
-                  )}`}
-                  className="inline-flex items-center min-h-[44px] px-2 text-xs font-sans font-bold text-amber-500 hover:underline"
-                >
-                  {t("hubSearchOpenCodexBtn")}
-                </Link>
-              </div>
-
-              {codexSearchResults.length > 0 && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
-                  {codexSearchResults.map((entity) => {
-                    const displayName =
-                      locale === "vi" ? entity.nameVi : entity.nameEn;
-                    const displayDesc =
-                      locale === "vi" ? entity.descVi : entity.descEn;
-                    return (
-                      <Link
-                        key={entity.id}
-                        href={`/guides/codex?q=${encodeURIComponent(
-                          displayName
-                        )}`}
-                        className="group flex items-center gap-2.5 rounded-xl border border-border/70 bg-card/70 hover:border-amber-500/50 p-2.5 text-xs min-h-[44px] transition-all"
-                      >
-                        <GameAssetFrame
-                          src={entity.path}
-                          alt={displayName}
-                          size="md"
-                          rarity={entity.rarity}
-                          faction={entity.faction}
-                          category={entity.category}
-                        />
-                        <div className="min-w-0 flex-1 space-y-0.5">
-                          <div className="flex items-center justify-between gap-1">
-                            <span className="font-heading font-bold text-xs sm:text-sm text-foreground group-hover:text-amber-500 truncate">
-                              {displayName}
-                            </span>
-                            <span className="text-xs font-sans font-semibold text-amber-500 shrink-0">
-                              {CODEX_CATEGORY_LABELS[entity.category][locale]}
-                            </span>
-                          </div>
-                          <p className="text-xs text-muted-foreground line-clamp-1">
-                            {displayDesc}
-                          </p>
-                        </div>
-                      </Link>
-                    );
-                  })}
+            {/* Section (2): Matching Game Codex Entities (Only when Codex is published) */}
+            {codexPublished && (
+              <div
+                data-testid="hub-search-codex-section"
+                className="space-y-2 pt-2 border-t border-border/60"
+              >
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-xs font-sans font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
+                    <Database className="h-3.5 w-3.5 text-amber-500" />
+                    <span>{t("hubSearchCodexHeading")}</span>
+                  </span>
+                  <Link
+                    href={`/guides/codex?q=${encodeURIComponent(
+                      searchQuery.trim()
+                    )}`}
+                    className="inline-flex items-center min-h-[44px] px-2 text-xs font-sans font-bold text-amber-500 hover:underline"
+                  >
+                    {t("hubSearchOpenCodexBtn")}
+                  </Link>
                 </div>
-              )}
-            </div>
+
+                {codexSearchResults.length > 0 && (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+                    {codexSearchResults.map((entity) => {
+                      const displayName =
+                        locale === "vi" ? entity.nameVi : entity.nameEn;
+                      const displayDesc =
+                        locale === "vi" ? entity.descVi : entity.descEn;
+                      return (
+                        <Link
+                          key={entity.id}
+                          href={`/guides/codex?q=${encodeURIComponent(
+                            displayName
+                          )}`}
+                          className="group flex items-center gap-2.5 rounded-xl border border-border/70 bg-card/70 hover:border-amber-500/50 p-2.5 text-xs min-h-[44px] transition-all"
+                        >
+                          <GameAssetFrame
+                            src={entity.path}
+                            alt={displayName}
+                            size="md"
+                            rarity={entity.rarity}
+                            faction={entity.faction}
+                            category={entity.category}
+                          />
+                          <div className="min-w-0 flex-1 space-y-0.5">
+                            <div className="flex items-center justify-between gap-1">
+                              <span className="font-heading font-bold text-xs sm:text-sm text-foreground group-hover:text-amber-500 truncate">
+                                {displayName}
+                              </span>
+                              <span className="text-xs font-sans font-semibold text-amber-500 shrink-0">
+                                {CODEX_CATEGORY_LABELS[entity.category][locale]}
+                              </span>
+                            </div>
+                            <p className="text-xs text-muted-foreground line-clamp-1">
+                              {displayDesc}
+                            </p>
+                          </div>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         )}
       </section>
 
-      {/* LAYER 2: 3-Stage Server Progression Selector Tabs */}
-      <section className="space-y-3">
-        <h2 className="text-xs font-heading font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400 flex items-center gap-1.5 px-1">
-          <Compass className="h-4 w-4" />
-          <span>{t("stageSelectorTitle")}</span>
-        </h2>
+      {/* LAYER 2: 3-Stage Server Progression Selector Tabs (Auto-hidden when < 2 stages have published articles) */}
+      {hasMultipleStagesPublished && (
+        <section className="space-y-3" data-testid="hub-stage-progression">
+          <h2 className="text-xs font-heading font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400 flex items-center gap-1.5 px-1">
+            <Compass className="h-4 w-4" />
+            <span>{t("stageSelectorTitle")}</span>
+          </h2>
 
-        <Tabs defaultValue="early" className="space-y-3">
-          <TabsList className="grid grid-cols-1 sm:grid-cols-3 h-auto gap-1.5 rounded-2xl bg-card/70 border border-border/80 p-1.5">
-            <TabsTrigger
-              value="early"
-              className="rounded-xl py-2.5 px-3 min-h-[44px] text-left flex flex-col items-start gap-0.5 data-[state=active]:bg-amber-500/15 data-[state=active]:text-amber-600 dark:data-[state=active]:text-amber-400 data-[state=active]:border-amber-500/30 border border-transparent"
-            >
-              <span className="font-heading font-bold text-sm sm:text-base">
-                🌱 {t("stageEarlyLabel")}
-              </span>
-              <span className="text-xs text-muted-foreground line-clamp-1 font-normal">
-                {t("stageEarlySub")}
-              </span>
-            </TabsTrigger>
-
-            <TabsTrigger
-              value="pivot"
-              className="rounded-xl py-2.5 px-3 min-h-[44px] text-left flex flex-col items-start gap-0.5 data-[state=active]:bg-amber-500/15 data-[state=active]:text-amber-600 dark:data-[state=active]:text-amber-400 data-[state=active]:border-amber-500/30 border border-transparent"
-            >
-              <span className="font-heading font-bold text-sm sm:text-base">
-                🔥 {t("stagePivotLabel")}
-              </span>
-              <span className="text-xs text-muted-foreground line-clamp-1 font-normal">
-                {t("stagePivotSub")}
-              </span>
-            </TabsTrigger>
-
-            <TabsTrigger
-              value="season"
-              className="rounded-xl py-2.5 px-3 min-h-[44px] text-left flex flex-col items-start gap-0.5 data-[state=active]:bg-amber-500/15 data-[state=active]:text-amber-600 dark:data-[state=active]:text-amber-400 data-[state=active]:border-amber-500/30 border border-transparent"
-            >
-              <span className="font-heading font-bold text-sm sm:text-base">
-                ⚔️ {t("stageSeasonLabel")}
-              </span>
-              <span className="text-xs text-muted-foreground line-clamp-1 font-normal">
-                {t("stageSeasonSub")}
-              </span>
-            </TabsTrigger>
-          </TabsList>
-
-          <TabsContent value="early">
-            {renderStageCards(stageArticles.early)}
-          </TabsContent>
-          <TabsContent value="pivot">
-            {renderStageCards(stageArticles.pivot)}
-          </TabsContent>
-          <TabsContent value="season">
-            {renderStageCards(stageArticles.season)}
-          </TabsContent>
-        </Tabs>
-      </section>
-
-      {/* LAYER 3: 4 Interactive Tools & Master Lookup Strip */}
-      <section className="space-y-3">
-        <h2 className="text-xs font-heading font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5 px-1">
-          <Wrench className="h-4 w-4 text-amber-500" />
-          <span>{t("toolsStripTitle")}</span>
-        </h2>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 gap-3.5">
-          {quickTools.map((tool) => {
-            const Icon = tool.icon;
-            return (
-              <Link
-                key={tool.code}
-                href={tool.href}
-                data-testid={tool.testId}
-                className="group rounded-2xl border border-border/80 bg-card/70 hover:border-amber-500/50 p-4 flex items-start gap-3.5 transition-all shadow-sm"
-              >
-                <div
-                  className={cn(
-                    "flex h-10 w-10 items-center justify-center rounded-xl border shrink-0",
-                    tool.accent
-                  )}
+          <Tabs defaultValue="early" className="space-y-3">
+            <TabsList className="grid grid-cols-1 sm:grid-cols-3 h-auto gap-1.5 rounded-2xl bg-card/70 border border-border/80 p-1.5">
+              {stageArticles.early.length > 0 && (
+                <TabsTrigger
+                  value="early"
+                  className="rounded-xl py-2.5 px-3 min-h-[44px] text-left flex flex-col items-start gap-0.5 data-[state=active]:bg-amber-500/15 data-[state=active]:text-amber-600 dark:data-[state=active]:text-amber-400 data-[state=active]:border-amber-500/30 border border-transparent"
                 >
-                  <Icon className="h-5 w-5" />
-                </div>
-                <div className="min-w-0 flex-1 space-y-1">
-                  <div className="flex items-center justify-between gap-1">
-                    <span className="font-mono text-xs font-bold text-amber-500">
-                      #{tool.code}
-                    </span>
-                    <ArrowRight className="h-3.5 w-3.5 text-muted-foreground group-hover:text-amber-500 transition-transform group-hover:translate-x-0.5" />
-                  </div>
-                  <h3 className="font-heading font-bold text-sm sm:text-base text-foreground group-hover:text-amber-500 transition-colors truncate">
-                    {tool.title}
-                  </h3>
-                  <p className="text-xs text-muted-foreground line-clamp-1">
-                    {tool.desc}
-                  </p>
-                </div>
-              </Link>
-            );
-          })}
-        </div>
-      </section>
+                  <span className="font-heading font-bold text-sm sm:text-base">
+                    🌱 {t("stageEarlyLabel")}
+                  </span>
+                  <span className="text-xs text-muted-foreground line-clamp-1 font-normal">
+                    {t("stageEarlySub")}
+                  </span>
+                </TabsTrigger>
+              )}
 
-      {/* LAYER 4: Clean 9-Category Bento Grid */}
+              {stageArticles.pivot.length > 0 && (
+                <TabsTrigger
+                  value="pivot"
+                  className="rounded-xl py-2.5 px-3 min-h-[44px] text-left flex flex-col items-start gap-0.5 data-[state=active]:bg-amber-500/15 data-[state=active]:text-amber-600 dark:data-[state=active]:text-amber-400 data-[state=active]:border-amber-500/30 border border-transparent"
+                >
+                  <span className="font-heading font-bold text-sm sm:text-base">
+                    🔥 {t("stagePivotLabel")}
+                  </span>
+                  <span className="text-xs text-muted-foreground line-clamp-1 font-normal">
+                    {t("stagePivotSub")}
+                  </span>
+                </TabsTrigger>
+              )}
+
+              {stageArticles.season.length > 0 && (
+                <TabsTrigger
+                  value="season"
+                  className="rounded-xl py-2.5 px-3 min-h-[44px] text-left flex flex-col items-start gap-0.5 data-[state=active]:bg-amber-500/15 data-[state=active]:text-amber-600 dark:data-[state=active]:text-amber-400 data-[state=active]:border-amber-500/30 border border-transparent"
+                >
+                  <span className="font-heading font-bold text-sm sm:text-base">
+                    ⚔️ {t("stageSeasonLabel")}
+                  </span>
+                  <span className="text-xs text-muted-foreground line-clamp-1 font-normal">
+                    {t("stageSeasonSub")}
+                  </span>
+                </TabsTrigger>
+              )}
+            </TabsList>
+
+            {stageArticles.early.length > 0 && (
+              <TabsContent value="early">
+                {renderStageCards(stageArticles.early)}
+              </TabsContent>
+            )}
+            {stageArticles.pivot.length > 0 && (
+              <TabsContent value="pivot">
+                {renderStageCards(stageArticles.pivot)}
+              </TabsContent>
+            )}
+            {stageArticles.season.length > 0 && (
+              <TabsContent value="season">
+                {renderStageCards(stageArticles.season)}
+              </TabsContent>
+            )}
+          </Tabs>
+        </section>
+      )}
+
+      {/* LAYER 3: Interactive Tools & Master Lookup Strip (Auto-hidden when zero tools are published) */}
+      {quickTools.length > 0 && (
+        <section className="space-y-3">
+          <h2 className="text-xs font-heading font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5 px-1">
+            <Wrench className="h-4 w-4 text-amber-500" />
+            <span>{t("toolsStripTitle")}</span>
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 gap-3.5">
+            {quickTools.map((tool) => {
+              const Icon = tool.icon;
+              return (
+                <Link
+                  key={tool.code}
+                  href={tool.href}
+                  data-testid={tool.testId}
+                  className="group rounded-2xl border border-border/80 bg-card/70 hover:border-amber-500/50 p-4 flex items-start gap-3.5 transition-all shadow-sm"
+                >
+                  <div
+                    className={cn(
+                      "flex h-10 w-10 items-center justify-center rounded-xl border shrink-0",
+                      tool.accent
+                    )}
+                  >
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <div className="min-w-0 flex-1 space-y-1">
+                    <div className="flex items-center justify-between gap-1">
+                      <span className="font-mono text-xs font-bold text-amber-500">
+                        #{tool.code}
+                      </span>
+                      <ArrowRight className="h-3.5 w-3.5 text-muted-foreground group-hover:text-amber-500 transition-transform group-hover:translate-x-0.5" />
+                    </div>
+                    <h3 className="font-heading font-bold text-sm sm:text-base text-foreground group-hover:text-amber-500 transition-colors truncate">
+                      {tool.title}
+                    </h3>
+                    <p className="text-xs text-muted-foreground line-clamp-1">
+                      {tool.desc}
+                    </p>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </section>
+      )}
+
+      {/* LAYER 4: Published Categories Bento Grid */}
       <section className="space-y-4">
         <h2 className="text-xs font-heading font-bold uppercase tracking-wider text-muted-foreground px-1">
           {t("categoriesGridTitle")}
@@ -606,6 +638,7 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
             return (
               <div
                 key={category.slug}
+                data-testid={`hub-category-card-${category.slug}`}
                 className="rounded-3xl border border-border/80 dark:border-amber-500/20 bg-card/70 p-4 sm:p-6 flex flex-col justify-between space-y-4 shadow-sm hover:border-amber-500/40 transition-all"
               >
                 <div className="space-y-3">
@@ -772,9 +805,6 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
                                 {article.title[locale]}
                               </span>
                               <span className="flex items-center gap-1.5 shrink-0">
-                                {article.badge === "PRO" && (
-                                  <Crown className="h-3.5 w-3.5 text-amber-500" />
-                                )}
                                 {article.badge === "HOT" && (
                                   <Flame className="h-3.5 w-3.5 text-rose-500" />
                                 )}
@@ -793,8 +823,12 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
         </div>
       </section>
 
-      {/* Unified Guide Discussion Hub (Attached to the main /guides hub page) */}
-      <GuideCommentsSection pageKey="guides:hub" locale={locale} />
+      {/* Unified Guide Discussion Hub (100% Free & Clean without Beta Notice) */}
+      <GuideCommentsSection
+        pageKey="guides:hub"
+        locale={locale}
+        showFeedbackNotice={false}
+      />
     </div>
   );
 }

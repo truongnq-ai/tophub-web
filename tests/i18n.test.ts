@@ -9,10 +9,9 @@ describe('i18n Translation Keys Parity', () => {
     expect(viKeys).toEqual(enKeys);
   });
 
-  it('should have required modules: Navigation, Common, Giftcodes, Pricing, Dashboard, Guides, Calculators', () => {
+  it('should have required modules: Navigation, Common, Pricing, Dashboard, Guides, Calculators', () => {
     expect(vi).toHaveProperty('Navigation');
     expect(vi).toHaveProperty('Common');
-    expect(vi).toHaveProperty('Giftcodes');
     expect(vi).toHaveProperty('Pricing');
     expect(vi).toHaveProperty('Dashboard');
     expect(vi).toHaveProperty('Guides');
@@ -20,7 +19,6 @@ describe('i18n Translation Keys Parity', () => {
 
     expect(en).toHaveProperty('Navigation');
     expect(en).toHaveProperty('Common');
-    expect(en).toHaveProperty('Giftcodes');
     expect(en).toHaveProperty('Pricing');
     expect(en).toHaveProperty('Dashboard');
     expect(en).toHaveProperty('Guides');

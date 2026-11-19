@@ -105,7 +105,9 @@ describe("Phase 4 — Category Micro-UX Widgets & GuideArticleRenderer Integrati
       ).toBe(true);
 
       const a42Sec1 = ARTICLE_4_2_HORDE_PIVOT_ROADMAP.freeSections.find(
-        (s) => s.id === "sec-1-why-pure-horde-is-king"
+        (s) =>
+          s.id === "sec-1-why-pure-horde-is-king" ||
+          s.id === "sec-1-lineup-and-slot-replacement"
       );
       expect(
         a42Sec1?.blocks.some(
@@ -429,13 +431,10 @@ describe("Phase 4 — Category Micro-UX Widgets & GuideArticleRenderer Integrati
         const widgetEl = screen.getByTestId(item.widgetTestId);
         expect(widgetEl).toBeDefined();
 
-        // Visible in default "core" tab
+        // Always visible in v3.0 single-flow mode without tab bars
         const parentSec = widgetEl.closest("[data-tab-hidden]");
         expect(parentSec?.getAttribute("data-tab-hidden")).toBe("false");
-
-        // Switch to "data" tab -> still visible (Dual-Tab Visibility)
-        fireEvent.click(screen.getByTestId("article-tab-data"));
-        expect(parentSec?.getAttribute("data-tab-hidden")).toBe("false");
+        expect(screen.queryByTestId("article-view-mode-tabs")).toBeNull();
 
         // Consolidated subsection anchor exists exactly once via widget stub
         const anchorEl = document.getElementById(item.consolidatedId);

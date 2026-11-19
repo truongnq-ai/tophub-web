@@ -683,8 +683,8 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Để giúp Tân thủ hình dung toàn cảnh thời điểm mở khóa các tính năng cốt lõi, cơ chế Lịch Sự kiện Động 2 Giai đoạn và chi phí nâng sao tướng theo chuẩn quốc tế:",
-                en: "To help players visualize when core systems unlock, how the 2-Phase Dynamic Event Schedule evolves, and the exact international star-up costs:",
+                vi: "**Bản đồ Vòng đời Máy chủ (`S0 ➔ S4`) & Định mức `15 Sao`:** Đối chiếu trực tiếp thời điểm mở khóa tính năng, Lịch Sự kiện Động 2 Giai đoạn và chi phí nâng sao chuẩn quốc tế:",
+                en: "**Server Lifecycle (`S0 ➔ S4`) & `15-Star` Cost Benchmarks:** Reference the exact feature unlock timeline, 2-Phase Dynamic Event Schedule, and international star-up costs:",
               },
             },
             {
@@ -931,8 +931,8 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
             {
               type: "paragraph",
               text: {
-                vi: "Bảng dưới đây quy định tỷ lệ phần trăm (%) phân bổ 5 nhóm tài nguyên cốt lõi qua từng giai đoạn phát triển của máy chủ, dựa trên dữ liệu định lượng từ TopHeroes Master Tables:",
-                en: "The matrix below defines the exact percentage (%) allocation across 5 core resource groups throughout each stage of server progression, audited against the TopHeroes Master Data Tables:",
+                vi: "**Ma trận Phân bổ `5 Nguồn lực Cốt lõi` (`Early / Mid / Late-Game`):** Tỷ trọng phần trăm (%) và điểm dừng ROI chuẩn hóa từ dữ liệu gốc `Meta.bytes`:",
+                en: "**`5-Resource` Allocation Matrix (`Early / Mid / Late-Game`):** Exact percentage (%) distribution and ROI breakpoints audited against `Meta.bytes` Master Tables:",
               },
             },
             {

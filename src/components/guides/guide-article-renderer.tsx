@@ -1,16 +1,12 @@
 "use client";
 
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 import {
   Clock,
   CheckCircle2,
   ArrowLeft,
   ArrowRight,
   BookOpen,
-  Target,
-  BarChart3,
-  Stethoscope,
-  Layers,
 } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
@@ -40,7 +36,6 @@ import { BlacksmithAnvilMatrixWidget } from "./widgets/blacksmith-anvil-matrix-w
 import { ShopSafetyFloorWidget } from "./widgets/shop-safety-floor-widget";
 import { EventPlaybookExplorerWidget } from "./widgets/event-playbook-explorer-widget";
 import { EventEncyclopediaFlatView } from "./widgets/event-encyclopedia-flat-view";
-import { ProContentGate } from "./pro-content-gate";
 import { GuideCommentsSection } from "./guide-comments-section";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
@@ -365,7 +360,6 @@ export function parseSectionHeading(
 function renderSection(
   section: GuideSection,
   locale: GuideLocale,
-  isHidden: boolean,
   article: GuideArticle,
   sectionNumber: number
 ) {
@@ -384,10 +378,9 @@ function renderSection(
     <div
       key={section.id}
       id={section.id}
-      data-tab-hidden={isHidden ? "true" : "false"}
+      data-tab-hidden="false"
       className={cn(
-        "scroll-mt-28 py-6 border-b border-border/50 last:border-b-0 space-y-5",
-        isHidden && "hidden"
+        "scroll-mt-28 py-6 border-b border-border/50 last:border-b-0 space-y-5"
       )}
     >
       <div className="flex items-center gap-3 border-b border-border/60 pb-3">
@@ -477,8 +470,6 @@ export function GuideArticleRenderer({
   const rawLocale = useLocale();
   const locale: GuideLocale = propLocale ?? (rawLocale === "en" ? "en" : "vi");
 
-  const [activeTab, setActiveTab] = useState<ArticleViewTab>("core");
-
   const { mainTitle, subTitle } = useMemo(
     () => splitArticleTitle(article.title[locale]),
     [article.title, locale]
@@ -497,65 +488,10 @@ export function GuideArticleRenderer({
     ? "5"
     : (article.displayCode ?? article.code);
 
-  const freeSectionsWithTab = useMemo(
-    () =>
-      article.freeSections.map((sec, idx) => ({
-        section: sec,
-        tab: classifySectionTab(sec, idx, false),
-        hasWidget: hasWidgetBlock(sec),
-      })),
-    [article.freeSections]
+  const allSections = useMemo(
+    () => [...article.freeSections, ...article.proSections],
+    [article.freeSections, article.proSections]
   );
-
-  const proSectionsWithTab = useMemo(
-    () =>
-      article.proSections.map((sec, idx) => ({
-        section: sec,
-        tab: classifySectionTab(sec, idx, true),
-        hasWidget: hasWidgetBlock(sec),
-      })),
-    [article.proSections]
-  );
-
-  const isSectionHidden = (
-    tab: Exclude<ArticleViewTab, "all">,
-    hasWidget: boolean
-  ): boolean => {
-    if (activeTab === "all") return false;
-    if (hasWidget && (activeTab === "core" || activeTab === "data")) {
-      return false;
-    }
-    return activeTab !== tab;
-  };
-
-  // Map every anchor ID (section.id and subSection.id) to its assigned tab
-  const anchorToTabMap = useMemo(() => {
-    const map = new Map<string, Exclude<ArticleViewTab, "all">>();
-    for (const item of [...freeSectionsWithTab, ...proSectionsWithTab]) {
-      map.set(item.section.id, item.tab);
-      for (const sub of item.section.subSections ?? []) {
-        map.set(sub.id, item.tab);
-      }
-    }
-    return map;
-  }, [freeSectionsWithTab, proSectionsWithTab]);
-
-  const tabCounts = useMemo(() => {
-    const counts = { core: 0, data: 0, action: 0, all: 0 };
-    for (const item of [...freeSectionsWithTab, ...proSectionsWithTab]) {
-      counts[item.tab] += 1;
-      counts.all += 1;
-    }
-    return counts;
-  }, [freeSectionsWithTab, proSectionsWithTab]);
-
-  // Reset tab to 'core' (or hash target) when switching articles
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const rawHash = window.location.hash.replace(/^#/, "");
-    const targetTab = rawHash ? anchorToTabMap.get(rawHash) : undefined;
-    setActiveTab(targetTab ?? "core");
-  }, [article.slug, anchorToTabMap]);
 
   // Synchronize with GuidesToc 'tophub:toc-navigate' and browser 'hashchange'
   useEffect(() => {
@@ -563,10 +499,6 @@ export function GuideArticleRenderer({
 
     const navigateToAnchor = (targetId: string) => {
       if (!targetId) return;
-      const targetTab = anchorToTabMap.get(targetId);
-      if (targetTab) {
-        setActiveTab((prev) => (prev === "all" ? "all" : targetTab));
-      }
       requestAnimationFrame(() => {
         const el = document.getElementById(targetId);
         if (el && typeof el.scrollIntoView === "function") {
@@ -596,23 +528,7 @@ export function GuideArticleRenderer({
       window.removeEventListener("tophub:toc-navigate", handleTocNavigate);
       window.removeEventListener("hashchange", handleHashChange);
     };
-  }, [anchorToTabMap]);
-
-  const hasVisibleProSection = proSectionsWithTab.some(
-    (item) => !isSectionHidden(item.tab, item.hasWidget)
-  );
-
-  const nextTabConfig: {
-    tab: Exclude<ArticleViewTab, "all">;
-    label: string;
-  } | null =
-    activeTab === "core" && tabCounts.data > 0
-      ? { tab: "data", label: t("viewModeTabData") }
-      : activeTab === "core" && tabCounts.action > 0
-        ? { tab: "action", label: t("viewModeTabAction") }
-        : activeTab === "data" && tabCounts.action > 0
-          ? { tab: "action", label: t("viewModeTabAction") }
-          : null;
+  }, []);
 
   return (
     <article className="space-y-6">
@@ -707,196 +623,14 @@ export function GuideArticleRenderer({
       {isEventPlaybooks ? (
         <EventEncyclopediaFlatView article={article} locale={locale} />
       ) : (
-        <>
-          {/* Sticky 3-Tab Article View Mode Bar (DEC-UX-01 & DEC-V4-02) */}
-          <div
-            role="tablist"
-            aria-label="Article View Mode"
-            data-testid="article-view-mode-tabs"
-            className="sticky top-16 z-30 -mx-1 px-1 py-2 bg-background/90 backdrop-blur-md border-b border-border/70 flex items-center justify-between gap-2 overflow-x-auto no-scrollbar"
-          >
-            <div className="flex items-center gap-1.5">
-              {tabCounts.core > 0 && (
-                <button
-                  type="button"
-                  role="tab"
-                  data-testid="article-tab-core"
-                  aria-selected={activeTab === "core"}
-                  onClick={() => {
-                    setActiveTab("core");
-                    if (typeof window !== "undefined") {
-                      window.dispatchEvent(
-                        new CustomEvent("tophub:tab-change", {
-                          detail: { tab: "core" },
-                        })
-                      );
-                    }
-                  }}
-                  className={cn(
-                    "inline-flex items-center gap-1.5 min-h-[44px] px-3 py-1.5 rounded-xl border text-xs font-heading font-bold whitespace-nowrap transition-all cursor-pointer",
-                    activeTab === "core"
-                      ? "border-amber-400 bg-amber-500/15 text-amber-700 dark:text-amber-300 shadow-xs"
-                      : "border-border/70 bg-card/70 text-muted-foreground hover:text-foreground hover:border-amber-500/40"
-                  )}
-                >
-                  <Target className="h-3.5 w-3.5 text-amber-500 shrink-0" />
-                  <span>{t("viewModeTabCore")}</span>
-                  <span className="rounded-md bg-background/80 px-1.5 py-0.5 font-mono text-xs">
-                    {tabCounts.core}
-                  </span>
-                </button>
-              )}
-
-              {tabCounts.data > 0 && (
-                <button
-                  type="button"
-                  role="tab"
-                  data-testid="article-tab-data"
-                  aria-selected={activeTab === "data"}
-                  onClick={() => {
-                    setActiveTab("data");
-                    if (typeof window !== "undefined") {
-                      window.dispatchEvent(
-                        new CustomEvent("tophub:tab-change", {
-                          detail: { tab: "data" },
-                        })
-                      );
-                    }
-                  }}
-                  className={cn(
-                    "inline-flex items-center gap-1.5 min-h-[44px] px-3 py-1.5 rounded-xl border text-xs font-heading font-bold whitespace-nowrap transition-all cursor-pointer",
-                    activeTab === "data"
-                      ? "border-amber-400 bg-amber-500/15 text-amber-700 dark:text-amber-300 shadow-xs"
-                      : "border-border/70 bg-card/70 text-muted-foreground hover:text-foreground hover:border-amber-500/40"
-                  )}
-                >
-                  <BarChart3 className="h-3.5 w-3.5 text-amber-500 shrink-0" />
-                  <span>{t("viewModeTabData")}</span>
-                  <span className="rounded-md bg-background/80 px-1.5 py-0.5 font-mono text-xs">
-                    {tabCounts.data}
-                  </span>
-                </button>
-              )}
-
-              {tabCounts.action > 0 && (
-                <button
-                  type="button"
-                  role="tab"
-                  data-testid="article-tab-action"
-                  aria-selected={activeTab === "action"}
-                  onClick={() => {
-                    setActiveTab("action");
-                    if (typeof window !== "undefined") {
-                      window.dispatchEvent(
-                        new CustomEvent("tophub:tab-change", {
-                          detail: { tab: "action" },
-                        })
-                      );
-                    }
-                  }}
-                  className={cn(
-                    "inline-flex items-center gap-1.5 min-h-[44px] px-3 py-1.5 rounded-xl border text-xs font-heading font-bold whitespace-nowrap transition-all cursor-pointer",
-                    activeTab === "action"
-                      ? "border-amber-400 bg-amber-500/15 text-amber-700 dark:text-amber-300 shadow-xs"
-                      : "border-border/70 bg-card/70 text-muted-foreground hover:text-foreground hover:border-amber-500/40"
-                  )}
-                >
-                  <Stethoscope className="h-3.5 w-3.5 text-amber-500 shrink-0" />
-                  <span>{t("viewModeTabAction")}</span>
-                  <span className="rounded-md bg-background/80 px-1.5 py-0.5 font-mono text-xs">
-                    {tabCounts.action}
-                  </span>
-                </button>
-              )}
-            </div>
-
-            <button
-              type="button"
-              role="tab"
-              data-testid="article-tab-all"
-              aria-selected={activeTab === "all"}
-              onClick={() => {
-                setActiveTab("all");
-                if (typeof window !== "undefined") {
-                  window.dispatchEvent(
-                    new CustomEvent("tophub:tab-change", {
-                      detail: { tab: "all" },
-                    })
-                  );
-                }
-              }}
-              className={cn(
-                "inline-flex items-center gap-1.5 min-h-[44px] px-3 py-1.5 rounded-xl border text-xs font-heading font-bold whitespace-nowrap transition-all cursor-pointer shrink-0",
-                activeTab === "all"
-                  ? "border-amber-400 bg-amber-500 text-slate-950 shadow-xs"
-                  : "border-border/70 bg-card/70 text-muted-foreground hover:text-foreground hover:border-amber-500/40"
-              )}
-            >
-              <Layers className="h-3.5 w-3.5 shrink-0" />
-              <span>{t("viewModeTabAll")}</span>
-              <span className="rounded-md bg-background/80 text-foreground px-1.5 py-0.5 font-mono text-xs">
-                {tabCounts.all}
-              </span>
-            </button>
-          </div>
-
-          {/* De-Boxed Free Sections */}
-          <div className="divide-y divide-border/50">
-            {freeSectionsWithTab.map(({ section, tab, hasWidget }, idx) =>
-              renderSection(
-                section,
-                locale,
-                isSectionHidden(tab, hasWidget),
-                article,
-                idx + 1
-              )
-            )}
-          </div>
-
-          {/* PRO Sections wrapped in ProContentGate (Hidden when activeTab has no PRO sections, e.g. 'core') */}
-          {proSectionsWithTab.length > 0 && (
-            <div
-              data-testid="article-pro-gate-wrapper"
-              data-tab-hidden={hasVisibleProSection ? "false" : "true"}
-              className={cn(!hasVisibleProSection && "hidden")}
-            >
-              <ProContentGate>
-                {proSectionsWithTab.map(({ section, tab, hasWidget }, idx) =>
-                  renderSection(
-                    section,
-                    locale,
-                    isSectionHidden(tab, hasWidget),
-                    article,
-                    freeSectionsWithTab.length + idx + 1
-                  )
-                )}
-              </ProContentGate>
-            </div>
+        <div
+          className="divide-y divide-border/50"
+          data-testid="free-sections-container"
+        >
+          {allSections.map((section, idx) =>
+            renderSection(section, locale, article, idx + 1)
           )}
-
-          {/* Seamless Next-Tab Continuation Bar */}
-          {nextTabConfig && (
-            <div className="flex justify-end pt-2">
-              <button
-                type="button"
-                onClick={() => {
-                  setActiveTab(nextTabConfig.tab);
-                  if (typeof window !== "undefined") {
-                    window.scrollTo({ top: 240, behavior: "smooth" });
-                  }
-                }}
-                className="inline-flex items-center gap-2 rounded-2xl border border-amber-500/40 bg-amber-500/10 hover:bg-amber-500/20 px-4 py-2.5 text-xs sm:text-sm font-heading font-bold text-amber-600 dark:text-amber-300 transition-all cursor-pointer min-h-[44px]"
-              >
-                <span>
-                  {t("viewModeNextTabPrefix")} {nextTabConfig.label}
-                </span>
-                <ArrowRight className="h-4 w-4" />
-              </button>
-            </div>
-          )}
-
-          {/* Previous / Next Article Sequential Navigation */}
-        </>
+        </div>
       )}
 
       {!isEventPlaybooks && (
@@ -947,10 +681,11 @@ export function GuideArticleRenderer({
         </div>
       )}
 
-      {/* Unified Guide Discussion Hub (Attached across all 31 article pages) */}
+      {/* Unified Guide Discussion Hub (100% Free & Clean without Beta Notice) */}
       <GuideCommentsSection
         pageKey={`guides:${article.categorySlug}/${article.slug}`}
         locale={locale}
+        showFeedbackNotice={false}
       />
     </article>
   );
