@@ -941,7 +941,7 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
                   "Exact Refined Metal + Magic Thread + Orichalcum + Dragon Blood totals",
               },
             },
-            status: "coming_soon",
+            status: "ready",
           },
           {
             code: "5.2",
@@ -987,7 +987,7 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
                   "Exact slot-by-slot upgrade order preserving 3pc/6pc Resonance & Y2 unlock progress",
               },
             },
-            status: "coming_soon",
+            status: "ready",
           },
         ],
       },

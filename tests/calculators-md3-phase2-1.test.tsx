@@ -214,8 +214,8 @@ describe("Phase 2.1 / Placeholder View", () => {
   });
 
   it("Coming-soon tool placeholder flattens the example preview and uses 14–16px copy", () => {
-    mockPathname.mockReturnValue("/calculators/lord-gear/lord-gear-upgrade");
-    const resolved = getCalculatorToolBySlug("lord-gear", "lord-gear-upgrade")!;
+    mockPathname.mockReturnValue("/calculators/pets-behemoths/companion-pets");
+    const resolved = getCalculatorToolBySlug("pets-behemoths", "companion-pets")!;
     render(
       <CalculatorPlaceholderView
         mode="tool"

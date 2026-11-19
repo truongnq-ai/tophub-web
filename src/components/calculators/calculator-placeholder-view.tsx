@@ -28,6 +28,8 @@ import { SkinHonorCalculator } from "./skin-honor-calculator";
 import { GearEnhanceCalculator } from "./gear-enhance-calculator";
 import { GearPromotionCalculator } from "./gear-promotion-calculator";
 import { ExclusiveWeaponCalculator } from "./exclusive-weapon-calculator";
+import { LordGearUpgradeCalculator } from "./lord-gear-upgrade-calculator";
+import { LordGearResonanceCalculator } from "./lord-gear-resonance-calculator";
 import { RunesCalculator } from "./runes-calculator";
 import { RelicHallCalculator } from "./relic-hall-calculator";
 import { RelicsCalculator } from "./relics-calculator";
@@ -169,6 +171,20 @@ export function CalculatorPlaceholderView({
           />
         ) : tool.slug === "exclusive-weapon" ? (
           <ExclusiveWeaponCalculator
+            zone={zone}
+            category={category}
+            tool={tool}
+            locale={locale}
+          />
+        ) : tool.slug === "lord-gear-upgrade" ? (
+          <LordGearUpgradeCalculator
+            zone={zone}
+            category={category}
+            tool={tool}
+            locale={locale}
+          />
+        ) : tool.slug === "lord-gear-resonance" ? (
+          <LordGearResonanceCalculator
             zone={zone}
             category={category}
             tool={tool}
