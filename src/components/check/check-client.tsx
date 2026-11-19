@@ -80,6 +80,7 @@ export function CheckClient({ locale }: CheckClientProps) {
               type="text"
               placeholder={t("placeholder")}
               value={uid}
+              disabled={loading}
               onChange={(e) => setUid(e.target.value.replace(/\D/g, ""))}
               className="bg-transparent border-0 h-11 pl-10 pr-4 font-mono text-base placeholder:font-sans placeholder:tracking-normal placeholder:font-normal focus-visible:ring-0 focus-visible:ring-offset-0 text-foreground placeholder:text-muted-foreground"
               maxLength={20}
@@ -87,20 +88,13 @@ export function CheckClient({ locale }: CheckClientProps) {
           </div>
           <Button
             type="submit"
+            loading={loading}
+            loadingText={t("searching")}
             disabled={loading || !uid.trim()}
             className="w-full sm:w-auto font-bold gap-2 px-6 py-2.5 h-11 rounded-xl btn-tactile-gold shrink-0 min-h-[44px]"
           >
-            {loading ? (
-              <>
-                <Loader2 className="h-4 w-4 animate-spin" />
-                <span>{t("searching")}</span>
-              </>
-            ) : (
-              <>
-                <Bot className="h-4 w-4" />
-                <span>{t("searchBtn")}</span>
-              </>
-            )}
+            <Bot className="h-4 w-4" />
+            <span>{t("searchBtn")}</span>
           </Button>
         </form>
 

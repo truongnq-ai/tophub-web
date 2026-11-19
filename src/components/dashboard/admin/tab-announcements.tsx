@@ -41,6 +41,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { TableContainer, TableSkeletonRows } from "@/components/ui/table-loader";
 import {
   getAdminAnnouncementsAction,
   createAdminAnnouncementAction,
@@ -478,34 +479,39 @@ export function TabAnnouncements({ onSummaryChange }: TabAnnouncementsProps = {}
           )}
 
           {/* Announcements Table */}
-          <div className="rounded-xl border border-slate-800 overflow-x-auto">
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead className="w-[88px]">Thứ tự</TableHead>
-                  <TableHead className="w-[180px]">Loại & Hiệu ứng</TableHead>
-                  <TableHead>Nội dung thông báo (VI / EN)</TableHead>
-                  <TableHead className="w-[180px]">Đích đến & CTA</TableHead>
-                  <TableHead className="w-[110px]">Hiển thị</TableHead>
-                  <TableHead className="text-right w-[110px]">
-                    Thao tác
-                  </TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {items.length === 0 ? (
+          <TableContainer
+            isOverlayLoading={loading && items.length > 0}
+            overlayLabel="Đang tải danh sách thông báo..."
+            className="rounded-xl border border-slate-800"
+          >
+            <div className="overflow-x-auto">
+              <Table>
+                <TableHeader>
                   <TableRow>
-                    <TableCell
-                      colSpan={6}
-                      className="text-center text-slate-400 py-8 text-sm"
-                    >
-                      {loading
-                        ? "Đang tải danh sách thông báo..."
-                        : "Chưa có thông báo nào. Nhấn “Thêm thông báo mới” để tạo."}
-                    </TableCell>
+                    <TableHead className="w-[88px]">Thứ tự</TableHead>
+                    <TableHead className="w-[180px]">Loại & Hiệu ứng</TableHead>
+                    <TableHead>Nội dung thông báo (VI / EN)</TableHead>
+                    <TableHead className="w-[180px]">Đích đến & CTA</TableHead>
+                    <TableHead className="w-[110px]">Hiển thị</TableHead>
+                    <TableHead className="text-right w-[110px]">
+                      Thao tác
+                    </TableHead>
                   </TableRow>
-                ) : (
-                  items.map((item, idx) => {
+                </TableHeader>
+                <TableBody>
+                  {loading && items.length === 0 ? (
+                    <TableSkeletonRows rows={3} columns={6} />
+                  ) : items.length === 0 ? (
+                    <TableRow>
+                      <TableCell
+                        colSpan={6}
+                        className="text-center text-slate-400 py-8 text-sm"
+                      >
+                        Chưa có thông báo nào. Nhấn “Thêm thông báo mới” để tạo.
+                      </TableCell>
+                    </TableRow>
+                  ) : (
+                    items.map((item, idx) => {
                     const visualKind = resolveAnnouncementVisualKind(item);
                     const meta = TYPE_META[item.type] ?? TYPE_META.CALCULATOR;
                     return (
@@ -625,6 +631,7 @@ export function TabAnnouncements({ onSummaryChange }: TabAnnouncementsProps = {}
               </TableBody>
             </Table>
           </div>
+        </TableContainer>
         </CardContent>
       </Card>
 
@@ -863,8 +870,12 @@ export function TabAnnouncements({ onSummaryChange }: TabAnnouncementsProps = {}
               >
                 Hủy
               </Button>
-              <Button type="submit" disabled={saving}>
-                {saving ? "Đang lưu..." : "Lưu thông báo"}
+              <Button
+                type="submit"
+                loading={saving}
+                loadingText="Đang lưu..."
+              >
+                Lưu thông báo
               </Button>
             </DialogFooter>
           </form>
@@ -890,7 +901,8 @@ export function TabAnnouncements({ onSummaryChange }: TabAnnouncementsProps = {}
             </Button>
             <Button
               variant="destructive"
-              disabled={saving}
+              loading={saving}
+              loadingText="Đang xóa..."
               onClick={() => void handleConfirmDelete()}
             >
               Xác nhận xóa
@@ -913,7 +925,11 @@ export function TabAnnouncements({ onSummaryChange }: TabAnnouncementsProps = {}
             <Button variant="ghost" onClick={() => setResetConfirmOpen(false)}>
               Hủy
             </Button>
-            <Button disabled={saving} onClick={() => void handleConfirmReset()}>
+            <Button
+              loading={saving}
+              loadingText="Đang khôi phục..."
+              onClick={() => void handleConfirmReset()}
+            >
               Xác nhận khôi phục
             </Button>
           </DialogFooter>

@@ -56,6 +56,7 @@ export function TabComments({ onStatsChange }: TabCommentsProps) {
   const [replyingComment, setReplyingComment] = useState<AdminCommentItem | null>(null);
   const [adminReplyText, setAdminReplyText] = useState("");
   const [isSendingReply, setIsSendingReply] = useState(false);
+  const [actionProcessingId, setActionProcessingId] = useState<string | null>(null);
 
   // Banned Words Dictionary State
   const [customWords, setCustomWords] = useState<string[]>([]);
@@ -126,24 +127,34 @@ export function TabComments({ onStatsChange }: TabCommentsProps) {
   }, [loadBannedWords]);
 
   const handleStatusChange = async (id: string, status: CommentStatus) => {
-    const res = await updateAdminCommentAction(id, { status });
-    if (res && res.success) {
-      setComments((prev) =>
-        prev.map((item) => (item.id === id ? { ...item, status } : item))
-      );
-      onStatsChange?.();
+    setActionProcessingId(id);
+    try {
+      const res = await updateAdminCommentAction(id, { status });
+      if (res && res.success) {
+        setComments((prev) =>
+          prev.map((item) => (item.id === id ? { ...item, status } : item))
+        );
+        onStatsChange?.();
+      }
+    } finally {
+      setActionProcessingId(null);
     }
   };
 
   const handleTogglePin = async (item: AdminCommentItem) => {
     const nextPinned = !item.is_pinned;
-    const res = await updateAdminCommentAction(item.id, {
-      is_pinned: nextPinned,
-    });
-    if (res && res.success) {
-      setComments((prev) =>
-        prev.map((c) => (c.id === item.id ? { ...c, is_pinned: nextPinned } : c))
-      );
+    setActionProcessingId(item.id);
+    try {
+      const res = await updateAdminCommentAction(item.id, {
+        is_pinned: nextPinned,
+      });
+      if (res && res.success) {
+        setComments((prev) =>
+          prev.map((c) => (c.id === item.id ? { ...c, is_pinned: nextPinned } : c))
+        );
+      }
+    } finally {
+      setActionProcessingId(null);
     }
   };
 
@@ -304,9 +315,21 @@ export function TabComments({ onStatsChange }: TabCommentsProps) {
 
       {/* Comments List */}
       <div className="space-y-3">
-        {isLoading ? (
-          <div className="p-8 text-center text-xs text-muted-foreground font-mono">
-            Đang tải danh sách bình luận...
+        {isLoading && comments.length === 0 ? (
+          <div className="space-y-3">
+            {[1, 2, 3].map((i) => (
+              <Card
+                key={i}
+                className="border border-border/70 bg-card/85 rounded-xl p-4 animate-pulse space-y-3"
+              >
+                <div className="flex items-center gap-2">
+                  <div className="h-4 w-28 bg-muted rounded" />
+                  <div className="h-4 w-12 bg-muted rounded" />
+                  <div className="h-4 w-20 bg-muted rounded" />
+                </div>
+                <div className="h-10 bg-muted/60 rounded" />
+              </Card>
+            ))}
           </div>
         ) : comments.length === 0 ? (
           <div className="p-8 text-center text-xs text-muted-foreground border border-dashed rounded-xl">
@@ -357,6 +380,7 @@ export function TabComments({ onStatsChange }: TabCommentsProps) {
                         size="sm"
                         variant="outline"
                         data-testid={`admin-approve-comment-${item.id}`}
+                        disabled={actionProcessingId !== null}
                         onClick={() => handleStatusChange(item.id, "APPROVED")}
                         className="h-7 px-2.5 text-xs text-emerald-600 border-emerald-500/40"
                       >
@@ -369,6 +393,7 @@ export function TabComments({ onStatsChange }: TabCommentsProps) {
                         size="sm"
                         variant="outline"
                         data-testid={`admin-hide-comment-${item.id}`}
+                        disabled={actionProcessingId !== null}
                         onClick={() => handleStatusChange(item.id, "HIDDEN")}
                         className="h-7 px-2.5 text-xs text-amber-600 border-amber-500/40"
                       >
@@ -379,6 +404,7 @@ export function TabComments({ onStatsChange }: TabCommentsProps) {
                     <Button
                       size="sm"
                       variant="outline"
+                      disabled={actionProcessingId !== null}
                       onClick={() => handleTogglePin(item)}
                       className="h-7 px-2.5 text-xs"
                     >
@@ -388,6 +414,7 @@ export function TabComments({ onStatsChange }: TabCommentsProps) {
                     <Button
                       size="sm"
                       variant="outline"
+                      disabled={actionProcessingId !== null}
                       onClick={() => setReplyingComment(item)}
                       className="h-7 px-2.5 text-xs"
                     >
@@ -398,6 +425,7 @@ export function TabComments({ onStatsChange }: TabCommentsProps) {
                       size="sm"
                       variant="outline"
                       data-testid={`admin-delete-comment-${item.id}`}
+                      disabled={actionProcessingId !== null}
                       onClick={() => handleStatusChange(item.id, "DELETED")}
                       className="h-7 px-2.5 text-xs text-destructive border-destructive/40"
                     >
@@ -431,7 +459,9 @@ export function TabComments({ onStatsChange }: TabCommentsProps) {
                     <Button
                       type="submit"
                       size="sm"
-                      disabled={isSendingReply || adminReplyText.trim().length < 3}
+                      loading={isSendingReply}
+                      loadingText="Đang gửi..."
+                      disabled={adminReplyText.trim().length < 3}
                       className="h-8 text-xs font-bold gap-1"
                     >
                       <Send className="h-3.5 w-3.5" />

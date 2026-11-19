@@ -377,10 +377,10 @@ export function EditGiftcodeDialog({
             </Button>
             <Button
               type="submit"
-              disabled={isSubmitting}
+              loading={isSubmitting}
+              loadingText="Đang lưu thay đổi..."
               className="bg-primary text-primary-foreground gap-1.5 text-xs font-bold min-h-[38px]"
             >
-              {isSubmitting && <Loader2 className="h-3.5 w-3.5 animate-spin" />}
               Lưu Thay Đổi
             </Button>
           </DialogFooter>

@@ -530,15 +530,13 @@ export function GuideCommentsSection({
             <Button
               type="submit"
               data-testid="comment-root-submit-btn"
+              loading={isSubmitting}
+              loadingText={labels.submittingBtn}
               disabled={isSubmitting || content.trim().length < 3}
               className="btn-tactile-gold min-h-[44px] h-11 px-5 rounded-xl text-xs sm:text-sm font-bold inline-flex items-center gap-2"
             >
-              {isSubmitting ? (
-                <Loader2 className="h-3.5 w-3.5 animate-spin" />
-              ) : (
-                <Send className="h-3.5 w-3.5" />
-              )}
-              <span>{isSubmitting ? labels.submittingBtn : labels.submitBtn}</span>
+              <Send className="h-3.5 w-3.5" />
+              <span>{labels.submitBtn}</span>
             </Button>
           </div>
         </form>
@@ -848,6 +846,8 @@ export function GuideCommentsSection({
                       <Button
                         type="submit"
                         data-testid="comment-reply-submit-btn"
+                        loading={isSubmittingReply}
+                        loadingText={labels.submittingBtn}
                         disabled={
                           isSubmittingReply || replyContent.trim().length < 3
                         }

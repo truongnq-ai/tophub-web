@@ -30,6 +30,7 @@ import { AccountAvatar } from "./account-avatar";
 import { ServerTag } from "./server-tag";
 import { AdminPagination } from "./pagination";
 import { AdminEmptyState } from "./empty-state";
+import { TableContainer, TableSkeletonRows } from "@/components/ui/table-loader";
 import { WeeklyCheckinTimeline } from "./weekly-checkin-timeline";
 import { formatServerCode } from "@/lib/utils";
 import { formatLocalizedDate, formatLocalizedTimeWithTz } from "@/lib/timezone";
@@ -467,14 +468,12 @@ export function TabCheckins() {
               variant="outline"
               size="sm"
               onClick={handleRetryAll}
+              loading={isRetryingAll}
+              loadingText="Đang điểm danh lại..."
               disabled={isRetryingAll || failedCount === 0 || retryingId !== null}
               className="h-9 px-3 gap-1.5 text-xs font-bold border-rose-500/30 text-rose-600 hover:bg-rose-500/10 shadow-xs min-h-[38px]"
             >
-              {isRetryingAll ? (
-                <Loader2 className="h-3.5 w-3.5 animate-spin" />
-              ) : (
-                <CalendarCheck className="h-3.5 w-3.5" />
-              )}
+              <CalendarCheck className="h-3.5 w-3.5" />
               <span>Điểm Danh Lại Lỗi ({failedCount})</span>
             </Button>
           </div>
@@ -527,167 +526,164 @@ export function TabCheckins() {
       </CardHeader>
 
       <CardContent className="p-0">
-        <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs sm:text-sm">
-            <thead className="bg-muted/40 text-muted-foreground uppercase text-[10px] tracking-wider border-b border-border/40 font-semibold">
-              <tr>
-                <th className="px-4 py-3">Tài Khoản / UID</th>
-                <th className="px-4 py-3">Máy Chủ</th>
-                <th className="px-4 py-3">Ngày Điểm Danh</th>
-                <th className="px-4 py-3">Trạng Thái</th>
-                <th className="px-4 py-3">Phản Hồi Hệ Thống Game</th>
-                <th className="px-4 py-3">Thời Gian Thực Hiện</th>
-                <th className="px-4 py-3 text-right">Thao Tác</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-border/30 text-card-foreground">
-              {paginatedCheckins.length > 0 ? (
-                paginatedCheckins.map((item) => {
-                  return (
-                    <tr
-                      key={item.id}
-                      className="hover:bg-muted/30 transition-colors group"
-                    >
-                      <td className="px-4 py-3.5">
-                        <div className="flex items-center gap-2.5">
-                          <AccountAvatar nickname={item.nickname} size="sm" />
-                          <div className="min-w-0">
-                            <div className="font-bold text-foreground text-sm truncate">
-                              {item.nickname}
-                            </div>
-                            <div className="font-mono text-[11px] text-muted-foreground">
-                              {item.uid}
+        <TableContainer
+          isOverlayLoading={isLoading && paginatedCheckins.length > 0}
+          overlayLabel="Đang tải lịch sử điểm danh..."
+          className="border-0 rounded-none"
+        >
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs sm:text-sm">
+              <thead className="bg-muted/40 text-muted-foreground uppercase text-[10px] tracking-wider border-b border-border/40 font-semibold">
+                <tr>
+                  <th className="px-4 py-3">Tài Khoản / UID</th>
+                  <th className="px-4 py-3">Máy Chủ</th>
+                  <th className="px-4 py-3">Ngày Điểm Danh</th>
+                  <th className="px-4 py-3">Trạng Thái</th>
+                  <th className="px-4 py-3">Phản Hồi Hệ Thống Game</th>
+                  <th className="px-4 py-3">Thời Gian Thực Hiện</th>
+                  <th className="px-4 py-3 text-right">Thao Tác</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-border/30 text-card-foreground">
+                {isLoading && paginatedCheckins.length === 0 ? (
+                  <TableSkeletonRows rows={pageSize > 10 ? 10 : pageSize} columns={7} />
+                ) : paginatedCheckins.length > 0 ? (
+                  paginatedCheckins.map((item) => {
+                    return (
+                      <tr
+                        key={item.id}
+                        className="hover:bg-muted/30 transition-colors group"
+                      >
+                        <td className="px-4 py-3.5">
+                          <div className="flex items-center gap-2.5">
+                            <AccountAvatar nickname={item.nickname} size="sm" />
+                            <div className="min-w-0">
+                              <div className="font-bold text-foreground text-sm truncate">
+                                {item.nickname}
+                              </div>
+                              <div className="font-mono text-[11px] text-muted-foreground">
+                                {item.uid}
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </td>
+                        </td>
 
-                      <td className="px-4 py-3.5">
-                        <ServerTag serverId={item.server_id} />
-                      </td>
+                        <td className="px-4 py-3.5">
+                          <ServerTag serverId={item.server_id} />
+                        </td>
 
-                      <td className="px-4 py-3.5">
-                        <span className="font-mono text-xs font-semibold bg-muted/60 px-2 py-0.5 rounded border border-border/60 text-foreground flex items-center gap-1.5 w-fit">
-                          <Calendar className="h-3 w-3 text-muted-foreground" />
-                          {item.game_day}
-                        </span>
-                      </td>
+                        <td className="px-4 py-3.5">
+                          <span className="font-mono text-xs font-semibold bg-muted/60 px-2 py-0.5 rounded border border-border/60 text-foreground flex items-center gap-1.5 w-fit">
+                            <Calendar className="h-3 w-3 text-muted-foreground" />
+                            {item.game_day}
+                          </span>
+                        </td>
 
-                      <td className="px-4 py-3.5">
-                        {item.status === "SUCCESS" ? (
-                          <span className="inline-flex items-center gap-1 text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
-                            <CheckCircle2 className="h-3 w-3" />
-                            ĐÃ ĐIỂM DANH
-                          </span>
-                        ) : item.status === "ALREADY_CHECKED" ? (
-                          <span className="inline-flex items-center gap-1 text-[11px] text-sky-600 dark:text-sky-400 font-semibold bg-sky-500/10 px-2 py-0.5 rounded-full border border-sky-500/20">
-                            <CheckCircle2 className="h-3 w-3" />
-                            ĐÃ ĐIỂM DANH TRƯỚC
-                          </span>
-                        ) : item.status === "INELIGIBLE" ? (
-                          <span className="inline-flex items-center gap-1 text-[11px] text-amber-600 dark:text-amber-400 font-semibold bg-amber-500/10 px-2 py-0.5 rounded-full border border-amber-500/20">
-                            <AlertCircle className="h-3 w-3" />
-                            CHƯA ĐỦ ĐK
-                          </span>
-                        ) : item.status === "PENDING" ? (
-                          <span className="inline-flex items-center gap-1 text-[11px] text-amber-600 dark:text-amber-400 font-semibold bg-amber-500/10 px-2 py-0.5 rounded-full border border-amber-500/20">
-                            <Clock className="h-3 w-3" />
-                            CHỜ ĐIỂM DANH
-                          </span>
-                        ) : (
-                          <span className="inline-flex items-center gap-1 text-[11px] text-rose-600 dark:text-rose-400 font-semibold bg-rose-500/10 px-2 py-0.5 rounded-full border border-rose-500/20">
-                            <XCircle className="h-3 w-3" />
-                            THẤT BẠI
-                          </span>
-                        )}
-                      </td>
-
-                      <td className="px-4 py-3.5 max-w-xs text-xs text-muted-foreground">
-                        {item.api_message ? (
-                          <div className="flex items-center gap-1.5">
-                            {item.status === "FAILED" ? (
-                              <AlertCircle className="h-3.5 w-3.5 text-rose-500 shrink-0" />
-                            ) : item.status === "INELIGIBLE" ? (
-                              <AlertCircle className="h-3.5 w-3.5 text-amber-500 shrink-0" />
-                            ) : item.status === "ALREADY_CHECKED" ? (
-                              <AlertCircle className="h-3.5 w-3.5 text-sky-500 shrink-0" />
-                            ) : null}
-                            <span className="truncate" title={item.api_message}>
-                              {item.api_message}
+                        <td className="px-4 py-3.5">
+                          {item.status === "SUCCESS" ? (
+                            <span className="inline-flex items-center gap-1 text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                              <CheckCircle2 className="h-3 w-3" />
+                              ĐÃ ĐIỂM DANH
                             </span>
-                          </div>
-                        ) : (
-                          <span className="text-muted-foreground/40">—</span>
-                        )}
-                      </td>
+                          ) : item.status === "ALREADY_CHECKED" ? (
+                            <span className="inline-flex items-center gap-1 text-[11px] text-sky-600 dark:text-sky-400 font-semibold bg-sky-500/10 px-2 py-0.5 rounded-full border border-sky-500/20">
+                              <CheckCircle2 className="h-3 w-3" />
+                              ĐÃ ĐIỂM DANH TRƯỚC
+                            </span>
+                          ) : item.status === "INELIGIBLE" ? (
+                            <span className="inline-flex items-center gap-1 text-[11px] text-amber-600 dark:text-amber-400 font-semibold bg-amber-500/10 px-2 py-0.5 rounded-full border border-amber-500/20">
+                              <AlertCircle className="h-3 w-3" />
+                              CHƯA ĐỦ ĐK
+                            </span>
+                          ) : item.status === "PENDING" ? (
+                            <span className="inline-flex items-center gap-1 text-[11px] text-amber-600 dark:text-amber-400 font-semibold bg-amber-500/10 px-2 py-0.5 rounded-full border border-amber-500/20">
+                              <Clock className="h-3 w-3" />
+                              CHỜ ĐIỂM DANH
+                            </span>
+                          ) : (
+                            <span className="inline-flex items-center gap-1 text-[11px] text-rose-600 dark:text-rose-400 font-semibold bg-rose-500/10 px-2 py-0.5 rounded-full border border-rose-500/20">
+                              <XCircle className="h-3 w-3" />
+                              THẤT BẠI
+                            </span>
+                          )}
+                        </td>
 
-                      <td className="px-4 py-3.5 font-mono text-xs text-muted-foreground">
-                        {formatLocalizedTimeWithTz(item.created_at, "vi")}{" "}
-                        {formatLocalizedDate(item.created_at, "vi")}
-                      </td>
+                        <td className="px-4 py-3.5 max-w-xs text-xs text-muted-foreground">
+                          {item.api_message ? (
+                            <div className="flex items-center gap-1.5">
+                              {item.status === "FAILED" ? (
+                                <AlertCircle className="h-3.5 w-3.5 text-rose-500 shrink-0" />
+                              ) : item.status === "INELIGIBLE" ? (
+                                <AlertCircle className="h-3.5 w-3.5 text-amber-500 shrink-0" />
+                              ) : item.status === "ALREADY_CHECKED" ? (
+                                <AlertCircle className="h-3.5 w-3.5 text-sky-500 shrink-0" />
+                              ) : null}
+                              <span className="truncate" title={item.api_message}>
+                                {item.api_message}
+                              </span>
+                            </div>
+                          ) : (
+                            <span className="text-muted-foreground/40">—</span>
+                          )}
+                        </td>
 
-                      <td className="px-4 py-3.5 text-right">
-                        {item.status === "FAILED" || item.status === "INELIGIBLE" ? (
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            onClick={() => handleRetrySingle(item)}
-                            disabled={retryingId === item.id || isRetryingAll}
-                            className="h-8 px-2.5 text-xs font-bold text-primary border-primary/30 hover:bg-primary/10 gap-1.5 min-h-[36px]"
-                          >
-                            {retryingId === item.id ? (
-                              <Loader2 className="h-3 w-3 animate-spin" />
-                            ) : (
+                        <td className="px-4 py-3.5 font-mono text-xs text-muted-foreground">
+                          {formatLocalizedTimeWithTz(item.created_at, "vi")}{" "}
+                          {formatLocalizedDate(item.created_at, "vi")}
+                        </td>
+
+                        <td className="px-4 py-3.5 text-right">
+                          {item.status === "FAILED" || item.status === "INELIGIBLE" ? (
+                            <Button
+                              variant="outline"
+                              size="sm"
+                              onClick={() => handleRetrySingle(item)}
+                              loading={retryingId === item.id}
+                              loadingText="Đang thử..."
+                              disabled={retryingId === item.id || isRetryingAll}
+                              className="h-8 px-2.5 text-xs font-bold text-primary border-primary/30 hover:bg-primary/10 gap-1.5 min-h-[36px]"
+                            >
                               <RotateCcw className="h-3 w-3" />
-                            )}
-                            <span>Điểm danh lại</span>
-                          </Button>
-                        ) : item.status === "ALREADY_CHECKED" ? (
-                          <span className="text-[11px] text-sky-600 dark:text-sky-400 font-mono italic">
-                            Tự điểm danh
-                          </span>
-                        ) : item.status === "PENDING" ? (
-                          <span className="text-[11px] text-amber-600/80 dark:text-amber-400/80 font-mono italic">
-                            Chờ tới giờ
-                          </span>
-                        ) : (
-                          <span className="text-[11px] text-muted-foreground font-mono italic">
-                            Hoàn thành
-                          </span>
-                        )}
-                      </td>
-                    </tr>
-                  );
-                })
-              ) : isLoading ? (
-                <tr>
-                  <td colSpan={7} className="px-4 py-12 text-center text-muted-foreground text-xs">
-                    <div className="flex flex-col items-center justify-center gap-2">
-                      <Loader2 className="h-6 w-6 animate-spin text-primary" />
-                      <p className="font-medium text-sm">Đang tải lịch sử điểm danh...</p>
-                    </div>
-                  </td>
-                </tr>
-              ) : (
-                <tr>
-                  <td colSpan={7} className="p-0">
-                    <AdminEmptyState
-                      title="Không tìm thấy lịch sử điểm danh"
-                      description="Không có bản ghi điểm danh nào khớp với tiêu chí tìm kiếm hoặc ngày được chọn."
-                      onClearFilters={() => {
-                        setSearch("");
-                        setDebouncedSearch("");
-                        setFilterStatus("ALL");
-                        setFilterDay("ALL");
-                        setCurrentPage(1);
-                      }}
-                    />
-                  </td>
-                </tr>
-              )}
-            </tbody>
-          </table>
-        </div>
+                              <span>Điểm danh lại</span>
+                            </Button>
+                          ) : item.status === "ALREADY_CHECKED" ? (
+                            <span className="text-[11px] text-sky-600 dark:text-sky-400 font-mono italic">
+                              Tự điểm danh
+                            </span>
+                          ) : item.status === "PENDING" ? (
+                            <span className="text-[11px] text-amber-600/80 dark:text-amber-400/80 font-mono italic">
+                              Chờ tới giờ
+                            </span>
+                          ) : (
+                            <span className="text-[11px] text-muted-foreground font-mono italic">
+                              Hoàn thành
+                            </span>
+                          )}
+                        </td>
+                      </tr>
+                    );
+                  })
+                ) : (
+                  <tr>
+                    <td colSpan={7} className="p-0">
+                      <AdminEmptyState
+                        title="Không tìm thấy lịch sử điểm danh"
+                        description="Không có bản ghi điểm danh nào khớp với tiêu chí tìm kiếm hoặc ngày được chọn."
+                        onClearFilters={() => {
+                          setSearch("");
+                          setDebouncedSearch("");
+                          setFilterStatus("ALL");
+                          setFilterDay("ALL");
+                          setCurrentPage(1);
+                        }}
+                      />
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
+        </TableContainer>
 
         {/* Reusable Pagination */}
         <AdminPagination

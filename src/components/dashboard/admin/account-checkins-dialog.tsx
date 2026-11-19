@@ -21,6 +21,7 @@ import {
 } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { TableContainer } from "@/components/ui/table-loader";
 import { useToast } from "@/hooks/use-toast";
 import { getAdminAccountCheckinsAction, retryAdminCheckinAction } from "@/actions/admin";
 import type { AdminAccountItem, AdminAccountCheckinHistory, AdminAccountCheckinDay } from "@/types/api";
@@ -191,10 +192,12 @@ export function AccountCheckinsDialog({
                     size="sm"
                     variant="outline"
                     onClick={() => handleRetryToday(day)}
+                    loading={retryingToday}
+                    loadingText="Đang thử..."
                     disabled={retryingToday}
                     className="h-7 px-2 text-[11px] font-bold text-amber-500 border-amber-500/30 hover:bg-amber-500/10"
                   >
-                    {retryingToday ? <Loader2 className="h-3 w-3 animate-spin" /> : "Thử lại hôm nay"}
+                    Thử lại hôm nay
                   </Button>
                 )}
               </div>
@@ -263,49 +266,55 @@ export function AccountCheckinsDialog({
         </DialogHeader>
 
         {/* 2-Week Tables Content */}
-        <div className="flex-1 overflow-y-auto py-2 pr-1 space-y-4 max-h-[55vh]">
-          {isLoading ? (
-            <div className="py-12 flex flex-col items-center justify-center gap-2 text-muted-foreground">
-              <Loader2 className="h-6 w-6 animate-spin text-primary" />
-              <span className="text-xs">Đang tải lịch sử điểm danh 2 tuần...</span>
-            </div>
-          ) : history ? (
-            <>
-              {/* Current Week */}
-              <div className="space-y-2">
-                <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                  <span className="flex items-center gap-1.5 text-foreground">
-                    <Sparkles className="h-3.5 w-3.5 text-amber-500" />
-                    Tuần Hiện Tại (Thứ 2 ➔ Chủ Nhật)
-                  </span>
-                  <span className="text-[11px] font-mono font-semibold">
-                    {history.weeks.current_week[0]?.game_day} ➔ {history.weeks.current_week[6]?.game_day}
-                  </span>
-                </div>
-                {renderWeekTable(history.weeks.current_week, true)}
+        <TableContainer
+          isOverlayLoading={isLoading && history !== null}
+          overlayLabel="Đang tải lịch sử điểm danh..."
+          className="flex-1 max-h-[55vh] border-0"
+        >
+          <div className="overflow-y-auto py-2 pr-1 space-y-4">
+            {isLoading && history === null ? (
+              <div className="py-12 flex flex-col items-center justify-center gap-2 text-muted-foreground">
+                <Loader2 className="h-6 w-6 animate-spin text-primary" />
+                <span className="text-xs">Đang tải lịch sử điểm danh 2 tuần...</span>
               </div>
+            ) : history ? (
+              <>
+                {/* Current Week */}
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                    <span className="flex items-center gap-1.5 text-foreground">
+                      <Sparkles className="h-3.5 w-3.5 text-amber-500" />
+                      Tuần Hiện Tại (Thứ 2 ➔ Chủ Nhật)
+                    </span>
+                    <span className="text-[11px] font-mono font-semibold">
+                      {history.weeks.current_week[0]?.game_day} ➔ {history.weeks.current_week[6]?.game_day}
+                    </span>
+                  </div>
+                  {renderWeekTable(history.weeks.current_week, true)}
+                </div>
 
-              {/* Previous Week */}
-              <div className="space-y-2 pt-2">
-                <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                  <span className="flex items-center gap-1.5 text-muted-foreground">
-                    <Calendar className="h-3.5 w-3.5 opacity-70" />
-                    Tuần Trước (Đã Đóng Sổ)
-                  </span>
-                  <span className="text-[11px] font-mono font-semibold text-muted-foreground">
-                    {history.weeks.previous_week[0]?.game_day} ➔ {history.weeks.previous_week[6]?.game_day}
-                  </span>
+                {/* Previous Week */}
+                <div className="space-y-2 pt-2">
+                  <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                    <span className="flex items-center gap-1.5 text-muted-foreground">
+                      <Calendar className="h-3.5 w-3.5 opacity-70" />
+                      Tuần Trước (Đã Đóng Sổ)
+                    </span>
+                    <span className="text-[11px] font-mono font-semibold text-muted-foreground">
+                      {history.weeks.previous_week[0]?.game_day} ➔ {history.weeks.previous_week[6]?.game_day}
+                    </span>
+                  </div>
+                  {renderWeekTable(history.weeks.previous_week, false)}
                 </div>
-                {renderWeekTable(history.weeks.previous_week, false)}
+              </>
+            ) : (
+              <div className="py-12 text-center text-muted-foreground space-y-2">
+                <CalendarCheck className="h-8 w-8 mx-auto opacity-30" />
+                <p className="text-xs font-semibold">Không tìm thấy dữ liệu điểm danh của tài khoản này</p>
               </div>
-            </>
-          ) : (
-            <div className="py-12 text-center text-muted-foreground space-y-2">
-              <CalendarCheck className="h-8 w-8 mx-auto opacity-30" />
-              <p className="text-xs font-semibold">Không tìm thấy dữ liệu điểm danh của tài khoản này</p>
-            </div>
-          )}
-        </div>
+            )}
+          </div>
+        </TableContainer>
       </DialogContent>
     </Dialog>
   );

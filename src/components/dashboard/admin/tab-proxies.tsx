@@ -38,6 +38,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { TableContainer, TableSkeletonRows } from "@/components/ui/table-loader";
 import {
   getAdminProxiesAction,
   createAdminProxiesAction,
@@ -115,12 +116,14 @@ export function TabProxies({ onSummaryChange }: TabProxiesProps = {}) {
   const [savingExpiry, setSavingExpiry] = useState(false);
 
   const [deleting, setDeleting] = useState<AdminProxyItem | null>(null);
+  const [isDeleting, setIsDeleting] = useState(false);
   const [testingId, setTestingId] = useState<string | null>(null);
   const [intervalInput, setIntervalInput] = useState("8000");
   const [replayPreview, setReplayPreview] =
     useState<AdminRecoveryReplayResult | null>(null);
   const [replayDone, setReplayDone] =
     useState<AdminRecoveryReplayResult | null>(null);
+  const [isReplaying, setIsReplaying] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -247,10 +250,15 @@ export function TabProxies({ onSummaryChange }: TabProxiesProps = {}) {
 
   const confirmDelete = async () => {
     if (!deleting) return;
-    const r = await deleteAdminProxyAction(deleting.id);
-    if (r?.success) {
-      setDeleting(null);
-      await load();
+    setIsDeleting(true);
+    try {
+      const r = await deleteAdminProxyAction(deleting.id);
+      if (r?.success) {
+        setDeleting(null);
+        await load();
+      }
+    } finally {
+      setIsDeleting(false);
     }
   };
 
@@ -268,10 +276,15 @@ export function TabProxies({ onSummaryChange }: TabProxiesProps = {}) {
   };
 
   const runReplay = async () => {
-    const r = await replayAdminFailedRecordsAction({ dry_run: false });
-    if (r?.success && r.data) {
-      setReplayDone(r.data);
-      setReplayPreview(null);
+    setIsReplaying(true);
+    try {
+      const r = await replayAdminFailedRecordsAction({ dry_run: false });
+      if (r?.success && r.data) {
+        setReplayDone(r.data);
+        setReplayPreview(null);
+      }
+    } finally {
+      setIsReplaying(false);
     }
   };
 
@@ -400,38 +413,36 @@ export function TabProxies({ onSummaryChange }: TabProxiesProps = {}) {
             </div>
           )}
 
-          <div className="rounded-xl border border-slate-800 overflow-x-auto">
-            <Table>
-              <TableHeader className="bg-slate-950/80">
-                <TableRow className="border-slate-800">
-                  {TABLE_HEADERS.map((h) => (
-                    <TableHead key={h} className="text-slate-400">
-                      {h}
-                    </TableHead>
-                  ))}
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {loading && !data ? (
-                  <TableRow>
-                    <TableCell
-                      colSpan={7}
-                      className="py-8 text-center text-sm text-slate-400"
-                    >
-                      Đang tải proxy...
-                    </TableCell>
+          <TableContainer
+            isOverlayLoading={loading && Boolean(data && data.items.length > 0)}
+            overlayLabel="Đang tải danh sách proxy..."
+            className="rounded-xl border border-slate-800"
+          >
+            <div className="overflow-x-auto">
+              <Table>
+                <TableHeader className="bg-slate-950/80">
+                  <TableRow className="border-slate-800">
+                    {TABLE_HEADERS.map((h) => (
+                      <TableHead key={h} className="text-slate-400">
+                        {h}
+                      </TableHead>
+                    ))}
                   </TableRow>
-                ) : (data?.items.length ?? 0) === 0 ? (
-                  <TableRow>
-                    <TableCell
-                      colSpan={7}
-                      className="py-8 text-center text-sm text-slate-400"
-                    >
-                      Chưa có proxy nào.
-                    </TableCell>
-                  </TableRow>
-                ) : (
-                  data!.items.map((p) => {
+                </TableHeader>
+                <TableBody>
+                  {loading && (!data || data.items.length === 0) ? (
+                    <TableSkeletonRows rows={5} columns={7} />
+                  ) : (data?.items.length ?? 0) === 0 ? (
+                    <TableRow>
+                      <TableCell
+                        colSpan={7}
+                        className="py-8 text-center text-sm text-slate-400"
+                      >
+                        Chưa có proxy nào.
+                      </TableCell>
+                    </TableRow>
+                  ) : (
+                    data!.items.map((p) => {
                     const name = `${p.host}:${p.port}`;
                     const expiry = getProxyExpiryCountdown(p.expires_at, nowMs);
                     const effectiveStatus =
@@ -576,6 +587,7 @@ export function TabProxies({ onSummaryChange }: TabProxiesProps = {}) {
               </TableBody>
             </Table>
           </div>
+        </TableContainer>
         </CardContent>
       </Card>
 
@@ -691,10 +703,11 @@ export function TabProxies({ onSummaryChange }: TabProxiesProps = {}) {
               </Button>
               <Button
                 type="submit"
-                disabled={saving}
+                loading={saving}
+                loadingText="Đang lưu proxy..."
                 className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold"
               >
-                {saving ? "Đang lưu..." : "Lưu proxy"}
+                Lưu proxy
               </Button>
             </DialogFooter>
           </form>
@@ -798,10 +811,11 @@ export function TabProxies({ onSummaryChange }: TabProxiesProps = {}) {
               </Button>
               <Button
                 type="submit"
-                disabled={savingExpiry}
+                loading={savingExpiry}
+                loadingText="Đang lưu..."
                 className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold"
               >
-                {savingExpiry ? "Đang lưu..." : "Lưu hạn dùng"}
+                Lưu hạn dùng
               </Button>
             </DialogFooter>
           </form>
@@ -836,6 +850,8 @@ export function TabProxies({ onSummaryChange }: TabProxiesProps = {}) {
             </Button>
             <Button
               type="button"
+              loading={isDeleting}
+              loadingText="Đang xoá..."
               onClick={() => void confirmDelete()}
               className="bg-rose-600 hover:bg-rose-700 text-white font-bold"
             >
@@ -884,6 +900,8 @@ export function TabProxies({ onSummaryChange }: TabProxiesProps = {}) {
             </Button>
             <Button
               type="button"
+              loading={isReplaying}
+              loadingText="Đang chạy lại..."
               onClick={() => void runReplay()}
               className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold"
             >

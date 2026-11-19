@@ -5,6 +5,7 @@ import { SessionProvider } from "next-auth/react";
 import { ThemeProvider } from "next-themes";
 import { UidSessionProvider } from "@/hooks/use-uid-session";
 import { Toaster } from "@/components/ui/toaster";
+import { NavigationProgressBar } from "@/components/navigation-progress-bar";
 
 interface ProvidersProps {
   children: ReactNode;
@@ -16,6 +17,7 @@ export function Providers({ children, session }: ProvidersProps) {
     <SessionProvider session={session}>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         <UidSessionProvider>
+          <NavigationProgressBar />
           {children}
           <Toaster />
         </UidSessionProvider>

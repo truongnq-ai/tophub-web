@@ -29,6 +29,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { TableContainer } from "@/components/ui/table-loader";
 import { useToast } from "@/hooks/use-toast";
 import { getAdminAccountPaymentsAction } from "@/actions/admin";
 import type {
@@ -541,7 +542,12 @@ export function AccountPaymentsDialog({
         </DialogHeader>
 
         {/* Transaction List */}
-        <div className="flex-1 overflow-y-auto py-2 pr-1 space-y-2 max-h-[45vh]">
+        <TableContainer
+          isOverlayLoading={isLoading && orders.length > 0}
+          overlayLabel="Đang tải lịch sử giao dịch..."
+          className="flex-1 max-h-[45vh] border-0"
+        >
+          <div className="overflow-y-auto py-2 pr-1 space-y-2">
           {isLoading && orders.length === 0 ? (
             <div className="py-12 flex flex-col items-center justify-center gap-2 text-muted-foreground">
               <Loader2 className="h-6 w-6 animate-spin text-primary" />
@@ -690,6 +696,7 @@ export function AccountPaymentsDialog({
             </div>
           )}
         </div>
+      </TableContainer>
 
         {/* Pagination */}
         <AdminPagination

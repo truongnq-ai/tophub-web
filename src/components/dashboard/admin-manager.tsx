@@ -310,14 +310,11 @@ export function AdminManager({
               variant="outline"
               size="sm"
               onClick={handleLogout}
-              disabled={isLoggingOut}
+              loading={isLoggingOut}
+              loadingText="Đang đăng xuất..."
               className="border-border/60 text-muted-foreground hover:text-destructive hover:bg-destructive/10 hover:border-destructive/30 font-bold gap-2 text-xs h-9 min-h-[38px] shadow-sm"
             >
-              {isLoggingOut ? (
-                <Loader2 className="h-3.5 w-3.5 animate-spin" />
-              ) : (
-                <LogOut className="h-3.5 w-3.5" />
-              )}
+              <LogOut className="h-3.5 w-3.5" />
               <span>Đăng Xuất Admin</span>
             </Button>
           </div>

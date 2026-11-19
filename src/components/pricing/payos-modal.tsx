@@ -352,19 +352,12 @@ export function PayOsModal({
             <Button
               className="w-full min-h-[44px] font-bold gap-2 py-5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white shadow-[0_0_20px_rgba(124,58,237,0.3)] transition-all"
               onClick={handleProceedToPayment}
+              loading={isCreatingCheckout}
+              loadingText="Đang khởi tạo mã thanh toán..."
               disabled={!previewData || isVerifying || isCreatingCheckout}
             >
-              {isCreatingCheckout ? (
-                <>
-                  <Loader2 className="h-4 w-4 animate-spin" />
-                  <span>Đang khởi tạo mã thanh toán...</span>
-                </>
-              ) : (
-                <>
-                  <span>{labels.confirmAndPay || "Xác Nhận & Lấy Mã QR"}</span>
-                  <ArrowRight className="h-4 w-4" />
-                </>
-              )}
+              <span>{labels.confirmAndPay || "Xác Nhận & Lấy Mã QR"}</span>
+              <ArrowRight className="h-4 w-4" />
             </Button>
           </div>
         )}

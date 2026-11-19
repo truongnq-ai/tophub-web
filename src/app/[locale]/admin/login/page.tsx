@@ -12,8 +12,11 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { ShieldCheck, Loader2, AlertCircle, Lock, User } from "lucide-react";
+import { ShieldCheck, AlertCircle, Lock, User } from "lucide-react";
 import { adminLoginAction } from "@/actions/admin";
+import { startNavigationProgress } from "@/components/navigation-progress-bar";
+
+type LoginStatus = "IDLE" | "AUTHENTICATING" | "REDIRECTING";
 
 export default function AdminLoginPage() {
   const locale = useLocale();
@@ -21,30 +24,36 @@ export default function AdminLoginPage() {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState<LoginStatus>("IDLE");
   const [error, setError] = useState<string | null>(null);
+
+  const isBusy = status !== "IDLE";
 
   const handleAdminLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!username || !password) {
-      setError("Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu");
+    if (!username || !password || isBusy) {
+      if (!username || !password) {
+        setError("Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu");
+      }
       return;
     }
 
     try {
-      setLoading(true);
+      setStatus("AUTHENTICATING");
       setError(null);
       const res = await adminLoginAction({ username, password });
       if (res.success && res.data?.token) {
+        setStatus("REDIRECTING");
+        startNavigationProgress();
         router.push(`/${locale}/admin/dashboard`);
         router.refresh();
       } else {
+        setStatus("IDLE");
         setError(res.error?.message || "Tài khoản hoặc mật khẩu quản trị không chính xác");
       }
     } catch {
+      setStatus("IDLE");
       setError("Lỗi kết nối tới máy chủ xác thực quản trị viên");
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -86,7 +95,7 @@ export default function AdminLoginPage() {
                   placeholder="admin"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
-                  disabled={loading}
+                  disabled={isBusy}
                   className="pl-9 h-11 rounded-xl bg-background/60"
                   autoComplete="username"
                   required
@@ -105,7 +114,7 @@ export default function AdminLoginPage() {
                   placeholder="••••••••"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  disabled={loading}
+                  disabled={isBusy}
                   className="pl-9 h-11 rounded-xl bg-background/60"
                   autoComplete="current-password"
                   required
@@ -115,17 +124,12 @@ export default function AdminLoginPage() {
 
             <Button
               type="submit"
-              disabled={loading || !username || !password}
+              loading={isBusy}
+              loadingText={status === "REDIRECTING" ? "Đang chuyển hướng..." : "Đang xác thực..."}
+              disabled={isBusy || !username || !password}
               className="w-full h-11 rounded-xl font-bold bg-primary hover:bg-primary/90 text-white min-h-[44px] shadow-lg shadow-primary/25"
             >
-              {loading ? (
-                <>
-                  <Loader2 className="h-4 w-4 animate-spin mr-2" />
-                  <span>Đang xác thực...</span>
-                </>
-              ) : (
-                <span>Đăng Nhập Quản Trị</span>
-              )}
+              Đăng Nhập Quản Trị
             </Button>
           </form>
         </CardContent>

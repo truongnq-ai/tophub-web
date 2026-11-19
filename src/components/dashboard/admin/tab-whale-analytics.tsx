@@ -26,6 +26,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { TableContainer, TableSkeletonRows } from "@/components/ui/table-loader";
 import { ServerTag } from "./server-tag";
 import { AdminPagination } from "./pagination";
 import {
@@ -290,13 +291,16 @@ export function TabWhaleAnalytics({ onOpenAccountPayments }: TabWhaleAnalyticsPr
               type="button"
               size="sm"
               onClick={() => void handleStartSyncAll()}
-              disabled={triggeringSync || isSyncRunning}
+              loading={triggeringSync || isSyncRunning}
+              loadingText={
+                isSyncRunning && syncState
+                  ? `Đang đồng bộ (${syncState.processedAccounts}/${syncState.totalAccounts})...`
+                  : "Đang khởi tạo..."
+              }
               className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold"
             >
               <Sparkles className="h-4 w-4 mr-1.5" />
-              {isSyncRunning && syncState
-                ? `Đang đồng bộ (${syncState.processedAccounts}/${syncState.totalAccounts})...`
-                : "Đồng bộ lịch sử nạp toàn hệ thống"}
+              Đồng bộ lịch sử nạp toàn hệ thống
             </Button>
           </div>
         </CardHeader>
@@ -603,35 +607,36 @@ export function TabWhaleAnalytics({ onOpenAccountPayments }: TabWhaleAnalyticsPr
             </div>
           )}
 
-          <div className="rounded-xl border border-slate-800 overflow-x-auto">
-            <Table>
-              <TableHeader className="bg-slate-950/80">
-                <TableRow className="border-slate-800">
-                  <TableHead className="w-12 text-slate-400">#</TableHead>
-                  <TableHead className="text-slate-400">Người Chơi</TableHead>
-                  <TableHead className="text-slate-400">Server / Quốc Gia</TableHead>
-                  <TableHead className="text-slate-400">Hạng &amp; Hoạt Động</TableHead>
-                  <TableHead className="text-right text-slate-400">Tổng Nạp Quy Đổi</TableHead>
-                  <TableHead className="text-right text-slate-400">Funtap / Store</TableHead>
-                  <TableHead className="text-right text-slate-400">30 Ngày Qua</TableHead>
-                  <TableHead className="text-right text-slate-400">Thao Tác</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {loading ? (
-                  <TableRow>
-                    <TableCell colSpan={8} className="py-10 text-center text-sm text-slate-400">
-                      Đang tải bảng xếp hạng nạp...
-                    </TableCell>
+          <TableContainer
+            isOverlayLoading={loading && Boolean(data && data.items.length > 0)}
+            overlayLabel="Đang tải bảng xếp hạng nạp..."
+            className="rounded-xl border border-slate-800"
+          >
+            <div className="overflow-x-auto">
+              <Table>
+                <TableHeader className="bg-slate-950/80">
+                  <TableRow className="border-slate-800">
+                    <TableHead className="w-12 text-slate-400">#</TableHead>
+                    <TableHead className="text-slate-400">Người Chơi</TableHead>
+                    <TableHead className="text-slate-400">Server / Quốc Gia</TableHead>
+                    <TableHead className="text-slate-400">Hạng &amp; Hoạt Động</TableHead>
+                    <TableHead className="text-right text-slate-400">Tổng Nạp Quy Đổi</TableHead>
+                    <TableHead className="text-right text-slate-400">Funtap / Store</TableHead>
+                    <TableHead className="text-right text-slate-400">30 Ngày Qua</TableHead>
+                    <TableHead className="text-right text-slate-400">Thao Tác</TableHead>
                   </TableRow>
-                ) : !data || data.items.length === 0 ? (
-                  <TableRow>
-                    <TableCell colSpan={8} className="py-10 text-center text-sm text-slate-400">
-                      Không tìm thấy tài khoản nào khớp bộ lọc.
-                    </TableCell>
-                  </TableRow>
-                ) : (
-                  data.items.map((row: AdminWhaleLeaderboardItem, idx: number) => {
+                </TableHeader>
+                <TableBody>
+                  {loading && (!data || data.items.length === 0) ? (
+                    <TableSkeletonRows rows={limit > 10 ? 10 : limit} columns={8} />
+                  ) : !data || data.items.length === 0 ? (
+                    <TableRow>
+                      <TableCell colSpan={8} className="py-10 text-center text-sm text-slate-400">
+                        Không tìm thấy tài khoản nào khớp bộ lọc.
+                      </TableCell>
+                    </TableRow>
+                  ) : (
+                    data.items.map((row: AdminWhaleLeaderboardItem, idx: number) => {
                     const rank = (page - 1) * limit + idx + 1;
                     return (
                       <TableRow key={row.id} className="border-slate-800/70 hover:bg-slate-800/40">
@@ -711,6 +716,7 @@ export function TabWhaleAnalytics({ onOpenAccountPayments }: TabWhaleAnalyticsPr
               </TableBody>
             </Table>
           </div>
+        </TableContainer>
 
           {data && data.total > 0 && (
             <div className="mt-4">

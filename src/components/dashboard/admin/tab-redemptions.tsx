@@ -30,6 +30,7 @@ import { AccountAvatar } from "./account-avatar";
 import { ServerTag } from "./server-tag";
 import { AdminPagination } from "./pagination";
 import { AdminEmptyState } from "./empty-state";
+import { TableContainer, TableSkeletonRows } from "@/components/ui/table-loader";
 import { formatServerCode } from "@/lib/utils";
 import { formatLocalizedDate, formatLocalizedTimeWithTz } from "@/lib/timezone";
 
@@ -426,14 +427,12 @@ export function TabRedemptions() {
               variant="outline"
               size="sm"
               onClick={handleRetryAllFailed}
+              loading={isRetryingAll}
+              loadingText="Đang thử lại..."
               disabled={isRetryingAll || failedCount === 0 || retryingId !== null}
               className="h-9 px-3 gap-1.5 text-xs font-bold border-rose-500/30 text-rose-600 dark:text-rose-400 hover:bg-rose-500/10 shadow-xs min-h-[38px]"
             >
-              {isRetryingAll ? (
-                <Loader2 className="h-3.5 w-3.5 animate-spin" />
-              ) : (
-                <RotateCcw className="h-3.5 w-3.5" />
-              )}
+              <RotateCcw className="h-3.5 w-3.5" />
               <span>Thử Lại Tất Cả Lỗi ({failedCount})</span>
             </Button>
           </div>
@@ -451,161 +450,158 @@ export function TabRedemptions() {
       </CardHeader>
 
       <CardContent className="p-0">
-        <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs sm:text-sm">
-            <thead className="bg-muted/40 text-muted-foreground uppercase text-[10px] tracking-wider border-b border-border/40 font-semibold">
-              <tr>
-                <th className="px-4 py-3">Tài Khoản / UID</th>
-                <th className="px-4 py-3">Máy Chủ</th>
-                <th className="px-4 py-3">Mã Giftcode</th>
-                <th className="px-4 py-3">Trạng Thái</th>
-                <th className="px-4 py-3">Phản Hồi Hệ Thống Game</th>
-                <th className="px-4 py-3">Thời Gian</th>
-                <th className="px-4 py-3 text-right">Thao Tác</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-border/30 text-card-foreground">
-              {paginatedRedemptions.length > 0 ? (
-                paginatedRedemptions.map((item) => {
-                  return (
-                    <tr
-                      key={item.id}
-                      className="hover:bg-muted/30 transition-colors group"
-                    >
-                      <td className="px-4 py-3.5">
-                        <div className="flex items-center gap-2.5">
-                          <AccountAvatar nickname={item.nickname} size="sm" />
-                          <div className="min-w-0">
-                            <div className="font-bold text-foreground text-sm truncate">
-                              {item.nickname}
-                            </div>
-                            <div className="font-mono text-[11px] text-muted-foreground">
-                              {item.uid}
+        <TableContainer
+          isOverlayLoading={isLoading && paginatedRedemptions.length > 0}
+          overlayLabel="Đang tải lịch sử đổi mã..."
+          className="border-0 rounded-none"
+        >
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs sm:text-sm">
+              <thead className="bg-muted/40 text-muted-foreground uppercase text-[10px] tracking-wider border-b border-border/40 font-semibold">
+                <tr>
+                  <th className="px-4 py-3">Tài Khoản / UID</th>
+                  <th className="px-4 py-3">Máy Chủ</th>
+                  <th className="px-4 py-3">Mã Giftcode</th>
+                  <th className="px-4 py-3">Trạng Thái</th>
+                  <th className="px-4 py-3">Phản Hồi Hệ Thống Game</th>
+                  <th className="px-4 py-3">Thời Gian</th>
+                  <th className="px-4 py-3 text-right">Thao Tác</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-border/30 text-card-foreground">
+                {isLoading && paginatedRedemptions.length === 0 ? (
+                  <TableSkeletonRows rows={pageSize > 10 ? 10 : pageSize} columns={7} />
+                ) : paginatedRedemptions.length > 0 ? (
+                  paginatedRedemptions.map((item) => {
+                    return (
+                      <tr
+                        key={item.id}
+                        className="hover:bg-muted/30 transition-colors group"
+                      >
+                        <td className="px-4 py-3.5">
+                          <div className="flex items-center gap-2.5">
+                            <AccountAvatar nickname={item.nickname} size="sm" />
+                            <div className="min-w-0">
+                              <div className="font-bold text-foreground text-sm truncate">
+                                {item.nickname}
+                              </div>
+                              <div className="font-mono text-[11px] text-muted-foreground">
+                                {item.uid}
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </td>
+                        </td>
 
-                      <td className="px-4 py-3.5">
-                        <ServerTag serverId={item.server_id} />
-                      </td>
+                        <td className="px-4 py-3.5">
+                          <ServerTag serverId={item.server_id} />
+                        </td>
 
-                      <td className="px-4 py-3.5">
-                        <span className="font-mono font-bold text-xs bg-muted/60 px-2 py-0.5 rounded border border-border/60 text-foreground">
-                          {item.gift_code}
-                        </span>
-                      </td>
+                        <td className="px-4 py-3.5">
+                          <span className="font-mono font-bold text-xs bg-muted/60 px-2 py-0.5 rounded border border-border/60 text-foreground">
+                            {item.gift_code}
+                          </span>
+                        </td>
 
-                      <td className="px-4 py-3.5">
-                        {item.status === "SUCCESS" ? (
-                          <span className="inline-flex items-center gap-1 text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
-                            <CheckCircle2 className="h-3 w-3" />
-                            THÀNH CÔNG
-                          </span>
-                        ) : item.status === "ALREADY_REDEEMED" ? (
-                          <span className="inline-flex items-center gap-1 text-[11px] text-amber-600 dark:text-amber-400 font-semibold bg-amber-500/10 px-2 py-0.5 rounded-full border border-amber-500/20">
-                            <AlertCircle className="h-3 w-3" />
-                            ĐÃ NHẬN TRƯỚC ĐÓ
-                          </span>
-                        ) : item.status === "EXPIRED" ? (
-                          <span className="inline-flex items-center gap-1 text-[11px] text-slate-500 dark:text-slate-400 font-semibold bg-slate-500/10 px-2 py-0.5 rounded-full border border-slate-500/20">
-                            <Clock className="h-3 w-3" />
-                            HẾT HẠN
-                          </span>
-                        ) : item.status === "INELIGIBLE" ? (
-                          <span className="inline-flex items-center gap-1 text-[11px] text-amber-600 dark:text-amber-400 font-semibold bg-amber-500/10 px-2 py-0.5 rounded-full border border-amber-500/20">
-                            <AlertCircle className="h-3 w-3" />
-                            CHƯA ĐỦ ĐK
-                          </span>
-                        ) : (
-                          <span className="inline-flex items-center gap-1 text-[11px] text-rose-600 dark:text-rose-400 font-semibold bg-rose-500/10 px-2 py-0.5 rounded-full border border-rose-500/20">
-                            <XCircle className="h-3 w-3" />
-                            THẤT BÀI
-                          </span>
-                        )}
-                      </td>
-
-                      <td className="px-4 py-3.5 max-w-xs text-xs text-muted-foreground">
-                        <div className="flex items-center gap-1.5">
-                          {item.status === "FAILED" ? (
-                            <AlertCircle className="h-3.5 w-3.5 text-rose-500 shrink-0" />
-                          ) : item.status === "ALREADY_REDEEMED" || item.status === "INELIGIBLE" ? (
-                            <AlertCircle className="h-3.5 w-3.5 text-amber-500 shrink-0" />
+                        <td className="px-4 py-3.5">
+                          {item.status === "SUCCESS" ? (
+                            <span className="inline-flex items-center gap-1 text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                              <CheckCircle2 className="h-3 w-3" />
+                              THÀNH CÔNG
+                            </span>
+                          ) : item.status === "ALREADY_REDEEMED" ? (
+                            <span className="inline-flex items-center gap-1 text-[11px] text-amber-600 dark:text-amber-400 font-semibold bg-amber-500/10 px-2 py-0.5 rounded-full border border-amber-500/20">
+                              <AlertCircle className="h-3 w-3" />
+                              ĐÃ NHẬN TRƯỚC ĐÓ
+                            </span>
                           ) : item.status === "EXPIRED" ? (
-                            <Clock className="h-3.5 w-3.5 text-slate-400 shrink-0" />
-                          ) : null}
-                          <span className="truncate" title={item.api_message}>
-                            {item.api_message}
-                          </span>
-                        </div>
-                      </td>
+                            <span className="inline-flex items-center gap-1 text-[11px] text-slate-500 dark:text-slate-400 font-semibold bg-slate-500/10 px-2 py-0.5 rounded-full border border-slate-500/20">
+                              <Clock className="h-3 w-3" />
+                              HẾT HẠN
+                            </span>
+                          ) : item.status === "INELIGIBLE" ? (
+                            <span className="inline-flex items-center gap-1 text-[11px] text-amber-600 dark:text-amber-400 font-semibold bg-amber-500/10 px-2 py-0.5 rounded-full border border-amber-500/20">
+                              <AlertCircle className="h-3 w-3" />
+                              CHƯA ĐỦ ĐK
+                            </span>
+                          ) : (
+                            <span className="inline-flex items-center gap-1 text-[11px] text-rose-600 dark:text-rose-400 font-semibold bg-rose-500/10 px-2 py-0.5 rounded-full border border-rose-500/20">
+                              <XCircle className="h-3 w-3" />
+                              THẤT BÀI
+                            </span>
+                          )}
+                        </td>
 
-                      <td className="px-4 py-3.5 font-mono text-xs text-muted-foreground">
-                        {formatLocalizedTimeWithTz(item.created_at, "vi")}{" "}
-                        {formatLocalizedDate(item.created_at, "vi")}
-                      </td>
+                        <td className="px-4 py-3.5 max-w-xs text-xs text-muted-foreground">
+                          <div className="flex items-center gap-1.5">
+                            {item.status === "FAILED" ? (
+                              <AlertCircle className="h-3.5 w-3.5 text-rose-500 shrink-0" />
+                            ) : item.status === "ALREADY_REDEEMED" || item.status === "INELIGIBLE" ? (
+                              <AlertCircle className="h-3.5 w-3.5 text-amber-500 shrink-0" />
+                            ) : item.status === "EXPIRED" ? (
+                              <Clock className="h-3.5 w-3.5 text-slate-400 shrink-0" />
+                            ) : null}
+                            <span className="truncate" title={item.api_message}>
+                              {item.api_message}
+                            </span>
+                          </div>
+                        </td>
 
-                      <td className="px-4 py-3.5 text-right">
-                        {item.status === "FAILED" || item.status === "INELIGIBLE" ? (
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            onClick={() => handleRetrySingle(item)}
-                            disabled={retryingId === item.id || isRetryingAll}
-                            className="h-8 px-2.5 text-xs font-bold text-rose-600 dark:text-rose-400 border-rose-500/30 hover:bg-rose-500/10 gap-1.5 min-h-[36px]"
-                          >
-                            {retryingId === item.id ? (
-                              <Loader2 className="h-3 w-3 animate-spin" />
-                            ) : (
+                        <td className="px-4 py-3.5 font-mono text-xs text-muted-foreground">
+                          {formatLocalizedTimeWithTz(item.created_at, "vi")}{" "}
+                          {formatLocalizedDate(item.created_at, "vi")}
+                        </td>
+
+                        <td className="px-4 py-3.5 text-right">
+                          {item.status === "FAILED" || item.status === "INELIGIBLE" ? (
+                            <Button
+                              variant="outline"
+                              size="sm"
+                              onClick={() => handleRetrySingle(item)}
+                              loading={retryingId === item.id}
+                              loadingText="Đang thử..."
+                              disabled={retryingId === item.id || isRetryingAll}
+                              className="h-8 px-2.5 text-xs font-bold text-rose-600 dark:text-rose-400 border-rose-500/30 hover:bg-rose-500/10 gap-1.5 min-h-[36px]"
+                            >
                               <RotateCcw className="h-3 w-3" />
-                            )}
-                            <span>Thử lại</span>
-                          </Button>
-                        ) : item.status === "ALREADY_REDEEMED" ? (
-                          <span className="text-[11px] text-amber-600/80 dark:text-amber-400/80 font-mono">
-                            Đã có quà
-                          </span>
-                        ) : item.status === "EXPIRED" ? (
-                          <span className="text-[11px] text-muted-foreground font-mono">
-                            Hết hạn
-                          </span>
-                        ) : (
-                          <span className="text-[11px] text-emerald-600/80 dark:text-emerald-400/80 font-mono">
-                            Đã nhận
-                          </span>
-                        )}
-                      </td>
-                    </tr>
-                  );
-                })
-              ) : isLoading ? (
-                <tr>
-                  <td colSpan={7} className="px-4 py-12 text-center text-muted-foreground text-xs">
-                    <div className="flex flex-col items-center justify-center gap-2">
-                      <Loader2 className="h-6 w-6 animate-spin text-primary" />
-                      <p className="font-medium text-sm">Đang tải lịch sử đổi mã...</p>
-                    </div>
-                  </td>
-                </tr>
-              ) : (
-                <tr>
-                  <td colSpan={7} className="p-0">
-                    <AdminEmptyState
-                      title="Không tìm thấy lịch sử đổi mã"
-                      description="Chưa có dữ liệu nào khớp với các điều kiện lọc hoặc từ khóa tìm kiếm."
-                      onClearFilters={() => {
-                        setSearch("");
-                        setFilterStatus("ALL");
-                        setFilterCode("ALL");
-                        setCurrentPage(1);
-                      }}
-                    />
-                  </td>
-                </tr>
-              )}
-            </tbody>
-          </table>
-        </div>
+                              <span>Thử lại</span>
+                            </Button>
+                          ) : item.status === "ALREADY_REDEEMED" ? (
+                            <span className="text-[11px] text-amber-600/80 dark:text-amber-400/80 font-mono">
+                              Đã có quà
+                            </span>
+                          ) : item.status === "EXPIRED" ? (
+                            <span className="text-[11px] text-muted-foreground font-mono">
+                              Hết hạn
+                            </span>
+                          ) : (
+                            <span className="text-[11px] text-emerald-600/80 dark:text-emerald-400/80 font-mono">
+                              Đã nhận
+                            </span>
+                          )}
+                        </td>
+                      </tr>
+                    );
+                  })
+                ) : (
+                  <tr>
+                    <td colSpan={7} className="p-0">
+                      <AdminEmptyState
+                        title="Không tìm thấy lịch sử đổi mã"
+                        description="Chưa có dữ liệu nào khớp với các điều kiện lọc hoặc từ khóa tìm kiếm."
+                        onClearFilters={() => {
+                          setSearch("");
+                          setFilterStatus("ALL");
+                          setFilterCode("ALL");
+                          setCurrentPage(1);
+                        }}
+                      />
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
+        </TableContainer>
 
         {/* Reusable Pagination */}
         <AdminPagination

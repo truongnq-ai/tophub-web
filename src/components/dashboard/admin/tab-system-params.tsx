@@ -32,6 +32,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { TableContainer, TableSkeletonRows } from "@/components/ui/table-loader";
 import {
   getAdminSystemParamsAction,
   createAdminSystemParamAction,
@@ -256,33 +257,34 @@ export function TabSystemParams({ onParamsCountChange }: TabSystemParamsProps = 
             </div>
           )}
 
-          <div className="rounded-xl border border-slate-800 overflow-x-auto">
-            <Table>
-              <TableHeader className="bg-slate-950/80">
-                <TableRow className="border-slate-800">
-                  <TableHead className="text-slate-400">Nhóm (Group)</TableHead>
-                  <TableHead className="text-slate-400">Mã Tham Số (Code)</TableHead>
-                  <TableHead className="text-slate-400">Giá Trị (Value)</TableHead>
-                  <TableHead className="text-slate-400">Ý Nghĩa / Mô Tả</TableHead>
-                  <TableHead className="text-slate-400">Trạng Thái</TableHead>
-                  <TableHead className="text-right text-slate-400">Thao Tác</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {loading ? (
-                  <TableRow>
-                    <TableCell colSpan={6} className="py-8 text-center text-sm text-slate-400">
-                      Đang tải cấu hình tham số...
-                    </TableCell>
+          <TableContainer
+            isOverlayLoading={loading && items.length > 0}
+            overlayLabel="Đang tải cấu hình tham số..."
+            className="rounded-xl border border-slate-800"
+          >
+            <div className="overflow-x-auto">
+              <Table>
+                <TableHeader className="bg-slate-950/80">
+                  <TableRow className="border-slate-800">
+                    <TableHead className="text-slate-400">Nhóm (Group)</TableHead>
+                    <TableHead className="text-slate-400">Mã Tham Số (Code)</TableHead>
+                    <TableHead className="text-slate-400">Giá Trị (Value)</TableHead>
+                    <TableHead className="text-slate-400">Ý Nghĩa / Mô Tả</TableHead>
+                    <TableHead className="text-slate-400">Trạng Thái</TableHead>
+                    <TableHead className="text-right text-slate-400">Thao Tác</TableHead>
                   </TableRow>
-                ) : items.length === 0 ? (
-                  <TableRow>
-                    <TableCell colSpan={6} className="py-8 text-center text-sm text-slate-400">
-                      Chưa có tham số nào khớp bộ lọc.
-                    </TableCell>
-                  </TableRow>
-                ) : (
-                  items.map((item) => (
+                </TableHeader>
+                <TableBody>
+                  {loading && items.length === 0 ? (
+                    <TableSkeletonRows rows={5} columns={6} />
+                  ) : items.length === 0 ? (
+                    <TableRow>
+                      <TableCell colSpan={6} className="py-8 text-center text-sm text-slate-400">
+                        Chưa có tham số nào khớp bộ lọc.
+                      </TableCell>
+                    </TableRow>
+                  ) : (
+                    items.map((item) => (
                     <TableRow key={item.id} className="border-slate-800/70 hover:bg-slate-800/40">
                       <TableCell>
                         <Badge
@@ -352,6 +354,7 @@ export function TabSystemParams({ onParamsCountChange }: TabSystemParamsProps = 
               </TableBody>
             </Table>
           </div>
+        </TableContainer>
         </CardContent>
       </Card>
 
@@ -456,10 +459,11 @@ export function TabSystemParams({ onParamsCountChange }: TabSystemParamsProps = 
               </Button>
               <Button
                 type="submit"
-                disabled={submitting}
+                loading={submitting}
+                loadingText="Đang lưu..."
                 className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold"
               >
-                {submitting ? "Đang lưu..." : "Lưu tham số"}
+                Lưu tham số
               </Button>
             </DialogFooter>
           </form>
@@ -494,11 +498,12 @@ export function TabSystemParams({ onParamsCountChange }: TabSystemParamsProps = 
             </Button>
             <Button
               type="button"
+              loading={deleting}
+              loadingText="Đang xóa..."
               onClick={() => void handleConfirmDelete()}
-              disabled={deleting}
               className="bg-rose-600 hover:bg-rose-700 text-white font-bold"
             >
-              {deleting ? "Đang xóa..." : "Xác nhận xóa"}
+              Xác nhận xóa
             </Button>
           </DialogFooter>
         </DialogContent>

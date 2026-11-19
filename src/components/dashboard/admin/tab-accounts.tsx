@@ -32,6 +32,7 @@ import { AccountRedemptionsDialog } from "./account-redemptions-dialog";
 import { AccountCheckinsDialog } from "./account-checkins-dialog";
 import { AccountPaymentsDialog } from "./account-payments-dialog";
 import { formatLocalizedDate } from "@/lib/timezone";
+import { TableSkeletonRows, TableContainer } from "@/components/ui/table-loader";
 
 interface TabAccountsProps {
   accounts: AdminAccountItem[];
@@ -119,6 +120,7 @@ export function TabAccounts({
   >("DEFAULT");
   const [copiedUid, setCopiedUid] = useState<string | null>(null);
   const [isRefreshing, setIsRefreshing] = useState(false);
+  const [isTableLoading, setIsTableLoading] = useState(false);
 
   const filterCountry = accCountryFilter ?? localCountryFilter;
   const setFilterCountry = setAccCountryFilter ?? setLocalCountryFilter;
@@ -161,6 +163,7 @@ export function TabAccounts({
     if (typeof getAdminAccountsAction !== "function") return;
     const reqId = ++requestIdRef.current;
     try {
+      setIsTableLoading(true);
       const res = await getAdminAccountsAction({
         page: currentPage,
         limit: pageSize,
@@ -189,6 +192,10 @@ export function TabAccounts({
       }
     } catch {
       // Keep existing items in memory on error
+    } finally {
+      if (reqId === requestIdRef.current) {
+        setIsTableLoading(false);
+      }
     }
   }, [
     currentPage,
@@ -593,23 +600,30 @@ export function TabAccounts({
       </CardHeader>
 
       <CardContent className="p-0">
-        <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs sm:text-sm">
-            <thead className="bg-muted/40 text-muted-foreground uppercase text-[10px] tracking-wider border-b border-border/40 font-semibold">
-              <tr>
-                <th className="px-4 py-3">Nhân Vật / UID</th>
-                <th className="px-4 py-3">Máy Chủ</th>
-                <th className="px-4 py-3">Tổng Nạp / Hạng</th>
-                <th className="px-4 py-3">Gói Cước</th>
-                <th className="px-4 py-3 text-center">Tự Săn Code</th>
-                <th className="px-4 py-3 text-center">Điểm Danh</th>
-                <th className="px-4 py-3">Bot Token</th>
-                <th className="px-4 py-3">Ngày Tạo</th>
-                <th className="px-4 py-3 text-right">Thao Tác</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-border/30 text-card-foreground">
-              {paginatedAccounts.length > 0 ? (
+        <TableContainer
+          isOverlayLoading={isTableLoading && paginatedAccounts.length > 0}
+          overlayLabel="Đang nạp dữ liệu tài khoản..."
+          className="border-0 rounded-none"
+        >
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs sm:text-sm">
+              <thead className="bg-muted/40 text-muted-foreground uppercase text-[10px] tracking-wider border-b border-border/40 font-semibold">
+                <tr>
+                  <th className="px-4 py-3">Nhân Vật / UID</th>
+                  <th className="px-4 py-3">Máy Chủ</th>
+                  <th className="px-4 py-3">Tổng Nạp / Hạng</th>
+                  <th className="px-4 py-3">Gói Cước</th>
+                  <th className="px-4 py-3 text-center">Tự Săn Code</th>
+                  <th className="px-4 py-3 text-center">Điểm Danh</th>
+                  <th className="px-4 py-3">Bot Token</th>
+                  <th className="px-4 py-3">Ngày Tạo</th>
+                  <th className="px-4 py-3 text-right">Thao Tác</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-border/30 text-card-foreground">
+                {isTableLoading && paginatedAccounts.length === 0 ? (
+                  <TableSkeletonRows rows={pageSize > 10 ? 10 : pageSize} columns={9} />
+                ) : paginatedAccounts.length > 0 ? (
                 paginatedAccounts.map((acc) => {
                   const isPro = acc.active_plan === "PRO";
                   const daysRemaining = getDaysRemaining(acc.ends_at);
@@ -873,6 +887,7 @@ export function TabAccounts({
             </tbody>
           </table>
         </div>
+        </TableContainer>
 
         {/* Reusable Pagination Controls */}
         <AdminPagination

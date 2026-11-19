@@ -51,6 +51,7 @@ import { AdminPagination } from "./pagination";
 import { AdminEmptyState } from "./empty-state";
 import { formatServerCode } from "@/lib/utils";
 import { formatLocalizedDate, formatLocalizedTimeWithTz } from "@/lib/timezone";
+import { TableSkeletonRows, TableContainer } from "@/components/ui/table-loader";
 
 export function TabGiftcodes() {
   const { toast } = useToast();
@@ -608,22 +609,29 @@ export function TabGiftcodes() {
         </CardHeader>
 
         <CardContent className="p-0">
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs sm:text-sm">
-              <thead className="bg-muted/40 text-muted-foreground uppercase text-[10px] tracking-wider border-b border-border/40 font-semibold">
-                <tr>
-                  <th className="px-4 py-3">Mã Giftcode</th>
-                  <th className="px-4 py-3">Nguồn</th>
-                  <th className="px-4 py-3">Trạng Thái</th>
-                  <th className="px-4 py-3">Phần Thưởng</th>
-                  <th className="px-4 py-3">Hạn Dùng</th>
-                  <th className="px-4 py-3">Tiến Độ Đổi Mã</th>
-                  <th className="px-4 py-3 text-right">Thao Tác</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-border/30 text-card-foreground">
-                {paginatedCodes.length > 0 ? (
-                  paginatedCodes.map((item) => {
+          <TableContainer
+            isOverlayLoading={isLoading && paginatedCodes.length > 0}
+            overlayLabel="Đang tải dữ liệu Giftcode..."
+            className="border-0 rounded-none"
+          >
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-xs sm:text-sm">
+                <thead className="bg-muted/40 text-muted-foreground uppercase text-[10px] tracking-wider border-b border-border/40 font-semibold">
+                  <tr>
+                    <th className="px-4 py-3">Mã Giftcode</th>
+                    <th className="px-4 py-3">Nguồn</th>
+                    <th className="px-4 py-3">Trạng Thái</th>
+                    <th className="px-4 py-3">Phần Thưởng</th>
+                    <th className="px-4 py-3">Hạn Dùng</th>
+                    <th className="px-4 py-3">Tiến Độ Đổi Mã</th>
+                    <th className="px-4 py-3 text-right">Thao Tác</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-border/30 text-card-foreground">
+                  {isLoading && paginatedCodes.length === 0 ? (
+                    <TableSkeletonRows rows={pageSize > 10 ? 10 : pageSize} columns={7} />
+                  ) : paginatedCodes.length > 0 ? (
+                    paginatedCodes.map((item) => {
                     const pct = Math.round(
                       (item.redeemed_count / (item.total_accounts || 1)) * 100
                     );
@@ -774,20 +782,6 @@ export function TabGiftcodes() {
                       </tr>
                     );
                   })
-                ) : isLoading ? (
-                  <tr>
-                    <td
-                      colSpan={7}
-                      className="px-4 py-12 text-center text-muted-foreground text-xs"
-                    >
-                      <div className="flex flex-col items-center justify-center gap-2">
-                        <Loader2 className="h-6 w-6 animate-spin text-primary" />
-                        <p className="font-medium text-sm">
-                          Đang tải dữ liệu Giftcode...
-                        </p>
-                      </div>
-                    </td>
-                  </tr>
                 ) : (
                   <tr>
                     <td colSpan={7} className="p-0">
@@ -806,6 +800,7 @@ export function TabGiftcodes() {
               </tbody>
             </table>
           </div>
+        </TableContainer>
 
           {/* Reusable Pagination */}
           <AdminPagination
@@ -981,10 +976,10 @@ export function TabGiftcodes() {
               </Button>
               <Button
                 type="submit"
-                disabled={isSubmitting}
+                loading={isSubmitting}
+                loadingText="Đang lưu & kích hoạt..."
                 className="bg-primary text-primary-foreground gap-1.5 text-xs font-bold min-h-[38px]"
               >
-                {isSubmitting && <Loader2 className="h-3.5 w-3.5 animate-spin" />}
                 Lưu & Kích Hoạt
               </Button>
             </DialogFooter>
@@ -1078,77 +1073,76 @@ export function TabGiftcodes() {
             </div>
           </div>
 
-          <div className="overflow-y-auto flex-1 border border-border/40 rounded-lg">
-            <table className="w-full text-left text-xs">
-              <thead className="bg-muted/50 text-muted-foreground uppercase text-[10px] tracking-wider border-b border-border/40 sticky top-0">
-                <tr>
-                  <th className="px-3 py-2">Nhân Vật / UID</th>
-                  <th className="px-3 py-2">Máy Chủ</th>
-                  <th className="px-3 py-2">Trạng Thái</th>
-                  <th className="px-3 py-2 text-right">Thời Gian</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-border/30">
-                {paginatedReceivers.length > 0 ? (
-                  paginatedReceivers.map((rec, idx) => (
-                    <tr key={rec.account_id || rec.id || `${rec.uid}-${idx}`} className="hover:bg-muted/30">
-                      <td className="px-3 py-2.5">
-                        <div className="flex items-center gap-2.5">
-                          <AccountAvatar nickname={rec.nickname} size="sm" />
-                          <div className="min-w-0">
-                            <div className="font-bold text-foreground truncate">{rec.nickname}</div>
-                            <div className="font-mono text-[10px] text-muted-foreground">
-                              {rec.uid}
+          <TableContainer
+            isOverlayLoading={receiversLoading && paginatedReceivers.length > 0}
+            overlayLabel="Đang tải danh sách người nhận..."
+            className="flex-1 rounded-lg border-border/40"
+          >
+            <div className="overflow-y-auto max-h-[400px]">
+              <table className="w-full text-left text-xs">
+                <thead className="bg-muted/50 text-muted-foreground uppercase text-[10px] tracking-wider border-b border-border/40 sticky top-0">
+                  <tr>
+                    <th className="px-3 py-2">Nhân Vật / UID</th>
+                    <th className="px-3 py-2">Máy Chủ</th>
+                    <th className="px-3 py-2">Trạng Thái</th>
+                    <th className="px-3 py-2 text-right">Thời Gian</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-border/30">
+                  {receiversLoading && paginatedReceivers.length === 0 ? (
+                    <TableSkeletonRows rows={5} columns={4} />
+                  ) : paginatedReceivers.length > 0 ? (
+                    paginatedReceivers.map((rec, idx) => (
+                      <tr key={rec.account_id || rec.id || `${rec.uid}-${idx}`} className="hover:bg-muted/30">
+                        <td className="px-3 py-2.5">
+                          <div className="flex items-center gap-2.5">
+                            <AccountAvatar nickname={rec.nickname} size="sm" />
+                            <div className="min-w-0">
+                              <div className="font-bold text-foreground truncate">{rec.nickname}</div>
+                              <div className="font-mono text-[10px] text-muted-foreground">
+                                {rec.uid}
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </td>
-                      <td className="px-3 py-2.5 font-mono">
-                        <ServerTag serverId={rec.server_id} />
-                      </td>
-                      <td className="px-3 py-2.5">
-                        {rec.status === "SUCCESS" ? (
-                          <Badge className="bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20 text-[10px]">
-                            Thành công
-                          </Badge>
-                        ) : rec.status === "PENDING" ? (
-                          <Badge className="bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20 text-[10px]">
-                            Đang xử lý
-                          </Badge>
-                        ) : (
-                          <Badge className="bg-rose-500/10 text-rose-600 dark:text-rose-400 border-rose-500/20 text-[10px]">
-                            Thất bại
-                          </Badge>
-                        )}
-                      </td>
-                      <td className="px-3 py-2.5 text-right font-mono text-[11px] text-muted-foreground">
-                        {formatLocalizedTimeWithTz(rec.redeemed_at, "vi", {
-                          hour: "2-digit",
-                          minute: "2-digit",
-                        })}{" "}
-                        {formatLocalizedDate(rec.redeemed_at, "vi")}
+                        </td>
+                        <td className="px-3 py-2.5 font-mono">
+                          <ServerTag serverId={rec.server_id} />
+                        </td>
+                        <td className="px-3 py-2.5">
+                          {rec.status === "SUCCESS" ? (
+                            <Badge className="bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20 text-[10px]">
+                              Thành công
+                            </Badge>
+                          ) : rec.status === "PENDING" ? (
+                            <Badge className="bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20 text-[10px]">
+                              Đang xử lý
+                            </Badge>
+                          ) : (
+                            <Badge className="bg-rose-500/10 text-rose-600 dark:text-rose-400 border-rose-500/20 text-[10px]">
+                              Thất bại
+                            </Badge>
+                          )}
+                        </td>
+                        <td className="px-3 py-2.5 text-right font-mono text-[11px] text-muted-foreground">
+                          {formatLocalizedTimeWithTz(rec.redeemed_at, "vi", {
+                            hour: "2-digit",
+                            minute: "2-digit",
+                          })}{" "}
+                          {formatLocalizedDate(rec.redeemed_at, "vi")}
+                        </td>
+                      </tr>
+                    ))
+                  ) : (
+                    <tr>
+                      <td colSpan={4} className="px-3 py-8 text-center text-muted-foreground">
+                        Không có tài khoản nào phù hợp
                       </td>
                     </tr>
-                  ))
-                ) : receiversLoading ? (
-                  <tr>
-                    <td colSpan={4} className="px-3 py-8 text-center text-muted-foreground">
-                      <div className="flex items-center justify-center gap-2">
-                        <Loader2 className="h-4 w-4 animate-spin text-primary" />
-                        <span>Đang tải danh sách người nhận...</span>
-                      </div>
-                    </td>
-                  </tr>
-                ) : (
-                  <tr>
-                    <td colSpan={4} className="px-3 py-8 text-center text-muted-foreground">
-                      Không có tài khoản nào phù hợp
-                    </td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
-          </div>
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </TableContainer>
 
           <AdminPagination
             currentPage={receiverPage}

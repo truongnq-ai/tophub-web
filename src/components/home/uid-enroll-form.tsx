@@ -181,6 +181,7 @@ export function UidEnrollForm({
                 type="text"
                 placeholder={t("form.uidPlaceholder")}
                 value={uidInput}
+                disabled={checking}
                 onChange={(e) => {
                   setUidInput(e.target.value.replace(/\D/g, ""));
                   setPreviewData(null);
@@ -192,20 +193,13 @@ export function UidEnrollForm({
             </div>
             <Button
               type="submit"
+              loading={checking}
+              loadingText={t("form.checking")}
               disabled={checking || uidInput.trim().length < 10}
               className="btn-tactile-gold h-12 px-7 rounded-xl font-bold shrink-0 min-h-[44px] flex items-center justify-center gap-2"
             >
-              {checking ? (
-                <>
-                  <Loader2 className="h-4 w-4 animate-spin" />
-                  <span>{t("form.checking")}</span>
-                </>
-              ) : (
-                <>
-                  <Search className="h-4 w-4" />
-                  <span>{t("form.checkBtn")}</span>
-                </>
-              )}
+              <Search className="h-4 w-4" />
+              <span>{t("form.checkBtn")}</span>
             </Button>
           </div>
         </form>
@@ -252,6 +246,8 @@ export function UidEnrollForm({
               {/* Action Button */}
               <Button
                 onClick={handleProceed}
+                loading={enrolling}
+                loadingText={t("form.enrolling")}
                 disabled={enrolling}
                 className={`h-11 px-6 rounded-xl font-bold min-h-[44px] shrink-0 text-white ${
                   previewData.is_enrolled
@@ -259,12 +255,7 @@ export function UidEnrollForm({
                     : "btn-tactile-gold"
                 }`}
               >
-                {enrolling ? (
-                  <>
-                    <Loader2 className="h-4 w-4 animate-spin mr-2" />
-                    <span>{t("form.enrolling")}</span>
-                  </>
-                ) : previewData.is_enrolled ? (
+                {previewData.is_enrolled ? (
                   <>
                     <Rocket className="h-4 w-4 mr-2" />
                     <span>{t("form.manageBtn")}</span>

@@ -97,12 +97,14 @@ export function AccountCard({ account, onToggle, onUnlink, labels }: AccountCard
                 <AlertDialogDescription className="text-slate-400">{labels.unlinkConfirmDesc}</AlertDialogDescription>
               </AlertDialogHeader>
               <AlertDialogFooter>
-                <AlertDialogCancel className="min-h-[44px] rounded-xl border-white/10 hover:bg-white/5">{labels.cancel}</AlertDialogCancel>
+                <AlertDialogCancel className="min-h-[44px] rounded-xl border-white/10 hover:bg-white/5" disabled={unlinking}>{labels.cancel}</AlertDialogCancel>
                 <AlertDialogAction
                   onClick={handleUnlink}
-                  className="min-h-[44px] rounded-xl bg-destructive text-destructive-foreground hover:bg-destructive/90 font-bold"
+                  disabled={unlinking}
+                  className="min-h-[44px] rounded-xl bg-destructive text-destructive-foreground hover:bg-destructive/90 font-bold inline-flex items-center gap-2"
                 >
-                  {labels.confirm}
+                  {unlinking && <span className="h-4 w-4 rounded-full border-2 border-white/20 border-t-white animate-spin" />}
+                  <span>{unlinking ? "Đang hủy liên kết..." : labels.confirm}</span>
                 </AlertDialogAction>
               </AlertDialogFooter>
             </AlertDialogContent>
