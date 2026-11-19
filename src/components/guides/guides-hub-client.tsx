@@ -4,51 +4,35 @@ import React, { useEffect, useMemo, useState } from "react";
 import {
   Sprout,
   ShieldAlert,
+  Castle,
+  Flame,
   CalendarClock,
-  Map,
+  ShoppingBag,
   Swords,
   Sparkles,
-  ShoppingBag,
-  Castle,
+  Table2,
   BookOpen,
-  Flame,
   ArrowRight,
   Search,
   X,
-  Compass,
-  Wrench,
-  ChevronDown,
-  ChevronUp,
-  Table2,
-  Database,
+  Clock,
+  Calculator,
 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import {
-  getArticleBySlug,
   getPublishedCategories,
-  isCodexPublished,
-  isGuideArticlePublished,
   searchPublishedGuides,
 } from "@/content/guides/registry";
 import type {
-  CodexEntityRecord,
-  CodexSearchIndexItem,
   GuideArticle,
-  GuideCategoryIconName,
+  GuideCategory,
   GuideLocale,
-  LocalizedText,
 } from "@/content/guides/types";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
-import { GameAssetFrame } from "./media/game-asset-frame";
-import {
-  CODEX_CATEGORY_LABELS,
-  fetchCodexSearchIndex,
-  filterCodexEntities,
-  getInitialCodexSeedRecords,
-} from "./codex/codex-utils";
+import { GuidesHubSidebar } from "./guides-hub-sidebar";
+import { GuidesHubMobileDrawer } from "./guides-hub-mobile-drawer";
 import { GuideCommentsSection } from "./guide-comments-section";
 import { cn } from "@/lib/utils";
 
@@ -56,774 +40,457 @@ interface GuidesHubClientProps {
   locale: GuideLocale;
 }
 
-const categoryIcons: Record<GuideCategoryIconName, React.ElementType> = {
+const CATEGORY_ICONS: Record<string, React.ElementType> = {
   Sprout,
   ShieldAlert,
-  CalendarClock,
-  Map,
-  Swords,
-  Sparkles,
-  ShoppingBag,
   Castle,
   Flame,
+  CalendarClock,
+  ShoppingBag,
+  Swords,
+  Sparkles,
+  Table2,
 };
 
-interface HotTagItem {
-  id: string;
-  label: LocalizedText;
-  query: LocalizedText;
-}
-
-const HOT_TAGS: HotTagItem[] = [
-  {
-    id: "560-shards",
-    label: { vi: "#560Mảnh", en: "#560Shards" },
-    query: { vi: "560", en: "560" },
-  },
-  {
-    id: "9-soul-stones",
-    label: { vi: "#9HồnĐáĐỏ", en: "#9SoulStones" },
-    query: { vi: "Hồn Đá Đỏ", en: "Soul Stone" },
-  },
-  {
-    id: "double-dip",
-    label: { vi: "#DoubleDip", en: "#DoubleDip" },
-    query: { vi: "Double-Dip", en: "Double-Dip" },
-  },
-  {
-    id: "horde-pivot",
-    label: { vi: "#BộLạc5Mythic", en: "#PureHorde" },
-    query: { vi: "Bộ Lạc", en: "Horde" },
-  },
-  {
-    id: "brawler-12-star",
-    label: { vi: "#Brawler12Sao", en: "#12StarEpic" },
-    query: { vi: "Brawler", en: "Brawler" },
-  },
-];
+const SECTION_CALCULATOR_LINKS: Record<
+  number,
+  Array<{ titleVi: string; titleEn: string; href: string }>
+> = {
+  1: [
+    {
+      titleVi: "Máy Tính Mảnh Nâng Sao Anh Hùng",
+      titleEn: "Hero Star Promotion Calculator",
+      href: "/calculators/hero-stars",
+    },
+    {
+      titleVi: "Máy Tính Chi Phí Thức Tỉnh Tướng Đỏ",
+      titleEn: "Mythic Hero Awakening Calculator",
+      href: "/calculators/hero-awakening",
+    },
+  ],
+  2: [
+    {
+      titleVi: "Máy Tính Mảnh Nâng Sao",
+      titleEn: "Hero Star Calculator",
+      href: "/calculators/hero-stars",
+    },
+    {
+      titleVi: "Máy Tính Điểm Thiên Phú Tướng",
+      titleEn: "Hero Traits Calculator",
+      href: "/calculators/hero-traits",
+    },
+    {
+      titleVi: "Máy Tính Thức Tỉnh Tướng Đỏ",
+      titleEn: "Hero Awakening Calculator",
+      href: "/calculators/hero-awakening",
+    },
+  ],
+  3: [
+    {
+      titleVi: "Máy Tính Xây Dựng & Tài Nguyên Lâu Đài (C1–C40)",
+      titleEn: "Castle Construction Calculator",
+      href: "/calculators/construction",
+    },
+  ],
+  4: [
+    {
+      titleVi: "Máy Tính Công Nghệ Viện Nghiên Cứu",
+      titleEn: "Technology Research Calculator",
+      href: "/calculators/technology",
+    },
+  ],
+  5: [
+    {
+      titleVi: "Máy Tính Rèn Trang Bị",
+      titleEn: "Gear Enhance Calculator",
+      href: "/calculators/gear-enhance",
+    },
+    {
+      titleVi: "Máy Tính Mảnh Nâng Sao",
+      titleEn: "Hero Star Calculator",
+      href: "/calculators/hero-stars",
+    },
+  ],
+  6: [
+    {
+      titleVi: "Máy Tính Xây Dựng Lâu Đài",
+      titleEn: "Castle Construction Calculator",
+      href: "/calculators/construction",
+    },
+  ],
+  7: [
+    {
+      titleVi: "Máy Tính Rèn & Cường Hóa Trang Bị",
+      titleEn: "Gear Enhance Calculator",
+      href: "/calculators/gear-enhance",
+    },
+    {
+      titleVi: "Máy Tính Tiến Cấp Trang Bị",
+      titleEn: "Gear Promotion Calculator",
+      href: "/calculators/gear-promotion",
+    },
+    {
+      titleVi: "Máy Tính Trang Bị Lãnh Chúa",
+      titleEn: "Lord Gear Calculator",
+      href: "/calculators/lord-gear",
+    },
+  ],
+  8: [
+    {
+      titleVi: "Máy Tính Cổ Ngữ",
+      titleEn: "Runes Calculator",
+      href: "/calculators/runes",
+    },
+    {
+      titleVi: "Máy Tính Thánh Vật",
+      titleEn: "Relics Calculator",
+      href: "/calculators/relics",
+    },
+  ],
+  9: [
+    {
+      titleVi: "Mở Toàn Bộ 10 Công Cụ Tính Toán TopHub",
+      titleEn: "Open All 10 TopHub Calculators",
+      href: "/calculators",
+    },
+  ],
+};
 
 export function GuidesHubClient({ locale }: GuidesHubClientProps) {
   const t = useTranslations("Guides");
   const categories = useMemo(() => getPublishedCategories(), []);
-  const codexPublished = isCodexPublished();
 
   const [searchQuery, setSearchQuery] = useState("");
-  const [expandedCategories, setExpandedCategories] = useState<
-    Record<string, boolean>
-  >({});
+  const [activeSectionId, setActiveSectionId] = useState("sec-1");
 
-  const toggleCategoryExpand = (slug: string) => {
-    setExpandedCategories((prev) => ({
-      ...prev,
-      [slug]: !prev[slug],
-    }));
-  };
+  const searchResults: GuideArticle[] = useMemo(() => {
+    const q = searchQuery.trim();
+    if (!q) return [];
+    return searchPublishedGuides(q, locale);
+  }, [searchQuery, locale]);
 
-  const stageArticles = useMemo(() => {
-    const resolveList = (pairs: Array<[string, string]>): GuideArticle[] =>
-      pairs
-        .filter(([cat, slug]) => isGuideArticlePublished(cat, slug))
-        .map(([cat, slug]) => getArticleBySlug(cat, slug))
-        .filter((a): a is GuideArticle => Boolean(a));
-
-    return {
-      early: resolveList([
-        ["getting-started", "overview"],
-        ["getting-started", "strict-one-queue-rule"],
-        ["getting-started", "top-10-account-traps"],
-      ]),
-      pivot: resolveList([
-        ["roadmap", "horde-pivot-roadmap"],
-        ["events", "double-dip-schedule"],
-        ["economy", "guild-honor-freeze"],
-      ]),
-      season: resolveList([
-        ["roadmap", "season-1-to-4-roadmap"],
-        ["infrastructure", "castle-and-brilliance"],
-        ["power-systems", "pets-and-behemoth"],
-      ]),
-    };
-  }, []);
-
-  const hasMultipleStagesPublished = useMemo(() => {
-    const nonEmptyStages = [
-      stageArticles.early.length > 0,
-      stageArticles.pivot.length > 0,
-      stageArticles.season.length > 0,
-    ].filter(Boolean);
-    return nonEmptyStages.length >= 2;
-  }, [stageArticles]);
-
-  const quickTools = useMemo(() => {
-    const allTools = [
-      {
-        code: "CODEX",
-        href: "/guides/codex",
-        isPublished: codexPublished,
-        icon: Database,
-        title: t("toolCodexTitle"),
-        desc: t("toolCodexDesc"),
-        accent: "text-purple-500 bg-purple-500/10 border-purple-500/25",
-        testId: "hub-tool-codex",
-      },
-      {
-        code: "2.1",
-        href: "/guides/heroes/encyclopedia",
-        isPublished: isGuideArticlePublished("heroes", "encyclopedia"),
-        icon: ShieldAlert,
-        title: t("toolEncyclopediaTitle"),
-        desc: t("toolEncyclopediaDesc"),
-        accent: "text-rose-500 bg-rose-500/10 border-rose-500/25",
-        testId: "hub-tool-2.1",
-      },
-      {
-        code: "3.1",
-        href: "/guides/events/biweekly-rotation",
-        isPublished: isGuideArticlePublished("events", "biweekly-rotation"),
-        icon: CalendarClock,
-        title: t("toolCalendarTitle"),
-        desc: t("toolCalendarDesc"),
-        accent: "text-amber-500 bg-amber-500/10 border-amber-500/25",
-        testId: "hub-tool-3.1",
-      },
-      {
-        code: "7.1",
-        href: "/guides/economy/shops-tier-list",
-        isPublished: isGuideArticlePublished("economy", "shops-tier-list"),
-        icon: ShoppingBag,
-        title: t("toolShopsTitle"),
-        desc: t("toolShopsDesc"),
-        accent: "text-emerald-500 bg-emerald-500/10 border-emerald-500/25",
-        testId: "hub-tool-7.1",
-      },
-      {
-        code: "8.4",
-        href: "/guides/infrastructure/master-data-tables",
-        isPublished: isGuideArticlePublished(
-          "infrastructure",
-          "master-data-tables"
-        ),
-        icon: Table2,
-        title: t("toolMasterTablesTitle"),
-        desc: t("toolMasterTablesDesc"),
-        accent: "text-sky-500 bg-sky-500/10 border-sky-500/25",
-        testId: "hub-tool-8.4",
-      },
-    ];
-    return allTools.filter((tool) => tool.isPublished);
-  }, [codexPublished, t]);
-
-  const [codexPool, setCodexPool] = useState<
-    readonly (CodexEntityRecord | CodexSearchIndexItem)[]
-  >(() => getInitialCodexSeedRecords());
-
+  // Scrollspy observer for 9 master sections
   useEffect(() => {
-    if (!codexPublished) return;
-    if (searchQuery.trim().length < 2) return;
-    if (
-      typeof navigator !== "undefined" &&
-      /jsdom/i.test(navigator.userAgent || "") &&
-      !(
-        typeof window !== "undefined" &&
-        window.fetch &&
-        "mock" in (window.fetch as unknown as Record<string, unknown>)
-      )
-    ) {
+    if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
       return;
     }
 
-    const controller = new AbortController();
-    let mounted = true;
-    fetchCodexSearchIndex(controller.signal)
-      .then((payload) => {
-        if (mounted && payload.items.length > 0) {
-          setCodexPool(payload.items);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActiveSectionId(entry.target.id);
+            break;
+          }
         }
-      })
-      .catch(() => undefined);
-
-    return () => {
-      mounted = false;
-      controller.abort();
-    };
-  }, [codexPublished, searchQuery]);
-
-  const searchResults = useMemo(() => {
-    if (searchQuery.trim().length < 2) return null;
-    return searchPublishedGuides(searchQuery, locale).filter(
-      (article) => article.categorySlug !== "event-playbooks"
+      },
+      {
+        rootMargin: "-20% 0px -70% 0px",
+        threshold: 0,
+      }
     );
-  }, [searchQuery, locale]);
 
-  const codexSearchResults = useMemo(() => {
-    if (!codexPublished || searchQuery.trim().length < 2) return [];
-    return filterCodexEntities(codexPool, {
-      category: "all",
-      rarity: "all",
-      faction: "all",
-      query: searchQuery,
-    }).slice(0, 6);
-  }, [codexPool, codexPublished, searchQuery]);
+    categories.forEach((cat, index) => {
+      const sectionId = `sec-${cat.displayOrder ?? index + 1}`;
+      const el = document.getElementById(sectionId);
+      if (el) observer.observe(el);
+    });
 
-  const renderStageCards = (articles: GuideArticle[]) => (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
-      {articles.map((art) => (
-        <Link
-          key={`${art.categorySlug}/${art.slug}`}
-          href={`/guides/${art.categorySlug}/${art.slug}`}
-          className="group rounded-2xl border border-amber-500/30 bg-gradient-to-br from-amber-500/10 via-card/85 to-card p-4 flex flex-col justify-between space-y-3 hover:border-amber-500/60 transition-all shadow-sm"
-        >
-          <div className="space-y-2">
-            <div className="flex items-center justify-between gap-2">
-              <span className="font-mono text-xs font-bold text-amber-500">
-                #{art.displayCode ?? art.code}
-              </span>
-              {art.badge === "HOT" && (
-                <Badge className="bg-rose-500/15 text-rose-500 border-rose-500/30 text-xs font-sans font-bold">
-                  <Flame className="h-3 w-3 mr-1 fill-current" />
-                  HOT
-                </Badge>
-              )}
-            </div>
-            <h3 className="font-heading font-bold text-base sm:text-lg text-foreground group-hover:text-amber-500 transition-colors line-clamp-2">
-              {art.title[locale]}
-            </h3>
-            <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">
-              {art.summary[locale]}
-            </p>
-          </div>
-
-          <div className="flex items-center justify-between pt-2 border-t border-border/50 text-xs font-sans font-semibold text-amber-600 dark:text-amber-400">
-            <span>{t("readingTime", { minutes: art.readingMinutes })}</span>
-            <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
-          </div>
-        </Link>
-      ))}
-    </div>
-  );
+    return () => observer.disconnect();
+  }, [categories]);
 
   return (
-    <div className="space-y-8">
-      {/* LAYER 1: Compact Hero + Instant Search + Hot Keyword Tags */}
-      <section className="card-rpg rounded-3xl p-4 sm:p-7 space-y-4">
-        <div className="flex flex-wrap items-center justify-between gap-2">
-          <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/40 bg-amber-500/10 px-3.5 py-1 text-xs font-bold text-amber-600 dark:text-amber-400">
-            <BookOpen className="h-3.5 w-3.5 text-amber-500" />
-            <span>{t("hubBadge")}</span>
-          </div>
-        </div>
+    <div className="space-y-8 pb-16">
+      {/* Streamlined Hero Header & Instant Search */}
+      <section className="card-rpg rounded-3xl p-6 sm:p-8 space-y-5 border border-border/70 bg-card/80 backdrop-blur">
+        <div className="space-y-2 text-center max-w-3xl mx-auto">
+          <Badge
+            variant="outline"
+            className="font-heading text-xs font-black uppercase tracking-wider border-amber-500/30 text-amber-600 dark:text-amber-400"
+          >
+            {locale === "vi"
+              ? "Bách Khoa Toàn Thư Top Heroes (S0 ➔ S4)"
+              : "Top Heroes Tactical Encyclopedia (S0 ➔ S4)"}
+          </Badge>
 
-        <div className="space-y-2">
-          <h1 className="font-heading font-black text-2xl sm:text-3xl lg:text-4xl text-foreground leading-tight">
-            {t("hubTitle")}
+          <h1 className="font-heading font-black text-2xl sm:text-3xl lg:text-4xl text-foreground tracking-tight">
+            {locale === "vi"
+              ? "Cẩm Nang Chiến Thuật & Bảng Số Liệu Chuẩn Hóa"
+              : "Tactical Guides & Min-Max Master Data"}
           </h1>
-          <p className="text-base text-muted-foreground leading-relaxed max-w-3xl">
-            {t("hubDescription")}
+
+          <p className="font-sans text-sm sm:text-base text-muted-foreground leading-relaxed">
+            {locale === "vi"
+              ? "Hệ thống cẩm nang thực chiến chuyên sâu 9 mục toàn diện từ khởi đầu đến late-game. 100% miễn phí, tối ưu hoá theo số liệu gốc Meta.bytes."
+              : "Comprehensive 9-topic tactical guide system from onboarding to endgame. 100% free, grounded in Meta.bytes single-source-of-truth."}
           </p>
         </div>
 
-        {/* Instant Hub Search Input + Bilingual Hot Tags */}
-        <div className="pt-1 space-y-2.5">
-          <div className="relative max-w-2xl">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-amber-500" />
-            <Input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder={t("searchPlaceholder")}
-              className="pl-10 pr-10 h-11 min-h-[44px] rounded-2xl bg-background/85 text-base sm:text-sm border-border/80 focus-visible:ring-amber-500/30 focus-visible:border-amber-500"
-            />
-            {searchQuery && (
-              <button
-                type="button"
-                onClick={() => setSearchQuery("")}
-                aria-label={t("clearSearch")}
-                className="absolute right-0.5 top-1/2 -translate-y-1/2 inline-flex h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center rounded-xl text-muted-foreground hover:text-foreground"
-              >
-                <X className="h-4 w-4" />
-              </button>
-            )}
-          </div>
-
-          <div className="flex flex-wrap items-center gap-1.5 text-xs">
-            <span className="font-sans text-xs font-medium text-muted-foreground mr-1">
-              {t("hotTagsLabel")}
-            </span>
-            {HOT_TAGS.map((tag) => {
-              const targetQuery = tag.query[locale];
-              const isSelected =
-                searchQuery.trim().toLowerCase() === targetQuery.toLowerCase();
-              return (
-                <button
-                  key={tag.id}
-                  type="button"
-                  onClick={() =>
-                    setSearchQuery(isSelected ? "" : targetQuery)
-                  }
-                  className={cn(
-                    "inline-flex items-center justify-center min-h-[44px] sm:min-h-[36px] rounded-full border px-3.5 py-1.5 font-sans text-xs font-semibold transition-all",
-                    isSelected
-                      ? "border-amber-500 bg-amber-500 text-slate-950"
-                      : "border-border/70 bg-background/60 text-muted-foreground hover:border-amber-500/40 hover:text-amber-500"
-                  )}
-                >
-                  {tag.label[locale]}
-                </button>
-              );
-            })}
-          </div>
+        {/* Search Input */}
+        <div className="relative max-w-2xl mx-auto">
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+          <Input
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder={
+              locale === "vi"
+                ? "Tìm kiếm bài viết, tướng, sự kiện, công trình..."
+                : "Search guides, heroes, events, buildings..."
+            }
+            className="pl-12 pr-10 h-12 text-base rounded-2xl border-border/80 bg-background/90 focus:border-amber-500"
+            aria-label={
+              locale === "vi" ? "Tìm kiếm cẩm nang" : "Search guides"
+            }
+          />
+          {searchQuery && (
+            <button
+              type="button"
+              onClick={() => setSearchQuery("")}
+              className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 text-muted-foreground hover:text-foreground rounded-lg transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
+              aria-label={locale === "vi" ? "Xóa tìm kiếm" : "Clear search"}
+            >
+              <X className="h-4 w-4" />
+            </button>
+          )}
         </div>
 
-        {/* Instant Search Results Panel inside Hero */}
-        {searchResults !== null && (
-          <div className="rounded-2xl border border-amber-500/30 bg-background/80 p-4 space-y-4">
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-sans font-bold text-amber-600 dark:text-amber-400">
-                {t("searchResultsCount", {
-                  count: searchResults.length + codexSearchResults.length,
-                })}
-              </span>
-              <button
-                type="button"
-                onClick={() => setSearchQuery("")}
-                className="inline-flex items-center min-h-[44px] px-2 text-xs font-sans font-medium text-muted-foreground hover:text-foreground underline"
-              >
-                {t("clearSearch")}
-              </button>
-            </div>
-
-            {/* Section (1): Matching Published Guide Articles */}
-            <div
-              data-testid="hub-search-articles-section"
-              className="space-y-2"
-            >
-              <div className="text-xs font-sans font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
+        {/* Live Search Results Popup / Box */}
+        {searchQuery.trim().length > 0 && (
+          <div
+            data-testid="hub-search-results"
+            className="max-w-2xl mx-auto p-4 rounded-2xl border border-amber-500/30 bg-background/95 space-y-3 shadow-lg animate-in fade-in duration-150"
+          >
+            <div className="text-xs font-sans font-bold uppercase tracking-wider text-muted-foreground flex items-center justify-between">
+              <span className="flex items-center gap-1.5">
                 <BookOpen className="h-3.5 w-3.5 text-amber-500" />
-                <span>{t("hubSearchArticlesHeading")}</span>
-              </div>
-
-              {searchResults.length > 0 ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
-                  {searchResults.map((art) => (
-                    <Link
-                      key={`${art.categorySlug}/${art.slug}`}
-                      href={`/guides/${art.categorySlug}/${art.slug}`}
-                      className="group flex items-center justify-between gap-2 rounded-xl border border-border/70 bg-card/70 hover:border-amber-500/50 p-3 text-xs sm:text-sm min-h-[44px] transition-all"
-                    >
-                      <div className="min-w-0 space-y-0.5">
-                        <div className="flex items-center gap-1.5">
-                          <span className="font-mono text-xs font-bold text-amber-500 shrink-0">
-                            #{art.displayCode ?? art.code}
-                          </span>
-                          <span className="font-heading font-bold text-foreground group-hover:text-amber-500 line-clamp-1">
-                            {art.title[locale]}
-                          </span>
-                        </div>
-                        <p className="text-xs text-muted-foreground line-clamp-1">
-                          {art.summary[locale]}
-                        </p>
-                      </div>
-                      <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-amber-500 shrink-0" />
-                    </Link>
-                  ))}
-                </div>
-              ) : (
-                <p className="text-xs sm:text-sm text-muted-foreground py-1">
-                  {t("searchNoResults")}
-                </p>
-              )}
+                <span>
+                  {locale === "vi"
+                    ? "Kết quả tìm kiếm bài viết"
+                    : "Article Search Results"}
+                </span>
+              </span>
+              <span className="font-mono text-amber-500">
+                {searchResults.length} {locale === "vi" ? "kết quả" : "results"}
+              </span>
             </div>
 
-            {/* Section (2): Matching Game Codex Entities (Only when Codex is published) */}
-            {codexPublished && (
-              <div
-                data-testid="hub-search-codex-section"
-                className="space-y-2 pt-2 border-t border-border/60"
-              >
-                <div className="flex items-center justify-between gap-2">
-                  <span className="text-xs font-sans font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
-                    <Database className="h-3.5 w-3.5 text-amber-500" />
-                    <span>{t("hubSearchCodexHeading")}</span>
-                  </span>
+            {searchResults.length > 0 ? (
+              <div className="space-y-2 max-h-72 overflow-y-auto pr-1">
+                {searchResults.map((art) => (
                   <Link
-                    href={`/guides/codex?q=${encodeURIComponent(
-                      searchQuery.trim()
-                    )}`}
-                    className="inline-flex items-center min-h-[44px] px-2 text-xs font-sans font-bold text-amber-500 hover:underline"
+                    key={`${art.categorySlug}/${art.slug}`}
+                    href={`/guides/${art.categorySlug}/${art.slug}`}
+                    className="group flex items-center justify-between gap-3 p-3 rounded-xl border border-border/60 hover:border-amber-500/50 bg-card/60 hover:bg-card transition-all text-xs sm:text-sm min-h-[44px]"
                   >
-                    {t("hubSearchOpenCodexBtn")}
+                    <div className="min-w-0 space-y-0.5">
+                      <div className="flex items-center gap-2">
+                        <span className="font-mono text-xs font-bold text-amber-500 shrink-0">
+                          #{art.displayCode ?? art.code}
+                        </span>
+                        <span className="font-heading font-bold text-foreground group-hover:text-amber-500 truncate">
+                          {art.title[locale]}
+                        </span>
+                      </div>
+                      <p className="text-xs text-muted-foreground line-clamp-1">
+                        {art.summary[locale]}
+                      </p>
+                    </div>
+                    <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-amber-500 shrink-0" />
                   </Link>
-                </div>
-
-                {codexSearchResults.length > 0 && (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
-                    {codexSearchResults.map((entity) => {
-                      const displayName =
-                        locale === "vi" ? entity.nameVi : entity.nameEn;
-                      const displayDesc =
-                        locale === "vi" ? entity.descVi : entity.descEn;
-                      return (
-                        <Link
-                          key={entity.id}
-                          href={`/guides/codex?q=${encodeURIComponent(
-                            displayName
-                          )}`}
-                          className="group flex items-center gap-2.5 rounded-xl border border-border/70 bg-card/70 hover:border-amber-500/50 p-2.5 text-xs min-h-[44px] transition-all"
-                        >
-                          <GameAssetFrame
-                            src={entity.path}
-                            alt={displayName}
-                            size="md"
-                            rarity={entity.rarity}
-                            faction={entity.faction}
-                            category={entity.category}
-                          />
-                          <div className="min-w-0 flex-1 space-y-0.5">
-                            <div className="flex items-center justify-between gap-1">
-                              <span className="font-heading font-bold text-xs sm:text-sm text-foreground group-hover:text-amber-500 truncate">
-                                {displayName}
-                              </span>
-                              <span className="text-xs font-sans font-semibold text-amber-500 shrink-0">
-                                {CODEX_CATEGORY_LABELS[entity.category][locale]}
-                              </span>
-                            </div>
-                            <p className="text-xs text-muted-foreground line-clamp-1">
-                              {displayDesc}
-                            </p>
-                          </div>
-                        </Link>
-                      );
-                    })}
-                  </div>
-                )}
+                ))}
               </div>
+            ) : (
+              <p className="text-xs sm:text-sm text-muted-foreground py-2 text-center">
+                {locale === "vi"
+                  ? "Không tìm thấy bài viết nào phù hợp với từ khóa."
+                  : "No guide articles matched your search query."}
+              </p>
             )}
           </div>
         )}
       </section>
 
-      {/* LAYER 2: 3-Stage Server Progression Selector Tabs (Auto-hidden when < 2 stages have published articles) */}
-      {hasMultipleStagesPublished && (
-        <section className="space-y-3" data-testid="hub-stage-progression">
-          <h2 className="text-xs font-heading font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400 flex items-center gap-1.5 px-1">
-            <Compass className="h-4 w-4" />
-            <span>{t("stageSelectorTitle")}</span>
-          </h2>
+      {/* Main 2-Column Responsive Layout */}
+      <div className="flex items-start gap-8">
+        {/* Left Column: Master Sticky Sidebar (Desktop ~280px) */}
+        <GuidesHubSidebar
+          categories={categories}
+          activeSectionId={activeSectionId}
+          onSelectSection={setActiveSectionId}
+          locale={locale}
+        />
 
-          <Tabs defaultValue="early" className="space-y-3">
-            <TabsList className="grid grid-cols-1 sm:grid-cols-3 h-auto gap-1.5 rounded-2xl bg-card/70 border border-border/80 p-1.5">
-              {stageArticles.early.length > 0 && (
-                <TabsTrigger
-                  value="early"
-                  className="rounded-xl py-2.5 px-3 min-h-[44px] text-left flex flex-col items-start gap-0.5 data-[state=active]:bg-amber-500/15 data-[state=active]:text-amber-600 dark:data-[state=active]:text-amber-400 data-[state=active]:border-amber-500/30 border border-transparent"
-                >
-                  <span className="font-heading font-bold text-sm sm:text-base">
-                    🌱 {t("stageEarlyLabel")}
-                  </span>
-                  <span className="text-xs text-muted-foreground line-clamp-1 font-normal">
-                    {t("stageEarlySub")}
-                  </span>
-                </TabsTrigger>
-              )}
-
-              {stageArticles.pivot.length > 0 && (
-                <TabsTrigger
-                  value="pivot"
-                  className="rounded-xl py-2.5 px-3 min-h-[44px] text-left flex flex-col items-start gap-0.5 data-[state=active]:bg-amber-500/15 data-[state=active]:text-amber-600 dark:data-[state=active]:text-amber-400 data-[state=active]:border-amber-500/30 border border-transparent"
-                >
-                  <span className="font-heading font-bold text-sm sm:text-base">
-                    🔥 {t("stagePivotLabel")}
-                  </span>
-                  <span className="text-xs text-muted-foreground line-clamp-1 font-normal">
-                    {t("stagePivotSub")}
-                  </span>
-                </TabsTrigger>
-              )}
-
-              {stageArticles.season.length > 0 && (
-                <TabsTrigger
-                  value="season"
-                  className="rounded-xl py-2.5 px-3 min-h-[44px] text-left flex flex-col items-start gap-0.5 data-[state=active]:bg-amber-500/15 data-[state=active]:text-amber-600 dark:data-[state=active]:text-amber-400 data-[state=active]:border-amber-500/30 border border-transparent"
-                >
-                  <span className="font-heading font-bold text-sm sm:text-base">
-                    ⚔️ {t("stageSeasonLabel")}
-                  </span>
-                  <span className="text-xs text-muted-foreground line-clamp-1 font-normal">
-                    {t("stageSeasonSub")}
-                  </span>
-                </TabsTrigger>
-              )}
-            </TabsList>
-
-            {stageArticles.early.length > 0 && (
-              <TabsContent value="early">
-                {renderStageCards(stageArticles.early)}
-              </TabsContent>
-            )}
-            {stageArticles.pivot.length > 0 && (
-              <TabsContent value="pivot">
-                {renderStageCards(stageArticles.pivot)}
-              </TabsContent>
-            )}
-            {stageArticles.season.length > 0 && (
-              <TabsContent value="season">
-                {renderStageCards(stageArticles.season)}
-              </TabsContent>
-            )}
-          </Tabs>
-        </section>
-      )}
-
-      {/* LAYER 3: Interactive Tools & Master Lookup Strip (Auto-hidden when zero tools are published) */}
-      {quickTools.length > 0 && (
-        <section className="space-y-3">
-          <h2 className="text-xs font-heading font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5 px-1">
-            <Wrench className="h-4 w-4 text-amber-500" />
-            <span>{t("toolsStripTitle")}</span>
-          </h2>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 gap-3.5">
-            {quickTools.map((tool) => {
-              const Icon = tool.icon;
-              return (
-                <Link
-                  key={tool.code}
-                  href={tool.href}
-                  data-testid={tool.testId}
-                  className="group rounded-2xl border border-border/80 bg-card/70 hover:border-amber-500/50 p-4 flex items-start gap-3.5 transition-all shadow-sm"
-                >
-                  <div
-                    className={cn(
-                      "flex h-10 w-10 items-center justify-center rounded-xl border shrink-0",
-                      tool.accent
-                    )}
-                  >
-                    <Icon className="h-5 w-5" />
-                  </div>
-                  <div className="min-w-0 flex-1 space-y-1">
-                    <div className="flex items-center justify-between gap-1">
-                      <span className="font-mono text-xs font-bold text-amber-500">
-                        #{tool.code}
-                      </span>
-                      <ArrowRight className="h-3.5 w-3.5 text-muted-foreground group-hover:text-amber-500 transition-transform group-hover:translate-x-0.5" />
-                    </div>
-                    <h3 className="font-heading font-bold text-sm sm:text-base text-foreground group-hover:text-amber-500 transition-colors truncate">
-                      {tool.title}
-                    </h3>
-                    <p className="text-xs text-muted-foreground line-clamp-1">
-                      {tool.desc}
-                    </p>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-        </section>
-      )}
-
-      {/* LAYER 4: Published Categories Bento Grid */}
-      <section className="space-y-4">
-        <h2 className="text-xs font-heading font-bold uppercase tracking-wider text-muted-foreground px-1">
-          {t("categoriesGridTitle")}
-        </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {categories.map((category) => {
-            const Icon = categoryIcons[category.iconName] || BookOpen;
-            const firstArticle = category.articles[0];
-            const isExpanded = Boolean(expandedCategories[category.slug]);
-            const displayOrder = category.displayOrder ?? category.order;
-            const isEventPlaybooks = category.slug === "event-playbooks";
+        {/* Right Column: 9 Master Sections (Stacked 1..9) */}
+        <div className="min-w-0 flex-1 space-y-10">
+          {categories.map((category, index) => {
+            const sectionNumber = category.displayOrder ?? index + 1;
+            const sectionId = `sec-${sectionNumber}`;
+            const IconComponent =
+              CATEGORY_ICONS[category.iconName] ?? BookOpen;
+            const calculatorLinks =
+              SECTION_CALCULATOR_LINKS[sectionNumber] ?? [];
 
             return (
-              <div
+              <section
                 key={category.slug}
-                data-testid={`hub-category-card-${category.slug}`}
-                className="rounded-3xl border border-border/80 dark:border-amber-500/20 bg-card/70 p-4 sm:p-6 flex flex-col justify-between space-y-4 shadow-sm hover:border-amber-500/40 transition-all"
+                id={sectionId}
+                data-testid={`hub-section-${sectionNumber}`}
+                className="scroll-mt-24 card-rpg rounded-3xl p-5 sm:p-7 space-y-6 border border-border/70 bg-card/70 backdrop-blur"
               >
-                <div className="space-y-3">
-                  <div className="flex items-start justify-between gap-3">
-                    <div className="flex items-center gap-3">
-                      <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-tr from-amber-500 to-yellow-300 text-slate-950 shadow-sm shrink-0">
-                        <Icon className="h-5 w-5" />
-                      </div>
-                      <div>
-                        <span className="text-xs font-mono font-bold text-amber-600 dark:text-amber-400">
-                          TOPIC 0{displayOrder}
-                        </span>
-                        <h3 className="font-heading font-black text-base sm:text-lg text-foreground leading-snug">
-                          {category.title[locale]}
-                        </h3>
-                      </div>
+                {/* Section Header: Zero-Prefix Clean Title */}
+                <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-border/60">
+                  <div className="flex items-center gap-3">
+                    <div className="h-10 w-10 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center shrink-0">
+                      <IconComponent className="h-5 w-5 text-amber-500" />
                     </div>
-                    <Badge
-                      variant="outline"
-                      className="font-sans text-xs font-semibold shrink-0"
-                    >
-                      {isEventPlaybooks
-                        ? locale === "vi"
-                          ? "90 Sự kiện"
-                          : "90 Events"
-                        : t("articlesCount", {
-                            count: category.articles.length,
-                          })}
-                    </Badge>
+                    <div>
+                      <h2 className="font-heading font-black text-lg sm:text-xl text-foreground">
+                        {category.title[locale]}
+                      </h2>
+                      <p className="font-sans text-xs sm:text-sm text-muted-foreground line-clamp-1">
+                        {category.description[locale]}
+                      </p>
+                    </div>
                   </div>
 
-                  <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">
-                    {category.description[locale]}
-                  </p>
+                  <Badge
+                    variant="outline"
+                    className="font-mono text-xs font-bold border-border/80"
+                  >
+                    {category.articles.length}{" "}
+                    {locale === "vi" ? "bài viết" : "articles"}
+                  </Badge>
                 </div>
 
-                {/* Primary Entry CTA + Progressive Disclosure Toggle */}
-                <div className="space-y-2.5 pt-3 border-t border-border/60">
-                  {isEventPlaybooks ? (
-                    <>
+                {/* Article Cards Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+                  {category.articles.map((article) => {
+                    const isPublished = article.status === "published";
+
+                    return (
                       <Link
-                        href="/guides/event-playbooks"
-                        className="group flex items-center justify-between gap-2 rounded-xl border border-amber-500/30 bg-amber-500/10 hover:bg-amber-500/15 px-3.5 py-2.5 text-xs sm:text-sm font-bold text-amber-600 dark:text-amber-400 transition-all min-h-[44px]"
-                      >
-                        <span className="truncate">
-                          🚀{" "}
-                          {locale === "vi"
-                            ? "Mở Catalog 90 Sự Kiện (Giai đoạn 1–3)"
-                            : "Open 90-Event Catalog (Stages 1–3)"}
-                        </span>
-                        <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5" />
-                      </Link>
-
-                      <button
-                        type="button"
-                        onClick={() => toggleCategoryExpand(category.slug)}
-                        className="w-full flex items-center justify-between px-2.5 py-2 min-h-[44px] rounded-xl text-xs font-sans font-semibold text-muted-foreground hover:text-foreground hover:bg-muted/40 transition-colors"
-                      >
-                        <span>
-                          {isExpanded
-                            ? t("hideMoreArticlesBtn")
-                            : locale === "vi"
-                              ? "Xem 3 Giai đoạn Server (28 • 36 • 26)"
-                              : "Browse 3 Server Stages (28 • 36 • 26)"}
-                        </span>
-                        {isExpanded ? (
-                          <ChevronUp className="h-4 w-4" />
-                        ) : (
-                          <ChevronDown className="h-4 w-4" />
+                        key={article.slug}
+                        href={`/guides/${category.slug}/${article.slug}`}
+                        className={cn(
+                          "group flex flex-col justify-between p-4 rounded-2xl border transition-all text-xs sm:text-sm min-h-[96px]",
+                          isPublished
+                            ? "bg-amber-500/5 border-amber-500/30 hover:border-amber-500 hover:bg-amber-500/10 shadow-xs"
+                            : "bg-card/50 border-border/60 hover:border-amber-500/40 hover:bg-card/80"
                         )}
-                      </button>
+                      >
+                        <div className="space-y-1.5">
+                          <div className="flex items-center justify-between gap-2">
+                            <span className="font-mono text-xs font-bold text-amber-500">
+                              #{article.displayCode ?? article.code}
+                            </span>
 
-                      {isExpanded && (
-                        <div className="space-y-1 pt-1">
-                          {[
-                            {
-                              id: "stage_1",
-                              labelVi:
-                                "Giai đoạn 1: Tân thủ (Ngày 1–39) — 28 Sự kiện",
-                              labelEn:
-                                "Stage 1: Early Server (Days 1–39) — 28 Events",
-                            },
-                            {
-                              id: "stage_2",
-                              labelVi:
-                                "Giai đoạn 2: Chu kỳ Tuần & 10 Tuần — 36 Sự kiện",
-                              labelEn:
-                                "Stage 2: Weekly & 10-Week Cycle — 36 Events",
-                            },
-                            {
-                              id: "stage_3",
-                              labelVi:
-                                "Giai đoạn 3: Mùa S1–S3 & Lễ Hội — 26 Sự kiện",
-                              labelEn:
-                                "Stage 3: Seasons S1–S3 & Festivals — 26 Events",
-                            },
-                          ].map((stageItem) => (
-                            <Link
-                              key={stageItem.id}
-                              href={`/guides/event-playbooks?stage=${stageItem.id}`}
-                              className="group flex items-center justify-between gap-2 rounded-xl px-3 py-2 text-xs sm:text-sm hover:bg-amber-500/10 transition-colors min-h-[44px]"
-                            >
-                              <span className="truncate font-medium text-foreground/90 group-hover:text-amber-500">
-                                {locale === "vi"
-                                  ? stageItem.labelVi
-                                  : stageItem.labelEn}
-                              </span>
-                              <ArrowRight className="h-3.5 w-3.5 text-muted-foreground group-hover:text-amber-500 transition-transform group-hover:translate-x-0.5 shrink-0" />
-                            </Link>
-                          ))}
+                            {isPublished ? (
+                              <Badge
+                                variant="outline"
+                                className="font-sans text-xs font-bold bg-amber-500/15 border-amber-500/30 text-amber-600 dark:text-amber-400 flex items-center gap-1"
+                              >
+                                <BookOpen className="h-3 w-3" />
+                                <span>
+                                  {locale === "vi" ? "Đọc ngay" : "Read Now"}
+                                </span>
+                              </Badge>
+                            ) : (
+                              <Badge
+                                variant="outline"
+                                className="font-sans text-xs font-medium border-border text-muted-foreground flex items-center gap-1"
+                              >
+                                <Clock className="h-3 w-3" />
+                                <span>
+                                  {locale === "vi"
+                                    ? "Sắp ra mắt"
+                                    : "Coming Soon"}
+                                </span>
+                              </Badge>
+                            )}
+                          </div>
+
+                          <h3 className="font-heading font-bold text-sm sm:text-base text-foreground group-hover:text-amber-500 transition-colors line-clamp-1">
+                            {article.title[locale]}
+                          </h3>
+
+                          <p className="font-sans text-xs text-muted-foreground line-clamp-2 leading-relaxed">
+                            {article.summary[locale]}
+                          </p>
                         </div>
-                      )}
-                    </>
-                  ) : (
-                    <>
-                      {firstArticle && (
-                        <Link
-                          href={`/guides/${category.slug}/${firstArticle.slug}`}
-                          className="group flex items-center justify-between gap-2 rounded-xl border border-amber-500/30 bg-amber-500/10 hover:bg-amber-500/15 px-3.5 py-2.5 text-xs sm:text-sm font-bold text-amber-600 dark:text-amber-400 transition-all min-h-[44px]"
-                        >
-                          <span className="truncate">
-                            🚀{" "}
-                            {t("startWithArticleBtn", {
-                              code:
-                                firstArticle.displayCode ?? firstArticle.code,
-                            })}{" "}
-                            — {firstArticle.title[locale]}
+
+                        <div className="pt-3 flex items-center justify-between text-xs text-muted-foreground/80 font-sans">
+                          <span className="flex items-center gap-1">
+                            <Clock className="h-3.5 w-3.5 text-amber-500/70" />
+                            <span>
+                              {article.readingMinutes}{" "}
+                              {locale === "vi" ? "phút đọc" : "min read"}
+                            </span>
                           </span>
-                          <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5" />
-                        </Link>
-                      )}
 
-                      <button
-                        type="button"
-                        onClick={() => toggleCategoryExpand(category.slug)}
-                        className="w-full flex items-center justify-between px-2.5 py-2 min-h-[44px] rounded-xl text-xs font-sans font-semibold text-muted-foreground hover:text-foreground hover:bg-muted/40 transition-colors"
-                      >
-                        <span>
-                          {isExpanded
-                            ? t("hideMoreArticlesBtn")
-                            : t("showMoreArticlesBtn", {
-                                count: category.articles.length,
-                              })}
-                        </span>
-                        {isExpanded ? (
-                          <ChevronUp className="h-4 w-4" />
-                        ) : (
-                          <ChevronDown className="h-4 w-4" />
-                        )}
-                      </button>
-
-                      {isExpanded && (
-                        <div className="space-y-1 pt-1">
-                          {category.articles.map((article) => (
-                            <Link
-                              key={article.slug}
-                              href={`/guides/${category.slug}/${article.slug}`}
-                              className="group flex items-center justify-between gap-2 rounded-xl px-3 py-2 text-xs sm:text-sm hover:bg-amber-500/10 transition-colors min-h-[44px]"
-                            >
-                              <span className="truncate font-medium text-foreground/90 group-hover:text-amber-500">
-                                <strong className="font-mono text-xs text-amber-500 mr-1.5">
-                                  {article.displayCode ?? article.code}
-                                </strong>
-                                {article.title[locale]}
-                              </span>
-                              <span className="flex items-center gap-1.5 shrink-0">
-                                {article.badge === "HOT" && (
-                                  <Flame className="h-3.5 w-3.5 text-rose-500" />
-                                )}
-                                <ArrowRight className="h-3.5 w-3.5 text-muted-foreground group-hover:text-amber-500 transition-transform group-hover:translate-x-0.5" />
-                              </span>
-                            </Link>
-                          ))}
+                          <span className="inline-flex items-center gap-1 font-bold text-amber-600 dark:text-amber-400 group-hover:translate-x-0.5 transition-transform">
+                            <span>
+                              {isPublished
+                                ? locale === "vi"
+                                  ? "Vào đọc"
+                                  : "Read"
+                                : locale === "vi"
+                                  ? "Xem dàn ý"
+                                  : "Preview"}
+                            </span>
+                            <ArrowRight className="h-3.5 w-3.5" />
+                          </span>
                         </div>
-                      )}
-                    </>
-                  )}
+                      </Link>
+                    );
+                  })}
                 </div>
-              </div>
+
+                {/* Section Calculators CTA Strip */}
+                {calculatorLinks.length > 0 && (
+                  <div
+                    data-testid={`section-${sectionNumber}-calculators`}
+                    className="p-3.5 rounded-2xl bg-amber-500/5 border border-amber-500/20 flex flex-wrap items-center justify-between gap-3 text-xs"
+                  >
+                    <div className="flex items-center gap-2 text-amber-600 dark:text-amber-400 font-sans font-bold">
+                      <Calculator className="h-4 w-4 shrink-0" />
+                      <span>
+                        {locale === "vi"
+                          ? "Công cụ tính toán liên kết cho chuyên mục này:"
+                          : "Related calculators for this topic:"}
+                      </span>
+                    </div>
+
+                    <div className="flex flex-wrap items-center gap-2">
+                      {calculatorLinks.map((calc) => (
+                        <Link
+                          key={calc.href}
+                          href={calc.href}
+                          className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl border border-amber-500/30 bg-amber-500/10 hover:bg-amber-500/20 text-amber-600 dark:text-amber-400 font-sans font-bold text-xs min-h-[36px] transition-all"
+                        >
+                          <span>
+                            {locale === "vi" ? calc.titleVi : calc.titleEn}
+                          </span>
+                          <ArrowRight className="h-3 w-3" />
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </section>
             );
           })}
         </div>
-      </section>
+      </div>
 
-      {/* Unified Guide Discussion Hub (100% Free & Clean without Beta Notice) */}
+      {/* Floating Bottom Drawer for Mobile Viewports */}
+      <GuidesHubMobileDrawer
+        categories={categories}
+        activeSectionId={activeSectionId}
+        onSelectSection={setActiveSectionId}
+        locale={locale}
+      />
+
+      {/* Unified Guide Discussion Hub (100% Free & Clean) */}
       <GuideCommentsSection
         pageKey="guides:hub"
         locale={locale}

@@ -80,33 +80,35 @@ describe("GuidesSidebar v3.0 (Phase 1 Published Visibility Filter, Zero PRO Badg
     expect(screen.getAllByText(/S105/i).length).toBeGreaterThan(0);
   });
 
-  it("renders only published Zone I and Group 1 ('1. Nhập Môn & Luật Sống Còn') with Article 1.1 in Phase 1 while hiding unpublished groups and Codex", () => {
+  it("renders all 9 master categories with Article 1.1 and shell articles in Zero-Prefix layout with zero PRO badges", () => {
     const { container } = render(<GuidesSidebar />);
 
     const group1Btn = screen.getByRole("button", {
-      name: /1\. Nhập Môn & Luật Sống Còn/i,
+      name: /1\. Cẩm Nang Đầu Tay/i,
     });
     expect(group1Btn.getAttribute("data-state")).toBe("open");
 
-    // Only 1.1 is rendered; 1.2..1.4 and Groups 2..9 are hidden in Phase 1
+    // All 9 Categories are accessible
+    expect(
+      screen.getByRole("button", { name: /2\. Thông Tin Các Phe/i })
+    ).toBeDefined();
+    expect(
+      screen.getByRole("button", { name: /3\. Công Trình & Xây Dựng/i })
+    ).toBeDefined();
+    expect(
+      screen.getByRole("button", { name: /9\. Bảng Số Liệu Gốc/i })
+    ).toBeDefined();
+
+    // 1.1 is rendered in Group 1
     expect(screen.getByRole("link", { name: /1\.1/i })).toBeDefined();
-    expect(screen.queryByRole("link", { name: /1\.2/i })).toBeNull();
-    expect(
-      screen.queryByRole("button", { name: /2\. Anh Hùng/i })
-    ).toBeNull();
-    expect(
-      screen.queryByRole("button", { name: /4\. Lộ Trình Server/i })
-    ).toBeNull();
-    expect(
-      screen.queryByRole("button", { name: /5\. Danh sách event/i })
-    ).toBeNull();
 
     // Codex link is hidden while isCodexPublished() === false
     expect(screen.queryByTestId("sidebar-codex-link")).toBeNull();
     expect(screen.queryByTestId("sidebar-rail-codex-link")).toBeNull();
 
-    // Zero PRO badges in sidebar
+    // Zero PRO badges in sidebar and zero zone header text
     expect(container.querySelector('[title="PRO"]')).toBeNull();
+    expect(screen.queryByText(/PHÂN KHU/i)).toBeNull();
   });
 
   it("toggles desktop sidebar collapsed rail and persists state to localStorage", () => {
@@ -145,7 +147,7 @@ describe("GuidesSidebar v3.0 (Phase 1 Published Visibility Filter, Zero PRO Badg
     render(<GuidesSidebar />);
 
     const group1RailBtn = screen.getByRole("button", {
-      name: /1\. Nhập Môn & Luật Sống Còn/i,
+      name: /1\. Cẩm Nang Đầu Tay/i,
     });
     fireEvent.click(group1RailBtn);
 
@@ -153,7 +155,7 @@ describe("GuidesSidebar v3.0 (Phase 1 Published Visibility Filter, Zero PRO Badg
       window.localStorage.getItem("tophub_guides_sidebar_collapsed")
     ).toBe("0");
     const group1AccordionBtn = screen.getByRole("button", {
-      name: /1\. Nhập Môn & Luật Sống Còn/i,
+      name: /1\. Cẩm Nang Đầu Tay/i,
     });
     expect(group1AccordionBtn.getAttribute("data-state")).toBe("open");
   });
@@ -167,12 +169,12 @@ describe("GuidesSidebar v3.0 (Phase 1 Published Visibility Filter, Zero PRO Badg
     expect(articleLink.textContent).not.toContain("(");
   });
 
-  it("searches only published articles via searchPublishedGuides in Phase 1", () => {
+  it("searches published articles via searchPublishedGuides", () => {
     render(<GuidesSidebar />);
     const searchInput = screen.getByPlaceholderText(/Tìm tướng, sự kiện/i);
 
     fireEvent.change(searchInput, { target: { value: "Desert Prince" } });
-    expect(screen.getByText(/1 kết quả/i)).toBeDefined();
+    expect(screen.getByText(/\d+ kết quả/i)).toBeDefined();
     expect(screen.getByRole("link", { name: /1\.1/i })).toBeDefined();
   });
 

@@ -234,12 +234,17 @@ export interface GuideSection {
   subSections?: GuideSubSection[];
 }
 
+export type GuideArticleStatus = "published" | "shell";
+
 export interface GuideArticle {
   code: string;
   displayCode?: string;
   slug: string;
   categorySlug: string;
   badge: GuideBadgeType;
+  status?: GuideArticleStatus;
+  plannedOutline?: LocalizedText[];
+  relatedCalculatorSlugs?: string[];
   readingMinutes: number;
   title: LocalizedText;
   summary: LocalizedText;

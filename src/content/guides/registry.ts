@@ -13,9 +13,15 @@ import { GROUP_6_POWER_SYSTEMS_CATEGORY } from "./groups/group-6-power-systems";
 import { GROUP_7_SHOPS_AND_ECONOMY_CATEGORY } from "./groups/group-7-shops-and-economy";
 import { GROUP_8_INFRASTRUCTURE_CATEGORY } from "./groups/group-8-infrastructure";
 import { GROUP_9_EVENT_PLAYBOOKS_CATEGORY } from "./groups/group-9-event-playbooks";
+import { MASTER_SECTIONS } from "./master-sections";
 
 const CATEGORY_SLUG_ALIASES: Readonly<Record<string, string>> = {
   "event-list": "event-playbooks",
+  "heroes": "factions",
+  "infrastructure": "buildings",
+  "economy": "shops",
+  "shops-economy": "shops",
+  "roadmap": "factions",
 };
 
 const ARTICLE_SLUG_ALIASES: Readonly<Record<string, string>> = {
@@ -23,6 +29,9 @@ const ARTICLE_SLUG_ALIASES: Readonly<Record<string, string>> = {
   "s0-gacha-mythic-banners": "tasks-and-milestones",
   "s0-satellites-and-raids": "shop-and-drops",
   "horde-pivot-roadmap": "horde-progression-playbook",
+  "terminology": "strict-one-queue-rule",
+  "fatal-mistakes": "top-10-account-traps",
+  "gacha-spending": "diamond-and-spending-guide",
 };
 
 /**
@@ -118,10 +127,10 @@ export function getAllCategories(): GuideCategory[] {
 
 /**
  * Trả về 9 danh mục theo đúng thứ tự hiển thị trực quan từ trên xuống dưới (1 ➔ 9):
- * Zone I (1, 2) ➔ Zone II (3, 4, 5. Danh sách event) ➔ Zone III (6, 7, 8, 9)
+ * 1. Cẩm Nang Đầu Tay ➔ 2. Thông Tin Các Phe ➔ ... ➔ 9. Bảng Số Liệu Gốc
  */
 export function getCategoriesInDisplayOrder(): GuideCategory[] {
-  return GUIDE_ZONES.flatMap((zone) => zone.categories);
+  return MASTER_SECTIONS;
 }
 
 export function getAllArticles(): GuideArticle[] {
@@ -129,7 +138,15 @@ export function getAllArticles(): GuideArticle[] {
 }
 
 export function getCategoryBySlug(categorySlug: string): GuideCategory | undefined {
+  const directMaster = MASTER_SECTIONS.find((cat) => cat.slug === categorySlug);
+  if (directMaster) return directMaster;
+
+  const directLegacy = GUIDE_CATEGORIES.find((cat) => cat.slug === categorySlug);
+  if (directLegacy) return directLegacy;
+
   const canonicalSlug = CATEGORY_SLUG_ALIASES[categorySlug] ?? categorySlug;
+  const masterCat = MASTER_SECTIONS.find((cat) => cat.slug === canonicalSlug);
+  if (masterCat) return masterCat;
   return GUIDE_CATEGORIES.find((cat) => cat.slug === canonicalSlug);
 }
 
@@ -137,22 +154,50 @@ export function getArticleBySlug(
   categorySlug: string,
   articleSlug: string
 ): GuideArticle | undefined {
-  const category = getCategoryBySlug(categorySlug);
-  if (!category) return undefined;
-  const canonicalArticleSlug = ARTICLE_SLUG_ALIASES[articleSlug] ?? articleSlug;
-  return category.articles.find((art) => art.slug === canonicalArticleSlug);
+  const canonicalArtSlug = ARTICLE_SLUG_ALIASES[articleSlug] ?? articleSlug;
+
+  // 1. Direct match in MASTER_SECTIONS
+  const masterCat = MASTER_SECTIONS.find((c) => c.slug === categorySlug);
+  const masterArt = masterCat?.articles.find((a) => a.slug === articleSlug || a.slug === canonicalArtSlug);
+  if (masterArt) return masterArt;
+
+  // 2. Direct match in GUIDE_CATEGORIES
+  const legacyCat = GUIDE_CATEGORIES.find((c) => c.slug === categorySlug);
+  const legacyArt = legacyCat?.articles.find((a) => a.slug === articleSlug || a.slug === canonicalArtSlug);
+  if (legacyArt) return legacyArt;
+
+  // 3. Match via canonical category alias
+  const canonicalCatSlug = CATEGORY_SLUG_ALIASES[categorySlug];
+  if (canonicalCatSlug) {
+    const aliasMaster = MASTER_SECTIONS.find((c) => c.slug === canonicalCatSlug)?.articles.find(
+      (a) => a.slug === articleSlug || a.slug === canonicalArtSlug
+    );
+    if (aliasMaster) return aliasMaster;
+
+    const aliasLegacy = GUIDE_CATEGORIES.find((c) => c.slug === canonicalCatSlug)?.articles.find(
+      (a) => a.slug === articleSlug || a.slug === canonicalArtSlug
+    );
+    if (aliasLegacy) return aliasLegacy;
+  }
+
+  return undefined;
 }
 
 export function getAdjacentArticles(
   categorySlug: string,
   articleSlug: string
 ): { prev: GuideArticle | null; next: GuideArticle | null } {
-  const canonicalCatSlug = CATEGORY_SLUG_ALIASES[categorySlug] ?? categorySlug;
-  const canonicalArtSlug = ARTICLE_SLUG_ALIASES[articleSlug] ?? articleSlug;
   const all = getAllArticles();
-  const idx = all.findIndex(
-    (art) => art.categorySlug === canonicalCatSlug && art.slug === canonicalArtSlug
+  let idx = all.findIndex(
+    (art) => art.categorySlug === categorySlug && art.slug === articleSlug
   );
+  if (idx === -1) {
+    const canonicalCatSlug = CATEGORY_SLUG_ALIASES[categorySlug] ?? categorySlug;
+    const canonicalArtSlug = ARTICLE_SLUG_ALIASES[articleSlug] ?? articleSlug;
+    idx = all.findIndex(
+      (art) => art.categorySlug === canonicalCatSlug && art.slug === canonicalArtSlug
+    );
+  }
   if (idx === -1) {
     return { prev: null, next: null };
   }
@@ -219,14 +264,22 @@ export interface PublishedGuideConfig {
 }
 
 /**
- * Phase 1 Rollout Configuration (v3.0):
- * Only Group 1 ("getting-started") -> Article 1.1 ("overview") is published as the Golden Reference.
- * Groups 2..9 and /guides/codex remain hidden until their Phase 2..4 content audits complete.
+ * Guides Hub v3.1 Configuration:
+ * All 9 Master Sections are published with Article 1.1 as the Golden Reference
+ * and the remaining sections scaffolded as Shell Pages (Option A).
  */
 export const PUBLISHED_GUIDE_CONFIG: PublishedGuideConfig = {
   codexPublished: false,
   categories: {
-    "getting-started": ["overview"],
+    "getting-started": "*",
+    "factions": "*",
+    "buildings": "*",
+    "technology": "*",
+    "events": "*",
+    "shops": "*",
+    "gear": "*",
+    "power-systems": "*",
+    "master-tables": "*",
   },
 };
 

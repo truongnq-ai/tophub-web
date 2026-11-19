@@ -95,7 +95,7 @@ export default function GuideArticlePage({
 
   return (
     <div className="relative min-w-0 w-full">
-      <GuidesToc article={article} />
+      {article.status !== "shell" && <GuidesToc article={article} />}
       <GuideArticleRenderer
         category={publishedCategory}
         article={article}

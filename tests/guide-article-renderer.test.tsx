@@ -358,4 +358,37 @@ describe("GuideArticleRenderer v3.0 (100% Free Single-Flow Reading, Zero Tab Bar
     expect(screen.getByTestId("flat-section-5.5")).toBeDefined();
     expect(screen.getByTestId("flat-section-5.6")).toBeDefined();
   });
+
+  it("delegates to GuideArticleShell when article.status is shell", () => {
+    const shellArticle = {
+      ...ARTICLE_1_1_OVERVIEW,
+      status: "shell" as const,
+      plannedOutline: [
+        {
+          vi: "Kế hoạch nâng cấp C40",
+          en: "C40 Upgrade Plan",
+        },
+      ],
+      relatedCalculatorSlugs: ["construction"],
+    };
+
+    render(
+      <GuideArticleRenderer
+        category={category}
+        article={shellArticle}
+        prevArticle={null}
+        nextArticle={null}
+      />
+    );
+
+    expect(
+      screen.getByText("Nội Dung Đang Được Biên Tập Chuyên Sâu")
+    ).toBeDefined();
+    expect(screen.getByText("Kế hoạch nâng cấp C40")).toBeDefined();
+    expect(
+      screen.getByText(
+        "Máy Tính Tài Nguyên & Thời Gian Xây Lâu Đài (C1–C40)"
+      )
+    ).toBeDefined();
+  });
 });

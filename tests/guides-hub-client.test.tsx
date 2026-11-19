@@ -1,53 +1,14 @@
 import fs from "node:fs";
 import path from "node:path";
 import React from "react";
-import { describe, expect, it, vi } from "vitest";
+import { describe, expect, it, vi, beforeEach } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { GuidesHubClient } from "../src/components/guides/guides-hub-client";
 
 vi.mock("next-intl", () => ({
   useLocale: () => "vi",
   useTranslations: () => (key: string, params?: Record<string, unknown>) => {
-    if (key === "startWithArticleBtn" && params)
-      return `Bắt đầu: Bài ${params.code}`;
-    if (key === "showMoreArticlesBtn" && params)
-      return `Xem đầy đủ ${params.count} bài trong nhóm`;
-    if (key === "articlesCount" && params) return `${params.count} bài viết`;
-    if (key === "searchResultsCount" && params) return `${params.count} kết quả`;
-    if (key === "readingTime" && params) return `${params.minutes} phút đọc`;
-    const map: Record<string, string> = {
-      hubBadge: "Bách Khoa Chiến Thuật Top Heroes (S0 ➔ S4)",
-      hubTitle: "Cẩm Nang Chiến Thuật & Bảng Số Liệu Min-Max",
-      hubDescription: "Hệ thống cẩm nang thực chiến miễn phí 100%.",
-      searchPlaceholder: "Tìm tướng, sự kiện...",
-      clearSearch: "Xóa bộ lọc tìm kiếm",
-      searchNoResults: "Không tìm thấy bài viết nào.",
-      hotTagsLabel: "Từ khóa nóng:",
-      stageSelectorTitle: "Lộ Trình Đọc Theo Độ Tuổi Máy Chủ",
-      stageEarlyLabel: "Tân Thủ (Ngày 1–20)",
-      stageEarlySub: "Khởi đầu Liên Minh",
-      stagePivotLabel: "Chuyển Hệ (Ngày 21–45)",
-      stagePivotSub: "Xoay trục Bộ Lạc Zero-Loss",
-      stageSeasonLabel: "Chiến Sự (Season 1–4)",
-      stageSeasonSub: "Đua Lâu Đài Lv.35/40",
-      toolsStripTitle: "Công Cụ & Bảng Tra Cứu Tốc Độ Cao",
-      toolEncyclopediaTitle: "Bách Khoa 45+ Tướng",
-      toolEncyclopediaDesc: "Tier List S0➔S4",
-      toolCalendarTitle: "Lộ Trình Sự Kiện Server",
-      toolCalendarDesc: "Thi Đấu Hội & Đua Vũ Trang",
-      toolShopsTitle: "Xếp Hạng 13 Cửa Hàng",
-      toolShopsDesc: "ROI 600%",
-      toolMasterTablesTitle: "12 Bảng Số Liệu Gốc",
-      toolMasterTablesDesc: "Điểm gãy Mảnh, Sách",
-      toolCodexTitle: "Kho Đồ Giám (3,400+ Vật Phẩm)",
-      toolCodexDesc: "Từ điển Anh – Việt Tướng, Đồ Vàng, Cổ Ngữ & Thánh Vật",
-      hubSearchArticlesHeading: "Bài Viết Cẩm Nang Khớp Từ Khóa",
-      hubSearchCodexHeading: "Thực Thể & Vật Phẩm Trong Kho Đồ Giám",
-      hubSearchOpenCodexBtn: "Mở Kho Đồ Giám đầy đủ →",
-      categoriesGridTitle: "Danh Mục Chuyên Đề Chiến Thuật",
-      hideMoreArticlesBtn: "Thu gọn danh sách bài",
-    };
-    return map[key] ?? key;
+    return key;
   },
 }));
 
@@ -72,68 +33,103 @@ vi.mock("@/hooks/use-uid-session", () => ({
   }),
 }));
 
-describe("GuidesHubClient v3.0 (Phase 1 Lean Hub, Published-Only Filtering, Zero PRO Badges & Google MD3 Audit)", () => {
-  it("renders Hero + Hot Tags and ONLY published Category 1 (Article 1.1) while auto-hiding unpublished stage tabs, quick tools, Codex, PRO badges, and beta notices", () => {
+describe("GuidesHubClient v3.1 (Streamlined 9 Master Sections, Master Sticky Sidebar, Zero-Prefix UI & Mobile Drawer)", () => {
+  beforeEach(() => {
+    window.localStorage.clear();
+    Element.prototype.scrollIntoView = vi.fn();
+  });
+
+  it("renders Hero Header, Instant Search, Sticky Sidebar, and all 9 Master Sections cleanly", () => {
     render(<GuidesHubClient locale="vi" />);
 
-    // Layer 1: Hero & Hot Tags
+    // 1. Hero Header & Search
     expect(
-      screen.getByText("Cẩm Nang Chiến Thuật & Bảng Số Liệu Min-Max")
+      screen.getByText("Cẩm Nang Chiến Thuật & Bảng Số Liệu Chuẩn Hóa")
     ).toBeDefined();
-    expect(screen.getByRole("button", { name: /#DoubleDip/i })).toBeDefined();
+    const searchInput = screen.getByPlaceholderText(
+      /Tìm kiếm bài viết, tướng, sự kiện/i
+    );
+    expect(searchInput).toBeDefined();
 
-    // Layer 2 & 3 auto-hidden in Phase 1 because Pivot/Season stages and Quick Tools target unpublished guides/Codex
+    // 2. Master Sticky Sidebar with 9 Sections
+    expect(screen.getByTestId("guides-hub-sidebar")).toBeDefined();
+    expect(screen.getByText("Mục Lục Chuyên Đề")).toBeDefined();
+
+    // 3. All 9 Sections are rendered in order (#sec-1 to #sec-9)
+    for (let i = 1; i <= 9; i++) {
+      expect(screen.getByTestId(`hub-section-${i}`)).toBeDefined();
+    }
+
+    // 4. Section 1 contains Article 1.1 with "Đọc ngay" badge
     expect(
-      screen.queryByRole("tab", { name: /Chuyển Hệ \(Ngày 21–45\)/i })
-    ).toBeNull();
+      screen.getAllByText("1. Cẩm Nang Đầu Tay").length
+    ).toBeGreaterThanOrEqual(1);
+    expect(screen.getByText("Đọc ngay")).toBeDefined();
+
+    // 5. Section 2 contains shell articles with "Sắp ra mắt" badge
+    expect(
+      screen.getAllByText("2. Thông Tin Các Phe (S0 - S4)").length
+    ).toBeGreaterThanOrEqual(1);
+    const comingSoonBadges = screen.getAllByText("Sắp ra mắt");
+    expect(comingSoonBadges.length).toBeGreaterThan(0);
+
+    // 6. Zero-Prefix UI: No technical prefixes
+    expect(screen.queryByText(/TOPIC 0/i)).toBeNull();
+    expect(screen.queryByText(/PHÂN KHU/i)).toBeNull();
+    expect(screen.queryByText(/TRỤC \d/i)).toBeNull();
+
+    // 7. No obsolete Hot Tags, 3-Stage Tabs, or Quick Tools Strip
+    expect(screen.queryByText("#560Mảnh")).toBeNull();
+    expect(screen.queryByTestId("hub-stage-progression")).toBeNull();
     expect(screen.queryByTestId("hub-tool-codex")).toBeNull();
-    expect(screen.queryByTestId("hub-tool-2.1")).toBeNull();
-    expect(screen.queryByTestId("hub-tool-3.1")).toBeNull();
 
-    // Layer 4: Only Group 1 ("Nhập Môn & Luật Sống Còn") with Article 1.1 CTA is rendered
-    expect(screen.getByText(/Bắt đầu: Bài 1\.1/i)).toBeDefined();
-    expect(screen.queryByText(/TOPIC 02/i)).toBeNull();
-    expect(screen.queryByText(/TOPIC 04/i)).toBeNull();
-
-    // Zero Beta Feedback Notice on /guides hub
-    expect(screen.queryByTestId("guides-feedback-pre-comment")).toBeNull();
-  });
-
-  it("filters published articles in both VI and EN locales when clicking a localized Hot Keyword Tag chip", () => {
-    const { unmount } = render(<GuidesHubClient locale="vi" />);
-    fireEvent.click(screen.getByRole("button", { name: /#BộLạc5Mythic/i }));
-    expect(screen.getByText(/1 kết quả/i)).toBeDefined();
-    expect(screen.queryByTestId("hub-search-codex-section")).toBeNull();
-    unmount();
-
-    render(<GuidesHubClient locale="en" />);
-    fireEvent.click(screen.getByRole("button", { name: /#9SoulStones/i }));
-    expect(screen.getByText(/1 kết quả/i)).toBeDefined();
-  });
-
-  it("expands and collapses the published Group 1 category article list on demand in Bento Grid with zero PRO badges", () => {
-    render(<GuidesHubClient locale="vi" />);
-    const expandBtns = screen.getAllByRole("button", {
-      name: /Xem đầy đủ/i,
-    });
-    expect(expandBtns.length).toBe(1);
-
-    fireEvent.click(expandBtns[0]);
+    // 8. Calculators Strip rendered under Section 1
+    expect(screen.getByTestId("section-1-calculators")).toBeDefined();
     expect(
-      screen.getByRole("button", { name: /Thu gọn danh sách bài/i })
+      screen.getByText("Máy Tính Mảnh Nâng Sao Anh Hùng")
+    ).toBeDefined();
+
+    // 9. Mobile Drawer trigger button
+    expect(
+      screen.getByTestId("guides-mobile-drawer-trigger")
     ).toBeDefined();
   });
 
-  it("enforces Google MD3 Phase 3.1 standards: 16px mobile search input, 44px touch targets on Hot Tags, and zero sub-12px classes", () => {
+  it("opens mobile drawer and allows section selection", () => {
     render(<GuidesHubClient locale="vi" />);
 
-    const searchInput = screen.getByPlaceholderText(/Tìm tướng, sự kiện/i);
-    expect(searchInput.className).toContain("text-base");
-    expect(searchInput.className).toContain("h-11");
+    const drawerTrigger = screen.getByTestId("guides-mobile-drawer-trigger");
+    fireEvent.click(drawerTrigger);
 
-    const hotTagBtn = screen.getByRole("button", { name: /#DoubleDip/i });
-    expect(hotTagBtn.className).toContain("min-h-[44px]");
-    expect(hotTagBtn.className).toContain("font-sans");
+    expect(screen.getByTestId("guides-mobile-drawer-sheet")).toBeDefined();
+    expect(screen.getByText("9 Mục Cẩm Nang")).toBeDefined();
+  });
+
+  it("filters articles on search input without leaking unneeded UI elements", () => {
+    render(<GuidesHubClient locale="vi" />);
+
+    const searchInput = screen.getByPlaceholderText(
+      /Tìm kiếm bài viết, tướng, sự kiện/i
+    );
+    fireEvent.change(searchInput, { target: { value: "Bản Đồ" } });
+
+    expect(screen.getByTestId("hub-search-results")).toBeDefined();
+    expect(
+      screen.getByText(/Kết quả tìm kiếm bài viết/i)
+    ).toBeDefined();
+  });
+
+  it("enforces Google MD3 standards: 16px search input and touch targets >= 44px", () => {
+    render(<GuidesHubClient locale="vi" />);
+
+    const searchInput = screen.getByPlaceholderText(
+      /Tìm kiếm bài viết, tướng, sự kiện/i
+    );
+    expect(searchInput.className).toContain("text-base");
+    expect(searchInput.className).toContain("h-12");
+
+    const drawerTrigger = screen.getByTestId("guides-mobile-drawer-trigger");
+    expect(drawerTrigger.className).toContain("min-h-[44px]");
 
     const source = fs.readFileSync(
       path.resolve(

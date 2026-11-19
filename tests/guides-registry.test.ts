@@ -30,51 +30,28 @@ describe("Guides Hub Registry Architecture (3 Zones - 9 Groups - 39 Pages)", () 
     expect(articles).toHaveLength(39);
   });
 
-  it("should expose getCategoriesInDisplayOrder() ordered sequentially 1 ➔ 9 with Category 5 'Danh sách event' and 6 canonical sub-menus (5.1 ➔ 5.6)", () => {
+  it("should expose getCategoriesInDisplayOrder() ordered sequentially 1 ➔ 9 with Zero-Prefix clean titles", () => {
     const displayCategories = getCategoriesInDisplayOrder();
     expect(displayCategories).toHaveLength(9);
     expect(
       displayCategories.map((c) => c.displayOrder ?? c.order)
     ).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9]);
 
-    const cat5 = displayCategories[4];
-    expect(cat5.slug).toBe("event-playbooks");
-    expect(cat5.displayOrder).toBe(5);
-    expect(cat5.title.vi).toBe("Danh sách event");
-    expect(cat5.title.en).toBe("Event List");
-    expect(cat5.articles).toHaveLength(6);
-    expect(cat5.articles.map((a) => a.code)).toEqual([
-      "5.1",
-      "5.2",
-      "5.3",
-      "5.4",
-      "5.5",
-      "5.6",
-    ]);
-    expect(cat5.articles.map((a) => a.slug)).toEqual([
-      "timeline-and-rules",
-      "tasks-and-milestones",
-      "shop-and-drops",
-      "packs-and-roi",
-      "hoarding-and-prep-plan",
-      "pro-player-mechanics",
-    ]);
+    // Verify category titles have NO artificial prefixes
+    displayCategories.forEach((cat) => {
+      expect(cat.title.vi).not.toMatch(/TRỤC|TOPIC|PHÂN KHU|ZONE/i);
+      expect(cat.title.en).not.toMatch(/TRỤC|TOPIC|PHÂN KHU|ZONE/i);
+    });
 
-    // Zone III categories (6 ➔ 9) have displayOrder 6..9 and articles with displayCode 6.1..9.4
-    expect(displayCategories[5].slug).toBe("gear");
-    expect(displayCategories[5].articles.map((a) => a.displayCode)).toEqual([
-      "6.1",
-      "6.2",
-      "6.3",
-      "6.4",
-    ]);
-    expect(displayCategories[8].slug).toBe("infrastructure");
-    expect(displayCategories[8].articles.map((a) => a.displayCode)).toEqual([
-      "9.1",
-      "9.2",
-      "9.3",
-      "9.4",
-    ]);
+    expect(displayCategories[0].slug).toBe("getting-started");
+    expect(displayCategories[1].slug).toBe("factions");
+    expect(displayCategories[2].slug).toBe("buildings");
+    expect(displayCategories[3].slug).toBe("technology");
+    expect(displayCategories[4].slug).toBe("events");
+    expect(displayCategories[5].slug).toBe("shops");
+    expect(displayCategories[6].slug).toBe("gear");
+    expect(displayCategories[7].slug).toBe("power-systems");
+    expect(displayCategories[8].slug).toBe("master-tables");
   });
 
   it("should resolve legacy category/article slug aliases for backward compatibility", () => {
@@ -164,7 +141,8 @@ describe("Guides Hub Registry Architecture (3 Zones - 9 Groups - 39 Pages)", () 
     expect(runeResults.some((a) => a.categorySlug === "power-systems")).toBe(true);
   });
 
-  it("exposes Phase 1 Published Guides Visibility Layer filtering UI to Group 1 Article 1.1 while preserving raw SSoT helpers", () => {
+  it("exposes Guides Hub v3.1 Published Layer with 9 clean sections, shell scaffolding, and calculator linkages", () => {
+    // SSoT raw helpers remain intact with 9 legacy categories and 39 legacy articles
     expect(getAllCategories()).toHaveLength(9);
     expect(getAllArticles()).toHaveLength(39);
 
@@ -172,38 +150,42 @@ describe("Guides Hub Registry Architecture (3 Zones - 9 Groups - 39 Pages)", () 
     expect(isCodexPublished()).toBe(false);
 
     expect(isGuideCategoryPublished("getting-started")).toBe(true);
-    expect(isGuideCategoryPublished("heroes")).toBe(false);
+    expect(isGuideCategoryPublished("factions")).toBe(true);
     expect(isGuideArticlePublished("getting-started", "overview")).toBe(true);
-    expect(isGuideArticlePublished("getting-started", "terminology")).toBe(false);
-    expect(isGuideArticlePublished("heroes", "tier-list")).toBe(false);
+    expect(isGuideArticlePublished("getting-started", "terminology")).toBe(true);
+    expect(isGuideArticlePublished("factions", "faction-overview")).toBe(true);
 
     const publishedCategories = getPublishedCategories();
-    expect(publishedCategories).toHaveLength(1);
-    expect(publishedCategories[0].slug).toBe("getting-started");
-    expect(publishedCategories[0].articles).toHaveLength(1);
-    expect(publishedCategories[0].articles[0].slug).toBe("overview");
+    expect(publishedCategories).toHaveLength(9);
+    
+    // Verify zero artificial prefixes in published categories
+    publishedCategories.forEach((cat) => {
+      expect(cat.title.vi).not.toMatch(/TRỤC|TOPIC|PHÂN KHU|ZONE/i);
+      expect(cat.title.en).not.toMatch(/TRỤC|TOPIC|PHÂN KHU|ZONE/i);
+    });
 
-    expect(getPublishedCategoryBySlug("getting-started")?.articles).toHaveLength(1);
-    expect(getPublishedCategoryBySlug("heroes")).toBeUndefined();
+    // Check Article 1.1 Golden Reference
+    const art11 = getArticleBySlug("getting-started", "overview");
+    expect(art11).toBeDefined();
+    expect(art11?.status ?? "published").toBe("published");
+    expect(art11?.freeSections.length).toBeGreaterThan(0);
 
-    const publishedZones = getPublishedGuideZones();
-    expect(publishedZones).toHaveLength(1);
-    expect(publishedZones[0].id).toBe("zone_onboarding_meta");
-    expect(publishedZones[0].categories.map((c) => c.slug)).toEqual(["getting-started"]);
+    // Check Shell Article 2.1
+    const art21 = getArticleBySlug("factions", "faction-overview");
+    expect(art21).toBeDefined();
+    expect(art21?.status).toBe("shell");
+    expect(art21?.plannedOutline?.length).toBeGreaterThan(0);
+    expect(art21?.relatedCalculatorSlugs?.length).toBeGreaterThan(0);
 
     const publishedArticles = getPublishedArticles();
-    expect(publishedArticles).toHaveLength(1);
-    expect(publishedArticles[0].code).toBe("1.1");
+    expect(publishedArticles.length).toBe(37); // 4 + 5 + 4 + 4 + 4 + 4 + 4 + 4 + 4
 
     const adj = getPublishedAdjacentArticles("getting-started", "overview");
     expect(adj.prev).toBeNull();
-    expect(adj.next).toBeNull();
+    expect(adj.next?.slug).toBe("strict-one-queue-rule");
 
     const searchHits = searchPublishedGuides("Desert Prince", "vi");
-    expect(searchHits).toHaveLength(1);
-    expect(searchHits[0].slug).toBe("overview");
-
-    const hiddenSearchHits = searchPublishedGuides("Behemoth", "vi");
-    expect(hiddenSearchHits.every((a) => a.slug === "overview")).toBe(true);
+    expect(searchHits.length).toBeGreaterThanOrEqual(1);
+    expect(searchHits.some((a) => a.slug === "overview")).toBe(true);
   });
 });

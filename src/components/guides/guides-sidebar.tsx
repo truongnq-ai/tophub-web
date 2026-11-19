@@ -100,7 +100,7 @@ function SidebarNavigationTree({
   const rawLocale = useLocale();
   const locale: GuideLocale = rawLocale === "en" ? "en" : "vi";
   const pathname = usePathname();
-  const publishedZones = useMemo(() => getPublishedGuideZones(), []);
+  const categories = useMemo(() => getPublishedCategories(), []);
   const codexPublished = isCodexPublished();
 
   const [searchQuery, setSearchQuery] = useState("");
@@ -290,55 +290,50 @@ function SidebarNavigationTree({
           )}
         </div>
       ) : (
-        /* Published Zones & Categories Single-Accordion */
+        /* Published Categories Single-Accordion (Zero-Prefix Clean UI) */
         <Accordion
           type="single"
           collapsible
           value={openCategory}
           onValueChange={setOpenCategory}
-          className="space-y-4"
+          className="space-y-1.5"
         >
-          {publishedZones.map((zone) => (
-            <div key={zone.id} className="space-y-1.5">
-              <div className="px-2 text-xs font-sans font-bold uppercase tracking-wider text-amber-600/90 dark:text-amber-400/90">
-                {zone.title[locale]}
-              </div>
+          {categories.map((category) => {
+            const Icon = categoryIcons[category.iconName] || BookOpen;
+            const isCategoryActive = activeCategorySlug === category.slug;
+            const displayOrder = category.displayOrder ?? category.order;
+            const categoryDisplayLabel = /^\d+\./.test(category.title[locale])
+              ? category.title[locale]
+              : `${displayOrder}. ${category.title[locale]}`;
 
-              <div className="space-y-1.5">
-                {zone.categories.map((category) => {
-                  const Icon = categoryIcons[category.iconName] || BookOpen;
-                  const isCategoryActive = activeCategorySlug === category.slug;
-                  const displayOrder = category.displayOrder ?? category.order;
-                  const categoryDisplayLabel = `${displayOrder}. ${category.title[locale]}`;
-
-                  return (
-                    <AccordionItem
-                      key={category.slug}
-                      value={category.slug}
+            return (
+              <AccordionItem
+                key={category.slug}
+                value={category.slug}
+                className={cn(
+                  "rounded-xl border px-2 transition-colors",
+                  isCategoryActive
+                    ? "border-amber-500/35 bg-amber-500/5 dark:bg-card/80"
+                    : "border-border/60 bg-card/35"
+                )}
+              >
+                <AccordionTrigger className="py-2.5 hover:no-underline min-h-[44px]">
+                  <div className="flex items-center gap-2 text-left pr-1.5 min-w-0">
+                    <div
                       className={cn(
-                        "rounded-xl border px-2 transition-colors",
+                        "flex h-6 w-6 items-center justify-center rounded-lg shrink-0",
                         isCategoryActive
-                          ? "border-amber-500/35 bg-amber-500/5 dark:bg-card/80"
-                          : "border-border/60 bg-card/35"
+                          ? "bg-amber-500 text-slate-950"
+                          : "bg-amber-500/15 text-amber-500"
                       )}
                     >
-                      <AccordionTrigger className="py-2.5 hover:no-underline min-h-[44px]">
-                        <div className="flex items-center gap-2 text-left pr-1.5 min-w-0">
-                          <div
-                            className={cn(
-                              "flex h-6 w-6 items-center justify-center rounded-lg shrink-0",
-                              isCategoryActive
-                                ? "bg-amber-500 text-slate-950"
-                                : "bg-amber-500/15 text-amber-500"
-                            )}
-                          >
-                            <Icon className="h-3.5 w-3.5" />
-                          </div>
-                          <span className="font-heading font-bold text-xs sm:text-sm text-foreground leading-snug line-clamp-1">
-                            {categoryDisplayLabel}
-                          </span>
-                        </div>
-                      </AccordionTrigger>
+                      <Icon className="h-3.5 w-3.5" />
+                    </div>
+                    <span className="font-heading font-bold text-xs sm:text-sm text-foreground leading-snug line-clamp-1">
+                      {categoryDisplayLabel}
+                    </span>
+                  </div>
+                </AccordionTrigger>
 
                       <AccordionContent className="pb-2 pt-0.5">
                         <div className="space-y-1 pl-2 border-l border-border/70 ml-2.5">
@@ -448,9 +443,6 @@ function SidebarNavigationTree({
                     </AccordionItem>
                   );
                 })}
-              </div>
-            </div>
-          ))}
         </Accordion>
       )}
     </div>
@@ -619,7 +611,9 @@ export function GuidesSidebar() {
                 const Icon = categoryIcons[category.iconName] || BookOpen;
                 const isActive = pathname.startsWith(`/guides/${category.slug}`);
                 const displayOrder = category.displayOrder ?? category.order;
-                const label = `${displayOrder}. ${category.title[locale]}`;
+                const label = /^\d+\./.test(category.title[locale])
+                  ? category.title[locale]
+                  : `${displayOrder}. ${category.title[locale]}`;
 
                 return (
                   <button
