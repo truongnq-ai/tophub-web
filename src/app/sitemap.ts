@@ -1,22 +1,29 @@
 import type { MetadataRoute } from "next";
 import { getSiteUrl } from "@/config/constants";
 import { getAllCalculatorTools } from "@/content/calculators/registry";
-import { getAllArticles } from "@/content/guides/registry";
+import {
+  getPublishedArticles,
+  isCodexPublished,
+} from "@/content/guides/registry";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = getSiteUrl();
   const now = new Date();
 
-  const staticPaths = [
-    { path: "", priority: 1.0, changeFrequency: "daily" as const },
-    { path: "/calculators", priority: 0.9, changeFrequency: "weekly" as const },
-    { path: "/guides", priority: 0.9, changeFrequency: "weekly" as const },
-    { path: "/guides/codex", priority: 0.85, changeFrequency: "weekly" as const },
-    { path: "/giftcodes", priority: 0.9, changeFrequency: "hourly" as const },
-    { path: "/check", priority: 0.8, changeFrequency: "daily" as const },
-    { path: "/pricing", priority: 0.7, changeFrequency: "monthly" as const },
-    { path: "/terms", priority: 0.3, changeFrequency: "yearly" as const },
-    { path: "/privacy", priority: 0.3, changeFrequency: "yearly" as const },
+  const staticPaths: Array<{
+    path: string;
+    priority: number;
+    changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
+  }> = [
+    { path: "", priority: 1.0, changeFrequency: "daily" },
+    { path: "/calculators", priority: 0.9, changeFrequency: "weekly" },
+    { path: "/guides", priority: 0.9, changeFrequency: "weekly" },
+    ...(isCodexPublished()
+      ? [{ path: "/guides/codex", priority: 0.85, changeFrequency: "weekly" as const }]
+      : []),
+    { path: "/check", priority: 0.8, changeFrequency: "daily" },
+    { path: "/terms", priority: 0.3, changeFrequency: "yearly" },
+    { path: "/privacy", priority: 0.3, changeFrequency: "yearly" },
   ];
 
   const entries: MetadataRoute.Sitemap = [];
@@ -68,7 +75,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     );
   }
 
-  for (const article of getAllArticles()) {
+  for (const article of getPublishedArticles()) {
     pushLocalizedPair(
       `/guides/${article.categorySlug}/${article.slug}`,
       0.8,

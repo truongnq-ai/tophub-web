@@ -93,7 +93,7 @@ describe("BrandLogo & Top Hero Hub Brand Identity", () => {
     expect(subtitle.className).toContain("uppercase");
   });
 
-  it("updates Header and LogoAnimated to display 'Top Hero Hub' instead of 'Top Heroes Companion'", () => {
+  it("updates Header and LogoAnimated to display 'Top Hero Hub' and expose /calculators and /guides links", () => {
     const { container } = render(
       <div>
         <Header />
@@ -104,9 +104,16 @@ describe("BrandLogo & Top Hero Hub Brand Identity", () => {
     expect(screen.getAllByText("TopHub").length).toBeGreaterThanOrEqual(2);
     expect(screen.getAllByText("Top Hero Hub").length).toBeGreaterThanOrEqual(2);
     expect(container.textContent).not.toContain("Top Heroes Companion");
+
+    const headerLinks = Array.from(container.querySelectorAll("a")).map((a) =>
+      a.getAttribute("href")
+    );
+    expect(headerLinks).toContain("/calculators");
+    expect(headerLinks).toContain("/guides");
+    expect(headerLinks).not.toContain("/giftcodes");
   });
 
-  it("updates Footer to display 'TopHub' + 'Top Hero Hub', link to '/calculators' with NEW badge, hide '/guides', and fix VI/EN copywriting", () => {
+  it("updates Footer to display 'TopHub' + 'Top Hero Hub', link to '/calculators' and '/guides', and fix VI/EN copywriting", () => {
     const { container } = render(<Footer />);
 
     expect(screen.getByText("TopHub")).toBeTruthy();
@@ -119,8 +126,8 @@ describe("BrandLogo & Top Hero Hub Brand Identity", () => {
       a.getAttribute("href")
     );
     expect(links).toContain("/calculators");
-    expect(links).toContain("/giftcodes");
-    expect(links).not.toContain("/guides");
+    expect(links).not.toContain("/giftcodes");
+    expect(links).toContain("/guides");
 
     expect(container.textContent).not.toContain("TopHub Companion");
     expect(container.textContent).not.toContain("Phát triển với dành cho");
@@ -137,5 +144,21 @@ describe("BrandLogo & Top Hero Hub Brand Identity", () => {
     expect(enMessages.Footer.builtWithLove).toBe(
       "Crafted with love for Top Heroes gamers"
     );
+  });
+
+  it("removes hardcoded <head><title> from src/app/[locale]/layout.tsx and unblocks SSR in src/app/[locale]/Index.tsx", () => {
+    const layoutSource = fs.readFileSync(
+      path.resolve(__dirname, "../src/app/[locale]/layout.tsx"),
+      "utf8"
+    );
+    expect(layoutSource).not.toContain("<head>");
+    expect(layoutSource).not.toContain("<title>");
+
+    const indexSource = fs.readFileSync(
+      path.resolve(__dirname, "../src/app/[locale]/Index.tsx"),
+      "utf8"
+    );
+    expect(indexSource).toContain("isLoaded && activeAccount");
+    expect(indexSource).not.toContain("!isLoaded ?");
   });
 });

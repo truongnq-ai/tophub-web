@@ -70,15 +70,10 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
 
   const messages = await getMessages();
-  const t = await getTranslations({ locale, namespace: "LocaleLayout" });
   const session = await getServerSession(authOptions);
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <head>
-        <title>{t("title")}</title>
-        <meta name="description" content={t("metaDescription")} />
-      </head>
       <body className={`${nunito.variable} ${beVietnamPro.variable} ${jetbrainsMono.variable} font-sans min-h-screen bg-background text-foreground antialiased selection:bg-primary/25 selection:text-primary`}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Providers session={session}>

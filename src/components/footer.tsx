@@ -48,10 +48,10 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/giftcodes"
-                  className="inline-flex items-center min-h-[44px] sm:min-h-0 py-1 text-muted-foreground hover:text-amber-500 dark:hover:text-amber-400 transition-colors"
+                  href="/guides"
+                  className="inline-flex items-center min-h-[44px] sm:min-h-0 py-1 text-muted-foreground hover:text-amber-500 dark:hover:text-amber-400 transition-colors font-semibold"
                 >
-                  {tNav("giftcodes")} 2026
+                  {tNav("guides")}
                 </Link>
               </li>
               <li>
