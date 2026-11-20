@@ -3,6 +3,7 @@ import { ARTICLE_1_1_OVERVIEW } from "./groups/group-1/1.1-overview";
 import { ARTICLE_1_2_STRICT_ONE_QUEUE } from "./groups/group-1/1.2-strict-one-queue-rule";
 import { ARTICLE_1_3_DIAMOND_SPENDING } from "./groups/group-1/1.3-diamond-and-spending-guide";
 import { ARTICLE_1_4_TOP_10_TRAPS } from "./groups/group-1/1.4-top-10-account-traps";
+import { ARTICLE_2_1_FACTION_OVERVIEW } from "./groups/group-2/2.1-faction-overview";
 
 function createShellArticle(params: {
   code: string;
@@ -153,29 +154,10 @@ export const SECTION_2_FACTIONS: GuideCategory = {
     en: "In-depth guide for Nature, League and Horde; seasonal team progression across S0-S4, pivot strategies and Tier Lists.",
   },
   articles: [
-    createShellArticle({
-      code: "2.1",
-      slug: "faction-overview",
-      categorySlug: "factions",
-      readingMinutes: 8,
-      titleVi: "Phân Tích Chuyên Sâu & Hướng Dẫn Chọn Phe (Tự Nhiên vs Liên Minh vs Bộ Lạc)",
-      titleEn: "In-Depth Faction Guide: Nature vs League vs Horde",
-      summaryVi: "So sánh toàn diện ưu/nhược điểm, phong cách chiến đấu và độ tốn kém của 3 phe lớn.",
-      summaryEn: "Comprehensive comparison of pros/cons, combat archetypes, and investment tiers for all 3 factions.",
-      plannedOutlineVi: [
-        "Đặc trưng lối chơi: Tự Nhiên (Khống chế/Hồi máu), Liên Minh (Bạo kích/Sát thương dồn), Bộ Lạc (Sinh tồn/Phản đòn)",
-        "Phân tích độ thân thiện với F2P / Low-Spender / Cá voi",
-        "Khả năng thích ứng PvE leo tháp vs PvP đấu trường",
-        "Khuyến nghị lựa chọn phe dựa theo tiến độ mở tướng ban đầu",
-      ],
-      plannedOutlineEn: [
-        "Playstyle identity: Nature (Control/Heal), League (Burst Crit), Horde (Sustain/Reflect)",
-        "Friendliness analysis for F2P, low-spenders, and whales",
-        "PvE campaign pushing vs PvP arena adaptability",
-        "Faction selection recommendations based on early hero pulls",
-      ],
-      relatedCalculatorSlugs: ["hero-stars", "hero-awakening"],
-    }),
+    {
+      ...ARTICLE_2_1_FACTION_OVERVIEW,
+      status: "published",
+    },
     createShellArticle({
       code: "2.2",
       slug: "s0-to-s4-progression",

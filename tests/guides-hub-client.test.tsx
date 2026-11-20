@@ -73,7 +73,7 @@ describe("GuidesHubClient v3.1 (Editorial Flat Header, Zero Search, Streamlined 
     expect(
       screen.getAllByText("1. Cẩm Nang Đầu Tay").length
     ).toBeGreaterThanOrEqual(1);
-    expect(screen.getByText("Đọc ngay")).toBeDefined();
+    expect(screen.getAllByText("Đọc ngay").length).toBeGreaterThanOrEqual(1);
 
     // 6. Section 2 contains shell articles with "Sắp ra mắt" badge
     expect(

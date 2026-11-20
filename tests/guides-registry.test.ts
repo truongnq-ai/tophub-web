@@ -170,12 +170,19 @@ describe("Guides Hub Registry Architecture (3 Zones - 9 Groups - 39 Pages)", () 
     expect(art11?.status ?? "published").toBe("published");
     expect(art11?.freeSections.length).toBeGreaterThan(0);
 
-    // Check Shell Article 2.1
+    // Check Article 2.1 is Published
     const art21 = getArticleBySlug("factions", "faction-overview");
     expect(art21).toBeDefined();
-    expect(art21?.status).toBe("shell");
-    expect(art21?.plannedOutline?.length).toBeGreaterThan(0);
+    expect(art21?.status).toBe("published");
+    expect(art21?.freeSections.length).toBeGreaterThan(0);
     expect(art21?.relatedCalculatorSlugs?.length).toBeGreaterThan(0);
+
+    // Check Shell Article 2.2
+    const art22 = getArticleBySlug("factions", "s0-to-s4-progression");
+    expect(art22).toBeDefined();
+    expect(art22?.status).toBe("shell");
+    expect(art22?.plannedOutline?.length).toBeGreaterThan(0);
+    expect(art22?.relatedCalculatorSlugs?.length).toBeGreaterThan(0);
 
     const publishedArticles = getPublishedArticles();
     expect(publishedArticles.length).toBe(37); // 4 + 5 + 4 + 4 + 4 + 4 + 4 + 4 + 4

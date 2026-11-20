@@ -213,7 +213,17 @@ export function searchGuides(query: string, locale: GuideLocale): GuideArticle[]
     return [];
   }
 
-  return getAllArticles().filter((article) => {
+  const seen = new Set<string>();
+  const pool: GuideArticle[] = [];
+  for (const art of [...getAllArticles(), ...getPublishedArticles()]) {
+    const key = `${art.categorySlug}:${art.slug}`;
+    if (!seen.has(key)) {
+      seen.add(key);
+      pool.push(art);
+    }
+  }
+
+  return pool.filter((article) => {
     const titleNorm = normalizeSearchText(article.title[locale]);
     const summaryNorm = normalizeSearchText(article.summary[locale]);
     const codeNorm = normalizeSearchText(article.code);
