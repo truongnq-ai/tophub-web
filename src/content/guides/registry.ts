@@ -32,6 +32,7 @@ const ARTICLE_SLUG_ALIASES: Readonly<Record<string, string>> = {
   "terminology": "strict-one-queue-rule",
   "fatal-mistakes": "top-10-account-traps",
   "gacha-spending": "diamond-and-spending-guide",
+  "formation-and-counters": "counter-and-positioning",
 };
 
 /**

@@ -158,6 +158,11 @@ describe("Section 2.5: Counter and Positioning (counter-and-positioning) Hardene
 
     const enSearch = searchGuides("6-Slot Grid", "en");
     expect(enSearch.some((a) => a.slug === "counter-and-positioning")).toBe(true);
+
+    // Backward-compatibility: resolve legacy slug in factions category
+    const legacyArt = getArticleBySlug("factions", "formation-and-counters");
+    expect(legacyArt).toBeDefined();
+    expect(legacyArt?.slug).toBe("counter-and-positioning");
   });
 
   it("Suite 6: Zero-Personalization Compliance Gate", () => {
