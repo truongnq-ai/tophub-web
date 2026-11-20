@@ -688,66 +688,80 @@ export const ARTICLE_1_1_OVERVIEW: GuideArticle = {
               },
             },
             {
-              type: "table",
-              caption: {
-                vi: "Bản đồ vòng đời máy chủ 4 giai đoạn từ S0 Pre-Season đến Season 4",
-                en: "4-stage server progression lifecycle from S0 Pre-Season through Season 4",
-              },
-              headers: [
-                { vi: "Giai Đoạn Máy Chủ", en: "Server Stage" },
-                { vi: "Khung Thời Gian (Tuổi Server)", en: "Timeframe (Server Age)" },
-                { vi: "Tính Năng & Công Trình Cốt Lõi Mở Khóa", en: "Core Features & Buildings Unlocked" },
-                { vi: "Tướng Trọng Điểm Ra Mắt & Mục Tiêu Chiến Thuật", en: "Key Hero Releases & Strategic Objectives" },
-              ],
-              rows: [
-                [
-                  { vi: "Giai đoạn 1: S0 Pre-Season", en: "Stage 1: S0 Pre-Season" },
-                  { vi: "Ngày 1 – Ngày 65", en: "Day 1 – Day 65" },
-                  {
-                    vi: "Lâu đài Lv.1 ➔ Lv.30, Quán Rượu, Thánh vật cơ bản, Lò Rèn Trang bị Vàng, Lịch Sự kiện Động: Thi Đấu Hội chạy nối tiếp hàng tuần (02:00 UTC Thứ Hai ➔ 02:00 UTC Thứ Hai / 09:00 Giờ VN, leo hạng Bang D ➔ C ➔ B ➔ A ➔ S kèm Tập Kích Cự Ma / Khiêu Chiến Của Đội Quân Hắc Ám) trước khi chuyển sang luân phiên Thi Đấu Hội ⇄ GAR / KvK.",
-                    en: "Castle Lv.1 ➔ Lv.30, Tavern, basic Relics, Legendary Gear Blacksmith, Dynamic Event Schedule: continuous weekly Guild Race (from Monday 02:00 UTC ➔ Monday 02:00 UTC climbing Guild Rank D ➔ C ➔ B ➔ A ➔ S alongside Giant Raid & Dark Legion Challenge) before transitioning into alternating Guild Race ⇄ GAR / KvK.",
+              type: "roadmap",
+              steps: [
+                {
+                  badge: {
+                    vi: "GIAI ĐOẠN 1 • S0 PRE-SEASON",
+                    en: "STAGE 1 • S0 PRE-SEASON",
                   },
-                  {
-                    vi: "Ra mắt Desert Prince (Ngày 21), Storm Maiden (Ngày 27), Paragon (Ngày 35), Witch (Ngày 41), Rose Princess (Ngày 46). Thay thế tướng quá độ bằng Tướng Đỏ gốc.",
-                    en: "Releases Desert Prince (Day 21), Storm Maiden (Day 27), Paragon (Day 35), Witch (Day 41), Rose Princess (Day 46). Replace transitional SSRs with Native Mythics.",
+                  title: {
+                    vi: "Khởi Đầu Vương Quốc: Lâu Đài Lv.1 ➔ Lv.30 & Lịch Sự Kiện Động Nối Tiếp",
+                    en: "Kingdom Genesis: Castle Lv.1 ➔ Lv.30 & Continuous Dynamic Event Schedule",
                   },
-                ],
-                [
-                  { vi: "Giai đoạn 2: Season 1 — Đảo Mùa Xuân", en: "Stage 2: Season 1 — Spring Island" },
-                  { vi: "Ngày 66 – Ngày 130+", en: "Day 66 – Day 130+" },
-                  {
-                    vi: "Chuồng Thú Cưng (Pet Paradise), Thức Tỉnh Tướng Vàng (Hồn Đá Đỏ / Soul Stones ở C30/S1), Cây Công nghệ Mùa giải (S1 Battle), Mảnh Thần khí (UW).",
-                    en: "Pet Paradise, Legendary Hero Awakening (Red Soul Stones at C30/S1), Season 1 Tech Tree (S1 Battle), Exclusive Weapon Shards (UW).",
+                  timing: {
+                    vi: "Ngày 1 – Ngày 65",
+                    en: "Day 1 – Day 65",
                   },
-                  {
-                    vi: "Ra mắt Tidecaller, Monk, Ne Zha. Mua đủ 9 Hồn Đá Đỏ thức tỉnh Soulmancer/Warlock (hoặc Pyromancer/Pixie).",
-                    en: "Releases Tidecaller, Monk, Ne Zha. Purchase 9 Red Soul Stones to awaken Soulmancer/Warlock (or Pyromancer/Pixie).",
+                  description: {
+                    vi: "**Tính Năng & Công Trình Cốt Lõi:** Lâu đài Lv.1 ➔ Lv.30, Quán Rượu, Thánh vật cơ bản, Lò Rèn Trang bị Vàng.\n• **Lịch Sự kiện Động 2 Giai đoạn:** Thi Đấu Hội chạy nối tiếp hàng tuần (02:00 UTC Thứ Hai ➔ 02:00 UTC Thứ Hai / 09:00 Giờ VN, leo hạng Bang D ➔ C ➔ B ➔ A ➔ S kèm Tập Kích Cự Ma / Khiêu Chiến Của Đội Quân Hắc Ám) trước khi chuyển sang luân phiên Thi Đấu Hội ⇄ GAR / KvK.\n• **Tướng Trọng Điểm & Chiến Thuật:** Ra mắt `Desert Prince` (Ngày 21), `Storm Maiden` (Ngày 27), `Paragon` (Ngày 35), `Witch` (Ngày 41), `Rose Princess` (Ngày 46). Thay thế tướng quá độ bằng Tướng Đỏ gốc.",
+                    en: "**Core Features & Buildings:** Castle Lv.1 ➔ Lv.30, Tavern, basic Relics, Legendary Gear Blacksmith.\n• **2-Phase Dynamic Event Schedule:** Continuous weekly Guild Race (from Monday 02:00 UTC ➔ Monday 02:00 UTC climbing Guild Rank D ➔ C ➔ B ➔ A ➔ S alongside Giant Raid & Dark Legion Challenge) before transitioning into alternating Guild Race ⇄ GAR / KvK.\n• **Key Hero Releases & Tactics:** Releases `Desert Prince` (Day 21), `Storm Maiden` (Day 27), `Paragon` (Day 35), `Witch` (Day 41), `Rose Princess` (Day 46). Replace transitional SSRs with Native Mythics.",
                   },
-                ],
-                [
-                  { vi: "Giai đoạn 3: Season 2 — Kỷ Nguyên Băng Giá", en: "Stage 3: Season 2 — Frozen Era" },
-                  { vi: "Sau Season 1 (~Tháng 5–7)", en: "Post-Season 1 (~Months 5–7)" },
-                  {
-                    vi: "Bản đồ Tuyết giá, Mở rộng trần Cấp độ Phe phái (Faction Level 40), Trang bị Thần Thoại (Mythic Gear).",
-                    en: "Snowfield Map, expanded Faction Level 40 cap, and Mythic Gear progression.",
+                },
+                {
+                  badge: {
+                    vi: "GIAI ĐOẠN 2 • SEASON 1",
+                    en: "STAGE 2 • SEASON 1",
                   },
-                  {
-                    vi: "Ra mắt cặp siêu phẩm Bộ Lạc Wukong & Beastmaster — hoàn thiện Đội 1 5-Mythic Horde.",
-                    en: "Releases Horde juggernauts Wukong & Beastmaster — completing the 5-Mythic Horde Queue 1.",
+                  title: {
+                    vi: "Season 1 — Đảo Mùa Xuân: Thức Tỉnh Tướng Vàng & Mảnh Thần Khí (UW)",
+                    en: "Season 1 — Spring Island: Legendary Hero Awakening & Exclusive Weapons (UW)",
                   },
-                ],
-                [
-                  { vi: "Giai đoạn 4: Season 3 & Season 4", en: "Stage 4: Season 3 & Season 4" },
-                  { vi: "Endgame (~Tháng 8+)", en: "Endgame (~Month 8+)" },
-                  {
-                    vi: "Cự Thú (Behemoth ở S3), Viện Huy Hoàng (Brilliance Institute / C40+), Công nghệ Tinh Hoa Rồng (DE-Dust / Dragon Essence).",
-                    en: "Behemoth system (S3), Brilliance Institute (C40+), and Dragon Essence (DE-Dust) technology.",
+                  timing: {
+                    vi: "Ngày 66 – Ngày 130+",
+                    en: "Day 66 – Day 130+",
                   },
-                  {
-                    vi: "Ra mắt các Siêu Hỗ Trợ Shadow Priest (Horde), Artificer (League), Petalis (Nature) — đạt ngưỡng 6 Mythic Đỏ thuần hệ.",
-                    en: "Releases hyper-supports Shadow Priest (Horde), Artificer (League), and Petalis (Nature) — achieving a full 6-Mythic pure-faction lineup.",
+                  description: {
+                    vi: "**Tính Năng & Công Trình Cốt Lõi:** Chuồng Thú Cưng (Pet Paradise), Thức Tỉnh Tướng Vàng (Hồn Đá Đỏ / Soul Stones ở C30/S1), Cây Công nghệ Mùa giải (S1 Battle), Mảnh Thần khí (UW).\n• **Tướng Trọng Điểm & Chiến Thuật:** Ra mắt `Tidecaller`, `Monk`, `Ne Zha`. Mua đủ `9 Hồn Đá Đỏ` thức tỉnh `Soulmancer`/`Warlock` (hoặc `Pyromancer`/`Pixie`).",
+                    en: "**Core Features & Buildings:** Pet Paradise, Legendary Hero Awakening (Red Soul Stones at C30/S1), Season 1 Tech Tree (S1 Battle), Exclusive Weapon Shards (UW).\n• **Key Hero Releases & Tactics:** Releases `Tidecaller`, `Monk`, `Ne Zha`. Purchase `9 Red Soul Stones` to awaken `Soulmancer`/`Warlock` (or `Pyromancer`/`Pixie`).",
                   },
-                ],
+                },
+                {
+                  badge: {
+                    vi: "GIAI ĐOẠN 3 • SEASON 2",
+                    en: "STAGE 3 • SEASON 2",
+                  },
+                  title: {
+                    vi: "Season 2 — Kỷ Nguyên Băng Giá: Bản Đồ Tuyết & Trang Bị Thần Thoại",
+                    en: "Season 2 — Frozen Era: Snowfield Map & Mythic Gear Progression",
+                  },
+                  timing: {
+                    vi: "Sau Season 1 (~Tháng 5–7)",
+                    en: "Post-Season 1 (~Months 5–7)",
+                  },
+                  description: {
+                    vi: "**Tính Năng & Công Trình Cốt Lõi:** Bản đồ Tuyết giá, Mở rộng trần Cấp độ Phe phái (Faction Level 40), Trang bị Thần Thoại (Mythic Gear).\n• **Tướng Trọng Điểm & Chiến Thuật:** Ra mắt cặp siêu phẩm Bộ Lạc `Wukong` & `Beastmaster` — hoàn thiện Đội 1 5-Mythic Horde.",
+                    en: "**Core Features & Buildings:** Snowfield Map, expanded Faction Level 40 cap, and Mythic Gear progression.\n• **Key Hero Releases & Tactics:** Releases Horde juggernauts `Wukong` & `Beastmaster` — completing the 5-Mythic Horde Queue 1.",
+                  },
+                },
+                {
+                  badge: {
+                    vi: "GIAI ĐOẠN 4 • ENDGAME",
+                    en: "STAGE 4 • ENDGAME",
+                  },
+                  title: {
+                    vi: "Season 3 & Season 4: Cự Thú Behemoth, Viện Huy Hoàng & Siêu Hỗ Trợ Đỏ",
+                    en: "Season 3 & Season 4: Behemoth, Brilliance Institute & Hyper-Supports",
+                  },
+                  timing: {
+                    vi: "Endgame (~Tháng 8+)",
+                    en: "Endgame (~Month 8+)",
+                  },
+                  description: {
+                    vi: "**Tính Năng & Công Trình Cốt Lõi:** Cự Thú (Behemoth ở S3), Viện Huy Hoàng (Brilliance Institute / C40+), Công nghệ Tinh Hoa Rồng (DE-Dust / Dragon Essence).\n• **Tướng Trọng Điểm & Chiến Thuật:** Ra mắt các Siêu Hỗ Trợ `Shadow Priest` (Horde), `Artificer` (League), `Petalis` (Nature) — đạt ngưỡng 6 Mythic Đỏ thuần hệ.",
+                    en: "**Core Features & Buildings:** Behemoth system (S3), Brilliance Institute (C40+), and Dragon Essence (DE-Dust) technology.\n• **Key Hero Releases & Tactics:** Releases hyper-supports `Shadow Priest` (Horde), `Artificer` (League), and `Petalis` (Nature) — achieving a full 6-Mythic pure-faction lineup.",
+                  },
+                },
               ],
             },
             {

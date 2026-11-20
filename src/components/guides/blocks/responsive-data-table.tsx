@@ -164,7 +164,7 @@ export function ResponsiveDataTable({
                   className={cn(
                     "px-3.5 py-3 text-xs sm:text-sm font-heading font-bold text-foreground",
                     idx === 0
-                      ? "sticky left-0 z-10 min-w-[136px] max-w-[172px] sm:max-w-[260px] whitespace-normal sm:whitespace-nowrap bg-muted/95 dark:bg-slate-900/95 backdrop-blur-xs"
+                      ? "sticky left-0 z-10 min-w-[136px] max-w-[172px] sm:max-w-[260px] whitespace-normal break-words bg-muted/95 dark:bg-slate-900/95 backdrop-blur-xs"
                       : "whitespace-nowrap"
                   )}
                 >
@@ -220,7 +220,7 @@ export function ResponsiveDataTable({
                             isNumeric ? "font-mono tabular-nums" : "font-sans",
                             cellIdx === 0
                               ? cn(
-                                  "sticky left-0 z-10 font-semibold min-w-[136px] max-w-[172px] sm:max-w-[260px] whitespace-normal sm:whitespace-nowrap backdrop-blur-xs",
+                                  "sticky left-0 z-10 font-semibold min-w-[136px] max-w-[172px] sm:max-w-[260px] whitespace-normal break-words backdrop-blur-xs",
                                   isBp
                                     ? "bg-amber-50/95 dark:bg-slate-900/95 text-amber-600 dark:text-amber-300 shadow-[inset_2px_0_0_0_rgba(245,158,11,0.85)]"
                                     : "bg-card/95 dark:bg-slate-950/90 text-amber-600 dark:text-amber-400"
@@ -232,7 +232,7 @@ export function ResponsiveDataTable({
                         >
                           {(cellIdx === 0 && (isBp || rowAsset)) ||
                           (cellIdx === 1 && rowAsset) ? (
-                            <span className="inline-flex items-center gap-2 min-w-0">
+                            <span className="inline-flex items-center gap-2 min-w-0 max-w-full">
                               {cellIdx === 0 && isBp && (
                                 <Flame className="h-3.5 w-3.5 text-amber-500 shrink-0" />
                               )}
@@ -245,7 +245,7 @@ export function ResponsiveDataTable({
                                   alt=""
                                 />
                               )}
-                              <span className="min-w-0 line-clamp-2 sm:line-clamp-none">
+                              <span className="min-w-0 flex-1 break-words">
                                 <RichGuideText
                                   text={cell}
                                   variant="inline"
@@ -254,11 +254,13 @@ export function ResponsiveDataTable({
                               </span>
                             </span>
                           ) : (
-                            <RichGuideText
-                              text={cell}
-                              variant="inline"
-                              locale={locale}
-                            />
+                            <span className={cn(cellIdx === 0 && "break-words")}>
+                              <RichGuideText
+                                text={cell}
+                                variant="inline"
+                                locale={locale}
+                              />
+                            </span>
                           )}
                         </td>
                       );

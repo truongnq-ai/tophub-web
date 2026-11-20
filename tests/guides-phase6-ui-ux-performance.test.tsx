@@ -112,6 +112,30 @@ describe("Phase 6.1 — Multi-Device Responsive & Zero Overflow Invariants", () 
     expect(thumbImg?.getAttribute("height")).toBe("38");
   });
 
+  it("enforces overflow guardrails and wrapping on sticky column 0 of ResponsiveDataTable without text bleed", () => {
+    const { container } = render(
+      <ResponsiveDataTable
+        caption="Bảng Chống Tràn"
+        headers={["Giai Đoạn Máy Chủ", "Thời Gian", "Mô Tả"]}
+        rows={[
+          [
+            "Giai đoạn 2: Season 1 — Đảo Mùa Xuân Với Tiêu Đề Cực Kỳ Dài Vượt Ngưỡng 260px",
+            "Ngày 66 – 130+",
+            "Nội dung chi tiết",
+          ],
+        ]}
+        locale="vi"
+      />
+    );
+    const th = container.querySelector("thead th:first-child");
+    const td = container.querySelector("tbody td:first-child");
+    expect(th?.className).not.toContain("sm:whitespace-nowrap");
+    expect(th?.className).toContain("whitespace-normal");
+    expect(th?.className).toContain("break-words");
+    expect(td?.className).not.toContain("sm:whitespace-nowrap");
+    expect(td?.className).toContain("break-words");
+  });
+
   it("ensures VisualShowcaseDeck cards have min-w-0 and overflow-hidden to prevent horizontal bleed on 375px screens", () => {
     const items = getMediaShowcaseItems("MED-2.4-01", {
       vi: "Đội hình mẫu",
