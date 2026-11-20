@@ -4,6 +4,7 @@ import { ARTICLE_1_2_STRICT_ONE_QUEUE } from "./groups/group-1/1.2-strict-one-qu
 import { ARTICLE_1_3_DIAMOND_SPENDING } from "./groups/group-1/1.3-diamond-and-spending-guide";
 import { ARTICLE_1_4_TOP_10_TRAPS } from "./groups/group-1/1.4-top-10-account-traps";
 import { ARTICLE_2_1_FACTION_OVERVIEW } from "./groups/group-2/2.1-faction-overview";
+import { ARTICLE_2_5_COUNTER_AND_POSITIONING } from "./factions/counter-and-positioning";
 
 function createShellArticle(params: {
   code: string;
@@ -227,29 +228,10 @@ export const SECTION_2_FACTIONS: GuideCategory = {
       ],
       relatedCalculatorSlugs: ["hero-stars"],
     }),
-    createShellArticle({
-      code: "2.5",
-      slug: "counter-and-positioning",
-      categorySlug: "factions",
-      readingMinutes: 6,
-      titleVi: "Cơ Chế Khắc Chế Hệ Phái, Hào Quang & Nghệ Thuật Sắp Đội Hình 6 Vị Trí",
-      titleEn: "Faction Counters, Auras & 6-Hero Positioning",
-      summaryVi: "Nguyên lý vòng tròn khắc chế 20% sát thương và nghệ thuật xếp vị trí hàng trước/hàng sau.",
-      summaryEn: "The 20% faction counter circle and the tactical art of frontline/backline 6-hero positioning.",
-      plannedOutlineVi: [
-        "Vòng tròn khắc chế: Bộ Lạc > Tự Nhiên > Liên Minh > Bộ Lạc (+20% Dmg)",
-        "Kích hoạt hào quang cùng phe: 3/4/5/6 tướng",
-        "Quy tắc đặt Tanker, Sát thương chủ lực và Hỗ trợ trên bàn cờ 6 ô",
-        "Chiến thuật xếp trận khắc chế đối thủ lực chiến cao hơn trong PvP",
-      ],
-      plannedOutlineEn: [
-        "Counter circle: Horde > Nature > League > Horde (+20% Dmg)",
-        "Same-faction aura activation buffs: 3/4/5/6 heroes",
-        "Frontline tanker, core DPS and support placement rules",
-        "Tactical formation adjustments to defeat higher-CP opponents in PvP",
-      ],
-      relatedCalculatorSlugs: ["hero-traits"],
-    }),
+    {
+      ...ARTICLE_2_5_COUNTER_AND_POSITIONING,
+      status: "published",
+    },
   ],
 };
 
