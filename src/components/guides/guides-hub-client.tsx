@@ -13,24 +13,18 @@ import {
   Table2,
   BookOpen,
   ArrowRight,
-  Search,
-  X,
   Clock,
   Calculator,
 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
-import {
-  getPublishedCategories,
-  searchPublishedGuides,
-} from "@/content/guides/registry";
+import { getPublishedCategories } from "@/content/guides/registry";
 import type {
   GuideArticle,
   GuideCategory,
   GuideLocale,
 } from "@/content/guides/types";
 import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
 import { GuidesHubSidebar } from "./guides-hub-sidebar";
 import { GuidesHubMobileDrawer } from "./guides-hub-mobile-drawer";
 import { GuideCommentsSection } from "./guide-comments-section";
@@ -159,15 +153,7 @@ const SECTION_CALCULATOR_LINKS: Record<
 export function GuidesHubClient({ locale }: GuidesHubClientProps) {
   const t = useTranslations("Guides");
   const categories = useMemo(() => getPublishedCategories(), []);
-
-  const [searchQuery, setSearchQuery] = useState("");
   const [activeSectionId, setActiveSectionId] = useState("sec-1");
-
-  const searchResults: GuideArticle[] = useMemo(() => {
-    const q = searchQuery.trim();
-    if (!q) return [];
-    return searchPublishedGuides(q, locale);
-  }, [searchQuery, locale]);
 
   // Scrollspy observer for 9 master sections
   useEffect(() => {
@@ -200,115 +186,20 @@ export function GuidesHubClient({ locale }: GuidesHubClientProps) {
   }, [categories]);
 
   return (
-    <div className="space-y-8 pb-16">
-      {/* Streamlined Hero Header & Instant Search */}
-      <section className="card-rpg rounded-3xl p-6 sm:p-8 space-y-5 border border-border/70 bg-card/80 backdrop-blur">
-        <div className="space-y-2 text-center max-w-3xl mx-auto">
-          <Badge
-            variant="outline"
-            className="font-heading text-xs font-black uppercase tracking-wider border-amber-500/30 text-amber-600 dark:text-amber-400"
-          >
-            {locale === "vi"
-              ? "Bách Khoa Toàn Thư Top Heroes (S0 ➔ S4)"
-              : "Top Heroes Tactical Encyclopedia (S0 ➔ S4)"}
-          </Badge>
-
-          <h1 className="font-heading font-black text-2xl sm:text-3xl lg:text-4xl text-foreground tracking-tight">
-            {locale === "vi"
-              ? "Cẩm Nang Chiến Thuật & Bảng Số Liệu Chuẩn Hóa"
-              : "Tactical Guides & Min-Max Master Data"}
-          </h1>
-
-          <p className="font-sans text-sm sm:text-base text-muted-foreground leading-relaxed">
-            {locale === "vi"
-              ? "Hệ thống cẩm nang thực chiến chuyên sâu 9 mục toàn diện từ khởi đầu đến late-game. 100% miễn phí, tối ưu hoá theo số liệu gốc Meta.bytes."
-              : "Comprehensive 9-topic tactical guide system from onboarding to endgame. 100% free, grounded in Meta.bytes single-source-of-truth."}
-          </p>
-        </div>
-
-        {/* Search Input */}
-        <div className="relative max-w-2xl mx-auto">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-          <Input
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder={
-              locale === "vi"
-                ? "Tìm kiếm bài viết, tướng, sự kiện, công trình..."
-                : "Search guides, heroes, events, buildings..."
-            }
-            className="pl-12 pr-10 h-12 text-base rounded-2xl border-border/80 bg-background/90 focus:border-amber-500"
-            aria-label={
-              locale === "vi" ? "Tìm kiếm cẩm nang" : "Search guides"
-            }
-          />
-          {searchQuery && (
-            <button
-              type="button"
-              onClick={() => setSearchQuery("")}
-              className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 text-muted-foreground hover:text-foreground rounded-lg transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
-              aria-label={locale === "vi" ? "Xóa tìm kiếm" : "Clear search"}
-            >
-              <X className="h-4 w-4" />
-            </button>
-          )}
-        </div>
-
-        {/* Live Search Results Popup / Box */}
-        {searchQuery.trim().length > 0 && (
-          <div
-            data-testid="hub-search-results"
-            className="max-w-2xl mx-auto p-4 rounded-2xl border border-amber-500/30 bg-background/95 space-y-3 shadow-lg animate-in fade-in duration-150"
-          >
-            <div className="text-xs font-sans font-bold uppercase tracking-wider text-muted-foreground flex items-center justify-between">
-              <span className="flex items-center gap-1.5">
-                <BookOpen className="h-3.5 w-3.5 text-amber-500" />
-                <span>
-                  {locale === "vi"
-                    ? "Kết quả tìm kiếm bài viết"
-                    : "Article Search Results"}
-                </span>
-              </span>
-              <span className="font-mono text-amber-500">
-                {searchResults.length} {locale === "vi" ? "kết quả" : "results"}
-              </span>
-            </div>
-
-            {searchResults.length > 0 ? (
-              <div className="space-y-2 max-h-72 overflow-y-auto pr-1">
-                {searchResults.map((art) => (
-                  <Link
-                    key={`${art.categorySlug}/${art.slug}`}
-                    href={`/guides/${art.categorySlug}/${art.slug}`}
-                    className="group flex items-center justify-between gap-3 p-3 rounded-xl border border-border/60 hover:border-amber-500/50 bg-card/60 hover:bg-card transition-all text-xs sm:text-sm min-h-[44px]"
-                  >
-                    <div className="min-w-0 space-y-0.5">
-                      <div className="flex items-center gap-2">
-                        <span className="font-mono text-xs font-bold text-amber-500 shrink-0">
-                          #{art.displayCode ?? art.code}
-                        </span>
-                        <span className="font-heading font-bold text-foreground group-hover:text-amber-500 truncate">
-                          {art.title[locale]}
-                        </span>
-                      </div>
-                      <p className="text-xs text-muted-foreground line-clamp-1">
-                        {art.summary[locale]}
-                      </p>
-                    </div>
-                    <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-amber-500 shrink-0" />
-                  </Link>
-                ))}
-              </div>
-            ) : (
-              <p className="text-xs sm:text-sm text-muted-foreground py-2 text-center">
-                {locale === "vi"
-                  ? "Không tìm thấy bài viết nào phù hợp với từ khóa."
-                  : "No guide articles matched your search query."}
-              </p>
-            )}
-          </div>
-        )}
-      </section>
+    <div className="space-y-6 pb-16">
+      {/* Streamlined Editorial Header (Minimalist & Compact, Zero Clutter) */}
+      <header className="space-y-1 pb-3 border-b border-border/50">
+        <h1 className="font-heading font-black text-xl sm:text-2xl text-foreground tracking-tight">
+          {locale === "vi"
+            ? "Cẩm Nang Chiến Thuật & Bảng Số Liệu Chuẩn Hóa"
+            : "Tactical Guides & Min-Max Master Data"}
+        </h1>
+        <p className="font-sans text-xs sm:text-sm text-muted-foreground italic">
+          {locale === "vi"
+            ? "Cẩm nang thực chiến và dữ liệu tra cứu chính xác dành cho người chơi Top Heroes."
+            : "Tactical gameplay guides and reference data for Top Heroes players."}
+        </p>
+      </header>
 
       {/* Main 2-Column Responsive Layout */}
       <div className="flex items-start gap-8">
