@@ -836,24 +836,24 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
           },
           {
             code: "4.3",
-            slug: "exclusive-weapon",
+            slug: "exclusive-gear",
             categorySlug: "hero-gear",
             phaseNumber: 4,
             title: {
-              vi: "4.3 Vũ Khí Độc Quyền",
-              en: "4.3 Exclusive Weapon",
+              vi: "4.3 Trang Bị Độc Quyền",
+              en: "4.3 Exclusive Gear",
             },
             fullTitle: {
-              vi: "4.3 Vũ Khí Độc Quyền (Lv.1–20) & Đột Phá Sao (1★–5★)",
-              en: "4.3 Exclusive Weapon Level (Lv.1–20) & Star Breakthrough (1★–5★)",
+              vi: "4.3 Trang Bị Độc Quyền (Lv.1–20) & Đột Phá Sao (1★–5★)",
+              en: "4.3 Exclusive Gear Level (Lv.1–20) & Star Breakthrough (1★–5★)",
             },
             summary: {
-              vi: "Tính Mảnh Trang Bị Độc Quyền Vạn Năng để mở khóa và nâng cấp Vũ Khí Độc Quyền từ Lv.1 đến Lv.20 cùng Lõi Sắt Thiên Thạch cho bậc 1★–5★.",
-              en: "Compute Universal Exclusive Gear Shards to unlock and upgrade Exclusive Weapons from Lv.1 to Lv.20 plus Meteoric Iron Cores for 1★–5★.",
+              vi: "Tính Mảnh Trang Bị Độc Quyền Vạn Năng để mở khóa và nâng cấp Trang Bị Độc Quyền từ Lv.1 đến Lv.20 cùng Lõi Sắt Thiên Thạch cho bậc 1★–5★.",
+              en: "Compute Universal Exclusive Gear Shards to unlock and upgrade Exclusive Gear from Lv.1 to Lv.20 plus Meteoric Iron Cores for 1★–5★.",
             },
             dataSourceTab: {
-              vi: "Tab Gear — Bảng Vũ Khí Độc Quyền Lv.1–20",
-              en: "Gear Tab — Exclusive Weapon Table (Lv.1–20)",
+              vi: "Tab Gear — Bảng Trang Bị Độc Quyền Lv.1–20",
+              en: "Gear Tab — Exclusive Gear Table (Lv.1–20)",
             },
             materials: [
               CALCULATOR_MATERIALS.universalExclusiveGearShard,
@@ -862,7 +862,7 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
             exampleCase: {
               vi: {
                 question:
-                  "Nâng Vũ Khí Độc Quyền từ Lv.10 lên Lv.20 cần bao nhiêu Mảnh Trang Bị Độc Quyền Vạn Năng?",
+                  "Nâng Trang Bị Độc Quyền từ Lv.10 lên Lv.20 cần bao nhiêu Mảnh Trang Bị Độc Quyền Vạn Năng?",
                 inputPreview:
                   "Trạng thái: Đã mở khóa Lv.10 ➔ Mục tiêu: Lv.20 (Tối đa kỹ năng độc quyền)",
                 outputPreview:
@@ -870,7 +870,7 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
               },
               en: {
                 question:
-                  "Upgrading an Exclusive Weapon from Lv.10 to Lv.20 — how many Universal Exclusive Gear Shards are required?",
+                  "Upgrading an Exclusive Gear from Lv.10 to Lv.20 — how many Universal Exclusive Gear Shards are required?",
                 inputPreview:
                   "Current State: Lv.10 Unlocked ➔ Target: Lv.20 (Max Exclusive Skill)",
                 outputPreview:
@@ -1567,7 +1567,14 @@ export function getCalculatorToolBySlug(
   for (const zone of CALCULATOR_ZONES) {
     for (const category of zone.categories) {
       if (category.slug !== categorySlug) continue;
-      const normalizedSlug = toolSlug === "main-castle" ? "construction" : toolSlug === "tech-brilliance" ? "technology" : toolSlug;
+      const normalizedSlug =
+        toolSlug === "main-castle"
+          ? "construction"
+          : toolSlug === "tech-brilliance"
+          ? "technology"
+          : toolSlug === "exclusive-weapon"
+          ? "exclusive-gear"
+          : toolSlug;
       const tool = category.tools.find((item) => item.slug === normalizedSlug);
       if (tool) {
         return { zone, category, tool };

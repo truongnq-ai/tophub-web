@@ -106,32 +106,32 @@ export interface ExclusiveWeaponCalculationResult {
 const STEP_SHARDS_BY_LEVEL: readonly number[] = [
   0, // Lv.0 (Locked)
   5, // Lv.1 (Unlock: 5)
-  15, // Lv.2 (20)
-  15, // Lv.3 (35)
-  20, // Lv.4 (55)
-  20, // Lv.5 (75 — Milestone +5)
-  30, // Lv.6 (105)
-  35, // Lv.7 (140)
-  40, // Lv.8 (180)
-  45, // Lv.9 (225)
-  50, // Lv.10 (275 — Milestone +10)
-  55, // Lv.11 (330)
-  60, // Lv.12 (390)
-  65, // Lv.13 (455)
-  70, // Lv.14 (525)
-  80, // Lv.15 (605 — Milestone +15)
-  95, // Lv.16 (700)
-  105, // Lv.17 (805)
-  115, // Lv.18 (920)
-  125, // Lv.19 (1,045)
-  140, // Lv.20 (1,185 — Max Milestone +20)
+  10, // Lv.2 (cum 15)
+  15, // Lv.3 (cum 30)
+  20, // Lv.4 (cum 50)
+  25, // Lv.5 (cum 75 — Milestone +5)
+  30, // Lv.6 (cum 105)
+  35, // Lv.7 (cum 140)
+  40, // Lv.8 (cum 180)
+  45, // Lv.9 (cum 225)
+  50, // Lv.10 (cum 275 — Milestone +10)
+  55, // Lv.11 (cum 330)
+  60, // Lv.12 (cum 390)
+  65, // Lv.13 (cum 455)
+  70, // Lv.14 (cum 525)
+  80, // Lv.15 (cum 605 — Milestone +15)
+  90, // Lv.16 (cum 695)
+  100, // Lv.17 (cum 795)
+  110, // Lv.18 (cum 905)
+  130, // Lv.19 (cum 1,035)
+  150, // Lv.20 (cum 1,185 — Max Milestone +20)
 ];
 
 const MILESTONE_NOTES_BY_LEVEL: Readonly<
   Partial<Record<number, Record<CalculatorLocale, string>>>
 > = {
   1: {
-    vi: "Mở khóa Vũ Khí Độc Quyền & Kỹ năng chuyên biệt bậc 1 (5 Mảnh)",
+    vi: "Mở khóa Trang Bị Độc Quyền & Kỹ năng chuyên biệt bậc 1 (5 Mảnh)",
     en: "Unlocks Exclusive Weapon & Signature Passive Tier 1 (5 Shards)",
   },
   5: {
@@ -147,7 +147,7 @@ const MILESTONE_NOTES_BY_LEVEL: Readonly<
     en: "Skill Breakthrough +15 • Major multiplier boost to Damage / Healing / Mitigation (605 Cumulative Shards)",
   },
   20: {
-    vi: "Đỉnh Vũ Khí Độc Quyền +20 • Tối đa hóa hiệu ứng độc quyền toàn đội (Tích lũy 1,185 Mảnh)",
+    vi: "Đỉnh Trang Bị Độc Quyền +20 • Tối đa hóa hiệu ứng độc quyền toàn đội (Tích lũy 1,185 Mảnh)",
     en: "Max Exclusive Weapon +20 • Full signature skill mastery & team aura (1,185 Cumulative Shards)",
   },
 };
@@ -188,46 +188,25 @@ export const EXCLUSIVE_WEAPON_LEVEL_STEPS: readonly ExclusiveWeaponLevelStep[] =
   buildExclusiveWeaponLevelSteps();
 
 /**
- * SSoT Profile 1 (`guide_cumulative_920`):
- * Cumulative Meteoric Iron Cores from `exclusive_weapons_system_guide.md`:
- * - 1★: 120 (sub-tiers: 20, 20, 25, 25, 30)
- * - 2★: +170 = 290 (sub-tiers: 30, 30, 35, 35, 40)
- * - 3★: +200 = 490 (sub-tiers: 35, 40, 40, 40, 45)
- * - 4★: +215 = 705 (sub-tiers: 40, 40, 45, 45, 45)
- * - 5★: +215 = 920 (sub-tiers: 40, 40, 45, 45, 45)
+ * Game Cache SSoT (`exclusive_break` table in Meta.bytes v1.0.43637):
+ * Sub-tier Meteoric Iron Cores:
+ * - 1★: 5, 10, 10, 20, 20 = 65 (cum 65)
+ * - 2★: 20, 30, 30, 60, 60 = 200 (cum 265)
+ * - 3★: 80, 80, 100, 100, 120 = 480 (cum 745)
+ * - 4★: 120, 140, 140, 160, 160 = 720 (cum 1,465)
+ * - 5★: 160, 180, 180, 200, 200 = 920 (cum 2,385)
+ * Total: 2,385 Meteoric Iron Cores
  */
-const GUIDE_920_SUBTIER_CORES: Readonly<Record<1 | 2 | 3 | 4 | 5, readonly number[]>> = {
-  1: [20, 20, 25, 25, 30],
-  2: [30, 30, 35, 35, 40],
-  3: [35, 40, 40, 40, 45],
-  4: [40, 40, 45, 45, 45],
-  5: [40, 40, 45, 45, 45],
+const GAME_CACHE_2385_SUBTIER_CORES: Readonly<Record<1 | 2 | 3 | 4 | 5, readonly number[]>> = {
+  1: [5, 10, 10, 20, 20],
+  2: [20, 30, 30, 60, 60],
+  3: [80, 80, 100, 100, 120],
+  4: [120, 140, 140, 160, 160],
+  5: [160, 180, 180, 200, 200],
 };
 
-/**
- * SSoT Profile 2 (`raw_subtier_2385`):
- * Raw sub-tier table from `TopHeroes Tables - Max Exclusive Gear.csv`:
- * - 1★: 45×4 + 70 = 250 (cum 250)
- * - 2★: 60×4 + 125 = 365 (cum 615)
- * - 3★: 75×4 + 195 = 495 (cum 1,110)
- * - 4★: 90×4 + 225 = 585 (cum 1,695)
- * - 5★: 105×4 + 270 = 690 (cum 2,385)
- */
-const RAW_2385_SUBTIER_CORES: Readonly<Record<1 | 2 | 3 | 4 | 5, readonly number[]>> = {
-  1: [45, 45, 45, 45, 70],
-  2: [60, 60, 60, 60, 125],
-  3: [75, 75, 75, 75, 195],
-  4: [90, 90, 90, 90, 225],
-  5: [105, 105, 105, 105, 270],
-};
-
-function buildExclusiveStarSteps(
-  profile: ExclusiveCoreProfile
-): readonly ExclusiveStarStepNode[] {
-  const matrix =
-    profile === "raw_subtier_2385"
-      ? RAW_2385_SUBTIER_CORES
-      : GUIDE_920_SUBTIER_CORES;
+function buildExclusiveStarSteps(): readonly ExclusiveStarStepNode[] {
+  const matrix = GAME_CACHE_2385_SUBTIER_CORES;
 
   const steps: ExclusiveStarStepNode[] = [
     {
@@ -286,13 +265,12 @@ function buildExclusiveStarSteps(
   return steps;
 }
 
-const GUIDE_STAR_STEPS = buildExclusiveStarSteps("guide_cumulative_920");
-const RAW_STAR_STEPS = buildExclusiveStarSteps("raw_subtier_2385");
+const STAR_STEPS = buildExclusiveStarSteps();
 
 export function getExclusiveStarSteps(
-  profile: ExclusiveCoreProfile = "guide_cumulative_920"
+  _profile: ExclusiveCoreProfile = "raw_subtier_2385"
 ): readonly ExclusiveStarStepNode[] {
-  return profile === "raw_subtier_2385" ? RAW_STAR_STEPS : GUIDE_STAR_STEPS;
+  return STAR_STEPS;
 }
 
 export const EXCLUSIVE_SKILL_MILESTONES: readonly ExclusiveSkillMilestone[] = [
@@ -302,7 +280,7 @@ export const EXCLUSIVE_SKILL_MILESTONES: readonly ExclusiveSkillMilestone[] = [
     recommendedStar: 0,
     cumulativeShards: 5,
     title: {
-      vi: "Mốc Lv.1 • Mở Khóa Vũ Khí Độc Quyền",
+      vi: "Mốc Lv.1 • Mở Khóa Trang Bị Độc Quyền",
       en: "Lv.1 Milestone • Unlock Exclusive Weapon",
     },
     effectSummary: {
@@ -378,7 +356,7 @@ export const EXCLUSIVE_SKILL_MILESTONES: readonly ExclusiveSkillMilestone[] = [
       en: "Lv.20 (4★–5★) Milestone • Supreme Signature Mastery (+20)",
     },
     effectSummary: {
-      vi: "Đạt trần hiệu ứng Vũ Khí Độc Quyền +20 và mở khóa hào quang cộng hưởng toàn đội.",
+      vi: "Đạt trần hiệu ứng Trang Bị Độc Quyền +20 và mở khóa hào quang cộng hưởng toàn đội.",
       en: "Reaches maximum +20 Exclusive Weapon potency and unlocks full-squad resonance effects.",
     },
     priorityRating: {
@@ -389,201 +367,636 @@ export const EXCLUSIVE_SKILL_MILESTONES: readonly ExclusiveSkillMilestone[] = [
 ] as const;
 
 export const EXCLUSIVE_WEAPON_HERO_CATALOG: readonly ExclusiveWeaponHeroEntry[] = [
-  // League
   {
-    heroId: "adjudicator",
-    faction: "league",
-    rarity: "mythic",
-    heroName: { vi: "Adjudicator (Phán Quyết)", en: "Adjudicator" },
-    weaponName: { vi: "Đôi Cánh Phán Quyết", en: "Wings of Judgement" },
-    weaponIconPath: "/images/equipment/exclusive-weapons/equipment_Exclusive002.webp",
-    signatureHighlight: {
-      vi: "Kéo dài trạng thái Bất Tử (Unbreakable) và tăng Giảm Sát Thương cho toàn bộ hàng trước.",
-      en: "Extends Unbreakable invulnerability and boosts Frontline Damage Reduction.",
+    "heroId": "adjudicator",
+    "faction": "league",
+    "rarity": "mythic",
+    "heroName": {
+      "vi": "Adjudicator (Phán Quyết)",
+      "en": "Adjudicator"
     },
+    "weaponName": {
+      "vi": "Đôi Cánh Phán Quyết",
+      "en": "Wings of Judgement"
+    },
+    "weaponIconPath": "/images/equipment/exclusive-weapons/equipment_Exclusive002.webp",
+    "signatureHighlight": {
+      "vi": "Kéo dài trạng thái Bất Tử (Unbreakable) và tăng Giảm Sát Thương cho toàn bộ hàng trước.",
+      "en": "Extends Unbreakable invulnerability and boosts Frontline Damage Reduction."
+    }
   },
   {
-    heroId: "paragon",
-    faction: "league",
-    rarity: "mythic",
-    heroName: { vi: "Paragon (Thánh Mẫu)", en: "Paragon" },
-    weaponName: { vi: "Thiên Kiếm Tinh Vân", en: "Celestial Blade" },
-    weaponIconPath: "/images/equipment/exclusive-weapons/equipment_Exclusive008.webp",
-    signatureHighlight: {
-      vi: "Khuếch đại Sát Thương Chuẩn diện rộng và tăng Tỷ Lệ Bạo Kích cho phe Liên Minh.",
-      en: "Amplifies AoE True Damage and grants Crit Rate aura to League allies.",
+    "heroId": "astrologer",
+    "faction": "league",
+    "rarity": "mythic",
+    "heroName": {
+      "vi": "Astrologer (Chiêm Tinh Gia)",
+      "en": "Astrologer"
     },
+    "weaponName": {
+      "vi": "Tinh Cầu Thiên Văn",
+      "en": "Astrolabe"
+    },
+    "weaponIconPath": "/images/equipment/exclusive-weapons/equipment_Exclusive005.webp",
+    "signatureHighlight": {
+      "vi": "Rút ngắn thời gian hồi Tuyệt Kỹ và tăng Xuyên Kháng Phép.",
+      "en": "Reduces Ultimate cooldown and increases Magic Penetration."
+    }
   },
   {
-    heroId: "rose_princess",
-    faction: "league",
-    rarity: "mythic",
-    heroName: { vi: "Rose Princess (Công Chúa Hồng)", en: "Rose Princess" },
-    weaponName: { vi: "Hoa Hồng Tinh Khiết", en: "Pure Rose" },
-    weaponIconPath: "/images/equipment/exclusive-weapons/equipment_Exclusive009.webp",
-    signatureHighlight: {
-      vi: "Cộng dồn Gai Hồng phản sát thương và tạo Khiên bảo hộ cho đồng minh thấp máu nhất.",
-      en: "Stacks Rose Thorns counter-damage and shields the lowest-HP ally.",
+    "heroId": "bard",
+    "faction": "league",
+    "rarity": "mythic",
+    "heroName": {
+      "vi": "Bard (Thi Nhân Tự Do)",
+      "en": "Bard"
     },
+    "weaponName": {
+      "vi": "Cupid",
+      "en": "Cupid"
+    },
+    "weaponIconPath": "/images/equipment/exclusive-weapons/equipment_Exclusive012.webp",
+    "signatureHighlight": {
+      "vi": "Tăng Tốc Đánh và buff Sát Thương Bạo Kích cho toàn bộ đồng minh phe Liên Minh.",
+      "en": "Boosts Attack Speed and Crit Damage for all League allies."
+    }
   },
   {
-    heroId: "bishop",
-    faction: "league",
-    rarity: "mythic",
-    heroName: { vi: "Bishop (Giám Mục)", en: "Bishop" },
-    weaponName: { vi: "Thánh Điển Quang Minh", en: "Tome of Light" },
-    weaponIconPath: "/images/equipment/exclusive-weapons/equipment_Exclusive011.webp",
-    signatureHighlight: {
-      vi: "Thanh tẩy hiệu ứng bất lợi và bơm Năng Lượng tức thời cho tướng Sát Thương chủ lực.",
-      en: "Cleanses debuffs and injects instant Energy into the main DPS carry.",
+    "heroId": "bishop",
+    "faction": "league",
+    "rarity": "mythic",
+    "heroName": {
+      "vi": "Bishop (Giám Mục)",
+      "en": "Bishop"
     },
+    "weaponName": {
+      "vi": "Thánh Điển Quang Minh",
+      "en": "Tome of Light"
+    },
+    "weaponIconPath": "/images/equipment/exclusive-weapons/equipment_Exclusive011.webp",
+    "signatureHighlight": {
+      "vi": "Thanh tẩy hiệu ứng bất lợi và bơm Năng Lượng tức thời cho tướng Sát Thương chủ lực.",
+      "en": "Cleanses debuffs and injects instant Energy into the main DPS carry."
+    }
   },
   {
-    heroId: "pyromancer",
-    faction: "league",
-    rarity: "legendary",
-    heroName: { vi: "Pyromancer (Hỏa Pháp Sư)", en: "Pyromancer" },
-    weaponName: { vi: "Trượng Hỏa Ngục", en: "Inferno Staff" },
-    weaponIconPath: "/images/equipment/exclusive-weapons/equipment_Exclusive001.webp",
-    signatureHighlight: {
-      vi: "Tăng bán kính vụ nổ Thiên Thạch và gây Thiêu Đốt theo phần trăm máu tối đa.",
-      en: "Expands Meteor blast radius and inflicts max-HP percentage Burn.",
+    "heroId": "fire_crafter",
+    "faction": "league",
+    "rarity": "mythic",
+    "heroName": {
+      "vi": "Fire Crafter (Thợ Phép)",
+      "en": "Fire Crafter"
     },
+    "weaponName": {
+      "vi": "Hỏa Thần Tư",
+      "en": "Fireforged Core"
+    },
+    "weaponIconPath": "/images/equipment/exclusive-weapons/equipment_Exclusive031.webp",
+    "signatureHighlight": {
+      "vi": "Triệu hồi Trụ Hỏa Pháo TH-300 bắn phá kẻ địch liên tục với 30% ATK.",
+      "en": "Deploys TH-300 Turret continuously bombarding enemies inheriting 30% ATK."
+    }
   },
   {
-    heroId: "astrologer",
-    faction: "league",
-    rarity: "legendary",
-    heroName: { vi: "Astrologer (Chiêm Tinh Gia)", en: "Astrologer" },
-    weaponName: { vi: "Tinh Cầu Thiên Văn", en: "Astrolabe" },
-    weaponIconPath: "/images/equipment/exclusive-weapons/equipment_Exclusive005.webp",
-    signatureHighlight: {
-      vi: "Rút ngắn thời gian hồi Tuyệt Kỹ và tăng Xuyên Kháng Phép.",
-      en: "Reduces Ultimate cooldown and increases Magic Penetration.",
+    "heroId": "landlady",
+    "faction": "league",
+    "rarity": "mythic",
+    "heroName": {
+      "vi": "Landlady (Bà Chủ)",
+      "en": "Landlady"
     },
-  },
-  // Nature
-  {
-    heroId: "tidecaller",
-    faction: "nature",
-    rarity: "mythic",
-    heroName: { vi: "Tidecaller (Triệu Hồi Thủy Triều)", en: "Tidecaller" },
-    weaponName: { vi: "Đinh Ba San Hô", en: "Coral Fork" },
-    weaponIconPath: "/images/equipment/exclusive-weapons/equipment_Exclusive024.webp",
-    signatureHighlight: {
-      vi: "Mốc +10 triệu hồi Thủy Tinh khổng lồ vừa đỡ đòn vừa hồi máu toàn đội liên tục.",
-      en: "At +10, summons a giant Water Elemental that tanks and heals the entire squad.",
+    "weaponName": {
+      "vi": "Lời Thì Thầm Hào Hùng",
+      "en": "Brave Whispers"
     },
+    "weaponIconPath": "/images/equipment/exclusive-weapons/equipment_Exclusive027.webp",
+    "signatureHighlight": {
+      "vi": "Phản đòn tăng 35% Giảm Sát Thương, phản 125% ATK và tự hồi phục HP.",
+      "en": "Counter stance granting +35% DMG Reduction, reflecting 125% ATK, and self-healing."
+    }
   },
   {
-    heroId: "monk",
-    faction: "nature",
-    rarity: "mythic",
-    heroName: { vi: "Monk (Võ Tăng)", en: "Monk" },
-    weaponName: { vi: "Hồ Lô Tiên Tửu", en: "Immortal Gourd" },
-    weaponIconPath: "/images/equipment/exclusive-weapons/equipment_Exclusive021.webp",
-    signatureHighlight: {
-      vi: "Tăng Né Tránh, Kháng Bạo Kích và tự hồi phục khi chịu sát thương dồn.",
-      en: "Boosts Dodge, Crit Resistance, and self-healing under burst damage.",
+    "heroId": "lily_maid",
+    "faction": "league",
+    "rarity": "mythic",
+    "heroName": {
+      "vi": "Lily Maid (Nữ Hầu Ly Ly)",
+      "en": "Lily Maid"
     },
+    "weaponName": {
+      "vi": "Lời Thề Hoa Linh Lan",
+      "en": "Lily Vow"
+    },
+    "weaponIconPath": "/images/equipment/exclusive-weapons/equipment_Exclusive037.webp",
+    "signatureHighlight": {
+      "vi": "Xóa 2 tầng bất lợi diện rộng và hồi máu cực lớn cho toàn bộ đồng minh.",
+      "en": "AoE cleanse of 2 debuff stacks and massive team-wide healing."
+    }
   },
   {
-    heroId: "pixie",
-    faction: "nature",
-    rarity: "mythic",
-    heroName: { vi: "Pixie (Tiên Nữ Rừng Xanh)", en: "Pixie" },
-    weaponName: { vi: "Mầm Sống Nguyên Sinh", en: "Sprout" },
-    weaponIconPath: "/images/equipment/exclusive-weapons/equipment_Exclusive022.webp",
-    signatureHighlight: {
-      vi: "Khuếch đại sát thương cho toàn bộ Vật Triệu Hồi (Summon) của hệ Tự Nhiên.",
-      en: "Amplifies damage dealt by all Nature Summoned units.",
+    "heroId": "nun",
+    "faction": "league",
+    "rarity": "mythic",
+    "heroName": {
+      "vi": "Nun (Tu Nữ)",
+      "en": "Nun"
     },
+    "weaponName": {
+      "vi": "Ban Ơn",
+      "en": "Blessing"
+    },
+    "weaponIconPath": "/images/equipment/exclusive-weapons/equipment_Exclusive007.webp",
+    "signatureHighlight": {
+      "vi": "Hồi máu liên tục cho toàn đội và tăng Kháng Hiệu Ứng cho hàng trước.",
+      "en": "Continuous team healing and status resistance boost for the frontline."
+    }
   },
   {
-    heroId: "forest_maiden",
-    faction: "nature",
-    rarity: "legendary",
-    heroName: { vi: "Forest Maiden (Thánh Nữ Rừng)", en: "Forest Maiden" },
-    weaponName: { vi: "Trượng Linh Hồn Rừng", en: "Staff of Wood" },
-    weaponIconPath: "/images/equipment/exclusive-weapons/equipment_Exclusive020.webp",
-    signatureHighlight: {
-      vi: "Tăng lượng máu hồi phục mỗi giây và buff Giáp cho đồng minh có Vật Triệu Hồi.",
-      en: "Increases heal-over-time output and grants Armor to summoned allies.",
+    "heroId": "paragon",
+    "faction": "league",
+    "rarity": "mythic",
+    "heroName": {
+      "vi": "Paragon (Thánh Mẫu)",
+      "en": "Paragon"
     },
+    "weaponName": {
+      "vi": "Thiên Kiếm Tinh Vân",
+      "en": "Celestial Blade"
+    },
+    "weaponIconPath": "/images/equipment/exclusive-weapons/equipment_Exclusive008.webp",
+    "signatureHighlight": {
+      "vi": "Khuếch đại Sát Thương Chuẩn diện rộng và tăng Tỷ Lệ Bạo Kích cho phe Liên Minh.",
+      "en": "Amplifies AoE True Damage and grants Crit Rate aura to League allies."
+    }
   },
   {
-    heroId: "windwalker",
-    faction: "nature",
-    rarity: "legendary",
-    heroName: { vi: "Windwalker (Phong Hành Giả)", en: "Windwalker" },
-    weaponName: { vi: "Phong Vũ Phiến", en: "Feather Fan" },
-    weaponIconPath: "/images/equipment/exclusive-weapons/equipment_Exclusive004.webp",
-    signatureHighlight: {
-      vi: "Tăng Tốc Đánh cực đại và bắn thêm tia Gió Xuyên Thấu hàng sau.",
-      en: "Maximizes Attack Speed and fires piercing Wind bolts into the backline.",
+    "heroId": "pyromancer",
+    "faction": "league",
+    "rarity": "mythic",
+    "heroName": {
+      "vi": "Pyromancer (Hỏa Pháp Sư)",
+      "en": "Pyromancer"
     },
-  },
-  // Horde
-  {
-    heroId: "desert_prince",
-    faction: "horde",
-    rarity: "mythic",
-    heroName: { vi: "Desert Prince (Hoàng Tử Sa Mạc)", en: "Desert Prince" },
-    weaponName: { vi: "Loan Đao Cát Cháy", en: "Scimitar of Scoring" },
-    weaponIconPath: "/images/equipment/exclusive-weapons/equipment_Exclusive013.webp",
-    signatureHighlight: {
-      vi: "Ám sát hàng sau kẻ địch với Bão Cát Xuyên Giáp và Hút Máu toàn phần.",
-      en: "Assassinate enemy backlines with Armor-Piercing Sandstorms and Lifesteal.",
+    "weaponName": {
+      "vi": "Trượng Hỏa Ngục",
+      "en": "Inferno Staff"
     },
+    "weaponIconPath": "/images/equipment/exclusive-weapons/equipment_Exclusive001.webp",
+    "signatureHighlight": {
+      "vi": "Tăng bán kính vụ nổ Thiên Thạch và gây Thiêu Đốt theo phần trăm máu tối đa.",
+      "en": "Expands Meteor blast radius and inflicts max-HP percentage Burn."
+    }
   },
   {
-    heroId: "storm_maiden",
-    faction: "horde",
-    rarity: "mythic",
-    heroName: { vi: "Storm Maiden (Thần Nữ Bão Tố)", en: "Storm Maiden" },
-    weaponName: { vi: "Lông Vũ Lôi Điện", en: "Thunder Feather" },
-    weaponIconPath: "/images/equipment/exclusive-weapons/equipment_Exclusive015.webp",
-    signatureHighlight: {
-      vi: "Giật Sét dây chuyền gây Choáng diện rộng và giảm Kháng Phép kẻ địch.",
-      en: "Chains Lightning strikes to Stun multiple targets and shred Magic Resist.",
+    "heroId": "rose_princess",
+    "faction": "league",
+    "rarity": "mythic",
+    "heroName": {
+      "vi": "Rose Princess (Công Chúa Hồng)",
+      "en": "Rose Princess"
     },
+    "weaponName": {
+      "vi": "Hoa Hồng Tinh Khiết",
+      "en": "Pure Rose"
+    },
+    "weaponIconPath": "/images/equipment/exclusive-weapons/equipment_Exclusive009.webp",
+    "signatureHighlight": {
+      "vi": "Cộng dồn Gai Hồng phản sát thương và tạo Khiên bảo hộ cho đồng minh thấp máu nhất.",
+      "en": "Stacks Rose Thorns counter-damage and shields the lowest-HP ally."
+    }
   },
   {
-    heroId: "witch",
-    faction: "horde",
-    rarity: "mythic",
-    heroName: { vi: "Witch (Phù Thủy Hắc Ám)", en: "Witch" },
-    weaponName: { vi: "Búp Bê Nguyền Rủa", en: "Cursed Doll" },
-    weaponIconPath: "/images/equipment/exclusive-weapons/equipment_Exclusive016.webp",
-    signatureHighlight: {
-      vi: "Gắn Nguyền Rủa giảm 50% Hồi Máu và phát nổ linh hồn khi mục tiêu hạ gục.",
-      en: "Inflicts Curse reducing enemy Healing by 50% and triggers Soul Explosion on kill.",
+    "heroId": "secret_keeper",
+    "faction": "league",
+    "rarity": "mythic",
+    "heroName": {
+      "vi": "Secret Keeper (Người Giữ Bí Mật)",
+      "en": "Secret Keeper"
     },
+    "weaponName": {
+      "vi": "0 Độ Tuyệt Đối",
+      "en": "Absolute Zero"
+    },
+    "weaponIconPath": "/images/equipment/exclusive-weapons/equipment_Exclusive010.webp",
+    "signatureHighlight": {
+      "vi": "Đóng băng diện rộng và tạo lớp giáp băng giảm sát thương vật lý nhận vào.",
+      "en": "AoE Freeze crowd control and ice armor reducing incoming physical damage."
+    }
   },
   {
-    heroId: "wukong",
-    faction: "horde",
-    rarity: "mythic",
-    heroName: { vi: "Wukong (Tề Thiên Đại Thánh)", en: "Wukong" },
-    weaponName: { vi: "Như Ý Kim Cô Bổng", en: "Ruyi Jingu Bang" },
-    weaponIconPath: "/images/equipment/exclusive-weapons/equipment_Exclusive006.webp",
-    signatureHighlight: {
-      vi: "Triệu hồi Phân Thân Hầu Vương kế thừa chỉ số và đập gậy Bạo Kích diện rộng.",
-      en: "Summons Monkey Clones inheriting stats and unleashes AoE Critical Staff slams.",
+    "heroId": "druid",
+    "faction": "nature",
+    "rarity": "mythic",
+    "heroName": {
+      "vi": "Druid (Tu Sĩ)",
+      "en": "Druid"
     },
+    "weaponName": {
+      "vi": "Xuân Vĩnh Cửu",
+      "en": "Eternal Spring"
+    },
+    "weaponIconPath": "/images/equipment/exclusive-weapons/equipment_Exclusive023.webp",
+    "signatureHighlight": {
+      "vi": "Biến hóa dạng gấu tăng giáp máu và hồi phục năng lượng cho tướng đồng minh.",
+      "en": "Bear form transformation boosting armor, HP, and ally energy recovery."
+    }
   },
   {
-    heroId: "beastmaster",
-    faction: "horde",
-    rarity: "mythic",
-    heroName: { vi: "Beastmaster (Thú Vương)", en: "Beastmaster" },
-    weaponName: { vi: "Nỏ Săn Uy Long", en: "Wyrmscale Crossbow" },
-    weaponIconPath: "/images/equipment/exclusive-weapons/equipment_Exclusive018.webp",
-    signatureHighlight: {
-      vi: "Gọi Chiến Thú cuồng nộ cắn xé mục tiêu có ATK cao nhất của đối phương.",
-      en: "Calls frenzied War Beasts to maul the enemy hero with the highest ATK.",
+    "heroId": "forest_maiden",
+    "faction": "nature",
+    "rarity": "mythic",
+    "heroName": {
+      "vi": "Forest Maiden (Thánh Nữ Rừng)",
+      "en": "Forest Maiden"
     },
+    "weaponName": {
+      "vi": "Trượng Linh Hồn Rừng",
+      "en": "Staff of Wood"
+    },
+    "weaponIconPath": "/images/equipment/exclusive-weapons/equipment_Exclusive020.webp",
+    "signatureHighlight": {
+      "vi": "Tăng lượng máu hồi phục mỗi giây và buff Giáp cho đồng minh có Vật Triệu Hồi.",
+      "en": "Increases heal-over-time output and grants Armor to summoned allies."
+    }
   },
+  {
+    "heroId": "monk",
+    "faction": "nature",
+    "rarity": "mythic",
+    "heroName": {
+      "vi": "Monk (Võ Tăng)",
+      "en": "Monk"
+    },
+    "weaponName": {
+      "vi": "Hồ Lô Tiên Tửu",
+      "en": "Immortal Gourd"
+    },
+    "weaponIconPath": "/images/equipment/exclusive-weapons/equipment_Exclusive021.webp",
+    "signatureHighlight": {
+      "vi": "Tăng Né Tránh, Kháng Bạo Kích và tự hồi phục khi chịu sát thương dồn.",
+      "en": "Boosts Dodge, Crit Resistance, and self-healing under burst damage."
+    }
+  },
+  {
+    "heroId": "nezha",
+    "faction": "nature",
+    "rarity": "mythic",
+    "heroName": {
+      "vi": "Nezha (Tam Thái Tử)",
+      "en": "Nezha"
+    },
+    "weaponName": {
+      "vi": "Hỏa Tiêm Thương",
+      "en": "Fire-Tipped Spear"
+    },
+    "weaponIconPath": "/images/equipment/exclusive-weapons/equipment_Exclusive030.webp",
+    "signatureHighlight": {
+      "vi": "Tạo khiên 15% HP tối đa, hấp thụ 50% sát thương và tăng mạnh tốc đánh trong 6s.",
+      "en": "Creates shield equal to 15% max HP, absorbing 50% damage for 6s."
+    }
+  },
+  {
+    "heroId": "peach_fox",
+    "faction": "nature",
+    "rarity": "mythic",
+    "heroName": {
+      "vi": "Peach Fox (Hồ Ly Sen Đào)",
+      "en": "Peach Fox"
+    },
+    "weaponName": {
+      "vi": "Hồ Linh",
+      "en": "Fox Spirit"
+    },
+    "weaponIconPath": "/images/equipment/exclusive-weapons/equipment_Exclusive032.webp",
+    "signatureHighlight": {
+      "vi": "Nâng cánh hoa tạo khiên 140% ATK che chở đồng minh, hấp thụ 80% sát thương.",
+      "en": "Petal ward creating shield of 140% ATK, absorbing 80% damage."
+    }
+  },
+  {
+    "heroId": "pixie",
+    "faction": "nature",
+    "rarity": "mythic",
+    "heroName": {
+      "vi": "Pixie (Tiên Nữ Rừng Xanh)",
+      "en": "Pixie"
+    },
+    "weaponName": {
+      "vi": "Mầm Sống Nguyên Sinh",
+      "en": "Sprout"
+    },
+    "weaponIconPath": "/images/equipment/exclusive-weapons/equipment_Exclusive022.webp",
+    "signatureHighlight": {
+      "vi": "Khuếch đại sát thương cho toàn bộ Vật Triệu Hồi (Summon) của hệ Tự Nhiên.",
+      "en": "Amplifies damage dealt by all Nature Summoned units."
+    }
+  },
+  {
+    "heroId": "sage",
+    "faction": "nature",
+    "rarity": "mythic",
+    "heroName": {
+      "vi": "Sage (Hiền Giả)",
+      "en": "Sage"
+    },
+    "weaponName": {
+      "vi": "Nguyên Linh",
+      "en": "Primal Soul"
+    },
+    "weaponIconPath": "/images/equipment/exclusive-weapons/equipment_Exclusive019.webp",
+    "signatureHighlight": {
+      "vi": "Thanh tẩy debuff toàn đội và cường hóa sát thương phép cho phe Tự Nhiên.",
+      "en": "Team debuff cleanse and magic damage amplification for Nature allies."
+    }
+  },
+  {
+    "heroId": "spore_scout",
+    "faction": "nature",
+    "rarity": "mythic",
+    "heroName": {
+      "vi": "Spore Scout (Trinh Sát Rải Nấm)",
+      "en": "Spore Scout"
+    },
+    "weaponName": {
+      "vi": "Ná Bắn Nấm",
+      "en": "Spore Slingshot"
+    },
+    "weaponIconPath": "/images/equipment/exclusive-weapons/equipment_Exclusive038.webp",
+    "signatureHighlight": {
+      "vi": "Bắn Nấm Nguyền Rủa giảm 7% ATK mục tiêu và áp hiệu ứng Suy Yếu thêm 10%.",
+      "en": "Fires cursed mushroom reducing target ATK by 7% and inflicting 10% Vulnerability."
+    }
+  },
+  {
+    "heroId": "tidecaller",
+    "faction": "nature",
+    "rarity": "mythic",
+    "heroName": {
+      "vi": "Tidecaller (Triệu Hồi Thủy Triều)",
+      "en": "Tidecaller"
+    },
+    "weaponName": {
+      "vi": "Đinh Ba San Hô",
+      "en": "Coral Fork"
+    },
+    "weaponIconPath": "/images/equipment/exclusive-weapons/equipment_Exclusive024.webp",
+    "signatureHighlight": {
+      "vi": "Mốc +10 triệu hồi Thủy Tinh khổng lồ vừa đỡ đòn vừa hồi máu toàn đội liên tục.",
+      "en": "At +10, summons a giant Water Elemental that tanks and heals the entire squad."
+    }
+  },
+  {
+    "heroId": "treeguard",
+    "faction": "nature",
+    "rarity": "mythic",
+    "heroName": {
+      "vi": "Treeguard (Thủ Vệ Người Cây)",
+      "en": "Treeguard"
+    },
+    "weaponName": {
+      "vi": "Trái Tim Đất Mẹ",
+      "en": "Heart of Earth"
+    },
+    "weaponIconPath": "/images/equipment/exclusive-weapons/equipment_Exclusive029.webp",
+    "signatureHighlight": {
+      "vi": "Trói chân diện rộng, tạo khiên rễ cây và tăng giảm sát thương cực mạnh.",
+      "en": "AoE roots, root shield creation, and substantial damage mitigation."
+    }
+  },
+  {
+    "heroId": "windwalker",
+    "faction": "nature",
+    "rarity": "mythic",
+    "heroName": {
+      "vi": "Windwalker (Phong Hành Giả)",
+      "en": "Windwalker"
+    },
+    "weaponName": {
+      "vi": "Phong Vũ Phiến",
+      "en": "Feather Fan"
+    },
+    "weaponIconPath": "/images/equipment/exclusive-weapons/equipment_Exclusive004.webp",
+    "signatureHighlight": {
+      "vi": "Tăng Tốc Đánh cực đại và bắn thêm tia Gió Xuyên Thấu hàng sau.",
+      "en": "Maximizes Attack Speed and fires piercing Wind bolts into the backline."
+    }
+  },
+  {
+    "heroId": "barbarian",
+    "faction": "horde",
+    "rarity": "mythic",
+    "heroName": {
+      "vi": "Barbarian (Đấu Sĩ Man Rợ)",
+      "en": "Barbarian"
+    },
+    "weaponName": {
+      "vi": "Phá Sao",
+      "en": "Starbreaker"
+    },
+    "weaponIconPath": "/images/equipment/exclusive-weapons/equipment_Exclusive017.webp",
+    "signatureHighlight": {
+      "vi": "Xoay búa cuồng nộ gây sát thương diện rộng và tăng hút máu theo phần trăm máu mất.",
+      "en": "Frenzied whirlwind dealing AoE damage with escalating lifesteal as HP drops."
+    }
+  },
+  {
+    "heroId": "beastmaster",
+    "faction": "horde",
+    "rarity": "mythic",
+    "heroName": {
+      "vi": "Beastmaster (Thú Vương)",
+      "en": "Beastmaster"
+    },
+    "weaponName": {
+      "vi": "Nỏ Săn Uy Long",
+      "en": "Wyrmscale Crossbow"
+    },
+    "weaponIconPath": "/images/equipment/exclusive-weapons/equipment_Exclusive018.webp",
+    "signatureHighlight": {
+      "vi": "Gọi Chiến Thú cuồng nộ cắn xé mục tiêu có ATK cao nhất của đối phương.",
+      "en": "Calls frenzied War Beasts to maul the enemy hero with the highest ATK."
+    }
+  },
+  {
+    "heroId": "dark_necromancer",
+    "faction": "horde",
+    "rarity": "mythic",
+    "heroName": {
+      "vi": "Dark Necromancer (Linh Sư Hắc Ám)",
+      "en": "Dark Necromancer"
+    },
+    "weaponName": {
+      "vi": "Ngọc Oan Hồn",
+      "en": "Soul Orb"
+    },
+    "weaponIconPath": "/images/equipment/exclusive-weapons/equipment_Exclusive036.webp",
+    "signatureHighlight": {
+      "vi": "Tạo khiên bằng 140% ATK cho 2 đồng minh, hấp thụ 65% sát thương trong 6s.",
+      "en": "Creates shield equal to 140% ATK for 2 allies, absorbing 65% damage for 6s."
+    }
+  },
+  {
+    "heroId": "desert_prince",
+    "faction": "horde",
+    "rarity": "mythic",
+    "heroName": {
+      "vi": "Desert Prince (Hoàng Tử Sa Mạc)",
+      "en": "Desert Prince"
+    },
+    "weaponName": {
+      "vi": "Loan Đao Cát Cháy",
+      "en": "Scimitar of Scoring"
+    },
+    "weaponIconPath": "/images/equipment/exclusive-weapons/equipment_Exclusive013.webp",
+    "signatureHighlight": {
+      "vi": "Ám sát hàng sau kẻ địch với Bão Cát Xuyên Giáp và Hút Máu toàn phần.",
+      "en": "Assassinate enemy backlines with Armor-Piercing Sandstorms and Lifesteal."
+    }
+  },
+  {
+    "heroId": "shaman",
+    "faction": "horde",
+    "rarity": "mythic",
+    "heroName": {
+      "vi": "Shaman (Phù Thủy Bộ Tộc)",
+      "en": "Shaman"
+    },
+    "weaponName": {
+      "vi": "Tiếng Vọng Núi Rừng",
+      "en": "Echo of the Wild"
+    },
+    "weaponIconPath": "/images/equipment/exclusive-weapons/equipment_Exclusive028.webp",
+    "signatureHighlight": {
+      "vi": "Cắm cọc tổ tiên hồi máu và tăng Giáp/Kháng Phép cho toàn bộ đồng minh Bộ Tộc.",
+      "en": "Plants ancestral totems healing and boosting Armor/Magic Resist for Horde allies."
+    }
+  },
+  {
+    "heroId": "storm_maiden",
+    "faction": "horde",
+    "rarity": "mythic",
+    "heroName": {
+      "vi": "Storm Maiden (Thần Nữ Bão Tố)",
+      "en": "Storm Maiden"
+    },
+    "weaponName": {
+      "vi": "Lông Vũ Lôi Điện",
+      "en": "Thunder Feather"
+    },
+    "weaponIconPath": "/images/equipment/exclusive-weapons/equipment_Exclusive015.webp",
+    "signatureHighlight": {
+      "vi": "Giật Sét dây chuyền gây Choáng diện rộng và giảm Kháng Phép kẻ địch.",
+      "en": "Chains Lightning strikes to Stun multiple targets and shred Magic Resist."
+    }
+  },
+  {
+    "heroId": "swordmaster",
+    "faction": "horde",
+    "rarity": "mythic",
+    "heroName": {
+      "vi": "Swordmaster (Giáo Quan Kiếm Thuật)",
+      "en": "Swordmaster"
+    },
+    "weaponName": {
+      "vi": "Gió Bão Rực Đỏ",
+      "en": "Crimson Storm"
+    },
+    "weaponIconPath": "/images/equipment/exclusive-weapons/equipment_Exclusive026.webp",
+    "signatureHighlight": {
+      "vi": "Chém kiếm khí bão táp xuyên giáp mục tiêu và tăng Tỷ Lệ Bạo Kích cực đại.",
+      "en": "Bladestorm slashing through armor and massively increasing Crit Rate."
+    }
+  },
+  {
+    "heroId": "warlock",
+    "faction": "horde",
+    "rarity": "mythic",
+    "heroName": {
+      "vi": "Warlock (Thuật Sĩ)",
+      "en": "Warlock"
+    },
+    "weaponName": {
+      "vi": "Lưỡi Hái Nguyền Rủa",
+      "en": "Cursed Scythe"
+    },
+    "weaponIconPath": "/images/equipment/exclusive-weapons/equipment_Exclusive025.webp",
+    "signatureHighlight": {
+      "vi": "Mỗi khi thi triển 2 lần skill, bắn 1 Mũi Tên Hỗn Loạn gây ST bằng 60% ATK mỗi giây trong 3s.",
+      "en": "Every 2 skill casts, fires a Chaos Arrow dealing 60% ATK damage per second for 3s."
+    }
+  },
+  {
+    "heroId": "wilderness_hunter",
+    "faction": "horde",
+    "rarity": "mythic",
+    "heroName": {
+      "vi": "Wilderness Hunter (Thợ Săn Hoang Dã)",
+      "en": "Wilderness Hunter"
+    },
+    "weaponName": {
+      "vi": "Sát Thủ Khổng Lồ",
+      "en": "Giant Slayer"
+    },
+    "weaponIconPath": "/images/equipment/exclusive-weapons/equipment_Exclusive003.webp",
+    "signatureHighlight": {
+      "vi": "Bắn xuyên thấu tầm xa gây thêm sát thương chuẩn lên mục tiêu có HP cao nhất.",
+      "en": "Piercing long-range shots dealing bonus true damage against highest-HP targets."
+    }
+  },
+  {
+    "heroId": "witch",
+    "faction": "horde",
+    "rarity": "mythic",
+    "heroName": {
+      "vi": "Witch (Phù Thủy Hắc Ám)",
+      "en": "Witch"
+    },
+    "weaponName": {
+      "vi": "Búp Bê Nguyền Rủa",
+      "en": "Cursed Doll"
+    },
+    "weaponIconPath": "/images/equipment/exclusive-weapons/equipment_Exclusive016.webp",
+    "signatureHighlight": {
+      "vi": "Gắn Nguyền Rủa giảm 50% Hồi Máu và phát nổ linh hồn khi mục tiêu hạ gục.",
+      "en": "Inflicts Curse reducing enemy Healing by 50% and triggers Soul Explosion on kill."
+    }
+  },
+  {
+    "heroId": "witch_doctor",
+    "faction": "horde",
+    "rarity": "mythic",
+    "heroName": {
+      "vi": "Witch Doctor (Thầy Đồng)",
+      "en": "Witch Doctor"
+    },
+    "weaponName": {
+      "vi": "Thoát Vượt",
+      "en": "Transcendence"
+    },
+    "weaponIconPath": "/images/equipment/exclusive-weapons/equipment_Exclusive014.webp",
+    "signatureHighlight": {
+      "vi": "Quăng độc dược làm chậm kẻ địch và hồi sinh tạm thời đồng minh tử trận.",
+      "en": "Throws poisonous brews slowing enemies and granting temporary revival."
+    }
+  },
+  {
+    "heroId": "wukong",
+    "faction": "horde",
+    "rarity": "mythic",
+    "heroName": {
+      "vi": "Wukong (Tề Thiên Đại Thánh)",
+      "en": "Wukong"
+    },
+    "weaponName": {
+      "vi": "Như Ý Kim Cô Bổng",
+      "en": "Ruyi Jingu Bang"
+    },
+    "weaponIconPath": "/images/equipment/exclusive-weapons/equipment_Exclusive006.webp",
+    "signatureHighlight": {
+      "vi": "Triệu hồi Phân Thân Hầu Vương kế thừa chỉ số và đập gậy Bạo Kích diện rộng.",
+      "en": "Summons Monkey Clones inheriting stats and unleashes AoE Critical Staff slams."
+    }
+  }
 ] as const;
 
 export function clampExclusiveWeaponLevel(level: number): number {
@@ -619,7 +1032,7 @@ export function calculateExclusiveWeapon(
     Math.min(6, Math.floor(input.heroCount || 1))
   );
   const coreProfile: ExclusiveCoreProfile =
-    input.coreProfile ?? "guide_cumulative_920";
+    input.coreProfile ?? "raw_subtier_2385";
 
   const safeOwnedShards = Math.max(0, Math.floor(input.ownedShards ?? 0));
   const safeOwnedCores = Math.max(0, Math.floor(input.ownedCores ?? 0));

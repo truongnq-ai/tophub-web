@@ -53,7 +53,7 @@ export function ExclusiveWeaponStepSelector({
   onChange,
   locale,
   testIdPrefix,
-  coreProfile = "guide_cumulative_920",
+  coreProfile = "raw_subtier_2385",
 }: ExclusiveWeaponStepSelectorProps): React.JSX.Element {
   const isVi = locale === "vi";
 

@@ -169,7 +169,7 @@ export function CalculatorPlaceholderView({
             tool={tool}
             locale={locale}
           />
-        ) : tool.slug === "exclusive-weapon" ? (
+        ) : tool.slug === "exclusive-gear" || tool.slug === "exclusive-weapon" ? (
           <ExclusiveWeaponCalculator
             zone={zone}
             category={category}

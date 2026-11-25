@@ -70,10 +70,10 @@ const FACTION_OPTIONS: readonly {
   },
   {
     id: "horde",
-    label: { vi: "Bộ Lạc (Horde)", en: "Horde" },
+    label: { vi: "Bộ Tộc (Horde)", en: "Horde" },
     desc: {
-      vi: "Desert Prince, Storm Maiden, Witch, Wukong...",
-      en: "Desert Prince, Storm Maiden, Witch, Wukong...",
+      vi: "Thuật Sĩ, Hoàng Tử Sa Mạc, Thần Nữ Bão Tố, Phù Thủy...",
+      en: "Warlock, Desert Prince, Storm Maiden, Witch...",
     },
   },
 ];
@@ -89,9 +89,7 @@ export function ExclusiveWeaponCalculator({
   const [activeFaction, setActiveFaction] =
     useState<ExclusiveWeaponFaction>("league");
   const [selectedHeroId, setSelectedHeroId] = useState<string>("adjudicator");
-  const [coreProfile, setCoreProfile] = useState<ExclusiveCoreProfile>(
-    "guide_cumulative_920"
-  );
+  const coreProfile: ExclusiveCoreProfile = "raw_subtier_2385";
 
   const [fromLevel, setFromLevel] = useState<number>(0);
   const [toLevel, setToLevel] = useState<number>(MAX_EXCLUSIVE_WEAPON_LEVEL);
@@ -203,7 +201,6 @@ export function ExclusiveWeaponCalculator({
   const handleReset = (): void => {
     setActiveFaction("league");
     setSelectedHeroId("adjudicator");
-    setCoreProfile("guide_cumulative_920");
     setFromLevel(0);
     setToLevel(MAX_EXCLUSIVE_WEAPON_LEVEL);
     setFromStarStep(0);
@@ -254,13 +251,13 @@ export function ExclusiveWeaponCalculator({
               dialogTestId="ew-info-dialog"
               title={
                 isVi
-                  ? "Hướng Dẫn Vũ Khí Độc Quyền & Bảng Tra Cứu SSoT"
-                  : "Exclusive Weapon Guide & SSoT Reference Tables"
+                  ? "Hướng Dẫn Trang Bị Độc Quyền & Bảng Tra Cứu SSoT"
+                  : "Exclusive Gear Guide & SSoT Reference Tables"
               }
               subtitle={
                 isVi
-                  ? "Cơ chế Cấp Thần Khí (Lv.0–20 • 1,185 Mảnh), 5 Mốc Kỹ Năng & Đột Phá Sao (0★–5★ • Lõi Sắt Thiên Thạch)"
-                  : "Weapon Level (Lv.0–20 • 1,185 Shards), 5 Skill Milestones & Star Breakthrough (0★–5★ • Meteoric Iron Cores)"
+                  ? "Cơ chế Cấp Thần Khí (Lv.0–20 • 1,185 Mảnh), 5 Mốc Kỹ Năng & Đột Phá Sao (0★–5★ • 2,385 Lõi Sắt Thiên Thạch)"
+                  : "Gear Level (Lv.0–20 • 1,185 Shards), 5 Skill Milestones & Star Breakthrough (0★–5★ • 2,385 Meteoric Iron Cores)"
               }
             >
               <div className="space-y-5">
@@ -269,7 +266,7 @@ export function ExclusiveWeaponCalculator({
                   <h4 className="font-sans text-sm font-bold text-foreground">
                     {isVi
                       ? "1. Cơ Chế Cấp Thần Khí (Lv.0–20) & Đột Phá Sao (0★–5★)"
-                      : "1. Weapon Level (Lv.0–20) & Star Breakthrough (0★–5★) Mechanics"}
+                      : "1. Gear Level (Lv.0–20) & Star Breakthrough (0★–5★) Mechanics"}
                   </h4>
                   <ul className="space-y-1.5 font-sans text-xs leading-relaxed text-muted-foreground">
                     <li>
@@ -280,8 +277,8 @@ export function ExclusiveWeaponCalculator({
                           : "Universal Exclusive Gear Shards:"}
                       </strong>{" "}
                       {isVi
-                        ? "Dùng để mở khóa (Lv.1 = 5 Mảnh) và nâng cấp Thần Khí từ Lv.0 lên Lv.20 (tổng 1,185 Mảnh/vũ khí), mở khóa 5 mốc Đột Phá Kỹ Năng tại Lv.1, Lv.5, Lv.10, Lv.15 và Lv.20."
-                        : "Used to unlock (Lv.1 = 5 Shards) and upgrade Exclusive Weapons from Lv.0 to Lv.20 (1,185 Shards total), unlocking 5 Signature Skill Milestones at Lv.1, Lv.5, Lv.10, Lv.15, and Lv.20."}
+                        ? "Dùng để mở khóa (Lv.1 = 5 Mảnh) và nâng cấp Thần Khí từ Lv.0 lên Lv.20 (tổng 1,185 Mảnh/trang bị), mở khóa 5 mốc Đột Phá Kỹ Năng tại Lv.1, Lv.5, Lv.10, Lv.15 và Lv.20."
+                        : "Used to unlock (Lv.1 = 5 Shards) and upgrade Exclusive Gear from Lv.0 to Lv.20 (1,185 Shards total), unlocking 5 Signature Skill Milestones at Lv.1, Lv.5, Lv.10, Lv.15, and Lv.20."}
                     </li>
                     <li>
                       •{" "}
@@ -291,8 +288,8 @@ export function ExclusiveWeaponCalculator({
                           : "Meteoric Iron Cores (4 Gold Stars + 1 Red Star):"}
                       </strong>{" "}
                       {isVi
-                        ? "Dùng để đột phá 25 tiểu bậc cánh sao từ 0★ lên 5★ Đỏ Thần Thoại. Hỗ trợ chuyển đổi giữa 2 hệ quy chiếu: Chuẩn Guide (tổng 920 Lõi) và Bảng Tiểu Bậc Thô (tổng 2,385 Lõi)."
-                        : "Used across 25 star petals from 0★ to 5★ Mythic Red. Supports toggling between 2 reference profiles: Guide Standard (920 Cores) and Raw Sub-tier Table (2,385 Cores)."}
+                        ? "Dùng để đột phá 25 tiểu bậc cánh sao từ 0★ lên 5★ Đỏ Thần Thoại. Dữ liệu chuẩn hóa 100% theo game cache với tổng chi phí 2,385 Lõi Sắt Thiên Thạch."
+                        : "Used across 25 star petals from 0★ to 5★ Mythic Red. 100% normalized to game cache tables with total cost of 2,385 Meteoric Iron Cores."}
                     </li>
                   </ul>
                 </div>
@@ -476,7 +473,7 @@ export function ExclusiveWeaponCalculator({
         >
           <div className="flex w-full items-center justify-between gap-2">
             <span className="font-sans text-xs font-bold text-muted-foreground">
-              {isVi ? "Thần Khí Đang Chọn" : "Selected Exclusive Weapon"}
+              {isVi ? "Trang Bị Đang Chọn" : "Selected Exclusive Gear"}
             </span>
             <span
               className={cn(
@@ -499,8 +496,8 @@ export function ExclusiveWeaponCalculator({
             aria-haspopup="dialog"
             aria-label={
               isVi
-                ? "Bấm để chọn Phe và Vũ Khí Độc Quyền"
-                : "Click to select Faction and Exclusive Weapon"
+                ? "Bấm để chọn Phe và Trang Bị Độc Quyền"
+                : "Click to select Faction and Exclusive Gear"
             }
             className="group flex w-full flex-col items-center justify-center rounded-2xl p-2 transition-transform hover:scale-[1.01] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/40"
           >
@@ -572,50 +569,26 @@ export function ExclusiveWeaponCalculator({
             </span>
           </button>
 
-          {/* Compact Meteoric Iron Core Reference Profile Toggle */}
-          <div className={cn(CALC_MD3.tonalGroup, "w-full space-y-2 text-left")}>
+          {/* SSoT Game Cache Meteoric Iron Core Badge (100% Game Cache Standard) */}
+          <div className={cn(CALC_MD3.tonalGroup, "w-full space-y-1.5 text-left")}>
             <div className="flex items-center justify-between gap-2">
               <span className="font-sans text-xs font-bold text-foreground">
                 {isVi
-                  ? "Hệ quy chiếu Lõi Sắt Thiên Thạch:"
-                  : "Meteoric Iron Core Profile:"}
+                  ? "Lõi Sắt Thiên Thạch (Chuẩn Game Cache):"
+                  : "Meteoric Iron Cores (Game Cache):"}
               </span>
-              <span className="font-mono text-xs font-bold text-amber-600 tabular-nums dark:text-amber-400">
-                {coreProfile === "guide_cumulative_920" ? "920" : "2,385"}
+              <span
+                data-testid="core-profile-badge"
+                className="font-mono text-xs font-bold text-amber-600 tabular-nums dark:text-amber-400"
+              >
+                2,385
               </span>
             </div>
-
-            <div className="grid grid-cols-2 gap-1.5">
-              <button
-                type="button"
-                data-testid="core-profile-guide_cumulative_920"
-                aria-pressed={coreProfile === "guide_cumulative_920"}
-                onClick={() => setCoreProfile("guide_cumulative_920")}
-                className={cn(
-                  "inline-flex min-h-[44px] items-center justify-center rounded-xl px-2.5 py-1.5 text-center font-sans text-xs font-semibold transition-colors cursor-pointer",
-                  coreProfile === "guide_cumulative_920"
-                    ? "bg-amber-500 font-bold text-slate-950 shadow-sm"
-                    : "bg-background/80 text-muted-foreground hover:bg-background hover:text-foreground"
-                )}
-              >
-                {isVi ? "Chuẩn Guide • 920 Lõi" : "Guide • 920 Cores"}
-              </button>
-
-              <button
-                type="button"
-                data-testid="core-profile-raw_subtier_2385"
-                aria-pressed={coreProfile === "raw_subtier_2385"}
-                onClick={() => setCoreProfile("raw_subtier_2385")}
-                className={cn(
-                  "inline-flex min-h-[44px] items-center justify-center rounded-xl px-2.5 py-1.5 text-center font-sans text-xs font-semibold transition-colors cursor-pointer",
-                  coreProfile === "raw_subtier_2385"
-                    ? "bg-amber-500 font-bold text-slate-950 shadow-sm"
-                    : "bg-background/80 text-muted-foreground hover:bg-background hover:text-foreground"
-                )}
-              >
-                {isVi ? "Bảng Tiểu Bậc • 2,385 Lõi" : "Raw Table • 2,385 Cores"}
-              </button>
-            </div>
+            <p className="font-sans text-xs text-muted-foreground leading-normal">
+              {isVi
+                ? "Chuẩn hóa 100% theo Game Cache (25 tiểu bậc: 0★ ➔ 5★ Thần Thoại)."
+                : "100% normalized to Game Cache tables (25 sub-tiers: 0★ ➔ 5★ Mythic)."}
+            </p>
           </div>
 
           {/* 2-Step Sequential Avatar Picker Popover (Step 1: Faction ➔ Step 2: Hero) */}
@@ -624,8 +597,8 @@ export function ExclusiveWeaponCalculator({
               role="dialog"
               aria-label={
                 isVi
-                  ? "Chọn Phe và Vũ Khí Độc Quyền"
-                  : "Select Faction and Exclusive Weapon"
+                  ? "Chọn Phe và Trang Bị Độc Quyền"
+                  : "Select Faction and Exclusive Gear"
               }
               data-testid="ew-avatar-picker-popover"
               data-md3-overlay="true"

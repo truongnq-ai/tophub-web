@@ -25,8 +25,8 @@ import {
   readSource,
 } from "./utils/md3-audit";
 
-describe("4.3 Vũ Khí Độc Quyền — Suite 1: Quantitative SSoT Engine (Lv.0➔20 Shards & 0★➔5★ Meteoric Iron Cores)", () => {
-  it("defines exact Lv.0..20 Exclusive Shard curve (5 / 75 / 275 / 605 / 1,185) and both SSoT Meteoric Iron Core profiles (920 & 2,385)", () => {
+describe("4.3 Trang Bị Độc Quyền — Suite 1: Quantitative SSoT Engine (Lv.0➔20 Shards & 0★➔5★ Meteoric Iron Cores)", () => {
+  it("defines exact Lv.0..20 Exclusive Shard curve (5 / 75 / 275 / 605 / 1,185) and Game Cache Meteoric Iron Core SSoT (2,385)", () => {
     expect(MIN_EXCLUSIVE_WEAPON_LEVEL).toBe(0);
     expect(MAX_EXCLUSIVE_WEAPON_LEVEL).toBe(20);
     expect(EXCLUSIVE_WEAPON_LEVEL_STEPS).toHaveLength(21);
@@ -42,56 +42,41 @@ describe("4.3 Vũ Khí Độc Quyền — Suite 1: Quantitative SSoT Engine (Lv.
     expect(EXCLUSIVE_WEAPON_LEVEL_STEPS[15].cumulativeShards).toBe(605);
     expect(EXCLUSIVE_WEAPON_LEVEL_STEPS[20].cumulativeShards).toBe(1_185);
 
-    // Profile 1: guide_cumulative_920 (120 -> 290 -> 490 -> 705 -> 920)
-    const guideSteps = getExclusiveStarSteps("guide_cumulative_920");
-    expect(guideSteps).toHaveLength(26);
-    expect(guideSteps[0].cumulativeCores).toBe(0);
-    expect(guideSteps[5].cumulativeCores).toBe(120);
-    expect(guideSteps[10].cumulativeCores).toBe(290);
-    expect(guideSteps[15].cumulativeCores).toBe(490);
-    expect(guideSteps[20].cumulativeCores).toBe(705);
-    expect(guideSteps[25].cumulativeCores).toBe(920);
-
-    // Profile 2: raw_subtier_2385 (250 -> 615 -> 1,110 -> 1,695 -> 2,385)
-    const rawSteps = getExclusiveStarSteps("raw_subtier_2385");
-    expect(rawSteps).toHaveLength(26);
-    expect(rawSteps[0].cumulativeCores).toBe(0);
-    expect(rawSteps[5].cumulativeCores).toBe(250);
-    expect(rawSteps[10].cumulativeCores).toBe(615);
-    expect(rawSteps[15].cumulativeCores).toBe(1_110);
-    expect(rawSteps[20].cumulativeCores).toBe(1_695);
-    expect(rawSteps[25].cumulativeCores).toBe(2_385);
+    // Game Cache SSoT (65 -> 265 -> 745 -> 1,465 -> 2,385)
+    const starSteps = getExclusiveStarSteps();
+    expect(starSteps).toHaveLength(26);
+    expect(starSteps[0].cumulativeCores).toBe(0);
+    expect(starSteps[5].cumulativeCores).toBe(65);
+    expect(starSteps[10].cumulativeCores).toBe(265);
+    expect(starSteps[15].cumulativeCores).toBe(745);
+    expect(starSteps[20].cumulativeCores).toBe(1_465);
+    expect(starSteps[25].cumulativeCores).toBe(2_385);
 
     expect(EXCLUSIVE_SKILL_MILESTONES).toHaveLength(5);
-    expect(EXCLUSIVE_WEAPON_HERO_CATALOG.length).toBeGreaterThanOrEqual(15);
+    expect(EXCLUSIVE_WEAPON_HERO_CATALOG).toHaveLength(35);
+    expect(
+      EXCLUSIVE_WEAPON_HERO_CATALOG.filter((h) => h.faction === "league")
+    ).toHaveLength(12);
+    expect(
+      EXCLUSIVE_WEAPON_HERO_CATALOG.filter((h) => h.faction === "nature")
+    ).toHaveLength(11);
+    expect(
+      EXCLUSIVE_WEAPON_HERO_CATALOG.filter((h) => h.faction === "horde")
+    ).toHaveLength(12);
 
     expect(clampExclusiveWeaponLevel(-5)).toBe(0);
     expect(clampExclusiveWeaponLevel(99)).toBe(20);
     expect(clampExclusiveStarStep(-1)).toBe(0);
     expect(clampExclusiveStarStep(99)).toBe(25);
 
-    const expectedWeapons: Record<string, string> = {
-      adjudicator: "/images/equipment/exclusive-weapons/equipment_Exclusive002.webp",
-      paragon: "/images/equipment/exclusive-weapons/equipment_Exclusive008.webp",
-      rose_princess: "/images/equipment/exclusive-weapons/equipment_Exclusive009.webp",
-      bishop: "/images/equipment/exclusive-weapons/equipment_Exclusive011.webp",
-      pyromancer: "/images/equipment/exclusive-weapons/equipment_Exclusive001.webp",
-      astrologer: "/images/equipment/exclusive-weapons/equipment_Exclusive005.webp",
-      tidecaller: "/images/equipment/exclusive-weapons/equipment_Exclusive024.webp",
-      monk: "/images/equipment/exclusive-weapons/equipment_Exclusive021.webp",
-      pixie: "/images/equipment/exclusive-weapons/equipment_Exclusive022.webp",
-      forest_maiden: "/images/equipment/exclusive-weapons/equipment_Exclusive020.webp",
-      windwalker: "/images/equipment/exclusive-weapons/equipment_Exclusive004.webp",
-      desert_prince: "/images/equipment/exclusive-weapons/equipment_Exclusive013.webp",
-      storm_maiden: "/images/equipment/exclusive-weapons/equipment_Exclusive015.webp",
-      witch: "/images/equipment/exclusive-weapons/equipment_Exclusive016.webp",
-      wukong: "/images/equipment/exclusive-weapons/equipment_Exclusive006.webp",
-      beastmaster: "/images/equipment/exclusive-weapons/equipment_Exclusive018.webp",
-    };
-    expect(EXCLUSIVE_WEAPON_HERO_CATALOG).toHaveLength(16);
-    for (const entry of EXCLUSIVE_WEAPON_HERO_CATALOG) {
-      expect(entry.weaponIconPath).toBe(expectedWeapons[entry.heroId]);
-    }
+    // Verify Thuật Sĩ (Warlock) is in the catalog with expected weapon
+    const warlock = EXCLUSIVE_WEAPON_HERO_CATALOG.find((h) => h.heroId === "warlock");
+    expect(warlock).toBeDefined();
+    expect(warlock?.faction).toBe("horde");
+    expect(warlock?.weaponName.vi).toBe("Lưỡi Hái Nguyền Rủa");
+    expect(warlock?.weaponIconPath).toBe(
+      "/images/equipment/exclusive-weapons/equipment_Exclusive025.webp"
+    );
   });
 
   it("calculates exact Shards and Meteoric Iron Cores for 1 hero (×1 default), plus next milestone distance", () => {
@@ -101,16 +86,15 @@ describe("4.3 Vũ Khí Độc Quyền — Suite 1: Quantitative SSoT Engine (Lv.
       fromStarStep: 0,
       toStarStep: 25,
       heroCount: 1,
-      coreProfile: "guide_cumulative_920",
       selectedHeroId: "adjudicator",
       ownedShards: 185,
       ownedCores: 120,
     });
 
     expect(oneHeroMax.requiredShards).toBe(1_185);
-    expect(oneHeroMax.requiredCores).toBe(920);
+    expect(oneHeroMax.requiredCores).toBe(2_385);
     expect(oneHeroMax.missingShards).toBe(1_000);
-    expect(oneHeroMax.missingCores).toBe(800);
+    expect(oneHeroMax.missingCores).toBe(2_265);
     expect(oneHeroMax.shardsToNextMilestone).toBe(0);
 
     // Mid-progression Lv.1 -> Lv.10 (275 - 5 = 270 Shards; next milestone Lv.15 = 605 - 275 = 330 Shards)
@@ -120,12 +104,11 @@ describe("4.3 Vũ Khí Độc Quyền — Suite 1: Quantitative SSoT Engine (Lv.
       fromStarStep: 0,
       toStarStep: 10,
       heroCount: 1,
-      coreProfile: "raw_subtier_2385",
       selectedHeroId: "desert_prince",
     });
 
     expect(midHero.requiredShards).toBe(270);
-    expect(midHero.requiredCores).toBe(615);
+    expect(midHero.requiredCores).toBe(265);
     expect(midHero.nextSkillMilestone?.requiredLevel).toBe(15);
     expect(midHero.shardsToNextMilestone).toBe(330);
   });
@@ -137,7 +120,6 @@ describe("4.3 Vũ Khí Độc Quyền — Suite 1: Quantitative SSoT Engine (Lv.
       fromStarStep: 0,
       toStarStep: 0,
       heroCount: 1,
-      coreProfile: "guide_cumulative_920",
     });
     expect(levelOnly.isInvalidLevelRange).toBe(false);
     expect(levelOnly.isInvalidStarRange).toBe(false);
@@ -151,24 +133,23 @@ describe("4.3 Vũ Khí Độc Quyền — Suite 1: Quantitative SSoT Engine (Lv.
       fromStarStep: 0,
       toStarStep: 5,
       heroCount: 1,
-      coreProfile: "guide_cumulative_920",
     });
     expect(invalidLevelValidStar.isInvalidLevelRange).toBe(true);
     expect(invalidLevelValidStar.isInvalidStarRange).toBe(false);
     expect(invalidLevelValidStar.requiredShards).toBe(0);
-    expect(invalidLevelValidStar.requiredCores).toBe(120);
+    expect(invalidLevelValidStar.requiredCores).toBe(65);
   });
 });
 
-describe("4.3 Vũ Khí Độc Quyền — Suite 2: v2.0 4-Zone Architecture, 2-Step Avatar Picker, 4 Gold + 1 Red Star & Info Popover", () => {
-  const resolved = getCalculatorToolBySlug("hero-gear", "exclusive-weapon")!;
+describe("4.3 Trang Bị Độc Quyền — Suite 2: v2.0 4-Zone Architecture, 2-Step Avatar Picker, 4 Gold + 1 Red Star & Info Popover", () => {
+  const resolved = getCalculatorToolBySlug("hero-gear", "exclusive-gear")!;
   const tool = resolved.tool;
 
-  it("renders default 1 Hero Lv.0 ➔ Lv.20 (1.19K / 1,185 Shards) and 0★ ➔ 5★ (920 Meteoric Iron Cores) across 4 v2.0 zones", () => {
+  it("renders default 1 Hero Lv.0 ➔ Lv.20 (1.19K / 1,185 Shards) and 0★ ➔ 5★ (2.38K / 2,385 Meteoric Iron Cores) across 4 v2.0 zones", () => {
     render(<ExclusiveWeaponCalculator tool={tool} locale="vi" />);
 
     expect(
-      screen.getByRole("heading", { level: 1, name: /Vũ Khí Độc Quyền/i })
+      screen.getByRole("heading", { level: 1, name: /Trang Bị Độc Quyền/i })
     ).toBeDefined();
 
     expect(screen.getByTestId("ew-zone-current")).toBeDefined();
@@ -180,30 +161,34 @@ describe("4.3 Vũ Khí Độc Quyền — Suite 2: v2.0 4-Zone Architecture, 2-S
     expect(screen.getByTestId("ew-total-shards").getAttribute("title")).toBe(
       "1,185"
     );
-    expect(screen.getByTestId("ew-total-cores").textContent).toBe("920");
-  });
-
-  it("toggles Core SSoT profile (920 ➔ 2,385) and selects Hero Exclusive Weapon via the 2-step Central Avatar Popover", () => {
-    render(<ExclusiveWeaponCalculator tool={tool} locale="vi" />);
-
-    // Switch to Raw Subtier profile (2,385 Cores per hero)
-    const rawProfileBtn = screen.getByTestId("core-profile-raw_subtier_2385");
-    fireEvent.click(rawProfileBtn);
     expect(screen.getByTestId("ew-total-cores").textContent).toBe("2.38K");
     expect(screen.getByTestId("ew-total-cores").getAttribute("title")).toBe(
       "2,385"
     );
+  });
 
-    // Open 2-step Central Avatar Picker -> Step 1: Nature -> Step 2: Tidecaller
+  it("displays Game Cache SSoT profile (2,385 Cores) and selects Thuật Sĩ (Warlock) via the 2-step Central Avatar Popover", () => {
+    render(<ExclusiveWeaponCalculator tool={tool} locale="vi" />);
+
+    // SSoT Game Cache badge is visible with 2,385
+    expect(screen.getByTestId("core-profile-badge").textContent).toBe("2,385");
+
+    // Open 2-step Central Avatar Picker -> Step 1: Horde (Bộ Tộc) -> Step 2: Warlock (Thuật Sĩ)
     fireEvent.click(screen.getByTestId("ew-central-avatar-btn"));
     expect(screen.getByTestId("ew-avatar-picker-popover")).toBeDefined();
 
-    fireEvent.click(screen.getByTestId("ew-faction-nature"));
-    fireEvent.click(screen.getByTestId("ew-hero-tidecaller"));
+    // Verify Horde label is "Bộ Tộc (Horde)"
+    const hordeBtn = screen.getByTestId("ew-faction-horde");
+    expect(hordeBtn.textContent).toContain("Bộ Tộc (Horde)");
+
+    fireEvent.click(hordeBtn);
+    const warlockBtn = screen.getByTestId("ew-hero-warlock");
+    expect(warlockBtn).toBeDefined();
+    fireEvent.click(warlockBtn);
 
     expect(screen.queryByTestId("ew-avatar-picker-popover")).toBeNull();
     expect(
-      screen.getAllByText(/Đinh Ba San Hô|Coral Fork/i).length
+      screen.getAllByText(/Lưỡi Hái Nguyền Rủa|Cursed Scythe/i).length
     ).toBeGreaterThan(0);
   });
 
@@ -248,7 +233,7 @@ describe("4.3 Vũ Khí Độc Quyền — Suite 2: v2.0 4-Zone Architecture, 2-S
   it("marks all 3 Phase 4 Hero Gear calculators (4.1, 4.2, 4.3) as status='ready' in registry.ts", () => {
     const t41 = getCalculatorToolBySlug("hero-gear", "gear-enhance");
     const t42 = getCalculatorToolBySlug("hero-gear", "gear-promotion");
-    const t43 = getCalculatorToolBySlug("hero-gear", "exclusive-weapon");
+    const t43 = getCalculatorToolBySlug("hero-gear", "exclusive-gear");
 
     expect(t41?.tool.status).toBe("ready");
     expect(t42?.tool.status).toBe("ready");
