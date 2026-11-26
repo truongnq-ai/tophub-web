@@ -60,31 +60,34 @@ describe("4.3 Trang Bị Độc Quyền — v2.0 4-Zone Architecture, 2-Step Ava
     );
   });
 
-  it("opens 2-step sequential Avatar Picker (Step 1: Faction ➔ Step 2: Hero & Weapon) and auto-closes on selection", () => {
+  it("opens 1-step 3-column modal (Liên Minh | Bộ Tộc | Thiên Nhiên) via 'Đổi trang bị độc quyền' button or Central Avatar, and selects in 1 click", () => {
     render(<ExclusiveWeaponCalculator tool={tool} locale="vi" />);
 
-    const avatarBtn = screen.getByTestId("ew-central-avatar-btn");
+    // Button trigger has text "Đổi trang bị độc quyền"
+    const changeGearBtn = screen.getByTestId("ew-change-gear-trigger");
+    expect(changeGearBtn.textContent).toContain("Đổi trang bị độc quyền");
+
+    // Modal is initially closed
     expect(screen.queryByTestId("ew-avatar-picker-popover")).toBeNull();
 
-    // Click central Avatar -> opens Step 1 (Choose Faction)
-    fireEvent.click(avatarBtn);
+    // Click button to open modal
+    fireEvent.click(changeGearBtn);
     expect(screen.getByTestId("ew-avatar-picker-popover")).toBeDefined();
-    expect(screen.getByTestId("ew-faction-league")).toBeDefined();
-    expect(screen.getByTestId("ew-faction-nature")).toBeDefined();
-    expect(screen.getByTestId("ew-faction-horde")).toBeDefined();
-    expect(screen.getByTestId("ew-faction-horde").textContent).toContain("Bộ Tộc (Horde)");
 
-    // Click Nature faction -> transitions to Step 2 (Choose Hero in Nature)
-    fireEvent.click(screen.getByTestId("ew-faction-nature"));
-    expect(screen.getByTestId("ew-picker-back-to-faction")).toBeDefined();
-    expect(screen.getByTestId("ew-hero-tidecaller")).toBeDefined();
+    // All 3 columns exist simultaneously (1-step view)
+    expect(screen.getByTestId("ew-column-league")).toBeDefined();
+    expect(screen.getByTestId("ew-column-horde")).toBeDefined();
+    expect(screen.getByTestId("ew-column-nature")).toBeDefined();
 
-    // Test back button to Step 1, then select Horde -> Warlock (Thuật Sĩ)
-    fireEvent.click(screen.getByTestId("ew-picker-back-to-faction"));
-    fireEvent.click(screen.getByTestId("ew-faction-horde"));
+    // Column headers
+    expect(screen.getByTestId("ew-column-league").textContent).toContain("Liên Minh");
+    expect(screen.getByTestId("ew-column-horde").textContent).toContain("Bộ Tộc");
+    expect(screen.getByTestId("ew-column-nature").textContent).toContain("Thiên Nhiên");
+
+    // Select Warlock (Thuật Sĩ) in Horde column directly in 1 click
     fireEvent.click(screen.getByTestId("ew-hero-warlock"));
 
-    // Popover auto-closes and updates central Avatar to Warlock (Lưỡi Hái Nguyền Rủa)
+    // Modal auto-closes and updates central Avatar to Warlock (Lưỡi Hái Nguyền Rủa)
     expect(screen.queryByTestId("ew-avatar-picker-popover")).toBeNull();
     expect(screen.getAllByText(/Lưỡi Hái Nguyền Rủa/i).length).toBeGreaterThan(0);
     expect(

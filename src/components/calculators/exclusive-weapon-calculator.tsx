@@ -45,8 +45,6 @@ export interface ExclusiveWeaponCalculatorProps {
   readonly locale?: CalculatorLocale;
 }
 
-type AvatarPickerStep = "faction" | "hero";
-
 const FACTION_OPTIONS: readonly {
   readonly id: ExclusiveWeaponFaction;
   readonly label: Record<CalculatorLocale, string>;
@@ -61,19 +59,19 @@ const FACTION_OPTIONS: readonly {
     },
   },
   {
-    id: "nature",
-    label: { vi: "Tự Nhiên (Nature)", en: "Nature" },
-    desc: {
-      vi: "Tidecaller, Monk, Pixie, Forest Maiden...",
-      en: "Tidecaller, Monk, Pixie, Forest Maiden...",
-    },
-  },
-  {
     id: "horde",
     label: { vi: "Bộ Tộc (Horde)", en: "Horde" },
     desc: {
       vi: "Thuật Sĩ, Hoàng Tử Sa Mạc, Thần Nữ Bão Tố, Phù Thủy...",
       en: "Warlock, Desert Prince, Storm Maiden, Witch...",
+    },
+  },
+  {
+    id: "nature",
+    label: { vi: "Thiên Nhiên (Nature)", en: "Nature" },
+    desc: {
+      vi: "Tidecaller, Monk, Pixie, Forest Maiden...",
+      en: "Tidecaller, Monk, Pixie, Forest Maiden...",
     },
   },
 ];
@@ -100,33 +98,18 @@ export function ExclusiveWeaponCalculator({
   const [ownedCoresInput, setOwnedCoresInput] = useState<string>("0");
 
   const [isPickerOpen, setIsPickerOpen] = useState<boolean>(false);
-  const [pickerStep, setPickerStep] = useState<AvatarPickerStep>("faction");
-  const pickerRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     if (!isPickerOpen) return;
 
-    const handleMouseDown = (event: MouseEvent): void => {
-      if (
-        pickerRef.current &&
-        !pickerRef.current.contains(event.target as Node)
-      ) {
-        setIsPickerOpen(false);
-        setPickerStep("faction");
-      }
-    };
-
     const handleKeyDown = (event: KeyboardEvent): void => {
       if (event.key === "Escape") {
         setIsPickerOpen(false);
-        setPickerStep("faction");
       }
     };
 
-    document.addEventListener("mousedown", handleMouseDown);
     document.addEventListener("keydown", handleKeyDown);
     return () => {
-      document.removeEventListener("mousedown", handleMouseDown);
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [isPickerOpen]);
@@ -138,12 +121,6 @@ export function ExclusiveWeaponCalculator({
   const ownedCores = useMemo(
     () => parseCompactNumberInput(ownedCoresInput),
     [ownedCoresInput]
-  );
-
-  const factionHeroes = useMemo(
-    () =>
-      EXCLUSIVE_WEAPON_HERO_CATALOG.filter((h) => h.faction === activeFaction),
-    [activeFaction]
   );
 
   const result = useMemo(
@@ -172,18 +149,7 @@ export function ExclusiveWeaponCalculator({
   );
 
   const handleTogglePicker = (): void => {
-    setIsPickerOpen((prev) => {
-      const next = !prev;
-      if (next) {
-        setPickerStep("faction");
-      }
-      return next;
-    });
-  };
-
-  const handleChooseFaction = (faction: ExclusiveWeaponFaction): void => {
-    setActiveFaction(faction);
-    setPickerStep("hero");
+    setIsPickerOpen((prev) => !prev);
   };
 
   const handleChooseHero = (heroId: string): void => {
@@ -195,7 +161,6 @@ export function ExclusiveWeaponCalculator({
       setSelectedHeroId(found.heroId);
     }
     setIsPickerOpen(false);
-    setPickerStep("faction");
   };
 
   const handleReset = (): void => {
@@ -208,7 +173,6 @@ export function ExclusiveWeaponCalculator({
     setOwnedShardsInput("0");
     setOwnedCoresInput("0");
     setIsPickerOpen(false);
-    setPickerStep("faction");
   };
 
   const shardName = isVi
@@ -462,9 +426,8 @@ export function ExclusiveWeaponCalculator({
           </div>
         </section>
 
-        {/* ZONE 2 (Center - 4 cols): Avatar Vũ Khí Độc Quyền Trung Tâm + 2-Step Popover */}
+        {/* ZONE 2 (Center - 4 cols): Avatar Vũ Khí Độc Quyền Trung Tâm + Modal */}
         <section
-          ref={pickerRef}
           data-testid="ew-zone-avatar"
           className={cn(
             CALC_MD3.surfaceCard,
@@ -561,9 +524,13 @@ export function ExclusiveWeaponCalculator({
               {result.selectedHero.signatureHighlight[locale]}
             </p>
 
-            <span className="mt-2 inline-flex min-h-[44px] items-center gap-1 rounded-xl bg-amber-500/15 px-3 py-1.5 font-sans text-xs font-bold text-amber-700 dark:text-amber-300">
+            <span
+              data-testid="ew-change-gear-trigger"
+              className="mt-2 inline-flex min-h-[44px] items-center gap-1.5 rounded-xl bg-amber-500/15 px-3.5 py-1.5 font-sans text-xs font-bold text-amber-700 hover:bg-amber-500/25 dark:text-amber-300 transition-colors"
+            >
+              <Sparkles className="h-4 w-4" aria-hidden="true" />
               <span>
-                {isVi ? "Bấm đổi Phe & Thần Khí" : "Click to change Weapon"}
+                {isVi ? "Đổi trang bị độc quyền" : "Change Exclusive Gear"}
               </span>
               <ChevronRight className="h-4 w-4" aria-hidden="true" />
             </span>
@@ -591,155 +558,144 @@ export function ExclusiveWeaponCalculator({
             </p>
           </div>
 
-          {/* 2-Step Sequential Avatar Picker Popover (Step 1: Faction ➔ Step 2: Hero) */}
+          {/* 1-Step 3-Column Centered Modal Dialog (Liên Minh | Bộ Tộc | Thiên Nhiên) */}
           {isPickerOpen ? (
             <div
-              role="dialog"
-              aria-label={
-                isVi
-                  ? "Chọn Phe và Trang Bị Độc Quyền"
-                  : "Select Faction and Exclusive Gear"
-              }
-              data-testid="ew-avatar-picker-popover"
+              data-testid="ew-avatar-picker-backdrop"
               data-md3-overlay="true"
-              className={cn(
-                CALC_MD3.overlayCard,
-                "absolute top-full left-1/2 z-40 mt-2 w-[min(92vw,380px)] -translate-x-1/2 space-y-3 text-left"
-              )}
+              onClick={() => setIsPickerOpen(false)}
+              className="fixed inset-0 z-50 flex items-center justify-center bg-black/65 p-3 sm:p-4 backdrop-blur-sm animate-in fade-in duration-150"
             >
-              <div className="flex items-center justify-between gap-2 border-b border-border/60 pb-2">
-                <p className="font-sans text-xs font-bold text-foreground">
-                  {pickerStep === "faction"
-                    ? isVi
-                      ? "Bước 1/2: Chọn Phe Phái (3 Phe)"
-                      : "Step 1/2: Select Faction (3 Factions)"
-                    : isVi
-                      ? `Bước 2/2: Chọn Thần Khí (${activeFactionLabel})`
-                      : `Step 2/2: Select Weapon (${activeFactionLabel})`}
-                </p>
+              <div
+                role="dialog"
+                aria-modal="true"
+                aria-label={
+                  isVi
+                    ? "Đổi trang bị độc quyền"
+                    : "Select Exclusive Gear"
+                }
+                data-testid="ew-avatar-picker-popover"
+                data-md3-overlay="true"
+                onClick={(e) => e.stopPropagation()}
+                className={cn(
+                  CALC_MD3.overlayCard,
+                  "flex max-h-[88vh] w-full max-w-5xl flex-col overflow-hidden text-left shadow-2xl p-4 sm:p-5"
+                )}
+              >
+                {/* Modal Header */}
+                <div className="flex items-center justify-between border-b border-border/60 pb-3">
+                  <div>
+                    <h3 className="font-heading text-base sm:text-lg font-bold text-foreground">
+                      {isVi ? "Đổi Trang Bị Độc Quyền" : "Select Exclusive Gear"}
+                    </h3>
+                    <p className="font-sans text-xs text-muted-foreground mt-0.5">
+                      {isVi
+                        ? "Danh mục 35 trang bị anh hùng phân chia theo 3 phe phái chính"
+                        : "35 hero exclusive gears organized across 3 main factions"}
+                    </p>
+                  </div>
 
-                <button
-                  type="button"
-                  data-testid="ew-picker-close-btn"
-                  aria-label={isVi ? "Đóng bộ chọn" : "Close picker"}
-                  onClick={() => {
-                    setIsPickerOpen(false);
-                    setPickerStep("faction");
-                  }}
-                  className={cn(
-                    CALC_MD3.iconButton,
-                    "bg-muted/60 text-muted-foreground hover:bg-muted hover:text-foreground"
-                  )}
-                >
-                  <X className="h-4 w-4" aria-hidden="true" />
-                </button>
-              </div>
+                  <button
+                    type="button"
+                    data-testid="ew-picker-close-btn"
+                    aria-label={isVi ? "Đóng bộ chọn" : "Close picker"}
+                    onClick={() => setIsPickerOpen(false)}
+                    className={cn(
+                      CALC_MD3.iconButton,
+                      "bg-muted/60 text-muted-foreground hover:bg-muted hover:text-foreground"
+                    )}
+                  >
+                    <X className="h-4 w-4" aria-hidden="true" />
+                  </button>
+                </div>
 
-              {pickerStep === "faction" ? (
-                <div className="space-y-2">
+                {/* 3 Columns: Liên Minh | Bộ Tộc | Thiên Nhiên */}
+                <div className="mt-3.5 grid flex-1 grid-cols-1 md:grid-cols-3 gap-3 overflow-y-auto pr-1">
                   {FACTION_OPTIONS.map((fac) => {
-                    const count = EXCLUSIVE_WEAPON_HERO_CATALOG.filter(
+                    const heroes = EXCLUSIVE_WEAPON_HERO_CATALOG.filter(
                       (h) => h.faction === fac.id
-                    ).length;
-                    const isSelectedFaction = activeFaction === fac.id;
+                    );
 
                     return (
-                      <button
+                      <div
                         key={fac.id}
-                        type="button"
-                        data-testid={`ew-faction-${fac.id}`}
-                        onClick={() => handleChooseFaction(fac.id)}
+                        data-testid={`ew-column-${fac.id}`}
                         className={cn(
-                          CALC_MD3.tonalTile,
-                          "flex min-h-[48px] w-full items-center justify-between gap-3 p-3 text-left",
-                          isSelectedFaction && CALC_MD3.tileSelected
+                          CALC_MD3.tonalGroup,
+                          "flex flex-col gap-2 p-3 rounded-2xl"
                         )}
                       >
-                        <div className="min-w-0 flex-1">
-                          <p className="font-heading text-sm font-bold text-foreground">
+                        {/* Column Header */}
+                        <div className="flex items-center justify-between border-b border-border/40 pb-2">
+                          <h4 className="font-heading text-sm font-bold text-foreground">
                             {fac.label[locale]}
-                          </p>
-                          <p className="truncate font-sans text-xs text-muted-foreground">
-                            {fac.desc[locale]}
-                          </p>
+                          </h4>
+                          <span className="rounded-lg bg-background/80 px-2 py-0.5 font-mono text-xs font-bold text-amber-600 tabular-nums dark:text-amber-400">
+                            {heroes.length}
+                          </span>
                         </div>
 
-                        <div className="flex shrink-0 items-center gap-1.5">
-                          <span className="rounded-lg bg-background/80 px-2 py-0.5 font-mono text-xs font-bold text-amber-600 tabular-nums dark:text-amber-400">
-                            {count}
-                          </span>
-                          <ChevronRight
-                            className="h-4 w-4 text-muted-foreground"
-                            aria-hidden="true"
-                          />
+                        {/* List of Heroes in Faction */}
+                        <div className="space-y-1.5 overflow-y-auto max-h-[58vh] pr-0.5">
+                          {heroes.map((hero) => {
+                            const isSelected =
+                              result.selectedHero.heroId === hero.heroId;
+
+                            return (
+                              <button
+                                key={hero.heroId}
+                                type="button"
+                                data-testid={`ew-hero-${hero.heroId}`}
+                                onClick={() => handleChooseHero(hero.heroId)}
+                                className={cn(
+                                  CALC_MD3.tonalTile,
+                                  "flex min-h-[50px] w-full items-center gap-2.5 p-2 text-left cursor-pointer transition-colors",
+                                  isSelected && CALC_MD3.tileSelected
+                                )}
+                              >
+                                <GameAssetFrame
+                                  src={hero.weaponIconPath}
+                                  alt={hero.weaponName[locale]}
+                                  rarity={hero.rarity}
+                                  faction={hero.faction}
+                                  size="sm"
+                                  shape="item"
+                                />
+
+                                <div className="min-w-0 flex-1">
+                                  <p className="truncate font-sans text-xs font-bold text-foreground">
+                                    {hero.weaponName[locale]}
+                                  </p>
+                                  <p className="truncate font-sans text-xs text-muted-foreground">
+                                    {hero.heroName[locale]}
+                                  </p>
+                                </div>
+
+                                {isSelected ? (
+                                  <span className="shrink-0 rounded-md bg-amber-500/20 px-1.5 py-0.5 font-sans text-xs font-bold text-amber-700 dark:text-amber-300">
+                                    {isVi ? "Đang chọn" : "Active"}
+                                  </span>
+                                ) : (
+                                  <span
+                                    className={cn(
+                                      "shrink-0 rounded-md px-1.5 py-0.5 font-sans text-xs font-bold",
+                                      hero.rarity === "mythic"
+                                        ? "bg-rose-500/15 text-rose-700 dark:text-rose-300"
+                                        : "bg-amber-500/15 text-amber-700 dark:text-amber-300"
+                                    )}
+                                  >
+                                    {hero.rarity === "mythic" ? "Mythic" : "Legendary"}
+                                  </span>
+                                )}
+                              </button>
+                            );
+                          })}
                         </div>
-                      </button>
+                      </div>
                     );
                   })}
                 </div>
-              ) : (
-                <div className="space-y-2.5">
-                  <button
-                    type="button"
-                    data-testid="ew-picker-back-to-faction"
-                    onClick={() => setPickerStep("faction")}
-                    className={cn(
-                      CALC_MD3.chipButton,
-                      "w-full justify-start bg-muted/50 font-sans text-xs font-bold text-amber-700 hover:bg-muted dark:text-amber-300"
-                    )}
-                  >
-                    <ArrowLeft className="h-4 w-4" aria-hidden="true" />
-                    <span>{isVi ? "← Đổi phe" : "← Change Faction"}</span>
-                  </button>
-
-                  <div className="max-h-72 space-y-1.5 overflow-y-auto pr-1">
-                    {factionHeroes.map((hero) => {
-                      const isSelectedHero =
-                        result.selectedHero.heroId === hero.heroId;
-                      return (
-                        <button
-                          key={hero.heroId}
-                          type="button"
-                          data-testid={`ew-hero-${hero.heroId}`}
-                          onClick={() => handleChooseHero(hero.heroId)}
-                          className={cn(
-                            CALC_MD3.tonalTile,
-                            "flex min-h-[52px] w-full items-center gap-2.5 p-2.5 text-left",
-                            isSelectedHero && CALC_MD3.tileSelected
-                          )}
-                        >
-                          <GameAssetFrame
-                            src={hero.weaponIconPath}
-                            alt={hero.weaponName[locale]}
-                            rarity={hero.rarity}
-                            faction={hero.faction}
-                            size="md"
-                            shape="item"
-                          />
-                          <div className="min-w-0 flex-1">
-                            <p className="truncate font-sans text-xs font-bold text-foreground">
-                              {hero.heroName[locale]}
-                            </p>
-                            <p className="truncate font-sans text-xs text-muted-foreground">
-                              {hero.weaponName[locale]}
-                            </p>
-                          </div>
-                          <span
-                            className={cn(
-                              "shrink-0 rounded-md px-2 py-0.5 font-sans text-xs font-bold",
-                              hero.rarity === "mythic"
-                                ? "bg-rose-500/15 text-rose-700 dark:text-rose-300"
-                                : "bg-amber-500/15 text-amber-700 dark:text-amber-300"
-                            )}
-                          >
-                            {hero.rarity === "mythic" ? "Mythic" : "Legendary"}
-                          </span>
-                        </button>
-                      );
-                    })}
-                  </div>
-                </div>
-              )}
+              </div>
             </div>
           ) : null}
         </section>

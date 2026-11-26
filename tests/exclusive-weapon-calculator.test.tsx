@@ -167,21 +167,26 @@ describe("4.3 Trang Bị Độc Quyền — Suite 2: v2.0 4-Zone Architecture, 2
     );
   });
 
-  it("displays Game Cache SSoT profile (2,385 Cores) and selects Thuật Sĩ (Warlock) via the 2-step Central Avatar Popover", () => {
+  it("displays Game Cache SSoT profile (2,385 Cores) and selects Thuật Sĩ (Warlock) via 1-step 3-column modal", () => {
     render(<ExclusiveWeaponCalculator tool={tool} locale="vi" />);
 
     // SSoT Game Cache badge is visible with 2,385
     expect(screen.getByTestId("core-profile-badge").textContent).toBe("2,385");
 
-    // Open 2-step Central Avatar Picker -> Step 1: Horde (Bộ Tộc) -> Step 2: Warlock (Thuật Sĩ)
-    fireEvent.click(screen.getByTestId("ew-central-avatar-btn"));
+    // Verify trigger button label is "Đổi trang bị độc quyền"
+    const triggerBtn = screen.getByTestId("ew-change-gear-trigger");
+    expect(triggerBtn.textContent).toContain("Đổi trang bị độc quyền");
+
+    // Open 1-step Central Avatar Modal
+    fireEvent.click(triggerBtn);
     expect(screen.getByTestId("ew-avatar-picker-popover")).toBeDefined();
 
-    // Verify Horde label is "Bộ Tộc (Horde)"
-    const hordeBtn = screen.getByTestId("ew-faction-horde");
-    expect(hordeBtn.textContent).toContain("Bộ Tộc (Horde)");
+    // 3 Columns present
+    expect(screen.getByTestId("ew-column-league")).toBeDefined();
+    expect(screen.getByTestId("ew-column-horde")).toBeDefined();
+    expect(screen.getByTestId("ew-column-nature")).toBeDefined();
 
-    fireEvent.click(hordeBtn);
+    // Click Warlock directly in 1 step
     const warlockBtn = screen.getByTestId("ew-hero-warlock");
     expect(warlockBtn).toBeDefined();
     fireEvent.click(warlockBtn);
