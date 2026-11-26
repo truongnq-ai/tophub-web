@@ -44,6 +44,7 @@ import {
   CalculatorStepperButton,
 } from "./calculator-md3-primitives";
 import { CalculatorInfoPopover } from "./calculator-info-popover";
+import { PetBreakthroughStarTrack } from "./pet-breakthrough-star-track";
 
 export interface PetBreakthroughCalculatorProps {
   readonly zone?: CalculatorZone;
@@ -390,83 +391,22 @@ export function PetBreakthroughCalculator({
             </div>
           </div>
 
-          {/* PHÂN KHU 2: CHỌN BẬC ĐỘT PHÁ HIỆN TẠI & MỤC TIÊU */}
-          <div className={CALC_MD3.tonalGroup}>
-            <div className="flex items-center gap-2 mb-3">
-              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-amber-500/20 text-amber-500 text-xs font-mono font-bold">
-                2
-              </span>
-              <h2 className="text-sm sm:text-base font-heading font-bold text-foreground">
-                {isVi ? "Chọn Bậc Đột Phá Sao (Break 0 – Break 23)" : "Select Breakthrough (Break 0 – Break 23)"}
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {/* Stepper Bậc Hiện Tại */}
-              <div className="rounded-xl border border-border/60 bg-background/50 p-3.5 space-y-2">
-                <span className="text-xs font-sans font-semibold text-muted-foreground">
-                  {isVi ? "BẬC ĐỘT PHÁ HIỆN TẠI" : "CURRENT BREAKTHROUGH"}
-                </span>
-                <div className="flex items-center justify-between gap-3">
-                  <CalculatorStepperButton
-                    direction="decrease"
-                    testId="pet-from-break-decrease"
-                    ariaLabel={isVi ? "Giảm bậc đột phá hiện tại" : "Decrease current breakthrough"}
-                    onClick={() => setFromBreak((prev) => Math.max(minAllowedBreak, prev - 1))}
-                    disabled={fromBreak <= minAllowedBreak}
-                  />
-                  <div className="flex flex-col items-center justify-center flex-1 h-11 bg-muted/40 rounded-xl border border-border/40 px-2 text-center">
-                    <span className="text-sm font-mono font-bold text-foreground">
-                      Break {fromBreak}
-                    </span>
-                    <span className="text-xs font-sans text-muted-foreground truncate max-w-[140px]">
-                      {currentMilestone.tierNameVi}
-                    </span>
-                  </div>
-                  <CalculatorStepperButton
-                    direction="increase"
-                    testId="pet-from-break-increase"
-                    ariaLabel={isVi ? "Tăng bậc đột phá hiện tại" : "Increase current breakthrough"}
-                    onClick={() => setFromBreak((prev) => Math.min(toBreak, prev + 1))}
-                    disabled={fromBreak >= toBreak}
-                  />
-                </div>
-              </div>
-
-              {/* Stepper Bậc Mục Tiêu */}
-              <div className="rounded-xl border border-border/60 bg-background/50 p-3.5 space-y-2">
-                <span className="text-xs font-sans font-semibold text-muted-foreground">
-                  {isVi ? "BẬC ĐỘT PHÁ MỤC TIÊU" : "TARGET BREAKTHROUGH"}
-                </span>
-                <div className="flex items-center justify-between gap-3">
-                  <CalculatorStepperButton
-                    direction="decrease"
-                    testId="pet-to-break-decrease"
-                    ariaLabel={isVi ? "Giảm bậc đột phá mục tiêu" : "Decrease target breakthrough"}
-                    onClick={() => setToBreak((prev) => Math.max(fromBreak, prev - 1))}
-                    disabled={toBreak <= fromBreak}
-                  />
-                  <div className="flex flex-col items-center justify-center flex-1 h-11 bg-amber-500/10 rounded-xl border border-amber-500/30 px-2 text-center">
-                    <span className="text-sm font-mono font-bold text-amber-400">
-                      Break {toBreak}
-                    </span>
-                    <span className="text-xs font-sans text-amber-300 font-semibold truncate max-w-[140px]">
-                      {targetMilestone.tierNameVi}
-                    </span>
-                  </div>
-                  <CalculatorStepperButton
-                    direction="increase"
-                    testId="pet-to-break-increase"
-                    ariaLabel={isVi ? "Tăng bậc đột phá mục tiêu" : "Increase target breakthrough"}
-                    onClick={() => setToBreak((prev) => Math.min(maxAllowedBreak, prev + 1))}
-                    disabled={toBreak >= maxAllowedBreak}
-                  />
-                </div>
-              </div>
-            </div>
+          {/* PHÂN KHU 2: THANH TRƯỢT KÉP ĐỘT PHÁ SAO TRỰC QUAN */}
+          <div className="space-y-3">
+            <PetBreakthroughStarTrack
+              minBreak={minAllowedBreak}
+              maxBreak={maxAllowedBreak}
+              fromBreak={fromBreak}
+              toBreak={toBreak}
+              locale={locale}
+              onChangeRange={(nextFrom, nextTo) => {
+                setFromBreak(nextFrom);
+                setToBreak(nextTo);
+              }}
+            />
 
             {/* Quick Breakthrough Milestone Chips */}
-            <div className="mt-3.5 pt-3 border-t border-border/40 flex flex-wrap items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2 px-1">
               <span className="text-xs text-muted-foreground font-sans mr-1">
                 {isVi ? "Mốc nhanh:" : "Quick Jumps:"}
               </span>
@@ -479,7 +419,7 @@ export function PetBreakthroughCalculator({
                     type="button"
                     onClick={() => handleSetQuickBreak(chip.breakIndex)}
                     className={cn(
-                      "min-h-[44px] px-3 py-1.5 rounded-lg text-xs font-sans font-semibold transition-all flex items-center justify-center",
+                      "min-h-[44px] px-3 py-1.5 rounded-lg text-xs font-sans font-semibold transition-all flex items-center justify-center cursor-pointer",
                       isActive
                         ? "bg-amber-500 text-slate-950 font-bold shadow-sm"
                         : "bg-muted/60 text-muted-foreground hover:bg-muted hover:text-foreground"
