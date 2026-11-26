@@ -279,7 +279,7 @@ describe("4.1 Cường Hóa Trang Bị — Suite 2: MD3 UI, Sequential Picker, U
     ).toBe(0);
   });
 
-  it("renders clean 1-piece UI without scope/role strips, supports 2-step central picker, compact K/M numbers, unified Materials card, and popup [i] dialog", () => {
+  it("renders clean 1-piece UI without scope/role strips, supports 1-step 3-column central modal picker, compact K/M numbers, unified Materials card, and popup [i] dialog", () => {
     const { container } = renderCalculator("vi");
 
     // 1. Removed scope switcher & role branch strip
@@ -320,16 +320,16 @@ describe("4.1 Cường Hóa Trang Bị — Suite 2: MD3 UI, Sequential Picker, U
       "+804K"
     );
 
-    // 5. Central Gear Avatar sequential 2-step picker (Step 1: Rarity -> Step 2: Slot -> Auto close)
-    fireEvent.click(screen.getByTestId("gear-enhance-central-picker-btn"));
+    // 5. Central Gear Avatar 1-step 3-column modal picker (Legendary | Epic | Rare)
+    expect(screen.getByTestId("gear-enhance-change-trigger")).toBeDefined();
+    fireEvent.click(screen.getByTestId("gear-enhance-change-trigger"));
     expect(screen.getByTestId("gear-enhance-picker-popover")).toBeDefined();
+    expect(screen.getByTestId("gear-enhance-column-legendary")).toBeDefined();
+    expect(screen.getByTestId("gear-enhance-column-epic")).toBeDefined();
+    expect(screen.getByTestId("gear-enhance-column-rare")).toBeDefined();
 
-    // Step 1: Click Epic rarity -> transitions to Step 2 and clamps maxLevel to 30
-    fireEvent.click(screen.getByTestId("gear-rarity-option-epic"));
-    expect(screen.getByTestId("gear-slot-option-weapon")).toBeDefined();
-
-    // Step 2: Click Weapon slot -> selects Kiếm Trưởng Quan Kỵ Sĩ and auto-closes popover
-    fireEvent.click(screen.getByTestId("gear-slot-option-weapon"));
+    // Direct 1-click select: Click Epic Weapon -> selects Kiếm Trưởng Quan Kỵ Sĩ, clamps maxLevel to 30, and auto-closes modal
+    fireEvent.click(screen.getByTestId("gear-enhance-item-epic-weapon"));
     expect(screen.queryByTestId("gear-enhance-picker-popover")).toBeNull();
 
     // Epic Lv.0 -> Lv.30 costs 32.5K Rune and 39K Ruby

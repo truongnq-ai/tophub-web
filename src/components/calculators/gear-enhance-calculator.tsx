@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import {
   AlertTriangle,
-  ChevronDown,
+  ChevronRight,
   RotateCcw,
   Sparkles,
   X,
@@ -47,8 +47,6 @@ export interface GearEnhanceCalculatorProps {
   readonly locale: CalculatorLocale;
 }
 
-type PickerStep = "rarity" | "slot";
-
 const RARITY_BADGE_TONE: Readonly<Record<GearEnhanceRarity, string>> = {
   legendary:
     "bg-amber-500/15 text-amber-700 dark:text-amber-300",
@@ -69,28 +67,16 @@ export function GearEnhanceCalculator({
   const [ownedRubyInput, setOwnedRubyInput] = useState<string>("0");
 
   const [isPickerOpen, setIsPickerOpen] = useState<boolean>(false);
-  const [pickerStep, setPickerStep] = useState<PickerStep>("rarity");
-  const pickerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (!isPickerOpen) return;
-    const handlePointerDown = (event: MouseEvent) => {
-      if (
-        pickerRef.current &&
-        !pickerRef.current.contains(event.target as Node)
-      ) {
-        setIsPickerOpen(false);
-      }
-    };
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setIsPickerOpen(false);
       }
     };
-    document.addEventListener("mousedown", handlePointerDown);
     window.addEventListener("keydown", handleKeyDown);
     return () => {
-      document.removeEventListener("mousedown", handlePointerDown);
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [isPickerOpen]);
@@ -118,28 +104,21 @@ export function GearEnhanceCalculator({
   );
 
   const handleTogglePicker = () => {
-    setIsPickerOpen((prev) => {
-      const next = !prev;
-      if (next) {
-        setPickerStep("rarity");
-      }
-      return next;
-    });
+    setIsPickerOpen((prev) => !prev);
   };
 
-  const handleSelectRarity = (nextRarity: GearEnhanceRarity) => {
+  const handleSelectItem = (
+    nextRarity: GearEnhanceRarity,
+    nextSlotId: GearEnhanceSlotId
+  ) => {
     const prevMax = GEAR_ENHANCE_RARITY_CONFIGS[rarity].maxLevel;
     const nextMax = GEAR_ENHANCE_RARITY_CONFIGS[nextRarity].maxLevel;
     setRarity(nextRarity);
+    setSlotId(nextSlotId);
     setFromLevel((prevFrom) => clampGearEnhanceLevel(prevFrom, nextRarity));
     setToLevel((prevTo) =>
       prevTo >= prevMax ? nextMax : clampGearEnhanceLevel(prevTo, nextRarity)
     );
-    setPickerStep("slot");
-  };
-
-  const handleSelectSlot = (nextSlotId: GearEnhanceSlotId) => {
-    setSlotId(nextSlotId);
     setIsPickerOpen(false);
   };
 
@@ -348,11 +327,8 @@ export function GearEnhanceCalculator({
           />
         </div>
 
-        {/* Center Column: Clickable Gear Avatar Hub + 2-Step Sequential Picker */}
-        <div
-          ref={pickerRef}
-          className="relative order-1 lg:order-2 flex flex-col items-center justify-center lg:w-56"
-        >
+        {/* Center Column: Clickable Gear Avatar Hub + 1-Step Centered Modal */}
+        <div className="relative order-1 lg:order-2 flex flex-col items-center justify-center lg:w-56">
           <div
             className={cn(
               CALC_MD3.surfaceCard,
@@ -376,7 +352,7 @@ export function GearEnhanceCalculator({
               aria-expanded={isPickerOpen}
               aria-haspopup="dialog"
               onClick={handleTogglePicker}
-              className="group relative flex flex-col items-center gap-2 rounded-2xl p-2 transition-colors hover:bg-amber-500/10 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/40"
+              className="group relative flex flex-col items-center gap-2 rounded-2xl p-2 transition-transform hover:scale-[1.01] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/40"
             >
               <div className="relative">
                 <GameAssetFrame
@@ -385,10 +361,6 @@ export function GearEnhanceCalculator({
                   rarity={rarity}
                   size="lg"
                 />
-                <span className="absolute -bottom-1.5 -right-1.5 inline-flex items-center gap-0.5 rounded-full bg-amber-500 px-2 py-0.5 text-xs font-sans font-black text-slate-950 shadow-sm">
-                  <span>{isVi ? "Đổi" : "Pick"}</span>
-                  <ChevronDown className="h-3.5 w-3.5" aria-hidden="true" />
-                </span>
               </div>
 
               <div className="space-y-0.5">
@@ -399,6 +371,13 @@ export function GearEnhanceCalculator({
                   {result.slotMeta.baseStatsSummary[locale]}
                 </div>
               </div>
+
+              <span className="mt-1 inline-flex min-h-[44px] items-center gap-1.5 rounded-xl bg-amber-500/15 px-3 py-1.5 font-sans text-xs font-bold text-amber-700 hover:bg-amber-500/25 transition-colors cursor-pointer dark:text-amber-300">
+                <span data-testid="gear-enhance-change-trigger">
+                  {isVi ? "Đổi trang bị cường hóa" : "Change Equipment"}
+                </span>
+                <ChevronRight className="h-4 w-4" aria-hidden="true" />
+              </span>
             </button>
 
             {/* Level Delta Badge */}
@@ -422,161 +401,119 @@ export function GearEnhanceCalculator({
             </div>
           </div>
 
-          {/* Floating 2-Step Sequential Picker Popover */}
+          {/* 1-Step 3-Column Centered Modal (Legendary | Epic | Rare) */}
           {isPickerOpen ? (
             <div
-              role="dialog"
-              aria-label={
-                isVi
-                  ? "Chọn phẩm chất và loại trang bị"
-                  : "Select gear rarity and slot"
-              }
-              data-testid="gear-enhance-picker-popover"
               data-md3-overlay="true"
-              className={cn(
-                CALC_MD3.overlayCard,
-                "absolute top-full left-1/2 z-40 mt-2 w-[min(92vw,360px)] -translate-x-1/2 space-y-3"
-              )}
+              className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/65 backdrop-blur-sm animate-in fade-in duration-200"
+              onClick={() => setIsPickerOpen(false)}
             >
-              {/* Popover Step Header */}
-              <div className="flex items-center justify-between gap-2 border-b border-border/60 pb-2">
-                <div className="flex items-center gap-1.5">
+              <div
+                role="dialog"
+                aria-modal="true"
+                aria-label={
+                  isVi
+                    ? "Bảng chọn 12 Trang Bị Cường Hóa theo 3 Phẩm Chất"
+                    : "12 Equipment Enhancements Picker by 3 Rarities"
+                }
+                data-testid="gear-enhance-picker-popover"
+                className={cn(
+                  CALC_MD3.overlayCard,
+                  "w-full max-w-4xl max-h-[85vh] flex flex-col gap-3.5 overflow-hidden text-left shadow-2xl"
+                )}
+                onClick={(e) => e.stopPropagation()}
+              >
+                {/* Modal Header */}
+                <div className="flex items-center justify-between gap-2 rounded-xl bg-muted/40 px-3 py-2">
+                  <div className="min-w-0">
+                    <h3 className="font-heading text-sm sm:text-base font-black text-foreground truncate">
+                      {isVi
+                        ? "Chọn Trang Bị Cường Hóa (12 Món Theo 3 Phẩm Chất)"
+                        : "Select Equipment to Enhance (12 Items by 3 Rarities)"}
+                    </h3>
+                    <p className="font-sans text-xs text-muted-foreground">
+                      {isVi
+                        ? "Chọn trực tiếp trang bị theo phẩm chất và vị trí trong 1 click"
+                        : "Directly select equipment by rarity and slot in 1 click"}
+                    </p>
+                  </div>
+
                   <button
                     type="button"
-                    data-testid="picker-step-rarity-tab"
-                    onClick={() => setPickerStep("rarity")}
+                    data-testid="gear-enhance-picker-close-btn"
+                    aria-label={isVi ? "Đóng bảng chọn" : "Close picker"}
+                    onClick={() => setIsPickerOpen(false)}
                     className={cn(
-                      "rounded-lg px-2.5 py-1 text-xs font-sans font-bold transition-colors cursor-pointer",
-                      pickerStep === "rarity"
-                        ? "bg-amber-500 text-slate-950"
-                        : "bg-muted/60 text-muted-foreground hover:text-foreground"
+                      CALC_MD3.iconButton,
+                      "h-9 w-9 min-h-[36px] min-w-[36px] rounded-lg bg-muted/60 text-muted-foreground hover:bg-muted hover:text-foreground"
                     )}
                   >
-                    {isVi ? "1. Phẩm Chất" : "1. Rarity"}
-                  </button>
-                  <button
-                    type="button"
-                    data-testid="picker-step-slot-tab"
-                    onClick={() => setPickerStep("slot")}
-                    className={cn(
-                      "rounded-lg px-2.5 py-1 text-xs font-sans font-bold transition-colors cursor-pointer",
-                      pickerStep === "slot"
-                        ? "bg-amber-500 text-slate-950"
-                        : "bg-muted/60 text-muted-foreground hover:text-foreground"
-                    )}
-                  >
-                    {isVi ? "2. Trang Bị" : "2. Gear Slot"}
+                    <X className="h-4 w-4" aria-hidden="true" />
                   </button>
                 </div>
 
-                <button
-                  type="button"
-                  data-testid="gear-enhance-picker-close-btn"
-                  aria-label={isVi ? "Đóng bộ chọn" : "Close picker"}
-                  onClick={() => setIsPickerOpen(false)}
-                  className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-muted/60 text-muted-foreground hover:bg-muted hover:text-foreground cursor-pointer"
-                >
-                  <X className="h-4 w-4" aria-hidden="true" />
-                </button>
-              </div>
-
-              {pickerStep === "rarity" ? (
-                <div className="space-y-2">
-                  <div className="text-xs font-sans font-semibold text-muted-foreground">
-                    {isVi
-                      ? "Bước 1: Chọn Phẩm Chất Trang Bị"
-                      : "Step 1: Select Equipment Rarity"}
-                  </div>
-                  <div className="space-y-1.5">
-                    {GEAR_ENHANCE_RARITY_ORDER.map((rKey) => {
-                      const cfg = GEAR_ENHANCE_RARITY_CONFIGS[rKey];
-                      const isSelected = rarity === rKey;
-                      return (
-                        <button
-                          key={rKey}
-                          type="button"
-                          data-testid={`gear-rarity-option-${rKey}`}
-                          onClick={() => handleSelectRarity(rKey)}
-                          className={cn(
-                            CALC_MD3.tonalTile,
-                            "w-full flex items-center justify-between gap-2.5 p-2.5 text-left",
-                            isSelected && CALC_MD3.tileSelected
-                          )}
-                        >
-                          <div className="flex items-center gap-2.5 min-w-0">
-                            <GameAssetFrame
-                              src={cfg.sampleIconPath}
-                              alt={cfg.label[locale]}
-                              rarity={rKey}
-                              size="sm"
-                            />
-                            <div className="min-w-0">
-                              <div className="text-sm font-heading font-bold text-foreground truncate">
-                                {cfg.label[locale]}
-                              </div>
-                              <div className="text-xs font-sans text-muted-foreground">
-                                <span className="font-mono font-semibold text-amber-600 dark:text-amber-400">
-                                  {formatCompactNumber(cfg.totalRuneAtMax)}
-                                </span>{" "}
-                                <span>Rune</span> •{" "}
-                                <span className="font-mono font-semibold text-rose-600 dark:text-rose-400">
-                                  {formatCompactNumber(cfg.totalRubyAtMax)}
-                                </span>{" "}
-                                <span>Ruby</span>
-                              </div>
-                            </div>
-                          </div>
-                          <span className="shrink-0 rounded-lg bg-muted px-2 py-0.5 font-mono text-xs font-bold text-foreground">
+                {/* Modal Body: 3 Columns (Legendary | Epic | Rare) */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 overflow-y-auto pr-1">
+                  {GEAR_ENHANCE_RARITY_ORDER.map((rKey) => {
+                    const cfg = GEAR_ENHANCE_RARITY_CONFIGS[rKey];
+                    const slotsForRarity = GEAR_SLOTS_BY_RARITY[rKey];
+                    return (
+                      <div
+                        key={rKey}
+                        data-testid={`gear-enhance-column-${rKey}`}
+                        className="flex flex-col gap-2 rounded-xl bg-muted/20 p-2.5"
+                      >
+                        <div className="flex items-center justify-between px-1 pb-1">
+                          <span className="font-heading text-xs sm:text-sm font-bold text-foreground">
+                            {cfg.label[locale]}
+                          </span>
+                          <span className="rounded-lg bg-muted px-2 py-0.5 font-mono text-xs font-bold text-foreground">
                             Max +{cfg.maxLevel}
                           </span>
-                        </button>
-                      );
-                    })}
-                  </div>
+                        </div>
+
+                        <div className="flex flex-col gap-1.5">
+                          {GEAR_SLOT_ORDER.map((sKey) => {
+                            const item = slotsForRarity[sKey];
+                            const isCurrentSelected =
+                              rarity === rKey && slotId === sKey;
+                            return (
+                              <button
+                                key={sKey}
+                                type="button"
+                                data-testid={`gear-enhance-item-${rKey}-${sKey}`}
+                                onClick={() => handleSelectItem(rKey, sKey)}
+                                className={cn(
+                                  CALC_MD3.tonalTile,
+                                  "w-full flex items-center justify-between gap-2.5 p-2 text-left cursor-pointer transition-colors",
+                                  isCurrentSelected && CALC_MD3.tileSelected
+                                )}
+                              >
+                                <div className="flex items-center gap-2 min-w-0">
+                                  <GameAssetFrame
+                                    src={item.iconPath}
+                                    alt={item.itemName[locale]}
+                                    rarity={rKey}
+                                    size="sm"
+                                  />
+                                  <div className="min-w-0">
+                                    <div className="text-xs font-heading font-bold text-foreground truncate">
+                                      {item.itemName[locale]}
+                                    </div>
+                                    <div className="text-xs font-sans text-muted-foreground truncate">
+                                      {item.slotLabel[locale]} • {item.baseStatsSummary[locale]}
+                                    </div>
+                                  </div>
+                                </div>
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
-              ) : (
-                <div className="space-y-2">
-                  <div className="text-xs font-sans font-semibold text-muted-foreground">
-                    {isVi
-                      ? `Bước 2: Chọn Ô Trang Bị (${result.rarityConfig.shortLabel.vi})`
-                      : `Step 2: Select Equipment Piece (${result.rarityConfig.shortLabel.en})`}
-                  </div>
-                  <div className="grid grid-cols-2 gap-2">
-                    {GEAR_SLOT_ORDER.map((sKey) => {
-                      const item = activeSlotsForRarity[sKey];
-                      const isSelected = slotId === sKey;
-                      return (
-                        <button
-                          key={sKey}
-                          type="button"
-                          data-testid={`gear-slot-option-${sKey}`}
-                          onClick={() => handleSelectSlot(sKey)}
-                          className={cn(
-                            CALC_MD3.tonalTile,
-                            "flex flex-col items-center text-center gap-1.5 p-2.5",
-                            isSelected && CALC_MD3.tileSelected
-                          )}
-                        >
-                          <GameAssetFrame
-                            src={item.iconPath}
-                            alt={item.itemName[locale]}
-                            rarity={rarity}
-                            size="sm"
-                          />
-                          <div className="min-w-0 w-full">
-                            <div className="text-xs font-sans font-bold text-amber-700 dark:text-amber-400">
-                              {item.slotLabel[locale]}
-                            </div>
-                            <div className="text-xs font-heading font-bold text-foreground truncate">
-                              {item.itemName[locale]}
-                            </div>
-                          </div>
-                        </button>
-                      );
-                    })}
-                  </div>
-                </div>
-              )}
+              </div>
             </div>
           ) : null}
         </div>
