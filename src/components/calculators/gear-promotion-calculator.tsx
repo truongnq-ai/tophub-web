@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { GameAssetFrame } from "@/components/guides/media/game-asset-frame";
 import {
   AlertTriangle,
@@ -11,6 +11,7 @@ import {
   RotateCcw,
   Sparkles,
   Swords,
+  X,
 } from "lucide-react";
 import {
   GEAR_PROMOTION_MASTER_RESONANCE_TIERS,
@@ -48,8 +49,6 @@ export interface GearPromotionCalculatorProps {
   readonly locale?: CalculatorLocale;
 }
 
-type PickerStep = "set" | "slot";
-
 const INITIAL_OWNED_INPUTS: Readonly<Record<GearPromotionMaterialKey, string>> =
   {
     solarGold: "0",
@@ -75,34 +74,19 @@ export function GearPromotionCalculator({
     useState<Record<GearPromotionMaterialKey, string>>(INITIAL_OWNED_INPUTS);
 
   const [isPickerOpen, setIsPickerOpen] = useState<boolean>(false);
-  const [pickerStep, setPickerStep] = useState<PickerStep>("set");
-  const pickerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!isPickerOpen) return;
 
-    const handleMouseDown = (event: MouseEvent): void => {
-      if (
-        pickerRef.current &&
-        !pickerRef.current.contains(event.target as Node)
-      ) {
-        setIsPickerOpen(false);
-        setPickerStep("set");
-      }
-    };
-
     const handleKeyDown = (event: KeyboardEvent): void => {
       if (event.key === "Escape") {
         setIsPickerOpen(false);
-        setPickerStep("set");
       }
     };
 
-    document.addEventListener("mousedown", handleMouseDown);
-    document.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
     return () => {
-      document.removeEventListener("mousedown", handleMouseDown);
-      document.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("keydown", handleKeyDown);
     };
   }, [isPickerOpen]);
 
@@ -130,24 +114,16 @@ export function GearPromotionCalculator({
   );
 
   const handleTogglePicker = (): void => {
-    setIsPickerOpen((prev) => {
-      const next = !prev;
-      if (next) {
-        setPickerStep("set");
-      }
-      return next;
-    });
+    setIsPickerOpen((prev) => !prev);
   };
 
-  const handleSelectSet = (nextSetId: GearPromotionSetId): void => {
+  const handleSelectItem = (
+    nextSetId: GearPromotionSetId,
+    nextSlotId: GearPromotionSlotId
+  ): void => {
     setSetId(nextSetId);
-    setPickerStep("slot");
-  };
-
-  const handleSelectSlot = (nextSlotId: GearPromotionSlotId): void => {
     setSlotId(nextSlotId);
     setIsPickerOpen(false);
-    setPickerStep("set");
   };
 
   const handleOwnedChange = (
@@ -174,7 +150,6 @@ export function GearPromotionCalculator({
     setToStepIndex(MAX_GEAR_PROMOTION_STEP);
     setOwnedInputs(INITIAL_OWNED_INPUTS);
     setIsPickerOpen(false);
-    setPickerStep("set");
   };
 
   const isTargetMythic = result.toStats.isMythicAscended;
@@ -460,9 +435,8 @@ export function GearPromotionCalculator({
           />
         </div>
 
-        {/* SECTION 2 (Center - 2 cols): Avatar Trang Bị + 2-Step Sequential Popover */}
+        {/* SECTION 2 (Center - 2 cols): Avatar Trang Bị + 1-Step 4-Column Modal */}
         <div
-          ref={pickerRef}
           className={cn(
             CALC_MD3.surfaceCard,
             "relative flex flex-col items-center justify-between gap-3 text-center lg:col-span-2"
@@ -508,9 +482,11 @@ export function GearPromotionCalculator({
               {result.setMeta.shortName[locale]} •{" "}
               {result.slotMeta.label[locale]}
             </p>
-            <span className="mt-1 inline-flex items-center gap-1 rounded-full bg-amber-500/15 px-2.5 py-0.5 font-sans text-xs font-semibold text-amber-700 dark:text-amber-300">
-              <span>{isVi ? "Bấm đổi trang bị" : "Click to change"}</span>
-              <ChevronRight className="h-3.5 w-3.5" />
+            <span className="mt-1 inline-flex min-h-[44px] items-center gap-1.5 rounded-xl bg-amber-500/15 px-3 py-1.5 font-sans text-xs font-bold text-amber-700 hover:bg-amber-500/25 transition-colors cursor-pointer dark:text-amber-300">
+              <span data-testid="gear-promotion-change-trigger">
+                {isVi ? "Đổi bộ & vị trí trang bị" : "Change Gear Set & Slot"}
+              </span>
+              <ChevronRight className="h-4 w-4" aria-hidden="true" />
             </span>
           </button>
 
@@ -544,137 +520,122 @@ export function GearPromotionCalculator({
             </p>
           </div>
 
-          {/* 2-Step Sequential Picker Popover (Step 1: Set -> Step 2: Slot) */}
+          {/* 1-Step 4-Column Centered Modal (Knights Glory | Titans Might | Fury of Blood | Commanders Set) */}
           {isPickerOpen ? (
             <div
-              data-testid="gear-promotion-picker-popover"
-              role="dialog"
-              aria-label={
-                isVi
-                  ? "Chọn Bộ Trang Bị và Loại Trang Bị"
-                  : "Select Gear Set and Slot"
-              }
-              className="absolute top-full left-1/2 z-40 mt-2 w-80 -translate-x-1/2 rounded-2xl bg-white p-3.5 text-left shadow-xl ring-1 ring-slate-200 dark:bg-slate-900 dark:ring-slate-700"
+              data-md3-overlay="true"
+              className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/65 backdrop-blur-sm animate-in fade-in duration-200"
+              onClick={() => setIsPickerOpen(false)}
             >
-              {pickerStep === "set" ? (
-                <div className="space-y-2.5">
-                  <div className="flex items-center justify-between">
-                    <p className="font-sans text-xs font-bold text-foreground">
+              <div
+                role="dialog"
+                aria-modal="true"
+                aria-label={
+                  isVi
+                    ? "Bảng chọn 16 Trang Bị Đột Phá theo 4 Bộ"
+                    : "16 Gear Promotion Items Picker by 4 Sets"
+                }
+                data-testid="gear-promotion-picker-popover"
+                className={cn(
+                  CALC_MD3.overlayCard,
+                  "w-full max-w-5xl max-h-[85vh] flex flex-col gap-3.5 overflow-hidden text-left shadow-2xl"
+                )}
+                onClick={(e) => e.stopPropagation()}
+              >
+                {/* Modal Header */}
+                <div className="flex items-center justify-between gap-2 rounded-xl bg-muted/40 px-3 py-2">
+                  <div className="min-w-0">
+                    <h3 className="font-heading text-sm sm:text-base font-black text-foreground truncate">
                       {isVi
-                        ? "Bước 1/2: Chọn Bộ Trang Bị (4 Bộ)"
-                        : "Step 1/2: Select Equipment Set (4 Sets)"}
+                        ? "Chọn Bộ & Vị Trí Trang Bị (16 Món Theo 4 Bộ)"
+                        : "Select Gear Set & Slot (16 Items by 4 Sets)"}
+                    </h3>
+                    <p className="font-sans text-xs text-muted-foreground">
+                      {isVi
+                        ? "Chọn trực tiếp trang bị theo Bộ và Vị trí trong 1 click"
+                        : "Directly select equipment by Set and Slot in 1 click"}
                     </p>
-                    <span className="font-mono text-xs text-muted-foreground">
-                      1/2
-                    </span>
                   </div>
 
-                  <div className="space-y-1.5">
-                    {GEAR_PROMOTION_SETS.map((s) => {
-                      const isSelectedSet = s.id === setId;
-                      return (
-                        <button
-                          key={s.id}
-                          type="button"
-                          data-testid={`picker-set-${s.id}`}
-                          onClick={() => handleSelectSet(s.id)}
-                          className={cn(
-                            "flex min-h-[48px] w-full items-center gap-2.5 rounded-xl px-2.5 py-2 text-left transition-colors cursor-pointer",
-                            isSelectedSet
-                              ? "bg-amber-500/15 ring-1 ring-amber-500/50"
-                              : "bg-slate-50 hover:bg-slate-100 dark:bg-slate-800/60 dark:hover:bg-slate-800"
-                          )}
-                        >
-                          <GameAssetFrame
-                            src={
-                              isTargetMythic
-                                ? s.sampleMythicIconPath
-                                : s.sampleLegendaryIconPath
-                            }
-                            alt={s.setName[locale]}
-                            rarity={isTargetMythic ? "mythic" : "legendary"}
-                            size="md"
-                            shape="item"
-                          />
-                          <div className="min-w-0 flex-1">
-                            <p className="truncate font-sans text-xs font-bold text-foreground">
-                              {s.setName[locale]}
-                            </p>
-                            <p className="truncate font-sans text-xs text-muted-foreground">
-                              {s.roleBadge[locale]}
-                            </p>
-                          </div>
-                          <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground" />
-                        </button>
-                      );
-                    })}
-                  </div>
+                  <button
+                    type="button"
+                    data-testid="gear-promotion-picker-close-btn"
+                    aria-label={isVi ? "Đóng bảng chọn" : "Close picker"}
+                    onClick={() => setIsPickerOpen(false)}
+                    className={cn(
+                      CALC_MD3.iconButton,
+                      "h-9 w-9 min-h-[36px] min-w-[36px] rounded-lg bg-muted/60 text-muted-foreground hover:bg-muted hover:text-foreground"
+                    )}
+                  >
+                    <X className="h-4 w-4" aria-hidden="true" />
+                  </button>
                 </div>
-              ) : (
-                <div className="space-y-2.5">
-                  <div className="flex items-center justify-between gap-2">
-                    <button
-                      type="button"
-                      data-testid="picker-back-to-set"
-                      onClick={() => setPickerStep("set")}
-                      className="inline-flex min-h-[44px] items-center gap-1 rounded-xl px-2 font-sans text-xs font-semibold text-amber-600 hover:bg-amber-500/10 dark:text-amber-400 cursor-pointer"
-                    >
-                      <ChevronLeft className="h-4 w-4" />
-                      <span>
-                        {isVi ? "Đổi Bộ Trang Bị" : "Change Gear Set"}
-                      </span>
-                    </button>
-                    <span className="font-mono text-xs text-muted-foreground">
-                      2/2
-                    </span>
-                  </div>
 
-                  <p className="font-sans text-xs font-bold text-foreground">
-                    {isVi
-                      ? `Bước 2/2: Chọn Loại Trang Bị (${result.setMeta.shortName.vi})`
-                      : `Step 2/2: Select Gear Slot (${result.setMeta.shortName.en})`}
-                  </p>
+                {/* Modal Body: 4 Columns */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 overflow-y-auto pr-1">
+                  {GEAR_PROMOTION_SETS.map((s) => {
+                    return (
+                      <div
+                        key={s.id}
+                        data-testid={`gear-promotion-column-${s.id}`}
+                        className="flex flex-col gap-2 rounded-xl bg-muted/20 p-2.5"
+                      >
+                        <div className="flex flex-col px-1 pb-1">
+                          <span className="font-heading text-xs sm:text-sm font-bold text-foreground truncate">
+                            {s.setName[locale]}
+                          </span>
+                          <span className="font-sans text-xs text-muted-foreground truncate">
+                            {s.roleBadge[locale]}
+                          </span>
+                        </div>
 
-                  <div className="grid grid-cols-2 gap-2">
-                    {GEAR_PROMOTION_SLOTS.map((slot) => {
-                      const item = result.setMeta.items[slot.id];
-                      const isSelectedSlot = slot.id === slotId;
-                      return (
-                        <button
-                          key={slot.id}
-                          type="button"
-                          data-testid={`picker-slot-${slot.id}`}
-                          onClick={() => handleSelectSlot(slot.id)}
-                          className={cn(
-                            "flex min-h-[64px] flex-col items-center justify-center gap-1 rounded-xl p-2 text-center transition-colors cursor-pointer",
-                            isSelectedSlot
-                              ? "bg-amber-500/15 ring-1 ring-amber-500/60"
-                              : "bg-slate-50 hover:bg-slate-100 dark:bg-slate-800/60 dark:hover:bg-slate-800"
-                          )}
-                        >
-                          <GameAssetFrame
-                            src={
-                              isTargetMythic
-                                ? item.mythicIconPath
-                                : item.legendaryIconPath
-                            }
-                            alt={item.itemName[locale]}
-                            rarity={isTargetMythic ? "mythic" : "legendary"}
-                            size="md"
-                            shape="item"
-                          />
-                          <span className="font-sans text-xs font-bold text-foreground">
-                            {slot.label[locale]}
-                          </span>
-                          <span className="w-full truncate font-sans text-xs text-muted-foreground">
-                            {item.itemName[locale]}
-                          </span>
-                        </button>
-                      );
-                    })}
-                  </div>
+                        <div className="flex flex-col gap-1.5">
+                          {GEAR_PROMOTION_SLOTS.map((slot) => {
+                            const item = s.items[slot.id];
+                            const isCurrentSelected =
+                              setId === s.id && slotId === slot.id;
+                            return (
+                              <button
+                                key={slot.id}
+                                type="button"
+                                data-testid={`picker-item-${s.id}-${slot.id}`}
+                                onClick={() => handleSelectItem(s.id, slot.id)}
+                                className={cn(
+                                  CALC_MD3.tonalTile,
+                                  "w-full flex items-center justify-between gap-2.5 p-2 text-left cursor-pointer transition-colors",
+                                  isCurrentSelected && CALC_MD3.tileSelected
+                                )}
+                              >
+                                <div className="flex items-center gap-2 min-w-0">
+                                  <GameAssetFrame
+                                    src={
+                                      isTargetMythic
+                                        ? item.mythicIconPath
+                                        : item.legendaryIconPath
+                                    }
+                                    alt={item.itemName[locale]}
+                                    rarity={isTargetMythic ? "mythic" : "legendary"}
+                                    size="sm"
+                                    shape="item"
+                                  />
+                                  <div className="min-w-0">
+                                    <div className="text-xs font-heading font-bold text-foreground truncate">
+                                      {item.itemName[locale]}
+                                    </div>
+                                    <div className="text-xs font-sans text-muted-foreground truncate">
+                                      {slot.label[locale]}
+                                    </div>
+                                  </div>
+                                </div>
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
-              )}
+              </div>
             </div>
           ) : null}
         </div>

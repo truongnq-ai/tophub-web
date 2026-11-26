@@ -277,21 +277,36 @@ describe("4.2 Đột Phá Trang Bị — Suite 2: 4-Section MD3 UI, 2-Step Avata
     expect(screen.getByTestId("promo-required-ruby").textContent).toContain("24M");
   });
 
-  it("switches equipment Set & Slot via the 2-step Central Avatar Popover and toggles Mythic Red break_icon at 25/25", () => {
+  it("switches equipment Set & Slot via 1-step 4-column Central Avatar Modal and toggles Mythic Red break_icon at 25/25", () => {
     render(<GearPromotionCalculator tool={tool} locale="vi" />);
 
     const centralBtn = screen.getByTestId("gear-promotion-central-picker-btn");
     // At default target 25/25 (5★ Đỏ), central avatar uses mythicIconPath (icon_42064.webp for Giày Hồn Kỵ Sĩ)
     expect(centralBtn.getAttribute("data-gear-rarity")).toBe("mythic");
 
-    // Open 2-step picker -> Step 1: Select Set (Bộ Đại Đế Thần Lực) -> Step 2: Select Slot (Vũ Khí - Búa Đại Đế)
-    fireEvent.click(centralBtn);
+    // Open 1-step 4-column modal via trigger button
+    expect(screen.getByTestId("gear-promotion-change-trigger")).toBeDefined();
+    fireEvent.click(screen.getByTestId("gear-promotion-change-trigger"));
     expect(screen.getByTestId("gear-promotion-picker-popover")).toBeDefined();
 
-    fireEvent.click(screen.getByTestId("picker-set-titans_might"));
-    fireEvent.click(screen.getByTestId("picker-slot-weapon"));
+    // Verify 4 columns exist for 4 Sets
+    expect(
+      screen.getByTestId("gear-promotion-column-knights_glory")
+    ).toBeDefined();
+    expect(
+      screen.getByTestId("gear-promotion-column-titans_might")
+    ).toBeDefined();
+    expect(
+      screen.getByTestId("gear-promotion-column-fury_of_blood")
+    ).toBeDefined();
+    expect(
+      screen.getByTestId("gear-promotion-column-commanders_set")
+    ).toBeDefined();
 
-    // Popover closes automatically and updates item name to Búa Đại Đế
+    // 1-Click select: Click Weapon of Titans Might (Búa Đại Đế)
+    fireEvent.click(screen.getByTestId("picker-item-titans_might-weapon"));
+
+    // Modal closes automatically and updates item name to Búa Đại Đế
     expect(screen.queryByTestId("gear-promotion-picker-popover")).toBeNull();
     expect(screen.getAllByText(/Búa Đại Đế/i).length).toBeGreaterThan(0);
 
