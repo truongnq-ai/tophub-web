@@ -172,14 +172,61 @@ export function PetBreakthroughCalculator({
       <CalculatorToolHeader
         code={tool.code}
         title={tool.title[locale]}
-        summary={tool.summary[locale]}
-        onReset={handleReset}
-        infoPopover={
-          <CalculatorInfoPopover
-            locale={locale}
-            dataSourceTab={tool.dataSourceTab[locale]}
-            exampleCase={tool.exampleCase?.[locale]}
-          />
+        actions={
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={handleReset}
+              className={cn(
+                CALC_MD3.chipButton,
+                "bg-muted/60 text-muted-foreground hover:bg-muted hover:text-foreground text-xs"
+              )}
+            >
+              <RotateCcw className="h-3.5 w-3.5 mr-1" />
+              {isVi ? "Đặt lại" : "Reset"}
+            </button>
+            <CalculatorInfoPopover
+              locale={locale}
+              triggerTestId="pet-breakthrough-info-trigger"
+              dialogTestId="pet-breakthrough-info-dialog"
+              title={
+                isVi
+                  ? "Hướng Dẫn Đột Phá Sao Thú Cưng & Kế Thừa Chỉ Số"
+                  : "Pet Star Breakthrough Guide & Stat Inheritance"
+              }
+              subtitle={
+                isVi
+                  ? "Cơ chế tiêu hao Bản sao, Phôi bất kỳ, Tinh chất qua 23 bậc sao & 4 hình thái ngoại hình"
+                  : "Same copies, any fodder, essence costs across 23 milestones & 4 form evolutions"
+              }
+            >
+              <div className="space-y-4">
+                <div className="rounded-xl bg-amber-500/10 p-3.5 ring-1 ring-amber-500/30 space-y-1.5">
+                  <h4 className="font-sans text-sm font-bold text-foreground">
+                    {isVi ? "1. Bảng Dữ Liệu Gốc (SSoT)" : "1. Game Data SSoT"}
+                  </h4>
+                  <p className="font-sans text-xs text-muted-foreground">
+                    {tool.dataSourceTab[locale]}
+                  </p>
+                </div>
+                {tool.exampleCase?.[locale] && (
+                  <div className="rounded-xl bg-muted/40 p-3.5 space-y-1.5">
+                    <h4 className="font-sans text-sm font-bold text-foreground">
+                      {isVi ? "2. Tình Huống Thực Tế" : "2. Example Scenario"}
+                    </h4>
+                    <p className="font-sans text-xs text-muted-foreground">
+                      <b>{isVi ? "Câu hỏi: " : "Question: "}</b>
+                      {tool.exampleCase[locale].question}
+                    </p>
+                    <p className="font-sans text-xs text-amber-400">
+                      <b>{isVi ? "Kết quả: " : "Result: "}</b>
+                      {tool.exampleCase[locale].outputPreview}
+                    </p>
+                  </div>
+                )}
+              </div>
+            </CalculatorInfoPopover>
+          </div>
         }
       />
 
@@ -362,7 +409,9 @@ export function PetBreakthroughCalculator({
                 </span>
                 <div className="flex items-center justify-between gap-3">
                   <CalculatorStepperButton
-                    variant="decrement"
+                    direction="decrease"
+                    testId="pet-from-break-decrease"
+                    ariaLabel={isVi ? "Giảm bậc đột phá hiện tại" : "Decrease current breakthrough"}
                     onClick={() => setFromBreak((prev) => Math.max(minAllowedBreak, prev - 1))}
                     disabled={fromBreak <= minAllowedBreak}
                   />
@@ -375,7 +424,9 @@ export function PetBreakthroughCalculator({
                     </span>
                   </div>
                   <CalculatorStepperButton
-                    variant="increment"
+                    direction="increase"
+                    testId="pet-from-break-increase"
+                    ariaLabel={isVi ? "Tăng bậc đột phá hiện tại" : "Increase current breakthrough"}
                     onClick={() => setFromBreak((prev) => Math.min(toBreak, prev + 1))}
                     disabled={fromBreak >= toBreak}
                   />
@@ -389,7 +440,9 @@ export function PetBreakthroughCalculator({
                 </span>
                 <div className="flex items-center justify-between gap-3">
                   <CalculatorStepperButton
-                    variant="decrement"
+                    direction="decrease"
+                    testId="pet-to-break-decrease"
+                    ariaLabel={isVi ? "Giảm bậc đột phá mục tiêu" : "Decrease target breakthrough"}
                     onClick={() => setToBreak((prev) => Math.max(fromBreak, prev - 1))}
                     disabled={toBreak <= fromBreak}
                   />
@@ -402,7 +455,9 @@ export function PetBreakthroughCalculator({
                     </span>
                   </div>
                   <CalculatorStepperButton
-                    variant="increment"
+                    direction="increase"
+                    testId="pet-to-break-increase"
+                    ariaLabel={isVi ? "Tăng bậc đột phá mục tiêu" : "Increase target breakthrough"}
                     onClick={() => setToBreak((prev) => Math.min(maxAllowedBreak, prev + 1))}
                     disabled={toBreak >= maxAllowedBreak}
                   />

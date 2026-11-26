@@ -37,6 +37,8 @@ import { EventPointsCalculator } from "./event-points-calculator";
 import { VipAndShopsCalculator } from "./vip-and-shops-calculator";
 import { ConstructionCalculator } from "./construction-calculator";
 import { TechnologyCalculator } from "./technology-calculator";
+import { CompanionPetsCalculator } from "./companion-pets-calculator";
+import { PetBreakthroughCalculator } from "./pet-breakthrough-calculator";
 import { GameAssetFrame } from "@/components/guides/media/game-asset-frame";
 import { GuideCommentsSection } from "@/components/guides/guide-comments-section";
 import { Input } from "@/components/ui/input";
@@ -255,6 +257,20 @@ export function CalculatorPlaceholderView({
           />
         ) : tool.slug === "construction" || tool.slug === "main-castle" ? (
           <ConstructionCalculator
+            zone={zone}
+            category={category}
+            tool={tool}
+            locale={locale}
+          />
+        ) : tool.slug === "companion-pets" ? (
+          <CompanionPetsCalculator
+            zone={zone}
+            category={category}
+            tool={tool}
+            locale={locale}
+          />
+        ) : tool.slug === "breakthrough" || tool.slug === "behemoths" ? (
+          <PetBreakthroughCalculator
             zone={zone}
             category={category}
             tool={tool}

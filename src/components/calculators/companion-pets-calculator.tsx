@@ -132,14 +132,61 @@ export function CompanionPetsCalculator({
       <CalculatorToolHeader
         code={tool.code}
         title={tool.title[locale]}
-        summary={tool.summary[locale]}
-        onReset={handleReset}
-        infoPopover={
-          <CalculatorInfoPopover
-            locale={locale}
-            dataSourceTab={tool.dataSourceTab[locale]}
-            exampleCase={tool.exampleCase?.[locale]}
-          />
+        actions={
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={handleReset}
+              className={cn(
+                CALC_MD3.chipButton,
+                "bg-muted/60 text-muted-foreground hover:bg-muted hover:text-foreground text-xs"
+              )}
+            >
+              <RotateCcw className="h-3.5 w-3.5 mr-1" />
+              {isVi ? "Đặt lại" : "Reset"}
+            </button>
+            <CalculatorInfoPopover
+              locale={locale}
+              triggerTestId="pet-level-info-trigger"
+              dialogTestId="pet-level-info-dialog"
+              title={
+                isVi
+                  ? "Hướng Dẫn Nâng Cấp Thú Cưng & Cơ Chế SSoT"
+                  : "Pet Level Upgrade Guide & SSoT Mechanics"
+              }
+              subtitle={
+                isVi
+                  ? "Cơ chế tiêu hao Đồ Ăn (Lv.1–120), Tinh Chất (Lv.91–120) & Điểm Sự Kiện GAR/KvK"
+                  : "Pet Food (Lv.1–120), Essence (Lv.91–120) & GAR/KvK Event Points"
+              }
+            >
+              <div className="space-y-4">
+                <div className="rounded-xl bg-amber-500/10 p-3.5 ring-1 ring-amber-500/30 space-y-1.5">
+                  <h4 className="font-sans text-sm font-bold text-foreground">
+                    {isVi ? "1. Bảng Dữ Liệu Gốc (SSoT)" : "1. Game Data SSoT"}
+                  </h4>
+                  <p className="font-sans text-xs text-muted-foreground">
+                    {tool.dataSourceTab[locale]}
+                  </p>
+                </div>
+                {tool.exampleCase?.[locale] && (
+                  <div className="rounded-xl bg-muted/40 p-3.5 space-y-1.5">
+                    <h4 className="font-sans text-sm font-bold text-foreground">
+                      {isVi ? "2. Tình Huống Thực Tế" : "2. Example Scenario"}
+                    </h4>
+                    <p className="font-sans text-xs text-muted-foreground">
+                      <b>{isVi ? "Câu hỏi: " : "Question: "}</b>
+                      {tool.exampleCase[locale].question}
+                    </p>
+                    <p className="font-sans text-xs text-amber-400">
+                      <b>{isVi ? "Kết quả: " : "Result: "}</b>
+                      {tool.exampleCase[locale].outputPreview}
+                    </p>
+                  </div>
+                )}
+              </div>
+            </CalculatorInfoPopover>
+          </div>
         }
       />
 
@@ -295,7 +342,9 @@ export function CompanionPetsCalculator({
                 </span>
                 <div className="flex items-center justify-between gap-3">
                   <CalculatorStepperButton
-                    variant="decrement"
+                    direction="decrease"
+                    testId="pet-from-level-decrease"
+                    ariaLabel={isVi ? "Giảm cấp độ hiện tại" : "Decrease current level"}
                     onClick={() => setFromLevel((prev) => Math.max(1, prev - 1))}
                     disabled={fromLevel <= 1}
                   />
@@ -305,7 +354,9 @@ export function CompanionPetsCalculator({
                     </span>
                   </div>
                   <CalculatorStepperButton
-                    variant="increment"
+                    direction="increase"
+                    testId="pet-from-level-increase"
+                    ariaLabel={isVi ? "Tăng cấp độ hiện tại" : "Increase current level"}
                     onClick={() => setFromLevel((prev) => Math.min(toLevel, prev + 1))}
                     disabled={fromLevel >= toLevel}
                   />
@@ -319,7 +370,9 @@ export function CompanionPetsCalculator({
                 </span>
                 <div className="flex items-center justify-between gap-3">
                   <CalculatorStepperButton
-                    variant="decrement"
+                    direction="decrease"
+                    testId="pet-to-level-decrease"
+                    ariaLabel={isVi ? "Giảm cấp độ mục tiêu" : "Decrease target level"}
                     onClick={() => setToLevel((prev) => Math.max(fromLevel, prev - 1))}
                     disabled={toLevel <= fromLevel}
                   />
@@ -329,7 +382,9 @@ export function CompanionPetsCalculator({
                     </span>
                   </div>
                   <CalculatorStepperButton
-                    variant="increment"
+                    direction="increase"
+                    testId="pet-to-level-increase"
+                    ariaLabel={isVi ? "Tăng cấp độ mục tiêu" : "Increase target level"}
                     onClick={() => setToLevel((prev) => Math.min(120, prev + 1))}
                     disabled={toLevel >= 120}
                   />
