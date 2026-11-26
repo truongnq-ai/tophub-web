@@ -159,10 +159,9 @@ describe("6.1 Đá Cổ Ngữ — Suite 2: MD3 UI Component & Bilingual Purity G
     expect(screen.getByTestId("runes-total-dust").textContent).toBe("8K");
     expect(screen.getByTestId("runes-total-copies").textContent).toBe("80");
 
-    // Open 2-step Avatar Picker -> pick League -> pick Slot 2
+    // Open 1-step Avatar Modal -> pick League Slot 2 directly
     fireEvent.click(screen.getByTestId("runes-central-avatar-btn"));
-    fireEvent.click(screen.getByTestId("runes-picker-faction-league"));
-    fireEvent.click(screen.getByTestId("runes-picker-slot-2"));
+    fireEvent.click(screen.getByTestId("runes-slot-league-2"));
 
     expect(getMaxBorderedContainerDepth(container)).toBeLessThanOrEqual(1);
     expect(findMicroTextElements(container)).toEqual([]);
@@ -173,8 +172,7 @@ describe("6.1 Đá Cổ Ngữ — Suite 2: MD3 UI Component & Bilingual Purity G
     const { container } = renderCalculator("en");
 
     fireEvent.click(screen.getByTestId("runes-central-avatar-btn"));
-    fireEvent.click(screen.getByTestId("runes-picker-faction-nature"));
-    fireEvent.click(screen.getByTestId("runes-picker-slot-1"));
+    fireEvent.click(screen.getByTestId("runes-slot-nature-1"));
 
     expect(getMaxBorderedContainerDepth(container)).toBeLessThanOrEqual(1);
     expect(findMicroTextElements(container)).toEqual([]);

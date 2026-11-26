@@ -52,8 +52,6 @@ export interface RunesCalculatorProps {
   readonly locale: CalculatorLocale;
 }
 
-type AvatarPickerStep = "faction" | "slot";
-
 type ExtraFodderKey = Exclude<keyof RuneFodderInventory, "lv1Count">;
 
 const INITIAL_FODDER: RuneFodderInventory = {
@@ -407,35 +405,20 @@ export function RunesCalculator({
   const [fodder, setFodder] = useState<RuneFodderInventory>(INITIAL_FODDER);
   const [isFodderOpen, setIsFodderOpen] = useState<boolean>(false);
 
-  // R3: 2-Step Central Avatar Picker State
+  // R3: 1-Step Centered Modal Avatar Picker State
   const [isPickerOpen, setIsPickerOpen] = useState<boolean>(false);
-  const [pickerStep, setPickerStep] = useState<AvatarPickerStep>("faction");
-  const pickerRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     if (!isPickerOpen) return;
 
-    const handleMouseDown = (event: MouseEvent): void => {
-      if (
-        pickerRef.current &&
-        !pickerRef.current.contains(event.target as Node)
-      ) {
-        setIsPickerOpen(false);
-        setPickerStep("faction");
-      }
-    };
-
     const handleKeyDown = (event: KeyboardEvent): void => {
       if (event.key === "Escape") {
         setIsPickerOpen(false);
-        setPickerStep("faction");
       }
     };
 
-    document.addEventListener("mousedown", handleMouseDown);
     window.addEventListener("keydown", handleKeyDown);
     return () => {
-      document.removeEventListener("mousedown", handleMouseDown);
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [isPickerOpen]);
@@ -540,24 +523,16 @@ export function RunesCalculator({
   const isGrandAscended = toLevel >= 8;
 
   const handleTogglePicker = (): void => {
-    setIsPickerOpen((prev) => {
-      const next = !prev;
-      if (next) {
-        setPickerStep("faction");
-      }
-      return next;
-    });
+    setIsPickerOpen((prev) => !prev);
   };
 
-  const handleChooseFaction = (nextFaction: RuneFactionId): void => {
-    setFaction(nextFaction);
-    setPickerStep("slot");
-  };
-
-  const handleChooseSlot = (nextSlotIndex: RuneSlotIndex): void => {
+  const handleSelectSlot = (
+    targetFaction: RuneFactionId,
+    nextSlotIndex: RuneSlotIndex
+  ): void => {
+    setFaction(targetFaction);
     setSelectedSlot(nextSlotIndex);
     setIsPickerOpen(false);
-    setPickerStep("faction");
   };
 
   const handleExtraFodderChange = (
@@ -581,7 +556,6 @@ export function RunesCalculator({
     setFodder(INITIAL_FODDER);
     setIsFodderOpen(false);
     setIsPickerOpen(false);
-    setPickerStep("faction");
   };
 
   const runeDustName = isVi
@@ -785,9 +759,8 @@ export function RunesCalculator({
           onChangeLevel={setFromLevel}
         />
 
-        {/* ZONE 2 (Center - 4 cols): Avatar Đá Cổ Ngữ Trung Tâm + 2-Step Popover */}
+        {/* ZONE 2 (Center - 4 cols): Avatar Đá Cổ Ngữ Trung Tâm + Modal */}
         <section
-          ref={pickerRef}
           data-testid="runes-zone-avatar"
           className={cn(
             CALC_MD3.surfaceCard,
@@ -873,11 +846,9 @@ export function RunesCalculator({
               {singleResult.slot.tacticalRole[locale]}
             </p>
 
-            <span className="mt-2 inline-flex min-h-[44px] items-center gap-1 rounded-xl bg-amber-500/15 px-3 py-1.5 font-sans text-xs font-bold text-amber-700 dark:text-amber-300">
-              <span>
-                {isVi
-                  ? "Bấm đổi Phe & Ô Cổ Ngữ"
-                  : "Click to change Faction & Slot"}
+            <span className="mt-2 inline-flex min-h-[44px] items-center gap-1.5 rounded-xl bg-amber-500/15 px-3 py-1.5 font-sans text-xs font-bold text-amber-700 hover:bg-amber-500/25 transition-colors cursor-pointer dark:text-amber-300">
+              <span data-testid="runes-change-slot-trigger">
+                {isVi ? "Đổi ô đá cổ ngữ" : "Change Rune Slot"}
               </span>
               <ChevronRight className="h-4 w-4" aria-hidden="true" />
             </span>
@@ -939,150 +910,138 @@ export function RunesCalculator({
             </p>
           </div>
 
-          {/* 2-Step Sequential Picker Popover (Step 1: Faction ➔ Step 2: Slot I–VI) */}
+          {/* 1-Step 3-Column Centered Modal (League | Horde | Nature) */}
           {isPickerOpen ? (
             <div
-              role="dialog"
-              aria-label={
-                isVi
-                  ? "Chọn Phe Đội Hình Chủ Lực và Ô Đá Cổ Ngữ"
-                  : "Select Main Queue Faction and Rune Slot"
-              }
-              data-testid="runes-avatar-picker-popover"
               data-md3-overlay="true"
-              className={cn(
-                CALC_MD3.overlayCard,
-                "absolute top-full left-1/2 z-40 mt-2 w-[min(92vw,380px)] -translate-x-1/2 space-y-3 text-left"
-              )}
+              className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/65 backdrop-blur-sm animate-in fade-in duration-200"
+              onClick={() => setIsPickerOpen(false)}
             >
-              <div className="flex items-center justify-between gap-2 rounded-xl bg-muted/40 px-3 py-2 dark:bg-muted/25">
-                <p className="font-sans text-xs font-bold text-foreground">
-                  {pickerStep === "faction"
-                    ? isVi
-                      ? "Bước 1/2: Chọn Phe Đội Hình Chủ Lực"
-                      : "Step 1/2: Select Main Queue Faction"
-                    : isVi
-                      ? `Bước 2/2: Chọn Ô Đá Cổ Ngữ (${activeFactionProfile.name.vi})`
-                      : `Step 2/2: Select Rune Slot (${activeFactionProfile.name.en})`}
-                </p>
+              <div
+                role="dialog"
+                aria-modal="true"
+                aria-label={
+                  isVi
+                    ? "Bảng chọn 18 Ô Đá Cổ Ngữ theo 3 Phe"
+                    : "18 Rune Slots Picker by 3 Factions"
+                }
+                data-testid="runes-avatar-picker-popover"
+                className={cn(
+                  CALC_MD3.overlayCard,
+                  "w-full max-w-4xl max-h-[85vh] flex flex-col gap-3.5 overflow-hidden text-left shadow-2xl"
+                )}
+                onClick={(e) => e.stopPropagation()}
+              >
+                {/* Modal Header */}
+                <div className="flex items-center justify-between gap-2 rounded-xl bg-muted/40 px-3 py-2">
+                  <div className="min-w-0">
+                    <h3 className="font-heading text-sm sm:text-base font-black text-foreground truncate">
+                      {isVi
+                        ? "Chọn Ô Đá Cổ Ngữ (18 Ô Theo 3 Phe)"
+                        : "Select Rune Slot (18 Slots by 3 Factions)"}
+                    </h3>
+                    <p className="font-sans text-xs text-muted-foreground">
+                      {isVi
+                        ? "Chọn trực tiếp ô đá theo Phe Đội Hình Chủ Lực trong 1 click"
+                        : "Directly select Rune Slot by Main Queue Faction in 1 click"}
+                    </p>
+                  </div>
 
-                <button
-                  type="button"
-                  data-testid="runes-picker-close-btn"
-                  aria-label={isVi ? "Đóng bộ chọn" : "Close picker"}
-                  onClick={() => {
-                    setIsPickerOpen(false);
-                    setPickerStep("faction");
-                  }}
-                  className={cn(
-                    CALC_MD3.iconButton,
-                    "bg-muted/60 text-muted-foreground hover:bg-muted hover:text-foreground"
-                  )}
-                >
-                  <X className="h-4 w-4" aria-hidden="true" />
-                </button>
-              </div>
+                  <button
+                    type="button"
+                    data-testid="runes-picker-close-btn"
+                    aria-label={isVi ? "Đóng bảng chọn" : "Close picker"}
+                    onClick={() => setIsPickerOpen(false)}
+                    className={cn(
+                      CALC_MD3.iconButton,
+                      "h-9 w-9 min-h-[36px] min-w-[36px] rounded-lg bg-muted/60 text-muted-foreground hover:bg-muted hover:text-foreground"
+                    )}
+                  >
+                    <X className="h-4 w-4" aria-hidden="true" />
+                  </button>
+                </div>
 
-              {pickerStep === "faction" ? (
-                <div className="space-y-2">
+                {/* Modal Body: 3 Columns (League | Horde | Nature) */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 overflow-y-auto pr-1">
                   {RUNE_FACTION_PRIORITIES.map((f) => {
-                    const isSelectedFaction = faction === f.id;
+                    const isCurrentFaction = faction === f.id;
                     return (
-                      <button
+                      <div
                         key={f.id}
-                        type="button"
-                        data-testid={`runes-picker-faction-${f.id}`}
-                        onClick={() => handleChooseFaction(f.id)}
-                        className={cn(
-                          CALC_MD3.tonalTile,
-                          "flex min-h-[48px] w-full items-center justify-between gap-3 p-3 text-left",
-                          isSelectedFaction && CALC_MD3.tileSelected
-                        )}
+                        data-testid={`runes-column-${f.id}`}
+                        className="flex flex-col gap-2 rounded-xl bg-muted/20 p-2.5"
                       >
-                        <div className="min-w-0 flex-1 space-y-0.5">
-                          <p className="font-heading text-sm font-bold text-foreground">
-                            {f.name[locale]}
-                          </p>
-                          <p className="font-sans text-xs font-semibold text-amber-600 dark:text-amber-400">
+                        <div className="flex items-center justify-between px-1 pb-1">
+                          <div className="flex items-center gap-1.5">
+                            <span
+                              data-testid={`runes-picker-faction-${f.id}`}
+                              className="font-heading text-xs sm:text-sm font-bold text-foreground"
+                            >
+                              {f.name[locale]}
+                            </span>
+                            {isCurrentFaction && (
+                              <span className="rounded-md bg-amber-500/15 px-1.5 py-0.5 font-sans text-xs font-bold text-amber-700 dark:text-amber-300">
+                                {isVi ? "Đang chọn" : "Active"}
+                              </span>
+                            )}
+                          </div>
+                          <span className="font-sans text-xs text-muted-foreground">
                             {f.badge[locale]}
-                          </p>
+                          </span>
                         </div>
-                        <ChevronRight
-                          className="h-4 w-4 shrink-0 text-muted-foreground"
-                          aria-hidden="true"
-                        />
-                      </button>
+
+                        <div className="flex flex-col gap-1.5">
+                          {RUNE_SLOTS.map((slot) => {
+                            const isSelected =
+                              isCurrentFaction && selectedSlot === slot.slotIndex;
+                            const tier = getSlotPriorityTier(f.id, slot.slotIndex);
+                            return (
+                              <button
+                                key={slot.slotIndex}
+                                type="button"
+                                data-testid={`runes-slot-${f.id}-${slot.slotIndex}`}
+                                onClick={() => handleSelectSlot(f.id, slot.slotIndex)}
+                                className={cn(
+                                  CALC_MD3.tonalTile,
+                                  "flex min-h-[50px] w-full items-center justify-between gap-2 p-2 text-left",
+                                  isSelected && CALC_MD3.tileSelected
+                                )}
+                              >
+                                <div className="min-w-0 flex-1 space-y-0.5">
+                                  <div className="flex items-center gap-1.5">
+                                    <span className="shrink-0 rounded bg-slate-900 px-1.5 py-0.5 font-mono text-xs font-bold text-amber-400">
+                                      #{slot.slotIndex}
+                                    </span>
+                                    <p className="truncate font-sans text-xs font-bold text-foreground">
+                                      {slot.name[locale]}
+                                    </p>
+                                  </div>
+                                  <p className="truncate font-sans text-xs text-muted-foreground">
+                                    {slot.tacticalRole[locale]}
+                                  </p>
+                                </div>
+
+                                <span
+                                  className={cn(
+                                    "shrink-0 rounded px-1.5 py-0.5 font-sans text-xs font-bold",
+                                    tier === 1
+                                      ? "bg-amber-500/15 text-amber-700 dark:text-amber-300"
+                                      : tier === 2
+                                        ? "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300"
+                                        : "bg-muted/80 text-muted-foreground"
+                                  )}
+                                >
+                                  {getPriorityLabel(tier, locale)}
+                                </span>
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
                     );
                   })}
                 </div>
-              ) : (
-                <div className="space-y-2.5">
-                  <button
-                    type="button"
-                    data-testid="runes-picker-back-btn"
-                    onClick={() => setPickerStep("faction")}
-                    className={cn(
-                      CALC_MD3.chipButton,
-                      "w-full justify-start bg-muted/50 font-sans text-xs font-bold text-amber-700 hover:bg-muted dark:text-amber-300"
-                    )}
-                  >
-                    <ArrowLeft className="h-4 w-4" aria-hidden="true" />
-                    <span>
-                      {isVi ? "← Đổi phe chủ lực" : "← Change Main Faction"}
-                    </span>
-                  </button>
-
-                  <div className="max-h-72 space-y-1.5 overflow-y-auto pr-1">
-                    {RUNE_SLOTS.map((slot) => {
-                      const isSelectedSlot = selectedSlot === slot.slotIndex;
-                      const tier = getSlotPriorityTier(faction, slot.slotIndex);
-                      return (
-                        <button
-                          key={slot.slotIndex}
-                          type="button"
-                          data-testid={`runes-picker-slot-${slot.slotIndex}`}
-                          onClick={() => handleChooseSlot(slot.slotIndex)}
-                          className={cn(
-                            CALC_MD3.tonalTile,
-                            "flex min-h-[52px] w-full items-center justify-between gap-2.5 p-2.5 text-left",
-                            isSelectedSlot && CALC_MD3.tileSelected
-                          )}
-                        >
-                          <div className="min-w-0 flex-1 space-y-0.5">
-                            <p className="truncate font-sans text-xs font-bold text-foreground">
-                              {slot.name[locale]}
-                            </p>
-                            <p className="font-sans text-xs text-muted-foreground">
-                              {isVi ? "Mở chỉ số % ở " : "Unlocks % at "}
-                              <span className="font-mono font-semibold text-foreground tabular-nums">
-                                Lv.{slot.percentUnlockLevel}
-                              </span>
-                              {slot.hasMarchSize
-                                ? isVi
-                                  ? " • Có +March Size"
-                                  : " • +March Size"
-                                : ""}
-                            </p>
-                          </div>
-
-                          <span
-                            className={cn(
-                              "shrink-0 rounded-md px-2 py-0.5 font-sans text-xs font-bold",
-                              tier === 1
-                                ? "bg-amber-500/15 text-amber-700 dark:text-amber-300"
-                                : tier === 2
-                                  ? "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300"
-                                  : "bg-muted text-muted-foreground"
-                            )}
-                          >
-                            {getPriorityLabel(tier, locale)}
-                          </span>
-                        </button>
-                      );
-                    })}
-                  </div>
-                </div>
-              )}
+              </div>
             </div>
           ) : null}
         </section>

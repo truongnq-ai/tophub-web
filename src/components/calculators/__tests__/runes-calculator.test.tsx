@@ -56,20 +56,29 @@ describe("6.1 Đá Cổ Ngữ — v2.0 4-Zone Architecture & Component Suite", (
     expect(totalCopiesEl.getAttribute("title")).toBe("80");
   });
 
-  it("opens 2-step Central Avatar Popover (Step 1: Main Faction ➔ Step 2: Rune Slot I–VI) and updates selected Rune Slot", () => {
+  it("opens 1-step 3-column modal (Liên Minh | Bộ Tộc | Thiên Nhiên) via 'Đổi ô đá cổ ngữ' button or Central Avatar, and selects in 1 click", () => {
     renderCalculator("vi");
 
-    fireEvent.click(screen.getByTestId("runes-central-avatar-btn"));
+    // Button trigger has text "Đổi ô đá cổ ngữ"
+    const triggerBtn = screen.getByTestId("runes-change-slot-trigger");
+    expect(triggerBtn.textContent).toContain("Đổi ô đá cổ ngữ");
+
+    // Modal is initially closed
+    expect(screen.queryByTestId("runes-avatar-picker-popover")).toBeNull();
+
+    // Click button to open modal
+    fireEvent.click(triggerBtn);
     expect(screen.getByTestId("runes-avatar-picker-popover")).toBeDefined();
 
-    // Step 1: Choose League faction
-    fireEvent.click(screen.getByTestId("runes-picker-faction-league"));
+    // All 3 columns exist simultaneously (1-step view)
+    expect(screen.getByTestId("runes-column-league")).toBeDefined();
+    expect(screen.getByTestId("runes-column-horde")).toBeDefined();
+    expect(screen.getByTestId("runes-column-nature")).toBeDefined();
 
-    // Step 2: Back button is visible; select Slot 2 (Hero Attack)
-    expect(screen.getByTestId("runes-picker-back-btn")).toBeDefined();
-    fireEvent.click(screen.getByTestId("runes-picker-slot-2"));
+    // Select Slot 2 in League column directly in 1 click
+    fireEvent.click(screen.getByTestId("runes-slot-league-2"));
 
-    // Popover auto-closes and Avatar updates to Slot 2
+    // Modal auto-closes and Avatar updates to Slot 2
     expect(screen.queryByTestId("runes-avatar-picker-popover")).toBeNull();
     expect(
       screen.getAllByText(/Ô 2 — Công Anh Hùng/i).length
