@@ -217,6 +217,20 @@ export const CALCULATOR_MATERIALS = {
     iconPath: "/images/items/consumables/icon_30651.webp",
     rarity: "legendary",
   },
+  samePetCopy: {
+    gameId: 284001,
+    nameVi: "Bản Sao Cùng Loài",
+    nameEn: "Same Pet Copy",
+    iconPath: "/images/items/consumables/icon_30468.webp",
+    rarity: "mythic",
+  },
+  anyPetFodder: {
+    gameId: 284002,
+    nameVi: "Phôi Tiến Bậc Bất Kỳ",
+    nameEn: "Any Pet Fodder",
+    iconPath: "/images/items/consumables/icon_30468.webp",
+    rarity: "rare",
+  },
   timber: {
     gameId: 4,
     nameVi: "Gỗ",
@@ -1150,12 +1164,12 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
         zoneId: "zone-2",
         iconName: "PawPrint",
         title: {
-          vi: "7. Thú Cưng & Cự Thú",
-          en: "7. Pets & Behemoths",
+          vi: "7. Thú Cưng",
+          en: "7. Pets",
         },
         description: {
-          vi: "Tính Đồ Ăn Thú Cưng, Tinh Chất Thú Cưng (Lv.1–120, hệ số chuyển đổi 36% ➔ 104%+) và tài nguyên nâng cấp Cự Thú.",
-          en: "Calculate Pet Food, Pet Essence (Lv.1–120, 36% to 104%+ stat inheritance), and Behemoth Guardian upgrade resources.",
+          vi: "Tính Đồ Ăn Thú Cưng, Tinh Chất Thú Cưng (Lv.1–120) và Bản sao cùng loại, Phôi tiến bậc Đột Phá sao, kế thừa chỉ số (20% ➔ 108%).",
+          en: "Calculate Pet Food, Pet Essence (Lv.1–120), and same-pet/fodder Breakthrough star promotions with stat inheritance (20% to 108%).",
         },
         tools: [
           {
@@ -1164,20 +1178,20 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
             categorySlug: "pets-behemoths",
             phaseNumber: 7,
             title: {
-              vi: "7.1 Thú Cưng",
-              en: "7.1 Companion Pets",
+              vi: "7.1 Nâng Cấp",
+              en: "7.1 Level Upgrade",
             },
             fullTitle: {
-              vi: "7.1 Đồ Ăn Thú Cưng, Tinh Chất Thú Cưng & Hệ Số Chuyển Đổi (Lv.1–120)",
-              en: "7.1 Pet Food, Pet Essence & Stat Inheritance (Lv.1–120)",
+              vi: "7.1 Nâng Cấp Thú Cưng Đồng Hành (Lv.1 ➔ Lv.120)",
+              en: "7.1 Companion Pet Level Upgrade (Lv.1 to Lv.120)",
             },
             summary: {
-              vi: "Tính lượng Đồ Ăn Thú Cưng, Tinh Chất Thú Cưng và số phôi Thú Cưng Lam/Hiệu Lực từ Lv.1 đến Lv.120 kèm tỷ lệ chuyển đổi chỉ số (36% ➔ 104%+).",
-              en: "Compute Pet Food, Pet Essence, and fodder copies from Lv.1 to Lv.120 alongside the stat inheritance multiplier (36% to 104%+).",
+              vi: "Tính chính xác lượng Đồ Ăn Thú Cưng và Tinh Chất Thú Cưng từ Lv.1 đến Lv.120 cho 21 Thú Cưng cùng điểm đua sự kiện GAR / KvK Ngày Thứ Sáu.",
+              en: "Compute exact Pet Food and Pet Essence from Lv.1 to Lv.120 across all 21 Pets alongside Friday GAR/KvK event scoring.",
             },
             dataSourceTab: {
-              vi: "Tab Pets — Bảng Thú Cưng Lv.1–120 & Tiến Bậc",
-              en: "Pets Tab — Level 1–120 & Promotion Matrix",
+              vi: "Bảng pet_detail & pet_level — Thú Cưng Lv.1–120",
+              en: "Tables pet_detail & pet_level — Pets Lv.1–120",
             },
             materials: [
               CALCULATOR_MATERIALS.petFood,
@@ -1186,67 +1200,68 @@ export const CALCULATOR_ZONES: CalculatorZone[] = [
             exampleCase: {
               vi: {
                 question:
-                  "Nuôi Thú Cưng Đội 1 từ Lv.60 lên Lv.100 cần bao nhiêu Đồ Ăn Thú Cưng, Tinh Chất Thú Cưng và hệ số chuyển đổi chỉ số tăng lên bao nhiêu %?",
+                  "Nuôi Thú Cưng từ Lv.45 lên Lv.90 cần bao nhiêu Đồ Ăn Thú Cưng và tích lũy được bao nhiêu Điểm GAR / KvK?",
                 inputPreview:
-                  "Thú Cưng Chủ Lực • Đang ở: Lv.60 ➔ Mục tiêu: Lv.100",
+                  "Thú Cưng: Tia Điện • Đang ở: Lv.45 ➔ Mục tiêu: Lv.90",
                 outputPreview:
-                  "Tổng Đồ Ăn Thú Cưng + Tinh Chất Thú Cưng + Phôi Lam & % Hệ số chuyển đổi mới",
+                  "498,050 Đồ Ăn Thú Cưng • 0 Tinh Chất • 4,781,280 Điểm GAR/KvK Thứ Sáu",
               },
               en: {
                 question:
-                  "Raising your Queue 1 Companion Pet from Lv.60 to Lv.100 — how much Pet Food and Pet Essence are needed, and what is the new stat inheritance %?",
+                  "Raising your Pet from Lv.45 to Lv.90 — how much Pet Food is needed and how many Friday GAR / KvK event points will be earned?",
                 inputPreview:
-                  "Main Queue Pet • Current: Lv.60 ➔ Target: Lv.100",
+                  "Pet: Zapp • Current: Lv.45 ➔ Target: Lv.90",
                 outputPreview:
-                  "Total Pet Food + Pet Essence + Rare Fodder copies & new Stat Inheritance %",
+                  "498,050 Pet Food • 0 Essence • 4,781,280 Friday GAR/KvK Event Points",
               },
             },
-            status: "coming_soon",
+            status: "ready",
           },
           {
             code: "7.2",
-            slug: "behemoths",
+            slug: "breakthrough",
             categorySlug: "pets-behemoths",
             phaseNumber: 7,
             title: {
-              vi: "7.2 Cự Thú & Tinh Linh",
-              en: "7.2 Behemoths",
+              vi: "7.2 Đột Phá",
+              en: "7.2 Breakthrough",
             },
             fullTitle: {
-              vi: "7.2 Nâng Cấp Cự Thú Hộ Vệ & Mốc Cộng Cấp Anh Hùng (+1 ➔ +9)",
-              en: "7.2 Behemoth Guardian Upgrade & Hero Level Cap Bonus (+1 to +9)",
+              vi: "7.2 Đột Phá Sao Thú Cưng (Break 0 ➔ Break 23 / 20% ➔ 108%)",
+              en: "7.2 Pet Star Breakthrough (Break 0 to Break 23 / 20% to 108%)",
             },
             summary: {
-              vi: "Tính tài nguyên nâng cấp cấp độ và đột phá sao cho 6 Cự Thú Hộ Vệ cùng các mốc mở khóa giới hạn cấp độ Anh Hùng (+1 ➔ +9).",
-              en: "Calculate level and star breakthrough costs across all 6 Behemoth Guardians and track Hero Level Cap bonus milestones (+1 to +9).",
+              vi: "Tính Bản sao cùng loài, Phôi bất kỳ và Tinh chất đột phá qua 23 bậc sao, xem trước 4 hình thái ngoại hình và cấp độ kỹ năng.",
+              en: "Calculate same-species copies, any fodder, and breakthrough essence across 23 milestones, previewing 4 form evolutions and skill levels.",
             },
             dataSourceTab: {
-              vi: "Tab Behemoth — Ma Trận Cự Thú Hộ Vệ",
-              en: "Behemoth Tab — Guardian Upgrade Matrix",
+              vi: "Bảng pet_detail & pet_break — Đột Phá Break 0–23",
+              en: "Tables pet_detail & pet_break — Breakthrough 0–23",
             },
             materials: [
+              CALCULATOR_MATERIALS.samePetCopy,
+              CALCULATOR_MATERIALS.anyPetFodder,
               CALCULATOR_MATERIALS.petEssence,
-              CALCULATOR_MATERIALS.dragonEssence,
             ],
             exampleCase: {
               vi: {
                 question:
-                  "Nâng cấp Cự Thú Hộ Vệ đến mốc mở khóa thêm +5 Giới Hạn Cấp Độ Anh Hùng cần bao nhiêu nguyên liệu?",
+                  "Đột phá Thú Cưng Cam từ Sử Thi 0★ (Break 5) lên Huyền Thoại 5★ (Break 16) cần bao nhiêu Bản sao và Phôi, tỷ lệ kế thừa tăng lên bao nhiêu?",
                 inputPreview:
-                  "Cự Thú Hộ Vệ • Cấp & Sao hiện tại ➔ Mốc cộng trần cấp độ Anh Hùng (+1 ➔ +9)",
+                  "Mèo Ánh Lửa • Đang ở: Break 5 (Sử Thi 0★) ➔ Mục tiêu: Break 16 (Huyền Thoại 5★)",
                 outputPreview:
-                  "Tổng nguyên liệu nâng cấp & đột phá sao Cự Thú theo từng mốc",
+                  "18 Bản sao cùng loài + 71 Phôi bất kỳ • Kế thừa tăng: 36.00% ➔ 80.00% (+44.00%) • Hình thái Form 3",
               },
               en: {
                 question:
-                  "Upgrading Behemoth Guardians to unlock the +5 Hero Level Cap milestone — how many resources are required?",
+                  "Promoting a Mythic Pet from Epic 0★ (Break 5) to Legendary 5★ (Break 16) — how many copies and fodder are required, and what is the new stat inheritance?",
                 inputPreview:
-                  "Behemoth Guardian • Current Level & Stars ➔ Hero Level Cap Milestone (+1 to +9)",
+                  "Flickerkit • Current: Break 5 (Epic 0★) ➔ Target: Break 16 (Legendary 5★)",
                 outputPreview:
-                  "Total Behemoth upgrade & star breakthrough materials per milestone",
+                  "18 Same Copies + 71 Any Fodder • Stat inheritance: 36.00% ➔ 80.00% (+44.00%) • Form 3",
               },
             },
-            status: "coming_soon",
+            status: "ready",
           },
         ],
       },
@@ -1574,6 +1589,8 @@ export function getCalculatorToolBySlug(
           ? "technology"
           : toolSlug === "exclusive-weapon"
           ? "exclusive-gear"
+          : toolSlug === "behemoths"
+          ? "breakthrough"
           : toolSlug;
       const tool = category.tools.find((item) => item.slug === normalizedSlug);
       if (tool) {
@@ -1593,7 +1610,7 @@ export function getAdjacentCalculatorTools(
 } {
   const allTools = getAllCalculatorTools();
   const currentIndex = allTools.findIndex(
-    (item) => item.categorySlug === categorySlug && item.slug === (toolSlug === "main-castle" ? "construction" : toolSlug === "tech-brilliance" ? "technology" : toolSlug)
+    (item) => item.categorySlug === categorySlug && item.slug === (toolSlug === "main-castle" ? "construction" : toolSlug === "tech-brilliance" ? "technology" : toolSlug === "exclusive-weapon" ? "exclusive-gear" : toolSlug === "behemoths" ? "breakthrough" : toolSlug)
   );
   if (currentIndex === -1) {
     return { prev: null, next: null };
