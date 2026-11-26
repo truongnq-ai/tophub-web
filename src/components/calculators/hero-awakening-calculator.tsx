@@ -6,6 +6,7 @@ import {
   CheckCircle2,
   AlertTriangle,
   ChevronDown,
+  ChevronRight,
   ArrowLeft,
   X,
   Coins,
@@ -51,8 +52,6 @@ const FACTION_ORDER: readonly AwakeningFaction[] = [
   "nature",
 ];
 
-type SequentialPickerStep = "closed" | "faction" | "hero";
-
 export function HeroAwakeningCalculator({
   tool,
   locale,
@@ -67,13 +66,12 @@ export function HeroAwakeningCalculator({
   const [ownedStonesInput, setOwnedStonesInput] = useState<string>("0");
   const [ownedShardsInput, setOwnedShardsInput] = useState<string>("0");
 
-  // Trạng thái đóng/mở luồng chọn nối tiếp (Phe -> Tướng -> Ẩn)
-  const [pickerStep, setPickerStep] = useState<SequentialPickerStep>("closed");
+  const [isPickerOpen, setIsPickerOpen] = useState<boolean>(false);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        setPickerStep("closed");
+        setIsPickerOpen(false);
       }
     };
     window.addEventListener("keydown", handleKeyDown);
@@ -94,15 +92,10 @@ export function HeroAwakeningCalculator({
 
   const factionConfig = AWAKENING_FACTION_CONFIGS[faction];
 
-  const handlePickFactionInSequence = (nextFaction: AwakeningFaction) => {
+  const handleSelectHero = (nextFaction: AwakeningFaction, heroId: string) => {
     setFaction(nextFaction);
-    setSelectedHeroId(AWAKENING_FACTION_CONFIGS[nextFaction].defaultHeroId);
-    setPickerStep("hero");
-  };
-
-  const handlePickHeroInSequence = (heroId: string) => {
     setSelectedHeroId(heroId);
-    setPickerStep("closed");
+    setIsPickerOpen(false);
   };
 
   const parsedOwnedStones = useMemo(
@@ -335,7 +328,7 @@ export function HeroAwakeningCalculator({
           />
         </div>
 
-        {/* Center: Hero Avatar Hub + Sequential Faction -> Hero Picker */}
+        {/* Center: Hero Avatar Hub + 1-Step 3-Column Modal */}
         <div
           data-testid="central-hero-avatar-hub"
           className="order-1 lg:order-2 relative flex flex-col items-center justify-center py-1 lg:px-1"
@@ -343,10 +336,8 @@ export function HeroAwakeningCalculator({
           <button
             type="button"
             data-testid="central-hero-avatar-trigger"
-            aria-expanded={pickerStep !== "closed"}
-            onClick={() =>
-              setPickerStep((prev) => (prev === "closed" ? "faction" : "closed"))
-            }
+            aria-expanded={isPickerOpen}
+            onClick={() => setIsPickerOpen(true)}
             className="group flex min-h-[44px] flex-col items-center gap-1.5 rounded-2xl border border-amber-500/40 bg-amber-500/[0.06] px-4 py-3 shadow-sm hover:border-amber-500 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/40"
           >
             {activeHero ? (
@@ -370,138 +361,151 @@ export function HeroAwakeningCalculator({
               </div>
               <div className="mt-0.5 inline-flex items-center gap-1 text-xs font-sans font-bold text-amber-700 dark:text-amber-400">
                 <span>{factionConfig.shortLabel[locale]}</span>
-                <ChevronDown
-                  className="h-3.5 w-3.5 transition-transform group-hover:translate-y-0.5"
-                  aria-hidden="true"
-                />
               </div>
             </div>
+
+            <span className="mt-1 inline-flex min-h-[44px] items-center gap-1.5 rounded-xl bg-amber-500/15 px-3 py-1.5 font-sans text-xs font-bold text-amber-700 hover:bg-amber-500/25 transition-colors cursor-pointer dark:text-amber-300">
+              <span data-testid="hero-awakening-change-trigger">
+                {locale === "vi" ? "Đổi tướng thức tỉnh" : "Change Awakening Hero"}
+              </span>
+              <ChevronRight className="h-4 w-4" aria-hidden="true" />
+            </span>
           </button>
 
-          {/* Sequential Overlay: Step 1 (Select Faction) -> Step 2 (Select Hero) -> Auto Close */}
-          {pickerStep !== "closed" ? (
+          {/* 1-Step 3-Column Centered Modal (League | Horde | Nature) */}
+          {isPickerOpen ? (
             <div
-              data-testid="hero-sequential-picker"
               data-md3-overlay="true"
-              className={cn(
-                CALC_MD3.overlayCard,
-                "z-30 mt-2 w-full max-w-sm space-y-3 lg:absolute lg:left-1/2 lg:top-full lg:w-80 lg:-translate-x-1/2"
-              )}
+              className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/65 backdrop-blur-sm animate-in fade-in duration-200"
+              onClick={() => setIsPickerOpen(false)}
             >
-              <div className="flex items-center justify-between gap-2 border-b border-border/60 pb-2">
-                {pickerStep === "hero" ? (
+              <div
+                role="dialog"
+                aria-modal="true"
+                aria-label={
+                  locale === "vi"
+                    ? "Bảng chọn Tướng Thức Tỉnh theo 3 Phe"
+                    : "Awakening Heroes Picker by 3 Factions"
+                }
+                data-testid="hero-sequential-picker"
+                data-md3-overlay="true"
+                className={cn(
+                  CALC_MD3.overlayCard,
+                  "w-full max-w-4xl max-h-[85vh] flex flex-col gap-3.5 overflow-hidden text-left shadow-2xl"
+                )}
+                onClick={(e) => e.stopPropagation()}
+              >
+                {/* Modal Header */}
+                <div className="flex items-center justify-between gap-2 rounded-xl bg-muted/40 px-3 py-2">
+                  <div className="min-w-0">
+                    <h3 className="font-heading text-sm sm:text-base font-black text-foreground truncate">
+                      {locale === "vi"
+                        ? "Chọn Tướng Thức Tỉnh (3 Phe)"
+                        : "Select Awakening Hero (3 Factions)"}
+                    </h3>
+                    <p className="font-sans text-xs text-muted-foreground">
+                      {locale === "vi"
+                        ? "Chọn trực tiếp Tướng & Phe Thức Tỉnh trong 1 click"
+                        : "Directly select Hero & Faction in 1 click"}
+                    </p>
+                  </div>
+
                   <button
                     type="button"
-                    data-testid="picker-back-to-faction-btn"
-                    onClick={() => setPickerStep("faction")}
-                    className="inline-flex min-h-[44px] items-center gap-1.5 rounded-xl px-2 text-sm font-heading font-bold text-amber-600 hover:bg-amber-500/10 dark:text-amber-400 cursor-pointer"
+                    data-testid="hero-awakening-picker-close-btn"
+                    aria-label={locale === "vi" ? "Đóng bảng chọn" : "Close picker"}
+                    onClick={() => setIsPickerOpen(false)}
+                    className={cn(
+                      CALC_MD3.iconButton,
+                      "h-9 w-9 min-h-[36px] min-w-[36px] rounded-lg bg-muted/60 text-muted-foreground hover:bg-muted hover:text-foreground"
+                    )}
                   >
-                    <ArrowLeft className="h-4 w-4" aria-hidden="true" />
-                    <span>{locale === "vi" ? "Chọn lại Phe" : "Change Faction"}</span>
+                    <X className="h-4 w-4" aria-hidden="true" />
                   </button>
-                ) : (
-                  <span className="text-sm font-heading font-bold text-foreground">
-                    {locale === "vi"
-                      ? "Bước 1: Chọn Phe & Đá Linh Hồn"
-                      : "Step 1: Select Faction & Soul Stone"}
-                  </span>
-                )}
+                </div>
 
-                <button
-                  type="button"
-                  onClick={() => setPickerStep("closed")}
-                  aria-label={locale === "vi" ? "Đóng" : "Close"}
-                  className={cn(
-                    CALC_MD3.iconButton,
-                    "text-muted-foreground hover:bg-muted hover:text-foreground"
-                  )}
-                >
-                  <X className="h-5 w-5" aria-hidden="true" />
-                </button>
-              </div>
-
-              {pickerStep === "faction" ? (
-                <div className="grid grid-cols-1 gap-2">
+                {/* Modal Body: 3 Columns (League | Horde | Nature) */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 overflow-y-auto pr-1">
                   {FACTION_ORDER.map((fKey) => {
                     const cfg = AWAKENING_FACTION_CONFIGS[fKey];
-                    const isSelected = faction === fKey;
+                    const heroes = getAwakeningHeroesByFaction(fKey);
                     const stoneName =
                       locale === "vi" ? cfg.soulStone.nameVi : cfg.soulStone.nameEn;
 
                     return (
-                      <button
+                      <div
                         key={fKey}
-                        type="button"
-                        data-testid={`faction-card-${fKey}`}
-                        onClick={() => handlePickFactionInSequence(fKey)}
-                        className={cn(
-                          CALC_MD3.tonalTile,
-                          "flex min-h-[56px] items-center gap-3 p-2.5 text-left",
-                          isSelected ? CALC_MD3.tileSelected : null
-                        )}
+                        data-testid={`awakening-column-${fKey}`}
+                        className="flex flex-col gap-2 rounded-xl bg-muted/20 p-2.5"
                       >
-                        <GameAssetFrame
-                          src={cfg.soulStone.iconPath}
-                          alt={stoneName}
-                          rarity={cfg.soulStone.rarity}
-                          faction={cfg.soulStone.faction}
-                          size="sm"
-                          shape="item"
-                        />
-                        <div className="min-w-0 flex-1">
-                          <div className="truncate text-sm font-heading font-bold text-foreground">
-                            {cfg.label[locale]}
-                          </div>
-                          <div className="truncate text-xs font-sans text-amber-700 dark:text-amber-400">
-                            {stoneName} (<span className="font-mono">9</span>{" "}
-                            {locale === "vi" ? "viên" : "stones"})
+                        <div
+                          data-testid={`faction-card-${fKey}`}
+                          className="flex min-h-[56px] items-center gap-2.5 rounded-xl bg-muted/40 p-2 text-left"
+                        >
+                          <GameAssetFrame
+                            src={cfg.soulStone.iconPath}
+                            alt={stoneName}
+                            rarity={cfg.soulStone.rarity}
+                            faction={cfg.soulStone.faction}
+                            size="sm"
+                            shape="item"
+                          />
+                          <div className="min-w-0 flex-1">
+                            <div className="truncate text-xs sm:text-sm font-heading font-bold text-foreground">
+                              {cfg.label[locale]}
+                            </div>
+                            <div className="truncate text-xs font-sans text-amber-700 dark:text-amber-400">
+                              {stoneName}
+                            </div>
                           </div>
                         </div>
-                      </button>
+
+                        <div className="flex flex-col gap-1.5 max-h-72 overflow-y-auto pr-0.5">
+                          {heroes.map((h) => {
+                            const hName = locale === "vi" ? h.nameVi : h.nameEn;
+                            const isSelected =
+                              faction === fKey && selectedHeroId === h.id;
+
+                            return (
+                              <button
+                                key={h.id}
+                                type="button"
+                                data-testid={`select-hero-${h.id}`}
+                                onClick={() => handleSelectHero(fKey, h.id)}
+                                title={hName}
+                                className={cn(
+                                  CALC_MD3.tonalTile,
+                                  "w-full flex items-center justify-between gap-2.5 p-2 text-left cursor-pointer transition-colors",
+                                  isSelected && CALC_MD3.tileSelected
+                                )}
+                              >
+                                <div className="flex items-center gap-2 min-w-0">
+                                  <GameAssetFrame
+                                    src={h.iconPath}
+                                    alt={hName}
+                                    rarity="legendary"
+                                    faction={h.faction}
+                                    size="sm"
+                                    shape="hero"
+                                  />
+                                  <div className="min-w-0">
+                                    <div className="text-xs font-heading font-bold text-foreground truncate">
+                                      {hName}
+                                    </div>
+                                    <div className="text-xs font-sans text-muted-foreground truncate">
+                                      {cfg.shortLabel[locale]}
+                                    </div>
+                                  </div>
+                                </div>
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
                     );
                   })}
                 </div>
-              ) : (
-                <div className="space-y-2">
-                  <div className="text-xs font-sans font-medium text-muted-foreground">
-                    {locale === "vi"
-                      ? `Bước 2: Chọn Tướng Vàng ${factionConfig.shortLabel.vi}`
-                      : `Step 2: Pick ${factionConfig.shortLabel.en} Legendary Hero`}
-                  </div>
-                  <div className="grid max-h-56 grid-cols-3 gap-2 overflow-y-auto pr-1">
-                    {heroesForFaction.map((h) => {
-                      const hName = locale === "vi" ? h.nameVi : h.nameEn;
-                      const isHeroActive = activeHero?.id === h.id;
-                      return (
-                        <button
-                          key={h.id}
-                          type="button"
-                          data-testid={`select-hero-${h.id}`}
-                          onClick={() => handlePickHeroInSequence(h.id)}
-                          title={hName}
-                          className={cn(
-                            CALC_MD3.tonalTile,
-                            "flex min-h-[44px] flex-col items-center gap-1 p-1.5",
-                            isHeroActive ? CALC_MD3.tileSelected : null
-                          )}
-                        >
-                          <GameAssetFrame
-                            src={h.iconPath}
-                            alt={hName}
-                            rarity="legendary"
-                            faction={h.faction}
-                            size="md"
-                            shape="hero"
-                          />
-                          <span className="w-full truncate text-center text-xs font-medium text-foreground">
-                            {hName}
-                          </span>
-                        </button>
-                      );
-                    })}
-                  </div>
-                </div>
-              )}
+              </div>
             </div>
           ) : null}
         </div>

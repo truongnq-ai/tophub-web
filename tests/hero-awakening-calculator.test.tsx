@@ -200,7 +200,7 @@ describe("Suite 2 — Compact v2.1 UI: Central Faction->Hero Hub, 4-Tier + 5-Sub
     ).toBeDefined();
   });
 
-  it("supports Sequential Faction -> Hero Picker (Click Avatar -> Select League -> Select Adjudicator -> Auto-close) and updates Soul Stone type (AC-AWK-05)", () => {
+  it("supports 1-step 3-column Central Modal (Click Trigger -> Select Adjudicator -> Auto-close) and updates Soul Stone type (AC-AWK-05)", () => {
     render(
       <HeroAwakeningCalculator
         zone={resolved.zone}
@@ -211,13 +211,16 @@ describe("Suite 2 — Compact v2.1 UI: Central Faction->Hero Hub, 4-Tier + 5-Sub
     );
 
     expect(screen.queryByTestId("hero-sequential-picker")).toBeNull();
-    fireEvent.click(screen.getByTestId("central-hero-avatar-trigger"));
+    expect(screen.getByTestId("hero-awakening-change-trigger")).toBeDefined();
+    fireEvent.click(screen.getByTestId("hero-awakening-change-trigger"));
     expect(screen.getByTestId("hero-sequential-picker")).toBeDefined();
 
-    // Bước 1: Chọn Phe Liên Minh (league)
-    fireEvent.click(screen.getByTestId("faction-card-league"));
+    // Verify 3 columns exist for 3 Factions
+    expect(screen.getByTestId("awakening-column-league")).toBeDefined();
+    expect(screen.getByTestId("awakening-column-horde")).toBeDefined();
+    expect(screen.getByTestId("awakening-column-nature")).toBeDefined();
 
-    // Bước 2: Chọn Tướng Thẩm Phán Quan (hero-adjudicator) -> Tự động đóng Popover
+    // 1-Click select: Chọn Tướng Thẩm Phán Quan (hero-adjudicator) -> Tự động đóng Modal
     fireEvent.click(screen.getByTestId("select-hero-hero-adjudicator"));
     expect(screen.queryByTestId("hero-sequential-picker")).toBeNull();
     expect(screen.getByTestId("central-hero-name").textContent).toContain(
